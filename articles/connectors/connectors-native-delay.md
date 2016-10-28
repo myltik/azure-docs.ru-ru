@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add a delay in logic apps | Microsoft Azure"
-    description="Overview of the delay and delay-until actions, and how to use them with an Azure logic app."
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Добавление задержки в приложения логики | Microsoft Azure"
+	description="В этой статье приведены общие сведения о действиях ";Задержка"; и ";Задержка до";, а также об их использовании с приложением логики Azure."
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,70 +17,63 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
+# Начало работы с действиями "Задержка" и "Задержка до"
 
-# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Get started with the delay and delay-until actions
+С помощью действий "Задержка" и "Задержка до" можно выполнять сценарии рабочих процессов.
 
-By using the delay and "delay-until" actions, you can complete workflow scenarios.
+Например, вы можете просматривать:
 
-For example, you can:
+- ожидание буднего дня, чтобы отправить обновление состояния по почте;
+- задержка рабочего процесса до завершения вызова HTTP, прежде чем возобновить работу и получить результат.
 
-- Wait until a weekday to send a status update over email.
-- Delay the workflow until an HTTP call has time to finish before resuming and retrieving the result.
+Сведения о начале работы с действием задержки в приложении логики см. в статье о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To get started using the delay action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Использование действий задержки
 
-## <a name="use-the-delay-actions"></a>Use the delay actions
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](connectors-overview.md).
 
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).
+Ниже приведен пример последовательности настройки действия задержки в приложении логики.
 
-Here’s an example sequence of how to use a delay step in a logic app:
+1. Чтобы добавить действие, после добавления триггера нажмите кнопку **Новый шаг**.
+2. В текстовом поле введите **задержка**, чтобы открыть список действий задержки. В этом примере мы выберем действие **Задержка**.
 
-1. After adding a trigger, click **New Step** to add an action.
-2. Search for **delay** to bring up the delay actions. In this example, we will select **Delay**.
+	.![Действия задержки](./media/connectors-native-delay/using-action-1.png)
 
-    ![Delay actions](./media/connectors-native-delay/using-action-1.png)
+3. Чтобы настроить задержку, задайте свойства действия.
 
-3. Complete any of the action properties to configure the delay.
+	.![Настройка задержки](./media/connectors-native-delay/using-action-2.png)
 
-    ![Delay config](./media/connectors-native-delay/using-action-2.png)
-
-4. Click **Save** to publish and activate the logic app.
+4. Щелкните **Сохранить**, чтобы опубликовать и активировать приложение логики.
 
 
-## <a name="action-details"></a>Action details
+## Сведения о действиях
 
-The recurrence trigger has the following properties that can be configured.
+Ниже приведены свойства, которые можно настроить для триггера повторения.
 
-### <a name="delay-action"></a>Delay action
+### Действие "Задержка"
 
-This action delays the run for a certain time interval.
-A * means that it is a required field.
+Это действие задерживает запуск на определенный промежуток времени. Звездочка (*) означает, что это поле обязательное для заполнения.
 
-|Display name|Property name|Description|
+|Отображаемое имя|Имя свойства|Описание|
 |---|---|---|
-|Count*|count|The number of time units to delay|
-|Unit*|unit|The unit of time: `Second`, `Minute`, `Hour`, or `Day`|
+|Счетчик*|count|Число единиц времени для задержки|
+|Единица измерения*|unit|Единица времени: `Second`, `Minute`, `Hour` или `Day`|
 <br>
 
-### <a name="delay-until-action"></a>Delay-until action
+### Действие "Задержка до"
 
-This action delays the run until a specified date/time.
-A * means that it is a required field.
+Это действие задерживает запуск до указанной даты или времени. Звездочка (*) означает, что это поле обязательное для заполнения.
 
-|Display name|Property name|Description|
+|Отображаемое имя|Имя свойства|Описание|
 |---|---|---|
-|Year*|timestamp|The year to delay until (GMT)|
-|Month*|timestamp|The month to delay until (GMT)|
-|Day*|timestamp|The day to delay until (GMT)|
-<br>
+|Год*|Timestamp|Задержка до года (GMT)|
+|Месяц*|Timestamp|Задержка до месяца (GMT)|
+|День*|Timestamp|Задержка до дня (GMT)|
+.<br>
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Теперь опробуйте платформу и [создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

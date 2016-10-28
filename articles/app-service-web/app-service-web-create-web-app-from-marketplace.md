@@ -1,148 +1,147 @@
 <properties
-    pageTitle="Create a web app from the Azure Marketplace | Microsoft Azure"
-    description="Learn how to create a new WordPress web app from the Azure Marketplace by using the Azure Portal."
-    services="app-service\web"
-    documentationCenter=""
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Создание веб-приложения из Azure Marketplace | Microsoft Azure"
+	description="Узнайте, как создать веб-приложение WordPress из Azure Marketplace с помощью портала Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="app-service-web"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/20/2016"
-    ms.author="robmcm"/>
-
+	ms.service="app-service-web"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/20/2016"
+	ms.author="robmcm"/>
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
 
-# <a name="create-a-web-app-from-the-azure-marketplace"></a>Create a web app from the Azure Marketplace
+# Создание веб-приложения из Azure Marketplace
 
-[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
+[AZURE.INCLUDE [вкладки](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. For example, WordPress, Umbraco CMS, Drupal, etc. These web apps are built on a wide range of popular frameworks, such as [PHP] in this WordPress example, [.NET], [Node.js], [Java], and [Python], to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure Portal].
+Azure Marketplace предоставляет широкий спектр популярных веб-приложений, разработанных нами, сторонними компаниями и группами разработки программного обеспечения с открытым исходным кодом. Например, WordPress, Umbraco CMS, Drupal и т. д. Эти веб-приложения создаются на основе различных популярных платформ, в том числе [PHP] \(в данном примере с WordPress), [.NET], [Node.js], [Java], [Python] и других. Единственное программное обеспечение, которое понадобится для создания веб-приложения из магазина Azure, — это браузер, который вы будете использовать для входа на [портал Azure].
 
-In this tutorial you'll learn how to:
+Из этого руководства вы узнаете, как:
 
-* Find and create web app in Azure App Service that is based on an Azure Marketplace template.
-* Configure Azure App Service settings for the new web app.
-* Launch and manage your web app.
+* Найти и создать веб-приложение в службе приложений Azure на основе шаблона из Azure Marketplace.
+* Настроить параметры службы приложений Azure для нового веб-приложения.
+* Запустить веб-приложение и управлять им.
 
-For the purpose of this tutorial, you will deploy a WordPress blog site from the Azure Marketplace. When you have completed the steps in this tutorial, you'll have your own WordPress site up and running in the cloud.
+В рамках этого руководства вы развернете сайт блога WordPress из Azure Marketplace. После выполнения описанных здесь шагов у вас будет собственный сайт WordPress, работающий в облаке.
 
-![Example WordPress wep app dashboard][WordPressDashboard1]
+![Пример панели мониторинга веб-приложения WordPress][WordPressDashboard1]
 
-The WordPress site that you'll deploy in this tutorial uses MySQL for the database. If you wish to instead use SQL Database for the database, see [Project Nami], which is also available through the Azure Marketplace.
+Сайт WordPress, развертываемый в этом руководстве, использует MySQL для базы данных. Если вместо этого вы хотите использовать базу данных SQL, скачайте приложение [Project Nami], которое также доступно в Azure Marketplace.
 
 > [AZURE.NOTE]
-> To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your Visual Studio subscriber benefits][activate] or [sign up for a free trial][free trial].
+Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно [активировать преимущества для подписчиков Visual Studio][activate] или [подписаться на бесплатную пробную версию][free trial].
 >
-> If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service]. From there you can immediately create a short-lived starter web app in App Service — no credit card is required, and there are no commitments.
+> Если вы хотите приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [Пробное использование службы приложений]. Там вы сможете немедленно создать кратковременное начальное веб-приложение в службе приложений. Для этого не требуется ни кредитная карта, ни какие-либо обязательства.
 
-## <a name="find-and-create-a-web-app-in-azure-app-service"></a>Find and Create a Web App in Azure App Service
+## Поиск и создание веб-приложения в службе приложений Azure
 
-1. Log in to the [Azure Portal].
+1. Войдите на [портал Azure].
 
-1. Click **New**.
-    
-    ![Create a new Azure resource][MarketplaceStart]
-    
-1. Search for **WordPress**, and then click **WordPress**. (If you wish to use SQL Database instead of MySQL, search for **Project Nami**.)
+1. Нажмите кнопку **Создать**.
+	
+	![Создайте ресурс Azure][MarketplaceStart]
+	
+1. Выполните поиск по запросу **WordPress**, а затем щелкните приложение **WordPress**. (Если вы хотите использовать базу данных SQL вместо MySQL, выполните поиск по запросу **Project Nami**.)
 
-    ![Search for WordPress in the Marketplace][MarketplaceSearch]
-    
-1. After reading the description of the WordPress app, click **Create**.
+	![Выполните поиск WordPress в Marketplace][MarketplaceSearch]
+	
+1. После прочтения описания приложения WordPress нажмите кнопку **Создать**.
 
-    ![Create WordPress web app][MarketplaceCreate]
+	![Создайте веб-приложение WordPress][MarketplaceCreate]
 
-## <a name="configure-azure-app-service-settings-for-your-new-web-app"></a>Configure Azure App Service Settings for your New Web App
+## Настройка параметров службы приложений Azure для нового веб-приложения
 
-1. After you have created a new web app, the WordPress settings blade will be displayed, which you will use to complete the following steps:
+1. После создания нового веб-приложения отобразится колонка параметров WordPress, в которой необходимо выполнить следующие шаги:
 
-    ![Configure WordPress web app settings][ConfigStart]
+	![Настройте параметры веб-приложения WordPress][ConfigStart]
 
-1. Enter a name for the web app in the **Web app** box.
+1. Введите имя для веб-приложения в поле **Веб-приложение**.
 
-    This name must be unique in the azurewebsites.net domain because the URL of the web app will be *{name}*.azurewebsites.net. If the name you enter isn't unique, a red exclamation mark appears in the text box.
+	Это имя должно быть уникальным в домене azurewebsites.net, так как URL-адрес веб-приложения будет иметь такой формат: *{имя}*. azurewebsites.net. Если введенное имя не является уникальным, в текстовом поле отображается красный восклицательный знак.
 
-    ![Configure the WordPress web app name][ConfigAppName]
+	![Настройте имя веб-приложения WordPress][ConfigAppName]
 
-1. If you have more than one subscription, choose the one you want to use. 
+1. Если у вас есть несколько подписок, выберите ту, которую будете использовать.
 
-    ![Configure the subscription for the web app][ConfigSubscription]
+	![Настройте подписку для веб-приложения][ConfigSubscription]
 
-1. Select a **Resource Group** or create a new one.
+1. Выберите **группу ресурсов** или создайте новую.
 
-    For more information about resource groups, see [Azure Resource Manager overview][ResourceGroups].
+	Дополнительные сведения о группах ресурсов см. в статье [Общие сведения об Azure Resource Manager][ResourceGroups].
 
-    ![Configure the resource group for the web app][ConfigResourceGroup]
+	![Настройте группу ресурсов для веб-приложения][ConfigResourceGroup]
 
-1. Select an **App Service plan/Location** or create a new one.
+1. Выберите или создайте **план службы приложений или расположение**.
 
-    For more information about App Service plans, see [Azure App Service plans overview][AzureAppServicePlans]. 
+	Дополнительные сведения о планах службы приложений см. в статье [Подробный обзор планов службы приложений Azure][AzureAppServicePlans].
 
-    ![Configure the service plan for the web app][ConfigServicePlan]
+	![Настройте план обслуживания для веб-приложения][ConfigServicePlan]
 
-1. Click **Database**, and then in the **New MySQL Database** blade provide the required values for configuring your MySQL database.
+1. Щелкните элемент **База данных** и укажите в колонке **Новая база данных MySQL** необходимые значения для настройки базы данных MySQL.
 
-    a. Enter a new name or leave the default name.
+	а. Введите новое имя или оставьте имя по умолчанию.
 
-    b. Leave the **Database Type** set to **Shared**.
+	b. Оставьте в поле **Тип базы данных** значение **Общая**.
 
-    c. Choose the same location as the one you chose for the web app.
+	c. Выберите то же расположение, которое выбрано для веб-приложения.
 
-    d. Choose a pricing tier. **Mercury** - which is free with minimal connections and disk space - is fine for this tutorial.
+	г) Выберите ценовую категорию. Для этого руководства подходит **"Меркурий"** — бесплатная ценовая категория с минимумом подключений и места на диске.
 
-    e. In the **New MySQL Database** blade, accept the legal terms, and then click **OK**. 
+	д. В колонке **Новая база данных MySQL** примите условия использования и нажмите кнопку **ОК**.
 
-    ![Configure the database settings for the web app][ConfigDatabase]
+	![Настройте параметры базы данных для веб-приложения][ConfigDatabase]
 
-1. In the **WordPress** blade, accept the legal terms, and then click **Create**. 
+1. В колонке **WordPress** примите условия использования и нажмите кнопку **Создать**.
 
-    ![Finish the web app settings and click OK][ConfigFinished]
+	![Завершите настройку параметров веб-приложения и нажмите кнопку "ОК"][ConfigFinished]
 
-    Azure App Service creates the web app, typically in less than a minute. You can watch the progress by clicking the bell icon at the top of the portal page.
+	Служба приложений Azure создаст веб-приложение (обычно это занимает меньше минуты). Можно отслеживать ход выполнения, щелкнув значок колокольчика в верхней части страницы портала.
 
-    ![Progress indicator][ConfigProgress]
+	![Индикатор хода выполнения][ConfigProgress]
 
-## <a name="launch-and-manage-your-wordpress-web-app"></a>Launch and manage your WordPress web app
-    
-1. When the web app creation is finished, navigate in the Azure Portal to the resource group in which you created the application, and you can see the web app and the database.
+## Запуск веб-приложения WordPress и управление им
+	
+1. После завершения создания веб-приложения перейдите на портале Azure к группе ресурсов, в которой было создано приложение, и вы увидите веб-приложение и базу данных.
 
-    The extra resource with the light bulb icon is [Application Insights][ApplicationInsights], which provides monitoring services for your web app.
+	Дополнительный ресурс со значком лампочки — надстройка [Application Insights][ApplicationInsights], которая предоставляет службы мониторинга для веб-приложения.
 
-1. In the **Resource group** blade, click the web app line.
+1. В колонке **Группа ресурсов** щелкните строку веб-приложения.
 
-    ![Select your WordPress web app][WordPressSelect]
+	![Выберите свое веб-приложение WordPress][WordPressSelect]
 
-1. In the Web app blade, click **Browse**.
+1. В колонке веб-приложения нажмите кнопку **Обзор**.
 
-    ![Browse to your WordPress web app][WordPressBrowse]
+	![Перейдите к веб-приложению WordPress][WordPressBrowse]
 
-1. If you are prompted to select the language for your WordPress blog, select your desired language and then click **Continue**.
+1. Если будет предложено выбрать язык для блога WordPress, выберите нужный язык и нажмите кнопку **Продолжить**.
 
-    ![Configure the language for your WordPress web app][WordPressLanguage]
+	![Настройте язык для веб-приложения WordPress][WordPressLanguage]
 
-1. In the WordPress **Welcome** page, enter the configuration information required by WordPress, and then click **Install WordPress**.
+1. На странице **приветствия** WordPress введите сведения о конфигурации, которые требуются WordPress, после чего нажмите кнопку **Установить WordPress**.
 
-    ![Configure the settings your WordPress web app][WordPressConfigure]
+	![Настройте параметры веб-приложения WordPress][WordPressConfigure]
 
-1. Log in using the credentials you created on the **Welcome** page.  
+1. Войдите, используя учетные данные, созданные на странице **приветствия**.
 
-1. Your site Dashboard page will open and display the information that you provided.    
+1. Откроется страница панели мониторинга сайта, в которой отображаются предоставленные сведения.
 
-    ![View your WordPress dashboard][WordPressDashboard2]
+	![Просмотрите панель мониторинга WordPress][WordPressDashboard2]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-In this tutorial you've seen how to create and deploy an example web app from the Azure Marketplace.
+В этом руководстве показано, как создать и развернуть пример веб-приложения из Azure Marketplace.
 
-For more information about how to work with App Service Web Apps, see the links on the left side of the page (for wide browser windows) or at the top of the page (for narrow browser windows).
+Дополнительные сведения о работе с веб-приложениями службы приложений см. по ссылкам в левой части страницы (для широких окон браузера) или в верхней части страницы (для узких окон браузера).
 
-For more information about developing WordPress web apps on Azure, see [Developing WordPress on Azure App Service][WordPressOnAzure]. 
+Дополнительные сведения о разработке веб-приложений WordPress в Azure см. в статье [Разработка блога WordPress в службе приложений Azure][WordPressOnAzure].
 
 <!-- URL List -->
 
@@ -153,11 +152,11 @@ For more information about developing WordPress web apps on Azure, see [Developi
 [Python]: https://azure.microsoft.com/develop/python/
 [activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [free trial]: https://azure.microsoft.com/pricing/free-trial/
-[Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Пробное использование службы приложений]: http://go.microsoft.com/fwlink/?LinkId=523751
 [ResourceGroups]: ../resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
-[Azure Portal]: https://portal.azure.com/
+[портал Azure]: https://portal.azure.com/
 [Project Nami]: http://projectnami.org/
 [WordPressOnAzure]: ./develop-wordpress-on-app-service-web-apps.md
 
@@ -181,8 +180,4 @@ For more information about developing WordPress web apps on Azure, see [Developi
 [WordPressDashboard2]: ./media/app-service-web-create-web-app-from-marketplace/wpdashboard2.png
 [WordPressConfigure]: ./media/app-service-web-create-web-app-from-marketplace/wpconfigure.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Enable Session Affinity using the Azure Toolkit for Eclipse"
-    description="Learn how to enable session affinity using the Azure Toolkit for Eclipse."
+    pageTitle="Включение сходства сеансов с помощью набора средств Azure для Eclipse"
+    description="Узнайте, как включить сходство сеансов с помощью набора средств Azure для Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,62 +16,57 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690950.aspx -->
 
-# <a name="enable-session-affinity"></a>Enable Session Affinity #
+# Включение сходства сеансов #
 
-Within the Azure Toolkit for Eclipse, you can enable HTTP session affinity, or "sticky sessions", for your roles. The following image shows the **Load Balancing** properties dialog used to enable the session affinity feature:
+В наборе средств Azure для Eclipse вы можете включить для ролей сходство сеансов HTTP (называемое также прикрепленным сеансами). На следующем рисунке показано диалоговое окно свойств **Балансировка нагрузки**, используемое для включения функции сходства сеансов:
 
 ![][ic719492]
 
-## <a name="to-enable-session-affinity-for-your-role"></a>To enable session affinity for your role ##
+## Включение сходства сеансов для роли ##
 
-1. Right-click the role in Eclipse's Project Explorer, click **Azure**, and then click **Load Balancing**.
-1. In the **Properties for WorkerRole1 Load Balancing** dialog:
-    1. Check **Enable HTTP session affinity (sticky sessions) for this role.**
-    1. For **Input endpoint to use**, select an input endpoint to use, for example, **http (public:80, private:8080)**. Your application must use this endpoint as its HTTP endpoint. You can enable multiple endpoints for your role, but you can select only one of them to support sticky sessions.
-    1. Rebuild your application.
+1. Щелкните правой кнопкой мыши роль в обозревателе проектов Eclipse, выберите пункт **Azure**, а затем щелкните **Балансировка нагрузки**.
+1. В диалоговом окне **Properties for WorkerRole1 Load Balancing** (Свойства для балансировки нагрузки WorkerRole1) выполните следующие действия.
+    1. Установите флажок **Enable HTTP session affinity (sticky sessions) for this role** (Включить сходство сеансов HTTP (прикрепленные сеансы) для этой роли).
+    1. Для параметра **Input endpoint to use** (Используемая входная конечная точка) выберите используемую входную конечную точку, например **http (public:80, private:8080)**. Ваше приложение должно использовать эту конечную точку в качестве своей конечной точки HTTP. Вы можете включить для роли несколько конечных точек, однако лишь одну из них можно выбрать для поддержки прикрепленных сеансов.
+    1. Перестройте приложение.
 
-Once enabled, if you have more than one role instance, HTTP requests coming from a particular client will continue being handled by the same role instance.
+Если после включения используется несколько экземпляров роли, HTTP-запросы, поступающие от конкретного клиента, будут по-прежнему обрабатываться в том же экземпляре роли.
 
-The Eclipse Toolkit enables this by installing a special IIS module called Application Request Routing (ARR) into each of your role instances. ARR reroutes HTTP requests to the appropriate role instance. The toolkit automatically reconfigures the selected endpoint so that the incoming HTTP traffic is first routed to the ARR software. The toolkit also creates a new internal endpoint that your Java server is configured to listen to. That is the endpoint used by ARR to reroute the HTTP traffic to the appropriate role instance. This way, each role instance in your multi-instance deployment serves as a reverse proxy for all the other instances, enabling sticky sessions.
+Набор средств Eclipse позволяет реализовать это путем установки специального модуля IIS — маршрутизация запросов приложений (ARR) — в каждом из экземпляров роли. Модуль ARR перенаправляет HTTP-запросы в соответствующий экземпляр роли. Набор средств автоматически перенастраивает выбранную конечную точку, чтобы входящий HTTP-трафик сначала перенаправлялся в программное обеспечение ARR. Набор средств также создает новую внутреннюю конечную точку, на прослушивание которой настроен ваш сервер Java. Это конечная точка, используемая ARR для перенаправления HTTP-трафика в соответствующий экземпляр роли. Таким образом, каждый экземпляр роли в развертывании с несколькими экземплярами служит в качестве обратного прокси-сервера для всех других экземпляров, реализуя функцию прикрепленных сеансов.
 
-## <a name="notes-about-session-affinity"></a>Notes about session affinity ##
+## Заметки о сходстве сеансов ##
 
-* Session affinity does not work in the compute emulator. The settings can be applied in the compute emulator without interfering with your build process or compute emulator execution, but the feature itself does not function within the compute emulator.
-* Enabling session affinity will result in an increase in the amount of disk space taken up by your deployment in Azure, as additional software will be downloaded and installed into your role instances when your service is started in the Azure cloud.
-* The time to initialize each role will take longer.
-* An internal endpoint, to function as a traffic rerouter as mentioned above, will be added.
+* Сходство сеансов не работает в эмуляторе вычислений. Соответствующие параметры можно применить в эмуляторе вычислений, не затрагивая процесс сборки или работу эмулятора вычислений, однако сама эта функция в эмуляторе вычислений не работает.
+* Включение сходства сеансов приведет к увеличению пространства на диске, занимаемого вашим развертыванием в Azure, так как будет скачано дополнительное программное обеспечение, устанавливаемое в экземплярах роли при запуске службы в облаке Azure.
+* Инициализация каждой роли будет занимать больше времени.
+* Добавляется внутренняя конечная точка, служащая для перенаправления трафика, как было указано выше.
 
-For an example of how to maintain session data when session affinity is enabled, see [How to Maintain Session Data with Session Affinity][].
+Пример сохранения данных сеанса при включенном сходстве сеансов см. в статье [Сохранение данных сеанса с использованием сходства сеансов][].
 
-## <a name="see-also"></a>See Also ##
+## См. также ##
 
-[Azure Toolkit for Eclipse][]
+[Набор средств Azure для Eclipse][]
 
-[Creating a Hello World Application for Azure in Eclipse][]
+[Создание приложения Hello World для Azure в Eclipse][]
 
-[Installing the Azure Toolkit for Eclipse][] 
+[Установка набора средств Azure для Eclipse][]
 
-[How to Maintain Session Data with Session Affinity][]
+[Сохранение данных сеанса с использованием сходства сеансов][]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center][].
+Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[How to Maintain Session Data with Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699539
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Сохранение данных сеанса с использованием сходства сеансов]: http://go.microsoft.com/fwlink/?LinkID=699539
+[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic719492]: ./media/azure-toolkit-for-eclipse-enable-session-affinity/ic719492.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,119 +1,118 @@
 <properties 
-    pageTitle="Data science on the Linux Data Science Virtual Machine | Microsoft Azure" 
-    description="How to perform several common data science tasks with the Linux Data Science VM." 
-    services="machine-learning"
-    documentationCenter="" 
-    authors="bradsev" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+	pageTitle="Обработка и анализ данных с использованием специально подготовленной виртуальной машины Linux | Microsoft Azure" 
+	description="Сведения о том, как выполнить несколько общих задач обработки и анализа данных с использованием специально подготовленной виртуальной машины Linux." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/12/2016" 
-    ms.author="bradsev;paulsh" />
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/12/2016" 
+	ms.author="bradsev;paulsh" />
 
 
+# Обработка и анализ данных с использованием специально подготовленной виртуальной машины Linux
 
-# <a name="data-science-on-the-linux-data-science-virtual-machine"></a>Data science on the Linux Data Science Virtual Machine
+В этом пошаговом руководстве показано, как выполнить несколько общих задач обработки и анализа данных с использованием специально подготовленной виртуальной машины Linux. Виртуальная машина Linux для обработки и анализа данных — это доступный в Azure образ ВМ, на которой предварительно установлен ряд инструментов, обычно используемых для анализа данных и машинного обучения. Основные программные компоненты описаны в статье [Подготовка виртуальной машины Linux для обработки и анализа данных](machine-learning-data-science-linux-dsvm-intro.md). Образ виртуальной машины позволяет за считаные минуты приступить к обработке и анализу данных, не требуя установки и настройки всех инструментов по отдельности. При необходимости виртуальную машину можно с легкостью масштабировать и приостановить, если она не используется. Таким образом, это гибкий и экономичный ресурс.
 
-This walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM. The Linux Data Science Virtual Machine (DSVM) is a virtual machine image available on Azure that is pre-installed with a collection of tools commonly used for data analytics and machine learning. The key software components are itemized in the [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md) topic. The VM image makes it easy to get started doing data science in minutes, without having to install and configure each of the tools individually. You can easily scale up the VM, if needed, and stop it when not in use. So this resource is both elastic and cost-efficient. 
+Рассматриваемые здесь задачи обработки и анализа данных соответствуют шагам, описанным в разделе [Процесс обработки и анализа данных группы](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). Этот процесс представляет собой системный подход, позволяющий группам специалистов, работающих с данными, эффективно взаимодействовать друг с другом в течение всего жизненного цикла создания интеллектуальных приложений. Кроме того, этот процесс может служить итеративной платформой для обработки и анализа данных, которую можно использовать самостоятельно.
 
-The data science tasks demonstrated in this walkthrough follow the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). This process provides a systematic approach to data science that enables teams of data scientists to effectively collaborate over the lifecycle of building intelligent applications. The data science process also provides an iterative framework for data science that can be followed by an individual.
-
-We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset in this walkthrough. This is a set of emails that are marked as either spam or ham (meaning they are not spam), and also contains some statistics on the content of the emails. The statistics included are discussed in the next but one section. 
-
-
-## <a name="prerequisites"></a>Prerequisites
-
-Before you can use a Linux Data Science Virtual Machine, you must have the following:
-
-- An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).
-- A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md). 
-- [X2Go](http://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](machine-learning-data-science-linux-dsvm-intro.md#Installing-and-configuring-X2Go-client). 
-- An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
+В этом пошаговом руководстве мы анализируем набор данных [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Это набор сообщений электронной почты, отмеченных как нежелательная или обычная почта, вместе со статистикой по их содержимому (она рассмотрена в одном из следующих разделов).
 
 
-## <a name="download-the-spambase-dataset"></a>Download the spambase dataset
+## Предварительные требования
 
-The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains only 4601 examples. This is a convenient size to use when demonstrating that some of the key features of the Data Science VM as it keeps the resource requirements modest.
+Перед использованием виртуальной машины Linux для обработки и анализа данных необходимо убедиться в наличии следующих компонентов:
 
->[AZURE.NOTE] This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This size DSVM is capable of handling the procedures in this walkthrough.
+- **Подписка Azure.**. Если у вас ее нет, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/).
+- [**Виртуальная машина Linux для обработки и анализа данных**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Сведения о подготовке этой ВМ приведены в статье [Подготовка виртуальной машины Linux для обработки и анализа данных](machine-learning-data-science-linux-dsvm-intro.md).
+- Клиент [X2Go](http://wiki.x2go.org/doku.php), установленный на компьютере, и открытый сеанс XFCE. Сведения об установке и настройке **клиента X2Go** см. в разделе [Установка и настройка клиента X2Go](machine-learning-data-science-linux-dsvm-intro.md#Installing-and-configuring-X2Go-client).
+- **Учетная запись машинного обучения Azure**. Если у вас ее нет, зарегистрируйте учетную запись на [домашней странице Машинного обучения Azure](https://studio.azureml.net/). Для новичков предусмотрен период бесплатного использования.
 
-If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself. Another option to increase storage is to use [Azure files](../storage/storage-how-to-use-files-linux.md).
 
-To download the data, open a terminal window and run this command:
+## Скачивание набора данных spambase
+
+Набор данных [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) относительно небольшой. Он содержит всего 4601 пример. Это подходящий размер, чтобы продемонстрировать некоторые основные функции ВМ для обработки и анализа данных при небольших требованиях к ресурсам.
+
+>[AZURE.NOTE] В этом пошаговом руководстве используется виртуальная машина Linux размера D2 v2. Этот размер подходит для выполнения описанных здесь процедур.
+
+Если требуется больше места для хранения, можно создать дополнительные диски и присоединить их к виртуальной машине. Эти диски используют постоянное хранилище Azure, поэтому данные сохраняются, даже если сервер повторно подготовлен из-за изменения размера или завершения работы. Чтобы добавить диск и присоединить его к виртуальной машине, следуйте инструкциям в статье [Добавление диска к виртуальной машине Linux](../virtual-machines/virtual-machines-linux-add-disk.md). В этих инструкциях используется интерфейс командной строки Azure (Azure CLI), который уже установлен на рассматриваемой виртуальной машине. Поэтому эти процедуры можно выполнить прямо из нее. Чтобы увеличить ресурсы хранения, можно также использовать [файлы Azure](../storage/storage-how-to-use-files-linux.md).
+
+Чтобы скачать данные, откройте окно терминала и выполните следующую команду:
 
     wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
-The downloaded file does not have a header row, so let's create another file that does have a header. Run this command to create a file with the appropriate headers:
+Скачанный файл не содержит строку заголовка, поэтому мы создадим другой файл с заголовком. Для этого выполните следующую команду:
 
     echo 'word_freq_make, word_freq_address, word_freq_all, word_freq_3d,word_freq_our, word_freq_over, word_freq_remove, word_freq_internet,word_freq_order, word_freq_mail, word_freq_receive, word_freq_will,word_freq_people, word_freq_report, word_freq_addresses, word_freq_free,word_freq_business, word_freq_email, word_freq_you, word_freq_credit,word_freq_your, word_freq_font, word_freq_000, word_freq_money,word_freq_hp, word_freq_hpl, word_freq_george, word_freq_650, word_freq_lab,word_freq_labs, word_freq_telnet, word_freq_857, word_freq_data,word_freq_415, word_freq_85, word_freq_technology, word_freq_1999,word_freq_parts, word_freq_pm, word_freq_direct, word_freq_cs, word_freq_meeting,word_freq_original, word_freq_project, word_freq_re, word_freq_edu,word_freq_table, word_freq_conference, char_freq_semicolon, char_freq_leftParen,char_freq_leftBracket, char_freq_exclamation, char_freq_dollar, char_freq_pound, capital_run_length_average,capital_run_length_longest, capital_run_length_total, spam' > headers
 
-Then concatenate the two files together with the command:
+Затем объедините два файла, используя следующую команду:
 
     cat spambase.data >> headers
     mv headers spambaseHeaders.data
 
-The dataset has several types of statistics on each email: 
+Набор данных содержит несколько видов статистики для каждого сообщения электронной почты:
 
-- Columns like ***word\_freq\_WORD*** indicate the percentage of words in the email that match *WORD*. For example, if *word\_freq\_make* is 1, then 1% of all words in the email were *make*. 
-- Columns like ***char\_freq\_CHAR*** indicate the percentage of all characters in the email that were *CHAR*. 
-- ***capital\_run\_length\_longest*** is the longest length of a sequence of capital letters. 
-- ***capital\_run\_length\_average*** is the average length of all sequences of capital letters. 
-- ***capital\_run\_length\_total*** is the total length of all sequences of capital letters. 
-- ***spam*** indicates whether the email was considered spam or not (1 = spam, 0 = not spam).
+- Столбцы наподобие ***word\_freq\_WORD*** указывают процент упоминания слова *WORD* в сообщении. Например, если выражение *word\_freq\_make* равно 1, значит, 1 % всех слов в сообщении соответствуют *make*.
+- Столбцы наподобие ***char\_freq\_CHAR*** указывают процент всех символов в сообщении, которые соответствуют *CHAR*.
+- ***capital\_run\_length\_longest*** — самая длинная последовательность прописных букв.
+- ***capital\_run\_length\_average*** — средняя длина всех последовательностей прописных букв.
+- ***capital\_run\_length\_total*** — общая длина всех последовательностей прописных букв.
+- ***spam*** указывает, были ли сообщения признаны нежелательной почтой (1 — нежелательная почта, 0 —обычная почта).
 
 
-## <a name="explore-the-dataset-with-microsoft-r-open"></a>Explore the dataset with Microsoft R Open
+## Изучение набора данных с использованием Microsoft R Open
 
-Let's examine the data and do some basic machine learning with R. The Data Science VM comes with [Microsoft R Open](https://mran.revolutionanalytics.com/open/) pre-installed. The multithreaded math libraries in this version of R offer better performance than various single-threaded versions. Microsoft R Open also provides reproducibility by using a snapshot of the CRAN package repository.
+Давайте изучим данные и выполним некоторые основные задачи машинного обучения с использованием R. Компонент [Microsoft R Open](https://mran.revolutionanalytics.com/open/) предварительно установлен на виртуальной машине для обработки и анализа данных. Многопоточные математические библиотеки в этой версии R отличаются более высокой производительностью, чем однопоточные версии. Microsoft R Open предусматривает возможность воспроизведения за счет использования моментального снимка репозитория пакетов CRAN.
 
-To get copies of the code samples used in this walkthrough, clone the **Azure-Machine-Learning-Data-Science** repository using git, which is pre-installed on the VM. From the git command line, run:
+Чтобы получить копии примеров кода, используемых в этом пошаговом руководстве, клонируйте репозиторий **Azure-Machine-Learning-Data-Science** с помощью компонента Git, предварительно установленного на виртуальной машине. В программе командной строки Git выполните следующую команду:
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Open a terminal window and start a new R session with the R interactive console.
+Откройте окно терминала и запустите новый сеанс R с использованием интерактивной консоли R.
 
->[AZURE.NOTE] You can also use RStudio for the following procedures. To install RStudio, execute this command at a terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
+>[AZURE.NOTE] Для выполнения следующих процедур можно также использовать RStudio. Чтобы установить RStudio, в терминале выполните следующую команду: `./Desktop/DSVM\ tools/installRStudio.sh`
 
-To import the data and set up the environment, run:
+Чтобы импортировать данные и настроить среду, выполните следующую команду:
 
     data <- read.csv("spambaseHeaders.data")
     set.seed(123)
 
-To see summary statistics about each column:
+Чтобы просмотреть сводные статистические данные по каждому столбцу, выполните следующую команду:
 
     summary(data)
 
-For a different view of the data:
+Чтобы получить другое представление данных, выполните следующую команду:
 
     str(data)
 
-This shows you the type of each variable and the first few values in the dataset. 
+В результате будет выведен тип каждой переменной и первые несколько значений в наборе данных.
 
-The *spam* column was read as an integer, but it's actually a categorical variable (or factor). To set its type:
+Столбец *spam* распознан как целое число, но это на самом деле категориальная переменная (или факторная). Чтобы задать тип данных в этом столбце, выполните следующую команду:
 
     data$spam <- as.factor(data$spam)
 
-To do some exploratory analysis, use the [ggplot2](http://ggplot2.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
+Чтобы выполнить исследовательский анализ, используйте пакет [ggplot2](http://ggplot2.org/). Это популярная библиотека построения для R, уже установленная на виртуальной машине. Как видно в приведенных ранее сводных данных, у нас есть статистические данные по частоте использования восклицательного знака. Давайте построим графики частоты, используя следующие команды:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
 
-Since the zero bar is skewing the plot, let's get rid of it:
+Так как нулевой показатель искажает график, давайте избавимся от него:
 
     email_with_exclamation = data[data$char_freq_exclamation > 0, ]
     ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
 
-There is a non-trivial density above 1 that looks interesting. Let's look at just that data:
+Выше показателя 1 наблюдается необычная плотность. Давайте взглянем только на эти данные.
 
     ggplot(data[data$char_freq_exclamation > 1, ]) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
 
-Then split it by spam vs ham:
+Затем разобьем их на наборы с обычной и нежелательной почтой.
 
     ggplot(data[data$char_freq_exclamation > 1, ], aes(x=char_freq_exclamation)) +
     geom_density(lty=3) +
@@ -122,48 +121,48 @@ Then split it by spam vs ham:
     ggtitle("Distribution of spam \nby frequency of !") +
     labs(fill="spam", y="Density")
 
-These examples should enable you to make similar plots of the other columns to explore the data contained in them.
+Эти примеры помогут вам построить аналогичные графики для других столбцов, чтобы проанализировать содержащиеся в них данные.
 
 
-## <a name="train-and-test-an-ml-model"></a>Train and test an ML model
+## Обучение и тестирование модели машинного обучения
 
-Now let's train a couple of machine learning models to classify the emails in the dataset as containing either span or ham. We train a decision tree model and a random forest model in this section and then test their accuracy of their predictions. 
+Теперь давайте обучим несколько моделей машинного обучения для классификации сообщений электронной почты в наборе данных как содержащих обычную и нежелательную почту. В этом разделе мы обучим модель дерева принятия решений и модель случайного леса, а затем протестируем точность получаемых прогнозов.
 
->[AZURE.NOTE] The rpart (Recursive Partitioning and Regression Trees) package used in the following code is already installed on the Data Science VM.
+>[AZURE.NOTE] Пакет rpart (рекурсивное секционирование и деревья регрессии), используемый в следующем коде, уже установлен на виртуальной машине для обработки и анализа данных.
 
 
-First, let's split the dataset into training and test sets:
+Сначала разделим набор данных на обучающий и тестовый.
 
     rnd <- runif(dim(data)[1])
     trainSet = subset(data, rnd <= 0.7)
     testSet = subset(data, rnd > 0.7)
 
-And then create a decision tree to classify the emails.
+А затем создадим дерево принятия решений для классификации сообщений электронной почты.
 
     require(rpart)
     model.rpart <- rpart(spam ~ ., method = "class", data = trainSet)
     plot(model.rpart)
     text(model.rpart)
 
-Here is the result:
+Вот что мы получим:
 
 ![1](./media/machine-learning-data-science-linux-dsvm-walkthrough/decision-tree.png)
 
-To determine how well it performs on the training set, use the following code:
+Чтобы определить, насколько хорошо эта модель работает с обучающим набором данных, используйте следующий код:
 
     trainSetPred <- predict(model.rpart, newdata = trainSet, type = "class")
     t <- table(`Actual Class` = trainSet$spam, `Predicted Class` = trainSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-To determine how well it performs on the test set:
+Чтобы определить, насколько хорошо она работает с тестовым набором данных:
 
     testSetPred <- predict(model.rpart, newdata = testSet, type = "class")
     t <- table(`Actual Class` = testSet$spam, `Predicted Class` = testSetPred)
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-Let's also try a random forest model. Random forests train a multitude of decision trees and output a class that is the mode of the classifications from all of the individual decision trees. They provide a more powerful machine learning approach as they correct for the tendency of a decision tree model to overfit a training dataset. 
+Теперь давайте испробуем модель случайного леса. Случайные леса обучают множество деревьев принятия решений и выводят класс, который представляет собой режим классификаций из всех отдельных деревьев принятия решений. Это более эффективный метод машинного обучения, так как он исправляет тенденцию к переобучению обучающего набора данных, которая возникает при использовании модели дерева принятия решений.
 
     require(randomForest)
     trainVars <- setdiff(colnames(data), 'spam')
@@ -178,17 +177,17 @@ Let's also try a random forest model. Random forests train a multitude of decisi
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>Deploy a model to Azure ML
+## Развертывание модели в Студии машинного обучения Azure
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of AzureML is its ability to publish any R function as a web service. The AzureML R package makes deployment easy to do right from our R session on the DSVM. 
+[Студия машинного обучения Azure](https://studio.azureml.net/) — это облачная служба, упрощающая создание и развертывание моделей прогнозной аналитики. Одна из удобных функций этой службы — возможность публикации любой R-функции в виде веб-службы. Пакет R Машинного обучения Azure (AzureML) облегчает развертывание, позволяя выполнить его прямо из сеанса R на ВМ для обработки и анализа данных.
 
-To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sigh in. To find these values and initialize the AzureML variables with them:
+Чтобы развернуть код дерева принятия решений, приведенный в предыдущем разделе, необходимо войти в Студию машинного обучения Azure. Для этого необходимо указать идентификатор рабочей области и маркер авторизации. Чтобы найти эти значения и инициализировать с ними переменные Машинного обучения Azure, сделайте следующее:
 
-Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![2](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
+В левом меню щелкните **Параметры**. Укажите значение в поле **Идентификатор рабочей области**. ![2](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
 
-Select **Authorization Tokens** from the overhead menu and note your **Primary Authorization Token**.![3](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
+Выберите вкладку **Маркеры авторизации** в верхнем меню и укажите значение в поле **Primary Authorization Token** (Основной маркер авторизации)![3](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
 
-Load the **AzureML** package and then set values of the variables with your token and workspace ID in your R session on the DSVM:
+Загрузите пакет **AzureML** и укажите маркер и идентификатор рабочей области в качестве значений переменных в сеансе R на ВМ для обработки и анализа данных.
 
 
     require(AzureML)
@@ -196,14 +195,14 @@ Load the **AzureML** package and then set values of the variables with your toke
     wsID = "<workspace-id>"
 
 
-Let's simplify the model to make this demonstration easier to implement. Pick the three variables in the decision tree closest to the root and build a new tree using just those three variables:
+Давайте упростим модель, чтобы облегчить реализацию этой демонстрации. Выберите три переменные в самом приближенном к корневому дереве принятия решений и создайте новое дерево, используя только эти переменные:
 
     colNames <- c("char_freq_dollar", "word_freq_remove", "word_freq_hp", "spam")
     smallTrainSet <- trainSet[, colNames]
     smallTestSet <- testSet[, colNames]
     model.rpart <- rpart(spam ~ ., method = "class", data = smallTrainSet)
 
-We need a prediction function that takes the features as an input and returns the predicted values:
+Нам нужна функция прогнозирования, которая принимает в качестве входных данных признаки и возвращает прогнозируемые значения.
 
     predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
         predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
@@ -211,7 +210,7 @@ We need a prediction function that takes the features as an input and returns th
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
 
-Publish the predictSpam function to AzureML using the **publishWebService** function: 
+Опубликуйте функцию predictSpam в Студии машинного обучения Azure с помощью функции **publishWebService**.
 
     spamWebService <- publishWebService("predictSpam",
         "spamWebService",
@@ -219,32 +218,32 @@ Publish the predictSpam function to AzureML using the **publishWebService** func
         list("spam"="int"),
         wsID, wsAuth)
 
-This function takes the **predictSpam** function, creates a web service named **spamWebService** with defined inputs and outputs, and returns information about the new endpoint.
+Эта функция принимает функцию **predictSpam**, создает веб-службу **spamWebService** с определенными входными и выходными данными и возвращает сведения о новой конечной точке.
 
-View details of the published web service, including its API endpoint and access keys with the command:
+Просмотрите сведения об опубликованной веб-службе, включая ее конечную точку API и ключи доступа, используя следующую команду:
 
     spamWebService[[2]]
 
-To try it out on the first 10 rows of the test set:
+Чтобы испытать эту функцию на первых 10 строках тестового набора данных, выполните следующую команду:
 
     consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
 
 
-## <a name="use-other-tools-available"></a>Use other tools available
+## Использование других доступных средств
 
-The remaining sections show how to use some of the tools installed on the Linux Data Science VM.Here is the list of tools discussed:
+В остальных разделах показано, как использовать некоторые средства, установленные на виртуальной машине Linux для обработки и анализа данных. Вот список рассматриваемых средств:
 
-- XGBoost
-- Python
-- Jupyterhub
-- Rattle
-- PostgreSQL & Squirrel SQL
-- SQL Server Data Warehouse
+- XGBoost;
+- Python;
+- Jupyterhub;
+- Rattle;
+- PostgreSQL и Squirrel SQL;
+- хранилище данных SQL Server.
 
 
-## <a name="xgboost"></a>XGBoost
+## XGBoost
 
-[XGBoost](https://xgboost.readthedocs.org/en/latest/) is a tool that provides a fast and accurate boosted tree implementation.
+[XGBoost](https://xgboost.readthedocs.org/en/latest/) — инструмент, предоставляющий быструю и точную реализацию увеличивающегося дерева.
 
     require(xgboost)
     data <- read.csv("spambaseHeaders.data")
@@ -260,15 +259,15 @@ The remaining sections show how to use some of the tools installed on the Linux 
     accuracy <- 1.0 - mean(as.numeric(pred > 0.5) != testSet$spam)
     print(paste("test accuracy = ", accuracy))
 
-XGBoost can also call from python or a command line.
+Его можно вызвать из командной строки или Python.
 
-## <a name="python"></a>Python
+## Python
 
-For development using Python, the Anaconda Python distributions 2.7 and 3.5 have been installed in the DSVM. 
+Для разработки на языке Python на виртуальной машине для обработки и анализа данных установлены дистрибутивы Anaconda Python версий 2.7 и 3.5.
 
->[AZURE.NOTE] The Anaconda distribution includes [Condas](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
+>[AZURE.NOTE] Дистрибутив Anaconda содержит компонент [Condas](http://conda.pydata.org/docs/index.html), который можно использовать для создания пользовательских сред для Python с различными установленными версиями и (или) пакетами.
 
-Let's read in some of the spambase dataset and classify the emails with support vector machines in scikit-learn:
+Давайте считаем часть набора данных spambase и классифицируем сообщения с использованием метода опорных векторов в scikit-learn:
 
     import pandas
     from sklearn import svm    
@@ -278,20 +277,20 @@ Let's read in some of the spambase dataset and classify the emails with support 
     clf = svm.SVC()
     clf.fit(X, y)
 
-To make predictions:
+Для создания прогнозов используем следующую команду:
 
     clf.predict(X.ix[0:20, :])
 
-To show how to publish an AzureML endpoint, let's make a simpler model the three variables as we did when we published the R model previously. 
+Чтобы показать, как опубликовать конечную точку AzureML, упростим модель, используя три переменные, как при публикации модели R ранее.
 
     X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)
 
-To publish the model to AzureML:
+Чтобы опубликовать модель в Студии машинного обучения Azure, используйте следующий код:
 
-    # Publish the model.
+	# Publish the model.
     workspace_id = "<workspace-id>"
     workspace_token = "<workspace-token>"
     from azureml import services
@@ -309,114 +308,114 @@ To publish the model to AzureML:
     # Call the model
     predictSpam.service(1, 1, 1)
 
->[AZURE.NOTE] This is only available for python 2.7 and is not yet supported on 3.5. Run with **/anaconda/bin/python2.7**.
+>[AZURE.NOTE] Это доступно только для Python 2.7 и еще не поддерживается для версии 3.5. Выполните код с использованием **/anaconda/bin/python2.7**.
 
 
-## <a name="jupyterhub"></a>Jupyterhub
+## Jupyterhub
 
-The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-platform environment to share Python, R, or Julia code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password at ***https://\<VM DNS name or IP Address\>:8000/***. All configuration files for JupyterHub are found in directory **/etc/jupyterhub**.
+Дистрибутив Anaconda на ВМ для обработки и анализа данных поставляется с записной книжкой Jupyter, кроссплатформенной средой для совместного использования кода Python, R или Julia и анализа. Доступ к записной книжке Jupyter можно получить через JupyterHub. Для входа введите учетные данные локального пользователя Linux по адресу ***https://\<DNS-имя или IP-адрес ВМ>:8000/***. Все файлы конфигурации JupyterHub находятся в каталоге **/etc/jupyterhub**.
 
-Several sample notebooks are already installed on the VM:
+На виртуальной машине уже установлены некоторые примеры записных книжек:
 
-- See the [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb) for a sample Python notebook.
-- See [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) for a sample **R** notebook.
-- See the [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb) for another sample **Python** notebook.
+- См. [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb) для примера записной книжки Python.
+- См. [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) для примера записной книжки **R**.
+- См. [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb) для еще одного примера записной книжки **Python**.
 
->[AZURE.NOTE] The Julia language is also available from the command line on the Linux Data Science VM.
+>[AZURE.NOTE] Язык Julia также можно использовать из командной строки на виртуальной машине Linux для обработки и анализа данных.
 
 
-## <a name="rattle"></a>Rattle
+## Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (the R Analytical Tool To Learn Easily) is a graphical R tool for data mining. It has an intuitive interface that makes it easy to load, explore, and transform data and build and evaluate models.  The article [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) provides a walkthrough that demonstrates its features.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (аналитическое средство R для легкого обучения) — это графическое средство R для интеллектуального анализа данных. Оно содержит интуитивно понятный интерфейс, упрощающий загрузку, изучение и преобразование данных, а также создание и анализ моделей. Все возможности этого средства описаны в пошаговом руководстве [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) (Rattle: графический пользовательский интерфейс для интеллектуального анализа данных для R).
 
-Install and start Rattle with the following commands:
+Установите и запустите Rattle с помощью следующих команд:
 
     if(!require("rattle")) install.packages("rattle")
     require(rattle)
     rattle()
 
->[AZURE.NOTE] Installation is not required on the DSVM. But Rattle may prompt you to install additional packages when it loads.
+>[AZURE.NOTE] Rattle не требуется устанавливать на виртуальной машине для обработки и анализа данных. Но при загрузке Rattle может возникнуть запрос на установку дополнительных пакетов.
 
-Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle. 
-
-
-To load and configure the dataset:
-
-- To load the file, select the **Data** tab, then 
-- Choose the selector next to **Filename** and choose **spambaseHeaders.data**. 
-- To load the file. select **Execute** in the top row of buttons. You should see a summary of each column, including its identified data type, whether it's an input, a target, or other type of variable, and the number of unique values.
-- Rattle has correctly identified the **spam** column as the target. Select the spam column, then set the **Target Data Type** to **Categoric**.
-
-To explore the data: 
-
-- Select the **Explore** tab. 
-- Click **Summary**, then **Execute**, to see some information about the variable types and some summary statistics. 
-- To view other types of statistics about each variable, select other options like **Describe** or **Basics**.
-
-The **Explore** tab also allows you to generate many insightful plots. To plot a histogram of the data:
+В Rattle используется интерфейс на основе вкладок. Большинство вкладок соответствует шагам [процесса обработки и анализа данных](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), например загрузка данных и их изучение. Процесс обработки и анализа данных выполняется слева направо, перемещаясь по вкладкам. Последняя вкладка содержит журнал команд R, выполняемых Rattle.
 
 
-- Select **Distributions**.
-- Check **Histogram** for **word_freq_remove** and **word_freq_you**.
-- Select **Execute**. You should see both density plots in a single graph window, where it is clear that the word "you" appears much more frequently in emails than "remove".
+Чтобы загрузить и настроить набор данных:
 
-The Correlation plots are also interesting. To create one:
+- Чтобы загрузить файл, выберите вкладку **Data** (Данные).
+- Щелкните селектор рядом с полем **Filename** (Имя файла) и выберите **spambaseHeaders.data**.
+- Чтобы загрузить файл, нажмите кнопку **Execute** (Выполнить) в верхнем ряду кнопок. Должна появиться сводка по каждому столбцу, включая распознанный тип данных (входные данные, целевой объект или другой тип переменной) и количество уникальных значений.
+- Rattle правильно распознал тип данных столбца **spam** как целевой объект. Выберите столбец нежелательной почты, а затем задайте для параметра **Target Data Type** (Целевой тип данных) значение **Categoric** (Категориальный).
 
+Чтобы изучить данные:
 
-- Choose **Correlation** as the **Type**, then 
-- Select **Execute**. 
-- Rattle warns you that it recommends a maximum of 40 variables. Select **Yes** to view the plot. 
+- Выберите вкладку **Explore** (Изучение).
+- Установите флажок **Summary** (Сводка), а затем нажмите кнопку **Execute** (Выполнить), чтобы просмотреть сведения о типах переменных и получить сводные статистические данные.
+- Чтобы просмотреть другие статистические данные о каждой переменной, установите другие флажки, например **Describe** (Описание) или **Basics** (Основные сведения).
 
-There are some interesting correlations that come up: "technology" is strongly correlated to "HP" and "labs", for example. It is also strongly correlated to "650", because the area code of the dataset donors is 650.
-
-The numeric values for the correlations between words are available in the Explore window. It is interesting to note, for example, that "technology" is negatively correlated with "your" and "money".
-
-Rattle can transform the dataset to handle some common issues. For example, it allows you to rescale features, impute missing values, handle outliers, and remove variables or observations with missing data. Rattle can also identify association rules between observations and/or variables. These tabs are out of scope for this introductory walkthrough.
-
-Rattle can also perform cluster analysis. Let's exclude some features to make the output easier to read. On the **Data** tab, choose **Ignore** next to each of the variables except these ten items:
-
-- word_freq_hp
-- word_freq_technology
-- word_freq_george
-- word_freq_remove
-- word_freq_your
-- word_freq_dollar
-- word_freq_money
-- capital_run_length_longest
-- word_freq_business
-- spam
-
-Then go back to the **Cluster** tab, choose **KMeans**, and set the *Number of clusters* to 4. Then **Execute**. The results are displayed in the output window. One cluster has high frequency of "george" and "hp" and is probably a legitimate business email.
-
-To build a simple decision tree machine learning model: 
-
-- Select the **Model** tab, 
-- Choose **Tree** as the **Type**. 
-- Select **Execute** to display the tree in text form in the output window. 
-- Select the **Draw** button to view a graphical version. This looks quite similar to the tree we obtained earlier using *rpart*.
-
-One of the nice features of Rattle is its ability to run several machine learning methods and quickly evaluate them. Here is the procedure:
-
-- Choose **All** for the **Type**. 
-- Select **Execute**. 
-- After it finishes you can click any single **Type**, like **SVM**, and view the results. 
-- You can also compare the performance of the models on the validation set using the **Evaluate** tab. For example, the **Error Matrix** selection shows you the confusion matrix, overall error, and averaged class error for each model on the validation set. 
-- You can also plot ROC curves, perform sensitivity analysis, and do other types of model evaluations.
-
-Once you're finished building models, select the **Log** tab to view the R code run by Rattle during your session. You can select the **Export** button to save it. 
-
->[AZURE.NOTE] There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ... * in the text of the log. 
+Вкладка **Explore** (Изучение) также позволяет создать множество полезных графиков. Чтобы построить гистограмму данных:
 
 
-## <a name="postgresql-&-squirrel-sql"></a>PostgreSQL & Squirrel SQL
+- Установите флажок **Distributions** (Дистрибутивы).
+- Выберите создание **гистограммы** для выражений **word\_freq\_remove** и **word\_freq\_you**.
+- Нажмите кнопку **Execute** (Выполнить). В окне диаграммы должны отобразиться оба графика частоты, глядя на которые видно, что слово you встречается в сообщениях гораздо чаще, чем слово remove.
 
-The DSVM comes with PostgreSQL installed. PostgreSQL is a sophisticated, open-source relational database. This section shows how to load our spam dataset into PostgreSQL and then query it.
+Графики корреляции не менее интересные. Чтобы создать график корреляции:
 
-Before you can load the data, you need to allow password authentication from the localhost. At a command prompt:
+
+- В качестве **типа** выберите **Correlation** (Корреляция).
+- Нажмите кнопку **Execute** (Выполнить).
+- Rattle рекомендует использовать не более 40 переменных. Нажмите кнопку **Yes** (Да), чтобы просмотреть график.
+
+В результате можно получить интересные корреляции: например, technology (технологии) тесно коррелируют с "HP" и labs (задания). Данные также тесно связаны с "650", так как это код региона пользователей, предоставивших набор данных.
+
+Числовые значения для корреляции между словами доступны в окне Explore (Изучение). Интересно, что technology (технология) отрицательно коррелирует с your (ваш) и money (деньги).
+
+В Rattle также можно преобразовать набор данных для решения некоторых стандартных задач. Например, можно изменить масштаб признаков, добавить отсутствующие значения, обработать выбросы и удалить переменные или наблюдения с отсутствующими данными. Rattle также может определить правила взаимосвязей между наблюдениями и (или) переменными. Эти вкладки не рассматриваются в этом вводном пошаговом руководстве.
+
+В Rattle также можно выполнять анализ кластеров. Давайте исключим некоторые признаки, чтобы облегчить чтение выходных данных. На вкладке **Data** (Данные) выберите **Ignore** (Пропустить) рядом с каждой переменной, за исключением следующих десяти элементов:
+
+- word\_freq\_hp;
+- word\_freq\_technology;
+- word\_freq\_george;
+- word\_freq\_remove;
+- word\_freq\_your;
+- word\_freq\_dollar;
+- word\_freq\_money;
+- capital\_run\_length\_longest;
+- word\_freq\_business;
+- spam.
+
+Затем вернитесь на вкладку **Cluster** (Кластер), выберите **метод K-средних** и установите для *числа кластеров* значение 4. Затем нажмите кнопку **Execute** (Выполнить). Результаты появятся в окне вывода. В одном кластере часто встречается слово "george" и "hp". Скорее всего, это деловое сообщение электронной почты.
+
+Чтобы создать простую модель дерева принятия решений:
+
+- Перейдите на вкладку **Model** (Модель).
+- Выберите в качестве **типа** значение **Tree** (Дерево).
+- Нажмите кнопку **Execute** (Выполнить), чтобы отобразить дерево в виде текста в окне вывода.
+- Нажмите кнопку **Draw** (Рисовать), чтобы просмотреть графическое представление. Оно похоже на дерево, полученное ранее при использовании *rpart*.
+
+Одна из удобных функций Rattle — возможность выполнять несколько методов машинного обучения и быстро их оценивать. Вот что нужно сделать:
+
+- Выберите в качестве **типа** значение **All** (Все).
+- Нажмите кнопку **Execute** (Выполнить).
+- По завершении выполнения можно щелкнуть любой отдельный **тип**, например **SVM**, и просмотреть результаты.
+- Можно также сравнить производительность моделей с использованием набора для проверки на вкладке **Evaluate** (Оценка). Например, если выбрать **матрицу ошибок**, отобразится матрица неточностей, общий показатель ошибок и ошибка усредненного класса для каждой модели в наборе для проверки.
+- Вы также можете построить кривые ROC, выполнить анализ чувствительности и выполнить другие оценки модели.
+
+Завершив создание моделей, выберите вкладку **Log** (Журнал), чтобы просмотреть код R, выполняемый Rattle во время сеанса. Чтобы сохранить его, нажмите кнопку **Export** (Экспорт).
+
+>[AZURE.NOTE] В текущем выпуске Rattle есть ошибка. Чтобы изменить скрипт или использовать его для воспроизведения шагов позже, необходимо вставить символ # перед фразой *Export this log...* (Экспортировать этот файл журнала...) в тексте журнала.
+
+
+## PostgreSQL и Squirrel SQL
+
+На ВМ для обработки и анализа данных установлен компонент PostgreSQL. PostgreSQL — продвинутая реляционная база данных с открытым исходным кодом. В этом разделе показано, как загрузить наш набор данных нежелательной почты в PostgreSQL, а затем выполнить к нему запрос.
+
+Перед загрузкой данных необходимо разрешить выполнять проверку подлинности с использованием пароля на узле localhost. В окне командной строки:
 
     sudo gedit /var/lib/pgsql/data/pg_hba.conf
 
-Near the bottom of the config file are several lines that detail the allowed connections:
+В нижней части файла конфигурации расположены несколько строк, описывающие разрешенные подключения.
 
     # "local" is for Unix domain socket connections only
     local   all             all                                     trust
@@ -425,31 +424,31 @@ Near the bottom of the config file are several lines that detail the allowed con
     # IPv6 local connections:
     host    all             all             ::1/128                 ident
 
-Change the "IPv4 local connections" line to use md5 instead of ident, so we can log in using a username and password:
+В строке IPv4 local connections замените ident на md5, чтобы можно было выполнить вход с помощью имени пользователя и пароля.
 
     # IPv4 local connections:
     host    all             all             127.0.0.1/32            md5
 
-And restart the postgres service:
+И перезапустите службу Postgres:
 
     sudo systemctl restart postgresql
 
-To launch psql, an interactive terminal for PostgreSQL, as the built-in postgres user, run the following command from a prompt:
+Чтобы запустить psql, интерактивный терминал для PostgreSQL, от имени встроенного пользователя Postgres, выполните из командной строки следующую команду:
 
     sudo -u postgres psql
 
-Create a new user account, using the same username as the Linux account you're currently logged in as, and give it a password:
+Создайте учетную запись пользователя, используя имя пользователя учетной записи Linux, в которую выполнен вход, и задайте для нее пароль:
 
     CREATE USER <username> WITH CREATEDB;
     CREATE DATABASE <username>;
     ALTER USER <username> password '<password>';
     \quit
 
-Then log in to psql as your user:
+Затем войдите в psql от имени пользователя:
 
     psql
 
-And import the data into a new database:
+Импортируйте данные в новую базу данных:
 
     CREATE DATABASE spam;
     \c spam
@@ -457,81 +456,76 @@ And import the data into a new database:
     \copy data FROM /home/<username>/spambase.data DELIMITER ',' CSV;
     \quit
 
-Now, let's explore the data and run some queries using **Squirrel SQL**, a graphical tool that lets you interact with databases via a JDBC driver.
+Теперь давайте изучим данные и выполним некоторые запросы с помощью **Squirrel SQL**, графического средства, позволяющего взаимодействовать с базами данных через драйвер JDBC.
 
-To get started, launch Squirrel SQL from the Applications menu. To set up the driver:
+Чтобы начать работу, запустите Squirrel SQL из меню приложений. Чтобы настроить драйвер, сделайте следующее:
 
-- Select **Windows**, then **View Drivers**. 
-- Right-click on **PostgreSQL** and select **Modify Driver**. 
-- Select **Extra Class Path**, then **Add**. 
-- Enter ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** for the **File Name** and 
-- Select **Open**.
-- Choose List Drivers, then select **org.postgresql.Driver** in **Class Name**, and select **OK**.
+- Выберите **Windows**, а затем — **View Drivers** (Просмотреть драйверы).
+- Щелкните **PostgreSQL** правой кнопкой мыши и выберите **Modify Driver** (Изменить драйвер).
+- Выберите **Extra Class Path** (Путь к дополнительным классам), а затем щелкните **Add** (Добавить).
+- Введите ***/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar*** в качестве **имени файла**.
+- Щелкните **Open** (Открыть).
+- Щелкните List Drivers (Список драйверов), выберите **org.postgresql.Driver** в области **Class Name** (Имя класса) и нажмите кнопку **ОК**.
 
-To set up the connection to the local server:
+Чтобы установить подключение к локальному серверу:
  
-- Select **Windows**, then **View Aliases.** 
-- Choose the **+** button to make a new alias. 
-- Name it *Spam database*, choose **PostgreSQL** in the **Driver** drop-down.
-- Set the URL to *jdbc:postgresql://localhost/spam*. 
-- Enter your *username* and *password*. 
-- Click **OK**. 
-- To open the **Connection** window, double-click the ***Spam database*** alias. 
-- Select **Connect**.
+- Выберите **Windows**, а затем — **View Aliases** (Просмотреть псевдонимы).
+- Нажмите кнопку **+**, чтобы создать новый псевдоним.
+- Присвойте ему имя *База данных нежелательной почты* и выберите **PostgreSQL** в раскрывающемся списке **Driver** (Драйвер).
+- Задайте URL-адрес *jdbc:postgresql://localhost/spam*.
+- Введите *имя пользователя* и *пароль*.
+- Нажмите кнопку **ОК**.
+- Чтобы открыть окно **подключения**, дважды щелкните псевдоним ***База данных нежелательной почты***.
+- Нажмите кнопку **Подключиться**.
 
-To run some queries:
+Чтобы выполнить запросы:
 
-- Select the **SQL** tab.
-- Enter a simple query such as `SELECT * from data;` in the query textbox at the top of the SQL tab. 
-- Press **Ctrl-Enter** to run it. By default Squirrel SQL returns the first 100 rows from your query. 
+- Выберите вкладку **SQL**.
+- Введите простой запрос, например `SELECT * from data;`, в текстовом поле запроса в верхней части вкладки SQL.
+- Чтобы запустить запрос, нажмите клавиши **Ctrl+Enter**. По умолчанию Squirrel SQL возвращает первые 100 строк из запроса.
 
-There are many more queries you could run to explore this data. For example, how does the frequency of the word *make* differ between spam and ham?
+Для изучения этих данных можно выполнить множество других запросов. Например, как отличается частота упоминания слова *make* в нежелательной и обычной почте?
 
     SELECT avg(word_freq_make), spam from data group by spam;
 
-Or what are the characteristics of email that frequently contain *3d*?
+Или каковы характеристики сообщений электронной почты, в которых часто встречается *3d*?
 
     SELECT * from data order by word_freq_3d desc;
 
-Most emails that have a high occurrence of *3d* are apparently spam, so it could be a useful feature for building a predictive model to classify the emails.
+Большинство сообщений электронной почты, в которых часто встречается *3d*, — очевидно нежелательная почта. Поэтому может быть полезно создать прогнозную модель для классификации сообщений.
 
-If you wanted to perform machine learning with data stored in a PostgreSQL database, consider using [MADlib](http://madlib.incubator.apache.org/).
+Если вы хотите выполнять задачи машинного обучения с данными, хранящимися в базе данных PostgreSQL, рассмотрите возможность использования [MADlib](http://madlib.incubator.apache.org/).
 
-## <a name="sql-server-data-warehouse"></a>SQL Server Data Warehouse
+## Хранилище данных SQL Server
 
-Azure SQL Data Warehouse is a cloud-based, scale-out database capable of processing massive volumes of data, both relational and non-relational. For more information, see [What is Azure SQL Data Warehouse?](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Хранилище данных SQL Azure — это развернутая в облаке база данных, способная обрабатывать большие объемы реляционных и нереляционных данных. Дополнительные сведения см. в разделе [Что такое хранилище данных SQL Azure?](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
-To connect to the data warehouse and create the table, run the following command from a command prompt:
+Чтобы подключиться к хранилищу данных и создать таблицу, выполните следующую команду из командной строки:
 
     sqlcmd -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -I
 
-Then at the sqlcmd prompt:
+Затем в командной строке sqlcmd выполните следующую команду:
 
     CREATE TABLE spam (word_freq_make real, word_freq_address real, word_freq_all real, word_freq_3d real,word_freq_our real, word_freq_over real, word_freq_remove real, word_freq_internet real,word_freq_order real, word_freq_mail real, word_freq_receive real, word_freq_will real,word_freq_people real, word_freq_report real, word_freq_addresses real, word_freq_free real,word_freq_business real, word_freq_email real, word_freq_you real, word_freq_credit real,word_freq_your real, word_freq_font real, word_freq_000 real, word_freq_money real,word_freq_hp real, word_freq_hpl real, word_freq_george real, word_freq_650 real, word_freq_lab real,word_freq_labs real, word_freq_telnet real, word_freq_857 real, word_freq_data real,word_freq_415 real, word_freq_85 real, word_freq_technology real, word_freq_1999 real,word_freq_parts real, word_freq_pm real, word_freq_direct real, word_freq_cs real, word_freq_meeting real,word_freq_original real, word_freq_project real, word_freq_re real, word_freq_edu real,word_freq_table real, word_freq_conference real, char_freq_semicolon real, char_freq_leftParen real,char_freq_leftBracket real, char_freq_exclamation real, char_freq_dollar real, char_freq_pound real, capital_run_length_average real, capital_run_length_longest real, capital_run_length_total real, spam integer) WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
     GO
 
-Copy data with bcp:
+Скопируйте данные с помощью bcp:
 
     bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
 
->[AZURE.NOTE] The line endings in the downloaded file are Windows-style, but bcp expects UNIX-style, so we need to tell bcp that with the -r flag.
+>[AZURE.NOTE] Символы конца строки в скачанном файле представлены в стиле Windows, но bcp ожидает стиль UNIX, поэтому нужно сообщить это bcp с помощью параметра -r.
 
-And query with sqlcmd:
+Выполните запрос с использованием sqlcmd:
 
     select top 10 spam, char_freq_dollar from spam;
     GO
 
-You could also query with Squirrel SQL. Follow similar steps for PostgreSQL, using the Microsoft MSSQL Server JDBC Driver, which can be found in ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
+Запросы также можно выполнять с помощью Squirrel SQL. Выполните аналогичные действия для PostgreSQL с использованием драйвера JDBC Microsoft MSSQL Server, который можно найти в каталоге ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
+Обзор разделов с пошаговыми руководствами по задачам, которые входят в процесс обработки и анализа данных в Azure, см. в статье [Процесс обработки и анализа данных группы](http://aka.ms/datascienceprocess).
 
-For a description of other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios, see [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md). The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
+В статье [Пошаговые руководства по процессу обработки и анализа данных](data-science-process-walkthroughs.md) представлены другие пошаговые руководства, которые демонстрируют этапы процесса обработки и анализа данных группы для конкретных сценариев. В пошаговых руководствах также показано, как объединить облачные и локальные инструменты и службы в единый рабочий процесс или конвейер, чтобы создать интеллектуальное приложение.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

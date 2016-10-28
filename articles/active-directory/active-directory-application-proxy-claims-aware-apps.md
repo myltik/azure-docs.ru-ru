@@ -1,59 +1,52 @@
 <properties
-    pageTitle="Working with Claims Aware Apps in Application Proxy"
-    description="Covers how to get up and running with Azure AD Application Proxy."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="Работа с приложениями, поддерживающими утверждения, в прокси приложения"
+	description="Описывается, как настроить и запустить прокси приложения Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/22/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/22/2016"
+	ms.author="kgremban"/>
 
 
 
+# Работа с приложениями, поддерживающими утверждения, в прокси приложения
 
-# <a name="working-with-claims-aware-apps-in-application-proxy"></a>Working with claims aware apps in Application Proxy
+Приложения, поддерживающие утверждения, выполняют перенаправление в службу маркеров безопасности (STS), которая, в свою очередь, запрашивает учетные данные пользователя в обмен на маркер, прежде чем перенаправить пользователя в приложение. Чтобы включить прокси приложения для работы с этими перенаправлениями, необходимо выполнить следующие действия.
 
-Claims aware apps perform a redirection to the Security Token Service (STS), which in turn requests credentials from the user in exchange for a token before redirecting the user to the application. To enable Application Proxy to work with these redirects, the following steps need to be taken.
+## Предварительные требования
+Перед выполнением этой процедуры убедитесь, что служба маркеров безопасности, в которую перенаправляет пользователя приложение, поддерживающее утверждения, доступна за пределами вашей локальной сети.
 
-## <a name="prerequisites"></a>Prerequisites
-Before performing this procedure, make sure that the STS the claims aware app redirects to is available outside of your on-premises network.
+## Настройка на классическом портале Azure
 
-## <a name="azure-classic-portal-configuration"></a>Azure classic portal configuration
-
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
-2. In the list of applications, select the claims aware app and click **Configure**.
-3. If you chose **Passthrough** as your **Preauthentication Method**, make sure to select **HTTPS** as your **External URL** scheme.
-4. If you chose **Azure Active Directory** as your **Preauthentication Method**, select **None** as your **Internal Authentication Method**.
-
-
-## <a name="adfs-configuration"></a>ADFS configuration
-
-1. Open ADFS Management.
-2. Go to **Relying Party Trusts**, right click on the app you are publishing with Application Proxy, and choose **Properties**.  
-  ![Relying Party Trusts right click on app name - screentshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
-3. On the **Endpoints** tab, under **Endpoint type**, select **WS-Federation**.
-4. Under **Trusted URL** enter the URL you entered in the Application Proxy under **External URL** and click **OK**.  
-  ![Add an Endpoint - set Trusted URL value - screenshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
-
-## <a name="see-also"></a>See also
-
-- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
-- [Enable native client apps to interact with proxy applications](active-directory-application-proxy-native-client.md)
-
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+1. Опубликуйте приложение в соответствии с инструкциями, описанными в статье [Публикация приложений с помощью прокси приложения](active-directory-application-proxy-publish.md).
+2. В списке приложений выберите приложение, поддерживающее утверждения, и щелкните **Настроить**.
+3. Если для параметра **Метод предварительной проверки подлинности** выбрано значение **Сквозной режим**, не забудьте выбрать значение **HTTPS** для схемы **Внешний URL-адрес**.
+4. Если в поле **Метод предварительной проверки подлинности** выбрано значение **Azure Active Directory**, выберите для параметра **Метод внутренней проверки подлинности** значение **Нет**.
 
 
+## Настройка в службах AD FS
 
-<!--HONumber=Oct16_HO2-->
+1. Откройте оснастку управления AD FS.
+2. Перейдите в папку **Relying Party Trusts** (Отношения доверия проверяющей стороны), щелкните правой кнопкой мыши приложение, которое публикуется с помощью прокси приложения, и выберите **Свойства**. ![Щелкните правой кнопкой мыши имя приложения в папке «Отношения доверия проверяющей стороны» (снимок экрана)](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)  
+3. На вкладке **Конечные точки** в поле **Тип конечной точки** выберите **WS-Federation**.
+4. В поле **Trusted URL** (Доверенный URL-адрес) введите URL-адрес, который вы указали в прокси приложении в поле **Внешний URL-адрес**, и нажмите кнопку **ОК**. ![Добавление конечной точки: задайте значение в поле «Доверенный URL-адрес» (снимок экрана)](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
+## См. также
 
+- [Опубликуйте приложения с помощью прокси-сервера приложений.](active-directory-application-proxy-publish.md)
+- [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
+- [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
+- [Включение собственных клиентских приложений для взаимодействия с приложениями прокси](active-directory-application-proxy-native-client.md)
+
+Последние новости и обновления см. в [блоге о прокси приложения](http://blogs.technet.com/b/applicationproxyblog/).
+
+<!---HONumber=AcomDC_0622_2016-->

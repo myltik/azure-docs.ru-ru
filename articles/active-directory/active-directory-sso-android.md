@@ -1,75 +1,74 @@
 <properties
-    pageTitle="How to enable cross-app SSO on Android using ADAL | Microsoft Azure"
-    description="How to use the features of the ADAL SDK to enable Single Sign On across your applications. "
-    services="active-directory"
-    documentationCenter=""
-    authors="brandwe"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Как включить единый вход для нескольких приложений Android с помощью ADAL | Microsoft Azure"
+	description="Эта статья содержит информацию о том, как с помощью функций пакета SDK ADAL включить единый вход для нескольких приложений. "
+	services="active-directory"
+	documentationCenter=""
+	authors="brandwe"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="android"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="brandwe"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="brandwe"/>
 
 
+# Как включить единый вход для нескольких приложений Android с помощью ADAL
 
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>How to enable cross-app SSO on Android using ADAL
 
+Сегодня пользователи рассчитывают на возможность единого входа, позволяющую вводить учетные данные только один раз с последующим автоматическим входом в разные приложения. Сложность ввода имени пользователя и пароля на маленьком экране, часто с дополнительной проверкой подлинности, например посредством звонка по телефону или кода в SMS, приводит к неудовлетворенности пользователя, если ему приходится это делать больше одного раза.
 
-Providing Single Sign-On (SSO) so that users only need to enter their credentials once and have those credentials automatically work across applications is now expected by customers. The difficulty in entering their username and password on a small screen, often times combined with an additional factor (2FA) like a phone call or a texted code, results in quick dissatisfaction if a user has to do this more than one time for your product. 
+Кроме того, если вы работаете с платформой удостоверений, которую могут использовать другие приложения, включая учетные записи Майкрософт и рабочую учетную запись Office 365, пользователи ожидают, что эти учетные данные будут доступны во всех приложениях независимо от поставщика.
 
-In addition, if you leverage an identity platform that other applications may use such as Microsoft Accounts or a work account from Office365, customers expect that those credentials to be available to use across all their applications no matter the vendor. 
+Платформа удостоверений (Майкрософт), а также пакет SDK для этой платформы делают всю сложную работу за вас, предоставляя пользователям возможность единого входа либо во все используемые ими приложения, либо (с помощью брокера и приложений проверки подлинности) на всем устройстве.
 
-The Microsoft Identity platform, along with our Microsoft Identity SDKs, does all of this hard work for you and gives you the ability to delight your customers with SSO either within your own suite of applications or, as with our broker capability and Authenticator applications, across the entire device.
+В этом пошаговом руководстве описывается, как настроить пакет SDK в приложении, чтобы ваши пользователи смогли воспользоваться этими преимуществами.
 
-This walkthrough will tell you how to configure our SDK within your application to provide this benefit to your customers.
-
-This walkthrough applies to:
+Руководство применимо при работе с такими службами:
 
 * Azure Active Directory
 * Azure Active Directory B2C
 * Azure Active Directory B2B
-* Azure Active Directory Conditional Access
+* Условный доступ к Azure Active Directory
 
-Note that the document below assumes you have knowledge of how to [provision applications in the legacy portal for Azure Active Directory](active-directory-how-to-integrate.md) as well as have integrated your application with the [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
+Обратите внимание, что в документе ниже предполагается, что вы знаете о том, как [подготовить приложения на устаревшем портале для Azure Active Directory](active-directory-how-to-integrate.md), а также что вы интегрировали приложение с [пакетом Android SDK для Microsoft Identity](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
-## <a name="sso-concepts-in-the-microsoft-identity-platform"></a>SSO Concepts in the Microsoft Identity Platform
+## Понятия, описывающие возможности единого входа с помощью платформы Microsoft Identity
 
-### <a name="microsoft-identity-brokers"></a>Microsoft Identity Brokers
+### Брокеры Microsoft Identity
 
-Microsoft provides applications for every mobile platform that allow for the bridging of credentials across applications from different vendors as well as allows for special enhanced features that require a single secure place from where to validate credentials. We call these **brokers**. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages some or all of the device for their employee. These brokers support managing security just for some applications or the entire device based on what IT Administrators desire. In Windows this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker.
+Корпорация Майкрософт предоставляет приложения для всех мобильных платформ, которые позволяют привязывать учетные данные к приложениям от разных поставщиков, а также разрешают использовать специальные расширенные компоненты, требующие единого безопасного расположения для проверки учетных данных. Они называются **брокеры**. В iOS и Android брокеры доступны в скачиваемых приложениях. Эти приложения пользователи устанавливают самостоятельно, либо их может передавать на устройство сотрудника компания, частично или полностью управляющая такими устройствами. Брокеры поддерживают управление безопасностью только для некоторых приложений или для всего устройства в зависимости от требований ИТ-администраторов. В Windows этот компонент предоставляется средством выбора учетной записи, встроенным в операционную систему (его техническое название — брокер веб-проверки подлинности).
 
-To understand how we use these brokers and how your customers might see them in their login flow for the Microsoft Identity platform read on for more information.
+Чтобы узнать, как мы используем эти брокеры и как клиенты могут увидеть их в потоке входа с помощью платформы Microsoft Identity, ознакомьтесь с дополнительными сведениями.
 
-### <a name="patterns-for-logging-in-on-mobile-devices"></a>Patterns for logging in on mobile devices
+### Способы входа на мобильные устройства
 
-Access to credentials on devices follow two basic patterns for the Microsoft Identity platform: 
+Доступ к учетным данным на устройствах с поддержкой платформы Microsoft Identity осуществляется в рамках двух основных подходов:
 
-* Non-broker assisted logins
-* Broker assisted logins
+* вход без брокера;
+* вход с брокером.
 
-#### <a name="non-broker-assisted-logins"></a>Non-broker assisted logins
+#### Вход без брокера
 
-Non-broker assisted logins are login experiences that happen inline with the application and use the local storage on the device for that application. This storage may be shared across applications but the credentials are tightly bound to the app or suite of apps using that credential. This is the experience you've most likely experienced in many mobile applications where you enter a username and password within the application itself.
+Вход без брокера — это встроенная возможность входа в приложение с использованием локального хранилища на устройстве. Хотя доступ к этом хранилищу может осуществляться из других приложений, учетные данные строго привязаны к использующему их приложению или набору приложений. Такой подход вы, вероятно, использовали во многих мобильных приложениях, в которых имя пользователя и пароль вводятся непосредственно в приложении.
 
-These logins have the following benefits:
+Такой способ входа отличается следующими преимуществами:
 
--  User experience exists entirely within the application.
--  Credentials can be shared across applications that are signed by the same certificate, providing a single sign-on experience to your suite of applications. 
--  Control around the experience of logging in is provided to the application before and after sign-in.
+-  пользовательский интерфейс полностью реализован в приложении;
+-  учетные данные можно передавать в приложения, подписанные с использованием одного и того же сертификата, что создает возможность единого входа во все ваши приложения;
+-  управление процедурой входа в рамках приложения возможно как до, так и после входа.
 
-These logins have the following drawbacks:
+Такой способ входа имеет следующие недостатки:
 
-- User cannot experience single-sign on across all apps that use a Microsoft Identity, only across those Microsoft Identities that are your application owns and have configured.
-- Your application can not be used with more advanced business features such as Conditional Access or use the InTune suite of products.
-- Your application can't support certificate based authentication for business users.
+- пользователь не может выполнять единый вход во всех приложениях, в которых используется компонент Microsoft Identity. Единый вход доступен только в приложениях с собственными настроенными компонентами Microsoft Identity;
+- в приложении не удается использовать расширенные бизнес-функции и компоненты, включая условный доступ или набор продуктов InTune;
+- приложение не поддерживает проверку подлинности бизнес-пользователей на основе сертификатов.
 
-Here is a representation of how the Microsoft Identity SDKs work with the shared storage of your applications to enable SSO:
+Ниже показано, как с помощью пакетов SDK для Microsoft Identity можно включить единый вход, используя общее хранилище приложений.
 
 ```
 +------------+ +------------+  +-------------+
@@ -85,35 +84,35 @@ Here is a representation of how the Microsoft Identity SDKs work with the shared
 +--------------------------------------------+
 ```
 
-#### <a name="broker-assisted-logins"></a>Broker assisted logins
+#### Вход с брокером
 
-Broker-assisted logins are login experiences that occur within the broker application and use the storage and security of the broker to share credentials across all applications on the device that leverage the Microsoft Identity platform. This means that your applications will rely on the broker in order to sign users in. On iOS and Android these are provided through downloadable applications that customers either install independently or can be pushed to the device by a company who manages the device for their user. An example of this type of application is the Azure Authenticator application on iOS. In Windows this functionality is provided by an account chooser built in to the operating system, known technically as the Web Authentication Broker. The experience varies by platform and can sometimes be disruptive to users if not managed correctly. You're probably most familiar with this pattern if you have the Facebook application installed and use Facebook Login functionality in another application. The Microsoft Identity platform leverages the same pattern.
+Вход с брокером — это вход, выполняемый в приложении брокера с использованием хранилища и системы безопасности брокера для предоставления учетных данных всем приложениям на устройстве, которые используют платформу Microsoft Identity. Это означает, что ваши приложения используют брокер для входа пользователей в систему. В iOS и Android брокеры доступны в скачиваемых приложениях. Эти приложения пользователи устанавливают самостоятельно, либо их может передавать на устройство сотрудника компания, управляющая такими устройствами. Пример этого типа приложений — приложение Azure Authenticator в iOS. В Windows этот компонент предоставляется средством выбора учетной записи, встроенным в операционную систему (его техническое название — брокер веб-проверки подлинности). Этот способ входа зависит от платформы. При неправильном управлении он может мешать работе пользователей. Возможно, вы знакомы с этим способом входа, если у вас установлено приложение Facebook, с помощью которого вы входите в другие приложения. Платформа Microsoft Identity использует этот же принцип.
 
-For iOS this leads to a "transition" animation where your application is sent to the background while the Azure Authenticator applications comes to the foreground for the user to select which account they would like to sign in with.  
+В iOS это реализовано в виде анимированного "перехода", в рамках которого ваше приложение переходит на задний план, а приложения Azure Authenticator — на передний, что позволяет пользователю выбрать учетную запись для входа.
 
-For Android and Windows the account chooser is displayed on top of your application which is less disruptive to the user.
+В Android и Windows для удобства пользователя средство выбора учетной записи отображается поверх приложения.
 
-#### <a name="how-the-broker-gets-invoked"></a>How the broker gets invoked
+#### Способы вызова брокера
 
-If a compatible broker is installed on the device, like the Azure Authenticator application, the Microsoft Identity SDKs will automatically do the work of invoking the broker for you when a user indicates they wish to log in using any account from the Microsoft Identity platform. This could be an a personal Microsoft Account, a work or school account, or an account that you provide and host in Azure using our B2C and B2B products. By using extremely secure algorithms and encryption we ensure that the credentials are asked for and delivered back to your application in a secure manner. The exact technical detail of these mechanisms is not published but have been developed with collaboration by Apple and Google.
+После установки на устройство совместимого брокера (например, приложения Azure Authenticator) пакеты SDK для Microsoft Identity автоматически вызывают его, когда пользователь хочет войти с помощью любой учетной записи платформы Microsoft Identity. Это может быть персональная учетная запись Майкрософт, рабочая или учебная учетная запись либо учетная запись, предоставленная и размещенная в Azure с использованием продуктов B2C и B2B. Сверхнадежные алгоритмы защиты и шифрование гарантируют безопасность во время запрашивания учетных данных и их доставки вашему приложению. Точные технические сведения об этих механизмах не публикуются, но в их разработке участвовали компании Apple и Google.
 
-**The developer has the choice of if the Microsoft Identity SDK calls the broker or uses the non-broker assisted flow.** However if the developer chooses not to use the broker-assisted flow they lose the benefit of leveraging SSO credentials that the user may have already added on the device as well as prevents their application from being used with business features Microsoft provides its customers such as Conditional Access, Intune Management capabilities, and certificate based authentication. 
+**Разработчик может выбрать, будет ли SDK Microsoft Identity вызывать брокера или использовать поток без помощи брокера.** Если разработчик решит не использовать поток с брокером, он не сможет предоставить пользователям преимущества единого входа с помощью учетных данных, уже добавленных на устройство. Кроме того, он не сможет включить в приложение такие бизнес-функции Майкрософт, как условный доступ, возможности управления InTune и проверка подлинности на основе сертификатов.
 
-These logins have the following benefits:
+Такой способ входа отличается следующими преимуществами:
 
--  User experiences SSO across all their applications no matter the vendor.
--  Your application can leverage more advanced business features such as Conditional Access or use the InTune suite of products.
--  Your application can support certificate based authentication for business users.
-- Much more secure sign-in experience as the identity of the application and the user are verified by the broker application with additional security algorithms and encryption.
+-  пользователь выполняет единый вход во всех приложениях независимо от поставщика;
+-  в приложении можно использовать расширенные бизнес-функции и компоненты, включая условный доступ или набор продуктов InTune;
+-  приложение может поддерживать проверку подлинности бизнес-пользователей на основе сертификатов;
+- более безопасная процедура входа — удостоверение приложения и пользователь проверяются приложением брокера с использованием шифрования и дополнительных алгоритмов безопасности.
 
-These logins have the following drawbacks:
+Такой способ входа имеет следующие недостатки:
 
-- In iOS the user is transitioned out of your application's experience while credentials are chosen.
-- Loss of the ability to manage the login experience for your customers within your application.
+- в iOS пользователь выходит из приложения во время выбора учетных данных;
+- невозможность управления процедурой входа пользователей в приложении.
 
 
 
-Here is a representation of how the Microsoft Identity SDKs work with the broker applications to enable SSO:
+Ниже показано, как с помощью пакетов SDK для Microsoft Identity можно включить единый вход, используя приложение брокера.
 
 ```
 +------------+ +------------+   +-------------+
@@ -140,42 +139,42 @@ Here is a representation of how the Microsoft Identity SDKs work with the broker
 
 ```
               
-Armed with this background information you should be able to better understand and implement SSO within your application using the Microsoft Identity platform and SDKs.
+Теперь, вооружившись базовыми сведениями, вы сможете лучше понимать возможности единого входа и эффективнее реализовывать их в своем приложении с помощью платформы Microsoft Identity и пакетов SDK.
 
 
-## <a name="enabling-cross-app-sso-using-adal"></a>Enabling cross-app SSO using ADAL
+## Включение единого входа для нескольких приложений с помощью ADAL
 
-Here we'll use the ADAL Android SDK to:
+Дальше мы воспользуемся пакетом SDK ADAL для Android, чтобы:
 
-- Turn on non-broker assisted SSO for your suite of apps
-- Turn on support for broker-assisted SSO
+- включить единый вход без помощи брокера для набора приложений;
+- включить поддержку единого входа с помощью брокера.
 
 
-### <a name="turning-on-sso-for-non-broker-assisted-sso"></a>Turning on SSO for non-broker assisted SSO
+### Включение единого входа без брокера
 
-For non-broker assisted SSO across applications the Microsoft Identity SDKs manage much of the complexity of SSO for you. This includes finding the right user in the cache and maintaining a list of logged in users for you to query. 
+Когда для приложений включен единый вход без брокера, большей частью связанных с этой функцией процессов управляют пакеты SDK для Microsoft Identity. Сюда входит поиск нужного пользователя в кэше, а также хранение списка вошедших пользователей для выполнения запросов.
 
-To enable SSO across applications you own you need to do the following:
+Включить единый вход для своих приложений можно так:
 
-1. Ensure all your applications user the same Client ID or Application ID. 
-* Ensure all your applications have the same SharedUserID set.
-* Ensure that all of your applications share the same signing certificate from the Google Play store so that you can share storage.
+1. Убедитесь, что все приложения используют один идентификатор клиента или приложения.
+* Убедитесь, что все приложения имеют один набор SharedUserID.
+* Убедитесь, что все приложения используют один самозаверяющий сертификат из магазина Google Play для общего доступа к хранилищу.
 
-#### <a name="step-1:-using-the-same-client-id-/-application-id-for-all-the-applications-in-your-suite-of-apps"></a>Step 1: Using the same Client ID / Application ID for all the applications in your suite of apps
+#### Шаг 1. Использование одного идентификатора клиента или приложения для всех приложений в наборе
 
-In order for the Microsoft Identity platform to know that it's allowed to share tokens across your applications, each of your applications will need to share the same Client ID or Application ID. This is the unique identifier that was provided to you when you registered your first application in the portal. 
+Чтобы платформа Microsoft Identity получила разрешение на использование в приложениях общих маркеров, всем этим приложениям нужно предоставить один и тот же идентификатор клиента или приложения. Это уникальный идентификатор, предоставленный вам при регистрации первого приложения на портале.
 
-You may be wondering how you will identify different apps to the Microsoft Identity service if it uses the same Application ID. The answer is with the **Redirect URIs**. Each application can have multiple Redirect URIs registered in the onboarding portal. Each app in your suite will have a different redirect URI. An example of how this looks is below:
+Возможно, вы еще не знаете, как службе Microsoft Identity различать разные приложения, ведь она использует только один идентификатор приложения. Все дело в **URI перенаправления**. Каждое приложение может иметь несколько кодов URI перенаправления, зарегистрированных на портале подключения. Каждое приложение в наборе получит уникальный код URI перенаправления. Вот как это выглядит:
 
-App1 Redirect URI: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
+URI перенаправления App1: `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
-App2 Redirect URI: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
+URI перенаправления App2: `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
 
-App3 Redirect URI: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
+URI перенаправления App3: `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
 
 ....
 
-These are nested under the same client ID / application ID and looked up based on the redirect URI you return to us in your SDK configuration. 
+Эти элементы вложены в один и тот же идентификатор клиента или приложения. Найти их можно по коду URI перенаправления, возвращаемого нам в конфигурации пакета SDK.
 
 ```
 +-------------------+
@@ -201,57 +200,57 @@ These are nested under the same client ID / application ID and looked up based o
 ```
 
 
-*Note that the format of these Redirect URIs are explained below. You may use any Redirect URI unless you wish to support the broker, in which case they must look something like the above*
+*Обратите внимание, что формат URI перенаправления представлен ниже. Вы можете использовать любой код URI перенаправления, если не хотите использовать брокер. В таком случае он будет выглядеть как показано выше.*
 
 
-#### <a name="step-2:-configuring-shared-storage-in-android"></a>Step 2: Configuring shared storage in Android
+#### Шаг 2. Настройка общего хранилища в Android
 
-Setting the `SharedUserID` is beyond the scope of this document but can be learned by reading the Google Android documentation on the [Manifest](http://developer.android.com/guide/topics/manifest/manifest-element.html). What is important is that you decide what you want your sharedUserID will be called and use that across all your applications. 
+Настройка идентификатора `SharedUserID` не описана в этом документе. См. соответствующие инструкции в документации по Google Android в разделе [Манифест](http://developer.android.com/guide/topics/manifest/manifest-element.html). Важно, что именно вы решаете, как следует назвать идентификатор sharedUserID, и используете его во всех ваших приложениях.
 
-Once you have the `SharedUserID` in all your applications you are ready to use SSO.
+После того как вы добавите идентификатор `SharedUserID` во все свои приложения, вы сможете использовать единый вход.
 
 > [AZURE.WARNING] 
-When you share a storage across your applications any application can delete users, or worse delete all the tokens across your application. This is particularly disastrous if you have applications that rely on the tokens to do background work. Sharing storage means that you must be very careful in any and all remove operations through the Microsoft Identity SDKs.
+Когда вы предоставите общий доступ к хранилищу всем своим приложениям, любое из них сможет удалить пользователей или, что еще хуже, все маркеры в приложении. Это может иметь катастрофические последствия, особенно если от маркеров зависит фоновая работа некоторых приложений. Общий доступ к хранилищу означает, что все операции удаления с помощью пакета SDK для Microsoft Identity теперь следует выполнять крайне осторожно.
 
-That's it! The Microsoft Identity SDK will now share credentials across all your applications. The user list will also be shared across application instances.
+Вот и все! Теперь пакет SDK для Microsoft Identity передаст учетные данные во все приложения. Кроме того, во все экземпляры приложений будет отправлен список пользователей.
 
-### <a name="turning-on-sso-for-broker-assisted-sso"></a>Turning on SSO for broker assisted SSO
+### Включение единого входа с брокером
 
-The ability for an application to use any broker that is installed on the device is **turned off by default**. In order to use your application with the broker you must do some additional configuration and add some code to your application.
+Возможность приложения использовать любой брокер, который установлен на устройстве, **по умолчанию отключена**. Чтобы пользоваться приложением с брокером, необходимо выполнить дополнительную настройку и добавить код в приложение.
 
-The steps to follow are:
+Вот как это сделать:
 
-1. Enable broker mode in your application code's call to the MS SDK
-2. Establish a new redirect URI and provide that to both the app and your app registration
-3. Setting up the correct permissions in the Android manifest
+1. Включите режим брокера в вызове пакета SDK MS, осуществляемом в коде приложения.
+2. Укажите новый код URI перенаправления для самого приложения и его регистрации.
+3. Настройте требуемые разрешения в манифесте Android.
 
 
-#### <a name="step-1:-enable-broker-mode-in-your-application"></a>Step 1: Enable broker mode in your application
-The ability for your application to use the broker is turned on when you create the "settings" or initial setup of your Authentication instance. You do this by setting your ApplicationSettings type in your code:
+#### Шаг 1. Включение режима брокера в приложении
+Возможность использовать в приложении брокер включается во время создания параметров или при первоначальной настройке экземпляра проверки подлинности. Это можно сделать, настроив тип ApplicationSettings в коде.
 
 ```
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
 
-#### <a name="step-2:-establish-a-new-redirect-uri-with-your-url-scheme"></a>Step 2: Establish a new redirect URI with your URL Scheme
+#### Шаг 2. Настройка нового кода URI перенаправления в схеме URL-адреса
 
-In order to ensure that we always return the credential tokens to the correct application, we need to make sure we call back to your application in a way that the Android operating system can verify. The Android operating system uses the hash of the certificate in the Google Play store. This cannot be spoofed by a rogue application. Therefore, we leverage this along with the URI of our broker application to ensure that the tokens are returned to the correct application. We require you to establish this unique redirect URI both in your application and set as a Redirect URI in our developer portal. 
+Вы можете обеспечить возврат маркеров учетных данных в нужное приложение. Для этого нужно убедиться, что способ выполнения обратного вызова к приложению доступен для проверки операционной системой Android. Операционная система Android использует хэш сертификата в магазине Google Play. Стороннее приложение не сможет подделать его. Следовательно, мы будем использовать его с кодом URI приложения брокера, обеспечивая тем самым возврат маркеров в нужное приложение. Вам нужно указать этот уникальный код URI перенаправления в приложении, а также выбрать его в качестве URI перенаправления на нашем портале разработчиков.
 
-Your redirect URI must be in the proper form of:
+Формат кода URI перенаправления должен быть таким:
 
 `msauth://packagename/Base64UrlencodedSignature`
 
-ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
+например: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-This Redirect URI needs to be specified in your app registration using the [Azure classic portal](https://manage.windowsazure.com/). For more information on Azure AD app registration, see [Integrating with Azure Active Directory](active-directory-how-to-integrate.md).
+Этот URI перенаправления должен быть указан при регистрации приложения на [классическом портале Azure](https://manage.windowsazure.com/). Дополнительные сведения о регистрации приложения Azure AD см. в статье [Интеграция с Azure Active Directory](active-directory-how-to-integrate.md).
 
 
-#### <a name="step-3:-set-up-the-correct-permissions-in-your-application"></a>Step 3: Set up the correct permissions in your application
+#### Шаг 3. Настройка требуемых разрешений в приложении
 
-Our broker application in Android uses the Accounts Manager feature of the Android OS to manage credentials across applications. In order to use the broker in Android your app manifest must have permissions to use AccountManager accounts. This is discussed in detail in the [Google documentation for Account Manager here] (http://developer.android.com/reference/android/accounts/AccountManager.html)
+В нашем приложении брокера в Android используется функция диспетчера учетных записей ОС Android для управления учетными данными в разных приложениях. Чтобы использовать брокер в приложении Android, ваш манифест приложения должен содержать разрешения на использование учетных записей AccountManager. Дополнительную информацию об этом см. [в документации Google по использованию диспетчера учетных записей](http://developer.android.com/reference/android/accounts/AccountManager.html).
 
-In particular, these permissions are:
+Речь идет о следующих разрешениях:
 
 ```
 GET_ACCOUNTS
@@ -259,21 +258,8 @@ USE_CREDENTIALS
 MANAGE_ACCOUNTS
 ```
 
-### <a name="you've-configured-sso!"></a>You've configured SSO!
+### Вы настроили единый вход!
 
-Now the Microsoft Identity SDK will automatically both share credentials across your applications and invoke the broker if it's present on their device.
+Теперь пакет SDK для Microsoft Identity будет автоматически предоставлять учетные данные для приложений и вызывать брокер, если таковой есть на устройстве.
 
-
-
-
-
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO4-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

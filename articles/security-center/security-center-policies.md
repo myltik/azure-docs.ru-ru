@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Set security policies in Azure Security Center | Microsoft Azure"
-   description="This document helps you to configure security policies in Azure Security Center."
+   pageTitle="Настройка политик безопасности в центре безопасности Azure | Microsoft Azure"
+   description="В этом документе вы ознакомились с процедурой настройки политик безопасности в Центре безопасности Azure."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,100 +16,95 @@
    ms.date="09/22/2016"
    ms.author="yurid"/>
 
+# Настройка политик безопасности в центре безопасности Azure
+В этом пошаговом руководстве описывается, как настроить политики безопасности в центре безопасности.
 
-# <a name="set-security-policies-in-azure-security-center"></a>Set security policies in Azure Security Center
-This document helps you to configure security policies in Security Center by guiding you through the necessary steps to perform this task.
+## Что такое политики безопасности?
+Политика безопасности определяет набор элементов управления, которые рекомендуются для ресурсов в указанной подписке или группе ресурсов. В центре безопасности можно настраивать политики для подписок или групп ресурсов Azure в соответствии с потребностями безопасности вашей компании, типом приложений и конфиденциальностью данных в каждой подписке.
 
-## <a name="what-are-security-policies?"></a>What are security policies?
-A security policy defines the set of controls, which are recommended for resources within the specified subscription or resource group. In Security Center, you define policies for your Azure subscriptions or resource group according to your company security needs and the type of applications or sensitivity of the data in each subscription.
+Например, требования к безопасности ресурсов, используемых при разработке и тестировании, могут отличаться от требований, выдвигаемых к рабочим приложениям. Аналогично приложения с контролируемыми данными, такими как персональные данные, могут требовать более высокого уровня безопасности. Политики безопасности, включенные в центре безопасности Azure, обеспечивают рекомендации по безопасности и мониторинг, позволяя выявлять потенциальные уязвимости и бороться с угрозами. Дополнительные сведения об определении наиболее подходящего для вас варианта см. в статье [Руководство по планированию использования центра безопасности Azure и работе в нем](security-center-planning-and-operations-guide.md).
 
-For example, resources that are used for development or test might have different security requirements from resources that are used for production applications. Likewise, applications that use regulated data like personally identifiable information might require a higher level of security. Security policies that are enabled in Azure Security Center drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats. Read [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) for more information about how to determine the option that is appropriate for you.
+## Настройка политик безопасности для подписок
 
-## <a name="set-security-policies-for-subscriptions"></a>Set security policies for subscriptions
+Политики безопасности можно настроить для каждой подписки или группы ресурсов. Изменить политику безопасности может пользователь с правами владельца или участника этой подписки. Чтобы настроить политики безопасности в центре безопасности, войдите на портал Azure и сделайте следующее:
 
-You can configure security policies for each subscription or resource group. To modify a security policy, you must be an owner or contributor of that subscription. Sign in to the Azure portal and follow the succeeding steps to configure security polices in Security Center:
+1. Щелкните плитку **Политика** на панели мониторинга в центре безопасности.
 
-1. Click the **Policy** tile in the Security Center dashboard.
+2. В открывшейся колонке **Политика безопасности — Определить политику для подписки или группы ресурсов** выберите подписку, для которой требуется включить политику безопасности. Если политику безопасности требуется включить для группы ресурсов, а не для всей подписки, перейдите к следующему разделу, в котором рассказывается о настройке политик безопасности для групп ресурсов.
 
-2. In the **Security Policy - Define policy per subscription or resource group** blade that opens, select the subscription on which you want to enable the security policy. If you prefer to enable the security policy for a resource group instead of the entire subscription, scroll down to the next section that talks about how to set up security policies for resource groups.
+    ![Определение политики](./media/security-center-policies/security-center-policies-fig1-ga.png)
 
-    ![Defining policy](./media/security-center-policies/security-center-policies-fig1-ga.png)
+3. Для выбранной подписки откроется колонка **Политика безопасности** с набором параметров, как показано на следующем снимке экрана.
 
-3. The **Security policy** blade for the selected subscription opens with a set of options like the options in the following screenshot:
+    ![Включение сбора данных](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
-    ![Enabling data collection](./media/security-center-policies/security-center-policies-fig2-ga.png)
-
-    The available options in this blade are:
-    - **Prevention policy**: Use this option to configure policies per subscription or resource group.  
-    - **Email notification**: Use this option to configure an email notification that's sent on the first daily occurrence of an alert and for high severity alerts. Email preferences can be configured only for subscription policies. Read [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information about how to configure an email notification.
-    - **Pricing tier**: Use this option to upgrade the pricing tier selection. See [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing options.
+	В этой колонке доступны следующие параметры:
+	- **Политика предотвращения** — этот параметр позволяет настроить политики для каждой подписки или группы ресурсов.
+	- **Уведомление по электронной почте** — используйте этот параметр, чтобы настроить отправку уведомлений для первых за день оповещений и для оповещений с высоким уровнем серьезности. Параметры электронной почты можно настроить только для политик подписки. Дополнительные сведения о настройке получения уведомлений по электронной почте см. в статье [Предоставление сведений о контактных лицах по вопросам безопасности в центре безопасности Azure](security-center-provide-security-contact-details.md).
+	- **Ценовая категория** — используйте этот параметр для обновления ценовой категории. Дополнительные сведения о вариантах оплаты см. на странице [центра безопасности](https://azure.microsoft.com/pricing/details/security-center/).
 
 
-4.  Make sure that **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources.
+4.  Убедитесь, что для параметра **Сбор данных с виртуальных машин** задано значение **Вкл.**. Этот параметр включает автоматический сбор данных журнала для существующих и новых ресурсов.
 
-    >[AZURE.NOTE] We recommend that you turn on data collection for each of your subscriptions to ensure that security monitoring is available for all existing and new VMs. Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the **Health** and **Recommendations** views. You can also enable data collection for only the subscription or for select VMs. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs.
+    >[AZURE.NOTE] Мы советуем вам настроить сбор данных для каждой подписки, чтобы включить мониторинг безопасности для всех имеющихся и новых виртуальных машин. Включение сбора данных приводит к установке агента мониторинга. Если вы не хотите включать сбор данных прямо сейчас из этого расположения, это можно сделать позже из представлений **работоспособности** и **рекомендаций**. Сбор данных также можно включить только для подписки или только для выбранных виртуальных машин. Дополнительные сведения о поддерживаемых виртуальных машинах см. в разделе [Часто задаваемые вопросы о Центре безопасности Azure](security-center-faq.md).
 
-5. If your storage account is not configured yet, you might see a warning like the one in the following screenshot when you open **Security Policy**:
+5. Если учетная запись хранения еще не настроена, при открытии **политики безопасности** появится примерно такое сообщение, как показано на следующем снимке экрана.
 
-    ![Storage selection](./media/security-center-policies/security-center-policies-fig2.png)
+    ![Выбор хранилища](./media/security-center-policies/security-center-policies-fig2.png)
 
-6. If you see this warning, click this option and select the region as shown in the following screenshot:
+6. Если вы увидите такое предупреждение, щелкните его и выберите регион, как показано на следующем снимке экрана.
 
-    ![Storage selection](./media/security-center-policies/security-center-policies-fig3-ga.png)
+    ![Выбор хранилища](./media/security-center-policies/security-center-policies-fig3-ga.png)
 
-7. For each region in which you have running virtual machines, choose the storage account where data that's collected from those virtual machines is stored. This makes it easy to keep data in the same geographic area for privacy and data sovereignty purposes. After you decide the region that you will use, select the region, and then select the storage account.
+7. Для каждого региона, в котором расположены ваши виртуальные машины, выберите учетную запись хранения, где хранятся данные, собираемые с этих виртуальных машин. Это позволяет хранить данные в одной географической области, чтобы обеспечить их конфиденциальность и независимость. Выберите нужный регион, а затем учетную запись хранения.
 
-8. In the **Choose storage accounts** blade, click **OK**.
+8. В колонке **Выберите учетные записи хранения** нажмите кнопку **ОК**.
 
-    > [AZURE.NOTE] If you prefer, you can aggregate data in one central storage account for virtual machines that are in various regions. Refer to the [Azure Security Center FAQ](security-center-faq.md) for more information.
+    > [AZURE.NOTE] При желании можно объединить данные из виртуальных машин в разных регионах в рамках одной центральной учетной записи хранения. Дополнительные сведения см. в статье [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md).
 
-9. In the **Security Policy** blade, click **On** to enable the security recommendations that you want to use on this subscription. Click **Prevention policy** to see options like those in the following screenshot:
+9. В колонке **Политика безопасности** щелкните **Вкл.**, чтобы включить для этой подписки необходимые рекомендации по безопасности. Щелкните **Политика предотвращения**, чтобы открыть окно с параметрами, как показано на следующем снимке экрана.
 
-    ![Selecting the security policies](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
+	![Выбор политик безопасности](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
-Use the following table as a reference to understand each option:
+В следующей таблице содержатся справочные сведения о различных параметрах.
 
-| Policy | When state is on |
+| Политика | Если включена |
 |----- |-----|
-| System updates | Retrieves a daily list of available security and critical updates from Windows Update or Windows Server Update Services. The retrieved list depends on the service that's configured for that virtual machine and recommends that the missing updates be applied. For Linux systems, the policy uses the distro-provided package management system to determine packages that have available updates. It also checks for security and critical updates from [Azure Cloud Services](./cloud-services/cloud-services-how-to-configure.md) virtual machines. |
-| OS vulnerabilities | Analyzes operating system configurations daily to determine issues that could make the virtual machine vulnerable to attack. The policy also recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information about the specific configurations that are being monitored. |
-| Endpoint protection | Recommends endpoint protection to be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software.|
-| Disk encryption | Recommends enabling disk encryption in all virtual machines to enhance data protection at rest.
-| Network security groups | Recommends that [network security groups](../virtual-network/virtual-networks-nsg.md) be configured to control inbound and outbound traffic to VMs that have public endpoints. Network security groups that are configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that a network security group has been configured, this policy assesses inbound security rules to identify rules that allow incoming traffic. |
-| Web application firewall | Recommends that a web application firewall be provisioned on virtual machines when either of the following is true:</br></br>[Instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the inbound security rules for the associated network security group are configured to allow access to port 80/443.</br></br>Load-balanced IP is used and the associated load balancing and inbound network address translation (NAT) rules are configured to allow access to port 80/443. (For more information, see [Azure Resource Manager support for Load Balancer](../load-balancer/load-balancer-arm.md). |
-| Next generation firewall | Extends network protections beyond network security groups, which are built into Azure. Security Center will discover deployments for which a next generation firewall is recommended and enable you to provision a virtual appliance. |
-| SQL auditing & Threat detection | Recommends that auditing of access to Azure Database be enabled for compliance and also advanced threat detection, for investigation purposes. |
-| SQL transparent data encryption | Recommends that encryption at rest be enabled for your Azure SQL Database, associated backups, and transaction log files. Even if your data is breached, it will not be readable. |
-| Vulnerability assessment | Recommends that you install a vulnerability assessment solution on your VM. |
+| Обновление системы | Ежедневно получает список доступных критических обновлений и обновлений для системы безопасности из Центра обновления Windows или служб Windows Server Update Services. Полученный список зависит от настроенной для соответствующей виртуальной машины службы и рекомендаций по установлению отсутствующих обновлений. Эта политика определяет доступные для систем Linux пакеты обновлений с помощью предоставленной дистрибутивами системы управления пакетами. Кроме того, она проверяет наличие критических обновлений и обновлений системы безопасности на виртуальных машинах [облачных служб Azure](./cloud-services/cloud-services-how-to-configure.md). |
+| Уязвимости ОС | Ежедневно анализирует конфигурации операционной системы, чтобы определить проблемы, делающие виртуальную машину более уязвимой к атакам. Политика также рекомендует изменения конфигурации для устранения таких уязвимостей. Дополнительные сведения о конкретных отслеживаемых конфигурациях см. в [списке рекомендуемых базовых шаблонов](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). |
+| Защита конечных точек | Рекомендует подготовить решения для защиты конечных точек для всех виртуальных машин Windows, чтобы обнаруживать и удалять вирусы, программы-шпионы и другие вредоносные программы.|
+| Шифрование дисков | Рекомендует включить на всех виртуальных машинах шифрование дисков, чтобы усилить защиту хранящихся данных.
+| Группы безопасности сети | Рекомендует настроить [группы безопасности сети](../virtual-network/virtual-networks-nsg.md) для контроля входящего и исходящего трафика виртуальных машин с общедоступными конечными точками. Группы безопасности сети, настроенные для подсети, будут наследоваться всеми сетевыми интерфейсами виртуальных машин, если не указано иначе. В дополнение к проверке настройки группы безопасности сети эта политика получает доступ к входящим правилам безопасности, чтобы выявить правила, разрешающие входящий трафик. |
+| Брандмауэр веб-приложения | Рекомендует подготовить брандмауэр веб-приложения на виртуальных машинах, если выполнено одно из следующих требований.</br></br>Используется [общедоступный IP-адрес уровня экземпляра](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP), а в правилах безопасности для входящего трафика для связанной группы безопасности сети разрешен доступ к порту 80 или 443.</br></br>Используется IP-адрес с балансировкой нагрузки, а в связанных правилах балансировки нагрузки и преобразования сетевых адресов (NAT) для входящего трафика разрешен доступ к порту 80 или 443. Дополнительные сведения см. в статье [Поддержка Azure Resource Manager для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md). |
+| Брандмауэр следующего поколения | Расширяет защиту сети за пределы групп безопасности сети, встроенных в Azure. Центр обеспечения безопасности обнаруживает развертывания, для которых рекомендуется использовать брандмауэр следующего поколения, и позволяет подготовить виртуальное устройство. |
+| Аудит SQL и обнаружение угроз | Рекомендует включить аудит доступа к базам данных Azure для соответствия бизнес-требованиям и расширенное обнаружение угроз в целях контроля. |
+| Прозрачное шифрование данных SQL | Рекомендует включить шифрование в неактивном состоянии для баз данных SQL Azure, связанных резервных копий и файлов журналов транзакций. Это позволит защитить данные от считывания, даже если безопасность будет нарушена. |
+| Оценка уязвимостей | Рекомендует установить решение оценки уязвимости на виртуальную машину. |
 
-After you configure all options, click **OK** in the **Security Policy** blade that has the recommendations, and then click **Save** in the **Security Policy** blade that  has the initial settings.
+Завершив настройку всех параметров, нажмите кнопку **ОК** в колонке **Политика безопасности**, где содержатся рекомендации, и **Сохранить** в колонке **Политика безопасности** с начальными настройками.
 
-## <a name="set-security-policies-for-resource-groups"></a>Set security policies for resource groups
+## Настройка политик безопасности для групп ресурсов
 
-If you prefer to configure your security policies per resource group, the steps are like those that you use to set up security policies for subscriptions. The main difference is that you will need to expand the subscription name and select the resource group for which you want to configure the unique security policy:
+Действия для настройки политик безопасности для каждой группы ресурсов и политик безопасности для подписок аналогичны. Основное различие заключается в необходимости развернуть имя подписки и выбрать группу ресурсов, для которой необходимо настроить политику безопасности.
 
-![Resource group selection](./media/security-center-policies/security-center-policies-fig5-ga.png)
+![Выбор группы ресурсов](./media/security-center-policies/security-center-policies-fig5-ga.png)
 
-After you select the resource group, the **Security policy** blade opens. By default, the **Inheritance** option is enabled. This means that all security policies for this resource group are inherited from the subscription level. You can change this configuration in case you want a custom security policy for a resource group. If that's the case, you need to select **Unique** and make the changes under the **Prevention policy** option.
+После выбора группы ресурсов откроется колонка **Политика безопасности**. По умолчанию параметр **Наследование** включен. Это означает, что все политики безопасности для этой группы ресурсов наследуются от уровня подписки. Если нужно создать пользовательскую политику безопасности для группы ресурсов, эту конфигурацию можно изменить. Для этого необходимо выбрать параметр **Уникальная** и внести необходимые изменения в параметр **Политика предотвращения**.
 
-![Security policy per resource group](./media/security-center-policies/security-center-policies-fig6-ga.png)
+![Политика безопасности для каждой группы ресурсов](./media/security-center-policies/security-center-policies-fig6-ga.png)
 
-> [AZURE.NOTE] In case of a conflict between subscription-level policy and resource group-level policy, the resource group-level policy takes precedence.
-
-
-## <a name="see-also"></a>See also
-
-In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
-
-- [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). Learn how to plan and understand the design considerations to adopt Azure Security Center.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md). Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+> [AZURE.NOTE] В случае конфликта между политикой уровня подписки и политикой уровня группы ресурсов приоритет получает политика уровня группы ресурсов.
 
 
+## Дополнительные материалы
 
-<!--HONumber=Oct16_HO2-->
+В этом документе вы ознакомились с подробными сведениями о настройке политик безопасности в Центре безопасности Azure. Дополнительные сведения о Центре безопасности Azure см. в следующих статьях:
 
+- [Руководство по планированию использования центра безопасности Azure и работе в нем](security-center-planning-and-operations-guide.md). Узнайте, как спланировать работу в центре безопасности Azure, и получите рекомендации по переходу к его использованию.
+- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md). Узнайте, как отслеживать работоспособность ресурсов Azure.
+- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md). Узнайте, как управлять оповещениями системы безопасности и реагировать на них.
+- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md). Узнайте, как отслеживать работоспособность партнерских решений.
+- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Часто задаваемые вопросы об использовании этой службы.
+- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/). Записи блога, посвященные безопасности и соответствию требованиям в Azure.
 
+<!---HONumber=AcomDC_0928_2016-->

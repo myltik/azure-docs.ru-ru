@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Enabling Remote Access for Azure Deployments in Eclipse"
-    description="Learn how to enable remote access for Azure deployments using the Azure Toolkit for Eclipse."
+    pageTitle="Включение удаленного доступа для развертываний Azure в Eclipse"
+    description="Узнайте, как включить удаленный доступ для развертываний Azure с помощью набора средств Azure для Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,118 +16,117 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690951.aspx -->
 
-# <a name="enabling-remote-access-for-azure-deployments-in-eclipse"></a>Enabling Remote Access for Azure Deployments in Eclipse
+# Включение удаленного доступа для развертываний Azure в Eclipse
 
-To help troubleshoot your deployments, you may enable and use Remote Access to connect to the virtual machine hosting your deployment. The Remote Access functionality relies on the Remote Desktop Protocol (RDP). You can configure Remote Access for your deployment after you have published it to Azure, or if you are using Eclipse with a Windows operating system, you can configure Remote Access before you publish to Azure. Note that you will need a remote desktop client that is compatible with your operating system in order to connect to your deployment's virtual machine in Azure.
+Чтобы упростить устранение неполадок в развертываниях, вы можете включить и использовать удаленный доступ для подключения к виртуальной машине, на которой размещается ваше развертывание. Функциональность удаленного доступа основана на протоколе удаленного рабочего стола (RDP). Вы можете настроить удаленный доступ для своего развертывания после его публикации в Azure, а при использовании Eclipse с операционной системой Windows вы можете настроить удаленный доступ перед публикацией в Azure. Обратите внимание, что для подключения к виртуальной машине вашего развертывания в Azure потребуется клиент удаленного рабочего стола, совместимый с используемой операционной системой.
 
-## <a name="how-to-enable-remote-access-before-you-deploy-to-azure"></a>How to enable Remote Access before you deploy to Azure
+## Включение удаленного доступа перед развертыванием в Azure
 
-> [AZURE.NOTE] To enable Remote Access before you deploy your application to Azure, you need to be running Eclipse on Windows.
+> [AZURE.NOTE] Чтобы включить удаленный доступ перед развертыванием приложения в Azure, необходимо использовать Eclipse в Windows.
 
-The following image shows the **Remote Access** properties dialog used to enable remote access.
+На следующем рисунке показано диалоговое окно свойств **Удаленный доступ**, используемое для включения удаленного доступа.
 
 ![][ic719494]
 
-There are two ways to display the **Remote Access** properties dialog:
+Диалоговое окно свойств **Удаленный доступ** можно отобразить двумя способами:
 
-* Click the **Advanced** link in the **Remote Access** section of the **Publish to Azure** dialog.
-* Open the **Properties** dialog of your Azure project.
+* Щелкните ссылку **Дополнительно** в разделе **Удаленный доступ** диалогового окна **Публикация в Azure**.
+* Откройте диалоговое окно **Свойства** своего проекта Azure.
 
-When you create a new Azure deployment project, the project will not have Remote Access enabled by default. However, you can easily enable remote access by specifying the user name and password in the **Publish to Azure** dialog. The Remote Access password is encrypted using X.509 certificates. If you do not use provide your own certificate, the encryption relies on a self-signed certificate shipped with the Azure Plugin for Eclipse. This self-signed certificate is in the **cert** folder of your Azure project, stored both as a public certificate file (SampleRemoteAccessPublic.cer) and as a Personal Information Exchange (PFX) certificate file (SampleRemoteAccessPrivate.pfx). The latter contains the private key for the certificate, and it has a default password, **Password1**. However, since this password is public knowledge, the default certificate should be used only for learning purposes, not for a production deployment. So other than for learning purposes, when you want to enabled remote sessions for your deployments, you should click the **Advanced** link in the **Publish to Azure** dialog to specify your own certificate. Note that you'll need to upload the PFX version of the certificate to your hosted service within the Azure Management Portal, so that Azure can decrypt the user password.
+При создании нового проекта развертывания Azure удаленный доступ в нем по умолчанию отключен. Однако вы можете легко включить его, указав имя пользователя и пароль в диалоговом окне **Публикация в Azure**. Пароль удаленного доступа шифруется с использованием сертификатов X.509. Если вы не предоставляете собственный сертификат, функция шифрования использует самозаверяющий сертификат, входящий в состав подключаемого модуля Azure для Eclipse. Этот самозаверяющий сертификат находится в папке **cert** проекта Azure и сохранен в виде файла общедоступного сертификата (SampleRemoteAccessPublic.cer), а также в виде файла сертификата обмена личной информацией (PFX) (SampleRemoteAccessPrivate.pfx). Последний содержит закрытый ключ для сертификата, а также по умолчанию использует пароль **Password1**. Однако поскольку данный пароль общеизвестен, сертификат по умолчанию можно использовать в образовательных целях, но не для развертывания в рабочей среде. Поэтому если вы хотите включить удаленные сеансы для своих развертываний в любых целях, кроме образовательных, следует щелкнуть ссылку **Дополнительно** в диалоговом окне **Публикация в Azure**, чтобы указать собственный сертификат. Обратите внимание, что вам потребуется отправить PFX-версию сертификата в размещенную службу на портале управления Azure, чтобы служба Azure смогла расшифровать пароль пользователя.
 
-The remainder of the tutorial shows you how to enable remote access for an Azure deployment project that was initially created with remote access disabled. For purposes of this tutorial, we'll create a new self-signed certificate, and its .pfx file will have a password of your choice. You also have the option of using a certificate issued by a certificate authority.
+В оставшейся части руководства показано, как включить удаленный доступ для проекта развертывания Azure, который изначально создавался с отключенным удаленным доступом. В данном руководстве мы создадим новый самозаверяющий сертификат, PFX-файл которого будет иметь выбранный вами пароль. Кроме того, вы можете использовать сертификат, выданный центром сертификации.
 
-## <a name="how-to-enable-remote-access-after-you-have-deployed-to-azure"></a>How to enable Remote Access after you have deployed to Azure
+## Включение удаленного доступа после развертывания в Azure
 
-To enable remote access after you have deployed to Azure, use the following steps:
+Чтобы включить удаленный доступ после развертывания в Azure, выполните следующие действия.
 
-1. Log into the Azure management portal using your Azure account
-1. In your list of **Cloud Services**, select your deployed cloud service
-1. In the cloud service web page, click the **Configure** link
-1. On the bottom of the configuration page, click the **Remote** link
-1. When the pop-up dialog box appears:
-    * Specify the Role you for which you want to enable remote access
-    * Click to select the **Enable Remote Desktop** checkbox
-    * Specify a user name and password you want to use for remote access
-    * Select the certificate to use
-1. Click **OK** 
+1. Выполните вход на портал управления, используя свою учетную запись Azure.
+1. В списке **Облачные службы** выберите развернутую облачную службу.
+1. На веб-странице облачной службы щелкните ссылку **Настроить**.
+1. В нижней части страницы конфигурации щелкните ссылку **Удаленный**.
+1. При отображении всплывающего диалогового окна:
+    * Укажите роль, для которой требуется разрешить удаленный доступ.
+    * Установите флажок **Включить удаленный рабочий стол**.
+    * Укажите имя пользователя и пароль, которые вы хотите использовать для удаленного доступа.
+    * Выберите используемый сертификат.
+1. Нажмите кнопку **ОК**.
 
-You will see a message stating that your configuration change is in progress, which may take a few minutes to complete. After the configuration change has completed, follow the steps in the **To log in remotely** section later in this article.
-    
-## <a name="how-to-enable-remote-access-in-your-package"></a>How to enable Remote Access in your package
+Появится сообщение о внесении изменений в конфигурацию, которое может занять несколько минут. После завершения изменения конфигурации выполните действия, описанные в разделе **Удаленный вход в систему** ниже.
+	
+## Включение удаленного доступа в пакете
 
-1. Within Eclipse's Project Explorer pane, right-click your Azure project and click **Properties**.
+1. В области обозревателя проектов Eclipse щелкните правой кнопкой мыши свой проект Azure и выберите пункт **Свойства**.
 
-1. In the **Properties** dialog, expand **Azure** in the left-hand pane and click **Remote Access**.
+1. В диалоговом окне **Свойства** разверните узел **Azure** на левой панели и щелкните **Удаленный доступ**.
 
-1. In the **Remote Access** dialog, ensure **Enable all roles to accept Remote Desktop Connections with these login credentials** is checked.
+1. В диалоговом окне **Удаленный доступ** убедитесь, что установлен флажок **Enable all roles to accept Remote Desktop Connections with these login credentials** (Разрешить всем ролям принимать подключения удаленного рабочего стола с этими учетными данными входа).
 
-1. Specify a user name for the Remote Desktop connection.
+1. Укажите имя пользователя для подключения удаленного рабочего стола.
 
-1. Specify and confirm the password for the user. The user name and password values set in this dialog will be used when you make a Remote Desktop connection. (Note that this is a separate password from your PFX password.)
+1. Укажите и подтвердите пароль для пользователя. Значения имени пользователя и пароля в этом диалоговом окне будут использоваться при установке подключения удаленного рабочего стола. (Обратите внимание, что этот пароль отличается от пароля PFX.)
 
-1. Specify the expiration date for the user account.
+1. Укажите дату истечения срока действия для учетной записи пользователя.
 
-1. Click **New** to create a new self-signed certificate. (Alternatively, you could select a certificate from your workspace or file system through the **Workspace** or **FileSystem** buttons, respectively, but for purposes of this tutorial we'll create a new certificate.)
+1. Щелкните элемент **Создать** для создания нового самозаверяющего сертификата. (Кроме того, вы можете выбрать сертификат из рабочей области или файловой системы с помощью кнопки **Рабочая область** или **Файловая система** соответственно, но в данном руководстве мы создадим новый сертификат.)
 
-    * In the **New Certificate** dialog, specify and confirm the password you'll use for your PFX file.
+    * В диалоговом окне **Новый сертификат** укажите и подтвердите пароль, который будет использоваться для PFX-файла.
 
-    * Accept the value provided for **Name (CN)**, or use a custom name.
+    * Примите предложенное значение **Имя (общее)** или используйте пользовательское имя.
 
-    * Specify the path and file name where the new certificate, in .cer form, will be saved. For this step and the next step, you could use the **cert** folder of your Azure project, but you're free to choose another location. For purposes of this tutorial, we'll use **c:\mycert\mycert.cer**. (Create the **c:\mycert** folder prior to proceeding, or use an existing folder if desired.)
+    * Укажите путь и имя файла для сохранения нового сертификата в виде CER-файла. На этом и следующем шаге вы можете использовать папку **cert** проекта Azure, однако вы можете выбрать и другое расположение. В рамках данного руководства мы будем использовать **c:\\mycert\\mycert.cer**. (Создайте папку **c:\\mycert** перед продолжением или используйте существующую папку.)
 
-    * Specify the path and file name where the new certificate and its private key, in .pfx form, will be saved. For purposes of this tutorial, we'll use **c:\mycert\mycert.pfx**. Your **New Certificate** dialog should look similar to the following (update the folder paths if you did not use **c:\mycert**):
+    * Укажите путь и имя файла для сохранения нового сертификата и его закрытого ключа в виде PFX-файла. В рамках данного руководства мы будем использовать **c:\\mycert\\mycert.pfx**. Диалоговое окно **Новый сертификат** должно выглядеть следующим образом (обновите пути к папкам, если вы не использовали **c:\\mycert**):
 
         ![][ic712275]
 
-    * Click **OK** to close the **New Certificate** dialog.
+    * Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Новый сертификат**.
 
-1. Your **Remote Access** dialog should look similar to the following:</p>
+1. Диалоговое окно **Удаленный доступ** должно выглядеть так:</p>
 
     ![][ic719495]
 
-1. Click **OK** to close the **Remote Access** dialog.
-    
-Rebuild your application, with the build set for deployment to cloud.
+1. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Удаленный доступ**.
+	
+Перестройте свое приложение для развертывания в облаке.
 
-## <a name="to-log-in-remotely"></a>To log in remotely
+## Удаленный вход в систему
 
-Once your role instance is ready, you can remotely log in to the virtual machine that is hosting your application.
+Когда экземпляр роли готов, вы можете удаленно войти на виртуальную машину, где размещается ваше приложение.
 
-* If are using Eclipse on Windows and you selected the **Start remote desktop on deploy** option during your deployment to Azure, you will be presented with a Remote Desktop Connection logon screen when your deployment starts. When you are prompted for the user name and password, enter the values that you specified for the remote user and will be able to log in.
+* Если вы используете Eclipse в Windows и вы выбрали параметр **Start remote desktop on deploy** (Запуск удаленного рабочего стола при развертывании) во время развертывания в Azure, отображается экран входа в подключение к удаленному рабочему столу при запуске развертывания. При появлении запроса на ввод имени пользователя и пароля введите значения, указанные для удаленного пользователя, чтобы выполнить вход.
 
-* Another way to log in remotely is through the <a href="http://go.microsoft.com/fwlink/?LinkID=512959">Azure Management Portal</a>:
+* Другой способ удаленного вход заключается в использовании <a href="http://go.microsoft.com/fwlink/?LinkID=512959">портала управления Azure</a>:
 
-    * Within the **Cloud Services** view of the Azure Management portal, click your cloud service, click **Instances**, click a specific instance, and then click the **Connect** button. The **Connect** button appears as the following in the command bar:
+    * В представлении **Облачные службы** на портале управления Azure выберите облачную службу, щелкните элемент **Экземпляры**, выберите определенный экземпляр и нажмите кнопку **Подключить**. Кнопка **Подключить** на панели команд выглядит так:
 
         ![][ic659273]
 
-    * After clicking the **Connect** button, you will be prompted to open an RDP file. Open the file and follow the prompts. (You could also save this file to your local computer, and then run the file by double-clicking it to remote log in to your virtual machine without needing to first go the management portal.)
+    * После нажатия кнопки **Подключить** вам будет предложено открыть RDP-файл. Откройте файл и следуйте инструкциям на экране. (Кроме того, вы можете сохранить этот файл на локальном компьютере и затем дважды щелкнуть его для выполнения удаленного входа на виртуальную машину без перехода на портал управления.)
 
-    * When you are prompted for the user name and password, enter the values that you specified for the remote user and will be able to log in.
+    * При появлении запроса на ввод имени пользователя и пароля введите значения, указанные для удаленного пользователя, чтобы выполнить вход.
 
-> [AZURE.NOTE] If you are on a non-Windows operating system, you need to use a Remote Desktop client that is compatible with your operating system and follow the steps to configure that client with the settings in the RDP file that you downloaded.
+> [AZURE.NOTE] Если вы работаете с операционной системой, отличной от Windows, необходимо использовать клиент удаленного рабочего стола, совместимый с вашей операционной системой, настроив его с помощью параметров из скачанного RDP-файла в соответствии с приведенными ниже инструкциями.
 
-## <a name="see-also"></a>See Also
+## См. также
 
-[Azure Toolkit for Eclipse][]
+[Набор средств Azure для Eclipse][]
 
-[Creating a Hello World Application for Azure in Eclipse][]
+[Создание приложения Hello World для Azure в Eclipse][]
 
-[Installing the Azure Toolkit for Eclipse][] 
+[Установка набора средств Azure для Eclipse][]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center][].
+Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+[центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
 [Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
@@ -136,8 +135,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic719494]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic719494.png
 [ic659273]: ./media/azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments/ic659273.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

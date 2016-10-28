@@ -1,351 +1,339 @@
 <properties 
-    pageTitle="How to implement faceted navigation in Azure Search | Microsoft Azure | search navigation categories" 
-    description="Add Faceted navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure." 
-    services="search" 
-    documentationCenter="" 
-    authors="HeidiSteen" 
-    manager="mblythe" 
-    editor=""/>
+	pageTitle="Как реализовать фасетную навигацию в Поиске Azure | Microsoft Azure | Категории навигации поиска" 
+	description="Добавьте фасетную навигацию в приложения, которые интегрируются с Поиском Azure, размещенной облачной службой поиска в Microsoft Azure." 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
 <tags 
-    ms.service="search" 
-    ms.devlang="rest-api" 
-    ms.workload="search" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.date="08/08/2016" 
-    ms.author="heidist"/>
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="08/08/2016" 
+	ms.author="heidist"/>
 
+#Как реализовать фасетную навигацию в службе поиска Azure
 
-#<a name="how-to-implement-faceted-navigation-in-azure-search"></a>How to implement faceted navigation in Azure Search
+Фасетная навигация представляет собой механизм фильтрации, обеспечивающий самоуправляемую детализированную навигацию в приложениях поиска. Хотя термин "фасетная навигация" может быть неизвестен вам, можно утверждать, что вы ранее использовали этот механизм. Как показано в следующем примере, фасетная навигации — это не что иное, как категории, с помощью которых фильтруются результаты.
 
-Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. While the term ‘faceted navigation’ might be unfamiliar, it’s almost a given that you have used one before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
-
-## <a name="what-it-looks-like"></a>What it looks like
+## Принцип работы
 
  ![][1]
   
-Facets can help you find what you are looking for, while ensuring that you won’t get zero results. As a developer, facets let you expose the most useful search criteria for navigating your search corpus. In online retail applications, faceted navigation is often built over brands, departments (kid’s shoes), size, price, popularity, and ratings. 
+С помощью фасетов вы можете найти нужные данные. Вероятность нулевого результата сводится к нулю. Используя фасеты, разработчики могут определить наиболее полезные условия поиска для навигации в пределах совокупности искомых данных. В интерактивных приложениях для розничного торговли в фасетной навигации часто используются такие категории, как торговые марки, отделы (например, "Детская обувь"), размер, цена, популярность и оценки.
 
-Implementing faceted navigation differs across search technologies and can be very complex. In Azure Search, faceted navigation is built at query time, using attributed fields previously specified in your schema. In the queries that your application builds, a query must send *facet query parameters* in order to receive the available facet filter values for that document result set. To actually trim the document result set, the application must apply a `$filter` expression.
+Способ реализации фасетной навигации зависит от технологии поиска и может представлять из себя очень сложный процесс. В службе поиска Azure фасетная навигации реализуется при подаче запроса с использованием полей атрибутов, ранее указанных в схеме. Создаваемые приложением запросы должны включать *параметры запроса фасета*, чтобы обеспечить получение доступных значений фильтра фасетов для получаемого в результате набора документов. Чтобы усечь результирующий набор документов, приложение должно применить выражение `$filter`.
 
-In terms of application development, writing code that constructs queries constitutes the bulk of the work. Many of the application behaviors that you would want from faceted navigation is provided by the service, including built-in support for setting up ranges and getting counts for facet results. The service also includes sensible defaults that help you avoid unwieldy navigation structures. 
+С точки зрения разработки приложений основная задача — написать код, который создает запросы. Часто фасетная навигация реализуется в приложениях с помощью службы, которая среди прочего обеспечивает встроенную поддержку настройки диапазонов и получение количества результатов, полученных с использованием фасета. Кроме того, служба включает понятные значения по умолчанию, которые помогают упростить структуру навигации.
 
-This article contains the following sections:
+Эта статья состоит из следующих разделов.
 
-- [How to build it](#howtobuildit)
-- [Build the presentation layer](#presentationlayer)
-- [Build the index](#buildindex)
-- [Check for data quality](#checkdata)
-- [Build the query](#buildquery)
-- [Tips on how to control faceted navigation](#tips)
-- [Faceted navigation based on range values](#rangefacets)
-- [Faceted navigation based on GeoPoints](#geofacets)
-- [Try it out](#tryitout)
+- [Построение запроса](#howtobuildit)
+- [Создание уровня представления данных](#presentationlayer)
+- [Создание индекса](#buildindex)
+- [Проверка качества данных](#checkdata)
+- [Создание запроса](#buildquery)
+- [Советы по управлению фасетной навигацией](#tips)
+- [Фасетная навигация на основе диапазона значений](#rangefacets)
+- [Фасетная навигация на основе геоточек](#geofacets)
+- [Попробуйте сейчас](#tryitout)
 
-##<a name="why-use-it"></a>Why use it
-The most effective search applications have multiple interaction models besides a Search box. Faceted navigation is an alternative entry point to search, offering a convenient alternative to typing complex search expressions by hand.
+##Преимущества
+Наиболее эффективные приложения поиска поддерживают несколько моделей взаимодействия, помимо поля поиска. Фасетная навигации — альтернативная точка входа в поиск, которую можно использовать вместо того, чтобы вручную вводить сложные выражения поиска.
 
-##<a name="know-the-fundamentals"></a>Know the fundamentals
+##Принципы работы
 
-If you are new to search development, the best way to think of faceted navigation is that it shows the possibilities for self-directed search. It’s a type of drill-down search experience, based on predefined filters, used for quickly narrowing down search results through point-and-click actions. 
+Если вы ранее не разрабатывали средства поиска, представьте, что фасетная навигация обеспечивает возможности самоуправляемого поиска. Это тип детализированного поиска на основе предопределенных фильтров, который позволяет быстро сузить результаты поиска с помощью интерактивных действий.
 
-**Interaction Model**
+**Модель взаимодействия**
 
-The search experience for faceted navigation is iterative, so let’s start by understanding it as a sequence of queries that unfold in response to user actions.
+При фасетной навигации поиск является итеративным, поэтому его следует рассматривать как последовательность запросов, которые развертываются в ответ на действия пользователя.
 
-The starting point is an application page that provides faceted navigation, typically placed on the periphery. Faceted navigation is often a tree structure, with checkboxes for each value, or clickable text. 
+Начальная точка — страница приложения, которая обеспечивает фасетную навигацию (возможности которой, как правило, представлены на периферии). Часто фасетная навигации представляет из себя древовидную структуру с флажками для каждого значения или текстом, который можно щелкнуть.
 
-1.  A query sent to Azure Search specifies the faceted navigation structure via one or more facet query parameters. For instance, the query might include `facet=Rating`, perhaps with a `:values` or `:sort` option to further refine the presentation.
-2.  The presentation layer renders a search page that provides faceted navigation, using the facets specified on the request.
-3.  Given a faceted navigation structure that includes Rating, the user clicks "4" to indicate that only products with a rating of 4 or higher should be shown. 
-4.  In response, the application sends a query that includes `$filter=Rating ge 4` 
-5.  The presentation layer updates the page, showing a reduced result set, containing just those items that satisfy the new criteria (in this case, products rated 4 and up).
+1.	В запросе, отправляемом в службу поиска Azure, с помощью одного или нескольких параметров запроса фасета указывается структура фасетной навигации. Например, запрос может включать элемент `facet=Rating` с необязательным параметром `:values` или `:sort`, дополнительно уточняющим представление данных.
+2.	Уровень представления данных прорисовывает страницу поиска с возможностями фасетной навигации, используя указанные в запросе фасеты.
+3.	Если структура фасетной навигации включает оценку, чтобы отобразить исключительно продукты с оценкой 4 или выше, пользователю нужно щелкнуть "4".
+4.	В ответ приложение отправляет запрос, включающий `$filter=Rating ge 4`.
+5.	Уровень представления данных обновляет страницу, показывая сокращенный результирующий набор, который содержит только элементы, соответствующие новым условиям (в этом случае — продукты с оценкой 4 и выше).
 
-A facet is a query parameter, but do not confuse it with query input. It is never used as selection criteria in a query. Instead, think of facet query parameters as inputs to the navigation structure that comes back in the response. For each facet query parameter you provide, Azure Search will evaluate how many documents are in the partial results for each facet value.
+Фасет — это параметр запроса. Однако его не следует путать с входными данными запроса. Он никогда не используется в качестве критериев выбора в запросе. Вместо этого рассматривайте параметры запроса фасета как входные данные в структуре переходов, возвращаемой в ответе. Для каждого указанного вами параметра запроса фасета служба поиска Azure определяет, сколько документов содержат частичные результаты для каждого значения фасета.
 
-Notice the `$filter` in step 4. This is an important aspect of faceted navigation. Although facets and filters are independent in the API, you will need both to deliver the experience you intend. 
+Обратите внимание на выражение `$filter` в шаге 4. Это важный аспект фасетной навигации. Хоть фасеты и фильтры являются независимыми в интерфейсе API, для реализации нужных возможностей вам понадобятся и те, и другие.
 
-**Design Patterns**
+**Шаблоны проектирования**
 
-In application code, the pattern is to use facet query parameters to return the faceted navigation structure along with facet results, plus a $filter expression that handles the click event. Think of the `$filter` expression as the code behind the actual trimming of search results returned to the presentation layer. Given a Colors facet, clicking the color Red is implemented through a `$filter` expression that selects only those items that have a color of red. 
+В коде приложения шаблон состоит в использовании параметров запроса фасета для возврата структуры фасетной навигации вместе с результатами фасета, а также выражения $filter, которое обрабатывает событие, выполняемое щелчком. Представьте выражение `$filter` кодом, который обеспечивает фактическое усечение результатов поиска, возвращаемых на уровень представления данных. Предположим, что у нас есть фасет Colors (Цвета). Если щелкнуть цвет Red (Красный), с помощью выражения `$filter` будут выбраны элементы исключительно красного цвета.
 
-**Query Basics in Azure Search**
+**Основы запроса в службе поиска Azure**
 
-In Azure Search, a request is specified through one or more query parameters (see [Search Documents](http://msdn.microsoft.com/library/azure/dn798927.aspx) for a description of each one). None of the query parameters are required, but you must have at least one in order for a query to be valid.
+В службе поиска Azure запрос указывается с помощью одного или нескольких параметров запроса (описание каждого из них приведено в [статье, посвященной поиску документов](http://msdn.microsoft.com/library/azure/dn798927.aspx)). Ни один из параметров запроса не является обязательным, но при этом необходимо указать по крайней мере один параметр запроса.
 
-Precision, generally understood as the ability to filter out irrelevant hits, is achieved through one or both of these expressions:
+Точность, которая обычно рассматривается как возможность фильтровать ненужные совпадения, обеспечивается с помощью одного или обоих следующих выражений.
 
-- **search=**<br/>
-The value of this parameter constitutes the search expression. It might be a single piece of text, or a complex search expression that includes multiple terms and operators. On the server, a search expression is used for full-text search, querying searchable fields in the index for matching terms, returning results in rank order. If you set `search` to null, query execution is over the entire index (that is, `search=*`). In this case, other elements of the query, such as a `$filter` or scoring profile, will be the primary factors affecting which documents are returned `($filter`) and in what order (`scoringProfile` or `$orderb`y).
+- **search=**<br/> Значение этого параметра представляет из себя выражение поиска. Это может быть текстовый фрагмент или сложное выражение поиска, которое включает в себя несколько условий и операторов. На сервере выражение поиска используется для полнотекстового поиска. Оно запрашивает соответствующие условия в индексе в пределах полей, поддерживающих поиск, и возвращает результаты в порядке ранжирования. Если задать для выражения `search` значение NULL, запрос будет выполняться в пределах всего индекса (то есть `search=*`). В этом случае другие элементы запроса, такие как `$filter` или профиль оценки, будут основными факторами, определяющими возвращаемые документы (`($filter`) и порядок их возвращения (`scoringProfile` или `$orderb`y).
 
-- **$filter=**<br/>
-A filter is a powerful mechanism for limiting the size of search results based on the values of specific document attributes. A `$filter` is evaluated first, followed by faceting logic that generates the available values and corresponding counts for each value
+- **$filter =**<br/> Фильтр — это мощный механизм ограничения количества результатов поиск а на основе значений атрибутов конкретных документов. Сначала оценивается выражение `$filter`, после чего логика по фасетному принципу создает допустимые значения и определяет количественные показатели каждого из них.
 
-Complex search expressions will decrease the performance of the query. Where possible, utilize well-constructed filter expressions to increase precision and improve query performance.
+Сложные выражения поиска снижают производительность запроса. По возможности используйте правильно сформированные выражения фильтров, чтобы повысить точность и производительность запросов.
 
-To better understand how a filter adds more precision, compare a complex search expression to one that includes a filter expression:
+Чтобы лучше понять, как фильтр улучшает точность поиска, сравните сложное выражение поиска с выражением, которое включает в себя выражение фильтра.
 
 - `GET /indexes/hotel/docs?search=lodging budget +Seattle –motel +parking`
 
 - `GET /indexes/hotel/docs?search=lodging&$filter=City eq ‘Seattle’ and Parking and Type ne ‘motel’`
 
-Although both queries are valid, the second is superior if you’re looking for non-motels with parking in Seattle. The first query relies on those specific words being mentioned or not mentioned in string fields like Name, Description, and any other field containing searchable data. The second query looks for precise matches on structured data and is likely to be much more accurate.
+Несмотря на то, что оба запроса являются допустимыми, второй предпочтителен, если вы гостиницы, отличные от мотелей, с парковкой в Сиэтле. В первом запросе используются конкретные слова, которые упоминаются или не упоминаются в полях строк, таких как Name (Имя) или Description (Описание), и других полях с данными, поддерживающими поиск. Второй запрос выполняет поиск точных совпадений среди структурированных данных и, скорее всего, вернет гораздо более точные результаты.
 
-In applications that include faceted navigation, you will want to be sure that each user action over a faceted navigation structure is accompanied by a narrowing of search results, achieved through a filter expression.
+В приложениях, содержащих фасетную навигацию, необходимо убедиться, что все действия, который выполняет пользователь со структурой фасетной навигации, сопровождаются сужением результатов поиска с помощью выражения фильтра.
 
 <a name="howtobuildit"></a>
-##<a name="how-to-build-it"></a>How to build it
+##Создание запроса
 
-Faceted navigation in Azure Search is implemented in your application code that builds the request, but relies on predefined elements in your schema.
+Фасетная навигации в службе поиска Azure реализуется в коде приложения, создающем запрос, но зависит от предопределенных элементов схемы.
 
-Predefined in your search index is the `Facetable [true|false]` index attribute, set on selected fields to enable or disable their use in a faceted navigation structure. Without `"Facetable" = true`, a field cannot be used in facet navigation.
+В индексе поиска предопределяются такие элементы, как атрибут индекса `Facetable [true|false]`, который задается для выбранных полей, чтобы включить или отключить их использование в структуре фасетной навигации. Если поле не содержит атрибута `"Facetable" = true`, его невозможно использовать в фасетной навигации.
 
-At query time, your application code creates a request that includes `facet=[string]`, a request parameter that provides the field to facet by. A query can have multiple facets, such as `&facet=color&facet=category&facet=rating`, each one separated by an ampersand (&) character.
+Во время выполнения запроса код приложения создает запрос, который включает элемент `facet=[string]` — параметр запроса, указывающий поле для фасетной навигации. Запрос может содержать несколько фасетов, таких как `&facet=color&facet=category&facet=rating`, которые разделяются символов "амперсанд" (&).
 
-Application code must also construct a `$filter` expression to handle the click events in faceted navigation. A `$filter` reduces the search results, using the facet value as filter criteria.
+Кроме того, код приложения также должен создать выражение `$filter` для обработки событий, выполняемых при щелчке, во время фасетной навигации. Выражение `$filter` сокращает количество результатов поиска, используя значение фасета в качестве условия фильтра.
 
-Azure Search returns the search results, per the term(s) entered by the user, along with updates to the faceted navigation structure. In Azure Search, faceted navigation is a single-level construction, with facet values, and counts of how many results are found for each one.
+Служба поиска Azure возвращает результаты поиска на основе условий, которые ввел пользователь, обновляя при этом структуру фасетной навигации. В службе поиска Azure фасетная навигация представляет из себя одноуровневую структуру со значениями фасетов и количеством результаты, найденных для каждого из них.
 
-The presentation layer in your code provides the user experience. It should list the constituent parts of the faceted navigation, such as the label, values, check boxes, and the count. The Azure Search REST API is platform agnostic, so use whatever language and platform you want. The important thing is to include UI elements that support incremental refresh, with updated UI state as each additional facet is selected. 
+Уровень представления данных в коде обеспечивает взаимодействие с пользователем. Он должен содержать составные части фасетной навигации, например метку, значения, флажки и счетчик. Интерфейс API REST службы поиска Azure не зависит от платформы, поэтому вы можете использовать любой язык и платформу. Важно включить элементы пользовательского интерфейса, поддерживающие добавочное обновление. При этом состояние пользовательского интерфейса должно обновляться при выборе каждого дополнительного фасета.
 
-In the following sections, we’ll take a closer look at how to build each part, starting with the presentation layer.
+В следующих разделах мы более подробно рассмотрим, как создать каждую из составных частей запроса, начиная с уровня представления данных.
 
 <a name="presentationlayer"></a>
-##<a name="build-the-presentation-layer"></a>Build the presentation layer
+##Создание уровня представления данных
 
-Working back from the presentation layer can help you uncover requirements that might be missed otherwise, and understand which capabilities are essential to the search experience.
+Уровень представления данных позволяет определить требования, которые в противном случае могли бы быть упущены. Кроме того, вы узнаете, какие возможности являются ключевыми для выполнения поиска.
 
-In terms of faceted navigation, your web or application page displays the faceted navigation structure, detects user input on the page, and inserts the changed elements. 
+С точки зрения фасетной навигации ваша веб-страница или страница приложения отображает структуру фасетной навигации, обнаруживает данные, которые пользователь ввел на странице, и вставляет измененные элементы.
 
-For web applications, AJAX is commonly used in the presentation layer because it allows you to refresh incremental changes. You could also use ASP.NET MVC or any other visualization platform that can connect to an Azure Search service over HTTP. The sample application referenced throughout this article -- **AdventureWorks Catalog** – happens to be an ASP.NET MVC application.
+В веб-приложениях на уровне представления данных обычно используется технология AJAX, так как она позволяет обновлять добавочные изменения. Вы также можете использовать ASP.NET MVC или любую другую платформу визуализации, которая поддерживает подключение к службе поиска Azure по протоколу HTTP. Пример приложения, который приводится в этой статье (**AdventureWorks Catalog**), — это приложение ASP.NET MVC.
 
-The following example, taken from the **index.cshtml** file of the sample application, builds a dynamic HTML structure for displaying faceted navigation in your search results page. In the sample, faceted navigation is built into the search results page, and appears after the user has submitted a search term.
+В следующем примере, взятом из файла **index.cshtml** примера приложения, создается динамическая структура HTML для отображения фасетной навигации на странице результатов поиска. В этом примере фасетная навигации встроена в страницу результатов поиска и отображается после того, как пользователь отправит условие поиска.
 
-Notice that each facet has a label (Colors, Categories, Prices), a binding to a faceted field (color, categoryName, listPrice), and a `.count` parameter, used to return the number of items found for that facet result.
+Обратите внимание, что каждый фасет имеет метку, например Colors (Цвета), Categories (Категории) и Prices (Цены), привязку к полю фасета (color, categoryName, listPrice) и параметр `.count`, который возвращает данные о количестве элементов, найденных для соответствующего результата фасета.
 
   ![][2]
  
 
-> [AZURE.TIP] When designing the search results page, remember to add a mechanism for clearing facets. If you use check boxes, users can easily intuit how to clear the filters. For other layouts, you might need a breadcrumb pattern or another creative approach. For example, in the AdventureWorks Catalog sample application, you can click the title, AdventureWorks Catalog, to reset the search page.
+> [AZURE.TIP] При разработке страницы результатов поиска не забудьте включить механизм очистки фасетов. Если использовать флажки, пользователи интуитивно поймут, как очистить фильтры. Для других структур может понадобиться шаблон навигации или другой нестандартный элемент. Например, в примере приложения AdventureWorks Catalog можно щелкнуть название (AdventureWorks Catalog), чтобы сбросить настройки страницы поиска.
 
 <a name="buildindex"></a>
-##<a name="build-the-index"></a>Build the index
+##Создание индекса
 
-Faceting is enabled on a field-by-field basis in the index, via this index attribute: `"Facetable": true`.  
-All field types that could possibly be used in faceted navigation are `Facetable` by default. Such field types include `Edm.String`, `Edm.DateTimeOffset`, and all the numeric field types (essentially, all field types are facetable except `Edm.GeographyPoint`, which can’t be used in faceted navigation). 
+Поддержка фасетов включается для каждого поля в индексе по отдельности с помощью этого атрибута индекса: `"Facetable": true`.  
+Для всех типов полей, которые можно использовать в фасетной навигации, по умолчанию устанавливается значение `Facetable`. К таким типам полей относятся `Edm.String`, `Edm.DateTimeOffset` и все типы числовых полей (по сути, поддержкой фасетов отличаются все типы полей, за исключением `Edm.GeographyPoint`, который невозможно использовать в фасетной навигации).
 
-When building an index, a best practice for faceted navigation is to explicitly turn faceting off for fields that should never be used as a facet.  In particular, string fields for singleton values, such as an ID or product name, should be set to `"Facetable": false` to prevent their accidental (and ineffective) use in a faceted navigation.
+При создании индекса с помощью фасетной навигации рекомендуется явно отключить поддержку фасетов для полей, которые не должны использоваться в качестве фасетов. В частности, для полей строк одноэлементных значений, таких как идентификатор или название продукта, следует задать значение `"Facetable": false` во избежание их случайного (и неэффективного) использования при фасетной навигации.
 
-Following is the schema for the AdventureWorks Catalog sample app (trimmed of some attributes to reduce overall size):
+Ниже приведена схема для примера приложения AdventureWorks Catalog (некоторые атрибуты усечены, чтобы уменьшить общий размер).
 
  ![][3]
  
-Note that `Facetable` is turned off for string fields that shouldn’t be used as facets, such as an ID or name. Turning faceting off where you don’t need it helps keep the size of the index small, and generally improves performance.
+Обратите внимание, что атрибут `Facetable` отключен для полей строк, которые не должны использоваться в качестве фасетов (например, идентификатор или имя). Отключение поддержки фасетов в случаях, где она не нужна, обеспечивает небольшой размер индекса и обычно улучшает производительность.
 
-> [AZURE.TIP] As a best practice, include the full set of index attributes for each field. Although `Facetable` is on by default for almost all fields, purposely setting each attribute can help you think through the implications of each schema decision. 
+> [AZURE.TIP] Для каждого поля рекомендуется включить полный набор атрибутов индекса. Хотя атрибут `Facetable` по умолчанию активируется для практически всех полей, в случае намеренной установки каждого атрибута вы можете продумать, как применить каждое решение схемы.
 
 <a name="checkdata"></a>
-##<a name="check-for-data-quality"></a>Check for Data Quality 
+##Проверка качества данных 
 
-When developing any data-centric application, preparing the data is often one of the bigger parts of the job. Search applications are no exception. The quality of your data has a direct bearing on whether the faceted navigation structure materializes as you expect it to, as well as its effectiveness in helping you construct filters that reduce the result set.
+При разработке любого приложения для обработки данных одной из самых трудоемких задач часто является подготовка данных. Приложения поиска — не исключение. Качество данных напрямую влияет на должное функционирование и эффективность структуры фасетной навигации, помогая создавать фильтры, которые уменьшают размер результирующего набора.
 
-In Azure Search, the search corpus is formed from documents that populate an index. Documents provide the values that are used to compute facets. If you want to facet by Brand or Price, each document should contain values for *BrandName* and *ProductPrice* that are valid, consistent, and productive as a filter option.
+В службе поиск Azure совокупность искомых данных состоит из документов, которые заполняют индекс. Документы предоставляют значения, используемые для вычисления фасетов. Если вы хотите выполнять поиск по такому фасету, как Brand (Торговая марка) или Price (Цена), каждый документ должен содержать значения допустимых, согласованных и эффективных параметров фильтрации *BrandName* и *ProductPrice*.
 
-A few reminders of what to scrub for are listed below:
+Ниже перечислены несколько напоминаний о том, как повысить эффективность поиска.
 
-- For every field that you want to facet by, ask yourself whether it contains values that are suitable as filters in self-directed search. The values should be short, descriptive, and sufficiently distinctive to offer a clear choice between competing options.
-- Misspellings or nearly matching values. If you facet on Color, and field values include Orange and Ornage (a misspelling), a facet based on the Color field would pick up both.
-- Mixed case text can also wreak havoc in faceted navigation, with orange and Orange appearing as two different values. 
-- Single and plural versions of the same value can result in a separate facet for each.
+- Определите, содержит ли каждое из полей, используемых в качестве фасетов, значения, которые можно использовать как фильтры при самоуправляемом поиске. Значения должны быть краткими, описательными и в достаточной мере отличительными для разграничения различных параметров.
+- Опечатки или близкие значения. Если вы используете фасет Color (Цвет), а значения полей включают Orange (Оранжевый) и Ornage (опечатка), фасет, в основе которой лежит поле Color (Цвет), выберет оба значения.
+- Использование текста, написанного прописными и строчными буквами, также может негативно отразиться на фасетной навигации, так как элементы orange и Orange будут считаться двумя разными значениями.
+- Если одно значение указано в единственном и множественном числе, для каждой формы будет создан отдельный фасет.
 
-As you can imagine, diligence in preparing the data is an essential aspect of effective faceted navigation.
+Как вы видите, тщательная подготовка данных обеспечивает максимальную эффективность фасетной навигации.
 
 <a name="buildquery"></a>
-##<a name="build-the-query"></a>Build the query
+##Создание запроса
 
-The code that you write for building queries should specify all parts of a valid query, including search expressions, facets, filters, scoring profiles– anything used to formulate a request. In this section, we’ll explore where facets fit into a query, and how filters are used with facets to deliver a reduced result set.
+В коде, написанном для построения запросов, следует указать все компоненты допустимого запроса, включая выражения поиска, фасеты, фильтры и профили оценки, то есть все элементы, используемые для создания запроса. В этом разделе мы изучим роль фасетов в создании запроса и покажем, как использовать с ними фильтры для сокращения размера результирующего набора.
 
-An example is often a good place to begin. The following example, taken from the **CatalogSearch.cs** file, builds a request that creates facet navigation based on Color, Category, and Price. 
+Лучше всего начать с примера. В следующем примере, взятом из файла **CatalogSearch.cs**, создается запрос, используемый для фасетной навигации с использованием фасетов Color (Цвет), Category (Категория) и Price (Цена).
 
-Notice that facets are integral in this sample application. The search experience in AdventureWorks Catalog is designed around faceted navigation and filters. This is evident in the prominent placement of faceted navigation in the page. The sample application includes URI parameters for facets (color, category, prices) as properties on the Search method (as constructed in the sample application).
+Обратите внимание, что фасеты являются неотъемлемой частью этого примера приложения. При поиске в приложении AdventureWorks Catalog используются фасетная навигация и фильтры. Об этом свидетельствует место, которое занимают элементы фасетной навигации на странице. Пример приложения включает параметры универсального кода ресурса (URI) для фасетов (цвет, категория, цены) в качестве свойств метода поиска (согласно особенностям примера приложения).
 
   ![][4]
  
-A facet query parameter is set to a field and depending on the data type, can be further parameterized by comma-delimited list that includes `count:<integer>`, `sort:<>`, `intervals:<integer>`, and  `values:<list>`. A values list is supported for numeric data when setting up ranges. See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for usage details.
+Параметр запроса фасета задается для поля и (в зависимости от типа данных) может дополняться списком параметров, разделенных запятыми, таких как `count:<integer>`, `sort:<>`, `intervals:<integer>` и `values:<list>`. Список значений, создаваемый при настройке диапазонов, поддерживает числовые данные. Дополнительные сведения об использовании см. в [статье, посвященной поиску документов в интерфейсе API службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-Along with facets, the request formulated by your application should also build filters to narrow down the set of candidate documents based on a facet value selection. For a bike store, faceted navigation provides clues to questions like "What colors, manufacturers, and types of bikes are available", while filtering answers questions like "Which exact bikes are red, mountain bikes, in this price range".
+Создаваемый с помощью приложения запрос должен включать, помимо фасетов, также и соответствующие фильтры, которые позволяют сузить набор документов на основе выбранного значения фасета. Предположим, что вы ищете велосипед в специализированном магазине. С помощью фасетной навигации вы можете узнать о имеющихся в наличии велосипедах по цвету, производителю и типу. Используя фильтрацию, вы можете найти, к примеру, горные велосипеды красного цвета в указанном ценовом диапазоне.
 
-When a user clicks "Red" to indicate that only Red products should be shown, the next query the application sends would include `$filter=Color eq ‘Red’`.
+Если пользователь щелкнет Red, чтобы отобразить только велосипеды красного цвета, отправляемый приложением запрос будет включать фрагмент `$filter=Color eq ‘Red’`.
 
-## <a name="best-practices-for-faceted-navigation"></a>Best practices for faceted navigation
+## Советы и рекомендации по фасетной навигации
 
-The following list summarizes a few best practices.
+Ниже приведено несколько советов и рекомендаций.
 
-- **Precision**<br/>
-Use filters. If you rely on just search expressions alone, stemming could cause a document to be returned that doesn’t have the precise facet value in any of its fields. 
+- **Точность.**<br/> Используйте фильтры. Если вы полагаетесь исключительно на выражения поиска, выделение корней приведет к возврату документа, поля которого не будут содержать точных значений фасетов.
 
-- **Target fields**<br/>
-In faceted drill down, you typically want to only include documents that have the facet value in a specific (faceted) field, not anywhere across all searchable fields. Adding a filter reinforces the target field by directing the service to search only in the faceted field for a matching value.
+- **Целевые поля.**<br/> Как правило, при детализации с использованием фасетов требуется включать только документы, содержащие значение фасета в конкретном (фасетном) поле, а не во всех полях, которые поддерживают поиск. Если добавить фильтр, поиск соответствующего значения будет выполнен только в поле фасета.
 
-- **Index efficiency**<br/>
-If your application uses faceted navigation exclusively (that is, no search box), you can mark the field as `searchable=false`, `facetable=true` to produce a more compact index. In addition, indexing occurs only on whole facet values, with no word-break or indexing of the component parts of a multi-word value.
+- **Эффективное использование индекса.**<br/> Если в приложении используется исключительно фасетная навигации (без поля поиска), вы можете задать для поля атрибуты `searchable=false`, `facetable=true`, чтобы сократить размер индекса. Кроме того, индексируются только целые значения фасетов, а не фрагменты слов или компоненты многосложных значений.
 
-- **Performance**<br/>
-Filters narrow down the set of candidate documents for search and exclude them from ranking. If you have a large set of documents, using a very selective facet drill down will often give you significantly better performance.
+- **Производительности.**<br/> Фильтры позволяют сузить набор документов для поиска и исключить их из ранжирования. Если у вас имеется большой набор документов, фасетная детализация с использованием выбранных фасетов часто значительное повышает эффективность поиска.
 
 
-<a name="tips"></a> 
-##<a name="tips-on-how-to-control-faceted-navigation"></a>Tips on how to control faceted navigation
+<a name="tips"></a>
+##Советы по управлению фасетной навигацией
 
-Below is a tip sheet with guidance on specific issues.
+Ниже приведены советы и рекомендации по конкретным вопросам.
 
-**Add labels for each field in facet navigation**
+**Используя фасетную навигацию, добавляйте метки для всех полей.**
 
-Labels are typically defined in the HTML or form (**index.cshtml** in the sample application). There is no API in Azure Search for facet navigation labels or any other kind of metadata.
+Метки обычно определяются в HTML-файле или форме (**index.cshtml** в примере приложения). В службе поиска Azure не предусмотрен интерфейс API для работы с метками фасетной навигации или другими метаданными.
 
-**Define which fields can be used as facet**
+**Определите поля, которые можно использовать в качестве фасетов.**
 
-Recall that the schema of the index determines which fields are available to use as a facet. Assuming a field is facetable, the query specifies which fields to facet by. The field by which you are faceting provides the values that appear below the label. 
+Вспомним, что схема индекса определяет, какие поля можно использовать в качестве фасетов. Если поля поддерживают фасеты, в запросе указываются поля, по которым следует выполнять поиск с использованием фасетов. Поле, по которому выполняется поиск, предоставляет значения, которые отображаются под меткой.
 
-The values that appear under each label are retrieved from the index. For example, if the facet field is *Color*, the values available for additional filtering will be the values for that field (Red, Black, and so forth).
+Значения, которые отображаются под каждой меткой, извлекаются из индекса. Например, если используется поле фасета *Color* (Цвет), дополнительная фильтрация будет выполняться по доступным значениям этого поля, таким как Red (Красный), Black (Черный) и так далее.
 
-For Numeric and DateTime values only, you can explicitly set values on the facet field (for example, `facet=Rating,values:1|2|3|4|5`). A values list is allowed for these field types to simplify the separation of facet results into contiguous ranges (either ranges based on numeric values or time periods). 
+Для числовых значений, а также значений даты и времени можно явно задать значения поля фасета (например, `facet=Rating,values:1|2|3|4|5`). Поля этих типов поддерживают список значений, что позволяет упростить разделение целевых фасетов по смежным диапазонам (диапазонам на основе числовых значений или периодов времени).
 
-**Trim facet results**
+**Сокращайте количество результатов, получаемых при использовании фасета.**
 
-Facet results are documents found in the search results that match a facet term. In the following example, in search results for *cloud computing*, 254 items also have *internal specification* as a content type. Items are not necessarily mutually exclusive. If an item meets the criteria of both filters, it is counted in each one. This is possible when faceting on `Collection(Edm.String)` fields, which are often used to implement document tagging.
+Фасеты позволяют отобразить в результатах поиска документы, соответствующие определенному фасету. В следующем примере результаты поиска фразы *cloud computing* (облачные вычисления) включают 254 элемента с типом содержимого *internal specification* (внутренняя спецификация). Элементы не обязательно взаимно исключают друг друга. Если элемент соответствует условиям обоих фильтров, он учитывается в каждом из них. Это возможно при фасетном поиске в полях `Collection(Edm.String)`, которые часто используются для обозначения документов тегами.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+		Search term: "cloud computing"
+		Content type
+		   Internal specification (254)
+		   Video (10) 
 
-In general, if you find that facet results are persistently too large, we recommend that you add more filters, as explained in earlier sections, to give your application users more options for narrowing the search.
+Как правило, если вам кажется, что при использовании фасета вы получаете слишком много результатов, мы рекомендуем добавить фильтры, как описано в предыдущих разделах, чтобы пользователи приложения могли сузить область поиска.
 
-**Limit items in the facet navigation**
+**Ограничивайте число элементов, используемых при фасетной навигации.**
 
-For each faceted field in the navigation tree, there is a default limit of 10 values. This default makes sense for navigation structures because it keeps the values list to a manageable size. You can override the default by assigning a value to count.
+Для каждого поля фасета в дереве навигации по умолчанию можно задать не более 10 значений. Это упрощает структуру переходов, позволяя управлять списком значений. Вы можете переопределить это ограничение по умолчанию, указав соответствующее число.
 
-- `&facet=city,count:5` specifies that only the first 5 cities found in the top ranked results are returned as a facet result. Given a search term of “airport” and 32 matches, if the query specifies `&facet=city,count:5`, only the first five unique cities with the most documents in the search results are included in the facet results.
+- Параметр `&facet=city,count:5` указывает, что при применении фасета будут возвращены только первые 5 городов с наивысшим приоритетом. Предположим, вы задали условие поиска airport (аэропорт) и получили 32 совпадения. Если при этом включить в запрос параметр `&facet=city,count:5`, то в результаты поиска, полученные при использовании фасета, будут включены только первые пять уникальных городов с наибольшим количеством документов.
 
-Notice the distinction between facet results and search results. Search results are all the documents that match the query. Facet results are the matches for each facet value. In the example, search results will include City names that are not in the facet classification list (5 in our example). Results that are filtered out through faceted navigation become visible to the user when he or she clears facets, or chooses other facets besides City. 
+Обратите внимание на различие между результатами применения фасета и результатами поиска. Результаты поиска — это все документы, которые удовлетворяют условиям запроса. Результаты фасета — это совпадения для каждого значения фасета. В этом примере результаты поиска будут включать названия городов, которые не входят в список классификации фасета (в этом случае — 5). Результаты, которые фильтруются посредством фасетной навигации, отображаются пользователям, когда они удаляют фасеты или выбирают другие фасеты помимо City (Город).
 
-> [AZURE.NOTE] Discussing `count` when there is more than one type can be confusing. The following table offers a brief summary of how the term is used in Azure Search API, sample code, and documentation. 
+> [AZURE.NOTE] Если имеются фасеты несколько типов, параметр `count` может привести к отображению различных данных. В следующей таблице вкратце описывается, как этот параметр используется в интерфейсе API службы поиска Azure, примере кода и документации.
 
-- `@colorFacet.count`<br/>
-In presentation code, you should see a count parameter on the facet, used to display the number of facet results. In facet results, count indicates the number of documents that match on the facet term or range.
+- `@colorFacet.count`<br/> В коде представления данных фасет включает параметр количества, который используется для отображения числа результатов, полученных при использовании фасета. В результатах применения фасета параметр count указывает на число документов, соответствующих условию одного или диапазону нескольких фасетов.
 
-- `&facet=City,count:12`<br/>
-In a facet query, you can set count to a value.  The default is 10, but you can set it higher or lower. Setting `count:12` gets the top 12 matches in facet results by document count.
+- `&facet=City,count:12`<br/> В запросе фасета вы можете задать значение параметра count. Значение по умолчанию — 10, но его можно изменить. Если задать значение `count:12`, результаты применения фасета будут включать 12 лучших совпадений по числу документов.
 
-- "`@odata.count`"<br/>
-In the query response, this value indicates the number of matching items in the search results. On average, it’s larger than the sum of all facet results combined, due to the presence of items that match the search term, but have no facet value matches.
+- "`@odata.count`"<br/> В ответе на запрос это значение указывает количество совпадений в результатах поиска. В среднем оно превышает суммарное число результатов применения фасета из-за наличия элементов, которые соответствуют условию поиска, но при этом не совпадают со значениями фасета.
 
 
-**Levels in faceted navigation** 
+**Уровни фасетной навигации**
 
-As noted, there is no direct support for nesting facets in a hierarchy. Out of the box, faceted navigation only supports one level of filters. However, workarounds do exist. You can encode a hierarchical facet structure in a `Collection(Edm.String)` with one entry point per hierarchy. Implementing this workaround is beyond the scope of this article, but you can read about collections in [OData by Example](http://msdn.microsoft.com/library/ff478141.aspx). 
+Как уже упоминалось, фасеты невозможно непосредственно вкладывать в иерархию. По умолчанию фасетная навигация поддерживает только один уровень фильтров. Однако это ограничение можно обойти. Вы можете кодировать иерархическую структуру фасета в `Collection(Edm.String)` с одной точкой входа для одной иерархии. Обход этого ограничения выходит за рамки настоящей статьи, но дополнительные сведения о коллекциях приведены в [статье, посвященной примерам использования протокола OData](http://msdn.microsoft.com/library/ff478141.aspx).
 
-**Validate fields**
+**Проверка полей**
 
-If you build the list of facets dynamically based on untrusted user input, you should either validate that the names of the faceted fields are valid, or escape the names when building URLs using either `Uri.EscapeDataString()` in .NET, or the equivalent in your platform of choice.
+При динамическом создании списка фасетов на основе данных, введенных ненадежными пользователями, следует проверить допустимость имен полей фасетов или исключить имена при создании URL-адресов с помощью параметра `Uri.EscapeDataString()` в .NET или его эквивалента в другой платформе.
 
-**Counts in facet results**
+**Количество результатов применения фасета**
 
-When adding a filter to a faceted query, you might want to retain the facet statement (for example, `facet=Rating&$filter=Rating ge 4`). Technically, facet=Rating isn’t needed, but keeping it returns the counts of facet values for ratings 4 and higher. For example, if a user clicks "4" and the query includes a filter for greater or equal to "4", counts are returned for each rating that is 4 and up.  
+При добавлении фильтра в фасетный запрос вам может потребоваться сохранить инструкцию фасета (например, `facet=Rating&$filter=Rating ge 4`). С технической точки зрения элемент facet=Rating не требуется, но он позволяет возвратить количество значений фасетов для оценок, начиная с 4 и выше. Например, если пользователь щелкнет "4", а запрос включает фильтр для отображения оценок, начиная с "4", будут возвращены количественные показатели для каждой оценки от 4 и выше.
 
-**Sharding implications on facet counts**
+**Сегментирование количественных показателей фасета**
 
-Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Search (forum post)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
+В определенных ситуациях может оказаться, что количественные показатели фасетов не соответствуют результирующим наборам (см. [сообщение на форуме, посвященное фасетной навигации в службе поиска Azure](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
 
-Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each one reports the top N facets by document count, which is then combined into a single result. If some shards have a lot of matching values, while others have less, you may find that some facet values are missing or under-counted in the results.
+Такие неточности обусловлены особенностями архитектуры сегментирования. Каждый индекс поиска включает несколько сегментов, каждый из которых в свою очередь содержит сведения о числе наиболее соответствующих фасетов, которые затем объединяются в единый результат. Если некоторые сегменты включают много совпадающих значений, в то время как другие сегменты содержат меньше значений, некоторые значения фасетов могут отсутствовать или не учитываться в результатах.
 
-Although this behavior could change at any time, if you encounter this behavior today, you can work around it by artificially inflating the count:<number> to a very large number to enforce full reporting from each shard. If the value of count: is greater than or equal to the number of unique values in the field, you are guaranteed accurate results. However, when document counts are really high, there is a performance penalty, so used this option judiciously.
+Хотя такое поведение может измениться в любое время, при наличии подобных проблем их можно устранить, искусственно увеличив значение параметра count:<число> к очень большому числу, чтобы затребовать отображение всех данных с каждого сегмента. Если значение параметра count: больше или равно количеству уникальных значений в поле, вы гарантировано получите точные результаты. Однако если имеется очень много документов, производительность снижается, поэтому выполняйте эти действия рассудительно.
 
 <a name="rangefacets"></a>
-##<a name="facet-navigation-based-on-a-range-values"></a>Facet navigation based on a range values
+##Фасетная навигация на основе диапазона значений
 
-Faceting over ranges is a common search application requirement. Ranges are supported for numeric data and DateTime values. You can read more about each approach in [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+В приложениях поиска часто используется фасетная навигация на основе диапазонов значений. Поддерживаются диапазоны числовых данных, а также значений даты и времени. Каждый подход подробно описан в [статье, посвященной поиску документов с помощью интерфейса API службы поиска Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-Azure Search simplifies range construction by providing two approaches for computing a range. For both approaches, Azure Search creates the appropriate ranges given the inputs you’ve provided. For instance, if you specify range values of 10|20|30, it will automatically create ranges of 0 -10, 10-20, 20-30. The sample application removes any intervals that are empty. 
+Служба поиска Azure упрощает создание диапазонов, обеспечивая два способа их вычисления. В обоих способах служба поиска Azure создает соответствующие диапазоны с учетом данных, которые вы ввели. Например, если указать диапазон значений 10|20|30, будут автоматически созданы диапазоны 0–10, 10–20 и 20–30. В этом примере приложения удаляются все пустые интервалы.
 
-**Approach 1: Use the interval parameter**<br/>
-To set price facets in $10 increments, you would specify: `&facet=price,interval:10`
+**Способ 1: используйте параметр интервала.**<br/> Чтобы задать фасеты цены с шагом в 10 долларов США, введите следующие данные: `&facet=price,interval:10`
 
 
-**Approach 2: Use a values list**<br/>
-For numeric data, you can use a values list.  Consider the facet range for listPrice, rendered as follows:
+**Способ 2: используйте список значений.**<br/> Для числовых данных можно использовать список значений. Рассмотрим следующий диапазон значений фасета listPrice.
 
   ![][5]
 
-The range is specified in the **CatalogSearch.cs** file using a values list:
+Диапазон указан в файле **CatalogSearch.cs** с помощью следующего списка значений.
 
     facet=listPrice,values:10|25|100|500|1000|2500
 
-Each range is built using 0 as a starting point, a value from the list as an endpoint, and then trimmed of the previous range to create discrete intervals. Azure Search will do this as part of faceted navigation. You do not have to write code for structuring each interval.
+Каждый диапазон создается с использованием отправной точки 0 и конечной точки, равной значению из списка. Затем из всего диапазона удаляется предыдущий диапазон, что позволяет создавать дискретные интервалы. Служба поиска Azure выполняет эти действия в рамках фасетной навигации. Для создания каждого интервала не нужно писать код.
 
-### <a name="build-a-filter-for-facet-ranges"></a>Build a filter for facet ranges ###
+### Создание фильтра для диапазонов значений фасета ###
 
-To filter documents based on a range selected by the user, you can the `"ge"` and `"lt"` filter operators in a two-part expression that defines the endpoints of the range. For example, if the user chooses the range 10-25, the filter would be `$filter=listPrice ge 10 and listPrice lt 25`.
+Чтобы фильтровать документы на основе выбранного диапазона значений, вы можете включить операторы фильтров `"ge"` и `"lt"` в двухкомпонентное выражении, которое определяет конечные точки диапазона значений. Например, если выбрать диапазон 10–25, будет применен фильтр `$filter=listPrice ge 10 and listPrice lt 25`.
 
-In the sample application, the filter expression uses **priceFrom** and **priceTo** parameters to set the endpoints. The **BuildFilter** method in **CatalogSearch.cs** contains the filter expression that gives you the documents within a range.
+В примере приложения для задания конечных точек в выражении фильтра используются параметры **priceFrom** и **priceTo**. Метод **BuildFilter** в файле **CatalogSearch.cs** содержит выражение фильтра, которое возвращает документы в пределах диапазона значений.
 
   ![][6]
 
-<a name="geofacets"></a> 
-##<a name="filtered-navigation-based-on-geopoints"></a>Filtered navigation based on GeoPoints
+<a name="geofacets"></a>
+##Фасетная навигация на основе геоточек
 
-It’s common to see filters that help you choose a store, restaurant, or destination based on its proximity to your current location. While this type of filter might look like faceted navigation, it’s actually just a filter. We mention it here for those of you who are specifically looking for implementation advice for that particular design problem.
+Часто используются фильтры, помогающие выбрать магазин, ресторан или пункт назначения в зависимости от их близости к вашему текущему местоположению*. Хотя фильтр такого типа похож на фасетную навигацию, он является всего лишь обычным фильтром. Этот вопрос упоминается здесь для пользователей, которым нужно решить проблему с реализацией этого компонента.
 
-There are two Geospatial functions in Azure Search, **geo.distance** and **geo.intersects**.
+Служба поиска Azure поддерживает две геопространственные функции: **geo.distance** и **geo.intersects**.
 
-- The **geo.distance** function returns the distance in kilometers between two points, one being a field and one being a constant passed as part of the filter. 
+- Функция **geo.distance** возвращает расстояния в километрах между двумя точками, одна из которых представляет из себя поле, а другая — константу, переданную как часть фильтра.
 
-- The **geo.intersects** function returns true if a given point is within a given polygon, where the point is a field and the polygon is specified as a constant list of coordinates passed as part of the filter.
+- Функция **geo.intersects** возвращает значение true, если заданная точка находится в пределах указанного многоугольника, где точка представляет из себя поле, а многоугольник указывается кв качестве списка констант координат, которые передаются как часть фильтра.
 
-You can find filter examples in [OData expression syntax (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
+Примеры фильтров приведены в статье [Синтаксис выражений OData для поиска Azure](http://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 <a name="tryitout"></a>
-##<a name="try-it-out"></a>Try it out
+##Попробуйте сейчас
 
-Azure Search Adventure Works Demo on Codeplex contains the examples referenced in this article. As you work with search results, watch the URL for changes in query construction. This application happens to append facets to the URI as you select each one.
+Примеры, на которые ссылается эта статья, приведены на сайте CodePlex в демонстрационной статье, посвященной использованию службы поиска Azure компанией Adventure Works. При работе с результатами поиска понаблюдайте, как меняется URL-адрес при построении запроса. Когда вы выбираете фасеты, это приложение добавляет их к универсальному коду ресурса (URI).
 
-1.  Configure the sample application to use your service URL and api-key. 
+1.	Настройте пример приложения для использования своего URL-адреса службы и ключа API.
 
-    Notice the schema that is defined in the Program.cs file of the CatalogIndexer project. It specifies facetable fields for color, listPrice, size, weight, categoryName, and modelName.  Only a few of these (color, listPrice, categoryName) are actually implemented in faceted navigation.
+	Обратите внимание на схему, которая определена в файле Program.cs проекта CatalogIndexer. В ней указаны поля, поддерживающие такие фасеты как color (цвет), listPrice (список цен), size (размер), weight (вес), categoryName (имя категории) и modelName (имя модели). В фасетной навигации используются только некоторые из этих фасетов (color, listPrice, categoryName).
 
-3.  Run the application. 
+3.	Запустите приложение.
 
-    At first, just the Search box is visible. You can click the Search button right away to get all results, or type a search term.
+	Сначала отобразится только поле поиска. Нажмите кнопку Search (Поиск), чтобы сразу получить все результаты поиска, или введите условие поиска.
 
-    ![][7]
+	![][7]
  
-4.  Enter a search term, such as bike, and click **Search**. The query executes quickly.
+4.	Введите условие поиска, например bike (велосипед), и нажмите кнопку **Search** (Поиск). Будет быстро выполнен запрос.
  
-    A faceted navigation structure is also returned with the search results.  In the URL, facets for Colors, Categories, and Prices are null. In the search result page, the faceted navigation structure includes counts for each facet result.
+	Вместе с результатами поиска будет также возвращена структура фасетной навигации. В URL-адресе фасеты Colors (Цвета), Categories (Категории) и Prices (Цены) имеют значение NULL. На странице результатов поиска структура фасетной навигации включает количественные показатели для каждого результата фасета.
 
-     ![][8]
+	 ![][8]
  
-5.  Click a color, category, and price range. Facets are null on an initial search, but as they take on values, the search results are trimmed of items that no longer match. Notice that the URI picks up the changes to your query.
+5.	Щелкните цвет, категорию и диапазон цен. При первоначальном поиске фасеты имеют значение NULL, но по мере того, как они принимают значения, из результатов поиска удаляются несоответствующие элементы. Обратите внимание, что внесенные в запрос изменения влияют на универсальный код ресурса (URI).
 
-    ![][9]
+	![][9]
  
-6.  To clear the faceted query so that you can try different query behaviors, click **AdventureWorks Catalog** at the top of the page.
+6.	Вы можете по-разному очистить запрос, использующий фасеты, например щелкнуть **AdventureWorks Catalog** в верхней части страницы.
 
-    ![][10]
+	![][10]
  
 <a name="nextstep"></a>
-##<a name="next-step"></a>Next Step
+##Дальнейшее действие
 
-To test your knowledge, you can add a facet field for *modelName*. The index is already set up for this facet, so no changes to the index are required. But you will need to modify the HTML to include a new facet for Models, and add the facet field to the query constructor.
+Чтобы проверить свои знания, можно добавить поле фасета *modelName*. Для этого фасета уже настроен индекс, поэтому в индекс не нужно вносить изменения. Однако вам потребуется изменить код HTML, чтобы включить новый фасет Models (Модели) и добавите поле фасета в конструктор запросов.
 
-For more insights on design principles for faceted navigation, we recommend the following links:
+Чтобы больше узнать о принципах разработки решений фасетной навигации, щелкните следующие ссылки.
 
-- [Designing for Faceted Search](http://www.uie.com/articles/faceted_search/)
-- [Design Patterns: Faceted Navigation](http://alistapart.com/article/design-patterns-faceted-navigation)
+- [Разработка решения для поиска с использованием фасетов](http://www.uie.com/articles/faceted_search/)
+- [Шаблоны разработки: фасетная навигация](http://alistapart.com/article/design-patterns-faceted-navigation)
 
-You can also watch [Azure Search Deep Dive](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). At 45:25, there is a demo on how to implement facets.
+Также можно просмотреть видео [Azure Search Deep Dive](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Начиная с 45:25, на этой видеозаписи демонстрируется, как реализовать фасеты.
 
 <!--Anchors-->
 [How to build it]: #howtobuildit
@@ -376,13 +364,10 @@ You can also watch [Azure Search Deep Dive](http://channel9.msdn.com/Events/Tech
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
+[http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

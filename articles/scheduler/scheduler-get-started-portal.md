@@ -1,6 +1,6 @@
 <properties
- pageTitle="Get started with Azure Scheduler in Azure portal | Microsoft Azure"
- description="Get started with Azure Scheduler in Azure portal"
+ pageTitle="Приступая к работе с планировщиком Azure на портале Azure | Microsoft Azure"
+ description="Начало работы с планировщиком Azure на портале Azure"
  services="scheduler"
  documentationCenter=".NET"
  authors="derek1ee"
@@ -15,145 +15,144 @@
  ms.date="08/10/2016"
  ms.author="deli"/>
 
+# Начало работы с планировщиком Azure на портале Azure
 
-# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Get started with Azure Scheduler in Azure portal
+Запланированные задания можно легко создавать в планировщике Azure. Из этого руководства вы узнаете, как создать такое задание. Также вы изучите возможности мониторинга и управления в планировщике.
 
-It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll learn how to create a job. You'll also learn Scheduler's monitoring and management capabilities.
+## Создание задания
 
-## <a name="create-a-job"></a>Create a job
+1.  Войдите на [портал Azure](https://portal.azure.com/).
 
-1.  Sign in to [Azure portal](https://portal.azure.com/).  
-
-2.  Click **+New** > type _Scheduler_ in the search box >  select **Scheduler** in results > click **Create**.
+2.  Щелкните **+Создать**, введите в поле поиска _Планировщик_, в результатах выберите **Планировщик**, а затем щелкните **Создать**.
 
      ![][marketplace-create]
 
-3.  Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the **Scheduler Job** screen, enter the following information:
+3.  Создадим задание, которое будет только открывать сайт http://www.microsoft.com/ с помощью запроса GET. На экране **Задание планировщика** введите следующие сведения:
 
-    1.  **Name:** `getmicrosoft`  
+    1.  **Имя**. `getmicrosoft`.
 
-    2.  **Subscription:** Your Azure subscription   
+    2.  **Подписка**. Ваша подписка Azure.
 
-    3.  **Job Collection:** Select an existing job collection, or click **Create New** > enter a name.
+    3.  **Коллекция заданий**. Выберите существующую коллекцию заданий или щелкните **Создать** и введите имя.
 
-4.  Next, in **Action Settings**, define the following values:
+4.  Затем на вкладке **Параметры действия** определите следующие значения:
 
-    1.  **Action Type:** ` HTTP`  
+    1.  **Тип действия**: ` HTTP`.
 
-    2.  **Method:** `GET`  
+    2.  **Метод**: `GET`.
 
-    3.  **URL:** ` http://www.microsoft.com`  
+    3.  **URL-адрес**: ` http://www.microsoft.com`.
 
       ![][action-settings]
 
-5.  Finally, let's define a schedule. The job could be defined as a one-time job, but let’s pick a recurrence schedule:
+5.  И, наконец, определим расписание. Задание можно определить как разовое, но в данном случае мы выберем расписание повторения.
 
-    1. **Recurrence**: `Recurring`
+    1. **Повторение**: `Recurring`.
 
-    2. **Start**: Today's date
+    2. **Начало**: текущая дата.
 
-    3. **Recur every**: `12 Hours`
+    3. **Повторять каждые**: `12 Hours`.
 
-    4. **End by**: Two days from today's date  
+    4. **Окончание**: через два дня после текущей даты.
 
       ![][recurrence-schedule]
 
-6.  Click **Create**
+6.  Нажмите кнопку **Создать**
 
-## <a name="manage-and-monitor-jobs"></a>Manage and monitor jobs
+## Контроль и мониторинг заданий
 
-Once a job is created, it appears in the main Azure dashboard. Click the job and a new window opens with the following tabs:
+Созданное задание появляется на основной панели мониторинга Azure. Если щелкнуть его, откроется новое окно со следующими вкладками.
 
-1.  Properties  
+1.  Свойства
 
-2.  Action Settings  
+2.  Параметры действия
 
-3.  Schedule  
+3.  Расписание
 
-4.  History
+4.  Журнал
 
-5.  Users
+5.  Пользователи
 
     ![][job-overview]
 
-### <a name="properties"></a>Properties
+### Свойства
 
-These read-only properties describe the management metadata for the Scheduler job.
+Эти свойства, предназначенные только для чтения, содержат метаданные управления для задания планировщика.
 
    ![][job-properties]
 
 
-### <a name="action-settings"></a>Action settings
+### Настройки действия
 
-Clicking on a job in the **Jobs** screen allows you to configure that job. This lets you configure advanced settings, if you didn't configure them in the quick-create wizard.
+Чтобы изменить параметры задания, выберите его на экране **Задания**. Вы можете настроить дополнительные параметры, если вы не настроили их в мастере быстрого создания.
 
-For all action types, you may change the retry policy and the error action.
+Для всех типов действий можно изменить политику повторов и действие при возникновении ошибки.
 
-For HTTP and HTTPS job action types, you may change the method to any allowed HTTP verb. You may also add, delete, or change the headers and basic authentication information.
+Типы заданий HTTP и HTTPS позволяют изменить метод для любого допустимого глагола HTTP. Кроме того, можно добавлять, удалять или изменять заголовки и данные обычной проверки подлинности.
 
-For storage queue action types, you may change the storage account, queue name, SAS token, and body.
+Типы заданий очереди хранения позволяют изменить учетную запись хранения, имя очереди, маркер SAS и текст.
 
-For service bus action types, you may change the namespace, topic/queue path, authentication settings, transport type, message properties, and message body.
+Для типов действий служебной шины можно изменить пространство имен, путь к разделу или очереди, параметры проверки подлинности, тип транспорта, свойства сообщения и текст сообщения.
 
    ![][job-action-settings]
 
-### <a name="schedule"></a>Schedule
+### Расписание
 
-This lets you reconfigure the schedule, if you'd like to change the schedule you created in the quick-create wizard.
+На этой вкладке можно изменить настройки расписания, созданного в мастере быстрого создания.
 
-This is an opportunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)
+Здесь можно [создавать сложные расписания и расширенное повторение в задании](scheduler-advanced-complexity.md).
 
-You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)
+Можно изменить дату и времени начала, расписание повторения, а также дату и время окончания (если задание повторяется.)
 
    ![][job-schedule]
 
 
-### <a name="history"></a>History
+### Журнал
 
-The **History** tab displays selected metrics for every job execution in the system for the selected job. These metrics provide real-time values regarding the health of your Scheduler:
+На вкладке **Журнал** отображаются выбранные метрики для каждого процесса выполнения выбранного задания в системе. Эти метрики содержат обновляемые в реальном времени значения, которые отражают работоспособность планировщика.
 
-1.  Status  
+1.  Состояние
 
-2.  Details  
+2.  Сведения
 
-3.  Retry attempts
+3.  Количество повторных попыток.
 
-4.  Occurrence: 1st, 2nd, 3rd, etc.
+4.  Периодичность: 1, 2, 3 и т. д.
 
-5.  Start time of execution  
+5.  Время начала выполнения.
 
-6.  End time of execution
+6.  Время окончания выполнения.
 
    ![][job-history]
 
-You can click on a run to view its **History Details**, including the whole response for every execution. This dialog box also allows you to copy the response to the clipboard.
+Щелкните один из процессов выполнения, чтобы просмотреть **информацию журнала**, в том числе полный ответ для каждого выполнения. В этом диалоговом окне также можно скопировать ответ в буфер обмена.
 
    ![][job-history-details]
 
-### <a name="users"></a>Users
+### Пользователи
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure Scheduler. To learn how to use the Users tab, refer to [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
+Управление доступом на основе ролей (RBAC) Azure обеспечивает точное управление доступом для планировщика Azure. Сведения о том, как использовать вкладку "Пользователи", см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
 
 
-## <a name="see-also"></a>See also
+## См. также
 
- [What is Scheduler?](scheduler-intro.md)
+ [Что такое планировщик?](scheduler-intro.md)
 
- [Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+ [Основные понятия, терминология и иерархия сущностей планировщика](scheduler-concepts-terms.md)
 
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Планы и выставление счетов в планировщике Azure](scheduler-plans-billing.md)
 
- [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [Как создавать сложные расписания и расширенное повторение с помощью планировщика Azure](scheduler-advanced-complexity.md)
 
- [Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+ [Справочник по REST API планировщика](https://msdn.microsoft.com/library/mt629143)
 
- [Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+ [Справочник по командлетам PowerShell планировщика](scheduler-powershell-reference.md)
 
- [Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+ [Высокая доступность и надежность планировщика](scheduler-high-availability-reliability.md)
 
- [Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+ [Ограничения и значения по умолчанию планировщика](scheduler-limits-defaults-errors.md)
 
- [Scheduler outbound authentication](scheduler-outbound-authentication.md)
+ [Исходящая аутентификация планировщика](scheduler-outbound-authentication.md)
 
 
 [marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
@@ -183,8 +182,4 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

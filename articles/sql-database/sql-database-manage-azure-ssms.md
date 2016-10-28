@@ -1,126 +1,125 @@
 <properties 
-    pageTitle="Manage a SQL Database with SSMS | Microsoft Azure" 
-    description="Learn how to use SQL Server Management Studio to manage SQL Database servers and databases." 
-    services="sql-database" 
-    documentationCenter=".net" 
-    authors="stevestein" 
-    manager="jhubbard" 
-    editor="tysonn"/>
+	pageTitle="Управление Базой данных SQL с помощью SSMS | Microsoft Azure" 
+	description="Узнайте, как использовать SQL Server Management Studio для управления серверами и базами данных Базы данных SQL." 
+	services="sql-database" 
+	documentationCenter=".net" 
+	authors="stevestein" 
+	manager="jhubbard" 
+	editor="tysonn"/>
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="data-management" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/29/2016" 
-    ms.author="sstein"/>
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/09/2016" 
+	ms.author="sstein"/>
 
 
-
-# <a name="managing-azure-sql-database-using-sql-server-management-studio"></a>Managing Azure SQL Database using SQL Server Management Studio 
+# Управление базой данных SQL Azure с помощью SQL Server Management Studio 
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-manage-portal.md)
+- [Портал Azure](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
-- [PowerShell](sql-database-manage-powershell.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
-You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database servers and databases. This topic walks you through common tasks with SSMS. You should already have a server and database created in Azure SQL Database before you begin. See [Create your first Azure SQL Database](sql-database-get-started.md) and [Connect and Query using SSMS](sql-database-connect-query-ssms.md) for more information.
+SQL Server Management Studio (SSMS) можно использовать для администрирования серверов и баз данных Базы данных SQL Azure. В этом разделе описываются типичные задачи, выполняемые с помощью SSMS. Прежде чем начать, необходимо создать сервер и базу данных в Базе данных SQL Azure. Дополнительные сведения см. в разделах [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](sql-database-get-started.md) и [Подключение к базе данных SQL с помощью SQL Server Management Studio и выполнение пробного запроса T-SQL](sql-database-connect-query-ssms.md).
 
-It's recommended that you use the latest version of SSMS whenever you work with Azure SQL Database. 
+Мы советуем использовать последнюю версию SSMS при работе с Базой данных SQL Azure.
 
-> [AZURE.IMPORTANT] Always use the latest version of SSMS because it is continually improved to work with the latest updates to Azure and SQL Database. To get the latest version, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> [AZURE.IMPORTANT] Всегда используйте последнюю версию SSMS, так как она постоянно совершенствуется, чтобы обеспечить совместимость с последними обновлениями в Azure и Базе данных SQL. Чтобы скачать последнюю версию, перейдите на страницу [Скачивание SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
 
-## <a name="create-and-manage-azure-sql-databases"></a>Create and manage Azure SQL databases
+## Создание баз данных SQL и управление ими
 
-While connected to the **master** database, you can create databases on the server and modify or drop existing databases. The following steps describe how to accomplish several common database management tasks through Management Studio. To perform these tasks, make sure you are connected to the **master** database with the server-level principal login that you created when you set up your server.
+После подключения к базе данных **master** вы можете создать базы данных на сервере и изменить или удалить существующие базы данных. Ниже приведены указания по выполнению ряда типичных задач управления базами данных в среде Management Studio. Для выполнения этих задач убедитесь, что вы подключены к базе данных **master** под основной учетной записью на уровне сервера, которую вы создали при настройке сервера.
 
-To open a query window in Management Studio, open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+Для открытия окна запроса в среде Management Studio откройте папку «Базы данных», разверните папку **Системные базы данных**, щелкните правой кнопкой мыши базу данных **master** и нажмите кнопку **Создать запрос**.
 
--   Use the **CREATE DATABASE** statement to create a database. For more information, see [CREATE DATABASE (SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx). The following statement creates a database named **myTestDB** and specifies that it is a Standard S0 Edition database with a default maximum size of 250 GB.
+-   Для создания базы данных используйте инструкцию **CREATE DATABASE**. Для получения дополнительных сведений см. статью [CREATE DATABASE (база данных SQL)](https://msdn.microsoft.com/library/dn268335.aspx). Инструкция, приведенная ниже, создает базу данных **myTestDB** и указывает, что это выпуск базы данных Standard S0 с максимальным размером по умолчанию, равным 250 ГБ.
 
         CREATE DATABASE myTestDB
         (EDITION='Standard',
          SERVICE_OBJECTIVE='S0');
 
-Click **Execute** to run the query.
+Нажмите кнопку **Выполнить** для выполнения запроса.
 
--   Use the **ALTER DATABASE** statement to modify an existing database, for example if you want to change the name and edition of the database. For more information, see [ALTER DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms174269.aspx). The following statement modifies the database you created in the previous step to change edition to Standard S1.
+-   Используйте инструкцию **ALTER DATABASE**, чтобы изменить существующую базу данных, если, например, вы хотите изменить имя или выпуск базы данных. Дополнительные сведения см. в разделе [ALTER DATABASE (база данных SQL)](https://msdn.microsoft.com/library/ms174269.aspx). Приведенная ниже инструкция модифицирует базу данных, которую вы создали на предыдущем шаге, чтобы изменить выпуск на Standard S1.
 
         ALTER DATABASE myTestDB
         MODIFY
         (SERVICE_OBJECTIVE='S1');
 
--   Use **the DROP DATABASE** Statement to delete an existing database. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The following statement deletes the **myTestDB** database, but don't drop it now because you will use it to create logins in the next step.
+-   Используйте инструкцию **DROP DATABASE**, чтобы удалить существующую базу данных. Дополнительные сведения см. в разделе [DROP DATABASE (база данных SQL)](https://msdn.microsoft.com/library/ms178613.aspx). Приведенная ниже инструкция удаляет базу данных **myTestDB**, но не удаляйте ее сейчас, потому что эта база будет использоваться для создания учетных записей на следующем шаге.
 
         DROP DATABASE myTestBase;
 
--   The master database has the **sys.databases** view that you can use to view details about all databases. To view all existing databases, execute the following statement:
+-   У главной базы данных есть представление **sys.databases**, которое можно использовать для просмотра сведений обо всех базах данных. Чтобы просмотреть все существующие базы данных, выполните следующую инструкцию:
 
         SELECT * FROM sys.databases;
 
--   In SQL Database, the **USE** statement is not supported for switching between databases. Instead, you need to establish a connection directly to the target database.
+-   В базе данных SQL инструкция **USE** не поддерживается для переключения между базами данных. Вместо нее необходимо установить подключение непосредственно к целевой базе данных.
 
->[AZURE.NOTE] Many of the Transact-SQL statements that create or modify a database must be run within their own batch and cannot be grouped with other Transact-SQL statements. For more information, see the statement-specific information.
+>[AZURE.NOTE] Многие инструкции Transact-SQL, позволяющие создавать и изменять базы данных, должны выполняться в своем собственном пакете и не могут быть сгруппированы с другими инструкциями Transact-SQL. Дополнительные сведения см. в описании конкретной инструкции.
 
-## <a name="create-and-manage-logins"></a>Create and manage logins
+## Создание имен входа и управление ими
 
-The **master** database contains logins and which logins have permission to create databases or other logins. Manage logins by connecting to the **master** database with the server-level principal login that you created when you set up your server. You can use the **CREATE LOGIN**, **ALTER LOGIN**, or **DROP LOGIN** statements to execute queries against the master database that manages logins across the entire server. For more information, see [Managing Databases and Logins in SQL Database](http://msdn.microsoft.com/library/azure/ee336235.aspx). 
+База данных **master** содержит сведения об именах для входа и том, какие из них имеют разрешение на создание баз данных или других имен для входа. Управление учетными записями выполняется посредством подключения к базе данных **master** под основной учетной записью на уровне сервера, которую вы создали, когда настраивали свой сервер. Вы можете использовать инструкции **CREATE LOGIN**, **ALTER LOGIN** или **DROP LOGIN**, чтобы выполнять запросы к базе данных master, которая управляет учетными записями по всему серверу. Дополнительные сведения см. в разделе [Управление базами данных и учетными записями в базе данных SQL](http://msdn.microsoft.com/library/azure/ee336235.aspx)
 
 
--   Use the **CREATE LOGIN** statement to create a server-level login. For more information, see [CREATE LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189751.aspx). The following statement creates a login called **login1**. Replace **password1** with the password of your choice.
+-   Чтобы создать имя для входа на уровне сервера, используйте инструкцию **CREATE LOGIN**. Дополнительные сведения см. в разделе [CREATE LOGIN (база данных SQL)](https://msdn.microsoft.com/library/ms189751.aspx). Приведенная ниже инструкция создает имя для входа **login1**. Замените **password1** на пароль по вашему выбору.
 
         CREATE LOGIN login1 WITH password='password1';
 
--   Use the **CREATE USER** statement to grant database-level permissions. All logins must be created in the **master** database. For a login to connect to a different database, you must grant it database-level permissions using the **CREATE USER** statement on that database. For more information, see [CREATE USER (SQL Database)](https://msdn.microsoft.com/library/ms173463.aspx). 
+-   Для предоставления разрешений на уровне базы данных используйте инструкцию **CREATE USER**. Все имена для входа должны быть созданы в базе данных **master**. Для подключения с именем для входа к другой базе данных необходимо предоставить соответствующие разрешения на уровне базы данных с помощью инструкции **CREATE USER**. Дополнительные сведения см. в разделе [CREATE USER (база данных SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
--   To give login1 permissions to a database called **myTestDB**, complete the following steps:
+-   Чтобы разрешить учетной записи "login1" подключение к базе данных **myTestDB**, выполните следующие действия:
 
- 1.  To refresh Object Explorer to view the **myTestDB** database that you created, right-click the server name in Object Explorer and then click **Refresh**.  
+ 1.  Чтобы обновить окно обозревателя объектов и отобразить созданную базу данных **myTestDB**, щелкните правой кнопкой мыши имя сервера в обозревателе объектов, а затем выберите пункт **Обновить**.
 
-     If you closed the connection, you can reconnect by selecting **Connect Object Explorer** on the File menu.
+     Если подключение закрыто, можно подключиться повторно, выбрав **Подключить обозреватель объектов** в меню "Файл".
 
- 2. Right-click **myTestDB** database and select **New Query**.
+ 2. Щелкните правой кнопкой мыши по базе данных **myTestDB** и выберите пункт **Создать запрос**.
 
-    3.  Execute the following statement against the myTestDB database to create a database user named **login1User** that corresponds to the server-level login **login1**.
+    3.  Выполните следующую инструкцию в базе данных «myTestDB», чтобы создать пользователя базы данных с именем **login1User**, которое соответствует учетной записи уровня сервера **login1**.
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Use the **sp\_addrolemember** stored procedure to give the user account the appropriate level of permissions on the database. For more information, see [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). The following statement gives **login1User** read-only permissions to the database by adding **login1User** to the **db\_datareader** role.
+-   Воспользуйтесь хранимой процедурой **sp\_addrolemember**, чтобы предоставить учетной записи пользователя соответствующий уровень полномочий в базе данных. Для получения более подробной информации см. [sp\_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). Приведенная ниже инструкция дает **login1User** разрешение только на чтение из базы данных, добавляя **login1User** к роли **db\_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
--   Use the **ALTER LOGIN** statement to modify an existing login, for example if you want to change the password for the login. For more information, see [ALTER LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189828.aspx). The **ALTER LOGIN** statement should be run against the **master** database. Switch back to the query window that is connected to that database. The following statement modifies the **login1** login to reset the password. Replace **newPassword** with the password of your choice, and **oldPassword** with the current password for the login.
+-   Используйте инструкцию **ALTER LOGIN**, чтобы изменить существующую учетную запись, если, например, вы хотите изменить пароль для нее. Для получения дополнительных сведений см. [ALTER LOGIN (база данных SQL)](https://msdn.microsoft.com/library/ms189828.aspx). Инструкция **ALTER LOGIN** должна выполняться в базе данных **master**. Переключитесь в окно запроса, подключенного к этой базе данных. Приведенная ниже инструкция изменяет имя для входа **login1**, сбрасывая пароль. Замените **newPassword** на пароль по своему выбору, а старый пароль **oldPassword** замените на текущий пароль для учетной записи.
 
         ALTER LOGIN login1
         WITH PASSWORD = 'newPassword'
         OLD_PASSWORD = 'oldPassword';
 
--   Use **the DROP LOGIN** statement to delete an existing login. Deleting a login at the server level also deletes any associated database user accounts. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The **DROP LOGIN** statement should be run against the **master** database. The statement deletes the **login1** login.
+-   Воспользуйтесь инструкцией **DROP LOGIN**, чтобы удалить существующую учетную запись. При удалении учетной записи на уровне сервера удаляются и все связанные учетные записи пользователей баз данных. Дополнительные сведения см. в разделе [DROP DATABASE (база данных SQL)](https://msdn.microsoft.com/library/ms178613.aspx). Инструкция **DROP LOGIN** должна выполняться для базы данных **master**. Приведенная ниже инструкция удаляет имя для входа **login1**.
 
         DROP LOGIN login1;
 
--   The master database has the **sys.sql\_logins** view that you can use to view logins. To view all existing logins, execute the following statement:
+-   В базе данных «master» предусмотрено представление **sys.sql\_logins**, которое можно использовать для просмотра учетных записей. Чтобы просмотреть все существующие учетные записи, выполните следующую инструкцию:
 
         SELECT * FROM sys.sql_logins;
 
-## <a name="monitor-sql-database-using-dynamic-management-views"></a>Monitor SQL Database using Dynamic Management Views
+## Мониторинг базы данных SQL с помощью динамических представлений управления
 
-SQL Database supports several dynamic management views that you can use to monitor an individual database. A few examples of the type of monitor data you can retrieve through these views are following. For complete details and more usage examples, see [Monitoring SQL Database using Dynamic Management Views](https://msdn.microsoft.com/library/azure/ff394114.aspx).
+База данных SQL поддерживает несколько динамических представлений управления, которые можно использовать для мониторинга отдельных баз данных. Ниже приведен ряд примеров типов отслеживаемых данных, которые можно получить с помощью этих представлений. Подробные сведения и дополнительные примеры см. в разделе [Мониторинг базы данных SQL с помощью динамических представлений управления](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
--   Querying a dynamic management view requires **VIEW DATABASE STATE** permissions. To grant the **VIEW DATABASE STATE** permission to a specific database user, connect to the database and execute the following statement against the database:
+-   Запрос динамического представления управления требует наличия разрешений **VIEW DATABASE STATE**. Чтобы предоставить разрешение **VIEW DATABASE STATE** для определенного пользователя базы данных, подключитесь к базе данных и выполните с ней следующую инструкцию.
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   Calculate database size using the **sys.dm\_db\_partition\_stats** view. The **sys.dm\_db\_partition\_stats** view returns page and row-count information for every partition in the database, which you can use to calculate the database size. The following query returns the size of your database in megabytes:
+-   Рассчитайте размер базы данных с помощью представления **sys.dm\\_db\\_partition\\_stats**. Представление **sys.dm\\_db\\_partition\\_stats** возвращает информацию о странице и числе строк для каждого раздела в базе данных, позволяя рассчитать размер базы данных. Следующий запрос возвращает размер базы данных в мегабайтах:
 
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   Use the **sys.dm\_exec\_connections** and **sys.dm\_exec\_sessions** views to retrieve information about current user connections and internal tasks associated with the database. The following query returns information about the current connection:
+-   Используйте представления **sys.dm\\_exec\\_connections** и **sys.dm\\_exec\\_sessions** для получения информации о текущих пользовательских подключениях и внутренних задачах, связанных с базой данных. Следующий запрос возвращает сведения о текущем подключении:
 
         SELECT
             e.connection_id,
@@ -133,7 +132,7 @@ SQL Database supports several dynamic management views that you can use to monit
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   Use the **sys.dm\_exec\_query\_stats** view to retrieve aggregate performance statistics for cached query plans. The following query returns information about the top five queries ranked by average CPU time.
+-   Используйте представление **sys.dm\\_exec\\_query\\_stats** для получения объединенной статистики производительности для кэшированных планов запросов. Следующий запрос возвращает сведения о пяти первых запросах, упорядоченных по среднему времени ЦП.
 
         SELECT TOP 5 query_stats.query_hash AS "Query Hash",
             SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",
@@ -152,8 +151,4 @@ SQL Database supports several dynamic management views that you can use to monit
  
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

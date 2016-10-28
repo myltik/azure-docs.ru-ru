@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Distributed transactions across cloud databases"
-   description="Overview of Elastic Database Transactions with Azure SQL Database"
+   pageTitle="Распределенные транзакции по облачным базам данных"
+   description="Общие сведения о транзакциях эластичной базы данных в базе данных SQL Azure"
    services="sql-database"
    documentationCenter=""
    authors="torsteng"
@@ -16,156 +16,146 @@
    ms.date="05/27/2016"
    ms.author="torsteng"/>
 
+# Распределенные транзакции по облачным базам данных
 
-# <a name="distributed-transactions-across-cloud-databases"></a>Distributed transactions across cloud databases
+Возможности эластичной базы данных позволяют выполнять транзакции, охватывающие несколько баз данных в базе данных SQL Azure. Транзакции эластичной базы данных в базе данных SQL можно выполнять с помощью ADO.NET и приложений .NET. Кроме того, транзакции можно объединить с уже знакомыми приемами программирования, используя классы [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx). Инструкции по подключению библиотеки см. в статье [NET Framework 4.6.1 (веб-установщик)](https://www.microsoft.com/download/details.aspx?id=49981).
 
-Elastic database transactions for Azure SQL Database (SQL DB) allow you to run transactions that span several databases in SQL DB. Elastic database transactions for SQL DB are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
+При локальном выполнении такого сценария, как правило, требуется использовать координатор распределенных транзакций Майкрософт (MSDTC). Так как MSDTC нельзя использовать с приложениями платформы как услуги в Azure, возможность координировать распределенные транзакции теперь интегрирована в саму базу данных SQL. Чтобы запустить распределенные транзакции, приложения можно подключить к любой базе данных SQL. При этом одна из баз данных будет отвечать за прозрачную координацию распределенных транзакций, как показано на следующем рисунке.
 
-On premises, such a scenario usually required running Microsoft Distributed Transaction Coordinator (MSDTC). Since MSDTC is not available for Platform-as-a-Service application in Azure, the ability to coordinate distributed transactions has now been directly integrated into SQL DB. Applications can connect to any SQL Database to launch distributed transactions, and one of the databases will transparently coordinate the distributed transaction, as shown in the following figure. 
+  ![Осуществление распределенных транзакций в базе данных SQL Azure с использованием транзакций эластичной базы данных][1]
 
-  ![Distributed transactions with Azure SQL Database using elastic database transactions ][1]
+## Распространенные сценарии
 
-## <a name="common-scenarios"></a>Common scenarios
+Транзакции эластичной базы данных в базе данных SQL позволяют вносить атомарные изменения в данные, хранящиеся в нескольких базах данных SQL, с помощью приложений. Эта предварительная версия ориентирована на клиентскую разработку на языке C# с использованием платформы .NET. В будущем планируется предоставить возможность такой работы на сервере с использованием T-SQL. Транзакции эластичной базы данных применяются в следующих сценариях.
 
-Elastic database transactions for SQL DB enable applications to make atomic changes to data stored in several different SQL Databases. The preview focuses on client-side development experiences in C# and .NET. A server-side experience using T-SQL is planned for a later time.  
-Elastic database transactions targets the following scenarios:
+* Приложения в Azure, использующие несколько баз данных. Этот сценарий предусматривает вертикальное секционирование данных между несколькими базами данных в базе данных SQL. В результате разные виды данных находятся в разных базах данных. При выполнении некоторых операций необходимо вносить изменения в данные, которые хранятся в нескольких базах данных. Приложение использует транзакции эластичной базы данных для скоординированного внесения изменений в базах данных и обеспечения атомарности.
 
-* Multi-database applications in Azure: With this scenario, data is vertically partitioned across several databases in SQL DB such that different kinds of data reside on different databases. Some operations require changes to data which is kept in two or more databases. The application uses elastic database transactions to coordinate the changes across databases and ensure atomicity.
-
-* Sharded database applications in Azure: With this scenario, the data tier uses the [Elastic Database client library](sql-database-elastic-database-client-library.md) or self-sharding to horizontally partition the data across many databases in SQL DB. One prominent use case is the need to perform atomic changes for a sharded multi-tenant application when changes span tenants. Think for instance of a transfer from one tenant to another, both residing on different databases. A second case is fine-grained sharding to accommodate capacity needs for a large tenant which in turn typically implies that some atomic operations needs to stretch across several databases used for the same tenant. A third case is atomic updates to reference data that are replicated across databases. Atomic, transacted, operations along these lines can now be coordinated across several databases using the preview.
-Elastic database transactions use two-phase commit to ensure transaction atomicity across databases. It is a good fit for transactions that involve less than 100 databases at a time within a single transaction. These limits are not enforced, but one should expect performance and success rates for elastic database transactions to suffer when exceeding these limits.
+* Приложения, использующие сегментированные базы данных. Этот сценарий предусматривает использование клиентской библиотеки эластичной базы данных или выполнения [самостоятельного сегментирования](sql-database-elastic-database-client-library.md) для горизонтального разделения данных между несколькими базами данных в базе данных SQL. Первый пример использования заключается в необходимости внести атомарные изменения в сегментированное мультитенантное приложение, если изменения распространяются на клиенты. Например, рассмотрим передачу данных из одного клиента в другой, при этом оба клиента находятся в разных базах данных. Второй пример предполагает точное сегментирование в целях соблюдения требований к емкости для клиентов большого размера. В свою очередь, это обычно означает, что некоторые атомарные операции необходимо выполнять в нескольких базах данных, которые использует один клиент. Третий пример предусматривает атомарное обновление, обеспечивающее возможность ссылаться на данные, реплицируемые в базах данных. Теперь благодаря предварительной версии стала возможна координация атомарных транзакционных операций со всеми этими строками в нескольких базах данных. Транзакции эластичной базы данных используют двухфазную фиксацию для обеспечения атомарности транзакций в базах данных. Этот вариант прекрасно подходит для тех случаев, когда в одной транзакции одновременно участвует менее 100 баз данных. Эти ограничения не применяются принудительно, но следует учитывать, что их превышение отрицательно влияет на производительность и успешность выполнения транзакций эластичной базы данных.
 
 
-## <a name="installation-and-migration"></a>Installation and migration
+## Установка и миграция
 
-The capabilities for elastic database transactions in SQL DB are provided through updates to the .NET libraries System.Data.dll and System.Transactions.dll. The DLLs ensure that two-phase commit is used where necessary to ensure atomicity. To start developing applications using elastic database transactions, install [.NET Framework 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) or a later version. When running on an earlier version of the .NET framework, transactions will fail to promote to a distributed transaction and an exception will be raised.
+Возможности для транзакций эластичной базы данных в базе данных SQL предоставляются с обновлениями библиотек .NET — System.Data.dll и System.Transactions.dll. Библиотеки DLL обеспечивают использование двухфазной фиксации для соблюдения атомарности. Чтобы начать разработку приложений, использующих транзакции эластичной базы данных, установите платформу [.NET 4.6.1](https://www.microsoft.com/download/details.aspx?id=49981) или более поздней версии. При использовании платформы .NET предыдущей версии происходит ошибка повышения уровня транзакций до распределенных, после чего возникает исключение.
 
-After installation, you can use the distributed transaction APIs in System.Transactions with connections to SQL DB. If you have existing MSDTC applications using these APIs, simply rebuild your existing applications for .NET 4.6 after installing the 4.6.1 Framework. If your projects target .NET 4.6, they will automatically use the updated DLLs from the new Framework version and distributed transaction API calls in combination with connections to SQL DB will now succeed.
+После установки можно использовать API распределенных транзакций в классах System.Transactions с подключением к базе данных SQL. При наличии приложений MSDTC, использующих эти API, после установки платформы 4.6.1 просто повторно создайте существующие приложения .NET 4.6. Если ваши проекты предназначены для использования на платформе .NET 4.6, обновленные библиотеки DLL новой версии платформы будут использоваться автоматически, а вызовы API распределенных транзакций и подключения к базе данных SQL будут успешными.
 
-Remember that elastic database transactions do not require installing MSDTC. Instead, elastic database transactions are directly managed by and within SQL DB. This significantly simplifies cloud scenarios since a deployment of MSDTC is not necessary to use distributed transactions with SQL DB. Section 4 explains in more detail how to deploy elastic database transactions and the required .NET framework together with your cloud applications to Azure.
+Учтите, что для выполнения транзакций эластичной базы данных не требуется установка MSDTC. Вместо этого управление такими транзакциями осуществляется непосредственно в базе данных SQL. Это значительно упрощает сценарии, в которых используется облако, так как для использования распределенных транзакций в базе данных SQL не нужно развертывать MSDTC. В разделе 4 более подробно описано развертывание транзакций эластичной базы данных и требуемой платформы .NET вместе с облачными приложениями в Azure.
 
-## <a name="development-experience"></a>Development experience
+## Разработка
 
-### <a name="multi-database-applications"></a>Multi-database applications
+###	Приложения, использующие несколько баз данных
 
-The following sample code uses the familiar programming experience with .NET System.Transactions. The TransactionScope class establishes an ambient transaction in .NET. (An “ambient transaction” is one that lives in the current thread.) All connections opened within the TransactionScope participate in the transaction. If different databases participate, the transaction is automatically elevated to a distributed transaction. The outcome of the transaction is controlled by setting the scope to complete to indicate a commit.
+В следующем примере кода знакомые приемы программирования используются в сочетании с System.Transactions .NET. Класс TransactionScope позволяет выполнить внешнюю транзакцию в .NET. («Внешняя транзакция» — это транзакция, которая происходит в текущем потоке.) В транзакции участвуют все подключения, установленные в TransactionScope. Если в транзакции задействовано несколько разных баз данных, ее уровень автоматически повышается и она стает распределенной. Результат транзакции можно изменить. Для этого необходимо задать в настройках области ее завершение, что позволяет обозначить выполнение фиксации.
 
-    using (var scope = new TransactionScope())
-    {
-        using (var conn1 = new SqlConnection(connStrDb1))
-        {
-            conn1.Open();
-            SqlCommand cmd1 = conn1.CreateCommand();
-            cmd1.CommandText = string.Format("insert into T1 values(1)");
-            cmd1.ExecuteNonQuery();
-        }
+	using (var scope = new TransactionScope())
+	{
+		using (var conn1 = new SqlConnection(connStrDb1))
+		{
+			conn1.Open();
+			SqlCommand cmd1 = conn1.CreateCommand();
+			cmd1.CommandText = string.Format("insert into T1 values(1)");
+			cmd1.ExecuteNonQuery();
+		}
 
-        using (var conn2 = new SqlConnection(connStrDb2))
-        {
-            conn2.Open();
-            var cmd2 = conn2.CreateCommand();
-            cmd2.CommandText = string.Format("insert into T2 values(2)");
-            cmd2.ExecuteNonQuery();
-        }
+		using (var conn2 = new SqlConnection(connStrDb2))
+		{
+			conn2.Open();
+			var cmd2 = conn2.CreateCommand();
+			cmd2.CommandText = string.Format("insert into T2 values(2)");
+			cmd2.ExecuteNonQuery();
+		}
 
-        scope.Complete();
-    }
+		scope.Complete();
+	}
 
-### <a name="sharded-database-applications"></a>Sharded database applications
+### Приложения, использующие сегментированные базы данных
  
-Elastic database transactions for SQL DB also support coordinating distributed transactions where you use the OpenConnectionForKey method of the elastic database client library to open connections for a scaled out data tier. Consider cases where you need to guarantee transactional consistency for changes across several different sharding key values. Connections to the shards hosting the different sharding key values are brokered using OpenConnectionForKey. In the general case, the connections can be to different shards such that ensuring transactional guarantees requires a distributed transaction. The following code sample illustrates this approach. It assumes that a variable called shardmap is used to represent a shard map from the elastic database client library:
+Транзакции эластичной базы данных в базе данных SQL также поддерживают координацию распределенных транзакций. При этом для установки подключений к развернутому уровню данных используется метод OpenConnectionForKey клиентской библиотеки эластичной базы данных. Рассмотрим случаи, когда необходимо обеспечить согласованность изменений транзакций для нескольких разных значений ключей сегментирования. Подключения к сегментам с разными значениями ключей сегментирования устанавливаются через посредника с использованием OpenConnectionForKey. В большинстве случаев устанавливаются подключения к разным сегментам. Поэтому для осуществления транзакций требуется выполнение распределенной транзакции. Этот подход показан в следующем примере кода. В нем предполагается использование переменной shardmap для представления карты сегментов в клиентской библиотеке эластичной базы данных:
 
-    using (var scope = new TransactionScope())
-    {
-        using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
-        {
-            conn1.Open();
-            SqlCommand cmd1 = conn1.CreateCommand();
-            cmd1.CommandText = string.Format("insert into T1 values(1)");
-            cmd1.ExecuteNonQuery();
-        }
-        
-        using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
-        {
-            conn2.Open();
-            var cmd2 = conn2.CreateCommand();
-            cmd2.CommandText = string.Format("insert into T1 values(2)");
-            cmd2.ExecuteNonQuery();
-        }
+	using (var scope = new TransactionScope())
+	{
+		using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
+		{
+			conn1.Open();
+			SqlCommand cmd1 = conn1.CreateCommand();
+			cmd1.CommandText = string.Format("insert into T1 values(1)");
+			cmd1.ExecuteNonQuery();
+		}
+		
+		using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
+		{
+			conn2.Open();
+			var cmd2 = conn2.CreateCommand();
+			cmd2.CommandText = string.Format("insert into T1 values(2)");
+			cmd2.ExecuteNonQuery();
+		}
 
-        scope.Complete();
-    }
-
-
-## <a name=".net-installation-for-azure-cloud-services"></a>.NET installation for Azure Cloud Services
-
-Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](../app-service-web/choose-web-site-cloud-service-vm.md). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1. 
-
-For Azure App Services, upgrades to the guest OS are currently not supported. For Azure Virtual Machines, simply log into the VM and run the installer for the latest .NET framework. For Azure Cloud Services, you need to include the installation of a newer .NET version into the startup tasks of your deployment. The concepts and steps are documented in [Install .NET on a Cloud Service Role](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
-
-Note that the installer for .NET 4.6.1 may require more temporary storage during the bootstrapping process on Azure cloud services than the installer for .NET 4.6. To ensure a successful installation, you need to increase temporary storage for your Azure cloud service in your ServiceDefinition.csdef file in the LocalResources section and the environment settings of your startup task, as shown in the following sample:
-
-    <LocalResources>
-    ...
-        <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
-        <LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
-    </LocalResources>
-    <Startup>
-        <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
-            <Environment>
-        ...
-                <Variable name="TEMP">
-                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
-                </Variable>
-                <Variable name="TMP">
-                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
-                </Variable>
-            </Environment>
-        </Task>
-    </Startup>
-    
-## <a name="transactions-across-multiple-servers"></a>Transactions across multiple servers
-
-Elastic database transactions are supported across different logical servers in Azure SQL Database. When transactions cross logical server boundaries, the participating servers first need to be entered into a mutual communication relationship. Once the communication relationship has been established, any database in any of the two servers can participate in elastic transactions with databases from the other server. With transactions spanning more than two logical servers, a communication relationship needs to be in place for any pair of logical servers.
-
-Use the following PowerShell cmdlets to manage cross-server communication relationships for elastic database transactions:
-
-* **New-AzureRmSqlServerCommunicationLink**: Use this cmdlet to create a new communication relationship between two logical servers in Azure SQL DB. The relationship is symmetric which means both servers can initiate transactions with the other server.
-* **Get-AzureRmSqlServerCommunicationLink**: Use this cmdlet to retrieve existing communication relationships and their properties.
-* **Remove-AzureRmSqlServerCommunicationLink**: Use this cmdlet to remove an existing communication relationship. 
+		scope.Complete();
+	}
 
 
-## <a name="monitoring-transaction-status"></a>Monitoring transaction status
+## Установка .NET для облачных служб Azure
 
-Use Dynamic Management Views (DMVs) in SQL DB to monitor status and progress of your ongoing elastic database transactions. All DMVs related to transactions are relevant for distributed transactions in SQL DB. You can find the corresponding list of DMVs here: [Transaction Related Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Azure включает несколько предложений для размещения приложений .NET. Сравнение различных предложений приведено в статье [Сравнение службы приложений, облачных служб и виртуальных машин Azure](../app-service-web/choose-web-site-cloud-service-vm.md). Если версия гостевой операционной системы предложения меньше .NET 4.6.1 (версия, необходимая для эластичных транзакций), необходимо обновить гостевую ОС до версии 4.6.1.
+
+Для службы приложений Azure обновления гостевой ОС в настоящее время не поддерживаются. В виртуальных машинах Azure необходимо просто выполнить вход и запустить установщик для последней версии .NET Framework. Для облачных служб Azure необходимо включить установку более новой версии .NET в задачи запуска данного развертывания. Основные понятия и рекомендованные шаги см. в статье [Установка .NET для роли облачной службы](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+
+Обратите внимание на то, что в процессе начальной загрузки в облачных службах Azure для установки .NET 4.6.1 может потребоваться больше объема временного хранилища, чем для установки .NET 4.6. Для успешной установки необходимо увеличить временное хранилище для облачной службы Azure в разделе LocalResources файла ServiceDefinition.csdef и в параметрах среды для задачи запуска, как показано в следующем примере:
+
+	<LocalResources>
+	...
+		<LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+		<LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+	</LocalResources>
+	<Startup>
+		<Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+			<Environment>
+		...
+				<Variable name="TEMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+				</Variable>
+				<Variable name="TMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+				</Variable>
+			</Environment>
+		</Task>
+	</Startup>
+	
+## Транзакции между несколькими серверами
+
+Транзакции эластичной базы данных поддерживаются для разных логических серверов в базе данных SQL Azure. Если транзакции пересекают границы логического сервера, для серверов-участников сначала необходимо настроить отношение взаимного обмена данными. После установления отношения взаимодействия любая база данных на любом из двух серверов может участвовать в эластичных транзакциях с базами данных другого сервера. Если транзакции охватывают более двух логических серверов, отношение взаимодействия необходимо настроить для каждой пары логических серверов.
+
+Используйте следующие командлеты PowerShell для управления отношениями взаимодействия между серверами для транзакций эластичной базы данных:
+
+* **New AzureRmSqlServerCommunicationLink** — служит для создания нового отношения взаимодействия между двумя логическими серверами в базе данных SQL Azure. Отношение симметрично, то есть оба сервера могут инициировать транзакции с другим сервером.
+* **Get AzureRmSqlServerCommunicationLink** — служит для получения существующих отношений взаимодействия и их свойств.
+* **Remove-AzureRmSqlServerCommunicationLink** — служит для удаления существующих отношений взаимодействия. 
+
+
+## Мониторинг состояния транзакций
+
+Используйте динамические административные представления для мониторинга состояния и хода выполнения текущих транзакций эластичной базы данных в базе данных SQL. Все представления, связанные с транзакциями, соответствуют распределенным транзакциям в базе данных SQL. Соответствующий список динамических административных представлений можно найти здесь: [Динамические административные представления и функции, связанные с транзакциями (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
  
-These DMVs are particularly useful:
+Особенно полезны следующие динамические административные представления.
 
-* **sys.dm\_tran\_active\_transactions**: Lists currently active transactions and their status. The UOW (Unit Of Work) column can identify the different child transactions that belong to the same distributed transaction. All transactions within the same distributed transaction carry the same UOW value. See the [DMV documentation](https://msdn.microsoft.com/library/ms174302.aspx) for more details.
-* **sys.dm\_tran\_database\_transactions**: Provides additional information about transactions, such as placement of the transaction in the log. See the [DMV documentation](https://msdn.microsoft.com/library/ms186957.aspx) for more details.
-* **sys.dm\_tran\_locks**: Provides information about the locks that are currently held by ongoing transactions. See the [DMV documentation](https://msdn.microsoft.com/library/ms190345.aspx) for more details.
+* **sys.dm\_tran\_active\_transactions** — позволяет просматривать список активных транзакций и их состояние. В столбце UOW (единица работы) можно просмотреть различные дочерние транзакции, которые относятся к одной распределенной транзакции. У всех транзакций в рамках одной распределенной транзакции одинаковое значение UOW. Дополнительные сведения см. в [документации по динамическому административному представлению](https://msdn.microsoft.com/library/ms174302.aspx).
+* **sys.dm\_tran\_database\_transactions** — здесь можно просматривать дополнительную информацию о транзакциях, включая расположение транзакции в журнале. Дополнительные сведения см. в [документации по динамическому административному представлению](https://msdn.microsoft.com/library/ms186957.aspx).
+* **sys.dm\_tran\_locks** — в этом представлении указывается информация о текущих блокировках транзакций. Дополнительные сведения см. в [документации по динамическому административному представлению](https://msdn.microsoft.com/library/ms190345.aspx).
 
-## <a name="limitations"></a>Limitations 
+## Ограничения 
 
-The following limitations currently apply to elastic database transactions in SQL DB:
+В настоящее время в отношении транзакций эластичной базы данных в базе данных SQL действует ряд ограничений.
 
-* Only transactions across databases in SQL DB are supported. Other [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) resource providers and databases outside of SQL DB cannot participate in elastic database transactions. That means that elastic database transactions cannot stretch across on premises SQL Server and Azure SQL Databases. For distributed transactions on premises, continue to use MSDTC. 
-* Only client-coordinated transactions from a .NET application are supported. Server-side support for T-SQL such as BEGIN DISTRIBUTED TRANSACTION is planned, but not yet available. 
-* Only databases on Azure SQL DB V12 are supported.
-* Transactions across WCF services are not supported. For example, you have a WCF service method that executes a transaction. Enclosing the call within a transaction scope will fail as a [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
+* Поддерживаются только транзакции, выполняемые между базами данных в базе данных SQL. В них не могут участвовать поставщики ресурсов и базы данных [X или Open XA](https://en.wikipedia.org/wiki/X/Open_XA), которые не принадлежат к базе данных SQL. Это означает, что транзакции эластичной базы данных не распространяются на локальные базы данных SQL Server и SQL Azure. Чтобы осуществлять распределенные транзакции локально, нужно использовать MSDTC. 
+* Поддерживаются только транзакции, которые осуществляются с помощью приложения .NET и которые координирует клиент. Сейчас выполнение запросов T-SQL на серверах (например, BEGIN DISTRIBUTED TRANSACTION) не поддерживается, но в будущем мы планируем добавить эту возможность. 
+* Поддерживаются только базы данных, которые принадлежат к базе данных SQL Azure версии 12.
+* Транзакции между службами WCF не поддерживаются. Например, если у вас есть метод службы WCF, выполняющий транзакцию, включение вызова в область транзакции завершится ошибкой с исключением [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 
-## <a name="additional-resources"></a>Additional resources
+## Дополнительные ресурсы
 
-Not yet using elastic database capabilities for your Azure applications? Check out our [Documentation Map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). For questions, please reach out to us on the [SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) and for feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+Еще не оценили преимущества транзакций эластичной базы данных для приложений Azure? См. [схему документации](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/). Все возникшие вопросы задавайте на [форуме по базам данных SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted), а запросы новых функций оставляйте на [форуме отзывов и предложений по базам данных SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

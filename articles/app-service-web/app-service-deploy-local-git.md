@@ -1,189 +1,184 @@
 <properties
-    pageTitle="Local Git Deployment to Azure App Service"
-    description="Learn how to enable local Git deployment to Azure App Service."
-    services="app-service"
-    documentationCenter=""
-    authors="dariagrigoriu"
-    manager="wpickett"
-    editor="mollybos"/>
+	pageTitle="Развертывание локального репозитория Git в службе приложений Azure"
+	description="Узнайте, как включить локальное развертывание репозитория Git в службе приложений Azure."
+	services="app-service"
+	documentationCenter=""
+	authors="dariagrigoriu"
+	manager="wpickett"
+	editor="mollybos"/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/13/2016"
-    ms.author="dariagrigoriu"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/13/2016"
+	ms.author="dariagrigoriu"/>
     
+# Развертывание локального репозитория Git в службе приложений Azure
 
-# <a name="local-git-deployment-to-azure-app-service"></a>Local Git Deployment to Azure App Service
+В этом учебнике содержатся сведения о развертывании приложения в [службе приложений Azure] из репозитория Git на локальном компьютере. Служба приложений поддерживает такой подход, если на [портале Azure] выбран вариант развертывания **Локальный репозиторий Git**. Многие команды Git, описанные в этой статье, автоматически выполняются при создании приложения службы приложений с помощью [интерфейса командной строки Azure], как описано [здесь](app-service-web-get-started.md).
 
-This tutorial shows you how to deploy your app to [Azure App Service] from a Git repository on your local computer. App Service supports this approach with the **Local Git** deployment option in the [Azure Portal].  
-Many of the Git commands described in this article are performed automatically when creating an App Service app using the [Azure Command-Line Interface] as described [here](app-service-web-get-started.md).
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+Для работы с этим учебником необходимы указанные ниже компоненты.
 
-To complete this tutorial, you need:
+- Git. Двоичный файл установки можно скачать [отсюда](http://www.git-scm.com/downloads).
+- Базовые знания о Git.
+- Учетная запись Microsoft Azure. Если у вас нет учетной записи, можно [подписаться на бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial) или [активировать преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
 
-- Git. You can download the installation binary [here](http://www.git-scm.com/downloads).  
-- Basic knowledge of Git.
-- A Microsoft Azure account. If you don't have an account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial) or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details).
+>[AZURE.NOTE] Если требуется приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), который поможет быстро создать кратковременное приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter app in App Service. No credit cards required; no commitments.  
+## <a id="Step1"></a>Шаг 1. Создание локального репозитория
 
-## <a name="<a-name="step1"></a>step-1:-create-a-local-repository"></a><a name="Step1"></a>Step 1: Create a local repository
+Чтобы создать новый репозиторий Git, выполните следующие задачи.
 
-Perform the following tasks to create a new Git repository.
+1. Запустите программу командной строки, например **GitBash** (Windows) или **Bash** (оболочка Unix). На компьютерах с OS X доступ к командной строке можно получить через приложение **Terminal**.
 
-1. Start a command-line tool, such as **GitBash** (Windows) or **Bash** (Unix Shell). On OS X systems you can access the command-line through the **Terminal** application.
+2. Перейдите в каталог, в котором будет находиться содержимое для развертывания.
 
-2. Navigate to the directory where the content to deploy would be located.
+3. Используйте следующую команду, чтобы инициализировать новый репозиторий Git:
 
-3. Use the following command to initialize a new Git repository:
+		git init
 
-        git init
+## <a id="Step2"></a>Шаг 2. Фиксация содержимого
 
-## <a name="<a-name="step2"></a>step-2:-commit-your-content"></a><a name="Step2"></a>Step 2: Commit your content
+Служба приложений поддерживает приложения, созданные с использованием различных языков программирования.
 
-App Service supports applications created in a variety of programming languages. 
+1. Если в репозитории уже имеется содержимое, пропустите этот пункт и перейдите к пункту 2 ниже. Если репозиторий пуст, заполните его статическим HTML-файлом, как показано ниже.
 
-1. If your repository already includes content skip this point and move to point 2 below. If your repository does not already include content simply populate with a static .html file as follows: 
-
-    - Using a text editor, create a new file named **index.html** at the root of the Git repository
-    - Add the following text as the contents for the index.html file and save it: *Hello Git!*
+    - С помощью текстового редактора создайте файл с именем **index.html** в корневой папке репозитория Git.
+    - Добавьте следующий текст в качестве содержимого файла index.html и сохраните его: *Hello Git!*
         
-2. From the command-line, verify that you are under the root of your Git repository. Then use the following command to add files to your repository:
+2. Из командной строки проверьте свое нахождение в корневой папке репозитория Git. Затем используйте следующие команды для добавления файлов в репозиторий:
 
-        git add -A 
+		git add -A 
 
-4. Next, commit the changes to the repository by using the following command:
+4. Затем примените эти изменения к репозиторию с помощью следующей команды:
 
-        git commit -m "Hello Azure App Service"
+		git commit -m "Hello Azure App Service"
 
-## <a name="<a-name="step3"></a>step-3:-enable-the-app-service-app-repository"></a><a name="Step3"></a>Step 3: Enable the App Service app repository
+## <a id="Step3"></a>Шаг 3. Включение репозитория приложения службы приложений
 
-Perform the following steps to enable a Git repository for your App Service app.
+Чтобы включить репозиторий Git для приложения службы приложений, выполните приведенные далее действия.
 
-1. Log in to the [Azure Portal].
+1. Войдите на [портал Azure].
 
-2. In your App Service app's blade, click **Settings > Deployment source**. Click **Choose source**, then click **Local Git Repository**, and then click **OK**.  
+2. В колонке приложения службы приложений выберите **Параметры > Источник развертывания**. Щелкните **Выбрать источник**, затем **Локальный репозиторий Git** и нажмите кнопку **OK**.
 
-    ![Local Git Repository](./media/app-service-deploy-local-git/local_git_selection.png)
+	![Локальный репозиторий Git](./media/app-service-deploy-local-git/local_git_selection.png)
 
-3. If this is your first time setting up a repository in Azure, you need to create login credentials for it. You will use them to log into the Azure repository and push changes from your local Git repository. From your app's blade, click **Settings > Deployment credentials**, then configure your deployment username and password. When you're done, click **Save**.
+3. Если репозиторий в Azure настраивается вами впервые, потребуется создать для него учетную запись. Вы будете использовать данные этой учетной записи для входа в репозиторий Azure и отправки изменений из локального репозитория Git. В колонке приложения щелкните **Параметры > Учетные данные развертывания**, а затем настройте имя пользователя и пароль развертывания. Закончив, нажмите кнопку **Сохранить**.
 
-    ![](./media/app-service-deploy-local-git/deployment_credentials.png)
+	![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
-## <a name="<a-name="step4"></a>step-4:-deploy-your-project"></a><a name="Step4"></a>Step 4: Deploy your project
+## <a id="Step4"></a>Шаг 4. Развертывание проекта
 
-Use the following steps to publish your app to App Service using Local Git.
+Чтобы опубликовать приложение в службу приложений с помощью локального репозитория Git, выполните указанные далее действия.
 
-1. In your app's blade in the Azure Portal, click **Settings > Properties** for the **Git URL**.
+1. В колонке приложения на портале Azure выберите **Параметры > Свойства** для **URL-адреса Git**.
 
-    ![](./media/app-service-deploy-local-git/git_url.png)
+	![](./media/app-service-deploy-local-git/git_url.png)
 
-    **Git URL** is the remote reference to deploy to from your local repository. You'll use this URL in the following steps.
+	**URL-адрес Git** содержит внешнюю ссылку для развертывания из вашего локального репозитория. Этот URL-адрес будет использоваться на следующих шагах.
 
-2. Using the command-line, verify that you are in the root of your local Git repository.
+2. С помощью командной строки проверьте свое нахождение в корневой папке локального репозитория Git.
 
-3. Use `git remote` to add the remote reference listed in **Git URL** from step 1. Your command will look similar to the following:
+3. Используйте `git remote` для добавления внешней ссылки, указанной в пункте **URL-адрес Git** на шаге 1. Команда будет выглядеть примерно следующим образом:
 
-        git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git         
-    > [AZURE.NOTE] The **remote** command adds a named reference to a remote repository. In this example, it creates a reference named 'azure' for your web app's repository.
+		git remote add azure https://<username>@localgitdeployment.scm.azurewebsites.net:443/localgitdeployment.git         
+    > [AZURE.NOTE] Команда **remote** добавляет именованную ссылку на удаленный репозиторий. В этом примере создается ссылка с именем azure для репозитория вашего веб-приложения.
 
-4. Push your content to App Service using the new **azure** remote you just created.
+4. Опубликуйте содержимое в службу приложений с помощью созданной команды remote **azure**.
 
-        git push azure master
+		git push azure master
 
-    You will be prompted for the password you created earlier when you reset your deployment credentials in the Azure Portal. Enter the password (note that Gitbash does not echo asterisks to the console as you type your password). 
+	Вам предложат ввести пароль, созданный ранее при сбросе учетных данных развертывания на портале Azure. Введите пароль (обратите внимание, что при вводе пароля Gitbash не выводит звездочки на консоль).
        
-5. Go back to your app in the Azure Portal. A log entry of your most recent push should be displayed in the **Deployments** blade. 
+5. Перейдите к приложению на портале Azure. В колонке **Развертывание** должна отображаться запись журнала с последним push-уведомлением.
 
-    ![](./media/app-service-deploy-local-git/deployment_history.png)
+	![](./media/app-service-deploy-local-git/deployment_history.png)
 
-6. Click the **Browse** button at the top of the app's blade to verify the content has been deployed. 
+6. В верхней части колонки приложения нажмите кнопку **Обзор**, чтобы проверить развертывание содержимого.
     
-## <a name="<a-name="step5"></a>troubleshooting"></a><a name="Step5"></a>Troubleshooting
+## <a id="Step5"></a>Устранение неполадок
 
-The following are errors or problems commonly encountered when using Git to publish to an App Service app in Azure:
-
-****
-
-**Symptom**: Unable to access '[siteURL]': Failed to connect to [scmAddress]
-
-**Cause**: This error can occur if the app is not up and running.
-
-**Resolution**: Start the app in the Azure Portal. Git deployment will not work unless the app is running. 
-
+Ниже перечислены ошибки или проблемы, обычно возникающие при использовании Git для публикации в приложение службы приложений в Azure.
 
 ****
 
-**Symptom**: Couldn't resolve host 'hostname'
+**Симптом**: Не удалось подключиться к [scmAddress]: Нет доступа к [siteURL]:
 
-**Cause**: This error can occur if the address information entered when creating the 'azure' remote was incorrect.
+**Причина**: эта ошибка может возникнуть, если приложение не работает.
 
-**Resolution**: Use the `git remote -v` command to list all remotes, along with the associated URL. Verify that the URL for the 'azure' remote is correct. If needed, remove and recreate this remote using the correct URL.
+**Устранение**: запустите приложение на портале Azure. Развертывание Git не будет работать, пока приложение не запущено.
+
 
 ****
 
-**Symptom**: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.
+**Симптом**: не удается разрешить hostname узла.
 
-**Cause**: This error can occur if you do not specify a branch when performing a git push operation, and have not set the push.default value used by Git.
+**Причина**: эта ошибка может возникнуть, если при создании удаленного репозитория azure был введен неправильный адрес.
 
-**Resolution**: Perform the push operation again, specifying the master branch. For example:
-
-    git push azure master
+**Устранение**: используйте команду `git remote -v`, чтобы вывести список всех удаленных репозиториев с соответствующими URL-адресами. Проверьте правильность URL-адреса удаленного репозитория "azure". При необходимости удалите и повторно создайте этот удаленный репозиторий, используя правильный URL-адрес.
 
 ****
 
-**Symptom**: src refspec [branchname] does not match any.
+**Симптом**: нет ссылок и ничего не указано; ничего не выполняется. Возможно, следует указать ветвь, например master.
 
-**Cause**: This error can occur if you attempt to push to a branch other than master on the 'azure' remote.
+**Причина**: эта ошибка может возникать, если не указана ветвь при выполнении операции принудительной отправки git и не задано значение push.default, используемое Git.
 
-**Resolution**: Perform the push operation again, specifying the master branch. For example:
+**Устранение**: снова выполните операцию принудительной отправки, указав главную ветвь. Например:
 
-    git push azure master
+	git push azure master
 
 ****
 
-**Symptom**: Error - Changes committed to remote repository but your web app not updated.
+**Симптом**: src refspec [имя\_ветви] не соответствует никакой ветви.
 
-**Cause**: This error can occur if you are deploying a Node.js app containing a package.json file that specifies additional required modules.
+**Причина**: эта ошибка может возникнуть при попытке принудительно отправить данные в ветвь, отличную от главной, в удаленном репозитории azure.
 
-**Resolution**: Additional messages containing 'npm ERR!' should be logged prior to this error, and can provide additional context on the failure. The following are known causes of this error and the corresponding 'npm ERR!' message:
+**Устранение**: снова выполните операцию принудительной отправки, указав главную ветвь. Например:
 
-* **Malformed package.json file**: npm ERR! Couldn't read dependencies.
+	git push azure master
 
-* **Native module that does not have a binary distribution for Windows**:
+****
 
-    * npm ERR! \`cmd "/c" "node-gyp rebuild"\` failed with 1
+**Симптом**: ошибка — изменения в удаленный репозиторий внесены, но веб-приложение не обновилось.
 
-        OR
+**Причина**: эта ошибка может возникнуть при развертывании приложения Node.js, содержащего файл package.json, в котором указаны дополнительные необходимые модули.
 
-    * npm ERR! [modulename@version] preinstall: \`make || gmake\`
+**Устранение**: до этой ошибки должны быть зарегистрированы дополнительные сообщения, содержащие «npm ERR!»; они могут предоставить дополнительный контекст для данного сбоя. Ниже перечислены известные причины этой ошибки и соответствующее сообщение npm ERR!.
+
+* **Malformed package.json file**: npm ERR! Couldn't read dependencies (не удалось прочитать зависимости).
+
+* **Собственный модуль, не имеющий двоичного дистрибутива для Windows**:
+
+	* npm ERR! `cmd "/c" "node-gyp rebuild"` failed with 1
+
+		ИЛИ
+
+	* npm ERR! [имя\_модуля@версия] preinstall: `make || gmake`
 
 
-## <a name="additional-resources"></a>Additional Resources
+## Дополнительные ресурсы
 
-* [Git documentation](http://git-scm.com/documentation)
-* [Project Kudu documentation](https://github.com/projectkudu/kudu/wiki)
-* [Continous Deployment to Azure App Service](app-service-continuous-deployment.md)
-* [How to use PowerShell for Azure](../powershell-install-configure.md)
-* [How to use the Azure Command-Line Interface](../xplat-cli-install.md)
+* [Документация по Git](http://git-scm.com/documentation)
+* [Документация по проекту Kudu](https://github.com/projectkudu/kudu/wiki)
+* [Непрерывное развертывание в службе приложений Azure](app-service-continuous-deployment.md)
+* [Использование PowerShell для Azure](../powershell-install-configure.md)
+* [Использование интерфейса командной строки Azure](../xplat-cli-install.md)
 
-[Azure App Service]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
-[Azure Developer Center]: http://www.windowsazure.com/en-us/develop/overview/
-[Azure Portal]: https://portal.azure.com
+[службе приложений Azure]: https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/
+[Azure Developer Center]: http://azure.microsoft.com/develop/overview/
+[портал Azure]: https://portal.azure.com
+[портале Azure]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Azure Command-Line Interface]: https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/
+[интерфейса командной строки Azure]: https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/
 
 [Using Git with CodePlex]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

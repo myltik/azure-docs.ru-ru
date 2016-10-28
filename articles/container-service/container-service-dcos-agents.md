@@ -1,13 +1,13 @@
 <properties
-   pageTitle="Public and Private DC/OS Agent Pools ACS | Microsoft Azure"
-   description="How the public and private agent pools work with an Azure Container Service cluster."
+   pageTitle="Пулы общедоступных и частных агентов DC/OS для ACS | Microsoft Azure"
+   description="Как пулы общедоступных и частных агентов работают с кластером службы контейнеров Azure."
    services="container-service"
    documentationCenter=""
    authors="Thraka"
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, контейнеры, микрослужбы, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -16,32 +16,28 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/16/2016"
-   ms.author="timlt"/>
+   ms.author="adegeo"/>
 
+# Пулы агентов DC/OS для службы контейнеров Azure
 
-# <a name="dc/os-agent-pools-for-azure-container-service"></a>DC/OS Agent Pools for Azure Container Service
+Служба контейнеров Azure DC/OS распределяет агенты по общедоступным или частным пулам. Развертывание можно выполнить в любом пуле, что повлияет на доступность между компьютерами в службе контейнеров. Компьютеры можно подключить к Интернету (общедоступный пул) или только к внутренней сети (частный пул). В этой статье приводятся общие сведения о причинах использования общедоступных и частных пулов.
 
-DC/OS Azure Container Service divides agents into public or private pools. A deployment can be made to either pool, affecting accessibility between machines in your container service. The machines can be exposed to the internet (public) or kept internal (private). This article gives a brief overview of why there are a public and private pool.
+### Частные агенты
 
-### <a name="private-agents"></a>Private agents
+Частные узлы агентов работают в сети без глобальной маршрутизации. К такой сети можно обратиться только из зоны администратора или через пограничный маршрутизатор общедоступной зоны. По умолчанию DC/OS запускает приложения на частных узлах агента. Дополнительные сведения о сетевой безопасности можно получить в [документации по DC/OS](https://dcos.io/docs/1.7/administration/securing-your-cluster/).
 
-Private agent nodes run through a non-routable network. This network is only accessible from the admin zone or through the public zone edge router. By default, DC/OS launches apps on private agent nodes. Consult the [DC/OS documentation](https://dcos.io/docs/1.7/administration/securing-your-cluster/) for more information about network security.
+### Общедоступные агенты
 
-### <a name="public-agents"></a>Public agents
+Общедоступные узлы агентов выполняют приложения и службы DC/OS в общедоступной сети. Дополнительные сведения о сетевой безопасности можно получить в [документации по DC/OS](https://dcos.io/docs/1.7/administration/securing-your-cluster/).
 
-Public agent nodes run DC/OS apps and services through a publicly accessible network. Consult the [DC/OS documentation](https://dcos.io/docs/1.7/administration/securing-your-cluster/) for more information about network security.
+## Использование пулов агентов
 
-## <a name="using-agent-pools"></a>Using agent pools
+По умолчанию **Marathon** развертывает все новые приложения на *частных* узлах агентов. Приложение на *общедоступном* узле необходимо развернуть явно во время создания приложения. Перейдите на вкладку **Дополнительно** и присвойте параметру **Accepted Resource Roles** (Принятые роли ресурсов) значение **slave\_public**. Этот процесс описан [здесь](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) и в [документации по DC/OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/).
 
-By default, **Marathon** deploys any new application to the *private* agent nodes. You have to explicitly deploy the application to the *public* node during the creation of the application. Select the **Optional** tab and enter **slave_public** for the **Accepted Resource Roles** value. This process is documented [here](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) and in the [DC\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentation.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+Узнайте больше об [управлении контейнерами DC/OS](container-service-mesos-marathon-ui.md).
 
-Read more information about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).
+Узнайте, как [открыть брандмауэр](container-service-enable-public-access.md), предоставляемый Azure, чтобы разрешить общий доступ к контейнеру DC/OS.
 
-Learn how to [open the firewall](container-service-enable-public-access.md) provided by Azure to allow public access to your DC/OS container.
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

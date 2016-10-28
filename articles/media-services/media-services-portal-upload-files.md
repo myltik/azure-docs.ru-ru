@@ -1,67 +1,60 @@
 <properties
-    pageTitle=" Upload files into a Media Services account using the Azure portal | Microsoft Azure"
-    description="This tutorial walks you through the steps of uploading files into a Media Services account using the Azure portal"
-    services="media-services"
-    documentationCenter=""
-    authors="Juliako"
-    manager="erikre"
-    editor=""/>
+	pageTitle=" Отправка файлов в учетную запись служб мультимедиа с помощью портала Azure | Microsoft Azure"
+	description="В этом руководстве описаны этапы отправки файлов в учетную запись служб мультимедиа Azure с помощью портала Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/29/2016"
-    ms.author="juliako"/>
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/29/2016"
+	ms.author="juliako"/>
 
 
-
-# <a name="upload-files-into-a-media-services-account-using-the-azure-portal"></a>Upload files into a Media Services account using the Azure portal 
+# Отправка файлов в учетную запись служб мультимедиа с помощью портала Azure 
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-upload-files.md)
+- [Портал](media-services-portal-upload-files.md)
 - [.NET](media-services-dotnet-upload-files.md)
 - [REST](media-services-rest-upload-files.md)
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+> [AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-In Media Services, you upload your digital files into an asset. The Asset  can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.) Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
+В службах мультимедиа цифровые файлы отправляются в актив. Ресурс может содержать видео, аудио, изображения, коллекции эскизов, текстовые каналы и файлы скрытых субтитров (и метаданные этих файлов). После отправки этих файлов содержимое сохраняется в безопасном расположении в облаке для дальнейшей обработки и потоковой передачи.
  
-1. In the **Setting** window, click **Assets**.
+1. В окне **Параметры** щелкните **Ресурсы-контейнеры**.
 
-    ![Upload files](./media/media-services-portal-vod-get-started/media-services-upload.png)
+	![Отправка файлов](./media/media-services-portal-vod-get-started/media-services-upload.png)
 
-3. Click the **Upload** button.
+3. Нажмите кнопку **Отправить**.
 
-    The **Upload a video asset** window appears.
+	Появится окно **загрузки видеоресурса**.
 
-    >[AZURE.NOTE] There is no file size limitation.
-    
-4. Browse to the desired video on your computer, select it, and hit OK.  
+	>[AZURE.NOTE] Размер файлов неограничен.
+	
+4. Найдите нужное видео на компьютере, выберите его и нажмите кнопку "ОК".
 
-    The upload starts and you can see the progress under the file name.  
+	Начнется передача. За ходом загрузки можно наблюдать под именем файла.
 
-Once the upload completes, you will see the new asset listed in the **Assets** window. 
+По завершении загрузки в окне **Ресурсы** появится новый ресурс.
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
+Теперь можно закодировать отправленные ресурсы. Дополнительную информацию см. в статье, посвященной [кодированию ресурсов](media-services-portal-encode.md).
 
-## <a name="media-services-learning-paths"></a>Media Services learning paths
+## Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

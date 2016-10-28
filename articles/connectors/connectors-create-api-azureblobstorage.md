@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Add the Azure blob storage Connector in your Logic Apps | Microsoft Azure"
-    description="Overview of Azure blob storage Connector with REST API parameters"
+    pageTitle="Добавление соединителя хранилища BLOB-объектов Azure в приложения логики | Microsoft Azure"
+    description="Обзор соединителя хранилища BLOB-объектов Azure с параметрами интерфейса API REST"
     services=""
     documentationCenter="" 
     authors="MandiOhlinger"
-    manager="anneta"
+    manager="erikre"
     editor=""
     tags="connectors"/>
 
@@ -14,307 +14,299 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="10/18/2016"
+   ms.date="07/25/2016"
    ms.author="mandia"/>
 
+# Начало соединителем хранилища BLOB-объектов Azure
+Хранилище BLOB-объектов Azure — это служба хранения больших объемов неструктурированных данных. Она позволяет выполнять различные действия, такие как отправка, обновление, получение и удаление больших двоичных объектов. С помощью хранилища BLOB-объектов Azure вы можете:
 
-# <a name="get-started-with-the-azure-blob-storage-connector"></a>Get started with the Azure blob storage connector
-Azure Blob storage is a service for storing large amounts of unstructured data. Perform various actions such as upload, update, get, and delete blobs in Azure blob storage. 
+Хранилище BLOB-объектов Azure позволяет выполнять следующие действия:
 
-With Azure blob storage, you:
+- создавать рабочие процессы, загружая новые проекты или получая недавно обновленные файлы;
+- использовать действия для получения метаданных файлов, а также удаления, копирования файлов и много другого. Например, при обновлении средства на веб-сайте Azure (триггер) будет обновляться файл в хранилище BLOB-объектов (действие).
 
-- Build your workflow by uploading new projects, or getting files that have been  recently updated.
-- Use actions to get file metadata, delete a file, copy files, and more. For example,  when a tool is updated in an Azure web site (a trigger), then update a file in blob storage (an action). 
+В этой статье содержатся сведения об использовании соединителя хранилища BLOB-объектов в приложении логики, а также перечислены предоставляемые им действия.
 
-This topic shows you how to use the blob storage connector in a logic app, and also lists the actions.
+>[AZURE.NOTE] Эта версия статьи предназначена для общедоступного выпуска приложений логики.
 
->[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA). 
+Дополнительные сведения о приложениях логики см. в статье, посвященной [приложениям логики](../app-service-logic/app-service-logic-what-are-logic-apps.md), и [руководстве по созданию приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Подключение к хранилищу BLOB-объектов Azure
 
-## <a name="connect-to-azure-blob-storage"></a>Connect to Azure blob storage
+Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать соответствующее *подключение*. Таким образом вы установите соединение между приложением логики и другой службой. Например, чтобы подключиться к учетной записи хранилища BLOB-объектов, сначала нужно создать соответствующее *подключение*. Для этого введите учетные данные, которые используются для доступа к требуемой службе. Точно так же, чтобы создать подключение к службе хранилища Azure, используйте данные учетной записи хранения.
 
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to a storage account, you first create a blob storage *connection*. To create a connection, enter the credentials you normally use to access the service you are connecting to. So with Azure storage, enter the credentials to your storage account to create the connection. 
+#### Создание подключения
 
-#### <a name="create-the-connection"></a>Create the connection
-
->[AZURE.INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
+>[AZURE.INCLUDE [Создание подключения к хранилищу BLOB-объектов Azure](../../includes/connectors-create-api-azureblobstorage.md)]
  
-## <a name="use-a-trigger"></a>Use a trigger
+## Использование триггера
 
-This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) provides an example.
+Этот соединитель не содержит триггеров. Чтобы запустить приложение логики, используйте другие триггеры, например триггер повторения, триггер веб-перехватчика HTTP, триггеры, доступные для других соединителей, и другие. Пример см. в статье о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## <a name="use-an-action"></a>Use an action
-    
-An action is an operation carried out by the workflow defined in a logic app.
+## Использование действий
+	
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики.
 
-1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+1. Щелкните знак "плюс". Отобразятся следующие параметры: **Добавить действие**, **Добавить условие** или **Еще**.
 
-    ![](./media/connectors-create-api-azureblobstorage/add-action.png)
+	![](./media/connectors-create-api-azureblobstorage/add-action.png)
 
-2. Choose **Add an action**.
+2. Выберите **Добавить действие**.
 
-3. In the text box, type “blob” to get a list of all the available actions.
+3. Чтобы открыть список всех доступных действий, в текстовом поле введите blob.
 
-    ![](./media/connectors-create-api-azureblobstorage/actions.png) 
+	![](./media/connectors-create-api-azureblobstorage/actions.png)
 
-4. In our example, choose **AzureBlob - Get file metadata using path**. If a connection already exists, then select the **...** (Show Picker) button to select a file.
+4. В этом примере для хранилища BLOB-объектов Azure мы выберем действие **Get file metadata using path** (Получение метаданных файла с помощью пути). Если подключение уже существует, щелкните значок многоточия (**…**), чтобы выбрать файл.
 
-    ![](./media/connectors-create-api-azureblobstorage/sample-file.png)
+	![](./media/connectors-create-api-azureblobstorage/sample-file.png)
 
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-azureblobstorage.md#create-the-connection) in this topic describes these properties. 
+	Если появится запрос на предоставление сведений о подключении, введите их, чтобы создать подключение. Эти свойства описаны в разделе [Создание подключения](connectors-create-api-azureblobstorage.md#create-the-connection) этой статьи.
 
-    > [AZURE.NOTE] In this example, we get the metadata of a file. To see the metadata, add another action that creates a new file using another connector. For example, add a OneDrive action that creates a new "test" file based on the metadata. 
+	> [AZURE.NOTE] В этом примере мы извлекаем метаданные файла. Чтобы просмотреть метаданные, добавьте действие для создания файла c использованием другого соединителя. Например, добавьте действие OneDrive, которое создает тестовый файл на основе метаданных.
 
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+5. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
 
-> [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/) is a great tool to  manage multiple storage accounts.
+> [AZURE.TIP] [Storage Explorer](http://storageexplorer.com/) — это отличное средство для управления несколькими учетными записями хранения.
 
-## <a name="technical-details"></a>Technical Details
+## Технические сведения
 
-## <a name="storage-blob-actions"></a>Storage Blob actions
+## Действия хранилища BLOB-объектов
 
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[Get file metadata](connectors-create-api-azureblobstorage.md#get-file-metadata)|This operation gets file metadata using file id.|
-|[Update file](connectors-create-api-azureblobstorage.md#update-file)|This operation updates a file.|
-|[Delete file](connectors-create-api-azureblobstorage.md#delete-file)|This operation deletes a file.|
-|[Get file metadata using path](connectors-create-api-azureblobstorage.md#get-file-metadata-using-path)|This operation gets file metadata using the path.|
-|[Get file content using path](connectors-create-api-azureblobstorage.md#get-file-content-using-path)|This operation gets file contents using the path.|
-|[Get file content](connectors-create-api-azureblobstorage.md#get-file-content)|This operation gets file contents using id.|
-|[Create file](connectors-create-api-azureblobstorage.md#create-file)|This operation uploads a file.|
-|[Copy file](connectors-create-api-azureblobstorage.md#copy-file)|This operation copies a file to Azure Blob Storage.|
-|[Extract archive to folder](connectors-create-api-azureblobstorage.md#extract-archive-to-folder)|This operation extracts an archive file into a folder (example: .zip).|
+|[Get file metadata (Получение метаданных файла)](connectors-create-api-azureblobstorage.md#get-file-metadata)|Извлекает метаданные файла с помощью идентификатора.|
+|[Обновление файла](connectors-create-api-azureblobstorage.md#update-file)|Обновляет файл.|
+|[Удаление файла](connectors-create-api-azureblobstorage.md#delete-file)|Удаляет файл.|
+|[Получение метаданных файла с помощью пути](connectors-create-api-azureblobstorage.md#get-file-metadata-using-path)|Извлекает метаданные файла с помощью пути.|
+|[Получение содержимого файла с помощью пути](connectors-create-api-azureblobstorage.md#get-file-content-using-path)|Извлекает содержимое файла с помощью пути.|
+|[Получение содержимого файла](connectors-create-api-azureblobstorage.md#get-file-content)|Извлекает содержимое файла с помощью идентификатора.|
+|[Создание файла](connectors-create-api-azureblobstorage.md#create-file)|Загружает файл.|
+|[Копирование файла](connectors-create-api-azureblobstorage.md#copy-file)|Копирует файл в хранилище BLOB-объектов Azure.|
+|[Извлечение архива в папку](connectors-create-api-azureblobstorage.md#extract-archive-to-folder)|Извлекает файл архива в папку (например, ZIP-файл).|
 
-### <a name="action-details"></a>Action details
+### Сведения о действиях
 
-In this section, see the specific details about each action, including any required or optional input properties, and any corresponding output associated with the connector.
+В этом разделе приведены сведения о каждом действии, включая обязательные и необязательные входные свойства, а также соответствующие выходные данные, связанные с соединителем.
 
-#### <a name="get-file-metadata"></a>Get file metadata
-This operation gets file metadata using file id.  
+#### Get file metadata (Получение метаданных файла)
+Извлекает метаданные файла с помощью идентификатора.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|id*|File|Select a file|
+|id*|Файл|Выбор файла|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 BlobMetadata
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
-#### <a name="update-file"></a>Update file
-This operation updates a file.  
+#### Обновление файла
+Обновляет файл.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|id*|File|Select a file|
-|body*|File content|Content of the file to update|
+|id*|Файл|Выбор файла|
+|body*|содержимое файла;|Содержимое обновляемого файла|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 BlobMetadata
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
-#### <a name="delete-file"></a>Delete file
-This operation deletes a file.  
+#### Удаление файла
+Удаляет файл.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|id*|File|Select a file|
+|id*|Файл|Выбор файла|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Нет.
 
 
-#### <a name="get-file-metadata-using-path"></a>Get file metadata using path
-This operation gets file metadata using the path.  
+#### Получение метаданных файла с помощью пути
+Извлекает метаданные файла с помощью пути.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|path*|File path|Select a file|
+|path*|Путь к файлу|Выбор файла|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 BlobMetadata
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
-#### <a name="get-file-content-using-path"></a>Get file content using path
-This operation gets file contents using the path.  
+#### Получение содержимого файла с помощью пути
+Извлекает содержимое файла с помощью пути.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|path*|File path|Select a file|
+|path*|Путь к файлу|Выбор файла|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Нет.
 
 
-#### <a name="get-file-content"></a>Get file content
-This operation gets file contents using id.  
+#### Получение содержимого файла
+Извлекает содержимое файла с помощью идентификатора.
 
-|Property Name| Data Type|Description|
+|Имя свойства| Тип данных|Описание|
 | ---|---|---|
-|id*|string|Select a file|
+|id*|string|Выбор файла|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Нет.
 
 
-#### <a name="create-file"></a>Create file
-This operation uploads a file.  
+#### Создание файла
+Загружает файл.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|folderPath*|Folder path|Select a folder|
-|name*|File name|Name of file to upload|
-|body*|File content|Content of the file to upload|
+|folderPath*|Путь к папке|Выбор папки|
+|name*|Имя файла|Имя отправляемого файла|
+|body*|содержимое файла;|Содержимое отправляемого файла|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 BlobMetadata
 
-| Property Name | Data Type | 
+| Имя свойства | Тип данных | 
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
-#### <a name="copy-file"></a>Copy file
-This operation copies a file to Azure Blob Storage.  
+#### Копирование файла
+Копирует файл в хранилище BLOB-объектов Azure.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|source*|Source url|Specify Url to source file|
-|destination*|Destination file path|Specify the destination file path, including target filename|
-|overwrite|Overwrite?|Should an existing destination file be overwritten (true/false)?  |
+|source*|URL-адрес исходного файла|Указывает URL-адрес исходного файла|
+|destination*|Путь к конечному файлу|Указывает путь к конечному файлу, включая имя конечного файла|
+|перезаписать|Перезаписать?|Определяет, следует ли перезаписать конечный файл (true/false) |
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 BlobMetadata
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
-#### <a name="extract-archive-to-folder"></a>Extract archive to folder
-This operation extracts an archive file into a folder (example: .zip).  
+#### Извлечение архива в папку
+Извлекает файл архива в папку (например, ZIP-файл).
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|source*|Source archive file path|Select an archive file|
-|destination*|Destination folder path|Select the contents to extract|
-|overwrite|Overwrite?|Should an existing destination file be overwritten (true/false)?|
+|source*|Путь к исходному файлу архива|Выбор файла архива|
+|destination*|Путь к конечной папке|Выберите содержимое для извлечения|
+|перезаписать|Перезаписать?|Определяет, следует ли перезаписать конечный файл (true/false)|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 BlobMetadata
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
-## <a name="http-responses"></a>HTTP responses
+## Ответы HTTP
 
-When making calls to the different actions, you may get certain responses. The following table outlines the responses and their descriptions:  
+В результате вызова различных действий могут возвращаться определенные ответы. В следующей таблице приведены ответы, а также их описания.
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
-|default|Operation Failed.|
+|200|ОК|
+|202|Принято|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+См. статью о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, см. [список API-интерфейсов](apis-list.md).
 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Best practices for StorSimple Virtual Array | Microsoft Azure"
-   description="Describes the best practices for deploying and managing the StorSimple Virtual Array."
+   pageTitle="Рекомендации по использованию виртуального массива StorSimple | Microsoft Azure"
+   description="В этой статье описываются рекомендации по развертыванию виртуального массива StorSimple и управлению им."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,344 +15,338 @@
    ms.date="08/09/2016"
    ms.author="alkohli" />
 
+# Рекомендации по использованию виртуального массива StorSimple
 
-# <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array best practices
+## Обзор
 
-## <a name="overview"></a>Overview
+Виртуальный массив Microsoft Azure StorSimple — это интегрированное решение хранилища, которое управляет задачами хранилища на локальном виртуальном устройстве, выполняющемся в низкоуровневой оболочке, и в облачном хранилище Microsoft Azure. Виртуальный массив StorSimple представляет собой эффективную и экономичную альтернативу физическому массиву серии 8000. Его можно запускать в имеющейся инфраструктуре низкоуровневой оболочки. Кроме того, он поддерживает протоколы iSCSI и SMB и хорошо подходит для сценариев, применяемых в удаленных офисах и филиалах. Дополнительные сведения о решениях StorSimple см. в [обзоре решения Microsoft Azure StorSimple](https://www.microsoft.com/ru-RU/server-cloud/products/storsimple/overview.aspx).
 
-Microsoft Azure StorSimple Virtual Array is an integrated storage solution that manages storage tasks between an on-premises virtual device running in a hypervisor and Microsoft Azure cloud storage. StorSimple Virtual Array is an efficient, cost-effective alternative to the 8000 series physical array. The virtual array can run on your existing hypervisor infrastructure, supports both the iSCSI and the SMB protocols, and is well-suited for remote office/branch office scenarios. For more information on the StorSimple solutions, go to [Microsoft Azure StorSimple Overview](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
+В этой статье приведены рекомендации по виртуальному массиву StorSimple, касающиеся начальной настройки, развертывания и управления. Это проверенные инструкции по настройке виртуального массива и управлению им. Эта статья предназначена для ИТ-администраторов, ответственных за развертывание и контроль виртуальных массивов в центрах данных.
 
-This article covers the best practices implemented during the initial setup, deployment, and management of the StorSimple Virtual Array. These best practices provide validated guidelines for the setup and management of your virtual array. This article is targeted towards the IT administrators who deploy and manage the virtual arrays in their datacenters.
+Мы советуем периодически пересматривать эти рекомендации. Так вы сможете обеспечивать соответствие устройства текущим требованиям в случае изменения процедуры настройки или обслуживания. Если у вас возникнут какие-либо проблемы при реализации этих рекомендаций для виртуального массива, [обратитесь за помощью в службу технической поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-We recommend a periodic review of the best practices to help ensure your device is still in compliance when changes are made to the setup or operation flow. Should you encounter any issues while implementing these best practices on your virtual array, [contact Microsoft Support](storsimple-contact-microsoft-support.md) for assistance.
+## Рекомендации по настройке 
 
-## <a name="configuration-best-practices"></a>Configuration best practices 
+Здесь приведены рекомендации, которым необходимо следовать во время начальной настройки и развертывания виртуальных массивов. Сюда входят советы относительно подготовки виртуальной машины, настройки параметров групповой политики, сети и учетных записей хранения, а также изменения размера и создания общих папок и томов для виртуального массива.
 
-These best practices cover the guidelines that need to be followed during the initial setup and deployment of the virtual arrays. These best practices include those related to the provisioning of the virtual machine, group policy settings, sizing, setting up the networking, configuring storage accounts, and creating shares and volumes for the virtual array. 
+### Подготовка 
 
-### <a name="provisioning"></a>Provisioning 
+Виртуальный массив StorSimple — это виртуальная машина, подготовленная на низкоуровневой оболочке (Hyper-V или VMware) сервера узла. При подготовке виртуальной машины следует удостовериться, что узел может выделить достаточно ресурсов. Дополнительные сведения см. в разделе с [минимальными требованиями к ресурсам](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) для подготовки массива.
 
-StorSimple Virtual Array is a virtual machine (VM) provisioned on the hypervisor (Hyper-V or VMware) of your host server. When provisioning the virtual machine, ensure that your host is able to dedicate sufficient resources. For more information, go to [minimum resource requirements](storsimple-ova-deploy2-provision-hyperv.md#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements) to provision an array. 
-
-Implement the following best practices when provisioning the virtual array:
+При подготовке виртуального массива следуйте приведенным ниже рекомендациям.
 
 
-|                        | Hyper-V                                                                                                                                        | VMware                                                                                                               |
+| | Hyper-V. | VMware |
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| **Virtual machine type**   | **Generation 2** VM for use with Windows Server 2012 or later and a *.vhdx* image. <br></br> **Generation 1** VM for use with a Windows Server 2008 or later and a *.vhd* image.                                                                                                              | Use virtual machine version 8 - 11 when using *.vmdk* image.                                                                      |
-| **Memory type**            | Configure as **static memory**. <br></br> Do not use the **dynamic memory** option.            |                                                    |
-| **Data disk type**         | Provision as **dynamically expanding**.<br></br> **Fixed size** takes a long time. <br></br> Do not use the **differencing** option.                                                                                                                   | Use the **thin provision** option.                                                                                      |
-| **Data disk modification** | Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device.                       | Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device. |
+| **Тип виртуальной машины** | Используйте виртуальную машину **поколения 2** для Windows Server 2012 или более поздней версии и *VHDX*-файла образа. <br></br> Используйте виртуальную машину **поколения 1** для Windows Server 2008 или более поздней версии и *VHD*-файла образа | Используйте виртуальную машину версии 8–11 для *VMDK*-файла образа |
+| **Тип памяти** | Задайте тип памяти **Статическая**. <br></br> Не используйте параметр **Динамическая память** | |
+| **Тип диска данных** | При подготовке настройте диск как **динамически расширяемый**.<br></br> Подготовка дисков **фиксированного размера** занимает много времени. <br></br> Не используйте параметр **Разностный**. | Используйте параметр **Тонкая подготовка**. |
+| **Изменение диска данных** | Расширение и сжатие не допускаются. Попытка сделать это приведет к потере всех локальных данных на устройстве. | Расширение и сжатие не допускаются. Попытка сделать это приведет к потере всех локальных данных на устройстве. |
 
-### <a name="sizing"></a>Sizing
+### Определение размера
 
-When sizing your StorSimple Virtual Array, consider the following factors:
+При планировании размера виртуального массива StorSimple учтите такие факторы:
 
-- Local reservation for volumes or shares. Approximately 12% of the space is reserved on the local tier for each provisioned tiered volume or share. Roughly 10% of the space is also reserved for a locally pinned volume for file system.
-- Snapshot overhead. Roughly 15% space on the local tier is reserved for snapshots.
-- Need for restores. If doing restore as a new operation, sizing should account for the space needed for restore. Restore is done to a share or volume of the same size or larger.
-- Some buffer should be allocated for any unexpected growth.
+- Зарезервированное пространство для общих папок или томов на локальном уровне. Примерно 12 % места резервируется на локальном уровне для каждого подготовленного многоуровневого тома или общей папки. Примерно 10 % места резервируется также для локально закрепленного тома для файловой системы.
+- Пространство для моментальных снимков. Примерно 15 % пространства на локальном уровне резервируется для моментальных снимков.
+- Необходимость в восстановлении. При определении размера следует учитывать пространство, необходимое для восстановления, выполняемого в качестве новой операции. Восстановление выполняется с общей папкой или томом такого же или большего размера.
+- Необходимо выделить некоторый объем пространства на случай непредвиденного роста.
 
-Based on the preceding factors, the sizing requirements can be represented by the following equation:
+На основе приведенных выше факторов требования к размеру можно представить с помощью следующей формулы:
 
-`Total usable local disk size = (Total provisioned locally pinned volume/share size including space for file system) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
+.`Total usable local disk size = (Total provisioned locally pinned volume/share size including space for file system) + (Max (local reservation for a volume/share) for all tiered volumes/share) + (Local reservation for all tiered volumes/shares)`
 
 `Data disk size = Total usable local disk size + Snapshot overhead + buffer for unexpected growth or new share or volume`
 
 
-The following examples illustrate how you can size a virtual array based on your requirements.
+Приведенные ниже примеры иллюстрируют, как определить размер для виртуального массива в зависимости от требований.
 
-#### <a name="example-1:"></a>Example 1:
-On your virtual array, you want to be able to 
+#### Пример 1
+На виртуальном массиве необходимо:
 
-- provision a 2 TB tiered volume or share.
-- provision a 1 TB tiered volume or share.
-- provision a 300 GB of locally pinned volume or share.
-
-
-For the preceding volumes or shares, let us calculate the space requirements on the local tier. 
-
-First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation would be 10 % of the volume/share size. In this example, you need
-
-- 240 GB local reservation (for a 2 TB tiered volume/share)
-- 120 GB local reservation (for a 1 TB tiered volume/share)
-- 330 GB for locally pinned volume or share
-
-The total space required on the local tier so far is: 240 GB + 120 GB + 330 GB = 690 GB.
-
-Second, we need at least as much space on the local tier as the largest single reservation. This extra amount is used in case you need to restore from a cloud snapshot. In this example, the largest local reservation is 330 GB (including reservation for file system), so you would add that to the 660 GB: 660 GB + 330 GB = 990 GB.
-If we performed subsequent additional restores, we can always free up the space from the previous restore operation.
-
-Third, we need 15 % of your total local space so far to store local snapshots, so that only 85% of it is available. In this example, that would be around 990 GB = 0.85&ast;provisioned data disk TB. So, the provisioned data disk would be (990&ast;(1/0.85))= 1164 GB = 1.16 TB ~ 1.25 TB (rounding off to nearest quartile)
-
-Factoring in unexpected growth and new restores, you should provision a local disk of around 1.25 - 1.5 TB.
-
-> [AZURE.NOTE] We also recommend that the local disk is thinly provisioned. This recommendation is because the restore space is only needed when you want to restore data that is older than five days. Item-level recovery allows you to restore data for the last five days without requiring the extra space for restore.
-
-#### <a name="example-2:"></a>Example 2: 
-On your virtual array, you want to be able to 
-
-- provision a 2 TB tiered volume
-- provision a 300 GB locally pinned volume
-
-Based on 12 % of local space reservation for tiered volumes/shares and 10 % for locally pinned volumes/shares, we need
-
-- 240 GB local reservation (for 2 TB tiered volume/share)
-- 330 GB for locally pinned volume or share
-
-Total space required on the local tier is: 240 GB + 330 GB = 570 GB
-
-The minimum local space needed for restore is 330 GB. 
-
-15 % of your total disk is used to store snapshots so that only 0.85 is available. So, the disk size is (900&ast;(1/0.85)) = 1.06 TB ~ 1.25 TB (rounding off to nearest quartile) 
-
-Factoring in any unexpected growth, you can provision a 1.25 - 1.5 TB local disk.
+- подготовить многоуровневый том или общую папку объемом 2 ТБ;
+- подготовить многоуровневый том или общую папку объемом 1 ТБ;
+- подготовить локально закрепленный том или общую папку объемом 300 ГБ.
 
 
-### <a name="group-policy"></a>Group policy
+Давайте определим требования к пространству на локальном уровне для приведенных выше томов или общих папок.
 
-Group Policy is an infrastructure that allows you to implement specific configurations for users and computers. Group Policy settings are contained in Group Policy objects (GPOs), which are linked to the following Active Directory Domain Services (AD DS) containers: sites, domains, or organizational units (OUs). 
+Во-первых, локально зарезервированное пространство для каждого многоуровневого тома или общей папки будет составлять 12 % от их размера. Локально зарезервированное пространство для локально закрепленного тома или общей папки будет составлять 10 % от их размера. В этом примере требуется:
 
-If your virtual array is domain-joined, GPOs can be applied to it. These GPOs can install applications such as an antivirus software that can adversely impact the operation of the StorSimple Virtual Array.
+- 240 ГБ локально зарезервированного пространства (для многоуровневого тома и общей папки объемом 2 ТБ);
+- 120 ГБ локально зарезервированного пространства (для многоуровневого тома и общей папки объемом 1 ТБ);
+- 330 ГБ для локально закрепленного тома или общей папки.
 
-Therefore, we recommend that you:
+На данный момент общее пространство, требуемое на локальном уровне, составляет 690 ГБ (240 + 120 + 330 ГБ).
 
--   Ensure that your virtual array is in its own organizational unit (OU) for Active Directory. 
+Во-вторых, на локальном уровне понадобится дополнительное пространство, соответствующее наибольшему зарезервированному пространству или превышающее его. Этот дополнительный объем резервируется на случай, если потребуется выполнить восстановление из облачного моментального снимка. В этом примере наибольшее локально зарезервированное пространство составляет 330 ГБ (включая пространство для файловой системы). Этот объем и нужно добавить к 660 ГБ. Таким образом, мы получаем 990 ГБ (660 + 330 ГБ). После выполнения дополнительных операций восстановления можно освободить пространство, удалив данные предыдущей операции восстановления.
 
--   Make sure that no group policy objects (GPOs) are applied to your virtual array. You can block inheritance to ensure that the virtual array (child node) does not automatically inherit any GPOs from the parent. For more information, go to [block inheritance](https://technet.microsoft.com/library/cc731076.aspx).
+В-третьих, на данном этапе нам нужно 15 % от общего локального пространства для хранения локальных моментальных снимков, так что доступными остаются только 85 %. В нашем примере это составляет около 990 ГБ, то есть 85 % от объема подготовленного диска данных. Таким образом, объем подготовленного диска данных равен 1164 ГБ (990&ast;(1 / 0,85)), т. е. примерно 1,16 ТБ ~ 1,25 ТБ (округление до ближайшего квартиля).
 
+Учитывая возможность непредвиденного роста и дополнительные операции восстановления, следует подготовить локальный диск емкостью примерно 1,25–1,5 ТБ.
 
-### <a name="networking"></a>Networking
+> [AZURE.NOTE] Кроме того, рекомендуется применять к локальному диску метод тонкой подготовки. Это связано с тем, что место для восстановления требуется только в случае, если необходимо восстановить данные, хранящиеся дольше пяти дней. Восстановление на уровне элементов позволяет восстановить данные за последние пять дней, при этом не нужно дополнительное место.
 
-The network configuration for your virtual array is done through the local web UI. A virtual network interface is enabled through the hypervisor in which the virtual array is provisioned. Use the [Network Settings](storsimple-ova-deploy3-fs-setup.md) page to configure the virtual network interface IP address, subnet, and gateway.  You can also configure the primary and secondary DNS server, time settings, and optional proxy settings for your device. Most of the network configuration is a one-time setup. Review the [StorSimple networking requirements](storsimple-ova-system-requirements.md#networking-requirements) prior to deploying the virtual array.
+#### Пример 2 
+На виртуальном массиве необходимо:
 
-When deploying your virtual array, we recommend that you follow these best practices:
+- подготовить многоуровневый том объемом 2 ТБ;
+- подготовить локально закрепленный том объемом 300 ГБ.
 
--   Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5 Mbps Internet bandwidth (or more). 
+Так как 12 % локального пространства зарезервировано для многоуровневых томов и общих папок, а 10 % — для локально закрепленных томов и общих папок, нам понадобится:
 
-    -   Internet bandwidth need varies depending on your workload characteristics and the rate of data change.
+- 240 ГБ локально зарезервированного пространства (для многоуровневого тома и общей папки объемом 2 ТБ);
+- 330 ГБ для локально закрепленного тома или общей папки.
 
-    -   The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours. With four times more bandwidth (20 Mbps), you can handle four times more data change (72 GB). 
+Общее пространство, требуемое на локальном уровне, составляет 570 ГБ (240 + 330 ГБ).
 
--   Ensure connectivity to the Internet is always available. Sporadic or unreliable Internet connections to the devices may result in a loss of access to data in the cloud and could result in an unsupported configuration.
+Минимальное локальное пространство, необходимое для восстановления, составляет 330 ГБ.
 
--   If you plan to deploy your device as an iSCSI server: 
-    -   We recommend that you disable the **Get IP address automatically** option (DHCP). 
-    -   Configure static IP addresses. You must configure a primary and a secondary DNS server.
+15 % от общего места на диске используется для хранения моментальных снимков, поэтому доступно только 0,85 объема. Таким образом, размер диска составляет 1,06 ТБ ~ 1,25 ТБ (900&ast;(1/0,85)) с округлением к ближайшему квартилю.
 
-    -   If defining multiple network interfaces on your virtual array, only the first network interface (by default, this interface is **Ethernet**) can reach the cloud. To control the type of traffic, you can create multiple virtual network interfaces on your virtual array (configured as an iSCSI server) and connect those interfaces to different subnets.
-
--   To throttle the cloud bandwidth only (used by the virtual array), configure throttling on the router or the firewall. If you define throttling in your hypervisor, it will throttle all the protocols including iSCSI and SMB instead of just the cloud bandwidth. 
-
--   Ensure that time synchronization for hypervisors is enabled. If using Hyper-V, select your virtual array in the Hyper-V Manager, go to **Settings &gt; Integration Services**, and ensure that the **Time synchronization** is checked.
-
-### <a name="storage-accounts"></a>Storage accounts
-
-StorSimple Virtual Array can be associated with a single storage account. This storage account could be an automatically generated storage account, an account in the same subscription as the service, or a storage account related to another subscription. For more information, see how to [manage storage accounts for your virtual array](storsimple-ova-manage-storage-accounts.md).
-
-Use the following recommendations for storage accounts associated with your virtual array.
-
--   When linking multiple virtual arrays with a single storage account, factor in the maximum capacity (64 TB) for a virtual array and the maximum size (500 TB) for a storage account. This limits the number of full-sized virtual arrays that can be associated with that storage account to about 7.
-
--   When creating a new storage account
-    -   We recommend that you create it in the region closest to the remote office/branch office where your StorSimple Virtual Array is deployed to minimize latencies.
-
-    -   Bear in mind that you cannot move a storage account across different regions. Also you cannot move a service across subscriptions.
-
-    -   Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](../storage/storage-redundancy.md).
+Учитывая непредвиденный рост, можно подготовить локальный диск объемом 1,25–1,5 ТБ.
 
 
-### <a name="shares-and-volumes"></a>Shares and volumes
+### Групповая политика
 
-For your StorSimple Virtual Array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes are related to the size and the type configured.
+Групповая политика — это инфраструктура, которая позволяет реализовать определенные настройки для пользователей и компьютеров. Параметры групповой политики содержатся в объектах групповой политики, которые связаны с такими контейнерами доменных служб Active Directory (AD DS): сайты, домены и подразделения.
 
-#### <a name="volume/share-size"></a>Volume/Share size
+Если виртуальный массив присоединен к домену, к нему можно применить объекты групповой политики. Эти объекты могут устанавливать приложения, например антивирусные программы, что может отрицательно сказаться на работе виртуального массива StorSimple.
 
-On your virtual array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes relate to the size and the type configured. 
+Поэтому следует учитывать следующие рекомендации:
 
-Keep in mind the following best practices when provisioning shares or volumes on your virtual device.
+-   Убедитесь, что виртуальный массив находится в собственном подразделении Active Directory.
 
--   The file sizes relative to the provisioned size of a tiered share can impact the tiering performance. Working with large files could result in a slow tier out. When working with large files, we recommend that the largest file is smaller than 3% of the share size.
+-   Убедитесь, что к виртуальному массиву не применяются какие-либо объекты групповой политики. Для виртуального массива (дочерний узел) можно заблокировать наследование, чтобы предотвратить автоматическое наследование объектов групповой политики от родительского узла. Дополнительные сведения см. в статье [Блокирование наследования](https://technet.microsoft.com/library/cc731076.aspx).
 
--   A maximum of 16 volumes/shares can be created on the virtual array. If locally pinned, the volumes/shares can be between 50 GB to 2 TB. If tiered, the volumes/shares must be between 500 GB to 20 TB. 
 
--   When creating a volume, factor in the expected data consumption as well as future growth. While the volume cannot be expanded later, you can always restore to a larger volume.
+### Сеть
 
--   Once the volume has been created, you cannot shrink the size of the volume on StorSimple.
+Настройка сети виртуального массива осуществляется с помощью локального веб-интерфейса. Виртуальный сетевой интерфейс предоставляется в низкоуровневой оболочке, где подготовлен виртуальный массив. На странице [Параметры сети](storsimple-ova-deploy3-fs-setup.md) можно настроить IP-адрес, подсеть и шлюз для этого сетевого интерфейса. Можно также настроить основной и дополнительный DNS-серверы, параметры времени и необязательные параметры прокси-сервера для вашего устройства. Большую часть параметров сети можно настроить только один раз. Прежде чем развернуть виртуальный массив, ознакомьтесь с [требованиями к сети для StorSimple](storsimple-ova-system-requirements.md#networking-requirements).
+
+При развертывании виртуального массива нужно следовать таким рекомендациям:
+
+-   Сеть, в которой развертывается виртуальный массив, должна постоянно обеспечивать интернет-канал с пропускной способностью не менее 5 Мбит/с.
+
+    -   Требования к пропускной способности зависят от особенностей рабочей нагрузки и скорости изменения данных.
+
+    -   Изменение данных, которое можно обработать, прямо пропорционально пропускной способности интернет-канала. Например, при создании резервной копии интернет-канал с пропускной способностью 5 Мбит/с позволяет выполнить операцию изменения данных объемом 18 ГБ за 8 часов. Если пропускная способность будет выше в четыре раза (20 Мбит/с), можно будет обработать изменение данных с четырехкратным объемом (72 ГБ).
+
+-   Обязательно наличие постоянного подключения к Интернету. Прерывающееся или ненадежное подключение к Интернету на устройствах может привести к потере доступа к данным в облаке и к неподдерживаемой конфигурации.
+
+-   Если планируется развернуть устройство в качестве сервера iSCSI:
+	-   Рекомендуется отключить параметр **Получить IP-адрес автоматически** (DHCP).
+	-   Настройте статические IP-адреса. Необходимо настроить основной и дополнительный DNS-серверы.
+
+	-   При определении нескольких сетевых интерфейсов в виртуальном массиве учтите, что только первый сетевой интерфейс (по умолчанию — **Ethernet**) имеет доступ к облаку. Чтобы управлять типом трафика, в виртуальном массиве (настроенном в качестве сервера iSCSI) необходимо создать несколько виртуальных сетевых интерфейсов и подключить их к различным подсетям.
+
+-   Для регулировки пропускной способности облака (используемой виртуальным массивом) соответствующие настройки необходимо задать в параметрах маршрутизатора или брандмауэра. Если настроить регулирование в параметрах низкоуровневой оболочки, будет регулироваться не только пропускная способность облака, но и все протоколы, включая iSCSI и SMB.
+
+-   Включите синхронизацию времени для низкоуровневых оболочек. При использовании Hyper-V необходимо выбрать виртуальный массив в диспетчере Hyper-V, щелкнуть **Параметры & gt; Службы интеграции** и установить флажок **Синхронизация времени**.
+
+### учетные записи хранения;
+
+Виртуальный массив StorSimple можно связать с одной учетной записью хранения. Это может быть автоматически созданная учетная запись хранения, учетная запись в той же подписке, что и служба, и учетная запись хранения, связанная с другой подпиской. Дополнительные сведения см. в статье [Управление учетными записями хранения для виртуального массива StorSimple с помощью службы диспетчера StorSimple](storsimple-ova-manage-storage-accounts.md).
+
+Следуйте рекомендациям ниже для учетных записей хранения, связанных с виртуальным массивом.
+
+-   При связывании нескольких виртуальных массивов с одной учетной записью следует учитывать максимальную емкость виртуальных массивов (64 ТБ) и максимальный размер учетной записи хранения (500 ТБ). Таким образом, число полноразмерных виртуальных массивов, которые можно связать с этой учетной записью хранения, равно 7.
+
+-   При создании учетной записи хранения учитывайте следующее:
+	-   Для минимизации задержек рекомендуется создать учетную запись в регионе, который ближе всего к удаленному офису или филиалу, где развернут виртуальный массив StorSimple.
+
+	-   Обратите внимание, что учетные записи хранения нельзя переносить из одного региона в другой. То же самое касается переноса службы в другую подписку.
+
+	-   Используйте учетную запись хранения, которая обеспечивает избыточность между центрами обработки данных. Для виртуального массива можно использовать геоизбыточное хранилище (GRS), хранилище, избыточное в пределах зоны, (ZRS) и локально избыточное хранилище (LRS). Дополнительные сведения о различных типах учетных записей хранения см. в статье [Репликация службы хранилища Azure](../storage/storage-redundancy.md).
+
+
+### Общие папки и тома
+
+Общие папки для виртуального массива StorSimple можно подготовить, если он настроен как файловый сервер, а тома — если он настроен как сервер iSCSI. Рекомендации, которые следует учитывать при создании общих папок и томов, касаются размера и типа.
+
+#### Размер томов и общих папок
+
+Общие папки для виртуального массива можно подготовить, если он настроен как файловый сервер, а для тома — если он настроен как сервер iSCSI. Рекомендации, которые следует учитывать при создании общих папок и томов, касаются размера и типа.
+
+При подготовке общих папок или томов на виртуальном устройстве примите во внимание следующее:
+
+-   Размер файлов относительно размера подготовленной многоуровневой общей папки может влиять на производительность распределения по уровням. Иногда при работе с большими файлами распределение по уровням выполняется очень медленно. При работе с файлами большого размера рекомендуется, чтобы размер самого большого файла составлял не более 3 % от размера общей папки.
+
+-   На виртуальном массиве можно создать не более 16 томов или общих папок. Размер локально закрепленных томов и общих папок может составлять от 50 ГБ до 2 ТБ. Возможный размер многоуровневых томов и общих папок — от 500 ГБ до 20 ТБ.
+
+-   При создании тома следует учитывать уровень ожидаемого использования данных, а также будущий рост. Хотя том нельзя расширить позже, его можно восстановить в виде тома большего размера.
+
+-   После создания тома на устройстве StorSimple его размер нельзя уменьшить.
    
--   When writing to a tiered volume on StorSimple, when the volume data reaches a certain threshold (relative to the local space reserved for the volume), the IO is throttled. Continuing to write to this volume slows down the IO significantly. Though you can write to a tiered volume beyond its provisioned capacity (we do not actively stop the user from writing beyond the provisioned capacity), you see an alert notification to the effect that you have oversubscribed. Once you see the alert, it is imperative that you take remedial measures such as delete the volume data or restore the volume to a larger volume (volume expansion is currently not supported).
+-   Когда многоуровневый том на устройстве StorSimple, на который выполняется запись, достигает определенного порогового значения объема (по отношению к локальному пространству, зарезервированному для тома), начинается регулирование операций ввода-вывода. Если продолжить запись на этот том, скорость ввода-вывода значительно снизится. Хотя вы можете продолжить запись на многоуровневый том после превышения подготовленной емкости (мы не блокируем запись в таком случае), появится оповещение о том, что лимит по подписке превышен. Как только вы увидите это оповещение, необходимо предпринять меры, например удалить данные или восстановить том в виде тома большего размера (в настоящее время расширение тома не поддерживается).
 
--   For disaster recovery use cases, as the number of allowable shares/volumes is 16 and the maximum number of shares/volumes that can be processed in parallel is also 16, the number of shares/volumes does not have a bearing on your RPO and RTOs. 
+-   Что касается случаев аварийного восстановления, то их количество не влияет на целевую точку и целевое время восстановления, так как допустимое число общих папок или томов равно 16 и максимальное число общих папок или томов, которые могут обрабатываться параллельно, тоже 16.
 
-#### <a name="volume/share-type"></a>Volume/Share type
+#### Тип томов и общих папок
 
-StorSimple supports two volume/share types based on the usage: locally pinned and tiered. Locally pinned volumes/shares are thickly provisioned whereas the tiered volumes/shares are thinly provisioned. 
+StorSimple поддерживает два типа томов и общих папок в зависимости от использования: локально закрепленные и многоуровневые. Для локально закрепленных томов и общих папок выполняется фиксированная подготовка, а для многоуровневых томов и общих папок — тонкая подготовка.
 
-We recommend that you implement the following best practices when configuring StorSimple volumes/shares:
+При настройке томов или общих папок StorSimple следует учитывать приведенные ниже рекомендации.
 
--   Identify the volume type based on the workloads that you intend to deploy before you create a volume. Use locally pinned volumes for workloads that require local guarantees of data (even during a cloud outage) and that require low cloud latencies. Once you create a volume on your virtual array, you cannot change the volume type from locally pinned to tiered or *vice-versa*. As an example, create locally pinned volumes when deploying SQL workloads or workloads hosting virtual machines (VMs); use tiered volumes for file share workloads.
+-   Перед созданием определите тип тома в зависимости от рабочих нагрузок, которые планируется развернуть. Локально закрепленные тома подходят для рабочих нагрузок, данные для которых должны все время быть доступными локально (даже при сбое в облаке) и которые требуют низкой задержки в облаке. После создания тома в виртуальном массиве его тип нельзя изменить с локально закрепленного на многоуровневый и *наоборот*. Например, локально закрепленные тома следует использовать при развертывании рабочих нагрузок SQL или размещении виртуальных машин, а многоуровневые тома — для рабочих нагрузок файловых ресурсов.
 
--   Check the option for less frequently used archival data when dealing with large file sizes. A larger deduplication chunk size of 512 K is used when this option is enabled to expedite the data transfer to the cloud.
+-   При работе с файлами большого размера следует выбрать параметр для не слишком часто используемых архивных данных. Если выбран этот параметр, для ускорения передачи данных в облако используется блок дедупликации размером 512 КБ.
 
-#### <a name="volume-format"></a>Volume format
+#### Формат тома
 
-After you create StorSimple volumes on your iSCSI server, you need to initialize, mount, and format the volumes. This operation is performed on the host connected to your StorSimple device. Following best practices are recommended when mounting and formatting volumes on the StorSimple host.
+После создания томов StorSimple на сервере iSCSI их необходимо инициализировать, подключить и отформатировать. Эта операция выполняется на узле, подключенном к устройству StorSimple. При подключении и форматировании томов на узле StorSimple следует учитывать приведенные ниже советы и рекомендации.
 
--   Perform a quick format on all StorSimple volumes.
+-   Выполняйте для всех томов StorSimple быстрое форматирование.
 
--   When formatting a StorSimple volume, use an allocation unit size (AUS) of 64 KB (default is 4 KB). The 64 KB AUS is based on testing done in-house for common StorSimple workloads and other workloads.
+-   При форматировании тома StorSimple рекомендуемый размер единицы выделения — 64 КБ (размер по умолчанию — 4 КБ). Этот размер выбран в результате тестирования, выполненного с использованием распространенных рабочих нагрузок StorSimple, а также других рабочих нагрузок.
 
--   When using the StorSimple Virtual Array configured as an iSCSI server, do not use spanned volumes or dynamic disks as these volumes or disks are not supported by StorSimple.
+-   В виртуальном массиве StorSimple, настроенном в качестве сервера iSCSI, не следует использовать составные тома или динамические диски, так как они не поддерживаются.
 
-#### <a name="share-access"></a>Share access
+#### Общий доступ
 
-When creating shares on your virtual array file server, follow these guidelines:
+При создании общих папок на виртуальном массиве, настроенном в качестве файлового сервера, следует придерживаться приведенных ниже рекомендаций.
 
--   When creating a share, assign a user group as a share administrator instead of a single user.
+-   При создании общей папки настройте администраторские права не для одного пользователя, а для группы пользователей.
 
--   You can manage the NTFS permissions after the share is created by editing the shares through Windows Explorer.
+-   После создания общей папки можно управлять разрешениями NTFS с помощью проводника Windows.
 
-#### <a name="volume-access"></a>Volume access
+#### Доступ к тому
 
-When configuring the iSCSI volumes on your StorSimple Virtual Array, it is important to control access wherever necessary. To determine which host servers can access volumes, create, and associate access control records (ACRs) with StorSimple volumes.
+При настройке томов iSCSI на виртуальном массиве StorSimple необходимо позаботиться об управлении доступом. Чтобы определить, какие серверы узлов могут получать доступ к томам, создайте и свяжите записи контроля доступа (ACR) с томами StorSimple.
 
-Use the following best practices when configuring ACRs for StorSimple volumes:
+При настройке записей контроля доступа для томов StorSimple учитывайте следующие рекомендации:
 
--   Always associate at least one ACR with a volume.
+-   Всегда связывайте с томом по крайней мере одну запись контроля доступа.
 
--   Define multiple ACRs only in a clustered environment.
+-   Вы можете задать несколько записей контроля доступа только в среде кластера.
 
--   When assigning more than one ACR to a volume, ensure that the volume is not exposed in a way where it can be concurrently accessed by more than one non-clustered host. If you have assigned multiple ACRs to a volume, a warning message pops up for you to review your configuration.
+-   При назначении тому нескольких записей контроля доступа убедитесь, что доступ к тому не могут получить одновременно несколько некластеризованных узлов. Если тому назначено несколько записей контроля доступа, отобразится сообщение с предупреждением о проверке конфигурации.
 
-### <a name="data-security-and-encryption"></a>Data security and encryption
+### Шифрование и обеспечение защиты данных
 
-Your StorSimple Virtual Array has data security and encryption features that ensure the confidentiality and integrity of your data. When using these features, it is recommended that you follow these best practices: 
+Виртуальный массив StorSimple содержит функции шифрования и обеспечения защиты данных, которые гарантируют конфиденциальность и целостность данных. При использовании этих функций следует учитывать приведенные ниже рекомендации.
 
--   Define a cloud storage encryption key to generate AES-256 encryption before the data is sent from your virtual array to the cloud. This key is not required if your data is encrypted to begin with. The key can be generated and kept safe using a key management system such as [Azure key vault](../key-vault/key-vault-whatis.md).
+-   Определите ключ шифрования облачного хранилища для использования алгоритма шифрования AES-256 перед отправкой данных из вашего виртуального массива в облако. Этот ключ не требуется, если данные изначально зашифрованы. Для формирования и хранения ключа в безопасном месте можно использовать систему управления ключами, например [хранилище ключей Azure](../key-vault/key-vault-whatis.md).
 
--   When configuring the storage account via the StorSimple Manager service, make sure that you enable the SSL mode to create a secure channel for network communication between your StorSimple device and the cloud.
+-   При настройке учетной записи хранения с помощью службы диспетчера StorSimple необходимо включить режим SSL, чтобы создать безопасный канал для обмена данными между устройством StorSimple и облаком по сети.
 
--   Regenerate the keys for your storage accounts (by accessing the Azure Storage service) periodically to account for any changes to access based on the changed list of administrators.
+-   Периодически следует повторно создавать ключи для учетных записей хранения (с помощью службы хранилища Azure), чтобы обеспечить отражение любых изменений доступа в связи с изменением списка администраторов.
 
--   Data on your virtual array is compressed and deduplicated before it is sent to Azure. We don't recommend using the Data Deduplication role service on your Windows Server host.
+-   Перед отправкой в Azure данные на виртуальном массиве подвергаются сжатию и дедупликации. Мы не рекомендуем использовать службу роли дедупликации данных на узле Windows Server.
 
 
-## <a name="operational-best-practices"></a>Operational best practices
+## Рекомендации по использованию
 
-The operational best practices are guidelines that should be followed during the day-to-day management or operation of the virtual array. These practices cover specific management tasks such as taking backups, restoring from a backup set, performing a failover, deactivating and deleting the array, monitoring system usage and health, and running virus scans on your virtual array.
+Рекомендаций, приведенных в этом разделе, следует придерживаться при управлении виртуальным массивом и его повседневном использовании. Сюда относятся определенные задачи управления, например создание резервных копий, восстановление из набора архивации, выполнение отработки отказа, отключение и удаление массива, мониторинг использования и состояния работоспособности системы, а также проверка виртуального массива на вирусы.
 
-### <a name="backups"></a>Backups
+### Резервные копии
 
-The data on your virtual array is backed up to the cloud in two ways, a default automated daily backup of the entire device starting at 22:30 or via a manual on-demand backup. By default, the device automatically creates daily cloud snapshots of all the data residing on it. For more information, go to [back up your StorSimple Virtual Array](storsimple-ova-backup.md).
+Для данных на виртуальном массиве можно осуществлять резервное копирование в облако двумя способами: с помощью автоматической ежедневной архивации данных всего устройства по умолчанию, которая начинается в 22:30, или архивации вручную по требованию. По умолчанию устройство ежедневно автоматически создает облачные моментальные снимки всех хранящихся на нем данных. Дополнительные сведения см. в статье [Резервное копирование виртуального массива StorSimple (предварительная версия)](storsimple-ova-backup.md).
 
-The frequency and retention associated with the default backups cannot be changed but you can configure the time at which the daily backups are initiated every day. When configuring the start time for the automated backups, we recommend that:
+Частоту создания и срок хранения резервных копий по умолчанию изменить нельзя, однако можно настроить время начала ежедневной архивации. При настройке времени начала автоматической архивации нужно следовать приведенным ниже рекомендациям.
 
--   Schedule your backups for off-peak hours. Backup start time should not coincide with numerous host IO.
+-   Планируйте архивацию на часы наименьшей нагрузки. Время начала резервного копирования не должно совпадать с периодом интенсивных рабочих нагрузок ввода-вывода на узле.
 
--   Initiate a manual on-demand backup when planning to perform a device failover or prior to the maintenance window, to protect the data on your virtual array.
+-   Чтобы защитить данные на виртуальном массиве, при планировании отработки отказа устройства или перед периодом обслуживания следует инициировать ручную архивацию по требованию.
 
-### <a name="restore"></a>Restore
+### Восстановление
 
-You can restore from a backup set in two ways: restore to another volume or share or perform an item-level recovery (available only on a virtual array configured as a file server). Item-level recovery allows you to do a granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. For more information, go to [restore from a backup](storsimple-ova-restore.md).
+Выполнить восстановление из набора архивации можно двумя способами: восстановить в другой том или общую папку или выполнить восстановление на уровне элементов (если виртуальный массив настроен в качестве файлового сервера). Восстановление на уровне элементов позволяет выполнять фрагментарное восстановление файлов и папок из облачной резервной копии всех общих папок на устройстве StorSimple. Дополнительные сведения см. в статье [Восстановление из резервной копии виртуального массива StorSimple (предварительная версия)](storsimple-ova-restore.md).
 
-When performing a restore, keep the following guidelines in mind:
+При выполнении восстановления учитывайте следующие рекомендации:
 
--   Your StorSimple Virtual Array does not support in-place restore. This can however be readily achieved by a two-step process: make space on the virtual array and then restore to another volume/share.
+-   Виртуальный массив StorSimple не поддерживает восстановление на месте. Однако такое восстановление можно выполнить в два этапа: освободите место на виртуальном массиве и выполните восстановление на другой том или в другую общую папку.
 
--   When restoring from a local volume, keep in mind the restore will be a long running operation. Though the volume may quickly come online, the data continues to be hydrated in the background.
+-   Восстановление из локального тома — длительная операция. Хотя том может быстро перейти в оперативный режим, расконсервация данных еще будет выполняться в фоновом режиме.
 
--   The volume type remains the same during the restore process. A tiered volume is restored to another tiered volume and a locally pinned volume to another locally pinned volume.
+-   Тип тома не изменяется в процессе восстановления. Многоуровневый том будет восстановлен в многоуровневый том, а локально закрепленный том — в локально закрепленный.
 
--   When trying to restore a volume or a share from a backup set, if the restore job fails, a target volume or share may still be created in the portal. It is important that you delete this unused target volume or share in the portal to minimize any future issues arising from this element.
+-   Если при попытке восстановить том или общую папку из набора архивации происходит сбой задания восстановления, на портале все равно может быть создан целевой том или общая папка. Важно удалить этот неиспользуемый целевой том или общую папку на портале, чтобы свести к минимуму проблемы, которые могут возникнуть из-за этого элемента.
 
-### <a name="failover-and-disaster-recovery"></a>Failover and disaster recovery
+### Отработка отказа и аварийное восстановление
 
-A device failover allows you to migrate your data from a *source* device in the datacenter to another *target* device located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
+Отработка отказа для устройства позволяет перенести данные c *исходного* устройства в центре обработки данных на *целевое* устройство, которое находится в том же или другом географическом расположении. Отработка отказа выполняется для всего устройства. При отработке отказа изменяется владелец облачных данных. После переноса они будут принадлежать владельцу целевого устройства.
 
-For your StorSimple Virtual Array, you can only fail over to another virtual array managed by the same StorSimple Manager service. A failover to an 8000 series device or an array managed by a different StorSimple Manager service (than the one for the source device) is not allowed. To learn more about the failover considerations, go to [prerequisites for the device failover](storsimple-ova-failover-dr.md).
+Для виртуального массива StorSimple можно выполнить отработку отказа на другой виртуальный массив, управляемый той же службой диспетчера StorSimple. Отработка отказа на устройство серии 8000 или массив, управляемый другой службой диспетчера StorSimple (в сравнении с исходным устройством), не разрешена. Дополнительные рекомендации по отработке отказа см. в статье [Аварийное восстановление и отработка отказа устройства для виртуального массива StorSimple](storsimple-ova-failover-dr.md).
 
-When performing a fail over for your virtual array, keep the following in mind:
+При выполнении отработки отказа для виртуального массива нужно учитывать следующее:
 
--   For a planned failover, it is a recommended best practice to take all the volumes/shares offline prior to initiating the failover. Follow the operating system-specific instructions to take the volumes/shares offline on the host first and then take those offline on your virtual device.
+-   Перед плановой отработкой отказа рекомендуется перевести все тома и общие папки в автономный режим. Следуйте инструкциям для конкретной операционной системы и переведите в автономный режим тома и общие папки сначала на узле, а затем на виртуальном устройстве.
 
--   For a file server disaster recovery (DR), we recommend that you join the target device to the same domain as the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
+-   При аварийном восстановлении файлового сервера рекомендуется присоединить целевое устройство к тому же домену, на котором находится исходное устройство. Это предотвратит конфликт разрешений общих папок. В этом выпуске поддерживается отработка отказа с переносом только в целевое устройство в том же домене.
 
--   Once the DR is successfully completed, the source device is automatically deleted. Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. We recommend that you delete this virtual machine from your host system to prevent any charges from accruing.
+-   После успешного завершения аварийного восстановления исходное устройство будет автоматически удалено. Хотя устройство больше недоступно, виртуальная машина, подготовленная в главной системе, по-прежнему потребляет ресурсы. Рекомендуется удалить эту виртуальную машину из главной системы, чтобы избежать начисления платы.
 
--   Do note that even if the failover is unsuccessful, **the data is always safe in the cloud**. Consider the following three scenarios in which the failover did not complete successfully:
+-   Обратите внимание, что даже если отработка отказа завершилась неудачно, **данные остаются сохраненными в облаке**. Рассмотрим следующие три сценария, в которых отработка отказа завершилась неудачно:
 
-    -   A failure occurred in the initial stages of the failover such as when the DR pre-checks are being performed. In this situation, your target device is still usable. You can retry the failover on the same target device.
+    -   Сбой произошел на начальной стадии отработки отказа, например при выполнении предварительных проверок для аварийного восстановления. В этом случае целевое устройство все еще можно использовать. Можно повторить попытку выполнить отработку отказа на том же целевом устройстве.
 
-    -   A failure occurred during the actual failover process. In this case, the target device is marked unusable. You must provision and configure another target virtual array and use that for failover.
+    -   Сбой произошел во время фактического перехода на другой ресурс. В этом случае целевое устройство помечается как непригодное для использования. Необходимо подготовить и настроить для отработки отказа другой целевой виртуальный массив.
 
-    -   The failover was complete following which the source device was deleted but the target device has issues and you cannot access any data. The data is still safe in the cloud and can be easily retrieved by creating another virtual array and then using it as a target device for the DR.
+    -   Отработка отказа завершена, в результате чего исходное устройство было удалено, но с целевым устройством возникли проблемы и вы не можете получить доступ к данным. Данные по-прежнему безопасно сохранены в облаке, и их можно с легкостью получить, создав другой виртуальный массив и использовав его в качестве целевого устройства для аварийного восстановления.
 
-### <a name="deactivate"></a>Deactivate
+### Отключение
 
-When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a **permanent** operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again. For more information, go to [deactivate and delete your StorSimple Virtual Array](storsimple-deactivate-and-delete-device.md).
+При отключении виртуального массива StorSimple вы разрываете подключение между устройством и соответствующей службой диспетчера StorSimple. Отключение является **необратимой** операцией. Отключенное устройство нельзя зарегистрировать в службе диспетчера StorSimple повторно. Дополнительные сведения см. в статье [Отключение и удаление устройства StorSimple](storsimple-deactivate-and-delete-device.md).
 
-Keep the following best practices in mind when deactivating your virtual array:
+При отключении виртуального массива необходимо учитывать следующие рекомендации:
 
--   Take a cloud snapshot of all the data prior to deactivating a virtual device. When you deactivate a virtual array, all the local device data is lost. Taking a cloud snapshot will allow you to recover data at a later stage.
+-   Прежде чем отключать виртуальное устройство, сделайте облачный моментальный снимок всех данных. При отключении виртуального массива все локальные данные устройства теряются. С помощью моментального снимка облака вы сможете восстановить все данные в дальнейшем.
 
--   Before you deactivate a StorSimple Virtual Array, make sure to stop or delete clients and hosts that depend on that device.
+-   Перед отключением виртуального массива StorSimple обязательно удалите зависящие от него клиенты и узлы или остановите их работу.
 
--   Delete a deactivated device if you are no longer using so that it doesn't accrue charges.
+-   Если отключенное устройство больше не используется, удалите его, чтобы с вас не взималась плата.
 
-### <a name="monitoring"></a>Monitoring
+### Мониторинг
 
-To ensure that your StorSimple Virtual Array is in a continuous healthy state, you need to monitor the array and ensure that you receive information from the system including alerts. To monitor the overall health of the virtual array, implement the following best practices:
+Чтобы гарантировать постоянное работоспособное состояние виртуального массива StorSimple, необходимо выполнять его мониторинг и следить за получением сведений из системы, в том числе оповещений. Для мониторинга общей работоспособности виртуального массива необходимо следовать приведенным ниже рекомендациям.
 
-- Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.   
+- Настройте мониторинг для отслеживания использования диска операционной системы и диска данных виртуального массива. При использовании Hyper-V для мониторинга узлов виртуализации можно совместно использовать System Center Virtual Machine Manager и System Center Operations Manager.
 
-- Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                                                                                                                
+- Настройте отправку уведомлений по электронной почте при достижении определенных уровней использования виртуального массива.
 
-### <a name="index-search-and-virus-scan-applications"></a>Index search and virus scan applications
+### Приложения поиска по индексу и проверки на вирусы
 
-A StorSimple Virtual Array can automatically tier data from the local tier to the Microsoft Azure cloud. When an application such as an index search or a virus scan is used to scan the data stored on StorSimple, you need to take care that the cloud data does not get accessed and pulled back to the local tier.
+Виртуальный массив StorSimple может автоматически перемещать данные из локального уровня на уровень облака Microsoft Azure. При использовании приложения поиска по индексу или проверки на вирусы для данных, хранящихся на устройстве StorSimple, необходимо позаботиться о том, чтобы к данным в облаке не было доступа и они не могли быть перемещены обратно на локальный уровень.
 
-We recommend that you implement the following best practices when configuring the index search or virus scan on your virtual array:
+При настройке поиска по индексу и проверки на вирусы на виртуальном массиве нужно следовать приведенным ниже рекомендациям.
 
--   Disable any automatically configured full scan operations.
+-   Отключите все автоматически настроенные операции полной проверки.
 
--   For tiered volumes, configure the index search or virus scan application to perform an incremental scan. This would scan only the new data likely residing on the local tier. The data that is tiered to the cloud is not accessed during an incremental operation.
+-   На многоуровневых томах настройте в приложениях поиска по индексу и проверки на вирусы выполнение добавочного сканирования. Таким образом, будут проверяться только новые данные, которые, скорее всего, расположены на локальном уровне. Во время операции добавочного сканирования данные, перемещенные в облако, недоступны.
 
--   Ensure the correct search filters and settings are configured so that only the intended types of files get scanned. For example, image files (JPEG, GIF, and TIFF) and engineering drawings should not be scanned during the incremental or full index rebuild.
+-   Настройте подходящие фильтры и параметры поиска, чтобы проверялись только нужные типы файлов. Например, изображения (JPEG, GIF и TIFF) и чертежи не следует проверять во время добавочного или полного перестроения индекса.
 
-If using Windows indexing process, follow these guidelines:
+Если используется индексирование Windows, придерживайтесь следующих рекомендаций.
 
--   Do not use the Windows Indexer for tiered volumes as it recalls large amounts of data (TBs) from the cloud if the index needs to be rebuilt frequently. Rebuilding the index would retrieve all file types to index their content.
+-   Не используйте индексатор Windows для многоуровневых томов. Если индекс нужно часто перестраивать, из облака перемещаются большие объемы данных (измеряемые в ТБ). При перестроении индекса файлы всех типов извлекаются для индексирования их содержимого.
 
--   Use the Windows indexing process for locally pinned volumes as this would only access data on the local tiers to build the index (the cloud data will not be accessed).
+-   Индексирование Windows можно использовать для локально закрепленных томов, так как при этом для создания индекса используются данные только на локальных уровнях (облачные данные не затрагиваются).
 
-### <a name="byte-range-locking"></a>Byte range locking
+### Блокировка диапазона байтов
 
-Applications can lock a specified range of bytes within the files. If byte range locking is enabled on the applications that are writing to your StorSimple, then tiering does not work on your virtual array. For the tiering to work, all areas of the files accessed should be unlocked. Byte range locking is not supported with tiered volumes on your virtual array.
+Приложения могут блокировать заданный диапазон байтов в файлах. Если блокировка диапазона байтов включена в приложениях, которые осуществляют запись в StorSimple, распределение по уровням в виртуальном массиве не работает. Для распределения по уровням все области файлов, к которым осуществляется доступ, должны быть разблокированы. Блокировка диапазона байтов не поддерживается для многоуровневых томов на виртуальном массиве.
 
-Recommended measures to alleviate byte range locking include:
+Ниже приведены рекомендации, позволяющие обойти блокировку диапазона байтов.
 
--   Turn off byte range locking in your application logic.
+-   Отключите блокировку диапазона байтов в логике приложения.
 
--   Use locally pinned volumes (instead of tiered) for the data associated with this application. Locally pinned volumes do not tier into the cloud.
+-   Используйте локально закрепленные тома (вместо многоуровневых) для данных, связанных с этим приложением. Данные локально закрепленных томов не перемещаются в облако.
 
--   When using locally pinned volumes with byte range locking enabled, the volume can come online before the restore is complete. In these instances, you must wait for the restore to be complete.
+-   Если при использовании локально закрепленных томов включена блокировка диапазона байтов, том может перейти в оперативный режим до завершения восстановления. В таком случае необходимо дождаться завершения восстановления.
 
-## <a name="multiple-arrays"></a>Multiple arrays
+## Несколько массивов
 
-Multiple virtual arrays may need to be deployed to account for a growing working set of data that could spill onto the cloud thus affecting the performance of the device. In these instances, it is best to scale devices as the working set grows. This requires one or more devices to be added in the on-premises data center. When adding the devices, you could:
+Чтобы предупредить рост рабочего набора данных, которые могут быть перенесены в облако, что приведет к ухудшению производительности устройства, может потребоваться развернуть несколько виртуальных массивов. В таких случаях лучше всего масштабировать устройства по мере роста рабочего набора. Для этого требуется добавить одно или несколько устройств в локальный центр обработки данных. При добавлении этих устройств можно выполнить следующее:
 
--   Split the current set of data.
--   Deploy new workloads to new device(s).
--   If deploying multiple virtual arrays, we recommend that from load-balancing perspective, distribute the array across different hypervisor hosts.
+-   Разделить текущий набор данных.
+-   Развернуть новые рабочие нагрузки для новых устройств.
+-   При развертывании нескольких виртуальных массивов с точки зрения балансировки нагрузки рекомендуется распределить массив между разными узлами низкоуровневой оболочки.
 
--  Multiple virtual arrays (when configured as a file server or an iSCSI server) can be deployed in a Distributed File System Namespace. For detailed steps, go to [Distributed File System Namespace Solution with Hybrid Cloud Storage Deployment Guide](https://www.microsoft.com/download/details.aspx?id=45507). Distributed File System Replication is currently not recommended for use with the virtual array. 
+-  В пространстве имен распределенной файловой системы можно развернуть несколько виртуальных массивов (настроенных в качестве файлового сервера или сервера iSCSI). Подробные указания см. в [руководстве по развертыванию пространства имен распределенной файловой системы с помощью гибридного облачного хранилища](https://www.microsoft.com/download/details.aspx?id=45507). В настоящее время для виртуального массива не рекомендуется применять репликацию распределенной файловой системы.
 
 
-## <a name="see-also"></a>See also
-Learn how to [administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md) via the StorSimple Manager service.
+## Дополнительные материалы
+Узнайте, как [администрировать виртуальный массив StorSimple](storsimple-ova-manager-service-administration.md) с помощью службы диспетчера StorSimple.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

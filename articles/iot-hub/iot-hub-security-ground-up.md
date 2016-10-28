@@ -1,6 +1,6 @@
 <properties
- pageTitle="Secure your IoT solution from the ground up | Microsoft Azure"
- description="This article describes the built-in security features of the Microsoft Azure IoT Suite"
+ pageTitle="Все аспекты безопасности решения IoT | Microsoft Azure"
+ description="В этой статье описываются встроенные средства обеспечения безопасности Microsoft Azure IoT Suite."
  services="iot-hub"
  documentationCenter=""
  authors="YuriDio"
@@ -16,28 +16,30 @@
  ms.date="08/16/2016"
  ms.author="yurid"/>
 
-
 [AZURE.INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-To learn more about securing your IoT solution, see:
+Дополнительные сведения о безопасности решения IoT см.:
 
-- [IoT Security Best Practices][lnk-security-best-practices]
-- [IoT Security Architecture][lnk-security-architecture]
-- [Secure your IoT deployment][lnk-security-deployment]
+- [Рекомендации по обеспечению безопасности IoT][lnk-security-best-practices]
+- [Архитектура безопасности IoT][lnk-security-architecture]
+- [Защита развертывания IoT][lnk-security-deployment]
 
-To further explore the capabilities of IoT Hub, see:
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Разработка решения][lnk-design]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

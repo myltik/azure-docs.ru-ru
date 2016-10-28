@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Performance Counters in Azure Diagnostics | Microsoft Azure"
-   description="Use performance counters in Azure cloud services or virtual machine to find bottlenecks and tune performance."
+   pageTitle="Использование счетчиков производительности в Azure | Microsoft Azure"
+   description="Использование счетчиков производительности в облачных службах Azure или на виртуальной машине для обнаружения и решения проблем с производительностью."
    services="cloud-services"
    documentationCenter=".net"
    authors="rboucher"
@@ -15,94 +15,93 @@
    ms.date="02/29/2016"
    ms.author="robb" />
 
+# Создание и использование счетчиков производительности в приложении Azure
 
-# <a name="create-and-use-performance-counters-in-an-azure-application"></a>Create and use performance counters in an Azure application
+В этой статье рассматриваются преимущества счетчиков производительности, а также описан способ их добавления в приложения Azure. Счетчики можно использовать для сбора данных, а также обнаружения и устранения проблем с производительностью системы и приложений.
 
-This article describes the benefits of and how to put performance counters into your Azure application. You can use them to collect data, find bottlenecks, and tune system and application performance.
+Кроме этого, данные счетчиков производительности для Windows Server, IIS и ASP.NET можно собирать и использовать для определения работоспособности веб-ролей, рабочих ролей Azure и виртуальных машин. Вы также можете создавать и использовать настраиваемые счетчики производительности.
 
-Performance counters available for Windows Server, IIS and ASP.NET can also be collected and used to determine the health of your Azure web roles, worker roles and Virtual Machines. You can also create and use custom performance counters.  
+Вы можете проверить данные счетчиков производительности.
+1. Непосредственно на узле приложения с помощью системного монитора через удаленный рабочий стол.
+2. Используя службу System Center Operations Manager с помощью пакета управления Azure.
+3. С помощью других средств мониторинга, которые получают доступ к диагностическим данным, передаваемым в хранилище Azure. Дополнительные сведения см. в статье [Хранение и просмотр диагностических данных в службе хранилища Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx).  
 
-You can examine performance counter data
-1. Directly on the application host with the Performance Monitor tool accessed using Remote Desktop
-2. With System Center Operations Manager using the Azure Management Pack
-3. With other monitoring tools that access the diagnostic data transferred to Azure storage. See [Store and View Diagnostic Data in Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) for more information.  
+Сведения о мониторинге производительности приложений на [классическом портале Azure](http://manage.azure.com/) см. в статье [Мониторинг облачных служб](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
-For more information on monitoring the performance of your application in the [Azure classic portal](http://manage.azure.com/), see [How to Monitor Cloud Services](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
-
-For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems and optimize Azure applications, see [Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/library/azure/hh771389.aspx).
+Дополнительную информацию о создании стратегии ведения журналов и трассировки, а также об использовании средств диагностики и других методик для устранения неполадок и оптимизации приложений Azure см. в статье [Советы и рекомендации по устранению неполадок при разработке приложений Azure](https://msdn.microsoft.com/library/azure/hh771389.aspx).
 
 
-## <a name="enable-performance-counter-monitoring"></a>Enable performance counter monitoring
+## Включение мониторинга счетчиков производительности
 
-Performance counters are not enabled by default. Your application or a startup task must modify the default diagnostics agent configuration to include the specific performance counters that you wish to monitor for each role instance.
+Счетчики производительности по умолчанию отключены. Приложение или задача при запуске должны изменить конфигурацию агента диагностики по умолчанию, чтобы включить определенные счетчики производительности, которые необходимо отслеживать для каждого экземпляра роли.
 
-### <a name="performance-counters-available-for-microsoft-azure"></a>Performance counters available for Microsoft Azure
+### Счетчики производительности, доступные в Microsoft Azure
 
-Azure provides a subset of the performance counters available for Windows Server, IIS and the ASP.NET stack. The following table lists some of the performance counters of particular interest for Azure applications.
+Azure предлагает набор счетчиков производительности для Windows Server, IIS и стека ASP.NET. В следующей таблице перечислены некоторые счетчики производительности для приложений Azure.
 
-|Counter Category: Object (Instance)|Counter Name      |Reference|
+|Категория счетчика: объект (экземпляр)|Имя счетчика |Справочные материалы|
 |---|---|---|
-|.NET CLR Exceptions(_Global_)|# Exceps Thrown / sec   |Exception Performance Counters|
-|.NET CLR Memory(_Global_)    |% Time in GC            |Memory Performance Counters|
-|ASP.NET                      |Application Restarts    |Performance Counters for ASP.NET|
-|ASP.NET                      |Request Execution Time  |Performance Counters for ASP.NET|
-|ASP.NET                      |Requests Disconnected   |Performance Counters for ASP.NET|
-|ASP.NET                      |Worker Process Restarts |Performance Counters for ASP.NET|
-|ASP.NET Applications(__Total__)|Requests Total        |Performance Counters for ASP.NET|
-|ASP.NET Applications(__Total__)|Requests/Sec          |Performance Counters for ASP.NET|
-|ASP.NET v4.0.30319           |Request Execution Time  |Performance Counters for ASP.NET|
-|ASP.NET v4.0.30319           |Request Wait Time       |Performance Counters for ASP.NET|
-|ASP.NET v4.0.30319           |Requests Current        |Performance Counters for ASP.NET|
-|ASP.NET v4.0.30319           |Requests Queued         |Performance Counters for ASP.NET|
-|ASP.NET v4.0.30319           |Requests Rejected       |Performance Counters for ASP.NET|
-|Memory                       |Available MBytes        |Memory Performance Counters|
-|Memory                       |Committed Bytes         |Memory Performance Counters|
-|Processor(_Total)            |% Processor Time        |Performance Counters for ASP.NET|
-|TCPv4                        |Connection Failures     |TCP Object|
-|TCPv4                        |Connections Established |TCP Object|
-|TCPv4                        |Connections Reset       |TCP Object|
-|TCPv4                        |Segments Sent/sec       |TCP Object|
-|Network Interface(*)         |Bytes Received/sec      |Network Interface Object|
-|Network Interface(*)         |Bytes Sent/sec          |Network Interface Object|
-|Network Interface(Microsoft Virtual Machine Bus Network Adapter _2)|Bytes Received/sec|Network Interface Object|
-|Network Interface(Microsoft Virtual Machine Bus Network Adapter _2)|Bytes Sent/sec|Network Interface Object|
-|Network Interface(Microsoft Virtual Machine Bus Network Adapter _2)|Bytes Total/sec|Network Interface Object|
+|Исключения .NET CLR (_глобально_)|Число исключений/с |Счетчики производительности исключений|
+|Память .NET CLR (_глобально_) |Время на сборку мусора, % |Счетчики производительности памяти|
+|ASP.NET: |Перезапуски приложения |Счетчики производительности для ASP.NET|
+|ASP.NET: |Время выполнения запроса |Счетчики производительности для ASP.NET|
+|ASP.NET: |Прерванные запросы |Счетчики производительности для ASP.NET|
+|ASP.NET: |Перезапуски рабочего процесса |Счетчики производительности для ASP.NET|
+|Приложения ASP.NET (__всего__)|Общее число запросов |Счетчики производительности для ASP.NET|
+|Приложения ASP.NET (__всего__)|Число запросов в секунду |Счетчики производительности для ASP.NET|
+|ASP.NET v4.0.30319 |Время выполнения запроса |Счетчики производительности для ASP.NET|
+|ASP.NET v4.0.30319 |Время ожидания запроса |Счетчики производительности для ASP.NET|
+|ASP.NET v4.0.30319 |Текущие запросы |Счетчики производительности для ASP.NET|
+|ASP.NET v4.0.30319 |Запросы в очереди |Счетчики производительности для ASP.NET|
+|ASP.NET v4.0.30319 |Отклоненные запросы |Счетчики производительности для ASP.NET|
+|Память |Доступный объем в МБ |Счетчики производительности памяти|
+|Память |Число байтов выделенной памяти |Счетчики производительности памяти|
+|Процессор(\_всего) |Загруженность процессора, % |Счетчики производительности для ASP.NET|
+|TCPv4 |Сбои соединения |Объект TCP|
+|TCPv4 |Установленные подключения |Объект TCP|
+|TCPv4 |Сбросы подключений |Объект TCP|
+|TCPv4 |Отправлено сегментов в секунду |Объект TCP|
+|Сетевой интерфейс (*) |Получено байт в секунду |Объект сетевого интерфейса|
+|Сетевой интерфейс (*) |Отправлено байт в секунду |Объект сетевого интерфейса|
+|Сетевой интерфейс (сетевой адаптер шины виртуальной машины Microsoft \_2) |Получено байт в секунду| Объект сетевого интерфейса|
+|Сетевой интерфейс (сетевой адаптер шины виртуальной машины Microsoft \_2) |Отправлено байт в секунду|Объект сетевого интерфейса|
+|Сетевой интерфейс (сетевой адаптер шины виртуальной машины Microsoft \_2) |Всего байт в секунду|Объект сетевого интерфейса|
 
-## <a name="create-and-add-custom-performance-counters-to-your-application"></a>Create and add custom performance counters to your application
+## Создание пользовательских счетчиков производительности и добавление их в приложение
 
-Azure has support to create and modify custom performance counters for web roles and worker roles. The counters may be used to track and monitor application-specific behavior. You can create and delete custom performance counter categories and specifiers from a startup task, web role, or worker role with elevated permissions.
+В Azure можно создавать и изменять пользовательские счетчики производительности для веб-ролей и рабочих ролей. Счетчики могут использоваться для отслеживания определенного поведения приложения. Вы можете создавать пользовательские категории и описатели счетчиков производительности для задачи при запуске, веб-роли или рабочей роли с повышенными разрешениями, а также удалять их.
 
->[AZURE.NOTE] Code that makes changes to custom performance counters must have elevated permissions to run. If the code is in a web role or worker role, the role must include the tag <Runtime executionContext="elevated" /> in the ServiceDefinition.csdef file for the role to initialize properly.
+>[AZURE.NOTE] Для выполнения кода, который вносит изменения в пользовательские счетчики производительности, нужны разрешения более высокого уровня. Если код относится к веб-роли или рабочей роли, для правильной инициализации такая роль должна содержать тег <Runtime executionContext="elevated" /> в файле ServiceDefinition.csdef.
 
-You can send custom performance counter data to Azure storage using the diagnostics agent.
+Данные пользовательских счетчиков производительности можно отправить в хранилище Azure с помощью агента диагностики.
 
-The standard performance counter data is generated by the Azure processes. Custom performance counter data must be created by your web role or worker role application. See [Performance Counter Types](https://msdn.microsoft.com/library/z573042h.aspx) for information on the types of data that can be stored in custom performance counters. See [PerformanceCounters Sample](http://code.msdn.microsoft.com/azure/) for an example that creates and sets custom performance counter data in a web role.
+Стандартные данные счетчиков производительности создаются процессами Azure. Данные пользовательских счетчиков производительности должны создаваться приложением веб-роли или рабочей роли. Сведения о типах данных, которые могут храниться в пользовательских счетчиках производительности, см. в статье [Типы счетчиков производительности](https://msdn.microsoft.com/library/z573042h.aspx). Пример создания и установки данных пользовательских счетчиков производительности в веб-роли см. в статье [Пример PerformanceCounters](http://code.msdn.microsoft.com/azure/).
 
-## <a name="store-and-view-performance-counter-data"></a>Store and view performance counter data
+## Сохранение и просмотр данных счетчика производительности
 
-Azure caches performance counter data with other diagnostic information. This data is available for remote monitoring while the role instance is running using remote desktop access to view tools such as Performance Monitor. To persist the data outside of the role instance, the diagnostics agent must transfer the data to Azure storage. The size limit of the cached performance counter data can be configured in the diagnostics agent, or it may be configured to be part of a shared limit for all the diagnostic data. For more information about setting the buffer size, see [OverallQuotaInMB](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.overallquotainmb.aspx) and [DirectoriesBufferConfiguration](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.directoriesbufferconfiguration.aspx). See [Store and View Diagnostic Data in Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) for an overview of setting up the diagnostics agent to transfer data to a storage account.
+Azure кэширует данные счетчиков производительности вместе с другими диагностическими сведениями. Эти данные можно отслеживать удаленно во время выполнения экземпляра роли, используя удаленный доступ к рабочему столу для запуска таких средств, как системный монитор. Чтобы сохранить данные за пределами экземпляра роли, агент диагностики должен передать их в хранилище Azure. Ограничение размера кэшированных данных счетчиков производительности можно задать в мониторе диагностики. Это ограничение также можно настроить как часть общего ограничения для всех диагностических данных. Дополнительные сведения о задании размера буфера см. в статьях о свойствах [OverallQuotaInMB](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitorconfiguration.overallquotainmb.aspx) и [DirectoriesBufferConfiguration](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.diagnostics.directoriesbufferconfiguration.aspx). Общие сведения о настройке агента диагностики для передачи данных в учетную запись хранения см. в статье [Хранение и просмотр диагностических данных в хранилище Azure](https://msdn.microsoft.com/library/azure/hh411534.aspx).
 
-Each configured performance counter instance is recorded at a specified sampling rate, and the sampled data is transferred to the storage account either by a scheduled transfer request or an on-demand transfer request. Automatic transfers may be scheduled as often as once per minute. Performance counter data transferred by the diagnostics agent is stored in a table, WADPerformanceCountersTable, in the storage account. This table may be accessed and queried with standard Azure storage API methods. See [Microsoft Azure PerformanceCounters Sample](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9) for an example of querying and displaying performance counter data from the WADPerformanceCountersTable table.
+Каждый настроенный экземпляр счетчика производительности записывается с указанной частотой выборки. При этом данные передаются в учетную запись хранения в результате запланированного запроса на передачу или по требованию. Автоматическую передачу можно запланировать с периодичностью раз в минуту. Данные счетчиков производительности, переданные агентом диагностики, хранятся в таблице WADPerformanceCountersTable в учетной записи хранения. К этой таблице можно обращаться с помощью запросов в рамках стандартных методов API хранилища Azure. Пример запроса и отображения данных счетчиков производительности из таблицы WADPerformanceCountersTable см. в статье [Пример PerformanceCounters Microsoft Azure](http://code.msdn.microsoft.com/Windows-Azure-PerformanceCo-7d80ebf9).
 
->[AZURE.NOTE] Depending on the diagnostics agent transfer frequency and queue latency, the most recent performance counter data in the storage account may be several minutes out of date.
+>[AZURE.NOTE] В зависимости от частоты передачи агента диагностики и задержки очереди самые последние данные счетчиков производительности в учетной записи хранения могут быть устаревшими на несколько минут.
 
-## <a name="enable-performance-counters-using-diagnostics-configuration-file"></a>Enable performance counters using diagnostics configuration file
+## Включение счетчиков производительности с помощью файла конфигурации диагностики
 
-Use the following procedure to enable performance counters in your Azure application.
+Чтобы включить счетчики производительности в приложении Azure, сделайте следующее.
 
-## <a name="prerequisites"></a>Prerequisites
+## Предварительные требования
 
-This section assumes that you have imported the Diagnostics monitor into your application and added the diagnostics configuration file to your Visual Studio solution (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above). See steps 1 and 2 in [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](./cloud-services-dotnet-diagnostics.md)) for more information.
+При работе с этой статьей предполагается, что вы импортировали монитор диагностики в свое приложение и добавили файл конфигурации в решение Visual Studio (diagnostics.wadcfg в пакете SDK 2.4 и ниже или diagnostics.wadcfgx в пакете SDK 2.5 и выше). Дополнительные сведения описаны в шагах 1 и 2 статьи [Включение диагностики в облачных службах и виртуальных машинах Azure](./cloud-services-dotnet-diagnostics.md).
 
-## <a name="step-1:-collect-and-store-data-from-performance-counters"></a>Step 1: Collect and store data from performance counters
+## Шаг 1. Сбор и хранение данных счетчиков производительности
 
-After you have added the diagnostics file to your Visual Studio solution you can configure the collection and storage of performance counter data in a Azure application. This is done by adding performance counters to the diagnostics file. Diagnostics data, including performance counters, is first collected on the instance. The data is then persisted to the WADPerformanceCountersTable table in the Azure Table service, so you will also need to specify the storage account in your application. If you're testing your application locally in the Compute Emulator, you can also store diagnostics data locally in the Storage Emulator. Before you store diagnostics data you must first go to the [Azure classic portal](http://manage.windowsazure.com/) and create a storage account. A best practice is to locate your storage account in the same geo-location as your Azure application in order to avoid paying external bandwidth costs and to reduce latency.
+После добавления файла диагностики в решение Visual Studio можно настроить сбор и хранение данных счетчиков производительности в приложении Azure. Это можно сделать, добавив счетчики производительности в файл диагностики. Данные диагностики, включая счетчики производительности, сначала собираются на уровне экземпляра. Затем данные сохраняются в таблице WADPerformanceCountersTable службы Azure, поэтому необходимо также указать в своем приложении учетную запись хранения. При проверке приложения локально в эмуляторе вычислений можно также сохранить данные диагностики локально в эмуляторе хранилища. Прежде чем сохранять данные диагностики, необходимо перейти на [классический портал Azure](http://manage.windowsazure.com/) и создать учетную запись хранения. Рекомендуется располагать учетную запись хранения в том же географическом расположении, что и приложение Azure, во избежание оплаты дополнительных расходов за пропускную способность, а также для уменьшения задержки.
 
-### <a name="add-performance-counters-to-the-diagnostics-file"></a>Add performance counters to the diagnostics file
+### Добавление счетчиков производительности в файл диагностики
 
-There are many counters you can use. The following example shows several performance counters that are recommended for web and worker role monitoring.
+Вы можете использовать самые разные счетчики. В следующем примере приведено несколько счетчиков производительности, рекомендованных для мониторинга веб-ролей и рабочих ролей.
 
-Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration element:
+Откройте файл диагностики (diagnostics.wadcfg в пакете SDK 2.4 и ниже или diagnostics.wadcfgx в пакете SDK 2.5 и выше) и добавьте к элементу DiagnosticMonitorConfiguration следующий код:
 
 ```
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
@@ -121,77 +120,77 @@ Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostic
        <PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\Thread Count" sampleRate="PT30S" />
     -->
 
-       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Interop(_Global_)\# of marshalling" sampleRate="PT30S" />
+       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Interop(_Global_)# of marshalling" sampleRate="PT30S" />
        <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Loading(_Global_)\% Time Loading" sampleRate="PT30S" />
        <PerformanceCounterConfiguration counterSpecifier="\.NET CLR LocksAndThreads(_Global_)\Contention Rate / sec" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Memory(_Global_)\# Bytes in all Heaps" sampleRate="PT30S" />
+       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Memory(_Global_)# Bytes in all Heaps" sampleRate="PT30S" />
        <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Networking(_Global_)\Connections Established" sampleRate="PT30S" />
        <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Remoting(_Global_)\Remote Calls/sec" sampleRate="PT30S" />
        <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Jit(_Global_)\% Time in Jit" sampleRate="PT30S" />
     </PerformanceCounters>
 ```
 
-The bufferQuotaInMB attribute, which specifies the maximum amount of file system storage that is available for the data collection type (Azure logs, IIS logs, etc.). The default is 0. When the quota is reached, the oldest data is deleted as new data is added. The sum of all the bufferQuotaInMB properties must be greater than the value of the OverallQuotaInMB attribute. For a more detailed discussion of determining how much storage will be required for the collection of diagnostics data, see the Setup WAD section of [Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/library/windowsazure/hh771389.aspx).
+Атрибут bufferQuotaInMB, который указывает максимальный объем хранилища файловой системы, доступной для типа собираемых данных (журналы Azure, журналы IIS и т. д.). Значение по умолчанию — 0. При достижении квоты самые старые данные удаляются по мере добавления новых. Сумма всех свойств bufferQuotaInMB должна быть больше значения атрибута OverallQuotaInMB. Более подробные сведения о способах определения требуемого объема хранилища для сбора данных диагностики см. в разделе «Настройки WAD» статьи [Рекомендации по устранению неполадок при разработке приложений Azure](https://msdn.microsoft.com/library/windowsazure/hh771389.aspx).
 
-The scheduledTransferPeriod attribute, which specifies the interval between scheduled transfers of data, rounded up to the nearest minute. In the following examples it is set to PT30M (30 minutes). Setting the transfer period to a small value, such as 1 minute, will adversely impact your application's performance in production but can be useful for seeing diagnostics working quickly when you are testing. The scheduled transfer period should be small enough to ensure that diagnostic data is not overwritten on the instance, but large enough that it will not impact the performance of your application.
+Атрибут scheduledTransferPeriod, который указывает интервал между запланированными передачами данных, округлен до ближайшей минуты. В следующих примерах задается равным PT30M (30 минутам). Определение для периода передачи небольшого значения, например 1 минуты, отрицательно повлияет на производительность приложения в рабочей среде, но может оказаться полезным для быстрой оценки диагностических данных во время тестирования. Период запланированного перемещения должен быть достаточно небольшим, чтобы данные диагностики не переопределялись на экземпляре, однако достаточно большим, чтобы не влиять на производительность приложения.
 
-The counterSpecifier attribute specifies the performance counter to collect.The sampleRate attribute specifies the rate at which the performance counter should be sampled, in this case 30 seconds.
+Атрибут counterSpecifier добавляет счетчик производительности, данные которого будут собираться. Атрибут sampleRate задает частоту выборки счетчика производительности. В данном случае это 30 секунд.
 
-Once you've added the performance counters that you want to collect, save your changes to the diagnostics file. Next, you need to specify the storage account that the diagnostics data will be persisted to.
+После добавления счетчиков производительности, данные которых будут собираться, сохраните изменения в файле диагностики. Затем необходимо указать учетную запись хранения, в которую будут сохраняться данные диагностики.
 
-### <a name="specify-the-storage-account"></a>Specify the storage account
+### Укажите учетную запись хранения
 
-To persist your diagnostics information to your Azure Storage account, you must specify a connection string in your service configuration (ServiceConfiguration.cscfg) file.
+Чтобы сохранить данные диагностики в учетной записи хранения Azure, необходимо указать строку подключения в файле конфигурации службы (ServiceConfiguration.cscfg).
 
-For Azure SDK 2.5 the Storage Account can be specified in the diagnostics.wadcfgx file.
+В пакете Azure SDK 2.5 учетную запись хранения можно указать в файле diagnostics.wadcfgx.
 
->[AZURE.NOTE] These instructions only apply to Azure SDK 2.4 and below. For Azure SDK 2.5 the Storage Account can be specified in the diagnostics.wadcfgx file.
+>[AZURE.NOTE] Эти инструкции применяются только к пакету Azure SDK 2.4 и ниже. В пакете Azure SDK 2.5 учетную запись хранения можно указать в файле diagnostics.wadcfgx.
 
-To set the connection strings:
+Чтобы настроить строки подключения, выполните следующие действия:
 
-1. Open the ServiceConfiguration.Cloud.cscfg file using your favorite text editor and set the connection string for your storage. The *AccountName* and *AccountKey* values are found in the Azure classic portal in the storage account dashboard, under Manage Keys.
+1. Откройте файл ServiceConfiguration.Cloud.cscfg в любом текстовом редакторе и настройте строку подключения для хранилища. Значения *AccountName* и *AccountKey* можно найти на панели мониторинга учетной записи хранения в разделе "Управление ключами" классического портала Azure.
 
     ```
     <ConfigurationSettings>
        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>"/>
     </ConfigurationSettings>
     ```
-2. Save the ServiceConfiguration.Cloud.cscfg file.
+2. Сохраните файл ServiceConfiguration.Cloud.cscfg.
 
-3. Open the ServiceConfiguration.Local.cscfg file and verify that UseDevelopmentStorage is set to true.
+3. Откройте файл ServiceConfiguration.Local.cscfg и убедитесь, что для параметра UseDevelopmentStorage задано значение True.
 
     ```
     <ConfigurationSettings>
       <Settingname="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true"/>
     </ConfigurationSettings>
     ```
-Now that the connection strings are set, your application will persist diagnostics data to your storage account when your application is deployed.
-4. Save and build your project, then deploy your application.
+Теперь, когда заданы строки подключения, приложение будет сохранять данные диагностики в учетной записи хранения при развертывании приложения.
+4. Сохраните и соберите свой проект, затем разверните приложение.
 
-## <a name="step-2:-(optional)-create-custom-performance-counters"></a>Step 2: (Optional) Create custom performance counters
+## Шаг 2. (Необязательно) Создание пользовательских счетчиков производительности
 
-In addition to the pre-defined performance counters, you can add your own custom performance counters to monitor web or worker roles. Custom performance counters may be used to track and monitor application-specific behavior and can be created or deleted in a startup task, web role, or worker role with elevated permissions.
+Помимо предварительно заданных счетчиков производительности можно добавить собственные счетчики производительности для мониторинга веб-ролей и рабочих ролей. Пользовательские счетчики производительности могут использоваться для отслеживания и мониторинга поведения, связанного с приложением, и могут создаваться или удаляться в задаче запуска, веб-роли или рабочей роли с повышенными разрешениями.
 
-The Azure diagnostics agent refreshes the performance counter configuration from the .wadcfg file one minute after starting.  If you create custom performance counters in the OnStart method and your startup tasks take longer than one minute to execute, your custom performance counters will not have been created when the Azure Diagnostics agent tries to load them.  In this scenario you will see that Azure Diagnostics correctly captures all diagnostics data except your custom performance counters.  To resolve this issue, create the performance counters in a startup task or move some of your startup task work to the OnStart method after creating the performance counters.
+Агент диагностики Azure обновляет конфигурацию счетчиков производительности из файла .wadcfg через минуту после запуска. Если вы создаете пользовательские счетчики производительности в методе OnStart, а на выполнение задач запуска требуется более одной минуты, счетчики не будут созданы при попытке агента диагностики Azure загрузить их. В этом случае система диагностики Azure будет надлежащим образом собирать все данные диагностики — за исключением данных пользовательских счетчиков производительности. Чтобы устранить эту проблему, создайте счетчики производительности в задаче при запуске или переместите некоторые задачи запуска в метод OnStart после создания счетчиков производительности.
 
-Perform the following steps to create a simple custom performance counter named "\MyCustomCounterCategory\MyButton1Counter":
+Выполните следующие действия для создания простого настраиваемого счетчика производительности с именем "\\MyCustomCounterCategory\\MyButton1Counter":
 
-1. Open the service definition file (CSDEF) for your application.
-2. Add the Runtime element to the WebRole or WorkerRole element to allow execution with elevated privileges:
+1. Откройте файл определения службы (CSDEF) для вашего приложения.
+2. Добавьте элемент Runtime в элемент WebRole или WorkerRole, чтобы разрешить выполнение с повышенными правами:
 
     ```
     <runtime executioncontext="elevated"/>
     ```
-3. Save the file.
-4. Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration 
+3. Сохраните файл .
+4. Откройте файл диагностики (diagnostics.wadcfg в пакете SDK 2.4 и ниже или diagnostics.wadcfgx в пакете SDK 2.5 и выше) и добавьте в элемент DiagnosticMonitorConfiguration следующий код: 
 
     ```
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
      <PerformanceCounterConfiguration counterSpecifier="\MyCustomCounterCategory\MyButton1Counter" sampleRate="PT30S"/>
     </PerformanceCounters>
     ```
-5. Save the file.
-6. Create the custom performance counter category in the OnStart method of your role, before invoking base.OnStart. The following C# example creates a custom category, if it does not already exist:
+5. Сохраните файл .
+6. Создайте категорию настраиваемого счетчика производительности в методе OnStart роли, прежде чем вызвать base.OnStart. В следующем примере C# создается пользовательская категория, если она еще не существует:
 
     ```
     public override bool OnStart()
@@ -221,7 +220,7 @@ Perform the following steps to create a simple custom performance counter named 
     return base.OnStart();
     }
     ```
-7. Update the counters within your application. The following example updates a custom performance counter on Button1_Click events:
+7. Обновите счетчики в приложении. В следующем примере выполняется обновление пользовательского счетчика производительности для событий Button1\_Click:
 
     ```
     protected void Button1_Click(object sender, EventArgs e)
@@ -236,15 +235,15 @@ Perform the following steps to create a simple custom performance counter named 
            button1Counter.RawValue.ToString();
         }
     ```
-8. Save the file.  
+8. Сохраните файл .  
 
-Custom performance counter data will now be collected by the Azure diagnostics monitor.
+Теперь данные пользовательских счетчиков производительности собирает монитор диагностики Azure.
 
-## <a name="step-3:-query-performance-counter-data"></a>Step 3: Query performance counter data
+## Шаг 3. Запрос данных счетчика производительности
 
-Once your application is deployed and running the Diagnostics monitor will begin collecting performance counters and persisting that data to Azure storage. You use tools such as Server Explorer in Visual Studio,  [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/), or [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) by Cerebrata to view the performance counters data in the WADPerformanceCountersTable table. You can also programatically query the Table service using [C#](../storage/storage-dotnet-how-to-use-tables.d),  [Java](../storage/storage-java-how-to-use-table-storage.md),  [Node.js](../storage/storage-nodejs-how-to-use-table-storage.md), [Python](../storage/storage-python-how-to-use-table-storage.md), [Ruby](../storage/storage-ruby-how-to-use-table-storage.md), or [PHP](../storage/storage-php-how-to-use-table-storage.md).
+После развертывания приложения и запуска диагностики монитор начнет собирать счетчики производительности и сохранять эти данные в хранилище Azure. Для просмотра данных счетчиков производительности в таблице WADPerformanceCountersTable используйте такие средства: обозреватель сервера в Visual Studio, [обозреватель хранилища Azure](http://azurestorageexplorer.codeplex.com/) или [диспетчер диагностики Azure](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) от Cerebrata. Можно также программно опросить службу таблиц с помощью запросов на [C#](../storage/storage-dotnet-how-to-use-tables.d), [Java](../storage/storage-java-how-to-use-table-storage.md), [Node.js](../storage/storage-nodejs-how-to-use-table-storage.md), [Python](../storage/storage-python-how-to-use-table-storage.md), [Ruby](../storage/storage-ruby-how-to-use-table-storage.md) или [PHP](../storage/storage-php-how-to-use-table-storage.md).
 
-The following C# example shows a simple query against the WADPerformanceCountersTable table and saves the diagnostics data to a CSV file. Once the performance counters are saved to a CSV file you can use the graphing capabilities in Microsoft Excel or some other tool to visualize the data. Be sure to add a reference to Microsoft.WindowsAzure.Storage.dll, which is included in the Azure SDK for .NET October 2012 and later. The assembly is installed to the %Program Files%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\ directory.
+В примере на C# показан простой запрос таблицы WADPerformanceCountersTable с сохранением данных диагностики в CSV-файл. После сохранения счетчиков производительности в CSV-файл можно использовать возможности построения графиков в Microsoft Excel или любой другой инструмент для визуализации данных. Не забудьте добавить ссылку на библиотеку Microsoft.WindowsAzure.Storage.dll, которая включена в пакет Azure SDK для .NET в версии с октября 2012 г. Эта сборка устанавливается в каталог %Program Files%\\Microsoft SDKs\\Microsoft Azure.NET SDK\\version-num\\ref\\.
 
 ```
     using Microsoft.WindowsAzure.Storage;
@@ -304,7 +303,7 @@ The following C# example shows a simple query against the WADPerformanceCounters
     sw.Close();
 ```
 
-Entities map to C# objects using a custom class derived from **TableEntity**. The following code defines an entity class that represents a performance counter in the **WADPerformanceCountersTable** table.
+Сущности сопоставляются с объектами C# с помощью настраиваемого класса, производного от **TableEntity**. Приведенный ниже код определяет класс сущностей, который является счетчиком производительности в таблице **WADPerformanceCountersTable**.
 
 
     public class PerformanceCountersEntity : TableEntity
@@ -318,11 +317,7 @@ Entities map to C# objects using a custom class derived from **TableEntity**. Th
     }
 
 
-## <a name="next-steps"></a>Next Steps
-[View additional articles on Azure Diagnostics] (../azure-diagnostics.md)
+## Дальнейшие действия
+[Просмотрите дополнительные статьи о системе диагностику Azure](../azure-diagnostics.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0302_2016-->

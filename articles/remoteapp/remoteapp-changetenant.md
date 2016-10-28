@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Change the Azure Active Directory tenant in Azure RemoteApp | Microsoft Azure"
-    description="Learn how to change the Azure Active Directory tenant associated with Azure RemoteApp"
+    pageTitle="Смена клиента Azure Active Directory в Azure RemoteApp | Microsoft Azure"
+    description="Способы смены клиента Azure Active Directory, связанного с Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,41 +18,36 @@
 
 
 
-
-# <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a>Change the Azure Active Directory tenant in Azure RemoteApp
+# Смена клиента Azure Active Directory в Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
-Azure RemoteApp uses Azure Active Directory (Azure AD) to allow user access. The only Azure AD tenant that you can use in Azure RemoteApp is the one associated with the Azure subscription. You can view the associated subscription on the **Settings** page in the portal. Look at the **Directory** column on the **Subscriptions** tab.
+Azure RemoteApp использует Azure Active Directory (Azure AD), чтобы разрешить доступ пользователям. В удаленном приложении Azure RemoteApp можно использовать только тот клиент Azure AD, который сопоставлен с подпиской Azure. Вы можете просмотреть связанную подписку на странице **Параметры** на портале. Просмотрите столбец **Каталог** на вкладке **Подписки**.
 
-> [AZURE.NOTE] For this change to succeed, first remove all users from the existing Azure Active Directory tenant from all Azure RemoteApp collections. To do this, go to the Azure Portal, go to the **Azure RemoteApp** tab and open every Azure RemoteApp collection. Go to the **Users** tab and remove users that belong to your current Azure Active Directory tenant. Repeat for all existing Azure RemoteApp collections. Without doing this, you will not be able to create or patch collections.
+> [AZURE.NOTE] Чтобы обеспечить успешное изменение, сначала удалите всех пользователей из существующего клиента Azure Active Directory из всех коллекций Azure RemoteApp. Чтобы сделать это, перейдите на портал Azure, выберите вкладку **Azure RemoteApp** и откройте каждую коллекцию Azure RemoteApp. Откройте вкладку **Пользователи** и удалите пользователей, относящихся к текущему клиенту Azure Active Directory. Повторите эту операцию для всех существующих коллекций Azure RemoteApp. Без этого вы не сможете создавать или исправлять коллекции.
 
-If you want to use a different tenant, use these steps to change the association with your subscription:
+Если вы хотите использовать другой клиент, то выполните следующие действия, чтобы изменить связь с подпиской.
 
-1. In the portal, remove any Azure AD users to which you’ve given access to Azure RemoteApp collections. (See the note above for steps on how to do this.)
-
-
-2. Set a Microsoft account (formerly called a Live ID) as the Service administrator. (Don't know if you already are the service admin? You can find out by clicking **Settings -> Administrators**.) Now, here's how you change that:
-    1. Click the user in the upper right corner, and then click **View my bill**.
-    2. Click the subscription. Then, on the new page, scroll down and click **Edit subscription details** in the right. (Sort of the middle bottom right, if that helps you find it.)
-    3. Type the Microsoft account for the user that should be the service admin.
-
-3. Now, sign out of the portal, and then sign back in with the Microsoft account you specified in the previous step.
+1. На портале удалите всех пользователей Azure AD, которым предоставили доступ к коллекциям Azure RemoteApp. (О том, как это сделать, см. в примечании выше.)
 
 
-4. Click **New -> App Services -> Active Directory -> Directory -> Custom Create**.
-5. Under **Directory**, choose **Use existing directory**. We're going to have to sign you out of the portal now, so choose **I am ready to be signed out now**.
-6. Sign back into the portal as a global admin of the directory you want to add. (If you weren't already a global admin, you will be after a round of sign in and then sign out.)
-7. You'll be asked when you sign in if you want to use your existing AD tenant with your subscription. Click **Continue**, and then click **Sign out now**.
-5. Sign back in again, and go back to **Settings -> Subscriptions**. Select your subscription, and then click **Edit Directory**. Select the Azure AD tenant that you want to use.
+2. Укажите учетную запись Майкрософт (прежнее название — Live ID) администратора служб. (Не знаете, являетесь ли вы администратором служб? Это можно узнать, выбрав **Параметры -> Администраторы**.) А вот как вы можете изменить это:
+	1. Выберите пользователя в правом верхнем углу и щелкните **Просмотреть мой счет**.
+	2. Выберите подписку. На новой странице прокрутите вниз и выберите расположенный справа элемент **Изменить сведения о подписке**. (Если точнее, в нижней правой части.)
+	3. Введите учетную запись Майкрософт для пользователя, который должен быть администратором служб.
+
+3. Выйдите из портала и снова войдите с использованием учетной записи Майкрософт, указанной в предыдущем шаге.
 
 
-
-You can now use the new Azure AD tenant to control access to the Azure subscription and to configure user access in Azure RemoteApp.
+4. Щелкните **Создать > Службы приложений > Active Directory > Каталог > Создать пользовательскую службу**.
+5. В разделе **Каталог** выберите **Использовать существующий каталог**. Сейчас вам понадобится выйти из портала, поэтому выберите **Я готов к выходу из системы**.
+6. Снова войдите на портал в качестве глобального администратора того каталога, который требуется добавить. (Если ранее вы не являлись глобальным администратором, то стали им после выхода и повторного входа в систему.)
+7. При входе отображается запрос о том, требуется ли использовать существующий клиент AD с вашей подпиской. Щелкните **Продолжить**, а затем выберите **Выйти сейчас**.
+5. Снова выполните вход и вернитесь в раздел **Параметры > Подписки**. Выберите свою подписку и щелкните **Изменить каталог**. Выберите клиента Azure AD, которого вы хотите использовать.
 
 
 
-<!--HONumber=Oct16_HO2-->
+Теперь вы можете использовать новый клиент Azure AD для контроля доступа к подписке Azure и настройки доступа пользователей в удаленном приложении Azure RemoteApp.
 
-
+<!---HONumber=AcomDC_0817_2016-->

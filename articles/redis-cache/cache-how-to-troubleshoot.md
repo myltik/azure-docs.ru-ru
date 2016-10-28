@@ -1,127 +1,126 @@
 <properties 
-    pageTitle="How to troubleshoot Azure Redis Cache | Microsoft Azure" 
-    description="Learn how to resolve common issues with Azure Redis Cache." 
-    services="redis-cache" 
-    documentationCenter="" 
-    authors="steved0x" 
-    manager="douge" 
-    editor=""/>
+	pageTitle="Способы устранения проблем с кэшем Redis для Azure | Microsoft Azure" 
+	description="Узнайте, как устранить самые распространенные проблемы с кэшем Redis для Azure" 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="douge" 
+	editor=""/>
 
 <tags 
-    ms.service="cache" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="cache-redis" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/25/2016" 
-    ms.author="sdanie"/>
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>
+
+# Способы устранения проблем с кэшем Redis для Azure
+
+Эта статья содержит сведения об устранении следующих категорий проблем с кэшем Redis для Azure.
+
+-	[Устранение проблем на стороне клиента](#client-side-troubleshooting). В этом разделе представлены рекомендации по выявлению и устранению проблем, вызванных подключением приложения к серверу кэша Redis для Azure.
+-	[Устранение проблем на стороне сервера](#server-side-troubleshooting). В этом разделе представлены рекомендации по обнаружению и устранению проблем на сервере кэша Redis для Azure.
+-	[Исключения времени ожидания StackExchange.Redis](#stackexchangeredis-timeout-exceptions). В этом разделе содержатся сведения об устранении проблем при использовании клиента StackExchange.Redis.
 
 
-# <a name="how-to-troubleshoot-azure-redis-cache"></a>How to troubleshoot Azure Redis Cache
+>[AZURE.NOTE] Шаги по устранению проблем в этой статье также включают в себя указания по выполнению команд Redis и мониторингу различных метрик производительности. Дополнительные сведения и указания см. в разделе [Дополнительные сведения](#additional-information).
 
-This article provides guidance for troubleshooting the following categories of Azure Redis Cache issues.
-
--   [Client side troubleshooting](#client-side-troubleshooting) - This section provides guidelines on identifying and resolving issues caused by the application connecting to Azure Redis Cache.
--   [Server side troubleshooting](#server-side-troubleshooting) - This section provides guidelines on identifying and resolving issues caused on the Azure Redis Cache server side.
--   [StackExchange.Redis timeout exceptions](#stackexchangeredis-timeout-exceptions) - This section provides information on troubleshooting issues when using the StackExchange.Redis client.
+## Устранение проблем на стороне клиента
 
 
->[AZURE.NOTE] Several of the troubleshooting steps in this guide include instructions to run Redis commands and monitor various performance metrics. For more information and instructions, see the articles in the [Additional information](#additional-information) section.
+В этом разделе рассматриваются способы устранения проблем, вызванных определенным условием в клиентском приложении.
 
-## <a name="client-side-troubleshooting"></a>Client side troubleshooting
+-	[Нехватка памяти на клиенте](#memory-pressure-on-the-client)
+-	[Увеличение трафика](#burst-of-traffic)
+-	[Высокий коэффициент загрузки ЦП клиента](#high-client-cpu-usage)
+-	[Превышение пропускной способности на стороне клиента](#client-side-bandwidth-exceeded)
+-	[Большой размер запроса или ответа](#large-requestresponse-size)
+-	[Что произошло с моими данными в Redis?](#what-happened-to-my-data-in-redis)
 
+### Нехватка памяти на клиенте
 
-This section discusses troubleshooting issues that occur because of a condition on the client application.
+#### Проблема
 
--   [Memory pressure on the client](#memory-pressure-on-the-client)
--   [Burst of traffic](#burst-of-traffic)
--   [High client CPU usage](#high-client-cpu-usage)
--   [Client Side Bandwidth Exceeded](#client-side-bandwidth-exceeded)
--   [Large Request/Response Size](#large-requestresponse-size)
--   [What happened to my data in Redis?](#what-happened-to-my-data-in-redis)
+Нехватка памяти на клиентском компьютере служит причиной всевозможных проблем с производительностью, которые вызывают задержку обработки данных, отправленных с помощью экземпляра Redis без задержки. Как правило, в результате нехватки памяти система перемещает данные со страниц физической на страницы виртуальной памяти, которая расположена на диске. Именно *ошибки страниц* существенно замедляют работу системы.
 
-### <a name="memory-pressure-on-the-client"></a>Memory pressure on the client
+#### Измерения 
 
-#### <a name="problem"></a>Problem
+1.	Проведите мониторинг использования памяти на компьютере, чтобы убедиться в том, что объем доступной памяти не превышен.
+2.	Выполните мониторинг счетчика производительности `Page Faults/Sec`. В большинстве систем ошибки страниц возникают даже во время обычной работы. Понаблюдайте за пиками счетчика производительности ошибок страниц, соответствующими времени ожидания.
 
-Memory pressure on the client machine leads to all kinds of performance problems that can delay processing of data that was sent by the Redis instance without any delay. When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk. This *page faulting* causes the system to slow down significantly.
+#### Способы устранения:
 
-#### <a name="measurement"></a>Measurement 
-
-1.  Monitor memory usage on machine to make sure that it does not exceed available memory. 
-2.  Monitor the `Page Faults/Sec` performance counter. Most systems will have some page faults even during normal operation, so watch for spikes in this page faults performance counter which correspond with timeouts.
-
-#### <a name="resolution"></a>Resolution
-
-Upgrade your client to a larger client VM size with more memory or dig into your memory usage patterns to reduce memory consuption.
+Увеличьте размер клиентской виртуальной машины или измените шаблоны использования памяти, снизив потребление памяти.
 
 
-### <a name="burst-of-traffic"></a>Burst of traffic
+### Увеличение трафика
 
-#### <a name="problem"></a>Problem
+#### Проблема
 
-Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis Server but not yet consumed on the client side.
+Увеличение трафика в сочетании с недостаточными параметрами `ThreadPool` может привести к возникновению задержек обработки данных, отправленных сервером Redis, но еще не использованных на стороне клиента.
 
-#### <a name="measurement"></a>Measurement 
+#### Измерения 
 
-Monitor how your `ThreadPool` statistics change over time using code [like this](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can also look at the `TimeoutException` message from StackExchange.Redis. Here is an example :
+Проведите мониторинг того, как со временем изменяется статистика `ThreadPool`, используя [такой код](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Кроме того, можно просмотреть сообщение `TimeoutException` от StackExchange.Redis. Вот пример:
 
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0, 
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
-In the above message, there are several issues that are interesting:
+В примере сообщения выше следует обратить внимание на следующее.
 
- 1. Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This means that your `ThreadPool` settings need adjusting.
- 2. You can also see `in: 64221`. This indicates that 64211 bytes have been received at the kernel socket layer but haven't yet been read by the application (e.g. StackExchange.Redis). This typically means that your application isn't reading data from the network as quickly as the server is sending it to you.
+ 1. Обратите внимание, что в разделах `IOCP` и `WORKER` значение `Busy` больше, чем значение `Min`. Это значит, что необходимо настроить параметры `ThreadPool`.
+ 2. Кроме того, обратите внимание на `in: 64221`. Число 64211 — это количество байт, отправленных на уровень сокета ядра, но еще не считанных приложением (например, StackExchange.Redis). Как правило, это значит, что приложение не успевает считывать весь объем данных, отправленных с сервера.
 
-#### <a name="resolution"></a>Resolution
+#### Способы устранения:
 
-Configure your [ThreadPool Settings](https://gist.github.com/JonCole/e65411214030f0d823cb) to make sure that your thread pool will scale up quickly under burst scenarios.
-
-
-### <a name="high-client-cpu-usage"></a>High client CPU usage
-
-#### <a name="problem"></a>Problem
-
-High CPU usage on the client is an indication that the system cannot keep up with the work that it has been asked to perform. This means that the client may fail to process a response from Redis in a timely fashion even though Redis sent the response very quickly.
-
-#### <a name="measurement"></a>Measurement
-
-Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. As a result of high CPU, you may also see high `in: XXX` values in `TimeoutException` error messages as described in the [Burst of traffic](#burst-of-traffic) section.
-
->[AZURE.NOTE] StackExchange.Redis 1.1.603 and later includes the `local-cpu` metric in `TimeoutException` error messages. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
-
-#### <a name="resolution"></a>Resolution
-
-Upgrade to a larger VM size with more CPU capacity or investigate what is causing CPU spikes. 
+Настройте [параметры пула потоков](https://gist.github.com/JonCole/e65411214030f0d823cb), чтобы обеспечить быстрое увеличение масштаба пула потоков при увеличении трафика.
 
 
+### Высокий коэффициент загрузки ЦП клиента
 
-### <a name="client-side-bandwidth-exceeded"></a>Client side bandwidth exceeded
+#### Проблема
 
-#### <a name="problem"></a>Problem
+Высокий коэффициент загрузки ЦП клиента служит причиной того, что системе не удается справиться со всеми поставленными заданиями. Это означает, что, возможно, клиенту не удастся своевременно обработать ответ от Redis (даже если ответ отправлен очень быстро).
 
-Different sized client machines have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth, then data will not be processed on the client side as quickly as the server is sending it. This can lead to timeouts.
+#### Измерения
 
-#### <a name="measurement"></a>Measurement
+Выполните мониторинг загрузки ЦП для всей системы, используя портал Azure или связанный счетчик производительности. Не путайте ее с загрузкой ЦП *процесса*, так как коэффициент загрузки ЦП одного процесса может быть низким, а всей системы — высоким. Понаблюдайте за пиками загрузки ЦП, которые соответствуют времени ожидания. Результатом высокой загрузки ЦП могут быть высокие значения `in: XXX` в сообщениях об ошибке `TimeoutException`, как описано в разделе [Увеличение трафика](#burst-of-traffic).
 
-Monitor how your Bandwidth usage change over time using code [like this](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Note that this code may not run successfully in some environments with restricted permissions (like Azure web sites).
+>[AZURE.NOTE] В StackExchange.Redis 1.1.603 и более поздней версии в сообщениях об ошибках `TimeoutException` содержится метрика `local-cpu`. Убедитесь, что вы используете последнюю версию [пакета NuGet для StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Это важно, так как ошибки в коде постоянно исправляют, что позволяет обеспечить надежность в отношении времени ожидания.
 
-#### <a name="resolution"></a>Resolution 
+#### Способы устранения:
 
-Increase Client VM size or reduce network bandwidth consumption.
+Увеличьте емкость ЦП виртуальной машины или выясните, что создает пики загрузки ЦП.
 
 
-### <a name="large-request/response-size"></a>Large Request/Response Size
 
-#### <a name="problem"></a>Problem
+### Превышение пропускной способности на стороне клиента
 
-A large request/response can cause timeouts. As an example, Suppose your timeout value configured on your client is 1 second. Your application requests two keys (e.g. 'A' and 'B') at the same time (using the same physical network connection). Most clients support "Pipelining" of requests, such that both requests 'A' and 'B' are sent on the wire to the server one after the other without waiting for the responses. The server will send the responses back in the same order. If response 'A' is large enough it can eat up most of the timeout for subsequent requests. 
+#### Проблема
 
-The following example demonstrates this scenario. In this scenario, Request 'A' and 'B' are sent quickly, the server starts sending responses 'A' and 'B' quickly, but because of data transfer times, 'B' get stuck behind the other request and times out even though the server responded quickly.
+В зависимости от размеров клиентских компьютеров на них применяются разные ограничения доступности пропускной способности сети. При превышении доступной пропускной способности клиент не сможет обрабатывать весь объем данных, отправляемых с сервера. Это может повлечь истечение времени ожидания.
 
-  	|-------- 1 Second Timeout (A)----------|
-  	|-Request A-|
+#### Измерения
+
+Проведите мониторинг того, как изменяется использование пропускной способности со временем, используя [такой код](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Обратите внимание, что в некоторых средах с ограниченными разрешениями (таких как веб-сайты Azure) этот код, возможно, не удастся выполнить успешно.
+
+#### Способы устранения: 
+
+Увеличьте размер виртуальной машины или уменьшите использование пропускной способности сети.
+
+
+### Большой размер запроса или ответа
+
+#### Проблема
+
+Из-за большого размера запроса или ответа может истекать время ожидания. В качестве примера предположим, что значение времени ожидания на клиентском компьютере — 1 секунда. Приложение одновременно запросило два ключа (например, A и Б), используя одно и то же подключение к физической сети. Большинство клиентов поддерживают конвейерный режим отправки запросов. Это означает, что запросы А и Б последовательно отправляются на сервер через физическое подключение, не ожидая получения ответов. Ответы с сервера отправляются в том же порядке. Если ответ А достаточно большого размера, его обработка может занять преимущественную часть времени ожидания, необходимого для выполнения следующих запросов.
+
+Этот сценарий показан в следующем примере. В этом сценарии запросы А и Б отправлены быстро, сервер быстро начал отправку ответов, но из-за длительного времени передачи данных ответ Б задержался после другого запроса и срок его ожидания истек, несмотря на то, что сервер быстро ответил.
+
+    |-------- 1 Second Timeout (A)----------|
+    |-Request A-|
          |-------- 1 Second Timeout (B) ----------|
          |-Request B-|
                 |- Read Response A --------|
@@ -129,187 +128,173 @@ The following example demonstrates this scenario. In this scenario, Request 'A' 
 
 
 
-#### <a name="measurement"></a>Measurement
+#### Измерения
 
-This is a difficult one to measure. You basically have to instrument your client code to track large requests and responses. 
+Трудно выполнить соответствующие измерения. По сути, вам нужно добавить в клиентский код инструменты для отслеживания запросов и ответов большого размера.
 
-#### <a name="resolution"></a>Resolution
+#### Способы устранения:
 
-1.  Redis is optimized for a large number of small values, rather than a few large values. The preferred solution is to break up your data into related smaller values. See the [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post for details around why smaller values are recommended.
-2.  Increase the size of your VM (for client and Redis Cache Server), to get higher bandwidth capabilities, reducing data transfer times for larger responses. Note that getting more bandwidth on just the server or just on the client may not be enough. Measure your bandwidth usage and compare it to the capabilities of the size of VM you currently have.
-3.  Increase the number of `ConnectionMultiplexer` objects you use and round-robin requests over different connections.
-
-
-### <a name="what-happened-to-my-data-in-redis?"></a>What happened to my data in Redis?
-
-#### <a name="problem"></a>Problem
-
-I expected for certain data to be in my Azure Redis Cache instance but it didn't seem to be there.
-
-##### <a name="resolution"></a>Resolution
-
-See [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) for possible causes and resolutions.
+1.	Redis оптимизирован для работы с большим количеством данных небольшого объема, а не с малым количеством данных большого объема. Поэтому рекомендуется разбить данные на небольшие связанные части. Дополнительные сведения о том, почему лучше использовать данные небольшого объема, см. в записи на форуме [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) (Каков оптимальный размер данных для Redis? Является ли 100 КБ большим размером?).
+2.	Увеличьте размер виртуальной машины (для клиента и сервера кэша Redis), чтобы увеличить пропускную способность и уменьшить время передачи данных для больших ответов. Обратите внимание, что увеличение пропускной способности только на сервере или только на клиенте не решит проблему. Измерьте использование пропускной способности и сравните его с возможностями, которые обеспечивает текущий размер вашей виртуальной машины.
+3.	Увеличьте количество используемых объектов `ConnectionMultiplexer` и запросов циклического перебора между подключениями.
 
 
-## <a name="server-side-troubleshooting"></a>Server side troubleshooting
+### Что произошло с моими данными в Redis?
 
-This section discusses troubleshooting issues that occur because of a condition on the cache server.
+#### Проблема
 
--   [Memory Pressure on the server](#memory-pressure-on-the-server)
--   [High CPU usage / Server Load](#high-cpu-usage-server-load)
--   [Server Side Bandwidth Exceeded](#server-side-bandwidth-exceeded)
+В экземпляре кэша Redis для Azure отсутствуют некоторые данные.
 
-### <a name="memory-pressure-on-the-server"></a>Memory Pressure on the server
+##### Способы устранения:
 
-#### <a name="problem"></a>Problem
-
-Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests. When memory pressure hits, the system typically has to page data from physical memory to virtual memory which is on disk. This *page faulting* causes the system to slow down significantly. There are several possible causes of this memory pressure: 
-
-1.  You have filled the cache to full capacity with data. 
-2.  Redis is seeing high memory fragmentation - most often caused by storing large objects (Redis is optimized for a small objects - See the [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) post for details). 
-
-#### <a name="measurement"></a>Measurement
-
-Redis exposes two metrics that can help you identify this issue. The first is `used_memory` and the other is `used_memory_rss`. [These metrics](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) are available in the Azure Portal or through the [Redis INFO](http://redis.io/commands/info) command.
-
-#### <a name="resolution"></a>Resolution
-
-There are several possible changes that you can make to help keep memory usage healthy:
-
-1. [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. Note that this may not be sufficient if you have fragmentation.
-2. [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
-3. Break up your large cached objects into smaller related objects.
-4. [Scale](cache-how-to-scale.md) to a larger cache size.
-5. If you are using a [premium cache with Redis cluster enabled](cache-how-to-premium-clustering.md) you can [increase the number of shards](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
-
-### <a name="high-cpu-usage-/-server-load"></a>High CPU usage / Server Load
-
-#### <a name="problem"></a>Problem
-
-High CPU usage can mean that the client side can fail to process a response from Redis in a timely fashion even though Redis sent the response very quickly.
-
-#### <a name="measurement"></a>Measurement
-
-Monitor the System Wide CPU usage through the Azure Portal or through the associated performance counter. Be careful not to monitor *process* CPU because a single process can have low CPU usage at the same time that overall system CPU can be high. Watch for spikes in CPU usage that correspond with timeouts.
-
-#### <a name="resolution"></a>Resolution
-
-[Scale](cache-how-to-scale.md) to a larger cache tier with more CPU capacity or investigate what is causing CPU spikes. 
-
-### <a name="server-side-bandwidth-exceeded"></a>Server Side Bandwidth Exceeded
-
-#### <a name="problem"></a>Problem
-
-Different sized cache instances have limitations on how much network bandwidth they have available. If the server exceeds the available bandwidth, then data will not be sent to the client as quickly. This can lead to timeouts.
-
-#### <a name="measurement"></a>Measurement
-
-You can monitor the `Cache Read` metric, which is the amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, you can create them using this `Cache Read` counter. Compare your readings with the values in [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.
-
-#### <a name="resolution"></a>Resolution
-
-If you are consistently near the observed maximum bandwidth for your pricing tier and cache size, consider [scaling](cache-how-to-scale.md) to a pricing tier or size that has greater network bandwidth, using the values in [this table](cache-faq.md#cache-performance) as a guide.
+Дополнительные сведения о возможных причинах и способах устранения проблемы см. в разделе [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) (Что произошло с моими данными в Redis?).
 
 
-## <a name="stackexchange.redis-timeout-exceptions"></a>StackExchange.Redis timeout exceptions
+## Устранение проблем на стороне сервера
 
-StackExchange.Redis uses a configuration setting named `synctimeout` for synchronous operations which has a default value  of 1000 ms. If a synchronous call doesn’t complete in the stipulated time, the StackExchange.Redis client throws a timeout error similar to the following example.
+В этом разделе рассматриваются способы устранения проблем, вызванных определенным условием на сервере кэширования.
 
-    System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
+-	[Нехватка памяти на сервере](#memory-pressure-on-the-server)
+-	[Высокий коэффициент загрузки ЦП и сервера](#high-cpu-usage-server-load)
+-	[Превышение пропускной способности на стороне сервера](#server-side-bandwidth-exceeded)
+
+### Нехватка памяти на сервере
+
+#### Проблема
+
+Нехватка памяти на сервере кэширования служит причиной всевозможных проблем с производительностью, которые вызывают задержку обработки запросов. Как правило, в результате нехватки памяти система перемещает данные со страниц физической на страницы виртуальной памяти, которая расположена на диске. Именно *ошибки страниц* существенно замедляют работу системы. Нехватка памяти может возникнуть по следующим причинам.
+
+1.	Весь кэш заполнен данными.
+2.	Чаще всего причиной высокой степени фрагментации памяти Redis является хранение больших объектов. (Redis оптимизирован для работы с небольшими объектами. Дополнительные сведения см. в записи форума [What is the ideal value size range for redis? Is 100KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) (Каков оптимальный размер данных для Redis? Является ли 100 КБ большим размером?).
+
+#### Измерения
+
+Redis предоставляет две метрики, с помощью которых можно определить проблемы: `used_memory` и `used_memory_rss`. [Эти метрики](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) можно узнать на портале Azure или с использованием команды [Redis INFO](http://redis.io/commands/info)
+
+#### Способы устранения:
+
+Настроить оптимальное использование памяти можно несколькими способами.
+
+1. [Настройте политику памяти](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) и параметры времени завершения срока действия ключей. Учтите, что если используется фрагментация памяти, этого может быть недостаточно.
+2. [Настройте значение maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved), которого будет достаточно, чтобы компенсировать фрагментацию памяти.
+3. Разбейте большие кэшированные объекты на меньшие связанные объекты.
+4. [Увеличьте](cache-how-to-scale.md) размер кэша.
+5. Если используется [кэш Redis (цен. категории "Премиум") со включенной кластеризацией](cache-how-to-premium-clustering.md), [увеличьте количество сегментов](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
+
+### Высокий коэффициент загрузки ЦП и сервера
+
+#### Проблема
+
+Высокий коэффициент загрузки ЦП служит причиной того, что клиенту может не удаться своевременно обработать ответ от Redis (даже если ответ отправлен очень быстро).
+
+#### Измерения
+
+Выполните мониторинг загрузки ЦП для всей системы, используя портал Azure или связанный счетчик производительности. Не путайте ее с загрузкой ЦП *процесса*, так как коэффициент загрузки ЦП одного процесса может быть низким, а всей системы — высоким. Понаблюдайте за пиками загрузки ЦП, которые соответствуют времени ожидания.
+
+#### Способы устранения:
+
+[Увеличьте](cache-how-to-scale.md) размер кэша или определите причину пиков загрузки ЦП.
+
+### Превышение пропускной способности на стороне сервера
+
+#### Проблема
+
+В зависимости от размеров к экземплярам кэша применяются разные ограничения на доступную сетевую пропускную способность. Если сервер превысит пропускную способность, уменьшится скорость передачи данных с сервера на клиентский компьютер. Это может повлечь истечение времени ожидания.
+
+#### Измерения
+
+Вы можете провести мониторинг значения метрики `Cache Read`, которая равна объему данных (в МБ/с), считанных из кэша за указанный интервал отчетности. Это значение соответствует пропускной способности сети для этого кэша. Если вы хотите настроить оповещения об ограничениях пропускной способности сети на стороне сервера, их можно создать с использованием счетчика `Cache Read`. Сравните полученные показатели со значениями в [этой таблице](cache-faq.md#cache-performance), где приводятся наблюдаемые ограничения пропускной способности для различных ценовых категорий и размеров кэша.
+
+#### Способы устранения:
+
+Если для вашей ценовой категории и размера кэша почти достигнуто максимальное ограничение пропускной способности, [измените](cache-how-to-scale.md) ценовую категорию или размер, чтобы увеличить пропускную способность, используя значения [этой таблицы](cache-faq.md#cache-performance) для справки.
 
 
-This error message contains metrics that can help point you to the cause and possible resolution of the issue. The following table contains details about the error message metrics.
+## Исключения времени ожидания StackExchange.Redis
 
-| Error message metric | Details                                                                                                                                                                                                                                          |
+Для синхронных операций со значением по умолчанию 1000 мс StackExchange.Redis использует параметр конфигурации `synctimeout`. Если синхронный вызов не завершается за установленное время, клиент StackExchange.Redis выводит ошибку времени ожидания, которая выглядит примерно так:
+
+	System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
+
+
+В этом сообщении об ошибке содержатся метрики, которые помогут вам определить причину и возможное решение проблемы. В следующей таблице содержатся сведения о метриках сообщения об ошибке.
+
+| Метрики сообщения об ошибке | Сведения |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| inst       | In the last time slice: 0 commands have been issued                                                                                                                                                                                              |
-| mgr        | The socket manager is performing `socket.select` which means it is asking the OS to indicate a socket that has something to do; basically: the reader is not actively reading from the network because it doesn't think there is anything to do |
-| queue      | There are 73 total in-progress operations                                                                                                                                                                                                        |
-| qu         | 6 of the in-progress operations are in the unsent queue and have not yet been written to the outbound network                                                                                                                                                           |
-| qs         | 67 of he in-progress operations have been sent to the server but a response is not yet available. The response could be `Not yet sent by the server` or `sent by the server but not yet processed by the client.`                                                   |
-| qc         | 0 of the in-progress operations have seen replies but have not yet been marked as complete due to waiting on the completion loop                                                                                                                                      |
-| wr         | There is an active writer (meaning the 6 unsent requests are not being ignored) bytes/activewriters                                                                                                                                                   |
-| in         | There are no active readers and zero bytes are available to be read on the NIC bytes/activereaders                                                                                                                                               |
+| inst | Указывает, что за последний интервал времени инициировано 0 команд. |
+| mgr | Диспетчер сокетов выполняет `socket.select`, а это значит, что он отправляет в ОС запрос на определение сокета, который должен выполнять какое-то действие. Как правило, модуль чтения не выполняет активное чтение с сети, так как он предполагает, что нет действий, которые необходимо выполнить. |
+| очередь | Указывает, что выполняется 73 операции. |
+| qu | Указывает, что 6 выполняемых операций находится в очереди неотправленных, и они еще не записаны в исходящую сеть. |
+| qs | Указывает, что 67 выполняемых операций отправлено на сервер, но ответ еще не доступен. Ответ может быть таким: `Not yet sent by the server` или `sent by the server but not yet processed by the client.` |
+| qc | Указывает, что для 0 выполняемых операций отправлены ответы, но операции не отмечены в качестве завершенных ожидания в цикле выполнения. |
+| wr | Указывает, что есть bytes/activewriters активных модулей записи (6 неотправленных запросов не игнорируются). |
+| больше | Указывает, что отсутствуют активные модули чтения и нет байтов для чтения для bytes/activereaders сетевой карты. |
 
 
-### <a name="steps-to-investigate"></a>Steps to investigate
+### Действия для обнаружения проблем
 
-1. As a best practice make sure you are using the following pattern to connect when using the StackExchange.Redis client.
-
-
-        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-        {
-            return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-    
-        });
-    
-        public static ConnectionMultiplexer Connection
-        {
-            get
-            {
-                return lazyConnection.Value;
-            }
-        }
+1. Убедитесь, что для подключения к кэшу с помощью клиента StackExchange.Redis используется следующий шаблон.
 
 
-    For more information, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+	    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	    {
+	        return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+	
+	    });
+	
+	    public static ConnectionMultiplexer Connection
+	    {
+	        get
+	        {
+	            return lazyConnection.Value;
+	        }
+	    }
 
-2. Ensure that your Azure Redis Cache and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you are debugging from your local development machine. 
 
-    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 1000 ms interval by including a `synctimeout` property in the connection string. The following example shows a StackExchange.Redis cache connection string snippet with a `synctimeout` of 2000 ms.
+    Дополнительные сведения см. в разделе о [подключении к кэшу с использованием StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+
+2. Убедитесь, что кэш Redis для Azure и клиентское приложение расположены в одном регионе Azure. Например, если кэш расположен в восточной части США, а клиент — в западной части США, то может истекать время ожидания выполнения запроса и для выполнения может быть недостаточно интервала `synctimeout`. Кроме того, время ожидания может истекать при отладке на локальном компьютере разработки.
+
+    Кэш и клиент настоятельно рекомендуется размещать в одном и том же регионе Azure. Если используются межрегиональные вызовы, необходимо увеличить значение интервала `synctimeout` по умолчанию (1000 мс), добавив в строку подключения свойство `synctimeout`. В следующем примере показан фрагмент строки подключения кэша StackExchange.Redis со значением 2000 мс для `synctimeout`.
 
         synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
 
-3. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
+3. Убедитесь, что вы используете последнюю версию [пакета NuGet для StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/). Это важно, так как ошибки в коде постоянно исправляют, что позволяет обеспечить надежность в отношении времени ожидания.
 
-4. If there are requests that are getting bound by bandwidth limitations on the server or client, it will take longer for them to complete and thereby cause timeouts. To see if your timeout is due to network bandwidth on the server, see [Server side bandwidth exceeded](#server-side-bandwidth-exceeded). To see if your timeout is due to client network bandwidth, see [Client side bandwidth exceeded](#client-side-bandwidth-exceeded).
+4. Выполнение запросов, связанных с ограничением пропускной способности на сервере или клиенте, будет занимать больше времени и во время этого может истекать время ожидания. Дополнительные сведения об истечении времени ожидания, связанном с сетевой пропускной способностью на сервере, см. в разделе [Превышение пропускной способности на стороне сервера](#server-side-bandwidth-exceeded). Дополнительные сведения об истечении времени ожидания, связанном с сетевой пропускной способностью клиента, см. в разделе [Превышение пропускной способности на стороне клиента](#client-side-bandwidth-exceeded).
 
-6. Are you getting CPU bound on the server or on the client?
-    -   Check if you are getting bound by CPU on your client which could cause the request to not be processed within the `synctimeout` interval, thus causing a timeout. Moving to a larger client size or distributing the load can help to control this. 
-    -   Check if you are getting CPU bound on the server by monitoring the `CPU` [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). Requests coming in while Redis is CPU bound can cause those requests to timeout. To address this you can distribute the load across multiple shards in a premium cache, or upgrade to a larger size or pricing tier. For more information, see [Server Side Bandwidth Exceeded](#server-side-bandwidth-exceeded).
+6. Используются ли ресурсы ЦП на сервере или клиенте?
+	-	Проверьте, не вызвана ли нехватка времени на обработку запроса в разрешенный интервал времени `synctimeout` (что вызывает истечение времени ожидания) высоким коэффициентом загрузки ЦП на стороне клиента. Чтобы решить эту проблему, увеличьте размер клиента или распределите загрузку.
+	-	Проверьте коэффициент загрузки ЦП на сервере, выполнив мониторинг [метрики производительности кэша](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `CPU`. Запросы, поступающие во время выполнения Redis операций, связанных с ЦП, могут вызывать возникновение времени ожидания. Чтобы устранить эту проблему, распределите нагрузку между несколькими сегментами в кэше (цен. категории "Премиум") или используйте кэш большего размера или другой ценовой уровень. Дополнительные сведения см. в разделе [Превышение пропускной способности на стороне сервера](#server-side-bandwidth-exceeded).
 
-7. Are there commands taking long time to process on the server? Long running commands that are taking long time to process on the redis-server can cause timeouts. Some examples of long running commands are `mget` with large numbers of keys, `keys *` or poorly written lua scripts. You can connect to your Azure Redis Cache instance using the redis-cli client or use the [Redis Console](cache-configure.md#redis-console) and run the [SlowLog](http://redis.io/commands/slowlog) command to see if there are requests taking longer than expected. Redis Server and StackExchange.Redis are optimized for many small requests rather than fewer large requests. Splitting your data into smaller chunks may improve things here. 
+7. Занимает ли выполнение команд на сервере слишком много времени? Выполнение длительных команд на сервере Redis может вызывать истечение времени ожидания. К этим командам относятся `mget` с большим количеством ключей, `keys *` или плохо написанные сценарии LUА. Чтобы проверить, выполняются ли некоторые запросы дольше чем необходимо, подключитесь к экземпляру кэша Redis для Azure с помощью клиента redis-cli или откройте [консоль Redis](cache-configure.md#redis-console) и выполните команду [SlowLog](http://redis.io/commands/slowlog). Сервер Redis и StackExchange.Redis оптимизированы для обработки большого количества небольших запросов, а не нескольких больших запросов. Чтобы повысить их производительность, рекомендуется разбить данные на небольшие фрагменты.
 
-    For information on connecting to the Azure Redis Cache SSL endpoint using redis-cli and stunnel, see the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post. For more information, see [SlowLog](http://redis.io/commands/slowlog).
+    Дополнительные сведения о подключении к конечной точке SSL кэша Redis для Azure с помощью redis-cli и stunnel см. в записи блога [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (Объявление поставщика состояний сеансов ASP.NET для предварительной версии Redis). Дополнительные сведения о команде SlowLog см. [здесь](http://redis.io/commands/slowlog).
 
-8. High Redis server load can cause timeouts. You can monitor the server load by monitoring the `Redis Server Load` [cache performance metric](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). A server load of 100 (maximum value) signifies that the redis server has been busy, with no idle time, processing requests. To see if certain requests are taking up all of the server capability, run the SlowLog command, as described in the previous paragraph. For more information, see [High CPU usage / Server Load](#high-cpu-usage-server-load).
+8. Высокая загрузка сервера Redis может влечь истечение времени ожидания. Вы можете выполнить мониторинг значения загрузки сервера, измеряя [метрику производительности кэша](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Redis Server Load`. Максимальное значение загрузки (100) указывает на то, что сервер слишком загружен обработкой запросов и не простаивает. Чтобы узнать, не использует ли сервер все свои ресурсы на определенные запросы, выполните команду SlowLog, как описано в предыдущем абзаце. Дополнительные сведения см. в разделе [Высокий коэффициент загрузки ЦП и сервера](#high-cpu-usage-server-load).
 
-9. Was there any other event on the client side that could have caused a network blip? Check on the client (web, worker role or an Iaas VM) if there was an event like scaling the number of client instances up or down, or deploying a new version of the client or auto-scale is enabled?In our testing we have found that autoscale or scaling up/down can cause outbound network connectivity can be lost for several seconds. StackExchange.Redis code is resilient to such events and will reconnect. During this time of re-connection any requests in the queue can time out.
+9. Происходили ли на клиенте другие события, для которых требовалось сетевое кэширование? Проверьте, не выполнялись ли на клиенте (в веб-, рабочей роли или на виртуальной машине IaaS) такие операции, как изменение количества экземпляров, развертывание новых версий клиента или включение автомасштабирования. Наше тестирование показало, что автомасштабирование или изменение масштаба может влечь утрату связи с сетью на несколько секунд. Код StackExchange.Redis устойчив к таким событиям и будет переподключен. Во время переподключения некоторые запросы в очереди могут простаивать.
 
-10. Was there a big request preceding several small requests to the Redis Cache that timed out? The parameter `qs` in the error message tells you how many requests were sent from the client to the server, but have not yet processed a response. This value can keep growing because StackExchange.Redis uses a single TCP connection and can only read one response at a time. Even though the first operation timed out, it does not stop the data being sent to/from the server, and other requests are blocked until this is finished, causing time outs. One solution is to minimize the chance of timeouts by ensuring that your cache is large enough for your workload and splitting large values into smaller chunks. Another possible solution is to use a pool of `ConnectionMultiplexer` objects in your client, and choose the least loaded `ConnectionMultiplexer` when sending a new request. This should prevent a single timeout from causing other requests to also timeout.
+10. Истекло ли время ожидания при выполнении большого запроса к кэшу Redis перед несколькими небольшими? Параметр `qs` в сообщении об ошибке указывает, сколько необработанных запросов отправлено с клиента на сервер. Это количество может увеличиваться, так как StackExchange.Redis использует одно подключение TCP, которое позволяет обрабатывать только один ответ за раз. Несмотря на то, что время ожидания первой операции истекло, данные все равно будут поступать на сервер или с него, а другие запросы будут заблокированы, что повлечет истечение времени ожидания. Чтобы решить эту проблему, рекомендуется снизить вероятность возникновения времени ожидания, увеличив размер кэша для рабочей нагрузки и разбив данные большого объема на небольшие фрагменты. Другое решение — использовать в клиенте пул объектов `ConnectionMultiplexer` и для отправки новых запросов применять наименее загруженный объект `ConnectionMultiplexer`. Это позволяет снизить вероятность того, что истечение времени ожидания одного запроса повлечет истечение времени ожидания других запросов.
 
-11. If you are using `RedisSessionStateprovider`, ensure you have set the retry timeout correctly. `retrytimeoutInMilliseconds` should be higher than `operationTimeoutinMilliseonds`, otherwise no retries will occur. In the following example `retrytimeoutInMilliseconds` is set to 3000. For more information, see [ASP.NET Session State Provider for Azure Redis Cache](cache-aspnet-session-state-provider.md) and [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
-
-
-    <add
-      name="AFRedisCacheSessionStateProvider"
-      type="Microsoft.Web.Redis.RedisSessionStateProvider"
-      host="enbwcache.redis.cache.windows.net"
-      port="6380"
-      accessKey="…"
-      ssl="true"
-      databaseId="0"
-      applicationName="AFRedisCacheSessionState"
-      connectionTimeoutInMilliseconds = "5000"
-      operationTimeoutInMilliseconds = "1000"
-      retryTimeoutInMilliseconds="3000" />
+11. Если используется `RedisSessionStateprovider`, убедитесь, что время ожидания повторной попытки задано правильно. Значение `retrytimeoutInMilliseconds` должно быть больше значения `operationTimeoutinMilliseonds`, иначе в дальнейшем попытки выполняться не будут. В следующем примере для `retrytimeoutInMilliseconds` задано значение 3000. Дополнительные сведения см. в статье [Поставщик состояний сеансов ASP.NET для кэша Redis для Azure](cache-aspnet-session-state-provider.md) и в разделе [How to use configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration) (Использование параметров конфигурации поставщика состояний сеанса и поставщика кэша вывода).
 
 
-12. Check memory usage on the Azure Redis Cache server by [monitoring](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` and `Used Memory`. If an eviction policy is in place, Redis starts evicting keys when `Used_Memory` reaches the cache size. Ideally, `Used Memory RSS` should be only slightly higher than `Used memory`. A large difference means there is memory fragmentation (internal or external. When `Used Memory RSS` is less than `Used Memory`, it means part of the cache memory has been swapped  by the operating system. If this occurs you can expect some significant latencies. Because Redis does not have control over how its allocations are mapped to memory pages, high `Used Memory RSS` is often the result of a spike in memory usage. When Redis frees memory, the memory is given back to the allocator, and the allocator may or may not give the memory back to the system. There may be a discrepancy between the `Used Memory` value and memory consumption as reported by the operating system. It may be due to the fact memory has been used and released by Redis, but not given back to the system. To help mitigate memory issues you can perform the following steps.
-    -   Upgrade the cache to a larger size so that you are not running up against memory limitations on the system.
-    -   Set expiration times on the keys so that older values are evicted proactively.
-    -   Monitor the the `used_memory_rss` cache metric. When this value approaches the size of their cache, you are likely to start seeing performance issues. Distribute the data across multiple shards if you are using a premium cache, or upgrade to a larger cache size.
-
-    For more information, see [Memory Pressure on the server](#memory-pressure-on-the-server).
-
-## <a name="additional-information"></a>Additional information
-
--   [What Redis Cache offering and size should I use?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
--   [How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
--   [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
--   [How to monitor Azure Redis Cache](cache-how-to-monitor.md)
+	<add name="AFRedisCacheSessionStateProvider" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="enbwcache.redis.cache.windows.net" port="6380" accessKey="…" ssl="true" databaseId="0" applicationName="AFRedisCacheSessionState" connectionTimeoutInMilliseconds = "5000" operationTimeoutInMilliseconds = "1000" retryTimeoutInMilliseconds="3000" />
 
 
-<!--HONumber=Oct16_HO2-->
+12. Проверяйте использование памяти на сервере кэша Redis для Azure, [отслеживая](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) значения `Used Memory RSS` и `Used Memory`. Если используется политика вытеснения, Redis начнет вытеснять ключи, когда значение `Used_Memory` достигнет размера кэша. В идеале значение `Used Memory RSS` должно быть немного больше, чем значение `Used memory`. Большая разница между значениями означает фрагментацию памяти (внутренней или внешней). Если значение `Used Memory RSS` меньше значения `Used Memory`, это значит, что часть кэш-памяти используется операционной системой для подкачки. В этом случае может возникать значительная задержка. Так как Redis не контролирует сопоставление распределений со станицами памяти, высокое значение `Used Memory RSS` зачастую является результатом увеличения использования памяти. Когда Redis освобождает память, она возвращается распределителю, который может вернуть или не вернуть память в систему. При этом операционная система может сообщать о расхождении между `Used Memory` и использованием памяти. Это связано с тем, что использованная и освобожденная Redis память не возвращена обратно в систему. Чтобы устранить риски возникновения проблем с памятью, выполните следующие шаги.
+    -	Увеличьте размер кэша, чтобы предотвратить превышение ограничения объема используемой памяти в системе.
+    -	Задайте время истечения срока действия ключей, чтобы они вытеснялись заранее.
+    -	Отслеживайте метрику кэша `used_memory_rss`. Если это значение близко к значению размера кэша, скорее всего, появятся проблемы с производительностью. Если используется кэш (цен. категории "Премиум"), распределите данные по нескольким сегментам или увеличьте размер кэша.
 
+    Дополнительные сведения см. в разделе [Нехватка памяти на сервере](#memory-pressure-on-the-server).
 
+## Дополнительная информация
+
+-	[Какое предложение и размер кэша Redis мне следует использовать?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+-	[Как измерить и протестировать производительность моего кэша?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+-	[Как выполнять команды Redis?](cache-faq.md#how-can-i-run-redis-commands)
+-	[Как отслеживать кэш Redis для Azure](cache-how-to-monitor.md)
+
+<!---HONumber=AcomDC_0810_2016-->

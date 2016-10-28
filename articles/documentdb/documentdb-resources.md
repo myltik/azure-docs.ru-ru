@@ -1,461 +1,452 @@
 <properties 
-    pageTitle="DocumentDB hierarchical resource model and concepts | Microsoft Azure" 
-    description="Learn about DocumentDB’s hierarchical model of databases, collections, user defined function (UDF), documents, permissions to manage resources, and more."
-    keywords="Hierarchical model, documentdb, azure, Microsoft azure"   
-    services="documentdb" 
-    documentationCenter="" 
-    authors="AndrewHoh" 
-    manager="jhubbard" 
-    editor="monicar"/>
+	pageTitle="Иерархическая модель ресурсов и концепции DocumentDB | Microsoft Azure" 
+	description="Ознакомьтесь с иерархической моделью базы данных, коллекций, определяемых пользователем функций (UDF), документов, разрешений на управление ресурсами DocumentDB и т. д."
+	keywords="иерархическая модель, documentdb, azure, Microsoft azure"	
+	services="documentdb" 
+	documentationCenter="" 
+	authors="AndrewHoh" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags 
-    ms.service="documentdb" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/15/2016" 
-    ms.author="anhoh"/>
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/15/2016" 
+	ms.author="anhoh"/>
 
+# Иерархическая модель ресурсов и понятия DocumentDB
 
-# <a name="documentdb-hierarchical-resource-model-and-concepts"></a>DocumentDB hierarchical resource model and concepts
+Объекты базы данных, которыми управляет DocumentDB, называются **ресурсами**. Каждый ресурс однозначно идентифицируется своими логическим URI. Разработчики могут взаимодействовать с ресурсами, используя стандартные команды HTTP, заголовки запросов/ответов и коды состояний.
 
-The database entities that DocumentDB manages are referred to as **resources**. Each resource is uniquely identified by a logical URI. You can interact with the resources using standard HTTP verbs, request/response headers and status codes. 
+Прочитав данную статью, вы сможете ответить на следующие вопросы.
 
-By reading this article, you'll be able to answer the following questions:
+- Что такое модель ресурсов DocumentDB?
+- Чем ресурсы, определяемые системой, отличаются от ресурсов, определяемых пользователем?
+- Как получить доступ к ресурсу?
+- Как работать с коллекциями?
+- Как работать с хранимыми процедурами, триггерами и пользовательскими функциями?
 
-- What is DocumentDB's resource model?
-- What are system defined resources as opposed to user defined resources?
-- How do I address a resource?
-- How do I work with collections?
-- How do I work with stored procedures, triggers and User Defined Functions (UDFs)?
+## Иерархическая модель ресурсов
+Как показано на следующей схеме, **иерархическая модель ресурсов** DocumentDB состоит из наборов ресурсов в учетной записи базы данных, каждый из которых имеет логический постоянный идентификатор URI. Набор ресурсов в этой статье называется **каналом**.
 
-## <a name="hierarchical-resource-model"></a>Hierarchical resource model
-As the following diagram illustrates, the DocumentDB hierarchical **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
+>[AZURE.NOTE] Кроме того, DocumentDB также предлагает весьма эффективный протокол TCP, который также является RESTful в своей коммуникационной модели, доступной с помощью [пакета SDK клиента .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
->[AZURE.NOTE] DocumentDB offers a highly efficient TCP protocol which is also RESTful in its communication model, available through the [.NET client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+![Иерархическая модель ресурсов DocumentDB][1] **Иерархическая модель ресурсов.**
 
-![DocumentDB hierarchical resource model][1]  
-**Hierarchical resource model**   
+Чтобы приступить к работе с ресурсами, необходимо [создать учетную запись базы данных DocumentDB](documentdb-create-account.md) с помощью подписки Azure. Учетная запись базы данных может состоять из набора **баз данных**, каждая из которых включает несколько **коллекций** с **хранимыми процедурами, триггерами, пользовательскими функциями, документами** и связанными **вложениями** (предварительная версия функции). С базой данных также связаны **пользователи**, каждый из которых обладает набором **разрешений** для доступа к коллекциям, хранимым процедурам, триггерам, пользовательским функциям, документам или вложениям. В то время как базы данных, пользователи, разрешения и коллекции являются определяемыми системой ресурсами с известными схемами, документы и вложения содержат произвольный, определяемый пользователем контент в формате JSON.
 
-To start working with resources, you must [create a DocumentDB database account](documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents** and related **attachments** (preview feature). A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
-
-|Resource   |Description
+|Resource (Ресурс) |Описание
 |-----------|-----------
-|Database account   |A database account is associated with a set of databases and a fixed amount of blob storage for attachments (preview feature). You can create one or more database accounts using your Azure subscription. For more information, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
-|Database   |A database is a logical container of document storage partitioned across collections. It is also a users container.
-|User   |The logical namespace for scoping permissions. 
-|Permission |An authorization token associated with a user for access to a specific resource.
-|Collection |A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](documentdb-performance-levels.md) is determined by the performance level associated with the collection. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput.
-|Stored Procedure   |Application logic written in JavaScript which is registered with a collection and transactionally executed within the database engine.
-|Trigger    |Application logic written in JavaScript executed before or after either an insert, replace or delete operation.
-|UDF    |Application logic written in JavaScript. UDFs enable you to model a custom query operator and thereby extend the core DocumentDB query language.
-|Document   |User defined (arbitrary) JSON content. By default, no schema needs to be defined nor do secondary indices need to be provided for all the documents added to a collection.
-|(Preview) Attachment   |An attachment is a special document containing references and associated metadata for external blob/media. The developer can choose to have the blob managed by DocumentDB or store it with an external blob service provider such as OneDrive, Dropbox, etc. 
+|Учетная запись базы данных |Учетная запись базы данных связана с набором баз и определенным местом в хранилище больших двоичных объектов для хранения вложений (это предварительная версия функции). Вы можете создать одну или несколько учетных записей базы данных с помощью подписки Azure. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
+|База данных |База данных представляет собой логический контейнер для хранения документов, разделенных между коллекциями. Она также является контейнером для пользователей.
+|Пользователь |Логическое пространство имен для ограничений разрешений. 
+|Разрешение |Маркер проверки подлинности, связанный с пользователем, предоставляет доступ к определенному ресурсу.
+|Коллекция |Коллекция представляет собой контейнер документов JSON и связанной логики приложения на JavaScript. Коллекция представляет собой тарифицируемый объект, и его [стоимость](documentdb-performance-levels.md) определяется связанным с ним уровнем производительности. Коллекции могут охватывать один или несколько разделов либо серверов и масштабироваться до практически неограниченных объемов хранилища или пропускной способности.
+|Хранимая процедура |Логика приложения, написанная на JavaScript, которая зарегистрирована в коллекции и выполняется в транзакции в ядре базы данных.
+|Триггер |Логика приложения в виде кода JavaScript, автоматически исполняемого до или после операций вставки, замены и удаления.
+|Определяемая пользователем функция |Логика приложения на языке JavaScript. Пользовательские функции позволяют моделировать операторы пользовательских запросов и тем самым расширить базовый язык запросов DocumentDB.
+|Документ |Пользовательский (произвольный) контент JSON. По умолчанию, нет необходимости определения схемы или предоставления вторичных индексов для всех документов, добавляемых в коллекцию.
+|Вложения (предварительная версия) |Вложение — это специальный документ, содержащий ссылки и связанные с ним метаданные ко внешним большим двоичным объектам и носителям. Разработчик может выбрать, управлять ли BLOB-объектами в DocumentDB или хранить их с помощью внешних поставщиков услуг хранения BLOB-объектов, таких как OneDrive, Dropbox и т. д. 
 
 
-## <a name="system-vs.-user-defined-resources"></a>System vs. user defined resources
-Resources such as database accounts, databases, collections, users, permissions, stored procedures, triggers, and UDFs - all have a fixed schema and are called system resources. In contrast, resources such as documents and attachments have no restrictions on the schema and are examples of user defined resources. In DocumentDB, both system and user defined resources are represented and managed as standard-compliant JSON. All resources, system or user defined, have the following common properties.
+## Системные и пользовательские ресурсы
+Ресурсы (такие как учетные записи баз данных, базы данных, коллекции, пользователи, разрешения, хранимые процедуры, триггеры и определяемые пользователем функции) имеют статическую схему и называются системными ресурсами. В отличие от таких ресурсов, как документы и вложения, не имеющих ограничений по схеме, которые являются примерами пользовательских ресурсов. В DocumentDB системные и пользовательские ресурсы представляются и управляются как стандартные, совместимые с JSON-объекты. Все ресурсы, системные и пользовательские, имеют перечисленные ниже общие свойства.
 
-> [AZURE.NOTE] Note that all system generated properties in a resource are prefixed with an underscore (_) in their JSON representation.
+> [AZURE.NOTE] Обратите внимание, что все сгенерированные системой свойства в ресурсах начинаются с символа подчеркивания (\_) в представлении JSON.
 
 <table>
     <tbody>
         <tr>
-            <td valign="top"><p><strong>Property</strong></p></td>
-            <td valign="top"><p><strong>User settable or system generated?</strong></p></td>
-            <td valign="top"><p><strong>Purpose</strong></p></td>
+            <td valign="top"><p><strong>Свойство</strong></p></td>
+            <td valign="top"><p><strong>Устанавливается пользователем или генерируется системой</strong></p></td>
+            <td valign="top"><p><strong>Назначение</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>_rid</p></td>
-            <td valign="top"><p>System generated</p></td>
-            <td valign="top"><p>System generated, unique and hierarchical identifier of the resource</p></td>
+            <td valign="top"><p>Генерируемое системой</p></td>
+            <td valign="top"><p>Генерируемый системой уникальный иерархический идентификатор ресурса</p></td>
         </tr>
         <tr>
             <td valign="top"><p>_etag</p></td>
-            <td valign="top"><p>System generated</p></td>
-            <td valign="top"><p>etag of the resource required for optimistic concurrency control</p></td>
+            <td valign="top"><p>Генерируемое системой</p></td>
+            <td valign="top"><p>etag ресурса, необходимый для управления оптимистичным параллелизмом</p></td>
         </tr>
         <tr>
             <td valign="top"><p>_ts</p></td>
-            <td valign="top"><p>System generated</p></td>
-            <td valign="top"><p>Last updated timestamp of the resource</p></td>
+            <td valign="top"><p>Генерируемое системой</p></td>
+            <td valign="top"><p>Метка времени последнего обновления ресурса</p></td>
         </tr>
         <tr>
             <td valign="top"><p>_self</p></td>
-            <td valign="top"><p>System generated</p></td>
-            <td valign="top"><p>Unique addressable URI of the resource</p></td>
+            <td valign="top"><p>Генерируемое системой</p></td>
+            <td valign="top"><p>Уникальный адресуемый URI ресурса</p></td>
         </tr>
         <tr>
             <td valign="top"><p>id</p></td>
-            <td valign="top"><p>System generated</p></td>
-            <td valign="top"><p>User defined unique name of the resource (with the same partition key value). If the user does not specify an id, an id will be system generated</p></td>
+            <td valign="top"><p>Генерируемое системой</p></td>
+            <td valign="top"><p>Определяемое пользователем уникальное имя ресурса (с тем же значением ключа секции). Если пользователь не укажет идентификатор, идентификатор будет создан системой.</p></td>
         </tr>
     </tbody>
 </table>
 
-### <a name="wire-representation-of-resources"></a>Wire representation of resources
-DocumentDB does not mandate any proprietary extensions to the JSON standard or special encodings; it works with standard compliant JSON documents.  
+### Сетевое представление ресурсов
+DocumentDB не требует никаких собственных расширений помимо стандарта JSON или специальных кодировок; она работает со документами, совместимыми со стандартом JSON.
  
-### <a name="addressing-a-resource"></a>Addressing a resource
-All resources are URI addressable. The value of the **_self** property of a resource represents the relative URI of the resource. The format of the URI consists of the /\<feed\>/{_rid} path segments:  
+### Адресация ресурса
+Все ресурсы можно адресовать по URI. Значение свойства **\_self** представляет относительный URI ресурса. Формат URI состоит из сегментов пути /<feed>/{\_rid}:
 
-|Value of the _self |Description
+|Значение свойства \_self |Описание
 |-------------------|-----------
-|/dbs   |Feed of databases under a database account
-|/dbs/{dbName}  |Database with an id matching the value {dbName}
-|/dbs/{dbName}/colls/   |Feed of collections under a database
-|/dbs/{dbName}/colls/{collName} |Collection with an id matching the value {collName}
-|/dbs/{dbName}/colls/{collName}/docs    |Feed of documents under a collection
-|/dbs/{dbName}/colls/{collName}/docs/{docId}    |Document with an id matching the value {doc}
-|/dbs/{dbName}/users/   |Feed of users under a database
-|/dbs/{dbName}/users/{userId}   |User with an id matching the value {user}
-|/dbs/{dbName}/users/{userId}/permissions   |Feed of permissions under a user
-|/dbs/{dbName}/users/{userId}/permissions/{permissionId}    |Permission with an id matching the value {permission}
+|/dbs |Канал баз данных под учетной записью базы данных
+|/dbs/{dbName} |Базы данных с идентификатором, соответствующим значению {dbName}
+|/dbs/{dbName}/colls/ |Канал коллекций в базе данных
+|/dbs/{dbName}/colls/{collName} |Коллекция с идентификатором, соответствующим значению {collName}
+|/dbs/{dbName}/colls/{collName}/docs |Канал документов в коллекции
+|/dbs/{dbName}/colls/{collName}/docs/{docId} |Документ с идентификатором, соответствующим значению {doc}
+|/dbs/{dbName}/users/ |Канал пользователей в базе данных
+|/dbs/{dbName}/users/{userId} |Пользователь с идентификатором, соответствующим значению {user}
+|/dbs/{dbName}/users/{userId}/permissions |Канал разрешений для пользователя
+|/dbs/{dbName}/users/{userId}/permissions/{permissionId} |Разрешение с идентификатором, соответствующим значению {permission}
   
-Each resource has a unique user defined name exposed via the id property. Note: for documents, if the user does not specify an id, the system will automatically generate a unique id for the document. The id is a user defined string, of up to 256 characters that is unique within the context of a specific parent resource. 
+Каждый ресурс имеет уникальное имя, которое определяется пользователем и используется в качестве идентификатора ресурса. Примечание. Если пользователь не укажет идентификатор документа, система автоматически создаст для этого документа уникальный идентификатор. Идентификатор является определяемой пользователем строкой длиной до 256 символов, которая уникальна в контексте конкретного родительского ресурса.
 
-Each resource also has a system generated hierarchical resource identifier (also referred to as an RID), which is available via the _rid property. The RID encodes the entire hierarchy of a given resource and it is a convenient internal representation used to enforce referential integrity in a distributed manner. The RID is unique within a database account and it is internally used by DocumentDB for efficient routing without requiring cross partition lookups. The values of the _self and the  _rid properties are both alternate and canonical representations of a resource. 
+Каждый ресурс также имеет иерархический идентификатор ресурсов, генерируемый системой (также известный как RID), который доступен через свойство \_rid. RID кодирует всю иерархию данного ресурса, и это удобное внутреннее представление, которое используется для обеспечения ссылочной целостности распределенным способом. RID является уникальным в пределах учетной записи базы данных и используется службой DocumentDB для эффективной маршрутизации без перекрестного поиска по разделам. Значения свойств \_self и \_rid являются альтернативным и каноническим представлениями ресурса.
 
-The DocumentDB REST APIs support addressing of resources and routing of requests by both the id and the _rid properties.
+Интерфейсы REST API DocumentDB поддерживают адресацию ресурсов и маршрутизацию запросов по свойствам id и \_rid.
 
-## <a name="database-accounts"></a>Database accounts
-You can provision one or more DocumentDB database accounts using your Azure subscription.
+## Учетные записи базы данных
+Вы можете подготовить одну или несколько учетных записей базы данных DocumentDB с помощью подписки Azure.
 
-You can [create and manage DocumentDB database accounts](documentdb-create-account.md) via the Azure Portal at [http://portal.azure.com/](https://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
+Вы можете [создавать учетные записи базы данных DocumentDB и управлять ими](documentdb-create-account.md) с помощью портала Azure на сайте [http://portal.azure.com/](https://portal.azure.com/). Создание и управление учетной записью базы данных требует наличия административного доступа и может быть выполнено только в рамках вашей подписки Azure.
 
-### <a name="database-account-properties"></a>Database account properties
-As part of provisioning and managing a database account you can configure and read the following properties:  
+### Свойства учетной записи базы данных
+В рамках подготовки учетной записи базы данных и управления ею можно настроить следующие свойства и ознакомиться с ними:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
-            <td valign="top"><p><strong>Property Name</strong></p></td>
-            <td valign="top"><p><strong>Description</strong></p></td>
+            <td valign="top"><p><strong>Имя свойства</strong></p></td>
+            <td valign="top"><p><strong>Описание</strong></p></td>
         </tr>
         <tr>
-            <td valign="top"><p>Consistency Policy</p></td>
-            <td valign="top"><p>Set this property to configure the default consistency level for all the collections under your database account. You can override the consistency level on a per request basis using the [x-ms-consistency-level] request header. <p><p>Note that this property only applies to the <i>user defined resources</i>. All system defined resources are configured to support reads/queries with strong consistency.</p></td>
+            <td valign="top"><p>Политика согласованности</p></td>
+            <td valign="top"><p>Установите это свойство, чтобы настроить уровень согласованности по умолчанию для всех коллекций под вашей учетной записью базы данных. Вы можете переопределить уровень согласованности для каждого запроса, используя заголовок запроса x-ms-consistency-level. <p><p>Обратите внимание, что это свойство применяется только к <i>пользовательским ресурсам</i>. Все определяемые системой ресурсы настроены для поддержки чтения и запросов с сильной согласованностью.</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>Authorization Keys</p></td>
-            <td valign="top"><p>These are the primary and secondary master and readonly keys that provide administrative access to all of the resources under the database account.</p></td>
+            <td valign="top"><p>Ключи авторизации</p></td>
+            <td valign="top"><p>Существуют первичный и вторичный главные ключи, доступные только для чтения, которые обеспечивают административный доступ ко всем ресурсам учетной записи базы данных.</p></td>
         </tr>
     </tbody>
 </table>
 
-Note that in addition to provisioning, configuring and managing your database account from the Azure Portal, you can also programmatically create and manage DocumentDB database accounts by using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) as well as [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx).  
+Обратите внимание, что наряду с подготовкой, настройкой учетной записи базы данных и управлением ею на портале Azure вы также можете программно создавать учетные записи базы данных DocumentDB и управлять ими через [интерфейсы REST API Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) или [клиентские пакеты SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-## <a name="databases"></a>Databases
-A DocumentDB database is a logical container of one or more collections and users, as shown in the following diagram. You can create any number of databases under a DocumentDB database account subject to offer limits.  
+## Базы данных
+База данных DocumentDB является логическим контейнером из одного или нескольких коллекций и пользователей, как показано на следующей схеме. Вы можете создать любое количество баз данных под учетной записью базы данных DocumentDB с учетом предложенных ограничений.
 
-![Database account and collections hierarchical model][2]  
-**A Database is a logical container of users and collections**
+![Учетная запись базы данных и иерархическая модель коллекций][2] **База данных представляет собой логический контейнер пользователей и коллекций**
 
-A database can contain virtually unlimited document storage partitioned by collections, which form the transaction domains for the documents contained within them. 
+База данных может содержать практически неограниченный объем для хранения документов, разделенный на коллекции, которые формируют домены транзакций для документов, содержащихся в них.
 
-### <a name="elastic-scale-of-a-documentdb-database"></a>Elastic scale of a DocumentDB database
-A DocumentDB database is elastic by default – ranging from a few GB to petabytes of SSD backed document storage and provisioned throughput. 
+### Гибкое масштабирование базы данных DocumentDB
+База данных DocumentDB по умолчанию обладает гибкостью, ее размер может меняться от нескольких гигабайт до потенциально петабайт хранилищ документов на базе SSD и подготовленной пропускной способности.
 
-Unlike a database in traditional RDBMS, a database in DocumentDB is not scoped to a single machine. With DocumentDB, as your application’s scale needs to grow, you can create more collections, databases, or both. Indeed, various first party applications within Microsoft have been using DocumentDB at a consumer scale by creating extremely large DocumentDB databases each containing thousands of collections with terabytes of document storage. You can grow or shrink a database by adding or removing collections to meet your application’s scale requirements. 
+В отличие от традиционных реляционных СУБД базы данных в DocumentDB не ограничены одним узлом. DocumentDB позволяет создавать больше коллекций и баз данных по мере увеличения масштаба вашего приложения. Действительно, различные собственные приложения корпорации Майкрософт уже используют DocumentDB в потребительском масштабе путем создания чрезвычайно больших баз данных DocumentDB, каждая из которых содержит тысячи коллекций с терабайтами хранимых документов. Вы можете увеличить или уменьшить базу данных, добавляя или удаляя коллекции для удовлетворения требований масштабности вашего приложения.
 
-You can create any number of collections within a database subject to the offer. Each collection has SSD backed storage and throughput provisioned for you depending on the selected performance tier.
+Вы можете создать любое количество коллекций в пределах субъекта базы данных в рамках своего предложения. Для каждой коллекции выделяется хранилище на базе SSD-накопителей и пропускная способность с учетом выбранного уровня производительности.
 
-A DocumentDB database is also a container of users. A user, in-turn, is a logical namespace for a set of permissions that provides fine-grained authorization and access to collections, documents and attachments.  
+База данных DocumentDB также является контейнером для пользователей. Пользователь, в свою очередь, является логическим пространством имен для набора разрешений, что обеспечивает детальный уровень авторизации и доступа к коллекции, документам и вложениям.
  
-As with other resources in the DocumentDB resource model, databases can be created, replaced, deleted, read or enumerated easily using either [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB guarantees strong consistency for reading or querying the metadata of a database resource. Deleting a database automatically ensures that you cannot access any of the collections or users contained within it.   
+Как и другие ресурсы в модели DocumentDB, базы данных могут быть созданы, заменены, удалены, прочитаны или перечислены с помощью [интерфейса API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) либо любого [клиентского пакета SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB гарантирует строгую согласованность для чтения или запроса метаданных ресурса базы данных. Удаление базы данных автоматически означает, что вы больше не сможете получить доступ к любой из коллекций или пользователям, содержащимся в ней.
 
-## <a name="collections"></a>Collections
-A DocumentDB collection is a container for your JSON documents. A collection is also a unit of scale for transactions and queries. 
+## Коллекции
+Коллекция DocumentDB — контейнер для документов JSON. Коллекция также является единицей масштабирования для транзакций и запросов.
 
-### <a name="elastic-ssd-backed-document-storage"></a>Elastic SSD backed document storage
-A collection is intrinsically elastic - it automatically grows and shrinks as you add or remove documents. Collections are logical resources and can span one or more physical partitions or servers. The number of partitions within a collection is determined by DocumentDB based on the storage size and the provisioned throughput of your collection. Every partition in DocumentDB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure DocumentDB, and you do not have to write complex code or manage your partitions. DocumentDB collections are **practically unlimited** in terms of storage and throughput. 
+### Гибкое хранилище документов на базе SSD
+Коллекция является неразрывно гибкой, она автоматически увеличивается и уменьшается по мере добавления или удаления документов. Коллекции — это логические ресурсы, они могут включать в себя одну или несколько физических секций или серверов. Число секций в коллекции определяется DocumentDB по размеру хранилища и пропускной способности, выделенных для коллекции. С каждой секцией в DocumentDB связано фиксированное хранилище на основе SSD, которое реплицируются для обеспечения высокого уровня доступности. Управление секциями полностью осуществляется Azure DocumentDB, и нет необходимости создавать сложный код или управлять секциями. Коллекции DocumentDB **практически не ограничены** в объеме хранилища и пропускной способности.
 
-### <a name="automatic-indexing-of-collections"></a>Automatic indexing of collections
-DocumentDB is a true schema-free database system. It does not assume or require any schema for the JSON documents. As you add documents to a collection, DocumentDB automatically indexes them and they are available for you to query. Automatic indexing of documents without requiring schema or secondary indexes is a key capability of DocumentDB and is enabled by write-optimized, lock-free and log-structured index maintenance techniques. DocumentDB supports sustained volume of extremely fast writes while still serving consistent queries. Both document and index storage are used to calculate the storage consumed by each collection. You can control the storage and performance trade-offs associated with indexing by configuring the indexing policy for a collection. 
+### Автоматическое индексирование коллекций
+DocumentDB — система баз данных без схемы. Она не подразумевает и не требует указания каких-либо схем для документов JSON. По мере добавления документов в коллекции DocumentDB автоматически индексирует их, и они становятся доступны для выполнения запросов. Автоматическая индексация документов, не требующая указания схемы или вторичных индексов, является ключевой возможностью DocumentDB и доступна благодаря оптимизации записи, безблокировочной и оптимизированной журнально-структурированной технологии обслуживания индексов. DocumentDB поддерживает устойчивый объем чрезвычайно быстрых операций записи и в то же время обслуживает согласованные запросы. Хранилище и документов и индекса используется для расчета объема хранения, потребляемого каждой коллекцией. Вы можете управлять компромиссом между объемом хранения и производительностью, связанным с индексацией по настройке политики индексирования для коллекции.
 
-### <a name="configuring-the-indexing-policy-of-a-collection"></a>Configuring the indexing policy of a collection
-The indexing policy of each collection allows you to make performance and storage trade-offs associated with indexing. The following options are available to you as part of indexing configuration:  
+### Настройка политики индексирования коллекции
+Политика индексирования каждой коллекции позволяет настраивать соотношения производительности и объема, связанные с индексацией. Для конфигурации индексирования доступны следующие параметры:
 
--   Choose whether the collection automatically indexes all of the documents or not. By default, all documents are automatically indexed. You can choose to turn off automatic indexing and selectively add only specific documents to the index. Conversely, you can selectively choose to exclude only specific documents. You can achieve this by setting the automatic property to be true or false on the indexingPolicy of a collection and using the [x-ms-indexingdirective] request header while inserting, replacing or deleting a document.  
--   Choose whether to include or exclude specific paths or patterns in your documents from the index. You can achieve this by setting includedPaths and excludedPaths on the indexingPolicy of a collection respectively. You can also configure the storage and performance trade-offs for range and hash queries for specific path patterns. 
--   Choose between synchronous (consistent) and asynchronous (lazy) index updates. By default, the index is updated synchronously on each insert, replace or delete of a document to the collection. This enables the queries to honor the same consistency level as that of the document reads. While DocumentDB is write optimized and supports sustained volumes of document writes along with synchronous index maintenance and serving consistent queries, you can configure certain collections to update their index lazily. Lazy indexing boosts the write performance further and is ideal for bulk ingestion scenarios for primarily read-heavy collections.
+-	Выберите, будет ли коллекция автоматически индексировать все документы или нет. По умолчанию все документы индексируются автоматически. Можно отключать автоматическое индексирование и добавлять только выбранные документы в индекс. И наоборот, вы можете выборочно указать, какие документы необходимо исключить из индексирования. Вы можете добиться этого путем установки автоматического логического свойства indexingPolicyколлекции и с помощью заголовка запроса [x-ms-indexingdirective] при вставке, замене или удалении документа.
+-	Укажите, следует ли включить или исключить определенные пути или шаблоны в документах из индекса. Вы можете добиться этого путем установки includedPaths и excludedPaths на indexingPolicy коллекции соответственно. Вы также можете настроить соотношения объема и производительности для интервала и хэш-запросов для конкретных шаблонов пути.
+-	Выбор между синхронными обновлениями (согласованные) и асинхронными обновлениями (отложенные) индекса. По умолчанию, индекс обновляется синхронно при каждой операции вставки, заменить или удаления документа в коллекции. Это позволяет выполнять запросы с уровнем согласованности, как и в документе. В то время как DocumentDB оптимизирован для операций записи и поддерживает устойчивые объемы записей документов вместе с синхронным обслуживанием индекса и обслуживанием согласованных запросов, вы можете настроить определенные коллекции для отложенного обновления своих ​​индексов. Отложенное индексирование еще больше повышает производительность операций записи и идеально подходит для сценариев пакетной вставки, прежде всего для чтения больших коллекций.
 
-The indexing policy can be changed by executing a PUT on the collection. This can be achieved either through the [client SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), the [Azure Portal](https://portal.azure.com) or the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Вы можете изменить политику индексирования, выполнив запрос PUT для коллекции. Это можно сделать с помощью [клиентского пакета SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx), [портала Azure](https://portal.azure.com) или [интерфейсов API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
-### <a name="querying-a-collection"></a>Querying a collection
-The documents within a collection can have arbitrary schemas and you can query documents within a collection without providing any schema or secondary indices upfront. You can query the collection using the [DocumentDB SQL syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx), which provides rich hierarchical, relational, and spatial operators and extensibility via JavaScript-based UDFs. JSON grammar allows for modeling JSON documents as trees with labels as the tree nodes. This is exploited both by DocumentDB’s automatic indexing techniques as well as DocumentDB's SQL dialect. The DocumentDB query language consists of three main aspects:   
+### Запросы к коллекции
+Документы в коллекции могут иметь произвольные схемы, и вы можете запрашивать их без предварительного предоставления любой схемы или вторичных индексов. Вы можете создавать запросы к коллекции, используя [синтаксис SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx). Он предоставляет богатый выбор иерархических, реляционных и пространственных операторов и расширяемость с использованием определяемых пользователем функций на основе JavaScript. Грамматика JSON позволяет моделировать документы JSON в форме деревьев с метками в качестве узлов. Этот подход используется для автоматического индексирования DocumentDB, а также лежит в основе диалекта SQL DocumentDB. Язык запросов DocumentDB построен на следующих трех основных принципах.
 
-1.  A small set of query operations that map naturally to the tree structure including hierarchical queries and projections. 
-2.  A subset of relational operations including composition, filter, projections, aggregates and self joins. 
-3.  Pure JavaScript based UDFs that work with (1) and (2).  
+1.	Небольшой набор операций запросов, которые естественным образом отображаются в древовидной структуре в том числе иерархических запросов и проекций.
+2.	Подмножество реляционных операций, включая композиции, фильтры, проекции, агрегатов и внутренние соединения.
+3.	Пользовательские функции на основе чистого JavaScript, которые работают с (1) и (2)
 
-The DocumentDB query model attempts to strike a balance between functionality, efficiency and simplicity. The DocumentDB database engine natively compiles and executes the SQL query statements. You can query a collection using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The .NET SDK comes with a LINQ provider.
+Модель запросов DocumentDB пытается установить баланс между функциональностью, эффективностью и простотой. Ядро базы данных DocumentDB непосредственно компилирует и выполняет операторы SQL-запросов. Вы можете сформировать запрос к коллекции с помощью интерфейса [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) или любого из [клиентских пакетов SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). В комплект пакета .NET SDK входит поставщик LINQ.
 
-> [AZURE.TIP] You can try out DocumentDB and run SQL queries against our dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
+> [AZURE.TIP] Вы можете испытать DocumentDB в действии и проверить запросы SQL к нашему образцу данных в среде [Query Playground](https://www.documentdb.com/sql/demo).
 
-### <a name="multi-document-transactions"></a>Multi-document transactions
-Database transactions provide a safe and predictable programming model for dealing with concurrent changes to the data. In RDBMS, the traditional way to write business logic is to write **stored-procedures** and/or **triggers** and ship it to the database server for transactional execution. In RDBMS, the application programmer is required to deal with two disparate programming languages: 
+### Операции над несколькими документами
+Транзакции в базах данных обеспечивают безопасную и предсказуемую модель программирования для работы с одновременными изменениями данных. В РСУБД традиционный способ написать бизнес-логику заключается в том, чтобы написать **хранимые процедуры** и/или **триггеры** и загрузить их на сервер базы данных для выполнения в транзакциях. В РСУБД, прикладному программисту приходится иметь дело с двумя разнородными языками программирования:
 
-- The (non-transactional) application programming language (e.g. JavaScript, Python, C#, Java, etc.)
-- T-SQL, the transactional programming language which is natively executed by the database
+- Нетранзакционный язык прикладного программирования (JavaScript, Python, C#, Java и др.).
+- Транзакционный язык T-SQL, который является "родным" для базы данных.
 
-By virtue of its deep commitment to JavaScript and JSON directly within the database engine, DocumentDB provides an intuitive programming model for executing JavaScript based application logic directly on the collections in terms of stored procedures and triggers. This allows for both of the following:
+В силу своей глубокой приверженности JavaScript и JSON непосредственно внутри базы данных, DocumentDB обеспечивает интуитивную модель программирования для выполнения логики приложения на основе JavaScript непосредственно в коллекциях в виде хранимых процедур и триггеров. Это позволяет получить
 
-- Efficient implementation of concurrency control, recovery, automatic indexing of the JSON object graphs directly in the database engine
-- Naturally expressing control flow, variable scoping, assignment and integration of exception handling primitives with database transactions directly in terms of the JavaScript programming language
+- с одной стороны, эффективные механизмы восстановления, управления параллелизмом и автоматической индексации графов объектов JSON прямо в ядре СУБД;
+- с другой стороны, естественное выражение потока управления, области видимости переменных, присвоения, а также интеграцию примитивов обработки исключений с транзакциями базы данных непосредственно на JavaScript.
 
-The JavaScript logic registered at a collection level can then issue database operations on the documents of the given collection. DocumentDB implicitly wraps the JavaScript based stored procedures and triggers within an ambient ACID transactions with snapshot isolation across documents within a collection. During the course of its execution, if the JavaScript throws an exception, then the entire transaction is aborted. The resulting programming model is a very simple yet powerful. JavaScript developers get a “durable” programming model while still using their familiar language constructs and library primitives.   
+Логика JavaScript, регистрируемая на уровне коллекции, может выполнять операции с базами данных на документах данной коллекции. DocumentDB неявно обертывает хранимые процедуры и триггеры на основе JavaScript с соблюдением ACID и изоляцией моментальных снимков документов в коллекции. В ходе его исполнения, если код JavaScript генерирует исключение, то вся транзакция прерывается. Полученная модель программирования является очень простой, но мощной. Разработчики JavaScript получают "надежную" модель программирования, при этом используя привычные языковые конструкции и библиотечные примитивы.
 
-The ability to execute JavaScript directly within the database engine in the same address space as the buffer pool enables performant and transactional execution of database operations against the documents of a collection. Furthermore, DocumentDB database engine makes a deep commitment to the JSON and JavaScript eliminates any impedance mismatch between the type systems of application and the database.   
+Возможность выполнить JavaScript непосредственно в ядре базы данных в том же адресном пространстве, что буферный пул, позволяет производительное и транзакционное выполнение операций с базами данных над документами коллекции. Кроме того, ядро СУБД DocumentDB оптимизировано для JSON и JavaScript, что устраняет несоответствия, возникающие при одновременном использовании объектной модели и реляционной базы данных.
 
-After creating a collection, you can register stored procedures, triggers and UDFs with a collection using the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). After registration, you can reference and execute them. Consider the following stored procedure written entirely in JavaScript, the code below takes two arguments (book name and author name) and creates a new document, queries for a document and then updates it – all within an implicit ACID transaction. At any point during the execution, if a JavaScript exception is thrown, the entire transaction aborts.
+После создания коллекции можно зарегистрировать хранимые процедуры, триггеры и определяемые пользователем функции с помощью [API REST DocumentDB Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) или любого [клиентского пакета SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). После регистрации вы можете использовать и выполнять их. Рассмотрим приведенный ниже код хранимой процедуры, написанный полностью на JavaScript. Процедура принимает два аргумента (имя книги и имя автора), создает новый документ, выполняет запрос документа и обновляет его. Все эти действия выполняются в ходе неявной транзакции ACID. Транзакция будет прервана в любой момент выполнения, если будет выдано исключение JavaScript.
 
-    function businessLogic(name, author) {
-        var context = getContext();
-        var collectionManager = context.getCollection();        
-        var collectionLink = collectionManager.getSelfLink()
-            
-        // create a new document.
-        collectionManager.createDocument(collectionLink,
-            {id: name, author: author},
-            function(err, documentCreated) {
-                if(err) throw new Error(err.message);
-                
-                // filter documents by author
-                var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
-                collectionManager.queryDocuments(collectionLink,
-                    filterQuery,
-                    function(err, matchingDocuments) {
-                        if(err) throw new Error(err.message);
-                        
-                        context.getResponse().setBody(matchingDocuments.length);
-                       
-                        // Replace the author name for all documents that satisfied the query.
-                        for (var i = 0; i < matchingDocuments.length; i++) {
-                            matchingDocuments[i].author = "George R. R. Martin";
-                            // we don’t need to execute a callback because they are in parallel
-                            collectionManager.replaceDocument(matchingDocuments[i]._self,
-                                matchingDocuments[i]);   
-                        }
-                    })
-            })
-    };
+	function businessLogic(name, author) {
+	    var context = getContext();
+	    var collectionManager = context.getCollection();        
+	    var collectionLink = collectionManager.getSelfLink()
+	        
+	    // create a new document.
+	    collectionManager.createDocument(collectionLink,
+	        {id: name, author: author},
+	        function(err, documentCreated) {
+	            if(err) throw new Error(err.message);
+	            
+	            // filter documents by author
+	            var filterQuery = "SELECT * from root r WHERE r.author = 'George R.'";
+	            collectionManager.queryDocuments(collectionLink,
+	                filterQuery,
+	                function(err, matchingDocuments) {
+	                    if(err) throw new Error(err.message);
+	                    
+	                    context.getResponse().setBody(matchingDocuments.length);
+	                   
+	                    // Replace the author name for all documents that satisfied the query.
+	                    for (var i = 0; i < matchingDocuments.length; i++) {
+	                        matchingDocuments[i].author = "George R. R. Martin";
+	                        // we don’t need to execute a callback because they are in parallel
+	                        collectionManager.replaceDocument(matchingDocuments[i]._self,
+	                            matchingDocuments[i]);   
+	                    }
+	                })
+	        })
+	};
 
-The client can “ship” the above JavaScript logic to the database for transactional execution via HTTP POST. For more information about using HTTP methods, see [RESTful interactions with DocumentDB resources](https://msdn.microsoft.com/library/azure/mt622086.aspx). 
+Клиент может "грузить" вышеуказанную JavaScript логику в базу данных для транзакционного исполнения через HTTP POST. Дополнительные сведения об использовании методов HTTP см. в разделе [Взаимодействия RESTful с ресурсами DocumentDB](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
-    client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
-       .then(function(createdStoredProcedure) {
-            return client.executeStoredProcedureAsync(createdStoredProcedure.resource._self,
-                "NoSQL Distilled",
-                "Martin Fowler");
-        })
-        .then(function(result) {
-            console.log(result);
-        },
-        function(error) {
-            console.log(error);
-        });
-
-
-Notice that because the database natively understands JSON and JavaScript, there is no type system mismatch, no “OR mapping” or code generation magic required.   
-
-Stored procedures and triggers interact with a collection and the documents in a collection through a well-defined object model, which exposes the current collection context.  
-
-Collections in DocumentDB can be created, deleted, read or enumerated easily using either the [Azure DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB always provides strong consistency for reading or querying the metadata of a collection. Deleting a collection automatically ensures that you cannot access any of the documents, attachments, stored procedures, triggers, and UDFs contained within it.   
-
-## <a name="stored-procedures,-triggers-and-user-defined-functions-(udf)"></a>Stored procedures, triggers and User Defined Functions (UDF)
-As described in the previous section, you can write application logic to run directly within a transaction inside of the database engine. The application logic can be written entirely in JavaScript and can be modeled as a stored procedure, trigger or a UDF. The JavaScript code within a stored procedure or a trigger can insert, replace, delete, read or query documents within a collection. On the other hand, the JavaScript within a UDF cannot insert, replace, or delete documents. UDFs enumerate the documents of a query's result set and produce another result set. For multi-tenancy, DocumentDB enforces a strict reservation based resource governance. Each stored procedure, trigger or a UDF gets a fixed quantum of operating system resources to do its work. Furthermore, stored procedures, triggers or UDFs cannot link against external JavaScript libraries and are blacklisted if they exceed the resource budgets allocated to them. You can register, unregister stored procedures, triggers or UDFs with a collection by using the REST APIs.  Upon registration a stored procedure, trigger, or a UDF is pre-compiled and stored as byte code which gets executed later. The following section illustrate how you can use the DocumentDB JavaScript SDK to register, execute, and unregister a stored procedure, trigger, and a UDF. The JavaScript SDK is a simple wrapper over the [DocumentDB REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
-
-### <a name="registering-a-stored-procedure"></a>Registering a stored procedure
-Registration of a stored procedure creates a new stored procedure resource on a collection via HTTP POST.  
-
-    var storedProc = {
-        id: "validateAndCreate",
-        body: function (documentToCreate) {
-            documentToCreate.id = documentToCreate.id.toUpperCase();
-            
-            var collectionManager = getContext().getCollection();
-            collectionManager.createDocument(collectionManager.getSelfLink(),
-                documentToCreate,
-                function(err, documentCreated) {
-                    if(err) throw new Error('Error while creating document: ' + err.message;
-                    getContext().getResponse().setBody('success - created ' + 
-                            documentCreated.name);
-                });
-        }
-    };
-    
-    client.createStoredProcedureAsync(collection._self, storedProc)
-        .then(function (createdStoredProcedure) {
-            console.log("Successfully created stored procedure");
-        }, function(error) {
-            console.log("Error");
-        });
-
-### <a name="executing-a-stored-procedure"></a>Executing a stored procedure
-Execution of a stored procedure is done by issuing an HTTP POST against an existing stored procedure resource by passing parameters to the procedure in the request body.
-
-    var inputDocument = {id : "document1", author: "G. G. Marquez"};
-    client.executeStoredProcedureAsync(createdStoredProcedure.resource._self, inputDocument)
-        .then(function(executionResult) {
-            assert.equal(executionResult, "success - created DOCUMENT1");
-        }, function(error) {
-            console.log("Error");
-        });
-
-### <a name="unregistering-a-stored-procedure"></a>Unregistering a stored procedure
-Unregistering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
-
-    client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
-        .then(function (response) {
-            return;
-        }, function(error) {
-            console.log("Error");
-        });
+	client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
+	   .then(function(createdStoredProcedure) {
+	        return client.executeStoredProcedureAsync(createdStoredProcedure.resource._self,
+	            "NoSQL Distilled",
+	            "Martin Fowler");
+	    })
+	    .then(function(result) {
+	        console.log(result);
+	    },
+	    function(error) {
+	        console.log(error);
+	    });
 
 
-### <a name="registering-a-pre-trigger"></a>Registering a pre-trigger
-Registration of a trigger is done by creating a new trigger resource on a collection via HTTP POST. You can specify if the trigger is a pre or a post trigger and the type of operation it can be associated with (e.g. Create, Replace, Delete, or All).   
+Обратите внимание, что, поскольку база данных изначально понимает JSON и JavaScript, нет проблемы несоответствия типов, нет "отображения ИЛИ" или генерации "магического" кода.
 
-    var preTrigger = {
-        id: "upperCaseId",
-        body: function() {
-                var item = getContext().getRequest().getBody();
-                item.id = item.id.toUpperCase();
-                getContext().getRequest().setBody(item);
-        },
-        triggerType: TriggerType.Pre,
-        triggerOperation: TriggerOperation.All
-    }
-    
-    client.createTriggerAsync(collection._self, preTrigger)
-        .then(function (createdPreTrigger) {
-            console.log("Successfully created trigger");
-        }, function(error) {
-            console.log("Error");
-        });
+Хранимые процедуры и триггеры взаимодействуют с коллекцией и документами в коллекции через четко определенную объектную модель, которая отражает текущий контекст коллекции.
 
-### <a name="executing-a-pre-trigger"></a>Executing a pre-trigger
-Execution of a trigger is done by specifying the name of an existing trigger at the time of issuing the POST/PUT/DELETE request of a document resource via the request header.  
+Коллекции в DocumentDB можно создавать, удалять, читать и перечислять с помощью [интерфейса API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) или любого [клиентского пакета SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB всегда обеспечивает сильную согласованность для чтения или запроса метаданных коллекции. Удаление коллекции автоматически гарантирует, что вы не сможете получить доступ к любому из документов, вложений, хранимых процедур, триггеров и пользовательских функций, содержащихся в ней.
+
+## Хранимые процедуры, триггеры и определяемые пользователями функции (UDF)
+Как описано в предыдущем разделе, вы можете реализовать логику приложения для непосредственного исполнения в рамках транзакции ядра СУБД. Логика приложения может быть полностью написана на JavaScript и смоделирована в виде хранимой процедуры, триггера или определяемой пользователем функции. Код JavaScript в хранимой процедуре или триггере может вставлять, заменять, удалять, читать или формировать запросы к документам коллекции. С другой стороны, код JavaScript в определяемой пользователем функции не может добавлять, заменять или удалять документы. Определяемые пользователем функции перечисляют документы из результата запроса и создают новый набор результатов. Для мультитенантности DocumentDB реализует управление ресурсами на основе строгого резервирования. Для каждой хранимой процедуры, триггера или пользовательской функции выделяется фиксированный квант ресурсов операционной системы, чтобы выполнить свою задачу. Кроме того, хранимые процедуры, триггеры и пользовательские функции не могут подключать внешние библиотеки JavaScript и попадают в черный список, если превышают установленные для них пределы ресурсов. Вы можете зарегистрировать или отменить регистрацию хранимых процедур, триггеров или пользовательских функций в коллекции через API REST. После регистрации хранимая процедура, триггер или пользовательская функция предварительно компилируются и хранятся в виде байт-кода, который позже запускается на выполнение. В следующем разделе показано, как можно использовать пакет SDK JavaScript DocumentDB для регистрации, выполнения, отмены регистрации хранимой процедуры, триггера и определяемой пользователем функции. Пакет SDK JavaScript является простой оболочкой [API REST DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+
+### Регистрация хранимой процедуры
+Регистрация хранимой процедуры — это создание нового ресурса хранимой процедуры ресурса в коллекции с помощью HTTP POST.
+
+	var storedProc = {
+	    id: "validateAndCreate",
+	    body: function (documentToCreate) {
+	        documentToCreate.id = documentToCreate.id.toUpperCase();
+	        
+	        var collectionManager = getContext().getCollection();
+	        collectionManager.createDocument(collectionManager.getSelfLink(),
+	            documentToCreate,
+	            function(err, documentCreated) {
+	                if(err) throw new Error('Error while creating document: ' + err.message;
+	                getContext().getResponse().setBody('success - created ' + 
+	                        documentCreated.name);
+	            });
+	    }
+	};
+	
+	client.createStoredProcedureAsync(collection._self, storedProc)
+	    .then(function (createdStoredProcedure) {
+	        console.log("Successfully created stored procedure");
+	    }, function(error) {
+	        console.log("Error");
+	    });
+
+### Выполнение хранимой процедуры
+Выполнение хранимой процедуры осуществляется с помощью команды HTTP POST, запускаемой для существующего ресурса хранимой процедуры, с передачей параметров в теле запроса.
+
+	var inputDocument = {id : "document1", author: "G. G. Marquez"};
+	client.executeStoredProcedureAsync(createdStoredProcedure.resource._self, inputDocument)
+	    .then(function(executionResult) {
+	        assert.equal(executionResult, "success - created DOCUMENT1");
+	    }, function(error) {
+	        console.log("Error");
+	    });
+
+### Отмена регистрации хранимой процедуры
+Отменить регистрацию хранимой процедуры можно с помощью команды HTTP DELETE, выполняемой для существующего ресурса хранимой процедуры.
+
+	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
+	    .then(function (response) {
+	        return;
+	    }, function(error) {
+	        console.log("Error");
+	    });
+
+
+### Регистрация триггера со срабатыванием до наступления события
+Регистрация триггера осуществляется путем создания ресурса триггера в коллекции с помощью команды HTTP POST. Вы можете указать тип срабатывания триггера и тип операции, с которой он может быть связан (например, создание, замена, удаление или все типы).
+
+	var preTrigger = {
+	    id: "upperCaseId",
+	    body: function() {
+	            var item = getContext().getRequest().getBody();
+	            item.id = item.id.toUpperCase();
+	            getContext().getRequest().setBody(item);
+	    },
+	    triggerType: TriggerType.Pre,
+	    triggerOperation: TriggerOperation.All
+	}
+	
+	client.createTriggerAsync(collection._self, preTrigger)
+	    .then(function (createdPreTrigger) {
+	        console.log("Successfully created trigger");
+	    }, function(error) {
+	        console.log("Error");
+	    });
+
+### Запуск триггера со срабатыванием до наступления события
+Выполнение триггера производится путем указания в заголовке запроса имени существующего триггера в момент выдачи запроса POST/PUT/DELETE к ресурсу документа.
  
-    client.createDocumentAsync(collection._self, { id: "doc1", key: "Love in the Time of Cholera" }, { preTriggerInclude: "upperCaseId" })
-        .then(function(createdDocument) {
-            assert.equal(createdDocument.resource.id, "DOC1");
-        }, function(error) {
-            console.log("Error");
-        });
+	client.createDocumentAsync(collection._self, { id: "doc1", key: "Love in the Time of Cholera" }, { preTriggerInclude: "upperCaseId" })
+	    .then(function(createdDocument) {
+	        assert.equal(createdDocument.resource.id, "DOC1");
+	    }, function(error) {
+	        console.log("Error");
+	    });
 
-### <a name="unregistering-a-pre-trigger"></a>Unregistering a pre-trigger
-Unregistering a trigger is simply done via issuing an HTTP DELETE against an existing trigger resource.  
+### Отмена регистрации триггера со срабатыванием до наступления события
+Отменить регистрацию триггера можно с помощью команды HTTP DELETE, выполняемой для существующего ресурса триггера.
 
-    client.deleteTriggerAsync(createdPreTrigger._self);
-        .then(function(response) {
-            return;
-        }, function(error) {
-            console.log("Error");
-        });
+	client.deleteTriggerAsync(createdPreTrigger._self);
+	    .then(function(response) {
+	        return;
+	    }, function(error) {
+	        console.log("Error");
+	    });
 
-### <a name="registering-a-udf"></a>Registering a UDF
-Registration of a UDF is done by creating a new UDF resource on a collection via HTTP POST.  
+### Регистрация определяемой пользователем функции
+Регистрация определяемой пользователем функции осуществляется путем создания нового ресурса UDF в коллекции или через команду HTTP POST.
 
-    var udf = { 
-        id: "mathSqrt",
-        body: function(number) {
-                return Math.sqrt(number);
-        },
-    };
-    client.createUserDefinedFunctionAsync(collection._self, udf)
-        .then(function (createdUdf) {
-            console.log("Successfully created stored procedure");
-        }, function(error) {
-            console.log("Error");
-        });
+	var udf = { 
+	    id: "mathSqrt",
+	    body: function(number) {
+	            return Math.sqrt(number);
+	    },
+	};
+	client.createUserDefinedFunctionAsync(collection._self, udf)
+	    .then(function (createdUdf) {
+	        console.log("Successfully created stored procedure");
+	    }, function(error) {
+	        console.log("Error");
+	    });
 
-### <a name="executing-a-udf-as-part-of-the-query"></a>Executing a UDF as part of the query
-A UDF can be specified as part of the SQL query and is used as a way to extend the core [SQL query language of DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+### Выполнение определяемой пользователем функции как части запроса
+Пользовательские функции (UDF) указываются в SQL-запросах и позволяют расширить [язык запросов SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-    var filterQuery = "SELECT udf.mathSqrt(r.Age) AS sqrtAge FROM root r WHERE r.FirstName='John'";
-    client.queryDocuments(collection._self, filterQuery).toArrayAsync();
-        .then(function(queryResponse) {
-            var queryResponseDocuments = queryResponse.feed;
-        }, function(error) {
-            console.log("Error");
-        });
+	var filterQuery = "SELECT udf.mathSqrt(r.Age) AS sqrtAge FROM root r WHERE r.FirstName='John'";
+	client.queryDocuments(collection._self, filterQuery).toArrayAsync();
+	    .then(function(queryResponse) {
+	        var queryResponseDocuments = queryResponse.feed;
+	    }, function(error) {
+	        console.log("Error");
+	    });
 
-### <a name="unregistering-a-udf"></a>Unregistering a UDF 
-Unregistering a UDF is simply done by issuing an HTTP DELETE against an existing UDF resource.  
+### Отмена регистрации определяемой пользователем функции 
+Отменить регистрацию определяемой пользователем функции можно с помощью команды HTTP DELETE, выполняемой для существующего ресурса UDF.
 
-    client.deleteUserDefinedFunctionAsync(createdUdf._self)
-        .then(function(response) {
-            return;
-        }, function(error) {
-            console.log("Error");
-        });
+	client.deleteUserDefinedFunctionAsync(createdUdf._self)
+	    .then(function(response) {
+	        return;
+	    }, function(error) {
+	        console.log("Error");
+	    });
 
-Although the snippets above showed the registration (POST), unregistration (PUT), read/list (GET) and execution (POST) via the [DocumentDB JavaScript SDK](https://github.com/Azure/azure-documentdb-js), you can also use the [REST APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx) or other [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
+Хотя в примерах выше используются команды для регистрации (POST), отмены регистрации (PUT), чтения и получения списка (GET), а также выполнения (POST) с помощью пакета [JavaScript SDK для DocumentDB](https://github.com/Azure/azure-documentdb-js), также можно использовать интерфейсы [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) или другие [клиентские пакеты SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-## <a name="documents"></a>Documents
-You can insert, replace, delete, read, enumerate and query arbitrary JSON documents in a collection. DocumentDB does not mandate any schema and does not require secondary indexes in order to support querying over documents in a collection.   
+## Документы
+Вы можете вставлять, заменять, удалять, читать, перечислять и запрашивать произвольные документы JSON в коллекции. DocumentDB не требует указывать схему и не требует создавать вторичные индексы для поддержки запросов к документам в коллекции.
 
-Being a truly open database service, DocumentDB does not invent any specialized data types (e.g. date time) or specific encodings for JSON documents. Note that DocumentDB does not require any special JSON conventions to codify the relationships among various documents; the SQL syntax of DocumentDB provides very powerful hierarchical and relational query operators to query and project documents without any special annotations or need to codify relationships among documents using distinguished properties.  
+Будучи по-настоящему открытой службой базы данных, DocumentDB не изобретает какие-то специализированные типы данных (например, date time) или конкретные кодировки для документов JSON. Обратите внимание, что DocumentDB не требует никаких специальных соглашений JSON для обозначения связей между различными документами. Реализованный в DocumentDB синтаксис SQL предоставляет мощные иерархические и реляционные операторы для создания запросов и проекций документов. При этом вам не требуется использовать специальные примечания или выражать взаимосвязи между документами с помощью отличительных свойств.
  
-As with all other resources, documents can be created, replaced, deleted, read, enumerated and queried easily using either REST APIs or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). Deleting a document instantly frees up the quota corresponding to all of the nested attachments. The read consistency level of documents follows the consistency policy on the database account. This policy can be overridden on a per-request basis depending on data consistency requirements of your application. When querying documents, the read consistency follows the indexing mode set on the collection. For “consistent”, this follows the account’s consistency policy. 
+Как и для всех других ресурсов, документы могут быть созданы, заменены, удалены, прочитаны, перечислены и запрошены с использованием API REST или любого [клиентского пакета SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Удаление документа мгновенно освобождает квоту, соответствующую всем его вложениям. Уровень согласованности для чтения документов соответствует политике согласованности для учетной записи базы данных. Эта политика может быть переопределена для каждого запроса в зависимости от требований к согласованности данных для вашего приложения. При запросе документов согласованность чтения соответствует режиму индексирования, который задан в коллекции. Понятие "согласованность" следует политике согласованности для учетной записи базы данных.
 
-## <a name="attachments-and-media"></a>Attachments and media
->[AZURE.NOTE] Attachment and media resources are preview features.
+## Вложения и мультимедиа
+>[AZURE.NOTE] Ресурсы вложений и мультимедиа реализованы в режиме предварительной версии.
  
-DocumentDB allows you to store binary blobs/media either with DocumentDB or to your own remote media store. It also allows you to represent the metadata of a media in terms of a special document called attachment. An attachment in DocumentDB is a special (JSON) document that references the media/blob stored elsewhere. An attachment is simply a special document that captures the metadata (e.g. location, author etc.) of a media stored in a remote media storage. 
+DocumentDB позволяет хранить двоичные BLOB-объекты/медиафайлы либо непосредственно в DocumentDB, либо в удаленном хранилище файлов. Она также позволяет представлять метаданные медиафайлов в виде особого документа под названием "вложение". Вложение в DocumentDB — это специальный (JSON) документ, который ссылается на медиафайлы/BLOB-объекты, хранящиеся в другом месте. Вложение представляет собой специальный документ, который фиксирует метаданные (например, расположение, автора и т. д.) медиафайлов, хранящихся в удаленном хранилище.
 
-Consider a social reading application which uses DocumentDB to store ink annotations, and metadata including comments, highlights, bookmarks, ratings, likes/dislikes etc. associated for an e-book of a given user.   
+Рассмотрим социальное приложения для чтения, которое использует DocumentDB для хранения заметок и метаданных, включая комментарии, выделения, закладки, рейтинги, пометки "нравится/не нравится" и т. д., связанных с электронной книгой данного пользователя.
 
--   The content of the book itself is stored in the media storage either available as part of DocumentDB database account or a remote media store. 
--   An application may store each user’s metadata as a distinct document -- e.g. Joe’s metadata for book1 is stored in a document referenced by /colls/joe/docs/book1. 
--   Attachments pointing to the content pages of a given book of a user are stored under the corresponding document e.g. /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 etc. 
+-	Содержание самой книги хранится в хранилище, доступном в виде части учетной записи базы данных DocumentDB или удаленного хранилища.
+-	Приложение может хранить метаданные каждого пользователя в виде отдельного документа. Например, метаданные пользователя Джо для книги Book1 можно хранить в документе, имеющем ссылку /colls/joe/docs/book1.
+-	Вложения, указывающие на страницы содержимого данной книги пользователя, хранятся в соответствующем документе, например, /colls/joe/docs/book1/chapter1, /colls/joe/docs/book1/chapter2 и т. д.
 
-Note that the examples listed above use friendly ids to convey the resource hierarchy. Resources are accessed via the REST APIs through unique resource ids. 
+Обратите внимание, что в приведенных выше примерах используются мнемонические идентификаторы для передачи иерархии ресурсов. Ресурсы доступны через API REST с помощью уникальных идентификаторов ресурсов.
 
-For the media that is managed by DocumentDB, the _media property of the attachment will reference the media by its URI. DocumentDB will ensure to garbage collect the media when all of the outstanding references are dropped. DocumentDB automatically generates the attachment when you upload the new media and populates the _media to point to the newly added media. If you choose to store the media in a remote blob store managed by you (e.g. OneDrive, Azure Storage, DropBox etc), you can still use attachments to reference the media. In this case, you will create the attachment yourself and populate its _media property.   
+Для медиафайлов, которые управляется DocumentDB, свойство вложения \_media будет содержать ссылку на URI медиафайла. DocumentDB запустит уборку мусора, когда все находящиеся в коллекции ссылки на медиафайл будут удалены. DocumentDB автоматически генерирует вложение, когда вы загружаете новые медиафайлы, и заполняет \_media ссылками на вновь добавленные файлы. Если вы решите хранить медиафайлы в удаленном хранилище больших двоичных объектов, управляемом вами (например OneDrive, хранилище Azure, DropBox и т. д.), вы можете использовать вложения для хранения ссылок. В этом случае вам придется создавать вложение и заполнять его свойство \_media самостоятельно.
 
-As with all other resources, attachments can be created, replaced, deleted, read or enumerated easily using either REST APIs or any of the client SDKs. As with documents, the read consistency level of attachments follows the consistency policy on the database account. This policy can be overridden on a per-request basis depending on data consistency requirements of your application. When querying for attachments, the read consistency follows the indexing mode set on the collection. For “consistent”, this follows the account’s consistency policy. 
- 
-## <a name="users"></a>Users
-A DocumentDB user represents a logical namespace for grouping permissions. A DocumentDB user may correspond to a user in an identity management system or a predefined application role. For DocumentDB, a user simply represents an abstraction to group a set of permissions under a database.   
+Как и все прочие ресурсы, вложения могут быть созданы, заменены, удалены, прочитаны или перечислены с помощью API REST либо любого клиентского пакета SDK. Как и для документов, уровень согласованности для чтения вложений соответствует политике согласованности для учетной записи базы данных. Эта политика может быть переопределена для каждого запроса в зависимости от требований к согласованности данных для вашего приложения. При запросе вложений согласованность чтения соответствует режиму индексирования, который задан в коллекции. Понятие "согласованность" следует политике согласованности для учетной записи базы данных.  
+## Пользователи
+Пользователь в DocumentDB представляет собой логическое пространство имен для группировки разрешений. Пользователю в DocumentDB может соответствовать пользователь в системе управления удостоверениями или предопределенной роли приложения. В рамках DocumentDB пользователь представляет собой абстракцию для группировки набора разрешений под базой данных.
 
-For implementing multi-tenancy in your application, you can create users in DocumentDB which corresponds to your actual users or the tenants of your application. You can then create permissions for a given user that correspond to the access control over various collections, documents, attachments, etc.   
+Чтобы реализовать для приложения многопользовательскую среду, вы можете создавать пользователей в DocumentDB, которые будут соответствовать фактическим пользователям или клиентам вашего приложения. Затем можно создать разрешения для данного пользователя, которые соответствуют уровням доступа к различным коллекциям, документам, приложениям и т. д.
 
-As your applications need to scale with your user growth, you can adopt various ways to shard your data. You can model each of your users as follows:   
+По мере расширения вашего приложения с ростом количества пользователей вы можете использовать различные способы для сегментирования данных. Вы можете смоделировать каждого из пользователей следующим образом:
 
--   Each user maps to a database.
--   Each user maps to a collection. 
--   Documents corresponding to multiple users go to a dedicated collection. 
--   Documents corresponding to multiple users go to a set of collections.   
+-	каждый пользователь сопоставлен базе данных;
+-	каждый пользователь сопоставлен коллекции; 
+-	документы, соответствующие нескольким пользователям, отправляются в выделенную коллекцию; 
+-	документы, соответствующие нескольким пользователям, отправляются в набор коллекций.   
 
-Regardless of the specific sharding strategy you choose, you can model your actual users as users in DocumentDB database and associate fine grained permissions to each user.  
+Независимо от конкретной стратегии сегментирования, вы можете моделировать реальных пользователей в качестве пользователей в базе данных DocumentDB и присваивать точные разрешения каждому пользователю.
 
-![User collections][3]  
-**Sharding strategies and modeling users**
+![Коллекции пользователей][3]
+**Стратегии сегментирования и моделирования пользователей**
 
-Like all other resources, users in DocumentDB can be created, replaced, deleted, read or enumerated easily using either REST APIs or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a user resource. It is worth pointing out that deleting a user automatically ensures that you cannot access any of the permissions contained within it. Even though the DocumentDB reclaims the quota of the permissions as part of the deleted user in the background, the deleted permissions is available instantly again for you to use.  
+Как и все прочие ресурсы, пользователи в DocumentDB могут быть созданы, заменены, удалены, прочитаны или перечислены с помощью API REST либо любого клиентского пакета SDK. DocumentDB всегда обеспечивает сильную согласованность для чтения или запроса метаданных ресурса пользователя. Стоит отметить, что при удалении пользователя гарантируется, что вы не сможете получить доступ к любому из разрешений, входящих в его состав. Удаленные разрешения станут доступны сразу же для повторного использования, несмотря на то что DocumentDB восстанавливает квоту разрешений удаленного пользователя в фоновом режиме.
 
-## <a name="permissions"></a>Permissions
-From an access control perspective, resources such as database accounts, databases, users and permission are considered *administrative* resources since these require administrative permissions. On the other hand, resources including the collections, documents, attachments, stored procedures, triggers, and UDFs are scoped under a given database and considered *application resources*. Corresponding to the two types of resources and the roles that access them (namely the administrator and user), the authorization model defines two types of *access keys*: *master key* and *resource key*. The master key is a part of the database account and is provided to the developer (or administrator) who is provisioning the database account. This master key has administrator semantics, in that it can be used to authorize access to both administrative and application resources. In contrast, a resource key is a granular access key that allows access to a *specific* application resource. Thus, it captures the relationship between the user of a database and the permissions the user has for a specific resource (e.g. collection, document, attachment, stored procedure, trigger, or UDF).   
+## Разрешения
+В контексте контроля доступа такие ресурсы, как учетные записи баз данных, базы данных, пользователи и разрешения, считаются *административными* ресурсами, так как для обращения к ним требуются права администратора. С другой стороны, ресурсы, включая коллекции, документы, вложения, хранимые процедуры, триггеры и пользовательские функции, находятся в области видимости данной базы данных и рассматриваются как *ресурсы приложения*. В соответствии с двумя типами ресурсов и ролями, которые обращаются к ним (администратора и пользователей), модель авторизации определяет два типа *ключей доступа*: *мастер-ключ* и *ключ ресурса*. Мастер-ключ является частью учетной записи базы данных и предоставляется разработчику (или администратору), который подготавливает учетную запись базы данных. Этот мастер-ключ имеет семантику администратора, в том смысле, что он может быть использован для того, чтобы разрешить доступ как к административным, так и к прикладным ресурсам. В отличие от этого, ключ ресурса является разделенным ключом доступа, который позволяет получить доступ к *определенному* ресурсу приложения. Таким образом, он охватывает отношения между пользователем базы данных и разрешениями пользователя, которые он имеет для определенного ресурса (например, коллекции, документа, вложения, хранимой процедуры, триггера или пользовательской функции).
 
-The only way to obtain a resource key is by creating a permission resource under a given user. Note that In order to create or retrieve a permission, a master key must be presented in the authorization header. A permission resource ties the resource, its access and the user. After creating a permission resource, the user only needs to present the associated resource key in order to gain access to the relevant resource. Hence, a resource key can be viewed as a logical and compact representation of the permission resource.  
+Единственным способом получить ключ ресурса является создание разрешения для ресурса под конкретного пользователя. Обратите внимание, что в для создания или получения разрешения, мастер-ключ должен быть представлен в заголовке авторизации. Разрешение ресурса связывает ресурс, доступ к нему и пользователя. После создания разрешения ресурса пользователю нужно только предоставить ключ, связанный с ресурсами, для того чтобы получить доступ к соответствующему ресурсу. Таким образом, ключ ресурса можно рассматривать как логическое и компактное представление разрешения ресурса.
 
-As with all other resources, permissions in DocumentDB can be created, replaced, deleted, read or enumerated easily using either REST APIs or any of the client SDKs. DocumentDB always provides strong consistency for reading or querying the metadata of a permission. 
+Как и все прочие ресурсы, разрешения могут быть созданы, заменены, удалены, прочитаны или перечислены с помощью API REST либо любого клиентского пакета SDK. DocumentDB всегда обеспечивает сильную согласованность для чтения или запроса метаданных какого-либо разрешения.
 
-## <a name="next-steps"></a>Next steps
-Learn more about working with resources by using HTTP commands in [RESTful interactions with DocumentDB resources](https://msdn.microsoft.com/library/azure/mt622086.aspx).
+## Дальнейшие действия
+Дополнительные сведения о работе с ресурсами с помощью команд HTTP см. в разделе [RESTful-взаимодействия с ресурсами DocumentDB](https://msdn.microsoft.com/library/azure/mt622086.aspx).
 
 
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

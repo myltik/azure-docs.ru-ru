@@ -1,33 +1,28 @@
 
-|Resource | Default limit|
+|Ресурс | Ограничение по умолчанию|
 |--------------|--------|
-|Collections per user| 1|
-|Published apps per collection| 100|
-|Trial collection duration| 30 days|
-|Trial collections| 2 per subscription|
-|Users per trial collection| 10|
-|Trial template images| 25|
-|Paid collections| 3 |
-|Paid template images| 25|
-|Users - basic tier*| 400 (default)/ 800 (maximum)|
-|Users - standard tier*| 250 (default)/ 500 (maximum)|
-|Users- premium tier| 100 default.|
-|Users - premium plus tier | 50 default.|
-|Concurrent connections across all collections in a subscription| 5000|
-|User data storage (UPD) per user per collection| 50 GB|
-|Idle timeout| 4 hours|
-|Disconnected timeout| 4 hours|
+|Количество коллекций на одного пользователя| 1|
+|Количество опубликованных приложений на одну коллекцию|	100|
+|Длительность периода использования пробных коллекций| 30 дней|
+|Количество пробных коллекций| 2 шт. на одну подписку|
+|Количество пользователей на одну пробную коллекцию| 10|
+|Количество образов пробных шаблонов|	25|
+|Количество платных коллекций| 3 |
+|Количество образов платных шаблонов| 25|
+|Количество пользователей (уровень Basic)*| 400 (по умолчанию) или 800 (максимум)|
+|Количество пользователей (уровень Standard)*| 250 (по умолчанию) или 500 (максимум)|
+|Количество пользователей (уровень Премиум)| 100 (по умолчанию)|
+|Количество пользователей (уровень Премиум Плюс) | 50 (по умолчанию)|
+|Количество одновременных подключений для всех коллекций в подписке| 5000|
+|Объем хранилища данных на одного пользователя для одной коллекции| 50 ГБ|
+|Время ожидания перед переходом в режим простоя| 4 ч|
+|Время ожидания перед отключением| 4 ч|
 
-*User limits in basic and standard tiers cannot be increased beyond the maximum limit listed above. 
+** Ограничения количества пользователей уровней Базовый и Стандартный можно увеличить только до указанных выше максимальных значений.
 
-The number of users is determined by the number of VMs used for your collection:
+Количество пользователей определяется количеством виртуальных машин, используемых для вашей коллекции.
 
-- Basic = 16 users per VM
-- Standard = 10 users per VM
-- Premium = 4 users per VM
-- Premium plus = 2 users per VM
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+- Базовый — 16 пользователей на виртуальную машину
+- Стандартный — 10 пользователей на виртуальную машину
+- Премиум — 4 пользователя на виртуальную машину
+- Премиум плюс — 2 пользователя на виртуальную машину

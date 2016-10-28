@@ -1,50 +1,45 @@
 <properties
-    pageTitle="Azure Mobile Engagement iOS SDK Content"
-    description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="MehrdadMzfr"
-    manager="dwrede"
-    editor="" />
+	pageTitle="Содержимое SDK для рекламных кампаний в iOS для Azure Mobile Engagement"
+	description="Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-ios"
-    ms.devlang="objective-c"
-    ms.topic="article"
-    ms.date="08/19/2016"
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />
 
+#Содержимое пакета SDK
 
-#<a name="sdk-content"></a>SDK Content
+В этом документе указано и описано содержимое архива SDK.
 
-This document lists and describes the content of the SDK archive.
-
-##<a name="engagement-sdk"></a>Engagement SDK
+##Пакет SDK для службы Engagement
 
 `EngagementSDK`
 
-> The core Engagement SDK containing headers, library and an additional class provided as a source code to enable/disable IDFA collection.
+> Базовый пакет SDK для службы Engagement, содержащий заголовки, библиотеку и дополнительный класс, предоставляемый в качестве исходного кода для подключения и отключения коллекции IDFA.
 
-##<a name="engagement-reach-sdk"></a>Engagement Reach SDK
+##Пакет SDK для Engagement Reach
 
 `EngagementReach`
 
-> Engagement Reach SDK containing headers, library and associated resources.
+> Пакет SDK для Engagement Reach, содержащий заголовки, библиотеку и связанные с ним ресурсы.
 
-##<a name="additional-files"></a>Additional files
+##Дополнительные файлы
 
-`doc/index.html` (in `doc` folder)
+`doc/index.html` (в папке `doc`)
 
-> Engagement SDK and Reach SDK Objective-C documentation.
+> Документация по пакету SDK для службы Engagement и пакету SDK для рекламных кампаний на языке Objective-C.
 
-`src` folder
+Папка `src`
 
-> Engagement view controllers and Reach SDK's source code (for power users who want to adapt Engagement classes to their needs).
+> Контроллеры представлений службы Engagement и исходный код пакета SDK для рекламных кампаний (для опытных пользователей, которым нужно адаптировать классы Engagement для своих потребностей).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

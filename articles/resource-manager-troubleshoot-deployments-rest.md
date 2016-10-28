@@ -1,6 +1,6 @@
 <properties
-   pageTitle="View deployment operations with REST API | Microsoft Azure"
-   description="Describes how to use the Azure Resource Manager REST API to detect issues from Resource Manager deployment."
+   pageTitle="Просмотр операций развертывания с помощью API REST | Microsoft Azure"
+   description="Описывается использование REST API Azure Resource Manager для обнаружения проблем развертывания Resource Manager."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
@@ -17,24 +17,23 @@
    ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
-
-# <a name="view-deployment-operations-with-azure-resource-manager-rest-api"></a>View deployment operations with Azure Resource Manager REST API
+# Просмотр операций развертывания с помощью API REST Azure Resource Manager (диспетчера ресурсов Azure)
 
 > [AZURE.SELECTOR]
-- [Portal](resource-manager-troubleshoot-deployments-portal.md)
+- [Портал](resource-manager-troubleshoot-deployments-portal.md)
 - [PowerShell](resource-manager-troubleshoot-deployments-powershell.md)
-- [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
-- [REST API](resource-manager-troubleshoot-deployments-rest.md)
+- [Интерфейс командной строки Azure](resource-manager-troubleshoot-deployments-cli.md)
+- [ИНТЕРФЕЙС REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-If you've received an error when deploying resources to Azure, you may want to see more details about the deployment operations that were executed. The REST API provides operations that enable you to find the errors and determine potential fixes.
+Если при развертывании ресурсов в Azure возникнет ошибка, вам потребуются дополнительные сведения о выполненных операциях развертывания. REST API предоставляет операции, которые позволяют находить ошибки и определять возможные действия по их исправлению.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-You can avoid some errors by validating your template and infrastructure prior to deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy-rest.md).
+Некоторых ошибок можно избежать, проверив шаблон и инфраструктуру перед развертыванием. Вы также можете добавлять в журнал дополнительные сведения о запросах и ответах во время развертывания, которые позже могут быть полезны при устранении неполадок. Чтобы узнать о проверке и добавлении в журнал сведений о запросах и ответах, ознакомьтесь с разделом [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy-rest.md).
 
-## <a name="troubleshoot-with-rest-api"></a>Troubleshoot with REST API
+## Устранение неполадок с API REST
 
-1. Deploy your resources with the [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx) operation. To retain information that may be helpful for debugging, set the **debugSetting** property in JSON request to **requestContent** and/or **responseContent**. 
+1. Разверните ресурсы с помощью операции [создания развертывания шаблона](https://msdn.microsoft.com/library/azure/dn790564.aspx). Чтобы сохранить сведения, которые могут быть полезны для отладки, присвойте свойству **debugSetting** в запросе JSON значение **requestContent** и (или) **responseContent**. 
 
         PUT https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
           <common headers>
@@ -55,13 +54,13 @@ You can avoid some errors by validating your template and infrastructure prior t
             }
           }
 
-    By default, the **debugSetting** value is set to **none**. When specifying the **debugSetting** value, carefully consider the type of information you are passing in during deployment. By logging information about the request or response, you could potentially expose sensitive data that is retrieved through the deployment operations. 
+    По умолчанию **debugSetting** имеет значение **none**. При указании значения **debugSetting** внимательно рассмотрите тип данных, передаваемых в ходе развертывания. При ведении журнала с информацией о запросе или ответе возможно раскрытие конфиденциальных данных, извлекаемых с помощью операций развертывания.
 
-2. Get information about a deployment with the [Get information about a template deployment](https://msdn.microsoft.com/library/azure/dn790565.aspx) operation.
+2. Получите сведения о развертывании с помощью операции [получения сведений о развертывании шаблона](https://msdn.microsoft.com/library/azure/dn790565.aspx).
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 
-    In the response, note in particular the **provisioningState** , **correlationId** and **error** elements. The **correlationId** is used to track related events, and can be helpful when working with technical support to troubleshoot an issue.
+    В ответе обратите особое внимание на элементы **provisioningState**, **correlationId** и **error**. **CorrelationId** используется для отслеживания связанных событий и может быть полезен при взаимодействии со службой технической поддержки для устранения проблемы.
     
         { 
           ...
@@ -71,16 +70,16 @@ You can avoid some errors by validating your template and infrastructure prior t
             ...
             "error":{
               "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
-              "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
+              "details":[{"code":"Conflict","message":"{\r\n  "error": {\r\n    "message": "Conflict",\r\n    "code": "Conflict"\r\n  }\r\n}"}]
             }  
           }
         }
 
-3. Get information about deployment operations with the [List all template deployment operations](https://msdn.microsoft.com/library/azure/dn790518.aspx) operation. 
+3. Получите сведения об операциях развертывания с помощью операции [вывода списка всех операций развертывания шаблона](https://msdn.microsoft.com/library/azure/dn790518.aspx).
 
         GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
 
-    The response will include request and/or response information based on what you specified in the **debugSetting** property during deployment.
+    Ответ будет содержать сведения о запросе и (или) ответе, в зависимости от того, что было указано в свойстве **debugSetting** во время развертывания.
     
         {
           ...
@@ -105,19 +104,15 @@ You can avoid some errors by validating your template and infrastructure prior t
           }
         }
 
-4. Get events from the audit logs for the deployment with the [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx) operation.
+4. Получите события из журналов аудита для развертывания с помощью операции [перечисления событий управления в подписке](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
         GET https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version={api-version}&$filter={filter-expression}&$select={comma-separated-property-names}
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
-- To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
-- To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+- Сведения об устранении некоторых ошибок развертывания см. в разделе [Устранение распространенных ошибок при развертывании ресурсов в Azure с помощью Azure Resource Manager](resource-manager-common-deployment-errors.md).
+- Дополнительные сведения об использовании журналов аудита для отслеживания других типов действий см. в разделе [Операции аудита с помощью диспетчера ресурсов](resource-group-audit.md).
+- Чтобы проверить развернутую службу перед ее выполнением, см. раздел [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

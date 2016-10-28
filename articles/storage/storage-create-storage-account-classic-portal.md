@@ -1,185 +1,180 @@
 <properties
-    pageTitle="How to create, manage, or delete a storage account in the Azure Classic Portal | Microsoft Azure"
-    description="Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts."
-    services="storage"
-    documentationCenter=""
-    authors="robinsh"
-    manager="carmonm"
-    editor="tysonn"/>
+	pageTitle="Создание и удаление учетной записи хранения, а также управление ею на классическом портале Azure | Microsoft Azure"
+	description="Создание учетной записи хранения, управление ключами доступа к учетной записи и удаление учетной записи хранения на портале Azure. Дополнительные сведения об учетных записях хранения класса Standard и Premium."
+	services="storage"
+	documentationCenter=""
+	authors="robinsh"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="07/26/2016"
-    ms.author="robinsh"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/26/2016"
+	ms.author="micurd;robinsh"/>
 
 
-
-# <a name="about-azure-storage-accounts"></a>About Azure storage accounts
+# Об учетных записях хранения Azure
 
 [AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-## <a name="overview"></a>Overview
+## Обзор
 
-An Azure storage account gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. Your storage account provides the unique namespace for your Azure Storage data objects. By default, the data in your account is available only to you, the account owner.
+Учетная запись хранения Azure предоставляет доступ к службам больших двоичных объектов, очередей, таблиц и файлов в службе хранилища Azure. Учетная запись хранения предоставляет уникальное пространство имен для ваших объектов данных в службе хранилища Azure. По умолчанию данные в учетной записи доступны только владельцу учетной записи.
 
-There are two types of storage accounts:
+Существует два типа учетных записей хранения:
 
-- A standard storage account includes Blob, Table, Queue, and File storage.
-- A premium storage account currently supports Azure virtual machine disks only. See [Premium Storage: High-performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) for an in-depth overview of Premium Storage.
+- Стандартная учетная запись хранения включает в себя хранилище для больших двоичных объектов, таблиц, очередей и файлов.
+- Учетная запись хранения класса Premium в настоящее время поддерживает только диски виртуальных машин Azure. Подробный обзор хранилища класса Premium см. в статье [Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальных машин Azure](storage-premium-storage.md).
 
-## <a name="storage-account-billing"></a>Storage account billing
+## Выставление счетов за использование учетной записи хранения
 
-You are billed for Azure Storage usage based on your storage account. Storage costs are based on four factors: storage capacity, replication scheme, storage transactions, and data egress.
+За пользование услугами службы хранилища Azure вам будет выставлен счет согласно вашей учетной записи хранения. Затраты на хранение основываются на четырех факторах: емкость хранилища, схема репликации, транзакции хранилища и передача данных.
 
-- Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated.
-- Replication determines how many copies of your data are maintained at once, and in what locations.
-- Transactions refer to all read and write operations to Azure Storage.
-- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)  
+- Объем хранилища определяет, какая часть выделенного объема учетной записи хранения используется для хранения данных. Стоимость простого хранения данных определяется в зависимости от объема хранящихся данных и способа их репликации.
+- Репликация определяет, какое количество копий ваших данных следует хранить и где.
+- Транзакции – это все операции чтения и записи в хранилище Azure.
+- Передача данных означает данные, переданные из региона Azure. Когда к данным вашей учетной записи хранения обращается приложение, выполняемое в другом регионе, то независимо от типа приложения (облачная служба или приложение другого типа) вам начисляется плата за исходящие данные. (Для служб Azure можно сгруппировать данные и службы в одном центре обработки данных, чтобы уменьшить или исключить плату за передачу данных.)
 
-The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page provides detailed pricing information for data egress.
+На странице [Цены на хранилища Azure](https://azure.microsoft.com/pricing/details/storage) представлена подробная информация о ценах на объемы хранилища, репликацию и транзакции. Подробные сведения о стоимости передачи данных см. на странице [Сведения о ценах — передача данных](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
+Дополнительную информацию о емкости и пропускной способности учетной записи хранения см. в разделе [Целевые показатели масштабируемости и производительности службы хранилища Azure](storage-scalability-targets.md).
 
-> [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/) for more details.
+> [AZURE.NOTE] При работе с виртуальной машиной Azure учетная запись хранения создается автоматически в месте развертывания, если в этом расположении еще нет учетной записи хранения. Таким образом нет необходимости выполнять описанные ниже шаги для создания учетной записи хранения для дисков вашей виртуальной машины. Имя учетной записи хранения основывается на имени виртуальной машины. Дополнительную информацию см. в статье [Документация по виртуальным машинам Azure](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## Создайте учетную запись хранения.
 
-1. Sign in to the [Azure Classic Portal](https://manage.windowsazure.com).
+1. Войдите на [классический портал Azure](https://manage.windowsazure.com).
 
-2. Click **New** in the taskbar at the bottom of the page. Choose **Data Services** | **Storage**, and then click **Quick Create**.
+2. В нижней части страницы на панели задач щелкните **Создать**. Последовательно щелкните **Службы данных**, **Хранилище** и **Быстрое создание**.
 
-    ![NewStorageAccount](./media/storage-create-storage-account-classic-portal/storage_NewStorageAccount.png)
+	![NewStorageAccount](./media/storage-create-storage-account-classic-portal/storage_NewStorageAccount.png)
 
-3. In **URL**, enter a name for your storage account.
+3. В поле **URL-адрес** введите имя своей учетной записи хранения.
 
-    > [AZURE.NOTE] Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-    >  
-    > Your storage account name must be unique within Azure. The Azure Classic Portal will indicate if the storage account name you select is already taken.
+	> [AZURE.NOTE] Имя учетной записи хранения должно содержать от 3 до 24 символов и состоять только из цифр и строчных букв.
+	>  
+	> Имя учетной записи хранения должно быть уникальным в Azure. Классический портал Azure сообщит, если выбранное имя учетной записи хранения уже занято.
 
-    See [Storage account endpoints](#storage-account-endpoints) below for details about how the storage account name will be used to address your objects in Azure Storage.
+	Сведения об использовании имени учетной записи хранения для доступа к объектам в службе хранилища Azure см. в разделе [Конечные точки учетной записи хранения](#storage-account-endpoints) ниже.
 
-4. In **Location/Affinity Group**, select a location for your storage account that is close to you or to your customers. If data in your storage account will be accessed from another Azure service, such as an Azure virtual machine or cloud service, you may want to select an affinity group from the list to group your storage account in the same data center with other Azure services that you are using to improve performance and lower costs.
+4. С помощью поля **Расположение или территориальная группа** выберите расположение своей учетной записи хранения, наиболее близкое к вам или вашим клиентам. Если необходимо, чтобы данные из вашей учетной записи хранения были доступны для другой службы Azure (например, виртуальной машины или облачной службы Azure), рекомендуется выбирать территориальную группу, которая совпадает с территориальной группой вашей учетной записи хранения, чтобы данные и службы Azure, которые их обрабатывают, хранились в одном центре обработки данных, так как это позволит повысить производительность и снизить расходы.
 
-    Note that you must select an affinity group when your storage account is created. You cannot move an existing account to an affinity group. For more information on affinity groups, see [Service co-location with an affinity group](#service-co-location-with-an-affinity-group) below.
+	Обратите внимание, что территориальная группа выбирается во время создания учетной записи хранения. Переместить существующую учетную запись в другую территориальную группу невозможно. Дополнительную информацию о территориальных группах см. в разделе [Совместное размещение служб с помощью территориальной группы](#service-co-location-with-an-affinity-group) ниже.
 
-    >[AZURE.IMPORTANT] To determine which locations are available for your subscription, you can call the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. To list providers from PowerShell, call [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). From .NET, use the [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) method of the ProviderOperationsExtensions class.
-    >
-    >Additionally, see [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in which region.
+	>[AZURE.IMPORTANT] Чтобы узнать, какие расположения доступны для вашей подписки, вызовите операцию [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx). Чтобы определить, какие расположения доступны для подписки, вы можете вызвать операцию [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). В .NET используйте метод [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) класса ProviderOperationsExtensions.
+	>
+	>Кроме того, в разделе [Регионы Azure](https://azure.microsoft.com/regions/#services) представлены дополнительные сведения о доступности служб в разных регионах.
 
 
-5. If you have more than one Azure subscription, then the **Subscription** field is displayed. In **Subscription**, enter the Azure subscription that you want to use the storage account with.
+5. При наличии нескольких подписок Azure отображается поле **Подписка**. В поле **Подписка** введите подписку Azure, которую требуется использовать вместе с учетной записью хранения.
 
-6. In **Replication**, select the desired level of replication for your storage account. The recommended replication option is geo-redundant replication, which provides maximum durability for your data. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
+6. В поле **Репликация** выберите желаемый уровень репликации для своей учетной записи хранения. Рекомендуется использовать геоизбыточную репликацию, так как она обеспечивает наибольшую сохранность ваших данных. Дополнительные сведения о репликации службы хранилища Azure см. в статье [Репликация службы хранилища Azure](storage-redundancy.md).
 
-6. Click **Create Storage Account**.
+6. Щелкните **Создать учетную запись хранения**.
 
-    It may take a few minutes to create your storage account. To check the status, you can monitor the notifications at the bottom of the Azure Classic Portal. After the storage account has been created, your new storage account has **Online** status and is ready for use.
+	На создание учетной записи хранения может уйти несколько минут. Для проверки состояния можно использовать уведомления в нижней части классического портала Azure. После создания учетной записи хранения ваша новая учетная запись хранения переходит в состояние **В сети** и становится готовой к использованию.
 
 ![StoragePage](./media/storage-create-storage-account-classic-portal/Storage_StoragePage.png)
 
 
-### <a name="storage-account-endpoints"></a>Storage account endpoints
+### Конечные точки учетной записи хранения
 
-Every object that you store in Azure Storage has a unique URL address. The storage account name forms the subdomain of that address. The combination of subdomain and domain name, which is specific to each service, forms an *endpoint* for your storage account.
+Каждый объект, который хранится в службе хранилища Azure, имеет уникальный URL-адрес. Имя учетной записи хранения образует поддомен этого адреса. Имя поддомена и доменное имя, уникальное для каждой службы, вместе образуют *конечную точку* учетной записи хранения.
 
-For example, if your storage account is named *mystorageaccount*, then the default endpoints for your storage account are:
+Например, если учетная запись хранения имеет имя *mystorageaccount*, конечной точкой для учетной записи хранения будет:
 
-- Blob service: http://*mystorageaccount*.blob.core.windows.net
+- Служба BLOB-объектов: http://*mystorageaccount*.blob.core.windows.net
 
-- Table service: http://*mystorageaccount*.table.core.windows.net
+- Служба таблиц: http://*mystorageaccount*.table.core.windows.net
 
-- Queue service: http://*mystorageaccount*.queue.core.windows.net
+- Служба очередей: http://*mystorageaccount*.queue.core.windows.net
 
-- File service: http://*mystorageaccount*.file.core.windows.net
+- Служба файлов: http://*mystorageaccount*.file.core.windows.net
 
-You can see the endpoints for your storage account on the storage dashboard in the [Azure Classic Portal](https://manage.windowsazure.com) once the account has been created.
+Конечные точки вашей учетной записи хранения можно увидеть на панели мониторинга [классического портала Azure](https://manage.windowsazure.com) сразу после создания учетной записи.
 
-The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+URL-адрес для доступа к объекту в учетной записи хранения строится путем добавления местоположения объекта в учетной записи хранения к конечной точке. Например, адрес большого двоичного объекта может иметь следующий формат: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for your blob storage endpoint](storage-custom-domain-name.md) for details.
+Для своей учетной записи хранения вы можете настроить имя домена. Подробные сведения см. в статье [Настройка пользовательского доменного имени для конечной точки хранилища BLOB-объектов](storage-custom-domain-name.md).
 
-### <a name="service-co-location-with-an-affinity-group"></a>Service co-location with an affinity group
+### Совместное размещение служб с помощью территориальной группы
 
-An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
+*Территориальная группа* — это географическое группирование облачных служб и ВМ для учетных записей хранения в Azure. Территориальная группа может повысить производительность служб, если расположить нагрузку, связанную с вычислениями и хранением данных, в одном центре обработки данных или рядом с целевой аудиторией пользователей. Кроме того, плата за передачу данных не взимается, если доступ к данным в учетной записи хранения предоставляется через службу, работающую в той же территориальной группе.
 
-> [AZURE.NOTE]  To create an affinity group, open the <b>Settings</b> area of the [Azure Classic Portal](https://manage.windowsazure.com), click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups by using the Azure Service Management API. See <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operations on affinity groups</a> for more information.
+> [AZURE.NOTE]  Чтобы создать территориальную группу, на [классическом портале Azure](https://manage.windowsazure.com) откройте раздел <b>Параметры</b>, перейдите на страницу <b>Территориальные группы</b>, а затем нажмите кнопку <b>Добавить территориальную группу</b> или <b>Добавить</b>. Вы также можете создавать территориальные группы и управлять ими с помощью API управления службами Azure. Дополнительные сведения см. в статье <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Операции с территориальными группами</a>.
 
-## <a name="view,-copy,-and-regenerate-storage-access-keys"></a>View, copy, and regenerate storage access keys
+## Просмотр, копирование и повторное создание ключей доступа к хранилищу
 
-When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
+При создании учетной записи хранения Azure создает два 512-битных кода доступа к хранилищу, которые используются для проверки подлинности при доступе к учетной записи хранения. Предоставляя два ключа доступа к хранилищу, Azure позволяет повторно создавать ключи без прерывания предоставления службы хранилища или доступа к этой службе.
 
-> [AZURE.NOTE] We recommend that you avoid sharing your storage access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) for more information.
+> [AZURE.NOTE] Рекомендуем никому не сообщать свои ключи доступа к хранилищу. Чтобы предоставить доступ к ресурсам хранилища. не сообщая свои ключи доступа, можно использовать *подпись коллективного доступа*. Подпись коллективного доступа обеспечивает доступ к ресурсам вашей учетной записи на срок и с разрешениями, которые вы сами определяете. Дополнительные сведения см. в статье об [использовании подписанных URL-адресов (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
-In the [Azure Classic Portal](https://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services.
+Войдите на [классический портал Azure](https://manage.windowsazure.com) и на панели мониторинга или странице **Хранилище** щелкните **Управление ключами**. Так вы сможете просмотреть, скопировать или повторно создать ключи доступа к хранилищу (ключи, которые используются для получения доступа к службам BLOB-объектов, таблиц и очередей).
 
-### <a name="copy-a-storage-access-key"></a>Copy a storage access key  
+### Копирование ключа доступа к хранилищу  
 
-You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configure Azure Storage Connection Strings](storage-configure-connection-string.md).
+Можно также использовать функцию **Управление ключами** для копирования ключа доступа к хранилищу с целью использования этой функции в строке подключения. Для строки подключения требуется имя учетной записи хранения и ключ, которые задействуются в проверке подлинности. Сведения о настройке строк подключения для доступа к службам хранилища Azure см. в статье [Настройка строк подключения службы хранилища Azure](storage-configure-connection-string.md).
 
-1. In the [Azure Classic Portal](https://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
+1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Хранилище**, а затем щелкните имя учетной записи хранения, чтобы открыть панель мониторинга.
 
-2. Click **Manage Keys**.
+2. Щелкните **Управление ключами**.
 
-    **Manage Access Keys** opens.
+ 	Откроется окно **Управление ключами доступа**.
 
-    ![Managekeys](./media/storage-create-storage-account-classic-portal/Storage_ManageKeys.png)
+	![Managekeys](./media/storage-create-storage-account-classic-portal/Storage_ManageKeys.png)
 
 
-3. To copy a storage access key, select the key text. Then right-click, and click **Copy**.
+3. Чтобы скопировать ключ доступа к хранилищу, выберите текст ключа. Затем щелкните его правой кнопкой и выберите пункт **Копировать**.
 
-### <a name="regenerate-storage-access-keys"></a>Regenerate storage access keys
-We recommend that you change the access keys to your storage account periodically to help keep your storage connections secure. Two access keys are assigned so that you can maintain connections to the storage account by using one access key while you regenerate the other access key.
+### Повторное создание ключей доступа к хранилищу
+Мы рекомендуем периодически изменять ключи доступа к учетной записи хранения, чтобы обеспечить безопасность при подключении к хранилищу. Назначаются два ключа доступа, которые позволяют обслуживать подключения к учетной записи хранения с помощью одного ключа доступа во время переназначения другого.
 
-> [AZURE.WARNING] Regenerating your access keys can affect services in Azure as well as your own applications that are dependent on the storage account. All clients that use the access key to access the storage account must be updated to use the new key.
+> [AZURE.WARNING] Повторное создание ключей доступа влияет на службы Azure, равно как и на ваши собственные приложения, которые зависят от учетной записи хранения. Все клиенты, использующие ключ доступа к учетной записи хранения, должны быть обновлены для использования нового ключа.
 
-**Media services** - If you have media services that are dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
+**Службы мультимедиа**. Если у вас есть службы мультимедиа, которые зависят от учетной записи хранения, повторно созданные ключи доступа необходимо еще раз синхронизировать со службой мультимедиа.
 
-**Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys. 
+**Приложения**. Если у вас есть веб-приложения или облачные службы, использующие учетную запись хранения, повторно созданные ключи необходимо обновить, иначе подключения будут разорваны.
 
-**Storage Explorers** - If you are using any [storage explorer applications](storage-explorers.md), you will probably need to update the storage key used by those applications.
+**Обозреватели хранилищ**. Если вы используете [приложения обозревателей хранилищ](storage-explorers.md), возможно, вам понадобится обновить ключ к хранилищу данных, используемый этими приложениями.
 
-Here is the process for rotating your storage access keys:
+Далее описан полный процесс смены ключей доступа.
 
-1. Update the connection strings in your application code to reference the secondary access key of the storage account.
+1. Обновите строки подключения в коде приложения, чтобы ссылаться на дополнительный ключ доступа учетной записи хранения.
 
-2. Regenerate the primary access key for your storage account. In the [Azure Classic Portal](https://manage.windowsazure.com), from the dashboard or the **Configure** page, click **Manage Keys**. Click **Regenerate** under the primary access key, and then click **Yes** to confirm that you want to generate a new key.
+2. Повторное создание основного ключа доступа для вашей учетной записи хранения. На [классическом портале Azure](https://manage.windowsazure.com) перейдите на панель мониторинга или страницу **Настройка** и щелкните **Управление ключами**. В разделе основного ключа доступа щелкните **Создать повторно**, а затем нажмите кнопку **Да**, чтобы подтвердить создание нового ключа.
 
-3. Update the connection strings in your code to reference the new primary access key.
+3. Обновите строки подключения в коде, чтобы они ссылались на новый основной ключ доступа.
 
-4. Regenerate the secondary access key.
+4. Повторно создайте дополнительный ключ доступа.
 
-## <a name="delete-a-storage-account"></a>Delete a storage account
+## Удаление учетной записи хранения
 
-To remove a storage account that you are no longer using, use **Delete** on the dashboard or the **Configure** page. **Delete** deletes the entire storage account, including all of the blobs, tables, and queues in the account.
+Чтобы удалить учетную запись хранения, которая больше не используется, воспользуйтесь командой **Удалить** на панели мониторинга или странице **Настройка**. Команда **Удалить** удаляет всю учетную запись хранения, включая все BLOB-объекты, таблицы и очереди учетной записи.
 
-> [AZURE.WARNING] It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
+> [AZURE.WARNING] Восстановить удаленную учетную запись хранения или ее содержимое невозможно. Создайте резервные копии нужных данных, прежде чем удалять учетную запись. Это касается также любых ресурсов в учетной записи. Восстановить удаленный BLOB-объект, таблицу, очередь или файл невозможно.
 >
-> If your storage account contains VHD files for an Azure virtual machine, then you must delete any images and disks that are using those VHD files before you can delete the storage account. First, stop the virtual machine if it is running, and then delete it. To delete disks, navigate to the **Disks** tab and delete any disks there. To delete images, navigate to the **Images** tab and delete any images that are stored in the account.
+> Если ваша учетная запись хранения содержит VHD-файлы для виртуальной машины Azure, то необходимо удалить все образы и диски, использующие эти VHD-файлы, прежде чем удалять учетную запись хранения. Сначала остановите виртуальную машину, если она работает, затем удалите ее. Чтобы удалить диски, перейдите на вкладку **Диски** и удалите все диски, содержащиеся в учетной записи хранения. Чтобы удалить образы, перейдите на вкладку **Образы** и удалите все образы, содержащиеся в учетной записи.
 
-1. In the [Azure Classic Portal](https://manage.windowsazure.com), click **Storage**.
+1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Хранилище**.
 
-2. Click anywhere in the storage account entry except the name, and then click **Delete**.
+2. Щелкните любое место учетной записи хранения, за исключением имени, и выберите пункт **Удалить**.
 
-     -Or-
+	 -Или-
 
-    Click the name of the storage account to open the dashboard, and then click **Delete**.
+	Щелкните имя учетной записи хранения, чтобы открыть панель мониторинга, затем щелкните **Удалить**.
 
-3. Click **Yes** to confirm that you want to delete the storage account.
+3. Нажмите **Да**, чтобы подтвердить удаление учетной записи хранения.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- To learn more about Azure Storage, see the [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/).
-- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
-- [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+- Дополнительные сведения о службе хранилища Azure см. в [соответствующей документации](https://azure.microsoft.com/documentation/services/storage/).
+- Посетите [блог команды разработчиков хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

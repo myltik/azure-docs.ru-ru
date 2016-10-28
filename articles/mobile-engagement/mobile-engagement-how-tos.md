@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement User Interface - Reach How To"
-   description="User Interface Overview for Azure Mobile Engagement" 
+   pageTitle="Пользовательский интерфейс Azure Mobile Engagement — практическое руководство по рекламным кампаниям"
+   description="Обзор пользовательского интерфейса для Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,229 +16,216 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
+# Начало работы с push-уведомлениями и управление ими для взаимодействия с конечными пользователями
 
-# <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>How to get started using and managing pushes to reach out to your end users
+После полной интеграции пакета SDK в приложение вы можете использовать раздел «Рекламная компания» в пользовательском интерфейсе для отправки push-уведомлений пользователям приложения.
 
-Once the SDK is fully integrated into your app, you can get started using the the Reach section of the UI to Push notifications to the users of your app.  
-
-## <a name="do-your-first-push-notification-campaign"></a>Do Your First Push Notification Campaign
--    Confirm that your Reach is integrated into your app with the SDK. 
--    Select your application
+## Создание первой кампании push-уведомлений
+-    Убедитесь, что модуль обработки рекламных кампаний интегрирован в приложение с пакетом SDK.
+-    Выберите приложение.
  
 ![First1][1]
 
--    Go to the "Reach" Section and Click "New announcement"
+-    Перейдите в раздел "Охват" и нажмите кнопку "Создать объявление".
  
 ![First2][2]
 
--    Create a new campaign and name it
+-    Создайте новую кампанию и назовите ее.
  
  ![First3][3]
 
--    Select how the notification should be delivered, as In-app only
+-    Укажите способ доставки уведомления "Только в приложении".
  
 ![First4][4]
 
--    Create the message you want to push
+-    Создайте сообщение, которое нужно отправить.
  
 ![First5][5]
 
--    You may write a title on the notification (Optional).
--    Write push message content.
--    You can upload an image. Be aware that the size of the file cannot exceed 32,768 bytes.
--    You also have the ability to select further options, but for the focus of this tutorial, we will see that later.
+-    Вы можете озаглавить уведомление (необязательно).
+-    Добавьте содержимое push-уведомления.
+-    Вы можете отправить изображение. Обратите внимание, что размер файла не может превышать 32 768 байт.
+-    Вы также можете выбрать дополнительные параметры, но это описано далее в этом учебнике.
 
--    Select the content type as Notification only
+-    Выберите тип содержимого "Только уведомление".
  
 ![First6][6]
 
--    Create your push campaign and it will appear in your campaign list.
+-    Создайте кампанию push-уведомлений, и она отобразится в списке кампаний.
  
 ![First7][7]
 
-## <a name="test-your-push-notification-campaign"></a>Test Your Push Notification Campaign
+## Тестирование кампании push-уведомлений
 ![Test1][8]
 
--    Register your device.
--    Click on the checkbox of the device you want to push.
--    Click on the "Test" button to send the push to the device.
+-    Зарегистрируйте устройство.
+-    Установите флажок напротив устройства, на которое нужно отправить push-уведомление.
+-    Нажмите кнопку "Проверить", чтобы отправить push-уведомление на устройство.
  
 ![Test2][9]
 
--    Activate the campaign
+-    Активация кампании
  
 ![Test3][10]
 
--    Now that you have created your campaign you just need to activate it for the notification to be pushed to your users.
+-    Теперь, когда вы создали кампанию, нужно просто активировать ее для отправки уведомления пользователям.
  
-## <a name="send-personalized-pushes"></a>Send Personalized Pushes
--    This example creates a push where a custom rebate code is entered into the push notification.
+## Отправка персонализированных push-уведомлений
+-    В этом примере создается push-уведомление, в котором вводится пользовательский код ретробонуса.
  
 ![Personalize1][11]
 
-Personalization works by replacing a marker by from an app info tag so, you'll have to make sure the user has the proper app-info defined first. In this example the targeted users will have an app info tag named rebate_code defined.
-As you see above the push notification content includes the marker ${rebate_code} which will indicate that it is to be replaced by the actual content of the app info tag.
+Персонализация производится путем замены маркера маркером из тега сведений о приложении, поэтому вам нужно будет сначала убедиться, что у пользователя определены правильные сведения о приложении. В этом примере для целевых пользователей определяется тег сведений о приложении с именем rebate\_code. Как видно выше, в содержимое push-уведомления входит маркер ${rebate\_code}, который укажет, что его нужно заменить на фактическое содержимое тега сведений о приложении.
 
-> Warning: If the app info tag is not defined for the user, the user will not receive the push.
+> Предупреждение. Если тег сведений о приложении не определен для пользователя, он не получит push-уведомление.
 
--    Result
+-    Результат
  
 ![Personalize2][12]
 
-### <a name="you-can-further-personalize-the-text-your-notification"></a>You can further personalize the text your notification
+### Вы можете дополнительно персонализировать текст уведомления,
 ![Personalize3][13]
 
--    Including the title of the notification,
--    And the content of the message.
--    Choose the type of announcement (Text view or Web view)
+-    включая заголовок уведомления
+-    и содержимое сообщения.
+-    Выберите тип объявления (текстовое представление или веб-представление)
  
 ![Personalize4][14]
 
-### <a name="the-body-of-an-announcement-may-also-be-personalized-with:"></a>The body of an announcement may also be personalized with:
--    The action URL, should you want to customize the landing page
--    The title,
--    The body of the message.
+### Текст объявления можно также персонализировать с помощью:
+-    URL-адреса действия, если нужно настроить целевую страницу;
+-    заголовка;
+-    текста сообщения.
  
  
-## <a name="differentiate-your-push-notification-(in-or-out-of-app)"></a>Differentiate Your Push Notification (in or out of app)
--    Choose the type of notification you will push, select your application, go to the "Reach" section, select or create a push campaign and go to the "Notification" section.
+## Дифференциация push-уведомления (в приложении или за его пределами)
+-    Укажите тип отправляемого уведомления, приложение, перейдите в раздел "Охват", выберите или создайте кампанию push-уведомлений и перейдите в раздел "Уведомления".
  
--    Click on the "delivery mode" you want.
--    Click on the "Restrict Activities" checkbox when you want the notification occurs on specific activities (screens).
+-    Щелкните нужный "режим доставки".
+-    Установите флажок "Ограничить действия", если нужно, чтобы уведомление происходило при определенных действиях (на определенных экранах).
 
 ![Differentiate1][15]
 
-### <a name=""out-of-app-only"-delivery-mode"></a>"Out of App Only" delivery mode
+### Режим доставки "Только за пределами приложения"
 ![Differentiate2][16]
 
-"Out of App Only" delivery mode provides push notification when the application is closed. This is the standard push notification.
-When you select "out of app only" ,you must have already provided the certificates from the platform that your application is building on (APNS or GCM).
+Режим доставки "Только за пределами приложения" предоставляет push-уведомление при закрытии приложения. Это стандартное push-уведомление. При выборе режима "Только за пределами приложения" вы должны заранее предоставить сертификаты с платформы, на основе которых создается приложение (APNS или GCM).
 
-### <a name="see-also"></a>See also
--  [Apple Push Notification Service – Certificates](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificate](http://developer.android.com/google/gcm/index.html) 
+### Дополнительные материалы
+-  [Служба push-уведомлений Apple — сертификаты](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging — сертификат (http://developer.android.com/google/gcm/index.html)
 
-### <a name=""in-app-only"-delivery-mode"></a>"in-App Only" delivery mode
+### Режим доставки "Только в приложении"
 ![Differentiate3][17]
 
-"In-App Only" delivery mode provides push notification when the application is running.
-For this notification, you do not need to go through the APNS and GCM system.
-You can use the in-app delivery system to reach your end-users.
-You can fully customize the notification and decide in which activity (screen) the notification will appear.
+Режим доставки "Только в приложении" предоставляет push-уведомление, если приложение выполняется. Для этого приложения не требуется проходить систему APNS и GCM. Для охвата пользователей можно использовать систему доставки в приложении. Вы можете полностью настроить уведомление и решить, при каком действии (на каком экране) появится уведомление.
 
-### <a name=""anytime"-delivery-mode"></a>"Anytime" delivery mode
-You can choose an "Anytime" delivery mode, ensures you to reach your end-user whether the application is running or not.
-When you select "Anytime" , you must have already provided the certificates from the platform that your application is building upon (APNS or GCM). 
+### Режим доставки "В любое время"
+Режим доставки "В любое время" позволяет охватить пользователей независимо от того, запущено приложение или нет. При выборе режима "В любое время" необходимо заранее предоставить сертификаты с платформы, на которой создается приложение (APNS или GCM).
  
-## <a name="schedule-a-push-campaign"></a>Schedule a Push Campaign
-### <a name="plan-to-start-a-campaign"></a>Plan to Start a campaign
+## Планирование кампании push-уведомлений
+### Планирование запуска кампании
 ![Shedule1][18]
 
-It is the 21st of March and you have an announcement to make and planed for the 22nd of March at midnight. You don’t have to stay in front of the interface to do a push! You can plan in advance the exact minute notifications will be sent.
--    Un-check the "None" checkbox and select a start time 
--    Choose the date and the time you want to start the push campaign.
+Сегодня 21 марта, и вы запланировали объявление на 22 марта в полночь. Вам не нужно находиться в интерфейсе для отправки push-уведомления! Вы можете заранее запланировать минуту отправки уведомлений.
+-    Снимите флажок "Нет" и выберите время начала.
+-    Выберите дату и время запуска кампании push-уведомлений.
 
-### <a name="plan-to-end-a-campaign"></a>Plan to end a campaign
+### Планирование окончания кампании
 ![Shedule2][19]
 
-You want your campaign to stop on the 25th of March at 3.00 pm but you know you won't be there to do it.
-You don’t have to stay in front of the interface to push! You can plan in advance the exact minute your campaign will stop.
--    Click on the "None" checkbox or select a end time
--    Choose the date and the time you want to finish the push campaign.
+Вам нужно остановить кампанию 25 марта в 15:00, но вы знаете, что у вас не будет возможности сделать это. Вам не нужно находиться в интерфейсе для отправки push-уведомления! Вы можете заранее запланировать минуту окончания кампании.
+-    Установите флажок "Нет" или выберите время окончания.
+-    Выберите дату и время окончания кампании push-уведомлений.
 
-### <a name="end-a-campaign-manually"></a>End a campaign manually
+### Завершение кампании вручную
 ![Shedule3][20]
 
-By default, the "None" check-boxes are selected.
-This means that the campaign will start as soon as you activate it in the reach section and will end when you will stop it on the reach section.
+По умолчанию флажки "Нет" установлены. Это означает, что кампания начнется сразу после ее активации и закончится после ее остановки в разделе "Охват".
  
-> Note: Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.
+> Примечание. Кампании, созданные без даты окончания, хранят push-уведомления на устройстве локально и отображают их при следующем входе в приложение, даже если кампания завершена вручную.
 
-## <a name="enhance-a-push-notification-with-a-text-view"></a>Enhance a Push Notification with a Text View
-### <a name="what-is-a-text-view?"></a>What is a Text View?
+## Усовершенствование push-уведомления с помощью текстового представления
+### Что такое текстовое представление?
 ![TextView1][21]
 
-A text view is a pop-up with text content. This pop-up appears after the end-user has clicked on the push notification.
-A text view allows you to present more content to your end-user. This is also the opportunity to present a call to action such as jumping to a page of your app, redirecting to a Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...
+Текстовое представление — это всплывающее окно с текстовым содержимым. Это всплывающее окно отображается после того, как пользователь щелкнет push-уведомление. Текстовое представление позволяет предоставить дополнительное содержимое пользователю. Оно также позволяет предоставить призыв к действию, например, переход на страницу приложения, перенаправление в Магазин, открытие веб-страницы, отправка электронного письма, запуск геолокального поиска и т. д...
 
-### <a name="example:-text-view"></a>Example: Text View
--    Create your Push notification campaign in the "Reach" section and give your campaign a name
+### Пример: текстовое представление
+-    Создайте кампанию push-уведомлений в разделе "Охват" и назовите ее.
  
 ![TextView2][22]
 
--    Write the message that will appear on the notification.
--    Select the Announcement Content Type of “text”
+-    Напишите сообщение, которое будет отображаться в уведомлении.
+-    Выберите тип содержимого объявления "текст"
  
 ![TextView3][23]
 
-> Note: when you push a text view, it always comes with a notification first. 
+> Примечание. При отправке текстового представления сначала всегда отправляется уведомление.
 
-- Define the text (After having selected the text announcement content, the sub-section will appear, allowing you to define the text you want to be displayed.)
+- Введите текст (после выбора содержимого текстового объявления появится подраздел, в котором можно ввести отображаемый текст).
  
 ![TextView4][24]
 
--    Write the title that will appear at the top of the message.
--    Write the main content of the text view.
--    Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to an App store or any kind of sources you can provide).
--    Write the content that will appear on the exit button (by clicking on the exit button, the text view will disappear.)
+-    Напишите заголовок, который появится вверху сообщения.
+-    Введите основное содержимое текстового представления.
+-    Напишите содержимое, которое будет отображаться на кнопке действия (кнопка действия позволяет приложению создать специальное действие, например, открытие страницы приложения, перенаправление в Магазин приложений или в другие источники, которые вы можете предоставить).
+-    Напишите содержимое, которое будет отображаться на кнопке выхода (щелкните кнопку выхода, чтобы закрыть текстовое представление).
  
--    Create your push notification campaign and it will appear on the campaign list.
+-    Создайте кампанию push-уведомлений, чтобы она появилась в списке кампаний.
  
 ![TextView5][25]
 
--    Activate your push notification campaign to send the text view to your users.
+-    Активируйте кампанию push-уведомлений, чтобы отправить текстовое представление пользователям.
  
 ![TextView6][26]
 
--    Result
+-    Результат
  
 ![TextView7][27]
 
--    The user receives the notification and click on it.
--    The text view appears as a pop-up allowing the user to interact with it.
+-    Пользователь получает уведомление и щелкает его.
+-    Текстовое представление отображается в виде всплывающего уведомления, позволяя пользователю взаимодействовать с ним.
 
-## <a name="enhance-a-push-notification-with-a-web-view"></a>Enhance a Push Notification with a Web View
-### <a name="what-is-a-web-view?"></a>What is a Web View?
+## Улучшение push-уведомления с помощью веб-представления
+### Что такое веб-представление?
 ![WebView1][28]
 
-A web view is a pop-up with web content. This pop-up appears when the end-user has clicked on the push notification.
-A web view allows you to have more interaction with the end-user.
-This is also the opportunity to present a call to action such as redirection to App Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...
+Веб-представление — это всплывающее окно с веб-содержимым. Это всплывающее окно отображается при щелчке пользователя на push-уведомление. Веб-представление позволяет больше взаимодействовать с пользователем. Оно также позволяет предоставить призыв к действию, например, переход на страницу приложения, перенаправление в Магазин, открытие веб-страницы, отправка электронного письма, запуск геолокального поиска и т. д...
 
-### <a name="example:-web-view"></a>Example: Web View
--    Create your Push campaign in the "Reach" section and give your campaign a name.
+### Пример: веб-представление
+-    Создайте кампанию push-уведомления в разделе "Охват" и назовите ее.
  
 ![WebView2][29]
 
--    Write the message that will appear on the notification.
--    Select the Announcement Content Type as “web”
+-    Напишите сообщение, которое будет отображаться в уведомлении.
+-    Выберите тип содержимого "веб-содержимое"
  
 ![WebView3][30]
 
-### <a name="about-announcement-types:"></a>About Announcement types:
-- Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
-- Text announcement: It is a notification that engages the user to have a look at a text view.
-- Web announcement: It is a notification that engages the user to have a look at a web view.
-Select the "Web announcement" content.
+### Сведения о типах объявлений
+- Только уведомление. Это простое стандартное уведомление. Это значит, что если пользователь щелкнет его, не отобразится никакое дополнительное представление, а будет только выполнено действие, связанное с ним.
+- Текстовое объявление. Это уведомление, при появлении которого пользователь может посмотреть текстовое представление.
+- Веб-объявление. Это уведомление, при появлении которого пользователь может посмотреть веб-представление. Выберите содержимое "Веб-объявление".
 
-> Note: When you push a web view, it always comes with a notification first.
+> Примечание. При отправке веб-представления сначала всегда отправляется уведомление.
 
-- Define the web content (After having selected the web announcement content, the subsection will appear, allowing you to define the web view content you want to be displayed.)
+- Введите веб-содержимое (после выбора содержимого веб-представления появится подраздел, в котором можно ввести отображаемое содержимое веб-представления).
 
  
 ![WebView4][31]
 
--    Write the title that will appear at the top of the message (optional).
--    Write your HTML code here.
--    Click on the source editing mode button to switch edition and see how it looks like.
--    Write the content that will appear on the action button (an action button enables the application to make a specific action such as opening a page of the application, redirecting to a Store or any kind of sources you can provide).
--    Write the content that will appear on the exit button (by clicking on the exit button, the web view will disappear).
+-    Напишите заголовок, который будет отображаться вверху сообщения (необязательно).
+-    Введите здесь HTML-код.
+-    Нажмите кнопку режима изменения источника, чтобы переключить выпуск и увидеть, как он выглядит.
+-    Напишите содержимое, которое отобразится на кнопке действия (кнопка действия позволяет приложению выполнить определенное действие, например, открытие страницы приложения, перенаправление в Магазин или в другой источник, который вы можете предоставить).
+-    Напишите содержимое, которое отобразится на кнопке выхода (нажмите кнопку выхода, чтобы закрыть веб-представление).
  
--    Result
+-    Результат
  
 ![WebView5][32]
 
--    The user receive the notification and click on it.
--    The text view appears as a pop-up allowing the user to interact with it.
+-    Пользователь получает сообщение и щелкает его.
+-    Текстовое представление отображается в виде всплывающего уведомления, позволяя пользователю взаимодействовать с ним.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-how-tos/First1.png
@@ -310,8 +297,4 @@ Select the "Web announcement" content.
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

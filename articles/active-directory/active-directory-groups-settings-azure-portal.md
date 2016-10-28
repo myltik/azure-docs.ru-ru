@@ -1,62 +1,57 @@
 <properties
-    pageTitle="Manage the settings for a group in Azure Active Directory preview | Microsoft Azure"
-    description="How to edit the properties and other configuration settings for a group in Azure Active Directory"
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Управление параметрами группы в предварительной версии Azure Active Directory | Microsoft Azure"
+	description="Узнайте, как изменить свойства и другие параметры конфигурации группы в Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
 
 
+# Управление параметрами группы в предварительной версии Azure Active Directory
 
-# <a name="manage-the-settings-for-a-group-in-azure-active-directory-preview"></a>Manage the settings for a group in Azure Active Directory preview
+В этой статье объясняется, как управлять параметрами группы в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md)
 
-This article explains how to change the settings for a group in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md)
+## Как можно найти и изменить параметры?
 
-## <a name="how-do-i-find-and-change-the-settings?"></a>How do I find and change the settings?
+1.  Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+2.  Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
 
-2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
+  ![Открытие страницы "Управление пользователями"](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
 
-  ![Opening user management](./media/active-directory-groups-settings-azure-portal/search-user-management.png)
+3.  В колонке **Пользователи и группы** выберите **Все группы**.
 
-3.  On the **Users and groups** blade, select **All groups**.
+  ![Открытие колонки группы](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
 
-  ![Opening the groups blade](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
+4. Выберите группу в колонке **Пользователи и группы — Все группы**.
 
-4. On the **Users and groups - All groups** blade, select a group.
+5. В колонке **Группы — *имя\_группы*** выберите **Свойства**.
 
-5. On the **Group - *groupname*** blade, select **Properties**.
+  ![Открытие колонки "Свойства"](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
 
-  ![Opening the Properties blade](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
+6. Завершив изменение свойств группы, щелкните **Сохранить**.
 
-6. When you finish changing properties for the group, select **Save**.    
-
-  ![Saving properties changes](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
-
-
-## <a name="additional-information"></a>Additional information
-
-These articles provide additional information on Azure Active Directory.
-
-* [See existing groups](active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](active-directory-groups-create-azure-portal.md)
-* [Manage members of a group](active-directory-groups-members-azure-portal.md)
-* [Manage memberships of a group](active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](active-directory-groups-dynamic-membership-azure-portal.md)
+  ![Сохранение изменений свойств](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
 
 
+## Дополнительная информация
 
-<!--HONumber=Oct16_HO2-->
+В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
 
+* [Просмотр существующих групп](active-directory-groups-view-azure-portal.md)
+* [Создание группы и добавление участников](active-directory-groups-create-azure-portal.md)
+* [Управление участниками группы](active-directory-groups-members-azure-portal.md)
+* [Управление членством в группе](active-directory-groups-membership-azure-portal.md)
+* [Управление динамическими правилами для пользователей в группе](active-directory-groups-dynamic-membership-azure-portal.md)
 
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,124 +1,123 @@
 <properties 
-    pageTitle="Azure Search performance and optimization considerations | Microsoft Azure" 
-    description="Tune Azure Search performance and configure optimum scale" 
-    services="search" 
-    documentationCenter="" 
-    authors="LiamCavanagh" 
-    manager="pablocas" 
-    editor=""/>
+	pageTitle="Рекомендации по производительности и оптимизации Поиска Azure | Microsoft Azure" 
+	description="Настройка производительности Поиска Azure и выбор оптимального масштаба" 
+	services="search" 
+	documentationCenter="" 
+	authors="LiamCavanagh" 
+	manager="pablocas" 
+	editor=""/>
 
 <tags 
-    ms.service="search" 
-    ms.devlang="rest-api" 
-    ms.workload="search" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.date="10/17/2016" 
-    ms.author="liamca"/>
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="06/27/2016" 
+	ms.author="liamca"/>
 
+# Рекомендации по производительности и оптимизации Поиска Azure
 
-# <a name="azure-search-performance-and-optimization-considerations"></a>Azure Search performance and optimization considerations
+Эффективный поиск является ключом к успеху многих мобильных и веб-приложений. Быстрый поиск и получение соответствующих результатов влияют на качество обслуживания клиентов как в сфере недвижимости или продаж подержанных автомобилей, так и в сфере интернет-каталогов. Этот документ поможет получить рекомендации по эффективному использованию Поиска Azure, особенно для сложных сценариев с расширенными требованиями к масштабируемости, многоязыковой поддержке или пользовательской модели ранжирования. Кроме того, в этом документе описаны внутренние механизмы и рассмотрены подходы, которые эффективно работают в реальных клиентских приложениях.
 
-A great search experience is a key to success for many mobile and web applications. From real estate, to used car marketplaces to online catalogs, fast search and relevant results will affect the customer experience. This document is intended to help you discover best practices for how to get the most out of Azure Search, especially for advanced scenarios with sophisticated requirements for scalability, multi-language support, or custom ranking.  In addition, this document outlines internals and covers approaches that work effectively in real-world customer apps.
+## Настройка производительности и масштабирования для служб поиска
 
-## <a name="performance-and-scale-tuning-for-search-services"></a>Performance and scale tuning for Search services
+Мы все привыкли к таким поисковым системам, как Bing и Google, и к тому, как быстро они работают. В результате, когда клиенты используют ваше мобильное или веб-приложение с функцией поиска, они ожидают подобных характеристик производительности. При оптимизации производительности поиска один из оптимальных способов — сосредоточиться на задержке, то есть времени, необходимом для выполнения запроса и возвращения результатов. При оптимизации задержки при поиске важно следующее.
 
-We are all used to search engines such as Bing and Google and the high performance they offer.  As a result, when customers use your search-enabled web or mobile application, they will expect similar performance characteristics.  When optimizing for search performance, one of the best approaches is to focus on latency, which is the time a query takes to complete and return results.  When optimizing for search latency it is important to:
+1. Выберите целевую задержку (или максимальное количество времени), которая типична для выполнения запроса на поиск.
 
-1. Pick a target latency (or maximum amount of time) that a typical search request should take to complete.
+2. Создайте и протестируйте реальную рабочую нагрузку на своей службе поиска, используя правдоподобный набор данных, чтобы измерить эти показатели задержки.
 
-2. Create and test a real workload against your search service with a realistic dataset to measure these latency rates.
+3. Начните с небольшого количества запросов в секунду (QPS) и увеличивайте это значение по мере выполнения теста, пока задержка при обработке запросов не превысит определенное целевое значение. Это важный тест производительности, который поможет спланировать масштабирование приложения по мере того, как оно будет охватывать все больше пользователей.
 
-3. Start with a low number of queries per second (QPS) and continue to increase the number executed in the test until the query latency drops below the defined target latency.  This is an important benchmark to help you plan for scale as your application grows in usage.
-
-4. Wherever possible, reuse HTTP connections.  If you are using the Azure Search .NET SDK, this means you should reuse an instance or [SearchIndexClient](https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx) instance, and if you are using the REST API, you should reuse a single HttpClient.
+4. По возможности повторно используйте подключения HTTP. Если используется пакет SDK для Поиска Azure для .NET, то это означает, что следует повторно использовать экземпляр или экземпляр [SearchIndexClient](https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx), а если используется REST API, то следует использовать один HttpClient.
  
-While creating these test workloads, there are some characteristics of Azure Search to keep in mind:
+При создании этих тестовых рабочих нагрузок следует помнить о некоторых характеристиках Поиска Azure.
 
-1. It is possible to push so many search queries at one time, that the resources available in your Azure Search service will be overwhelmed.  When this happens, you will see HTTP 503 response codes.  For this reason, it is best to start with various ranges of search requests to see the differences in latency rates as you add more search requests.
+1. Можно отправить так много поисковых запросов за один раз, что ресурсы, доступные в службе Поиска Azure, окажутся перегружены. В этом случае вы увидите коды ответов HTTP 503. По этой причине лучше начать с разных диапазонов запросов на поиск, чтобы наблюдать за разницей в задержке по мере добавления запросов на поиск.
 
-2. Uploading of content to Azure Search will impact the overall performance and latency of the Azure Search service.  If you expect to send data while users are performing searches, it is important to take this workload into account in your tests.
+2. Передача содержимого в Поиск Azure повлияет на общую производительность и задержки службы Поиска Azure. Если вы собираетесь отправлять данные во время выполнения поиска пользователями, то важно учесть эту рабочую нагрузку в тестах.
 
-3. Not every search query will perform at the same performance levels.  For example, a document lookup or search suggestion will typically perform faster than a query with a significant number of facets and filters.  It is best to take the various queries you expect to see into account when building your tests.  
+3. Не все поисковые запросы будут выполняться с одинаковым уровнем производительности. Например, поиск документа или предложение по поиску обычно будет выполняться быстрее, чем запрос со значительным количеством аспектов и фильтров. При создании тестов лучше добавить различные запросы, которые вы хотите учесть.
 
-4. Variation of search requests is important because if you continually execute the same search requests, caching of data will start to make performance look better than it might with a more disparate query set.
+4. Варьирование запросов на поиск важно, так как если постоянно выполнять одинаковые запросы на поиск, то кэширование данных создаст впечатление более высокой производительности, чем было бы при более разнообразных запросах.
 
-> [AZURE.NOTE] [Visual Studio Load Testing](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release) is a really good way to perform your benchmark tests as it allows you to execute HTTP requests as you would need for executing queries against Azure Search and enables parallelization of requests.
+> [AZURE.NOTE] [Visual Studio Load Testing](https://www.visualstudio.com/docs/test/performance-testing/run-performance-tests-app-before-release) — очень удобный способ выполнения тестирования производительности, так как позволяет выполнять HTTP-запросы точно так же, как выполняются запросы к Поиску Azure, и обеспечивает их параллельную обработку.
 
-## <a name="scaling-azure-search-for-high-query-rates-and-throttled-requests"></a>Scaling Azure Search for high query rates and throttled requests
+## Масштабирование Поиска Azure для обработки высокой частоты запросов и регулируемых запросов
 
-When you are receiving too many throttled requests or exceed your target latency rates from an increased query load, you can look to decrease latency rates in one of two ways:
+Если поступает слишком много отрегулированных запросов или превышается целевая задержка из-за повышенной нагрузки запросов, то можно уменьшить задержки одним из двух способов.
 
-1. **Increase Replicas:**  A replica is like a copy of your data allowing Azure Search to load balance requests against the multiple copies.  All load balancing and replication of data across replicas is managed by Azure Search and you can alter the number of replicas allocated for your service at any time.  You can allocate up to 12 replicas in a Standard search service and 3 replicas in a Basic search service.  Replicas can be adjusted either from the [Azure Portal](search-create-service-portal.md) or using the [Azure Search management API](search-get-started-management-api.md).
+1. **Увеличьте число реплик**. Реплика — это как копия ваших данных, позволяющая Поиску Azure балансировать нагрузку запросов, распределяя ее между несколькими копиями. Всеми операциями балансировки нагрузки и репликации данных между репликами управляет Поиск Azure, и в любое время можно изменить число реплик, выделенных для вашей службы. Можно выделить до 12 реплик для службы поиска уровня "Стандартный" и до 3 реплик для службы поиска уровня "Базовый". Количество реплик можно настроить на [портале Azure](search-create-service-portal.md) или с помощью [API управления Поиска Azure](search-get-started-management-api.md).
 
-2. **Increase Search Tier:**  Azure Search comes in a [number of tiers](https://azure.microsoft.com/pricing/details/search/) and each of these tiers offers different levels of performance.  In some cases, you may have so many queries that the tier you are on cannot provide sufficiently low latency rates, even when replicas are maxed out.  In this case, you may want to consider leveraging one of the higher search tiers such as the Azure Search S3 tier that is well suited for scenarios with large numbers of documents and extremely high query workloads.
+2. **Повысьте уровень поиска**. Поиск Azure поставляется на [нескольких уровнях](https://azure.microsoft.com/pricing/details/search/), и каждый из них предлагает различные уровни производительности. В некоторых случаях число запросов может превысить возможности текущего уровня, приводя к недопустимо высоким задержкам даже при максимальном числе реплик. В этом случае можно воспользоваться одним из более высоких уровней Поиска Azure, например уровнем S3, который хорошо подходит для сценариев с большим количеством документов и чрезвычайно высокими рабочими нагрузками запросов.
 
-## <a name="scaling-azure-search-for-slow-individual-queries"></a>Scaling Azure Search for slow individual queries
+## Масштабирование Поиска Azure для медленных отдельных запросов
 
-Another reason why latency rates can be slow is from a single query taking too long to complete.  In this case, adding replicas will not improve latency rates.  For this case there are two options available:
+Еще одна возможная причина высоких задержек — слишком долгое выполнение какого-либо одного запроса. В этом случае добавление реплик не понизит задержки. Доступны два варианта.
 
-1. **Increase Partitions** A partition is a mechanism for splitting your data across extra resources.  For this reason, when you add a second partition, your data gets split into two.  A third partition splits your index into three, etc.  This also has the effect that in some cases, slow queries will perform faster due to the parallelization of computation.  There are a few examples of where we have seen this parallelization work extremely well with queries that have low selectivity queries.  This consists of queries that match many documents or when faceting needs to provide counts over large numbers of documents.  Since there is a lot of computation needed to score the relevancy of the documents or to count the numbers of documents, adding extra partitions can help to provide additional computation.  
+1. **Увеличьте число секций**. Секция представляет собой механизм разделения данных между дополнительными ресурсами. Поэтому при добавлении второй секции данные делятся на две части. Третья секция разделит ваш индекс на три и т. д. В некоторых случаях это также позволит ускорить выполнение медленных запросов за счет распараллеливания вычислений. Существует ряд примеров, в которых распараллеливание было чрезвычайно эффективно при выполнении запросов, содержащих запросы с низкой селективностью. К ним относятся запросы, которые выбирают большое число документов, или запросы, аспекты которых должны выдавать большое количество документов. Так как для оценки релевантности документов или подсчета их количества требуется большой объем вычислений, добавление секций позволяет получить дополнительные вычислительные ресурсы.
 
-   There can be a maximum of 12 partitions in Standard search service and 1 partition in the basic search service.  Partitions can be adjusted either from the [Azure Portal](search-create-service-portal.md) or using the [Azure Search management API](search-get-started-management-api.md).
+   Для службы поиска уровня "Стандартный" можно использовать до 12 секций, а для службы поиска уровня "Базовый" — только 1 секцию. Количество секций можно настроить на [портале Azure](search-create-service-portal.md) или с помощью [API управления Поиска Azure](search-get-started-management-api.md).
 
-2. **Limit High Cardinality Fields:** A high cardinality field consists of a facetable or filterable field that has a significant number of unique values, and as a result, takes a lot of resources to compute results over.   For example, setting a Product ID or Description field as facetable/filterable would make for high cardinality because most of the values from document to document are unique. Wherever possible, limit the number of high cardinality fields.
+2. **Ограничьте число полей с высокой кратностью**. К полям с высокой кратностью относятся поля, поддерживающие применение аспектов и фильтров, которые имеют значительное количество уникальных значений и поэтому требуют большого числа вычислительных ресурсов для вычисления результатов. Например, если указать поле "Код продукта" или "Описание" как поддерживающее аспекты или фильтры, оно станет полем с высокой кратностью, так как большинство его значений между документами является уникальным. По возможности ограничивайте число полей с высокой кратностью.
 
-3. **Increase Search Tier:**  Moving up to a higher Azure Search tier can be another way to improve performance of slow queries.  Each higher tier also provides faster CPU’s and more memory which can have a positive impact on query performance.
+3. **Повысьте уровень службы поиска**. Переход на более высокий уровень Поиска Azure также может повысить скорость обработки медленно выполняемых запросов. Более высокий уровень также предоставляет более быстрые процессоры и больше памяти, что может положительно повлиять на производительность запросов.
 
-## <a name="scaling-for-availability"></a>Scaling for availability
+## Масштабирование для обеспечения доступности
 
-Replicas not only help reduce query latency but can also allow for high availability.  With a single replica, you should expect periodic downtime due to server reboots after software updates or for other maintenance events that will occur.  As a result, it is important to consider if your application requires high availability of searches (queries) as well as writes (indexing events).  Azure Search offers SLA options on all the paid search offerings with the following attributes:
+Реплики не только уменьшают задержки при обработке запросов, но и могут обеспечить высокий уровень доступности. При использовании одной реплики следует ожидать периодических простоев из-за перезагрузки сервера после обновления программного обеспечения или других операций технического обслуживания. Поэтому важно определить, требуется ли приложению высокий уровень доступности операций поиска (запросов) и записи (событий индексирования). Поиск Azure предлагает различные варианты соглашения об уровне обслуживания для всех платных предложений поиска со следующими атрибутами:
 
-- 2 replicas for high availability of read-only workloads (queries)
-- 3 or more replicas for high availability of read-write workloads (queries and indexing)
+- 2 реплики для обеспечения высокой доступности рабочих нагрузок для чтения (запросов).
+- 3 или более реплики для обеспечения высокой доступности рабочих нагрузок чтения и записи (запросов и индексирования).
 
-For more details on this, please visit the [Azure Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Дополнительные сведения об этом см. в [соглашении об уровне обслуживания для Поиска Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-Since replicas are copies of your data, having multiple replicas allows Azure Search to do machine reboots and maintenance against one replica at a time while allowing queries to continue to be executed against the other replicas.  For that reason, you will also need to consider how this downtime may impact the queries that now have to be executed against one less copy of the data.
+Так как реплики — это копии ваших данных, то наличие нескольких реплик позволяет Поиску Azure перезагружать виртуальные машины или компьютеры и осуществлять их обслуживание для одной реплики, обеспечивая выполнение запросов к другим репликам. Поэтому необходимо также рассмотреть, как эти простои могут повлиять на запросы, для выполнения которых теперь доступно на одну копию данных меньше.
 
-## <a name="scaling-geo-distributed-workloads-and-provide-geo-redundancy"></a>Scaling geo-distributed workloads and provide geo-redundancy
+## Масштабирование геораспределенных рабочих нагрузок и обеспечение геоизбыточности
 
-For geo-distributed workloads, you will find that users located far from the data center where your Azure Search service is hosted will have higher latency rates.  For this reason, it is often important to have multiple search services in regions that are in closer proximity to these users.  Azure Search does not currently provide an automated method of geo-replicating Azure Search indexes across regions, but there are some techniques that can be used that can make this process simple to implement and manage. These are outlined in the next few sections.
+При геораспределенных рабочих нагрузках вы увидите, что у пользователей, которые расположены далеко от центра обработки данных, где размещается служба Поиска Azure, выше значения задержки. По этой причине важно иметь несколько служб поиска в регионах, близких к этим пользователям. В настоящее время Поиск Azure не предоставляет автоматический метод георепликации индексов Поиска Azure между регионами, но доступны некоторые методы, с помощью которых легко реализовать этот процесс и управлять им. Они описаны в нескольких следующих разделах.
 
-The goal of a geo-distributed set of search services is to have two or more indexes available in two or more regions where a user will be routed to the Azure Search service that provides the lowest latency as seen in this example:
+Цель геораспределенного набора служб поиска — предоставить два или больше индексов, доступных в двух или больше регионах, в которые пользователь будет перенаправлен к службе Поиска Azure, обеспечивающей наименьшую задержку, как показано в этом примере.
 
-   ![Cross-tab of services by region][1]
+   ![Перекрестные запросы к службам по региону][1]
 
-### <a name="keeping-data-in-sync-across-multiple-azure-search-services"></a>Keeping data in sync across multiple Azure Search services
+### Синхронизация данных между несколькими службами Поиска Azure
 
-There are two options for keeping your distributed search services in sync which consist of either using the [Azure Search Indexer](search-indexer-overview.md) or the Push API (also referred to as the [Azure Search REST API](https://msdn.microsoft.com/library/dn798935.aspx)).  
+Существует два варианта обеспечить синхронизацию распределенных служб поиска: использовать [индексатор Поиска Azure](search-indexer-overview.md) или API Push (также называемый [REST API Поиска Azure](https://msdn.microsoft.com/library/dn798935.aspx)).
 
-### <a name="azure-search-indexers"></a>Azure Search Indexers
+### Индексаторы Поиска Azure
 
-If you are using the Azure Search Indexer, you are already importing data changes from a central datastore such as Azure SQL DB or DocumentDB. When you create a new search Service, you simply also create a new Azure Search Indexer for that service that points to this same datastore. That way, whenever new changes come into the data store, they will then be indexed by the various Indexers.  
+При использовании индексатора Поиска Azure выполняется импорт изменений данных из центрального хранилища данных, такого как база данных SQL Azure или DocumentDB. При создании новой службы поиска можно просто создать новый индексатор Поиска Azure для нее, который указывает на то же хранилище данных. В этом случае при каждом поступлении новых изменений в хранилище данных они будут индексироваться различными индексаторами.
 
-Here is an example of what that architecture would look like.
+Ниже приведен пример этой архитектуры.
 
-   ![Single data source with distributed indexer and service combinations][2]
+   ![Один источник данных с сочетаниями распределенного индексатора и службы][2]
 
 
-### <a name="push-api"></a>Push API 
-If you are using the Azure Search Push API to [update content in your Azure Search index](https://msdn.microsoft.com/library/dn798930.aspx), you can keep your various search services in sync by pushing changes to all search services whenever an update is required.  When doing this it is important to make sure to handle cases where an update to one search service fails and one or more updates succeed.
+### API Push 
+При использовании API Push службы поиска Azure для [обновления содержимого в индексе Поиска Azure](https://msdn.microsoft.com/library/dn798930.aspx) можно обеспечить синхронизацию различных служб поиска, отправляя изменения во все службы поиска всякий раз, когда требуется обновление. При этом важно предусмотреть обработку случаев, когда происходит сбой обновления одной службы поиска, но успешно выполнено одно или несколько обновлений.
 
-## <a name="leveraging-azure-traffic-manager"></a>Leveraging Azure Traffic Manager
+## Использование диспетчера трафика Azure
 
-[Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple Azure Search Services.  One advantage of the Traffic Manager is that it can probe Azure Search to ensure that it is available and route users to alternate search services in the event of downtime.  In addition, if you are routing search requests through Azure Web Sites, Azure Traffic Manager allows you to load balance cases where the Website is up but not Azure Search.  Here is an example of what the architecture that leverages Traffic Manager.
+[Диспетчер трафика Azure](../traffic-manager/traffic-manager-overview.md) позволяет перенаправлять запросы на несколько расположенных в разных географических регионах веб-сайтов, которые поддерживаются несколькими службами Поиска Azure. Одним из преимуществ диспетчера трафика является то, что он может проверять доступность Поиска Azure и направлять пользователей к альтернативным службам поиска в случае сбоя. Кроме того, если маршрутизация запросов на поиск осуществляется через веб-сайты Azure, то диспетчер трафика Azure позволяет балансировать нагрузку в случаях, когда веб-сайт работает, а Поиск Azure — нет. Ниже приведен пример архитектуры, использующей диспетчер трафика.
 
-   ![Cross-tab of services by region, with central Traffic Manager][3]
+   ![Перекрестные запросы к службам по региону с использованием диспетчера трафика][3]
 
-## <a name="monitoring-performance"></a>Monitoring performance
+## Мониторинг производительности
 
-Azure Search offers the ability to analyze and monitor the performance of your service through [Search Traffic Analytics (STA)](search-traffic-analytics.md). Through STA, you can optionally log the individual search operations as well as aggregated metrics to an Azure Storage account that can then be processed for analysis or visualized in Power BI.  Using STA metrics, you can review performance statistics such as average number of queries or query response times.  In addition, the operation logging allows you to drill into details of specific search operations.
+Поиск Azure предлагает возможность анализа и мониторинга производительности службы с помощью [аналитики поискового трафика (STA)](search-traffic-analytics.md). С помощью службы STA можно дополнительно вести журнал отдельных операций поиска, а также объединенных метрик в учетной записи хранения Azure, который затем можно обработать для анализа или визуализации в Power BI. С помощью метрик STA можно просмотреть статистику производительности, например среднее количество запросов или время ответа на запрос. Кроме того, ведение журнала операций позволяет детализировать сведения об операциях поиска.
 
-STA is a valuable tool to understand latency rates from that Azure Search perspective.  Since the query performance metrics logged are based on the time a query takes to be fully processed in Azure Search (from the time it is requested to when it is sent out), you are able to use this to determine if latency issues are from the Azure Search service side or outside of the service, such as from network latency.  
+STA является ценным инструментом, позволяющим понять причину задержек с точки зрения Поиска Azure. Так как метрики производительности запросов, регистрируемые в журнале, основаны на времени полного выполнения запроса в Поиске Azure (с момента поступления запроса до его отправки обратно), вы можете использовать их, чтобы определить источник проблем, порождающих задержки. Это могут быть задержки из-за службы Поиска Azure или, например, задержки сети.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-To learn more about the pricing tiers and services limits for each one, see [Service limits in Azure Search](search-limits-quotas-capacity.md).
+Чтобы больше узнать о ценовых категориях и лимитах служб, ознакомьтесь с разделом [Ограничения поиска Azure](search-limits-quotas-capacity.md).
 
-Visit [Capacity planning](search-capacity-planning.md) to learn more about partition and replica combinations.
+Статья [Планирование ресурсов](search-capacity-planning.md) поможет больше узнать о различных сочетаниях секций и реплик.
 
-For more drilldown on performance and to see some demonstrations of how to implement the optimizations discussed in this article, watch the following video:
+Чтобы более детально ознакомиться с производительностью и увидеть, как можно реализовать оптимизации, описанные в этой статье, посмотрите следующее видео.
 
 > [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
@@ -127,7 +126,4 @@ For more drilldown on performance and to see some demonstrations of how to imple
 [2]: ./media/search-performance-optimization/scale-indexers.png
 [3]: ./media/search-performance-optimization/geo-search-traffic-mgr.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

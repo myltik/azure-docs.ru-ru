@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric architecture | Microsoft Azure"
-   description="Service Fabric is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud. This article shows the architecture of Service Fabric."
+   pageTitle="Архитектура Service Fabric | Microsoft Azure"
+   description="Service Fabric представляет собой платформу распределенных систем, используемых для создания масштабируемых, надежных и легко управляемых приложений в облаке. В настоящей статье освещается архитектура структуры служб."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -16,54 +16,49 @@
    ms.date="06/09/2016"
    ms.author="rsinha"/>
 
+# Архитектура Service Fabric
 
-# <a name="service-fabric-architecture"></a>Service Fabric architecture
+Service Fabric имеет многоуровневые подсистемы. Эти подсистемы позволяют создавать приложения, которые обладают следующими свойствами:
 
-Service Fabric is built with layered subsystems. These subsystems enable you to write applications that are:
+* высокая доступность,
+* масштабируемость,
+* управляемость,
+* тестируемость.
 
-* Highly available
-* Scalable
-* Manageable
-* Testable
+На следующей схеме показаны основные подсистемы Service Fabric.
 
-The following diagram shows the major subsystems of Service Fabric.
+![Схема архитектуры Service Fabric](media/service-fabric-architecture/service-fabric-architecture.png)
 
-![Diagram of Service Fabric architecture](media/service-fabric-architecture/service-fabric-architecture.png)
+В распределенной системе возможность безопасного обмена данными между различными узлами кластера имеет решающее значение. В основании стека находится транспортная подсистема, которая обеспечивает безопасный обмен данными между узлами. Уровнем выше транспортной системы находится подсистема федерации, которая предназначена для объединения разных узлов в кластер как единую сущность (именованные кластеры). Таким образом, Service Fabric может обнаруживать ошибки, выбирать лидера и осуществлять согласованную маршрутизацию. Подсистема надежности, расположенная уровнем выше подсистемы федерации, обеспечивает надежность служб Service Fabric с помощью таких механизмов, как репликация, управление ресурсами и отработка отказа. Подсистема федерации также является основой для подсистемы хостинга и активации, которая управляет жизненным циклом приложения на отдельном узле. Подсистема управления управляет жизненным циклом приложений и служб. Подсистема тестирования помогает разработчикам приложений проверять работу своих служб, имитируя ошибки и сбои до и после развертывания приложений и служб в производственных средах. Service Fabric обеспечивает возможность разрешать местоположения служб через подсистему коммуникации. Модели программирования приложений, предоставляемые разработчикам, располагаются поверх этих подсистем вместе с моделью приложения для включения инструментария.
 
-In a distributed system, the ability to securely communicate between nodes in a cluster is crucial. At the base of the stack is the transport subsystem, which provides secure communication between nodes. Above the transport subsystem lies the federation subsystem, which clusters the different nodes into a single entity (named clusters) so that Service Fabric can detect failures, perform leader election, and provide consistent routing. The reliability subsystem, layered on top of the federation subsystem, is responsible for the reliability of Service Fabric services through mechanisms such as replication, resource management, and failover. The federation subsystem also underlies the hosting and activation subsystem, which manages the lifecycle of an application on a single node. The management subsystem manages the lifecycle of applications and services. The testability subsystem helps application developers test their services through simulated faults before and after deploying applications and services to production environments. Service Fabric provides the ability to resolve service locations through its communication subsystem. The application programming models exposed to developers are layered on top of these subsystems along with the application model to enable tooling.
+## Транспортная подсистема
+Транспортная подсистема реализована на модели обмена данными по каналу "точка-точка". Этот канал используется для обмена данными в пределах кластера Service Fabric и между кластером Service Fabric и клиентами. Поддерживается как односторонняя модель обмена данными, так и модель на основе схемы "запрос — ответ". Это позволяет внедрять технологии широковещательной и многоканальной трансляции на уровне федерации. Транспортная подсистема обеспечивает безопасность при обмене данными за счет использования сертификатов X509 или средств безопасности Windows. Эта подсистема используется в рамках Service Fabric. При программировании приложений она недоступна напрямую для разработчиков.
 
-## <a name="transport-subsystem"></a>Transport subsystem
-The transport subsystem implements a point-to-point datagram communication channel. This channel is used for communication within service fabric clusters and communication between the service fabric cluster and clients. It supports one-way and request-reply communication patterns, which provides the basis for implementing broadcast and multicast in the Federation layer. The transport subsystem secures communication by using X509 certificates or Windows security. This subsystem is used internally by Service Fabric and is not directly accessible to developers for application programming.
+## Подсистема федерации
+Чтобы рассуждать о наборе узлов в распределенной системе, нам потребуется сформировать целостное представление обо всей системе. Подсистема федерации использует составные элементы обмена данными, предоставляемые транспортной подсистемой, и объединяет различные узлы в единый унифицированный кластер. Это обеспечивает составные элементы распределенной системы, которые требуются другим подсистемам: обнаружение сбоев, выбор лидера и постоянная маршрутизация. Подсистема федерации основана на распределенных хэш-таблицах с 128-разрядным пространством маркера. Она создает кольцевую топологию на узлах, где каждому узлу в кольце выделяется подмножество пространства маркера для владельца. Для обнаружения ошибок этот уровень использует механизм аренды, основанный на сердцебиении и разрешении конфликтов. Кроме того, подсистема федерации при помощи сложных протоколов присоединения и отсоединения гарантирует, что в конкретный момент существует только один владелец. Это позволяет выбирать лидера и обеспечивать согласованную маршрутизацию.
 
-## <a name="federation-subsystem"></a>Federation subsystem
-In order to reason about a set of nodes in a distributed system, you need to have a consistent view of the system. The federation subsystem uses the communication primitives provided by the transport subsystem and stitches the various nodes into a single unified cluster that it can reason about. It provides the distributed systems primitives needed by the other subsystems - failure detection, leader election, and consistent routing. The federation subsystem is built on top of distributed hash tables with a 128-bit token space. The subsystem creates a ring topology over the nodes, with each node in the ring being allocated a subset of the token space for ownership. For failure detection, the layer uses a leasing mechanism based on heart beating and arbitration. The federation subsystem also guarantees through intricate join and departure protocols that only a single owner of a token exists at any time. This provide leader election and consistent routing guarantees.
+## Подсистема надежности
+Подсистема надежности предусматривает механизм, обеспечивающий высокую доступность службы Service Fabric за счет использования _репликатора_, _диспетчера отработки отказов_ и _балансировщика нагрузки_.
 
-## <a name="reliability-subsystem"></a>Reliability subsystem
-The reliability subsystem provides the mechanism to make the state of a Service Fabric service highly available through the use of the _Replicator_, _Failover Manager_, and _Resource Balancer_.
+* Репликатор следит за тем, чтобы смена состояний в основной реплике службы автоматически реплицировалась на вторичные реплики, поддерживая согласованность между первичной и вторичной репликами в наборе реплик службы. Репликатор отвечает за управление кворумом между репликами в наборе. Он взаимодействует с единицей отработки отказа, чтобы получить список операций для репликации, а агент перенастройки предоставляет ему конфигурацию набора реплик. В этой конфигурации указано, на какие реплики необходимо реплицировать операции. В Service Fabric используется репликатор по умолчанию, который называется репликатором структуры. Он может использоваться API модели программирования для обеспечения высокодоступного и надежного состояния службы.
+* Диспетчер отработки отказов отвечает за автоматическое перераспределение нагрузки между доступными узлами при добавлении или удалении узлов из кластера. Кластер автоматически перенастроит реплики службы при отказе одного из узлов в кластере, обеспечивая доступность.
+* Диспетчер ресурсов размещает реплики служб в домене сбоя по кластеру и обеспечивает работу всех единиц отработки отказа. Диспетчер ресурсов также распределяет ресурсы службы в рамках совместного пула узлов кластера, обеспечивая равномерное распределение нагрузки.
 
-* The Replicator ensures that state changes in the primary service replica will automatically be replicated to secondary replicas, maintaining consistency between the primary and secondary replicas in a service replica set. The replicator is responsible for quorum management among the replicas in the replica set. It interacts with the failover unit to get the list of operations to replicate, and the reconfiguration agent provides it with the configuration of the replica set. That configuration indicates which replicas the operations need to be replicated. Service Fabric provides a default replicator called Fabric Replicator, which can be used by the programming model API to make the service state highly available and reliable.
-* The Failover Manager ensures that when nodes are added to or removed from the cluster, the load is automatically redistributed across the available nodes. If a node in the cluster fails, the cluster will automatically reconfigure the service replicas to maintain availability.
-* The Resource Manager places service replicas across failure domain in the cluster and ensures that all failover units are operational. The Resource Manager also balances service resources across the underlying shared pool of cluster nodes to achieve optimal uniform load distribution.
+## Подсистема управления
+Подсистема управления обеспечивает комплексное управление жизненным циклом приложений и служб. Командлеты PowerShell и API администрирования позволяют без потери доступности подготавливать к работе, развертывать, обновлять и удалять приложения, а также добавлять в них исправления. Подсистема управления выполняет это при помощи следующих служб.
 
-## <a name="management-subsystem"></a>Management subsystem
-The management subsystem provides end-to-end service and application lifecycle management. PowerShell cmdlets and administrative APIs enable you to provision, deploy, patch, upgrade, and de-provision applications without loss of availability. The management subsystem performs this through the following services.
-
-* **Cluster Manager**: This is the primary service that interacts with the Failover Manager from reliability to place the applications on the nodes based on the service placement constraints. The Resource Manager in failover subsystem ensures that the constraints are never broken. The cluster manager manages the lifecycle of the applications from provision to de-provision. It integrates with the health manager to ensure that application availability is not lost from a semantic health perspective during upgrades.
-* **Health Manager**: This service enables health monitoring of applications, services, and cluster entities. Cluster entities (such as nodes, service partitions, and replicas) can report health information, which is then aggregated into the centralized health store. This health information provides an overall point-in-time health snapshot of the services and nodes distributed across multiple nodes in the cluster, enabling you to take any needed corrective actions. Health query APIs enable you to query the health events reported to the health subsystem. The health query APIs return the raw health data stored in the health store or the aggregated, interpreted health data for a specific cluster entity.
-* **Image Store**: This service provides storage and distribution of the application binaries. This service provides a simple distributed file store where the applications are uploaded to and downloaded from.
-
-
-## <a name="hosting-subsystem"></a>Hosting subsystem
-The cluster manager informs the hosting subsystem (running on each node) which services it needs to manage for a particular node. The hosting subsystem then manages the lifecycle of the application on that node. It interacts with the reliability and health components to ensure that the replicas are properly placed and are healthy.
-
-## <a name="communication-subsystem"></a>Communication subsystem
-This subsystem provides reliable messaging within the cluster and service discovery through the Naming service. The Naming service resolves service names to a location in the cluster and enables users to manage service names and properties. Using the Naming service, clients can securely communicate with any node in the cluster to resolve a service name and retrieve service metadata. Using a simple Naming client API, users of Service Fabric can develop services and clients capable of resolving the current network location despite node dynamism or the re-sizing of the cluster.
-
-## <a name="testability-subsystem"></a>Testability subsystem
-Testability is a suite of tools specifically designed for testing services built on Service Fabric. The tools let a developer easily induce meaningful faults and run test scenarios to exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled and safe manner. Testability also provides a mechanism to run longer tests that can iterate through various possible failures without losing availability. This provides you with a test-in-production environment.
+* **Диспетчер кластера** представляет собой главную службу, которая взаимодействует с диспетчером отработки отказов с точки зрения обеспечения надежности, чтобы размещать приложения на узлах на основании ограничений на размещение служб. Диспетчер ресурсов в подсистеме отработки отказа обеспечивает соблюдение установленных ограничений. Диспетчер кластеров управляет жизненным циклом приложений, включая подготовку и ее отмену. Он интегрируется с диспетчером работоспособности, чтобы обеспечить доступность приложения с точки зрения семантической работоспособности во время обновлений.
+* **Диспетчер работоспособности** активирует наблюдение за работоспособностью приложений, служб и сущностей кластеров. Сущности кластеров (такие как узлы, разделы служб и реплики) могут сообщать сведения о работоспособности, которые затем собираются в централизованное хранилище данных о работоспособности. Эти сведения о работоспособности предоставляют общие моментальные снимки о состоянии работоспособности служб и узлов, распределенных между многими узлами кластера, позволяя предпринимать своевременные корректирующие действия. Интерфейсы API работоспособности позволяют опрашивать события работоспособности, переданные в подсистему работоспособности. Интерфейсы API работоспособности возвращают необработанные данные о работоспособности, которые размещаются в хранилище данных о работоспособности, или агрегированные и интерпретированные данные о работоспособности для конкретной сущности кластера.
+* **Хранилище образов** позволяет хранить и распространять двоичные файлы приложений. Эта служба представляет собой простое распределенное хранилище файлов, в которое отправляются и из которого скачиваются приложения.
 
 
+## Подсистема хостинга
+Диспетчер кластеров информирует подсистему хостинга (работающую на каждом узле) о том, какими службами ему необходимо управлять на каждом конкретном узле. Подсистема хостинга затем управляет жизненным циклом приложения на этом узле. Она взаимодействует с компонентами обеспечения надежности и работоспособности, чтобы обеспечить нужное размещение реплик и их работоспособность.
 
-<!--HONumber=Oct16_HO2-->
+## Подсистема связи
+Эта подсистема предоставляет надежный обмен сообщениями в пределах кластера, а также функции обнаружения служб через службу именования. Служба именования присваивает имена служб определенному расположению в кластере, позволяя пользователям управлять именами и свойствами. Используя службу именования, клиенты могут безопасно обмениваться данными с любыми узлами в кластере, чтобы разрешать имена и извлекать метаданные служб. С помощью простого API именования клиента пользователи Service Fabric могут разрабатывать службы и клиенты, способные разрешать текущее сетевое расположение независимо от динамичности узлов или изменения размера кластера.
 
+## Подсистема тестирования
+Подсистема тестирования представляет собой набор инструментов, специально предназначенных для тестирования служб, созданных в структуре служб. Эти инструменты позволяют разработчику легко вызывать значимые ошибки и запускать тестовые сценарии, чтобы воспроизводить и проверять в контролируемых и безопасных условиях разные состояния и переходы, происходящие со службой в течение ее жизненного цикла. Средства тестирования также предоставляют механизм для запуска долговременных тестов с возможностью итерации по вероятным ошибкам без потери доступности. Это обеспечивает возможность тестирования в рабочей среде.
 
+<!---HONumber=AcomDC_0629_2016-->

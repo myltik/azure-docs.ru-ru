@@ -1,41 +1,38 @@
-#### <a name="to-create-a-virtual-device"></a>To create a virtual device
+#### Создание виртуального устройства
 
-1.  In the Azure portal, go to the **StorSimple Manager** service.
+1.  В портале Azure перейдите в службу **диспетчера StorSimple**.
 
-2. Go to the **Devices** page. Click **Create virtual device** at the bottom of the **Devices** page.
+2. Откройте страницу **Устройства**. Щелкните **Создать виртуальное устройство** в нижней части страницы **Устройства**.
 
-3. In the **Create Virtual Device dialog box**, specify the following details.
+3. В диалоговом окне **Создание виртуального устройства** укажите следующее:
 
-     ![StorSimple create virtual device](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+     ![Создание виртуального устройства StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
 
-    1. **Name** – A unique name for your virtual device.
+	1. **Имя** — уникальное имя виртуального устройства.
 
 
-    2. **Model** - Choose the model of the virtual device. This field is presented only if you are running Update 2 or later. An 8010 device model offers 30 TB of Standard Storage whereas 8020 has 64 TB of Premium Storage. Specify 8010
-    3.  to deploy item level retrieval  scenarios from backups. Select 8020 to deploy high performance, low latency workloads or used as a secondary device for disaster recovery.
-     
-    4. **Version** - Choose the version of the virtual device. If an 8020 device model is selected, then the version field will not be presented to the user. This option is absent if all the physical devices registered with this service are running Update 1 (or later). This field is presented only if you have a mix of pre-Update 1 and Update 1 physical devices registered with the same service. Given the version of the virtual device will determine which physical device you can failover or clone from, it is important that you create an appropriate version of the virtual device. Select:
+	2. **Модель** — выберите модель виртуального устройства. Это поле отображается только в том случае, если используется обновление версии 2 или более поздней версии. Модель устройства 8010 предлагает 30 ТБ хранилища класса Standard, а 8020 имеет 64 ТБ хранилища класса Premium. Укажите 8010
+	3.  для развертывания сценариев извлечения уровня элемента из резервных копий. Выберите 8020 для развертывания высокопроизводительных рабочих нагрузок с низкой задержкой или использования устройства в качестве вторичного устройства для аварийного восстановления.
+	 
+	4. **Версия** — выберите версию виртуального устройства. Если выбрана модель устройства 8020, поле версии не будет отображаться для пользователя. Этот параметр будет отсутствовать, если на всех физических устройствах, зарегистрированных с помощью этой службы, запущено обновление версии 1 (или более поздней версии). Это поле будет отображаться, только если вы зарегистрировали в одной и той же службе физические устройства как с предварительным обновлением версии 1, так и с обновлением версии 1. При наличии версии виртуального устройства вы сможете определить, с какого физического устройства можно выполнить отработку отказа или клонирование. Важно создать соответствующую версию виртуального устройства. Выбор:
 
-       - Version Update 0.3 if you will fail over or DR from a physical device running Update 0.3 or earlier. 
-       - Version Update 1 if you will fail over or clone from a physical device running Update 1 (or later). 
-       
+	   - Обновление до версии 0.3 при отработке отказа или аварийном восстановлении с физического устройства с обновлением версии 0.3 или более ранней версии. 
+	   - Обновление до версии 1 при отработке отказа или клонировании с физического устройства с обновлением версии 1 (или более поздней версии). 
+	   
+	
+	5. **Виртуальная сеть** — укажите виртуальную сеть, которую следует использовать для этого виртуального устройства. При использовании хранилища класса Premium (обновление версии 2 или более поздней версии) необходимо выбрать виртуальную сеть, которая поддерживается учетной записью хранения класса Premium. Неподдерживаемые виртуальные сети в раскрывающемся списке будут выделены серым. При выборе неподдерживаемой виртуальной сети вы увидите предупреждение. 
+
+	5. **Учетная запись хранения для создания виртуального устройства** — выберите учетную запись хранения для хранения образа виртуального устройства во время подготовки. Эта учетная запись хранения должна находиться в том же регионе, что и виртуальное устройство и виртуальная сеть. Она не должна использоваться для хранения данных физическим или виртуальным устройством. По умолчанию для этой цели будет создана новая учетная запись хранения. Однако если у вас уже есть подходящая учетная запись хранения, вы можете выбрать ее в списке. При создании виртуального устройства класса Premium в раскрывающемся списке будут отображаться только учетные записи хранения класса Premium.
+
+    	>[AZURE.NOTE]Виртуальное устройство работает только с учетными записями хранения Azure. Другие поставщики облачных служб, например Amazon, HP и OpenStack (которые поддерживаются для физического устройства), не поддерживаются для виртуального устройства StorSimple.
+	
+	1. Установите флажок, чтобы указать, что вы понимаете, что данные, сохраненные на виртуальном устройстве, будут размещены в центре обработки данных Майкрософт. При использовании только физического устройства ваш ключ шифрования сохраняется на устройстве, следовательно, Майкрософт не может расшифровать его.
+	 
+		При использовании виртуального устройства ключ шифрования и ключ расшифровки хранятся в Microsoft Azure. Дополнительные сведения см. в статье [Рекомендации по безопасности при использовании виртуального устройства](storsimple-security/#storsimple-virtual-device-security).
+	2. Чтобы создать виртуальное устройство, поставьте галочку. Подготовка устройства может занять около 30 минут.
+
+	![Этап создания виртуального устройства StorSimple](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
+
     
-    5. **Virtual Network** – Specify a virtual network that you want to use with this virtual device. If using Premium Storage (Update 2 or later), you must select a virtual network that is supported with the Premium Storage account. The unsupported virtual networks will be grayed out in the dropdown list. You will be warned if you select an unsupported virtual network. 
 
-    5. **Storage Account for Virtual Device Creation** – Select a storage account to hold the image of the virtual device during provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. If creating a premium virtual device, the dropdown list will only display Premium Storage accounts. 
-
-        >[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP, and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
-    
-    1. Click the check mark to indicate that you understand that the data stored on the virtual device will be hosted in a Microsoft datacenter. When you use only a physical device, your encryption key is kept with your device; therefore, Microsoft cannot decrypt it. 
-     
-        When you use a virtual device, both the encryption key and the decryption key are stored in Microsoft Azure. For more information, see [security considerations for using a virtual device](storsimple-security/#storsimple-virtual-device-security).
-    2. Click the check icon to create the virtual device. The device may take around 30 minutes to be provisioned.
-
-    ![StorSimple virtual device creating stage](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
-
-    
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Defining and managing state | Microsoft Azure"
-   description="How to define and manage service state in Service Fabric"
+   pageTitle="Определение состояния и управление им | Microsoft Azure"
+   description="Определение состояния службы и управление им в инфраструктуре службы"
    services="service-fabric"
    documentationCenter=".net"
    authors="appi101"
@@ -16,33 +16,28 @@
    ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
+# Состояние службы
+**Состояние службы** — это данные, необходимые службе для функционирования. Это структуры данных и переменные, которые считываются и записываются работающей службой.
 
-# <a name="service-state"></a>Service state
-**Service state** refers to the data that the service requires in order to function. It includes the data structures and variables that the service reads and writes to do work.
+Например, рассмотрим простую службу калькулятора. Эта служба получает два числа и возвращает их сумму. Служба используется исключительно без отслеживания состояния, и с ней не связано никаких данных.
 
-Consider a simple calculator service, for example. This service takes two numbers and returns their sum. This is a purely stateless service that has no data associated with it.
+Рассмотрим такой же калькулятор, но добавим к вычислению суммы также метод для возврата последней вычисленной суммы. Теперь эта служба отслеживает состояние. Она содержит состояние, в которое осуществляет запись (при вычислении новой суммы) и из которого осуществляет чтение (при возврате последней вычисляемой суммы).
 
-Now consider the same calculator, but in addition to computing sum, it also has a method for returning the last sum it has computed. This service is now stateful--it contains some state that it writes to (when it computes a new sum) and reads from (when it returns the last computed sum).
+В Azure Service Fabric первая служба называется службой без отслеживания состояния. Вторая служба называется службой с отслеживанием состояния.
 
-In Azure Service Fabric, the first service is called a stateless service. The second service is called a stateful service.
+## Сохранение состояния службы
+Состояние может быть выведено вовне или размещено совместно с кодом, который оперирует состоянием. Экстернализация состояния обычно выполняется путем использования внешней базы данных или хранилища. В нашем примере с калькулятором может использоваться база данных SQL, в которой текущий результат сохраняется в таблице. Каждый запрос на вычисление суммы выполняет обновление содержания этой строки.
 
-## <a name="storing-service-state"></a>Storing service state
-State can be either externalized or co-located with the code that is manipulating the state. Externalization of state is typically done by using an external database or store. In our calculator example, this could be a SQL database in which the current result is stored in a table. Every request to compute the sum performs an update on this row.
+Состояние может также размещаться вместе с кодом, который манипулирует этим кодом. Службы с отслеживанием состояния в структуре служб создаются на основе этой модели. Service Fabric предоставляет инфраструктуру, обеспечивающую высокую доступность и отказоустойчивость этого состояния в случае ошибок.
 
-State can also be co-located with the code that manipulates this code. Stateful services in Service Fabric are built using this model. Service Fabric provides the infrastructure to ensure that this state is highly available and fault tolerant in the event of a failure.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+Дополнительные сведения о концепциях Service Fabric см. в следующих статьях:
 
-For more information on Service Fabric concepts, see the following:
+- [Доступность служб структуры служб](service-fabric-availability-services.md)
 
-- [Availability of Service Fabric services](service-fabric-availability-services.md)
+- [Масштабируемость служб структуры служб](service-fabric-concepts-scalability.md)
 
-- [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
+- [Разделение служб Service Fabric](service-fabric-concepts-partitioning.md)
 
-- [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

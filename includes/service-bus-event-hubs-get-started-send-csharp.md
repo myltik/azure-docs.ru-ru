@@ -1,71 +1,68 @@
-## <a name="send-messages-to-event-hubs"></a>Send messages to Event Hubs
+## Отправка сообщений в центры событий
 
-In this section, you'll write a Windows console app that sends events to your Event Hub.
+В этом разделе создается консольное приложение Windows для отправки событий в концентратор событий.
 
-1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Sender**.
+1. Создайте в Visual Studio новый проект Visual C# для классических приложений с помощью шаблона проекта **Консольное приложение**. Назовите проект **Sender**.
 
-    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
+	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
 
-2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**. 
+2. В обозревателе решений щелкните решение правой кнопкой мыши и выберите пункт **Управление пакетами NuGet для решения**.
 
-3. Click the **Browse** tab, then search for `Microsoft Azure Service Bus`. Ensure that the project name (**Sender**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use. 
+3. Щелкните вкладку **Обзор** и выполните поиск по строке `Microsoft Azure Service Bus`. Убедитесь, что имя проекта (**Sender**) указано в поле **Версии**. Щелкните **Установить** и примите условия использования.
 
-    ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
+	![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
 
-    Visual Studio downloads, installs, and adds a reference to the [Azure Service Bus library NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
+	Visual Studio скачает, установит и добавит ссылку на [пакет NuGet библиотеки служебной шины Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 
-4. Add the following `using` statements at the top of the **Program.cs** file:
+4. Добавьте следующие инструкции `using` в начало файла **Program.cs**:
 
-    ```
-    using System.Threading;
-    using Microsoft.ServiceBus.Messaging;
-    ```
+	```
+	using System.Threading;
+	using Microsoft.ServiceBus.Messaging;
+	```
 
-5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the namespace-level connection string you saved previously.
+5. Добавьте в класс **Program** приведенные ниже поля и укажите в качестве значений имя концентратора событий, созданного в предыдущем разделе, и сохраненную ранее строку подключения уровня пространства имен.
 
-    ```
-    static string eventHubName = "{Event Hub name}";
-    static string connectionString = "{send connection string}";
-    ```
+	```
+	static string eventHubName = "{Event Hub name}";
+	static string connectionString = "{send connection string}";
+	```
 
-6. Add the following method to the **Program** class:
+6. Добавьте следующий метод в класс **Program**.
 
-    ```
-    static void SendingRandomMessages()
-    {
-        var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
-        while (true)
-        {
-            try
-            {
-                var message = Guid.NewGuid().ToString();
-                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
-                eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
-            }
-            catch (Exception exception)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
-                Console.ResetColor();
-            }
+	```
+	static void SendingRandomMessages()
+	{
+	    var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
+	    while (true)
+	    {
+	        try
+	        {
+	            var message = Guid.NewGuid().ToString();
+	            Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
+	            eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
+	        }
+	        catch (Exception exception)
+	        {
+	            Console.ForegroundColor = ConsoleColor.Red;
+	            Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
+	            Console.ResetColor();
+	        }
 
-            Thread.Sleep(200);
-        }
-    }
-    ```
+	        Thread.Sleep(200);
+	    }
+	}
+	```
 
-    This method continuously sends events to your Event Hub with a 200-ms delay.
+	Этот метод постоянно отправляет события в концентратор событий с задержкой 200 мс.
 
-7. Finally, add the following lines to the **Main** method:
+7. Наконец, добавьте следующие строки в метод **Main**:
 
-    ```
-    Console.WriteLine("Press Ctrl-C to stop the sender process");
-    Console.WriteLine("Press Enter to start now");
-    Console.ReadLine();
-    SendingRandomMessages();
-    ```
+	```
+	Console.WriteLine("Press Ctrl-C to stop the sender process");
+	Console.WriteLine("Press Enter to start now");
+	Console.ReadLine();
+	SendingRandomMessages();
+	```
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

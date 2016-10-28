@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Protecting your applications in Azure Security Center  | Microsoft Azure"
-   description="This document addresses recommendations in Azure Security Center that help you protect your Azure applications and stay in compliance with security policies."
+   pageTitle="Защита приложений в центре безопасности Azure | Microsoft Azure"
+   description="В этом документе рассматриваются рекомендации в центре безопасности Azure, которые помогают защитить приложения Azure и обеспечить соответствие политикам безопасности."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,36 +16,31 @@
    ms.date="08/04/2016"
    ms.author="terrylan"/>
 
+# Защита приложений в центре безопасности Azure
 
-# <a name="protecting-your-applications-in-azure-security-center"></a>Protecting your applications in Azure Security Center
+Центр безопасности Azure анализирует состояние безопасности ресурсов Azure. Когда центр безопасности выявляет потенциальные уязвимости в системе безопасности, он создает рекомендации по настройке необходимых элементов управления. Рекомендации относятся к следующим типам ресурсов Azure: виртуальные машины (ВМ), сети, SQL и приложения.
 
-Azure Security Center analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls.  Recommendations apply to Azure resource types: virtual machines (VMs), networking, SQL, and applications.
+В этой статье рассматриваются рекомендации, которые касаются приложений. Они сфокусированы в основном на развертывании брандмауэра приложения. В таблице ниже приведены справочные сведения по доступным рекомендациям, касающимся приложений, и действиям, выполняемым при их применении.
 
-This article addresses recommendations that apply to applications.  Application recommendations center around deployment of a web application firewall.  Use the table below as a reference to help you understand the available application recommendations and what each one will do if you apply it.
+## Доступные рекомендации по приложениям
 
-## <a name="available-application-recommendations"></a>Available application recommendations
-
-|Recommendation|Description|
+|Рекомендации|Описание|
 |-----|-----|
-|[Add a web application firewall](security-center-add-web-application-firewall.md)|Recommends that you deploy a web application firewall (WAF) for web endpoints. You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future.|
-|[Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection)|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes.|
+|[Добавление брандмауэра веб-приложения](security-center-add-web-application-firewall.md)|Рекомендует выполнить развертывание брандмауэра веб-приложения (WAF) для конечных точек веб-службы. Вы можете защитить несколько веб-приложений в центре обеспечения безопасности, добавив эти приложения в существующие развернутые службы WAF. Устройства WAF (созданные с помощью модели развертывания Resource Manager) должны быть развернуты в отдельной виртуальной сети. Устройства WAF (созданные с помощью классической модели развертывания) ограничены заданной группой безопасности сети. В будущем эта поддержка будет расширена до полностью настраиваемого развертывания устройства WAF (в классической модели).|
+|[Завершение подготовки защиты приложений](security-center-add-web-application-firewall.md#finalize-application-protection)|Для завершения настройки брандмауэра веб-приложения трафик должен перенаправляться в модуль WAF. В соответствии с этой рекомендацией в установку будут внесены необходимые изменения.|
 
-## <a name="see-also"></a>See also
+## Дополнительные материалы
 
-To learn more about recommendations that apply to other Azure resource types, see the following:
+Дополнительные сведения о рекомендациях, которые относятся к другим типам ресурсов Azure, см. в следующих статьях:
 
-- [Protecting your virtual machines in Azure Security Center](security-center-virtual-machine-recommendations.md)
-- [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
-- [Protecting your Azure SQL service in Azure Security Center](security-center-sql-service-recommendations.md)
+- [Защита виртуальных машин в центре безопасности Azure](security-center-virtual-machine-recommendations.md).
+- [Защита сети в центре безопасности Azure](security-center-network-recommendations.md).
+- [Защита службы SQL Azure в центре безопасности Azure](security-center-sql-service-recommendations.md).
 
-To learn more about Security Center, see the following:
+Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
+- [Настройка политик безопасности в центре безопасности Azure](security-center-policies.md). Узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
+- [Управление оповещениями безопасности в центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md). Узнайте, как управлять оповещениями системы безопасности и реагировать на них.
+- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Ответы на часто задаваемые вопросы об использовании этой службы.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

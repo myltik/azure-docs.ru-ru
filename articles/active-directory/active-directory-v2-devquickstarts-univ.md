@@ -1,33 +1,29 @@
 <properties
-    pageTitle="Azure AD v2.0 Windows Universal App | Microsoft Azure"
-    description="How to build an Windows Universal app that signs users in with both personal Microsoft Account and work or school accounts."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Универсальное приложение для Windows для Azure AD версии 2.0 | Microsoft Azure"
+	description="Как создать универсальное приложение Windows, которое поддерживает вход пользователей в систему с помощью лично, рабочей и учебной учетной записью Майкрософт."
+	services="active-directory"
+	documentationCenter=""
+	authors="dstrockis"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.topic="article"
-    ms.tgt_pltfrm="mobile-windows-store"
-    ms.devlang="dotnet"
-    ms.date="02/20/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.topic="article"
+  	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.date="02/20/2016"
+	ms.author="dastrock"/>
 
-  
-# <a name="add-sign-in-to-a-windows-universal-app-using-the-v2.0-endpoint"></a>Add sign-in to a Windows Universal app using the v2.0 endpoint
-  The quick-start tutorial for Windows Universal apps isn't quite ready... Check back soon & look for updates from @AzureAD on Twitter.
+  # Добавление функции входа в универсальное приложение для Windows с помощью конечной точки версии 2.0. 
+  Краткий учебник для универсальных приложений для Windows еще не совсем готов… Вернитесь через некоторое время и следите за каналом @AzureAD в Твиттере.
 
 > [AZURE.NOTE]
-    Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
-    
-    ## Get security updates for our products
+	Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
+	
+	## Get security updates for our products
 
-We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
+Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

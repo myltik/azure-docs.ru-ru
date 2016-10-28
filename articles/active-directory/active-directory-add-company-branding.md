@@ -1,234 +1,232 @@
 <properties
-    pageTitle="Add company branding to your sign-in and Access Panel pages"
-    description="Learn how to add a company branding to the Azure sign-in page and the access panel page"
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Добавление фирменной символики компании на страницах входа и панели доступа"
+	description="Сведения о добавлении фирменной символики на страницу входа в Azure и панели доступа"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/30/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/30/2016"
+	ms.author="curtand"/>
+
+# Добавление фирменной символики компании на страницах входа и панели доступа
 
 
-# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Add company branding to your sign-in and Access Panel pages
+Чтобы избежать путаницы, многие компании используют единый стиль оформления всех веб-сайтов и служб, которыми они управляют. Azure Active Directory предоставляет такую возможность, позволяя настраивать внешний вид следующих веб-страниц, добавляя на них корпоративный логотип и цветовые схемы.
 
+- **Страница входа**: эту страницу вы будете видеть при входе в Office 365 или другие веб-приложения, использующие Azure AD в качестве поставщика удостоверений. Вы взаимодействуете с этой страницей во время обнаружения домашней области или ввода учетных данных. Обнаружение домашней области позволяет системе перенаправлять федеративных пользователей в соответствующую локальную службу маркеров безопасности (например, AD FS).
 
-To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory provides this capability by allowing you to customize the appearance of the following web pages with your company logo and custom color schemes:
+- **Страница панели доступа**. Панель доступа представляет собой веб-портал, который позволяет просматривать и запускать облачные приложения, к которым вам предоставил доступ администратор Azure AD. Чтобы получить доступ к панели доступа, перейдите по следующему URL-адресу: [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-- **Sign-in page** - This is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page either during a Home Realm Discovery or to enter your credentials. The Home Realm Discovery allows the system to redirect federated users to their on-premises STS (such as AD FS).
-
-- **Access Panel page** - The Access Panel is a web-based portal that allows you to view and launch the cloud-based applications your Azure AD administrator has granted you access to. To access the Access Panel, use the following URL: [https://myapps.microsoft.com](https://myapps.microsoft.com).
-
-This topic explains how you can customize the sign-in page and the access panel page.
-
-> [AZURE.NOTE]
->
-- Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory, or are an Office 365 user. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-- Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
-
-
-
-## <a name="customizing-the-sign-in-page"></a>Customizing the sign-in page
-
-Typically, if you need browser-based access to your cloud apps and services that your organization subscribes to, you use the sign-in page.
-
-If you have applied changes to your sign-in page, it can take up to an hour for the changes to appear.
-
-A branded sign-in page only appears when you visit a service with a tenant-specific URL such as https://outlook.com/**contoso**.com, or https://mail.**contoso**.com.
-
-When you visit a service with non-tenant specific URLs (e.g.: https://mail.office365.com), a non-branded sign-in page appears. in this case, your branding appears once you have entered your user ID or you have selected a user tile.
+В этом разделе объясняется, как настроить страницу входа и страницу панели доступа.
 
 > [AZURE.NOTE]
 >
-- Your domain name must appear as “Active” in the **Active Directory** > **Directory** > **Domains** section of the Azure classic portal where you have configured branding.
-- Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a personal Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
+- Фирменная символика компании доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Она также доступна пользователям Office 365. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
+- Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
-If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.
 
-The following screenshot shows and example for the Office 365 sign-in page on a desktop computer **before** a customization:
+## Настройка страницы входа
 
-![Office 365 sign-in page before customization][1]
+Как правило, страница входа используется для доступа через веб-браузер к облачным приложениям и службам, на которые у вашей организации есть подписка.
 
-The following screenshot shows and example for the Office 365 sign-in page on a desktop computer **after** a customization:
+Когда вы что-то меняете на странице входа, может потребоваться до одного часа, чтобы эти изменения вступили в силу.
 
-![Office 365 sign-in page after customization][2]
+Страница входа с фирменной символикой отображается только при посещении службы с помощью URL-адреса конкретного клиента, например https://outlook.com/**contoso**.com или https://mail.**contoso**.com.
 
-The following screenshot shows an example of the Office 365 sign-in page on a mobile device **before** a customization:
+При посещении службы без URL-адреса клиента (например, https://mail.office365.com) страница входа отображается без фирменного дизайна. Символика появится, когда вы введете идентификатор пользователя или выберете плитку пользователя.
 
-![Office 365 sign-in page before customization][3]
-
-
-The following screenshot shows an example of the Office 365 sign-in page on a mobile device **after** a customization:
-
-![Office 365 sign-in page after customization][4]
+> [AZURE.NOTE]
+>
+- На классическом портале Azure в разделе **Active Directory** > **Каталог** > **Домены** (где настраивалась фирменная символика) ваше доменное имя должно быть в активном состоянии.
+- Фирменная символика страницы входа не применяется к странице входа пользователя корпорации Майкрософт. Если вы входите с использованием личной учетной записи Майкрософт, вы можете увидеть список плиток пользователей с фирменным оформлением, отображаемый в Azure AD. Но к странице входа в учетную запись Майкрософт это оформление применяться не будет.
 
 
-When you resize a browser window, the large Illustration, like the one shown previously, is often cropped to accommodate different screen aspect ratios. With this in mind, you should try to keep the key visual elements in the illustration so that they always appear in the top-left corner (top-right for right-to-left languages). This is important because resizing typically occurs from the bottom-right corner going towards the top / left or from the bottom towards the top.
+Если вы хотите показать фирменную символику, цвета и другие настраиваемые элементы на этой странице, изучите следующие изображения, чтобы понять разницу между двумя интерфейсами.
 
-The following picture shows how the illustration is cropped when the browser is resized to the left:
+На следующем снимке экрана приведен пример страницы входа в Office 365 на настольном компьютере **перед** настройкой.
+
+![Страница входа в службу Office 365 перед настройкой][1]
+
+На следующем снимке экрана приведен пример страницы входа в Office 365 на настольном компьютере **после** настройки.
+
+![Страница входа в службу Office 365 после настройки][2]
+
+На следующем снимке экрана приведен пример страницы входа в Office 365 на мобильном устройстве **перед** настройкой.
+
+![Страница входа в службу Office 365 перед настройкой][3]
+
+
+На следующем снимке экрана приведен пример страницы входа в Office 365 на мобильном устройстве **после** настройки.
+
+![Страница входа в службу Office 365 после настройки][4]
+
+
+При изменении размера окна браузера большая иллюстрация (как в примере выше) обычно обрезается с учетом пропорций экрана. Учитывая это, вам следует попытаться сохранить основные визуальные элементы на иллюстрации, чтобы они всегда отображались в левом верхнем углу (в правом верхнем углу для языков с написанием справа налево). Это важно, поскольку размер окна обычно изменяется в направлении либо от правого нижнего угла вверх или влево, либо снизу вверх.
+
+На следующем рисунке показано, как обрезается изображение, когда размер окна обозревателя меняется по направлению к левому краю.
 
 ![][6]
 
-Here is how it appears after the browser is resized toward the top:
+А так изображение будет выглядеть после соответствующего изменения размеров окна по направлению к верхнему краю.
 
 ![][7]
 
-## <a name="what-elements-on-the-page-can-i-customize?"></a>What elements on the page can I customize?
+## Какие элементы на странице можно настраивать?
 
-You can customize the following elements on the sign-in page:
+На странице входа можно настроить следующие элементы:
 
 ![][5]
 
 
 
-| Page element  | Location on the page |
+| Элемент страницы | Расположение на странице |
 |:--            | ---                  |
-|Banner Logo    | Shown at the top-right of the page. Replaces the logo the destination site you are signing in to displays (For example. Office 365 or Azure).|
-|Large Illustration / Background Color | Shown at the left of the page. Replaces the image the destination site you are signing in to displays. The Background Color may be shown in place of the Large Illustration on low bandwidth connections, or on narrow screens.|
-|Keep me signed-in | Shown under the Password textbox. |
-|Sign-in Page Text | Shown above the page footer when you need to convey helpful information before a sign-in with a work or school account. For example, you may want to include the phone number to your help desk, or a legal statement.|
+|Баннер с логотипом | Отображается в правой верхней части страницы. Заменяет логотип целевого сайта, на который вы входите (например, Office 365 или Azure).|
+|Большая иллюстрация и цвет фона | Отображается в левой части страницы. Заменяет изображение целевого сайта, на который вы входите. При подключениях с низкой пропускной способностью или на очень узких экранах вместо большого изображения может отображаться цвет фона.|
+|Оставаться в системе | Отображается под текстовым полем "Пароль". |
+|Текст страницы входа | Отображается над нижним колонтитулом страницы. Может включать полезные сведения, которые пользователи увидят перед входом с помощью рабочей или учебной учетной записи. Например, вам может потребоваться указать номер телефона службы поддержки или юридическое заявление.|
 
 
 > [AZURE.NOTE]
-All elements are optional. For example, if you specify a Banner Logo but no Large Illustration, the sign-in page shows your logo and the illustration for the destination site (that is, the Office 365 California highway image).
+Все элементы необязательные. Например, если указать эмблему баннера, но не использовать большое изображение, на странице входа будет отображаться ваши логотип и изображение целевого сайта (например, изображение калифорнийской автострады для Office 365).
 
 
-On your sign-in page, the **Keep me signed in** checkbox allows a user to remain signed in when they close and re-open their browser. It does not effect session lifetime. You can hide the checkbox on the Azure Active Directory sign-in page.
+Флажок **Оставаться в системе**, отображаемый на странице входа, позволяет пользователю оставаться в системе при закрытии и повторном открытии браузера. Он не влияет на время существования сеанса. Этот флажок можно скрыть на странице входа в Azure Active Directory.
 
-Whether the checkbox is displayed depends on the setting of **Hide KMSI**.
+Для этого используется параметр **Скрыть флажок "Оставаться в системе"**.
 
 ![][9]
 
 
-To hide the checkbox, configure this setting to **Hidden**. 
+Чтобы скрыть флажок, задайте для этого параметра значение **Скрыть**.
 
-> [AZURE.NOTE] Some features of SharePoint Online and Office 2010 depend on users being able to check this box. If you configure this setting to hidden, your users may see additional and unexpected prompts to sign-in.
-
-
-
-
-You can also localize all elements on this page. Once you’ve configured a “default” set of customization elements, you can configure more versions for different locales. You can also mix and match various elements. For example, you can:
-
-- Create a “default” Large Illustration that works for all cultures, then create specific versions for English and French. When you set your browsers to one of these two languages, the specific image appears, while the default illustration appears for all other languages.
-
-- Configure different logos for your organization (e.g. Japanese or Hebrew versions).
+> [AZURE.NOTE] Некоторые функции SharePoint Online и Office 2010 зависят от возможности пользователей установить этот флажок. Если вы скроете этот параметр, пользователи могут получать дополнительные или непредвиденные запросы на вход в систему.
 
 
 
-## <a name="access-panel-page-customization"></a>Access panel page customization
 
-The Access Panel page is essentially a portal page for quick access to the cloud apps you have been granted access to by your administrator. On this page, your apps appear as clickable application tiles.
+Вы также можете локализовать все элементы на этой странице. Настроив набор элементов по умолчанию, вы можете настроить дополнительные версии для разных языков. Вы также можете смешивать разные элементы. Например, вы можете просматривать:
+
+- Создайте большую иллюстрацию по умолчанию, подходящую для всех языков, а затем создайте отдельные версии для английского и русского языков. Когда вы настроите в браузере эти языки (один или оба), отобразится конкретное изображение. Для всех других языков отобразится иллюстрация по умолчанию.
+
+- Настройте разные логотипы для организации (например, японскую и китайскую версии).
 
 
-The following screenshot shows an example of an access panel page after customization.
+
+## Настройка страницы панели доступа
+
+Страница панели доступа — это страница портала для быстрого доступа к облачным приложениям, доступ к которым вам предоставил администратор. На этой странице приложения отображаются в виде интерактивных плиток.
+
+
+На следующем снимке экрана приведен пример страницы панели доступа после настройки:
 
 ![][8]
 
-## <a name="configure-your-directory-with-company-branding"></a>Configure your directory with company branding
+## Настройка каталога с фирменной символики компании
 
-You can configure one default set of customizable elements per directory in the Azure classic portal. After the defaults have been saved, an administrator can add localized versions of each element, for different languages / locales. All customizable elements are optional.
+На классическом портале Azure можно настроить один набор элементов по умолчанию для каждого каталога. Когда элементы по умолчанию будут сохранены, администратор также сможет добавить локализованные версии каждого элемента для разных языков. Все настраиваемые элементы необязательные.
 
-For example, if you configure a default Banner Logo but no Large Illustration, the sign-in page displays your logo in the upper-right corner. However the default illustration of the site is displayed.
+Например, если настроить эмблему баннера, но не использовать большое изображение, в правом верхнем углу страницы входа будет отображаться ваш логотип. При этом будет отображаться изображение сайта по умолчанию.
 
-Imagine the following configuration:
+Представьте себе следующую конфигурацию.
 
-- A default Banner Logo and Sign-In Page Text in English
-- A language-specific sign in Page Text for German
+- баннер с логотипом по умолчанию и текст страницы входа на английском языке;
+- текст страницы входа на немецком языке.
 
-If your language preference is German, you get the default Banner Logo but the German text.
+Если в настройках выбран немецкий, у вас будет баннер с логотипом по умолчанию и текст на немецком языке.
 
-While you could technically configure a different set for each language supported by Azure AD, we recommend that you keep the number of variations low, for maintenance and performance reasons.
+Хотя технически вы можете настроить другой набор для каждого языка, поддерживаемого Azure AD, мы рекомендуем использовать небольшое количество вариантов в целях обслуживания и производительности.
 
-**To add company branding to your directory, perform the following steps:**
+**Чтобы добавить фирменную символику в каталог, сделайте следующее:**
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
-2. Select the directory you want to customize.
-3. In the toolbar on the top, click **Configure**.
-4. Click **Customize Branding**.
-4. Modify the elements you want to customize. All fields are optional.
-5. Click **Save**.
+1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с учетными данными администратора того каталога, который нужно настроить.
+2. Выберите нужный каталог.
+3. На панели инструментов в верхней части экрана щелкните **Настройка**.
+4. Щелкните **Настройка фирменной символики**.
+4. Измените элементы, которые нужно настроить. Все поля здесь необязательные.
+5. Щелкните **Сохранить**.
 
-It can take up to an hour for new change you made to the sign-in page branding to appear.
+Применение всех изменений фирменного дизайна страницы входа может занять до одного часа.
 
-**To add language-specific company branding, perform the following steps:**
+**Чтобы добавить фирменную символику компании для конкретного языка, сделайте следующее:**
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
-2. Select the directory you want to customize.
-3. In the toolbar on the top, click **Configure**.
-4. Click **Customize Branding**.
-2. Click **Add branding for a specific language**.
-3. Select the language you want to customize the logo for, and then click **Next**.
-3. Edit only the elements for which you want to configure language-specific overrides. All fields are optional. If a field is left blank, then the custom default value is displayed instead (or the Microsoft default if a custom default is not configured).
-4. Click **Save**.
+1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с учетными данными администратора того каталога, который нужно настроить.
+2. Выберите нужный каталог.
+3. На панели инструментов в верхней части экрана щелкните **Настройка**.
+4. Щелкните **Настройка фирменной символики**.
+2. Щелкните **Добавить фирменную символику для определенного языка**.
+3. Выберите язык, для которого хотите настроить логотип, и нажмите кнопку **Далее**.
+3. Измените только те элементы, для которых требуется настроить переопределение для другого языка. Все поля здесь необязательные. Если оставить поле пустым, для этого элемента будет использовано пользовательское значение по умолчанию (или значение Майкрософт по умолчанию, если пользовательское значение не настроено).
+4. Щелкните **Сохранить**.
 
-**To remove company branding from your directory, perform the following steps:**
+**Чтобы удалить фирменную символику компании из каталога, сделайте следующее:**
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) as an administrator of the directory you want to customize.
-2. Select the directory you want to customize.
-3. In the toolbar on the top, click **Configure**.
-4. Click **Customize Branding**.
-5. On the Customize Branding page, select **Edit Existing Branding Settings** and then go to the next page.
-3. Depending on which elements you want to remove, do one or more of the following:
+1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с учетными данными администратора того каталога, который нужно настроить.
+2. Выберите нужный каталог.
+3. На панели инструментов в верхней части экрана щелкните **Настройка**.
+4. Щелкните **Настройка фирменной символики**.
+5. На странице настройки фирменной символики выберите **Изменить существующие параметры фирменной символики** и перейдите к следующей странице.
+3. В зависимости от того, какие элементы необходимо удалить, выполните одно или несколько из следующих действий.
 
-    a. Under **Banner Logo**, select **Remove uploaded logo**.
+	а. В разделе **Эмблема баннера** выберите **Удалить загруженную эмблему**.
 
-    b. Under **Tile Logo**, select **Remove uploaded logo**.
+    b. В разделе **Эмблема плитки** выберите **Удалить загруженную эмблему**.
 
-    c. Remove the text from all textboxes.
+    c. Удалите текст из всех текстовых полей.
 
-    d. Click **Next**.
+    г) Нажмите кнопку **Далее**.
 
-    e. Remove the text from all textboxes.
+    д. Удалите текст из всех текстовых полей.
 
-4. Click **Save** to remove the elements.
-5. If necessary, click **Customize Branding** again and repeat these steps for all language-specific branding that needs to be removed.
-    All branding settings have been removed when you click **Customize Branding** and see the **Customize Default Branding** form with no existing settings configured.
+4. Нажмите кнопку **Сохранить**, чтобы удалить элементы.
+5. При необходимости щелкните **Настроить фирменную символику** еще раз и повторите эти действия для всех элементов фирменной символики, которые требуется удалить. Если нажать кнопку **Настроить фирменную символику** и просмотреть форму **Настройка фирменной символики по умолчанию** без настроенных параметров, все параметры фирменной символики будут удалены.
 
-## <a name="testing-and-examples"></a>Testing and examples
+## Тестирование и примеры
 
-We recommend that you experiment with a test tenant before making changes in your production environment.
+Мы рекомендуем поэкспериментировать с тестовым клиентом перед внесением изменений в рабочую среду.
 
-**To verify whether your branding has been applied:**
+**Проверка применения фирменного дизайна**
 
-1. Open an InPrivate or Incognito browser session.
-2. Visit https://outlook.com/contoso.com, replacing contoso.com with the domain you’ve customized.
+1. Откройте сеанс браузера в анонимном режиме или режиме InPrivate.
+2. Перейдите на сайт https://outlook.com/contoso.com, указав вместо contoso.com настроенный вами домен.
 
-This also works with domains that look like contoso.onmicrosoft.com.
+Это также касается таких доменов, как contoso.onmicrosoft.com.
 
-To help you create effective customization sets, we have customized the following two fictitious sign-in pages:
+Чтобы помочь вам создать эффективные наборы настроек, мы настроили следующие две фиктивные страницы входа:
 
 - [http://aka.ms/aaddemo001](http://aka.ms/aaddemo001)
 - [http://aka.ms/aaddemo002](http://aka.ms/aaddemo002)
 
-To test the language-specific settings, you need to modify the default language preferences in your web browser to a language you have set in your customization. In Internet Explorer, you configure this in the **Internet Options** menu.
+Чтобы проверить параметры для определенного языка, вам нужно выбрать в браузере в качестве языка по умолчанию язык, указанный в настройках. В Internet Explorer это можно сделать в меню **Параметры браузера**.
 
-## <a name="customizable-elements"></a>Customizable elements
+## Настраиваемые элементы
 
-Some customizable elements in Azure AD have multiple use cases. You can configure company logos once per directory and is used on both, the sign-in and Access Panel pages. Some customizable elements are specific only to the sign-in page. The following table provides details for the different customizable elements.
+Некоторые настраиваемые элементы в Azure AD используются в нескольких местах. Вы можете один раз настроить корпоративные логотипы для каталога, которые будут использоваться как на странице входа, так и на странице панели доступа. Некоторые настраиваемые элементы используются только на странице входа. В следующей таблице предоставлены подробные сведения о разных настраиваемых элементах.
 
-Name | Description | Constraints | Recommendations
-    ------------- | ------------- | ------------- | -------------
-Banner Logo | The Banner Logo is displayed on the sign-in page and the Access panel. | <p>JPG or PNG</p><p>60x280 pixels</p><p>10 KB</p> | <p>Use your organization’s full logo (including pictogram and logotype)</p><p>Keep it under 30 pixels high to avoid introducing scrollbars on mobile devices</p><p>Keep it under 4 KB</p><p>Use a transparent PNG (don’t assume that the sign-in page always has a white background)</p>
-Tile Logo | (currently not used in the sign-in page) In the future, this text may be used to replace the generic “work or school account” pictogram in different places of the experience. | <p>JPG or PNG</p><p>120x120 pixels</p><p>10 KB</p> | <p>Keep it simple (no small text), as this image may be resized to 50%
+Имя | Описание | Ограничения | Рекомендации
+	------------- | ------------- | ------------- | -------------
+Баннер с логотипом | Баннер с логотипом отображается на странице входа и панели доступа. | <p>JPG или PNG</p><p>60 x 280 пикселей</p><p>10 КБ</p> | <p>Используйте полный логотип организации (включая пиктограмму и эмблему)</p><p>Используйте изображение до 30 пикселей в высоту, чтобы на мобильных устройствах не появлялась полоса прокрутки</p><p>Размер файла должен быть до 4 КБ</p><p>Используйте прозрачный PNG-файл (на странице входа не всегда будет белый фон)</p>
+Значок для плитки | (Сейчас не используется на странице входа.) В будущем этот текст может использоваться для замены общей пиктограммы, обозначающей рабочую или школьную учетную запись в разных местах интерфейса. | <p>JPG или PNG</p><p>120 x 120 пикселей</p><p>10 КБ</p> | <p>Сделайте это изображение простым (без маленького текста), так как оно может изменять размер до 50 %.
 </p> |
-Sign-in Page User Name Label | (currently not used in the sign-in page) In the future, this text may be used to replace the generic “work or school account” string in different places of the experience. You can set it to something like “Contoso account” or “Contoso ID.” | <p>Unicode text, up to 50 characters</p><p>Plain text only (no links or HTML tags)</p> | <p>Keep it short and simple</p><p>Ask your users how they usually refer to the work or school account you provide them with.</p>
-Sign-in Page Text | This “boilerplate” text appears below the sign-in page form and can be used to communicate additional instructions, or where to get help and support. | <p>Unicode text, up to 256 characters</p><p>Plain text only (no links or HTML tags)</p> | Keep it under 250 characters (approximately 3 lines of text)
-Sign-in Page Illustration | The illustration is a large image that is displayed on the sign-in page to the left of the sign-in page form. | <p>JPG or PNG</p><p>1420x1200</p><p>500 KB</p> | <p>1420x1200 pixels</p><p>Important: Keep it as small as possible, ideally under 200 KB. If this image is too large, the performance of the Sign-in page is impacted when the image isn’t cached</p><p>This image is often cropped, to accommodate different screen ratios. Keep the primary visual elements in the top left corner (top right for RTL languages), because resizing occurs from the bottom/right corner, going towards the top / left, as the browser window shrinks.</p>
-Sign-in Page Background Color | The sign-in page background color is used in the area to the left of the sign-in page form. | Must be an RGB color in hexadecimal form (example: #FFFFFF) | <p>The background color may be shown in place of the large Illustration on low-bandwidth connections</p><p>We suggest picking the primary color of the Banner Logo</p>
+Метка имени пользователя на странице входа | (Сейчас не используется на странице входа.) В будущем этот текст может использоваться для замены общей строки, обозначающей рабочую или школьную учетную запись в разных местах интерфейса. Например, можно использовать строку "Учетная запись Contoso" или "Идентификатор Contoso". | <p>Текст в формате Юникод, не более 50 символов</p><p>Только обычный текст (без ссылок или HTML-тегов)</p> | <p>Сделайте его коротким и простым</p><p>Спросите пользователей, как они обычно называют свои рабочие или школьные учетные записи.</p>
+Текст страницы входа | Этот стандартный текст отображается под формой страницы входа и может использоваться для предоставления дополнительных инструкций или сведений о получении справки и поддержки. | <p>Текст в формате Юникод, не более 256 символов</p><p>Только обычный текст (без ссылок или HTML-тегов)</p> | Длина должна быть не более 250 символов (примерно 3 строки текста)
+Иллюстрация страницы входа | Иллюстрация — это большое изображение, которое размещается на странице входа слева от формы входа. | <p>JPG или PNG</p><p>1420 x 1200</p><p>500 КБ</p> | <p>1420 x 1200 пикселей</p><p>Важно: размер должен быть минимальным, оптимально — меньше 200 КБ. Слишком большое изображение, которого нет в кэше, замедлит скорость загрузки страницы входа.</p><p>Это изображение также будет часто обрезаться с учетом пропорций экрана. Поместите ключевые визуальные элементы в верхнем левом углу (в правом верхнем углу для языков с письмом справа налево), так как размер окна браузера изменяется по направлению от нижнего края или правого угла вверх или влево.</p>
+Цвет фона страницы входа | Цвет фона страницы входа используется в области слева от формы входа. | Цвет должен быть указан в формате RGB в виде шестнадцатеричного числа (например, #FFFFFF). | <p>При приключении с низкой пропускной способностью вместо большого изображения может отображаться цвет фона.</p><p>Мы рекомендуем использовать основной цвет эмблемы баннера.</p>
 
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-- [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md)
-- [View your access and usage reports](active-directory-view-access-usage-reports.md)
+- [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
+- [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-add-company-branding/SignInPage_beforecustomization.png
@@ -241,8 +239,4 @@ Sign-in Page Background Color | The sign-in page background color is used in the
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 [9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

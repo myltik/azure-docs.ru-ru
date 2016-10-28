@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Analyze data in Data Lake Store by using Power BI | Microsoft Azure"
-   description="Use Power BI to analyze data stored in Azure Data Lake Store"
+   pageTitle="Анализ данных в хранилище озера данных с помощью Power BI | Azure"
+   description="Использование Power BI для анализа данных в хранилище озера данных Azure"
    services="data-lake-store" 
    documentationCenter=""
    authors="nitinme"
@@ -13,119 +13,116 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/05/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
+# Анализ данных в хранилище озера данных с помощью Power BI
 
-# <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>Analyze data in Data Lake Store by using Power BI
+В этой статье вы узнаете, как использовать Power BI Desktop для анализа и визуализации данных в хранилище озера данных Azure.
 
-In this article you will learn how to use Power BI Desktop to analyze and visualize data stored in Azure Data Lake Store.
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+Перед началом работы с этим учебником необходимо иметь следующее:
 
-Before you begin this tutorial, you must have the following:
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- **Настройте свою подписку Azure** для использования общедоступной предварительной версии Data Lake Store. См. [инструкции](data-lake-store-get-started-portal.md#signup).
 
-- **Azure Data Lake Store account**. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md). This article assumes that you have already created a Data Lake Store account, called **mybidatalakestore**, and uploaded a sample data file (**Drivers.txt**) to it. This sample file is available for download from [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+- **Учетная запись хранилища озера данных Azure**. Следуйте инструкциям в разделе [Приступая к работе с хранилищем озера данных Azure на портале Azure](data-lake-store-get-started-portal.md). В этой статье предполагается, что вы уже создали учетную запись хранилища озера данных с именем **mybidatalakestore** и добавили в нее образец файла данных (**Drivers.txt**). Этот образец файла можно скачать в [репозитории Git для озера данных Azure](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
 
-- **Power BI Desktop**. You can download this from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
-
-
-## <a name="create-a-report-in-power-bi-desktop"></a>Create a report in Power BI Desktop
-
-1. Launch Power BI Desktop on your computer.
-
-2. From the **Home** ribbon, click **Get Data**, and then click More. In the **Get Data** dialog box, click **Azure**, click **Azure Data Lake Store**, and then click **Connect**.
-
-    ![Connect to Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Connect to Data Lake Store")
-
-3. If you see a dialog box about the connector being in a development phase, opt to continue.
-
-4. In the **Microsoft Azure Data Lake Store** dialog box, provide the URL to your Data Lake Store account, and then click **OK**.
-
-    ![URL for Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL for Data Lake Store")
-
-5. In the next dialog box, click **Sign in** to sign into Data Lake Store account. You will be redirected to your organization's sign in page. Follow the prompts to sign into the account.
-
-    ![Sign into Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Sign into Data Lake Store")
-
-6. After you have successfully signed in, click **Connect**.
-
-    ![Connect to Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Connect to Data Lake Store")
-
-7. The next dialog box shows the file that you uploaded to your Data Lake Store account. Verify the info and then click **Load**.
-
-    ![Load data from Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Load data from Data Lake Store")
-
-8. After the data has been successfully loaded into Power BI, you will see the following fields in the **Fields** tab.
-
-    ![Imported fields](./media/data-lake-store-power-bi/imported-fields.png "Imported fields")
-
-    However, to visualize and analyze the data, we prefer the data to be available per the following fields
-
-    ![Desired fields](./media/data-lake-store-power-bi/desired-fields.png "Desired fields")
-
-    In the next steps, we will update the query to convert the imported data in the desired format.
-
-9. From the **Home** ribbon, click **Edit Queries**.
-
-    ![Edit queries](./media/data-lake-store-power-bi/edit-queries.png "Edit queries")
-
-10. In the Query Editor, under the **Content** column, click **Binary**.
-
-    ![Edit queries](./media/data-lake-store-power-bi/convert-query1.png "Edit queries")
-
-11. You will see a file icon, that represents the **Drivers.txt** file that you uploaded. Right-click the file, and click **CSV**.  
-
-    ![Edit queries](./media/data-lake-store-power-bi/convert-query2.png "Edit queries")
-
-12. You should see an output as shown below. Your data is now available in a format that you can use to create visualizations.
-
-    ![Edit queries](./media/data-lake-store-power-bi/convert-query3.png "Edit queries")
-
-13. From the **Home** ribbon, click **Close and Apply**, and then click **Close and Apply**.
-
-    ![Edit queries](./media/data-lake-store-power-bi/load-edited-query.png "Edit queries")
-
-14. Once the query is updated, the **Fields** tab will show the new fields available for visualization.
-
-    ![Updated fields](./media/data-lake-store-power-bi/updated-query-fields.png "Updated fields")
-
-15. Let us create a pie chart to represent the drivers in each city for a given country. To do so, make the following selections.
-
-    1. From the Visualizations tab, click the symbol for a pie chart.
-
-        ![Create pie chart](./media/data-lake-store-power-bi/create-pie-chart.png "Create pie chart")
-
-    2. The columns that we are going to use are **Column 4** (name of the city) and **Column 7** (name of the country). Drag these columns from **Fields** tab to **Visualizations** tab as shown below.
-
-        ![Create visualizations](./media/data-lake-store-power-bi/create-visualizations.png "Create visualizations")
-
-    3. The pie chart should now resemble like the one shown below.
-
-        ![Pie chart](./media/data-lake-store-power-bi/pie-chart.png "Create visualizations")
-
-16. By selecting a specific country from the page level filters, you can now see the number of drivers in each city of the selected country. For example, under the **Visualizations** tab, under **Page level filters**, select **Brazil**.
-
-    ![Select a country](./media/data-lake-store-power-bi/select-country.png "Select a country")
-
-17. The pie chart is automatically updated to display the drivers in the cities of Brazil.
-
-    ![Drivers in a country](./media/data-lake-store-power-bi/driver-per-country.png "Drivers per country")
-
-18. From the **File** menu, click **Save** to save the visualization as a Power BI Desktop file.
-
-## <a name="publish-report-to-power-bi-service"></a>Publish report to Power BI service
-
-Once you have created the visualizations in Power BI Desktop, you can share it with others by publishing it to the Power BI service. For instructions on how to do that, see [Publish from Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
-
-## <a name="see-also"></a>See also
-
-* [Analyze data in Data Lake Store using Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+- **Power BI Desktop**. Это средство можно скачать в [Центре загрузки Майкрософт](https://www.microsoft.com/ru-RU/download/details.aspx?id=45331).
 
 
+## Создание отчета в Power BI Desktop
 
-<!--HONumber=Oct16_HO2-->
+1. Запустите Power BI Desktop на своем компьютере.
 
+2. На ленте **Главная** нажмите кнопку **Получить данные**, а затем щелкните "Дополнительно". В диалоговом окне **Получение данных** выберите пункт **Azure**, затем выберите пункт **Хранилище озера данных Azure** и нажмите кнопку **Подключиться**.
 
+	![Подключение к хранилищу озера данных](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Подключение к хранилищу озера данных")
+
+3. Если появится диалоговое окно с сообщением о том, что соединитель находится в стадии разработки, выберите вариант "Продолжить".
+
+4. В диалоговом окне **Хранилище озера данных Microsoft Azure** укажите URL-адрес для своей учетной записи хранилища озера данных и нажмите кнопку **ОК**.
+
+	![URL-адрес хранилища озера данных](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL-адрес хранилища озера данных")
+
+5. В следующем диалоговом окне нажмите кнопку **Вход**, чтобы войти в учетную запись хранилища озера данных. Вы будете перенаправлены на страницу входа своей организации. Следуйте инструкциям для входа в учетную запись.
+
+	![Вход в хранилище озера данных](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Вход в хранилище озера данных")
+
+6. Успешно выполнив вход, нажмите кнопку **Подключиться**.
+
+	![Подключение к хранилищу озера данных](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Подключение к хранилищу озера данных")
+
+7. В следующем диалоговом окне будет указан файл, который вы добавили в учетную запись хранилища озера данных. Проверьте информацию и нажмите кнопку **Загрузить**.
+
+	![Загрузка данных из хранилища озера данных](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Загрузка данных из хранилища озера данных")
+
+8. После успешной загрузки данных в Power BI вы увидите приведенные ниже поля на вкладке **Поля**.
+
+	![Импортированные поля](./media/data-lake-store-power-bi/imported-fields.png "Импортированные поля")
+
+	Однако для визуализации и анализа данных мы рекомендуем использовать показанные ниже поля.
+
+	![Нужные поля](./media/data-lake-store-power-bi/desired-fields.png "Нужные поля")
+
+	В следующих шагах мы обновим запрос, чтобы преобразовать импортированные данные в нужный формат.
+
+9. На вкладке **Главная** ленты нажмите кнопку **Изменить запросы**.
+
+	![Изменение запросов](./media/data-lake-store-power-bi/edit-queries.png "Изменение запросов")
+
+10. В редакторе запросов в столбце **Содержимое** выберите вариант **Двоичные данные**.
+
+	![Изменение запросов](./media/data-lake-store-power-bi/convert-query1.png "Изменение запросов")
+
+11. Вы увидите значок, представляющий добавленный вами файл **Drivers.txt**. Щелкните файл правой кнопкой мыши и выберите пункт **CSV**.
+
+	![Изменение запросов](./media/data-lake-store-power-bi/convert-query2.png "Изменение запросов")
+
+12. В результате вы увидите выходные данные, приведенные ниже. Данные теперь имеют формат, который можно использовать для создания визуализаций.
+
+	![Изменение запросов](./media/data-lake-store-power-bi/convert-query3.png "Изменение запросов")
+
+13. На вкладке **Главная** ленты нажмите кнопку **Закрыть и применить** и выберите пункт **Закрыть и применить**.
+
+	![Изменение запросов](./media/data-lake-store-power-bi/load-edited-query.png "Изменение запросов")
+
+14. После обновления запроса на вкладке **Поля** появятся новые поля, доступные для визуализации.
+
+	![Обновленные поля](./media/data-lake-store-power-bi/updated-query-fields.png "Обновленные поля")
+
+15. Создадим круговую диаграмму, на которой будет представлено количество водителей в каждом городе данной страны. Для этого выполним указанные ниже действия.
+
+	1. На вкладке "Визуализации" щелкните символ круговой диаграммы.
+
+		![Создание круговой диаграммы](./media/data-lake-store-power-bi/create-pie-chart.png "Создание круговой диаграммы")
+
+	2. Мы собираемся использовать следующие столбцы: **Столбец 4** (название города) и **Столбец 7** (название страны). Перетащите их с вкладки **Поля** на вкладку **Визуализации**, как показано ниже.
+
+		![Создание визуализации](./media/data-lake-store-power-bi/create-visualizations.png "Создание визуализации")
+
+	3. Круговая диаграмма теперь должна выглядеть так, как показано ниже.
+
+		![Круговая диаграмма](./media/data-lake-store-power-bi/pie-chart.png "Создание визуализации")
+
+16. Выбрав определенную страну в фильтрах уровня страницы, вы можете теперь увидеть количество водителей в каждом городе этой страны. Например, на вкладке **Визуализации** в списке **Фильтры уровня страницы** выберите **Бразилия**.
+
+	![Выбор страны](./media/data-lake-store-power-bi/select-country.png "Выбор страны")
+
+17. Круговая диаграмма автоматически обновится, и вы увидите количество водителей в городах Бразилии.
+
+	![Количество водителей в стране](./media/data-lake-store-power-bi/driver-per-country.png "Количество водителей в каждой стране")
+
+18. В меню **Файл** выберите пункт **Сохранить**, чтобы сохранить визуализацию как файл Power BI Desktop.
+
+## Публикация отчета в службе Power BI
+
+Создав визуализации в Power BI Desktop, вы можете предоставить общий доступ к ним другим пользователям, опубликовав их в службе Power BI. Инструкции см. в разделе [Публикация из Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
+
+## Дополнительные материалы
+
+* [Анализ данных в хранилище озера данных с помощью Аналитики озера данных](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+
+<!---HONumber=AcomDC_0914_2016-->

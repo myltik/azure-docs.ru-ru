@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Monitor operations, events, and counters for Load Balancer | Microsoft Azure"
-   description="Learn how to enable alert events, and probe health status logging for Azure Load Balancer"
+   pageTitle="Мониторинг операций, событий и счетчиков для балансировщика нагрузки | Microsoft Azure"
+   description="Узнайте, как включить ведение журналов событий оповещений и проверки работоспособности для балансировщика нагрузки Azure"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
@@ -17,50 +17,47 @@
    ms.date="04/05/2016"
    ms.author="sewhee" />
 
+# Служба анализа журналов для балансировщика нагрузки Azure (предварительная версия)
+В Azure можно использовать различные виды журналов для управления балансировщиками нагрузки и устранения возникающих в них неполадок. К некоторым из этих журналов можно получить доступ через портал. Также можно извлечь все журналы из хранилища BLOB-объектов Azure и просматривать их с помощью различных средств, таких как Excel и PowerBI. В списке ниже приведены дополнительные сведения о различных типах журналов.
 
-# <a name="log-analytics-for-azure-load-balancer-(preview)"></a>Log analytics for Azure Load Balancer (Preview)
-You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 
+- **Журналы аудита.** В [журналах аудита Azure](../../articles/azure-portal/insights-debugging-with-events.md) (прежнее название — операционные журналы) можно просмотреть все операции, отправляемые в ваши подписки Azure, и состояние этих операций. По умолчанию журналы аудита включены, и их можно просмотреть на портале Azure.
+- **Журналы событий оповещений:** этот журнал можно использовать для просмотра оповещений, создаваемых для балансировщика нагрузки. Данные о состоянии балансировщика нагрузки собираются каждые пять минут. В этом журнале делается запись, только если возникает событие оповещения балансировщика нагрузки.
+- **Журналы проверки работоспособности:** этот журнал можно использовать для проверки состояния проверки работоспособности, проверки количества экземпляров, находящихся в оперативном режиме в серверной части балансировщика нагрузки и проверки процента виртуальных машин, получающих сетевой трафик из балансировщика нагрузки. В этом журнале делается запись при изменении события состояния проверки.
 
-- **Audit logs:** You can use [Azure Audit Logs](../../articles/azure-portal/insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription(s), and their status. Audit logs are enabled by default, and can be viewed in the Azure portal.
-- **Alert event logs:** You can use this log to view what alerts for load balancer are raised. The status for the load balancer is collected every five minutes. This log is only written if a load balancer alert event is raised.  
-- **Health probe logs:** You can use this log to check for probe health check status, how many instances are online in the load balancer back-end and percentage of virtual machines receiving network traffic from the load balancer. This log is written on probe status event change.
+>[AZURE.WARNING] Журналы доступны только для ресурсов, развернутых в модели развертывания диспетчера ресурсов. Журналы нельзя использовать для ресурсов в классической модели развертывания. Чтобы получить более полное представление об этих двух моделях, см. статью [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../../articles/resource-manager-deployment-model.md). <BR> Служба анализа журналов в настоящее время работает только для балансировщиков нагрузки, ориентированных на Интернет. Это ограничение является временным и может быть изменено в любое время. Обязательно вернитесь на эту страницу, чтобы проверить будущие изменения.
 
->[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../../articles/resource-manager-deployment-model.md) article. <BR>
->Log analytics currently works only for Internet facing load balancers. This limitation is temporary, and may change at any time. Make sure to revisit this page to verify future changes.
+## Включение ведения журналов
+Ведение журналов аудита автоматически включено постоянно для каждого ресурса диспетчера ресурсов. Чтобы начать сбор соответствующих данных, необходимо включить ведение журналов событий и проверки работоспособности. Чтобы включить ведение журнала, выполните следующие действия.
 
-## <a name="enable-logging"></a>Enable logging
-Audit logging is automatically enabled at all times for every Resource Manager resource. You need to enable event and health probe logging to start collecting the data available through those logs. To enable logging, follow the steps below. 
+Войдите на [портал Azure](http://portal.azure.com). Если у вас еще нет балансировщика нагрузки, [создайте балансировщик нагрузки](load-balancer-get-started-internet-arm-ps.md) перед продолжением.
 
-Sign-in to the [Azure portal](http://portal.azure.com). If you don't already have a load balancer, [create a load balancer](load-balancer-get-started-internet-arm-ps.md) before you continue. 
+На портале щелкните **Обзор** >> **Балансировщики нагрузки**.
 
-In the portal, click **Browse** >> **Load Balancers**.
+![портал — балансировщик нагрузки](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
-![portal - load-balancer](./media/load-balancer-monitor-log/load-balancer-browse.png)
+Выберите существующий балансировщик нагрузки, затем щелкните **Все параметры**.
 
-Select an existing load balancer >> **All Settings**.
+![портал — балансировщик нагрузки — параметры](./media/load-balancer-monitor-log/load-balancer-settings.png) <BR>
 
-![portal - load-balancer-settings](./media/load-balancer-monitor-log/load-balancer-settings.png)
-<BR>
+В колонке **Параметры** щелкните **Диагностика**, а затем на панели **Диагностика** рядом с полем **Состояние** щелкните **Вкл.** в колонке **Параметры**, щелкните **Учетная запись хранения** и выберите существующую учетную запись хранения или создайте новую.
 
-In the **Settings** blade, click **Diagnostics**, and then in the **Diagnostics** pane, next to **Status**, click **On** In the **Settings** blade, click **Storage Account**, and either select an existing storage account, or create a new one.
+В раскрывающемся списке под элементом **Учетная запись хранения** выберите, что именно следует регистрировать — события оповещений, состояние проверки работоспособности или то и другое, — а затем нажмите кнопку **Сохранить**.
 
-In the drop-down list just under **Storage Account**, select whether you want to log alert events, probe health status or both and then click **Save**.
+![Портал предварительной версии — журналы диагностики](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
-![Preview portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+>[AZURE.INFORMATION] Для журналов аудита отдельная учетная запись хранения не требуется. За использование хранилища для журналов событий и проверки работоспособности взимается плата.
 
->[AZURE.INFORMATION] Audit logs do not require a separate storage account. The use of storage for event and health probe logging will incur service charges.
+## Журнал аудита
+Этот журнал (прежнее название — «операционный журнал») создается в Azure по умолчанию. Журналы хранятся в течение 90 дней в хранилище журналов событий Azure. Дополнительные сведения об этих журналах см. в статье [Просмотр журналов событий и аудита](../../articles/azure-portal/insights-debugging-with-events.md).
 
-## <a name="audit-log"></a>Audit log
-This log (formerly known as the "operational log") is generated by Azure by default.  The logs are preserved for 90 days in Azure’s Event Logs store. Learn more about these logs by reading the [View events and audit logs](../../articles/azure-portal/insights-debugging-with-events.md) article.
+## Журнал событий оповещений
+Этот журнал создается только в том случае, если он включен для конкретного балансировщика нагрузки, как описано выше. Данные хранятся в учетной записи хранения, указанной при включении ведения журнала. Информация вводится в формате JSON, как показано ниже.
 
-## <a name="alert-event-log"></a>Alert event log
-This log is only generated if you've enabled it on a per load balancer basis as detailed above. The data is stored in the storage account you specified when you enabled the logging. The information is logged in JSON format, as seen below.
-
-    
-    {
+	
+	{
     "time": "2016-01-26T10:37:46.6024215Z",
-    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+	"systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
     "category": "LoadBalancerAlertEvent",
     "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
     "operationName": "LoadBalancerProbeHealthStatus",
@@ -71,68 +68,64 @@ This log is only generated if you've enabled it on a per load balancer basis as 
             "public ip address": "40.117.227.32"
         }
     }
-    
+	
 
-The JSON output shows the *eventname* property which will describe the reason for the load balancer created an alert. In this case, the alert generated was due to TCP port exhaustion caused by source IP NAT limits (SNAT).
+В выходных данных JSON отображается свойство *eventname*, описывающее причину создания оповещения балансировщиком нагрузки. В этом случае оповещение было создано из-за нехватки порта TCP, вызванной ограничениями преобразования исходных сетевых адресов (SNAT).
 
-## <a name="health-probe-log"></a>Health probe log
-This log is only generated if you've enabled it on a per load balancer basis as detailed above. The data is stored in the storage account you specified when you enabled the logging.  A container named 'insights-logs-loadbalancerprobehealthstatus' is created and the following data is logged:
+## Журнал проверки работоспособности
+Этот журнал создается только в том случае, если он включен для конкретного балансировщика нагрузки, как описано выше. Данные хранятся в учетной записи хранения, указанной при включении ведения журнала. Создается контейнер с именем insights-logs-loadbalancerprobehealthstatus, и в журнал записываются следующие данные.
 
-        {
-        "records":
+		{
+	    "records":
 
-        {
-            "time": "2016-01-26T10:37:46.6024215Z",
-            "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-            "category": "LoadBalancerProbeHealthStatus",
-            "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-            "operationName": "LoadBalancerProbeHealthStatus",
-            "properties": {
-                "publicIpAddress": "40.83.190.158",
-                "port": "81",
-                "totalDipCount": 2,
-                "dipDownCount": 1,
-                "healthPercentage": 50.000000
-            }
-        },
-        {
-            "time": "2016-01-26T10:37:46.6024215Z",
-            "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
-            "category": "LoadBalancerProbeHealthStatus",
-            "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
-            "operationName": "LoadBalancerProbeHealthStatus",
-            "properties": {
-                "publicIpAddress": "40.83.190.158",
-                "port": "81",
-                "totalDipCount": 2,
-                "dipDownCount": 0,
-                "healthPercentage": 100.000000
-            }
-        }
+	    {
+	   		"time": "2016-01-26T10:37:46.6024215Z",
+	        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+	        "category": "LoadBalancerProbeHealthStatus",
+	        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
+	        "operationName": "LoadBalancerProbeHealthStatus",
+	        "properties": {
+	            "publicIpAddress": "40.83.190.158",
+	            "port": "81",
+	            "totalDipCount": 2,
+	            "dipDownCount": 1,
+	            "healthPercentage": 50.000000
+	        }
+	    },
+	    {
+	        "time": "2016-01-26T10:37:46.6024215Z",
+			"systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+	        "category": "LoadBalancerProbeHealthStatus",
+	        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
+	        "operationName": "LoadBalancerProbeHealthStatus",
+	        "properties": {
+	            "publicIpAddress": "40.83.190.158",
+	            "port": "81",
+	            "totalDipCount": 2,
+	            "dipDownCount": 0,
+	            "healthPercentage": 100.000000
+	        }
+	    }
 
-    ]
-    }
+	]
+	}
 
-The JSON output shows in the properties field the basic information for the probe health status. The *dipDownCount* property shows the total number of instances on the back-end which are not receiving network traffic due to failed probe responses. 
+В выходных данных JSON в поле свойств отображаются основные сведения о состоянии проверки работоспособности. Свойство *DipDownCount* показывает общее количество экземпляров в серверной части, которые не получают сетевой трафик из-за неудачных ответов проверки.
 
-## <a name="view-and-analyze-the-audit-log"></a>View and analyze the audit log
-You can view and analyze audit log data using any of the following methods:
+## Просмотр и анализ журнала аудита
+Данные журнала аудита можно просматривать и анализировать с помощью любого из следующих методов.
 
-- **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure preview portal.  Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../../articles/resource-group-audit.md) article.
-- **Power BI:** If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. Using the [Azure Audit Logs content pack for Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs) you can analyze your data with pre-configured dashboards that you can use as-is, or customize.
+- **Средства Azure.** Информацию из журналов аудита можно получать с помощью Azure PowerShell, интерфейса командной строки (CLI) Azure, интерфейса REST API Azure или портала предварительной версии Azure. Пошаговые инструкции для каждого метода подробно описаны в статье [Операции аудита с помощью диспетчера ресурсов](../../articles/resource-group-audit.md).
+- **Power BI.** Если у вас еще нет учетной записи [Power BI](https://powerbi.microsoft.com/pricing), ее можно опробовать бесплатно. Используя [пакет содержимого журналов аудита Azure для Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), можно анализировать данные с помощью предварительно настроенных панелей мониторинга, которые можно использовать как есть или дополнительно настроить.
 
-## <a name="view-and-analyze-the-health-probe-and-event-log"></a>View and analyze the health probe and event log 
-You need to connect to your storage account and retrieve the JSON log entries for event and health probe logs. Once you download the JSON files, you can convert them to CSV and view in Excel, PowerBI, or any other data visualization tool.
+## Просмотр и анализ журналов событий и проверки работоспособности 
+Вам потребуется подключиться к учетной записи хранения и извлечь записи журнала JSON для журналов событий и проверки работоспособности. После загрузки JSON-файлов их можно преобразовать в формат CSV и просматривать в Excel, PowerBI или другом средстве визуализации данных.
 
->[AZURE.TIP] If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from Github.
+>[AZURE.TIP] Если вы знакомы с Visual Studio и основными понятиями изменения значений констант и переменных в C#, можно использовать [средства преобразования журнала](https://github.com/Azure-Samples/networking-dotnet-log-converter), доступные на сайте GitHub.
 
-## <a name="additional-resources"></a>Additional resources
+## Дополнительные ресурсы
 
-- [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
-- [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
+- Запись блога [Визуализация журналов аудита Azure с помощью Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
+- Запись блога [Просмотр и анализ журналов аудита Azure с помощью Power BI и других средств](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

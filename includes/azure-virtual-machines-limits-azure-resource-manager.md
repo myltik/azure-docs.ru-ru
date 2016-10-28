@@ -1,11 +1,8 @@
-Resource|Default Limit
+Ресурс|Ограничение по умолчанию
 ---|---
-Virtual machines per availability set | 100 
-Certificates per subscription|Unlimited<sup>1</sup>
+Количество виртуальных машин на одну группу доступности | 100 
+Сертификатов на подписку|Не ограничено<sup>1</sup>
 
-<sup>1</sup>With Azure Resource Manager, certificates are stored in the Azure Key Vault. Although the number of certificates is unlimited for a subscription, there is still a 1 MB limit of certificates per deployment (which consists of either a single VM or an availability set).
+<sup>1</sup>При использовании диспетчера ресурсов Azure сертификаты размещаются в хранилище ключей Azure. Количество сертификатов для подписки не ограничено. Тем не менее, общий размер сертификатов не должен превышать 1 МБ на одно развертывание (состоящее из одной виртуальной машины или группы доступности).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

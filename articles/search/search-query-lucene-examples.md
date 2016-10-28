@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Lucene query examples for Azure Search | Microsoft Azure Search"
-    description="Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard search."
+    pageTitle="Примеры запросов Lucene для службы поиска Azure | Поиск Microsoft Azure"
+    description="Синтаксис запросов Lucene для поиска нечетких соответствий, поиска с учетом расположения, повышения приоритета слов, поиска по регулярным выражениям и поиска с использованием подстановочных знаков."
     services="search"
     documentationCenter=""
-    authors="LiamCa"
-    manager="pablocas"
-    editor=""
+	authors="LiamCa"
+	manager="pablocas"
+	editor=""
     tags="Lucene query analyzer syntax"
 />
 
@@ -19,118 +19,114 @@
     ms.author="liamca"
 />
 
+# Примеры синтаксиса запросов Lucene для создания запросов в службе поиска Azure
 
-# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene query syntax examples for building queries in Azure Search
+При создании запросов для поиска Azure можно использовать [простой синтаксис запросов](https://msdn.microsoft.com/library/azure/dn798920.aspx) по умолчанию или альтернативное [средство синтаксического анализа запросов Lucene в службе поиска Azure](https://msdn.microsoft.com/library/azure/mt589323.aspx). Средство синтаксического анализа запросов Lucene поддерживает более сложные конструкции запросов, а именно: запросы, относящиеся к полям, поиск нечетких соответствий, поиск с учетом расположения, повышение приоритета слов и поиск по регулярным выражениям.
 
-When constructing queries for Azure Search, you can use either the default [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) or the alternative [Lucene Query Parser in Azure Search](https://msdn.microsoft.com/library/azure/mt589323.aspx). The Lucene Query Parser supports more complex query constructs, such as field-scoped queries, fuzzy search, proximity search, term boosting, and reqular expression search.
+В этой статье можно пошагово выполнить примеры синтаксиса запросов Lucene и просмотреть результаты, которые отображаются напротив них. Примеры выполняются с предварительно загруженным индексом поиска в [JSFiddle](https://jsfiddle.net/), интерактивном редакторе кода для тестирования скриптов и HTML.
 
-In this article, you can step through examples that display Lucene query syntax and results side by side. Examples run against a pre-loaded Search index in [JSFiddle](https://jsfiddle.net/), an online code editor for testing script and HTML. 
+Щелкните правой кнопкой мыши URL-адреса примеров запросов, чтобы открыть JSFiddle в отдельном окне браузера.
 
-Right-click on the query example URLs to open JSFiddle in a separate browser window.
+> [AZURE.NOTE] В следующих примерах используется индекс поиска, состоящий из должностей, доступных на основе набора данных, полученных в рамках проекта [по открытым данным г. Нью-Йорк](https://nycopendata.socrata.com/). Эти данные не являются текущими или завершенными. Индекс включен в службу "песочницы", предоставляемую корпорацией Майкрософт. Для использования этих запросов подписка Azure или служба поиска Azure не требуется.
 
-> [AZURE.NOTE] The following examples leverage a search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft. You do not need an Azure subscription or Azure Search to try these queries.
+## Просмотр примеров в этой статье
 
-## <a name="viewing-the-examples-in-this-article"></a>Viewing the examples in this article
+Во всех примерах в этой статье средство синтаксического анализа запросов Lucene указывается с помощью параметра поиска **queryType**. При использовании средства синтаксического анализа запросов Lucene в коде параметр **queryType** необходимо указывать в каждом запросе. Допустимые значения: **simple**|**full**, где **simple** является значением по умолчанию, а **full** соответствует средству синтаксического анализа запросов Lucene. Дополнительные сведения о задании параметров запроса см. в статье [Поиск документов (API REST службы поиска Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-All of the examples in this article specify the Lucene Query Parser via the**queryType** search parameter. When using the Lucene Query Parser from your code, you'll specify the **queryType** on every request.  Valid values include **simple**|**full**, with **simple** as the default and **full** for the Lucene Query Parser. See [Search Documents (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) for details about specifying query parameters.
-
-**Example 1** -- Right-click the following query snippet to open it in a new browser page that loads JSFiddle and runs the query:
+**Пример 1.** Щелкните правой кнопкой мыши приведенный ниже фрагмент запроса, чтобы открыть его в новой странице браузера, где загружается JSFiddle и выполняется запрос.
 - [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
-This query returns documents from our Jobs index (loaded on a sandbox service)
+Этот запрос возвращает документы из нашего индекса должностей (загруженного в службу "песочницы").
 
-In the new browser window, you'll see the JavaScript source and HTML output side by side. The script references a query, which is provided by the example URLs in this article. For instance, in **Example 1**, the underlying query is as follows:
+В новом окне браузера вы увидите исходный код JavaScript и рядом с ним выходные данные HTML. Сценарий ссылается на запрос, который доступен по URL-адресам примеров в этой статье. Так, в **примере 1** базовый запрос выглядит так:
 
     http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
-Notice the query uses a preconfigured Azure Search index called nycjobs. The **searchFields** parameter restricts the search to just the business title field. The **queryType** is set to **full**, which instructs Azure Search to use the Lucene Query Parser for this query.
+Обратите внимание на то, что в запросе используется предварительно настроенный индекс поиска Azure с именем nycjobs. Параметр **searchFields** ограничивает поиск полем должности. Параметр **queryType** имеет значение **full**, предписывающее службе поиска Azure использовать средство синтаксического анализа запросов Lucene для этого запроса.
 
-### <a name="fielded-query-operation"></a>Fielded query operation
+### Операция запроса, относящегося к полю
 
-You can modify the examples in this article by specifying a **fieldname:searchterm** construction to define a fielded query operation, where the field is a single word, and the search term is also a single word or a phrase, optionally with Boolean operators. Some examples include the following:
+Вы можете изменить приведенные в этой статье примеры, задав конструкцию **fieldname:searchterm**, чтобы определить операции запроса, относящегося к полю, где поле представляет собой одно слово, а условие поиска — одно слово или фразу, иногда с логическими операторами. Некоторые примеры:
 
-- business_title:(senior NOT junior)
+- business\_title:(senior NOT junior)
 - state:("New York" AND "New Jersey")
 
-Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, as in this case searching for two distinct cities in the location field. Also, ensure the operator is capitalized as you see with NOT and AND.
+Добавьте несколько строк в кавычках, если необходимо, чтобы обе строки считались одной сущностью, как в приведенном случае поиска двух разных городов в поле расположения. Кроме того, оператор должен быть указан в верхнем регистре, как в случае с NOT и AND.
 
-The field specified in **fieldname:searchterm** must be a searchable field. See [Create Index (Azure Search Service REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) for details on how index attributes are used in field definitions.
+Поле, указанное в **fieldname:searchterm**, должно поддерживать возможность поиска. Дополнительные сведения об использовании атрибутов индекса в определениях полей см. в статье [Создание индекса (Azure поиска службы REST API)](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
-## <a name="fuzzy-search"></a>Fuzzy search
+## Поиск нечетких соответствий
 
-A fuzzy search finds matches in terms that have a similar construction. Per [Lucene documentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
+Операция поиска нечетких соответствий позволяет найти совпадения в словах с аналогичной конструкцией. В [документации Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) поиск нечетких соответствий основан на [расстоянии Дамерау — Левенштейна](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
-To do a fuzzy search, use the tilde "~" symbol at the end of a single word with an optional parameter, a value between 0 and 2, that specifies the edit distance. For example, "blue~" or "blue~1" would return blue, blues, and glue.
+Чтобы выполнить поиск нечетких соответствий, необходимо поставить символ тильды "~" в конце слова. Дополнительно можно поставить цифру от 0 до 2, указывающую расстояние редактирования. Например, "blue~" или "blue~1" вернет результаты с "blue", "blues" и "glue".
 
-**Example 2** -- Right-click the following query snippet to give it a try. This query searches for business titles with the term senior in them, but not junior:
+**Пример 2.** Щелкните правой кнопкой мыши приведенный ниже фрагмент запроса, чтобы выполнить его. Этот запрос осуществляет поиск должностей, содержащих слово "senior", а не "junior":
 
-- [&queryType=full&search= business_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
+- [&queryType=full&search= business\_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
 
-## <a name="proximity-search"></a>Proximity Search
+## Поиск с учетом расположения
 
-Proximity searches are used to find terms that are near each other in a document. Insert a tilde "~" symbol at the end of a phrase followed by the number of words that create the proximity boundary. For example, "hotel airport"~5 will find the terms hotel and airport within 5 words of each other in a document.
+Операция поиска с учетом расположения позволяет найти слова, расположенные рядом в документе. Вставьте символ тильды "~" в конце фразы, а затем — цифру, обозначающую количество слов, определяющее границу близости. Например, если ввести "hotel airport"~5, будут найдены слова "hotel" и "airport", расположенные в пределах 5 слов друг от друга в документе.
 
-**Example 3** -- Right-click the following query snippet. This query searches for jobs with the term associate (where it is misspelled):
+**Пример 3.** Щелкните правой кнопкой мыши приведенный ниже фрагмент запроса. Этот запрос осуществляет поиск должностей со словом "associate" (написанного с ошибкой):
 
-- [&queryType=full&search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+- [&queryType=full&search= business\_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
-**Example 4** -- Right-click the query. Search for jobs with the term "senior analyst" where it is separated by no more than one word:
+**Пример 4**. Щелкните запрос правой кнопкой мыши. Осуществляется поиск должностей, содержащих словосочетание "senior analyst", разделенное не более чем одним словом:
 
-- [&queryType=full&search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+- [&queryType=full&search=business\_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
 
-**Example 5** -- Try it again removing the words between the term "senior analyst".
+**Пример 5.** Выполните эту операцию поиска снова, при этом не допуская разделения словосочетания "senior analyst" другими словами.
 
-- [&queryType=full&search=business_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
+- [&queryType=full&search=business\_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
 
-## <a name="term-boosting"></a>Term Boosting
+## Повышение приоритета слов
 
-Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. This differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms. The following example helps illustrate the differences.
+При повышении приоритета слов документы сортируются по приоритету, т. е. документы, в которых содержится условие поиска, имеют высший приоритет по отношению к документам, в которых его нет. Этот тип запроса отличается от профилей повышения, так как они повышают приоритет определенных полей, а не определенных слов. В следующем примере показаны эти различия.
 
-Consider a scoring profile that boosts matches in a certain field, such as **genre** in the musicstoreindex example. Term boosting could be used to further boost certain search terms higher than others. For example, "rock^2 electronic" will boost documents that contain the search terms in the **genre** field higher than other searchable fields in the index. Furthermore, documents that contain the search term "rock" will be ranked higher than the other search term "electronic" as a result of the term boost value (2).
+Рассмотрим профиль повышения, который повышает приоритет совпадений в определенном поле, таком как **genre** в примере musicstoreindex. Повышение значимости слов может использоваться для дальнейшего повышения приоритета определенных условий поиска относительно других. Например, при вводе запроса "rock^2 electronic" документы, содержащие это условие поиска в поле **genre**, становятся приоритетнее документов, содержащих это условие поиска в других полях, поддерживающих поиск, в индексе. Кроме того, документы, содержащие слово "rock", будут иметь более высокий приоритет, чем документы, содержащие слово "electronic", так как введен коэффициент повышения приоритета (2).
 
-To boost a term, use the caret, "^", symbol with a boost factor (a number) at the end of the term you are searching. The higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.2).
+Чтобы повысить приоритет условия поиска, используйте символ крышки "^" и коэффициент повышения приоритета (число) в конце этого условия. Чем выше коэффициент повышения приоритета, тем приоритетнее условие поиска относительно других. Коэффициент повышения приоритета по умолчанию — 1. Несмотря на то, что коэффициент повышения приоритета должен быть положительным числом, он может быть меньше 1 (например, 0,2).
 
-**Example 6**  -- Right-click the query. Search for jobs with the term "computer analyst" where we see there are no results with both words computer and analyst, yet analyst jobs are at the top of the results.
+**Пример 6**. Щелкните запрос правой кнопкой мыши. Выполняется поиск должностей, содержащих словосочетание "computer analyst". В результате этого поиска должности, содержащие оба слова "computer" и "analyst", не найдены, а должности со словом "analyst" выведены в верхней части результатов.
 
-- [&queryType=full&search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+- [&queryType=full&search=business\_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
-**Example 7**  --  Try it again, this time boosting results with the term computer over the term analyst if both words do not exist.
+**Пример 7.** Выполните этот поисковой запрос снова, при этом повышая приоритет результатов, содержащих слово "computer", относительно результатов, содержащих слово "analyst", если оба слова не встречаются одновременно.
 
-- [&queryType=full&search=business_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+- [&queryType=full&search=business\_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
-## <a name="regular-expression"></a>Regular Expression
+## Регулярное выражение
 
-A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
+Операция поиска по регулярным выражениям позволяет найти совпадение в зависимости от содержимого между косыми чертами "/", как указано в документации [класса RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
-**Example 8** -- Right-click the query. Search for jobs with either the term Senior or Junior.
+**Пример 8**. Щелкните запрос правой кнопкой мыши. Выполняется поиск должностей, содержащих слово "Senior" или "Junior".
 
 - `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-The URL for this example will not render properly in the page. As a workaround, copy the URL below and paste it into the browser URL address:     `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+URL-адрес для этого примера неправильно отображается на странице. Для решения этой проблемы скопируйте URL-адрес ниже и вставьте его в строку URL-адреса в браузере: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 
-## <a name="wildcard-search"></a>Wildcard Search
+## Поиск с использованием подстановочных знаков
 
-You can use generally recognized syntax for multiple (\*) or single (?) character wildcard searches. Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
+Вы можете использовать распознаваемый синтаксис для поиска с использованием одного (?) или нескольких (*) подстановочных знаков. Обратите внимание, что средство синтаксического анализа запросов Lucene поддерживает использование этих символов для поиска одного слова, а не фразы.
 
-**Example 9** -- Right-click the  query. Search for jobs that contain the prefix 'prog' which would include business titles with the terms programming and programmer in it.
+**Пример 9**. Щелкните запрос правой кнопкой мыши. Выполняется поиск должностей, содержащих в начале"prog". В результате будут найдены должности со словами "programming" и "programmer".
 
-- [&queryType=full&$select=business_title&search=business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26queryType=full%26$select=business_title%26search=business_title:prog*)
+- [&queryType=full&$select=business\_title&search=business\_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2015-02-28-Preview%26queryType=full%26$select=business_title%26search=business_title:prog*)
 
-You cannot use a * or ? symbol as the first character of a search.
+Символ "*" или "?" не может находиться в начале поискового запроса.
 
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-Try specifying the Lucene Query Parser in your code. The following links explain how to set up search queries for both .NET and the REST API. The links use the default simple syntax so you will need to apply what you learned from this article to specify the **queryType**.
+Попробуйте указать средство синтаксического анализа запросов Lucene в коде. Чтобы узнать о том, как настроить запросы поиска для .NET и REST API, воспользуйтесь приведенными ссылками. В этих ссылках используется простой синтаксис по умолчанию, поэтому потребуется применить полученные из этой статьи знания, чтобы задать **queryType**.
 
-- [Query your Azure Search Index using the .NET SDK](search-query-dotnet.md)
-- [Query your Azure Search Index using the REST API](search-query-rest-api.md)
+- [Отправка запросов в индекс службы поиска Azure с помощью пакета SDK для .NET](search-query-dotnet.md)
+- [Отправка запросов в индекс службы поиска Azure с помощью REST API](search-query-rest-api.md)
 
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

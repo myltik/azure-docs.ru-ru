@@ -1,98 +1,76 @@
 <properties 
-    pageTitle="Overview of integration accounts and the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
-    description="Learn all about Integration accounts, the Enterprise Integration Pack and Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="msftman" 
-    manager="erikre" 
-    editor="cgronlun"/>
+	pageTitle="Обзор учетных записей интеграции и пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
+	description="Узнайте все об учетных записях интеграции, пакете интеграции Enterprise и приложениях логики." 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="msftman" 
+	manager="erikre" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/08/2016" 
-    ms.author="deonhe"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/08/2016" 
+	ms.author="deonhe"/>
 
+# Обзор учетных записей интеграции
 
-# <a name="overview-of-integration-accounts"></a>Overview of integration accounts
+## Что такое учетная запись интеграции?
+Учетная запись интеграции — это учетная запись Azure, позволяющая приложениям интеграции Enterprise управлять артефактами, включая схемы, карты, сертификаты, партнеры и соглашения. Любому создаваемому вами приложению интеграции потребуется учетная запись интеграции, например, для доступа к схеме, карте или сертификату.
 
-## <a name="what-is-an-integration-account?"></a>What is an integration account?
-An integration account is an Azure account that allows Enterprise Integration apps to manage artifacts including schemas, maps, certificates, partners and agreements. Any integration app you create will need to use an integration account in order to access a schema, map or certificate, for example.
+## Создание учетной записи интеграции 
+1. Щелкните **Обзор**. ![](./media/app-service-logic-enterprise-integration-accounts/account-1.png)
+2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![](./media/app-service-logic-enterprise-integration-accounts/account-2.png)
+3. В меню в верхней части страницы нажмите кнопку *Добавить*. ![](./media/app-service-logic-enterprise-integration-accounts/account-3.png)
+4. Введите **имя**, выберите **подписку**, которую вы хотите использовать, создайте новую **группу ресурсов** или выберите существующую, выберите **расположение** для размещения учетной записи интеграции, выберите **ценовую категорию**, а затем нажмите кнопку **Создать**.
 
-## <a name="create-an-integration-account"></a>Create an integration account 
-1. Select **Browse**   
-![](./media/app-service-logic-enterprise-integration-accounts/account-1.png)  
-2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
- ![](./media/app-service-logic-enterprise-integration-accounts/account-2.png)  
-3. Select *Add* button from the menu at the top of the page      
-![](./media/app-service-logic-enterprise-integration-accounts/account-3.png)  
-4. Enter the **Name**, select the **Subscription** you want to use, either create a new **Resource group** or select an existing resource group, select a **Location** where your integration account will be hosted, select a **Pricing tier**, then select the **Create** button.   
+  На этом этапе в выбранном расположении будет подготовлена учетная запись интеграции. На это потребуется не больше 1 минуты. ![](./media/app-service-logic-enterprise-integration-accounts/account-4.png)
+5. Обновите страницу. Вы увидите новую учетную запись интеграции в списке. Поздравляем! ![](./media/app-service-logic-enterprise-integration-accounts/account-5.png)
 
-  At this point the integration account will be provisioned in the location you selected. This should complete within 1 minute.    
-![](./media/app-service-logic-enterprise-integration-accounts/account-4.png)  
-5. Refresh the page. You will see your new integration account listed. Congratulations!  
-![](./media/app-service-logic-enterprise-integration-accounts/account-5.png) 
+## Как связать учетную запись интеграции с приложением логики
+Чтобы предоставить приложению логики доступ к картам, схемам, соглашениям и другим артефактам, которые находятся в вашей учетной записи интеграции, необходимо сначала связать ее с этим приложением логики.
 
-## <a name="how-to-link-an-integration-account-to-a-logic-app"></a>How to link an integration account to a Logic app
-In order for your Logic apps to access to maps, schemas, agreements and other artifacts that are located in your integration account, you must first link the integration account to your Logic app.
+### Ниже приведены инструкции о том, как связать учетную запись интеграции с приложением логики. 
 
-### <a name="here-are-the-steps-to-link-an-integration-account-to-a-logic-app"></a>Here are the steps to link an integration account to a Logic app 
+#### Предварительные требования
+- Учетная запись интеграции.
+- Приложение логики.
 
-#### <a name="prerequisites"></a>Prerequisites
-- An integration account
-- A Logic app
+>[AZURE.NOTE]Прежде чем начать, убедитесь, что учетная запись интеграции и приложение логики находятся в **одном расположении Azure**.
 
->[AZURE.NOTE]Be sure your integration account and Logic app are in the **same Azure location** before you begin
+1. Щелкните ссылку **Параметры** в меню приложения логики. ![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-1.png)
+2. В колонке "Параметры" выберите элемент **Integration Account** (Учетная запись интеграции). ![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-2.png)
+3. Выберите учетную запись интеграции, которую необходимо связать с приложением логики, из раскрывающегося списка **Select an Integration account** (Выбор учетной записи интеграции). ![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-3.png)
+4. Сохраните результаты своих действий. ![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-4.png)
+5. Вы увидите уведомление о том, что учетная запись интеграции связана с вашим приложением логики, а все артефакты в вашей учетной записи интеграции доступны для этого приложения логики. ![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-5.png)
 
-1. Select **Settings** link from the menu of your Logic app  
-![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-1.png)   
-2. Select the **Integration Account** item from the Settings blade  
-![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-2.png)   
-3. Select the integration account you wish to link to your Logic app from the **Select an Integration account** drop down list box  
-![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-3.png)   
-4. Save your work  
-![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-4.png)   
-5. You will see a notification that indicates that your integration account has been linked to your Logic app and that all artifacts in your integration account are now available to your Logic app.  
-![](./media/app-service-logic-enterprise-integration-accounts/linkaccount-5.png)   
-
-Now that your integration account is linked to your Logic app, you can you go to your Logic app and use B2B connectors such as the XML Validation, Flat file encode/decode or Transform to create apps with B2B features.  
+Теперь, когда учетная запись интеграции связана с приложением логики, можно перейти в приложение логики и использовать для создания приложений с функциями "бизнес-бизнес" такие соединители "бизнес-бизнес", как проверка XML, кодирование и декодирование неструктурированных файлов и преобразование.
     
-## <a name="how-to-delete-an-integration-account?"></a>How to delete an integration account?
-1. Select **Browse**  
-![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
-2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
- ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
-3. Select the **integration account** that you wish to delete  
-![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
-4. Select the **Delete** link that's located on the menu   
-![](./media/app-service-logic-enterprise-integration-accounts/delete.png)  
-5. Confirm your choice    
+## Как удалить учетную запись интеграции?
+1. Щелкните **Обзор**. ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+3. Выберите **учетную запись интеграции**, которую нужно удалить. ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
+4. Щелкните ссылку **Удалить**, которая находится в меню. ![](./media/app-service-logic-enterprise-integration-accounts/delete.png)
+5. Подтвердите свой выбор.
 
-## <a name="how-to-move-an-integration-account?"></a>How to move an integration account?
-You can easily move an integration account to a new subscription and a new resource group. Follow these steps if you need to move your integration account:
+## Как переместить учетную запись интеграции?
+Можно легко переместить учетную запись интеграции в новую подписку и новую группу ресурсов. Если необходимо переместить учетную запись интеграции, выполните следующие действия.
 
->[AZURE.IMPORTANT] You will need to update all scripts to use the new resource IDs after you move an integration account.
+>[AZURE.IMPORTANT] После перемещения учетной записи интеграции потребуется обновить все сценарии, чтобы в них использовались новые идентификаторы ресурсов.
 
-1. Select **Browse**  
-![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
-2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
- ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
-3. Select the **integration account** that you wish to delete  
-![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
-4. Select the **Move** link that's located on the menu   
-![](./media/app-service-logic-enterprise-integration-accounts/move.png)  
-5. Confirm your choice    
+1. Щелкните **Обзор**.![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+3. Выберите **учетную запись интеграции**, которую нужно переместить. ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
+4. Щелкните ссылку **Переместить**, которая находится в меню. ![](./media/app-service-logic-enterprise-integration-accounts/move.png)
+5. Подтвердите свой выбор.
 
-## <a name="next-steps"></a>Next Steps
-- [Learn more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+## Дальнейшие действия
+- [Узнайте больше о соглашениях](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.").
 
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

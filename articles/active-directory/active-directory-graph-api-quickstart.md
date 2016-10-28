@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Quickstart for the Azure AD Graph API | Microsoft Aure"
-   description="The Azure Active Directory Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects."
+   pageTitle="Краткое руководство по API Graph Azure AD | Microsoft Aure"
+   description="API Graph Azure Active Directory обеспечивает программный доступ к Azure AD через конечные точки REST API OData. Приложения могут использовать Graph API для выполнений операций создания, чтения, обновления и удаления (CRUD) с данными и объектами каталогов."
    services="active-directory"
    documentationCenter="n/a"
-   authors="PatAltimore"
-   manager="mbaldwin"
+   authors="JimacoMS"
+   manager="msmbaldwin"
    editor=""
    tags=""/>
 
@@ -16,82 +16,81 @@
       ms.tgt_pltfrm="na"
       ms.workload="identity"
       ms.date="09/16/2016"
-      ms.author="patricka"/>
+      ms.author="v-jibran@microsoft.com"/>
 
+# Краткое руководство по API Graph Azure AD
 
-# <a name="quickstart-for-the-azure-ad-graph-api"></a>Quickstart for the Azure AD Graph API
+API Graph Azure Active Directory обеспечивает программный доступ к Azure AD через конечные точки REST API OData. Приложения могут использовать Graph API для выполнений операций создания, чтения, обновления и удаления (CRUD) с данными и объектами каталогов. Например, можно использовать API Graph для создания нового пользователя, просмотра или обновления свойств пользователя, изменения пароля пользователя, проверки членства в группе для доступа на основе ролей, а также отключения или удаления пользователя. Дополнительные сведения о функциях API Graph и сценариях приложений см. в разделах [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) и [Необходимые условия для использования API Graph Azure AD](https://msdn.microsoft.com/library/hh974476.aspx).
 
-The Azure Active Directory (AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects. For example, you can use the Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable or delete the user. For more information on the Graph API features and application scenarios, see [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) and [Azure AD Graph API Prerequisites](https://msdn.microsoft.com/library/hh974476.aspx). 
+> [AZURE.IMPORTANT] Функциональные возможности API Azure AD Graph доступны также в [Microsoft Graph](https://graph.microsoft.io/) — едином API, который включает API из других служб Майкрософт, таких как Outlook, OneDrive, OneNote, Planner и Office Graph, для которых применяются единая конечная точка и единый маркер доступа.
 
-> [AZURE.IMPORTANT] Azure AD Graph API functionality is also available through [Microsoft Graph](https://graph.microsoft.io/), a unified API that  includes APIs from other Microsoft services such as Outlook, OneDrive, OneNote, Planner, and Office Graph, accessible through a single endpoint and with a single access token.
+## Как составить URL-адрес Graph API
 
-## <a name="how-to-construct-a-graph-api-url"></a>How to construct a Graph API URL
+В API Graph для доступа к данным и объектам каталога (другими словами, к ресурсам и сущностям), с которыми требуется выполнять операции CRUD, можно использовать URL-адреса на основе протокола OData. URL-адреса, используемые в API Graph, состоят из четырех основных частей — корня службы, идентификатора клиента, пути к ресурсу и строки параметров запроса: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Возьмем, к примеру, следующий URL-адрес: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
-In Graph API, in order to access directory data and objects (in other words, resources or entities) against which you want to perform CRUD operations, you can use URLs based on the Open Data (OData) Protocol. The URLs used in Graph API consist of four main parts: service root, tenant identifier, resource path, and query string options: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Take the example of the following URL: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
+- **Корень службы**. В API Graph Azure AD корень службы всегда https://graph.windows.net.
+- **Идентификатор клиента**. Это может быть имя проверенного (зарегистрированного) домена, в примере выше — contoso.com. Это также может быть идентификатор объекта клиента или псевдоним myorganization или me. Дополнительные сведения см. в статье [Адресация сущностей и операций в Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
+- **Путь к ресурсу**. В этом разделе URL-адрес идентифицирует ресурс для взаимодействия (с пользователями, группами, конкретным пользователем или группой и т. д.). В приведенном выше примере это groups верхнего уровня для адресации данного набора ресурсов. Можно также обращаться к конкретной сущности, например users/{objectId} или users/userPrincipalName.
+- **Параметры запроса**. Знак вопроса (?) отделяет раздел пути ресурса от раздела параметров запроса. Параметр запроса api-version необходим для всех запросов в API Graph. API Graph также поддерживает следующие параметры запроса OData: **$filter**, **$orderby**, **$expand**, **$top** и **$format**. В настоящее время не поддерживаются следующие параметры запроса: **$count**, **$inlinecount** и **$skip**. Дополнительные сведения см. в статье [Поддерживаемые запросы, фильтры и операции разбиения на страницы в Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 
-- **Service Root**: In Azure AD Graph API, the service root is always https://graph.windows.net.
-- **Tenant identifier**: This can be a verified (registered) domain name, in the example above, contoso.com. It can also be a tenant object ID or the “myorganiztion” or “me” alias. For more information, see [Addressing Entities and Operations in the Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview)).
-- **Resource path**: This section of a URL identifies the resource to be interacted with (users, groups, a particular user, or a particular group, etc.) In the example above, it is the top-level “groups” to address that resource set. You can also address a specific entity, for example “users/{objectId}” or “users/userPrincipalName”.
-- **Query parameters**: ? separates the resource path section from the query parameters section. The “api-version” query parameter is required on all requests in the Graph API. The Graph API also supports the following OData query options: **$filter**, **$orderby**, **$expand**, **$top**, and **$format**. The following query options are not currently supported: **$count**, **$inlinecount**, and **$skip**. For more information, see [Supported Queries, Filters, and Paging Options in Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
+## Версии API Graph
 
-## <a name="graph-api-versions"></a>Graph API versions
+Версия для запроса API Graph указывается в параметре запроса api-version. Для версии 1.5 и более поздних используется числовое значение версии: api-version=1.6. Для предыдущих версий используйте строку даты, соответствующую формату ГГГГ-ММ-ДД. Пример: api-version=2013-11-08. Для компонентов предварительной версии используйте строку beta. Пример: api-version=beta. Дополнительные сведения о различиях между версиями API Graph см. в разделе [Управление версиями API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
 
-You specify the version for a Graph API request in the “api-version” query parameter. For version 1.5 and later, you use a numerical version value; api-version=1.6. For earlier versions, you use a date string that adheres to the format YYYY-MM-DD; for example, api-version=2013-11-08. For preview features, use the string “beta”; for example, api-version=beta. For more information about differences between Graph API versions, see [Azure AD Graph API Versioning](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
+## Метаданные API Graph
 
-## <a name="graph-api-metadata"></a>Graph API metadata
+Для получения файла метаданных API Graph добавьте сегмент $metadata после идентификатора клиента в URL-адресе. Например, следующий URL-адрес возвращает метаданные для демонстрационной компании, используемой Graph Explorer: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`. Можно ввести этот URL-адрес в адресной строке веб-браузера для просмотра метаданных. Возвращаемый документ метаданных с расширением CSDL описывает сущности и сложные типы, их свойства, а также функции и действия, представляемые запрошенной версией API Graph. Если параметр api-version не задан, то возвращаются метаданные для самой последней версии.
 
-To return the Graph API metadata file, add the “$metadata” segment after the tenant-identifier in the URL For example, the following URL returns metadata for the demo company used by the Graph Explorer: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`. You can enter this URL in the address bar of a web browser to see the metadata. The CSDL metadata document returned describes the entities and complex types, their properties, and the functions and actions exposed by the version of Graph API you requested. Omitting the api-version parameter will return metadata for the most recent version.
+## Стандартные запросы
 
-## <a name="common-queries"></a>Common queries
+В разделе [Стандартные запросы Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) представлены стандартные запросы, которые могут использоваться с Graph Azure AD, включая запросы для доступа к ресурсам верхнего уровня в каталоге и запросы для выполнения операций в каталоге.
 
-[Azure AD Graph API Common Queries](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) lists common queries that can be used with the Azure AD Graph, including queries that can be used to access top-level resources in your directory and queries to perform operations in your directory.
+Например, `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.6` возвращает сведения об организации для каталога contoso.com.
 
-For example, `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.6` returns company information for directory contoso.com.
+Или `https://graph.windows.net/contoso.com/users?api-version=1.6` перечисляет все объекты пользователя в каталоге contoso.com.
 
-Or `https://graph.windows.net/contoso.com/users?api-version=1.6` lists all user objects in the directory contoso.com.
+## Использование Graph Explorer
 
-## <a name="using-the-graph-explorer"></a>Using the Graph Explorer
+Можно использовать Graph Explorer для API Graph Azure AD, чтобы запрашивать данные каталога по мере создания приложения.
 
-You can use the Graph Explorer for the Azure AD Graph API to query the directory data as you build your application.
+> [AZURE.IMPORTANT] Graph Explorer не поддерживает запись или удаление данных из каталога. С помощью Graph Explorer можно выполнять только операции чтения в каталоге Azure AD.
 
-> [AZURE.IMPORTANT] The Graph Explorer does not support writing or deleting the data from a directory. You can only perform read operations on your Azure AD directory with the Graph Explorer.
+Ниже показан результат, который отобразится, если перейти в Graph Explorer, выбрать параметр "Использовать демонстрационную компанию" и ввести `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6`, чтобы отобразить всех пользователей в демонстрационном каталоге:
 
-The following is the output you would see if you were to navigate to the Graph Explorer, select Use Demo Company, and enter `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` to display all of the users in the demo directory:
+![Обозреватель API Graph Azure AD](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-![Azure AD graph api explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+**Загрузка Graph Explorer**. Чтобы загрузить этот инструмент, перейдите по адресу [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Выберите **Использовать демонстрационную компанию**, чтобы запустить Graph Explorer для обработки данных из примера клиента. Учетные данные для использования демонстрационной компании не требуются. Вы также можете щелкнуть **Войти** и выполнить вход с использованием учетных данных Azure AD, чтобы запустить Graph Explorer для работы с вашим клиентом. При запуске Graph Explorer для своего собственного клиента вам или вашему администратору потребуется предоставить согласие в процессе входа. Если у вас есть подписка Office 365, у вас также есть клиент Azure AD. Учетные данные, используемые для входа в Office 365, в действительности являются учетными записями Azure AD, и эти учетные данные можно использовать в Graph Explorer.
 
-**Load the Graph Explorer**: To load the tool, navigate to [https://graphexplorer.cloudapp.net/](https://graphexplorer.cloudapp.net/). Click **Use Demo Company** to run the Graph Explorer against data from a sample tenant. You do not need credentials to use the demo company. Alternatively, you can click **Sign in** and sign in with your Azure AD account credentials to run the Graph Explorer against your tenant. If you run Graph Explorer against your own tenant, either you or your administrator will need to consent during sign-in. If you have an Office 365 subscription, you automatically have an Azure AD tenant. The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Graph Explorer.
+**Выполнение запроса**. Для выполнения запроса введите запрос в текстовом поле запроса и нажмите кнопку **ПОЛУЧИТЬ** или клавишу **ВВОД**. Результаты появятся в поле ответа. Например, с помощью `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.6` можно получить список всех объектов групп в демонстрационном каталоге.
 
-**Run a query**: To run a query, type your query in the request text box and click **GET** or click the **enter** key. The results are displayed in the response box. For example, `https://graph.windows.net/graphdir1.onmicrosoft.com /groups?api-version=1.6` will list all group objects in the demo directory.
+Обратите внимание на следующие возможности и ограничения Graph Explorer.
+- Возможность автозаполнения в наборах ресурсов. Чтобы опробовать эту возможность, нажмите кнопку **Использовать демонстрационную компанию** и щелкните в текстовом поле запроса (где отображается URL-адрес компании). В раскрывающемся списке можно выбрать набор ресурсов.
 
-Note the following features and limitations of the Graph Explorer:
-- Autocomplete capability on resource sets. To see this, click **Use Demo Company** and then click on the request text box (where the company URL appears). You can select a resource set from the dropdown list.
+- Поддерживает псевдонимы адресации me и myorganization. Например, можно использовать `https://graph.windows.net/me?api-version=1.6` для возврата объекта пользователя, выполнившего вход, или `https://graph.windows.net/myorganization/users?api-version=1.6` для возврата всех пользователей в текущем каталоге. Обратите внимание, что при использовании псевдонима me для демонстрационной компании возвращается ошибка, так как ни один пользователь не выполнил вход и не выдал запрос.
 
-- Supports the “me” and “myorganization” addressing aliases. For example, you can use `https://graph.windows.net/me?api-version=1.6` to return the user object of the signed-in user or `https://graph.windows.net/myorganization/users?api-version=1.6` to return all users in the current directory. Note that using the “me” alias returns an error for the demo company because there is no signed-in user making the request.
+- Раздел заголовков ответа. Его можно использовать для устранения проблем, возникающих при выполнении запросов.
 
-- A response headers section. This can be used to help troubleshoot issues that occur when running queries.
+- Средство просмотра JSON для ответа с возможностью развертывания и свертывания.
 
-- A JSON viewer for the response with expand and collapse capabilities.
+- Отображение эскизов фотографий не поддерживается.
 
-- No support for displaying a thumbnail photo.
+## Использование Fiddler для записи в каталог
 
-## <a name="using-fiddler-to-write-to-the-directory"></a>Using Fiddler to write to the directory
+В целях этого краткого руководства можно использовать веб-отладчик Fiddler, чтобы попрактиковаться в выполнении операций записи в каталоге Azure AD. Дополнительные сведения о Fiddler и его установке см. по адресу [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler).
 
-For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger in order to practice performing ‘write’ operations against you Azure AD directory. For more information and to install Fiddler, see [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler).
+В следующем примере веб-отладчик Fiddler используется для создания новой группы безопасности MyTestGroup в каталоге Azure AD.
 
-In the example below, you will use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.
+**Получение маркера доступа**. Чтобы получить доступ к Graph Azure AD, клиенты сначала должны успешно пройти проверку подлинности в Azure AD. Дополнительные сведения см. в разделе [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md).
 
-**Obtain an access token**: To access Azure AD Graph, clients are required to successfully authenticate to Azure AD first. For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
+**Составление и выполнение запроса**. Выполните следующие шаги.
 
-**Compose and run a query**: Complete the following steps.
+1. Откройте веб-отладчик Fiddler и перейдите на вкладку **Composer** (Средство создания).
+2. Так как требуется создать новую группу безопасности, выберите в раскрывающемся меню **Post** в качестве метода HTTP. Дополнительные сведения об операциях и разрешениях в объекте группы см. в описании [Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity) в разделе [Справочник по Azure AD Graph REST API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+3. В поле рядом с методом **Post** в качестве URL-адреса запроса введите следующее: `https://graph.windows.net/mytenantdomain/groups?api-version=1.6`.
 
-1. Open Fiddler Web Debugger and switch to the **Composer** tab.
-2. Since you want to create a new security group, select **Post** as the HTTP method from the pull-down menu. For more information about operations and permissions on a group object, see [Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity) within the [Azure AD Graph REST API Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-3. In the field next to **Post**, type in the following as the request URL: `https://graph.windows.net/mytenantdomain/groups?api-version=1.6`.
+    > [AZURE.NOTE] Необходимо заменить mytenantdomain доменным именем собственного каталога Azure AD.
 
-    > [AZURE.NOTE] You must substitute mytenantdomain with the domain name of your own Azure AD directory.
-
-4. In the field directly below Post pull-down, type the following:
+4. В поле непосредственно под методом Post введите следующее:
 
     ```
 Host: graph.windows.net
@@ -99,9 +98,9 @@ Authorization: your access token
 Content-Type: application/json
 ```
 
-    > [AZURE.NOTE] Substitute your &lt;your access token&gt; with the access token for your Azure AD directory.
+    > [AZURE.NOTE] Замените &lt;your access token&gt; маркером доступа для своего каталога Azure AD.
 
-5. In the **Request body** field, type the following:
+5. В поле **Request body** (Текст запроса) введите следующее:
 
     ```
         {
@@ -112,17 +111,13 @@ Content-Type: application/json
         }
 ```
 
-    For more information about creating groups, see [Create Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#CreateGroup).
+    Дополнительные сведения о создании групп см. в разделе [Создать группу](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#CreateGroup).
 
-For more information on Azure AD entities and types that are exposed by Graph and information about the operations that can be performed on them with Graph, see [Azure AD Graph REST API Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+Дополнительные сведения о сущностях и типах Azure AD, доступ к которым можно получить с помощью Graph, а также сведения об операциях, которые можно с ними выполнять с помощью Graph, см. в разделе [Справочник по Azure AD Graph REST API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- Learn more about the [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
-- Learn more about [Azure AD Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- Узнайте больше о [API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
+- Дополнительная информация: [Azure AD Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

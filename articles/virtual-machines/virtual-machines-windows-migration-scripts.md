@@ -1,48 +1,44 @@
 <properties
-    pageTitle="Community tools for Azure Service Management to Azure Resource Manager migration"
-    description="This article catalogs the tools that have been provided by the community to assist with migration of IaaS resources from Azure Service Management to the Azure Resource Manager stack."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="singhkays"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Инструменты сообщества для переноса ресурсов из управления службами Azure в Azure Resource Manager"
+	description="В этой статье перечислены инструменты, которые были предоставлены сообществом для помощи с выполнением переноса ресурсов IaaS из управления службами Azure в стек Azure Resource Manager."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="singhkays"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/29/2016"
-    ms.author="singhkay"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/29/2016"
+	ms.author="singhkay"/>
 
+# Инструменты сообщества для переноса ресурсов из управления службами Azure в Azure Resource Manager
 
-# <a name="community-tools-for-azure-service-management-to-azure-resource-manager-migration"></a>Community tools for Azure Service Management to Azure Resource Manager migration
+В этой статье перечислены инструменты, которые были предоставлены сообществом для помощи с выполнением переноса ресурсов IaaS из управления службами Azure в стек Azure Resource Manager.
 
-This article catalogs the tools that have been provided by the community to assist with migration of IaaS resources from Azure Service Management to the Azure Resource Manager stack.
-
->[AZURE.NOTE]These tools are not officially supported by Microsoft Support. Therefore they are open sourced on Github and we're happy to accept PRs for fixes or additional scenarios. To report an issue, use the Github issues feature.
+>[AZURE.NOTE]Эти инструменты официально не поддерживаются службой поддержки Майкрософт. Они представлены на Github с открытым исходным кодом, и мы охотно принимаем запросы на включение внесенных изменений, связанные с исправлениями или дополнительными сценариями. Чтобы сообщить о проблеме, воспользуйтесь вкладкой Issues (Проблемы) на сайте Github.
 >
-> Migrating with these tools will cause downtime for your classic Virtual Machine. If you're looking for platform supported migration, visit 
+> Перенос с использованием этих инструментов вызовет простой классической виртуальной машины. Если вы хотите выполнить поддерживаемый платформой перенос, см. следующие статьи:
 >
->- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](./virtual-machines-windows-migration-classic-resource-manager.md)
->- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](./virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
->- [Migrate IaaS resources from Classic to Azure Resource Manager using Azure PowerShell](./virtual-machines-windows-ps-migration-classic-resource-manager.md)
+>- [Поддерживаемый платформой перенос ресурсов IaaS из классической модели в модель Azure Resource Manager](./virtual-machines-windows-migration-classic-resource-manager.md)
+>- [Техническое руководство по поддерживаемому платформой переносу из классической модели в модель Azure Resource Manager](./virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+>- [Перенос ресурсов IaaS из классической модели в модель Azure Resource Manager с помощью Azure PowerShell](./virtual-machines-windows-ps-migration-classic-resource-manager.md)
 
-## <a name="asm2arm"></a>ASM2ARM
+## ASM2ARM
 
-This is a PowerShell script module for migrating your **single** Virtual Machine (VM) from Azure Service Management stack to Azure Resource Manager stack. 
+Это модуль сценария PowerShell для выполнения переноса **одной** виртуальной машины из стека управления службами Azure в стек Azure Resource Manager.
 
-[Link to the tool documentation](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/asm2arm)
+[Ссылка на документацию по инструменту](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/asm2arm)
 
-## <a name="migaz"></a>migAz
+## migAz
 
-migAz is an additional option to migrate a complete set of Azure Service Management IaaS resources to Azure Resource Manager IaaS resources. The migration can occur within the same subscription or between different subscriptions and subscription types (ex: CSP subscriptions).
+Инструмент migAz — это еще один способ перенести полный набор ресурсов IaaS управления службами Azure в ресурсы IaaS Azure Resource Manager. Такой перенос может выполняться в пределах одной подписки или между разными подписками и типами подписок (например: подписки CSP).
 
-[Link to the tool documentation](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/migaz)
+[Ссылка на документацию по инструменту](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/migaz)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

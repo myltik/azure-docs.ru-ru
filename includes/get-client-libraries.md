@@ -1,31 +1,28 @@
-### <a name="install-via-composer"></a>Install via Composer
+### Установка через компоновщик
 
-1. [Install Git][install-git]. Note that on Windows, you must also add the Git executable to your PATH environment variable. 
+1. [Установите Git][install-git]. Обратите внимание, что в Windows необходимо также добавить исполняемый файл Git в переменную среды PATH. 
 
-2. Create a file named **composer.json** in the root of your project and add the following code to it:
+2. Создайте файл с именем **composer.json** в корневой папке проекта и добавьте в него следующий код:
 
-    ```
-    {
+	```
+	{
       "require": {
         "microsoft/windowsazure": "^0.4"
       }
     }
-    ```
+	```
 
-3. Download **[composer.phar][composer-phar]** in your project root.
+3. Загрузите **[composer.phar][composer-phar]** в корневой каталог проекта.
 
-4. Open a command prompt and execute the following command in your project root
+4. Откройте командную строку и выполните следующую команду в корневом каталоге проекта.
 
-    ```
-    php composer.phar install
-    ```
+	```
+	php composer.phar install
+	```
 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

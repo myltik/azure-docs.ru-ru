@@ -3,20 +3,18 @@
 - [Java](../articles/iot-hub/iot-hub-java-java-getstarted.md)
 - [Node.js](../articles/iot-hub/iot-hub-node-node-getstarted.md)
 
-## <a name="introduction"></a>Introduction
+## Введение
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of Internet of Things (IoT) devices and a solution back end. One of the biggest challenges that IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
+Центр IoT Azure — это полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств Интернета вещей (IoT) и серверной частью решения. Одной из крупнейших задач, стоящих перед проектами IoT, является надежное и безопасное подключение устройств к серверной части решения. Чтобы устранить эту проблему, центр IoT предоставляет следующие возможности:
 
-- Offers reliable device-to-cloud and cloud-to-device hyper-scale messaging.
-- Enables secure communications using per-device security credentials and access control.
-- Includes device libraries for the most popular languages and platforms.
+- глобальный надежный двусторонний обмен сообщениями между облаком и устройством;
+- безопасную связь — используются учетные данные безопасности, уникальные для каждого устройства, и контроль доступа;
+- простое подключение устройств, так как используются библиотеки устройств для большинства популярных языков и платформ.
 
-This tutorial shows you how to:
+В этом учебнике описаны следующие процедуры.
 
-- Use the Azure portal to create an IoT hub.
-- Create a device identity in your IoT hub.
-- Create a simulated device that sends telemetry to your cloud back end, and receives commands from your cloud back end.
+- Создание центра IoT с помощью портала Azure.
+- Создание удостоверения устройства в центре IoT.
+- Создание виртуального устройства, которое взаимодействует с серверной частью облака, отправляя туда данные телеметрии и получая оттуда команды.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

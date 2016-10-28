@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Virtual Network (VNet) Plan and Design Guide | Microsoft Azure"
-   description="Learn how to plan and design virtual networks in Azure based on your isolation, connectivity, and location requirements."
+   pageTitle="Руководство по планированию и проектированию виртуальной сети Azure | Microsoft Azure"
+   description="Узнайте, как планировать и проектировать виртуальные сети в Azure на основе требований к изоляции, подключению и расположению."
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,259 +15,254 @@
    ms.date="02/08/2016"
    ms.author="jdial" />
 
+# Планирование и проектирование виртуальных сетей Azure
 
-# <a name="plan-and-design-azure-virtual-networks"></a>Plan and design Azure Virtual Networks
+Процесс создания виртуальной сети для проведения экспериментов достаточно простой, но, скорее всего, со временем вам понадобится развернуть несколько виртуальных сетей с учетом потребностей вашей организации. Обладая знаниями по планированию и проектированию, вы сможете более эффективно развертывать виртуальные сети и подключать необходимые ресурсы. Если вы не знакомы с работой виртуальных сетей, прежде чем продолжить, рекомендуется прочитать [сведения о виртуальных сетях](virtual-networks-overview.md) и [их развертывании](virtual-networks-create-vnet-arm-pportal.md).
 
-Creating a VNet to experiment with is easy enough, but chances are, you will deploy multiple VNets over time to support the production needs of your organization. With some planning and design, you will be able to deploy VNets and connect the resources you need more effectively. If you are not familiar with VNets, it's recommended that you [learn about VNets](virtual-networks-overview.md) and [how to deploy](virtual-networks-create-vnet-arm-pportal.md) one before proceeding. 
+## План
 
-## <a name="plan"></a>Plan
+Крайне важно иметь полное представление о подписках, регионах и сетевых ресурсах Azure. В качестве отправной точки можно ознакомиться с общими сведениями ниже. После этого вы сможете определить требования к архитектуре сети.
 
-A thorough understanding of Azure subscriptions, regions, and network resources is critical for success. You can use the list of considerations below as a starting point. Once you understand those considerations, you can define the requirements for your network design.
+### Рекомендации
 
-### <a name="considerations"></a>Considerations
+Прежде чем ответить на вопросы по планированию, следует ознакомиться с некоторыми общими сведениями.
 
-Before answering the planning questions below, consider the following:
+- Все, что вы создаете в Azure, состоит из одного или нескольких ресурсов. Виртуальная машина, сетевой адаптер, используемый виртуальной машиной, общедоступный IP-адрес, используемый сетевым адаптером, виртуальная сеть, к которой подключен сетевой адаптер, — это отдельные ресурсы.
+- Вы создаете ресурсы в рамках [региона и подписки Azure](https://azure.microsoft.com/regions/#services). Ресурсы можно подключить только к виртуальной сети, которая принадлежит к тому же региону и подписке, что и эти ресурсы.
+- Подключить виртуальные сети друг к другу можно с помощью [VPN-шлюза](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) Azure. Таким способом можно также подключить виртуальные сети между разными регионами и подписками.
+- Подключить виртуальную сеть к локальной сети можно с помощью одного из [вариантов подключения](../vpn-gateway/vpn-gateway-cross-premises-options.md), доступных в Azure.
+- Различные ресурсы можно сгруппировать в [группы ресурсов](../resource-group-overview.md#resource-groups), тем самым упрощая управление ресурсами как единым целым. Группа ресурсов может содержать ресурсы из нескольких регионов при условии, что они относятся к одной подписке.
 
-- Everything you create in Azure is composed of one or more resources. A virtual machine (VM) is a resource, the network adapter interface (NIC) used by a VM is a resource, the public IP address used by a NIC is a resource, the VNet the NIC is connected to is a resource.
-- You create resources within an [Azure region](https://azure.microsoft.com/regions/#services) and subscription. And resources can only be connected to a VNet that exists in the same region and subscription they are in. 
-- You can connect VNets to each other by using an Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md). You can also connect VNets across regions and subscriptions this way.
-- You can connect VNets to your on-premises network by using one of the [connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) available in Azure. 
-- Different resources can be grouped together in [resource groups](../resource-group-overview.md#resource-groups), making it easier to manage the resource as a unit. A resource group can contain resources from multiple regions, as long as the resources belong to the same subscription.
+### Определение требований
 
-### <a name="define-requirements"></a>Define requirements
+Используйте вопросы ниже в качестве отправной точки для проектирования сети Azure.
 
-Use the questions below as a starting point for your Azure network design.  
+1. Какие расположения Azure будут использоваться для размещения виртуальных сетей?
+2. Требуется ли обеспечить обмен данными между этими расположениями Azure?
+3. Требуется ли обеспечить обмен данными между вашими виртуальными сетями Azure и локальными центрами обработки данных?
+4. Сколько виртуальных машин IaaS, ролей облачных служб и веб-приложений необходимо для вашего решения?
+5. Нужно ли изолировать трафик на основе групп виртуальных машин (т. е. интерфейсные веб-серверы и тыловые серверы базы данных)?
+6. Нужно ли контролировать поток трафика с помощью виртуальных устройств?
+7. Нужны ли пользователям различные наборы разрешений для различных ресурсов Azure?
 
-1. What Azure locations will you use to host VNets?
-2. Do you need to provide communication between these Azure locations?
-3. Do you need to provide communication between your Azure VNet(s) and your on-premises datacenter(s)?
-4. How many Infrastructure as a Service (IaaS) VMs, cloud services roles, and web apps do you need for your solution?
-5. Do you need to isolate traffic based on groups of VMs (i.e. front end web servers and back end database servers)?
-6. Do you need to control traffic flow using virtual appliances?
-7. Do users need different sets of permissions to different Azure resources?
+### Общие сведения о свойствах виртуальных сетей и подсетей
 
-### <a name="understand-vnet-and-subnet-properties"></a>Understand VNet and subnet properties
+Ресурсы виртуальных сетей и подсетей позволяют определить периметр безопасности для рабочих нагрузок, выполняемых в Azure. Виртуальная сеть характеризуется набором адресных пространств, которые также называются блоками CIDR.
 
-VNet and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
+>[AZURE.NOTE] Сетевым администраторам знакомы нотации CIDR. Если вы не знакомы с методом CIDR, [узнайте больше о нем](http://whatismyipaddress.com/cidr).
 
->[AZURE.NOTE] Network administrators are familiar with CIDR notation. If you are not familiar with CIDR, [learn more about it](http://whatismyipaddress.com/cidr).
+У виртуальных сетей есть следующие свойства.
 
-VNets contain the following properties.
-
-|Property|Description|Constraints|
+|Свойство|Описание|Ограничения|
 |---|---|---|
-|**name**|VNet name|String of up to 80 characters. May contain letters, numbers, underscore, periods, or hyphens. Must start with a letter or number. Must end with a letter, number, or underscore. Can contains upper or lower case letters.|  
-|**location**|Azure location (also referred to as region).|Must be one of the valid Azure locations.|
-|**addressSpace**|Collection of address prefixes that make up the VNet in CIDR notation.|Must be an array of valid CIDR address blocks, including public IP address ranges.|
-|**subnets**|Collection of subnets that make up the VNet|see the subnet properties table below.||
-|**dhcpOptions**|Object that contains a single required property named **dnsServers**.||
-|**dnsServers**|Array of DNS servers used by the VNet. If no server is specified, Azure internal name resolution is used.|Must be an array of up to 10 DNS servers, by IP address.| 
+|**name**|Имя виртуальной сети|Строка до 80 символов в длину, которая может содержать буквы, цифры, символы подчеркивания, точки или дефисы. Первый символ — буква или цифра. Последний символ — буква, цифра или символ подчеркивания. Могут использоваться как заглавные, так и строчные буквы.|  
+|**location**|Расположение Azure (также называется регионом)|Одно из допустимых расположений Azure.|
+|**addressSpace**|Коллекция префиксов адресов, составляющих виртуальную сеть в нотации CIDR.|Массив допустимых блоков адресов CIDR, включая диапазоны общедоступных IP-адресов.|
+|**Подсети**|Коллекция подсетей, составляющих виртуальную сеть.|См. таблицу свойств подсети ниже.||
+|**dhcpOptions**|Объект, содержащий одно обязательное свойство с именем **dnsServers**.||
+|**dnsServers**|Массив DNS-серверов, используемых в виртуальной сети Если сервер не указан, используется внутреннее разрешение имен Azure.|Массив, содержащий не более 10 DNS-серверов, указанных по IP-адресу.| 
 
-A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
+Подсеть является дочерним ресурсом виртуальной сети, который помогает определить сегменты адресных пространств в пределах блока CIDR на основе префиксов IP-адресов. Сетевые карты можно добавлять в подсети и подключать к виртуальным машинам, обеспечивая сетевые подключения для различных рабочих нагрузок.
 
-Subnets contain the following properties. 
+У подсетей есть следующие свойства.
 
-|Property|Description|Constraints|
+|Свойство|Описание|Ограничения|
 |---|---|---|
-|**name**|Subnet name|String of up to 80 characters. May contain letters, numbers, underscore, periods, or hyphens. Must start with a letter or number. Must end with a letter, number, or underscore. Can contains upper or lower case letters.|
-|**location**|Azure location (also referred to as region).|Must be one of the valid Azure locations.|
-|**addressPrefix**|Single address prefix that make up the subnet in CIDR notation|Must be a single CIDR block that is part of one of the VNet's address spaces.|
-|**networkSecurityGroup**|NSG applied to the subnet|see [NSGs](resource-groups-networking.md#Network-Security-Group)|
-|**routeTable**|Route table applied to the subnet|see [UDR](resource-groups-networking.md#Route-table)|
-|**ipConfigurations**|Collection of IP configuration objects used by NICs connected to the subnet|see [IP configuration](../resource-groups-networking.md#IP-configurations)|
+|**name**|Имя подсети|Строка до 80 символов в длину, которая может содержать буквы, цифры, символы подчеркивания, точки или дефисы. Первый символ — буква или цифра. Последний символ — буква, цифра или символ подчеркивания. Могут использоваться как заглавные, так и строчные буквы.|
+|**location**|Расположение Azure (также называется регионом)|Одно из допустимых расположений Azure.|
+|**addressPrefix**|Одноадресный префикс, определяющий подсеть в нотации CIDR.|Один блок CIDR, который является частью одного из адресных пространств виртуальной сети.|
+|**networkSecurityGroup**|Группа безопасности сети для подсети.|См. раздел [Группы безопасности сети](resource-groups-networking.md#Network-Security-Group).|
+|**routeTable**|Таблица маршрутизации подсети.|См. раздел [Определяемый пользователем маршрут](resource-groups-networking.md#Route-table).|
+|**ipConfigurations**|Коллекция объектов IP-конфигурации, используемых сетевыми адаптерами, подключенными к подсети|См. раздел [Конфигурации IP](../resource-groups-networking.md#IP-configurations).|
 
-### <a name="name-resolution"></a>Name resolution
+### Разрешение имен
 
-By default, your VNet uses [Azure-provided name resolution.](virtual-networks-name-resolution-for-vms-and-role-instances.md#Azure-provided-name-resolution) to resolve names inside the VNet, and on the public Internet. However, if you connect your VNets to your on-premises data centers, you need to provide [your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#Name-resolution-using-your-own-DNS-server) to resolve names between your networks.  
+По умолчанию для разрешения имен внутри виртуальной сети и в общедоступном Интернете виртуальная сеть использует [разрешение имен Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#Azure-provided-name-resolution). Однако при подключении виртуальных сетей к локальным центрам обработки данных для разрешения имен между сетями необходимо указать [собственный DNS-сервер](virtual-networks-name-resolution-for-vms-and-role-instances.md#Name-resolution-using-your-own-DNS-server).
 
-### <a name="limits"></a>Limits
+### Ограничения
 
-Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits.md#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
+Перед разработкой решения обязательно ознакомьтесь со всеми [ограничениями, касающимися сетевых служб в Azure](../azure-subscription-service-limits.md#networking-limits). Некоторые ограничения можно увеличить, отправив запрос в службу поддержки.
 
-### <a name="role-based-access-control-(rbac)"></a>Role-Based Access Control (RBAC)
+### Управление доступа на основе ролей
 
-You can use [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) to control the level of access different users may have to different resources in Azure. That way you can segregate the work done by your team based on their needs. 
+Для управления уровнем доступа отдельных пользователей к различным ресурсам в Azure можно использовать [управление доступа на основе ролей Azure](../active-directory/role-based-access-built-in-roles.md). Таким образом можно разделить работу в команде в зависимости от потребностей ее участников.
 
-As far as virtual networks are concerned, users in the **Network Contributor** role have full control over Azure Resource Manager virtual network resources. Similarly, users in the **Classic Network Contributor** role have full control over classic virtual network resources.
+Что касается виртуальных сетей, пользователи с ролью **участника сети** имеют полный контроль над ресурсами виртуальной сети диспетчера ресурсов Azure. Аналогичным образом пользователи с ролью **классического участника сети** имеют полный контроль над ресурсами классической виртуальной сети.
 
->[AZURE.NOTE] You can also [create your own roles](../active-directory/role-based-access-control-configure.md) to separate your administrative needs.
+>[AZURE.NOTE] Чтобы разделить административные обязанности, можно также [создать свои собственные роли](../active-directory/role-based-access-control-configure.md).
 
-## <a name="design"></a>Design
+## Проектирование
 
-Once you know the answers to the questions in the [Plan](#Plan) section, review the following before defining your VNets.
+Так как вы уже знаете ответы на вопросы в разделе [Планирование](#Plan), перед определением ваших виртуальных сетей ознакомьтесь со следующими сведениями.
 
-### <a name="number-of-subscriptions-and-vnets"></a>Number of subscriptions and VNets
+### Число подписок и виртуальных сетей
 
-You should consider creating multiple VNets in the following scenarios:
+В следующих сценариях рекомендуется создание нескольких виртуальных сетей.
 
-- **VMs that need to be placed in different Azure locations**. VNets in Azure are regional. They cannot span locations. Therefore you need at least one VNet for each Azure location you want to host VMs in.
-- **Workloads that need to be completely isolated from one another**. You can create separate VNets, that even use the same IP address spaces, to isolate different workloads from one another. 
-- **Avoid platform limits**. As seen in the [limits](#Limits) section, you cannot have more than 2048 VMs in a single VNet. 
+- **Виртуальные машины необходимо разместить в разных расположениях в Azure**. Виртуальные сети в Azure являются региональными. Они не могут охватывать несколько расположений. Поэтому для каждого расположения Azure, в котором нужно разместить виртуальные машины, необходима по крайней мере одна виртуальная сеть.
+- **Рабочие нагрузки необходимо полностью изолировать друг от друга**. Чтобы изолировать разные рабочие нагрузки друг от друга, можно создать отдельные виртуальные сети. Для них можно использовать одно и то же пространство IP-адресов.
+- **Избегайте ограничений платформы**. Как описано в разделе об [ограничениях](#Limits), в одной виртуальной сети может быть не более 2048 виртуальных машин.
 
-Keep in mind that the limits you see above are per region, per subscription. That means you can use multiple subscriptions to increase the limit of resources you can maintain in Azure. You can use a site-to-site VPN, or an ExpressRoute circuit, to connect VNets in different subscriptions.
+Имейте в виду, что ограничения указаны из расчета на один регион и на одну подписку. Это означает, что можно использовать несколько подписок, чтобы увеличить число ресурсов, которые можно хранить в Azure. Для подключения виртуальных сетей в разных подписках можно использовать VPN типа "сеть-сеть" или канал ExpressRoute.
 
-### <a name="subscription-and-vnet-design-patterns"></a>Subscription and VNet design patterns
+### Шаблоны проектирования для виртуальной сети и подписки
 
-The table below shows some common design patterns for using subscriptions and VNets.
+В следующей таблице показано несколько распространенных шаблонов проектирования для использования подписки и виртуальных сетей.
 
-|Scenario|Diagram|Pros|Cons|
+|Сценарий|Схема|Преимущества|Недостатки|
 |---|---|---|---|
-|Single subscription, two VNets per app|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure1.png)|Only one subscription to manage.|Maximum of 25 apps per Azure region. You need more subscriptions after that.|
-|One subscription per app, two VNets per app|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure2.png)|Uses only two VNets per subscription.|Harder to manage when there are too many apps.|
-|One subscription per business unit, two VNets per app.|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure3.png)|Balance between number of subscriptions and VNets.|Maximum of 25 apps per business unit (subscription).|
-|One subscription per business unit, two VNets per group of apps.|![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure4.png)|Balance between number of subscriptions and VNets.|Apps must be isolated by using subnets and NSGs.|
+|Одна подписка, две виртуальные сети на приложение|![Одна подписка](./media/virtual-network-vnet-plan-design-arm/figure1.png)|Всего одна подписка для управления.|Не более 25 приложений на регион Azure. Из-за этого вам нужно больше подписок.|
+|Одна подписка и две виртуальные сети на приложение|![Одна подписка](./media/virtual-network-vnet-plan-design-arm/figure2.png)|Используются только две виртуальные сети в рамках одной подписки.|Если приложений слишком много, управление усложняется.|
+|Одна подписка на подразделение и две виртуальные сети на приложение|![Одна подписка](./media/virtual-network-vnet-plan-design-arm/figure3.png)|Баланс между числом подписок и виртуальных сетей.|Не более 25 приложений на подразделение (подписку).|
+|Одна подписка на подразделение и две виртуальные сети на группу приложений|![Одна подписка](./media/virtual-network-vnet-plan-design-arm/figure4.png)|Баланс между числом подписок и виртуальных сетей.|Приложения должны быть изолированы с помощью подсетей и групп безопасности сети.|
 
 
-### <a name="number-of-subnets"></a>Number of subnets
+### Количество подсетей
 
-You should consider multiple subnets in a VNet in the following scenarios:
+В следующих сценариях рекомендуется создание нескольких подсетей в виртуальной сети.
 
-- **Not enough private IP addresses for all NICs in a subnet**. If your subnet address space does not contain enough IP addresses for the number of NICs in the subnet, you need to create multiple subnets. Keep in mind that Azure reserves 5 private IP addresses from each subnet that cannot be used: the first and last addresses of the address space (for the subnet address, and multicast) and 3 addresses to be used internally (for DHCP and DNS purposes). 
-- **Security**. You can use subnets to separate groups of VMs from one another for workloads that have a multi-layer structure, and apply different [network security groups (NSGs)](virtual-networks-nsg.md#subnets) for those subnets.
-- **Hybrid connectivity**. You can use VPN gateways and ExpressRoute circuits to [connect](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) your VNets to one another, and to your on-premises data center(s). VPN gateways and ExpressRoute circuits require a subnet of their own to be created.
-- **Virtual appliances**. You can use a virtual appliance, such as a firewall, WAN accelerator, or VPN gateway in an Azure VNet. When you do so, you need to [route traffic](virtual-networks-udr-overview.md) to those appliances and isolate them in their own subnet.
+- **Недостаточно частных IP-адресов для всех сетевых адаптеров в подсети**. Если адресное пространство подсети содержит недостаточно IP-адресов для сетевых адаптеров в подсети, необходимо создать несколько подсетей. Имейте в виду, что в Azure зарезервировано 5 частных IP-адресов в каждой подсети, которые нельзя использовать: первый и последний адреса адресного пространства (для адреса подсети и многоадресной рассылки) и 3 адреса для использования внутри сети (для DHCP и DNS).
+- **Безопасность**. Подсети можно использовать для разделения групп виртуальных машин с рабочими нагрузками многоуровневой структуры друг от друга. К этим подсетям можно применить различные [группы сетевой безопасности](virtual-networks-nsg.md#subnets).
+- **Гибридное подключение**. VPN-шлюзы и каналы ExpressRoute можно использовать для установки [подключения](../vpn-gateway/vpn-gateway-cross-premises-options.md) между виртуальными сетями, а также для подключения виртуальных сетей к локальным центрам обработки данных. Для VPN-шлюзов и каналов ExpressRoute необходимо создать отдельную подсеть.
+- **Виртуальные устройства**. В виртуальной сети Azure можно использовать виртуальные устройства, например брандмауэр, акселератор WAN или VPN-шлюз. При этом необходимо [направлять трафик](virtual-networks-udr-overview.md) в эти устройства и изолировать их в отдельной подсети.
 
-### <a name="subnet-and-nsg-design-patterns"></a>Subnet and NSG design patterns
+### Шаблоны проектирования для подсети и группы безопасности сети
 
-The table below shows some common design patterns for using subnets.
+В следующей таблице приведены некоторые распространенные шаблоны проектирования для использования подсетей.
 
-|Scenario|Diagram|Pros|Cons|
+|Сценарий|Схема|Преимущества|Недостатки|
 |---|---|---|---|
-|Single subnet, NSGs per application layer, per app|![Single subnet](./media/virtual-network-vnet-plan-design-arm/figure5.png)|Only one subnet to manage.|Multiple NSGs necessary to isolate each application.|
-|One subnet per app, NSGs per application layer|![Subnet per app](./media/virtual-network-vnet-plan-design-arm/figure6.png)|Fewer NSGs to manage.|Multiple subnets to manage.|
-|One subnet per application layer, NSGs per app.|![Subnet per layer](./media/virtual-network-vnet-plan-design-arm/figure7.png)|Balance between number of subnets and NSGs.|Maximum of 100 NSGs. 50 apps if each apps requires 2 distinct NSGs.|
-|One subnet per application layer, per app, NSGs per subnet|![Subnet per layer per app](./media/virtual-network-vnet-plan-design-arm/figure8.png)|Possibly smaller number of NSGs.|Multiple subnets to manage.|
+|Одна подсеть и группы безопасности сети на один уровень приложения на приложение|![Одна подсеть](./media/virtual-network-vnet-plan-design-arm/figure5.png)|Всего одна подсеть для управления.|Необходимо несколько групп безопасности сети, чтобы изолировать каждое приложение.|
+|Одна подсеть на приложение, группы безопасности сети на один уровень приложения|![Подсеть на приложение](./media/virtual-network-vnet-plan-design-arm/figure6.png)|Меньше групп безопасности сети для управления.|Несколько подсетей для управления.|
+|Одна подсеть на один уровень приложения, группы безопасности сети на приложение|![Подсеть на один уровень](./media/virtual-network-vnet-plan-design-arm/figure7.png)|Баланс между количеством подсетей и групп безопасности сети.|Не более 100 групп безопасности сети. 50 приложений, если для каждого приложения требуется 2 отдельные группы безопасности сети.|
+|Одна подсеть на один уровень приложения на приложение, группы безопасности сети на подсеть|![Подсеть на один уровень на приложение](./media/virtual-network-vnet-plan-design-arm/figure8.png)|Возможно, меньшее количество групп безопасности сети.|Несколько подсетей для управления.|
 
-## <a name="sample-design"></a>Sample design
+## Пример проектирования
 
-To illustrate the application of the information in this article, consider the following scenario.
+Чтобы продемонстрировать применение сведений в этой статье на практике, рассмотрим следующий сценарий.
 
-You work for a company that has 2 data centers in North America, and two data centers Europe. You identified 6 different customer facing applications maintained by 2 different business units that you want to migrate to Azure as a pilot. The basic architecture for the applications are as follows:
+Вы работаете в компании, у которой есть два центра обработки данных в Северной Америке и два — в Европе. Вы определили 6 разных приложений для клиентов, которые требуется перенести в Azure в качестве пилотной программы. Эти приложения поддерживают два различных подразделения. Ниже приведена базовая архитектура для приложений.
 
-- App1, App2, App3, and App4 are web applications hosted on Linux servers running Ubuntu. Each application connects to a separate application server that hosts RESTful services on Linux servers. The RESTful services connect to a back end MySQL database.
-- App5 and App6 are web applications hosted on Windows servers running Windows Server 2012 R2. Each application connects to a back end SQL Server database.
-- All apps are currently hosted in one of the company's data centers in North America.
-- The on-premises data centers use the 10.0.0.0/8 address space.
+- Приложение 1, приложение 2, приложение 3 и приложение 4 — это веб-приложения, размещенные на серверах Linux под управлением Ubuntu. Каждое приложение подключается к отдельному серверу приложений, на котором размещены службы RESTful на серверах Linux. Службы RESTful подключаются к внутренней базе данных MySQL.
+- Приложение 5 и приложение 6 — это веб-приложения, размещенные на серверах Windows под управлением Windows Server 2012 R2. Каждое приложение подключается к внутренней базе данных SQL Server.
+- Все приложения в настоящее время размещены в одном из центров обработки данных компании в Северной Америке.
+- В локальных центрах обработки данных используется адресное пространство 10.0.0.0/8.
 
-You need to design a virtual network solution that meets the following requirements:
+Необходимо спроектировать решение виртуальной сети, которое соответствует требованиям ниже.
 
-- Each business unit should not be affected by resource consumption of other business units.
-- You should minimize the amount of VNets and subnets to make management easier.
-- Each business unit should have a single test/development VNet used for all applications.
-- Each application is hosted in 2 different Azure data centers per continent (North America and Europe).
-- Each application is completely isolated from each other.
-- Each application can be accessed by customers over the Internet using HTTP.
-- Each application can be accessed by users connected to the on-premises data centers by using an encrypted tunnel.
-- Connection to on-premises data centers should use existing VPN devices.
-- The company's networking group should have full control over the VNet configuration.
-- Developers in each business unit should only be able to deploy VMs to existing subnets.
-- All applications will be migrated as they are to Azure (lift-and-shift).
-- The databases in each location should replicate to other Azure locations once a day.
-- Each application should use 5 front end web servers, 2 application servers (when necessary), and 2 database servers.
+- Потребление ресурсов в одних подразделениях не должно оказывать влияние на остальные подразделения.
+- Следует свести к минимуму количество виртуальных сетей и подсетей, чтобы облегчить управление.
+- В каждом подразделении для всех приложений должна использоваться одна виртуальная сеть тестирования и разработки.
+- Каждое приложение должно быть размещено в двух центрах обработки данных Azure на разных континентах (Северная Америка и Европа).
+- Все приложения должны быть полностью изолированы друг от друга.
+- Необходимо, чтобы клиенты могли получать доступ к каждому приложению через Интернет по протоколу HTTP.
+- Необходимо, чтобы пользователи, подключенные к локальным центрам обработки данных, могли получать доступ к каждому приложению с помощью зашифрованного туннеля.
+- Для подключения к локальным центрам обработки данных следует использовать существующие VPN-устройства.
+- Группа сетевых специалистов компании должна иметь полный контроль над конфигурацией виртуальной сети.
+- Разработчики в каждом подразделении смогут развертывать виртуальные машины только в существующих подсетях.
+- Все приложения будут перенесены в Azure без изменений (извлечение и перемещение).
+- Базы данных в каждом расположении необходимо реплицировать в другие расположения Azure один раз в день.
+- Каждое приложение должно использовать 5 интерфейсных веб-серверов, два сервера приложений (при необходимости) и два сервера баз данных.
 
-### <a name="plan"></a>Plan
+### План
 
-You should start your design planning by answering the question in the [Define requirements](#Define-requirements) section as shown below.
+Следует начинать планирование проектирования, ответив на вопросы в разделе [Определение требований](#Define-requirements), как показано ниже.
 
-1. What Azure locations will you use to host VNets?
+1. Какие расположения Azure будут использоваться для размещения виртуальных сетей?
 
-    2 locations in North America, and 2 locations in Europe. You should pick those based on the physical location of your existing on-premises data centers. That way your connection from your physical locations to Azure will have a better latency.
+	Два расположения в Северной Америке и два — в Европе. Необходимо выбрать их в зависимости от физического расположения существующих локальных центров обработки данных. В этом случае при подключении к Azure из физических расположений задержка будет более низкой.
 
-2. Do you need to provide communication between these Azure locations?
+2. Требуется ли обеспечить обмен данными между этими расположениями Azure?
 
-    Yes. Since the databases must be replicated to all locations.
+	Да. Так как необходимо реплицировать базы данных во все расположения.
 
-3. Do you need to provide communication between your Azure VNet(s) and your on-premises data center(s)?
+3. Требуется ли обеспечить обмен данными между вашими виртуальными сетями Azure и локальными центрами обработки данных?
 
-    Yes. Since users connected to the on-premises data centers must be able to access the applications through an encrypted tunnel.
+	Да. Так как пользователи, подключенные к локальным центрам обработки данных, должны получать доступ к приложениям через зашифрованный туннель.
  
-4. How many IaaS VMs do you need for your solution?
+4. Сколько виртуальных машин IaaS требуется для вашего решения?
 
-    200 IaaS VMs. App1, App2 and App3 require 5 web servers each, 2 applications servers each, and 2 database servers each. That's a total of 9 IaaS VMs per application, or 36 IaaS VMs. App5 and App6 require 5 web servers and 2 database servers each. That's a total of 7 IaaS VMs per application, or 14 IaaS VMs. Therefore, you need 50 IaaS VMs for all applications in each Azure region. Since we need to use 4 regions, there will be 200 IaaS VMs.
+	200 виртуальных машин IaaS. Для приложения 1, приложения 2 и приложения 3 требуется по 5 веб-серверов, два сервера приложений и два сервера баз данных. Всего необходимо 9 виртуальных машин IaaS для каждого приложения или 36 виртуальных машин IaaS. Для приложения 5 и приложения 6 требуется по 5 веб-серверов и два сервера баз данных. Всего необходимо 7 виртуальных машин IaaS для каждого приложения или 14 виртуальных машин IaaS. Таким образом, необходимо 50 виртуальных машин IaaS для всех приложений в каждом регионе Azure. Так как нам нужно использовать 4 региона, всего необходимо 200 виртуальных машин IaaS.
 
-    You will also need to provide DNS servers in each VNet, or in your on-premises data centers to resolve name between your Azure IaaS VMs and your on-premises network. 
+	Вам также понадобится указать DNS-серверы в каждой виртуальной сети или в ваших локальных центрах обработки данных для разрешения имен между виртуальными машинами IaaS и локальной сетью Azure.
 
-5. Do you need to isolate traffic based on groups of VMs (i.e. front end web servers and back end database servers)?
+5. Нужно ли изолировать трафик на основе групп виртуальных машин (т. е. интерфейсные веб-серверы и тыловые серверы базы данных)?
 
-    Yes. Each application should be completely isolated from each other, and each application layer should also be isolated. 
+	Да. Все приложения, в том числе все уровни приложений, должны быть полностью изолированы друг от друга.
 
-6. Do you need to control traffic flow using virtual appliances?
+6. Нужно ли контролировать поток трафика с помощью виртуальных устройств?
 
-    No. Virtual appliances can be used to provide more control over traffic flow, including more detailed data plane logging. 
+	Нет. Виртуальные устройства можно использовать для предоставления большего контроля над потоком трафика, включая подробное ведение журнала данных.
 
-7. Do users need different sets of permissions to different Azure resources?
+7. Нужны ли пользователям различные наборы разрешений для различных ресурсов Azure?
 
-    Yes. The networking team needs full control on the virtual networking settings, while developers should only be able to deploy their VMs to pre-existing subnets. 
+	Да. Сетевым специалистам необходим полный контроль над параметрами виртуальных сетей, а разработчикам требуется контроль только над развертыванием своих виртуальных машин в уже существующих подсетях.
 
-### <a name="design"></a>Design
+### Проектирование
 
-You should follow the design specifying subscriptions, VNets, subnets, and NSGs. We will discuss NSGs here, but you should learn more about [NSGs](virtual-networks-nsg.md) before finishing your design.
+При проектировании необходимо указывать подписки, виртуальные сети, подсети и группы безопасности сети. Здесь мы рассмотрим группы безопасности сети, но, прежде чем завершить проектирование, вам необходимо узнать больше о [группах безопасности сети](virtual-networks-nsg.md).
 
-**Number of subscriptions and VNets**
+**Число подписок и виртуальных сетей**
 
-The following requirements are related to subscriptions and VNets:
+Ниже приведены требования, касающиеся подписок и виртуальных сетей.
 
-- Each business unit should not be affected by resource consumption of other business units.
-- You should minimize the amount of VNets and subnets.
-- Each business unit should have a single test/development VNet used for all applications.
-- Each application is hosted in 2 different Azure data centers per continent (North America and Europe).
+- Потребление ресурсов в одних подразделениях не должно оказывать влияние на остальные подразделения.
+- Следует свести к минимуму количество виртуальных сетей и подсетей.
+- В каждом подразделении для всех приложений должна использоваться одна виртуальная сеть тестирования и разработки.
+- Каждое приложение должно быть размещено в двух центрах обработки данных Azure на разных континентах (Северная Америка и Европа).
 
-Based on those requirements, you need a subscription for each business unit. That way, consumption of resources from a business unit will not count towards limits for other business units. And since you want to minimize the number of VNets, you should consider using the **one subscription per business unit, two VNets per group of apps** pattern as seen below.
+Согласно этим требованиям вам необходима подписка для каждого подразделения. Таким образом, потребление ресурсов в других подразделениях не будет влиять на другие подразделения. Так как требуется свести к минимуму число виртуальных сетей, рекомендуется использовать шаблон **одна подписка на подразделение и две виртуальные сети на группу приложений**, как показано ниже.
 
-![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure9.png)
+![Одна подписка](./media/virtual-network-vnet-plan-design-arm/figure9.png)
 
-You also need to specify the address space for each VNet. Since you need connectivity between the on-premises data centers and the Azure regions, the address space used for Azure VNets cannot clash with the on-premises network, and the address space used by each VNet should not clash with other existing VNets. You could use the address spaces in the table below to satisfy these requirements.  
+Необходимо также указать адресное пространство для каждой виртуальной сети. Так как вам необходимо установить подключение между локальными центрами обработки данных и регионами Azure, адресное пространство, используемое для виртуальных сетей Azure, не может пересекаться с локальной сетью, а адресное пространство, применяемое каждой виртуальной сетью, — с другими существующими виртуальными сетями. Для выполнения этих требований можно использовать адресные пространства, указанные в таблице ниже.
 
-|**Subscription**|**VNet**|**Azure region**|**Address space**|
+|**Подписка**|**Виртуальная сеть**|**Регион Azure**|**Пространство адресов**|
 |---|---|---|---|
-|BU1|ProdBU1US1|West US|172.16.0.0/16|
-|BU1|ProdBU1US2|East US|172.17.0.0/16|
-|BU1|ProdBU1EU1|North Europe|172.18.0.0/16|
-|BU1|ProdBU1EU2|West Europe|172.19.0.0/16|
-|BU1|TestDevBU1|West US|172.20.0.0/16|
-|BU2|TestDevBU2|West US|172.21.0.0/16|
-|BU2|ProdBU2US1|West US|172.22.0.0/16|
-|BU2|ProdBU2US2|East US|172.23.0.0/16|
-|BU2|ProdBU2EU1|North Europe|172.24.0.0/16|
-|BU2|ProdBU2EU2|West Europe|172.25.0.0/16|
+|Подразделение 1|ProdBU1US1|Запад США|172\.16.0.0/16|
+|Подразделение 1|ProdBU1US2|Восток США|172\.17.0.0/16|
+|Подразделение 1|ProdBU1EU1|Северная Европа|172\.18.0.0/16|
+|Подразделение 1|ProdBU1EU2|Западная Европа|172\.19.0.0/16|
+|Подразделение 1|TestDevBU1|Запад США|172\.20.0.0/16|
+|Подразделение 2|TestDevBU2|Запад США|172\.21.0.0/16|
+|Подразделение 2|ProdBU2US1|Запад США|172\.22.0.0/16|
+|Подразделение 2|ProdBU2US2|Восток США|172\.23.0.0/16|
+|Подразделение 2|ProdBU2EU1|Северная Европа|172\.24.0.0/16|
+|Подразделение 2|ProdBU2EU2|Западная Европа|172\.25.0.0/16|
 
-**Number of subnets and NSGs**
+**Количество подсетей и групп безопасности сети**
 
-The following requirements are related to subnets and NSGs:
+Ниже приведены требования, касающиеся подсетей и групп безопасности сети.
 
-- You should minimize the amount of VNets and subnets.
-- Each application is completely isolated from each other.
-- Each application can be accessed by customers over the Internet using HTTP.
-- Each application can be accessed by users connected to the on-premises data centers by using an encrypted tunnel.
-- Connection to on-premises data centers should use existing VPN devices.
-- The databases in each location should replicate to other Azure locations once a day.
+- Следует свести к минимуму количество виртуальных сетей и подсетей.
+- Все приложения должны быть полностью изолированы друг от друга.
+- Необходимо, чтобы клиенты могли получать доступ к каждому приложению через Интернет по протоколу HTTP.
+- Необходимо, чтобы пользователи, подключенные к локальным центрам обработки данных, могли получать доступ к каждому приложению с помощью зашифрованного туннеля.
+- Для подключения к локальным центрам обработки данных следует использовать существующие VPN-устройства.
+- Базы данных в каждом расположении необходимо реплицировать в другие расположения Azure один раз в день.
 
-Based on those requirements, you could use one subnet per application layer, and use NSGs to filter traffic per application. That way, you only have 3 subnets in each VNet (front end, application layer, and data layer) and one NSG per application per subnet. In this case, you should consider using the **one subnet per application layer, NSGs per app** design pattern. The figure below shows the use of the design pattern representing the **ProdBU1US1** VNet.
+Согласно этим требованиям вы можете использовать одну подсеть на каждом уровне приложения и группы безопасности сети для фильтрации трафика в каждом приложении. Таким образом, в каждой виртуальной сети (интерфейсная часть, уровень приложения и уровень данных) есть три подсети, а в каждой подсети — одна группа безопасности сети на приложение. В этом случае рекомендуется использовать шаблон проектирования **одна подсеть на один уровень приложения, группы безопасности сети на приложение**. На рисунке ниже показано использование шаблона проектирования для виртуальной сети **ProdBU1US1**.
 
-![One subnet per layer, one NSG per application per layer](./media/virtual-network-vnet-plan-design-arm/figure11.png)
+![Одна подсеть на один уровень, одна группа безопасности сети на приложение и на уровень](./media/virtual-network-vnet-plan-design-arm/figure11.png)
 
-However, you also need to create an extra subnet for the VPN connectivity between the VNets, and your on-premises data centers. And you need to specify the address space for each subnet. The figure below shows a sample solution for **ProdBU1US1** VNet. You would replicate this scenario for each VNet. Each color represents a different application.
+Тем не менее, вам также потребуется создать дополнительную подсеть для VPN-подключения между виртуальными сетями и локальными центрами обработки данных. Необходимо указать адресное пространство для каждой подсети. На рисунке ниже показан пример решения для виртуальной сети **ProdBU1US1**. Вы будете реплицировать этот сценарий для каждой виртуальной сети. Каждый цвет соответствует одному приложению.
 
-![Sample VNet](./media/virtual-network-vnet-plan-design-arm/figure10.png)
+![Пример виртуальной сети](./media/virtual-network-vnet-plan-design-arm/figure10.png)
 
-**Access Control**
+**Контроль доступа**
 
-The following requirements are related to access control:
+Ниже приведены требования, касающиеся подписок и контроля доступа.
 
-- The company's networking group should have full control over the VNet configuration.
-- Developers in each business unit should only be able to deploy VMs to existing subnets.
+- Группа сетевых специалистов компании должна иметь полный контроль над конфигурацией виртуальной сети.
+- Разработчики в каждом подразделении смогут развертывать виртуальные машины только в существующих подсетях.
 
-Based on those requirements, you could add users from the networking team to the built-in **Network Contributor** role in each subscription; and create a custom role for the application developers in each subscription giving them rights to add VMs to existing subnets.
+Согласно этим требованиям вы сможете назначать сотрудникам группы сетевых специалистов встроенную роль **участника сети** в рамках каждой подписки, а также создавать пользовательские роли для разработчиков приложений в рамках каждой подписки, предоставляя им права на добавление виртуальных машин в существующую подсеть.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- [Deploy a virtual network](virtual-networks-create-vnet-arm-template-click.md) based on a scenario.
-- Understand how to [load balance](../load-balancer/load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](../traffic-manager/traffic-manager-overview.md).
-- Learn more about [NSGs and how to plan and design](virtual-networks-nsg.md) an NSG solution.
-- Learn more about your [cross-premises and VNet connectivity options](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site).
+- См. дополнительные сведения о [развертывании виртуальной сети](virtual-networks-create-vnet-arm-template-click.md) на основе сценария.
+- См. дополнительные сведения о [балансировке нагрузки](../load-balancer/load-balancer-overview.md) виртуальных машин IaaS и [управлении маршрутизацией в нескольких регионах Azure](../traffic-manager/traffic-manager-overview.md).
+- См. дополнительные сведения о [группах безопасности сети, а также о планировании и проектировании](virtual-networks-nsg.md) решения NSG.
+- См. дополнительные сведения о [возможностях подключения к виртуальной сети и между организациями](../vpn-gateway/vpn-gateway-cross-premises-options.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

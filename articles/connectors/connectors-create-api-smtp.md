@@ -1,10 +1,10 @@
 <properties
 pageTitle="SMTP | Microsoft Azure"
-description="Create logic apps with Azure App service. Connect to SMTP to send email."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+description="Создание приложений логики с помощью службы приложений Azure. Подключение к SMTP для отправки электронной почты."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,125 +17,121 @@ ms.workload="integration"
 ms.date="07/15/2016"
 ms.author="deonhe"/>
 
+# Начало работы с соединителем SMTP
 
-# <a name="get-started-with-the-smtp-connector"></a>Get started with the SMTP connector
+Подключитесь к SMTP для отправки электронной почты.
 
-Connect to SMTP to send email.
+Чтобы использовать [соединитель](./apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Подключение к SMTP
 
-## <a name="connect-to-smtp"></a>Connect to SMTP
+Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [подключение](./connectors-overview.md) между приложением логики и другой службой. Например, чтобы подключиться к SMTP, сначала необходимо создать *подключение* к SMTP. Чтобы создать подключение, необходимо ввести учетные данные, которые обычно используются для доступа к определенной службе. Таким образом, чтобы создать подключение к SMTP, потребуется ввести имя подключения, адрес SMTP-сервера и учетные данные для входа. [Дополнительные сведения о подключениях см. здесь.]()
 
-Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service. For example, in order to connect to SMTP, you first need an SMTP *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the SMTP example, you would need the credentials to your connection name, SMTP server address, and user login information in order to create the connection to SMTP. [Learn more about connections]()  
+### Создание подключения к SMTP
 
-### <a name="create-a-connection-to-smtp"></a>Create a connection to SMTP
+>[AZURE.INCLUDE [Шаги по созданию подключения к SMTP](../../includes/connectors-create-api-smtp.md)]
 
->[AZURE.INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
+## Использование триггера SMTP
 
-## <a name="use-an-smtp-trigger"></a>Use an SMTP trigger
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Так как SMTP не предоставляет триггеры, мы используем триггер **Salesforce — при создании объекта**. Он будет активироваться при создании объекта в Salesforce. В нашем примере мы настроим триггер таким образом, чтобы при каждом создании интереса в Salesforce выполнялось действие *отправки сообщения* через соединитель SMTP. При этом будет отправляться уведомление об этом интересе.
 
-In this example, because SMTP does not have a trigger of its own, we'll use the **Salesforce - When an object is created** trigger. This trigger will activate when a new object is created in Salesforce. For our example, we'll set it up such that every time a new lead is created in Salesforce, a *send email* action occurs via the SMTP connector with a notification of the new lead being created.
-
-1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created** trigger.  
+1. В конструкторе приложений логики в поле поиска введите запрос *salesforce*, а затем выберите триггер **Salesforce — при создании объекта**.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
 
-2. The **When an object is created** control is displayed.
+2. Отобразится элемент управления **При создании объекта**.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
 
-3. Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.  
+3. Укажите **тип объекта**, а затем выберите *Интерес* в списке объектов. На этом шаге вы указываете, что создаете триггер, который будет уведомлять приложение логики о создании интереса в Salesforce.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 
-4. The trigger has been created.  
+4. Ваш триггер создан.  
  ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
-## <a name="use-an-smtp-action"></a>Use an SMTP action
+## Использование действия SMTP
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-Now that the trigger has been added, follow these steps to add an SMTP action that will occur when a new lead is created in Salesforce.
+Теперь, когда триггер добавлен, выполните следующие действия, чтобы добавить действие SMTP, которое будет выполняться при создании интереса в Salesforce.
 
-1. Select **+ New Step** to add the action you would like to take when a new lead is created.  
+1. Нажмите кнопку **+ Новый шаг**, чтобы добавить действие, которое будет выполняться после создания интереса.   
  ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
 
-2. Select **Add an action**. This opens the search box where you can search for any action you would like to take.  
+2. Выберите **Добавить действие**. Откроется поле поиска. В этом поле вы можете выполнить поиск действия, которое нужно применить.  
  ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
 
-3. Enter *smtp* to search for actions related to SMTP.  
+3. Введите запрос *smtp*, чтобы найти действия, связанные с SMTP.
 
-4. Select **SMTP - Send Email** as the action to take when the new lead is created. The action control block opens. You will have to establish your smtp connection in the designer block if you have not done so previously.  
- ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)    
+4. Выберите **SMTP — отправить сообщение** в качестве действия, которое следует выполнять при создании интереса. Откроется блок управления действием. Установите подключение SMTP в блоке конструктора, если вы еще этого не сделали.  
+ ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
 
-5. Input your desired email information in the **SMTP - Send Email** block.  
+5. В блоке **SMTP — отправить сообщение** введите необходимые сведения об электронной почте.  
  ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
 
-6. Save your work in order to activate your workflow.  
+6. Сохраните данные, чтобы активировать рабочий процесс.
 
-## <a name="technical-details"></a>Technical details
+## Технические сведения
 
-Here are the details about the triggers, actions and responses that this connection supports:
+Ниже приведены сведения о триггерах, действиях и ответах, которые поддерживает это подключение.
 
-## <a name="smtp-triggers"></a>SMTP triggers
+## Триггеры SMTP
 
-SMTP has no triggers. 
+SMTP не предоставляет триггеры.
 
-## <a name="smtp-actions"></a>SMTP actions
+## Действия SMTP
 
-SMTP has the following action:
+SMTP предоставляет следующее действие:
 
 
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[Send Email](connectors-create-api-smtp.md#send-email)|This operation sends an email to one or more recipients.|
+|[Отправка электронного сообщения](connectors-create-api-smtp.md#send-email)|Отправляет сообщение одному или нескольким получателям.|
 
-### <a name="action-details"></a>Action details
+### Сведения о действиях
 
-Here are the details for the action of this connector, along with its responses:
-
-
-### <a name="send-email"></a>Send Email
-This operation sends an email to one or more recipients. 
+Ниже приведены подробные сведения о действии этого соединителя, а также его ответы.
 
 
-|Property Name| Display Name|Description|
+### Отправка электронного сообщения
+Отправляет сообщение одному или нескольким получателям.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|To|To|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
-|CC|cc|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
-|Subject|Subject|Email subject|
-|Body|Body|Email body|
-|From|From|Email address of sender like sender@domain.com|
-|IsHtml|Is Html|Send the email as HTML (true/false)|
-|Bcc|bcc|Specify email addresses separated by semicolons like recipient1@domain.com;recipient2@domain.com|
-|Importance|Importance|Importance of the email (High, Normal, or Low)|
-|ContentData|Attachments Content Data|Content data (base64 encoded for streams and as-is for string)|
-|ContentType|Attachments Content Type|Content type|
-|ContentTransferEncoding|Attachments Content Transfer Encoding|Content Transfer Encoding (base64 or none)|
-|FileName|Attachments File Name|File name|
-|ContentId|Attachments Content ID|Content id|
+|Кому|Кому|Укажите адреса электронной почты через точку с запятой, например recipient1@domain.com;recipient2@domain.com|
+|CC|cc|Укажите адреса электронной почты через точку с запятой, например recipient1@domain.com;recipient2@domain.com|
+|Субъект|Субъект|Тема сообщения|
+|Текст|Текст|Текст сообщения|
+|Из|Из|Адрес электронной почты отправителя, например sender@domain.com|
+|IsHtml|HTML-код|Отправлять сообщение в формате HTML (значение true или false)|
+|Скрытая копия|bcc|Укажите адреса электронной почты через точку с запятой, например recipient1@domain.com;recipient2@domain.com|
+|Важность|Важность|Важность сообщения (High, Normal или Low)|
+|ContentData|Данные содержимого вложений|Данные содержимого (в кодировке Base64 для потоков и "как есть" для строки)|
+|ContentType|Данные содержимого вложений|Тип содержимого|
+|ContentTransferEncoding|Кодировка передачи содержимого вложений|Кодировка передачи содержимого (значение Base64 или none)|
+|FileName|Имя файла вложений|Имя файла|
+|ContentId|Идентификатор содержимого вложений|Идентификатор содержимого|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
 
-## <a name="http-responses"></a>HTTP responses
+## Ответы HTTP
 
-The actions and triggers above can return one or more of the following HTTP status codes: 
+Описанные выше действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже.
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred.|
-|default|Operation Failed.|
+|200|ОК|
+|202|Принято|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка.|
+|по умолчанию|Операция завершилась ошибкой.|
 
-## <a name="next-steps"></a>Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Дальнейшие действия
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0803_2016-->

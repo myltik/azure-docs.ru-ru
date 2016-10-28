@@ -1,70 +1,69 @@
 <properties
-    pageTitle="Azure AD B2C | Microsoft Azure"
-    description="How to build a .NET Web API by using Azure Active Directory B2C, secured by using OAuth 2.0 access tokens for authentication."
-    services="active-directory-b2c"
-    documentationCenter=".net"
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Azure AD B2C | Microsoft Azure"
+	description="Как с помощью Azure Active Directory B2C создать веб-API .NET, защищенный маркерами доступа OAuth 2.0 для проверки подлинности."
+	services="active-directory-b2c"
+	documentationCenter=".net"
+	authors="dstrockis"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="07/22/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="07/22/2016"
+	ms.author="dastrock"/>
 
-
-# <a name="azure-active-directory-b2c:-build-a-.net-web-api"></a>Azure Active Directory B2C: Build a .NET web API
+# Azure Active Directory B2C: создание веб-API .NET
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OAuth 2.0 access tokens. These tokens allow your client apps that use Azure AD B2C to authenticate to the API. This article shows you how to create a .NET Model-View-Controller (MVC) "to-do list" API that allows users to CRUD tasks. The web API is secured using Azure AD B2C and only allows authenticated users to manage their to-do list.
+С помощью Azure Active Directory (Azure AD) B2C можно защитить веб-API с помощью маркера доступа OAuth 2.0. Эти маркеры позволяют клиентским приложениям, использующим Azure AD B2C, проходить проверку подлинности для API. В этой статье показано, как создать интерфейс веб-API .NET "Список дел" с использованием модели Model-View-Controller (MVC), который позволяет пользователям выполнять задачи CRUD. Этот веб-API защищен с помощью Azure AD B2C. Управлять списком дел могут только пользователи, прошедшие проверку подлинности.
 
-## <a name="create-an-azure-ad-b2c-directory"></a>Create an Azure AD B2C directory
+## Создание каталога Azure AD B2C
 
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
+Перед использованием Azure AD B2C необходимо создать каталог или клиент. Каталог — это контейнер для всех ваших пользователей, приложений, групп и т. д. Если каталог B2C еще не создан, [создайте его](active-directory-b2c-get-started.md), прежде чем продолжить.
 
-## <a name="create-an-application"></a>Create an application
+## Создание приложения
 
-Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
+Затем необходимо создать приложение в каталоге B2C. Это дает Azure AD информацию, необходимую для безопасного взаимодействия с вашим приложением. Чтобы создать приложение, следуйте [этим инструкциям](active-directory-b2c-app-registration.md). Не забудьте сделать следующее.
 
-- Include a **web app** or **web API** in the application.
-- Use the **redirect uniform resource identifier** `https://localhost:44316/` for the web app. This is the default location of the web app client for this code sample.
-- Copy the **application ID** that is assigned to your app. You'll need it later.
+- Включите в приложение **веб-приложение** или **веб-API**.
+- Используйте **универсальный код ресурса перенаправления** `https://localhost:44316/` для веб-приложения. Это стандартное расположение клиента веб-приложения для этого примера.
+- Скопируйте **идентификатор приложения**, назначенный приложению. Он понадобится вам позднее.
 
  [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## <a name="create-your-policies"></a>Create your policies
+## Создание политик
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). The client in this code sample contains three identity experiences: sign up, sign in, and edit profile. You will need to create a policy for each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create your three policies, be sure to:
+В Azure AD B2C любое взаимодействие с пользователем определяется [политикой](active-directory-b2c-reference-policies.md). Клиент в этом примере кода включает три способа работы с идентификацией: регистрацию, вход в систему и изменение профиля. Вам потребуется создать по одной политике для каждого типа, как описано в [справочнике по политикам](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании своих трех политик обязательно сделайте следующее:
 
-- Choose either **User ID sign-up** or **Email sign-up** in the identity providers blade.
-- Choose **Display name** and other sign-up attributes in your sign-up policy.
-- Choose **Display name** and **Object ID** claims as application claims for every policy. You can choose other claims as well.
-- Copy the **Name** of each policy after you create it. You'll need these policy names later.
+- В колонке поставщиков удостоверений выберите **User ID sign-up** (Регистрация с помощью идентификатора пользователя) или **Email sign-up** (Регистрация по электронной почте).
+- В политике регистрации укажите **отображаемое имя** и другие атрибуты регистрации.
+- В каждой политике в качестве утверждения приложения выберите утверждения **Отображаемое имя** и **Идентификатор объекта**. Можно также выбрать другие утверждения.
+- Скопируйте **имя** каждой созданной политики. Эти имена политик понадобятся вам через некоторое время.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-After you have successfully created the three policies, you're ready to build your app.
+Создав три политики, можно приступать к созданию приложения.
 
-## <a name="download-the-code"></a>Download the code
+## Загрузка кода
 
-The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). You can also clone the skeleton:
+Код для этого руководства [размещен на портале GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). Чтобы выполнить сборку примера, [скачайте схему проекта в виде ZIP-архива](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Ее также можно клонировать:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
 ```
 
-The completed app is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) or on the `complete` branch of the same repository.
+Кроме того, можно скачать готовое приложение [в виде ZIP-архива](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) или получить его из ветви `complete` того же репозитория.
 
-After you download the sample code, open the Visual Studio .sln file to get started. The solution file contains two projects: `TaskWebApp` and `TaskService`. `TaskWebApp` is an MVC web application that the user interacts with. `TaskService` is the app's back-end web API that stores each user's to-do list.
+Скачав пример кода, откройте SLN-файл Visual Studio, чтобы начать работу. Файл решения содержит два проекта: `TaskWebApp` и `TaskService`. `TaskWebApp` — это веб-приложение MVC, с которым взаимодействует пользователь. `TaskService` — веб-API серверной части приложения, в котором хранится список дел для каждого пользователя.
 
-## <a name="configure-the-task-web-app"></a>Configure the task web app
+## Настройка веб-приложения для задач
 
-When a user interacts with `TaskWebApp`, the client sends requests to Azure AD and gets back tokens that can be used to call the `TaskService` web API. To sign in the user and get tokens, you need to provide `TaskWebApp` with some information about your app. In the `TaskWebApp` project, open the `web.config` file in the root of the project and replace the values in the `<appSettings>` section.  You can leave the `AadInstance`, `RedirectUri`, and `TaskServiceUrl` values as-is.
+Когда пользователь взаимодействует с `TaskWebApp`, клиент отправляет запросы в Azure AD и получает токены, которые можно использовать для вызова веб-API `TaskService`. Чтобы пользователь мог выполнить вход и получить токены, необходимо предоставить `TaskWebApp` определенные сведения о приложении. В корне проекта `TaskWebApp` откройте файл `web.config` и замените значения в разделе `<appSettings>`. Можно не менять значения `AadInstance`, `RedirectUri` и `TaskServiceUrl`.
 
 ```
   <appSettings>
@@ -83,14 +82,14 @@ When a user interacts with `TaskWebApp`, the client sends requests to Azure AD a
   </appSettings>
 ```
 
-This article does not cover building the `TaskWebApp` client.  To learn how to build a web app using Azure AD B2C, see [our .NET web app tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
+Данная статья не описывает создание клиента `TaskWebApp`. Сведения о создании веб-приложения с помощью Azure AD B2C см. в [этом руководстве](active-directory-b2c-devquickstarts-web-dotnet.md).
 
-## <a name="secure-the-api"></a>Secure the API
+## Защита API
 
-When you have a client that calls the API on behalf of users, you can secure `TaskService` by using OAuth 2.0 bearer tokens. Your API can accept and validate tokens by using Microsoft's Open Web Interface for .NET (OWIN) library.
+Теперь, когда у вас есть клиент, который вызывает API от имени пользователей, можно защитить `TaskService` с помощью токенов носителя OAuth 2.0. API может принимать и проверять токены с помощью библиотеки OWIN от Майкрософт.
 
-### <a name="install-owin"></a>Install OWIN
-Begin by installing the OWIN OAuth authentication pipeline:
+### Установка OWIN
+Сначала установите конвейер проверки подлинности OWIN OAuth:
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TaskService
@@ -98,8 +97,8 @@ PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TaskService
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
-### <a name="enter-your-b2c-details"></a>Enter your B2C details
-Open the `web.config` file in the root of the `TaskService` project and replace the values in the `<appSettings>` section. These values will be used throughout the API and OWIN library.  You can leave the `AadInstance` value unchanged.
+### Ввод данных B2C
+В корне проекта `TaskService` откройте файл `web.config` и замените значения в разделе `<appSettings>`. Эти значения будут использоваться в API и библиотеке OWIN. Можно оставить значение `AadInstance` без изменений.
 
 ```
   <appSettings>
@@ -116,8 +115,8 @@ Open the `web.config` file in the root of the `TaskService` project and replace 
   </appSettings>
 ```
 
-### <a name="add-an-owin-startup-class"></a>Add an OWIN startup class
-Add an OWIN startup class to the `TaskService` project called `Startup.cs`.  Right-click on the project, select **Add** and **New Item**, and then search for OWIN.
+### Добавление класса запуска OWIN
+Добавьте класс запуска OWIN в проект `TaskService` с именем `Startup.cs`. Щелкните проект правой кнопкой мыши и выберите пункт **Добавить** в контекстном меню, а затем — **Новый элемент**, после чего найдите OWIN.
 
 
 ```C#
@@ -126,7 +125,7 @@ Add an OWIN startup class to the `TaskService` project called `Startup.cs`.  Rig
 // Change the class declaration to "public partial class Startup" - we’ve already implemented part of this class for you in another file.
 public partial class Startup
 {
-    // The OWIN middleware will invoke this method when the app starts
+	// The OWIN middleware will invoke this method when the app starts
     public void Configuration(IAppBuilder app)
     {
         ConfigureAuth(app);
@@ -134,8 +133,8 @@ public partial class Startup
 }
 ```
 
-### <a name="configure-oauth-2.0-authentication"></a>Configure OAuth 2.0 authentication
-Open the file `App_Start\Startup.Auth.cs`, and implement the `ConfigureAuth(...)` method:
+### Настройка проверки подлинности OAuth 2.0
+Откройте файл `App_Start\Startup.Auth.cs` и реализуйте метод `ConfigureAuth(...)`.
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -175,8 +174,8 @@ public partial class Startup
 }
 ```
 
-### <a name="secure-the-task-controller"></a>Secure the task controller
-After the app is configured to use OAuth 2.0 authentication, you can secure your web API by adding an `[Authorize]` tag to the task controller. This is the controller where all to-do list manipulation takes place, so you should secure the entire controller at the class level. You can also add the `[Authorize]` tag to individual actions for more fine-grained control.
+### Настройка защиты контроллера задач
+Теперь, когда приложение настроено для использования проверки подлинности OAuth 2.0, вы можете добавить тег `[Authorize]` к контроллеру задач для защиты веб-API. В этом контроллере выполняются все операции со списками дел, поэтому нужно защитить весь контроллер на уровне класса. Для более точного управления можно добавить тег `[Authorize]` к отдельным действиям.
 
 ```C#
 // Controllers\TasksController.cs
@@ -184,31 +183,31 @@ After the app is configured to use OAuth 2.0 authentication, you can secure your
 [Authorize]
 public class TasksController : ApiController
 {
-    ...
+	...
 }
 ```
 
-### <a name="get-user-information-from-the-token"></a>Get user information from the token
-`TasksController` stores tasks in a database where each task has an associated user who "owns" the task. The owner is identified by the user's **object ID**. (This is why you needed to add the object ID as an application claim in all of your policies.)
+### Получение сведений о пользователе из токена.
+`TasksController` сохраняет задачи в базе данных, где каждой задаче соответствует пользователь, являющийся ее владельцем. Владелец определяется **идентификатором объекта** пользователя. (Поэтому необходимо добавить идентификатор объекта в качестве утверждения приложения во все свои политики.)
 
 ```C#
 // Controllers\TasksController.cs
 
 public IEnumerable<Models.Task> Get()
 {
-    string owner = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-    IEnumerable<Models.Task> userTasks = db.Tasks.Where(t => t.owner == owner);
-    return userTasks;
+	string owner = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+	IEnumerable<Models.Task> userTasks = db.Tasks.Where(t => t.owner == owner);
+	return userTasks;
 }
 ```
 
-## <a name="run-the-sample-app"></a>Run the sample app
+## Запуск примера приложения
 
-Finally, build and run both `TaskWebApp` and `TaskService`. Sign up for the app by using an email address or username. Create some tasks on the user's to-do list and notice how they are persisted in the API even after you stop and restart the client.
+Наконец, выполните сборку и запуск `TaskWebApp` и `TaskService`. Зарегистрируйтесь в приложении с использованием адреса электронной почты или имени пользователя. Создайте несколько задач в списке дел. Обратите внимание, что они сохраняются в API даже после остановки и перезапуска клиента.
 
-## <a name="edit-your-policies"></a>Edit your policies
+## Изменение политик
 
-After you have secured an API by using Azure AD B2C, you can experiment with your app's policies and view the effects (or lack thereof) on the API. You can manipulate the application claims in the policies and change the user information that is available in the web API. Any claims that you add will be available to your .NET MVC web API in the `ClaimsPrincipal` object, as described earlier in this article.
+Теперь, когда у вас есть API, защищенный с помощью Azure AD B2C, можно поэкспериментировать с политиками приложения и понаблюдать, как это влияет (или не влияет) на API. Вы можете управлять утверждениями приложения в политиках и изменять сведения о пользователе, доступные в веб-API. Любые дополнительные утверждения, которые вы добавляете, будут доступны для веб-API .NET MVC в объекте `ClaimsPrincipal`, как описано ранее в этой статье.
 
 <!--
 
@@ -222,8 +221,4 @@ You can now move onto more advanced B2C topics. You may try:
 
 -->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

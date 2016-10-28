@@ -1,78 +1,70 @@
 <properties 
-    pageTitle="Overview of Enterprise Integration | Microsoft Azure App Service | Microsoft Azure" 
-    description="Use the features of Enterprise Integration to enable business process and integration scenarios using Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="msftman" 
-    manager="erikre" 
-    editor="cgronlun"/>
+	pageTitle="Обзор интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
+	description="Используйте функции интеграции Enterprise, чтобы реализовать сценарии бизнес-процессов и интеграции с помощью приложений логики." 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="msftman" 
+	manager="erikre" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/08/2016" 
-    ms.author="deonhe"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2016" 
+	ms.author="deonhe"/>
 
+# Обзор пакета интеграции Enterprise
 
-# <a name="overview-of-the-enterprise-integration-pack"></a>Overview of the Enterprise Integration Pack
+## Что такое пакет интеграции Enterprise?
+Пакет интеграции Enterprise — это облачное решение корпорации Майкрософт, с помощью которого можно легко обеспечить обмен данными "бизнес-бизнес". Пакет использует стандартные протоколы, в том числе [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md) и [EDIFACT](./app-service-logic-enterprise-integration-edifact.md), для обмена сообщениями между деловыми партнерами. Сообщения можно дополнительно защитить с помощью шифрования и цифровых подписей.
 
-## <a name="what-is-the-enterprise-integration-pack?"></a>What is the Enterprise Integration Pack?
-The Enterprise Integration Pack is Microsoft's cloud-based solution for seamlessly enabling business-to-business (B2B) communications. The pack uses industry standard protocols including [AS2](./app-service-logic-enterprise-integration-as2.md), [X12](./app-service-logic-enterprise-integration-x12.md), and [EDIFACT](./app-service-logic-enterprise-integration-edifact.md) to exchange messages between business partners. Messages can be optionally secured using both encryption and digital signatures. 
+Данный пакет позволяет организациям, которые используют разные протоколы и форматы, обмениваться электронными сообщениями, преобразовывая разные форматы в формат, который системы обеих организаций могут интерпретировать, чтобы дать возможность предпринять соответствующие действия.
 
-The pack allows organizations that use different protocols and formats to exchange messages electronically by transforming the different formats into a format that both organizations' systems can interpret and take action on. 
+Если вы уже работали с BizTalk Server или службами BizTalk Microsoft Azure, то вам будет легко использовать функции интеграции Enterprise, так как большая часть используемых понятий аналогична. Одно из основных отличий — в интеграции Enterprise используются учетные записи интеграции, которые упрощают хранение артефактов, используемых при обмене данными "бизнес-бизнес", и управление ими.
 
-If you are familiar with BizTalk Server or Microsoft Azure BizTalk Services, you'll find it easy to use the Enterprise Integration features because most of the concepts are similar. One major difference is that Enterprise Integration uses integration accounts to simplify the storage and management of artifacts used in B2B communications. 
+С точки зрения архитектуры в основе пакета интеграции Enterprise лежат **учетные записи интеграции**, в которых хранятся все артефакты, доступные для разработки, развертывания и обслуживания ваших приложений "бизнес-бизнес". По сути, учетная запись интеграции — это облачный контейнер для хранения таких артефактов, как схемы, партнеры, сертификаты, карты и соглашения. Эти артефакты можно использовать в приложениях логики для создания рабочих процессов "бизнес-бизнес". Прежде чем использовать артефакты в приложении логики, необходимо связать с ними свою учетную запись интеграции. После связывания приложение логики будет иметь доступ к артефактам в учетной записи интеграции.
 
-Architecturally, the Enterprise Integration Pack is based on **integration accounts** that store all the artifacts that can be used to design, deploy, and maintain your B2B apps. An integration account is basically a cloud-based container where you store artifacts such as schemas, partners, certificates, maps, and agreements. These artifacts can then be used in Logic apps to build B2B workflows. Before you can use the artifacts in a Logic app, you need to link your integration account to your Logic app. After linking them, your Logic app will have access to the integration account's artifacts.  
+## Для чего следует использовать интеграцию Enterprise?
+- Благодаря интеграции Enterprise можно хранить все артефакты в одном месте — в своей учетной записи интеграции.
+- Вы можете использовать ядро приложений логики и все его соединители, чтобы создать рабочие процессы "бизнес-бизнес" и реализовать интеграцию с приложениями SaaS сторонних поставщиков, локальными приложениями или пользовательскими приложениями.
+- Можно также использовать функции Azure.
 
-## <a name="why-should-you-use-enterprise-integration?"></a>Why should you use enterprise integration?
-- With enterprise integration, you are able to store all your artifacts in one place, which is your integration account. 
-- You can leverage the Logic apps engine and all its connectors to build B2B workflows and integrate with 3rd party SaaS applications, on-premises apps as well as custom applications
-- You can also leverage Azure functions
+## Как приступить к работе с интеграцией Enterprise?
+Создавать приложения "бизнес-бизнес" и управлять ими с помощью пакета интеграции Enterprise можно в конструкторе приложений логики на **портале Azure**.
 
-## <a name="how-to-get-started-with-enterprise-integration?"></a>How to get started with enterprise integration?
-You can build and manage B2B apps using the Enterprise Integration Pack via the Logic apps designer on the **Azure portal**.  
+Для управления приложениями логики можно также использовать [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Разделы о PowerShell для приложений логики").
 
-You can also use [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic apps PowerShell topics") to manage your Logic apps. 
+Ниже описаны действия, которые необходимо выполнить перед созданием приложений на портале Azure. ![Изображение для обзора](./media/app-service-logic-enterprise-integration-overview/overview-0.png)
 
-Here is an overview of the steps you need to take before you can create apps in the Azure portal: ![overview image](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
+## Каковы наиболее распространенные сценарии применения?
 
-## <a name="what-are-some-common-scenarios?"></a>What are some common scenarios?
+Интеграция Enterprise поддерживает следующие отраслевые стандарты:
 
-Enterprise Integration supports these industry standards:   
+- EDI — электронный обмен данными;
+- EAI — интеграция приложений.
 
-- EDI - Electronic Data Interchange  
-- EAI - Enterprise Application Integration  
+## Вот что необходимо для немедленного начала работы.
+- Подписка Azure с учетной записью интеграции.
+- Visual Studio 2015 для создания карт и схем.
+- [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0.](https://aka.ms/vsmapsandschemas)
 
-## <a name="here's-what-you-need-to-get-started"></a>Here's what you need to get started
-- An Azure subscription with an integration account
-- Visual Studio 2015 to create maps and schemas
-- [Microsoft Azure Logic Apps Enterprise Integration Tools for Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas)  
+## Попробовать
+[Попробуйте](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) развернуть полностью работоспособный пример приложения логики для обмена данными AS2 с помощью функций "бизнес-бизнес" приложений логики.
 
-## <a name="try-it"></a>Try it
-[Try it now](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive) to deploy a fully operational sample AS2 send & receive logic app that uses the B2B features of Logic Apps.
+## См. также:
+- [Соглашения](./app-service-logic-enterprise-integration-agreements.md "Узнайте о соглашениях интеграции Enterprise.")
+- [Сценарии "бизнес-бизнес"](./app-service-logic-enterprise-integration-b2b.md "Узнайте, как создавать приложения логики с возможностями "бизнес-бизнес".")
+- [Сертификаты](./app-service-logic-enterprise-integration-certificates.md "Узнайте о сертификатах интеграции Enterprise.")
+- [Кодирование и декодирование неструктурированных файлов](./app-service-logic-enterprise-integration-flatfile.md "Узнайте, как для кодировать и декодировать содержимое неструктурированных файлов.")
+- [Учетные записи интеграции](./app-service-logic-enterprise-integration-accounts.md "Узнайте об учетных записях интеграции.")
+- [Карты](./app-service-logic-enterprise-integration-maps.md "Узнайте о картах интеграции Enterprise.")
+- [Партнеры](./app-service-logic-enterprise-integration-partners.md "Узнайте о партнерах интеграции Enterprise.")
+- [Схемы](./app-service-logic-enterprise-integration-schemas.md "Узнайте о схемах интеграции Enterprise.")
+- [Проверка сообщений XML](./app-service-logic-enterprise-integration-xml.md "Узнайте, как проверять сообщения XML с помощью приложений логики.")
+- [Преобразование XML-файла](./app-service-logic-enterprise-integration-transform.md "Узнайте о картах интеграции Enterprise.")
+- [Корпоративные соединители интеграции](../connectors/apis-list.md "Узнайте о соединителях пакета интеграции Enterprise.")
 
-## <a name="learn-more-about:"></a>Learn more about:
-- [Agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")
-- [Business to Business (B2B) scenarios](./app-service-logic-enterprise-integration-b2b.md "Learn how to create Logic apps with B2B features ")  
-- [Certificates](./app-service-logic-enterprise-integration-certificates.md "Learn about enterprise integration certificates")
-- [Flat file encoding/decoding](./app-service-logic-enterprise-integration-flatfile.md "Learn how to encode and decode flat file contents")  
-- [Integration accounts](./app-service-logic-enterprise-integration-accounts.md "Learn about integration accounts")
-- [Maps](./app-service-logic-enterprise-integration-maps.md "Learn about enterprise integration maps")
-- [Partners](./app-service-logic-enterprise-integration-partners.md "Learn about enterprise integration partners")
-- [Schemas](./app-service-logic-enterprise-integration-schemas.md "Learn about enterprise integration schemas")
-- [XML message validation](./app-service-logic-enterprise-integration-xml.md "Learn how to validate XML messages with Logic apps")
-- [XML transform](./app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration maps")
-- [Enterprise Integration Connectors](../connectors/apis-list.md "Learn about enterprise integration pack connectors")
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

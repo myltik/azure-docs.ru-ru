@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Application upgrade: data serialization | Microsoft Azure"
-   description="Best practices for data serialization and how it affects rolling application upgrades."
+   pageTitle="Обновление приложений: сериализация данных | Microsoft Azure"
+   description="Лучшие методики для сериализации данных и ее влияние на последовательные обновления приложений."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,62 +13,57 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/19/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
+# Влияние сериализации данных на обновление приложений
 
-# <a name="how-data-serialization-affects-an-application-upgrade"></a>How data serialization affects an application upgrade
-
-In a [rolling application upgrade](service-fabric-application-upgrade.md), the upgrade is applied to a subset of nodes, one upgrade domain at a time. During this process, some upgrade domains will be on the newer version of your application, and some upgrade domains will be on the older version of your application. During the rollout, the new version of your application must be able to read the old version of your data, and the old version of your application must be able to read the new version of your data. If the data format is not forward and backward compatible, the upgrade may fail, or worse, data may be lost or corrupted. This article discusses what constitutes your data format and offers best practices for ensuring that your data is forward and backward compatible.
-
-
-## <a name="what-makes-up-your-data-format?"></a>What makes up your data format?
-
-In Azure Service Fabric, the data that is persisted and replicated comes from your C# classes. For applications that use [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), that is the objects in the reliable dictionaries and queues. For applications that use [Reliable Actors](service-fabric-reliable-actors-introduction.md), that is the backing state for the actor. These C# classes must be serializable to be persisted and replicated. Therefore, the data format is defined by the fields and properties that are serialized, as well as how they are serialized. For example, in an `IReliableDictionary<int, MyClass>` the data is a serialized `int` and a serialized `MyClass`.
-
-### <a name="code-changes-that-result-in-a-data-format-change"></a>Code changes that result in a data format change
-
-Since the data format is determined by C# classes, changes to the classes may cause a data format change. Care must be taken to ensure that a rolling upgrade can handle the data format change. Examples that may cause data format changes:
-
-- Adding or removing fields or properties
-- Renaming fields or properties
-- Changing the types of fields or properties
-- Changing the class name or namespace
-
-### <a name="data-contract-as-the-default-serializer"></a>Data Contract as the default serializer
-
-The serializer is generally responsible for reading the data and deserializing it into the current version, even if the data is in an older or *newer* version. The default serializer is the [Data Contract serializer](https://msdn.microsoft.com/library/ms733127.aspx), which has well-defined versioning rules. Reliable Collections allow the serializer to be overridden, but Reliable Actors currently do not. The data serializer plays an important role in enabling rolling upgrades. The Data Contract serializer is the serializer that we recommend for Service Fabric applications.
+При [последовательном обновлении приложения](service-fabric-application-upgrade.md) обновление применяется к подмножеству узлов, переходя от одного домена обновления к другому. Во время этого процесса некоторые домены обновления будут использовать более раннюю версию приложения, чем другие. В ходе развертывания новая версия вашего приложения должна иметь способность считывать старые версии данных, а старая версия приложения — новую версию данных. Если формат данных не обладает прямой и обратной совместимостью, обновление может завершиться неудачей либо данные могут быть утрачены. В этой статье обсуждаются составляющие формата данных, а также передовой опыт в обеспечении прямой и обратной совместимости данных.
 
 
-## <a name="how-the-data-format-affects-a-rolling-upgrade"></a>How the data format affects a rolling upgrade
+## Что составляет ваш формат данных?
 
-During a rolling upgrade, there are two main scenarios where the serializer may encounter an older or *newer* version of your data:
+В Azure Service Fabric сохраняемые и реплицируемые данные происходят от классов C#. Для приложений, использующих [надежные коллекции](service-fabric-reliable-services-reliable-collections.md), они представляют собой объекты в надежных коллекциях и очередях. Для приложений, использующих модель [Reliable Actors](service-fabric-reliable-actors-introduction.md), это состояние резервирования для субъекта. Чтобы сохраняться и реплицироваться, эти классы C# должны поддерживать сериализацию. Поэтому формат данных определяется сериализованными полями и свойствами, а также способом их сериализации. Например, в `IReliableDictionary<int, MyClass>` данные представляют собой сериализованный `int` и сериализованный `MyClass`.
 
-1. After a node is upgraded and starts back up, the new serializer will load the data that was persisted to disk by the old version.
-2. During the rolling upgrade, the cluster will contain a mix of the old and new versions of your code. Since replicas may be placed in different upgrade domains, and replicas send data to each other, the new and/or old version of your data may be encountered by the new and/or old version of your serializer.
+### Изменения кода, вызывающие изменение формата данных
 
-> [AZURE.NOTE] The "new version" and "old version" here refer to the version of your code that is running. The "new serializer" refers to the serializer code that is executing in the new version of your application. The "new data" refers to the serialized C# class from the new version of your application.
+Поскольку формат данных определяется классами C#, изменения в этих классах могут привести к изменению формата данных. Необходимо обратить внимание на то, чтобы при последовательном обновлении такая смена формата учитывалась. Примеры, которые могут вызвать изменения формата данных:
 
-The two versions of code and data format must be both forward and backward compatible. If they are not compatible, the rolling upgrade may fail or data may be lost. The rolling upgrade may fail because the code or serializer may throw exceptions or a fault when it encounters the other version. Data may be lost if, for example, a new property was added but the old serializer discards it during deserialization.
+- Добавление или удаление полей или свойств
+- Переименование полей или свойств
+- Изменение типов полей или свойств
+- Изменение имени класса или пространства имен
 
-Data Contract is the recommended solution for ensuring that your data is compatible. It has well-defined versioning rules for adding, removing, and changing fields. It also has support for dealing with unknown fields, hooking into the serialization and deserialization process, and dealing with class inheritance. For more information, see [Using Data Contract](https://msdn.microsoft.com/library/ms733127.aspx).
+### Контракт данных — это сериализатор по умолчанию
 
-
-## <a name="next-steps"></a>Next steps
-
-[Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
-
-[Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
-
-Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
-
-Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
-
-Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
+Сериализатор обычно отвечает за чтение данных и его десериализацию в текущей версии, даже если данные принадлежат более старой или *более новой* версии. Сериализатором по умолчанию является [сериализатор контрактов данных](https://msdn.microsoft.com/library/ms733127.aspx), который имеет четко заданные правила управления версиями. Надежные коллекции позволяют переопределить настройки сериализатора, однако Reliable Actors в настоящее время этого не допускает. Сериализатор данных играет важную роль в обеспечении последовательных обновлений. Сериализатор контрактов данных является рекомендуемым сериализатором для приложений Service Fabric.
 
 
+## Влияние формата данных на последовательное обновление
 
-<!--HONumber=Oct16_HO2-->
+Во время последовательного обновления существует два основных сценария, где сериализатор может столкнуться с более старой или *более новой* версией данных.
+
+1. После обновления и перезапуска узла новый сериализатор загрузит данные, которые сохранялись на диске старой версией.
+2. Во время последовательного обновления кластер будет содержать смесь новых и старых версий кода. Поскольку реплики могут быть помещены в разные домены обновления и могут обмениваться данными друг с другом, сериализатор новой и/или старой версии может столкнуться с новыми и/или старыми версиями данных.
+
+> [AZURE.NOTE] "Новая версия" и "старая версия" здесь обозначают версию запущенного кода. "Новый сериализатор" означает код сериализатора, выполняющийся в новой версии приложения. "Новые данные" означает сериализованный класс C# из новой версии приложения.
+
+Две версии кода и формата данных должны обладать прямой и обратной совместимостью. Если они несовместимы, последовательное обновление может дать сбой, при этом данные могут быть утрачены. Последовательное обновление может завершиться сбоем из-за того, что код или сериализатор может создавать исключения или ошибки при взаимодействии с другой версией. Данные могут быть утрачены, если, например, добавляется новое свойство, но старый сериализатор отклоняет его в момент сериализации.
+
+Контракт данных является рекомендуемым решением для обеспечения совместимости ваших данных. Он обладает строго заданными правилами управления версиями при добавлении, удалении или изменении полей. Кроме того, он обладает поддержкой обработки неизвестных полей, участвующей в процессе сериализации и десериализации, а также наследования классов. Дополнительные сведения см. в разделе [Использование контракта данных](https://msdn.microsoft.com/library/ms733127.aspx).
 
 
+## Дальнейшие действия
+
+Пошаговое руководство [Обновление приложения с помощью Visual Studio](service-fabric-application-upgrade-tutorial.md) поможет вам выполнить обновление приложения с помощью Visual Studio.
+
+Пошаговое руководство [Обновление приложения с помощью PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) поможет вам выполнить обновление приложения с помощью PowerShell.
+
+Управление обновлениями приложения осуществляется с помощью [параметров обновления](service-fabric-application-upgrade-parameters.md).
+
+[Дополнительные разделы](service-fabric-application-upgrade-advanced.md) содержат сведения о работе с расширенными функциями при обновлении приложения.
+
+Сведения об устранении распространенных проблем при обновлении приложений см. в разделе [Устранение неполадок обновления приложения](service-fabric-application-upgrade-troubleshooting.md).
+
+<!---HONumber=AcomDC_0713_2016-->

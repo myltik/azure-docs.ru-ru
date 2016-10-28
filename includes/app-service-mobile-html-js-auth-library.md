@@ -1,9 +1,8 @@
-###<a name="<a-name="server-auth"></a>how-to:-authenticate-with-a-provider-(server-flow)"></a><a name="server-auth"></a>How to: Authenticate with a Provider (Server Flow)
+###<a name="server-auth"></a>Практическое руководство. Аутентификация с помощью поставщика (серверный поток)
 
-To have Mobile Apps manage the authentication process in your app, you must register your app with your identity provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.
-For more information, see the tutorial [Add authentication to your app].
+Чтобы мобильная служба могла выполнять процесс аутентификации в вашем приложении, необходимо зарегистрировать приложение у поставщика удостоверений. Затем в службе приложений Azure необходимо настроить код приложения и секретный код, предоставленный поставщиком. Дополнительные сведения см. в учебнике [Добавление проверки подлинности в приложение].
 
-Once you have registered your identity provider, simply call the .login() method with the name of your provider. For example, to login with Facebook use the following code.
+После регистрации у поставщика удостоверений просто вызовите метод .login() с указанием имени вашего поставщика. Например, для входа в систему через Facebook используйте следующий код.
 
 ```
 client.login("facebook").done(function (results) {
@@ -13,17 +12,17 @@ client.login("facebook").done(function (results) {
 });
 ```
 
-If you are using an identity provider other than Facebook, change the value passed to the login method above to one of the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `aad`.
+Если используется поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в метод login выше, на одно из следующих: `microsoftaccount`, `facebook`, `twitter`, `google` или `aad`.
 
-In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a App Service authentication token after successful login with the identity provider. The login function, when complete, returns a JSON object (user) that exposes both the user ID and App Service authentication token in the userId and authenticationToken fields, respectively. This token can be cached and re-used until it expires.
+В этом случае служба приложений Azure управляет потоком проверки подлинности OAuth 2.0, отображая страницу входа выбранного поставщика и генерируя маркер проверки подлинности службы приложений после успешного соединения с поставщиком удостоверений. Функция login после завершения работы возвращает объект JSON (user), который содержит и идентификатор пользователя, и маркер проверки подлинности службы приложений в полях userId, и authenticationToken соответственно. Этот маркер можно кэшировать и повторно использовать до истечения срока его действия.
 
-###<a name="<a-name="client-auth"></a>how-to:-authenticate-with-a-provider-(client-flow)"></a><a name="client-auth"></a>How to: Authenticate with a Provider (Client Flow)
+###<a name="client-auth"></a>Практическое руководство. Аутентификация с помощью поставщика (клиентский поток)
 
-Your app can also independently contact the identity provider and then provide the returned token to your App Service for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
+Приложение может также независимо связаться с поставщиком удостоверений и сообщить возвращаемый маркер вашей службе приложений для проверки подлинности. Этот клиентский поток позволяет пользователям выполнять единый вход или получать дополнительные данные о пользователе от поставщика удостоверений.
 
-#### <a name="social-authentication-basic-example"></a>Social Authentication basic example
+#### Простой пример проверки подлинности на основе учетной записи социальной сети
 
-This example uses Facebook client SDK for authentication:
+В этом примере используется пакет SDK для клиента Facebook для проверки подлинности:
 
 ```
 client.login(
@@ -35,11 +34,11 @@ client.login(
      alert("Error: " + err);
 });
 ```
-This example assumes that the token provided by the respective provider SDK is stored in the token variable.
+В этом примере предполагается, что маркер, предоставленный соответствующим поставщиком SDK, сохраняется в переменной token.
 
-#### <a name="microsoft-account-example"></a>Microsoft Account example
+#### Пример учетной записи Майкрософт
 
-The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
+В следующем примере используется пакет SDK Live, поддерживающий единый вход в приложения Магазина Windows с использованием учетной записи Майкрософт:
 
 ```
 WL.login({ scope: "wl.basic"}).then(function (result) {
@@ -55,11 +54,11 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 });
 ```
 
-This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
+Этот пример получает маркер из Live Connect, который предоставляется вашей службе приложений путем вызова функции login.
 
-###<a name="<a-name="auth-getinfo"></a>how-to:-obtain-information-about-the-authenticated-user"></a><a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
+###<a name="auth-getinfo"></a>Практическое руководство. Получение сведений о пользователе, прошедшем аутентификацию
 
-The authentication information for the current user can be retrieved from the `/.auth/me` endpoint using any AJAX method.  Ensure you set the `X-ZUMO-AUTH` header to your authentication token.  The authentication token is stored in `client.currentUser.mobileServiceAuthenticationToken`.  For example, to use the fetch API:
+Сведения о аутентификации текущего пользователя можно получить из конечной точки `/.auth/me` с помощью метода AJAX. Обязательно настройте заголовок `X-ZUMO-AUTH` для маркера аутентификации. Маркер аутентификации хранится в `client.currentUser.mobileServiceAuthenticationToken`. Например, чтобы использовать API выборки:
 
 ```
 var url = client.applicationUrl + '/.auth/me';
@@ -73,9 +72,6 @@ fetch(url, { headers: headers })
     });
 ```
 
-Fetch is available as an npm package or for browser download from CDNJS. You could also use jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.
+Компонент выборки предоставляется в виде пакета npm или для скачивания браузером из CDNJS. Для получения информации можно также использовать jQuery или другой API AJAX. Данные будут получены в виде объекта JSON.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

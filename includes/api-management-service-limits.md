@@ -1,13 +1,11 @@
-| Resource                          | Limit                                    |
+| Ресурс | Ограничение |
 |-----------------------------------|------------------------------------------|
-| API Calls (per unit of scale)     | 32 million per day<sup>1</sup>            |
-| Data transfer (per unit of scale) | 161 GB per day<sup>1</sup> |
-| Cache                             | 5 GB<sup>1</sup> |
-| Units of scale                    | Unlimited<sup>1</sup> |
-| Azure Active Directory Integration| Unlimited User Accounts<sup>1</sup> |
+| Вызовы API (на единицу масштабирования) | 32 миллиона в день<sup>1</sup> |
+| Передача данных (на единицу масштабирования) | 161 ГБ в день<sup>1</sup> |
+| Кэш | 5 ГБ<sup>1</sup> |
+| Единицы масштабирования | Без ограничений<sup>1</sup> |
+| Интеграция с Azure Active Directory| Количество учетных записей пользователей не ограничено<sup>1</sup> |
 
-<sup>1</sup>API Management limits are different for each pricing tier. To see the pricing tiers and their associated limits and scaling options, see [API Management Pricing](https://azure.microsoft.com/pricing/details/api-management/).
+<sup>1</sup>Для каждой ценовой категории применяются собственные ограничения на управление API. Сведения о ценовых категориях и связанных с ними ограничениях и параметрах масштабирования см. в статье [Цены на управление API](https://azure.microsoft.com/pricing/details/api-management/).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0128_2016-->

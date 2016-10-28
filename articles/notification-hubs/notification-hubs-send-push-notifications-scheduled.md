@@ -1,41 +1,37 @@
 <properties
-    pageTitle="How to send scheduled notifications | Microsoft Azure"
-    description="This topic describes using Scheduled Notifications with Azure Notification Hubs."
-    services="notification-hubs"
-    documentationCenter=".net"
-    keywords="push notifications,push notification,scheduling push notifications"
-    authors="wesmc7777"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Как отправлять запланированные уведомления | Microsoft Azure"
+	description="В этом разделе описывается использование запланированных уведомлений с помощью центров уведомлений Azure."
+	services="notification-hubs"
+	documentationCenter=".net"
+	keywords="push-уведомления, push-уведомление, планирование push-уведомлений"
+	authors="wesmc7777"
+	manager="erikre"
+	editor=""/>
 <tags
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="06/29/2016"
-    ms.author="wesmc"/>
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/29/2016"
+	ms.author="wesmc"/>
+
+# Практическое руководство. Отправка запланированных уведомлений
 
 
-# <a name="how-to:-send-scheduled-notifications"></a>How To: Send scheduled notifications
+##Обзор
 
+Предположим, возникла необходимость отправить уведомление в какой-либо момент в будущем, но у вас нет простого способа пробудить внутренней код для отправки уведомления. Центры уведомлений уровня "Стандартный" поддерживает функцию, которая позволяет запланировать уведомления на будущее до 7 дней.
 
-##<a name="overview"></a>Overview
+При отправке уведомления просто используйте класс [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) из пакета SDK центров уведомлений, как показано в следующем примере.
 
-If you have a scenario in which you want to send a notification at some point in the future, but do not have an easy way to wake up your back-end code to send the notification. Standard tier Notification Hubs supports a feature that enables you to schedule notifications up to 7 days in the future.
+	Notification notification = new AppleNotification("{"aps":{"alert":"Happy birthday!"}}");
+	var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 
-When sending a notification, simply use the [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) class in the Notification Hubs SDK as shown in the following example:
+Кроме того, вы можете отменить ранее запланированное уведомление, используя его notificationId.
 
-    Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
-    var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
+	await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
-Also, you can cancel a previously scheduled notification using its notificationId:
+Количество запланированных уведомлений, которые можно отправлять, не ограничено.
 
-    await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
-
-There are no limits on the number of scheduled notifications you can send.
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

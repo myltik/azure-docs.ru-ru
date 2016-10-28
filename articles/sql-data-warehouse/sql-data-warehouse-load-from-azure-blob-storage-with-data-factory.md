@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Load data from Azure blob storage into Azure SQL Data Warehouse (Azure Data Factory) | Microsoft Azure"
-   description="Learn to load data with Azure Data Factory"
+   pageTitle="Загрузка данных из хранилища BLOB-объектов Azure в хранилище данных SQL Azure (фабрика данных Azure) | Microsoft Azure"
+   description="Сведения о том, как загружать данные с помощью фабрики данных Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -10,148 +10,147 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-
-# <a name="load-data-from-azure-blob-storage-into-azure-sql-data-warehouse-(azure-data-factory)"></a>Load data from Azure blob storage into Azure SQL Data Warehouse (Azure Data Factory)
+# Загрузка данных из хранилища больших двоичных объектов Azure в хранилище данных SQL Azure (фабрика данных Azure).
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
-- [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+- [Фабрика данных](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+- [PolyBase;](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
- This tutorial shows you how to create a pipeline in Azure Data Factory to move data from Azure Storage Blob to SQL Data Warehouse. With the following steps you will:
+ В этом руководстве показано, как создать конвейер в фабрике данных Azure для перемещения данных из большого двоичного объекта в хранилище Azure в хранилище данных SQL. С помощью описанных ниже шагов вы сможете:
 
-+ Set-up sample data in an Azure Storage Blob.
-+ Connect resources to Azure Data Factory.
-+ Create a pipeline to move data from Storage Blobs to SQL Data Warehouse.
++ настроить образец данных в большом двоичном объекте службы хранилища Azure;
++ подключить ресурсы к фабрике данных Azure;
++ создать конвейер для перемещения данных из больших двоичных объектов службы хранилища в хранилище данных SQL.
 
 >[AZURE.VIDEO loading-azure-sql-data-warehouse-with-azure-data-factory]
 
 
-## <a name="before-you-begin"></a>Before you begin
+## Перед началом работы
 
-To familiarize yourself with Azure Data Factory, see [Introduction to Azure Data Factory][].
+Чтобы получить основные сведения о фабрике данных Azure, см. статью [Введение в службу фабрики данных Azure][].
 
-### <a name="create-or-identify-resources"></a>Create or identify resources
+### Создание или определение ресурсов
 
-Before starting this tutorial, you need to have the following resources.
+Для работы с этим руководством вам потребуются следующие ресурсы.
 
-   + **Azure Storage Blob**: This tutorial uses Azure Storage Blob as the data source for the Azure Data Factory pipeline, and so you need to have one available to store the sample data. If you don't have one already, learn how to [Create a storage account][].
+   + **Большой двоичный объект в службе хранилища Azure**. Мы будем использовать этот большой двоичный объект как источник демонстрационных данных для конвейера фабрики данных Azure, поэтому такой источник нужно создать заранее. Если у вас еще нет учетной записи хранения, [создайте ее][].
 
-   + **SQL Data Warehouse**: This tutorial moves the data from Azure Storage Blob to  SQL Data Warehouse and so need to have a data warehouse online that is loaded with the AdventureWorksDW sample data. If you do not already have a data warehouse, learn how to [provision one][Create a SQL Data Warehouse]. If you have a data warehouse but didn't provision it with the sample data, you can [load it manually][Load sample data into SQL Data Warehouse].
+   + **Хранилище данных SQL**. Мы будем перемещать данные из большого двоичного объекта в службе хранилища Azure в хранилище данных SQL. Для этого в Интернете нам потребуется хранилище данных с демонстрационными данными AdventureWorksDW. Если у вас еще нет хранилища данных, [подготовьте его][Create a SQL Data Warehouse]. Если у вас уже есть хранилище данных, но в нем нет демонстрационных данных, [загрузите их вручную][Load sample data into SQL Data Warehouse].
 
-   + **Azure Data Factory**: Azure Data Factory will complete the actual load and so you need to have one that you can use to build the data movement pipeline.If you don't have one already, learn how to create one in Step 1 of [Get started with Azure Data Factory (Data Factory Editor)][].
+   + **Фабрика данных Azure**. Загрузку данных фактически будет выполнять фабрика данных Azure, поэтому она потребуется нам для создания конвейера перемещения данных. Если у вас еще нет фабрики, сведения о том, как ее создать, см. в шаге 1 статьи [Создание первой фабрики данных Azure с помощью портала Azure и редактора фабрики данных][].
 
-   + **AZCopy**: You need AZCopy to copy the sample data from your local client to your Azure Storage Blob. For install instructions, see the [AZCopy documentation][].
+   + **AZCopy**. Служебная программа AZCopy нужна, чтобы скопировать демонстрационные данные из локального клиента в большой двоичный объект в службе хранилища Azure. Инструкции по установке см. в [документации по AZCopy][].
 
-## <a name="step-1:-copy-sample-data-to-azure-storage-blob"></a>Step 1: Copy sample data to Azure Storage Blob
+## Шаг 1. Копирование демонстрационных данных в BLOB-объект хранилища Azure
 
-Once you have all of the pieces ready, you are ready to copy sample data to your Azure Storage Blob.
+Когда все ресурсы будут готовы, скопируйте демонстрационные данные в BLOB-объект хранилища Azure.
 
-1. [Download sample data][]. This data will add another three years of sales data to your AdventureWorksDW sample data.
+1. [Загрузите демонстрационные данные][]. Они содержат пример данных о продажах, которые мы добавим наши демонстрационные данные AdventureWorksDW.
 
-2. Use this AZCopy command to copy the three years of data to your Azure Storage Blob.
+2. Чтобы скопировать данные о продажах в BLOB-объект хранилища Azure, выполните такую команду AZCopy:
 
 ````
 AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core.windows.net/<container name> /DestKey:<storage key> /Pattern:FactInternetSales.csv
 ````
 
 
-## <a name="step-2:-connect-resources-to-azure-data-factory"></a>Step 2: Connect resources to Azure Data Factory
+## Шаг 2. Подключение ресурсов к фабрике данных Azure.
 
-Now that the data is in place we can create the Azure Data Factory pipeline to move the data from Azure blob storage into SQL Data Warehouse.
+Теперь, когда BLOB-объект содержит нужные нам данные, мы можем создать конвейер фабрики данных Azure, чтобы переместить их из хранилища BLOB-объектов Azure в хранилище данных SQL.
 
-To get started, open the [Azure portal][] and select your data factory from the left-hand menu.
+Для начала откройте [портал Azure][] и в меню слева выберите свою фабрику данных.
 
-### <a name="step-2.1:-create-linked-service"></a>Step 2.1: Create Linked Service
+### Шаг 2.1. Создание связанной службы
 
-Link your Azure storage account and SQL Data Warehouse to your data factory.  
+Свяжите свою учетную запись хранения Azure и хранилище данных SQL с фабрикой данных.
 
-1. First, begin the registration process by clicking the 'Linked Services' section of your data factory and then click 'New data store.' Choose a name to register your azure storage under, select Azure Storage as your type, and then enter your Account Name and Account Key.
+1. Сначала начните процесс регистрации, щелкнув в колонке фабрики данных раздел "Связанные службы" и выбрав пункт "Новое хранилище данных". Выберите имя, под которым будет зарегистрирована ваша служба хранилища Azure, выберите тип "Служба хранилища Azure", а затем введите имя и ключ своей учетной записи.
 
-2. To register SQL Data Warehouse navigate to the 'Author and Deploy' section, select 'New Data Store', and then 'Azure SQL Data Warehouse'. Copy and paste in this template, and then fill in your specific information.
+2. Чтобы зарегистрировать хранилище данных SQL, перейдите в раздел "Создать и развернуть" и последовательно щелкните "Новое хранилище данных" и "Хранилище данных SQL Azure". Скопируйте этот шаблон и добавьте в него свои данные.
 
 ```JSON
 {
     "name": "<Linked Service Name>",
     "properties": {
         "description": "",
-        "type": "AzureSqlDW",
-        "typeProperties": {
-             "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
+	    "type": "AzureSqlDW",
+	    "typeProperties": {
+	         "connectionString": "Data Source=tcp:<server name>.database.windows.net,1433;Initial Catalog=<server name>;Integrated Security=False;User ID=<user>@<servername>;Password=<password>;Connect Timeout=30;Encrypt=True"
          }
     }
 }
 ```
 
-### <a name="step-2.2:-define-the-dataset"></a>Step 2.2: Define the dataset
+### Шаг 2.2. Определение набора данных
 
-After creating the linked services, we will have to define the data sets.  Here this means defining the structure of the data that is being moved from your storage to your data warehouse.  You can read more about creating
+После создания связанных служб следует определить наборы данных. Это означает, что нужно задать структуру данных, перемещаемых из вашего хранилища в хранилище данных. Вы можете прочитать об этом подробнее.
 
-1. Start this process by navigating to the 'Author and Deploy' section of your data factory.
+1. Сначала перейдите к разделу фабрики данных "Разработка и развертывание".
 
-2. Click 'New dataset' and then 'Azure Blob storage' to link your storage to your data factory.  You can use the below script to define your data in Azure Blob storage:
+2. Чтобы привязать хранилище к фабрике данных, щелкните элемент "Создать набор данных", а затем — "Хранилище BLOB-объектов Azure". Для определения данных в хранилище BLOB-объектов Azure вы можете использовать приведенный ниже сценарий.
 
 ```JSON
 {
     "name": "<Dataset Name>",
-    "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "<linked storage name>",
-        "typeProperties": {
-            "folderPath": "<containter name>",
-            "fileName": "FactInternetSales.csv",
-            "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": "\n"
+	"properties": {
+	    "type": "AzureBlob",
+		"linkedServiceName": "<linked storage name>",
+		"typeProperties": {
+		    "folderPath": "<containter name>",
+			"fileName": "FactInternetSales.csv",
+			"format": {
+			"type": "TextFormat",
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n"
             }
         },
-        "external": true,
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
-        },
-        "policy": {
-            "externalData": {
-                "retryInterval": "00:01:00",
-                "retryTimeout": "00:10:00",
-                "maximumRetry": 3
-            }
+	    "external": true,
+	    "availability": {
+		    "frequency": "Hour",
+		    "interval": 1
+	    },
+	    "policy": {
+	        "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+	        }
         }
-    }
+	}
 }
 ```
 
 
-3. Now we will also define our dataset for SQL Data Warehouse.  We start in the same way, by clicking 'New dataset' and then 'Azure SQL Data Warehouse'.
+3. Теперь мы настроим также набор данных, предназначенный для хранилища данных SQL. Начнем так же, то есть щелкнем элемент "Создать набор данных", а затем — "Хранилище данных SQL Azure".
 
 ```JSON
 {
     "name": "DWDataset",
-    "properties": {
-        "type": "AzureSqlDWTable",
-        "linkedServiceName": "AzureSqlDWLinkedService",
-        "typeProperties": {
-            "tableName": "FactInternetSales"
-        },
-        "availability": {
-            "frequency": "Hour",
-            "interval": 1
+	"properties": {
+	    "type": "AzureSqlDWTable",
+	    "linkedServiceName": "AzureSqlDWLinkedService",
+	    "typeProperties": {
+		    "tableName": "FactInternetSales"
+		},
+	    "availability": {
+	        "frequency": "Hour",
+		    "interval": 1
         }
     }
 }
 ```
 
-## <a name="step-3:-create-and-run-your-pipeline"></a>Step 3: Create and run your pipeline
+## Шаг 3. Создание и запуск конвейера
 
-Finally, we will set-up and run the pipeline in Azure Data Factory.  This is the operation that will complete the actual data movement.  You can find a full view of the operations that you can complete with SQL Data Warehouse and Azure Data Factory [here][Move data to and from Azure SQL Data Warehouse using Azure Data Factory].
+Наконец, настроим и запустим конвейер в фабрике данных Azure. Эта операция будет выполнять фактическое перемещение данных. Полный список операций, которые можно выполнять в хранилище данных SQL и фабрике данных Azure, см. [здесь][Move data to and from Azure SQL Data Warehouse using Azure Data Factory].
 
-In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipeline'.  After you create the pipeline, you can use the below code to transfer the data to your data warehouse:
+Теперь в разделе "Разработка и развертывание" щелкните элемент "Дополнительные команды", а затем — "Создать конвейер". Создав конвейер, вы сможете передавать данные в хранилище данных с помощью приведенного ниже кода.
 
 ```JSON
 {
@@ -161,86 +160,82 @@ In the 'Author and Deploy' section now click 'More Commands' and then 'New Pipel
         "activities": [
           {
             "type": "Copy",
-            "typeProperties": {
-                "source": {
-                    "type": "BlobSource",
-                    "skipHeaderLineCount": 1
-                },
-                "sink": {
-                    "type": "SqlDWSink",
-                    "writeBatchSize": 0,
-                    "writeBatchTimeout": "00:00:10"
-                }
-            },
-            "inputs": [
-              {
-                "name": "<Storage Dataset>"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "<Data Warehouse Dataset>"
-              }
-            ],
-            "policy": {
-                "timeout": "01:00:00",
-                "concurrency": 1
-            },
-            "scheduler": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "name": "Sample Copy",
-            "description": "Copy Activity"
-          }
-        ],
-        "start": "<Date YYYY-MM-DD>",
-        "end": "<Date YYYY-MM-DD>",
-        "isPaused": false
+    		"typeProperties": {
+    		    "source": {
+	    		    "type": "BlobSource",
+	    			"skipHeaderLineCount": 1
+	    	    },
+	    		"sink": {
+	    		    "type": "SqlDWSink",
+	    		    "writeBatchSize": 0,
+	    			"writeBatchTimeout": "00:00:10"
+	    		}
+	    	},
+	    	"inputs": [
+	    	  {
+	    		"name": "<Storage Dataset>"
+	    	  }
+	    	],
+	    	"outputs": [
+	    	  {
+	    	    "name": "<Data Warehouse Dataset>"
+	    	  }
+	    	],
+	    	"policy": {
+	            "timeout": "01:00:00",
+	    	    "concurrency": 1
+	    	},
+	    	"scheduler": {
+	    	    "frequency": "Hour",
+	    		"interval": 1
+	    	},
+	    	"name": "Sample Copy",
+	    	"description": "Copy Activity"
+	      }
+	    ],
+	    "start": "<Date YYYY-MM-DD>",
+	    "end": "<Date YYYY-MM-DD>",
+	    "isPaused": false
     }
 }
 ```
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-To learn more, start by viewing:
+Дополнительные сведения можно найти в следующих статьях.
 
-- [Azure Data Factory learning path][].
-- [Azure SQL Data Warehouse Connector][]. This is the core reference topic for using Azure Data Factory with Azure SQL Data Warehouse.
+- [Схема обучения по фабрике данных Azure][].
+- [Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure][]. Это основная справочная статья, посвященная использованию фабрики данных Azure с хранилищем данных SQL Azure.
 
 
-These topics provide detailed information about Azure Data Factory. They discuss Azure SQL Database or HDinsight, but the information also applies to Azure SQL Data Warehouse.
+В приведенных ниже статьях содержатся подробные сведения о фабрике данных Azure. В них речь идет о базах данных SQL Azure и HDinsight, но эти сведения также относятся к хранилищу данных SQL Azure.
 
-- [Tutorial: Get started with Azure Data Factory][] This is the core tutorial for processing data with Azure Data Factory. In this tutorial you will build your first pipeline that uses HDInsight to transform and analyze web logs on a monthly basis. Note, there is no copy activity in this tutorial.
-- [Tutorial: Copy data from Azure Storage Blob to Azure SQL Database][]. In this tutorial, you will create a pipeline in Azure Data Factory to copy data from Azure Storage Blob to Azure SQL Database.
+- [Начало работы с фабрикой данных Azure][]. Это основное руководство по обработке данных с помощью фабрики данных Azure. Из него вы узнаете, как построить конвейер, в котором веб-журналы ежемесячно преобразовываются и анализируются с помощью HDInsight. Обратите внимание, что в этом руководстве копирование не используется.
+- [Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных][]. В этом руководстве вы создадите конвейер в фабрике данных Azure для копирования данных из BLOB-объекта хранилища Azure в базу данных SQL Azure.
 
 
 <!--Image references-->
 
-<!--Article references-->
-[AZCopy documentation]: ../storage/storage-use-azcopy.md
-[Azure SQL Data Warehouse Connector]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+.<!--Article references-->
+[документации по AZCopy]: ../storage/storage-use-azcopy.md
+[Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Create a storage account]: ../storage/storage-create-storage-account.md#create-a-storage-account
+[создайте ее]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
-[Get started with Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
-[Introduction to Azure Data Factory]: ../data-factory/data-factory-introduction.md
+[Создание первой фабрики данных Azure с помощью портала Azure и редактора фабрики данных]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
+[Введение в службу фабрики данных Azure]: ../data-factory/data-factory-introduction.md
 [Load sample data into SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Move data to and from Azure SQL Data Warehouse using Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Tutorial: Copy data from Azure Storage Blob to Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[Tutorial: Get started with Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
+[Копирование данных из хранилища BLOB-объектов Azure в базу данных SQL с помощью фабрики данных]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[Начало работы с фабрикой данных Azure]: ../data-factory/data-factory-build-your-first-pipeline.md
 
-<!--MSDN references-->
+.<!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Data Factory learning path]: https://azure.microsoft.com/documentation/learning-paths/data-factory
-[Azure portal]: https://portal.azure.com
-[Download sample data]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
+[Схема обучения по фабрике данных Azure]: https://azure.microsoft.com/documentation/learning-paths/data-factory
+[портал Azure]: https://portal.azure.com
+[Загрузите демонстрационные данные]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

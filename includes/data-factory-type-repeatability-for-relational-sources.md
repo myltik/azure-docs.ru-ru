@@ -1,32 +1,29 @@
-## <a name="repeatability-during-copy"></a>Repeatability during Copy
+## Повторяемость во время копирования
 
-When copying data from and to relational stores, you need to keep repeatability in mind to avoid unintended outcomes. 
+При копировании данных из реляционных хранилищ и в них необходимо помнить о повторяемости, чтобы избежать непредвиденных результатов.
 
-A slice can be rerun automatically in Azure Data Factory as per the retry policy specified. We recommend that you set a retry policy to guard against transient failures. Hence repeatability is an important aspect to take care of during data movement. 
+В фабрике данных Azure можно настроить повторное выполнение среза согласно указанной политике повтора. Рекомендуется установить политику повтора для защиты от временных сбоев. Поэтому повторяемость является важным аспектом, который следует учитывать при перемещении данных.
 
-**As a source:**
+**Источник:**
 
-> [AZURE.NOTE] The following samples are for Azure SQL but are applicable to any data store that supports rectangular datasets. You may have to adjust the **type** of source and the **query** property (for example: query instead of sqlReaderQuery) for the data store.   
+> [AZURE.NOTE] Приведенные ниже примеры предназначены для SQL Azure, но подходят для любого хранилища данных, поддерживающего прямоугольные наборы данных. Для хранилища данных может потребоваться настроить **type** источника и свойство **query** (например, query вместо sqlReaderQuery).
 
-Usually, when reading from relational stores, you would want to read only the data corresponding to that slice. A way to do so would be by using the WindowStart and WindowEnd variables available in Azure Data Factory. Read about the variables and functions in Azure Data Factory here in the [Scheduling and Execution](../articles/data-factory/data-factory-scheduling-and-execution.md) article. Example: 
-    
-      "source": {
-        "type": "SqlSource",
-        "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
-      },
+Обычно при чтении из реляционных хранилищ вам требуется прочитать только данные, соответствующие этому срезу. Сделать это можно с помощью переменных WindowStart и WindowEnd, доступных в фабрике данных Azure. Информацию о переменных и функциях в фабрике данных Azure см. в статье [Планирование и выполнение](../articles/data-factory/data-factory-scheduling-and-execution.md). Пример:
+	
+	  "source": {
+	    "type": "SqlSource",
+	    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
+	  },
 
-This query reads data from ‘MyTable’ that falls in the slice duration range. Rerun of this slice would also always ensure this behavior. 
+Этот запрос считывает из MyTable данные, которые попадают в диапазон длительность среза. Повторное выполнение этого среза всегда будет обеспечивать такое же поведение.
 
-In other cases, you may wish to read the entire Table (suppose for one time move only) and may define the sqlReaderQuery as follows:
+В других случаях может потребоваться чтение всей таблицы (предположим, для однократного перемещения). Для этого понадобится определить sqlReaderQuery следующим образом:
 
-    
-    "source": {
-                "type": "SqlSource",
-                "sqlReaderQuery": "select * from MyTable"
-              },
-    
+	
+	"source": {
+	            "type": "SqlSource",
+	            "sqlReaderQuery": "select * from MyTable"
+	          },
+	
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

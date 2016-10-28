@@ -1,96 +1,92 @@
 <properties 
-    pageTitle="Learn about Enterprise Integration Pack Encode EDIFACT Message Connctor | Microsoft Azure App Service | Microsoft Azure" 
-    description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="padmavc" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Сведения о соединителе кодирования сообщений EDIFACT из пакета интеграции Enterprise | Служба приложений Microsoft Azure | Microsoft Azure" 
+	description="Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики." 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="padmavc" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="padmavc"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/15/2016" 
+	ms.author="padmavc"/>
 
+# Начало работы с соединителем кодирования сообщений EDIFACT
 
-# <a name="get-started-with-encode-edifact-message"></a>Get started with Encode EDIFACT Message
+Проверяет EDI и свойства для конкретного партнера.
 
-Validates EDI and partner-specific properties 
+## Создание подключения
 
-## <a name="create-the-connection"></a>Create the connection
+### Предварительные требования
 
-### <a name="prerequisites"></a>Prerequisites
+* Учетная запись Azure. Вы можете создать [бесплатную учетную запись](https://azure.microsoft.com/free).
 
-* An Azure account; you can create a [free account](https://azure.microsoft.com/free)
+* Для работы с соединителем кодирования сообщений EDIFACT потребуется учетная запись интеграции. См. подробные сведения о создании [учетной записи интеграции](./app-service-logic-enterprise-integration-create-integration-account.md), [партнеров](./app-service-logic-enterprise-integration-partners.md) и [соглашений EDIFACT](./app-service-logic-enterprise-integration-edifact.md).
 
-* An Integration Account is required to use Encode EDIFACT message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-partners.md) and [EDIFACT agreement](./app-service-logic-enterprise-integration-edifact.md)
+### Этапы подключения к соединителю расшифровки сообщений EDIFACT.
 
-### <a name="connect-to-decode-edifact-message-using-the-following-steps:"></a>Connect to Decode EDIFACT Message using the following steps:
+1. Пример см. в статье о [создании приложения логики](./app-service-logic-create-a-logic-app.md).
 
-1. [Create a Logic App](./app-service-logic-create-a-logic-app.md) provides an example.
+2. Этот соединитель не содержит триггеров. Используйте для запуска приложения логики другие триггеры, например триггер запроса. В конструкторе приложений логики добавьте триггер, а затем действие. В раскрывающемся списке выберите параметр "Показать API, управляемые Майкрософт", а затем введите в поле поиска "EDIFACT". Выберите пункт "Encode EDIFACT Message by agreement name" (Кодирование сообщений EDIFACT по названию соглашения) или "Encode to EDIFACT message by identities" (Кодирование в сообщение EDIFACT по идентификаторам).
 
-2. This connector does not have any triggers. Use other triggers to start the Logic App, such as a Request trigger.  In the Logic App designer, add a trigger and add an action.  Select Show Microsoft managed APIs in the drop-down list and then enter "EDIFACT" in the search box.  Select either Encode EDIFACT Message by agreement name or Encode to EDIFACT message by identities.
+	![поиск EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)
 
-    ![search EDIFACT](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactdecodeimage1.png)  
+3. Если до этого вы не создавали подключения к учетной записи интеграции, вам будет предложено ввести сведения о подключении.
 
-3. If you haven’t previously created any connections to Integration Account, you are prompted for the connection details
+	![создание подключения к учетной записи интеграции](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage1.png)
 
-    ![create integration account connection](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage1.png)  
+4. Введите данные учетной записи интеграции. Свойства, отмеченные звездочкой, являются обязательными.
 
-4. Enter the Integration account details.  Properties with an asterisk are required
+	| Свойство | Сведения |
+	| -------- | ------- |
+	| Имя подключения* | Введите имя подключения. |
+	| Учетная запись интеграции* | Введите имя учетной записи интеграции. Убедитесь, что учетная запись интеграции и приложение логики находятся в одном расположении Azure. 
 
-  	| Property | Details |
-  	| -------- | ------- |
-  	| Connection Name * | Enter any name for your connection |
-  	| Integration Account * | Enter the Integration Account name. Be sure your Integration Account and Logic app are in the same Azure location 
+	Введенные сведения о подключении будут выглядеть так:
 
-    Once complete, your connection details look similar to the following
+	![подключение к учетной записи интеграции](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage2.png)
+	
+5. Нажмите кнопку **Создать**.
+	
+6. Подключение создано.
 
-    ![integration account connection](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage2.png)
-    
-5. Select **Create**
-    
-6. Notice the connection has been created
+	![сведения о подключении к учетной записи интеграции](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage4.png)
+	
+#### Кодирование сообщений EDIFACT по названию соглашения
 
-    ![integration account connection details](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage4.png)
-    
-#### <a name="encode-edifact-message-by-agreement-name"></a>Encode EDIFACT Message by agreement name
+7.	Укажите имя соглашения EDIFACT и XML-сообщение для кодирования.
 
-7.  Provide EDIFACT agreement name and xml message to encode.
+	![заполнение обязательных полей](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage6.png)
+	
+#### Кодирование сообщения EDIFACT по идентификаторам
 
-    ![provide mandatory fields](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage6.png)
-    
-#### <a name="encode-edifact-message-by-identities"></a>Encode EDIFACT Message by identities
+7. Укажите идентификатор отправителя, квалификатор отправителя, идентификатор получателя и квалификатор получателя, как указано в соглашении EDIFACT. Выберите XML-сообщение для кодирования.
 
-7. Provide sender identifier, sender qualifier, receiver identifier, and receiver qualifier as configured in the EDIFACT agreement.  Select xml message to encode
+	![заполнение обязательных полей](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage7.png)
+	
+## Кодирование EDIFACT выполняет следующие действия.
 
-    ![provide mandatory fields](./media/app-service-logic-enterprise-integration-edifactorconnector/edifactencodeimage7.png)
-    
-## <a name="edifact-encode-does-following"></a>EDIFACT Encode does following
+* Определяет соглашение, сопоставляя квалификатор и идентификатор отправителя с квалификатором и идентификатором получателя.
+* Сериализует обмен EDI путем преобразования сообщения в кодировке XML в набор транзакций EDI.
+* Генерирует сегменты заголовков и окончаний для наборов транзакций.
+* Создает контрольное число обмена, контрольное число группы и контрольное число набора транзакций для каждого исходящего обмена.
+* Заменяет разделители в полезных данных.
+* Проверяет EDI и свойства для конкретного партнера.
+	* Проверяет схемы элементов данных в наборе транзакций на соответствие схеме сообщения.
+	* Выполняет проверку EDI для элементов данных в наборе транзакций.
+	* Выполняет расширенную проверку для элементов данных в наборе транзакций.
+* Создает XML-документ для каждого набора транзакций.
+* Запрашивает техническое и (или) функциональное подтверждение (если настроено).
+	* Техническим подтверждением является сообщение CONTRL, сообщающее о получении обмена.
+	* Функциональным подтверждением является сообщение CONTRL, информирующее о принятии или отклонении полученного обмена, отдельной группы или сообщения, и содержащее список ошибок или неподдерживаемых функциональных возможностей.
 
-* Resolve the agreement by matching the sender qualifier & identifier and receiver qualifier and identifier
-* Serializes the EDI interchange, converting XML-encoded messages into EDI transaction sets in the interchange.
-* Applies transaction set header and trailer segments
-* Generates an interchange control number, a group control number, and a transaction set control number for each outgoing interchange
-* Replaces separators in the payload data
-* Validates EDI and partner-specific properties
-    * Schema validation of the transaction-set data elements against the message schema.
-    * EDI validation performed on transaction-set data elements.
-    * Extended validation performed on transaction-set data elements
-* Generates an XML document for each transaction set.
-* Requests a Technical and/or Functional acknowledgment (if configured).
-    * As a technical acknowledgment, the CONTRL message indicates receipt of an interchange.
-    * As a functional acknowledgment, the CONTRL message indicates acceptance or rejection of the received interchange, group, or message, with a list of errors or unsupported functionality
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+[Узнайте больше о пакете интеграции Enterprise.](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.")
 
-[Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

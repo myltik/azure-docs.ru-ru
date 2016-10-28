@@ -1,66 +1,60 @@
 <properties 
-    pageTitle="Vehicle telemetry analytics solution playbook | Microsoft Azure" 
-    description="Use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits." 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="bradsev" 
-    manager="jhubbard" 
-    editor="cgronlun" />
+	pageTitle="Сборник решений аналитики телеметрии автомобиля | Microsoft Azure" 
+	description="Используйте возможности Cortana Intelligence, чтобы получить прогнозы и актуальную информацию об исправности и манере вождения автомобиля в режиме реального времени." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="andkjell" 
+	manager="jhubbard" 
+	editor="cgronlun" />
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/12/2016" 
-    ms.author="bradsev" />
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/12/2016" 
+	ms.author="andkjell" />
 
 
+# Сборник решений аналитики телеметрии автомобиля
 
-# <a name="vehicle-telemetry-analytics-solution-playbook"></a>Vehicle telemetry analytics solution playbook
-
-This **menu** links to the chapters in this playbook. 
+Из этого **меню** можно открыть разделы сборника тренировочных заданий.
 
 [AZURE.INCLUDE [cap-vehicle-telemetry-playbook-selector](../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-## <a name="overview"></a>Overview
-Super computers have moved out of the lab and are now parked in our garage! These cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. We expect that by 2020, most of these cars will have been connected to the internet. Imagine tapping into this wealth of data to provide best in class safety, reliability and driving experience! Microsoft has made this dream a reality with Cortana Intelligence.
+## Обзор
+Суперкомпьютеры переместились из лаборатории в наши гаражи! Эти современные автомобили включают множество датчиков, предоставляя им возможность отслеживать и контролировать миллионы событий каждую секунду. Мы ожидаем, что к 2020 году большая часть этих машин будет подключена к Интернету. Представьте себе освоение этого огромного количества данных для обеспечения лучшей в классе безопасности, надежности и совершенно новых возможностей. Корпорация Майкрософт воплотила эту мечту благодаря Cortana Intelligence.
 
-Microsoft’s Cortana Intelligence is a fully managed big data and advanced analytics suite that enables you to transform your data into intelligent action. We want to introduce you to the Cortana Intelligence Vehicle Telemetry Analytics Solution Template. This solution demonstrates how car dealerships, automobile manufacturers, and insurance companies can use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits. 
+Cortana Intelligence от корпорации Майкрософт — это полностью управляемое решение для работы с большими данными и расширенной аналитики, которое позволяет выполнять действия на основе обработанных данных. Мы хотим представить вам шаблон решения аналитики телеметрии автомобиля Cortana Intelligence. Это решение демонстрирует, как дилеры, производители автомобилей и страховые компании могут использовать возможности Cortana Intelligence, чтобы получать прогнозы и актуальную информацию об исправности автомобиля и манере вождения в реальном времени.
 
-The solution is implemented as a [lambda architecture pattern](https://en.wikipedia.org/wiki/Lambda_architecture) showing the full potential of the Cortana Intelligence platform for real-time and batch processing. The solution: 
+Данное решение реализуется как [шаблон лямбда-архитектуры](https://en.wikipedia.org/wiki/Lambda_architecture), демонстрируя полный потенциал платформы Cortana Intelligence для пакетной обработки в режиме реального времени. Это решение:
 
-- provides a Vehicle Telematics simulator
-- leverages Event Hubs for ingesting millions of simulated vehicle telemetry events into Azure 
-- uses Stream Analytics to gain real-time insights on vehicle health
--  persists the data into long-term storage for richer batch analytics. 
-- takes advantage of Machine Learning for anomaly detection in real-time and batch processing to gain predictive insights.
-- leverages HDInsight to transform data at scale and Data Factory to handle orchestration, scheduling, resource management, and monitoring of the batch processing pipeline 
-- gives this solution a rich dashboard for real-time data and predictive analytics visualizations using Power BI
+- предоставляет симулятор телематики автомобиля;
+- использует концентраторы событий для приема миллионов событий телеметрии имитаций автомобилей в Azure;
+- использует Stream Analytics для более глубокого анализа работоспособности автомобилей в режиме реального времени;
+-  сохраняет данные в долговременном хранилище для расширенного пакетного анализа;
+- использует преимущества машинного обучения для выявления аномалий в режиме реального времени и пакетную обработку для прогнозирования состояний;
+- использует HDInsight для преобразования данных, а фабрика данных обеспечивает оркестрацию, планирование, управление ресурсами и мониторинг конвейера пакетной обработки;
+- предоставляет расширенную панель мониторинга, предназначенную для визуализации данных в режиме реального времени и прогнозной аналитики с помощью Power BI.
 
-## <a name="architecture"></a>Architecture
+## Архитектура
 
-![](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
-*Figure 1 – Vehicle Telemetry Analytics Solution Architecture*
+![](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png) *Рис. 1. Архитектура решения аналитики телеметрии транспортного средства*
 
-This solution includes the following **Cortana Intelligence components** and showcases their end to end integration
-
-
-- **Event Hubs** for ingesting millions of vehicle telemetry events into Azure.
-- **Stream Analytics** for gaining real-time insights on vehicle health and persists that data into long-term storage for richer batch analytics.
-- **Machine Learning** for anomaly detection in real-time and batch processing to gain predictive insights.
-- **HDInsight** is leveraged to transform data at scale
-- **Data Factory** handles orchestration, scheduling, resource management and monitoring of the batch processing pipeline.
-- **Power BI** gives this solution a rich dashboard for real-time data and predictive analytics visualizations.
-
-This solution accesses two different **data sources**: 
-
-- **Simulated vehicle signals and diagnostics**: A vehicle telematics simulator emits diagnostic information and signals that correspond to the state of the vehicle and the driving pattern at a given point in time. 
-- **Vehicle catalog**: A reference dataset containing a VIN to model mapping.
+Это решение включает в себя следующие **компоненты Cortana Intelligence** и демонстрирует их комплексную интеграцию.
 
 
+- **Концентраторы событий** принимают миллионы событий телеметрии автомобилей в Azure.
+- **Stream Analytics** получает данные аналитики о работоспособности автомобиля в режиме реального времени и сохраняет их в долговременное хранилище для более детальной пакетной аналитики.
+- **Машинное обучение** обнаруживает аномалии в режиме реального времени и выполняет пакетную обработку для прогнозирования состояний.
+- **HDInsight** используется для преобразования данных при масштабировании.
+- **Фабрика данных** предназначена для координации, планирования и мониторинга конвейера пакетной обработки, а также управления ресурсами.
+- **Power BI** предоставляет для этого решения расширенную панель мониторинга для визуализации данных в режиме реального времени и прогнозной аналитики.
 
-<!--HONumber=Oct16_HO2-->
+Это решение обращается к двум разным **источникам данных**:
 
+- **Имитированные сигналы автомобиля и диагностики**: имитатор телематики автомобиля выдает диагностическую информацию и сигналы, которые соответствуют состоянию транспортного средства и стилю движения в определенный момент времени.
+- **Каталог автомобилей**: справочный набор данных для сопоставления VIN с моделью автомобиля.
 
+<!---HONumber=AcomDC_0914_2016-->

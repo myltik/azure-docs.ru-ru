@@ -1,93 +1,91 @@
 <properties
-    pageTitle="Create a Machine Learning workspace | Microsoft Azure"
-    description="How to create a workspace for Azure Machine Learning Studio"
-    services="machine-learning"
-    documentationCenter=""
-    authors="garyericson"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Создание рабочей области в службе машинного обучения | Microsoft Azure"
+	description="Создание рабочей области для Студии машинного обучения Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/16/2016"
-    ms.author="garye;bradsev;ahgyger"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/16/2016"
+	ms.author="garye;bradsev;ahgyger"/>
 
 
+# Создание рабочей области машинного обучения Azure и предоставление к ней общего доступа
 
-# <a name="create-and-share-an-azure-machine-learning-workspace"></a>Create and share an Azure Machine Learning workspace
-
-This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
+Это меню содержит ссылки на разделы, описывающие настройку различных сред обработки и анализа данных, используемых процессом Cortana Analytics (CAP).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
-To use Azure Machine Learning Studio, you need to have a Machine Learning workspace. This workspace contains the tools you need to create, manage, and publish experiments.
+Для использования Студии машинного обучения Azure требуется рабочая область машинного обучения. Такая рабочая область содержит инструменты, необходимые для создания, публикации экспериментов и управления ими.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="to-create-a-workspace"></a>To create a workspace
+## Создание рабочей области
 
-1. Sign-in to the [Microsoft Azure classic portal].
+1. Войдите на [классический портал Microsoft Azure].
 
-> [AZURE.NOTE] To sign-in, you need to be an Azure subscription administrator. Being the owner of a Machine Learning workspace will not give you access to the [Microsoft Azure classic portal]. See [Privileges of Azure subscription administrator and workspace owner](#subscriptionvsworkspace) for more details.
+> [AZURE.NOTE] Чтобы войти, вам нужно быть администратором подписки Azure. Статус владельца рабочей области машинного обучения не дает доступа к [классическому порталу Microsoft Azure]. Дополнительные сведения см. в разделе [Привилегии администратора подписки Azure и владельца рабочей области](#subscriptionvsworkspace).
 
-2. In the Microsoft Azure services panel, click **MACHINE LEARNING**.
+2. На панели служб Microsoft Azure выберите **МАШИННОЕ ОБУЧЕНИЕ**.
 
-    ![Machine Learning service][1]
+    ![Служба машинного обучения][1]
 
-3. Click **+NEW** at the bottom of the window.
-4. Click **DATA SERVICES**, then **MACHINE LEARNING**, then **QUICK CREATE**.
+3. В нижней части окна щелкните **+СОЗДАТЬ**.
+4. Щелкните **СЛУЖБЫ ДАННЫХ**, **МАШИННОЕ ОБУЧЕНИЕ**, а затем — **БЫСТРОЕ СОЗДАНИЕ**.
 
-    ![Quick Create of new workspace][3]
+	![Быстрое создание новой рабочей области][3]
 
-5. Enter a **WORKSPACE NAME** for your workspace.
-6. Specify the Azure **LOCATION**, then enter an existing Azure **STORAGE ACCOUNT** or select **Create a new storage account** to create a new one.
-7. Click **CREATE AN ML WORKSPACE**.
+5. Введите **имя рабочей области**.
+6. Укажите расположение Azure в поле **РАСПОЛОЖЕНИЕ**, введите имя существующей учетной записи хранения Azure в поле **УЧЕТНАЯ ЗАПИСЬ ХРАНЕНИЯ** или выберите **Создать новую учетную запись хранения**, чтобы создать новую учетную запись.
+7. Щелкните **СОЗДАТЬ РАБОЧУЮ ОБЛАСТЬ ML**.
 
-After your Machine Learning workspace is created, you will see it listed on the **machine learning** page.
+После создания рабочей области машинного обучения она появится в списке на странице **Машинное обучение**.
 
-## <a name="sharing-an-azure-machine-learning-workspace"></a>Sharing an Azure Machine Learning workspace
+## Предоставление общего доступа к рабочей области машинного обучения Azure
 
-Once a Machine Learning workspace is created, you can invite users to your workspace and share access to your workspace and all of its experiments. We support two roles of users:
+После создания рабочей области машинного обучения вы можете приглашать в нее пользователей, предоставляя общий доступ ко всей области или отдельным экспериментам. Существует два типа пользователей.
 
-- **User** - A workspace user can create, open, modify and delete datasets, experiments and web services in the workspace.
-- **Owner** - An owner can invite, remove, and list users with access to the workspace, in addition to what a user can do. He/she also have access to Notebooks.
+- **Пользователь** — пользователь рабочей области может создавать, открывать, изменять и удалять наборы данных, эксперименты и веб-службы в рабочей области.
+- **Владелец** — владелец может приглашать, удалять и просматривать списки пользователей с доступом к рабочей области, а также управлять доступными пользователям действиями. Он также имеет доступ к приложениям Notebook.
 
-### <a name="to-share-a-workspace"></a>To share a workspace
-1. Sign-in to [Machine Learning Studio]
-2. In the Machine Learning Studio panel, click **SETTINGS**
-3. Click **USERS**
-4. Click **INVITE MORE USERS**
+### Предоставление общего доступа к рабочей области
+1. Войдите в [Студию машинного обучения Azure].
+2. На панели студии машинного обучения щелкните **Параметры**.
+3. Выберите **Пользователи**.
+4. Щелкните **Пригласить больше пользователей**.
 
-    ![Invite more users][4]
+    ![Приглашение пользователей][4]
 
-5. Enter one or more email address. The user just need a valid Microsoft account (e.g., name@outlook.com) or an organizational account (from Azure Active Directory).
-6. Click the check button.
+5. Укажите один или несколько адресов электронной почты. У пользователя должна быть действующая учетная запись Майкрософт (например, name@outlook.com) или корпоративная учетная запись (из Azure Active Directory).
+6. Нажмите кнопку «Проверить».
 
-Each user you added will receive an email with instruction to log-in to the shared workspace.
+Каждый добавленный пользователь получит сообщение по электронной почте с инструкциями по входу в общую рабочую область.
 
-For information about managing your workspace, see [Manage an Azure Machine Learning workspace].
-If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to an Machine Learning workspace].
+Информацию об управлении рабочей областью см. в статье [Управление рабочей областью машинного обучения Azure]. Если при создании рабочей области возникли какие-либо проблемы, см. статью [Руководство по поиску и устранению проблем: создание и подключение к рабочей области машинного обучения Azure].
 
-## <a name="<a-name="subscriptionvsworkspace"></a>privileges-of-azure-subscription-administrator-and-of-workspace-owner"></a><a name="subscriptionvsworkspace"></a>Privileges of Azure subscription administrator and of workspace owner
+## <a name="subscriptionvsworkspace"></a>Привилегии администратора подписки Azure и владельца рабочей области
 
-Below is a table clarifying the difference between an Azure subscription administrator and a workspace owner.
+В приведенной ниже таблице поясняется разница между возможностями администратора подписки Azure и владельца рабочей области.
 
-| Actions                   | Azure subscription administrator | Workspace owner  |
-| --------------            |:------------------------:| :----------------:|
-| Access [Microsoft Azure classic portal]| Yes         | No                |
-| Create a new workspace                 | Yes         | No                |
-| Delete a workspace                     | Yes         | No                |
-| Add endpoint to a web service          | Yes         | No                |
-| Delete endpoint from a web service     | Yes         | No                |
-| Change concurrency for a web service   | Yes         | No                |
-| Access [Machine Learning Studio]       | No *        | Yes               |
+| Действия | Администратор подписки Azure | Владелец рабочей области |
+| --------------			|:------------------------:| :----------------:|
+| Доступ к [классическому порталу Microsoft Azure]| Да | Нет |
+| Создание рабочей области | Да | Нет |
+| Удаление рабочей области | Да | Нет |
+| Добавление конечной точки к веб-службе | Да | Нет |
+| Удаление конечной точки из веб-службы | Да | Нет |
+| Изменение параллелизма для веб-службы | Да | Нет |
+| Доступ к [студии машинного обучения] | Нет * | Да |
 
 
-> [AZURE.NOTE] * An Azure subscription administrator is automatically added to the the workspace he/she creates as workspace Owner. However, simply being an Azure subscription administrator doesn't grant him/her access to any workspace under that subscription.
+> [AZURE.NOTE] * Администратор подписки Azure автоматически добавляется в рабочую область, которую он создает, в качестве владельца рабочей области. Однако тот факт, что он является администратором подписки Azure, не предоставляет ему доступ к любой рабочей области в этой подписке.
 
 <!-- ![List of Machine Learning workspaces][2] -->
 
@@ -102,13 +100,11 @@ Below is a table clarifying the difference between an Azure subscription adminis
 
 
 <!--Link references-->
-[Manage an Azure Machine Learning workspace]: machine-learning-manage-workspace.md
-[Troubleshooting guide: Create and connect to an Machine Learning workspace]: machine-learning-troubleshooting-creating-ml-workspace.md
-[Machine Learning Studio]: https://studio.azureml.net/  
-[Microsoft Azure classic portal]: https://manage.windowsazure.com/
+[Управление рабочей областью машинного обучения Azure]: machine-learning-manage-workspace.md
+[Руководство по поиску и устранению проблем: создание и подключение к рабочей области машинного обучения Azure]: machine-learning-troubleshooting-creating-ml-workspace.md
+[Студию машинного обучения Azure]: https://studio.azureml.net/
+[студии машинного обучения]: https://studio.azureml.net/
+[классический портал Microsoft Azure]: https://manage.windowsazure.com/
+[классическому порталу Microsoft Azure]: https://manage.windowsazure.com/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

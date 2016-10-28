@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Security architecture overview | Microsoft Azure"
-   description="The article provides a security architecture overview of Azure and a curated list of related articles."
+   pageTitle="Обзор архитектуры безопасности | Microsoft Azure"
+   description="Статья представляет собой обзор архитектуры безопасности Azure и содержит список статей на эту тему."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,19 +16,14 @@
    ms.date="08/16/2016"
    ms.author="yurid"/>
 
+# Обзор архитектуры безопасности
 
-# <a name="security-architecture-overview"></a>Security architecture overview
+Наличие надежной основы архитектуры — один из ключей к успеху, когда дело доходит до защиты решений по развертыванию в Azure. Эти знания помогут вам лучше разобраться в своих требованиях, так как вы поймете, какие вопросы следует ставить, и будете готовы находить правильные ответы на них. Получение правильных ответов на правильные вопросы позволяет оптимизировать безопасность развернутых служб.
 
-Having a strong architectural foundation is one of the keys to success when it comes to secure solution deployments in Azure. With this knowledge you’re able to better understand your requirements by knowing the right questions to ask and more equipped to find the right answers to your questions. Getting right answers to the right questions goes a long way toward optimizing the security of your deployments.
+В этом разделе вы увидите статьи об архитектуре безопасности Azure, которая поможет вам создавать надежные решения. Кроме того, сюда включена популярная коллекция рекомендаций и шаблонов Azure. В настоящее время мы можем предложить вам следующие статьи. Не забывайте регулярно посещать наш сайт и просматривать блог группы безопасности Azure, чтобы своевременно получать актуальную информацию.
 
-In this section you’ll see articles on Azure Security Architecture that will help you build secure solutions. A popular collection of Azure security best practices and patterns is also included. At this time, we have the following articles – make sure to visit our site and the Azure Security Team blog for updates on a regular basis:
+- [Data Classification for Cloud Readiness](azure-security-data-classification.md) (Классификация данных для обеспечения готовности к переходу на облачные технологии)
+- [Архитектура приложений в Microsoft Azure](security-application-architecture-on-azure.md)
+- [Рекомендации и шаблоны для обеспечения безопасности в Azure](security-best-practices-and-patterns.md)
 
-- [Data Classification for Cloud Readiness](azure-security-data-classification.md)
-- [Application Architecture on Microsoft Azure](security-application-architecture-on-azure.md)
-- [Azure Security Best Practices and Patterns](security-best-practices-and-patterns.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

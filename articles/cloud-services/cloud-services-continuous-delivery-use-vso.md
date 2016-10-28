@@ -1,274 +1,275 @@
 <properties
-    pageTitle="Continuous delivery with Visual Studio Team Services in Azure | Microsoft Azure"
-    description="Learn how to configure your Visual Studio Team Services team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services."
-    services="cloud-services"
-    documentationCenter=".net"
-    authors="mlearned"
-    manager="douge"
-    editor=""/>
+	pageTitle="Непрерывная доставка в Azure с помощью Visual Studio Team Services | Microsoft Azure"
+	description="Узнайте, как настроить командные проекты Visual Studio Team Services для автоматического выполнения сборки и развертывания в веб-приложения в службе приложений Azure и облачные службы."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="mlearned"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="07/06/2016"
-    ms.author="mlearned"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/06/2016"
+	ms.author="mlearned"/>
 
+# Непрерывная доставка в Azure с использованием Visual Studio Team Services
 
-# <a name="continuous-delivery-to-azure-using-visual-studio-team-services"></a>Continuous delivery to Azure using Visual Studio Team Services
+Вы можете настроить командные проекты Visual Studio Team Services для автоматического выполнения сборки и развертывания в облачные службы или веб-приложения Azure. (Дополнительную информацию о настройке непрерывного процесса построения и развертывания системы с использованием *локального* решения Team Foundation Server см. в разделе [Непрерывная доставка для облачных служб в Azure](cloud-services-dotnet-continuous-delivery.md).)
 
-You can configure your Visual Studio Team Services team projects to automatically build and deploy to Azure web apps or cloud services.  (For information on how to set up a continuous build and deploy system using an *on-premises* Team Foundation Server, see [Continuous Delivery for Cloud Services in Azure](cloud-services-dotnet-continuous-delivery.md).)
+В данном учебнике предполагается, что у вас установлены решения Visual Studio 2013 и пакет SDK Azure. Чтобы загрузить Visual Studio 2013, щелкните ссылку **Начните работу бесплатно** на сайте [www.visualstudio.com](http://www.visualstudio.com). Пакет SDK Azure можно установить по [этой ссылке](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
+> [AZURE.NOTE] Для работы с этим учебником необходима учетная запись Visual Studio Team Services. 
+> Вы можете [бесплатно зарегистрировать учетную запись Visual Studio Team Services](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
-> [AZURE.NOTE] You need an Visual Studio Team Services account to complete this tutorial: You can [open a Visual Studio Team Services account for free](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+Чтобы настроить автоматическое выполнение сборки и развертывания облачной службы в Azure с использованием Visual Studio Team Services, выполните следующие действия.
 
-To set up a cloud service to automatically build and deploy to Azure by using Visual Studio Team Services, follow these steps.
+## 1\. Создание командного проекта
 
-## <a name="1:-create-a-team-project"></a>1: Create a team project
+Следуйте указаниям, приведенным [здесь](http://go.microsoft.com/fwlink/?LinkId=512980), чтобы создать командный проект и связать его с Visual Studio. В этом руководстве в качестве системы управления версиями применяется Team Foundation Version Control (TFVC). Если для управления версиями вы хотите использовать Git, см. [версию этого руководства для Git](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
-Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
+## 2\. Регистрация проекта в системе управления версиями
 
-## <a name="2:-check-in-a-project-to-source-control"></a>2: Check in a project to source control
+1. В Visual Studio откройте решение, которое вы хотите развернуть, или создайте новое. 
+В этом пошаговом руководстве представлены инструкции по развертыванию веб-приложения или облачной службы (приложение Azure). 
+Чтобы создать новое решение, создайте новый проект облачной службы Azure или новый проект MVC ASP.NET. Убедитесь, 
+что в проекте используется платформа .NET Framework 4 или 4.5 и создается проект облачной службы, добавьте рабочую роль и веб-роль ASP.NET MVC, после чего выберите интернет-приложение для веб-роли. При появлении запроса выберите **Интернет-приложение**. 
+Чтобы создать веб-приложение, выберите шаблон проекта "Веб-приложение ASP.NET" и затем выберите MVC. См. статью [Создание веб-приложения ASP.NET в службе приложений Azure](../app-service-web/web-sites-dotnet-get-started.md).
 
-1. In Visual Studio, open the solution you want to deploy, or create a new one.
-You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough.
-If you want to create a new solution, create a new Azure Cloud Service project, or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role. When prompted, choose **Internet Application**.
-If you want to create a web app, choose the ASP.NET Web Application project template, and then choose MVC. See [Create an ASP.NET web app in Azure App Service](../app-service-web/web-sites-dotnet-get-started.md).
+	> [AZURE.NOTE] В настоящее время Visual Studio Team Services поддерживают только развертывания непрерывной интеграции веб-приложений Visual Studio. Проекты веб-сайтов выходят за эти рамки.
 
-    > [AZURE.NOTE] Visual Studio Team Services only support CI deployments of Visual Studio Web Applications at this time. Web Site projects are out of scope.
+1. Откройте контекстное меню решения и выберите **Добавить решение в систему управления версиями**.
 
-1. Open the context menu for the solution, and choose **Add Solution to Source Control**.
+	![][5]
 
-    ![][5]
+1. Примите предлагаемые по умолчанию параметры или измените их, после чего нажмите кнопку **ОК**. По завершении обработки в **обозревателе решений** появится значок системы управления версиями.
 
-1. Accept or change the defaults and choose the **OK** button. Once the process completes, source control icons appear in **Solution Explorer**.
+	![][6]
 
-    ![][6]
+1. Откройте контекстное меню решения и выберите пункт **Регистрация**.
 
-1. Open the shortcut menu for the solution, and choose **Check In**.
+	![][7]
 
-    ![][7]
+1. В области **Ожидающие изменения** в обозревателе **Team Explorer** введите примечания к регистрации и нажмите кнопку **Регистрация**.
 
-1. In the **Pending Changes** area of **Team Explorer**, type a comment for the check-in and choose the **Check In** button.
+	![][8]
 
-    ![][8]
+	Обратите внимание на варианты для включения или исключения определенных изменений при настройке. Если нужные изменения исключаются, нажмите ссылку **Включить все**.
 
-    Note the options to include or exclude specific changes when you check in. If desired changes are excluded, choose the **Include All** link.
+	![][9]
 
-    ![][9]
+## 3\. Подключение проекта к Azure
 
-## <a name="3:-connect-the-project-to-azure"></a>3: Connect the project to Azure
+1. Теперь, когда создан командный проект VS Team Services с определенным исходным кодом, вы можете подключить его к Azure. Выполните вход на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885), выберите существующую облачную службу или веб-приложение. Также можно создать новые объекты, нажав в нижнем левом углу значок **+**, а затем выбрав пункты **Облачная служба** или **Веб-приложение** и **Быстрое создание**. Щелкните ссылку **Настройка публикации в Visual Studio Team Services**.
 
-1. Now that you have a VS Team Services team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), select your cloud service or web app, or create a new one by choosing the **+** icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Team Services** link.
+	![][10]
 
-    ![][10]
+1. В мастере введите имя учетной записи Visual Studio Team Services в соответствующем поле и щелкните ссылку **Авторизовать сейчас**. Может появиться запрос на вход в систему.
 
-1. In the wizard, type the name of your Visual Studio Team Services account in the textbox and click the **Authorize Now** link. You might be asked to sign in.
+	![][11]
 
-    ![][11]
+1. Во всплывающем диалоговом окне **Запрос подключения** нажмите кнопку **Принять**, чтобы предоставить Azure полномочия для настройки командного проекта в VS Team Services.
 
-1. In the **Connection Request** pop-up dialog, choose the **Accept** button to authorize Azure to configure your team project in VS Team Services.
+	![][12]
 
-    ![][12]
+1. После успешной авторизации появится раскрывающийся список, в котором будут представлены ваши командные проекты Visual Studio Team Services. Щелкните имя созданного на предыдущих шагах командного проекта и нажмите кнопку с галочкой в мастере.
 
-1. When authorization succeeds, you see a dropdown containing a list of your Visual Studio Team Services team projects. Choose  the name of team project that you created in the previous steps, and then choose the wizard's checkmark button.
+	![][13]
 
-    ![][13]
+1. После привязки проекта появятся инструкции по проверке изменений в командном проекте Visual Studio Team Services. При следующем возврате данных после изменения Visual Studio Team Services выполнит сборку и развертывание вашего проекта в Azure. Чтобы проверить реализованное поведение, щелкните ссылку **Регистрация из Visual Studio**, а затем ссылку **Запустить Visual Studio** (или аналогичную кнопку **Visual Studio** в нижней части окна портала).
 
-1. After your project is linked, you will see some instructions for checking in changes to your Visual Studio Team Services team project.  On your next check-in, Visual Studio Team Services will build and deploy your project to Azure.  Try this now by clicking the **Check In from Visual Studio** link, and then the **Launch Visual Studio** link (or the equivalent **Visual Studio** button at the bottom of the portal screen).
+	![][14]
 
-    ![][14]
+## 4\. Запуск процессов повторного построения и развертывания проекта
 
-## <a name="4:-trigger-a-rebuild-and-redeploy-your-project"></a>4: Trigger a rebuild and redeploy your project
+1. В обозревателе **Visual Studio Team Explorer** щелкните ссылку **Обозреватель управления исходным кодом**.
 
-1. In Visual Studio's **Team Explorer**, choose the **Source Control Explorer** link.
+	![][15]
 
-    ![][15]
+1. Перейдите к файлу решения и откройте его.
 
-1. Navigate to your solution file and open it.
+	![][16]
 
-    ![][16]
+1. Откройте и измените файл в **обозревателе решений**. Измените, например, файл `_Layout.cshtml` в каталоге Views\\Shared веб-роли MVC.
 
-1. In **Solution Explorer**, open up a file and change it. For example, change the file `_Layout.cshtml` under the Views\\Shared folder in an MVC web role.
+	![][17]
 
-    ![][17]
+1. Измените логотип сайта и сохраните этот файл с помощью клавиш **CTRL + S**.
 
-1. Edit the logo for the site and choose **Ctrl+S** to save the file.
+	![][18]
 
-    ![][18]
+1. В обозревателе **Team Explorer** щелкните ссылку **Ожидающие изменения**.
 
-1. In **Team Explorer**, choose the **Pending Changes** link.
+	![][19]
 
-    ![][19]
+1. Введите комментарий и нажмите кнопку **Регистрация**.
 
-1. Enter a comment and then choose the **Check In** button.
+	![][20]
 
-    ![][20]
+1. Нажмите кнопку **Главная**, чтобы вернуться на главную страницу **Team Explorer**.
 
-1. Choose the **Home** button to return to the **Team Explorer** home page.
+	![][21]
 
-    ![][21]
+1. Щелкните ссылку **Сборки**, чтобы просмотреть выполняющиеся сборки.
 
-1. Choose the **Builds** link to view the builds in progress.
+	![][22]
 
-    ![][22]
+	В **Team Explorer** отображается информация о том, что для вашего возврата запущен процесс сборки.
 
-    **Team Explorer** shows that a build has been triggered for your check-in.
+	![][23]
 
-    ![][23]
+1. Дважды щелкните имя выполняемой сборки, чтобы просмотреть подробный журнал процесса построения.
 
-1. Double-click the name of the build in progress to view a detailed log as the build progresses.
+	![][24]
 
-    ![][24]
+1. В процессе построения вы можете просмотреть определение сборки, созданное во время привязки TFS к Azure с помощью мастера. Откройте контекстное меню определения сборки и выберите **Редактировать определение сборки**.
 
-1. While the build is in-progress, take a look at the build definition that was created when you linked TFS to Azure by using the wizard.  Open the shortcut menu for the build definition and choose **Edit Build Definition**.
+	![][25]
 
-    ![][25]
+	На вкладке **Триггер** указывается, что в определении сборки настроено выполнение сборки по умолчанию при каждой регистрации.
 
-    In the **Trigger** tab, you will see that the build definition is set to build on every check-in by default.
+	![][26]
 
-    ![][26]
+	На вкладке **Процесс** указывается, что в среде разработки настроено имя ваших облачной веб-службы или веб-сайта. При работе с веб-приложениями здесь будут показаны другие свойства.
 
-    In the **Process** tab, you can see the deployment environment is set to the name of your cloud service or web app. If you are working with web apps, the properties you see will be different from those shown here.
+	![][27]
 
-    ![][27]
+1. При необходимости измените установленные по умолчанию значения свойств. Свойства публикации Azure находятся в разделе **Развертывание**.
 
-1. Specify values for the properties if you want different values than the defaults. The properties for Azure publishing are in the **Deployment** section.
+	В следующей таблице приводятся доступные свойства в разделе **Развертывание**:
 
-    The following table shows the available properties in the **Deployment** section:
+	|Свойство|Значение по умолчанию|
+	|---|---|
+	|Разрешить недоверенные сертификаты|Если установлено значение false, то SSL-сертификаты должны быть подписаны корневым центром сертификации.|
+	|Разрешить обновление|Разрешает обновление существующего развертывания вместо создания нового. Сохраняет IP-адрес.|
+	|Не удалять|Если установлено значение true, не разрешена перезапись существующего несвязанного развертывания (обновление разрешено).|
+	|Путь к параметрам развертывания|Путь к PUBXML-файлу для веб-приложения относительно корневой папки репозитория. Для облачных служб игнорируется.|
+	|Среда развертывания Sharepoint|Совпадает с именем службы.|
+	|Среда развертывания Azure|Имя веб-приложения или облачной службы|
 
-  	|Property|Default Value|
-  	|---|---|
-  	|Allow Untrusted Certificates|If false, SSL certificates must be signed by a root authority.|
-  	|Allow Upgrade|Allows the deployment to update an existing deployment instead of creating a new one. Preserves the IP address.|
-  	|Do Not Delete|If true, do not overwrite an existing unrelated deployment (upgrade is allowed).|
-  	|Path to Deployment Settings|The path to your .pubxml file for a web app, relative to the root folder of the repo. Ignored for cloud services.|
-  	|Sharepoint Deployment Environment|The same as the service name.|
-  	|Azure Deployment Environment|The web app or cloud service name.|
+1. Если используется несколько конфигураций служб (CSCFG-файлов), можно указать желаемую конфигурацию службы в параметрах **Сборка, Дополнительно, Аргументы MSBuild**. Например, чтобы использовать файл ServiceConfiguration.Test.cscfg, задайте аргумент командной строки MSBuild `/p:TargetProfile=Test`.
 
-1. If you are using multiple service configurations (.cscfg files), you can specify the desired service configuration in the **Build, Advanced, MSBuild arguments** setting. For example, to use ServiceConfiguration.Test.cscfg, set MSBuild arguments line option `/p:TargetProfile=Test`.
+	![][38]
 
-    ![][38]
+	К этому моменту процесс построения должен быть успешно завершен.
 
-    By this time, your build should be completed successfully.
+	![][28]
 
-    ![][28]
+1. Если дважды щелкнуть имя сборки, Visual Studio отобразит **сводку сборки**, включающую все результаты тестирования из соответствующих проектов модульного теста.
 
-1. If you double-click the build name, Visual Studio shows a **Build Summary**, including any test results from associated unit test projects.
+	![][29]
 
-    ![][29]
+1. На [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885) можно увидеть соответствующее развертывание на вкладке **Развертывания**, выбрав промежуточную среду.
 
-1. In the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), you can view the associated deployment on the **Deployments** tab when the staging environment is selected.
+	![][30]
 
-    ![][30]
+1.	Перейдите по URL-адресу вашего сайта. Для веб-приложения достаточно нажать кнопку **Обзор** на панели команд. Для облачной службы выберите URL-адрес в разделе **Сводка** на странице **Панель мониторинга**, где отображается промежуточная среда для облачной службы. Развертывания из решений непрерывной интеграции для облачных служб по умолчанию публикуются в промежуточной среде. Чтобы изменить это поведение, присвойте свойству **Альтернативная среда облачной службы** значение **Рабочая**. На этом снимке экрана показано местонахождение URL-адреса сайта на странице панели мониторинга облачной службы:
 
-1.  Browse to your site's URL. For a web app, just click the **Browse** button on the command bar. For a cloud service, choose the URL in the **Quick Glance** section of the **Dashboard** page that shows the Staging environment for a cloud service. Deployments from continuous integration for cloud services are published to the Staging environment by default. You can change this by setting the **Alternate Cloud Service Environment** property to **Production**. This screenshot shows where the site URL is on the cloud service's dashboard page.
+	![][31]
 
-    ![][31]
+	Сайт откроется на новой вкладке браузера.
 
-    A new browser tab will open to reveal your running site.
+	![][32]
 
-    ![][32]
+	При внесении других изменений в проект для облачных служб запускаются дополнительные процессы построения, в результате чего создается несколько развертываний, последнее из которых отмечается как активное.
 
-    For cloud services, if you make other changes to your project, you trigger more builds, and you will accumulate multiple deployments. The latest one marked as Active.
+	![][33]
 
-    ![][33]
+## 5\. Повторное развертывание предыдущей сборки
 
-## <a name="5:-redeploy-an-earlier-build"></a>5: Redeploy an earlier build
-
-This step applies to cloud services and is optional. In the Azure classic portal, choose an earlier deployment and then choose the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS and create a new entry in your deployment history.
+Этот шаг необязателен и применяется к облачным службам. Чтобы восстановить состояние сайта на момент более ранней версии, выберите на классическом портале Azure какое-либо предыдущее развертывание и нажмите кнопку **Повторное развертывание**. Обратите внимание, что при этом в TFS будет запущен новый процесс сборки, а в историю развертывания будет добавлена новая запись.
 
 ![][34]
 
-## <a name="6:-change-the-production-deployment"></a>6: Change the Production deployment
+## 6\. Изменение развертывания в рабочей среде
 
-This step applies only to cloud services, not web apps. When you are ready, you can promote the Staging environment to the production environment by choosing the **Swap** button in the Azure classic portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.
+Этот шаг применяется только к облачным службам и недоступен для веб-приложений. Выполнив все необходимые действия, можно повысить промежуточную среду до рабочей с помощью кнопки **Переключить** классического портала Azure. Вновь развернутая промежуточная среда повышается до уровня рабочей, а ранее установленная рабочая среда становится промежуточной. Рабочая и промежуточная среды могут использовать разные активные развертывания, однако история развертывания последних сборок будет содержать одинаковые записи независимо от выбранной среды.
 
 ![][35]
 
-## <a name="7:-run-unit-tests"></a>7: Run unit tests
+## 7\. Выполнение модульных тестов
 
-This step applies only to web apps, not cloud services. To put a quality gate on your deployment, you can run unit tests and if they fail, you can stop the deployment.
+Этот шаг применяется только к веб-приложениям, не облачным службам. Чтобы поместить условия качества вашего развертывания, можно выполнять модульные тесты и, если они не могут остановить развертывание.
 
-1.  In Visual Studio, add a unit test project.
+1.  В Visual Studio добавьте проект модульного теста.
 
-    ![][39]
+	![][39]
 
-1.  Add project references to the project you want to test.
+1.  Добавление ссылки на проект в проект, который требуется проверить.
 
-    ![][40]
+	![][40]
 
-1.  Add some unit tests. To get started, try a dummy test that will always pass.
+1.  Добавьте модульные тесты. Сначала попробуйте фиктивный тест, который всегда выдает положительный результат.
 
-        ```
-        using System;
-        using Microsoft.VisualStudio.TestTools.UnitTesting;
+		```
+		using System;
+		using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-        namespace UnitTestProject1
-        {
-            [TestClass]
-            public class UnitTest1
-            {
-                [TestMethod]
-                [ExpectedException(typeof(NotImplementedException))]
-                public void TestMethod1()
-                {
-                    throw new NotImplementedException();
-                }
-            }
-        }
-        ```
+		namespace UnitTestProject1
+		{
+		    [TestClass]
+		    public class UnitTest1
+		    {
+		        [TestMethod]
+		        [ExpectedException(typeof(NotImplementedException))]
+		        public void TestMethod1()
+		        {
+		            throw new NotImplementedException();
+		        }
+		    }
+		}
+		```
 
-1.  Edit the build definition, choose the **Process** tab, and expand the **Test** node.
+1.  Измените определение сборки, выберите вкладку **Процессы** и разверните узел **Test**.
 
-1.  Set the **Fail build on test failure** to True. This means that the deployment won't occur unless the tests pass.
+1.  Установите для параметра **Завершить сборку при ошибке теста** значение True. Это означает, что развертывание не будет происходить, если тест не будет пройден положительно.
 
-    ![][41]
+	![][41]
 
-1.  Queue a new build.
+1.  Поставьте новую сборку в очередь.
 
-    ![][42]
+	![][42]
 
-    ![][43]
+	![][43]
 
-1. While the build is proceeding, check on its progress.
+1. По мере обработки сборки проверяйте ход выполнения.
 
-    ![][44]
+	![][44]
 
-    ![][45]
+	![][45]
 
-1. When the build is done, check the test results.
+1. По завершению сборки проверьте результаты теста.
 
-    ![][46]
+	![][46]
 
-    ![][47]
+	![][47]
 
-1.  Try creating a test that will fail. Add a new test by copying the first one, rename it, and comment out the line of code that states NotImplementedException is an expected exception.
+1.  Попробуйте создать тест, который выдаст отрицательный результат. Добавьте новый тест путем копирования первой, переименовать его и закомментируйте строку кода, о том, что NotImplementedException является ожидаемое исключение.
 
-        ```
-        [TestMethod]
-        //[ExpectedException(typeof(NotImplementedException))]
-        public void TestMethod2()
-        {
-            throw new NotImplementedException();
-        }
-        ```
+		```
+		[TestMethod]
+		//[ExpectedException(typeof(NotImplementedException))]
+		public void TestMethod2()
+		{
+		    throw new NotImplementedException();
+		}
+		```
 
-1. Check in the change to queue a new build.
+1. Примените изменения, чтобы поставить в очередь новую сборку.
 
-    ![][48]
+	![][48]
 
-1. View the test results to see details about the failure.
+1. Просмотрите результаты теста и подробности отрицательного результата.
 
-    ![][49]
+	![][49]
 
-    ![][50]
+	![][50]
 
-## <a name="next-steps"></a>Next steps
-For more about unit testing in Visual Studio Team Services, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Continuous deployment to Azure App Service](../app-service-web/app-service-continuous-deployment.md).  For more information about Visual Studio Team Services, see [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
+## Дальнейшие действия
+Дополнительную информацию о модульном тестировании в Visual Studio Team Services см. в разделе [Выполнение тестов в процессе сборки](http://go.microsoft.com/fwlink/p/?LinkId=510474). При использовании Git, см. статьи с описанием [совместного использования кода в Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) и [непрерывного развертывания в службе приложений Azure](../app-service-web/app-service-continuous-deployment.md). Дополнительную информацию о Visual Studio Team Services см. в разделе [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -321,8 +322,4 @@ For more about unit testing in Visual Studio Team Services, see [Run unit tests 
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

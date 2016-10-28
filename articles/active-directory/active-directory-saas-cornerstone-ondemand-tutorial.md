@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Cornerstone OnDemand | Microsoft Azure" 
-    description="Learn how to use Cornerstone OnDemand with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Руководство. Интеграция Azure Active Directory с Cornerstone OnDemand | Microsoft Azure" 
+    description="Узнайте, как использовать Cornerstone OnDemand вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,124 +11,116 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
+#Руководство. Интеграция Azure Active Directory с Cornerstone OnDemand
 
-#<a name="tutorial:-azure-active-directory-integration-with-cornerstone-ondemand"></a>Tutorial: Azure Active Directory integration with Cornerstone OnDemand
+Цель данного учебника — показать интеграцию Azure и Cornerstone OnDemand. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-The objective of this tutorial is to show the integration of Azure and Cornerstone OnDemand.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+-   Действующая подписка на Azure
+-   Клиент Cornerstone OnDemand
 
--   A valid Azure subscription
--   A Cornerstone OnDemand tenant
+После завершения этого руководства пользователи Azure AD, назначенные Cornerstone OnDemand, будут иметь возможность единого входа в приложение на веб-сайте компании Cornerstone OnDemand (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-After completing this tutorial, the Azure AD users you have assigned to Cornerstone OnDemand will be able to single sign into the application at your Cornerstone OnDemand company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-The scenario outlined in this tutorial consists of the following building blocks:
+1.  Включение интеграции приложений для Cornerstone OnDemand
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-1.  Enabling the application integration for Cornerstone OnDemand
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+![Сценарий](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781593.png "Сценарий")
+##Включение интеграции приложений для Cornerstone OnDemand
 
-![Scenario](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781593.png "Scenario")
-##<a name="enabling-the-application-integration-for-cornerstone-ondemand"></a>Enabling the application integration for Cornerstone OnDemand
+В этом разделе показано, как включить интеграцию приложений для Cornerstone OnDemand.
 
-The objective of this section is to outline how to enable the application integration for Cornerstone OnDemand.
+###Чтобы включить интеграцию приложений для Cornerstone OnDemand, выполните следующие действия.
 
-###<a name="to-enable-the-application-integration-for-cornerstone-ondemand,-perform-the-following-steps:"></a>To enable the application integration for Cornerstone OnDemand, perform the following steps:
-
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **cornerstone ondemand**.
+6.  В **поле поиска** введите **cornerstone ondemand**.
 
-    ![Application Gallery](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781594.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781594.png "Коллекция приложений")
 
-7.  In the results pane, select **Cornerstone OnDemand**, and then click **Complete** to add the application.
+7.  В области результатов выберите **Cornerstone OnDemand** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![Cornerstone OnDemand](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781595.png "Cornerstone OnDemand")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
 
-The objective of this section is to outline how to enable users to authenticate to Cornerstone OnDemand with their account in Azure AD using federation based on the SAML protocol.
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Cornerstone OnDemand со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **Cornerstone OnDemand** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  На странице интеграции с приложением **Cornerstone OnDemand** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Enable Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781596.png "Enable Single Sign-On")
+    ![Доступ с единым входом](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781596.png "Доступ с единым входом")
 
-2.  On the **How would you like users to sign on to Cornerstone OnDemand** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  На странице **Как пользователи должны входить в Cornerstone OnDemand?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Microsoft Azure AD Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781597.png "Microsoft Azure AD Single Sign-On")
+    ![Единый вход Microsoft Azure AD](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781597.png "Единый вход Microsoft Azure AD")
 
-3.  On the **Configure App URL** page, in the **Cornerstone OnDemand Sign In URL** textbox, type your URL using the following pattern "*http://company.csod.com*", and then click **Next**.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Cornerstone OnDemand** введите свой URL-адрес в формате "*http://company.csod.com*", а затем нажмите кнопку **Далее**.
 
-    ![Configure App URL](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781598.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781598.png "Настройка URL-адреса приложения")
 
-4.  On the **Configure single sign-on at Cornerstone OnDemand** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+4.  На странице **Настройка единого входа в Cornerstone OnDemand** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата локально на компьютере.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781599.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781599.png "Настройка единого входа")
 
-5.  Send the following items to the Cornerstone OnDemand support team:
+5.  Отправьте следующие элементы в службу поддержки Cornerstone OnDemand.
 
-    1.  The downloaded certificate
-    2.  The **Remote Login URL** value
-    3.  The **Remote Logout URL** value.
+    1.  Скачанный сертификат
+    2.  Значение **URL-адрес удаленного входа**
+    3.  Значение **URL-адрес удаленного выхода**
 
-    >[AZURE.NOTE] Single Sign-On needs to be configured by the Cornerstone OnDemand support team.
-You will get a notification from the support team when the configuration has been completed.
+    >[AZURE.NOTE] Единый вход должна настроить служба поддержки Cornerstone OnDemand. Сразу же после завершения настройки вы получите уведомление от службы поддержки.
 
-6.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  Выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781600.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Настройка единого входа](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781600.png "Настройка единого входа")
+##Настройка подготовки учетных записей пользователей
 
-In order to enable Azure AD users to log into Cornerstone OnDemand, they must be provisioned into Cornerstone OnDemand.  
-In the case of Cornerstone OnDemand, provisioning is a manual task.
+Чтобы пользователи Azure AD могли выполнять вход в Cornerstone OnDemand, они должны быть подготовлены для работы с Cornerstone OnDemand. В случае с Cornerstone OnDemand подготовка выполняется вручную.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
 
-1.  Send the information (e.g.: Name, Emial) about the Azure AD user you want to provision to the Cornerstone OnDemand support team.
+1.  Отправьте сведения (например, имя, адрес электронной почты) о том пользователе Azure AD, которого необходимо подготовить, в службу поддержки Cornerstone OnDemand.
 
->[AZURE.NOTE] You can use any other Cornerstone OnDemand user account creation tools or APIs provided by Cornerstone OnDemand to provision AAD user accounts.
+>[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя Cornerstone OnDemand или API, предоставляемые Cornerstone OnDemand, для подготовки учетных записей пользователей AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
 
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-cornerstone-ondemand,-perform-the-following-steps:"></a>To assign users to Cornerstone OnDemand, perform the following steps:
+###Чтобы назначить пользователей Cornerstone OnDemand, выполните следующие действия.
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **Cornerstone OnDemand **application integration page, click **Assign users**.
+2.  На странице интеграции с приложением **Cornerstone OnDemand** нажмите кнопку **Назначить пользователей**.
 
-    ![Assign users](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC775564.png "Assign users")
+    ![Назначить пользователей](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC775564.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Assign Users](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781601.png "Assign Users")
+    ![Назначить пользователей](./media/active-directory-saas-cornerstone-ondemand-tutorial/IC781601.png "Назначить пользователей")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

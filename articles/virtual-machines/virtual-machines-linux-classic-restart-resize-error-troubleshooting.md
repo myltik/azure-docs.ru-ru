@@ -1,6 +1,6 @@
 <properties
-   pageTitle="VM restarting or resizing issues | Microsoft Azure"
-   description="Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure"
+   pageTitle="Неполадки при перезапуске или изменении размера виртуальной машины | Microsoft Azure"
+   description="Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="Deland-Han"
@@ -17,77 +17,72 @@
    ms.devlang="na"
    ms.author="delhan"/>
 
-
-# <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Troubleshoot classic deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
+# Устранение неполадок в классическом развертывании при перезагрузке или изменении размера существующей виртуальной машины Linux в Azure.
 
 > [AZURE.SELECTOR]
-- [Classic](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-- [Resource Manager](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
+- [Классический](../articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
+- [Диспетчер ресурсов](../articles/virtual-machines/virtual-machines-linux-restart-resize-error-troubleshooting.md)
 
-When you try to start a stopped Azure Virtual Machine (VM), or resize an existing Azure VM, the common error you encounter is an allocation failure. This error results when the cluster or region either does not have resources available or cannot support the requested VM size.
+Когда вы запускаете остановленную виртуальную машину Azure или изменяете размер существующей виртуальной машины Azure, часто возникает ошибка выделения ресурсов. Это происходит, когда кластер или регион не имеют доступных ресурсов или не поддерживают запрашиваемый размер виртуальной машины.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="collect-audit-logs"></a>Collect audit logs
+## Сбор журналов аудита
 
-To start troubleshooting, collect the audit logs to identify the error associated with the issue.
+Для устранения неполадок прежде всего соберите журналы аудита, чтобы определить ошибку, связанную с этой проблемой.
 
-In the Azure portal, click **Browse** > **Virtual machines** > _your Linux virtual machine_ > **Settings** > **Audit logs**.
+На портале Azure последовательно выберите **Обзор** > **Виртуальные машины** > _имя вашей виртуальной машины Linux_ > **Настройки** > **Журналы аудита**.
 
-## <a name="issue:-error-when-starting-a-stopped-vm"></a>Issue: Error when starting a stopped VM
+## Проблема: ошибка во время запуска остановленной виртуальной машины
 
-You try to start a stopped VM but get an allocation failure.
+При попытке запустить остановленную виртуальную машину отображается сообщение об ошибке выделения.
 
-### <a name="cause"></a>Cause
+### Причина:
 
-The request to start the stopped VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not have free space available to fulfill the request.
+Запрос на запуск остановленной виртуальной машины нужно выполнять в исходном кластере, в котором размещена облачная служба. Но этот кластер не имеет свободного места для выполнения запроса.
 
-### <a name="resolution"></a>Resolution
+### Способы устранения:
 
-* Create a new cloud service and associate it with either a region or a region-based virtual network, but not an affinity group.
+* Создайте новую облачную службу и свяжите ее с регионом или виртуальной сетью на основе региона, но не с территориальной группой.
 
-* Delete the stopped VM.
+* Удалите остановленную виртуальную машину.
 
-* Recreate the VM in the new cloud service by using the disks.
+* Повторно создайте виртуальную машину в новой облачной службе с помощью дисков.
 
-* Start the re-created VM.
+* Запустите вновь созданную виртуальную машину.
 
-If you get an error when trying to create a new cloud service, either retry at a later time or change the region for the cloud service.
+Если при попытке создания облачной службы появляется сообщение об ошибке, повторите попытку позже или измените регион для облачной службы.
 
-> [AZURE.IMPORTANT] The new cloud service will have a new name and VIP, so you will need to change that information for all the dependencies that use that information for the existing cloud service.
+> [AZURE.IMPORTANT] Новая облачная служба будет иметь новое имя и новый виртуальный IP-адрес. Поэтому эти данные следует изменить для всех зависимостей, которые используют информацию о существующей облачной службе.
 
-## <a name="issue:-error-when-resizing-an-existing-vm"></a>Issue: Error when resizing an existing VM
+## Проблема: ошибка при изменении размера существующей виртуальной машины
 
-You try to resize an existing VM but get an allocation failure.
+При попытке изменить размер существующей виртуальной машины отображается сообщение об ошибке выделения.
 
-### <a name="cause"></a>Cause
+### Причина:
 
-The request to resize the VM has to be attempted at the original cluster that hosts the cloud service. However, the cluster does not support the requested VM size.
+Запрос на изменение размера виртуальной машины нужно выполнять в исходном кластере, в котором размещена облачная служба. Но этот кластер не поддерживает запрашиваемый размер виртуальной машины.
 
-### <a name="resolution"></a>Resolution
+### Способы устранения:
 
-Reduce the requested VM size, and retry the resize request.
+Уменьшите запрашиваемый размер виртуальной машины и повторите запрос на изменение размера.
 
-* Click **Browse all** > **Virtual machines (classic)** > _your virtual machine_ > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+* Последовательно выберите **Просмотреть все** > **Виртуальные машины (классика)** > _имя вашей виртуальной машины_ > **Настройки** > **Размер**. Подробные инструкции см. в статье [Перезапуск виртуальной машины](https://msdn.microsoft.com/library/dn168976.aspx).
 
-If it is not possible to reduce the VM size, follow these steps:
+Если размер виртуальной машины уменьшить невозможно, выполните следующие действия.
 
-  * Create a new cloud service, ensuring it is not linked to an affinity group and not associated with a virtual network that is linked to an affinity group.
+  * Создайте новую облачную службу, не связанную с территориальной группой или с виртуальной сетью, которая связана с территориальной группой.
 
-  * Create a new, larger-sized VM in it.
+  * Создайте в этой службе новую виртуальную машину большего размера.
 
-You can consolidate all your VMs in the same cloud service. If your existing cloud service is associated with a region-based virtual network, you can connect the new cloud service to the existing virtual network.
+Вы можете объединить все виртуальные машины в одной облачной службе. Если существующая облачная служба связана с виртуальной сетью на основе региона, вы можете подключить новую облачную службу к существующей виртуальной сети.
 
-If the existing cloud service is not associated with a region-based virtual network, then you have to delete the VMs in the existing cloud service, and recreate them in the new cloud service from their disks. However, it is important to remember that the new cloud service will have a new name and VIP, so you will need to update these for all the dependencies that currently use this information for the existing cloud service.
+Если существующая облачная служба не связана с виртуальной сетью на основе региона, следует удалить виртуальные машины из существующей облачной службы и воссоздать их в новой облачной службе с помощью дисков. Не забывайте, что новая облачная служба будет иметь новое имя и новый виртуальный IP-адрес. Следовательно, эти данные потребуется обновить для всех зависимостей, которые используют эту информацию о существующей облачной службе.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-If you encounter issues when you create a new Linux VM in Azure, see [Troubleshoot deployment issues with creating a new Linux virtual machine in Azure](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+При возникновении проблем во время создания виртуальной машины Linux в Azure см. статью, посвященную [устранению неполадок в развертывании](../virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

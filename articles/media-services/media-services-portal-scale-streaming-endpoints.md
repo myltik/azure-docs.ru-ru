@@ -1,73 +1,66 @@
 <properties
-    pageTitle=" Scale streaming endpoints with the Azure portal | Microsoft Azure"
-    description="This tutorial walks you through the steps of scaling streaming endpoints with the Azure portal."
-    services="media-services"
-    documentationCenter=""
-    authors="Juliako"
-    manager="erikre"
-    editor=""/>
+	pageTitle=" Масштабирование конечных точек потоковой передачи с помощью портала Azure | Microsoft Azure"
+	description="В этом учебнике пошагово описано, как масштабировать конечные точки потоковой передачи с помощью портала Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/29/2016"
-    ms.author="juliako"/>
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/29/2016"
+	ms.author="juliako"/>
 
 
+# Масштабирование конечных точек потоковой передачи с помощью портала Azure
 
-# <a name="scale-streaming-endpoints-with-the-azure-portal"></a>Scale streaming endpoints with the Azure portal
+##Обзор
 
-##<a name="overview"></a>Overview
+> [AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+При работе со службами мультимедиа Azure один из самых частых сценариев — потоковая передача видео с переменной скоростью для клиентов. Службы мультимедиа поддерживают следующие технологии потоковой передачи с адаптивной скоростью: потоковая трансляция HTTP (HLS), Smooth Streaming, MPEG DASH и HDS (только для владельцев лицензий Adobe PrimeTime/Access).
 
-When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
+Службы мультимедиа обеспечивают динамическую упаковку, которая позволяет своевременно доставлять закодированное содержимое MP4-файлов с переменной скоростью в форматах потоковой передачи с поддержкой служб мультимедиа (MPEG DASH, HLS, Smooth Streaming, HDS) без необходимости хранения предварительно упакованных версий каждого из этих форматов потоковой передачи.
 
-Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4  encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
+Чтобы воспользоваться преимуществом динамической упаковки, необходимо выполнить следующие действия:
 
-To take advantage of dynamic packaging, you need to do the following:
+- закодировать мезонинный (исходный) файл в набор MP4-файлов с переменной скоростью (шаги кодирования показаны далее в этом руководстве);
+- создать по крайней мере одну единицу потоковой передачи для *конечной точки потоковой передачи*, из которой вы планируете доставлять содержимое. (шаги по изменению числа единиц потоковой передачи приведены далее).
 
-- Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files (the encoding steps are demonstrated later in this tutorial).  
-- Create at least one streaming unit for the *streaming endpoint* from which you plan to delivery your content. The steps below show how to change the number of streaming units.
+С динамической упаковкой потребуется хранить и оплачивать файлы только в одном формате хранения, а службы мультимедиа выполнят сборку и будут обслуживать соответствующий ответ на основе запросов клиента.
 
-With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
+Кроме того, чтобы справиться с растущими потребностями в пропускной способности, можно контролировать нагрузку службы конечной точки потоковой передачи, регулируя число единиц потоковой передачи. Рекомендуем выделить одну или несколько единиц масштабирования для приложения в рабочей среде. Единицы потоковой передачи предоставляют как выделенную пропускную способность исходящего трафика, которую можно приобрести с шагом 200 Мбит/с, так и дополнительную функциональность, которая в настоящее время включает в себя: [динамическую упаковку](media-services-dynamic-packaging-overview.md), интеграцию с CDN и расширенную конфигурацию. Дополнительные сведения см. в разделе [Управление конечными точками потоковой передачи с помощью портала Azure](media-services-portal-manage-streaming-endpoints.md).
 
-In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming units. It is recommended to allocate one or more scale units for applications in production environment. Streaming units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which functionality which includes: [dynamic packaging](media-services-dynamic-packaging-overview.md), CDN integration, and advanced configuration. For more information, see [Manage streaming endpoints with the Azure portal](media-services-portal-manage-streaming-endpoints.md).
+## Масштабирование конечных точек потоковой передачи
 
-## <a name="scale-streaming-endpoints"></a>Scale streaming endpoints
+Чтобы создать зарезервированные единицы потоковой передачи и изменить их число, сделайте следующее:
 
-To create and change the number of streaming reserved units, do the following:
-
-1. Log in at the [Azure portal](https://portal.azure.com/).
-2. In the **Settings** window, select **Streaming endpoints**.
-3. Click on the streaming endpoint that you want to scale. 
-4. Move the slider to specify the number of streaming units
+1. Войдите на [портал Azure](https://portal.azure.com/).
+2. В окне **Параметры** щелкните **Потоковые конечные точки**.
+3. Щелкните конечную точку потоковой передачи, которую требуется масштабировать.
+4. Переместите ползунок, чтобы указать нужное число единиц потоковой передачи.
  
-![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
+![Конечная точка потоковой трансляции](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints3.png)
 
-The following considerations apply:
+Действительны следующие условия.
 
-- The allocation of any new streaming units can take around 20 minutes to complete. 
-- Currently, going from any positive value of streaming units back to none, can disable on-demand streaming for up to an hour.
-- The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+- Выделение новых единиц потоковой передачи может занять около 20 минут.
+- Сейчас переход от любого положительного значения единиц потоковой передачи к нулевому может привести к отключению потоковой передачи по требованию на период до одного часа.
+- Для расчета затрат используется наибольшее число единиц, указанных для 24-часового периода. Дополнительные сведения о ценах см. в разделе [Сведения о ценах для служб мультимедиа](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-##<a name="next-steps"></a>Next steps
+##Дальнейшие действия
 
-Review Media Services learning paths.
+Просмотрите схемы обучения работе со службами мультимедиа.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

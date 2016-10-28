@@ -1,104 +1,99 @@
 <properties
-    pageTitle="Limitations for Stretch Database | Microsoft Azure"
-    description="Learn about limitations for Stretch Database."
-    services="sql-server-stretch-database"
-    documentationCenter=""
-    authors="douglaslMS"
-    manager=""
-    editor=""/>
+	pageTitle="Ограничения для базы данных Stretch | Microsoft Azure"
+	description="Дополнительные сведения об ограничениях для базы данных Stretch."
+	services="sql-server-stretch-database"
+	documentationCenter=""
+	authors="douglaslMS"
+	manager=""
+	editor=""/>
 
 <tags
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/14/2016"
-    ms.author="douglasl"/>
+	ms.service="sql-server-stretch-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/14/2016"
+	ms.author="douglasl"/>
 
+# Ограничения для базы данных Stretch
 
-# <a name="limitations-for-stretch-database"></a>Limitations for Stretch Database
+Дополнительные сведения об ограничениях для таблиц, совместимых со Stretch, а также ограничениях, которые на данный момент не позволяют включить растяжение для таблицы.
 
-Learn about limitations for Stretch\-enabled tables, and about limitations that currently prevent you from enabling Stretch for a table.
+##  <a name="Caveats"></a> Ограничения для таблиц, совместимых со Stretch
 
-##  <a name="<a-name="caveats"></a>-limitations-for-stretch\-enabled-tables"></a><a name="Caveats"></a> Limitations for Stretch\-enabled tables
+Таблицы, совместимые со Stretch, имеют следующие ограничения.
 
-Stretch\-enabled tables have the following limitations.
+### Ограничения
 
-### <a name="constraints"></a>Constraints
+-   В таблице, совместимой со Stretch, не обеспечивается уникальность для ограничений UNIQUE и PRIMARY KEY в таблице Azure, содержащей перенесенные данные.
 
--   Uniqueness is not enforced for UNIQUE constraints and PRIMARY KEY constraints in the Azure table that contains the migrated data.
+### Операции DML
 
-### <a name="dml-operations"></a>DML operations
+-   Нельзя выполнять операции UPDATE и DELETE со строками, которые были перенесены или которые пригодны для переноса, в таблице, для которой включено растяжение, или в представлении, которое включает такие таблицы.
 
--   You can't UPDATE or DELETE rows that have been migrated, or rows that are eligible for migration, in a Stretch\-enabled table or in a view that includes Stretch\-enabled tables.
+-   Нельзя выполнять операцию INSERT с таблицей, совместимой со Stretch, на связанном сервере.
 
--   You can't INSERT rows into a Stretch\-enabled table on a linked server.
+### Индексы
 
-### <a name="indexes"></a>Indexes
+-   Нельзя создать индекс для представления, включающего в себя таблицу, совместимую со Stretch.
 
--   You can't create an index for a view that includes Stretch\-enabled tables.
+-   Фильтры индексов SQL Server не распространяются на удаленную таблицу.
 
--   Filters on SQL Server indexes are not propagated to the remote table.
+##  <a name="Limitations"></a> Ограничения, не позволяющие включить растяжение для таблицы
 
-##  <a name="<a-name="limitations"></a>-limitations-that-currently-prevent-you-from-enabling-stretch-for-a-table"></a><a name="Limitations"></a> Limitations that currently prevent you from enabling Stretch for a table
+В настоящее время включить растяжение для таблицы не позволяют следующие ограничения.
 
-The following items currently prevent you from enabling Stretch for a table.
+### Свойства таблицы
 
-### <a name="table-properties"></a>Table properties
+-   Таблицы, содержащие более 1023 столбцов или более 998 индексов
 
--   Tables that have more than 1,023 columns or more than 998 indexes
+-   Таблицы файлов или таблицы, содержащие данные FILESTREAM
 
--   FileTables or tables that contain FILESTREAM data
+-   Таблицы, которые реплицируются или активно используют отслеживание изменений или запись измененных данных
 
--   Tables that are replicated, or that are actively using Change Tracking or Change Data Capture
+-   Оптимизированные для памяти таблицы
 
--   Memory\-optimized tables
+### Типы данных
 
-### <a name="data-types"></a>Data types
+-   text, ntext и image
 
--   text, ntext and image
-
--   timestamp
+-   Timestamp
 
 -   sql\_variant
 
 -   XML
 
--   CLR data types including geometry, geography, hierarchyid, and CLR user\-defined types
+-   Типы данных CLR, включая geometry, geography, hierarchyid и пользовательские типы CLR
 
-### <a name="column-types"></a>Column types
+### Типы столбцов
 
 -   COLUMN\_SET
 
--   Computed columns
+-   вычисляемые столбцы;
 
-### <a name="constraints"></a>Constraints
+### Ограничения
 
--   Default constraints and check constraints
+-   Ограничения по умолчанию и проверочные ограничения
 
--   Foreign key constraints that reference the table. In a parent\-child relationship \(for example, Order and Order\_Detail\), you can enable Stretch for the child table \(Order\_Detail\) but not for the parent table \(Order\).
+-   Ограничения внешнего ключа, ссылающегося на таблицу В иерархическом отношении (например, Order и Order\_Detail) можно включить растяжение для дочерней таблицы (Order\_Detail), но не для родительской (Order).
 
-### <a name="indexes"></a>Indexes
+### Индексы
 
--   Full text indexes
+-   Полнотекстовые индексы
 
--   XML indexes
+-   XML-индексы
 
--   Spatial indexes
+-   Пространственные индексы
 
--   Indexed views that reference the table
+-   Индексированные представления, которые ссылаются на таблицу
 
-## <a name="see-also"></a>See also
+## См. также
 
-[Identify databases and tables for Stretch Database by running Stretch Database Advisor](sql-server-stretch-database-identify-databases.md)
+[Определение баз данных и таблиц для растяжения с помощью Помощника по растяжению баз данных](sql-server-stretch-database-identify-databases.md)
 
-[Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
+[Включение растяжения базы данных для базы данных](sql-server-stretch-database-enable-database.md)
 
-[Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
+[Включение растяжения базы данных для таблицы](sql-server-stretch-database-enable-table.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

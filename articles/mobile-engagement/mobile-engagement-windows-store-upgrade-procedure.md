@@ -1,67 +1,66 @@
 <properties 
-    pageTitle="Windows Universal Apps SDK Upgrade Procedures" 
-    description="Windows Universal Apps SDK Upgrade Procedures for Azure Mobile Engagement"                     
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="dwrede" 
-    editor="" />
+	pageTitle="Процедуры обновления SDK универсальных приложений для Windows " 
+	description="Процедуры обновления пакета SDK универсальных приложений для Windows для Azure Mobile Engagement" 					
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-windows-store" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
 
+#Процедуры обновления SDK универсальных приложений для Windows
 
-#<a name="windows-universal-apps-sdk-upgrade-procedures"></a>Windows Universal Apps SDK Upgrade Procedures
+Если вы уже интегрировали в приложение старую версию службы Engagement, при обновлении пакета SDK необходимо учитывать следующее.
 
-If you already have integrated an older version of Engagement into your application, you have to consider the following points when upgrading the SDK.
+Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить несколько процедур. Например, при миграции с версии 0.10.1 в версию 0.11.0 необходимо сначала выполнить процедуру миграции «с 0.9.0 в 0.10.1», а затем процедуру миграции «с 0.10.1 в 0.11.0».
 
-You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.
+##С 3.3.0 в 3.4.0
 
-##<a name="from-3.3.0-to-3.4.0"></a>From 3.3.0 to 3.4.0
+### Журналы тестирования
 
-### <a name="test-logs"></a>Test logs
+Теперь журналы консоли, созданные с помощью пакета SDK, можно включать, отключать или фильтровать. Чтобы настроить это действие, обновите свойство `EngagementAgent.Instance.TestLogEnabled` до одного из значений, доступных в перечислении `EngagementTestLogLevel`, например:
 
-Console logs produced by the SDK can now be enabled/disabled/filtered. To customize this, update the property `EngagementAgent.Instance.TestLogEnabled` to one of the value available from the `EngagementTestLogLevel` enumeration, for instance:
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
 
-            EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
-            EngagementAgent.Instance.Init();
+### Ресурсы
 
-### <a name="resources"></a>Resources
+Было улучшено наложение Reach. Оно входит в состав ресурсов пакета SDK NuGet.
 
-The Reach overlay has been improved. It is part of the SDK NuGet package resources.
+Во время обновления до новой версии пакета SDK можно выбрать возможность сохранения существующих файлов из папки наложения ресурсов.
 
-While upgrading to the new version of the SDK you can choose whether you want to keep your existing files from the overlay folder of your resources or not:
+* Если вы используете предыдущее наложение или интегрируете элементы `WebView` вручную, можно оставить существующие файлы — наложение будет работать.
+* Если вы хотите выполнить обновление до нового наложения, просто замените всю папку `overlay` из ресурсов на новую из пакета SDK (приложения UWP: после обновления можно получить новую папку наложения из %USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\\3.4.0\\content\\win81\\Resources).
 
-* If the previous overlay is working for you or you are integrating the `WebView` elements manually then you can decide to keep your exiting files, it will still work. 
-* If you want to update to the new overlay, just replace the whole `overlay` folder from your resources with the new one from the SDK package (UWP apps: after the upgrade, you can get the new overlay folder from %USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\3.4.0\content\win81\Resources).
+> [AZURE.WARNING] Новое наложение перезапишет изменения, внесенные в предыдущую версию.
 
-> [AZURE.WARNING] Using the new overlay will overwrite any customizations made on the previous version.
+##С 3.2.0 в 3.3.0
 
-##<a name="from-3.2.0-to-3.3.0"></a>From 3.2.0 to 3.3.0
+### Ресурсы
+Этот шаг относится только к настраиваемым ресурсам. Если вы настроили ресурсы, предоставляемые в SDK (HTML-код, изображения, наложения), необходимо создать их резервную копию перед обновлением ресурсов и повторным применением к ним настроек.
 
-### <a name="resources"></a>Resources
-This step concerns customized resources only. If you have customized the resources provided by the SDK (html, images, overlay) then you have to backup them before upgrading and reapply your customization on upgraded resources.
+##С 3.1.0 на 3.2.0
 
-##<a name="from-3.1.0-to-3.2.0"></a>From 3.1.0 to 3.2.0
+### Ресурсы
+Этот шаг относится только к настраиваемым ресурсам. Если вы настроили ресурсы, предоставляемые в SDK (HTML-код, изображения, наложения), необходимо создать их резервную копию перед обновлением ресурсов и повторным применением к ним настроек.
 
-### <a name="resources"></a>Resources
-This step concerns customized resources only. If you have customized the resources provided by the SDK (html, images, overlay) then you have to backup them before upgrading and reapply your customization on upgraded resources.
+### Интеграция веб-представления
+В этой версии улучшено соответствие форм-факторам различных устройств. Убедитесь, что интеграция веб-представлений выглядит представленным ниже образом.
 
-### <a name="webview-integration"></a>Webview integration
-Some improvements to match different device form factors were introduced in this version. Make sure that your integration of the webview match the following:
+На XAML-странице ():
 
-In your XAML page ():
+			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
-            <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-            <WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
-
-And in your associated .cs file:
+В соответствующем файле CS:
 
     using Microsoft.Azure.Engagement;
     using System;
@@ -72,20 +71,20 @@ And in your associated .cs file:
 
     namespace My.Namespace.Example
     {
-            /// <summary>
-            /// An empty page that can be used on its own or navigated to within a Frame.
-            /// </summary>
-            public sealed partial class ExampleEngagementReachPage : EngagementPage
-            {
-              public ExampleEngagementReachPage()
-              {
-                this.InitializeComponent();
-            
-                /* Set your webview elements to the correct size. */
-                SetWebView(width, height);
-              }
-            
-              #region to implement
+			/// <summary>
+			/// An empty page that can be used on its own or navigated to within a Frame.
+			/// </summary>
+			public sealed partial class ExampleEngagementReachPage : EngagementPage
+			{
+			  public ExampleEngagementReachPage()
+			  {
+			    this.InitializeComponent();
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
+			
+			  #region to implement
               /* Attach events when page is navigated. */
               protected override void OnNavigatedTo(NavigationEventArgs e)
               {
@@ -99,224 +98,220 @@ And in your associated .cs file:
                 base.OnNavigatedTo(e);
               }
 
-              /* When page is left ensure to detach SizeChanged handler. */
-              protected override void OnNavigatedFrom(NavigationEventArgs e)
-              {
-                Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
+			  /* When page is left ensure to detach SizeChanged handler. */
+			  protected override void OnNavigatedFrom(NavigationEventArgs e)
+			  {
+			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
     #if WINDOWS_PHONE_APP || WINDOWS_UWP
                 ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
     #endif
-                base.OnNavigatedFrom(e);
-              }
-              
-              /* "width" and "height" are the current size of your application display. */
+			    base.OnNavigatedFrom(e);
+			  }
+			  
+			  /* "width" and "height" are the current size of your application display. */
     #if WINDOWS_PHONE_APP || WINDOWS_UWP
-              double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
-              double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
     #else
-              double width =  Window.Current.Bounds.Width;
-              double height =  Window.Current.Bounds.Height;
+			  double width =  Window.Current.Bounds.Width;
+			  double height =  Window.Current.Bounds.Height;
     #endif
-            
-              /// <summary>
-              /// Set your webview elements to the correct size.
-              /// </summary>
-              /// <param name="width">The width of your current display.</param>
-              /// <param name="height">The height of your current display.</param>
-              private void SetWebView(double width, double height)
-              {
-                #pragma warning disable 4014
-                CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-                        () =>
-                        {
-                          this.engagement_notification_content.Width = width;
-                          this.engagement_announcement_content.Width = width;
-                          this.engagement_announcement_content.Height = height;
-                        });
-              }
-            
-              /// <summary>
-              /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
-              /// </summary>
-              /// <param name="sender">Original event trigger.</param>
-              /// <param name="e">Window Size Changed Event arguments.</param>
-              private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
-              {
-                double width = e.Size.Width;
-                double height = e.Size.Height;
-            
-                /* Set your webview elements to the correct size. */
-                SetWebView(width, height);
-              }
+			
+			  /// <summary>
+			  /// Set your webview elements to the correct size.
+			  /// </summary>
+			  /// <param name="width">The width of your current display.</param>
+			  /// <param name="height">The height of your current display.</param>
+			  private void SetWebView(double width, double height)
+			  {
+			    #pragma warning disable 4014
+			    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+			            () =>
+			            {
+			              this.engagement_notification_content.Width = width;
+			              this.engagement_announcement_content.Width = width;
+			              this.engagement_announcement_content.Height = height;
+			            });
+			  }
+			
+			  /// <summary>
+			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
+			  /// </summary>
+			  /// <param name="sender">Original event trigger.</param>
+			  /// <param name="e">Window Size Changed Event arguments.</param>
+			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+			  {
+			    double width = e.Size.Width;
+			    double height = e.Size.Height;
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
 
-    #if WINDOWS_PHONE_APP || WINDOWS_UWP              
-              /// <summary>
-              /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
-              /// </summary>
-              /// <param name="sender">The related application view.</param>
-              /// <param name="e">Related event arguments.</param>
-              private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
-              {
-                double width = sender.VisibleBounds.Width;
-                double height = sender.VisibleBounds.Height;
-            
-                /* Set your webview elements to the correct size. */
-                SetWebView(width, height);
-              }
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
+			  /// <summary>
+			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
+			  /// </summary>
+			  /// <param name="sender">The related application view.</param>
+			  /// <param name="e">Related event arguments.</param>
+			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
+			  {
+			    double width = sender.VisibleBounds.Width;
+			    double height = sender.VisibleBounds.Height;
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
     #endif
-              #endregion
-            }
+			  #endregion
+			}
     }
 
-##<a name="from-2.0.0-to-3.0.0"></a>From 2.0.0 to 3.0.0
+##Из версии 2.0.0 в 3.0.0
 
-### <a name="resources"></a>Resources
-This step concerns customized resources only. If you have customized the resources provided by the SDK (html, images, overlay) then you have to backup them before upgrading and reapply your customization on upgraded resources.
+### Ресурсы
+Этот шаг относится только к настраиваемым ресурсам. Если вы настроили ресурсы, предоставляемые в SDK (HTML-код, изображения, наложения), необходимо создать их резервную копию перед обновлением ресурсов и повторным применением к ним настроек.
 
-##<a name="from-1.1.1-to-2.0.0"></a>From 1.1.1 to 2.0.0
+##От версии 1.1.1 до версии 2.0.0
 
-The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement. 
+Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement.
 
-> [Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
+> [Azure.IMPORTANT] Службы Capptain и Azure Mobile Engagement отличаются между собой. В представленных ниже процедурах описывается способ переноса только для клиентского приложения. При переносе пакета SDK в приложение данные НЕ будут перенесены с серверов Capptain на серверы Mobile Engagement.
 
-If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.1.1 first then apply the following procedure
+При переносе с использованием более ранней версии сначала ознакомьтесь с информацией о переносе в версии 1.1.1 на веб-сайте Capptain, а затем примените следующую процедуру.
 
-### <a name="nuget-package"></a>Nuget package
+### Пакет NuGet
 
-Replace **Capptain.WindowsPhone** by **MicrosoftAzure.MobileEngagement** Nuget package.
+Замените **Capptain.WindowsPhone** на пакет Nuget **MicrosoftAzure.MobileEngagement**.
 
-### <a name="applying-mobile-engagement"></a>Applying Mobile Engagement
+### Применение Mobile Engagement
 
-The SDK uses the term `Engagement`. You need to update your project to match this change.
+В пакете SDK используется термин `Engagement`, поэтому необходимо обновить проект с учетом этого изменения.
 
-You need to uninstall your current Capptain nuget package. Consider that all your changes in Capptain Resources folder will be removed. If you want to keep those files then make a copy of them.
+Необходимо удалить текущий пакет NuGet Capptain. Советуем удалить все, что было изменено в папке ресурсов Capptain. Если хотите сохранить эти файлы, скопируйте их в другое место.
 
-After that, install the new Microsoft Azure Engagement nuget package on your project. You can find it directly on [nuget website]. or here index. This action replaces all resources files used by Engagement and adds the new Engagement DLL to your project References.
+После этого установите в проекте новый пакет NuGet для Microsoft Azure Engagement. Его можно найти непосредственно на [веб-сайте NuGet] или здесь в указателе. В результате выполнения этого действия все файлы ресурсов, используемые Engagement, будут заменены, а в ссылки проекта будет добавлена новая библиотека DLL для Engagement.
 
-You have to clean your project references by deleting Capptain DLL references. If you do not make this, the version of Capptain will conflict and errors will happen.
+Ссылки проекта необходимо очистить, удалив ссылки на библиотеку DLL Capptain. Если этого не сделать, возникнет конфликт с версией Capptain и будут происходить ошибки.
 
-If you have customized Capptain resources, copy your old files content and paste them in the new Engagement files. Please note that both xaml and cs files have to be updated.
+После настройки ресурсов Capptain скопируйте содержимое старых файлов и вставьте его в новые файлы Engagement. Обратите внимание, что XAML- и CS-файлы нужно обновить.
 
-When those steps are completed you only have to replace old Capptain references by the new Engagement references.
+После выполнения этих шагов необходимо заменить старые ссылки Capptain на новые ссылки Engagement.
 
-1. All Capptain namespaces have to be updated.
+1. Все пространства имен Capptain должны быть обновлены.
 
-    Before migration:
-    
-        using Capptain.Agent;
-        using Capptain.Reach;
-    
-    After migration:
-    
-        using Microsoft.Azure.Engagement;
+	Перед миграцией:
+	
+		using Capptain.Agent;
+		using Capptain.Reach;
+	
+	После миграции:
+	
+		using Microsoft.Azure.Engagement;
 
-2. All Capptain classes that contain "Capptain" should contain "Engagement".
+2. Все классы Capptain, содержащие Capptain должны содержать Engagement.
 
-    Before migration:
-    
-        public sealed partial class MainPage : CapptainPage
-        {
-          protected override string GetCapptainPageName()
-          {
-            return "Capptain Demo";
-          }
-          ...
-        }
-    
-    After migration:
-    
-        public sealed partial class MainPage : EngagementPage
-        {
-          protected override string GetEngagementPageName()
-          {
-            return "Engagement Demo";
-          }
-          ...
-        }
+	Перед миграцией:
+	
+		public sealed partial class MainPage : CapptainPage
+		{
+		  protected override string GetCapptainPageName()
+		  {
+		    return "Capptain Demo";
+		  }
+		  ...
+		}
+	
+	После миграции:
+	
+		public sealed partial class MainPage : EngagementPage
+		{
+		  protected override string GetEngagementPageName()
+		  {
+		    return "Engagement Demo";
+		  }
+		  ...
+		}
 
-3. For xaml files Capptain namespace and attributes also change.
+3. Для XAML-файлов изменятся также пространство имен и атрибуты Capptain.
 
-    Before migration:
-    
-        <capptain:CapptainPage
-        ...
-        xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
-        ...
-        </capptain:CapptainPage>
-    
-    After migration:
-    
-        <engagement:EngagementPage
-        ...
-        xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
-        ...
-        </engagement:EngagementPage>
+	Перед миграцией:
+	
+		<capptain:CapptainPage
+		...
+		xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
+		...
+		</capptain:CapptainPage>
+	
+	После миграции:
+	
+		<engagement:EngagementPage
+		...
+		xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+		...
+		</engagement:EngagementPage>
 
-4. Overlay page changes
-    > [AZURE.IMPORTANT] Overlay also changes. Its new namespace is `Microsoft.Azure.Engagement.Overlay`. It has to be used in both xaml and cs files. Moreover `CapptainGrid` is to be named `EngagementGrid`, `capptain_notification_content` and `capptain_announcement_content` are named `engagement_notification_content` and `engagement_announcement_content`.
-    
-    For overlay :
-    
-        <capptain:CapptainPageOverlay
-          xmlns:capptain="using:Capptain.Overlay"
-          ...
-        </capptain:CapptainPageOverlay>
-    
-    It becomes :
-    
-        <EngagementPageOverlay
-          engagement="using:Microsoft.Azure.Engagement.Overlay"
-          ...
-        </engagement:EngagementPageOverlay>
+4. Изменяется страница наложения
+	> [AZURE.IMPORTANT] Меняется также и наложение. Его новым пространство имен является `Microsoft.Azure.Engagement.Overlay`. Оно должно использоваться в XAML- и CS-файлах. Кроме того, `CapptainGrid` будет называться `EngagementGrid`, `capptain_notification_content` — `engagement_notification_content`, а `capptain_announcement_content` — `engagement_announcement_content`.
+	
+	Для наложения:
+	
+		<capptain:CapptainPageOverlay
+		  xmlns:capptain="using:Capptain.Overlay"
+		  ...
+		</capptain:CapptainPageOverlay>
+	
+	Это будет выглядеть так:
+	
+		<EngagementPageOverlay
+		  engagement="using:Microsoft.Azure.Engagement.Overlay"
+		  ...
+		</engagement:EngagementPageOverlay>
 
-5. For the other resources like Capptain pictures and HTML files, please note that they also have been renamed to use "Engagement".
+5. Обратите внимание, что для использования Engagement были переименованы и другие ресурсы, такие как изображения Capptain и HTML-файлы.
 
-### <a name="project-declaration"></a>Project declaration
+### Объявление проекта
 
-On Package.appxmanifest `File Type Associations` has been updated from :
+В Package.appxmanifest были обновлены следующие элементы `File Type Associations`:
 
- -   capptain\_reach\_content to engagement\_reach\_content
- -   capptain\_log\_file to engagement\_log\_file
+ -   capptain\_reach\_content заменяется engagement\_reach\_content
+ -   capptain\_log\_file заменяется engagement\_log\_file
 
-### <a name="application-id-/-sdk-key"></a>Application ID / SDK Key
+### Идентификатор приложения и ключ SDK
 
-Engagement uses a connection string. You don't have to specify an application ID and an SDK key with Mobile Engagement, you only have to specify a connection string. You can set it up on your EngagementConfiguration file.
+Engagement использует строку подключения. При использовании Mobile Engagement не нужно указывать идентификатор приложения и ключ SDK. Достаточно просто задать строку подключения. Ее можно настроить в файле EngagementConfiguration.
 
-The Engagement configuration can be set in your `Resources\EngagementConfiguration.xml` file of your project.
+Конфигурацию Engagement можно определить в файле `Resources\EngagementConfiguration.xml` проекта.
 
-Edit this file to specify:
+Измените этот файл, чтобы указать:
 
--   Your application connection string between tags `<connectionString>` and `<\connectionString>`.
+-   строку подключения приложения между тегами `<connectionString>` и `<\connectionString>`.
 
-If you want to specify it at runtime instead, you can call the following method before the Engagement agent initialization:
+Если вместо этого вам необходимо указать ее во время выполнения, можно вызвать следующий метод до инициализации агента Engagement:
 
-    /* Engagement configuration. */
-    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-    engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-    
-    /* Initialize Engagement agent with above configuration. */
-    EngagementAgent.Instance.Init(args, engagementConfiguration);
+	/* Engagement configuration. */
+	EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+	engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+	
+	/* Initialize Engagement agent with above configuration. */
+	EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-The connection string for your application is displayed on the Azure Classic Portal.
+Строка подключения для приложения отображается на классическом портале Azure.
 
-### <a name="items-name-change"></a>Items name change
+### Изменение имени элементов
 
-All items named *capptain* have been named *engagement*. Similarly for *Capptain* to *Engagement*.
+Каждый из элементов с именем *capptain* был переименован в *engagement*. Аналогичным образом имя *Capptain* изменилось на *Engagement*.
 
-Examples of commonly used Capptain items :
+Примеры часто используемых элементов Capptain:
 
--   CapptainConfiguration now named EngagementConfiguration
--   CapptainAgent now named EngagementAgent
--   CapptainReach now named EngagementReach
--   CapptainHttpConfig now named EngagementHttpConfig
--   GetCapptainPageName now named GetEngagementPageName
+-   CapptainConfiguration теперь называется EngagementConfiguration.
+-   CapptainAgent теперь называется EngagementAgent.
+-   CapptainReach теперь называется EngagementReach.
+-   CapptainHttpConfig теперь называется EngagementHttpConfig.
+-   GetCapptainPageName теперь называется GetEngagementPageName.
 
-Note that rename also affects overridden methods.
+Обратите внимание, что переименование также влияет на переопределенные методы.
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

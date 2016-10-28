@@ -1,402 +1,401 @@
 <properties 
-    pageTitle="Azure Mobile Engagement Getting Started Guide with Best Practices"
-    description="Getting Started guide for Azure Mobile Engagement and Best practices for onboarding" 
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="wesmc7777"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Служба Azure Mobile Engagement. Руководство по началу работы и рекомендации"
+	description="Руководство и рекомендации по началу работы с Azure Mobile Engagement." 
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="wesmc7777"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="mobile-engagement"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="mobile-multiple"
-    ms.workload="mobile" 
-    ms.date="10/04/2016"
-    ms.author="wesmc;ricksal"/>
+	ms.service="mobile-engagement"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.workload="mobile" 
+	ms.date="10/04/2016"
+	ms.author="wesmc;ricksal"/>
 
+# Служба Azure Mobile Engagement. Руководство по началу работы и рекомендации
 
-# <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Getting Started Guide with Best practices
+## Обзор
 
-## <a name="overview"></a>Overview
+**На экранах мобильных устройств все меньше свободного места:** согласно исследованию, проведенному в 2013 г., на одном мобильном устройстве установлено в среднем 27 приложений. На работу с мобильными приложениями пользователи обычно тратят 30 часов в месяц. Большая часть этого времени идет на социальные сети и игры (около 20 часов). В 2014 г. в магазине Android Market было около 1,5 млн приложений. Магазин Apple Store содержал примерно 1,2 млн приложений. Использование мобильных приложений продолжает расти, а разработчики конкурируют друг с другом на этом развивающемся рынке.
 
-**The mobile screen is a very crowded space:** In 2013, a study found the average mobile device had 27 applications installed. Users typically spent 30 hours per month on their apps. Most of this time was spent on social networking and gaming (around 20 hours). By 2014, the Android market had around 1.5 million applications for users to choose from. The Apple store contained around 1.2 million apps. Mobile app use is still increasing as developers compete in this growing market. 
+Среднестатистический пользователь мобильного устройства очень часто устанавливает и удаляет приложения в зависимости от того, как меняются его интересы и работа в самом приложении. Чтобы определить успешность приложения, важно знать не только количество пользователей, установивших приложение, но и насколько полезно это приложение и изменяется ли тенденция его использования. Становятся важными следующие вопросы:
 
-The average mobile user will install and uninstall apps with high frequency depending on changing interests and in-app experiences. In order to determine the success of an app it becomes vital to know more than just how many users install your app. It's important to know how useful your app is and if that usage trend is changing. The following questions become important:
-
-- Are your users beginning to find your app uninteresting or obsolete? 
-- How many users have stopped using your app at all? 
-- Are in-app purchases trending upward or downward?
-- Are users failing to complete work flows because of issues with the app or lack of interest? 
-- Could you keep your app useful and relevant by pushing fresh content to your user base? 
-- Would this fresh content be the same for all users or focused on user segments based on behavior in your app? 
+- Начинают ли пользователи считать ваше приложение неинтересным или устаревшим?
+- Сколько пользователей полностью перестали пользоваться приложением?
+- Повышается или понижается количество покупок из приложения?
+- Пользователи не завершают рабочие процессы из-за проблем в приложении или из-за отсутствия интереса?
+- Можно ли сохранить полезность и актуальность приложения, добавив для контингента пользователей новое содержимое?
+- Будет ли это содержимое одинаковым для всех пользователей или оно будет предназначено для отдельных сегментов пользователей (которые будут выбраны на основании того, как они работают с приложением)?
  
-Answers to questions similar to these could help extend the life and revenue from your app. They can also help you define and retain your user base. 
+Ответы на подобные вопросы помогут продлить срок работы приложения и повысить вашу прибыль от него. Кроме того, они помогут вам определить базу пользователей и сохранить ее.
 
-Media related apps tend to have some of the highest retention among users. One reason for this is they are constantly providing fresh content to users. Early adoption of useful push notifications directed to a user segment tends to have a high impact on app retention. 
+Приложения, связанные с мультимедийными данными, имеют, как правило, более высокий показатель удержания. Одной из причин этого является то, что в таких приложениях всегда есть новое содержимое для пользователей. Раннее внедрение полезных push-уведомлений, направленных на определенный сегмент пользователей, имеет, как правило, большее влияние на удержание приложения.
 
-The Azure Mobile Engagement program is designed to help you extend the life and retention of your app by providing a method to gather and analyze detailed information on the use of your app. It will help you classify your user base according to behavior, and create focused campaigns for delivering push notifications and in-app messages to identified user segments. Key performance indicators (KPI) measure how active your users are with different aspects of your app. Azure Mobile Engagement provides the methods you need to determine these KPIs. It helps increase the return on your investment (ROI) by providing the infrastructure you need to increase engagement with your mobile app. 
+Служба Azure Mobile Engagement предназначена для того, чтобы помочь вам продлить срок работы и удержания приложения. Для этого она предоставляет способ сбора и анализа подробных сведений об использовании вашего приложения. Эта служба поможет классифицировать базу пользователей в соответствии с их поведением, а также создать целевые кампании по отправке push-уведомлений и сообщений в приложении для определенных сегментов пользователей. Ключевые показатели эффективности определяют, насколько активны пользователи в работе с различными аспектами приложения. Служба Azure Mobile Engagement предоставляет методы определения этих ключевых показателей эффективности. Она поможет повысить рентабельность инвестиций, создавая инфраструктуру, необходимую для того, чтобы увеличить продолжительность использования мобильного приложения.
 
-In order to get the most out of Azure Mobile Engagement, you need to start with a well designed engagement plan. Your plan will help you identify the granular data you will need to be able to segment your user base. This can be based on behavior and in-app experiences. In order for your plan to be successful, it is a best practice to clearly define the KPI that will measure the objectives of your app. With clear performance indicators defined, you can easily embed the necessary logic in your app to collect fine grained data which you will use to analyze and evaluate your KPIs. This topic is a best practice guide for defining the KPIs that you will use with your engagement plan. 
-
-
-## <a name="step-1:-define-your-kpis-to-fit-the-bet-model"></a>Step 1: Define your KPIs to fit the BET model
+Для наиболее эффективного использования службы Azure Mobile Engagement начинать необходимо с правильно составленного плана привлечения. Этот план поможет определить подробные данные, которые понадобятся для сегментирования базы пользователей. Он может основываться на поведении и работе пользователей в приложении. Чтобы ваш план принес хорошие результаты, мы рекомендуем четко определить ключевые показатели эффективности, по которым будет оцениваться достижение целей приложения. Если показатели эффективности определены четко, вы сможете легко внедрить необходимую логику в приложение, предназначенную для сбора подробных данных, которые будут использоваться для анализа и оценки ключевых показателей эффективности. Рекомендации в этой статье помогут вам задать ключевые показатели эффективности, которые будут использоваться в вашем плане привлечения.
 
 
-Correctly defining KPIs can be a difficult task to complete. Apps designed for different industries have their own specifics and objectives. This may tend to confuse your approach. To help avoid this, objectives and KPIs should be classified into three main categories: **Business**, **Engagement**, and **Technical**. This is what we call the **BET model**.
-
-A good plan will generally have objectives with the KPIs that measure the successes in each of the following categories of the BET model.
+## Шаг 1. Определение ключевых показателей эффективности для соответствия модели БПТ
 
 
-#### <a name="business-kpis"></a>Business KPIs
+Правильно задать ключевые показатели эффективности может быть непросто. Приложения, разработанные для разных отраслей, имеют разные особенности и цели. Это может запутать вас и привести к ошибкам. Чтобы избежать этого, цели и ключевые показатели эффективности следует разделить на три основные категории: **бизнес**, **привлечение** и **техника**. Это называется **модель БПТ**.
 
-Business KPIs should be the easiest part to build. You probably already defined these in some form when you planned your mobile app. These KPIs generally help measure revenue and ROI for you app. The following list provides some example Business KPIs that may help guide you while defining your performance indicators:
-
-- Media Business KPIs
-    - Number of Ads clicked
-    - Number of page visits per user
-    - Number of current subscriptions
-- Gaming Business KPIs
-    - Number of in-app purchases
-    - Average revenue per user (ARPU)
-    - Time spent per session
-    - Days played and current in game level
-- E-Commerce Business KPIs
-    - Days app used
-    - Average revenue per user (ARPU)
-    - Average amount in cart during checkout
-    - Product category for most views and purchases
-- Bank and insurance Business KPIs
-    - Number of accounts
-    - Features activated
-    - Offer pages visited
-    - Alerts clicked or activated      
+Хороший план обычно имеет цели с ключевыми показателями эффективности, измеряющими показатели успешности в каждой из следующих категорий модели БПТ.
 
 
+#### Ключевые показатели эффективности бизнеса
 
-#### <a name="engagement-kpis"></a>Engagement KPIs
+Ключевые показатели эффективности бизнеса создать проще всего. Вероятно, в определенном виде вы их уже обозначили, когда планировали свое мобильное приложение. Обычно эти ключевые показатели эффективности помогают определить доход приложения и рентабельность инвестиций в него. Ниже приведены примеры ключевых показателей эффективности бизнеса, которые помогут вам в определении показателей эффективности.
 
-An Engagement KPI is a performance indicator to measure the engagement of your users. Trends in this area help determine the retention of your app. Here are a few example performance indicators for this type of KPI:
-
-- Active users in the last 7 days
-- Inactive user count for the last 7 days
-- Count of users who have not used the app in 30 days  
-
-Some obvious external factors may influence indicators in this area. For example, you may consider a mobile device to be with a user at all times. This may or may not be true. A gaming app might tend to have higher usage around holidays when a gamer may play more while off work or out of school.   
-
-Well defined KPIs in this category should help you measure the relationship between your app and your customers.
+- Ключевые показатели эффективности бизнеса — мультимедиа:
+	- количество рекламных объявлений, по которым осуществлены переходы;
+	- количество посещений страницы на одного пользователя;
+	- количество текущих подписок.
+- Ключевые показатели эффективности бизнеса — игры:
+	- количество покупок из приложений;
+	- средний доход на одного пользователя;
+	- время, потраченное на сеанс;
+	- дни игр и текущий уровень в игре.
+- Ключевые показатели эффективности бизнеса — электронная коммерция:
+	- количество дней использования приложения;
+	- средний доход на одного пользователя;
+	- средняя сумма в корзине при оформлении заказа;
+	- категория продукта для большинства просмотров и покупок.
+- Ключевые показатели эффективности бизнеса — банки и страховые компании:
+	- количество счетов;
+	- активированные функции;
+	- посещение страниц с предложениями;
+	- переход по предупреждениям или их активация.
 
 
 
-#### <a name="technical-kpis"></a>Technical KPIs
+#### Ключевые показатели эффективности привлечения
 
-Performance indicators in this category help you determine if your app is behaving correctly, hanging, or crashing. These indicators can measure the health of your app and determine usability issues that may prevent users from using the app. Information collected for this category could also contain performance information that would be relevant to marketing teams. The data could also be useful for troubleshooting by IT and support teams to help identify unreported bugs. 
+Ключевой показатель эффективности привлечения — это индикатор эффективности, показывающий привлечение пользователей. Тенденции в этой области помогают определить удержание приложения. Вот несколько примеров показателей эффективности для этого ключевого показателя эффективности:
+
+- активные пользователи за последние 7 дней;
+- количество неактивных пользователей за последние 7 дней;
+- количество пользователей, которые не использовали приложение в течение 30 дней.
+
+Некоторые очевидные внешние факторы могут влиять на показатели в этой области. Например, вы считаете, что мобильное устройство постоянно находится у пользователя. Это может быть соответствовать действительности, а может и не соответствовать. Игровые приложения обычно используются чаще в период каникул или праздников, когда игроки проводят больше нерабочего или неучебного времени за играми.
+
+Правильно определенные ключевые показатели эффективности в этой категории должны помочь вам определить взаимодействие ваших клиентов с вашим приложением.
+
+
+
+#### Технические ключевые показатели эффективности
+
+Показатели эффективности в этой категории помогут определить, правильно ли работает ваше приложение, перестает ли оно отвечать или аварийно завершает работу. Эти показатели помогут измерить работоспособность приложения и определить проблемы, возникающие при использовании, из-за которых пользователи не используют приложение. Сведения, собранные для этой категории, могут содержать также информацию о производительности, полезную для маркетологов. Данные могут быть полезны ИТ-специалистам для устранения неполадок, а также службам поддержки для выявления недокументированных ошибок.
  
-Here are some examples of Technical KPIs:
+Ниже приведены примеры технических ключевых показателей эффективности:
 
-- Unhandled or handled exception information and count 
-- Timestamp for last crash
-- Last button clicked or last page visited
-- Memory usage of the app
-- App frame rate
-- OS version that the app is running on
-- App version
+- сведения о необработанных или обработанных исключениях и их количество;
+- метка времени последнего сбоя;
+- последняя нажатая кнопка или последняя посещенная страница;
+- использование памяти приложением;
+- частота кадров приложения;
+- версия ОС, в которой используется приложение;
+- версия приложения.
 
-Define these KPIs to help measure app performance and pinpoint potential bugs. This indicators should help reduce the time you need to deliver a fix for your customers. They could also help you define a user segment who have encountered a particular issues. You can use that user segmentation to create campaigns to deliver notifications regarding available fixes and potential promotions to help recover customer satisfaction. 
-
-
-#### <a name="playbook-exercise-1:-create-your-kpi-dashboard"></a>Playbook Exercise 1: Create your KPI dashboard
-
-When defining your marketing strategy, your KPIs should present a view for each of your main objectives. They should be clearly defined data points that will allow you to collect vital information to monitor your app and the behavior of the end-user.
-
-Build a KPI dashboard which contains the below information
-
-1.  What are the KPIs for the app?
-2.  What data points will I use to represent each KPI?
-3.  Where is this data located for my application (i.e. screen, settings, system…)?
-4.  Can I play an Engagement sequence for this KPI?
-
-You can use the **KPI Builder** worksheet in our [Media Playbook Template][Media Playbook link] for examples and guidance.
+Определите эти ключевые показатели эффективности, чтобы узнать эффективность приложения и выявить потенциальные ошибки. Эти показатели должны сократить время, необходимое для выпуска исправления для клиентов. Кроме того, они могут помочь определить сегмент пользователей, которые столкнулись с определенной проблемой. Такое разделение пользователей на сегменты можно использовать для создания кампаний по доставке уведомлений о доступных исправлениях и возможных рекламных акций, чтобы восстановить удовлетворенность клиента.
 
 
+#### Тренировочное задание 1. Создание таблицы мониторинга ключевых показателей эффективности
 
-## <a name="step-2:-your-engagement-program"></a>Step 2: Your Engagement Program
+Когда вы определяете маркетинговую стратегию, ваши ключевые показатели эффективности должны отображать каждую основную цель. Это должны быть четко определенные точки данных, которые позволят собирать важные сведения для мониторинга приложения и поведения конечного пользователя.
+
+Создайте таблицу мониторинга ключевых показателей эффективности, которая содержит следующие данные:
+
+1.	Каковы ключевые показатели эффективности для приложения?
+2.	Какие точки данных будут использоваться для представления каждого ключевого показателя эффективности?
+3.	Где находятся эти данные в приложении (на экране, в параметрах, системе и т. д.)?
+4.	Можно ли воспроизвести последовательность привлечения для этого ключевого показателя эффективности?
+
+Примеры и руководства можно найти в таблице **Конструктор ключевых показателей эффективности** в [шаблоне сборника тренировочных заданий для мультимедиа][Media Playbook link].
 
 
-A great mobile engagement program should be considered a key component of your app. This should absolutely include a great welcome program that executes for a user during the first days of app usage. This tends to have a very positive effect on engagement and retention of your app. Studies have shown that the majority of users stop using an app the first few days after installation. You want to strive to meet or exceed customer expectation driving interest early while the user is still focused on your app. Make sure you present the key value and benefits of your app to your customers. 
+
+## Шаг 2. Программа привлечения
+
+
+Хорошо спланированная программа привлечения должна являться ключевым компонентом вашего приложения. Она обязательно должна включать в себя правильно организованную программу приветствия, реализуемую для пользователя в первые дни использования приложения. Это оказывает положительное влияние на привлечение и удержание приложения. Исследования показывают, что большинство пользователей перестают пользоваться приложением в первые несколько дней после его установки. Вы должны стремиться удовлетворить ожидания клиента или превысить их, вызвав интерес с самого начала, пока пользователь заинтересован в вашем приложении. Обязательно продемонстрируйте клиентам ключевые преимущества и ценность приложения.
 
 
 ![](./media/mobile-engagement-getting-started-best-practices/unsegmented-push-notifications.png)
 
-Push notifications are the best approach to early engagements with mobile device users. However, great care should be taken when segmenting users for push notifications. Because once a user feels like they are receiving spam or uninteresting notifications, it can have serious affect. In few clicks, a user may delete your application never to return. The user should be receiving highly personalized in-app value instead of generic spam.
+Push-уведомления являются наилучшим подходом для раннего взаимодействия с пользователями мобильных устройств. Однако следует обратить особое внимание на разделение пользователей на сегменты для push-уведомлений. Ведь если пользователь почувствует, что он получает нежелательные или неинтересные уведомления, это может иметь серьезные последствия. Несколькими щелчками пользователь может удалить ваше приложение. Больше он никогда не вернется к нему. Пользователь должен получать в приложении персонализированные уведомления, а не однотипный спам.
 
-Once users are actively engaged, then your engagement program can help drive other aspects of the app.
+Как только пользователи будут активно задействованы, ваша программа привлечения сможет продвигать другие аспекты приложения.
 
-For instance, you could setup a campaign that requests your active users to rate your app. Since this user segment is the most active and has the most experience with you app, you would expect them to give the most accurate rating. Once you have a high app rating, it can help drive up the organic download of your app as well reducing your new customer acquisition costs.
-
-
-
-#### <a name="engagement-sequence"></a>Engagement Sequence
+Например, вы сможете создать кампанию по оценке вашего приложения активными пользователями. Поскольку этот сегмент пользователей наиболее активен и имеет больше всего опыта использования вашего приложения, ожидается, что они дадут наиболее точную оценку. Когда у вашего приложения будет высокая оценка, это может стимулировать его загрузку, уменьшив ваши затраты на привлечение новых клиентов.
 
 
-A global Engagement Program includes different engagement sequences. Each sequence aims to reach several objectives.
+
+#### Последовательность привлечения
 
 
-###### <a name="life-push-sequence"></a>Life push sequence
+Глобальная программа привлечения включает в себя различные последовательности привлечения. Каждая последовательность предназначена для достижения нескольких целей.
 
 
-The objectives for a Life push sequence are different depending on the lifecycle of the user’s engagement with the app. A particular user may be new, inactive, or very active. At different stages of an engagement lifecycle, users may benefit from your fresh content in the form of tips or links to documentation. 
-
-For example a new user may need help getting oriented to an app or benefit from a new user incentive similar to the following the first time they launch the app...
-
-*"Glad to have you onboard! Remember to login to get your 1st month free!"*
+###### Push-последовательность для разных сроков использования
 
 
-###### <a name="behavioral-push-sequence"></a>Behavioral push sequence
+Цели этой push-последовательности зависят от срока, в течение которого пользователь работает с приложением. Пользователь может быть новым, неактивным или очень активным. На различных этапах жизненного цикла привлечения пользователи могут получать преимущества от нового контента в виде подсказок или ссылок на документацию.
 
-The behavioral push sequence aims to increase usage based on user behavior collected for the app.  
+Например, новому пользователю может понадобиться помощь для начала работы с приложением. Ему могут быть полезны также побудительные сообщения для новых пользователей, отображаемые при первом запуске приложения, наподобие приведенного ниже.
 
-For example, a very active user of a fantasy football app might benefit from being engaged with the following push notification...
-
-*"John you are a serious football fan! Log in to our NFL section and win free access to the SuperBowl!"*
+*«Рады видеть Вас среди наших пользователей! Войдите в систему, чтобы получить месяц бесплатного пользования».*
 
 
-###### <a name="alerting-push-sequence"></a>Alerting push sequence
+###### Поведенческая push-последовательность
 
-Users will appreciate relevant news focused on their interests. An alert push sequence enhances engagement by sending alerts based on interests a user has clearly shown. This could be explicit when a user selects their own interests in the app. It could also be determined implicitly based on data collected during user interaction with the app.
+Целью поведенческой push-последовательности является повышение использования приложения на основе данных о поведении пользователя, собранных для приложения.
 
-For example, the user of an E-Commerce app may regularly buy a specific brand of coffee which you have captured with a business KPI. The following alert can enhance this user's engagement with the app.
+Например, очень активный пользователь приложения для игры в футбол может получить преимущества от следующих push-уведомлений.
+
+*«Артем, Вы активный фанат футбола. Войдите в наш раздел о Национальной футбольной лиге и выиграйте бесплатный доступ к игре "Супер Боул"».*
+
+
+###### Оповещающая push-последовательность
+
+Пользователи оценят релевантные новости на интересующие их темы. Оповещающая push-последовательность повышает привлечение путем отправки уведомления на основе интересов, четко продемонстрированных пользователем. Это может происходить явно, когда пользователь выбирает свои интересы в приложении. Также интересы могут определяться косвенно на основе данных, собранных в процессе взаимодействия пользователя с приложением.
+
+Например, пользователь приложения электронной коммерции может регулярно покупать кофе определенной торговой марки, что можно отследить с помощью ключевого показателя эффективности бизнеса. Следующее оповещение может повысить привлечение этого пользователя приложением.
  
-*"Hi Wes, One of your favorite brands of coffee will be on sale 25% off the first week of September 2015. We appreciate you as a customer and wanted to make sure you were aware."*
+*«Здравствуйте, Сергей! На одну из Ваших любимых торговых марок кофе будет скидка 25 % на первой неделе сентября 2015 г. Мы хотели сообщить Вам об этом, так как ценим то, что Вы являетесь нашим клиентом».*
 
-###### <a name="rentention-push-sequence"></a>Rentention push sequence
+###### Push-последовательность удержания
 
-This sequence aims to retain users using a repetitive push notification campaigns to help drive a regular habit of engaging with the app. This can help increase app retention if the user enjoys the interactions. 
+Цель этой последовательности заключается в сохранении пользователей с помощью повторяющихся кампаний push-уведомлений, которые помогают выработать у пользователей привычку регулярной работы с приложением. Это может увеличить степень удержания приложения, если пользователю нравится работать с ним.
 
-For example, the user of a sports related app might receive the following push notification weekly based on the user's favorite teams:
+Например, пользователь спортивного приложения может каждую неделю получать следующие push-уведомления о своих любимых спортивных командах:
 
-*"For a chance to win 200 points, go vote whether the New York Yankees will win their game this week against Toronto Blue Jays!"*
+*«Получите шанс выиграть 200 баллов: угадайте, выиграет ли на этой неделе «Динамо» у «Челси».*
 
 
-#### <a name="the-3w-approach"></a>The 3W approach
+#### Подход «Кто, что, когда»
 
-Mastering the different push sequences will help you engage with end-users. However, you still need to use the 3W approach for personalizing your notifications. The 3W approach should address Who, What and When for each notification. If you clearly satisfy these three questions you notifications should be properly focused for engagement.
+Освоение различных push-последовательностей поможет вам наладить контакт с конечными пользователями. Однако для персонализации уведомлений вам нужно будет воспользоваться подходом «Кто, что, когда». Этот подход учитывает ответы на вопросы «кто?», «что?» и «когда?» для каждого уведомления. Если вы четко ответите на эти три вопроса, ваши уведомления будут правильно сфокусированы при привлечении.
 
 ![](./media/mobile-engagement-getting-started-best-practices/who-what-when.png)
 
 
 
-###### <a name="who:-the-user-segment-that-will-receive-messages"></a>Who: The user segment that will receive messages
+###### Кто — сегмент пользователей, получающих сообщения
 
-Pushing notifications to your users should be considered a very sensitive communication channel. Make sure the notifications you aim to send to a user segment are well scoped to the interests of that user segment. An incorrectly routed notification is very likely to have a negative affect on a user. They may consider it spam leading to your app being uninstalled. 
+Принудительная отправка уведомлений пользователям — это способ общения с ними, требующий особого внимания. Убедитесь, что уведомления, предназначенные для отправки сегменту пользователей, точно соответствуют интересам этого сегмента. Неправильное уведомление, скорее всего, произведет на пользователя неприятное впечатление. Это уведомление могут воспринять как нежелательное, что приведет к удалению приложения.
 
-Use a combination of specific technical and behavioral criteria when defining user segments that will receive notifications. A simple example defining a user segment could be similar to the following statement:
+Используйте сочетание определенных технических и поведенческих критериев при определении сегментов пользователей, которые будут получать уведомления. Простым примером определения сегмента пользователей может являться следующее утверждение:
 
-"All users who launched the a mobile application for the first time 3 days ago, and have visited the login page twice without actually completing a login".
+«Все пользователи, запустившие мобильное приложение первый раз 3 дня назад и дважды посетившие страницу для входа, не выполнив вход».
  
-That statement helps identify the data you would need to collect to support a specific scenario.
+Это утверждение помогает идентифицировать данные, которые необходимо собрать для поддержки конкретного сценария.
 
 
-###### <a name="what:-the-message-that-you-will-send"></a>What: The message that you will send
+###### Что — отправляемое сообщение
 
-**Tone**
+**Тон**
 
-In your engagements use a tone that is appropriate for your for your segmented users. This is definitely a good way to connect with your end-users and promote a user's interest in your app. 
+Для привлечения используйте тон, который подходит для данного сегмента пользователей. Это однозначно хороший способ наладить взаимосвязь с конечными пользователями и повысить уровень заинтересованности пользователей в вашем приложении.
 
-**Redirection**
+**Перенаправление**
 
-A push notification can be used for more than opening up the application. If the notification message provides a context such as broadcast news or a product promotion, this notification may deep link directly to the right content within the application. To support this, you must create a URL scheme to let the application manage the redirection. When working on your engagement sequences, this is an important step that must not be forgotten.
+Push-уведомления можно использовать не только для открытия приложения. Если сообщение уведомления содержит контекст, например новости или рекламу товара, такое уведомление может содержать прямую ссылку непосредственно на нужное содержимое в приложении. Для этого необходимо создать схему URL-адресов, чтобы приложения управляли перенаправлением. При работе с последовательностями привлечения необходимо помнить об этом важном шаге.
 
-Redirection can also be managed for other systems. For instance, with an Action URL it is possible to redirect end-users to many other systems including the following:
+Кроме того, вы можете управлять перенаправлением для других систем. Например, с помощью URL-адреса действия можно перенаправлять конечных пользователей на множество других систем, включая следующие:
 
-- A website
-- A mailbox with email already set up
-- An SMS box
-- A dial service
-- Directly to the application store for rating the application. 
+- веб-сайт;
+- почтовый ящик с уже настроенным адресом электронной почты;
+- входящие SMS-сообщения;
+- служба набора номеров;
+- непосредственно в магазин приложения для его оценки.
 
-This provides many opportunities to engage end-users and create automatic rules to improve performances.
+Это предоставляет множество возможностей для привлечения конечных пользователей и создания автоматических правил для повышения эффективности.
 
 
-**Format/Content**
+**Формат и содержимое**
 
-Different types and Push notification formats:
+Различные типы и форматы push-уведомлений:
 
-1. **Announcements** : enables you to send advertising messages to users at different moments (out of app, in app or anytime).
-2. **Polls** : enabled you to gather information from end-users by asking them questions. Those answers are then available when creating criteria  to target end-users.
-3. **Data Pushes** : enables you to send a binary or base64 data file to update the app. The information contained in a data push is sent to your application to personalize the users' experience in your app. Your application needs to be designed to support the data in a data push.
-4. **Tiles (Windows Phone only)** : enabled you to use the Microsoft Push Notification Service (MPNS) to send Native Push Notification containing XML Data (Supported since SDK version 0.9.0. The final payload for tiles cannot exceed 32 kilobytes.). The message appears directly on your board’s tile.
-5. **Webview** : A web view is a pop-up containing web content. This pop-up appears when the end-user has clicked on the push notification. A web view allows you to have more interaction with the end-user.
+1. **Объявления.** Позволяют отправлять пользователям рекламные сообщения в различные моменты (когда пользователь не в приложении, в приложении или в любое время).
+2. **Опросы.** Позволяют собирать информацию от конечных пользователей, задавая им вопросы. Эти ответы будут доступны при создании условий для целевых конечных пользователей.
+3. **Отправка данных.** Позволяет отправлять файлы двоичных данных и файлы данных Base64 для обновления приложения. Информация, содержащаяся в отправленных данных, отправляется в приложение для персонализации работы пользователей с вашим приложением. Приложение должно быть разработано так, чтобы оно поддерживало данные в отправленных данных.
+4. **Плитки (только в Windows Phone).** Позволяют использовать службу push-уведомлений Майкрософт (MPNS) для отправки собственных push-уведомлений с XML-данными (поддерживается начиная с пакета SDK версии 0.9.0; объем окончательных полезных данных в плитках не может превышать 32 КБ). Сообщение отображается непосредственно на плитке на начальном экране.
+5. **Веб-представление.** Это всплывающее окно с веб-содержимым. Это всплывающее окно отображается при щелчке пользователя на push-уведомление. Веб-представление позволяет больше взаимодействовать с пользователем.
  
->[AZURE.NOTE] Make sure that the content you are sending as push notifications complies with the respective platform (iOS, Android, Windows) guidelines for developing apps and sending push notifications.
+>[AZURE.NOTE] Убедитесь, что отправляемое в виде push-уведомлений содержимое соответствует руководствам по разработке приложений и отправке push-уведомлений для соответствующей платформы (iOS, Android, Windows).
 
  
 
 
-###### <a name="when:-the-timing-of-your-campaign"></a>When: The timing of your campaign
+###### Когда — время проведения кампании
 
-When is the best time to activate a campaign triggering push notifications? Should it be manual or automatic? Should it be recurring? Determining the right time or frequency is essential to engage users with the best results. For each engagement sequence and scenario, you must specify when will be the best time to send push notifications. Here are some possible examples:
+Когда лучше всего начинать кампанию по отправке push-уведомлений? Как проводить кампанию — вручную или автоматически? Должна ли компания повторяться? Определение правильного времени или частоты позволяет привлекать пользователей максимально эффективно. Для каждой последовательности и сценария привлечения необходимо определить лучшее время для отправки push-уведомлений. Ниже приведено несколько примеров.
 
 ![](./media/mobile-engagement-getting-started-best-practices/campaign-timing-examples.png)
 
-If you are sending many notifications daily, you must take serious consideration that your users may perceive your communications as spam. 
+Если вы ежедневно отправляете множество уведомлений, следует тщательно подумать, не воспринимают ли пользователи такие уведомления как нежелательные.
 
-Azure Mobile Engagement provides two ways to help avoid your communications being perceived as spam. First, use fine grain segmentation to ensure you do not target the same users. Additionally, Azure Mobile Engagement provides a “quota” feature. This feature can limit notifications sent for a campaign. For example, setting a default quota to 5 per week will ensure that a user included as part of the campaign user segment receives no more than 5 notifications for that week.
-
-
-
-
-
-#### <a name="playbook-exercise-2:-create-your-engagement-program"></a>Playbook Exercise 2: Create your engagement program
-
-Spend some time summarizing your objectives and defining the campaigns you expect to play using specific sequences. Make sure you apply the 3W approach to the notifications in your campaigns. 
-
-Use the **Engagement Program** worksheet in the [Media Playbook Template][Media Playbook link] for examples and guidance.
-
-
-## <a name="step-3:-app-integration"></a>Step 3: App Integration
-
-
-#### <a name="create-a-tag-plan"></a>Create a tag plan
-
-To integrate Azure Mobile Engagement into your app you will need to create a tag plan. The tag plan is the cornerstone of the project. It defines the relationship between marketing specifications, the work flow of the application, and the real tag data collected in the app to measure KPIs. It indicates what analytics you will be able to see in the portal. It also helps you define user segments, and send focused push notifications to engage your end-users. Once you have the tag plan defined, adding the code to integrate it into your app is simple using the Azure Mobile Engagement SDK.
-
-A tag plan should not tag everything in an application. It should only include tag data that is part of your mobile engagement strategy. This will likely be diverse between applications. The [Media Playbook Template][Media Playbook link] provided by Azure Mobile Engagement helps you build a tag plan with a given method. Use the **Tag Plan** worksheet as a guide to building your tag plan.
-
-When defining a tag section in the worksheet, be very specific. This is very important to avoid confusion. Detail each expected scenario in which each tag will be sent. Include the name of the activity where each tag is embedded. This should all be included in the **Informative** part of the worksheet. The tag plan worksheet should be the main reference for test verification. 
-
-In the **Data to collect** section, your development team should find the types, names, values and extra-info key/value pairs required for each tag that will be embedded in the application.
-
-We recommend reviewing the Tag plan with all teams associated with the project. Make necessary corrections and confirm everything is clear for marketing and development teams.
-
-The **Statement of work** worksheet can be used to help guide everyone involved in the project.
-
-
-#### <a name="data-types"></a>Data Types
-
-These are common types of data support by Azure Mobile Engagement.
-
-###### <a name="devices-and-users"></a>Devices and users
-
-Azure Mobile Engagement identifies users by generating a unique identifier for each device. This identifier is called the device identifier (or deviceid). It is generated in such a way that all applications running on that same device share the same device identifier.
-
-###### <a name="sessions-and-activities"></a>Sessions and activities
-
-A session is one instance of the app being run by a user. The session spans from the time the user starts the app, until it stops.
-
-An activity is a logical grouping of a set of things the app may do during a session. It is usually a particular screen in the app, but it can be anything defined by the logic of the application. At a minimum you should tag each screen or Activity for your app. This will allow you to understand the user-path.
-
-
-###### <a name="events"></a>Events
-
-Events are used to report user interaction with the app. They can be instant actions, like sharing content or launching a video. Tagging events will provide you with data collections that show how users interact with the app. 
-
-###### <a name="jobs"></a>Jobs
-
-Jobs are used to report actions that have a duration. Some examples would include:
-
-- Execution of API calls
-- Display time of ads
-- Background tasks duration 
-- Purchase process duration
-- Viewing a video
-
-
-###### <a name="errors"></a>Errors
-
-Errors are used to report issues detected by the app. For example, incorrect user actions, or API call failures.
-
-###### <a name="application-information"></a>Application information
-
-Application information (App-Info) is used to tag data related to a user's experience with an application. It is generated by a user's interaction with the application. 
-
-For a given app-info key, Azure Mobile Engagement only keeps track of the latest value (no history). App-info reveals the status of your app or your end-users. For example the log-in status, or a user's favorite product group.
-
-###### <a name="crash-data"></a>Crash data
-
-Crash data automatically collected by the Mobile Engagement SDK reports application failures not handled by the application. For example an unhandled exception that occurs.
-
-
-###### <a name="extra-data"></a>Extra data
-
-Events, errors, activities and jobs can be enhanced with parameters. This is extra-information a developer may provide as specific data from the application. This is important for defining fine-grained segmentation. 
-
-For example, the value of an “article” tag will allow you to segment end-users based on who viewed that particular article. However, that may not be enough. It may be better if that same "article" tag also included extra-info such as “news_category” within an activity. This would be useful to determine dynamically the favorite categories for the user. 
-
-Extra-info is reported as a key/value pair. In the example for this media application, the extra-info for “news_category” would be the value for that category. For example, “sports", "economy", or "politics".
+Служба Azure Mobile Engagement предлагает два способа, которые помогут избежать восприятия ваших сообщений как нежелательных. Во-первых, используйте детальную сегментацию, чтобы не нацеливаться на одних и тех же пользователей. Кроме того, служба Azure Mobile Engagement дает возможность пользоваться функцией квот. Эта функция может ограничить количество уведомлений, отправляемых в рамках одной кампании. Например, если для квоты по умолчанию задать значение «5 в неделю», пользователь, входящий в сегмент пользователей кампании, получит не больше 5 уведомлений в течение этой недели.
 
 
 
 
 
-#### <a name="tag-and-sdk-integration"></a>Tag and SDK integration 
+#### Тренировочное задание 2. Создание собственной программы привлечения
 
-For step by step instructions for integrating the Azure Mobile Engagement SDK into your app, follow the  [Engagement SDK Integration](mobile-engagement-windows-store-integrate-engagement.md) documentation on Azure website. Choose your target platform from the links at the top of that page.
+Выделите время на постановку целей и определение кампаний, которые вы планируете провести с использованием конкретных последовательностей. Обязательно используйте для уведомлений в вашей кампании подход «Кто, что, когда».
 
-We recommend creating projects for two apps built on top of Azure Mobile Engagement. One for development and test staging and the other for production staging. Your IT team can then promote from test staging to production when the user acceptance testing is successful.
+Используйте примеры и руководства из таблицы **Программа привлечения** в [шаблоне сборника тренировочных заданий для мультимедиа][Media Playbook link].
+
+
+## Шаг 3. Интеграция приложения
+
+
+#### Создание плана тегов
+
+Для интеграции Azure Mobile Engagement в веб-приложение необходимо создать план тегов. План тегов является ключевым элементом проекта. Он определяет взаимосвязь между маркетинговыми требованиями, рабочим процессом приложения и реальными данными тегов, собранными в приложении для определения ключевых показателей эффективности. Он указывает, какие аналитические данные вы увидите на портале. Кроме того, этот план помогает определять сегменты пользователей и отправлять конкретные push-уведомления для привлечения конечных пользователей. Создав план тегов, можно легко добавить код, чтобы интегрировать план в приложение. Для этого нужно воспользоваться пакетом SDK Azure Mobile Engagement.
+
+План тегов не должен помечать тегами все данные в приложении. Он должен включать только те данные тегов, которые являются частью вашей стратегии мобильного привлечения. Скорее всего, он будет варьироваться в зависимости от приложения. [Шаблон сборника тренировочных заданий для мультимедиа][Media Playbook link], предоставляемый службой Azure Mobile Engagement, помогает создать план тегов с помощью определенного метода. Используйте лист **План тегов** как руководство по созданию своего плана тегов.
+
+Задавая раздел тегов в листе, необходимо быть очень точным. Это необходимо для того, чтобы не допустить путаницы. Для каждого тега подробно опишите ожидаемый сценарий, при возникновении которого этот тег будет отправлен. Укажите название действия, в которое внедряется каждый тег. Все эти сведения должны быть включены в раздел листа **Информативный**. Лист с планом тегов должна быть основным справочным материалом для тестирования.
+
+В разделе **Собираемые данные** группа разработчиков должна найти типы, имена, значения и пары раздел-значение для дополнительных сведений, необходимых для каждого тега, который будет внедрен в приложение.
+
+Мы рекомендуем ознакомить с планом тегов всех участников команды, работающей над проектом. Внесите необходимые исправления и убедитесь, что группам маркетинга и разработки понятны все детали.
+
+С помощью листа **Описание работы** вы можете руководить всеми участниками проекта.
+
+
+#### Типы данных
+
+Это общие типы данных, поддерживаемые службой Azure Mobile Engagement.
+
+###### Устройства и пользователи
+
+Служба Azure Mobile Engagement идентифицирует пользователей, создавая уникальный идентификатор для каждого устройства. Этот идентификатор называется идентификатором устройства (или deviceid). Он создается таким образом, что все приложения, запущенные на одном устройстве, используют один идентификатор устройства.
+
+###### Сеансы и действия
+
+Сеанс — это один экземпляр приложения, запускаемый пользователем. Сеанс означает время с момента запуска приложения пользователем до момента его закрытия.
+
+Действие — это логическое объединение набора операций, которые приложение может выполнять во время сеанса. Обычно это конкретный экран в приложении, но оно может быть любым элементом, определяемым логикой приложения. Как минимум следует обозначить тегом каждый экран или действие в приложении. Это позволит понять действия пользователя.
+
+
+###### События
+
+События используются для обозначения взаимодействия пользователя с приложением. Это может быть мгновенное действие (например, обмен содержимым) или запуск видео. Добавление тегов к событиям позволяет получить наборы данных, которые показывают, как пользователи взаимодействуют с приложением.
+
+###### Задания
+
+Задания используются для создания отчетов о действиях, которые имеют длительность. Вот некоторые примеры:
+
+- выполнение вызовов API;
+- время отображения рекламы;
+- длительность выполнения фоновых задач;
+- длительность процесса покупки;
+- просмотр видео.
+
+
+###### Ошибки
+
+На основании ошибок создаются отчеты о проблемах, обнаруженных приложением, например о неправильных действиях пользователя или сбоях вызова API.
+
+###### Сведения о приложении
+
+Сведения о приложении используются для маркировки данных, связанных с работой пользователя с приложением. Они создаются путем взаимодействия пользователя с приложением.
+
+Для конкретного раздела сведений о приложении служба Azure Mobile Engagement отслеживает только последнее значение (без журнала). Сведения о приложении показывают состояние приложения или конечных пользователей, например состояние входа или избранную группу продуктов пользователя.
+
+###### Данные о сбоях
+
+Данные о сбоях, автоматически собираемые пакетом SDK Mobile Engagement, — это сведения о сбоях, не обработанных приложением. Это, например, сведения о каком-нибудь необработанном исключении.
+
+
+###### Дополнительные данные
+
+События, ошибки, действия и задания могут дополняться данными о параметрах. Это дополнительные сведения, которые разработчик может предоставить в качестве определенных данных из приложения. Они важны для определения детальной сегментации.
+
+Например, значение тега «article» позволит разделить конечных пользователей на сегменты в зависимости от того, кто просматривал конкретную статью. Однако этого может быть недостаточно. Возможно, будет лучше, если тот же тег «article» в рамках действия также включал бы в себя дополнительные сведения, например «news\_category». Это помогло бы динамически определить для пользователя избранные категории.
+
+Дополнительные сведения входят в отчет как пара «раздел — значение». В примере для этого мультимедийного приложения дополнительными сведениями «news\_category» будет значение этой категории. Например, «спорт», «экономика» или «политика».
 
 
 
-#### <a name="user-acceptance-testing-(uat)"></a>User acceptance testing (UAT)
 
-User acceptance testing (UAT) involves making sure that everything works as designed. Work flows can be completed and gather all required data based on your tag plan:
+
+#### Тег и интеграция пакета SDK 
+
+Пошаговые инструкции для интеграции пакета SDK службы Azure Mobile Engagement в приложении см. в документации [Интеграция пакета SDK Engagement](mobile-engagement-windows-store-integrate-engagement.md) на веб-сайте Azure. Вверху страницы выберите ссылку для целевой платформы.
+
+Мы рекомендуем создавать проекты двух приложений, разработанных на основе Azure Mobile Engagement. Одно для стадии разработки и тестирования, а другое — для стадии производства. При успешном приемочном тестировании пользователями ваша ИТ-группа может перейти от этапа тестирования к производству.
+
+
+
+#### Приемочное тестирование пользователями
+
+Приемочное тестирование пользователями предназначено для того, чтобы проверить, что все работает как следует и что рабочие процессы завершаются успешно и собирают все необходимые данные в соответствии с планом тегов.
  
-- Information tagging should be in place according to documented AZME concepts
-- All information you need is collected (including Extra info value, App info value)
-- Nomenclature matches according to yout Tag Plan
-- There is no duplicate tags sent
+- Маркировка информации тегами должна соответствовать задокументированным концепциям AZME.
+- Собраны все необходимые сведения (включая значение дополнительных сведений и значение сведений о приложении).
+- Номенклатура соответствует плану тегов.
+- Дубликаты тегов не отправляются.
 
-Thoroughly test all the types of notification behavior you have embedded in your app
+Тщательно проверьте поведение всех типов уведомлений, внедренных в приложение:
 
-- Announcements, Polls, Data pushes out of app and in-app
-- Text/Web views
-- Badge update, Categories
-
-
-
-#### <a name="setup"></a>Setup
-
-Setting up Azure Mobile Engagement is very simple. All the documentation related to the user interface is available on the Azure Mobile Engagement website, [How to navigate the user interface](mobile-engagement-user-interface-home.md).
-
-It is recommended that you start by setting up the right roles and role memberships for the users of your project. This helps you manage proper access to the platform for all users. Your roles may include:
-
-- Administrators
-- Developers
-- Viewers 
-
-Afterwards:
-- Register your deviceID to test on your own device.
-- Go to the settings of your account and set up the time zone to have charts and notification delivery time set for your time zone.
-- Go to the settings of your application and register the “App-info” you need to target end-user within Reach.
-
-For more information on how to run your first push notification campaign, review [How to get started using and managing pushes to reach out to your end users](mobile-engagement-how-tos.md).
+- объявления, опросы, отправка данных из приложения и в него;
+- текстовые представления и веб-представления;
+- обновление индикаторов событий, категории.
 
 
 
-## <a name="conclusion"></a>Conclusion
+#### Настройка
+
+Настройка решения Azure Mobile Engagement очень проста. Вся документация, связанная с пользовательским интерфейсом, доступна на веб-сайте Azure Mobile Engagement [Навигация по пользовательскому интерфейсу](mobile-engagement-user-interface-home.md).
+
+Мы рекомендуем начать с настройки правильных ролей и членства в них для пользователей вашего проекта. Это поможет настроить необходимые права доступа к платформе для всех пользователей. Можно настроить такие роли:
+
+- Администраторы
+- Разработчики
+- Наблюдатели
+
+Затем выполните следующие действия.
+- Зарегистрируйте идентификатор устройства (deviceID), чтобы протестировать свое устройство.
+- Перейдите на страницу параметров учетной записи и настройте часовой пояс, чтобы время в диаграммах и время доставки уведомлений совпадало с вашим часовым поясом.
+- Перейдите на страницу параметров приложения и зарегистрируйте информацию о приложении, необходимую для выбора конечных пользователей в пределах охвата.
+
+Дополнительные сведения о запуске первой кампании push-уведомлений см. в разделе [Начало использования push-уведомлений и управление ими для охвата конечных пользователей](mobile-engagement-how-tos.md).
 
 
-Engagement Programs are iterative and you should continuously improve yours as you experiment with what works best for your app. 
 
-Initially, while developing experience with engagement strategies don't try to build an entire global engagement strategy. Take a step by step approach identifying your KPIs and how to leverage them. Engagement strategy will be unique for each app.
-
-After you have developed some experience you might consider adding the following to your engagement programs:
-
-- Tracking:  You acquire users and you probably define data-collection sources. Azure mobile Engagement can be linked to data-collection sources. It allows you to monitor performances of each source. This information will be interesting to maximize your acquisition investment. 
-
-- A/B testing: This is an essential part of Engagement program. Each app has its own specifics. With A/B testing, you can improve your engagement program.
-
-- Geo-location: This is a big opportunity for brands. Thanks to this feature you can reach at the right place and time. We recommend verifying you have gathered enough end-user behavior data before starting to use geo-location.
-
-- Data push: Data push is an invisible push. Data push allows customizing your application based on end-user behavior. For example, if a user segment often consults high-tech products, the app owner can send a data push which will personalize her home page with high-tech content.
+## Заключение
 
 
+Программы привлечения — это повторяющиеся программы, поэтому, по мере того как вы выясняете и копируете самые подходящие аспекты и параметры для вашего приложения, вам нужно постоянно совершенствовать свою программу.
 
-## <a name="next-steps"></a>Next Steps
+Вначале, когда у вас еще нет опыта в разработке стратегий привлечения, не пытайтесь полностью выстроить всю глобальную стратегию. Определяя ключевые аспекты эффективности и способы их использования, действуйте поэтапно. Стратегия привлечения будет уникальна для каждого отдельного приложения.
 
-- [Create an Azure Mobile Engagement account](mobile-engagement-create.md).
-- Visit [Define your Mobile Engagement strategy](mobile-engagement-define-your-mobile-engagement-strategy.md) to learn more about defining your Mobile Engagement strategy.
+Накопив опыт в разработке таких программ, попробуйте добавить в программы привлечения следующие компоненты:
+
+- Отслеживание: вы приобретаете пользователей и, возможно, определяете источники сбора данных. Службу Azure Mobile Engagement можно связать с источниками сбора данных. Это позволяет отслеживать производительность каждого источника. Данная информация будет полезна для повышения инвестиций приобретения.
+
+- A/B-тестирование — это важная часть программы привлечения. Каждое приложение имеет свои собственные характеристики. Благодаря А/В-тестированию вы можете улучшить программу привлечения.
+
+- Географическое расположение — это большие возможности для торговых марок. С помощью этой функции вы можете охватить пользователей в нужном месте и в нужное время. Мы рекомендуем перед началом использования географического расположения убедиться, что собрано достаточно данных о поведении конечных пользователей.
+
+- Принудительная отправка данных — это фоновая отправка. Принудительная отправка данных позволяет настроить приложение в соответствии с поведением конечных пользователей. Например, если пользователи определенного сегмента часто просматривают информацию о высокотехнологичных продуктах, владелец приложения может принудительно отправить данные, которые добавят на домашнюю страницу пользователя содержимое, относящееся к таким продуктам.
+
+
+
+## Дальнейшие действия
+
+- [Создание учетной записи Azure Mobile Engagement](mobile-engagement-create.md)
+- Чтобы получить дополнительные сведения об определении стратегии мобильного привлечения, посетите раздел [Определение стратегии мобильного привлечения](mobile-engagement-define-your-mobile-engagement-strategy.md).
 
 
 
@@ -408,8 +407,4 @@ After you have developed some experience you might consider adding the following
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

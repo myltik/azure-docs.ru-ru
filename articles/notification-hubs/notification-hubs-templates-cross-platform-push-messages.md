@@ -1,102 +1,101 @@
 <properties
-    pageTitle="Templates"
-    description="This topic explains Templates for Azure notification hubs."
-    services="notification-hubs"
-    documentationCenter=".net"
-    authors="wesmc7777"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Шаблоны"
+	description="В этом разделе описываются шаблоны для центров уведомлений Azure."
+	services="notification-hubs"
+	documentationCenter=".net"
+	authors="wesmc7777"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-multiple"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="06/29/2016"
-    ms.author="wesmc"/>
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/29/2016"
+	ms.author="wesmc"/>
 
+# Шаблоны
 
-# <a name="templates"></a>Templates
+##Обзор
 
-##<a name="overview"></a>Overview
+Шаблоны позволяют клиентскому приложению определять точный формат уведомлений, которые оно будет получать. С помощью шаблонов приложение получает несколько преимуществ, включая следующие:
 
-Templates enable a client application to specify the exact format of the notifications it wants to receive. Using templates, an app can realize several different benefits, including the following :
+* Серверная часть, не зависящая от платформы
 
-* A platform-agnostic backend
+* Персонализированные уведомления
 
-* Personalized notifications
+* Независимость от версии клиента
 
-* Client-version independence
+* Простая локализация
 
-* Easy localization
+В этом разделе приводится два подробных примера использования шаблонов для отправки платформонезависимых уведомлений, предназначенных для всех устройств на разных платформах, и для персонализации широковещательного уведомления для каждого устройства.
 
-This section provides two in-depth examples of how to use templates to send platform-agnostic notifications targeting all your devices across platforms, and to personalize broadcast notification to each device.
+##Использование шаблонов для разных платформ
 
-##<a name="using-templates-cross-platform"></a>Using templates cross-platform
+Стандартный способ отправки push-уведомлений заключается в отправке полезных данных в службу уведомлений платформы (WNS, APNS) для каждого уведомления. Например, для отправки предупреждения службе APNS полезными данными будет объект JSON следующего вида:
 
-The standard way to send push notifications is to send, for each notification that is to be sent, a specific payload to platform notification services (WNS, APNS). For example, to send an alert to APNS, the payload is a Json object of the following form:
+	{"aps": {"alert" : "Hello!" }}
 
-    {"aps": {"alert" : "Hello!" }}
+Для отправки аналогичного всплывающего сообщения в приложении Магазина Windows полезными данными XML будет:
 
-To send a similar toast message on a Windows Store application, the XML payload is as follows:
+	<toast>
+	  <visual>
+	    <binding template="ToastText01">
+	      <text id="1">Hello!</text>
+	    </binding>
+	  </visual>
+	</toast>
 
-    <toast>
-      <visual>
-        <binding template=\"ToastText01\">
-          <text id=\"1\">Hello!</text>
-        </binding>
-      </visual>
-    </toast>
+Аналогичные полезные данные можно создавать для платформ MPNS (Windows Phone) и GCM (Android).
 
-You can create similar payloads for MPNS (Windows Phone) and GCM (Android) platforms.
+Это требование заставляет серверную часть приложения формировать разные полезные данные для каждой платформы, а также возлагает на нее ответственность за часть уровня представления данных в приложении. К некоторым вопросам относятся локализация и графические макеты (особенно для приложений Магазина Windows, которые содержат уведомления для плиток различных типов).
 
-This requirement forces the app backend to produce different payloads for each platform, and effectively makes the backend responsible for part of the presentation layer of the app. Some concerns include localization and graphical layouts (especially for Windows Store apps that include notifications for various types of tiles).
+Шаблон центра уведомлений позволяет клиентскому приложению создавать специальные регистрации (называются шаблонными регистрациями), которые содержат не только набор тегов, но и шаблон. Шаблон центра уведомлений позволяет клиентскому приложению связывать устройства с шаблонами, независимо от того, работаете ли вы с установкой (рекомендуется) или регистрацией. В предыдущих примерах полезных данных единственным фрагментом, не зависящим от платформы, является само сообщение "Hello!". Шаблон — это набор инструкций для центра уведомлений о форматировании платформонезависимых сообщений для регистрации конкретного клиентского приложения. В предыдущем примере платформонезависимым сообщением является одно свойство: **message = Hello!**.
 
-The Notification Hubs template feature enables a client app to create special registrations, called template registrations, which include, in addition to the set of tags, a template. The Notification Hubs template feature enables a client app to associate devices with templates whether you are working with Installations (preferred) or Registrations. Given the preceding payload examples, the only platform-independent information is the actual alert message (Hello!). A template is a set of instructions for the Notification Hub on how to format a platform-independent message for the registration of that specific client app. In the preceding example, the platform independent message is a single property: **message = Hello!**.
-
-The following picture illustrates the above process:
+На следующем рисунке показана схема работы.
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
 
-The template for the iOS client app registration is as follows:
+Шаблон для регистрации клиентского приложения iOS выглядит следующим образом:
 
-    {"aps": {"alert": "$(message)"}}
+	{"aps": {"alert": "$(message)"}}
 
-The corresponding template for the Windows Store client app is:
+Соответствующий шаблон для клиентского приложения Магазина Windows:
 
-    <toast>
-        <visual>
-            <binding template=\"ToastText01\">
-                <text id=\"1\">$(message)</text>
-            </binding>
-        </visual>
-    </toast>
+	<toast>
+		<visual>
+			<binding template="ToastText01">
+				<text id="1">$(message)</text>
+			</binding>
+		</visual>
+	</toast>
 
-Notice that the actual message is substituted for the expression $(message). This expression instructs the Notification Hub, whenever it sends a message to this particular registration, to build a message that follows it and switches in the common value.
+Обратите внимание, что фактическое сообщение меняется на выражение $(message). Это выражение предписывает центру уведомлений всякий раз, когда он отправляет сообщение для данной регистрации, создавать сообщение в соответствии с этим выражением и параметрами из общего значения.
 
-If you are working with Installation model, the installation “templates” key holds a JSON of multiple templates. If you are working with Registration model, the client application can create multiple registrations in order to use multiple templates; for example, a template for alert messages and a template for tile updates. Client applications can also mix native registrations (registrations with no template) and template registrations.
+При работе с установками ключ "шаблона" установки содержит объект JSON для нескольких шаблонов. При работе с регистрациями клиентское приложение может создавать несколько регистраций для использования нескольких шаблонов. Например, шаблон для предупреждений и шаблон для обновления плиток. Клиентские приложения также могут использовать комбинацию собственных регистраций (регистраций без шаблона) и регистраций с шаблонами.
 
-The Notification Hub sends one notification for each template without considering whether they belong to the same client app. This behavior can be used to translate platform-independent notifications into more notifications. For example, the same platform independent message to the Notification Hub can be seamlessly translated in a toast alert and a tile update, without requiring the backend to be aware of it. Note that some platforms (for example, iOS) might collapse multiple notifications to the same device if they are sent in a short period of time.
+Центр уведомлений отправляет одно уведомление для каждого шаблона, не учитывая, принадлежат ли они одному клиентскому приложению. Это поведение может использоваться для преобразования платформонезависимых уведомлений в серию уведомлений. Например, одно платформонезависимое сообщение для центра уведомлений может быть автоматически преобразовано во всплывающее предупреждение и обновление плитки, не требуя участия серверной части. Обратите внимание, что некоторые платформы (например iOS) могут сворачивать несколько уведомлений для одного устройства, если они отправляются в течение короткого периода времени.
 
-##<a name="using-templates-for-personalization"></a>Using templates for personalization
+##Использование шаблонов для персонализации
 
-Another advantage to using templates is the ability to use Notification Hubs to perform per-registration personalization of notifications. For example, consider a weather app that displays a tile with the weather conditions at a specific location. A user can choose between Celsius or Fahrenheit degrees, and a single or five-day forecast. Using templates, each client app installation can register for the format required (1-day Celsius, 1-day Fahrenheit, 5-days Celsius, 5-days Fahrenheit), and have the backend send a single message that contains all the information required to fill those templates (for example, a five-day forecast with Celsius and Fahrenheit degrees).
+Еще одним преимуществом использования шаблонов является возможность использования центров уведомлений для персонализации уведомлений по отдельным регистрациям. Например, рассмотрим погодное приложение, которое отображает плитку с погодными условиями в определенном месте. Пользователь может выбрать между отображением градусов Цельсия или Фаренгейта и прогноз на один или на пять дней. С помощью шаблонов каждая установка клиентского приложения может зарегистрировать необходимый для себя формат (1 день и шкала Цельсия, 1 день и шкала Фаренгейта, 5 дней и шкала Цельсия, 5 дней и шкала Фаренгейта), а его серверная часть будет отправлять одно сообщение со всеми данными, необходимыми для заполнения шаблонов (например, пятидневный прогноз с градусами Цельсия и Фаренгейта).
 
-The template for the one-day forecast with Celsius temperatures is as follows:
+Шаблон для прогноза погоды на один день и шкалой Цельсия выглядит следующим образом:
 
-    <tile>
-      <visual>
-        <binding template="TileWideSmallImageAndText04">
-          <image id="1" src="$(day1_image)" alt="alt text"/>
-          <text id="1">Seattle, WA</text>
-          <text id="2">$(day1_tempC)</text>
-        </binding>  
-      </visual>
-    </tile>
+	<tile>
+	  <visual>
+	    <binding template="TileWideSmallImageAndText04">
+	      <image id="1" src="$(day1_image)" alt="alt text"/>
+	      <text id="1">Seattle, WA</text>
+	      <text id="2">$(day1_tempC)</text>
+	    </binding>  
+	  </visual>
+	</tile>
 
-The message sent to the Notification Hub contains all the following properties:
+Сообщение, отправляемое в центр уведомлений, содержит следующие свойства:
 
 
 <table border="1">
@@ -106,61 +105,56 @@ The message sent to the Notification Hub contains all the following properties:
 </table><br/>
 
 
-By using this pattern, the backend only sends a single message without having to store specific personalization options for the app users. The following picture illustrates this scenario:
+С помощью этого шаблона серверная часть отправляет только одно сообщение без необходимости хранить персональные параметры для пользователей приложения. На следующем рисунке показана схема работы.
 
 ![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
-##<a name="how-to-register-templates"></a>How to register templates
+##Регистрация шаблонов
 
-To register with templates using the Installation model (preferred), or the Registration model, see [Registration Management](notification-hubs-push-notification-registration-management.md).
+Регистрация шаблонов с помощью механизма установок (рекомендуется) или регистраций описывается в статье [Управления регистрацией](notification-hubs-push-notification-registration-management.md).
 
-##<a name="template-expression-language"></a>Template expression language
+##Язык выражений шаблонов
 
-Templates are limited to XML or JSON document formats. Also, you can only place expressions in particular places; for example, node attributes or values for XML, string property values for JSON.
+В шаблоны можно использовать только форматы документов XML или JSON. Кроме того, выражения можно размещать только в определенных местах. Например, атрибуты узла или значения для XML и значения строковых свойств для JSON.
 
 
 
-The following table shows the language allowed in templates:
+В следующей таблице показан синтаксис, используемый в шаблонах:
 
-| Expression | Description |
+| Выражение | Описание |
 |------------|-------------|
-| $(prop) | Reference to an event property with the given name. Property names are not case-sensitive. This expression resolves into the property’s text value or into an empty string if the property is not present. |
-| $(prop, n) | As above, but the text is explicitly clipped at n characters, for example $(title, 20) clips the contents of the title property at 20 characters. |
-| .(prop, n) | As above, but the text is suffixed with three dots as it is clipped. The total size of the clipped string and the suffix does not exceed n characters. .(title, 20) with an input property of “This is the title line” results in **This is the title...** |
-| %(prop) | Similar to $(name) except that the output is URI-encoded. |
-| #(prop) | Used in JSON templates (for example, for iOS and Android templates).<br><br>This function works exactly the same as $(prop) previously specified, except when used in JSON templates (for example, Apple templates). In this case, if this function is not surrounded by “{‘,’}” (for example, ‘myJsonProperty’ : ‘#(name)’), and it evaluates to a number in Javascript format, for example, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, then the output JSON is a number.<br><br>For example, ‘badge : ‘#(name)’ becomes ‘badge’ : 40 (and not ‘40‘). |
-| ‘text’ or “text” | A literal. Literals contain arbitrary text enclosed in single or double quotes. |
-| expr1 + expr2 | The concatenation operator joining two expressions into a single string.
+| $(prop) | Ссылка на свойство события с заданным именем. В именах свойств регистр не учитывается. Значением этого выражения является текстовое значение свойства или пустая строка, если свойство не существует. |
+| $(prop, n) | То же, что выше, но текст обрезается до n символов, например, выражение $(title, 20) сокращает содержимое свойства title до 20 символов. |
+| .(prop, n) | То же, что выше, но к тексту добавляются три точки, поскольку он является сокращенным. Общий размер сокращенной строки и суффикса не превышает n символов. (title, 20) с исходным свойством "Это строка заголовка" превращается в **Это строка заголо...** |
+| %(prop) | Аналогично $(name), за исключением того, что выходные данные имеют формат URI. |
+| #(prop) | Используется в шаблонах JSON (например, для шаблонов iOS и Android).<br><br>Это выражение работает так же, как $(prop), указанное выше, за исключением случаев использования в шаблонах JSON (например, в шаблонах Apple). В этом случае, если функция не заключена в "{‘,’}" (например, ‘myJsonProperty’ : ‘#(name)’) и имеет значением число в формате Javascript, например, регулярное выражение (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, то результат JSON является числом.<br><br>Например ‘badge : ‘#(name)’ становится ‘badge’ : 40 (а не ‘40‘). |
+| ‘text’ или “text” | Литерал. Литералы содержат произвольный текст, заключенный в одинарные или двойные кавычки. |
+| expr1 + expr2 | Оператор объединения, объединяющий два выражения в одну строку.
 
-The expressions can be any of the preceding forms.
+Выражения могут быть любого из перечисленных выше видов.
 
-When using concatenation, the entire expression must be surrounded with {}. For example, {$(prop) + ‘ - ’ + $(prop2)}. |
-
-
-For example, the following is not a valid XML template:
-
-    <tile>
-      <visual>
-        <binding $(property)>
-          <text id="1">Seattle, WA</text>
-        </binding>  
-      </visual>
-    </tile>
+При использовании конкатенации все выражение должно быть заключено в фигурные кавычки {}. Например, {$(prop) + ‘ - ’ + $(prop2)}. |
 
 
-As explained above, when using concatenation, expressions must be wrapped in curly brackets. For example:
+Например, ниже представлен недопустимый шаблон XML:
 
-    <tile>
-      <visual>
-        <binding template="ToastText01">
-          <text id="1">{'Hi, ' + $(name)}</text>
-        </binding>  
-      </visual>
-    </tile>
-
-
+	<tile>
+	  <visual>
+	    <binding $(property)>
+	      <text id="1">Seattle, WA</text>
+	    </binding>  
+	  </visual>
+	</tile>
 
 
-<!--HONumber=Oct16_HO2-->
+Как было сказано выше, при использовании конкатенации выражения должны быть заключены в фигурные скобки. Например:
 
+	<tile>
+	  <visual>
+	    <binding template="ToastText01">
+	      <text id="1">{'Hi, ' + $(name)}</text>
+	    </binding>  
+	  </visual>
+	</tile>
 
+<!---HONumber=AcomDC_0706_2016-->

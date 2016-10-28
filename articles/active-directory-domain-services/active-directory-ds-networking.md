@@ -1,118 +1,113 @@
 <properties
-    pageTitle="Azure AD Domain Services: Networking guidelines | Microsoft Azure"
-    description="Networking considerations for Azure Active Directory Domain Services"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+	pageTitle="Доменные службы Azure AD. Рекомендации по сетям | Microsoft Azure"
+	description="Рекомендации по сетям для доменных служб Azure Active Directory"
+	services="active-directory-ds"
+	documentationCenter=""
+	authors="mahesh-unnikrishnan"
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/20/2016"
-    ms.author="maheshu"/>
+	ms.service="active-directory-ds"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/20/2016"
+	ms.author="maheshu"/>
+
+# Рекомендации по сетям для доменных служб Azure AD
+
+## Выбор виртуальной сети Azure
+При выборе виртуальной сети для использования с доменными службами Azure AD придерживайтесь следующих рекомендаций.
+
+### Тип виртуальной сети Azure
+
+- Включить доменные службы Azure AD можно в классической виртуальной сети Azure.
+
+- Доменные службы Azure AD **нельзя включить в виртуальных сетях, созданных с помощью Azure Resource Manager**.
+
+- Вы можете подключить виртуальную сеть на основе Resource Manager к классической виртуальной сети, в которой включены доменные службы Azure AD. После этого доменные службы Azure AD можно будет использовать в виртуальной сети на основе Resource Manager.
+
+- **Региональные виртуальные сети.** Если вы планируете использовать имеющуюся виртуальную сеть, убедитесь, что это региональная виртуальная сеть.
+
+    - Виртуальные сети, в которых используется устаревший механизм территориальных групп, не могут использоваться с доменными службами Azure AD.
+
+	- Чтобы использовать доменные службы Azure AD, [перенесите устаревшие виртуальные сети в региональные виртуальные сети](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 
-# <a name="networking-considerations-for-azure-ad-domain-services"></a>Networking considerations for Azure AD Domain Services
+### Регион Azure для виртуальной сети
 
-## <a name="how-to-select-an-azure-virtual-network"></a>How to select an Azure virtual network
-The following guidelines help you select a virtual network to use with Azure AD Domain Services.
+- Управляемый домен доменных служб Azure AD развертывается в том же регионе Azure, что и виртуальная сеть, в которой необходимо включить службу.
 
-### <a name="type-of-azure-virtual-network"></a>Type of Azure virtual network
+- Выберите виртуальную сеть в регионе Azure, который поддерживается доменными службами Azure AD.
 
-- You can enable Azure AD Domain Services in a classic Azure virtual network.
-
-- Azure AD Domain Services **cannot be enabled in virtual networks created using Azure Resource Manager**.
-
-- You can connect a Resource Manager-based virtual network to a classic virtual network in which Azure AD Domain Services is enabled. Thereafter, you can use Azure AD Domain Services in the Resource Manager-based virtual network.
-
-- **Regional Virtual Networks**: If you plan to use an existing virtual network, ensure that it is a regional virtual network.
-
-    - Virtual networks that use the legacy affinity groups mechanism cannot be used with Azure AD Domain Services.
-
-    - To use Azure AD Domain Services, [migrate legacy virtual networks to regional virtual networks](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+- На странице [служб Azure по регионам](https://azure.microsoft.com/regions/#services/) можно узнать, в каких регионах Azure доступны доменные службы Azure AD.
 
 
-### <a name="azure-region-for-the-virtual-network"></a>Azure region for the virtual network
+### Требования к виртуальной сети
 
-- Your Azure AD Domain Services managed domain is deployed in the same Azure region as the virtual network you choose to enable the service in.
+- **Близкое расположение к рабочим нагрузкам Azure.** Выберите виртуальную сеть, где размещаются или будут размещены виртуальные машины, которым необходим доступ к доменным службам Azure AD.
 
-- Select a virtual network in an Azure region supported by Azure AD Domain Services.
+- **Пользовательский или собственный DNS-сервер.** Убедитесь, что для виртуальной сети нет настроенных пользовательских DNS-серверов.
 
-- See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available.
+- **Имеющиеся домены с таким же доменным именем.** Убедитесь, что в виртуальной сети нет домена с таким же доменным именем. Например, предположим, что в выбранной виртуальной сети уже есть домен с именем contoso.com, Позже вы попытаетесь включить в ней управляемый домен доменных служб Azure AD с таким же доменным именем (contoso.com). В таком случае попытка включить доменные службы Azure AD приведет к ошибке. Причина заключается в конфликте доменных имен в этой виртуальной сети. В такой ситуации для настройки управляемого домена доменных служб Azure AD необходимо использовать другое имя. Кроме того, можно отменить подготовку существующего домена и включить доменные службы Azure AD.
 
-
-### <a name="requirements-for-the-virtual-network"></a>Requirements for the virtual network
-
-- **Proximity to your Azure workloads**: Select the virtual network that currently hosts/will host virtual machines that need access to Azure AD Domain Services.
-
-- **Custom/bring-your-own DNS servers**: Ensure that there are no custom DNS servers configured for the virtual network.
-
-- **Existing domains with the same domain name**: Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Later, you try to enable an Azure AD Domain Services managed domain with the same domain name (that is 'contoso.com') on that virtual network. You encounter a failure when trying to enable Azure AD Domain Services. This failure is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
-
-> [AZURE.WARNING] You cannot move Domain Services to a different virtual network after you have enabled the service.
+> [AZURE.WARNING] После включения службы нельзя переместить доменные службы в другую виртуальную сеть.
 
 
-## <a name="network-security-groups-and-subnet-design"></a>Network Security Groups and subnet design
-[Network security group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
+## Разработка групп безопасности сети и подсетей
+[Группа безопасности сети (NSG)](../virtual-network/virtual-networks-nsg.md) содержит перечень правил списка управления доступом (ACL), которые разрешают или запрещают сетевой трафик на экземпляры виртуальных машин в виртуальной сети. Группы безопасности сети можно связать с подсетями или отдельными экземплярами виртуальных машин в одной из подсетей. Когда NSG связана с подсетью, правила списка управления доступом применяются ко всем экземплярам виртуальной машины в этой подсети. Кроме того, трафик на отдельные виртуальные машины можно дополнительно ограничить, связав NSG непосредственно с нужной виртуальной машиной.
 
-> [AZURE.NOTE] **Deploy Azure AD Domain Services to a separate dedicated subnet within your Azure virtual network. Do not apply NSG to that dedicated subnet. Do not enable Azure AD Domain Services in the gateway subnet of your virtual network.**
+> [AZURE.NOTE] **Развертывайте доменные службы Azure AD в отдельную выделенную подсеть в виртуальной сети Azure. Не применяйте NSG к выделенной подсети. Не включайте доменные службы Azure AD в подсети шлюза виртуальной сети.**
 
-![Recommended subnet design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
+![Рекомендуемая конфигурация подсетей](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-> [AZURE.WARNING] When you associate an NSG with a subnet in which Azure AD Domain Services is enabled, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an NSG has been applied to the subnet in which Azure AD Domain Services is enabled.**
-
-
-## <a name="network-connectivity"></a>Network connectivity
-An Azure AD Domain Services managed domain can be enabled only within a single classic virtual network in Azure. Virtual networks created using Azure Resource Manager are not supported.
-
-### <a name="scenarios-for-connecting-azure-networks"></a>Scenarios for connecting Azure networks
-Connect Azure virtual networks to use the managed domain in any of the following deployment scenarios:
-
-#### <a name="use-the-managed-domain-in-more-than-one-azure-classic-virtual-network"></a>Use the managed domain in more than one Azure classic virtual network
-You can connect other Azure classic virtual networks to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This connection enables you to use the managed domain with your workloads deployed in other virtual networks.
-
-![Classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
-
-#### <a name="use-the-managed-domain-in-a-resource-manager-based-virtual-network"></a>Use the managed domain in a Resource Manager-based virtual network
-You can connect a Resource Manager-based virtual network to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This connection enables you to use the managed domain with your workloads deployed in the Resource Manager-based virtual network.
-
-![Resource Manager to classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
+> [AZURE.WARNING] При связывании NSG с подсетью, в которой включены доменные службы Azure AD, можно нарушить обслуживание домена и управление им в корпорации Майкрософт. Кроме того, произойдет сбой синхронизации между клиентом Azure AD и управляемым доменом. **Соглашение об уровне обслуживания не применяется к развертываниям, в которых NSG применена к подсети, где включены доменные службы Azure AD.**
 
 
-### <a name="network-connection-options"></a>Network connection options
+## Сетевое подключение
+Управляемый домен доменных служб Azure AD можно включить только в пределах одной классической виртуальной сети в Azure. Виртуальные сети, созданные с помощью Azure Resource Manager, не поддерживаются.
 
-- **VNet-to-VNet connections using site-to-site VPN connections**: Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE.
+### Сценарии для подключения сетей Azure
+Виртуальные сети Azure можно подключать для использования управляемого домена в любом из следующих сценариев развертывания.
 
-    ![Virtual network connectivity using VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
+#### Использование управляемого домена в нескольких классических виртуальных сетях Azure
+Вы можете подключить другие классические виртуальные сети Azure к классической виртуальной сети Azure, в которой включены доменные службы Azure AD. Благодаря этому управляемый домен можно использовать с рабочими нагрузками, развернутыми в других виртуальных сетях.
 
-    [More information - connect virtual networks using VPN gateway](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
+![Подключение к классической виртуальной сети](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
+
+#### Использование управляемого домена в виртуальной сети на основе Resource Manager
+Вы можете подключить виртуальную сеть на основе Resource Manager к классической виртуальной сети Azure, в которой включены доменные службы Azure AD. Благодаря этому управляемый домен можно использовать с рабочими нагрузками, развернутыми в виртуальных сетях на основе Resource Manager.
+
+![Подключение Resource Manager к классической виртуальной сети](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 
-- **VNet-to-VNet connections using virtual network peering**: Virtual network peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
+### Параметры сетевого подключения
 
-    ![Virtual network connectivity using peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
+- **Подключения типа "виртуальная сеть — виртуальная сеть" с использованием VPN-подключений типа "сеть — сеть".** Подключение одной виртуальной сети к другой похоже на подключение виртуальной сети к локальному сайту. В обоих типах подключений используется VPN-шлюз для создания защищенного туннеля, использующего IPsec/IKE.
 
-    [More information - virtual network peering](../virtual-network/virtual-network-peering-overview.md)
+	![Подключение к виртуальной сети с помощью VPN-шлюза](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
+
+    [Дополнительные сведения. Подключение виртуальных сетей с помощью VPN-шлюза](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
+
+
+- **Подключения типа "виртуальная сеть — виртуальная сеть" с помощью пиринговой связи между виртуальными сетями.** Пиринговая связь между виртуальными сетями — это механизм подключения между двумя виртуальными сетями, находящимися в одном регионе, через магистральную сеть Azure. После создания пиринговой связи две виртуальные сети выглядят как одна при любом подключении. Они по-прежнему управляются как отдельные ресурсы, но теперь находящиеся в них виртуальные машины могут взаимодействовать друг с другом напрямую по частным IP-адресам.
+
+    ![Подключение к виртуальной сети с помощью пиринга](./media/active-directory-domain-services-design-guide/vnet-peering.png)
+
+	[Дополнительные сведения. Пиринговая связь между виртуальными сетями](../virtual-network/virtual-network-peering-overview.md)
 
 
 
 <br>
 
-## <a name="related-content"></a>Related Content
+## Похожий контент
 
-- [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
+- [Пиринговая связь между виртуальными сетями](../virtual-network/virtual-network-peering-overview.md)
 
-- [Configure a VNet-to-VNet connection for the classic deployment model](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
+- [Настройка подключения между виртуальными сетями для классической модели развертывания](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
-- [Azure Network Security Groups](../virtual-network/virtual-networks-nsg.md)
+- [Группы безопасности сети](../virtual-network/virtual-networks-nsg.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

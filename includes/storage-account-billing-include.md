@@ -1,15 +1,12 @@
-You are billed for Azure Storage usage based on your storage account. Storage costs are based on the following factors: region/location, account type, storage capacity, replication scheme, storage transactions, and data egress.
+За пользование услугами службы хранилища Azure вам будет выставлен счет согласно вашей учетной записи хранения. Затраты на хранение зависят от следующих факторов: регион (расположение), тип учетной записи, емкость хранилища, схема репликации, транзакции хранилища и передача данных.
 
-- Region refers to the geographical region in which your account is based.
-- Account type refers to whether you are using a general-purpose storage account or a Blob storage account. With a Blob storage account, the access tier also determines the billing model for the account.
-- Storage capacity refers to how much of your storage account allotment you are using to store data.
-- Replication determines how many copies of your data are maintained at one time, and in what locations.
-- Transactions refer to all read and write operations to Azure Storage.
-- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)
+- Регион означает географический регион, в котором расположена учетная запись.
+- Тип учетной записи зависит от того, какую учетную запись вы используете — учетную запись хранения общего назначения или учетную запись хранилища BLOB-объектов. В случае с учетной записью хранилища BLOB-объектов уровень доступа также определяет модель выставления счетов за использование учетной записи.
+- Объем хранилища определяет, какая часть выделенного объема учетной записи хранения используется для хранения данных.
+- Репликация определяет, какое количество копий ваших данных следует хранить и где.
+- Транзакции — это все операции чтения и записи в службе хранилища Azure.
+- Передача данных означает данные, переданные из региона Azure. Когда к данным вашей учетной записи хранения обращается приложение, выполняемое в другом регионе, вам начисляется плата за исходящие данные. (Для служб Azure можно сгруппировать данные и службы в одном центре обработки данных, чтобы уменьшить или исключить плату за передачу данных.)
 
-The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
+На странице [Цены на хранилища Azure](https://azure.microsoft.com/pricing/details/storage/) представлена подробная информация о ценах в зависимости от типа учетной записи, емкости хранилища, репликации и транзакций. Подробные сведения о ценах на исходящие данные см. на странице [Сведения о ценах на передачу данных](https://azure.microsoft.com/pricing/details/data-transfers/). Используйте [калькулятор цен на хранилище Azure](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) для оценки затрат.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

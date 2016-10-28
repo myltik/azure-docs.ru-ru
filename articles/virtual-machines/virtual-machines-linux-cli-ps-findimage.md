@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Select Linux VM images with the Azure  CLI | Microsoft Azure"
-   description="Learn how to determine the publisher, offer, and SKU for images when creating a Linux virtual machine with the Resource Manager deployment model."
+   pageTitle="Выбор образов виртуальных машин Linux с помощью Azure CLI | Microsoft Azure"
+   description="Узнайте, как определить издателя, предложение и SKU для образов при создании виртуальной машины Linux с помощью развертывания посредством диспетчера ресурсов."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="squillace"
@@ -18,29 +18,24 @@
    ms.date="08/23/2016"
    ms.author="rasquill"/>
 
+# Выбор образов виртуальных машин Linux с помощью интерфейса командной строки Azure (Azure CLI)
 
-# <a name="select-linux-vm-images-with-the-azure-cli"></a>Select Linux VM images with the Azure CLI
+В этой статье описывается, как найти сведения об издателях, предложениях, номерах SKU и версиях для каждого расположения, в котором может выполняться развертывание. Возьмите за пример некоторые часто используемые образы виртуальных машин Linux:
 
-This topic describes how to find publishers, offers, skus, and versions for each location into which you might deploy. To give an example, some commonly used Linux VM images are:
-
-**Table of commonly used Linux images**
+**Таблица часто используемых образов Linux**
 
 
-| PublisherName                        | Offer                                 | Sku                         |
+| PublisherName | ПРЕДЛОЖЕНИЕ | Sku |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| RedHat                           | RHEL                                       | 7.2                              |
-| credativ                         | Debian                                     | 8                                | 
-| SUSE                             | openSUSE                                   | 13.2                             |
-| SUSE                             | SLES                                       | 12-SP1                           |
-| OpenLogic                        | CentOS                                     | 7.1                              |
-| Canonical                        | UbuntuServer                               | 14.04.4-LTS                      |
-| CoreOS                           | CoreOS                                     | Stable                           |
+| RedHat | RHEL | 7,2 |
+| credativ | Debian | 8 | 
+| SUSE | openSUSE | 13\.2 |
+| SUSE | SLES | 12-SP1 |
+| OpenLogic | CentOS | 7\.1. |
+| Canonical | UbuntuServer | 14\.04.4-LTS |
+| CoreOS | CoreOS | Stable |
 
 
 [AZURE.INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

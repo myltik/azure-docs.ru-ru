@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Command-line build for Azure | Microsoft Azure"
-   description="Command-line build for Azure"
+   pageTitle="Создание сборки для Azure с помощью командной строки | Microsoft Azure"
+   description="Создание сборки для Azure с помощью командной строки"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,56 +15,51 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Создание сборки для Azure с помощью командной строки
 
-# <a name="command-line-build-for-azure"></a>Command-Line Build for Azure
+## Обзор
 
-## <a name="overview"></a>Overview
-
-You can create a package for Azure deployment by running MSBuild at a command prompt. You can configure and define builds for debugging, staging, and production, in addition to automating some of the build process.
+Вы можете создать пакет для развертывания в Azure, запустив MSBuild в командной строке. В дополнение к автоматизации части процесса компиляции вы можете настроить и определить сборки для отладки, промежуточного размещения и производства.
 
 
-## <a name="microsoft-build-engine-(msbuild)"></a>Microsoft Build Engine (MSBuild)
+## Microsoft Build Engine (MSBuild)
 
-By using the Microsoft Build Engine (MSBuild), you can build products in build lab environments where Visual Studio isn't installed. MSBuild uses an XML format for project files that's extensible and fully supported by Microsoft. In this file format, you can describe what items must be built for one or more platforms and configurations.
+С помощью Microsoft Build Engine (MSBuild) можно компилировать продукты в лабораторных средах, где приложение Visual Studio не установлено. MSBuild использует для файлов проекта расширяемый формат XML, который полностью поддерживается Майкрософт. В этом формате файлов вы можете описать, какие именно элементы должны быть скомпилированы для одной или нескольких платформ и конфигураций.
 
-You can also run MSBuild at a command prompt, and this topic describes that approach. By setting properties at a command prompt, you can build specific configurations of a project. Similarly, you can also define the targets that the MSBuild command will build. For more information about command-line parameters and MSBuild, see [MSBuild Command Line Reference](https://msdn.microsoft.com/library/ms164311.aspx).
+MSBuild можно также запускать из командной строки. В этой статье описывается именно такой метод. Задавая свойства в командной строке, вы можете собирать те или иные конфигурации проекта. Точно так же вы можете определять объекты, которые создаст конкретная команда MSBuild. Дополнительные сведения о параметрах командной строки и MSBuild см. в [справочнике по командной строке MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
-## <a name="installation"></a>Installation
+## Установка
 
-As the following procedure describes, you must install software and tools on the build server before you can create an Azure package by using MSBuild:
+Чтобы создать пакет для Azure с помощью MSBuild, сперва необходимо установить нужные инструменты и программное обеспечение на сервер сборки.
 
-1. Install the .NET Framework 4 or later, which includes MSBuild.
+1. Установите .NET Framework 4 или более позднюю версию этой платформы. В ее состав входит MSBuild.
 
-1. Install the [Azure Authoring Tools](http://go.microsoft.com/fwlink/?LinkId=394615) (look for MicrosoftAzureAuthoringTools-x64.msi or MicrosoftAzureAuthoringTools-x86.msi.
+1. Установите [инструменты Azure для разработчиков](http://go.microsoft.com/fwlink/?LinkId=394615) (ищите MicrosoftAzureAuthoringTools-x64.msi или MicrosoftAzureAuthoringTools-x86.msi).
 
-1. Install the [Azure Libraries for .NET](http://go.microsoft.com/fwlink/?LinkId=394616) (look for MicrosoftAzureLibsForNet-x64.msi or MicrosoftAzureLibs-x86.msi.
+1. Установите [библиотеки Azure для .NET](http://go.microsoft.com/fwlink/?LinkId=394616) (ищите MicrosoftAzureLibsForNet-x64.msi или MicrosoftAzureLibs-x86.msi).
 
-1. Copy the Microsoft.WebApplication.targets file from a Visual Studio installation on another computer.
+1. Скопируйте файл Microsoft.WebApplication.targets из папки с программой Visual Studio на другом компьютере.
 
-    The file is located in the directory C:\Program Files (x86)\MSBuild\Microsoft\Visual Studio\v12.0\WebApplications (v11.0 for Visual Studio 2012), and you should copy it to the same directory on the build server.
+    Файл находится в каталоге C:\\Program Files (x86)\\MSBuild\\Microsoft\\Visual Studio\\v12.0\\WebApplications (v11.0 для Visual Studio 2012). Файл нужно вставить в тот же каталог на сервере сборки.
 
-1. Install the [Azure Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=394616).
+1. Установите [инструменты Azure для Visual Studio](http://go.microsoft.com/fwlink/?LinkId=394616).
 
-    Look for WindowsAzureTools.vs120.exe to build Visual Studio 2013 projects.
+    Для создания проектов Visual Studio 2013 вам нужен пакет WindowsAzureTools.vs120.exe.
 
-## <a name="msbuild-parameters"></a>MSBuild Parameters
+## Параметры MSBuild
 
-The simplest way to create a package is to run MSBuild with the `/t:Publish` option. By default, this command creates a directory in relation to the root folder for the project, such as ProjectDir\bin\Configuration\app.publish\. When you build an Azure project, you generate two files, the package file itself and the accompanying configuration file:
+Самый простой способ создать пакет — запустить MSBuild с параметром `/t:Publish`. По умолчанию команда создает каталог относительно корневой папки проекта, например ProjectDir\\bin\\Configuration\\app.publish. При сборке проекта Azure создается два файла — собственно файл пакета и сопутствующий файл конфигурации:
 
 - Project.cspkg
 
 - ServiceConfiguration.TargetProfile.cscfg
 
-By default, each Azure project includes one service-configuration file for local (debugging) builds and another for cloud (staging or production) builds, but you can add or remove service-configuration files as needed. When you build a package within Visual Studio, you will be asked which service-configuration file to include alongside the package. When you build a package by using MSBuild, the local service-configuration file is included by default. To include a different service-configuration file, set the `TargetProfile` property of the MSBuild command (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).
+По умолчанию каждый проект Azure включает в себя один файл конфигурации службы для локальных сборок (отладка) и один — для облачных (промежуточное хранение или производство). Файлы конфигурации службы можно добавлять или удалять по необходимости. При сборке пакета в Visual Studio вам будет предложено выбрать, какой файл конфигурации службы нужно включить в пакет. При сборке пакета с помощью MSBuild файл конфигурации локальной службы добавляется по умолчанию. Чтобы добавить другой файл конфигурации, задайте свойство `TargetProfile` команды MSBuild (`MSBuild /t:Publish /p:TargetProfile=ProfileName`).
 
-If you want to use an alternate directory for the stored package and configuration files, set the path by using the `/p:PublishDir=Directory\` option, including the trailing backslash separator.
+Если вы хотите использовать другой каталог для хранения пакета и файлов конфигурации, задайте путь с помощью параметра `/p:PublishDir=Directory` (включая разделитель в виде обратной косой черты в конце).
 
-## <a name="deployment"></a>Deployment
+## Развертывание
 
-After the package is built, you can deploy it to Azure. For a tutorial that demonstrates that process, see the Azure website. For information about how to automate that process, see [Continuous Delivery for Cloud Services in Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
+Когда пакет скомпилирован, его можно развернуть в Azure. Инструкции по развертыванию приведены на веб-сайте Azure. Сведения об автоматизации этого процесса см. в статье [Непрерывная доставка для облачных служб в Azure](./cloud-services/cloud-services-dotnet-continuous-delivery.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

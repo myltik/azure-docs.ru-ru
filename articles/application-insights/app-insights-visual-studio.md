@@ -1,118 +1,113 @@
 <properties 
-    pageTitle="Working with Application Insights on Visual Studio" 
-    description="Performance analysis and diagnostics during debugging and in production." 
-    services="application-insights" 
+	pageTitle="Работа с Application Insights в Visual Studio" 
+	description="Анализ производительности и диагностика во время отладки и в производственной среде." 
+	services="application-insights" 
     documentationCenter=".net"
-    authors="alancameronwills" 
-    manager="douge"/>
+	authors="alancameronwills" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="06/21/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="06/21/2016" 
+	ms.author="awills"/>
+
+
+# Работа с Application Insights в Visual Studio
+
+В Visual Studio 2015 и более поздних версиях можно анализировать производительность и диагностировать проблемы при отладке и в производственной среде с помощью телеметрии из [Visual Studio Application Insights](app-insights-overview.md).
+
+Если вы еще не [установили Application Insights в своем приложении](app-insights-asp-net.md), сделайте это сейчас.
+
+## <a name="run"></a> Отладка проекта
+
+Запустите приложение, нажав клавишу F5, и попробуйте открывать разные страницы, чтобы создать некоторый объем данных телеметрии.
+
+В Visual Studio вы увидите число записанных в журнал событий.
+
+![В Visual Studio кнопка Application Insights доступна во время отладки.](./media/app-insights-visual-studio/appinsights-09eventcount.png)
+
+Нажмите эту кнопку, чтобы начать поиск по журналу диагностики.
 
 
 
-# <a name="working-with-application-insights-in-visual-studio"></a>Working with Application Insights in Visual Studio
+## Поиск по журналу диагностики
 
-In Visual Studio (2015 and later), you can analyze performance and diagnose issues both in debugging and in production, using telemetry from [Visual Studio Application Insights](app-insights-overview.md).
+В окне поиска отображаются события, которые были записаны в журнал. (Если во время настройки Application Insights вы вошли в Azure, эти же события вы сможете найти на портале.)
 
-If you haven't yet [installed Application Insights in your app](app-insights-asp-net.md), do that now.
+![Щелкните проект правой кнопкой мыши и последовательно выберите пункты "Application Insights" и "Поиск".](./media/app-insights-visual-studio/34.png)
 
-## <a name="<a-name="run"></a>-debug-your-project"></a><a name="run"></a> Debug your project
+Бесплатный полнотекстовый поиск охватывает все поля в журнале событий. Например, можно выполнить поиск по фрагменту URL-адреса страницы, а также по значению свойства (например, город клиента) или ключевым словам в журнале трассировки.
 
-Run your application with F5 and try it out: open different pages to generate some telemetry.
+Выберите любое событие, чтобы подробно просмотреть его свойства.
 
-In Visual Studio, you'll see a count of the events that have been logged.
-
-![In Visual Studio, the Application Insights button shows during debugging.](./media/app-insights-visual-studio/appinsights-09eventcount.png)
-
-Click this button to open diagnostic search. 
-
-
-
-## <a name="diagnostic-search"></a>Diagnostic search
-
-The Search window shows events that have been logged. (If you signed in to Azure when you set up Application Insights, you'll be able to search the same events in the portal.)
-
-![Right-click the project and choose Application Insights, Search](./media/app-insights-visual-studio/34.png)
-
-The free text search works on any fields in the events. For example, search for part of the URL of a page; or the value of a property such as client city; or specific words in a trace log.
-
-Click any event to see its detailed properties.
-
-You can also open the Related Items tab to help diagnose failed requests or exceptions.
+Кроме того, чтобы диагностировать невыполненные запросы или исключения, вы можете открыть вкладку "Связанные элементы".
 
 
 ![](./media/app-insights-visual-studio/41.png)
 
 
 
-## <a name="diagnostics-hub"></a>Diagnostics hub
+## Концентратор диагностики
 
-The Diagnostics Hub (in Visual Studio 2015 or later) shows the Application Insights server telemetry as it's generated. This works even if you opted only to install the SDK, without connecting it to a resource in the Azure portal.
+Концентратор диагностики (в Visual Studio 2015 или более поздней версии) отображает данные телеметрии сервера Application Insights при их создании. Это средство работает, даже если вы установили пакет SDK без подключения к ресурсу на портале Azure.
 
-![Open the Diagnostic Tools window and inspect the Application Insights events.](./media/app-insights-visual-studio/31.png)
-
-
-## <a name="exceptions"></a>Exceptions
-
-If you have [set up exception monitoring](app-insights-asp-net-exceptions.md), exception reports will show in the Search window. 
-
-Click an exception to get a stack trace. If the code of the app is open in Visual Studio, you can click through from the stack trace to the relevant line of the code.
+![Откройте окно средств диагностики и проверьте события Application Insights.](./media/app-insights-visual-studio/31.png)
 
 
-![Exception stack trace](./media/app-insights-visual-studio/17.png)
+## Исключения
 
-In addition, in the Code Lens line above each method, you'll see a count of the exceptions logged by Application Insights in the past 24h.
+Если вы [настроили отслеживание исключений](app-insights-asp-net-exceptions.md), отчеты об исключениях будут отображаться в окне поиска.
 
-![Exception stack trace](./media/app-insights-visual-studio/21.png)
-
-
-## <a name="local-monitoring"></a>Local monitoring
+Щелкните исключение, чтобы просмотреть трассировку стека. Если код приложения открыт в среде Visual Studio, можно щелкнуть трассировку стека в соответствующей строке кода.
 
 
+![Трассировка стека исключений](./media/app-insights-visual-studio/17.png)
 
-(From Visual Studio 2015 Update 2) If you haven't configured the SDK to send telemetry to the Application Insights portal (so that there is no instrumentation key in ApplicationInsights.config) then the diagnostics window will display telemetry from your latest debugging session. 
+Кроме того, в строке группы связанных элементов кода над каждым методом приведено количество исключений, зарегистрированных Application Insights за последние 24 часа.
 
-This is desirable if you have already published a previous version of your app. You don't want the telemetry from your debugging sessions to be mixed up with the telemetry on the Application Insights portal from the published app.
-
-It's also useful if you have some [custom telemetry](app-insights-api-custom-events-metrics.md) that you want to debug before sending telemetry to the portal.
+![Трассировка стека исключений](./media/app-insights-visual-studio/21.png)
 
 
-* *At first, I fully configured Application Insights to send telemetry to the portal. But now I'd like to see the telemetry only in Visual Studio.*
+## Локальный мониторинг
 
- * In the Search window's Settings, there's an option to search local diagnostics even if your app sends telemetry to the portal.
- * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
 
-## <a name="trends"></a>Trends
 
-Trends is a tool for visualizing how your app behaves over time. 
+(Относится к Visual Studio 2015 с обновлением 2) Если ваш пакет SDK не отправляет данные телеметрии на портал Application Insights (то есть в файле ApplicationInsights.config нет ключа инструментирования), окно диагностики отображает данные телеметрии, полученные в ходе последнего сеанса отладки.
 
-Choose **Explore Telemetry Trends** from the Application Insights toolbar button or Application Insights Search window. Choose one of five common queries to get started. You can analyze different datasets based on telemetry types, time ranges, and other properties. 
+Это предпочтительно, если вы уже опубликовали предыдущую версию своего приложения. Кроме того, не рекомендуется, чтобы данные телеметрии, полученные на ваших сеансах отладки, смешивались с данными телеметрии на портале Application Insights, полученными от опубликованного приложения.
 
-To find anomalies in your data, choose one of the anomaly options under the "View Type" dropdown. The filtering options at the bottom of the window make it easy to hone in on specific subsets of your telemetry.
+Это также полезно, если у вас есть [данные пользовательской телеметрии](app-insights-api-custom-events-metrics.md), которые необходимо отладить перед отправкой на портал.
 
-![Trends](./media/app-insights-visual-studio/51.png)
 
-[More about Trends](app-insights-visual-studio-trends.md).
+* *Сначала мы полностью настроили Application Insights для отправки данных телеметрии на портал. Но теперь нужно, чтобы данные телеметрии отображались только в Visual Studio.*
 
-## <a name="what's-next?"></a>What's next?
+ * В параметрах окна поиска можно включить поиск локальной диагностики, который будет выполняться, даже если ваше приложение отправляет данные телеметрии на портал.
+ * Чтобы остановить отправку данных телеметрии на портал, закомментируйте строку `<instrumentationkey>...` в файле ApplicationInsights.config. Когда данные телеметрии будут готовы к отправке на портал, раскомментируйте ее.
+
+## Тренды
+
+Тренды — это средство для визуализации того, как изменяется поведение приложения со временем.
+
+Нажмите кнопку **Обзор трендов телеметрии** на панели инструментов Application Insights или в окне поиска Application Insights. Выберите один из пяти стандартных запросов, чтобы приступить к работе. Анализировать разные наборы данных можно на основе типов данных телеметрии, диапазонов времени и других свойств.
+
+Чтобы найти аномалии в данных, выберите один из вариантов аномалий в раскрывающемся списке "Тип представления". Параметры фильтрации в нижней части окна позволяют легко находить конкретные подмножества данных телеметрии.
+
+![Тренды](./media/app-insights-visual-studio/51.png)
+
+[Дополнительные сведения о тенденциях](app-insights-visual-studio-trends.md)
+
+## Что дальше?
 
 ||
 |---|---
-|**[Add more data](app-insights-asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. | ![Visual studio](./media/app-insights-visual-studio/64.png)
-|**[Working with the Application Insights portal](app-insights-dashboards.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/app-insights-visual-studio/62.png)
+|**[Добавление дополнительных данных](app-insights-asp-net-more.md)**<br/>Мониторинг использования, доступности, зависимостей и исключений. Интеграция трассировок из платформ ведения журналов. Написание пользовательской телеметрии. | ![Visual studio](./media/app-insights-asp-net/64.png)
+|**[Работа с порталом Application Insights](app-insights-dashboards.md)**<br/>Панели мониторинга, эффективные средства диагностики и анализа, оповещения, карта динамических зависимостей приложения, а также экспорт данных телеметрии. |![Visual Studio](./media/app-insights-asp-net/62.png)
 
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

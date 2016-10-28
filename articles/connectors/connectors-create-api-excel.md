@@ -1,6 +1,6 @@
 <properties
-pageTitle="Add the Excel connector | Microsoft Azure"
-description="Overview of the Excel connector with REST API parameters"
+pageTitle="Добавление соединителя Excel | Microsoft Azure"
+description="Обзор соединителя Excel с параметрами API REST"
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -17,13 +17,12 @@ ms.workload="na"
 ms.date="08/23/2016"
 ms.author="deonhe"/>
 
+# Начало работы с соединителем Excel
 
-# <a name="get-started-with-the-excel-connector"></a>Get started with the Excel connector
+В настоящее время в приложениях логики нет соединителя Excel.
 
-Currently, there is no Excel connector in Logic Apps. 
-
-## <a name="to-use-excel-data"></a>To use Excel data
-You can store Excel data as a comma-separated value (CSV) file in a storage folder, such as [OneDrive](connectors-create-api-onedrive.md). You can also use this CSV file with the [flat-file connector](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
+## Использование данных Excel
+Вы можете сохранить данные Excel как файл с разделителями-запятыми (CSV) в папку хранилища, например [OneDrive](connectors-create-api-onedrive.md). Этот CSV-файл можно использовать с [соединителем неструктурированного файла](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
 
 <!---
 
@@ -215,8 +214,4 @@ Applies to version: 1.0.
 
 -->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

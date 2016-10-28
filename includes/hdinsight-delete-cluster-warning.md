@@ -1,9 +1,4 @@
 
 
-> [AZURE.WARNING] HDInsight clusters billing is pro-rated per minute, whether you are using them or not. Please be sure to delete your cluster after you have finished using it. For information on deleting a cluster, see [How to delete an HDInsight cluster](../articles/hdinsight/hdinsight-delete-cluster.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
+> [AZURE.WARNING] Счета за кластеры HDInsight выставляются пропорционально по минутам вне зависимости от того, пользовались вы кластером или нет. Обязательно удалите кластер, когда завершите его использование. Дополнительные сведения об удалении кластера см. в статье [How to delete an HDInsight cluster](../articles/hdinsight/hdinsight-delete-cluster.md) (Удаление кластера HDInsight).
 

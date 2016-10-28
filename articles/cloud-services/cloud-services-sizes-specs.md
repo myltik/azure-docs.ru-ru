@@ -1,6 +1,6 @@
 <properties
- pageTitle="Sizes for cloud services"
- description="Lists the different virtual machine sizes for Azure cloud service web and worker roles."
+ pageTitle="Размеры для облачных служб"
+ description="Список различных размеров виртуальных машин для рабочих ролей и веб-ролей облачной службы Azure."
  services="cloud-services"
  documentationCenter=""
  authors="Thraka"
@@ -15,142 +15,141 @@
  ms.date="08/10/2016"
  ms.author="adegeo"/>
 
+# Размеры для облачных служб
 
-# <a name="sizes-for-cloud-services"></a>Sizes for Cloud Services
+В этом разделе описаны доступные размеры и параметры для экземпляров ролей облачных служб (веб-ролей и рабочих ролей). Здесь также предоставлены рекомендации по развертыванию, которые нужно учитывать при планировании использования этих ресурсов.
 
-This topic describes the available sizes and options for Cloud Service role instances (web roles and worker roles). It also provides deployment considerations to be aware of when planning to use these resources.
+Облачные службы — это один из нескольких типов вычислительных ресурсов, которые предоставляются в среде Azure. Дополнительную информацию об облачных службах см. [здесь](cloud-services-choose-me.md).
 
-Cloud Services is one of several types of compute resources offered by Azure. Click [here](cloud-services-choose-me.md) for more information about Cloud Services.
+> [AZURE.NOTE]Сведения о других ограничениях Azure см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 
-> [AZURE.NOTE]To see related Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+## Размеры экземпляров веб-ролей и рабочих ролей
 
-## <a name="sizes-for-web-and-worker-role-instances"></a>Sizes for web and worker role instances
+Следующие рекомендации помогут вам выбрать оптимальный размер экземпляра.
 
-The following considerations might help you decide on a size:
+* Экземпляры виртуальных машин серии D предназначены для приложений, которым необходимы большие вычислительные мощности и высокопроизводительные временные диски. Виртуальные машины серии D отличаются более быстрыми процессорами, более высоким соотношением "память — ядро" и твердотельным накопителем (SSD) в качестве временного диска. Дополнительные сведения см. в объявлении в блоге Azure [Новые размеры виртуальных машин серии D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-* D-series VM instances are designed to run applications that demand higher compute power and temporary disk performance. D-series VMs provide faster processors, a higher memory-to-core ratio, and a solid-state drive (SSD) for the temporary disk. For details, see the announcement on the Azure blog, [New D-Series Virtual Machine Sizes](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
+* Серия Dv2, продолжение оригинальной серии D, отличается более мощным ЦП. Процессор серии Dv2 примерно на 35 % быстрее, чем процессор серии D. Он основан на процессоре Intel Xeon® E5-2673 версии 3 (Haswell) последнего поколения с тактовой частотой 2,4 ГГц, а благодаря технологии Intel Turbo Boost версии 2.0 может достигать 3,1 ГГц. Серия Dv2 имеет такие же конфигурации памяти и диска, как и серия D.
 
-* Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.1 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
+* Веб-роли и рабочие роли требуют больше места на временном диске, чем виртуальные машины Azure, из-за требований к системе. Системные файлы резервируют 4 ГБ для файла подкачки Windows и 2 ГБ для файла дампа Windows.
 
-* Web roles and worker roles require more temporary disk space than Azure Virtual Machines because of system requirements. The system files reserve 4 GB of space for the Windows page file, and 2 GB of space for the Windows dump file.  
+* На диске ОС содержится гостевая ОС Windows, папка «Файлы программ» (с компонентами и приложениями, установленными с помощью задач запуска, если не указан другой диск), изменения в реестре, папка System32 и .NET Framework.
 
-* The OS disk contains the Windows guest OS and includes the Program Files folder (including installations done via startup tasks unless you specify another disk), registry changes, the System32 folder, and the .NET framework.  
+* **Диск временного хранилища** содержит журналы Azure и файлы конфигураций, систему диагностики Azure (включая ваши журналы IIS) и все определенные вами ресурсы локального хранилища.
 
-* The **temporary storage disk** contains Azure logs and configuration files, Azure Diagnostics (which includes your IIS logs), and any local storage resources you define.  
+* **Диск приложения** — это расположение, в которое извлекаются CSPKG-файлы. На этом диске хранится ваш веб-сайт, двоичные файлы, хост-процесс роли, задачи запуска, файл web.config и т. п.
 
-* The **application disk** is where your .cspkg is extracted and includes your website, binaries, role host process, startup tasks, web.config, and so on.  
+* Виртуальные машины размеров A8/A10 и A9/A11 обладают одинаковой производительностью. Экземпляры виртуальных машин размеров A8 и A9 имеют дополнительный сетевой адаптер, подключенный к сети удаленного доступа к памяти (RDMA). Это позволяет им быстро обмениваться между собой данными. Экземпляры A8 и A9 предназначены для высокопроизводительных вычислительных приложений, которым требуется постоянная высокоскоростная связь между узлами во время работы (например, приложений, использующих интерфейс передачи сообщений MPI). Экземпляры виртуальных машин размеров A10 и A11 не имеют дополнительного сетевого адаптера. Экземпляры A10 и A11 предназначены для высокопроизводительных вычислительных приложений, которые не требуют постоянной высокоскоростной связи между узлами. Такие приложение также называют параметрическими или приложениями с массовым параллелизмом.
 
-* The A8/A10 and A9/A11 virtual machine sizes have the same capacities. The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines. The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI). The A10 and A11 virtual machine instances do not include the additional network adapter. A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
+    >[AZURE.NOTE] Если вы рассматриваете размеры от A8 до A11, ознакомьтесь с [этими](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) сведениями.
 
-    >[AZURE.NOTE] If you're considering sizes A8 through A11, please read [this](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) information.
+>[AZURE.NOTE] Все размеры машины предоставляют **диск приложения**, на котором хранятся все файлы из пакета облачной службы; он имеет размер около 1,5 ГБ.
 
->[AZURE.NOTE] All machine sizes provide an **application disk** that stores all the files from your cloud service package; it is around 1.5 GB in size. 
+Обязательно просмотрите [цены](https://azure.microsoft.com/pricing/details/cloud-services/) для каждого размера облачной службы.
 
-Please make sure you review the [pricing](https://azure.microsoft.com/pricing/details/cloud-services/) of each Cloud Service size.
+## Универсальные
 
-## <a name="general-purpose"></a>General purpose
+Для веб-сайтов, мелких и средних баз данных и других рабочих приложений.
 
-For websites, small-to-medium databases, and other everyday applications.
+>[AZURE.NOTE] Емкость хранилища указана в гигабайтах, состоящих из 1024^3 байт. Их также называют гибибайтами (определение на базе двоичной приставки). При сравнении размеров, основанных на разных системах счисления, следует учитывать, что хотя 2 меньше 10, любой размер, указанный по основанию 2 (например, 1 ГБ), больше аналогичного размера, указанного по основанию 10, так как 1024^3 больше, чем 1000^3.
 
->[AZURE.NOTE] Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3. 
-
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Размер (ИД) | Ядра | ОЗУ | Пропускная способность сети | Общий размер диска |
 | --------------- | :-------: | ------: | :-----------: | -------: |
-| ExtraSmall      | 1         | 0.75 GB | Low           | 19 GB    |
-| Small           | 1         | 1.75 GB | Moderate      | 224 GB   |
-| Medium          | 2         | 3.5 GB  | Moderate      | 489 GB   |
-| Large           | 4         | 7 GB    | High          | 999 GB   |
-| ExtraLarge      | 8         | 14 GB   | High          | 2,039 GB |
+| Очень малый | 1 | 0,75 ГБ | Низкий | 19 ГБ |
+| Малый | 1 | 1,75 ГБ | Средний | 224 ГБ |
+| Средний | 2 | 3,5 ГБ | Средний | 489 ГБ |
+| Крупный | 4\. | 7 ГБ | Высокий | 999 ГБ |
+| Очень большой | 8 | 14 ГБ | Высокий | 2039 ГБ |
 
->[AZURE.NOTE] **ExtraSmall** through **ExtraLarge** can also be named **A0-A4** respectively.
+>[AZURE.NOTE] Размеры от **ExtraSmall** (очень малый) до **ExtraLarge** (очень большой) могут также называться **A0–A4** соответственно.
 
-## <a name="memory-intensive"></a>Memory intensive
+## С высоким объемом требуемой памяти
 
-For large databases, SharePoint server farms, and high-throughput applications.
+Для крупных баз данных, ферм серверов SharePoint и приложений с высокой пропускной способностью.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Размер (ИД) | Ядра | ОЗУ | Пропускная способность сети | Общий размер диска |
 | --------------- | :-------: | ------: | :-----------: | ------:  |
-| A5              | 2         | 14 GB   | Moderate      | 489 GB   |
-| A6              | 4         | 28 GB   | High          | 999 GB   |
-| A7              | 8         | 56 GB   | High          | 2,039 GB |
+| A5 | 2 | 14 ГБ | Средний | 489 ГБ |
+| A6 | 4\. | 28 ГБ | Высокий | 999 ГБ |
+| A7 | 8 | 56 ГБ | Высокий | 2039 ГБ |
 
-## <a name="network-optimized-with-infiniband-support"></a>Network optimized with InfiniBand support
+## Оптимизированы для работы в сети с поддержкой InfiniBand
 
-Available in select data centers. A8 and A9 virtual machines feature [Intel® Xeon® E5 processors](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Adds a 32 Gbit/s **InfiniBand** network with remote direct memory access (RDMA) technology. Ideal for Message Passing Interface (MPI) applications, high-performance clusters, modeling and simulations, video encoding, and other compute or network intensive scenarios.
+Доступны в избранных центрах обработки данных. Виртуальные машины A8 и A9 работают на базе [процессоров Intel® Xeon® E5](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Добавлена сеть **InfiniBand** со скоростью 32 Гбит/с с технологией удаленного доступа к памяти (RDMA). Рекомендуется для приложений MPI, высокопроизводительных кластеров, моделирования и симуляторов, кодирования видео и других сценариев с высокими требованиями к вычислительной мощности и сети.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Размер (ИД) | Ядра | ОЗУ | Пропускная способность сети | Общий размер диска |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| A8              | 8         | 56 GB   | High          | 382 GB  |
-| A9              | 16        | 112 GB  | Very High     | 382 GB  |
+| A8 | 8 | 56 ГБ | Высокий | 382 ГБ |
+| A9 | 16 | 112 ГБ | Очень высокая | 382 ГБ |
 
-## <a name="compute-intensive"></a>Compute intensive
+## Ресурсоемкие
 
-Available in select data centers. A10 and A11 virtual machines feature [Intel® Xeon® E5 processors](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). For high-performance clusters, modeling and simulations, video encoding, and other compute or network intensive scenarios. Similar to A8 and A9 instance configuration without the InfiniBand network and RDMA technology.
+Доступны в избранных центрах обработки данных. Виртуальные машины A10 и A11 работают на базе [процессоров Intel® Xeon® E5](http://www.intel.com/content/www/us/en/processors/xeon/xeon-processor-e5-family.html). Рекомендуются для высокопроизводительных кластеров, моделирования и симуляторов, кодирования видео и других сценариев, где требуется высокая вычислительная мощность и пропускная способность сети. Аналог конфигурации экземпляров A8 и A9 без сети InfiniBand и технологии RDMA.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Размер (ИД) | Ядра | ОЗУ | Пропускная способность сети | Общий размер диска |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| A10             | 8         | 56 GB   | High          | 382 GB  |
-| A11             | 16        | 112 GB  | Very High     | 382 GB  |
+| A10 | 8 | 56 ГБ | Высокий | 382 ГБ |
+| A11 | 16 | 112 ГБ | Очень высокая | 382 ГБ |
 
-## <a name="d-series:-optimized-compute"></a>D-series: Optimized compute
+## Серия D: оптимизированные вычисления
 
-D-series virtual machines feature solid state drives (SSDs) and faster processors than the A-series (60% faster) and is also available for web or worker roles in Azure Cloud Services. This series is ideal for applications that demand faster CPUs, better local disk performance, or higher memory.
+Виртуальные машины серии D предоставляют твердотельные накопители (SSD) и более быстрые процессоры, чем у серии A (на 60 % быстрее). Они также доступны для веб-ролей и рабочих ролей в облачных службах Azure. Эта серия рекомендуется для приложений, которым требуются более быстрые ЦП, повышенная производительность локальных дисков или более высокий объем памяти.
 
-## <a name="general-purpose-(d)"></a>General purpose (D)
+## Универсальные (D)
 
-For websites, small-to-medium databases, and other everyday applications.
+Для веб-сайтов, мелких и средних баз данных и других рабочих приложений.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Размер (ИД) | Ядра | ОЗУ | Пропускная способность сети | Общий размер диска |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D1     | 1         | 3.5 GB  | Moderate      | 50 GB   |
-| Standard_D2     | 2         | 7 GB    | High          | 100 GB  |
-| Standard_D3     | 4         | 14 GB   | High          | 200 GB  |
-| Standard_D4     | 8         | 28 GB   | High          | 400 GB  |
+| Standard\_D1 | 1 | 3,5 ГБ | Средний | 50 ГБ |
+| Standard\_D2 | 2 | 7 ГБ | Высокий | 100 ГБ |
+| Standard\_D3 | 4\. | 14 ГБ | Высокий | 200 ГБ |
+| Standard\_D4 | 8 | 28 ГБ | Высокий | 400 ГБ |
 
-## <a name="memory-intensive-(d)"></a>Memory intensive (D)
+## С высоким объемом требуемой памяти (D)
 
-For large databases, SharePoint server farms, and high-throughput applications.
+Для крупных баз данных, ферм серверов SharePoint и приложений с высокой пропускной способностью.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Размер (ИД) | Ядра | ОЗУ | Пропускная способность сети | Общий размер диска |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D11    | 2         | 14 GB   | High          | 100 GB  |
-| Standard_D12    | 4         | 28 GB   | High          | 200 GB  |
-| Standard_D13    | 8         | 56 GB   | High          | 400 GB  |
-| Standard_D14    | 16        | 112 GB  | Very High     | 800 GB  |
+| Standard\_D11 | 2 | 14 ГБ | Высокий | 100 ГБ |
+| Standard\_D12 | 4\. | 28 ГБ | Высокий | 200 ГБ |
+| Standard\_D13 | 8 | 56 ГБ | Высокий | 400 ГБ |
+| Standard\_D14 | 16 | 112 ГБ | Очень высокая | 800 ГБ |
 
-## <a name="dv2-series:-optimized-compute"></a>Dv2-series: Optimized compute
+## Серия Dv2: оптимизированные вычисления
 
-Dv2-series instances are the next generation of D-series instances that can be used as Virtual Machines or Cloud Services. Dv2-series instances will carry more powerful CPUs which are on average about 35% faster than D-series instances, and carry the same memory and disk configurations as the D-series. Dv2-series instances are based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with Intel Turbo Boost Technology 2.0 can go to 3.1 GHz. Dv2-series and D-series are ideal for applications that demand faster CPUs, better local disk performance, or higher memories and offer a powerful combination for many enterprise-grade applications.
+Экземпляры серии Dv2 — это следующее поколение экземпляров серии D. Их можно использовать как виртуальные машины или облачные службы. Экземпляры серии Dv2 имеют более мощные центральные процессоры, которые в среднем на 35 % быстрее экземпляров серии D, но у них такая же конфигурация оперативной памяти и дисков, как у серии D. Экземпляры серии Dv2 используют последнее поколение процессоров Intel Xeon® E5-2673 v3 (Haswell) с частотой 2,4 ГГц, ускоряемых до 3,1 ГГц с технологией Intel Turbo Boost Technology 2.0. Экземпляры серий Dv2 и D рекомендуются для приложений, для которых требуются более быстрые центральные процессоры, более производительные локальные диски или увеличенный объем оперативной памяти. Это мощное сочетание характеристик подходит для многих промышленных приложений.
 
-## <a name="general-purpose-(dv2)"></a>General purpose (Dv2)
+## Универсальные (Dv2)
 
-For websites, small-to-medium databases, and other everyday applications.
+Для веб-сайтов, мелких и средних баз данных и других рабочих приложений.
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Размер (ИД) | Ядра | ОЗУ | Пропускная способность сети | Общий размер диска |
 | --------------- | :-------: | ------: | :-----------: | ------: |
-| Standard_D1_v2  | 1         | 3.5 GB  | Moderate      | 50 GB   |
-| Standard_D2_v2  | 2         | 7 GB    | High          | 100 GB  |
-| Standard_D3_v2  | 4         | 14 GB   | High          | 200 GB  |
-| Standard_D4_v2  | 8         | 28 GB   | High          | 400 GB  |
-| Standard_D5_v2  | 16        | 56 GB   | Very High     | 800 GB  |
+| Standard\_D1\_v2 | 1 | 3,5 ГБ | Средний | 50 ГБ |
+| Standard\_D2\_v2 | 2 | 7 ГБ | Высокий | 100 ГБ |
+| Standard\_D3\_v2 | 4\. | 14 ГБ | Высокий | 200 ГБ |
+| Standard\_D4\_v2 | 8 | 28 ГБ | Высокий | 400 ГБ |
+| Standard\_D5\_v2 | 16 | 56 ГБ | Очень высокая | 800 ГБ |
 
-## <a name="memory-intensive-(dv2)"></a>Memory intensive (Dv2)
+## С высоким объемом требуемой памяти (Dv2)
 
-For large databases, SharePoint server farms, and high-throughput applications
+Для крупных баз данных, ферм серверов SharePoint и приложений с высокой пропускной способностью
 
-| Size (id)       | Cores     | Ram     | Net Bandwidth | Total disk size |
+| Размер (ИД) | Ядра | ОЗУ | Пропускная способность сети | Общий размер диска |
 | --------------- | :-------: | ------: | :-----------: | -------: |
-| Standard_D11_v2 | 2         | 14 GB   | High          | 100 GB   |
-| Standard_D12_v2 | 4         | 28 GB   | High          | 200 GB   |
-| Standard_D13_v2 | 8         | 56 GB   | High          | 400 GB   |
-| Standard_D14_v2 | 16        | 112 GB  | Very High     | 800 GB   |
-| Standard_D15_v2 | 20        | 140 GB  | Very High     | 1,000 GB |
+| Standard\_D11\_v2 | 2 | 14 ГБ | Высокий | 100 ГБ |
+| Standard\_D12\_v2 | 4\. | 28 ГБ | Высокий | 200 ГБ |
+| Standard\_D13\_v2 | 8 | 56 ГБ | Высокий | 400 ГБ |
+| Standard\_D14\_v2 | 16 | 112 ГБ | Очень высокая | 800 ГБ |
+| Standard\_D15\_v2 | 20 | 140 ГБ | Очень высокая | 1000 ГБ |
 
-## <a name="configure-sizes-for-cloud-services"></a>Configure sizes for Cloud Services
+## Настройка размеров для облачных служб
 
-You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](cloud-services-model-and-package.md#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
+Вы можете указать для виртуальной машины размер экземпляра роли, установив его в модели службы, описанной в [файле определения службы](cloud-services-model-and-package.md#csdef) (CSDEF-файл). Размер роли определяет количество ядер ЦП, объем памяти и размер локальной файловой системы, которые выделяются запущенному экземпляру. Выбирайте размер роли в соответствии с тем, какие ресурсы требуются для вашего приложения.
 
-Here is an example for setting the role size to be [Standard_D2](#general-purpose-d) for a Web Role instance:
+Ниже приведен пример настройки размера [Standard\_D2](#general-purpose-d) для экземпляра веб-роли.
 
 ```xml
 <WebRole name="WebRole1" vmsize="<mark>Standard_D2</mark>">
@@ -158,8 +157,4 @@ Here is an example for setting the role size to be [Standard_D2](#general-purpos
 </WebRole>
 ```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

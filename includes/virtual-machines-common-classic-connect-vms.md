@@ -1,36 +1,31 @@
 
 
-![Virtual machines in a standalone cloud service](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
+![Виртуальные машины в автономной облачной службе](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-If you place your virtual machines in a virtual network, you can decide how many cloud services you want to use for load balancing and availability sets. Additionally, you can organize the virtual machines on subnets in the same way as your on-premises network and connect the virtual network to your on-premises network. Here's an example:
+Если разместить виртуальные машины в виртуальной сети, можно варьировать количество облачных служб, используемых для балансировки нагрузки и групп доступности. Кроме того, можно упорядочить виртуальные машины в подсетях таким же образом, как в локальной сети и подключить виртуальную сеть к локальной сети. Ниже приведен пример:
 
-![Virtual machines in a virtual network](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
+![Виртуальные машины в виртуальной сети](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription. To review this and other limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../articles/azure-subscription-service-limits.md).
+Виртуальные сети — рекомендуемый способ подключения виртуальных машин в Azure. Рекомендуется настраивать каждый уровень приложения в отдельной облачной службе. Вместе с тем, для соответствия максимальному количеству облачных служб для одной подписки (200 служб) может потребоваться объединить некоторые виртуальные машины из различных уровней приложения в одной облачной службе. Сведения об этом и других ограничениях можно найти в разделе [Подписка Azure, границы, квоты и ограничения службы](../articles/azure-subscription-service-limits.md).
 
-## <a name="connect-vms-in-a-virtual-network"></a>Connect VMs in a virtual network
+## Подключение виртуальных машин в виртуальной сети
 
-To connect virtual machines in a virtual network:
+Для подключения виртуальных машин в виртуальной сети необходимо выполнить следующие действия.
 
-1.  Create the virtual network in the [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
-2.  Create the set of cloud services for your deployment to reflect your design for availability sets and load balancing. In the Azure classic portal, click **New > Compute > Cloud Service > Custom Create** for each cloud service.
-3.  To create each new virtual machine, click **New > Compute > Virtual Machine > From Gallery**. Choose the correct cloud service and virtual network for the VM. If the cloud service is already joined to a virtual network, its name will already be selected for you.
+1.	Создайте виртуальную сеть на [портале Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+2.	Создайте набор облачных служб для вашего развертывания, отражающих структуру групп доступности и балансировки нагрузки. На классическом портале Azure для каждой облачной службы последовательно выберите пункты **Создать > Среда выполнения приложений > Облачная служба > Создать пользовательскую службу**.
+3.	Для создания каждой виртуальной машины последовательно выберите пункты **Создать > Среда выполнения приложений > Виртуальная машина > Из коллекции**. Выберите необходимую облачную службу и виртуальную сеть для виртуальной машины. Если облачная служба уже присоединена к виртуальной сети, ее имя будет выбрано автоматически.
 
-![Selecting a cloud service for a virtual machine](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
+![Выбор облачной службы для виртуальной машины](./media/virtual-machines-common-classic-connect-vms/VMConfig1.png)
 
-## <a name="connect-vms-in-a-standalone-cloud-service"></a>Connect VMs in a standalone cloud service
+## Подключение виртуальных машин в автономной облачной службе
 
-To connect virtual machines in a standalone cloud service:
+Подключение виртуальных машин в автономной облачной службе:
 
-1.  Create the cloud service in the [Azure classic portal](http://manage.windowsazure.com). Click **New > Compute > Cloud Service > Custom Create**. Or, you can create the cloud service for your deployment when you create your first virtual machine.
+1.	Создайте облачную службу на [классическом портале Azure](http://manage.windowsazure.com). щелкните **Создать > Вычисления > Облачная служба > Настраиваемое создание**. Создать облачную службу для развертывания также можно в момент создания первой виртуальной машины.
 
-2.  When you create the virtual machines, choose the name of cloud service created in the previous step.
+2.	При создании виртуальных машин укажите имя облачной службы, созданной на предыдущем шаге.
 
-    ![Add a virtual machine to an existing cloud service](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
+	![Добавление виртуальной машины в существующую облачную службу](./media/virtual-machines-common-classic-connect-vms/Connect-VM-to-CS.png)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0330_2016-->

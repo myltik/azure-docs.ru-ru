@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add the recurrence trigger in logic apps | Microsoft Azure"
-    description="Overview of the recurrence trigger, and how to use it with an Azure logic app."
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Добавление триггера повторения в приложениях логики | Microsoft Azure"
+	description="Обзор триггера повторения и его использования с приложением логики Azure."
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,53 +17,47 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
+# Начало работы с триггером повторения
 
-# <a name="get-started-with-the-recurrence-trigger"></a>Get started with the recurrence trigger
+Благодаря триггеру повторения можно создавать эффективные рабочие процессы в облаке.
 
-By using the recurrence trigger, you can create powerful workflows in the cloud.
+Вот что вы можете, к примеру, делать:
 
-For example, you can:
+- запланировать рабочий процесс так, чтобы он запускал хранимую процедуру SQL ежедневно;
+- отправить по почте сводки всех твитов с определенным хэштегом за последнюю неделю.
 
-- Schedule a workflow to run a SQL stored procedure every day.
-- Email a summary of all tweets within the last week about a certain hashtag.
+Сведения о начале работы с триггером повторения в приложении логики см. в статье [Создание нового приложения логики, подключающего службы SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To get started using the recurrence trigger in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Использование триггера повторения
 
-## <a name="use-a-recurrence-trigger"></a>Use a recurrence trigger
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](connectors-overview.md).
 
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+Ниже приведен пример последовательности настройки триггера повторения в приложении логики.
 
-Here’s an example sequence of how to set up a recurrence trigger in a logic app:
+1. Сначала добавьте триггер **повторения** в приложении логики.
+2. Укажите параметры интервала повторения.
 
-1. Add the **Recurrence** trigger as the first step in a logic app.
-2. Fill in the parameters for the recurrence interval.
+Теперь приложение логики будет запускаться с определенным интервалом.
 
-The logic app now starts a run after each interval of time.
+![Триггер HTTP](./media/connectors-native-recurrence/using-trigger.png)
 
-![HTTP trigger](./media/connectors-native-recurrence/using-trigger.png)
+## Сведения о триггере
 
-## <a name="trigger-details"></a>Trigger details
+Ниже приведены свойства триггера повторения, которые можно настроить.
 
-The recurrence trigger has the following properties that you can configure.
+Он запускает приложение логики после интервала времени, который нужно указать. Звездочка (*) означает, что это поле обязательное для заполнения.
 
-It fires a logic app after a specified time interval.
-A * means that it is a required field.
-
-|Display name|Property name|Description|
+|Отображаемое имя|Имя свойства|Описание|
 |---|---|---|
-|Frequency*|frequency|The unit of time: `Second`, `Minute`, `Hour`, `Day`, or `Year`.|
-|Interval*|interval|The interval of the given frequency for the recurrence.|
-|Time Zone|timeZone|If a start time is provided without a UTC offset, this time zone will be used.|
-|Start time|startTime|The start time in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).|
+|Частота*|frequency|Единица времени: `Second`, `Minute`, `Hour`, `Day` или `Year`.|
+|Интервал*|interval|Интервал повторения в указанной единице времени.|
+|Часовой пояс|timeZone|Используется, если для свойства startTime указано значение без смещения от UTC.|
+|Время начала|startTime|Время начала в [формате ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).|
 <br>
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in logic apps by looking at our [APIs list](apis-list.md).
+Теперь опробуйте платформу и [создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

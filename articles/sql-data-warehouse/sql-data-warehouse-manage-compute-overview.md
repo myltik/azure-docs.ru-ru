@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage compute power in Azure SQL Data Warehouse (Overview) | Microsoft Azure"
-   description="Performance scale out capabilities in Azure SQL Data Warehouse. Scale out by adjusting DWUs or pause and resume compute resources to save costs."
+   pageTitle="Управление вычислительными ресурсами в хранилище данных SQL Azure (обзор) | Microsoft Azure"
+   description="Возможности масштабирования производительности в хранилище данных SQL Azure. Вы можете увеличивать масштаб, изменяя объем DWU, а также приостанавливать и возобновлять работу вычислительных ресурсов для сокращения затрат."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -16,136 +16,137 @@
    ms.date="09/03/2016"
    ms.author="barbkess;sonyama"/>
 
-
-# <a name="manage-compute-power-in-azure-sql-data-warehouse-(overview)"></a>Manage compute power in Azure SQL Data Warehouse (Overview)
+# Управление вычислительными ресурсами в хранилище данных SQL Azure (обзор)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-manage-compute-overview.md)
-- [Portal](sql-data-warehouse-manage-compute-portal.md)
+- [Обзор](sql-data-warehouse-manage-compute-overview.md)
+- [Портал](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
-The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale out performance while saving costs by only paying for performance when you need it. 
+Архитектура хранилища данных SQL разделяет хранилище и вычислительные ресурсы, что позволяет масштабировать их независимо друг от друга. Это позволяет масштабировать производительность и в то же время сокращать расходы, оплачивая производительность только тогда, когда она вам нужна.
 
-This overview describes the following performance scale-out capabilities of SQL Data Warehouse and gives recommendations on how and when to use them. 
+В этом обзоре описываются указанные ниже возможности масштабирования производительности для хранилища данных SQL и приводятся рекомендации о том, как и когда их следует использовать:
 
-- Scale compute power by adjusting [data warehouse units (DWUs)][]
-- Pause or resume compute resources
+- Масштабирование вычислительных ресурсов путем настройки [единиц использования хранилища данных (DWU)][]
+- Приостановка или возобновление работы вычислительных ресурсов
 
 <a name="scale-performance-bk"></a>
 
-## <a name="scale-performance"></a>Scale performance
+## Масштабирование производительности
 
-In SQL Data Warehouse, you can quickly scale performance out or back by increasing or decreasing compute resources of CPU, memory, and I/O bandwidth. To scale performance, all you need to do is adjust the number of [data warehouse units (DWUs)][] that SQL Data Warehouse allocates to your database. SQL Data Warehouse quickly makes the change and handles all the underlying changes to hardware or software.
+В хранилище данных SQL можно быстро увеличить или уменьшить производительность, настроив объем вычислительных ресурсов ЦП, памяти и пропускной способности ввода-вывода. Для масштабирования производительности достаточно настроить число [единиц использования хранилища данных(DWUs)][], которые хранилище данных SQL выделяет для базы данных. Хранилище данных SQL быстро вносит изменения и применяет все базовые изменения в оборудовании или программном обеспечении.
 
-Gone are the days where you need to research what type of processors, how much memory or what type of storage you need to have great performance in your data warehouse. By putting your Data Warehouse in the cloud, you no longer have to deal with low-level hardware issues. Instead, SQL Data Warehouse asks you this question: how fast do you want to analyze your data? 
+Прошло то время, когда для обеспечения высокой производительности хранилища данных необходимо было анализировать, какие типы процессоров, какой объем памяти и какой тип хранилища вам нужен. Разместив хранилище данных в облаке, вы больше не будете сталкиваться с проблемами, вызванными использованием оборудования, которое не является мощным. Вместо этого хранилище данных SQL задает вам вопрос о том, с какой скоростью необходимо анализировать данные.
 
-### <a name="how-do-i-scale-performance?"></a>How do I scale performance?
+### Как масштабировать производительность
 
-To elastically increase or decrease your compute power, simply change the [data warehouse units (DWUs)][] setting for your database. Performance will increase linearly as you add more DWU.  At higher DWU levels, you need to add more than 100 DWUs to notice a significant improvement in performance. To help you select meaningful jumps in DWUs, we offer the DWU levels that will give the best results.
+Для гибкого увеличения или уменьшения вычислительной мощности просто измените параметр [единиц хранилища данных (DWU)][] для своей базы данных. При добавлении дополнительных DWU производительность будет повышаться линейно. На более высоких уровнях DWU для заметного повышения производительности требуется добавление более чем 100 DWU. Чтобы помочь вам выбрать значимые шаги увеличения DWU, предлагаем уровни DWU, которые дадут вам наилучший результат.
  
-To adjust DWUs, you can use any of these individual methods.
+Для настройки DWU можно использовать любые из следующих отдельных методов:
 
-- [Scale compute power with Azure portal][]
-- [Scale compute power with PowerShell][]
-- [Scale compute power with REST APIs][]
-- [Scale compute power with TSQL][]
+- [Масштабирование вычислительных ресурсов с помощью портала Azure][]
+- [Масштабирование вычислительных ресурсов с помощью PowerShell][]
+- [Масштабирование вычислительных ресурсов с помощью REST API][]
+- [Масштабирование вычислительных ресурсов с помощью TSQL][]
 
-### <a name="how-many-dwus-should-i-use?"></a>How many DWUs should I use?
+### Сколько DWU нужно использовать
  
-Performance in SQL Data Warehouse scales linearly, and changing from one compute scale to another (say from 100 DWUs to 2000 DWUs) happens in seconds. This gives you the flexibility to experiment with different DWU settings until you determine your scenario's best fit.
+Производительность в хранилище данных SQL масштабируется линейно, и переход с одного уровня производительности к другому (например, с 100 DWU к 2000) происходит в считанные секунды. Это позволяет вам гибко экспериментировать с различными параметрами DWU, пока вы не подберете наиболее оптимальный сценарий.
 
-To understand what your ideal DWU value is, try scaling up and down, and running a few queries after loading your data. Since scaling is quick, you can try a number of different levels of performance in an hour or less. Do keep in mind, that SQL Data Warehouse is designed to process large amounts of data and to see its true capabilities for scaling, especially at the larger scales we offer, you'll want to use a large data set which approaches or exceeds 1 TB.
+Чтобы определить оптимальное значение DWU, попробуйте увеличить и уменьшить масштаб, а также выполнить несколько запросов после загрузки данных. Так как масштабирование выполняется достаточно быстро, попробуйте использовать разные уровни производительности не дольше одного часа. Помните о том, что хранилище данных SQL предназначено для обработки больших объемов данных. Чтобы определить реальные возможности масштабирования (для больших объемов данных, как мы и предлагаем), вы можете использовать большой набор данных, размер которого достигает или превышает 1 ТБ.
 
-Recommendations for finding the best DWU for your workload:
+Рекомендации по выборе оптимального объема DWU для рабочей нагрузки:
 
-1. For a data warehouse in development, begin by selecting a small number of DWUs.  A good starting point is DW400 or DW200.
-2. Monitor your application performance, observing the number of DWUs selected compared to the performance you observe.
-3. Determine how much faster or slower performance should be for you to reach the optimum performance level for your requirements by assuming linear scale.
-4. Increase or decrease the number of DWUs in proportion to how much faster or slower you want your workload to perform. The service will respond quickly and adjust the compute resources to meet the new DWU requirements.
-5. Continue making adjustments until you reach an optimum performance level for your business requirements.
+1. Если хранилище данных только создается, начните с небольшого количества DWU. В качестве отправной точки можно использовать DW400 или DW200.
+2. Отслеживайте производительность приложения, сравнивая ее с количеством выбранных DWU.
+3. Определите, насколько выше или ниже должна быть производительность, которая оптимально соответствует требуемому вам уровню (учитывайте линейное масштабирование).
+4. Увеличьте или уменьшите число DWU в соответствии с тем, насколько вы хотите увеличить или уменьшить скорость выполнения вашей рабочей нагрузки. Служба отреагирует незамедлительно и изменит количество вычислительных ресурсов в соответствии с новыми требованиями к объему DWU.
+5. Вносите изменения, пока не достигнете уровня производительности, который оптимально отвечает вашим бизнес-требованиям.
 
-### <a name="when-should-i-scale-dwus?"></a>When should I scale DWUs?
+### Когда следует масштабировать DWU
 
-When you need faster results, increase your DWUs and pay for greater performance.  When you need less compute power, decrease your DWUs and pay only for what you need. 
+Если вы хотите получить результаты быстрее, увеличьте количество DWU за отдельную оплату. Если вам не нужна большая вычислительная мощность, уменьшите количество DWU и оплачивайте только необходимые ресурсы.
 
-Recommendations for when to scale DWUs:
+Рекомендации по выборе времени для масштабирования DWU
 
-1. If your application has a fluctuating workload, scale DWU levels up or down to accommodate peaks and low points. For example, if your workload typically peaks at the end of the month, plan to add more DWUs during those peak days, then scale down once the peak period is over.
-2. Before you perform a heavy data loading or transformation operation, scale up DWUs so that your data is available more quickly.
+1. Если рабочая нагрузка вашего приложения постоянно меняется, вы можете увеличивать и уменьшать объем DWU в соответствии с пиковыми и самыми низкими нагрузками. Например, если пиковый уровень нагрузки приходится на конец месяца, вы можете запланировать добавление DWU в пиковые дни и уменьшение производительности в конце этого периода.
+2. Прежде чем выполнять ресурсоемкую загрузку данных или их преобразование, увеличьте объем DWU, чтобы быстрее получать доступ к данным.
 
 <a name="pause-compute-bk"></a>
 
-## <a name="pause-compute"></a>Pause compute
+## Приостановка работы вычислительных ресурсов
 
-[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
+[AZURE.INCLUDE [Описание приостановки работы хранилища данных SQL](../../includes/sql-data-warehouse-pause-description.md)]
 
-To pause a database, use any of these individual methods.
+Для приостановки базы данных можно использовать любые из следующих отдельных методов:
 
-- [Pause compute with Azure portal][]
-- [Pause compute with PowerShell][]
-- [Pause compute with REST APIs][]
+- [Приостановка работы вычислительных ресурсов с помощью портала Azure][]
+- [Приостановка работы вычислительных ресурсов с помощью PowerShell][]
+- [Приостановка работы вычислительных ресурсов с помощью API REST][]
 
 <a name="resume-compute-bk"></a>
 
-## <a name="resume-compute"></a>Resume compute
+## Возобновление работы вычислительных ресурсов
 
-[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
+[AZURE.INCLUDE [Описание возобновления работы хранилища данных SQL](../../includes/sql-data-warehouse-resume-description.md)]
 
-To resume a database, use any of these individual methods.
+Для возобновления базы данных можно использовать любые из следующих отдельных методов:
 
-- [Resume compute with Azure portal][]
-- [Resume compute with PowerShell][]
-- [Resume compute with REST APIs][]
+- [Возобновление работы вычислительных ресурсов с помощью портала Azure][]
+- [Возобновление работы вычислительных ресурсов с помощью PowerShell][]
+- [Возобновление работы вычислительных ресурсов с помощью API REST][]
 
-## <a name="permissions"></a>Permissions
+## Разрешения
 
-Scaling the database will require the permissions described in [ALTER DATABASE][].  Pause and Resume will require the [SQL DB Contributor][] permission, specifically Microsoft.Sql/servers/databases/action.
+Для масштабирования базы данных потребуются разрешения, описанные в разделе [ALTER DATABASE][]. Для приостановки и возобновления работы потребуется разрешение [Участник баз данных SQL][], в частности, Microsoft.Sql/servers/databases/action.
 
 <a name="next-steps-bk"></a>
 
-## <a name="next-steps"></a>Next steps
-Please refer to the following articles to help you understand some additional key performance concepts:
+## Дальнейшие действия
+Приведенные ниже статьи помогут вам разобраться с некоторыми дополнительными ключевыми понятиями, связанными с производительностью:
 
-- [Workload and concurrency managment][]
-- [Table design overview][]
-- [Table distribution][]
-- [Table indexing][]
-- [Table partitioning][]
-- [Table statistics][]
-- [Best practices][]
+- [Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL][]
+- [Overview of tables in SQL Data Warehouse (Общие сведения о таблицах в хранилище данных SQL)][]
+- [Distributing tables in SQL Data Warehouse (Распределение таблиц в хранилище данных SQL)][]
+- [Indexing tables in SQL Data Warehouse (Индексирование таблиц в хранилище данных SQL)][]
+- [Секционирование таблиц][]
+- [Managing statistics on tables in SQL Data Warehouse (Управление статистикой с помощью таблиц в хранилище данных SQL)][]
+- [Рекомендации][]
 
 <!--Image reference-->
 
 <!--Article references-->
-[data warehouse units (DWUs)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[единиц использования хранилища данных (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[единиц использования хранилища данных(DWUs)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[единиц хранилища данных (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 
-[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-bk
-[Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
-[Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
-[Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
+[Масштабирование вычислительных ресурсов с помощью портала Azure]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-bk
+[Масштабирование вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
+[Масштабирование вычислительных ресурсов с помощью REST API]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
+[Масштабирование вычислительных ресурсов с помощью TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
 
 [capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
 
-[Pause compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
-[Pause compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
-[Pause compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
+[Приостановка работы вычислительных ресурсов с помощью портала Azure]: ./sql-data-warehouse-manage-compute-portal.md#pause-compute-bk
+[Приостановка работы вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#pause-compute-bk
+[Приостановка работы вычислительных ресурсов с помощью API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#pause-compute-bk
 
-[Resume compute with Azure portal]:  ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
-[Resume compute with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
-[Resume compute with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
+[Возобновление работы вычислительных ресурсов с помощью портала Azure]: ./sql-data-warehouse-manage-compute-portal.md#resume-compute-bk
+[Возобновление работы вычислительных ресурсов с помощью PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#resume-compute-bk
+[Возобновление работы вычислительных ресурсов с помощью API REST]: ./sql-data-warehouse-manage-compute-rest-api.md#resume-compute-bk
 
-[Workload and concurrency managment]: ./sql-data-warehouse-develop-concurrency.md
-[Table design overview]: ./sql-data-warehouse-tables-overview.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Table indexing]: ./sql-data-warehouse-tables-index.md
-[Table partitioning]: ./sql-data-warehouse-tables-partition.md
-[Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md 
+[Управление параллелизмом и рабочей нагрузкой в хранилище данных SQL]: ./sql-data-warehouse-develop-concurrency.md
+[Overview of tables in SQL Data Warehouse (Общие сведения о таблицах в хранилище данных SQL)]: ./sql-data-warehouse-tables-overview.md
+[Distributing tables in SQL Data Warehouse (Распределение таблиц в хранилище данных SQL)]: ./sql-data-warehouse-tables-distribute.md
+[Indexing tables in SQL Data Warehouse (Индексирование таблиц в хранилище данных SQL)]: ./sql-data-warehouse-tables-index.md
+[Секционирование таблиц]: ./sql-data-warehouse-tables-partition.md
+[Managing statistics on tables in SQL Data Warehouse (Управление статистикой с помощью таблиц в хранилище данных SQL)]: ./sql-data-warehouse-tables-statistics.md
+[Рекомендации]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+[Участник баз данных SQL]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
 
 <!--MSDN references-->
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
@@ -153,8 +154,4 @@ Please refer to the following articles to help you understand some additional ke
 <!--Other Web references-->
 [Azure portal]: http://portal.azure.com/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

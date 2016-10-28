@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Publish-WebApplicationWebSite (Windows PowerShell script) | Microsoft Azure"
-   description="Learn how to publish a web project to an Azure website. This script creates the required resources in your Azure subscription if they don't exist."
+   pageTitle="Publish-WebApplicationWebSite (сценарий Windows PowerShell) | Microsoft Azure"
+   description="Узнайте, как опубликовать веб-проект на веб-сайте Azure. Этот сценарий создает необходимые ресурсы в подписке Azure, если они еще не созданы."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,123 +15,118 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Publish-WebApplicationWebSite (сценарий Windows PowerShell)
 
-# <a name="publish-webapplicationwebsite-(windows-powershell-script)"></a>Publish-WebApplicationWebSite (Windows PowerShell script)
+##Синтаксис
 
-##<a name="syntax"></a>Syntax
+Этот сценарий публикует веб-проект на веб-сайте Azure и создает необходимые ресурсы в подписке Azure, если они еще не созданы.
 
-Publishes a web project to an Azure website. The script creates the required resources in your Azure subscription if they don't exist.
-
-    Publish-WebApplicationWebSite
-    –Configuration <configuration>
-    -SubscriptionName <subscriptionName>
-    -WebDeployPackage <packageName>
-    -DatabaseServerPassword @{Name = "name"; Password = "password"}
-    -SendHostMessagesToOutput
-    -Verbose
+	Publish-WebApplicationWebSite
+	–Configuration <configuration>
+	-SubscriptionName <subscriptionName>
+	-WebDeployPackage <packageName>
+	-DatabaseServerPassword @{Name = "name"; Password = "password"}
+	-SendHostMessagesToOutput
+	-Verbose
 
 
-## <a name="configuration"></a>Configuration
+## Параметр Configuration
 
-The path to the JSON configuration file that describes the details of the deployment.
+Путь к файлу конфигурации JSON, содержащему подробные сведения о развертывании.
 
-|Parameter|Default value|
+|Параметр|Значение по умолчанию|
 |---|---|
-|Aliases|none|
-|Required?|true|
-|Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Псевдонимы|Нет|
+|Обязательный?|Да|
+|Позиция|именованная|
+|Значение по умолчанию|Нет|
+|Принимает входные данные конвейера?|нет|
+|Принимает подстановочные знаки?|нет|
 
-## <a name="subscriptionname"></a>SubscriptionName
+## Параметр SubscriptionName
 
-The name of the Azure subscription that you want to create the website in.
+Имя подписки Azure, в которой необходимо создать веб-сайт.
 
-|Parameter|Default value|
+|Параметр|Значение по умолчанию|
 |---|---|
-|Aliases|none|
-|Required?|false|
-|Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Псевдонимы|Нет|
+|Обязательный?|нет|
+|Позиция|именованная|
+|Значение по умолчанию|Нет|
+|Принимает входные данные конвейера?|нет|
+|Принимает подстановочные знаки?|нет|
 
-## <a name="webdeploypackage"></a>WebDeployPackage
+## Параметр WebDeployPackage
 
-The path to the web deployment package to publish to the website. You can create this package by using the Publish Web wizard in Visual Studio. For more information, see [Get started with Azure Cloud Services and ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
+Путь к пакету веб-развертывания для публикации на веб-сайте. Этот пакет можно создать с помощью мастера «Публикация веб-сайта» в Visual Studio. Дополнительные сведения можно найти в статье [Начало работы с облачными службами Azure и ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
-|Parameter|Default value|
+|Параметр|Значение по умолчанию|
 |---|---|
-|Aliases|none|
-|Required?|false|
-|Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Псевдонимы|Нет|
+|Обязательный?|нет|
+|Позиция|именованная|
+|Значение по умолчанию|Нет|
+|Принимает входные данные конвейера?|нет|
+|Принимает подстановочные знаки?|нет|
 
-## <a name="databaseserverpassword"></a>DatabaseServerPassword
+## Параметр DatabaseServerPassword
 
-The username and password for the SQL database in Azure.
+Имя и пароль администратора базы данных SQL в Azure.
 
-|Parameter|Default value|
+|Параметр|Значение по умолчанию|
 |---|---|
-|Aliases|none|
-|Required?|false|
-|Position|named|
-|Default value|none|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Псевдонимы|Нет|
+|Обязательный?|нет|
+|Позиция|именованная|
+|Значение по умолчанию|Нет|
+|Принимает входные данные конвейера?|нет|
+|Принимает подстановочные знаки?|нет|
 
-## <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
+## Параметр SendHostMessagesToOutput
 
-If true, print messages from the script to the output stream.
+Если установлено значение true, оправляет сообщения из сценария в поток вывода.
 
-|Parameter|Default value|
+|Параметр|Значение по умолчанию|
 |---|---|
-|Aliases|none|
-|Required?|false|
-|Position|named|
-|Default value|false|
-|Accept pipeline input?|false|
-|Accept wildcard characters?|false|
+|Псевдонимы|Нет|
+|Обязательный?|нет|
+|Позиция|именованная|
+|Значение по умолчанию|false|
+|Принимает входные данные конвейера?|нет|
+|Принимает подстановочные знаки?|Нет|
 
-## <a name="remarks"></a>Remarks
+## Примечания
 
-For a complete explanation of how to use the script to create Dev and Test environments, see [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](vs-azure-tools-publishing-using-powershell-scripts.md).
+Подробное описание того, как использовать сценарий для создания сред разработки и тестирования, см. в статье [Использование скриптов Windows PowerShell для публикации в среды разработки и тестирования](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-The JSON configuration file specifies the details of what is to be deployed. It includes the information that you specified when you created the project, such as the name and username for the website. It also includes the database to provision, if any. The following code shows an example JSON configuration file:
+В файле конфигурации JSON указаны данные объектов, которые необходимо развернуть. Он содержит сведения, указанные при создании проекта, такие как имя веб-сайта и имя пользователя. Он также содержит сведения о базе данных, которую нужно подготовить (если она есть). В следующем коде показан пример файла конфигурации JSON.
 
-    {
-        "environmentSettings": {
-            "webSite": {
-                "name": "WebApplication10554",
-                "location": "West US"
-            },
-            "databases": [
-                {
-                    "connectionStringName": "DefaultConnection",
-                    "databaseName": "WebApplication10554_db",
-                    "serverName": "iss00brc88",
-                    "user": "sqluser2",
-                    "password": "",
-                    "edition": "",
-                    "size": "",
-                    "collation": "",
-                    "location": "West US"
-                }
-            ]
-        }
-    }
+	{
+	    "environmentSettings": {
+	        "webSite": {
+	            "name": "WebApplication10554",
+	            "location": "West US"
+	        },
+	        "databases": [
+	            {
+	                "connectionStringName": "DefaultConnection",
+	                "databaseName": "WebApplication10554_db",
+	                "serverName": "iss00brc88",
+	                "user": "sqluser2",
+	                "password": "",
+	                "edition": "",
+	                "size": "",
+	                "collation": "",
+	                "location": "West US"
+	            }
+	        ]
+	    }
+	}
 
-You can edit the JSON configuration file to change what is deployed. A webSite section is required, but the database section is optional.
+В файле конфигурации JSON можно изменить объекты, которые подлежат развертыванию. Раздел webSite является обязательным, а раздел database — необязательным.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-For more information, see [Publish-WebApplicationVM (Windows PowerShell script)](vs-azure-tools-publish-webapplicationvm.md)
+Дополнительные сведения см. в статье [Publish-WebApplicationVM (сценарий Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

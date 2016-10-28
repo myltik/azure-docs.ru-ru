@@ -1,6 +1,6 @@
 <properties
- pageTitle="Submit jobs to an HPC Pack cluster in Azure | Microsoft Azure"
- description="Learn how to set up an on-premises computer to submit jobs to an HPC Pack cluster in Azure"
+ pageTitle="Отправка заданий в кластер на основе пакета HPC в Azure | Microsoft Azure"
+ description="Узнайте, как настроить локальный компьютер для отправки заданий в кластер на основе пакета HPC в Azure."
  services="virtual-machines-windows"
  documentationCenter=""
  authors="dlepow"
@@ -16,117 +16,116 @@ ms.service="virtual-machines-windows"
  ms.date="07/15/2016"
  ms.author="danlep"/>
 
-
-# <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Submit HPC jobs from an on-premises computer to an HPC Pack cluster deployed in Azure
+# Отправка заданий HPC c локального компьютера в кластер на основе пакета HPC, развернутый в Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Configure an on-premises client computer running Windows to run HPC Pack job submission tools that communicate over HTTPS with an HPC Pack cluster in Azure. This provides a straightforward, flexible way for a variety of cluster users to submit jobs to a cloud-based HPC Pack cluster without needing to connect directly to the head node VM or access an Azure subscription to run job submission tools.
+Настройка локального клиентского компьютера под управлением Windows для запуска инструментов отправки заданий HPC, взаимодействующих с кластером на основе пакета HPC в Azure по протоколу HTTPS. В статье представлен простой и гибкий способ отправки заданий в облачный кластер на основе пакета HPC, при котором для запуска средств отправки заданий пользователям кластера не требуется напрямую подключаться к виртуальной машине головного узла или использовать подписку Azure.
 
-![Submit a job to a cluster in Azure][jobsubmit]
+![Отправка задания в кластер в Azure][jobsubmit]
 
-## <a name="prerequisites"></a>Prerequisites
+## Предварительные требования
 
-* **HPC Pack head node deployed in an Azure VM** - We recommend that you use automated tools such as an [Azure quickstart template](https://azure.microsoft.com/documentation/templates/) or an [Azure PowerShell script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to deploy the head node and cluster. You will need the DNS name of the head node and the credentials of a cluster administrator to complete the steps in this article.
+* **Головной узел на основе пакета HPC развернут на виртуальной машине Azure**. Рекомендуется развернуть головной узел и кластер с помощью автоматизированных инструментов, таких как [шаблон быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/) или [сценарий Azure PowerShell](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md). Для выполнения инструкций в этой статье вам потребуется DNS-имя головного узла, а также учетные данные администратора кластера.
 
-* **Client computer** - You'll need a Windows or Windows Server client computer that can run HPC Pack client utilities (see [system requirements](https://technet.microsoft.com/library/dn535781.aspx)). If you only want to use the HPC Pack web portal or REST API to submit jobs, you can use any client computer of your choice.
+* **Клиентский компьютер**. Вам потребуется клиентский компьютер под управлением Windows или Windows Server, который поддерживает запуск клиентских служебных программ для пакета HPC (см. [требования к системе](https://technet.microsoft.com/library/dn535781.aspx)). Если вы не планируете выполнять задачи помимо отправки задач через веб-портал или REST API для пакета HPC, то можете использовать любой клиентский компьютер.
 
-* **HPC Pack installation media** - To install the HPC Pack client utilities, the free installation package for the latest version of HPC Pack (HPC Pack 2012 R2) is available from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Make sure that you download the same version of HPC Pack that is installed on the head node VM.
+* **Установочный носитель пакета HPC**. Чтобы установить клиентские служебные программы пакета HPC, скачайте бесплатный установочный пакет для последней версии пакета HPC (HPC 2012 R2) из [Центра загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=328024). Скачайте ту же версию пакета HPC, что установлена на виртуальной машине головного узла.
 
-## <a name="step-1:-install-and-configure-the-web-components-on-the-head-node"></a>Step 1: Install and configure the web components on the head node
+## Шаг 1. Установка и настройка веб-компонентов на головном узле
 
-To enable a REST interface to submit jobs to the cluster over HTTPS, install and configure the HPC Pack web components on the HPC Pack head node, if they are not already configured. You first install the web components by running the HpcWebComponents.msi installation file. Then, configure the components by running the HPC PowerShell script **Set-HPCWebComponents.ps1**.
+Чтобы отправлять задания в кластер через интерфейс REST по протоколу HTTPS, установите и настройте веб-компоненты пакета HPC на головном узле HPC, если они еще не настроены. Сначала установите веб-компоненты, запустив файл установки HpcWebComponents.msi. Затем настройте компоненты, запустив скрипт HPC PowerShell **Set-HPCWebComponents.ps1**.
 
-For detailed procedures, see [Install the Microsoft HPC Pack Web Components](http://technet.microsoft.com/library/hh314627.aspx).
+Подробные инструкции см. в разделе [Установка веб-компонентов пакета Microsoft HPC](http://technet.microsoft.com/library/hh314627.aspx).
 
->[AZURE.TIP] Certain Azure quickstart templates for HPC Pack install and configure the web components automatically. If you use the [HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) to create the cluster, you can optionally install and configure the web web components as part of the deployment.
+>[AZURE.TIP] Некоторые шаблоны быстрого запуска Azure для пакета HPC устанавливают и настраивают веб-компоненты автоматически. При создании кластера с помощью [скрипта развертывания пакета HPC по модели IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md) можно установить и настроить веб-компоненты в рамках развертывания.
 
-**To install the web components**
+**Установка веб-компонентов**
 
-1. Connect to the head node VM by using the credentials of a cluster administrator.
+1. Подключитесь к виртуальной машине головного узла, используя учетные данные администратора кластера.
 
-2. From the HPC Pack Setup folder, run HpcWebComponents.msi on the head node.
+2. Запустите файл HpcWebComponents.msi из папки установки пакета HPC на головном узле.
 
-3. Follow the steps in the wizard to install the web components
+3. Установите веб-компоненты, следуя инструкциям мастера.
 
-**To configure the web components**
+**Настройка веб-компонентов**
 
-1. On the head node, start HPC PowerShell as an administrator.
+1. Запустите HPC PowerShell от имени администратора на головном узле.
 
-2. To change directory to the location of the configuration script, type the following command:
+2. Чтобы изменить каталог на папку со скриптом настройки, выполните следующую команду:
 
     ```
     cd $env:CCP_HOME\bin
     ```
-3. To configure the REST interface and start the HPC Web Service, type the following command:
+3. Чтобы настроить интерфейс REST и запустить веб-службу HPC, выполните следующую команду:
 
     ```
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
 
-4. When prompted to select a certificate, choose the certificate that corresponds to the public DNS name of the head node. For example, if you deploy the head node VM using the classic deployment model, the certificate name is of the form CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. If you use the Resource Manager deployment model, the certificate name is of the form CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.com.
+4. При появлении соответствующего запроса выберите сертификат, который соответствует открытому DNS-имени головного узла. Например, при развертывании виртуальной машины головного узла с помощью классической модели имя сертификата имеет вид CN=&lt;*DNS-имя\_головного\_узла*&gt;.cloudapp.net. При использовании модели развертывания с помощью Resource Manager имя сертификата имеет вид CN=&lt;*DNS-имя\_головного\_узла*&gt;.&lt;*регион*&gt;.cloudapp.azure.
 
-    >[AZURE.NOTE] You need to select this certificate to submit jobs later to the head node from an on-premises computer. Don't select or configure a certificate that corresponds to the computer name of the head node in the Active Directory domain (for example, CN=*MyHPCHeadNode.HpcAzure.local*).
+    >[AZURE.NOTE] Впоследствии нужно будет выбирать этот сертификат для отправки заданий на головной узел с локального компьютера. Не выбирайте и не настраивайте сертификат, который соответствует имени компьютера головного узла в домене Active Directory (например, CN=*MyHPCHeadNode.HpcAzure.local*).
 
-5. To configure the web portal for job submission, type the following command:
+5. Чтобы настроить веб-портал для отправки заданий, введите следующую команду:
 
     ```
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
-6. After the script completes, stop and restart the HPC Job Scheduler Service by typing the following:
+6. После завершения выполнения скрипта остановите и перезапустите службу планировщика заданий HPC, используя следующую команду:
 
     ```
     net stop hpcscheduler
     net start hpcscheduler
     ```
 
-## <a name="step-2:-install-the-hpc-pack-client-utilities-on-an-on-premises-computer"></a>Step 2: Install the HPC Pack client utilities on an on-premises computer
+## Шаг 2. Установка клиентских служебных программ для пакета HPC на локальном компьютере
 
-If you want to install the HPC Pack client utilities, download the HPC Pack setup files (full installation) from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024) to the client computer. When you begin the installation, choose the setup option for the HPC Pack client utilities.
+Если требуется установить клиентские служебные программы пакета HPC, скачайте файлы установки пакета HPC (полная установка) из [Центра загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=328024) на клиентский компьютер. При запуске инсталляции выберите вариант установки "Клиентские служебные программы для пакета HPC".
 
-To use the HPC Pack client tools to submit jobs to the head node VM, you'll also need to export a certificate from the head node and install it on the client computer. You'll need the certificate to be in .CER format.
+Чтобы использовать клиентские средства для пакета HPC для отправки заданий на виртуальную машину головного узла, нужно также экспортировать сертификат с головного узла и установить его на клиентском компьютере. Вам потребуется сертификат в формате CER.
 
-**To export the certificate from the head node**
+**Экспорт сертификата с головного узла**
 
-1. On the head node, add the Certificates snap-in to a Microsoft Management Console for the Local Computer account. For steps to add the snap-in, see [Add the Certificates Snap-in to an MMC](https://technet.microsoft.com/library/cc754431.aspx).
+1. На головном узле добавьте оснастку «Сертификаты» на консоль управления для учетной записи локального компьютера. Инструкции по добавлению оснастки см. в статье [Добавление оснастки «Сертификаты» в консоль MMC](https://technet.microsoft.com/library/cc754431.aspx).
 
-2. In the console tree, expand **Certificates – Local Computer** > **Personal**, and then click **Certificates**.
+2. В дереве консоли разверните узел **Сертификаты — локальный компьютер**, затем разверните узел **Личные** и щелкните **Сертификаты**.
 
-3. Locate the certificate that you configured for the HPC Pack web components in [Step 1: Install and configure the web components on the head node](#step-1:-install-and-configure-the-web-components-on-the-head-node) (for example, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+3. Найдите сертификат, настроенный для веб-компонентов пакета HPC при работе с разделом [Шаг 1. Установка и настройка веб-компонентов на головном узле](#step-1:-install-and-configure-the-web-components-on-the-head-node) (например, CN=&lt;*DNS-имя\_головного\_узла*&gt;.cloudapp.net).
 
-4. Right-click the certificate, click **All Tasks**, and then click **Export**.
+4. Щелкните сертификат правой кнопкой мыши, выберите пункт **Все задачи**, а затем нажмите кнопку **Экспорт**.
 
-5. In the Certificate Export Wizard, click **Next**, and ensure that **No, do not export the private key** is selected.
+5. В мастере экспорта сертификатов нажмите кнопку **Далее** и убедитесь, что выбран параметр **Нет, не экспортировать закрытый ключ**.
 
-6. Follow the remaining steps of the wizard to export the certificate in DER encoded binary X.509 (.CER) format.
-
-
-**To import the certificate on the client computer**
+6. Выполните оставшиеся шаги мастера, чтобы экспортировать сертификат X.509 в кодировке DER (файл с расширением CER).
 
 
-1. Copy the certificate that you exported from the head node to a folder on the client computer.
-
-2. On the client computer, run certmgr.msc.
-
-3. In Certificate Manager, expand **Certificates – Current user** > **Trusted Root Certification Authorities**, right-click **Certificates**, click **All Tasks**, and then click **Import**.
-
-4. In the Certificate Import Wizard, click **Next** and follow the steps to import the certificate that you exported from the head node to the Trusted Root Certification Authorities store.
+**Импорт сертификата на клиентский компьютер**
 
 
+1. Скопируйте экспортированный с головного узла сертификат в папку на клиентском компьютере.
 
->[AZURE.TIP] You might see a security warning, because the certification authority on the head node will not be recognized by the client computer. For testing purposes you can ignore this warning and complete the certificate import.
+2. На клиентском компьютере запустите файл certmgr.msc.
 
-## <a name="step-3:-run-test-jobs-on-the-cluster"></a>Step 3: Run test jobs on the cluster
+3. В диспетчере сертификатов разверните узел **Сертификаты — текущий пользователь**, разверните узел **Доверенные корневые центры сертификации**, щелкните правой кнопкой мыши пункт **Сертификаты**, выберите **Все задачи** и нажмите кнопку **Импорт**.
 
-To verify your configuration, try running jobs on the cluster in Azure from the on-premises computer. For example, you can use HPC Pack GUI tools or command-line commands to submit jobs to the cluster. You can also use a web-based portal to submit jobs.
-
-
-**To run job submission commands on the client computer**
+4. В мастере импорта сертификатов нажмите кнопку **Далее** и следуйте указаниям для импорта сертификата, экспортированного с головного узла в хранилище доверенных корневых центров сертификации.
 
 
-1. On a client computer where the HPC Pack client utilities are installed, start a Command Prompt.
 
-2. Type a sample command. For example, to list all jobs on the cluster, type a command similar to one of the following, depending on the full DNS name of the head node:
+>[AZURE.TIP] Вы можете увидеть предупреждение о безопасности, так как центр сертификации на головном узле не распознается клиентским компьютером. Для целей тестирования можно проигнорировать это предупреждение и завершить импорт сертификата.
+
+## Шаг 3. Запуск тестовых заданий в кластере
+
+Чтобы проверить конфигурацию, попробуйте запустить задания для кластера в Azure с локального компьютера. Вы можете использовать для отправки заданий в кластер инструменты пользовательского интерфейса или команды командной строки для пакета HPC. Также для отправки заданий можно использовать веб-портал.
+
+
+**Выполнение команд отправки заданий на клиентском компьютере**
+
+
+1. На клиентском компьютере, на котором установлены клиентские служебные программы пакета HPC, откройте окно командной строки.
+
+2. Введите тестовую команду. Например, чтобы получить список всех заданий в кластере, введите команду, подобную одной из следующих, в зависимости от полного DNS-имени головного узла:
 
     ```
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
@@ -134,62 +133,58 @@ To verify your configuration, try running jobs on the cluster in Azure from the 
     job list /scheduler:https://<HeadNodeDnsName>.<region>.cloudapp.azure.com /all
     ```
 
-    >[AZURE.TIP] Use the full DNS name of the head node, not the IP address, in the scheduler URL. If you specify the IP address, you’ll see an error similar to "The server certificate needs to either have a valid chain of trust or to be placed in the trusted root store".
+    >[AZURE.TIP] В качестве URL-адреса планировщика используйте полное DNS-имя головного узла, а не его IP-адрес. Если указать IP-адрес, появится сообщение об ошибке «Сертификат сервера должен либо иметь допустимую цепочку доверия, либо находиться в доверенном корневом хранилище».
 
-3. When prompted, type the user name (in the form &lt;DomainName&gt;\\&lt;UserName&gt;) and password of the HPC cluster administrator or another cluster user that you configured. You can choose to store the credentials locally for more job operations.
+3. При появлении соответствующего запроса укажите имя пользователя (в формате &lt;DomainName&gt;\\&lt;UserName&gt;) и пароль администратора кластера HPC или другого настроенного пользователя кластера. Вы можете сохранить учетные данные локально для выполнения других операций с заданиями.
 
-    A list of jobs appears.
+    Появится список заданий.
 
 
-**To use HPC Job Manager on the client computer**
+**Использование диспетчера заданий HPC на клиентском компьютере**
 
-1. If you didn't previously store domain credentials for a cluster user on the client computer when you submitted the job, you can add the credentials in Credential Manager.
+1. Если вы не сохранили доменные учетные данные пользователя кластера на клиентском компьютере при отправке задания, можете добавить их в диспетчере учетных данных.
 
-    a. In Control Panel on the client computer, start Credential Manager.
+    а. В панели управления на клиентском компьютере запустите диспетчер учетных данных.
 
-    b. Click **Windows Credentials**, and then click **Add a generic credential**.
+    b. Щелкните **Учетные данные Windows**, а затем нажмите кнопку **Добавить общие учетные данные**.
 
-    c. Specify the Internet address (for example, https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler or https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler), and provide the user name (in the form &lt;DomainName&gt;\\&lt;UserName&gt;) and password of the HPC cluster administrator or another cluster user that you configured.
+    c. Укажите адрес в Интернете (например, https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler или https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler), имя пользователя (в формате &lt;доменное\_имя&gt;\\&lt;имя\_пользователя&gt;) и пароль администратора кластера HPC или другого настроенного пользователя кластера.
 
-2. On the client computer, start HPC Job Manager.
+2. Запустите диспетчер заданий HPC на клиентском компьютере.
 
-3. In the **Select Head Node** dialog box, type the URL to the head node in Azure (for example, https://&lt;HeadNodeDnsName&gt;.cloudapp.net or https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
+3. В диалоговом окне **Выбор головного узла** введите URL-адрес головного узла в Azure (например, https://&lt;HeadNodeDnsName&gt;.cloudapp.net или https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
 
-    HPC Job Manager opens and shows a list of jobs on the head node.
+    Откроется диспетчер заданий HPC, в котором будут перечислены задания на головном узле.
 
-**To use the web portal running on the head node**
+**Использование веб-портала на головном узле**
 
-1. Start a web browser on the client computer, and type one of the following, depending on the full DNS name of the head node:
+1. Запустите веб-браузер на клиентском компьютере и введите один из следующих адресов в зависимости от полного DNS-имени головного узла:
 
     ```
     https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
 
     https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
-2. In the security dialog box that appears, type the domain credentials of the HPC cluster administrator. (You can also add other cluster users in different roles. See [Managing Cluster Users](https://technet.microsoft.com/library/ff919335.aspx).)
+2. В появившемся диалоговом окне введите учетные данные администратора кластера HPC. (Вы также можете добавить пользователей кластера в разных ролях. Ознакомьтесь со статьей [Managing Cluster Users](https://technet.microsoft.com/library/ff919335.aspx) (Управление пользователями кластера.)
 
-    The web portal opens to the job list view.
+    Откроется веб-портал со списком заданий.
 
-3. To submit a sample job that returns the string “Hello World” from the cluster, click **New job** in the left-hand navigation.
+3. Чтобы отправить тестовое задание, которое возвращает строку «Hello World» из кластера, щелкните **Создать задание** в панели навигации слева.
 
-4. On the **New Job** page, under **From submission pages**, click **HelloWorld**. The job submission page appears.
+4. На странице **Новое задание** в разделе **Со страниц отправки** щелкните **HelloWorld**. Откроется страница отправки задания.
 
-5. Click **Submit**. If prompted, provide the domain credentials of the HPC cluster administrator. The job is submitted and the job ID appears on the **My Jobs** page.
+5. Нажмите кнопку **Submit** (Отправить). При появлении запроса введите доменные учетные данные администратора кластера HPC. Задание будет отправлено, а идентификатор задания появится на странице **Мои задания**.
 
-6. To view the results of the job that you submitted, click the job ID, and then click **View Tasks** to view the command output (under **Output**).
+6. Чтобы просмотреть результаты отправленного задания, щелкните идентификатор задания и нажмите кнопку **Просмотреть задачи**, чтобы увидеть результаты выполнения команды (в разделе **Выходные данные**).
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-* You can also submit jobs to the Azure cluster with the [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* Вы также можете отправлять задания в кластер Azure с помощью [интерфейса REST API для пакета HPC](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 
-* If you want to submit cluster jobs from a Linux client, see the Python sample in the [HPC Pack 2012 R2 SDK and Sample Code](https://www.microsoft.com/download/details.aspx?id=41633).
+* Если нужно отправлять задания в кластер из клиента Linux, изучите пример на языке Python, описанный в статье [HPC Pack 2012 R2 SDK and Sample Code](https://www.microsoft.com/download/details.aspx?id=41633) (Пакет SDK для HPC Pack 2012 R2 и пример кода).
 
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

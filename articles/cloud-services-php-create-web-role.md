@@ -1,219 +1,214 @@
 <properties
-    pageTitle="PHP web and worker roles | Microsoft Azure"
-    description="A guide to creating PHP web and worker roles in an Azure cloud service, and configuring the PHP runtime."
-    services=""
-    documentationCenter="php"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Веб-роли и рабочие роли PHP | Microsoft Azure"
+	description="Руководство по настройке среды выполнения PHP и созданию веб-ролей и рабочих ролей PHP в облачной службе Azure."
+	services=""
+	documentationCenter="php"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="PHP"
-    ms.topic="article"
-    ms.date="08/11/2016"
-    ms.author="robmcm"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="08/11/2016"
+	ms.author="robmcm"/>
 
+#Как создать веб-роли и рабочие роли PHP
 
-#<a name="how-to-create-php-web-and-worker-roles"></a>How to create PHP web and worker roles
+## Обзор
 
-## <a name="overview"></a>Overview
+В этом руководстве мы расскажем, как создать веб-роль и рабочую роль PHP в среде разработки Windows, выбрать определенную версию PHP из доступных «встроенных» версий, изменить конфигурацию PHP, включить расширения и развернуть решение в Azure. Здесь также описывается, как создать веб-роль или рабочую роль для использования среды выполнения PHP (с настраиваемой конфигурацией и расширениями), которая предоставляется пользователем.
 
-This guide will show you how to create PHP web or worker roles in a Windows development environment, choose a specific version of PHP from the "built-in" versions available, change the PHP configuration, enable extensions, and finally, deploy to Azure. It also describes how to configure a web or worker role to use a PHP runtime (with custom configuration and extensions) that you provide.
+## Что такое веб-роли и рабочие роли PHP?
 
-## <a name="what-are-php-web-and-worker-roles?"></a>What are PHP web and worker roles?
+Azure предоставляет три вычислительные модели для запуска приложений: веб-приложения Azure, виртуальные машины Azure и облачные службы Azure. Все три модели поддерживают PHP. Облачные службы — это модель обслуживания типа *платформа как услуга (PaaS)*, в рамках которой используются веб-роли и рабочие роли. Веб-роль облачной службы предоставляет выделенный веб-сервер служб IIS, на котором размещаются интерфейсные веб-приложения. В рабочей роли могут выполняться асинхронные, долгосрочные или постоянные задачи, для которых не требуется взаимодействие с пользователем.
 
-Azure provides three compute models for running applications: Azure App Service, Azure Virtual Machines, and Azure Cloud Services. All three models support PHP. Cloud Services, which includes web and worker roles, provides *platform as a service (PaaS)*. Within a cloud service, a web role provides a dedicated Internet Information Services (IIS) web server to host front-end web applications. A worker role can run asynchronous, long-running or perpetual tasks independent of user interaction or input.
+Подробнее об этих моделях можно узнать в статье [Варианты размещения вычислительных сред, предоставляемые Azure](./cloud-services/cloud-services-choose-me.md).
 
-For more information about these options, see [Compute hosting options provided by Azure](./cloud-services/cloud-services-choose-me.md).
+## Загрузка пакета Azure SDK для PHP
 
-## <a name="download-the-azure-sdk-for-php"></a>Download the Azure SDK for PHP
+[Пакет Azure SDK для PHP] состоит из нескольких компонентов. В данной статье будут использоваться два из них: Azure PowerShell и эмуляторы Azure. Эти два компонента можно установить при помощи установщика веб-платформы Майкрософт. Подробнее: [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 
-The [Azure SDK for PHP] consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+## Создание проекта облачных служб
 
-## <a name="create-a-cloud-services-project"></a>Create a Cloud Services project
+Первым шагом в создании веб-роли или рабочей роли PHP является создание проекта службы Azure. Он служит логическим контейнером для обеих ролей и содержит файлы [определения службы (CSDEF)] и [конфигурации службы (CSCFG)].
 
-The first step in creating a PHP web or worker role is to create an Azure Service project. an Azure Service project serves as a logical container for web and worker roles, and it contains the project's [service definition (.csdef)] and [service configuration (.cscfg)] files.
+Чтобы создать новый проект службы Azure, запустите Azure PowerShell от имени администратора и выполните следующую команду.
 
-To create a new Azure Service project, run Azure PowerShell as an administrator, and execute the following command:
+	PS C:\>New-AzureServiceProject myProject
 
-    PS C:\>New-AzureServiceProject myProject
+Эта команда создаст новый каталог (`myProject`), в который можно добавить веб-роли и рабочие роли.
 
-This command will create a new directory (`myProject`) to which you can add web and worker roles.
+## Добавление веб-ролей PHP и ролей работников
 
-## <a name="add-php-web-or-worker-roles"></a>Add PHP web or worker roles
+Чтобы добавить в проект веб-роль PHP, выполните следующую команду из корневого каталога проекта.
 
-To add a PHP web role to a project, run the following command from within the project's root directory:
+	PS C:\myProject> Add-AzurePHPWebRole roleName
 
-    PS C:\myProject> Add-AzurePHPWebRole roleName
+Для рабочей роли используйте следующую команду:
 
-For a worker role, use this command:
+	PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
-    PS C:\myProject> Add-AzurePHPWorkerRole roleName
+> [AZURE.NOTE] Параметр `roleName` не обязателен. Если он опущен, имя роли будет создано автоматически. Первая веб-роль создается с именем `WebRole1`, вторая — `WebRole2` и т. д. Первая рабочая роль создается с именем `WorkerRole1`, вторая — `WorkerRole2` и т. д.
 
-> [AZURE.NOTE] The `roleName` parameter is optional. If it is omitted, the role name will be automatically generated. The first web role created will be `WebRole1`, the second will be `WebRole2`, and so on. The first worker role created will be `WorkerRole1`, the second will be `WorkerRole2`, and so on.
+## Указание встроенной версии PHP
 
-## <a name="specify-the-built-in-php-version"></a>Specify the built-in PHP version
+При добавлении в проект PHP веб-роли или рабочей роли, файлы конфигурации проекта изменяются таким образом, чтобы можно было установить PHP в каждом экземпляре веб-роли или рабочей роли вашего приложения при его развертывании. Чтобы посмотреть версию PHP, которая будет установлена по умолчанию, выполните следующую команду:
 
-When you add a PHP web or worker role to a project, the project's configuration files are modified so that PHP will be installed on each web or worker instance of your application when it is deployed. To see the version of PHP that will be installed by default, run the following command:
+	PS C:\myProject> Get-AzureServiceProjectRoleRuntime
 
-    PS C:\myProject> Get-AzureServiceProjectRoleRuntime
+Выход приведенной выше команды будут выглядеть аналогично, приведенным ниже данным. В этом примере флаг `IsDefault` установлен в значение `true` для PHP 5.3.17, что указывает, что это будет версия PHP, установленная по умолчанию.
 
-The output from the command above will look similar to what is shown below. In this example, the `IsDefault` flag is set to `true` for PHP 5.3.17, indicating that it will be the default PHP version installed.
-
-    Runtime Version     PackageUri                      IsDefault
-    ------- -------     ----------                      ---------
-    Node 0.6.17         http://nodertncu.blob.core...   False
-    Node 0.6.20         http://nodertncu.blob.core...   True
-    Node 0.8.4          http://nodertncu.blob.core...   False
-    IISNode 0.1.21      http://nodertncu.blob.core...   True
-    Cache 1.8.0         http://nodertncu.blob.core...   True
+	Runtime Version		PackageUri						IsDefault
+	------- ------- 	----------  					---------
+   	Node 0.6.17      	http://nodertncu.blob.core...   False
+   	Node 0.6.20         http://nodertncu.blob.core...   True
+   	Node 0.8.4          http://nodertncu.blob.core...   False
+	IISNode 0.1.21      http://nodertncu.blob.core...   True
+  	Cache 1.8.0         http://nodertncu.blob.core...   True
     PHP 5.3.17          http://nodertncu.blob.core...   True
     PHP 5.4.0           http://nodertncu.blob.core...   False
 
-You can set the PHP runtime version to any of the PHP versions that are listed. For example, to set the PHP version (for a role with the name `roleName`) to 5.4.0, use the following command:
+Можно установить версию среды выполнения PHP в любой из указанных версий PHP. Например, чтобы задать версию PHP 5.4.0 для роли с именем `roleName`, используйте следующую команду.
 
-    PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
+	PS C:\myProject> Set-AzureServiceProjectRole roleName php 5.4.0
 
-> [AZURE.NOTE] Available PHP versions may change in the future.
+> [AZURE.NOTE] Доступные версии PHP могут изменяться со временем.
 
-## <a name="customize-the-built-in-php-runtime"></a>Customize the built-in PHP runtime
+## Настройка встроенной среды выполнения PHP
 
-You have complete control over the configuration of the PHP runtime that is installed when you follow the steps above, including modification of `php.ini` settings and enabling of extensions.
+У вас есть полный контроль над конфигурацией среды выполнения PHP, которая устанавливается при выполнении описанных выше действий, включая изменение параметров `php.ini` и включение расширений.
 
-To customize the built-in PHP runtime, follow these steps:
+Чтобы настроить встроенную среду выполнения PHP, выполните следующие действия.
 
-1. Add a new folder, named `php`, to the `bin` directory of your web role. For a worker role, add it to the role's root directory.
-2. In the `php` folder, create another folder called `ext`. Put any `.dll` extension files (e.g., `php_mongo.dll`) that you want to enable in this folder.
-3. Add a `php.ini` file to the `php` folder. Enable any custom extensions and set any PHP directives in this file. For example, if you wanted to turn `display_errors` on and enable the `php_mongo.dll` extension, the contents of your `php.ini` file would be as follows:
+1. Добавьте новую папку с именем `php` в каталог `bin` вашей веб-роли. Что касается рабочей роли, добавьте ее в корневой каталог роли.
+2. В папке `php` создайте другую папку с именем `ext`. Поместите в эту папку все файлы с расширением `.dll` (например, `php_mongo.dll`), которые хотите подключить.
+3. Добавьте файл `php.ini` в папку `php`. Включите любые пользовательские расширения и задайте любые директивы PHP в этом файле. Например, если вы хотите включить `display_errors` и включить расширение `php_mongo.dll`, содержимое вашего файла `php.ini` будет такое:
 
-        display_errors=On
-        extension=php_mongo.dll
+		display_errors=On
+		extension=php_mongo.dll
 
-> [AZURE.NOTE] Any settings that you don't explicitly set in the `php.ini` file that you provide will automatically be set to their default values. However, keep in mind that you can add a complete `php.ini` file.
+> [AZURE.NOTE] Для тех параметров, которые вы не задали явным образом в предоставленном вами файле `php.ini`, будут автоматически использоваться значения по умолчанию. Тем не менее, следует помнить, что вы можете добавить полный файл `php.ini`.
 
-## <a name="use-your-own-php-runtime"></a>Use your own PHP runtime
-In some cases, instead of selecting a built-in PHP runtime and configuring it as described above, you may want to provide your own PHP runtime. For example, you can use the same PHP runtime in a web or worker role that you use in your development environment. This makes it easier to ensure that the application will not change behavior in your production environment.
+## Использование собственной среды выполнения PHP
+В некоторых случаях вместо выбора встроенной среды выполнения PHP и настройки в соответствии с указанными выше инструкциями вам может понадобиться предоставить собственную среду выполнения PHP. Например, вы можете использовать в рабочей роли или веб-роли ту же среду выполнения PHP, что и в среде разработки. Это поможет гарантировать, что приложение не изменит свое поведение в рабочей среде.
 
-### <a name="configure-a-web-role-to-use-your-own-php-runtime"></a>Configure a web role to use your own PHP runtime
+### Настройка собственной среды выполнения PHP для веб-роли
 
-To configure a web role to use a PHP runtime that you provide, follow these steps:
+Чтобы использовать в веб-роли собственную среду выполнения PHP, выполните приведенные ниже действия.
 
-1. Create an Azure Service project and add a PHP web role as described previously in this topic.
-2. Create a `php` folder in the `bin` folder that is in your web role's root directory, and then add your PHP runtime (all binaries, configuration files, subfolders, etc.) to the `php` folder.
-3. (OPTIONAL) If your PHP runtime uses the [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your web role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the [sqlncli.msi x64 installer] to the `bin` folder in your web role's root directory. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script shown in the next step:
+1. Создайте проект службы Azure и добавьте веб-роль PHP, как описано в этом разделе ранее.
+2. Создайте папку `php` в папке `bin`, которая находится в корневом каталоге веб-роли, затем добавьте в папку `php` среду выполнения PHP (все двоичные файлы, файлы конфигурации, вложенные папки и т. д.).
+3. (ДОПОЛНИТЕЛЬНО) Если среда выполнения PHP использует [драйверы Microsoft для PHP для SQL Server][sqlsrv drivers], необходимо настроить веб-роль для установки [SQL Server Native Client 2012][sql native client] после ее подготовки. Для этого добавьте установщик [sqlncli.msi x64] в папку `bin` в корневом каталоге веб-роли. Скрипт запуска, описанный на следующем шаге, запустит установщик без вмешательства пользователя при подготовке роли. Если среда выполнения PHP не использует драйверы Microsoft для PHP для SQL Server, можно удалить следующую строку из скрипта, показанного на следующем шаге.
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
-4. Define a startup task that configures [Internet Information Services (IIS)][iis.net] to use your PHP runtime to handle requests for `.php` pages. To do this, open the `setup_web.cmd` file (in the `bin` file of your web role's root directory) in a text editor and replace its contents with the following script:
+4. Чтобы [службы IIS][iis.net] использовали вашу среду PHP для обработки запросов для страниц `.php`, определите задачу запуска, изменяющую настройки IIS. Для этого откройте файл`setup_web.cmd` (в файле `bin` корневого каталога веб-роли) в текстовом редакторе и замените его содержимое на следующий скрипт:
 
-        @ECHO ON
-        cd "%~dp0"
+		@ECHO ON
+		cd "%~dp0"
 
-        if "%EMULATED%"=="true" exit /b 0
+		if "%EMULATED%"=="true" exit /b 0
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
-        SET PHP_FULL_PATH=%~dp0php\php-cgi.exe
-        SET NEW_PATH=%PATH%;%RoleRoot%\base\x86
+		SET PHP_FULL_PATH=%~dp0php\php-cgi.exe
+		SET NEW_PATH=%PATH%;%RoleRoot%\base\x86
 
-        %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%',maxInstances='12',idleTimeout='60000',activityTimeout='3600',requestTimeout='60000',instanceMaxRequests='10000',protocol='NamedPipe',flushNamedPipe='False']" /commit:apphost
-        %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PATH',value='%NEW_PATH%']" /commit:apphost
-        %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PHP_FCGI_MAX_REQUESTS',value='10000']" /commit:apphost
-        %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/handlers /+"[name='PHP',path='*.php',verb='GET,HEAD,POST',modules='FastCgiModule',scriptProcessor='%PHP_FULL_PATH%',resourceType='Either',requireAccess='Script']" /commit:apphost
-        %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /"[fullPath='%PHP_FULL_PATH%'].queueLength:50000"
+		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%',maxInstances='12',idleTimeout='60000',activityTimeout='3600',requestTimeout='60000',instanceMaxRequests='10000',protocol='NamedPipe',flushNamedPipe='False']" /commit:apphost
+		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PATH',value='%NEW_PATH%']" /commit:apphost
+		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PHP_FCGI_MAX_REQUESTS',value='10000']" /commit:apphost
+		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/handlers /+"[name='PHP',path='*.php',verb='GET,HEAD,POST',modules='FastCgiModule',scriptProcessor='%PHP_FULL_PATH%',resourceType='Either',requireAccess='Script']" /commit:apphost
+		%WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /"[fullPath='%PHP_FULL_PATH%'].queueLength:50000"
 
-5. Add your application files to your web role's root directory. This will be the web server's root directory.
+5. Добавьте файлы вашего приложения в корневой каталог веб-роли. Это будет корневой каталог веб-сервера.
 
-6. Publish your application as described in the [Publish your application](#how-to-publish-your-application) section below.
+6. Опубликуйте приложение, как описано ниже в разделе [Публикация приложения](#how-to-publish-your-application).
 
-> [AZURE.NOTE] The `download.ps1` script (in the `bin` folder of the web role's root directory) can be deleted after you follow the steps described above for using your own PHP runtime.
+> [AZURE.NOTE] Сценарий `download.ps1` (в папке `bin` корневого каталога веб-роли) можно удалить после выполнения описанной выше настройки собственной среды выполнения PHP.
 
-### <a name="configure-a-worker-role-to-use-your-own-php-runtime"></a>Configure a worker role to use your own PHP runtime
+### Настройка собственной среды выполнения PHP для рабочей роли
 
-To configure a worker role to use a PHP runtime that you provide, follow these steps:
+Чтобы использовать в рабочей роли собственную среду выполнения PHP, выполните приведенные ниже действия.
 
-1. Create an Azure Service project and add a PHP worker role as described previously in this topic.
-2. Create a `php` folder in the worker role's root directory, and then add your PHP runtime (all binaries, configuration files, subfolders, etc.) to the `php` folder.
-3. (OPTIONAL) If your PHP runtime uses [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers], you will need to configure your worker role to install [SQL Server Native Client 2012][sql native client] when it is provisioned. To do this, add the [sqlncli.msi x64 installer] to the worker role's root directory. The startup script described in the next step will silently run the installer when the role is provisioned. If your PHP runtime does not use the Microsoft Drivers for PHP for SQL Server, you can remove the following line from the script shown in the next step:
+1. Создайте проект службы Azure и добавьте рабочую роль PHP, как описано в этом разделе ранее.
+2. Создайте папку `php` в корневом каталоге рабочей роли, а затем добавьте в папку `php` среду выполнения PHP (все двоичные файлы, файлы конфигурации, вложенные папки и т. д.).
+3. (ДОПОЛНИТЕЛЬНО) Если среда выполнения PHP использует [драйверы Microsoft для PHP для SQL Server][sqlsrv drivers], необходимо настроить рабочую роль для установки [SQL Server Native Client 2012][sql native client] после ее подготовки. Для этого добавьте установщик [sqlncli.msi x64] в корневой каталог рабочей роли. Скрипт запуска, описанный на следующем шаге, запустит установщик без вмешательства пользователя при подготовке роли. Если среда выполнения PHP не использует драйверы Microsoft для PHP для SQL Server, можно удалить следующую строку из скрипта, показанного на следующем шаге.
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
-4. Define a startup task that adds your `php.exe` executable to the worker role's PATH environment variable when the role is provisioned. To do this, open the `setup_worker.cmd` file (in the worker role's root directory) in a text editor and replace its contents with the following script:
+4. Определите задачу запуска, которая при подготовке роли добавляет исполняемый файл `php.exe` в переменную среды PATH рабочей роли. Для этого откройте файл `setup_worker.cmd` (в корневом каталоге рабочей роли) в текстовом редакторе и замените его содержимое на следующий скрипт:
 
-        @echo on
+		@echo on
 
-        cd "%~dp0"
+		cd "%~dp0"
 
-        echo Granting permissions for Network Service to the web root directory...
-        icacls ..\ /grant "Network Service":(OI)(CI)W
-        if %ERRORLEVEL% neq 0 goto error
-        echo OK
+		echo Granting permissions for Network Service to the web root directory...
+		icacls ..\ /grant "Network Service":(OI)(CI)W
+		if %ERRORLEVEL% neq 0 goto error
+		echo OK
 
-        if "%EMULATED%"=="true" exit /b 0
+		if "%EMULATED%"=="true" exit /b 0
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+		msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
-        setx Path "%PATH%;%~dp0php" /M
+		setx Path "%PATH%;%~dp0php" /M
 
-        if %ERRORLEVEL% neq 0 goto error
+		if %ERRORLEVEL% neq 0 goto error
 
-        echo SUCCESS
-        exit /b 0
+		echo SUCCESS
+		exit /b 0
 
-        :error
+		:error
 
-        echo FAILED
-        exit /b -1
+		echo FAILED
+		exit /b -1
 
-5. Add your application files to your worker role's root directory.
+5. Добавьте файлы вашего приложения в корневой каталог рабочей роли.
 
-6. Publish your application as described in the [Publish your application](#how-to-publish-your-application) section below.
+6. Опубликуйте приложение, как описано ниже в разделе [Публикация приложения](#how-to-publish-your-application).
 
-## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Run your application in the compute and storage emulators
+## Запуск приложения в эмуляторах вычисления и хранения
 
-The Azure emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Use the Azure storage emulator for development and testing](./storage/storage-use-emulator.md).
+Эмуляторы Azure представляют собой локальную среду, в которой можно тестировать приложения Azure перед их развертыванием в облаке. Существует несколько различий между эмуляторами и средой Azure. Чтобы разобраться в них, ознакомьтесь со статьей [Использование эмулятора хранения Azure для разработки и тестирования](./storage/storage-use-emulator.md).
 
-Note that you must have PHP installed locally to use the compute emulator. The compute emulator will use your local PHP installation to run your application.
+Обратите внимание, что для использования эмулятора вычислений следует установить PHP локально. Эмулятор вычислений будет использовать локальную установку PHP для запуска приложения.
 
-To run your project in the emulators, execute the following command from your project's root directory:
+Чтобы выполнить свой проект в эмуляторах, выполните следующую команду из корневого каталога своего проекта.
 
-    PS C:\MyProject> Start-AzureEmulator
+	PS C:\MyProject> Start-AzureEmulator
 
-You will see output similar to this:
+Вы увидите примерно такие выходные данные:
 
-    Creating local package...
-    Starting Emulator...
-    Role is running at http://127.0.0.1:81
-    Started
+	Creating local package...
+	Starting Emulator...
+	Role is running at http://127.0.0.1:81
+	Started
 
-You can see your application running in the emulator by opening a web browser and browsing to the local address shown in the output (`http://127.0.0.1:81` in the example output above).
+Запущенное в эмуляторе приложение можно просмотреть в браузере, перейдя по адресу, который указан в выходных данных (в приведенном выше примере это `http://127.0.0.1:81`).
 
-To stop the emulators, execute this command:
+Чтобы остановить эмуляторы, выполните следующую команду:
 
-    PS C:\MyProject> Stop-AzureEmulator
+	PS C:\MyProject> Stop-AzureEmulator
 
-## <a name="publish-your-application"></a>Publish your application
+## Публикация приложения
 
-To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+Чтобы опубликовать приложение, сначала импортируйте параметры публикации с помощью командлета [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx). После этого опубликуйте приложение, используя командлет [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Подробнее о входе: [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-For more information, see the [PHP Developer Center](/develop/php/).
+Дополнительные сведения см. в [Центре разработчика PHP](/develop/php/).
 
-[Azure SDK for PHP]: /develop/php/common-tasks/download-php-sdk/
+[Пакет Azure SDK для PHP]: /develop/php/common-tasks/download-php-sdk/
 [install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[service definition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[service configuration (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[определения службы (CSDEF)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
+[конфигурации службы (CSCFG)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
-[sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
+[sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

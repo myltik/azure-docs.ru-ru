@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure Services With the Service Fabric Cluster Resource Manager | Microsoft Azure"
-   description="Describing a Service Fabric Service by specifying metrics, placement constraints, and other placement policies."
+   pageTitle="Настройка служб с помощью диспетчера кластерных ресурсов Service Fabric | Microsoft Azure"
+   description="Описание службы Service Fabric с указанием метрик, ограничений на размещение и других политик размещения."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -17,35 +17,30 @@
    ms.author="masnider"/>
 
 
+# Настройка параметров диспетчера кластерных ресурсов для служб Service Fabric
+Диспетчер кластерных ресурсов Service Fabric позволяет очень точно управлять правилами, регулирующими работу отдельных служб. Каждый экземпляр именованной службы может задать правила своего выделения в кластере. Он может также определить набор метрик, о которых будет сообщать, включая их важность для данной службы. Обычно настройка служб делится на три задачи:
 
-# <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configuring cluster resource manager settings for service fabric services
-The Service Fabric Cluster Resource manager allows very fine grained control over the rules which govern every individual named service. Each named service instance can specify rules for how it should be allocated in the cluster, and can define the set of metrics that it wants to report, including how important they are to that service. Generally configuring services breaks down into three different tasks:
+1. настройка ограничений на размещение;
+2. настройка метрик;
+3. настройка расширенных политик размещения (мало распространено).
 
-1. Configuring placement constraints
-2. Configuring metrics
-3. Configuring advanced placement policies (less common)
+Рассмотрим их по очереди.
 
-Let's talk about each of these in turn:
+## Ограничения на размещение
+Ограничения на размещение используются, чтобы контролировать, на каких именно узлах кластера может выполняться служба. Обычно вы видите определенный экземпляр именованной службы или все службы заданного типа, которые могут быть запущены только на узле определенного типа. При этом ограничения на размещение можно расширить. Вы можете задать любой набор свойств на основе типа узла, а затем выбрать их для ограничений при создании службы. Кроме того, ограничения на размещение можно динамически обновлять во время существования службы, что позволяет реагировать на изменения в кластере. Свойства заданного узла можно также обновлять динамически в кластере. Дополнительные сведения об ограничениях на размещение и их настройке см. в [этой статье](service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-properties).
 
-## <a name="placement-constraints"></a>Placement constraints
-Placement constraints are used to control which nodes in the cluster a service can actually run on. Typically you'll see a particular named service instance or all services of a given type constrained to run on a particular type of node. That said, placement constraints are extensible - you can define any set of properties on a node type basis, and then select for them with constraints when the service is created. Placement constraints are also dynamically updatable over the lifetime of the service, allowing you to respond to changes in the cluster. The properties of a given node can also be updated dynamically in the cluster. More information on placement constraints and how to configure them can be found in [this article](service-fabric-cluster-resource-manager-cluster-description.md#placement-constraints-and-node-properties)
+## Метрики
+Метрики представляют собой набор ресурсов, необходимых заданному экземпляру службы, включая информацию о том, какую часть ресурса использует по умолчанию каждая реплика с отслеживанием состояния или экземпляр без отслеживания состояния этой службы. Кроме того, метрики содержат вес, который показывает, насколько важна балансировка по этой метрике для службы в случае, когда возникает необходимость компромисса.
 
-## <a name="metrics"></a>Metrics
-Metrics are the set of resources that a given named service instance needs, including information about how much of that resource each stateful replica or stateless instance of that service consumes by default. Metrics also include a weight which indicates how important balancing that metric is to that service, in case tradeoffs are necessary.
+## Другие правила размещения
+Существуют другие типы правил размещения, которые главным образом используются в кластерах, распределенных географически, или в других менее распространенных случаях. Они настраиваются с помощью корреляций или политик. Хотя они и не используются в большинстве сценариев, мы опишем их для полноты информации.
 
-## <a name="other-placement-rules"></a>Other placement rules
-There are other types of placement rules that are mainly useful in clusters which are geographically distributed, or in other less common scenarios. These are configured via either Correlations or Policies. While they're not used in a lot of scenarios, we'll describe them for completeness.
+## Дальнейшие действия
+- Метрики показывают, как диспетчер кластерных ресурсов Service Fabric управляет потреблением и емкостью в кластере. Дополнительные сведения о метриках и их настройке см. в [этой статье](service-fabric-cluster-resource-manager-metrics.md).
+- Сходство — один режимов, который можно настроить для служб. Этот режим редко используется; узнать о нем подробнее можно [здесь](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md).
+- Существует много различных правил размещения, которые можно настроить для службы, чтобы реализовать дополнительные сценарии. Узнать о разных политиках размещения можно [здесь](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md).
+- Начните с самого начала, [изучив общие сведения о диспетчере кластерных ресурсов Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
+- Чтобы узнать, как диспетчер кластерных ресурсов управляет нагрузкой кластера и балансирует ее, ознакомьтесь со статьей о [балансировке нагрузки](service-fabric-cluster-resource-manager-balancing.md).
+- В диспетчере кластерных ресурсов много параметров для описания кластера. Дополнительные сведения о них см. в статье с [описанием кластера Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-## <a name="next-steps"></a>Next steps
-- Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about them and how to configure them check out [this article](service-fabric-cluster-resource-manager-metrics.md)
-- Affinity is one mode you can configure for your services. It is not common, but if you need it you can learn about it [here](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-- There are many different placement rules that can be configured on your service to handle additional scenarios. You can find out about those different placement policies [here](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-- Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
-- The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

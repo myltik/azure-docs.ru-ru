@@ -1,6 +1,6 @@
 <properties
- pageTitle="Predictive maintenance walkthrough | Microsoft Azure"
- description="A walkthrough of the Azure IoT predictive maintenance preconfigured solution."
+ pageTitle="Пошаговое руководство по решению для диагностического обслуживания | Microsoft Azure"
+ description="Пошаговое руководство по предварительно настроенному решению для диагностического обслуживания IoT Azure."
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,105 +17,104 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+# Пошаговое руководство по предварительно настроенному решению для диагностического обслуживания
 
-# <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Predictive maintenance preconfigured solution walkthrough
+## Введение
 
-## <a name="introduction"></a>Introduction
+Предварительно настроенное решение для диагностического обслуживания в IoT Suite представляет собой комплексное решение для бизнес-сценария, предполагающего прогнозирование вероятной точки сбоя. Это предварительно настроенное решение можно с упреждением использовать в таких задачах, как оптимизация обслуживания. Оно объединяет ключевые службы Azure IoT Suite, включая рабочую область [машинного обучения Azure][lnk_machine_learning], в которой содержатся эксперименты для прогнозирования оставшегося срока полезного использования двигателей самолетов на основании общедоступного набора демонстрационных данных. Это решение полностью реализовывает бизнес-сценарий IoT и может служить основой для планирования и реализации подобного решения в соответствии с конкретными потребностями.
 
-The IoT Suite predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point when failure is likely to occur. You can use this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, including an [Azure Machine Learning][lnk_machine_learning] workspace. This workspace contains experiments, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
+## Логическая архитектура
 
-## <a name="logical-architecture"></a>Logical architecture
-
-The following diagram outlines the logical components of the preconfigured solution:
+На следующей диаграмме показаны логические компоненты предварительно настроенного решения.
 
 ![][img-architecture]
 
-The blue items are Azure services that are provisioned in the location you select when you provision the preconfigured solution. You can provision the preconfigured solution in either the East US, North Europe, or East Asia region.
+Синие блоки представляют службы Azure, подготовленные в расположении, выбранном во время подготовки предварительно настроенного решения. Вы можете подготовить предварительно настроенное решение в одном из следующих регионов: восточная часть США, Северная Европа или Восточная Азия.
 
-Some resources are not available in the regions where you provision the preconfigured solution. The orange items in the diagram represent the Azure services provisioned in the closest available region (South Central US, Europe West, or SouthEast Asia) given the selected region.
+В определенных регионах, где подготавливается предварительно настроенное решение, некоторые ресурсы могут быть недоступны. Оранжевые блоки на схеме соответствуют службам Azure, подготовленным в доступном регионе (юго-центральный регион США, Западная Европа или Юго-Восточная Азия), ближайшем к выбранному региону.
 
-The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the following section.
+Зеленый блок — это виртуальное устройство, представляющее двигатель самолета. Дополнительные сведения о виртуальных устройствах см. в следующем разделе.
 
-The gray items represent components that implement *device administration* capabilities. The current release of the predictive maintenance preconfigured solution does not provision these resources. To learn more about device administration, refer to the [remote monitoring pre-configured solution][lnk-remote-monitoring].
+Серые блоки представляют компоненты, реализующие возможности *администрирования устройств*. В текущем выпуске предварительно настроенного решения для диагностического обслуживания эти ресурсы не подготавливаются. Дополнительные сведения об администрировании устройств см. в статье [Пошаговое руководство по работе с настроенным решением для удаленного мониторинга][lnk-remote-monitoring].
 
-## <a name="simulated-devices"></a>Simulated devices
+## Виртуальные устройства
 
-In the preconfigured solution, a simulated device represents an aircraft engine. The solution is provisioned with two engines that map to a single aircraft. Each engine emits four types of telemetry: Sensor 9, Sensor 11, Sensor 14, and Sensor 15 provide the data necessary for the Machine Learning model to calculate the Remaining Useful Life (RUL) for the engine. Each simulated device sends the following telemetry messages to IoT Hub:
+В предварительно настроенном решении виртуальное устройство представляет двигатель самолета. В этом решении есть два двигателя, установленных на одном самолете. Каждый двигатель выдает данные телеметрии четырех типов: датчика 9, датчика 11, датчика 14 и датчика 15. Эти датчики предоставляют данные, необходимые модели машинного обучения для расчета оставшегося срока полезного использования двигателя. Каждое виртуальное устройство отправляет в центр IoT следующие сообщения телеметрии.
 
-*Cycle count*. A cycle represents a completed flight of variable length between 2-10 hours in which telemetry data is captured every half hour during the flight.
+*Счетчик циклов*. Цикл представляет собой выполненный рейс продолжительностью от 2 до 10 часов, в течение которых данные телеметрии регистрируются каждые полчаса.
 
-*Telemetry*. There are four sensors that represent engine attributes. The sensors are generically labeled Sensor 9, Sensor 11, Sensor 14, and Sensor 15. These 4 sensors represent telemetry sufficient to get useful results from the Machine Learning model for RUL. This model is created from a public data set that includes real engine sensor data. For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
+*Телеметрия*. Есть четыре датчика, представляющие атрибуты двигателя. Датчики имеют универсальные имена: датчик 9, датчик 11, датчик 14 и датчик 15. Эти четыре датчика представляют данные телеметрии, достаточные для определения остаточного срока эксплуатации из модели машинного обучения. Эта модель создается из общедоступного набора данных, который включает фактические данные датчиков двигателя. Дополнительные сведения о создании модели из исходного набора данных см. на странице [шаблона диагностического обслуживания из коллекции Cortana Intelligence][lnk-cortana-analytics].
 
-The simulated devices can handle the following commands sent from an IoT hub:
+Виртуальные устройства могут обрабатывать следующие команды, отправляемые из центра IoT.
 
-| Command | Description |
+| Команда | Описание |
 |---------|-------------|
-| StartTelemetry | Controls the state of the simulation.<br/>Starts the device sending telemetry     |
-| StopTelemetry  | Controls the state of the simulation.<br/>Stops the device sending telemetry |
+| StartTelemetry | Управляет состоянием моделирования.<br/>Запускает отправку данных телеметрии с устройства. |
+| StopTelemetry | Управляет состоянием моделирования.<br/>Останавливает отправку данных телеметрии с устройства. |
 
-IoT Hub provides device command acknowledgment.
+Центр IoT подтверждает получение команды от устройства.
 
-## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics job
+## Задание Azure Stream Analytics
 
-**Job: Telemetry** operates on the incoming device telemetry stream using two statements. The first selects all telemetry from the devices and sends this data to blob storage from where it is visualized in the web app. The second statement computes average sensor values over a two-minute sliding window and sends this data through the Event hub to an **event processor**.
+**Задание: телеметрия**. Работает на входящем потоке телеметрии устройства, используя две инструкции. Первая выбирает все данные телеметрии, поступающие от устройств, и отправляет эти данные в хранилище BLOB-объектов, откуда они будут визуализированы в веб-приложении. Вторая инструкция вычисляет средние значения датчика за скользящее двухминутное окно и отправляет эти данные через концентратор событий в **обработчик событий**.
 
-## <a name="event-processor"></a>Event processor
+## Обработчик событий
 
-The **event processor** takes the average sensor values for a completed cycle. It the passes those values to an API that exposes the Machine Learning trained model to calculate the RUL for an engine.
+**Обработчик событий** принимает средние значения датчика за завершенный цикл. Он передает эти значения в API, который предоставляет обученную модель машинного обучения для вычисления оставшегося срока полезного использования двигателя.
 
-## <a name="azure-machine-learning"></a>Azure Machine Learning
+## Машинное обучение Azure
 
-For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
+Дополнительные сведения о создании модели из исходного набора данных см. на странице [шаблона диагностического обслуживания из коллекции Cortana Intelligence][lnk-cortana-analytics].
 
-## <a name="let's-start-walking"></a>Let's start walking
+## Пошаговое руководство
 
-This section walks you through the components of the solution, describes the intended use case, and provides examples.
+В этом разделе описываются компоненты решения, целевые варианты использования и приводятся примеры.
 
-### <a name="predictive-maintenance-dashboard"></a>Predictive Maintenance Dashboard
+### Панель мониторинга диагностического обслуживания
 
-This page in the web application uses PowerBI JavaScript controls (see the [PowerBI-visuals repository][lnk-powerbi]) to visualize:
+Эта страница веб-приложения использует элементы управления PowerBI JavaScript (см. [репозиторий визуальных элементов PowerBI][lnk-powerbi]) для визуализации:
 
-- The output data from the Stream Analytics jobs in blob storage.
-- The RUL and cycle count per aircraft engine.
+- выходных данных из задания Stream Analytics, поступающих в хранилище BLOB-объектов;
+- значений остаточного срока эксплуатации и количества циклов для каждого двигателя самолета.
 
-### <a name="observing-the-behavior-of-the-cloud-solution"></a>Observing the behavior of the cloud solution
+### Наблюдение за поведением облачного решения
 
-In the Azure portal, navigate to the resource group with the solution name you chose to view your provisioned resources.
+Чтобы просмотреть подготовленные ресурсы, на портале Azure перейдите к группе ресурсов с выбранным вами именем решения.
 
-![][img-resource-group]
+.![][img-resource-group]
 
-When you provision the preconfigured solution, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the [azureiotsuite.com][lnk-azureiotsuite] page for your provisioned solution when it’s in the **Ready** state.
+При подготовке предварительно настроенного решения вы получите электронное сообщение со ссылкой на рабочую область машинного обучения. Кроме того, вы можете перейти к рабочей области машинного обучения со страницы [azureiotsuite.com][lnk-azureiotsuite] подготовленного решения, находящегося в состоянии **Готово**.
 
-![][img-machine-learning]
+.![][img-machine-learning]
 
-In the solution portal, you can see that the sample is provisioned with four simulated devices to represent two aircraft with two engines per aircraft, each with four sensors. When you first navigate to the solution portal, the simulation is stopped.
+На портале решения можно увидеть, что в этом примере есть четыре виртуальных устройства, представляющие два самолета с двумя двигателями в каждом. При этом на каждом двигателе установлено по четыре датчика. При первом переходе на портал решения моделирование будет остановлено.
 
 ![][img-simulation-stopped]
 
-Click **Start simulation** to begin the simulation in which you see the sensor history, RUL, Cycles, and RUL history populate the dashboard.
+Щелкните **Запустить имитацию**, чтобы начать имитацию, в процессе которой на панели мониторинга отобразится журнал показаний датчиков, значение оставшегося срока полезного использования, количество циклов и журнал значений оставшегося срока полезного использования.
 
-![][img-simulation-running]
+.![][img-simulation-running]
 
-When RUL is less than 160 (an arbitrary threshold chosen for demonstration purposes), the solution portal displays a warning symbol next to the RUL display and highlights the aircraft engine in yellow. Notice how the RUL values have a general downward trend overall, but tend to bounce up and down. This behavior results from the varying cycle lengths and the model accuracy.
+Когда значение оставшегося срока полезного использования станет меньше 160 (произвольное пороговое значение, выбранное для демонстрационных целей), на портале решения рядом с этим значением появится символ предупреждения, а цвет двигателя изменится на желтый. Как можно заметить, значения оставшегося срока полезного использования имеют общую тенденцию к уменьшению, но при этом наблюдаются скачки вверх и вниз. Это происходит из-за различной продолжительности циклов и точности модели.
 
 ![][img-simulation-warning]
 
-The full simulation takes around 35 minutes to complete 148 cycles. The 160 RUL threshold is met for the first time at around 5 minutes and both engines hit the threshold at around 8 minutes.
+Полное моделирование, которое включает 148 циклов, занимает около 35 минут. Пороговое значение остаточного срока эксплуатации, равное 160, достигается примерно через 5 минут, а порог для обоих двигателей достигается примерно через 8 минут.
 
-The simulation runs through the complete dataset for 148 cycles and settles on final RUL and cycle values.
+В процессе моделирования обрабатывается весь набор данных со 148 циклами. В результате можно получить окончательные значения остаточного срока эксплуатации и количества выполненных циклов.
 
-You can stop the simulation at any point, but clicking **Start Simulation** replays the simulation from the start of the dataset.
+Моделирование можно остановить в любой момент, но, если нажать кнопку **Запустить моделирование**, процесс перезапустится с самого начала.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Now you've run the predictive maintenance preconfigured solution you may want to modify it, see [Guidance on customizing preconfigured solutions][lnk-customize].
+Возможно, после запуска предварительно настроенного решения для диагностического обслуживания вам понадобится внести в него изменения. Подробную информацию об этом см. в статье [Настройка предварительно настроенных решений][lnk-customize].
 
-The [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) TechNet blog post provides additional detail about the predictive maintenance preconfigured solution.
+В записи блога [IoT Suite. - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) (IoT Suite. Как работает диагностическое обслуживание) на сайте TechNet приведены дополнительные сведения о готовом решении для диагностического обслуживания.
 
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+Вы также можете ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
 
-- [Frequently asked questions for IoT Suite][lnk-faq]
-- [IoT security from the ground up][lnk-security-groundup]
+- [Часто задаваемые вопросы об IoT Suite][lnk-faq]
+- [Все аспекты безопасности IoT][lnk-security-groundup]
 
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
@@ -134,8 +133,4 @@ You can also explore some of the other features and capabilities of the IoT Suit
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

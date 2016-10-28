@@ -1,6 +1,6 @@
 <properties
- pageTitle="Logic App templates | Microsoft Azure"
- description="Learn how to use pre-created Logic app templates to help you get started"
+ pageTitle="Шаблоны приложений логики | Microsoft Azure"
+ description="Сведения об использовании предварительно созданных шаблонов приложения логики, помогающих начать работу."
  authors="kevinlam1"
  manager="dwrede"
  editor=""
@@ -8,69 +8,59 @@
  documentationCenter=""/>
 
 <tags
-    ms.service="app-service-logic"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/24/2016"
-    ms.author="klam"/>
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2016"
+	ms.author="klam"/>
 
+# Шаблоны приложений логики
 
-# <a name="logic-app-templates"></a>Logic App templates
+## Что такое шаблоны приложений логики
 
-## <a name="what-are-logic-app-templates"></a>What are logic app templates
+Шаблон приложения логики — это готовое приложение логики, с помощью которого можно быстро создать собственный рабочий процесс.
 
-A logic app template is a pre-built logic app that you can use to quickly get started creating your own workflow. 
+Эти шаблоны позволяют обнаружить множество типов процессов, которые можно создать с помощью приложений логики. Можно использовать их как есть или изменить их в соответствии с необходимым сценарием.
 
-These templates are a good way to discover various patterns that can be built using logic apps. You can either use these templates as-is or modify them to fit your scenario.
+## Общие сведения о доступных шаблонах
 
-## <a name="overview-of-available-templates"></a>Overview of available templates
+Сейчас доступны разные шаблоны, опубликованные в платформе приложения логики. Ниже перечислены некоторые категории, а также тип используемого в них соединителя.
 
-There are many available templates currently published in the logic app platform. Some example categories, as well as the type of connectors used in them, are listed below.
+### Шаблоны для корпоративных облачных решений
+Шаблоны, которые интегрируют Dynamics CRM, Salesforce, Box, большие двоичные объекты Azure и другие соединители в соответствии с потребностями корпоративных облачных решений. С помощью этих шаблонов можно, например, упорядочить свои идеи и выполнить резервное копирование данных корпоративных файлов.
 
-### <a name="enterprise-cloud-templates"></a>Enterprise cloud templates
-Templates that integrate Dynamics CRM, Salesforce, Box, Azure Blob, and other connectors for your enterprise cloud needs. Some examples of what can be done with these templates include organizing your leads and backing up your corporate file data.
+### Шаблоны для пакета интеграции Enterprise
+Конфигурации конвейеров VETER (проверка, извлечение, преобразование, расширение, маршрутизация), получение документа EDI X12 через AS2 и его преобразование в формат XML, а также обработка сообщений X12 и AS2.
 
-### <a name="enterprise-integration-pack-templates"></a>Enterprise integration pack templates
-Configurations of VETER (validate, extract, transform, enrich, route) pipelines, receiving an X12 EDI document over AS2 and transforming it to XML, as well as X12 and AS2 message handling.
+### Шаблоны для схем протоколов
+Эти шаблоны состоят из приложений логики, которые содержат контейнеры "запрос-ответ" HTTP, а также схемы интеграции FTP и SFTP. Их можно использовать отдельно или как основу для создания более сложных схем протоколов.
 
-### <a name="protocol-pattern-templates"></a>Protocol pattern templates
-These templates consist of logic apps that contain protocol patterns such as request-response over HTTP as well as integrations across FTP and SFTP. Use these as they exist, or as a basis for creating more complex protocol patterns.  
+### Шаблоны для личной производительности
+Шаблоны для повышения личной производительности включают шаблоны для настройки ежедневных напоминаний, преобразования важных рабочих элементов в списки дел, а также автоматизации и упрощения продолжительных задач до одноэтапных процедур, утверждаемых пользователем.
 
-### <a name="personal-productivity-templates"></a>Personal productivity templates
-Patterns to help improve personal productivity include templates that set daily reminders, turn important work items into to-do lists, and automate lengthy tasks down to a single user approval step.
+### Шаблоны облака клиента
+Простые шаблоны, которые интегрируются со службами социальных сетей, включая Twitter и Slack, а также почтовыми службами. Эти шаблоны могут повышать эффективность маркетинговых программ, реализуемых через сети. Сюда также относятся, например, шаблоны облачного копирования, которые повышают производительность благодаря экономии времени, которое обычно тратится на выполнение повторяющихся задач.
 
-### <a name="consumer-cloud-templates"></a>Consumer cloud templates
-Simple templates that integrate with social media services such as Twitter, Slack, and email, ultimately capable of strengthening social media marketing initiatives. These also include templates such as cloudy copying, which can help increase productivity by saving time spent on traditionally repetitive tasks. 
+## Как создать приложение логики с помощью шаблона 
 
-## <a name="how-to-create-a-logic-app-using-a-template"></a>How to create a logic app using a template 
+Для начала перейдите в конструктор приложений логики. Если вы входите в конструктор, открывая существующее приложение логики, оно автоматически загружается в представление конструктора. Если же вы создаете приложение логики, отображается окно, показанное ниже. ![](../../includes/media/app-service-logic-templates/template7.png)
 
-To get started using a logic app template, go into the logic app designer. If you're entering the designer by opening an existing logic app, the logic app automatically loads in your designer view. However, if you're creating a new logic app, you see the screen below.  
- ![](../../includes/media/app-service-logic-templates/template7.png)  
+В этом окне можно выбрать запуск пустого приложения логики или предварительно созданного шаблона. Если вы выберете один из шаблонов, отобразится дополнительная информация. В этом примере мы воспользуемся шаблоном *Когда в Dropbox создается новый файл, копировать его в OneDrive*. ![](../../includes/media/app-service-logic-templates/template2.png)
 
-From this screen, you can either choose to start with a blank logic app or a pre-built template. If you select one of the templates, you are provided with additional information. In this example, we use the *When a new file is created in Dropbox, copy it to OneDrive* template.  
- ![](../../includes/media/app-service-logic-templates/template2.png)  
+Выбрав шаблон, просто нажмите кнопку *Использовать этот шаблон*. Вам будет предложено войти в учетные записи на основании того, какие соединители использует шаблон. Если вы уже подключились к соединителям, можно нажать кнопку "Продолжить" (см. ниже). ![](../../includes/media/app-service-logic-templates/template3.png)
 
-If you choose to use the template, just select the *use this template* button. You'll be asked to sign in to your accounts based on which connectors the template utilizes. Or, if you've previously established a connection with these connectors, you can select continue as seen below.  
- ![](../../includes/media/app-service-logic-templates/template3.png)  
+Когда вы подключитесь и нажмете кнопку *Продолжить*, приложение логики откроется в представлении конструктора. ![](../../includes/media/app-service-logic-templates/template4.png)
 
-After establishing the connection and selecting *continue*, the logic app opens in designer view.  
- ![](../../includes/media/app-service-logic-templates/template4.png)  
+В приведенном выше примере (как и в случае с другими шаблонами) некоторые обязательные поля свойств могут автоматически заполняться в соединителях. Но есть и поля, которые нужно заполнять специально, чтобы правильно развернуть приложение логики. Если вы пробуете выполнить развертывание, а некоторые поля не заполнены, вы получаете сообщение об ошибке.
 
-In the example above, as is the case with many templates, some of the mandatory property fields may be filled out within the connectors; however, some might still require a value before being able to properly deploy the logic app. If you try to deploy without entering some of the missing fields, you'll be notified with an error message.
+Чтобы вернуться в средство просмотра шаблона, нажмите кнопку *Шаблоны* на панели навигации вверху. Когда вы возвращаетесь в это средство, все несохраненные изменения теряются. Поэтому перед переключением появляется соответствующее предупреждение. ![](../../includes/media/app-service-logic-templates/template5.png)
 
-If you wish to return to the template viewer, select the *Templates* button in the top navigation bar. By switching back to the template viewer, you lose any unsaved progress. Prior to switching back into template viewer, you'll see a warning message notifying you of this.  
- ![](../../includes/media/app-service-logic-templates/template5.png)  
+## Как развернуть приложение логики, созданное из шаблона
 
-## <a name="how-to-deploy-a-logic-app-created-from-a-template"></a>How to deploy a logic app created from a template
+Загрузите шаблон, внесите необходимые изменения и нажмите кнопку "Сохранить" в левом верхнем углу. Так вы сохраните и опубликуете свое приложение логики. ![](../../includes/media/app-service-logic-templates/template6.png)
 
-Once you have loaded your template and made any desired changes, select the save button in the upper left corner. This saves and publishes your logic app.  
- ![](../../includes/media/app-service-logic-templates/template6.png)  
+Подробные сведения о добавлении дополнительных шагов в существующий шаблон приложения логики или внесении изменений в целом см. в статье [Создание приложения логики](app-service-logic-create-a-logic-app.md).
 
-If you would like more information on how to add more steps into an existing logic app template, or make edits in general, read more at [Create a logic app](app-service-logic-create-a-logic-app.md).
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

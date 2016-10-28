@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create HDInsight clusters with Azure Data Lake Store using PowerShell | Azure"
-   description="Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake"
+   pageTitle="Создание кластеров HDInsight с хранилищем озера данных с помощью Azure PowerShell | Azure"
+   description="Создание кластеров HDInsight для работы с озером данных Azure с помощью Azure PowerShell"
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
@@ -13,350 +13,375 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/04/2016"
+   ms.date="07/01/2016"
    ms.author="nitinme"/>
 
-
-# <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-powershell"></a>Create an HDInsight cluster with Data Lake Store using Azure PowerShell
+# Создание кластера HDInsight с хранилищем озера данных с помощью Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-- [Using Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+- [Использование портала](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
-Learn how to use Azure PowerShell to configure an HDInsight cluster (Hadoop, HBase, or Storm) with access to Azure Data Lake Store. Some important considerations for this release:
 
-* **For Spark clusters (Linux), and Hadoop/Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
+Узнайте, как с помощью Azure PowerShell настроить кластер HDInsight (Hadoop, HBase или Storm) с доступом к хранилищу озера данных Azure. Важные сведения, которые следует учитывать при работе с данным выпуском.
 
-* **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
+* **В кластерах Spark (Linux) и Hadoop/Storm (Windows и Linux)** хранилище озера данных может использоваться только как дополнительная учетная запись хранения. Учетной записью хранения по умолчанию для таких кластеров по-прежнему будут BLOB-объекты хранилища Azure (WASB).
 
-> [AZURE.NOTE] Some important points to note. 
+* **Для кластеров HBase (Windows и Linux)** хранилище озера данных можно использовать как хранилище по умолчанию или дополнительное хранилище.
+
+> [AZURE.NOTE] Необходимо учитывать следующие важные замечания.
 > 
-> * Option to create HDInsight clusters with access to Data Lake Store is available only for HDInsight versions 3.2 and 3.4 (for Hadoop, HBase, and Storm clusters on Windows as well as Linux). For Spark clusters on Linux, this option is only available on HDInsight 3.4 clusters.
+> * Создание кластеров HDInsight с доступом к хранилищу озера данных доступно только при использовании HDInsight версии 3.2 и 3.4 (для кластеров Hadoop, HBase и Storm, как для Windows, так и для Linux). Для кластеров Spark в ОС Linux этот параметр доступен только для кластеров HDInsight 3.4.
 >
-> * As mentioned above, Data Lake Store is available as default storage for some cluster types (HBase) and additional storage for other cluster types (Hadoop, Spark, Storm). Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster. In a scenario where Data Lake Store is used as additional storage, cluster-related files (such as logs, etc.) are written to the default storage (Azure Blobs), while the data that you want to process can be stored in a Data Lake Store account.
+> * Как упоминалось выше, хранилище озера данных доступно как хранилище по умолчанию для кластеров одних типов (HBase) и как дополнительное хранилище для кластеров других типов (Hadoop, Spark, Storm). Использование хранилища озера данных в качестве дополнительной учетной записи хранения не влияет на производительность или возможность выполнять чтение и запись в хранилище из кластера. В сценарии, при котором хранилище озера данных используется в качестве дополнительного хранилища, относящиеся к кластеру файлы (журналы и т. д.) записываются в хранилище по умолчанию (большие двоичные объекты Azure), а данные, которые необходимо обработать, могут храниться в учетной записи хранилища озера данных.
 
 
-In this article, we provision a Hadoop cluster with Data Lake Store as additional storage.
+В этой статье мы подготовим кластер Hadoop, в котором хранилище озера данных будет дополнительным хранилищем.
 
-Configuring HDInsight to work with Data Lake Store using PowerShell involves the following steps:
+Настройка в HDInsight хранилища озера данных с помощью PowerShell состоит из нескольких этапов:
 
-* Create an Azure Data Lake Store
-* Set up authentication for role-based access to Data Lake Store
-* Create HDInsight cluster with authentication to Data Lake Store
-* Run a test job on the cluster
+* создание хранилища озера данных Azure;
+* настройка проверки подлинности для доступа к хранилищу озера данных на основе ролей;
+* создание кластера HDInsight с проверкой подлинности в хранилище озера данных;
+* выполнение тестового задания в кластере.
 
-## <a name="prerequisites"></a>Prerequisites
+## Предварительные требования
 
-Before you begin this tutorial, you must have the following:
+Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-- **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
-- **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Настройте свою подписку Azure** для использования общедоступной предварительной версии Data Lake Store. См. [инструкции](data-lake-store-get-started-portal.md#signup).
+- **Пакет SDK Windows**. Его можно установить [отсюда](https://dev.windows.com/ru-RU/downloads). Пакет используется для создания сертификата безопасности.
 
 
-## <a name="create-an-azure-data-lake-store"></a>Create an Azure Data Lake Store
+##См. статью "Установка Azure PowerShell 1.0 и более поздних версий".
 
-Follow these steps to create a Data Lake Store.
+Сначала необходимо удалить версии 0.9x Azure PowerShell. Чтобы узнать установленную версию PowerShell, выполните следующую команду в окне PowerShell:
 
-1. From your desktop, open a new Azure PowerShell window, and enter the following snippet. When prompted to log in, make sure you log in as one of the subscription admininistrators/owner:
+	Get-Module *azure*
+
+Чтобы удалить старую версию, откройте панель управления, запустите компонент **Программы и компоненты** и удалите установленную версию, если она предшествует PowerShell 1.0.
+
+Существует два основных варианта установки Azure PowerShell.
+
+- [Коллекция PowerShell](https://www.powershellgallery.com/). Выполните следующие команды из интегрированной среды сценариев с повышенными привилегиями PowerShell или консоли Windows PowerShell с повышенными привилегиями:
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Дополнительные сведения см. в статье [Коллекция PowerShell](https://www.powershellgallery.com/).
+
+- [Установщик веб-платформы Майкрософт (WebPI)](http://aka.ms/webpi-azps). Если вы установили Azure PowerShell 0.9.x, появится запрос для удаления версии 0.9.x. Если вы установили модули Azure PowerShell из коллекции PowerShell, установщик требует удалить эти модули перед установкой, чтобы обеспечить целостность среды PowerShell Azure. Инструкции см. в разделе [Установка Azure PowerShell 1.0 с помощью установщика веб-платформы](https://azure.microsoft.com/blog/azps-1-0/).
+
+Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе. Если вы решите установить коллекцию PowerShell, она станет основным источником всего нового и лучшего в Azure PowerShell.
+
+
+## Создание хранилища озера данных Azure
+
+Чтобы создать хранилище озера данных, сделайте следующее.
+
+1. На своем компьютере откройте новое окно Azure PowerShell и введите следующий фрагмент кода. Когда вам будет предложено войти, введите учетные данные администратора или владельца подписки.
 
         # Log in to your Azure account
-        Login-AzureRmAccount
+		Login-AzureRmAccount
 
-        # List all the subscriptions associated to your account
-        Get-AzureRmSubscription
+		# List all the subscriptions associated to your account
+		Get-AzureRmSubscription
 
-        # Select a subscription
-        Set-AzureRmContext -SubscriptionId <subscription ID>
+		# Select a subscription
+		Set-AzureRmContext -SubscriptionId <subscription ID>
 
-        # Register for Data Lake Store
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+		# Register for Data Lake Store
+		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
-    >[AZURE.NOTE] If you receive an error similar to `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` when registering the Data Lake Store resource provider, it is possible that your subsrcription is not whitelisted for Azure Data Lake Store. Make sure you enable your Azure subscription for Data Lake Store public preview by following these [instructions](data-lake-store-get-started-portal.md#signup).
+	>[AZURE.NOTE] Если при регистрации поставщика ресурсов хранилища озера данных появляется сообщение об ошибке, похожее на `Register-AzureRmResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, это может означать, что ваша подписка отсутствует в списке разрешений для хранилища озера данных Azure. Убедитесь, что подписка Azure для общедоступной предварительной версии Data Lake Store включена, выполнив указанные [инструкции](data-lake-store-get-started-portal.md#signup).
 
-3. An Azure Data Lake Store account is associated with an Azure Resource Group. Start by creating an Azure Resource Group.
+3. Учетная запись хранения озера данных Azure связывается с группой ресурсов Azure. Для начала создайте группу ресурсов Azure.
 
-        $resourceGroupName = "<your new resource group name>"
-        New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
+		$resourceGroupName = "<your new resource group name>"
+    	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
 
-    ![Create an Azure Resource Group](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Create an Azure Resource Group")
+	![Создание группы ресурсов Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateResourceGroup.png "Создание группы ресурсов Azure")
 
-2. Create an Azure Data Lake Store account. The account name you specify must only contain lowercase letters and numbers.
+2. Создайте учетную запись хранилища озера данных Azure. Имя новой учетной записи должно содержать только строчные буквы и цифры.
 
-        $dataLakeStoreName = "<your new Data Lake Store name>"
-        New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
+		$dataLakeStoreName = "<your new Data Lake Store name>"
+    	New-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName -Location "East US 2"
 
-    ![Create an Azure Data Lake account](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Create an Azure Data Lake account")
+	![Создание учетной записи озера данных Azure](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.PS.CreateADLAcc.png "Создание учетной записи озера данных Azure")
 
-3. Verify that the account is successfully created.
+3. Убедитесь, что учетная запись создана.
 
-        Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
+		Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-    The output for this should be **True**.
+	Результат должен иметь значение **True**.
 
-4. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+4. Отправьте пример данных в озеро данных Azure. Позже мы проверим, доступны ли эти данные из кластера HDInsight. Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 
-        $myrootdir = "/"
-        Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
+		$myrootdir = "/"
+		Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:<path to data>\vehicle1_09142014.csv" -Destination $myrootdir\vehicle1_09142014.csv
 
 
-## <a name="set-up-authentication-for-role-based-access-to-data-lake-store"></a>Set up authentication for role-based access to Data Lake Store
+## Настройка проверки подлинности для доступа к хранилищу озера данных на основе ролей
 
-Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure Classic Portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the Azure Data Lake Store account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
+Каждая подписка Azure связана со службой Azure Active Directory. Пользователи и службы, получающие доступ к ресурсам подписки через классический портал Azure или API Azure Resource Manager, сначала должны пройти аутентификацию в соответствующей службе Azure Active Directory. Доступ к подпискам и службам Azure предоставляется путем назначения соответствующей роли для ресурса Azure. В случае со службами субъект-служба идентифицирует службу в Azure Active Directory (AAD). В этом разделе мы расскажем, как предоставить службе приложения, в частности HDInsight, доступ к ресурсу Azure (созданной ранее учетной записи хранилища озера данных Azure). Для этого с помощью Azure PowerShell мы создадим для приложения субъект-службу и назначим ему роли.
 
-To set up Active Directory authentication for Azure Data Lake, you must perform the following tasks.
+Чтобы настроить для озера данных Azure проверку подлинности в Active Directory, вам необходимо сделать следующее:
 
-* Create a self-signed certificate
-* Create an application in Azure Active Directory and a Service Principal
+* Создание самозаверяющего сертификата
+* создать приложение в Azure Active Directory и субъект-службу.
 
-### <a name="create-a-self-signed-certificate"></a>Create a self-signed certificate
+### Создание самозаверяющего сертификата
 
-Make sure you have [Windows SDK](https://dev.windows.com/en-us/downloads) installed before proceeding with the steps in this section. You must have also created a directory, such as **C:\mycertdir**, where the certificate will be created.
+Прежде чем выполнять дальнейшие действия, описанные в этом разделе, убедитесь, что на вашем компьютере установлен [пакет SDK Windows](https://dev.windows.com/ru-RU/downloads). Вам также необходимо создать каталог, например **C:\\mycertdir**, в котором будет создан сертификат.
 
-1. From the PowerShell window, navigate to the location where you installed Windows SDK (typically, `C:\Program Files (x86)\Windows Kits\10\bin\x86` and use the [MakeCert][makecert] utility to create a self-signed certificate and a private key. Use the following commands.
+1. В окне PowerShell перейдите в расположение, где установлен пакет SDK Windows (обычно это `C:\Program Files (x86)\Windows Kits\10\bin\x86`), и с помощью служебной программы [MakeCert][makecert] создайте самозаверяющий сертификат и закрытый ключ. Используйте такие команды:
 
-        $certificateFileDir = "<my certificate directory>"
-        cd $certificateFileDir
-        $startDate = (Get-Date).ToString('MM/dd/yyyy')
-        $endDate = (Get-Date).AddDays(365).ToString('MM/dd/yyyy')
+		$certificateFileDir = "<my certificate directory>"
+		cd $certificateFileDir
+		$startDate = (Get-Date).ToString('MM/dd/yyyy')
+		$endDate = (Get-Date).AddDays(365).ToString('MM/dd/yyyy')
 
-        makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -b $startDate -e $endDate -r -len 2048
+		makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -b $startDate -e $endDate -r -len 2048
 
-    You will be prompted to enter the private key password. After the command successfully executes, you should see a **CertFile.cer** and **mykey.pvk** in the certificate directory you specified.
+	Вам будет предложено ввести пароль для закрытого ключа. После успешного выполнения команды в указанном каталоге сертификатов должны появиться файлы **CertFile.cer** и **mykey.pvk**.
 
-4. Use the [Pvk2Pfx][pvk2pfx] utility to convert the .pvk and .cer files that MakeCert created to a .pfx file. Run the following command.
+4. С помощью служебной программы [Pvk2Pfx][pvk2pfx] преобразуйте созданные программой MakeCert PVK- и CER-файлы в PFX-файл. Выполните следующую команду:
 
-        pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
+		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
-    When prompted enter the private key password you specified earlier. The value you specify for the **-po** parameter is the password that is associated with the .pfx file. After the command successfully completes, you should also see a CertFile.pfx in the certificate directory you specified.
+	При появлении соответствующего запроса введите указанный ранее пароль для закрытого ключа. Значение, указываемое для параметра **-po** — это пароль, связанный с PFX-файлом. После успешного выполнения команды вы должны увидеть в указанном каталоге сертификата файл CertFile.pfx.
 
-###  <a name="create-an-azure-active-directory-and-a-service-principal"></a>Create an Azure Active Directory and a service principal
+###  Создание приложения в Azure Active Directory и субъекта-службы
 
-In this section, you perform the steps to create a service principal for an Azure Active Directory application, assign a role to the service principal, and authenticate as the service principal by providing a certificate. Run the following commands to create an application in Azure Active Directory.
+Следуя описаниям, приведенным в этом разделе, вы создадите субъект-службу для приложения Azure Active Directory, назначите роль субъекту-службе и пройдете проверку подлинности в качестве субъекта-службы, используя сертификат. Чтобы создать приложение в Azure Active Directory, выполните следующие команды.
 
-1. Paste the following cmdlets in the PowerShell console window. Make sure the value you specify for the **-DisplayName** property is unique. Also, the values for **-HomePage** and **-IdentiferUris** are placeholder values and are not verified.
+1. В окне консоли PowerShell вставьте из буфера обмена следующие командлеты. Укажите для свойства **-DisplayName** уникальное значение. Значения свойств **-HomePage** и **- IdentiferUris** — это заполнители, которые не проверяются.
 
-        $certificateFilePath = "$certificateFileDir\CertFile.pfx"
+		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
 
-        $password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
+		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
 
-        $certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
+		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 
-        $rawCertificateData = $certificatePFX.GetRawCertData()
+		$rawCertificateData = $certificatePFX.GetRawCertData()
 
-        $credential = [System.Convert]::ToBase64String($rawCertificateData)
+		$credential = [System.Convert]::ToBase64String($rawCertificateData)
 
-        $application = New-AzureRmADApplication `
-                    -DisplayName "HDIADL" `
-                    -HomePage "https://contoso.com" `
-                    -IdentifierUris "https://mycontoso.com" `
-                    -KeyValue $credential  `
-                    -KeyType "AsymmetricX509Cert"  `
-                    -KeyUsage "Verify"  `
-                    -StartDate $startDate  `
-                    -EndDate $endDate
+		$application = New-AzureRmADApplication `
+					-DisplayName "HDIADL" `
+					-HomePage "https://contoso.com" `
+					-IdentifierUris "https://mycontoso.com" `
+					-KeyValue $credential  `
+					-KeyType "AsymmetricX509Cert"  `
+					-KeyUsage "Verify"  `
+					-StartDate $startDate  `
+					-EndDate $endDate
 
-        $applicationId = $application.ApplicationId
+		$applicationId = $application.ApplicationId
 
-2. Create a service principal using the application ID.
+2. С помощью идентификатора приложения создайте субъект-службу.
 
-        $servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
+		$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $applicationId
 
-        $objectId = $servicePrincipal.Id
+		$objectId = $servicePrincipal.Id
 
-3. Grant the service principal access to the Data Lake Store file/folder that you will access from the HDInsight cluster. The snippet below provides access to the root of the Data Lake Store account.
+3. Предоставьте субъекту-службе доступ к созданному ранее хранилищу озера данных.
 
-        Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
+		Set-AzureRmDataLakeStoreItemAclEntry -AccountName $dataLakeStoreName -Path / -AceType User -Id $objectId -Permissions All
 
-    At the prompt, enter **Y** to confirm.
+	При появлении соответствующего запроса введите **Y** для подтверждения.
 
-## <a name="create-an-hdinsight-cluster-with-authentication-to-data-lake-store"></a>Create an HDInsight cluster with authentication to Data Lake Store
+## Создание кластера HDInsight с проверкой подлинности в хранилище озера данных
 
-In this section, we create an HDInsight Hadoop cluster. For this release, the HDInsight cluster and the Data Lake Store must be in the same location (East US 2).
+В этом разделе мы создадим кластер HDInsight Hadoop. В этом выпуске кластер HDInsight и хранилище озера данных должны быть в одном расположении (Восток США 2).
 
-1. Start with retrieving the subscription tenant ID. You will need that later.
+1. Сначала получите идентификатор клиента подписки. Позже он вам понадобится.
 
-        $tenantID = (Get-AzureRmContext).Tenant.TenantId
+		$tenantID = (Get-AzureRmContext).Tenant.TenantId
 
-2. For this release, for a Hadoop cluster, Data Lake Store can only be used as an additional storage for the cluster. The default storage will still be the Azure storage blobs (WASB). So, we'll first create the storage account and storage containers required for the cluster.
+2. В этом выпуске в кластере Hadoop хранилище озера данных может использоваться только как дополнительное хранилище кластера. Хранилищем по умолчанию по-прежнему будут BLOB-объекты хранилища Azure (WASB). Поэтому мы сначала создадим учетную запись хранения и контейнеры хранилища, необходимые для кластера.
 
-        # Create an Azure storage account
-        $location = "East US 2"
-        $storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
+		# Create an Azure storage account
+		$location = "East US 2"
+		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
 
-        New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
+		New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 
-        # Create an Azure Blob Storage container
-        $containerName = "<ContainerName>"              # Provide a container name
-        $storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-        $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-        New-AzureStorageContainer -Name $containerName -Context $destContext
+		# Create an Azure Blob Storage container
+		$containerName = "<ContainerName>"              # Provide a container name
+		$storageAccountKey = Get-AzureRmStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+		New-AzureStorageContainer -Name $containerName -Context $destContext
 
-3. Create the HDInsight cluster. Use the following cmdlets.
+3. Создайте кластер HDInsight, выполнив следующие командлеты.
 
-        # Set these variables
-        $clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
-        $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
-        $httpCredentials = Get-Credential
-        $rdpCredentials = Get-Credential
+		# Set these variables
+		$clusterName = $containerName                   # As a best practice, have the same name for the cluster and container
+		$clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster
+		$httpCredentials = Get-Credential
+		$rdpCredentials = Get-Credential
 
-        New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
+		New-AzureRmHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $httpCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop -Version "3.2" -RdpCredential $rdpCredentials -RdpAccessExpiry (Get-Date).AddDays(14) -ObjectID $objectId -AadTenantId $tenantID -CertificateFilePath $certificateFilePath -CertificatePassword $password
 
-    After the cmdlet successfully completes, you should see an output like this:
+	В случае успешного выполнения командлета должен появиться такой результат:
 
-        Name                      : hdiadlcluster
-        Id                        : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlgroup/providers/Mi
-                                    crosoft.HDInsight/clusters/hdiadlcluster
-        Location                  : East US 2
-        ClusterVersion            : 3.2.7.707
-        OperatingSystemType       : Windows
-        ClusterState              : Running
-        ClusterType               : Hadoop
-        CoresUsed                 : 16
-        HttpEndpoint              : hdiadlcluster.azurehdinsight.net
-        Error                     :
-        DefaultStorageAccount     :
-        DefaultStorageContainer   :
-        ResourceGroup             : hdiadlgroup
-        AdditionalStorageAccounts :
+		Name                      : hdiadlcluster
+		Id                        : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/hdiadlgroup/providers/Mi
+		                            crosoft.HDInsight/clusters/hdiadlcluster
+		Location                  : East US 2
+		ClusterVersion            : 3.2.7.707
+		OperatingSystemType       : Windows
+		ClusterState              : Running
+		ClusterType               : Hadoop
+		CoresUsed                 : 16
+		HttpEndpoint              : hdiadlcluster.azurehdinsight.net
+		Error                     :
+		DefaultStorageAccount     :
+		DefaultStorageContainer   :
+		ResourceGroup             : hdiadlgroup
+		AdditionalStorageAccounts :
 
-## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Run test jobs on the HDInsight cluster to use the Data Lake Store
+## Выполнение тестовых заданий в кластере HDInsight
 
-After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Store. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Store.
+После настройки кластера HDInsight выполните в нем тестовые задания, чтобы проверить, доступно ли ему хранилище озера данных. Для этого запустите образец задания Hive, создающего таблицу с данными, которые вы ранее отправили в хранилище озера данных.
 
-### <a name="for-a-linux-cluster"></a>For a Linux cluster
+### Кластер Linux
 
-In this section you will SSH into the cluster and run the a sample Hive query. Windows does not provide a built-in SSH client. We recommend using **PuTTY**, which can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+В этом разделе вы подключитесь к кластеру по SSH и выполните пример запроса Hive. Windows не предоставляет встроенный клиент SSH. Рекомендуется использовать **PuTTY**, который можно скачать по адресу: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Дополнительные сведения об использовании PuTTY см. в разделе [Использование SSH с Hadoop на основе Linux в HDInsight из Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-1. Once connected, start the Hive CLI by using the following command:
+1. После подключения запустите интерфейс командной строки Hive с помощью следующей команды:
 
-        hive
+    	hive
 
-2. Using the CLI, enter the following statements to create a new table named **vehicles** by using the sample data in the Data Lake Store:
+2. Используя интерфейс командной строки, введите следующие инструкции, чтобы создать таблицу с именем **vehicles** с помощью примера данных в хранилище озера данных.
 
-        DROP TABLE vehicles;
-        CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
-        SELECT * FROM vehicles LIMIT 10;
+		DROP TABLE vehicles;
+		CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://<mydatalakestore>.azuredatalakestore.net:443/';
+		SELECT * FROM vehicles LIMIT 10;
 
-    You should see an output similar to the following:
+	Должен отобразиться результат, аналогичный приведенному ниже:
 
-        1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
-        1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
-        1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
-        1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
-        1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
-        1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
-        1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
-        1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
-        1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
-        1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
+		1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
+		1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
+		1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
+		1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
+		1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
+		1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
+		1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
+		1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
+		1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
+		1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
 
 
-### <a name="for-a-windows-cluster"></a>For a Windows cluster
+### Кластер Windows
 
-Use the following cmdlets to run the Hive query. In this query we create a table from the data in the Data Lake Store and then run a select query on the created table.
+С помощью следующих командлетов выполните запрос Hive. Этот запрос создает таблицу на основе данных в хранилище озера данных, а затем в созданной таблице выполняет запрос на выборку.
 
-    $queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
+	$queryString = "DROP TABLE vehicles;" + "CREATE EXTERNAL TABLE vehicles (str string) LOCATION 'adl://$dataLakeStoreName.azuredatalakestore.net:443/';" + "SELECT * FROM vehicles LIMIT 10;"
 
-    $hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
+	$hiveJobDefinition = New-AzureRmHDInsightHiveJobDefinition -Query $queryString
 
-    $hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
+	$hiveJob = Start-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobDefinition $hiveJobDefinition -ClusterCredential $httpCredentials
 
-    Wait-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $httpCredentials
+	Wait-AzureRmHDInsightJob -ResourceGroupName $resourceGroupName -ClusterName $clusterName -JobId $hiveJob.JobId -ClusterCredential $httpCredentials
 
-This will have the following output. **ExitValue** of 0 in the output suggests that the job completed successfully.
+Командлеты возвращают следующий результат. Если **ExitValue** имеет значение 0, это означает, что задание выполнилось успешно.
 
-    Cluster         : hdiadlcluster.
-    HttpEndpoint    : hdiadlcluster.azurehdinsight.net
-    State           : SUCCEEDED
-    JobId           : job_1445386885331_0012
-    ParentId        :
-    PercentComplete :
-    ExitValue       : 0
-    User            : admin
-    Callback        :
-    Completed       : done
+	Cluster         : hdiadlcluster.
+	HttpEndpoint    : hdiadlcluster.azurehdinsight.net
+	State           : SUCCEEDED
+	JobId           : job_1445386885331_0012
+	ParentId        :
+	PercentComplete :
+	ExitValue       : 0
+	User            : admin
+	Callback        :
+	Completed       : done
 
-Retrieve the output from the job by using the following cmdlet:
+Извлеките выходные данные из задания с помощью следующего командлета.
 
-    Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -DefaultContainer $containerName -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -ClusterCredential $httpCredentials
+	Get-AzureRmHDInsightJobOutput -ClusterName $clusterName -JobId $hiveJob.JobId -DefaultContainer $containerName -DefaultStorageAccountName $storageAccountName -DefaultStorageAccountKey $storageAccountKey -ClusterCredential $httpCredentials
 
-The job output resembles the following:
+Результат будет выглядеть так:
 
-    1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
-    1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
-    1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
-    1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
-    1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
-    1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
-    1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
-    1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
-    1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
-    1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
+	1,1,2014-09-14 00:00:03,46.81006,-92.08174,51,S,1
+	1,2,2014-09-14 00:00:06,46.81006,-92.08174,13,NE,1
+	1,3,2014-09-14 00:00:09,46.81006,-92.08174,48,NE,1
+	1,4,2014-09-14 00:00:12,46.81006,-92.08174,30,W,1
+	1,5,2014-09-14 00:00:15,46.81006,-92.08174,47,S,1
+	1,6,2014-09-14 00:00:18,46.81006,-92.08174,9,S,1
+	1,7,2014-09-14 00:00:21,46.81006,-92.08174,53,N,1
+	1,8,2014-09-14 00:00:24,46.81006,-92.08174,63,SW,1
+	1,9,2014-09-14 00:00:27,46.81006,-92.08174,4,NE,1
+	1,10,2014-09-14 00:00:30,46.81006,-92.08174,31,N,1
 
 
-## <a name="access-data-lake-store-using-hdfs-commands"></a>Access Data Lake Store using HDFS commands
+## Доступ к хранилищу озера данных с помощью команд HDFS
 
-Once you have configured the HDInsight cluster to use Data Lake Store, you can use the HDFS shell commands to access the store.
+Настроив в кластере HDInsight параметры для работы с хранилищем озера данных, используйте для доступа к хранилищу команды оболочки HDFS.
 
-### <a name="for-a-linux-cluster"></a>For a Linux cluster
+### Кластер Linux
 
-In this section you will SSH into the cluster and run the HDFS commands. Windows does not provide a built-in SSH client. We recommend using **PuTTY**, which can be downloaded from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+В этом разделе вы подключитесь к кластеру по SSH и выполните команды HDFS. Windows не предоставляет встроенный клиент SSH. Рекомендуется использовать **PuTTY**, который можно скачать по адресу: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Дополнительные сведения об использовании PuTTY см. в разделе [Использование SSH с Hadoop на основе Linux в HDInsight из Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-Once connected, use the following HDFS filesystem command to list the files in the Data Lake Store.
+После подключения используйте следующую команду файловой системы HDFS для получения списка файлов в хранилище озера данных.
 
-    hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 
-This should list the file that you uploaded earlier to the Data Lake Store.
+Эта команда должна показать файл, который вы ранее отправили в хранилище озера данных.
 
-    15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
-    Found 1 items
-    -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
+	15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+	Found 1 items
+	-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/mynewfolder
 
-You can also use the `hdfs dfs -put` command to upload some files to the Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
+С помощью команды `hdfs dfs -put` вы можете отправить в хранилище озера данных некоторые файлы, а затем с помощью команды `hdfs dfs -ls` проверить, успешно ли они передались.
 
 
-### <a name="for-a-windows-cluster"></a>For a Windows cluster
+### Кластер Windows
 
-1. Sign on to the new [Azure Portal](https://portal.azure.com).
+1. Перейдите на новый [портал Azure](https://portal.azure.com).
 
-2. Click **Browse**, click **HDInsight clusters**, and then click the HDInsight cluster that you created.
+2. Последовательно щелкните **Обзор** и **Кластеры HDInsight**, а затем выберите созданный кластер HDInsight.
 
-3. In the cluster blade, click **Remote Desktop**, and then in the **Remote Desktop** blade, click **Connect**.
+3. В колонке кластера нажмите кнопку **Удаленный рабочий стол**, а затем в колонке **Удаленный рабочий стол** щелкните **Подключиться**.
 
-    ![Remote into HDI cluster](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Create an Azure Resource Group")
+	![Удаленное подключение к кластеру HDI](./media/data-lake-store-hdinsight-hadoop-use-powershell/ADL.HDI.PS.Remote.Desktop.png "Создание группы ресурсов Azure")
 
-    When prompted, enter the credentials you provided for the remote desktop user.
+	При появлении соответствующего запроса введите учетные данные, которые вы указали для пользователя удаленного рабочего стола.
 
-4. In the remote session, start Windows PowerShell, and use the HDFS filesystem commands to list the files in the Azure Data Lake Store.
+4. Во время удаленного сеанса запустите Windows PowerShell и, используя команды файловой системы HDFS, отобразите список файлов в хранилище озера данных Azure.
 
-        hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
+	 	hdfs dfs -ls adl://<Data Lake Store account name>.azuredatalakestore.net:443/
 
-    This should list the file that you uploaded earlier to the Data Lake Store.
+	Эта команда должна показать файл, который вы ранее отправили в хранилище озера данных.
 
-        15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
-        Found 1 items
-        -rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
+		15/09/17 21:41:15 INFO web.CaboWebHdfsFileSystem: Replacing original urlConnectionFactory with org.apache.hadoop.hdfs.web.URLConnectionFactory@21a728d6
+		Found 1 items
+		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
-    You can also use the `hdfs dfs -put` command to upload some files to the Data Lake Store, and then use `hdfs dfs -ls` to verify whether the files were successfully uploaded.
+	С помощью команды `hdfs dfs -put` вы можете отправить в хранилище озера данных некоторые файлы, а затем с помощью команды `hdfs dfs -ls` проверить, успешно ли они передались.
 
-## <a name="see-also"></a>See Also
+## См. также
 
-* [Portal: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Портал: создание кластера HDInsight для работы с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

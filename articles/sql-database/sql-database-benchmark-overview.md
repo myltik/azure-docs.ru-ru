@@ -1,138 +1,133 @@
 <properties
-    pageTitle="Azure SQL Database benchmark overview"
-    description="This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database."
-    services="sql-database"
-    documentationCenter="na"
-    authors="CarlRabeler"
-    manager="jhubbard"
-    editor="monicar" />
+	pageTitle="Общие сведения об измерении производительности Базы данных SQL Azure"
+	description="В этом разделе описывается тест производительности Базы данных SQL Azure, используемый при измерении ее производительности."
+	services="sql-database"
+	documentationCenter="na"
+	authors="CarlRabeler"
+	manager="jhubbard"
+	editor="monicar" />
 
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="06/21/2016"
-    ms.author="carlrab" />
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="06/21/2016"
+	ms.author="carlrab" />
 
+# Общие сведения об измерении производительности Базы данных SQL Azure
 
-# <a name="azure-sql-database-benchmark-overview"></a>Azure SQL Database benchmark overview
+## Обзор
+База данных SQL Microsoft Azure предлагает три [уровня служб](sql-database-service-tiers.md) с несколькими уровнями производительности. Каждый уровень производительности предоставляет более обширный набор ресурсов (или «мощностей»), предназначенный для повышения пропускной способности.
 
-## <a name="overview"></a>Overview
-Microsoft Azure SQL Database offers three [service tiers](sql-database-service-tiers.md) with multiple performance levels. Each performance level provides an increasing set of resources, or ‘power’, designed to deliver increasingly higher throughput.
+Важно иметь возможность измерить, как увеличивающаяся мощность каждого уровня производительности преобразуется в повышенную производительность базы данных. Для этого корпорация Майкрософт разработала тест производительности Базы данных SQL Azure (ASDB). Этот тест выполняет набор базовых операций, которые есть во всех рабочих нагрузках OLTP. Измеряется пропускная способность, обеспечиваемая базами данных на каждом уровне производительности.
 
-It is important to be able to quantify how the increasing power of each performance level translates into increased database performance. To do this Microsoft has developed the Azure SQL Database Benchmark (ASDB). The benchmark exercises a mix of basic operations found in all OLTP workloads. We measure the throughput achieved for databases running in each performance level.
+Ресурсы и мощность каждого уровня служб и уровня производительности выражаются в [единицах транзакций базы данных (DTU)](sql-database-technical-overview.md#understand-dtus). Единицы DTU позволяют описывать относительную мощность уровня производительности, основываясь на измерении загрузки ЦП, памяти и скорости чтения и записи, которые характерны для каждого уровня производительности. Удвоение оценки DTU базы данных соответствует удвоению ее мощности. Тест производительности позволяет оценить, как увеличение мощности влияет на производительность базы данных для каждого уровня производительности. Эта оценка выполняется так: запускаются реальные операции базы данных, при этом размер базы данных, количество пользователей и скорость транзакций масштабируются пропорционально ресурсам, предоставляемым базе данных.
 
-The resources and power of each service tier and performance level are expressed in terms of [Database Transaction Units (DTUs)](sql-database-technical-overview.md#understand-dtus). DTUs provide a way to describe the relative capacity of a performance level based on a blended measure of CPU, memory, and read and write rates offered by each performance level. Doubling the DTU rating of a database equates to doubling the database power. The benchmark allows us to assess the impact on database performance of the increasing power offered by each performance level by exercising actual database operations, while scaling database size, number of users, and transaction rates in proportion to the resources provided to the database.
+Если пропускную способность служб уровня Basic выражать с помощью количества транзакций в час, служб уровня Standard – с помощью количества транзакций в минуту, а служб уровня служб Premium – с помощью количества транзакций в секунду, становится проще соотносить потенциал производительности служб каждого уровня с требованиями приложения.
 
-By expressing the throughput of the Basic service tier using transactions per-hour, the Standard service tier using transactions per-minute, and the Premium service tier using transactions per-second, it makes it easier to quickly relate the performance potential of each service tier to the requirements of an application.
+## Соотнесение результатов тестирования производительности с реальной производительностью базы данных
+Важно понимать, что тест ASDB, как все тесты производительности, является только показательным и ориентировочным тестом. Показатели скорости транзакций, достигнутые приложением тестирования производительности, будут отличаться от таких показателей других приложений. Тест производительности состоит из набора транзакций разных типов, выполняемых в схеме, которая содержит целый ряд таблиц и типов данных. Хотя тест производительности выполняет основные операции, свойственные для всех рабочих нагрузок OLTP, он не представляет какой-либо определенный класс базы данных или приложения. Цель тестирования производительности заключается в предоставлении приемлемых рекомендаций для относительной производительности базы данных, которую можно ожидать при переходе на более высокий или более низкий уровень производительности. На самом деле базы данных имеют разные размеры и сложность, обрабатывают разные сочетания рабочих нагрузок и реагируют разными способами. Например, приложение с большим объемом операций ввода-вывода может быстрее достигнуть порогового значения таких операций или приложение с интенсивной нагрузкой ЦП может быстрее достигнуть порогового значения такой нагрузки. Нет никакой гарантии, что конкретная база данных будет увеличиваться так же, как это показывает тест производительности при увеличении нагрузки.
 
-## <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Correlating benchmark results to real world database performance
-It is important to understand that ASDB, like all benchmarks, is representative and indicative only. The transaction rates achieved with the benchmark application will not be the same as those that might be achieved with other applications. The benchmark comprises a collection of different transaction types run against a schema containing a range of tables and data types. While the benchmark exercises the same basic operations that are common to all OLTP workloads, it does not represent any specific class of database or application. The goal of the benchmark is to provide a reasonable guide to the relative performance of a database that might be expected when scaling up or down between performance levels. In reality, databases are of different sizes and complexity, encounter different mixes of workloads, and will respond in different ways. For example, an IO-intensive application may hit IO thresholds sooner, or a CPU-intensive application may hit CPU limits sooner. There is no guarantee that any particular database will scale in the same way as the benchmark under increasing load.
+Тест производительности и его методология подробно описаны ниже.
 
-The benchmark and its methodology are described in more detail below.
+## Сводка о тесте производительности
+Тест ASDB измеряет производительность набора основных операций базы данных, выполняемых чаще всего при рабочих нагрузках оперативной обработки транзакций (OLTP). Хотя тест производительности разрабатывался для облачных вычислений, схемы базы данных, заполнение данными и транзакции рассчитаны на максимально широкий уровень репрезентативности основных элементов, которые чаще всего используются в рабочих нагрузках OLTP.
 
-## <a name="benchmark-summary"></a>Benchmark summary
-ASDB measures the performance of a mix of basic database operations which occur most frequently in online transaction processing (OLTP) workloads. Although the benchmark is designed with cloud computing in mind, the database schema, data population, and transactions have been designed to be broadly representative of the basic elements most commonly used in OLTP workloads.
+## Схема
+Схема разработана таким образом, чтобы предоставить достаточную степень разнообразия и сложности для поддержки широкого диапазона операций. Тест производительности выполняется в базе данных, состоящей из шести таблиц. Эти таблицы делятся на три категории: фиксированного размера, масштабируемые и расширяемые. Есть две таблицы фиксированного размера, три масштабируемые таблицы и одна расширяемая таблица. Таблицы фиксированного размера имеют неизменное количество строк. Масштабируемые таблицы имеют кратность, пропорциональную производительности базы данных, но не изменяемую во время тестирования производительности. Расширяемая таблица имеет такой же размер, что и масштабируемая таблица при начальной нагрузке, но затем в процессе тестирования производительности кратность изменяется по мере добавления и удаления строк.
 
-## <a name="schema"></a>Schema
-The schema is designed to have enough variety and complexity to support a broad range of operations. The benchmark runs against a database comprised of six tables. The tables fall into three categories: fixed-size, scaling, and growing. There are two fixed-size tables; three scaling tables; and one growing table. Fixed-size tables have a constant number of rows. Scaling tables have a cardinality that is proportional to database performance, but doesn’t change during the benchmark. The growing table is sized like a scaling table on initial load, but then the cardinality changes in the course of running the benchmark as rows are inserted and deleted.
+Схема включает сочетание типов данных, в том числе целое число, цифру, символ, а также дату и время. Схема включает первичные и вторичные ключи, но не имеет внешних ключей, т. е. между таблицами нет ограничений ссылочной целостности.
 
-The schema includes a mix of data types, including integer, numeric, character, and date/time. The schema includes primary and secondary keys, but not any foreign keys – that is, there are no referential integrity constraints between tables.
+Программа формирования данных создает данные для исходной базы данных. Целочисленные и числовые данные создаются с помощью разных стратегий. В некоторых случаях значения случайным образом распределяются в диапазоне. Чтобы гарантировать соблюдение конкретного распределения в других случаях, набор значений переставляется случайным образом. Текстовые поля создаются из взвешенного списка слов для формирования реалистичных данных.
 
-A data generation program generates the data for the initial database. Integer and numeric data is generated with various strategies. In some cases, values are distributed randomly over a range. In other cases, a set of values is randomly permuted to ensure that a specific distribution is maintained. Text fields are generated from a weighted list of words to produce realistic looking data.
+Размер базы данных устанавливается в соответствии с «коэффициентом масштабирования». Коэффициент масштабирования (сокращенно SF) определяет кратность элементов в масштабируемых и растущих таблицах. Как описано ниже, в разделе «Пользователи и пошаговое продвижение», размер базы данных, количество пользователей и максимальная производительность масштабируются пропорционально друг к другу.
 
-The database is sized based on a “scale factor.” The scale factor (abbreviated as SF) determines the cardinality of the scaling and growing tables. As described below in the section Users and Pacing, the database size, number of users, and maximum performance all scale in proportion to each other.
+## Транзакции
+Рабочая нагрузка состоит из девяти типов транзакций, как показано в следующей таблице. Каждая транзакция должна подчеркивать определенный набор системных характеристик в ядре СУБД и системном оборудовании. При этом она должна явно отличаться от других транзакций. Такой подход упрощает оценку влияния различных компонентов на общую производительность. Например, транзакция «Чтение, высокая интенсивность» создает значительное число операций чтения с диска.
 
-## <a name="transactions"></a>Transactions
-The workload consists of nine transaction types, as shown in the table below. Each transaction is designed to highlight a particular set of system characteristics in the database engine and system hardware, with high contrast from the other transactions. This approach makes it easier to assess the impact of different components to overall performance. For example, the transaction “Read Heavy” produces a significant number of read operations from disk.
-
-| Transaction Type | Description |
+| Тип транзакции | Описание |
 |---|---|
-| Read Lite | SELECT; in-memory; read-only |
-| Read Medium | SELECT; mostly in-memory; read-only |
-| Read Heavy | SELECT; mostly not in-memory; read-only |
-| Update Lite | UPDATE; in-memory; read-write |
-| Update Heavy | UPDATE; mostly not in-memory; read-write |
-| Insert Lite | INSERT; in-memory; read-write |
-| Insert Heavy | INSERT; mostly not in-memory; read-write |
-| Delete | DELETE; mix of in-memory and not in-memory; read-write |
-| CPU Heavy | SELECT; in-memory; relatively heavy CPU load; read-only |
+| Чтение, низкая интенсивность | ВЫБОР; в памяти; только для чтения |
+| Носитель для чтения | ВЫБОР; в основном в памяти; только для чтения |
+| Чтение, высокая интенсивность | ВЫБОР; в основном не в памяти; только для чтения |
+| Обновление, низкая интенсивность | ОБНОВЛЕНИЕ; в памяти; чтение и запись |
+| Обновление, высокая интенсивность | ОБНОВЛЕНИЕ; в основном не в памяти; чтение и запись |
+| Вставка, низкая интенсивность | ВСТАВКА; в памяти; чтение и запись |
+| Вставка, высокая интенсивность | ВСТАВКА; в основном не в памяти; чтение и запись |
+| Удалить | УДАЛЕНИЕ; сочетание в памяти и не в памяти; чтение и запись |
+| ЦП, высокая интенсивность | ВЫБОР; в памяти; относительно высокая загрузка ЦП; только для чтения |
 
-## <a name="workload-mix"></a>Workload mix
-Transactions are selected at random from a weighted distribution with the following overall mix. The overall mix has a read/write ratio of approximately 2:1.
+## Сочетание рабочих нагрузок
+Транзакции выбираются случайным образом из взвешенного распределения следующего общего сочетания. Обще сочетание имеет соотношение чтения и записи 2:1.
 
-| Transaction Type | % of Mix |
+| Тип транзакции | Процент от сочетания |
 |---|---|
-| Read Lite | 35 |
-| Read Medium | 20 |
-| Read Heavy | 5 |
-| Update Lite | 20 |
-| Update Heavy | 3 |
-| Insert Lite | 3 |
-| Insert Heavy | 2 |
-| Delete | 2 |
-| CPU Heavy | 10 |
+| Чтение, низкая интенсивность | 35 |
+| Носитель для чтения | 20 |
+| Чтение, высокая интенсивность | 5 |
+| Обновление, низкая интенсивность | 20 |
+| Обновление, высокая интенсивность | 3 |
+| Вставка, низкая интенсивность | 3 |
+| Вставка, высокая интенсивность | 2 |
+| Удалить | 2 |
+| ЦП, высокая интенсивность | 10 |
 
-## <a name="users-and-pacing"></a>Users and pacing
-The benchmark workload is driven from a tool that submits transactions across a set of connections to simulate the behavior of a number of concurrent users. Although all of the connections and transactions are machine generated, for simplicity we refer to these connections as “users.” Although each user operates independently of all other users, all users perform the same cycle of steps shown below:
+## Пользователи и пошаговое продвижение
+Рабочая нагрузка теста производительности определяется с помощью средства, которое передает транзакции через ряд подключений для имитации работы определенного количества одновременных пользователей. Хотя все подключения и транзакции создаются компьютером, для простоты мы называем эти подключения «пользователи». Несмотря на то, что каждый пользователь работает независимо от других пользователей, все они выполняют одинаковый цикл, показанный ниже:
 
-1. Establish a database connection.
-2. Repeat until signaled to exit:
-    - Select a transaction at random (from a weighted distribution).
-    - Perform the selected transaction and measure the response time.
-    - Wait for a pacing delay.
-3. Close the database connection.
-4. Exit.
+1. Установление подключения к базе данных.
+2. Повторение до получения сигнала выхода:
+	- случайный выбор транзакций (из взвешенного распределения);
+	- выполнение выбранной транзакции и измерение времени ответа;
+	- ожидание задержки шага.
+3. Завершение подключения к базе данных.
+4. Выход.
 
-The pacing delay (in step 2c) is selected at random, but with a distribution that has an average of 1.0 second. Thus each user can, on average, generate at most one transaction per second.
+Задержка шага (в действии 2в) выбирается случайным образом, однако с распределением со средним значением в 1,0 секунду. Таким образом, в среднем каждый пользователь может создавать максимум одну транзакцию в секунду.
 
-## <a name="scaling-rules"></a>Scaling rules
-The number of users is determined by the database size (in scale-factor units). There is one user for every five scale-factor units. Because of the pacing delay, one user can generate at most one transaction per second, on average.
+## Правила масштабирования
+Количество пользователей определяется размером базы данных (в единицах коэффициента масштабирования). Существует один пользователь на каждые пять единиц коэффициента масштабирования. Из-за задержки шага один пользователь может в среднем создавать не более одной транзакции в секунду.
 
-For example, a scale-factor of 500 (SF=500) database will have 100 users and can achieve a maximum rate of 100 TPS. To drive a higher TPS rate requires more users and a larger database.
+Например, база данных с коэффициентом масштабирования 500 (SF=500) будет иметь 100 пользователей и может достичь максимальной скорости в 100 транзакций в секунду. Для более высокой скорости требуется больше пользователей и большие размеры базы данных.
 
-The table below shows the number of users actually sustained for each service tier and performance level.
+В таблице ниже показано количество пользователей, фактически поддерживаемых для каждого уровня службы и уровня производительности.
 
-| Service Tier (Performance Level) | Users | Database Size |
+| Уровень службы (уровень производительности) | Пользователи | Размер базы данных |
 |---|---|---|
-| Basic | 5 | 720 MB |
+| Basic | 5 | 720 МБ |
 | Standard (S0) | 10 | 1 GB |
-| Standard (S1) | 20 | 2.1 GB |
-| Standard (S2) | 50 | 7.1 GB |
-| Premium (P1) | 100 | 14 GB |
-| Premium (P2) | 200 | 28 GB |
-| Premium (P6/P3) | 800 | 114 GB |
+| Standard (S1) | 20 | 2,1 ГБ |
+| Standard (S2) | 50 | 7,1 ГБ |
+| Premium (P1) | 100 | 14 ГБ |
+| Premium (P2) | 200 | 28 ГБ |
+| Premium (P6/P3) | 800 | 114 ГБ |
 
-## <a name="measurement-duration"></a>Measurement duration
-A valid benchmark run requires a steady-state measurement duration of at least one hour.
+## Продолжительность измерения
+Для правильного выполнения теста производительности требуется измерять устойчивое состояние по крайней мере один час.
 
-## <a name="metrics"></a>Metrics
-The key metrics in the benchmark are throughput and response time.
+## Метрики
+Ключевыми показателями теста производительности являются пропускная способность и время ответа.
 
-- Throughput is the essential performance measure in the benchmark. Throughput is reported in transactions per unit-of-time, counting all transaction types.
-- Response time is a measure of performance predictability. The response time constraint varies with class of service, with higher classes of service having a more stringent response time requirement, as shown below.
+- Пропускная способность – это важный показатель производительности в тесте производительности. Пропускная способность измеряется в транзакциях в единицу времени, учитывая все типы транзакций.
+- Время отклика – это показатель прогнозируемости производительности. Ограничение времени ответа зависит от класса службы. Более высокие классы службы имеют более строгие требования ко времени ответа, как показано ниже.
 
-| Class of Service  | Throughput Measure | Response Time Requirement |
+| Класс службы | Единица пропускной способности | Требование ко времени ответа |
 |---|---|---|
-| Premium | Transactions per second | 95th percentile at 0.5 seconds |
-| Standard | Transactions per minute | 90th percentile at 1.0 seconds |
-| Basic | Transactions per hour | 80th percentile at 2.0 seconds |
+| Premium | Транзакций в секунду | 95-й процентиль при 0,5 секунды |
+| Standard | Транзакций в минуту | 90-й процентиль при 1,0 секунде |
+| Basic | Транзакций в час | 80-й процентиль при 2,0 секундах |
 
-## <a name="conclusion"></a>Conclusion
-The Azure SQL Database Benchmark measures the relative performance of Azure SQL Database running across the range of available service tiers and performance levels. The benchmark exercises a mix of basic database operations which occur most frequently in online transaction processing (OLTP) workloads. By measuring actual performance, the benchmark provides a more meaningful assessment of the impact on throughput of changing the performance level than is possible by just listing the resources provided by each level such as CPU speed, memory size, and IOPS. In the future, we will continue to evolve the benchmark to broaden its scope and expand the data provided.
+## Заключение
+Тест производительности Базы данных SQL Azure измеряет относительную производительность такой базы данных, функционирующей в диапазоне доступных уровней служб и уровней производительности. Тест производительности выполняет набор основных операций базы данных, выполняемых чаще всего при рабочих нагрузках оперативной обработки транзакций (OLTP). Измеряя фактическую производительность, тест обеспечивает более существенную оценку того, как изменение уровня производительности влияет на пропускную способность. Такого уровня оценки не добиться, если просто перечислять ресурсы, предоставляемые на каждом уровне, например скорость ЦП, объем памяти и операции ввода-вывода. В дальнейшем мы продолжим совершенствовать тест производительности, чтобы расширить область его применения и увеличить количество предоставляемых данных.
 
-## <a name="resources"></a>Resources
-[Introduction to SQL Database](sql-database-technical-overview.md)
+## Ресурсы
+[Введение в базы данных SQL](sql-database-technical-overview.md)
 
-[Service tiers and performance levels](sql-database-service-tiers.md)
+[Уровни служб и уровни производительности](sql-database-service-tiers.md)
 
-[Performance guidance for single databases](sql-database-performance-guidance.md)
+[Руководство по производительности для отдельных баз данных](sql-database-performance-guidance.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with NetDocuments | Microsoft Azure" 
-    description="Learn how to use NetDocuments with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Учебник. Интеграция Azure Active Directory с NetDocuments | Microsoft Azure" 
+    description="Узнайте, как использовать NetDocuments с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,157 +11,151 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-netdocuments"></a>Tutorial: Azure Active Directory integration with NetDocuments
+#Учебник. Интеграция Azure Active Directory с NetDocuments
   
-The objective of this tutorial is to show the integration of Azure and NetDocuments.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+Цель данного учебника — показать интеграцию Azure и NetDocuments. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
--   A valid Azure subscription
--   A NetDocuments tenant
+-   Действующая подписка на Azure
+-   Клиент NetDocuments.
   
-After completing this tutorial, the Azure AD users you have assigned to NetDocuments will be able to single sign into the application at your NetDocuments company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+После завершения этого руководства пользователи Azure AD, назначенные NetDocuments, будут иметь возможность единого входа в приложение на веб-сайте компании NetDocuments (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1.  Enabling the application integration for NetDocuments
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Включение интеграции приложений для NetDocuments
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-![Scenario](./media/active-directory-saas-netdocuments-tutorial/IC795040.png "Scenario")
-##<a name="enabling-the-application-integration-for-netdocuments"></a>Enabling the application integration for NetDocuments
+![Сценарий](./media/active-directory-saas-netdocuments-tutorial/IC795040.png "Сценарий")
+##Включение интеграции приложений для NetDocuments
   
-The objective of this section is to outline how to enable the application integration for NetDocuments.
+В этом разделе показано, как включить интеграцию приложений для NetDocuments.
 
-###<a name="to-enable-the-application-integration-for-netdocuments,-perform-the-following-steps:"></a>To enable the application integration for NetDocuments, perform the following steps:
+###Чтобы включить интеграцию приложений для NetDocuments, выполните следующие действия:
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-netdocuments-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-netdocuments-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-netdocuments-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-netdocuments-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-netdocuments-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-netdocuments-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-netdocuments-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **NetDocuments**.
+6.  В **поле поиска** введите **NetDocuments**.
 
-    ![Application Gallery](./media/active-directory-saas-netdocuments-tutorial/IC795041.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-netdocuments-tutorial/IC795041.png "Коллекция приложений")
 
-7.  In the results pane, select **NetDocuments**, and then click **Complete** to add the application.
+7.  В области результатов выберите **NetDocuments** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![NetDocuments](./media/active-directory-saas-netdocuments-tutorial/IC795042.png "NetDocuments")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
   
-The objective of this section is to outline how to enable users to authenticate to NetDocuments with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for NetDocuments requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+В этом разделе показано, как разрешить пользователям проходить аутентификацию в NetDocuments со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. 
+Чтобы настроить единый вход для NetDocuments, необходимо извлечь значение отпечатка из сертификата. 
+Если вы не знакомы с этой процедурой, посмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **NetDocuments** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  На странице интеграции с приложением **NetDocuments** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795043.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-netdocuments-tutorial/IC795043.png "Настройка единого входа")
 
-2.  On the **How would you like users to sign on to NetDocuments** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  На странице **Как пользователи должны входить в NetDocuments** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795044.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-netdocuments-tutorial/IC795044.png "Настройка единого входа")
 
-3.  On the **Configure App URL** page, perform the following steps:
+3.  На странице **Настройка URL-адреса приложения** выполните следующие действия.
 
-    ![Configure App URL](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-netdocuments-tutorial/IC795045.png "Настройка URL-адреса приложения")
 
-    1.  In the **Sign On URL** textbox, type your URL used by your users to sign on to your NetDocuments application (e.g.: "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
-    2.  In the **NetDocuments Reply URL** textbox, type the same value you have typed into the the **Sign On URL** textbox.  
+    1.  В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение NetDocuments (например, "*https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=CA-JI1BG3H1*").
+    2.  В текстовом поле **URL-адрес ответа NetDocuments** введите то же значение, что и в поле **URL-адрес входа**.
 
-        >[AZURE.NOTE]You can find the correct value at the end of the **Federated Identity** dialog (See the screenshot for step 9).
+        >[AZURE.NOTE]Правильное значение можно найти в конце диалогового окна **Федеративное удостоверение** (см. снимок экрана для шага 9).
 
-    3.  Click **Next**
+    3.  Нажмите кнопку **Далее**.
 
-4.  On the **Configure single sign-on at NetDocuments** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+4.  На странице **Настройка единого входа в NetDocuments** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата локально на компьютере.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795046.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-netdocuments-tutorial/IC795046.png "Настройка единого входа")
 
-5.  In a different web browser window, log into your NetDocuments company site as an administrator.
+5.  В другом окне веб-браузера войдите на сайт NetDocuments вашей компании в качестве администратора.
 
-6.  Go to **Admin**.
+6.  Откройте страницу **Администратор**.
 
-7.  Click **Add and remove users and groups**.
+7.  Щелкните **Добавление и удаление пользователей и групп**.
 
-    ![Repository](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Repository")
+    ![Репозиторий](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Репозиторий")
 
-8.  Click **Configure advanced authentication options**.
+8.  Щелкните **Настройка дополнительных параметров аутентификации**.
 
-    ![Configure advanced authentication options](./media/active-directory-saas-netdocuments-tutorial/IC795048.png "Configure advanced authentication options")
+    ![Настройка дополнительных параметров аутентификации](./media/active-directory-saas-netdocuments-tutorial/IC795048.png "Настройка дополнительных параметров аутентификации")
 
-9.  On **the Federated Identity** dialog, perform the following steps:
+9.  В диалоговом окне **Федеративное удостоверение** выполните следующие действия:
 
-    ![Federated Identitty](./media/active-directory-saas-netdocuments-tutorial/IC795049.png "Federated Identitty")
+    ![Федеративное удостоверение](./media/active-directory-saas-netdocuments-tutorial/IC795049.png "Федеративное удостоверение")
 
-    1.  As **Federated identity server type**, select **Active Directory Federation Services**.
-    2.  Click **Choose file**, to upload the downloaded metadata file.
-    3.  Click **OK**.
+    1.  Для параметра **Тип сервера федеративных удостоверений** выберите пункт **Службы федерации Active Directory**.
+    2.  Щелкните **Выбор файла**, чтобы отправить загруженный файл метаданных.
+    3.  Нажмите кнопку **ОК**.
 
-10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Настройка единого входа](./media/active-directory-saas-netdocuments-tutorial/IC795050.png "Настройка единого входа")
+##Настройка подготовки учетных записей пользователей
   
-In order to enable Azure AD users to log into NetDocuments, they must be provisioned into NetDocuments.  
-In the case of NetDocuments, provisioning is a manual task.
+Чтобы разрешить пользователям Azure AD вход в NetDocuments, их необходимо подготовить для NetDocuments. В случае с NetDocuments подготовка выполняется вручную.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
 
-1.  Sing on to your **NetDocuments** company site as administrator.
+1.  Войдите на сайт компании **NetDocuments** от имени администратора.
 
-2.  In the menu on the top, click **Admin**.
+2.  В верхнем меню щелкните **Администратор**.
 
-    ![Admin](./media/active-directory-saas-netdocuments-tutorial/IC795051.png "Admin")
+    ![Администратор](./media/active-directory-saas-netdocuments-tutorial/IC795051.png "Администратор")
 
-3.  Click **Add and remove users and groups**.
+3.  Щелкните **Добавление и удаление пользователей и групп**.
 
-    ![Repository](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Repository")
+    ![Репозиторий](./media/active-directory-saas-netdocuments-tutorial/IC795047.png "Репозиторий")
 
-4.  In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
+4.  В текстовом поле **Электронная почта** введите электронный адрес действующей учетной записи Azure Active Directory, которую вы хотите подготовить, затем нажмите кнопку **Добавить пользователя**.
 
-    ![Email Address](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Email Address")
+    ![Электронная почта](./media/active-directory-saas-netdocuments-tutorial/IC795053.png "Электронная почта")
 
-    >[AZURE.NOTE]The Azure Active Directory account holder will get an email that includes a link to confirm the account before it becomes active.
+    >[AZURE.NOTE]Владелец учетной записи Azure Active Directory получит электронное сообщение со ссылкой для подтверждения учетной записи перед ее активацией.
 
->[AZURE.NOTE]You can use any other NetDocuments user account creation tools or APIs provided by NetDocuments to provision AAD user accounts.
+>[AZURE.NOTE]Вы можете использовать любые другие инструменты создания учетных записей пользователя NetDocuments или API, предоставляемые NetDocuments для подготовки учетных записей пользователя AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, необходимо предоставить выбранным пользователям Azure AD доступ к приложению, назначив их.
 
-###<a name="to-assign-users-to-netdocuments,-perform-the-following-steps:"></a>To assign users to NetDocuments, perform the following steps:
+###Чтобы назначить пользователей NetDocuments, выполните следующие действия:
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **NetDocuments **application integration page, click **Assign users**.
+2.  На странице интеграции с приложением **NetDocuments** щелкните **Назначить пользователей**.
 
-    ![Assign Users](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "Assign Users")
+    ![Назначение пользователей](./media/active-directory-saas-netdocuments-tutorial/IC795054.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-netdocuments-tutorial/IC767830.png "Да")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Enable Remote Desktop Connection for a Role in Azure Cloud Services" 
-description="How to configure your azure cloud service application to allow remote desktop connections" 
+pageTitle="Включение подключения к удаленному рабочему столу для роли в облачных службах Azure" 
+description="Настройка приложения в облачной службе Azure для удаленного подключения." 
 services="cloud-services" 
 documentationCenter="" 
 authors="sbtron" 
@@ -15,8 +15,7 @@ ms.topic="article"
 ms.date="02/17/2016" 
 ms.author="saurabh"/>
 
-
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Enable Remote Desktop Connection for a Role in Azure Cloud Services
+# Включение подключения к удаленному рабочему столу для роли в облачных службах Azure
 
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
@@ -24,83 +23,82 @@ ms.author="saurabh"/>
 - [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
-Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. 
+С помощью удаленного рабочего стола обеспечивается доступ к рабочему столу экземпляра, работающего в Azure. Подключение к удаленному рабочему столу позволяет диагностировать и устранять неполадки выполняющегося приложения.
 
-You can enable a Remote Desktop connection in your role during development by including the Remote Desktop modules in your service definition or you can choose to enable Remote Desktop through the Remote Desktop Extension. The preferred approach is to use the Remote Desktop extension as you can enable Remote Desktop even after the application is deployed without having to redeploy your application. 
-
-
-## <a name="configure-remote-desktop-from-the-azure-classic-portal"></a>Configure Remote Desktop from the Azure classic portal
-The Azure classic portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. The **Configure** page for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date. 
+Во время разработки можно разрешить подключения к удаленному рабочему столу для роли, включив модули удаленного рабочего стола в определение службы или включив удаленный рабочий стол с помощью расширения удаленного рабочего стола. Рекомендуется использовать расширение удаленного рабочего стола, так как удаленный рабочий стол можно включить даже после развертывания приложения без необходимости повторного развертывания приложения.
 
 
-1. Click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
+## Настройка удаленного рабочего стола на классическом портале Azure
+На классическом портале Azure используется подход с расширением удаленного рабочего стола, поэтому удаленный рабочий стол можно включить даже после развертывания приложения. На странице **Настройка** облачной службы можно включить удаленный рабочий стол, изменить учетную запись локального администратора для подключения к виртуальным машинам, выбрать сертификат для проверки подлинности, а также установить срок его действия.
 
-2. Click **Remote**.
+
+1. Щелкните **Облачные службы**, затем щелкните имя облачной службы, а после этого **Настройка**.
+
+2. Щелкните **Удаленный доступ**.
     
-    ![Cloud services remote](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
+    ![Удаленный доступ к облачным службам](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
     
-    > [AZURE.WARNING] All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service) and then return to this dialog.
+    > [AZURE.WARNING] Если включить удаленный рабочий стол и нажать кнопку «ОК» (флажок), все экземпляры роли будут перезапущены. Если в роли установлен сертификат для шифрования пароля, перезапуск не производится. Чтобы не выполнять перезапуск, [загрузите сертификат для облачной службы](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service) и вернитесь в диалоговое окно.
     
 
-3. In **Roles**, select the role you want to update or select **All** for all roles.
+3. В разделе **Роли** выберите роль, которую требуется обновить, или щелкните **Все**, чтобы задать все роли.
 
-4. Make any of the following changes:
+4. Внесите любые из следующих изменений:
     
-    - To enable Remote Desktop, select the **Enable Remote Desktop** check box. To disable Remote Desktop, clear the check box.
+    - Чтобы включить удаленный рабочий стол, установите флажок **Включить удаленный рабочий стол**. Если доступ к удаленному рабочему столу не требуется, снимите этот флажок.
     
-    - Create an account to use in Remote Desktop connections to the role instances.
+    - Создайте учетную запись, которая будет использоваться в подключениях к удаленному рабочему столу в экземплярах роли.
     
-    - Update the password for the existing account.
+    - Обновите пароль существующей учетной записи.
     
-    - Select an uploaded certificate to use for authentication (upload the certificate using **Upload** on the **Certificates** page) or create a new certificate. 
+    - Выберите сертификат, который будет использоваться для аутентификации: новый или переданный с помощью раздела **Отправка** на странице **Сертификаты**.
     
-    - Change the expiration date for the Remote Desktop configuration.
+    - Измените срок действия для конфигурации удаленного рабочего стола.
 
-5. When you finish your configuration updates, click **OK** (checkmark).
+5. По завершении обновления настроек нажмите кнопку **OK** (флажок).
 
 
-## <a name="remote-into-role-instances"></a>Remote into role instances
-Once Remote Desktop is enabled on the roles you can remote into a role instance through various tools.
+## Удаленное подключение к экземплярам ролей
+После включения удаленного рабочего стола для роли можно удаленно подключаться к экземпляру роли с помощью различных средств.
 
-To connect to a role instance from the Azure classic portal:
+Подключение к экземпляру роли на классическом портале Azure:
     
-  1.   Click **Instances** to open the **Instances** page.
-  2.   Select a role instance that has Remote Desktop configured.
-  3.   Click **Connect**, and follow the instructions to open the desktop. 
-  4.   Click **Open** and then **Connect** to start the Remote Desktop connection. 
+  1.   Щелкните **Экземпляры**, чтобы открыть страницу **Экземпляры**.
+  2.   Выберите экземпляр роли, где настроен удаленный рабочий стол.
+  3.   Нажмите **Подключить** и следуйте инструкциям для открытия рабочего стола. 
+  4.   Нажмите **Открыть**, а затем **Подключить**, чтобы установить подключение к удаленному рабочему столу. 
 
 
-### <a name="use-visual-studio-to-remote-into-a-role-instance"></a>Use Visual Studio to remote into a role instance
+### Удаленное подключение к экземпляру роли с помощью Visual Studio
 
-In Visual Studio, Server Explorer:
+В обозревателе сервера Visual Studio выполните следующие действия:
 
-1. Expand the **Azure\\Cloud Services\\[cloud service name]** node.
-2. Expand either **Staging** or **Production**.
-3. Expand the individual role.
-4. Right-click one of the role instances, click **Connect using Remote Desktop...**, and then enter the user name and password. 
+1. Разверните узел **Azure\\Cloud Services\\[имя облачной службы]**.
+2. Разверните узел **Промежуточные** или **Рабочие**.
+3. Разверните нужную роль.
+4. Щелкните правой кнопкой мыши по одному из экземпляров роли, выберите **Подключиться с помощью удаленного рабочего стола...**, а затем введите имя пользователя и пароль. 
 
-![Server explorer remote desktop](./media/cloud-services-role-enable-remote-desktop/ServerExplorer_RemoteDesktop.png)
-
-
-### <a name="use-powershell-to-get-the-rdp-file"></a>Use PowerShell to get the RDP file
-You can use the [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet to retrieve the RDP file. You can then use the RDP file with Remote Desktop Connection to access the cloud service.
-
-### <a name="programmatically-download-the-rdp-file-through-the-service-management-rest-api"></a>Programmatically download the RDP file through the Service Management REST API
-You can use the [Download RDP File](https://msdn.microsoft.com/library/jj157183.aspx) REST operation to download the RDP file. 
+![Удаленный рабочий стол обозревателя сервера](./media/cloud-services-role-enable-remote-desktop/ServerExplorer_RemoteDesktop.png)
 
 
+### Получение RDP-файла с помощью PowerShell
+RDP-файл можно получить с помощью командлета [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx). Затем с помощью этого файла вы сможете подключаться к облачной службе по протоколу удаленного рабочего стола.
 
-## <a name="to-configure-remote-desktop-in-the-service-definition-file"></a>To configure Remote Desktop in the service definition file
+### Загрузка RDP-файла через API REST управления службами программным способом
+Вы можете загрузить RDP-файл с помощью операции REST [Загрузить RDP-файл](https://msdn.microsoft.com/library/jj157183.aspx).
 
-This method allows you to enable Remote Desktop for the application during development. This approach requires encrypted passwords be stored in your service configuration file and any updates to the remote desktop configuration would require a redeployment of the application. If you want to avoid these downsides you should use the remote desktop extension based approach described above.  
 
-You can use Visual Studio to [enable a remote desktop connection](../vs-azure-tools-remote-desktop-roles.md) using the service definition file approach.  
-The steps below describe the changes needed to the service model files to enable remote desktop. Visual Studio will automatically makes these changes when publishing.
 
-### <a name="set-up-the-connection-in-the-service-model"></a>Set up the connection in the service model 
-Use the **Imports** element to import the **RemoteAccess** module and the **RemoteForwarder** module to the [ServiceDefinition.csdef](cloud-services-model-and-package.md#csdef) file.
+## Настройка удаленного рабочего стола в файле определения службы
 
-The service definition file should be similar to the following example with the `<Imports>` element added.
+Этот метод позволяет включить удаленный рабочий стол для приложения во время разработки. Этот подход требует, чтобы зашифрованные пароли хранились в файле конфигурации службы. При этом любые изменения конфигурации удаленного рабочего стола потребуют повторного развертывания приложения. Если вы хотите избежать этих недостатков, следует использовать подход с расширением удаленного рабочего стола, который описан выше.
+
+Для [включения подключения к удаленному рабочему столу](../vs-azure-tools-remote-desktop-roles.md) с помощью файла определения службы можно воспользоваться Visual Studio. Следующие шаги описывают изменения, которые необходимо произвести в файлах модели службы, чтобы включить удаленный рабочий стол. Visual Studio автоматически выполнит эти изменения при публикации.
+
+### Настройка подключения в модели службы 
+Используйте элемент **Imports** для импорта модулей **RemoteAccess** и **RemoteForwarder** в файле [ServiceDefinition.csdef](cloud-services-model-and-package.md#csdef).
+
+Файл определения службы должен быть таким, как показано в примере ниже, с добавленным элементом `<Imports>`.
 
 ```xml
 <ServiceDefinition name="<name-of-cloud-service>" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2013-03.2.0">
@@ -123,7 +121,7 @@ The service definition file should be similar to the following example with the 
     </WebRole>
 </ServiceDefinition>
 ```
-The [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) file should be similar to the following example, note the `<ConfigurationSettings>` and `<Certificates>` elements. The Certificate specified must be [uploaded to the cloud service](../cloud-services-how-to-create-deploy.md#how-to-upload-a-certificate-for-a-cloud-service).
+Файл [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) должен быть таким, как показано в следующем примере, с добавлением элементов `<ConfigurationSettings>` и `<Certificates>`. Указанный сертификат необходимо [загрузить в облачную службу](../cloud-services-how-to-create-deploy.md#how-to-upload-a-certificate-for-a-cloud-service).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -145,11 +143,8 @@ The [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscfg) file
 ```
 
 
-## <a name="additional-resources"></a>Additional Resources
+## Дополнительные ресурсы
 
-[How to Configure Cloud Services](cloud-services-how-to-configure.md)
+[Настройка облачных служб](cloud-services-how-to-configure.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0218_2016-->

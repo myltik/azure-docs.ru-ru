@@ -1,129 +1,123 @@
 <properties
-    pageTitle="Troubleshooting Azure Diagnostics"
-    description="Troubleshoot problems when using Azure diagnostics in Azure Cloud Services, Virtual Machines and "
-    services="multiple"
-    documentationCenter=".net"
-    authors="rboucher"
-    manager="jwhit"
-    editor=""/>
+	pageTitle="Устранение неполадок системы диагностики Azure"
+	description="Устранение неполадок при использовании системы диагностики Azure в облачных службах Azure и виртуальных машинах."
+	services="multiple"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="02/20/2016"
-    ms.author="robb"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/20/2016"
+	ms.author="robb"/>
 
 
+# Устранение неполадок с помощью системы диагностики Azure
+Информация об устранении неполадок с помощью системы диагностики Azure. Дополнительные сведения о системе диагностики Azure см. в [обзоре системы диагностики Azure](azure-diagnostics.md#cloud-services).
 
-# <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics Troubleshooting
-Troubleshooting information relevant to using Azure Diagnostics. For more information on Azure diagnostics, see [Azure Diagnostics Overview](azure-diagnostics.md#cloud-services).
+## Система диагностики Azure не запускается
+Диагностика состоит из двух компонентов: подключаемого модуля гостевого агента и агента мониторинга.
 
-## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics is not Starting
-Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent.
+В роли облачной службы файлы журнала подключаемого модуля гостевого агента расположены в файле:
 
-In a Cloud Service role, log files for the guest agent plugin are located in the file:
+	*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\CommandExecution.log
 
-    *%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>*\CommandExecution.log
+В виртуальной машине Azure файлы журнала подключаемого модуля гостевого агента расположены в файле:
 
-In an Azure Virtual Machine, log files for the guest agent plugin are located in the file:
+		C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics<DiagnosticsVersion>\CommandExecution.log
 
-        C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\CommandExecution.log
+Подключаемый модуль возвращает следующие коды ошибок:
 
-The following error codes are returned by the plugin:
-
-Exit Code|Description
+Код выхода|Описание
 ---|---
-0|Success.
--1|Generic Error.
--2|Unable to load the rcf file.<p>This is an internal error that should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM.
--3|Cannot load the Diagnostics configuration file.<p><p>Solution: This is the result of a configuration file not passing schema validation. The solution is to provide a configuration file that complies with the schema.
--4|Another instance of the monitoring agent Diagnostics is already using the local resource directory.<p><p>Solution: Specify a different value for **LocalResourceDirectory**.
--6|The guest agent plugin launcher attempted to launch Diagnostics with an invalid command line.<p><p>This is an internal error that should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM.
--10|The Diagnostics plugin exited with an unhandled exception.
--11|The guest agent was unable to create the process responsible for launching and monitoring the monitoring agent.<p><p>Solution: Verify that sufficient system resources are available to launch new processes.<p>
--101|Invalid arguments when calling the Diagnostics plugin.<p><p>This is an internal error that should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM.
--102|The plugin process is unable to initialize itself.<p><p>Solution: Verify that sufficient system resources are available to launch new processes.
--103|The plugin process is unable to initialize itself. Specifically it is unable to create the logger object.<p><p>Solution: Verify that sufficient system resources are available to launch new processes.
--104|Unable to load the rcf file provided by the guest agent.<p><p>This is an internal error that should only happen if the guest agent plugin launcher is manually invoked, incorrectly, on the VM.
--105|The Diagnostics plugin cannot open the Diagnostics configuration file.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked, incorrectly, on the VM.
--106|Cannot read the Diagnostics configuration file.<p><p>Solution: This is the result of a configuration file not passing schema validation. So the solution is to provide a configuration file that complies with the schema. You can find the XML that is delivered to the Diagnostics extension in the folder *%SystemDrive%\WindowsAzure\Config* on the VM. Open the appropriate XML file and search for **Microsoft.Azure.Diagnostics**, then for the **xmlCfg** field. The data is base64 encoded so you’ll need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.<p>
--107|The resource directory pass to the monitoring agent is invalid.<p><p>This is an internal error that should only happen if the monitoring agent is manually invoked, incorrectly, on the VM.</p>
--108    |Unable to convert the Diagnostics configuration file into the monitoring agent configuration file.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file.
--110|General Diagnostics configuration error.<p><p>This is an internal error that should only happen if the Diagnostics plugin is manually invoked with an invalid configuration file.
--111|Unable to start the monitoring agent.<p><p>Solution: Verify that sufficient system resources are available.
--112|General error
+0|Успешно.
+-1|Общая ошибка.
+-2|Невозможно загрузить RCF-файл.<p>Это внутренняя ошибка, возникающая, только когда средство запуска подключаемого модуля гостевого агента вызвано вручную, неправильно и на виртуальной машине.
+-3|Не удалось загрузить файл конфигурации системы диагностики.<p><p>Объяснение. Такой результат возникает, если файл конфигурации не прошел проверку на соответствие схеме. Следует предоставить файл конфигурации, соответствующий схеме.
+-4|Другой экземпляр системы диагностики агента мониторинга уже использует локальный каталог ресурсов.<p><p>Решение. Измените значение **LocalResourceDirectory**.
+-6|Попытка средства запуска подключаемого модуля гостевого агента запустить систему диагностики с помощью неправильно составленной команды.<p><p>Это внутренняя ошибка, возникающая только когда средство запуска подключаемого модуля гостевого агента вызван вручную, неправильно и на виртуальной машине.
+-10|Подключаемый модуль системы диагностики был завершен с необработанным исключением.
+-11|Гостевому агенту не удалось создать процесс, отвечающий за запуск и отслеживание агента мониторинга.<p><p>Решение. Убедитесь, что для запуска новых процессов достаточно системных ресурсов.<p>
+-101|Недопустимые аргументы при вызове подключаемого модуля системы диагностики.<p><p>Это внутренняя ошибка, возникающая только когда средство загрузки подключаемого модуля гостевого агента вызван вручную, неправильно и на виртуальной машине.
+-102|Процесс подключаемого модуля не может инициализироваться.<p><p>Решение. Убедитесь, что для запуска новых процессов достаточно системных ресурсов.
+-103|Процесс подключаемого модуля не может инициализироваться. Как правило, не удается создать объект ведения журнала.<p><p>Решение. Убедитесь, что для запуска новых процессов достаточно системных ресурсов.
+-104|Не удалось загрузить RCF-файл, предоставленный гостевым агентом.<p><p>Это внутренняя ошибка, возникающая только когда средство запуска подключаемого модуля гостевого агента вызван вручную, неправильно и на виртуальной машине.
+-105|Подключаемому модулю системы диагностики не удается открыть файл конфигурации системы диагностики.<p><p>Это внутренняя ошибка, возникающая только когда подключаемый модуль системы диагностики вызван вручную, неправильно и на виртуальной машине.
+-106|Не удалось прочесть конфигурационный файл системы диагностики.<p><p>Объяснение. Такой результат возникает, если файл конфигурации не прошел проверку на соответствие схеме. Решением будет предоставить файл конфигурации, соответствующий схеме. XML-файл, переданный в расширение системы диагностики, можно найти в папке *%SystemDrive%\\WindowsAzure\\Config* на виртуальной машине. Откройте соответствующий XML-файл и выполните поиск **Microsoft.Azure.Diagnostics**, а затем найдите поле **xmlCfg**. Данные в кодировке base64, поэтому необходимо [раскодировать их](http://www.bing.com/search?q=base64+decoder), чтобы просмотреть данные XML, загруженные системой диагностики.<p>
+-107|Недопустимая передача каталога ресурсов в агент мониторинга.<p><p>Это внутренняя ошибка, возникающая, только когда агент мониторинга вызван вручную, неправильно и на виртуальной машине.</p>
+-108 |Не удалось преобразовать файл конфигурации системы диагностики в файл конфигурации агента мониторинга.<p>Это внутренняя ошибка, которая может возникать, только если подключаемый модуль системы диагностики вызван вручную с помощью недопустимого файла конфигурации.<p>
+-110|Общая ошибка конфигурации системы диагностики.<p><p>Это внутренняя ошибка, которая может возникать, только если подключаемый модуль системы диагностики вызван вручную с помощью недопустимого файла конфигурации.
+-111|Не удалось запустить агент мониторинга.<p><p>Решение. Убедитесь, что системных ресурсов достаточно.
+-112|Общая ошибка
 
 
-## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Diagnostics Data is Not Logged to Azure Storage
-Azure diagnostics stores all data in Azure Storage.
+## Журнал данных диагностики не записывается в службу хранилища Azure
+Данные диагностики Azure хранятся в службе хранилища Azure.
 
-The most common cause of missing event data is incorrectly defined storage account information.
+Наиболее распространенная причина недостающих данных событий — это некорректно определенная информация об учетной записи хранения.
 
-Solution: Correct your Diagnostics configuration file and re-install Diagnostics.
-If the issue persists after re-installing the diagnostics extension then you may have to debug further by looking through the any monitoring agent errors. Before event data is uploaded to your storage account it is stored in the LocalResourceDirectory.
+Решение. Исправьте файл конфигурации диагностики и повторно установите систему диагностики. Если проблема повторится после повторной установки расширения системы диагностики, то может потребоваться более тщательная отладка и просмотр ошибок агента мониторинга. До того, как данные событий передаются в вашу учетную запись хранения, они сохраняются в папке LocalResourceDirectory.
 
-For Cloud Service Role the LocalResourceDirectory is:
+Для роли облачной службы LocalResourceDirectory это:
 
-    C:\Resources\Directory\<CloudServiceDeploymentID>.<RoleName>.DiagnosticStore\WAD<DiagnosticsMajorandMinorVersion>\Tables
+	C:\Resources\Directory<CloudServiceDeploymentID>.<RoleName>.DiagnosticStore\WAD<DiagnosticsMajorandMinorVersion>\Tables
 
-For Virtual Machines the LocalResourceDirectory is:
+Для виртуальных машин LocalResourceDirectory это:
 
-    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD<DiagnosticsMajorandMinorVersion>\Tables
+	C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics<DiagnosticsVersion>\WAD<DiagnosticsMajorandMinorVersion>\Tables
 
-If there are no files in the LocalResourceDirectory folder, the monitoring agent is unable to launch. This is typically caused by an invalid configuration file, an event that should be reported in the CommandExecution.log.
+Если в папке LocalResourceDirectory нет файлов, агент мониторинга не сможет запуститься. Обычно причина этого — недопустимый файл конфигурации. Это событие должно быть записано в файл CommandExecution.log.
 
-If the Monitoring Agent is successfully collecting event data you will see .tsf files for each event defined in your configuration file. The Monitoring Agent logs its errors in the file MaEventTable.tsf. To inspect the contents of this file you can use the tabel2csv application to convert the .tsf file to a comma separated values(.csv) file:
+Если агент мониторинга успешно собирает данные событий, то вы увидите TSF-файлы для каждого события, определенного в файле конфигурации. Агент мониторинга регистрирует обнаруженные ошибки в файле MaEventTable.tsf. Для изучения содержимого этого файла можно использовать приложение tabel2csv, чтобы преобразовать TSF-файл в файл значений, разделенных запятыми (CSV-файл):
 
-On a Cloud Service Role:
+В роли облачной службы:
 
-    %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
+	%SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
 
-*%SystemDrive%* on a Cloud Service Role is typically D:
+*% SystemDrive %* в роли облачной службы — обычно диск D:.
 
-On a Virtual Machine:
+В виртуальной машине:
 
-    C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
+	C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics<DiagnosticsVersion>\Monitor\x64\table2csv maeventtable.tsf
 
-The above commands generates the log file *maeventtable.csv*, which you can open and inspect for failure messages.    
+Приведенная выше команда создает файл журнала *maeventtable.csv*, который можно открыть, чтобы изучить сообщения о сбое.
 
 
-## <a name="diagnostics-data-tables-not-found"></a>Diagnostics data Tables not found
-The tables in Azure storage holding Azure diagnostics data are named using the code below:
+## Таблицы данных диагностики не найдены
+Таблицы в службе хранилища Azure, содержащие данные диагностики Azure, именуются с помощью следующего примера кода:
 
-        if (String.IsNullOrEmpty(eventDestination)) {
-            if (e == "DefaultEvents")
-                tableName = "WADDefault" + MD5(provider);
-            else
-                tableName = "WADEvent" + MD5(provider) + eventId;
-        }
-        else
-            tableName = "WAD" + eventDestination;
+		if (String.IsNullOrEmpty(eventDestination)) {
+		    if (e == "DefaultEvents")
+		        tableName = "WADDefault" + MD5(provider);
+		    else
+		        tableName = "WADEvent" + MD5(provider) + eventId;
+		}
+		else
+		    tableName = "WAD" + eventDestination;
 
-Here is an example:
+Пример:
 
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
-          <DefaultEvents />
-        </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
-        </EtwEventSourceProviderConfiguration>
+		<EtwEventSourceProviderConfiguration provider=”prov1”>
+		  <Event id=”1” />
+		  <Event id=”2” eventDestination=”dest1” />
+		  <DefaultEvents />
+		</EtwEventSourceProviderConfiguration>
+		<EtwEventSourceProviderConfiguration provider=”prov2”>
+		  <DefaultEvents eventDestination=”dest2” />
+		</EtwEventSourceProviderConfiguration>
 
-That will generate 4 tables:
+Это создает четыре таблицы:
 
-Event|Table Name
+Событие|Имя таблицы
 ---|---
 provider=”prov1” &lt;Event id=”1” /&gt;|WADEvent+MD5(“prov1”)+”1”
 provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt;|WADdest1
 provider=”prov1” &lt;DefaultEvents /&gt;|WADDefault+MD5(“prov1”)
 provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt;|WADdest2
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0302_2016-->

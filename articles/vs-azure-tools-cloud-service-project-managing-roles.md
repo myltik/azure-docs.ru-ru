@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Managing roles in the Azure cloud services projects with Visual Studio | Microsoft Azure"
-   description="Learn how to add new roles to your Azure cloud service project or remove existing roles from it by using Visual Studio."
+   pageTitle="Управление ролями в проектах облачных служб Azure с помощью Visual Studio | Microsoft Azure"
+   description="Узнайте, как добавить роли в проект облачной службы Azure или удалить из него существующие роли с помощью Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,52 +15,47 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Управление ролями в проектах облачных служб Azure с помощью Visual Studio
 
-# <a name="managing-roles-in-the-azure-cloud-services-projects-with-visual-studio"></a>Managing roles in the Azure cloud services projects with Visual Studio
+После создания проекта облачной службы Azure можно добавить в него новые роли или удалить из него существующие. Вы можете импортировать существующий проект и преобразовать его в роль. Например, можно импортировать веб-приложение ASP.NET и использовать его в качестве веб-роли.
 
-After you have created your Azure cloud service project, you can add new roles to it or remove existing roles from it. You can also import an existing project and convert it to a role. For example, you can import an ASP.NET web application and designate it as a web role.
+## Добавление и удаление ролей
 
-## <a name="adding-or-removing-roles"></a>Adding or removing roles
+**Чтобы добавить роль:**
 
-**To add a role**
+В **обозревателе решений** откройте контекстное меню узла **Роли** в проекте облачной службы и выберите команду **Добавить**. Вы можете выбрать существующую веб-роль или рабочую роль в текущем решении или создать новый проект рабочей или веб-роли. Кроме того, вы можете выбрать проект, например проект веб-приложения ASP.NET, и связать его с проектом роли.
 
-In **Solution Explorer**, open the shortcut menu for the **Roles** node in your cloud service project and choose **Add**. You can select an existing web role or worker role from the current solution or create a new web or worker role project. Or you can select an appropriate project, such as an ASP.NET web application project, and associate it with a role project.
+**Чтобы удалить связь роли:**
 
-**To remove a role association**
+В узле **Роли** проекта облачной службы в обозревателе решений откройте контекстное меню роли, которую требуется удалить, и выберите команду **Удалить**.
 
-In the **Roles** node of the cloud service project in Solution Explorer, open the shortcut menu for the role to remove and choose **Remove**.
+## Удаление и добавление ролей в облачной службе
 
-## <a name="removing-and-adding-roles-in-your-cloud-service"></a>Removing and adding roles in your cloud service
+Если вы удалите роль из своего проекта облачной службы, но позже захотите снова добавить ее в проект, то будут добавлены только объявления роли и ее основные атрибуты, такие как сведения диагностики и информация о конечных точках. В файлы ServiceDefinition.csdef или ServiceConfiguration.cscfg не добавляются другие ресурсы и ссылки. Если вы хотите добавить эту информацию в файлы, то придется сделать это вручную.
 
-If you remove a role from your cloud service project but later decide to add the role back to the project, only the role declaration and basic attributes, such as endpoints and diagnostics information, are added. No additional resources or references are added to the ServiceDefinition.csdef file or to the ServiceConfiguration.cscfg file. If you want to add this information, you’ll have to manually add it back into these files.
+Предположим, вы удалили роль веб-службы, а затем решили вернуть ее обратно в решение. Если вы сделаете это, произойдет ошибка. Чтобы ее избежать, необходимо добавить элемент `<LocalResources>`, показанный в следующем XML-блоке, обратно в файл ServiceDefinition.csdef. Используйте имя роли веб-службы, добавленной в проект, в составе атрибута name в элементе **<LocalStorage>**. В этом примере используется роль веб-службы с именем **WCFServiceWebRole1**.
 
-For example, you might remove a web service role and later you decide to add this role back into your solution. If you do this, an error will occur. To prevent this error, you have to add the `<LocalResources>` element shown in the following XML back into the ServiceDefinition.csdef file. Use the name of the web service role that you added back into the project as part of the name attribute for the **<LocalStorage>** element. In this example the name of the web service role is **WCFServiceWebRole1**.
+	<WebRole name="WCFServiceWebRole1">
+	    <Sites>
+	      <Site name="Web">
+	        <Bindings>
+	          <Binding name="Endpoint1" endpointName="Endpoint1" />
+	        </Bindings>
+	      </Site>
+	    </Sites>
+	    <Endpoints>
+	      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+	    </Endpoints>
+	    <Imports>
+	      <Import moduleName="Diagnostics" />
+	    </Imports>
+	   <LocalResources>
+	      <LocalStorage name="WCFServiceWebRole1.svclog" sizeInMB="1000" cleanOnRoleRecycle="false" />
+	   </LocalResources>
+	</WebRole>
 
-    <WebRole name="WCFServiceWebRole1">
-        <Sites>
-          <Site name="Web">
-            <Bindings>
-              <Binding name="Endpoint1" endpointName="Endpoint1" />
-            </Bindings>
-          </Site>
-        </Sites>
-        <Endpoints>
-          <InputEndpoint name="Endpoint1" protocol="http" port="80" />
-        </Endpoints>
-        <Imports>
-          <Import moduleName="Diagnostics" />
-        </Imports>
-       <LocalResources>
-          <LocalStorage name="WCFServiceWebRole1.svclog" sizeInMB="1000" cleanOnRoleRecycle="false" />
-       </LocalResources>
-    </WebRole>
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+Сведения о настройке ролей в Visual Studio см. в статье [Настройка ролей для облачной службы Azure с помощью Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-Learn about how to configure roles in Visual Studio by reading [Configure the Roles for an Azure Cloud Service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

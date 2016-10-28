@@ -1,11 +1,9 @@
-#### <a name="to-delete-a-virtual-device"></a>To delete a virtual device
+#### Удаление виртуального устройства
 
-1. Sign in to the Azure classic portal.
+1. Войдите на классический портал Azure.
 
-- Click **Virtual Machines**, and then select the virtual device.
+- Щелкните **Виртуальные машины** и выберите виртуальное устройство.
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+- Щелкните **Удалить** и удалите все диски виртуальной машины.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0128_2016-->

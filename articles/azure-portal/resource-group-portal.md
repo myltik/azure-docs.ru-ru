@@ -1,165 +1,154 @@
 <properties 
-    pageTitle="Use Azure portal to manage Azure resources | Microsoft Azure" 
-    description="Use Azure portal and Azure Resource Manage to manage your resources. Shows how to work with dashboards to monitor resources." 
-    services="azure-resource-manager,azure-portal" 
-    documentationCenter="" 
-    authors="tfitzmac" 
-    manager="timlt" 
-    editor="tysonn"/>
+	pageTitle="Управление ресурсами Azure с помощью портала Azure | Microsoft Azure" 
+	description="Узнайте, как использовать портал Azure и Azure Resource Manager для управления ресурсами. В статье объясняется, как работать с панелями мониторинга для отслеживания ресурсов." 
+	services="azure-resource-manager,azure-portal" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
-    ms.service="azure-resource-manager" 
-    ms.workload="multiple" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/12/2016" 
-    ms.author="tomfitz"/>
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/12/2016" 
+	ms.author="tomfitz"/>
 
-
-# <a name="manage-azure-resources-through-portal"></a>Manage Azure resources through portal
+# Управление ресурсами Azure через портал
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](../powershell-azure-resource-manager.md)
-- [Azure CLI](../xplat-cli-azure-resource-manager.md)
-- [Portal](resource-group-portal.md) 
-- [REST API](../resource-manager-rest-api.md)
+- [Интерфейс командной строки Azure](../xplat-cli-azure-resource-manager.md)
+- [Портал](resource-group-portal.md)
+- [ИНТЕРФЕЙС REST API](../resource-manager-rest-api.md)
 
-This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](../resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+В этой статье показано, как использовать [портал Azure](https://portal.azure.com) и [Azure Resource Manager](../resource-group-overview.md) для управления ресурсами Azure. Сведения о развертывании ресурсов через портал см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
 
-Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
+В настоящее время не все службы поддерживают текущую версию портала или диспетчер ресурсов. Для некоторых служб необходимо использовать [классический портал](https://manage.windowsazure.com). Состояние каждой службы можно просмотреть в [таблице доступности портала Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
-## <a name="manage-resource-groups"></a>Manage resource groups
+## Управление группами ресурсов
 
-1. To see all the resource groups in your subscription, select **Resource groups**.
+1. Чтобы просмотреть все группы ресурсов в подписке, выберите раздел **Группы ресурсов**.
 
-    ![browse resource groups](./media/resource-group-portal/browse-groups.png)
+    ![просмотр групп ресурсов](./media/resource-group-portal/browse-groups.png)
 
-1. To create an empty resource group, select **Add**.
+1. Для создания пустой группы ресурсов щелкните **Добавить**.
 
-    ![add resource group](./media/resource-group-portal/add-resource-group.png)
+    ![добавление группы ресурсов](./media/resource-group-portal/add-resource-group.png)
 
-1. Provide a name and location for the new resource group. Select **Create**.
+1. Укажите имя и расположение новой группы ресурсов. Нажмите кнопку **Создать**.
 
-    ![create resource group](./media/resource-group-portal/create-empty-group.png)
+    ![Создать группу ресурсов](./media/resource-group-portal/create-empty-group.png)
 
-1. You may need to select **Refresh** to see the recently created resource group.
+1. Чтобы увидеть недавно созданные группы ресурсов, щелкните **Обновить**.
 
-    ![refresh resource group](./media/resource-group-portal/refresh-resource-groups.png)
+    ![обновление группы ресурсов](./media/resource-group-portal/refresh-resource-groups.png)
 
-1. To customize the information displayed for your resource groups, select **Columns**.
+1. Чтобы указать, какие сведения будут отображаться для группы ресурсов, щелкните **Столбцы**.
 
-    ![customize columns](./media/resource-group-portal/select-columns.png)
+    ![настройка столбцов](./media/resource-group-portal/select-columns.png)
 
-1. Select the columns to add, and then select **Update**.
+1. Выберите столбцы, которые нужно добавить, а затем щелкните **Обновить**.
 
-    ![add columns](./media/resource-group-portal/add-columns.png)
+    ![добавление столбцов](./media/resource-group-portal/add-columns.png)
 
-1. To learn about deploying resources to your new resource group, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
+1. Сведения о развертывании ресурсов в новую группу ресурсов см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
 
-1. For quick access to a resource group, you can pin the blade to your dashboard.
+1. Чтобы получить быстрый доступ к группе ресурсов, можно закрепить колонку на панели мониторинга.
 
-    ![pin resource group](./media/resource-group-portal/pin-group.png)
+    ![закрепление группы ресурсов](./media/resource-group-portal/pin-group.png)
 
-1. The dashboard displays the resource group and its resources. You can select either the resource groups or any of its resources to navigate to the item.
+1. На панели мониторинга отображаются группа ресурсов и входящие в нее ресурсы. Вы можете перейти к группе ресурсов или к любому из входящих в нее ресурсов.
 
-    ![pin resource group](./media/resource-group-portal/show-resource-group-dashboard.png)
+    ![закрепление группы ресурсов](./media/resource-group-portal/show-resource-group-dashboard.png)
 
-## <a name="tag-resources"></a>Tag resources
+## Добавление тегов к ресурсам
 
-You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
+К ресурсам и их группам можно добавлять теги. Это позволяет логически их упорядочивать. Сведения о работе с тегами см. в статье [Использование тегов для организации ресурсов в Azure](../resource-group-using-tags.md).
 
 [AZURE.INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
-## <a name="monitor-resources"></a>Monitor resources
+## Мониторинг ресурсов
 
-When you select a resource, the resource blade presents default graphs and tables for monitoring that resource type.
+При выборе ресурса в колонке ресурсов отображаются диаграммы и таблицы по умолчанию, позволяющие отслеживать этот тип ресурса.
 
-1. Select a resource and notice the **Monitoring** section. It includes graphs that are relevant to the resource type. The following image shows the default monitoring data for a storage account.
+1. Выберите ресурс и изучите раздел **Мониторинг**. В нем содержатся различные диаграммы в зависимости от типа ресурса. На следующем рисунке показаны данные мониторинга, представленные по умолчанию для учетной записи хранения.
 
-    ![show monitoring](./media/resource-group-portal/show-monitoring.png)
+    ![показать мониторинг](./media/resource-group-portal/show-monitoring.png)
 
-1. You can pin a section of the blade to your dashboard by selecting the ellipsis (...) above the section. You can also customize the size the section in the blade or remove it completely. The following image shows how to pin, customize, or remove the CPU and Memory section.
+1. На панели мониторинга можно закрепить раздел колонки. Для этого нужно щелкнуть многоточие (…) над разделом. Также можно настроить размер раздела в колонке или полностью его удалить. На следующем рисунке показано, как закрепить, настроить или удалить раздел "Процент ЦП и процент памяти".
 
-    ![pin section](./media/resource-group-portal/pin-cpu-section.png)
+    ![закрепление раздела](./media/resource-group-portal/pin-cpu-section.png)
 
-1. After pinning the section to the dashboard, you will see the summary on the dashboard. And, selecting it immediately takes you to more details about the data.
+1. После закрепления раздела на панели мониторинга отобразится сводка. Щелкнув сводку, можно моментально открыть более подробные сведения о данных.
 
-    ![view dashboard](./media/resource-group-portal/view-startboard.png)
+    ![просмотр панели мониторинга](./media/resource-group-portal/view-startboard.png)
 
-1. To completely customize the data you monitor through the portal, navigate to your default dashboard, and select **New dashboard**.
+1. Чтобы настроить данные мониторинга, которые вы будете получать через портал, перейдите к панели мониторинга по умолчанию и выберите **Новая панель мониторинга**.
 
-    ![dashboard](./media/resource-group-portal/dashboard.png)
+    !["Веб-транзакции"](./media/resource-group-portal/dashboard.png)
 
-1. Give your new dashboard a name and drag tiles onto the dashboard. The tiles are filtered by different options.
+1. Присвойте имя новой панели мониторинга и перетащите на нее плитки. Плитки фильтруются по различным параметрам.
 
-    ![dashboard](./media/resource-group-portal/create-dashboard.png)
+    !["Веб-транзакции"](./media/resource-group-portal/create-dashboard.png)
 
-     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](azure-portal-dashboards.md).
+     Чтобы узнать о том, как работать с панелями мониторинга, ознакомьтесь с разделом [Создание панелей мониторинга и предоставление общего доступа к ним на портале Azure](azure-portal-dashboards.md).
 
-## <a name="manage-resources"></a>Manage resources
+## Управление ресурсами
 
-In the blade for a resource, you see the options for managing the resource. The portal presents management options for that particular resource type. You see the management commands across the top of the resource blade and on the left side.
+В колонке для ресурса вы увидите действия для управления ресурсом. Доступные на портале действия зависят от конкретного типа ресурса. Команды управления расположены в верхней части колонки ресурсов, а также с левой стороны.
 
-![manage resources](./media/resource-group-portal/manage-resources.png)
+![управление ресурсами](./media/resource-group-portal/manage-resources.png)
 
-From these options, you can perform operations such as starting and stopping a virtual machine, or reconfiguring the properties of the virtual machine.
+Эти действия позволяют выполнять такие операции, как запуск и остановка виртуальной машины, а также изменение свойств виртуальной машины.
 
-## <a name="move-resources"></a>Move resources
+## Перемещение ресурсов
 
-If you need to move resources to another resource group or another subscription, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).
+Инструкции по переносу ресурсов в другую группу ресурсов или в другую подписку см. в статье [Перемещение ресурсов в новую группу ресурсов или подписку](../resource-group-move-resources.md).
 
-## <a name="lock-resources"></a>Lock resources
+## Блокировка ресурсов
 
-You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md).
+Можно заблокировать подписку, ресурс или группу ресурсов, чтобы другие пользователи в организации не могли случайно удалить или изменить критически важные ресурсы. Дополнительные сведения см. в статье [Блокировка ресурсов с помощью диспетчера ресурсов Azure](../resource-group-lock-resources.md).
 
 [AZURE.INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
-## <a name="view-your-subscription-and-costs"></a>View your subscription and costs
+## Просмотр сведений о подписке и затратах
 
-You can view information about your subscription and the rolled-up costs for all your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.
+Вы можете просматривать информацию о подписке и сведенные затраты для всех ресурсов. Выберите элемент **Подписки** и щелкните подписку, которую хотите просмотреть. Возможно, в этом списке только одна подписка.
 
 ![subscription](./media/resource-group-portal/select-subscription.png)
 
-Within the subscription blade, you see a burn rate.
+В колонке подписки отобразится график расходов.
 
-![burn rate](./media/resource-group-portal/burn-rate.png)
+![график расходов](./media/resource-group-portal/burn-rate.png)
 
-And, a breakdown of costs by resource type.
+а также разбивка расходов по типам ресурсов.
 
-![resource cost](./media/resource-group-portal/cost-by-resource.png)
+![стоимость ресурсов](./media/resource-group-portal/cost-by-resource.png)
 
-## <a name="export-template"></a>Export template
+## Экспорт шаблона
 
-After setting up your resource group, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
+После настройки группы ресурсов может возникнуть необходимость просмотреть для нее шаблон Resource Manager. Экспорт шаблона обеспечивает два преимущества:
 
-1. You can easily automate future deployments of the solution because the template contains all the complete infrastructure.
+1. Вы можете с легкостью автоматизировать будущие развертывания решения, так как шаблон содержит полноценную инфраструктуру.
 
-2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
+2. Вы можете ознакомиться с синтаксисом шаблона, просмотрев представление JSON решения.
 
-For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](../resource-manager-export-template.md).
+Пошаговое руководство см. в статье [Экспорт шаблона Azure Resource Manager из существующих ресурсов](../resource-manager-export-template.md).
 
-## <a name="delete-resource-group-or-resources"></a>Delete resource group or resources
+## Удаление ресурсов или группы ресурсов
 
-Deleting a resource group deletes all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you delete a resource group because there might be resources in other resource groups that are linked to it. Resource Manager does not delete linked resources, but they may not operate correctly without the expected resources.
+При удалении группы ресурсов будут удалены все ресурсы, содержащиеся в ней. Из группы ресурсов можно также удалить отдельные ресурсы. При удалении группы ресурсов необходимо соблюдать осторожность, так как с этой группой могут быть связаны ресурсы из других групп ресурсов. Resource Manager не удаляет связанные ресурсы, но они могут не работать должным образом без необходимых ресурсов.
 
-![delete group](./media/resource-group-portal/delete-group.png)
+![удаление группы](./media/resource-group-portal/delete-group.png)
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-- To view audit logs, see [Audit operations with Resource Manager](../resource-group-audit.md).
-- To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md).
-- To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
-- To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+- Сведения о просмотре журналов аудита см. в статье [Операции аудита с помощью Resource Manager](../resource-group-audit.md).
+- Сведения об устранении неполадок развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](../resource-manager-troubleshoot-deployments-portal.md).
+- Сведения о развертывании ресурсов через портал см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
+- Сведения об управлении доступом к ресурсам см. в статье [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
 
-
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

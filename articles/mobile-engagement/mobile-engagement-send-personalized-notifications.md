@@ -1,71 +1,69 @@
 <properties 
-    pageTitle="Send personalized notification with Azure Mobile Engagement" 
-    description="How to send personalized notifications by including user profile information in the notifications like their names"        
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="dwrede" 
-    editor="" />
+	pageTitle="Отправка персонализированных уведомлений с помощью Azure Mobile Engagement" 
+	description="Отправка персонализированных уведомлений, которые включают сведения из профиля пользователя (например, их имена)."		
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="all" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="all" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
 
+#Настройка уведомлений, которые включают имя пользователя
 
-#<a name="personalize-notifications-by-including-user-name"></a>Personalize notifications by including user name
+Чтобы сделать уведомления более привлекательными для пользователей приложения, вам следует персонализировать их. Один из самых эффективных методов — это выборочное использование имен пользователей приложения для адресного обращения. Однако здесь есть свои нюансы. Использовать имена пользователей приложения в уведомлениях нужно аккуратно, так как злоупотребление этой стратегией может вызвать негативную реакцию у некоторых пользователей. Кроме того, предоставьте пользователям возможность соглашаться или не соглашаться на предоставление вам личных данных в рамках мобильного приложения.
 
-In your quest to make notifications more appealing to your app users, you should consider personalizing them. One powerful approach comprises of selectively using the app users names to address the notifications to make them more personal. A word of caution here - you should approach adding user names to the notifications carefully because if you overuse this strategy then it could come across as creepy for some app users. You should also ensure that you are letting the user opt in to provide these personal details to you with full consent in the mobile app before starting to use this. 
+С технической точки зрения Azure Mobile Engagement позволяет персонализировать сообщения с помощью описанных ниже действий. В этом примере мы добавим в уведомления имя пользователя. Мы будем использовать сведения о приложении или теги. Эти сведения можно передавать с помощью пакетов SDK, интегрированных в мобильное приложение, или через API. Затем эти сведения о приложении или теги можно использовать:
 
-Technically, with Azure Mobile Engagement, you can accomplish personalizing the notifications by following the steps below in which we will use the scenario of including user name in the notifications. You will use the concept of App-Info or Tags whose values could either be passed by the SDKs integrated in the Mobile App or via APIs. These App-Infos or Tags could then be used:
+1. для отправки уведомлений определенным пользователям на основе значений сведений о приложении;
+2. в качестве заполнителей в уведомлениях, которые при отправке уведомлений на определенное устройство заменяются значениями сведений об устройстве или пользователе.
 
-1. for targeting notifications to specific users based on the values of the App-Info or 
-2. as placeholders in the notifications which will be replaced with values specific to the device/user while sending notifications to that device. 
+> [AZURE.IMPORTANT] Обратите внимание, что дополнительная обработка, связанная с заменой значений сведений о приложении в каждом уведомлении, может замедлять отправку уведомлений.
 
-> [AZURE.IMPORTANT] Note that the speed of sending notifications will see a reduction because of this additional processing of replacing app-info values with each notifications. 
+##Регистрация сведений о приложении на портале Mobile Engagement
 
-##<a name="register-app-info-in-the-mobile-engagement-portal"></a>Register App-Info in the Mobile Engagement Portal
+1) Сначала вам нужно зарегистрировать сведения о приложении или теги на портале Azure. Для этого последовательно выберите пункты **Параметры** -> **Тег (сведения о приложении)**.
 
-1) You start with registering App Info or Tags in the Azure portal. Go to **Settings** -> **Tag (App-Info)** for this.  
+![][1]
 
-![][1]  
-
-2) Click on **New tag (app-info)** and provide the name as *user_name* and the type as *string* and click **Submit**. 
+2) Щелкните **Создать тег (сведения о приложении)**, укажите имя *user\_name* и тип *Строка*. Затем нажмите кнопку **Отправить**.
 
 ![][2]
 
-3) You will finally see this app-info registered like the following:
+3) В конце вы увидите, что сведения о приложении зарегистрированы следующим образом.
 
 ![][3]
 
-##<a name="send-app-info-from-the-client-sdk"></a>Send App-Info from the client SDK
+##Отправка сведений о приложении из клиентского пакета SDK
 
-Here we are using the Windows Universal app example but equivalent methods exist for our other SDKs also. 
+В этом примере мы воспользуемся примером универсального приложения Windows, но в других пакетах SDK доступны аналогичные методы.
 
-Assuming you have a method in the mobile app where you get the profile information from the user like their names probably after authenticating them, you will call `SendAppInfo` method here and populate the value of the `user_name` app info that you registered earlier into the Mobile Engagement service backend. 
+Предположим, что в мобильном приложении при проверке подлинности пользователей предусмотрен определенный метод получения информации из профиля, включая имя пользователя. Вы вызываете метод `SendAppInfo` и заполняете значение `user_name` сведений о приложении, которые зарегистрированы ранее на серверной части службы Mobile Engagement.
 
     Dictionary<object, object> appInfo = new Dictionary<object, object>();
     appInfo.Add("user_name", str);
     EngagementAgent.Instance.SendAppInfo(appInfo); 
 
-##<a name="send-personalized-notifications"></a>Send personalized notifications
+##Отправка персонализированных уведомлений
 
-Now you are all set to send notifications using this **user_name**. 
+Теперь вы можете отправлять уведомления с использованием полученного значения **user\_name**.
 
-1) Go to Mobile Engagement Portal on the **Reach** tab to create a notification and you can use this placeholder in the following format anywhere in the notification title or the body. 
+1) На портале Mobile Engagement перейдите на вкладку **Рекламная кампания**, чтобы создать уведомление. В любом месте уведомления (теме или тексте) можно добавить заполнитель в следующем формате.
 
-![][4]  
+![][4]
 
-> [AZURE.NOTE] Any users for which the user_name app info is not set, will not get any notification. If you run the notification campaign in test mode and if you do not have app-info set then we will send '?' character to replace the placeholder. 
+> [AZURE.NOTE] Пользователи, для которых значение user\_name в сведениях о приложении не задано, уведомления получать не будут. При запуске кампании уведомлений в тестовом режиме и в отсутствие набора сведений о приложении мы отправим вам символ "?" для замены заполнителя.
 
-2) When Mobile Engagement will select a device to send this notification then it will look at this app-info and replace the value in the placeholder.  
-For example, if we have set `str = "Scott"` for a user than the device registration will get associated with the app info of **user_name = SCOTT** for this user and this user will see an out of app push notification in the following format. 
+2) Когда платформа Mobile Engagement выбирает устройство для отправки уведомления, она обращается к сведениям о приложении, заменяя заполнитель полученным значением. Например, если для пользователя задать `str = "Scott"`, при регистрации устройства переменной **user\_name** будет присвоено значение SCOTT. Тогда этот пользователь увидит в приложении уведомление в следующем формате.
 
-![][5]  
+![][5]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-send-personalized-notifications/app-info.png
@@ -74,9 +72,4 @@ For example, if we have set `str = "Scott"` for a user than the device registrat
 [4]: ./media/mobile-engagement-send-personalized-notifications/personal-notification.png
 [5]: ./media/mobile-engagement-send-personalized-notifications/notification.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

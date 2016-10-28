@@ -1,47 +1,46 @@
 <properties
-    pageTitle="Change key vault tenant ID after subscription move | Microsoft Azure"
-    description="Learn how to switch tenant ID for a key vault after a subscription is moved to a different tenant"
-    services="key-vault"
-    documentationCenter=""
-    authors="amitbapat"
-    manager="mbaldwin"
-    tags="azure-resource-manager"/>
+	pageTitle="Изменение идентификатора клиента хранилища ключей после перемещения подписки | Microsoft Azure"
+	description="Узнайте, как изменить идентификатор клиента хранилища ключей после перемещения подписки в другой клиент."
+	services="key-vault"
+	documentationCenter=""
+	authors="amitbapat"
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="key-vault"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="09/13/2016"
-    ms.author="ambapat"/>
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="09/13/2016"
+	ms.author="ambapat"/>
 
+# Изменение идентификатора клиента хранилища ключей после перемещения подписки
+### В. Моя подписка перемещена из клиента А в клиент Б. Как изменить идентификатор клиента имеющегося хранилища ключей и настроить правильные списки ACL для субъектов в клиенте Б?
 
-# <a name="change-key-vault-tenant-id-after-subscription-move"></a>Change key vault tenant ID after subscription move
-### <a name="q:-my-subscription-was-moved-from-tenant-a-to-tenant-b.-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b?"></a>Q: My subscription was moved from tenant A to tenant B. How do I change the tenant ID for my existing key vault and set correct ACLs for principals in tenant B?
+При создании хранилища ключей в подписке оно автоматически привязывается к идентификатору клиента Azure Active Directory по умолчанию для этой подписки. Все записи политики доступа также привязываются к этому идентификатору клиента. При перемещении подписки Azure из клиента A в клиент Б имеющиеся хранилища ключей недоступны для субъектов (пользователей и приложений) в клиенте Б. Чтобы устранить эту проблему, необходимо:
 
-When you create a new key vault in a subscription, it is automatically tied to the default Azure Active Directory tenant ID for that subscription. All access policy entries are also tied to this tenant ID. When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. To fix this issue, you need to
+- изменить идентификатор клиента, связанный со всеми имеющимися хранилищами ключей в этой подписке, для клиента Б;
+- удалить все имеющиеся записи политики доступа;
+- добавить новые записи политики доступа, связанные с клиентом Б.
 
-- change the tenant ID associated with all existing key vaults in this subscription to tenant B
-- remove all existing access policy entries
-- add new access policy entries that are associated with tenant B.
-
-For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, here's how to change the tenant ID for this key vault and remove old access policies.
+Например, при наличии хранилища ключей myvault в подписке, которая была перенесена из клиента A в клиент Б, необходимо изменить идентификатор клиента для этого хранилища ключей и удалить старые политики доступа.
 
 <pre>
-$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties $vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId $vault.Properties.AccessPolicies = @() Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
+$vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
+$vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties
+$vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId
+$vault.Properties.AccessPolicies = @()
+Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
-Since this vault was in tenant A before move original value of **$vault.Properties.TenantId** is tenant A, while **(Get-AzureRmContext).Tenant.TenantId** is tenant B.
+Так как это хранилище находилось в клиенте A перед перемещением, исходное значение **$vault.Properties.TenantId** является клиентом А, в то время как значение **(Get-AzureRmContext).Tenant.TenantId** — это клиент Б.
 
-Now that your vault is associated with the correct tenant Id and old access policy entries are removed, set new access policy entries with [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
+Теперь, когда хранилище связано с правильным идентификатором клиента и старые записи политики доступа удалены, можно настроить новые записи политики доступа с помощью командлета [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-- If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
+- Если у вас возникли вопросы о хранилище ключей, посетите [форумы хранилища ключей Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

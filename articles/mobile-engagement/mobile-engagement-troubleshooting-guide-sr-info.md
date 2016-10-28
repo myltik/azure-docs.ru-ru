@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement Troubleshooting Guide - Service Request Info" 
-   description="Service Request Information required by Support team for troubleshooting Azure Mobile Engagement issues" 
+   pageTitle="Руководство по устранению неполадок Azure Mobile Engagement — Информация о запросе на обслуживание" 
+   description="Информация о запросе на обслуживание, необходимая службе поддержки для устранения неполадок в работе Azure Mobile Engagement." 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,33 +16,28 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
+# Информация о запросе на обслуживание
 
-# <a name="service-request-(sr)-information"></a>Service Request (SR) Information
-
-Provide the following information when you open a service request for any Mobile Engagement service:
+При отправке запроса на обслуживание для любой службы Mobile Engagement укажите следующую информацию.
  
-## <a name="ids:-applicable-identifiers-related-to-your-issue:"></a>IDs: Applicable identifiers related to your issue:
-- App ID
-- Campaign ID
-- Device ID
-- User ID
-- User name
-- App Info Tag
+## Идентификаторы, связанные с вашей проблемой:
+- Идентификатор приложения API.
+- Идентификатор кампании.
+- Идентификатор устройства.
+- Идентификатор пользователя.
+- Имя пользователя
+- Тег информации о приложении.
  
-## <a name="errors:-applicable-error-information"></a>Errors: Applicable error information 
-- Name of the API or UI section where the issue occurs
-- Text of any error message you receive
-- Results of any tests you have performed from the [Troubleshooting Guides](http://go.microsoft.com/fwlink/?LinkId=524382)
+## Ошибки: релевантные сведения об ошибках 
+- Название раздела API или пользовательского интерфейса, где возникала проблема
+- Текст полученного сообщения об ошибке
+- Результаты тестов, выполненных по инструкциям в [Руководствах по устранению неполадок](http://go.microsoft.com/fwlink/?LinkId=524382)
 
-## <a name="code:-applicable-coding-information"></a>Code: Applicable coding information 
-- SDK version and platform of your app (Android SDK 2.4.1, iOS 1.16.2, etc.)
-- Download location of your production app (or the APK/TGZ files of your development app)
-- "AndroidManifest.xml" and/or any code snippet from your app related to Azure Mobile Engagement (for advanced troubleshooting)
+## Код: релевантные сведения о коде 
+- Версия пакета SDK и платформы приложения (Android SDK 2.4.1, iOS 1.16.2 и т. д.)
+- Каталог загрузки рабочего приложения (или файлы APK/TGZ приложения в разработке).
+- Файл AndroidManifest.xml и/или любой фрагмент кода приложения, связанный с Mobile Engagement (для дополнительного устранения неполадок)
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

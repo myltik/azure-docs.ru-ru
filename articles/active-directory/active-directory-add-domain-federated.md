@@ -1,83 +1,78 @@
 <properties
-    pageTitle="Add your custom domain name and set up federated sign-on to Azure Active Directory | Microsoft Azure"
-    description="How to add your company's domain names to Azure Active Directory, and how set up federated sign-on between Azure Active Directory and your on-premises federation solution."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeffsta"
-    manager="femila"
-    editor=""/>
+	pageTitle="Добавление имени личного домена и настройка федеративного входа в Azure Active Directory | Microsoft Azure"
+	description="В этой статье рассматривается добавление доменного имени организации в Azure Active Directory и настройка федеративного входа между Azure Active Directory и локальным решением федерации."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeffsta"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="10/04/2016"
-    ms.author="curtand;jeffsta"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="10/04/2016"
+	ms.author="curtand;jeffsta"/>
 
+# Добавление имени личного домена в Azure Active Directory
 
-# <a name="add-your-custom-domain-name-to-azure-active-directory"></a>Add your custom domain name to Azure Active Directory
+Вы можете настроить имя личного домена, например contoso.com, чтобы пользователи в этом домене могли использовать федеративный единый вход из корпоративной сети. Если в вашей корпоративной сети уже есть службы федерации Active Directory (AD FS) или другой сервер федерации, то с помощью средства Azure AD Connect вы можете настроить в Azure AD использование имени вашего личного домена. Вы можете также использовать средство Azure AD Connect, чтобы развернуть новую среду служб AD FS и настроить ее для федеративного единого входа в Azure AD.
 
-You can configure a custom domain name, such as ‘contoso.com,’ so that users in contoso.com can have a federated single sign-on experience from your corporate network. If you already have Active Directory Federation Services (AD FS) or a different federation server running on your corporate network, you can configure Azure AD to use your custom domain name using the Azure AD Connect tool. You can also use Azure AD Connect to deploy a new AD FS environment, and configure that for federated single sign-on to Azure AD.
+Если у вас нет служб AD FS или другого сервера федерации и вы не собираетесь развертывать их, выполните указания в статье [Добавление имени личного домена в Azure Active Directory](active-directory-add-domain.md).
 
-If you do not have and do not plan to deploy AD FS or another federation server, follow these instructions: [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).
+## Добавление имени личного домена в каталог
 
-## <a name="add-a-custom-domain-name-to-your-directory"></a>Add a custom domain name to your directory
+1. Войдите на [классический портал Azure](https://manage.windowsazure.com/) с правами глобального администратора каталога Azure AD.
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with a user account that is a global administrator of your Azure AD directory.
+2. В **Active Directory** откройте каталог и выберите вкладку **Домены**.
 
-2. In **Active Directory**, open your directory and select the **Domains** tab.
+3. На панели команд выберите **Добавить**, а затем введите имя личного домена, например contoso.com. Обязательно укажите COM, NET или другое расширение верхнего уровня.
 
-3. On the command bar, select **Add**, and then enter the name of your custom domain, such as 'contoso.com'. Be sure to include the .com, .net, or other top-level extension.
+4. Установите флажок **Я планирую настроить этот домен для единого входа с использованием локального каталога Active Directory**.
 
-4. Select the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox.
+5. Выберите **Добавить**.
 
-5. Select **Add**.
+Запустите средство Azure AD Connect, чтобы получить DNS-запись, которая будет использоваться Azure AD при проверке домена. Вы увидите DNS-запись на шаге **Домен Azure AD** в мастере. Узнать, как выглядит этот шаг в мастере, можно [в этой статье](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). Если у вас нет средства Azure AD Connect, вы можете [скачать его здесь](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-Run the Azure AD Connect tool to get the DNS entry that Azure AD will use to verify the domain. You will see the DNS entry in the **Azure AD Domain** step in the wizard. You can see what that step in the wizard looks like [in these instructions](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). If you do not have the Azure AD Connect tool, you can [download it here](http://go.microsoft.com/fwlink/?LinkId=615771).
+## Добавление DNS-записи домена в регистратор доменных имен
 
-## <a name="add-the-dns-entry-at-the-domain-name-registrar-for-the-domain"></a>Add the DNS entry at the domain name registrar for the domain
+Далее, чтобы использовать имя личного домена в Azure AD, нужно обновить файл зоны DNS для домена. Таким образом Azure AD сможет проверить, что организации принадлежит имя личного домена.
 
-The next step to use your custom domain name with Azure AD is to update the DNS zone file for the domain. This enables Azure AD to verify that your organization owns the custom domain name.
+1. Войдите на веб-сайт регистратора доменных имен, где вы регистрировали доменное имя. Если у вас нет права на доступ, попросите пользователя или группу с таким правом в рамках организации выполнить шаг 2 и сообщить вам о его завершении.
 
-1. Sign in to the website for domain name registrar for your domain name. If you don't have access to do this, ask the person or team in your organization who has this access to complete step 2 and to let you know when it is completed.
+2. Обновите файл зоны DNS соответствующего домена путем добавления DNS-записи, предоставленной службой Azure AD. С помощью этой DNS-записи Azure AD сможет проверить, кому принадлежит право владения доменом. DNS-запись не влияет на поведение работающих систем, например на маршрутизацию почты или веб-хостинг.
 
-2. Update the DNS zone file for the domain by adding the DNS entry provided to you by Azure AD. This DNS entry enables Azure AD to verify your ownership of the domain. The DNS entry doesn't change any behaviors such as mail routing or web hosting.
+Дополнительные сведения об этом шаге см. в [инструкциях по добавлению DNS-записи на сайтах популярных регистраторов DNS](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
-For help with this step, read [Instructions for adding a DNS entry at popular DNS registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
+## Проверка доменного имени в Azure AD
 
-## <a name="verify-the-domain-name-with-azure-ad"></a>Verify the domain name with Azure AD
+Вы можете проверить доменное имя в Azure AD сразу после добавления DNS-записи.
 
-Once you have added the DNS entry, you are ready to verify the domain name with Azure AD.
+Чтобы проверить домен, на шаге **Домен Azure AD** мастера Azure AD Connect нажмите кнопку **Далее**. Azure AD выполнит поиск DNS-записи в файле зоны DNS домена. В Azure AD доменное имя можно проверить только после распространения DNS-записей. Как правило, это занимает всего несколько секунд, но иногда — один или несколько часов. Если не удалось выполнить проверку, повторите попытку позже.
 
-To verify the domain, select **Next** on the **Azure AD Domain** step of the Azure AD Connect wizard. Azure AD will look for the DNS entry in the DNS zone file for the domain. Azure AD only verify the domain name once the DNS records have propagated. Propagation often takes only seconds, but it can sometimes take an hour or more. If verification doesn’t work the first time, try again later.
+Затем выполните оставшиеся шаги в мастере Azure AD Connect. Это позволит синхронизировать учетные записи пользователей Windows Server AD с Azure AD. Пользователи синхронизированных учетных записей в домене, настроенном для федерации, смогут выполнять федеративный единый вход из корпоративной сети в Azure AD.
 
-Then, proceed with the remaining steps in the Azure AD Connect wizard. This will synchronize users from your Windows Server AD to Azure AD. Synchronized users in the domain that you configured for federation will be able to get a federated single sign-on experience from your corporate network to Azure AD.
+## Устранение неполадок
 
-## <a name="troubleshooting"></a>Troubleshooting
+Если вам не удается проверить имя личного домена, воспользуйтесь приведенными ниже рекомендациями. Начнем с наиболее распространенной и закончим наиболее редкой.
 
-If you can't verify a custom domain name, try the following. We'll start with the most common and work down to the least common.
+1.	**Подождите один час**. Azure AD сможет проверить домен только после распространения DNS-записей. Для этого может понадобиться один или несколько часов.
 
-1.  **Wait an hour**. DNS records need to propagate before Azure AD can verify the domain. This can take an hour or more.
+2.	**Убедитесь, что введена правильная запись DNS**. Выполните этот шаг на веб-сайте регистратора доменных имен, где вы регистрировали домен. Azure AD не сможет проверить доменное имя, если DNS-запись отсутствует в файле зоны DNS или если она не полностью соответствует DNS-записи, предоставленной Azure AD. Если у вас нет прав на обновление DNS-записей домена в регистраторе доменных имен, передайте DNS-запись пользователю или группе с такими правами в рамках организации и попросите их добавить запись.
 
-2.  **Ensure the DNS record was entered, and that it is correct**. Complete this step at the website for the domain name registrar for the domain. Azure AD cannot verify the domain name if the DNS entry is not present in the DNS zone file, or if it is not an exact match with the DNS entry that Azure AD provided you. If you do not have access to update DNS records for the domain at the domain name registrar, share the DNS entry with the person or team at your organization who has this access, and ask them to add the DNS entry.
+3.	**Удалите доменное имя из другого каталога в Azure AD**. Доменное имя можно проверить только в одном каталоге. Если доменное имя ранее было проверено в другом каталоге, его нужно удалить из него. Только после этого имя можно будет проверить в новом каталоге. Дополнительные сведения об удалении доменных имен см. в статье об [управлении именами личных доменов](active-directory-add-manage-domain-names.md).
 
-3.  **Delete the domain name from another directory in Azure AD**. A domain name can be verified in only a single directory. If a domain name was previously verified in another directory, it must be deleted there before it can be verified in your new directory. To learn about deleting domain names, read [Manage custom domain names](active-directory-add-manage-domain-names.md).
+## Добавление имен других личных доменов
 
-## <a name="add-more-custom-domain-names"></a>Add more custom domain names
+Если в организации используется несколько имен личных доменов, например contoso.com и contosobank.com, вы можете добавить не более 900 имен. Выполните действия, описанные в этой статье, чтобы добавить все свои доменные имена.
 
-If your organization uses multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them up to a maximum of 900 domain names. Use the same steps in this article to add each of your domain names.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+-   [Управление личными доменными именами](active-directory-add-manage-domain-names.md)
+-   [Общие сведения об управлении доменами в Azure AD](active-directory-add-domain-concepts.md)
+-   [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
+-   [Сведения об управлении доменными именами в Azure AD с помощью PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 
--   [Manage custom domain names](active-directory-add-manage-domain-names.md)
--   [Learn about domain management concepts in Azure AD](active-directory-add-domain-concepts.md)
--   [Show your company's branding when your users sign in](active-directory-add-company-branding.md)
--   [Use PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

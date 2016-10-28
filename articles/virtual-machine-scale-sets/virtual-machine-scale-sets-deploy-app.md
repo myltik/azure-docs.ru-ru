@@ -1,65 +1,60 @@
 <properties
-    pageTitle="Deploy an App on Virtual Machine Scale Sets| Microsoft Azure"
-    description="Deploy an app on Virtual Machine Scale Sets"
-    services="virtual-machine-scale-sets"
-    documentationCenter=""
-    authors="gbowerman"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Развертывание приложения в наборах масштабирования виртуальных машин | Microsoft Azure"
+	description="Развертывание приложения в наборах масштабирования виртуальных машин"
+	services="virtual-machine-scale-sets"
+	documentationCenter=""
+	authors="gbowerman"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machine-scale-sets"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/26/2016"
-    ms.author="guybo"/>
+	ms.service="virtual-machine-scale-sets"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2016"
+	ms.author="guybo"/>
 
+# Развертывание приложения в наборах масштабирования виртуальных машин
 
-# <a name="deploy-an-app-on-virtual-machine-scale-sets"></a>Deploy an App on Virtual Machine Scale Sets
+Обычно приложение, выполняемое в наборе масштабирования виртуальных машин, развертывается одним из трех способов:
 
-An application running on a VM Scale Set is typically deployed in one of three ways:
+- Новое программное обеспечение устанавливается в образ платформы во время развертывания. Образ платформы в данном контексте — это образ операционной системы из Azure Marketplace, например Ubuntu 16.04, Windows Server 2012 R2 и т. п.
 
-- Installing new software on a platform image at deployment time. A platform image in this context is an operating system image from the Azure Marketplace, like Ubuntu 16.04, Windows Server 2012 R2, etc.
+Новое программное обеспечение можно установить в образ платформы с помощью [расширения виртуальной машины](../virtual-machines/virtual-machines-windows-extensions-features.md). Расширение виртуальной машины — это программное обеспечение, выполняемое при развертывании виртуальной машины. Используя расширение пользовательских сценариев, вы можете выполнить любой код во время развертывания. [Здесь](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) приведен пример шаблона Azure Resource Manager с двумя расширениями виртуальной машины: расширением пользовательских сценариев Linux для установки Apache и PHP и диагностическим расширением для передачи данных о производительности, используемых службой автомасштабирования Azure.
 
-You can install new software on a platform image using a [VM Extension](../virtual-machines/virtual-machines-windows-extensions-features.md). A VM extension is software that runs when a VM is deployed. You can run any code you like at deployment time using a custom script extension. [Here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) is an example Azure Resource Manager Template with two VM extensions: a Linux Custom Script Extension to install Apache and PHP, and a Diagnostic Extension to emit performance data used by Azure Autoscale.
+Преимуществом такого подхода является определенный уровень разделения кода приложения и операционной системы, позволяющий хранить приложение отдельно. Разумеется, это также означает большее число динамических частей и более продолжительное развертывание виртуальной машины, если сценарию требуется скачать и настроить много компонентов.
 
-An advantage of this approach is you have a level of separation between your application code and the OS, and can maintain your application separately. Of course that means there are also more moving parts, and VM deployment time could be longer if there is a lot for the script to download and configure.
+**При передаче конфиденциальных сведений в команде расширения пользовательских сценариев (например, пароля) вместо атрибута `settings` в атрибуте `protectedSettings` этого расширения необходимо указать `commandToExecute`.**
 
-**If you pass sensitive information in your Custom Script Extension command (such as a password), be sure to specify the `commandToExecute` in the `protectedSettings` attribute of the Custom Script Extension instead of the `settings` attribute.**
+- Создайте пользовательский образ виртуальной машины, содержащий ОС и приложение на одном виртуальном жестком диске. В нашем случае набор масштабирования состоит из ряда виртуальных машин, являющихся копиями созданного вами образа, который вы должны обслуживать. При этом подходе во время развертывания виртуальной машины никакая дополнительная настройка не нужна. Однако в версии `2016-03-30` наборов масштабирования виртуальных машин (и в более ранних версиях) диски ОС для виртуальных машин в наборе масштабирования ограничены одной учетной записью хранения. То есть в наборе масштабирования может быть не более 40 виртуальных машин, тогда как при использовании образов платформы их может быть не менее 100. Дополнительные сведения см. в [обзоре конструктора наборов масштабирования](./virtual-machine-scale-sets-design-overview.md).
 
-- Create a custom VM image that includes both the OS and the application in a single VHD. Here the scale set consists of a set of VMs copied from an image created by you, which you have to maintain. This approach requires no extra configuration at VM deployment time. However, in the `2016-03-30` version of VM Scale Sets (and earlier versions), the OS disks for the VMs in the scale set are limited to a single storage account. Thus, you can have a maximum of 40 VMs in a scale set, as opposed to the 100 VM per scale set limit with platform images. See [Scale Set Design Overview](./virtual-machine-scale-sets-design-overview.md) for more details.
+- Разверните образ платформы или пользовательский образ, который фактически представляет собой узел контейнера, и установите свое приложение как один или несколько контейнеров, управляемых с помощью оркестратора или инструмента управления конфигурацией. Достоинство этого подхода состоит в абстрагировании облачной инфраструктуры от прикладного уровня и их разделении.
 
-- Deploy a platform or a custom image which is basically a container host, and install your application as one or more containers that you manage with an orchestrator or configuration management tool. The nice thing about this approach is that you have abstracted your cloud infrastructure from the application layer and can maintain them separately.
+## Что произойдет при развертывании набора масштабирования виртуальных машин?
 
-## <a name="what-happens-when-a-vm-scale-set-scales-out?"></a>What happens when a VM Scale Set scales out?
+При добавлении одной или нескольких виртуальных машин в набор масштабирования для увеличения его емкости (вручную или посредством автомасштабирования) приложение устанавливается на них автоматически. Например, если в наборе масштабирования определены расширения, то они будут запускаться на каждой новой виртуальной машине при ее создании. Если набор масштабирования основан на исходном пользовательском образе, то любая новая виртуальная машина является его копией. Если виртуальные машины в наборе масштабирования являются узлами контейнеров, то в расширении пользовательских сценариев может использоваться код запуска для загрузки контейнеров или это расширение может устанавливать агент, который регистрируется в оркестраторе кластера (например, службе контейнеров Azure).
 
-When you add one or more VMs to a scale set by increasing the capacity – whether manually or through autoscale – the application is automatically installed. For example if the scale set has extensions defined, they run on a new VM each time it is created. If the scale set is based on a custom image, any new VM is a copy of the source custom image. If the scale set VMs are container hosts, then you might have startup code to load the containers in a Custom Script Extension, or an extension might install an agent that registers with a cluster orchestrator (such as Azure Container Service).
+## Как можно управлять обновлениями приложений в наборах масштабирования виртуальных машин?
 
-## <a name="how-do-you-manage-application-updates-in-vm-scale-sets?"></a>How do you manage application updates in VM Scale Sets?
+Для обновления приложений в наборах масштабирования виртуальных машин используются три основных подхода, следующие из трех описанных выше способов развертывания приложений.
 
-For application updates in VM Scale Sets, three main approaches follow from the three preceding application deployment methods:
+* Обновление с помощью расширений виртуальной машины. Любые расширения виртуальной машины, определенные для набора масштабирования виртуальных машин, выполняются при каждом развертывании новой виртуальной машины, пересоздании образа существующей виртуальной машины или обновлении расширения виртуальной машины. Если необходимо обновить приложение, то вы вполне можете сделать это напрямую, с помощью расширения: просто обновите определение этого расширения. Один из простых способов сделать это — изменить fileUris, указав ссылку на новое программное обеспечение.
 
-* Updating with VM extensions. Any VM extensions that are defined for a VM Scale Set are executed each time a new VM is deployed, an existing VM is reimaged, or a VM extension is updated. If you need to update your application, directly updating an application through extensions is a viable approach – you simply update the extension definition. One simple way to do so is by changing the fileUris to point to the new software.
+* Подход с неизменяемым пользовательским образом. При внедрении приложения (или компонентов приложения) в образ виртуальной машины можно поставить себе целью создание надежного конвейера для автоматизации сборки, тестирования и развертывания образов. Можно спроектировать архитектуру таким образом, чтобы упростить быстрый ввод промежуточного набора масштабирования в рабочую среду. Хорошим примером этого подхода является [работа драйвера Azure Spinnaker](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure): [http://www.spinnaker.io/](http://www.spinnaker.io/).
 
-* The immutable custom image approach. When you bake the application (or app components) into a VM image you can focus on building a reliable pipeline to automate build, test, and deployment of the images. You can design your architecture to facilitate rapid swapping of a staged scale set into production. A good example of this approach is the [Azure Spinnaker driver work](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/).
+Packer и Terraform также поддерживают Azure Resource Manager, поэтому можно определить свои образы в виде кода, создать их в Azure и затем использовать виртуальный жесткий диск в наборе масштабирования. Однако такой подход не подходит для образов Marketplace, в которых расширения и пользовательские сценарии более важны, так как вы не оперируете битами из Marketplace напрямую.
 
-Packer and Terraform also support Azure Resource Manager, so you can also define your images “as code” and build them in Azure, then use the VHD in your scale set. However, doing so would become problematic for Marketplace images, where extensions/custom scripts become more important since you don’t directly manipulate bits from Marketplace.
+* Контейнеры обновлений. Абстрагируйте управление жизненным циклом приложений до уровня над облачной инфраструктурой. Например, инкапсулируйте приложения и их компоненты в контейнеры и управляйте этими контейнерами посредством оркестраторов контейнеров и диспетчеров конфигураций, таких как Chef или Puppet.
 
-* Update containers. Abstract the application lifecycle management to a level above the cloud infrastructure, for example by encapsulating applications, and app components into containers and manage these containers through container orchestrators and configuration managers like Chef/Puppet.
+Тогда виртуальные машины в наборе масштабирования станут прочной основой для контейнеров, и будет необходимо только время от времени устанавливать обновления для системы безопасности и ОС. Как уже упоминалось, служба контейнеров Azure представляет собой хороший пример реализации такого подхода и создания службы на его основе.
 
-The scale set VMs then become a stable substrate for the containers and only require occasional security and OS-related updates. As mentioned, the Azure Container Service is a good example of taking this approach and building a service around it.
+## Как можно развернуть обновление ОС в доменах обновления?
 
-## <a name="how-do-you-roll-out-an-os-update-across-update-domains?"></a>How do you roll out an OS update across update domains?
+Предположим, что требуется обновить образ ОС, не прерывая работу набора масштабирования виртуальных машин. Один из способов сделать это — обновлять образы виртуальных машин по очереди. Для этого можно использовать PowerShell или интерфейс командной строки Azure. Существуют отдельные команды для обновления модели набора масштабирования виртуальных машин (т. е. его определения конфигурации) и выполнения вызовов "ручного обновления" на отдельных виртуальных машинах.
 
-Suppose you want to update your OS image while keeping the VM Scale Set running. One way to do so is to update the VM images one VM at a time. You can do so with PowerShell or Azure CLI. There are separate commands to update the VM Scale Set model (how its configuration is defined), and to issue “manual upgrade” calls on individual VMs.
+[Здесь](https://github.com/gbowerman/vmsstools) приведен пример сценария Python, который автоматизирует процесс обновления набора масштабирования виртуальных машин, обрабатывая домены обновления по очереди. (Предостережение. Это скорее подтверждение концепции, чем подлинное готовое решение. Может потребоваться добавить в него проверку на наличие ошибок и т. п.).
 
-[Here](https://github.com/gbowerman/vmsstools) is an example Python script that automates the process of updating a VM Scale Set one update domain at a time. (Caveat: it’s more of a proof of concept than a hardened production-ready solution – you might want to add some error checking etc.).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

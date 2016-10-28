@@ -1,12 +1,10 @@
-This setting allows you to specify the DNS server that you want to use for name resolution for this virtual network. It does not create a DNS server.
+Этот параметр позволяет указать DNS-сервер, который вы хотите использовать для разрешения имен в этой виртуальной сети. Он не приводит к созданию DNS-сервера.
 
-1. On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to open the DNS servers blade.
-2. On the **DNS Servers** page, under **DNS servers**, select **Custom DNS**.
-3. In the **Primary DNS server** field, enter the IP address of the DNS server that you want to use for name resolution.
-4. Click **Save** at the top of the blade to save your configuration.
+1. На странице **параметров** виртуальной сети щелкните **DNS-серверы**, чтобы открыть соответствующую колонку.
+2. На странице **DNS-серверы** в разделе **DNS-серверы** выберите **Пользовательский DNS**.
+3. В поле **Основной DNS-сервер** введите IP-адрес DNS-сервера, который вы хотите использовать для разрешения имен.
+4. В верхней части колонки нажмите кнопку **Сохранить**, чтобы сохранить конфигурацию.
 
-    ![Custom DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
+	![Настраиваемая служба DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0406_2016-->

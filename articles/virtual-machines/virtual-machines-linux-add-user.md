@@ -1,32 +1,31 @@
 <properties
-        pageTitle="Add a user to a Linux VM on Azure | Microsoft Azure"
-        description="Add a user to a Linux VM on Azure."
-        services="virtual-machines-linux"
-        documentationCenter=""
-        authors="vlivech"
-        manager="timlt"
-        editor=""
-        tags="azure-resource-manager"
+		pageTitle="Добавление пользователя в виртуальную машину Linux в Azure | Microsoft Azure"
+		description="Добавьте пользователя в виртуальную машину Linux в Azure."
+		services="virtual-machines-linux"
+		documentationCenter=""
+		authors="vlivech"
+		manager="timlt"
+		editor=""
+		tags="azure-resource-manager"
 />
 
 <tags
-        ms.service="virtual-machines-linux"
-        ms.workload="infrastructure-services"
-        ms.tgt_pltfrm="vm-linux"
-        ms.devlang="na"
-        ms.topic="article"
-        ms.date="08/18/2016"
-        ms.author="v-livech"
+		ms.service="virtual-machines-linux"
+		ms.workload="infrastructure-services"
+		ms.tgt_pltfrm="vm-linux"
+		ms.devlang="na"
+		ms.topic="article"
+		ms.date="08/18/2016"
+		ms.author="v-livech"
 />
 
+# Добавление пользователя в виртуальную машину Azure
 
-# <a name="add-a-user-to-an-azure-vm"></a>Add a user to an Azure VM
+Одной из первых задач для любой недавно запущенной виртуальной машины Linux является создание нового пользователя. В этой статье описано создание учетной записи пользователя sudo, настройка пароля, добавление открытых ключей SSH и использование `visudo` для разрешения доступа sudo без пароля.
 
-One of the first tasks on any new Linux VM is to create a new user.  In this article, we walk through creating a sudo user account, setting the password, adding SSH Public Keys, and finally use `visudo` to allow sudo without a password.
+Необходимые компоненты: [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/), [открытый и закрытый ключи SSH](virtual-machines-linux-mac-create-ssh-keys.md), группа ресурсов Azure и интерфейс командной строки Azure, установленный и переведенный в режим Azure Resource Manager с помощью `azure config mode arm`.
 
-Prerequisites are: [an Azure account](https://azure.microsoft.com/pricing/free-trial/), [SSH public and private keys](virtual-machines-linux-mac-create-ssh-keys.md), an Azure resource group, and the Azure CLI installed and switched to Azure Resource Manager mode using `azure config mode arm`.
-
-## <a name="quick-commands"></a>Quick Commands
+## Быстрые команды
 
 ```bash
 # Add a new user on RedHat family distros
@@ -71,28 +70,28 @@ bill@slackware$ ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
 sudo top
 ```
 
-## <a name="detailed-walkthrough"></a>Detailed Walkthrough
+## Подробное пошаговое руководство
 
-### <a name="introduction"></a>Introduction
+### Введение
 
-One of the first and most common task with a new server is to add a user account.  Root logins should be disabled and the root account itself should not be used with your Linux server, only sudo.  Giving a user root escalation privileges using sudo it the proper way to administer and use Linux.
+Одной из первых и наиболее распространенных задач для нового сервера является добавление учетной записи пользователя. Корневые имена для входа должны быть отключены, и даже сама учетная запись root не должна использоваться на сервере Linux, применяйте только sudo. Правильный способ администрирования и использования Linux заключается в назначении пользователю корневых привилегий эскалации с помощью sudo.
 
-Using the command `useradd` we are adding user accounts to the Linux VM.  Running `useradd` modifies `/etc/passwd`, `/etc/shadow`, `/etc/group`, and `/etc/gshadow`.  We are adding a command-line flag to the `useradd` command to also add the new user to the proper sudo group on Linux.  Even thou `useradd` creates an entry into `/etc/passwd` it does not give the new user account a password.  We are creating an initial password for the new user using the simple `passwd` command.  The last step is to modify the sudo rules to allow that user to execute commands with sudo privileges without having to enter a password for every command.  Logging in using the Private key we are assuming that user account is safe from bad actors and are going to allow sudo access without a password.  
+С помощью команды `useradd` мы добавляем учетные записи пользователей на виртуальную машину Linux. Выполнение `useradd` изменяет `/etc/passwd`, `/etc/shadow`, `/etc/group` и `/etc/gshadow`. Мы добавляем флаг командной строки в команду `useradd`, чтобы добавить нового пользователя в соответствующую группу sudo в Linux. Хотя команда `useradd` создает запись в `/etc/passwd`, она не назначает пароль для новой учетной записи пользователя. Мы создаем начальный пароль для нового пользователя с помощью простой команды `passwd`. Последний шаг — изменение правил sudo, разрешающее пользователю выполнять команды с привилегиями sudo без ввода пароля для каждой из них. В случае входа с помощью закрытого ключей предполагается, что данная учетная запись пользователя безопасна с точки зрения неблагонадежных субъектов, и доступ sudo предоставляется без пароля.
 
-### <a name="adding-a-single-sudo-user-to-an-azure-vm"></a>Adding a single sudo user to an Azure VM
+### Добавление отдельного пользователя sudo в виртуальную машину Azure
 
-Log in to the Azure VM using SSH keys.  If you have not setup SSH public key access, complete this article first [Using Public Key Authentication with Azure](http://link.to/article).  
+Войдите на виртуальную машину Azure с помощью ключей SSH. Если доступ по открытому ключу SSH не настроен, сначала выполните инструкции в статье [Использование проверки подлинности по открытому ключу с помощью Azure](http://link.to/article).
 
-The `useradd` command completes the following tasks:
+Команда `useradd` выполняет следующие действия:
 
-- create a new user account
-- create a new user group with the same name
-- add a blank entry to `/etc/passwd`
-- add a blank entry to `/etc/gpasswd`
+- создание учетной записи пользователя;
+- создание группы пользователей с таким же именем;
+- добавление пустой записи в `/etc/passwd`;
+- добавление пустой записи в `/etc/gpasswd`.
 
-The `-G` command-line flag adds the new user account to the proper Linux group giving the new user account root escalation privileges.
+Флаг командной строки `-G` позволяет добавить новую учетную запись пользователя в соответствующую группу Linux и предоставить ей корневые привилегии эскалации.
 
-#### <a name="add-the-user"></a>Add the user
+#### Добавление пользователя
 
 ```bash
 # On RedHat family distros
@@ -102,9 +101,9 @@ sudo useradd -G wheel exampleUser
 sudo useradd -G sudo exampleUser
 ```
 
-#### <a name="set-a-password"></a>Set a password
+#### Задание пароля
 
-The `useradd` command creates the user and adds an entry to both `/etc/passwd` and `/etc/gpasswd` but does not actually set the password.  The password is added to the entry using the `passwd` command.
+Команда `useradd` создает пользователя и добавляет запись в `/etc/passwd` и `/etc/gpasswd`, но не задает сам пароль. Пароль добавляется в запись с помощью команды `passwd`.
 
 ```bash
 sudo passwd exampleUser
@@ -113,21 +112,21 @@ Retype new UNIX password:
 passwd: password updated successfully
 ```
 
-We now have a user with sudo privileges on the server.
+Теперь у нас есть пользователь с привилегиями sudo на сервере.
 
-### <a name="add-your-ssh-public-key-to-the-new-user-account"></a>Add your SSH Public Key to the new user account
+### Добавление открытого ключа SSH в новую учетную запись пользователя
 
-From your machine, use the `ssh-copy-id` command with the new password.
+На своем компьютере выполните команду `ssh-copy-id` с новым паролем.
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa exampleuser@exampleserver
 ```
 
-### <a name="using-visudo-to-allow-sudo-usage-without-a-password"></a>Using visudo to allow sudo usage without a password
+### Использование visudo для разрешения применения sudo без пароля
 
-Using `visudo` to edit the `/etc/sudoers` file adds a few layers of protection against incorrectly modifying this important file.  Upon executing `visudo`, the `/etc/sudoers` file is locked to ensure no other user can make changes while it is actively being edited.  The `/etc/sudoers` file is also checked for mistakes by `visudo` when you attempt to save or exit so you cannot save a broken sudoers file.
+При использовании `visudo` для изменения файла `/etc/sudoers` обеспечивается несколько уровней защиты от неправильного изменения этого важного файла. При выполнении `visudo` файл `/etc/sudoers` блокируется, чтобы во время его редактирования никто другой не мог внести в него изменения. `visudo` также проверяет файл `/etc/sudoers` на наличие ошибок при попытке сохранения или выхода, чтобы было невозможно сохранить нерабочий файл sudoers.
 
-We already have users in the correct default group for sudo access.  Now we are going to enable those groups to use sudo with no password.
+У нас уже есть пользователи в группе по умолчанию для доступа к sudo. Теперь нужно разрешить этим группам использовать sudo без пароля.
 
 ```bash
 # Execute visudo as root to edit the /etc/sudoers file
@@ -149,7 +148,7 @@ visudo
 %sudo   ALL=(ALL) NOPASSWD:ALL
 ```
 
-### <a name="verify-the-user,-ssh-keys,-and-sudo"></a>Verify the user, ssh keys, and sudo
+### Проверка пользователя, ключей SSH и sudo
 
 ```bash
 # Verify the SSH keys & User account
@@ -159,8 +158,4 @@ ssh -i ~/.ssh/id_rsa exampleuser@exampleserver
 sudo top
 ```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use the SharePoint Online Connector in your Logic Apps | Microsoft Azure"
-description="Get started using the Azure App Service SharePoint Online Connector  in your Logic apps."
+pageTitle="Использование соединителя SharePoint Online в приложениях логики | Microsoft Azure"
+description="Начните использовать соединитель SharePoint Online для службы приложений Azure в приложениях логики."
 services=""    
 documentationCenter=""     
 authors="msftman"    
@@ -17,490 +17,485 @@ ms.workload="na"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Приступая к работе с соединителем SharePoint Online 
 
-# <a name="get-started-with-the-sharepoint-online-connector"></a>Get started with the SharePoint Online Connector 
+Подключение SharePoint позволяет работать со списками в SharePoint.
 
-The SharePoint Connector provides an way to work with Lists on SharePoint.
-
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Сведения о добавлении операции в приложения логики см. в статье о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## <a name="let's-talk-about-triggers-and-actions"></a>Let's talk about triggers and actions
+## Поговорим о триггерах и действиях
 
-The SharePoint Connector  can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+Соединитель SharePoint можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
 
-The SharePoint Connector  has the following action(s) and/or trigger(s) available:
+Соединитель SharePoint предоставляет следующие действия и (или) триггеры:
 
-### <a name="sharepoint-actions"></a>SharePoint actions
-You can take these action(s):
+### Действия SharePoint
+Вы можете выполнять перечисленные ниже действия:
 
-|Action|Description|
+|Действие|Description (Описание)|
 |--- | ---|
-|GetFileMetadata|Used for getting a file metadata on Document Library|
-|UpdateFile|Used for updating a file on Document Library|
-|DeleteFile|Used for deleting a file on Document Library|
-|GetFileMetadataByPath|Used for getting a file metadata on Document Library|
-|GetFileContentByPath|Used for getting a file on Document Library|
-|GetFileContent|Used for getting a file on Document Library|
-|CreateFile|Used for uploading a file on Document Library|
-|CopyFile|Used for copying a file on Document Library|
-|ExtractFolderV2|Used for extracting a folder on Document Library|
-|PostItem|Creates a new item in a SharePoint list|
-|GetItem|Retrieves a single item from a SharePoint list|
-|DeleteItem|Deletes an item from a SharePoint list|
-|PatchItem|Updates an item in a SharePoint list|
-### <a name="sharepoint-triggers"></a>SharePoint triggers
-You can listen for these event(s):
+|GetFileMetadata|Используется для получения метаданных файла в библиотеке документов|
+|UpdateFile|Используется для обновления файла в библиотеке документов|
+|DeleteFile|Используется для удаления файла в библиотеке документов|
+|GetFileMetadataByPath|Используется для получения метаданных файла в библиотеке документов|
+|GetFileContentByPath|Используется для получения файла в библиотеке документов|
+|GetFileContent|Используется для получения файла в библиотеке документов|
+|CreateFile|Используется для отправки файла в библиотеке документов|
+|CopyFile|Используется для копирования файла в библиотеке документов|
+|ExtractFolderV2|Используется для извлечения папки в библиотеке документов|
+|PostItem|Создает элемент в списке SharePoint|
+|GetItem|Извлекает один элемент из списка SharePoint|
+|DeleteItem|Удаляет элемент из списка SharePoint|
+|PatchItem|Обновляет элемент в списке SharePoint|
+### Триггеры SharePoint
+Можно прослушивать указанные ниже события:
 
-|Trigger | Description|
+|Триггер | Описание|
 |--- | ---|
-|OnNewFile|Triggers a flow when a new file is created in a SharePoint folder|
-|OnUpdatedFile|Triggers a flow when a file is modified in a SharePoint folder|
-|GetOnNewItems|When a new item is created in a SharePoint list|
-|GetOnUpdatedItems|When an existing item is modified in a SharePoint list|
+|OnNewFile|Запускает поток при создании файла в папке SharePoint|
+|OnUpdatedFile|Запускает поток при изменении файла в папке SharePoint|
+|GetOnNewItems|При создании элемента в списке SharePoint|
+|GetOnUpdatedItems|При изменении существующего элемента в списке SharePoint|
 
 
-## <a name="create-a-connection-to-sharepoint"></a>Create a connection to SharePoint
-To use the SharePoint Connector , you first create a **connection** then provide the details for these properties: 
+## Создание подключения к SharePoint
+Чтобы использовать соединитель SharePoint, сначала нужно создать **подключение**, а затем указать данные для следующих свойств:
 
-|Property| Required|Description|
+|Свойство| Обязательно|Description (Описание)|
 | ---|---|---|
-|Token|Yes|Provide SharePoint Credentials|
+|Маркер|Да|Указание учетных данных SharePoint|
 
-In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online Connector  in your logic app. 
+Для подключения к **SharePoint Online** необходимо предоставить свое удостоверение (имя пользователя и пароль, учетные данные смарт-карты и т. п.). После прохождения аутентификации вы сможете использовать соединитель SharePoint Online в приложении логики.
 
-While on the designer of your logic app, follow these steps to sign into SharePoint to create the connection **connection** for use in your logic app:
+Чтобы войти в SharePoint для создания **подключения**, которое будет использоваться в приложении логики, в конструкторе приложения логики сделайте следующее:
 
-1. Enter SharePoint in the search box and wait for the search to return all entries with SharePoint in the name:   
-![Configure SharePoint][1]  
-2. Select **SharePoint Online - When a file is created**   
-3. Select **Sign in to SharePoint Online**:   
-![Configure SharePoint][2]    
-4. Provide your SharePoint credentials to sign in to authenticate with SharePoint   
-![Configure SharePoint][3]     
-5. After the authentication completes you'll be redirected to your logic app to complete it by configuring SharePoint's **When a file is created** dialog.          
-![Configure SharePoint][4]  
-6. You can then add other triggers and actions that you need to complete your logic app.   
-7. Save your work by selecting **Save** on the menu bar above.  
+1. В поле поиска введите SharePoint и дождитесь возвращения всех записей с текстом SharePoint в имени. ![Настройка SharePoint][1]
+2. Выберите **SharePoint Online — When a file is created** (SharePoint Online — при создании файла).
+3. Выберите **Sign in to SharePoint Online** (Вход в SharePoint Online). ![Настройка SharePoint][2]
+4. Укажите учетные данные SharePoint, чтобы войти и пройти аутентификацию в SharePoint. ![Настройка SharePoint][3]
+5. После успешной проверки подлинности вы перейдете к своему приложению логики, чтобы завершить его, настроив параметры в диалоговом окне **When a file is created** (При создании файла) SharePoint. ![Настройка SharePoint][4]
+6. Затем можно будет добавить другие триггеры и действия, необходимые для завершения приложения логики.
+7. Сохраните результаты работы, выбрав **Сохранить** в строке меню вверху.
 
 
-## <a name="sharepoint-rest-api-reference"></a>SharePoint REST API reference
-#### <a name="this-documentation-is-for-version:-1.0"></a>This documentation is for version: 1.0
+## Справочник по API REST SharePoint
+#### Эта документация предназначена для версии 1.0
 
 
-### <a name="used-for-getting-a-file-metadata-on-document-library"></a>Used for getting a file metadata on Document Library
-**```GET: /datasets/{dataset}/files/{id}```** 
+### Используется для получения метаданных файла в библиотеке документов
+**```GET: /datasets/{dataset}/files/{id}```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|none|Unique identifier of the file|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|id|string|Да|path|Нет|Уникальный идентификатор файла|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="used-for-updating-a-file-on-document-library"></a>Used for updating a file on Document Library
-**```PUT: /datasets/{dataset}/files/{id}```** 
+### Используется для обновления файла в библиотеке документов
+**```PUT: /datasets/{dataset}/files/{id}```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|none|Unique identifier of the file|
-|body| |yes|body|none|The Content of the file|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|id|string|Да|path|Нет|Уникальный идентификатор файла|
+|текст| |Да|текст|Нет|Содержимое файла|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="used-for-deleting-a-file-on-document-library"></a>Used for deleting a file on Document Library
-**```DELETE: /datasets/{dataset}/files/{id}```** 
+### Используется для удаления файла в библиотеке документов
+**```DELETE: /datasets/{dataset}/files/{id}```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|none|Unique identifier of the file|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|id|string|Да|path|Нет|Уникальный идентификатор файла|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="used-for-getting-a-file-metadata-on-document-library"></a>Used for getting a file metadata on Document Library
-**```GET: /datasets/{dataset}/GetFileByPath```** 
+### Используется для получения метаданных файла в библиотеке документов
+**```GET: /datasets/{dataset}/GetFileByPath```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|path|string|yes|query|none|Path of the file|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|path|string|Да|запрос|Нет|Путь к файлу|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="used-for-getting-a-file-on-document-library"></a>Used for getting a file on Document Library
-**```GET: /datasets/{dataset}/GetFileContentByPath```** 
+### Используется для получения файла в библиотеке документов
+**```GET: /datasets/{dataset}/GetFileContentByPath```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|path|string|yes|query|none|Path of the file|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|path|string|Да|запрос|Нет|Путь к файлу|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="used-for-getting-a-file-on-document-library"></a>Used for getting a file on Document Library
-**```GET: /datasets/{dataset}/files/{id}/content```** 
+### Используется для получения файла в библиотеке документов
+**```GET: /datasets/{dataset}/files/{id}/content```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|none|Unique identifier of the file|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|id|string|Да|path|Нет|Уникальный идентификатор файла|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="used-for-uploading-a-file-on-document-library"></a>Used for uploading a file on Document Library
-**```POST: /datasets/{dataset}/files```** 
+### Используется для отправки файла в библиотеке документов
+**```POST: /datasets/{dataset}/files```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|folderPath|string|yes|query|none|The path to the folder|
-|name|string|yes|query|none|Name of the file|
-|body| |yes|body|none|The Content of the file|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|folderPath|string|Да|запрос|Нет|Путь к папке|
+|name|string|Да|запрос|Нет|Имя файла|
+|текст| |Да|текст|Нет|Содержимое файла|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="used-for-copying-a-file-on-document-library"></a>Used for copying a file on Document Library
-**```POST: /datasets/{dataset}/copyFile```** 
+### Используется для копирования файла в библиотеке документов
+**```POST: /datasets/{dataset}/copyFile```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|source|string|yes|query|none|Path to the source file|
-|destination|string|yes|query|none|Path to the destination file|
-|overwrite|boolean|no|query|false|Whether or not to overwrite an existing file|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|источник|string|Да|запрос|Нет|Путь к исходному файлу|
+|ресурс destination|string|Да|запрос|Нет|Путь к конечному файлу|
+|overwrite|Логическое|Нет|запрос|нет|Следует ли перезаписывать существующий файл|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="triggers-a-flow-when-a-new-file-is-created-in-a-sharepoint-folder"></a>Triggers a flow when a new file is created in a SharePoint folder
-**```GET: /datasets/{dataset}/triggers/onnewfile```** 
+### Запускает поток при создании файла в папке SharePoint
+**```GET: /datasets/{dataset}/triggers/onnewfile```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint site url|
-|folderId|string|yes|query|none|Unique identifier of the folder in SharePoint|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint|
+|folderId|string|Да|запрос|Нет|Уникальный идентификатор папки в SharePoint|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="triggers-a-flow-when-a-file-is-modified-in-a-sharepoint-folder"></a>Triggers a flow when a file is modified in a SharePoint folder
-**```GET: /datasets/{dataset}/triggers/onupdatedfile```** 
+### Запускает поток при изменении файла в папке SharePoint
+**```GET: /datasets/{dataset}/triggers/onupdatedfile```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint site url|
-|folderId|string|yes|query|none|Unique identifier of the folder in SharePoint|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint|
+|folderId|string|Да|запрос|Нет|Уникальный идентификатор папки в SharePoint|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="used-for-extracting-a-folder-on-document-library"></a>Used for extracting a folder on Document Library
-**```POST: /datasets/{dataset}/extractFolderV2```** 
+### Используется для извлечения папки в библиотеке документов
+**```POST: /datasets/{dataset}/extractFolderV2```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|source|string|yes|query|none|Path to the source file|
-|destination|string|yes|query|none|Path to the destination folder|
-|overwrite|boolean|no|query|false|Whether or not to overwrite an existing file|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint. Например, http://contoso.sharepoint.com/sites/mysite|
+|источник|string|Да|запрос|Нет|Путь к исходному файлу|
+|ресурс destination|string|Да|запрос|Нет|Путь к конечной папке|
+|overwrite|Логическое|Нет|запрос|нет|Следует ли перезаписывать существующий файл|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="when-a-new-item-is-created-in-a-sharepoint-list"></a>When a new item is created in a SharePoint list
-**```GET: /datasets/{dataset}/tables/{table}/onnewitems```** 
+### При создании элемента в списке SharePoint
+**```GET: /datasets/{dataset}/tables/{table}/onnewitems```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
+|$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
+|$filter|string|Нет|запрос|Нет|Запрос фильтра ODATA для ограничения количества записей|
+|$orderby|string|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="when-an-existing-item-is-modified-in-a-sharepoint-list"></a>When an existing item is modified in a SharePoint list
-**```GET: /datasets/{dataset}/tables/{table}/onupdateditems```** 
+### При изменении существующего элемента в списке SharePoint
+**```GET: /datasets/{dataset}/tables/{table}/onupdateditems```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
+|$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
+|$filter|string|Нет|запрос|Нет|Запрос фильтра ODATA для ограничения количества записей|
+|$orderby|string|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="creates-a-new-item-in-a-sharepoint-list"></a>Creates a new item in a SharePoint list
-**```POST: /datasets/{dataset}/tables/{table}/items```** 
+### Создает элемент в списке SharePoint
+**```POST: /datasets/{dataset}/tables/{table}/items```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|item| |yes|body|none|Item to create|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
+|item| |Да|текст|Нет|Создаваемый элемент|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="retrieves-a-single-item-from-a-sharepoint-list"></a>Retrieves a single item from a SharePoint list
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```** 
+### Извлекает один элемент из списка SharePoint
+**```GET: /datasets/{dataset}/tables/{table}/items/{id}```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|id|integer|yes|path|none|Unique identifier of item to be retrieved|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
+|id|целое число|Да|path|Нет|Уникальный идентификатор извлекаемого элемента|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="deletes-an-item-from-a-sharepoint-list"></a>Deletes an item from a SharePoint list
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```** 
+### Удаляет элемент из списка SharePoint
+**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|id|integer|yes|path|none|Unique identifier of item to be deleted|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
+|id|целое число|Да|path|Нет|Уникальный идентификатор удаляемого элемента|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-### <a name="updates-an-item-in-a-sharepoint-list"></a>Updates an item in a SharePoint list
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```** 
+### Обновляет элемент в списке SharePoint
+**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```**
 
 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|id|integer|yes|path|none|Unique identifier of item to be updated|
-|item| |yes|body|none|Item with changed properties|
+|dataset|string|Да|path|Нет|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite)|
+|таблица|string|Да|path|Нет|Имя списка SharePoint|
+|id|целое число|Да|path|Нет|Уникальный идентификатор обновляемого элемента|
+|item| |Да|текст|Нет|Элемент с измененными свойствами|
 
 
-### <a name="here-are-the-possible-responses:"></a>Here are the possible responses:
+### Ниже перечислены возможные ответы:
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 ------
 
 
 
-## <a name="object-definition(s):"></a>Object definition(s): 
+## Определения объектов: 
 
- **DataSetsMetadata**:
+ **DataSetsMetadata**
 
-Required properties for DataSetsMetadata:
-
-
-None of the properties are required. 
+Обязательные свойства для DataSetsMetadata:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Имя | Тип данных |
 |---|---|
-|tabular|not defined|
-|blob|not defined|
+|tabular|не определено|
+|blob-объект|не определено|
 
 
 
- **TabularDataSetsMetadata**:
+ **TabularDataSetsMetadata**
 
-Required properties for TabularDataSetsMetadata:
-
-
-None of the properties are required. 
+Обязательные свойства для TabularDataSetsMetadata:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Имя | Тип данных |
 |---|---|
-|source|string|
+|источник|string|
 |displayName|string|
 |urlEncoding|string|
 |tableDisplayName|string|
@@ -508,201 +503,197 @@ None of the properties are required.
 
 
 
- **BlobDataSetsMetadata**:
+ **BlobDataSetsMetadata**
 
-Required properties for BlobDataSetsMetadata:
-
-
-None of the properties are required. 
+Обязательные свойства для BlobDataSetsMetadata:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Имя | Тип данных |
 |---|---|
-|source|string|
+|источник|string|
 |displayName|string|
 |urlEncoding|string|
 
 
 
- **BlobMetadata**:
+ **BlobMetadata**
 
-Required properties for BlobMetadata:
-
-
-None of the properties are required. 
+Обязательные свойства для BlobMetadata:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Имя | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
+|Идентификатор|string|
+|Name (Имя)|string|
 |DisplayName|string|
-|Path|string|
+|Путь|string|
 |LastModified|string|
-|Size|integer|
+|Размер|целое число|
 |MediaType|string|
-|IsFolder|boolean|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
- **Object**:
+ **Object**
 
-Required properties for Object:
-
-
-None of the properties are required. 
+Обязательные свойства для Object:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Name (Имя) | Тип данных |
 |---|---|
 
 
 
- **TableMetadata**:
+ **TableMetadata**
 
-Required properties for TableMetadata:
-
-
-None of the properties are required. 
+Обязательные свойства для TableMetadata:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**:
+
+
+| Имя | Тип данных |
 |---|---|
 |name|string|
 |title|string|
 |x-ms-permission|string|
-|schema|not defined|
+|schema|не определено|
 
 
 
- **DataSetsList**:
+ **DataSetsList**
 
-Required properties for DataSetsList:
-
-
-None of the properties are required. 
+Обязательные свойства для DataSetsList:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Name (Имя) | Тип данных |
 |---|---|
 |value|array|
 
 
 
- **DataSet**:
+ **DataSet**
 
-Required properties for DataSet:
-
-
-None of the properties are required. 
+Обязательные свойства для DataSet:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Имя | Тип данных |
 |---|---|
-|Name|string|
+|Имя|string|
 |DisplayName|string|
 
 
 
- **Table**:
+ **Таблица**.
 
-Required properties for Table:
-
-
-None of the properties are required. 
+Обязательные свойства для Table:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Name (Имя) | Тип данных |
 |---|---|
-|Name|string|
+|Имя|string|
 |DisplayName|string|
 
 
 
- **Item**:
+ **Item**
 
-Required properties for Item:
-
-
-None of the properties are required. 
+Обязательные свойства для Item:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Name (Имя) | Тип данных |
 |---|---|
 |ItemInternalId|string|
 
 
 
- **ItemsList**:
+ **ItemsList**
 
-Required properties for ItemsList:
-
-
-None of the properties are required. 
+Обязательные свойства для ItemsList:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Имя | Тип данных |
 |---|---|
 |value|array|
 
 
 
- **TablesList**:
+ **TablesList**
 
-Required properties for TablesList:
-
-
-None of the properties are required. 
+Обязательные свойства для TablesList:
 
 
-**All properties**: 
+обязательные свойства отсутствуют.
 
 
-| Name | Data Type |
+**Все свойства**
+
+
+| Имя | Тип данных |
 |---|---|
 |value|array|
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+## Дальнейшие действия
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-[1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png  
-[2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png 
+[1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png
+[2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png
 [3]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig3.png
 [4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
 [5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

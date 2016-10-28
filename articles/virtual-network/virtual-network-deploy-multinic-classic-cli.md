@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy multi NIC VMs using the Azure CLI in the classic deployment model | Microsoft Azure"
-   description="Learn how to deploy multi NIC VMs using the Azure CLI in the classic deployment model"
+   pageTitle="Развертывание виртуальных машин по классической модели развертывания с несколькими сетевыми картами с использованием интерфейса командной строки Azure | Microsoft Azure"
+   description="Сведения о развертывании виртуальных машин по классической модели развертывания с несколькими сетевыми картами с использованием интерфейса командной строки Azure"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,166 +17,161 @@
    ms.date="02/02/2016"
    ms.author="jdial" />
 
-
-#<a name="deploy-multi-nic-vms-(classic)-using-the-azure-cli"></a>Deploy multi NIC VMs (classic) using the Azure CLI
+#Развертывание виртуальных машин с несколькими сетевыми картами с использованием интерфейса командной строки Azure (классическая модель)
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](virtual-network-deploy-multinic-arm-cli.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](virtual-network-deploy-multinic-arm-cli.md).
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Currently, you cannot have VMs with a single NIC and VMs with multiple NICs in the same cloud service. Therefore, you need to implement the back end servers in a different cloud service than and all other components in the scenario. The steps below use a cloud service named *IaaSStory* for the main resources, and *IaaSStory-BackEnd* for the back end servers.
+В настоящее время в одной облачной службе нельзя одновременно использовать виртуальные машины с одной сетевой картой и виртуальные машины с несколькими сетевыми картами. Поэтому необходимо реализовать внутренние серверы в другой облачной службе, отдельной от всех прочих компонентов в сценарии. В приведенных ниже действиях используются следующие облачные службы: *IaaSStory* в качестве основной группы ресурсов и *IaaSStory-BackEnd* для внутренних серверов.
 
-## <a name="prerequisites"></a>Prerequisites
+## Предварительные требования
 
-Before you can deploy the back end servers, you need to deploy the main cloud service with all the necessary resources for this scenario. At minimum, you need to create a virtual network with a subnet for the backend. Visit [Create a virtual network by using the Azure CLI](virtual-networks-create-vnet-classic-cli.md) to learn how to deploy a virtual network.
+Перед развертыванием внутренних серверов необходимо выполнить развертывание основной облачной службы со всеми ресурсами, необходимыми для этого сценария. Нужно создать по крайней мере виртуальную сеть с подсетью для внутреннего сервера. Чтобы узнать, как развертывать виртуальную сеть, см. статью [Создание виртуальной сети с использованием интерфейса командной строки Azure](virtual-networks-create-vnet-classic-cli.md).
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## <a name="deploy-the-back-end-vms"></a>Deploy the back end VMs
+## Развертывание внутренних виртуальных машин
 
-The backend VMs depend on the creation of the resources listed below.
+Внутренние виртуальные машины зависят от создания ресурсов, перечисленных ниже.
 
-- **Storage account for data disks**. For better performance, the data disks on the database servers will use solid state drive (SSD) technology, which requires a premium storage account. Make sure the Azure location you deploy to support premium storage.
-- **NICs**. Each VM will have two NICs, one for database access, and one for management.
-- **Availability set**. All database servers will be added to a single availability set, to ensure at least one of the VMs is up and running during maintenance.
+- **Учетная запись хранения для дисков данных**. Для повышения производительности для дисков данных на серверах баз данных будет использоваться технология твердотельного накопителя (SSD), которая требует наличия учетной записи хранения класса Premium. Расположение Azure, в которое выполняется развертывание, должно поддерживать хранилище класса Premium.
+- **Сетевые карты**. У каждой виртуальной машины будет две сетевые карты: одна для доступа к базе данных, другая — для управления.
+- **Группа доступности**. Все серверы баз данных будут добавлены в одну группу доступности, чтобы гарантировать, что как минимум одна из виртуальных машин будет запущена и доступна во время обслуживания.
 
-### <a name="step-1---start-your-script"></a>Step 1 - Start your script
+### Шаг 1. Запуск сценария
 
-You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Follow the steps below to change the script to work in your environment.
+Полный сценарий Bash можно скачать [здесь](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Чтобы изменить сценарий для работы в вашей среде, сделайте следующее:
 
-1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
+1. Измените значения следующих переменных в зависимости от существующей группы ресурсов, развернутой в соответствии с инструкциями в разделе [Предварительные требования](#Prerequisites) выше.
 
-        location="useast2"
-        vnetName="WTestVNet"
-        backendSubnetName="BackEnd"
+		location="useast2"
+		vnetName="WTestVNet"
+		backendSubnetName="BackEnd"
 
-2. Change the values of the variables below based on the values you want to use for your backend deployment.
+2. Измените значения следующих переменных на основе значений, которые нужно использовать для внутреннего развертывания.
 
-        backendCSName="IaaSStory-Backend"
-        prmStorageAccountName="iaasstoryprmstorage"
-        image="0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1"
-        avSetName="ASDB"
-        vmSize="Standard_DS3"
-        diskSize=127
-        vmNamePrefix="DB"
-        osDiskName="osdiskdb"
-        dataDiskPrefix="db"
-        dataDiskName="datadisk"
-        ipAddressPrefix="192.168.2."
-        username='adminuser'
-        password='adminP@ssw0rd'
-        numberOfVMs=2
+		backendCSName="IaaSStory-Backend"
+		prmStorageAccountName="iaasstoryprmstorage"
+		image="0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1"
+		avSetName="ASDB"
+		vmSize="Standard_DS3"
+		diskSize=127
+		vmNamePrefix="DB"
+		osDiskName="osdiskdb"
+		dataDiskPrefix="db"
+		dataDiskName="datadisk"
+		ipAddressPrefix="192.168.2."
+		username='adminuser'
+		password='adminP@ssw0rd'
+		numberOfVMs=2
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>Step 2 - Create necessary resources for your VMs
+### Шаг 2. Создание необходимых ресурсов для виртуальных машин
 
-1. Create a new cloud service for all backend VMs. Notice the use of the `$backendCSName` variable for the resource group name, and `$location` for the Azure region.
+1. Создайте облачную службу для всех внутренних виртуальных машин. Обратите внимание, что используется переменная `$backendCSName` для имени группы ресурсов и `$location` для региона Azure.
 
-        azure service create --serviceName $backendCSName \
-            --location $location
+		azure service create --serviceName $backendCSName \
+		    --location $location
 
-2. Create a premium storage account for the OS and data disks to be used by yours VMs.
+2. Создайте учетную запись хранения класса Premium для дисков операционной системы и данных для виртуальных машин.
 
-        azure storage account create $prmStorageAccountName \
-            --location $location \
-            --type PLRS
+		azure storage account create $prmStorageAccountName \
+		    --location $location \
+		    --type PLRS
 
-### <a name="step-3---create-vms-with-multiple-nics"></a>Step 3 - Create VMs with multiple NICs
+### Шаг 3. Создание виртуальных машин с несколькими сетевыми картами
 
-1. Start a loop to create multiple VMs, based on the `numberOfVMs` variables.
+1. Запустите цикл для создания нескольких виртуальных машин на основе переменных `numberOfVMs`.
 
-        for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
-        do
+		for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
+		do
 
-2. For each VM, specify the name and IP address of each of the two NICs.
+2. Укажите имя и IP-адрес каждой сетевой карты для каждой виртуальной машины.
 
-            nic1Name=$vmNamePrefix$suffixNumber-DA
-            x=$((suffixNumber+3))
-            ipAddress1=$ipAddressPrefix$x
+		    nic1Name=$vmNamePrefix$suffixNumber-DA
+		    x=$((suffixNumber+3))
+		    ipAddress1=$ipAddressPrefix$x
 
-            nic2Name=$vmNamePrefix$suffixNumber-RA
-            x=$((suffixNumber+53))
-            ipAddress2=$ipAddressPrefix$x
+		    nic2Name=$vmNamePrefix$suffixNumber-RA
+		    x=$((suffixNumber+53))
+		    ipAddress2=$ipAddressPrefix$x
 
-4. Create the VM. Notice the usage of the `--nic-config` parameter, containing a list of all NICs with name, subnet, and IP address.
+4. Создайте виртуальную машину. Обратите внимание, что использован параметр `--nic-config`, содержащий список всех сетевых карт с именем, подсетью и IP-адресом.
 
-            azure vm create $backendCSName $image $username $password \
-                --connect $backendCSName \
-                --vm-name $vmNamePrefix$suffixNumber \
-                --vm-size $vmSize \
-                --availability-set $avSetName \
-                --blob-url $prmStorageAccountName.blob.core.windows.net/vhds/$osDiskName$suffixNumber.vhd \
-                --virtual-network-name $vnetName \
-                --subnet-names $backendSubnetName \
-                --nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
+		    azure vm create $backendCSName $image $username $password \
+		        --connect $backendCSName \
+		        --vm-name $vmNamePrefix$suffixNumber \
+		        --vm-size $vmSize \
+		        --availability-set $avSetName \
+		        --blob-url $prmStorageAccountName.blob.core.windows.net/vhds/$osDiskName$suffixNumber.vhd \
+		        --virtual-network-name $vnetName \
+		        --subnet-names $backendSubnetName \
+		        --nic-config $nic1Name:$backendSubnetName:$ipAddress1::,$nic2Name:$backendSubnetName:$ipAddress2::
 
-5. For each VM, create two data disks.
+5. Создайте по два диска данных для каждой виртуальной машины.
 
-            azure vm disk attach-new $vmNamePrefix$suffixNumber \
-                $diskSize \
-                vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
+		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
+		        $diskSize \
+		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-1.vhd
 
-            azure vm disk attach-new $vmNamePrefix$suffixNumber \
-                $diskSize \
-                vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
-        done
+		    azure vm disk attach-new $vmNamePrefix$suffixNumber \
+		        $diskSize \
+		        vhds/$dataDiskPrefix$suffixNumber$dataDiskName-2.vhd
+		done
 
-### <a name="step-4---run-the-script"></a>Step 4 - Run the script
+### Шаг 4. Запуск сценария
 
-Now that you downloaded and changed the script based on your needs, run the script to create the back end database VMs with multiple NICs.
+Теперь, когда вы скачали и изменили сценарий в соответствии со своими потребностями, запустите сценарий для создания виртуальных машин внутренней базы данных с несколькими сетевыми картами.
 
-1. Save your script and run it from your **Bash** terminal. You will see the initial output, as shown below.
+1. Сохраните сценарий и запустите его в терминале **Bash**. Вы увидите начальный вывод сценария, как показано ниже.
 
-        info:    Executing command service create
-        info:    Creating cloud service
-        data:    Cloud service name IaaSStory-Backend
-        info:    service create command OK
-        info:    Executing command storage account create
-        info:    Creating storage account
-        info:    storage account create command OK
-        info:    Executing command vm create
-        info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
-        info:    Looking up virtual network
-        info:    Looking up cloud service
-        info:    Getting cloud service properties
-        info:    Looking up deployment
-        info:    Creating VM
+		info:    Executing command service create
+		info:    Creating cloud service
+		data:    Cloud service name IaaSStory-Backend
+		info:    service create command OK
+		info:    Executing command storage account create
+		info:    Creating storage account
+		info:    storage account create command OK
+		info:    Executing command vm create
+		info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
+		info:    Looking up virtual network
+		info:    Looking up cloud service
+		info:    Getting cloud service properties
+		info:    Looking up deployment
+		info:    Creating VM
 
-2. After a few minutes, the execution will end and you will see the rest of the output as shown below.
+2. Через несколько минут выполнение завершится и отобразится остальной вывод, как показано ниже.
 
-        info:    OK
-        info:    vm create command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
-        info:    Executing command vm create
-        info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
-        info:    Looking up virtual network
-        info:    Looking up cloud service
-        info:    Getting cloud service properties
-        info:    Looking up deployment
-        info:    Creating VM
-        info:    OK
-        info:    vm create command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
-        info:    Executing command vm disk attach-new
-        info:    Getting virtual machines
-        info:    Adding Data-Disk
-        info:    vm disk attach-new command OK
+		info:    OK
+		info:    vm create command OK
+		info:    Executing command vm disk attach-new
+		info:    Getting virtual machines
+		info:    Adding Data-Disk
+		info:    vm disk attach-new command OK
+		info:    Executing command vm disk attach-new
+		info:    Getting virtual machines
+		info:    Adding Data-Disk
+		info:    vm disk attach-new command OK
+		info:    Executing command vm create
+		info:    Looking up image 0b11de9248dd4d87b18621318e037d37__RightImage-Ubuntu-14.04-x64-v14.2.1
+		info:    Looking up virtual network
+		info:    Looking up cloud service
+		info:    Getting cloud service properties
+		info:    Looking up deployment
+		info:    Creating VM
+		info:    OK
+		info:    vm create command OK
+		info:    Executing command vm disk attach-new
+		info:    Getting virtual machines
+		info:    Adding Data-Disk
+		info:    vm disk attach-new command OK
+		info:    Executing command vm disk attach-new
+		info:    Getting virtual machines
+		info:    Adding Data-Disk
+		info:    vm disk attach-new command OK
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,46 +1,41 @@
 <properties
-    pageTitle="What is DevTest Labs? | Microsoft Azure"
-    description="Learn how DevTest Labs can make it easy to create, manage, and monitor Azure virtual machines"
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Что такое DevTest Labs? | Microsoft Azure"
+	description="Узнайте, как DevTest Labs может упростить создание и отслеживание виртуальных машин Azure, а также управление ими."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>
 
-
-#<a name="what-is-devtest-labs?"></a>What is DevTest Labs?
+#Что такое DevTest Labs?
 
 > [AZURE.NOTE]
-> This article is part 1 of a 3 part series:
+Это первая часть из серии статей:
 > 
-> 1. **[What is DevTest Labs?](devtest-lab-overview.md)**
-> 1. [Why DevTest Labs?](devtest-lab-why.md)
-> 1. [DevTest Labs concepts](devtest-lab-concepts.md)
+> 1. **[Что такое DevTest Labs?](devtest-lab-overview.md)**
+> 1. [Преимущества DevTest Labs](devtest-lab-why.md)
+> 1. [Основные понятия DevTest Labs](devtest-lab-concepts.md)
 
-##<a name="overview"></a>Overview
-Developers and testers are looking to solve the delays in creating and managing their environments by going to the cloud.  Azure solves the problem of environment delays and allows self-service within a new cost efficient structure.  However, developers and testers still need to spend considerable time configuring their self-served environments. Also, decision makers are uncertain about how to leverage the cloud to maximize their cost savings without adding too much process overhead.
+##Обзор
+Обращаясь к облачным решениям, разработчики и тестировщики пытаются решить проблемы с задержками, возникающими при создании сред и управлении ими. Azure решает проблему задержек среды и обеспечивает самообслуживание в новой экономичной структуре. Тем не менее, разработчики и тестировщики по-прежнему тратят на настройку сред самообслуживания большое количество времени. Кроме того, ответственные лица не всегда понимают, как сократить затраты с помощью облака без дополнительной нагрузки на вычислительные мощности.
 
-Azure DevTest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost. You can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts. Easily integrate your deployment pipeline with DevTest Labs to provision on-demand environments. Scale up your load testing by provisioning multiple test agents, and create pre-provisioned environments for training and demos.
+Azure DevTest Labs — это служба, помогающая разработчикам и тест-инженерам быстро создавать среды в Azure при минимальных потерях и контроле издержек. Для проверки последней версии вашего приложения вы можете быстро развернуть среду Windows и Linux, используя многоразовые шаблоны и артефакты. Для подготовки сред по запросу интегрируйте с DevTest Labs конвейер развертывания. Масштабируйте нагрузочное тестирование, подготавливая несколько агентов тестирования, и создавайте подготовленные среды для обучения и демонстраций.
 
 > [AZURE.VIDEO what-is-azure-devtest-labs]
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-##<a name="next-steps"></a>Next steps
+##Дальнейшие действия
 
-[Why DevTest Labs?](devtest-lab-why.md)
+[Преимущества DevTest Labs](devtest-lab-why.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

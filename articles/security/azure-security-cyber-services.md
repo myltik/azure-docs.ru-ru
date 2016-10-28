@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Microsoft Services in Cybersecurity | Microsoft Azure"
-   description="The article provides an introduction about Microsoft services related to cybersecurity and how to obtain more information about these services."
+   pageTitle="Службы Майкрософт по обеспечению кибербезопасности | Microsoft Azure"
+   description="В статье содержатся общие сведения о службах Майкрософт, связанных с обеспечением кибербезопасности, и о способах получения дополнительной информации об этих службах."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -13,33 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
+# Службы Майкрософт по обеспечению кибербезопасности
 
-# <a name="microsoft-services-in-cybersecurity"></a>Microsoft Services in Cybersecurity
+Службы Майкрософт предоставляют комплексный подход к обеспечению безопасности, идентификации и кибербезопасности. Службы Майкрософт представляют собой набор служб для обеспечения безопасности и идентификации в рамках разработки стратегии, планирования, реализации и предоставления постоянной поддержки. Благодаря этому корпоративные клиенты могут использовать их в процессе реализации целостных решений по обеспечению безопасности, которые соответствуют их стратегическим целям.
 
-Microsoft Services provides a comprehensive approach to security, identity and cybersecurity. Microsoft Services provides an array of Security and Identity services across strategy, planning, implementation, and ongoing support which can help our Enterprise customers implement holistic security solutions that align with their strategic goals.
+Наличие прямого доступа к группам разработчиков программного продукта позволяет нам создавать решения для интеграции и совершенствования новейших возможностей в сфере обеспечения безопасности и идентификации наших программ. Это помогает нам защищать бизнес наших клиентов и внедрять инновации.
 
-With direct access to product development teams, we can create solutions that integrate, and enhance the latest security and identity capabilities of our products to help protect our customer’s business and drive innovation.
+Наша группа технических специалистов занимается разработкой решений для защиты и упрощения работы крупнейших компаний, поэтому мы привлекаем к работе квалифицированных специалистов из разных сфер, которые обладают ценными знаниями в вопросах обеспечения безопасности и идентификации.
 
-Entrusted with helping protect and enable the world’s largest organizations, our diverse group of technical professionals consists of highly trained experts who offer a wealth of security and identity experience.
+Дополнительная информация о возможностях, предоставляемых службами Майкрософт:
 
-Learn more about services provided by Microsoft Services:
+- [Оценка угроз для безопасности](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-security-risk-assessment-solution-brief.pdf)
+- [Оценка динамической платформы идентификации](http://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/dynamic-identity-framework-identity-assessment-datasheet.pdf)
+- [Автономная оценка служб Active Directory](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/offline-assessment-for-active-directory-security-datasheet.pdf)
+- [Среда администрирования повышенной безопасности](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
+- [Службы внедрения Azure AD](http://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
+- [Защита от несанкционированного использования учетной записи](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
+- [Службы обнаружения угроз Майкрософт](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-threat-detection-services-solution-brief.pdf)
+- [Реагирование на инциденты и последующее восстановление ](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
-- [Security Risk Assessment](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-security-risk-assessment-solution-brief.pdf)
-- [Dynamic Identity Framework Assessment](http://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/dynamic-identity-framework-identity-assessment-datasheet.pdf)
-- [Offline Assessment for Active Directory Services](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/offline-assessment-for-active-directory-security-datasheet.pdf)
-- [Enhanced Security Administration Environment](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/enhanced-security-administrative-environment-solution-brief.pdf)
-- [Azure AD Implementation Services](http://download.microsoft.com/download/0/7/F/07FA8BFC-17D5-4F55-AD4F-3A987A7324AA/azure-active-directory-implementation-services-solution-brief.pdf)
-- [Securing Against Lateral Account Movement](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/pop-securing-lateral-account-movement.pdf)
-- [Microsoft Threat Detection Services](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-threat-detection-services-solution-brief.pdf)
-- [Incident Response and Recovery](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
+[Дополнительные сведения](https://aka.ms/cyberserv) о консультативных услугах по обеспечению безопасности служб Майкрософт.
 
-[Learn more](https://aka.ms/cyberserv) about Microsoft Services Security consulting services.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

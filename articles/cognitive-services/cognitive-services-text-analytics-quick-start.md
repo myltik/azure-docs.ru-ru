@@ -1,158 +1,156 @@
 <properties
-    pageTitle="Quick start guide: Machine Learning Text Analytics APIs | Microsoft Azure"
-    description="Azure Machine Learning Text Analytics - Quick Start Guide"
-    services="cognitive-services"
-    documentationCenter=""
-    authors="onewth"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Краткое руководство: API-интерфейсы текстовой аналитики в машинном обучении | Microsoft Azure"
+	description="Текстовая аналитика в машинном обучении Azure — краткое руководство"
+	services="cognitive-services"
+	documentationCenter=""
+	authors="onewth"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="cognitive-services"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="onewth"/>
+	ms.service="cognitive-services"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/05/2016"
+	ms.author="onewth"/>
 
-
-# <a name="getting-started-with-the-text-analytics-apis-to-detect-sentiment,-key-phrases,-topics-and-language"></a>Getting started with the Text Analytics APIs to detect sentiment, key phrases, topics and language
+# Начало работы с интерфейсами API текстовой аналитики для определения тональности, ключевых фраз, тем и языка
 
 <a name="HOLTop"></a>
 
-This document describes how to onboard your service or application to use the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711).
-You can use these APIs to detect sentiment, key phrases, topics and language from your text. [Click here to see an interactive demo of the experience.](//go.microsoft.com/fwlink/?LinkID=759712)
+В этом документе описывается настройка службы или приложения для использования [API-интерфейсов текстовой аналитики](//go.microsoft.com/fwlink/?LinkID=759711). Эти интерфейсы API позволяют определить тональность, ключевые фразы, тему и язык текста. [Щелкните здесь, чтобы просмотреть интерактивный ролик, показывающий возможности интерфейса.](//go.microsoft.com/fwlink/?LinkID=759712)
 
-Please refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+Техническую документацию об API-интерфейсах см. в документе об [определениях API](//go.microsoft.com/fwlink/?LinkID=759346).
 
-This guide is for version 2 of the APIs. For details on version 1 of the APIs, [refer to this document](../machine-learning/machine-learning-apps-text-analytics.md).
+Это руководство предназначено для версии 2 API. Дополнительные сведения о версии 1 интерфейсов API см. в [этом документе](../machine-learning/machine-learning-apps-text-analytics.md).
 
-By the end of this tutorial, you will be able to programatically detect:
+Выполнив инструкции этого руководства, вы сможете определять программным путем следующие сведения.
 
-- **Sentiment** - Is text positive or negative?
+- **Тональность** — в тексте преобладают положительные или отрицательные эмоции?
 
-- **Key phrases** - What are people discussing in a single article?
+- **Ключевые фразы** — о чем идет речь в конкретной статье?
 
-- **Topics** - What are people discussing across many articles?
+- **Темы** — что обсуждается в нескольких статьях?
 
-- **Languages** - What language is text written in?
+- **Языки** — на каком языке написан текст?
 
-Note that this API charges 1 transaction per document submitted. As an example, if you request sentiment for 1000 documents in a single call, 1000 transactions will be deducted.
+Обратите внимание, что для этого API тарифицируется каждая транзакция для документа. Для примера, при получении тональности для 1000 документов в одном вызове будет вычтено 1000 транзакций.
 
 
 
 <a name="Overview"></a>
-## <a name="general-overview"></a>General overview ##
+## Общая информация ##
 
-This document is a step-by-step guide. Our objective is to walk you through the steps necessary to train a model, and to point you to resources that will allow you to put it in production. This exercise will take about 30 minutes.
+Этот документ содержит пошаговое руководство. Мы покажем, какие шаги нужно выполнить, чтобы обучить модель, и расскажем вам о ресурсах, с помощью которых вы сможете поместить модель в рабочую среду. Это упражнение займет около 30 минут.
 
-For these tasks, you will need an editor and call the RESTful endpoints in your language of choice.
+Для выполнения этих задач потребуется редактор и вызов конечных точек REST на выбранном языке.
 
-Let's get started!
+Приступим.
 
-## <a name="task-1---signing-up-for-the-text-analytics-apis"></a>Task 1 - Signing up for the Text Analytics APIs ####
+## Задача 1. Регистрация в API-интерфейсах текстовой аналитики ####
 
-In this task, you will sign up for the text analytics service.
+Выполнив эту задачу, вы зарегистрируетесь в службе текстовой аналитики.
 
-1. Navigate to **Cognitive Services** in the [Azure Portal](//go.microsoft.com/fwlink/?LinkId=761108) and ensure **Text Analytics** is selected as the 'API type'.
+1. Откройте на [портале Azure](//go.microsoft.com/fwlink/?LinkId=761108) раздел **Когнитивные службы** и выберите в качестве типа API значение **Текстовая аналитика**.
 
-1. Select a plan. You may select the **free tier for 5,000 transactions/month**. As is a free plan, you will not be charged for using the service. You will need to login to your Azure subscription. 
+1. Выберите план. Вы можете выбрать **бесплатный уровень с 5000 транзакциями в месяц**. Это бесплатный план, поэтому вы не будете платить за использование службы. Войдите в свою подписку Azure.
 
-1. Complete the other fields and create your account.
+1. Заполните остальные поля и создайте учетную запись.
 
-1. After you sign up for Text Analytics, find your **API Key**. Copy the primary key, as you will need it when using the API services.
+1. После регистрации в службе текстовой аналитики найдите свой **ключ API**. Скопируйте первичный ключ, так как он понадобится вам при использовании служб API.
 
 
-## <a name="task-2---detect-sentiment,-key-phrases-and-languages"></a>Task 2 - Detect sentiment, key phrases and languages ####
+## Задача 2. Определение тональности, ключевых фраз и языков ####
 
-It's easy to detect sentiment, key phrases and languages in your text. You will programatically get the same results as the [demo experience](//go.microsoft.com/fwlink/?LinkID=759712) returns.
+Вы можете легко определить тональность, ключевые фразы и язык текста. Программным путем вы получите те же результаты, которые были показаны в [демонстрационном интерфейсе](//go.microsoft.com/fwlink/?LinkID=759712).
 
->[AZURE.TIP] For sentiment analysis, we recommend that you split text into sentences. This generally leads to a higher precision in sentiment predictions.
+>[AZURE.TIP] Для анализа тональности рекомендуется разбить текст на предложения. Это обычно обеспечивает более высокую точность прогноза тональности.
 
-Note that the supported languages are as follows:
+Обратите внимание, что поддерживаются следующие языки.
 
-| Feature | Supported language codes |
+| Функция | Коды поддерживаемых языков |
 |:-----|:----|
-| Sentiment | `en` (English), `es` (Spanish), `fr` (French), `pt` (Portuguese) |
-| Key phrases | `en` (English), `es` (Spanish), `de` (German), `ja` (Japanese) |
+| Мнение | `en` (английский), `es` (испанский), `fr` (французский), `pt` (португальский) |
+| Ключевые фразы | `en` (английский), `es` (испанский), `de` (немецкий), `ja` (японский) |
 
 
-1. You will need to set the headers to the following. Note that JSON is currently the only accepted input format for the APIs. XML is not supported.
+1. Необходимо будет установить для заголовков следующие параметры. Обратите внимание, что в настоящее время API-интерфейсы принимают входные данные только в формате JSON. XML не поддерживается.
 
-        Ocp-Apim-Subscription-Key: <your API key>
-        Content-Type: application/json
-        Accept: application/json
+		Ocp-Apim-Subscription-Key: <your API key>
+		Content-Type: application/json
+		Accept: application/json
 
-1. Next, format your input rows in JSON. For sentiment, key phrases and language, the format is the same. Note that each ID should be unique and will be the ID returned by the system. The maximum size of a single document that can be submitted is 10KB, and the total maximum size of submitted input is 1MB. No more than 1,000 documents may be submitted in one call. Rate limiting exists at a rate of 100 calls per minute - we therefore recommend that you submit large quantities of documents in a single call. Language is an optional parameter that should be specified if analyzing non-English text. An example of input is shown below, where the optional parameter `language` for sentiment analysis or key phrase extraction is included:
+1. Теперь переведите входные строки в формат JSON. Для тональности, ключевых фраз и языка используется тот же формат. Обратите внимание, что каждый идентификатор должен быть уникальным. Этот идентификатор будет возвращаться системой. Максимальный размер одного документа, который может быть передан, составляет 10 КБ. Максимальный объем всех входных данных — 1 МБ. В рамках одного вызова можно отправить не более 1000 документов. Ограничение скорости — 100 вызовов в минуту, поэтому рекомендуется отправлять большее количество документов за один вызов. Язык — это необязательный параметр, который следует задавать при анализе текста не на английском языке. Ниже приведен пример входных данных, содержащих необязательный параметр `language` для анализа тональности или выделения ключевых фраз.
 
-        {
-            "documents": [
-                {
-                    "language": "en",
-                    "id": "1",
-                    "text": "First document"
-                },
+		{
+			"documents": [
+				{
+					"language": "en",
+					"id": "1",
+					"text": "First document"
+				},
                 ...
                 {
-                    "language": "en",
-                    "id": "100",
-                    "text": "Final document"
-                }
-            ]
-        }
+					"language": "en",
+					"id": "100",
+					"text": "Final document"
+				}
+			]
+		}
 
-1. Make a **POST** call to the system with the input for sentiment, key phrases and language. The URLs will look as follows:
+1. Отправьте в систему вызов **POST** с входными данными для тональности, ключевых фраз и языка. URL-адреса будут выглядеть так:
 
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
 
-1. This call will return a JSON formatted response with the IDs and detected properties. An example of the output for sentiment is shown below (with error details excluded). In the case of sentiment, a score between 0 and 1 will be returned for each document:
+1. Этот вызов вернет ответ в формате JSON с идентификаторами и обнаруженными свойствами. Ниже приведен пример результата для тональности (сведения об ошибках исключены). Тональность каждого документа оценивается в полученном ответе по шкале от 0 до 1:
 
         // Sentiment response
-        {
-            "documents": [
-                {
-                    "id": "1",
-                    "score": "0.934"
-                },
+		{
+		  	"documents": [
+				{
+					"id": "1",
+					"score": "0.934"
+		        },
                 ...
                 {
-                    "id": "100",
-                    "score": "0.002"
-                },
-            ]
-        }
+					"id": "100",
+					"score": "0.002"
+		        },
+			]
+		}
 
         // Key phrases response
         {
-            "documents": [
-                {
-                    "id": "1",
-                    "keyPhrases": ["key phrase 1", ..., "key phrase n"]
-                },
+		  	"documents": [
+				{
+					"id": "1",
+					"keyPhrases": ["key phrase 1", ..., "key phrase n"]
+		        },
                 ...
                 {
-                    "id": "100",
-                    "keyPhrases": ["key phrase 1", ..., "key phrase n"]
-                },
-            ]
-        }
+					"id": "100",
+					"keyPhrases": ["key phrase 1", ..., "key phrase n"]
+		        },
+			]
+		}
 
         // Languages response
         {
-            "documents": [
-                {
-                    "id": "1",
-                    "detectedLanguages": [
+		  	"documents": [
+				{
+					"id": "1",
+					"detectedLanguages": [
                         {
                             "name": "English",
                             "iso6391Name": "en",
                             "score": "1"
                         }
                     ]
-                },
+		        },
                 ...
                 {
                     "id": "100",
@@ -163,144 +161,140 @@ Note that the supported languages are as follows:
                             "score": "0.985"
                         }
                     ]
-                }
-            ]
-        }
+		        }
+			]
+		}
 
 
-## <a name="task-3---detect-topics-in-a-corpus-of-text"></a>Task 3 - Detect topics in a corpus of text ####
+## Задача 3. Обнаружение тем в тексте ####
 
-This is a newly released API which returns the top detected topics for a list of submitted text records. A topic is identified with a key phrase, which can be one or more related words. The API is designed to work well for short, human written text such as reviews and user feedback.
+Это только что выпущенный API, который определяет основные темы для списка отправленных текстовых записей. Тема определяется по ключевой фразе, которая может содержать одно или несколько связанных слов. Этот API-интерфейс хорошо работает с короткими, написанными человеком текстами, такими как обзоры и отзывы пользователей.
 
-This API requires **a minimum of 100 text records** to be submitted, but is designed to detect topics across hundreds to thousands of records. Any non-English records or records with less than 3 words will be discarded and therefore will not be assigned to topics. For topic detection, the maximum size of a single document that can be submitted is 30KB, and the total maximum size of submitted input is 30MB. Topic detection is rate limited to 5 submissions every 5 minutes.
+Этот API позволяет определять темы для количества текстовых записей от нескольких сотен до тысяч. При этом **минимальное количество текстовых записей равно 100**. Записи на любом языке, кроме английского, и записи, которые содержат менее 3 слов, будут отклонены и не будут назначены темам. При определении темы максимальный размер одного отправленного документа составляет 30 КБ. Максимальный объем всех входных данных — 30 МБ. Обнаружение тем имеет ограничение скорости — не более 5 отправок за каждые 5 минут.
 
-There are two additional **optional** input parameters that can help to improve the quality of results:
+Есть два дополнительных **необязательных** входных параметра, которые могут улучшить качество результатов.
 
-- **Stop words.**  These words and their close forms (e.g. plurals) will be excluded from the entire topic detection pipeline. Use this for common words (for example, “issue”, “error” and “user” may be appropriate choices for customer complaints about software). Each string should be a single word.
-- **Stop phrases** - These phrases will be excluded from the list of returned topics. Use this to exclude generic topics that you don’t want to see in the results. For example, “Microsoft” and “Azure” would be appropriate choices for topics to exclude. Strings can contain multiple words.
+- **Стоп-слова.** Эти слова и их грамматические формы (например, множественное число) будут исключены из конвейера обнаружения тем. Используйте этот параметр для часто встречающихся слов (например, это могут быть слова "проблема", "ошибка" и "пользователь", если речь идет о жалобах клиентов на программное обеспечение). Каждая строка должна состоять из одного слова.
+- **Стоп-фразы** — эти фразы будут исключены из списка возвращаемых тем. Используйте их, чтобы исключить общие темы, которые вы не хотите видеть в результатах. Например, можно исключить такие темы, как "Microsoft" и "Azure". Строки могут содержать несколько слов.
 
-Follow these steps to detect topics in your text.
+Выполните следующие действия для обнаружения тем в тексте.
 
-1. Format the input in JSON. This time, you can define stop words and stop phrases.
+1. Укажите входные данные в формате JSON. На этот раз вы можете указать стоп-слова и стоп-фразы.
 
-        {
-            "documents": [
-                {
-                    "id": "1",
-                    "text": "First document"
-                },
+		{
+			"documents": [
+				{
+					"id": "1",
+					"text": "First document"
+				},
                 ...
                 {
-                    "id": "100",
-                    "text": "Final document"
-                }
-            ],
-            "stopWords": [
-                "issue", "error", "user"
-            ],
-            "stopPhrases": [
-                "Microsoft", "Azure"
-            ]
-        }
+					"id": "100",
+					"text": "Final document"
+				}
+			],
+			"stopWords": [
+				"issue", "error", "user"
+			],
+			"stopPhrases": [
+				"Microsoft", "Azure"
+			]
+		}
 
-1. Using the same headers as defined in Task 2, make a **POST** call to the topics endpoint:
+1. Используя те же заголовки, что и в задаче 2, отправьте вызов **POST** к конечной точке тем.
 
         POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/topics
 
-1. This will return an `operation-location` as the header in the response, where the value is the URL to query for the resulting topics:
+1. Этот вызов вернет в ответе `operation-location` в качестве заголовка, где значением является URL-адрес для запроса полученных тем.
 
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
 
-1. Query the returned `operation-location` periodically with a **GET** request. Once per minute is recommended.
+1. Периодически запрашивайте возвращаемое значение `operation-location` с помощью запроса **GET**. Рекомендуется делать это один раз в минуту.
 
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 
-1. The endpoint will return a response including `{"status": "notstarted"}` before processing, `{"status": "running"}` while processing and `{"status": "succeeded"}` with the output once completed. You can then consume the output which will be in the following format (note details like error format and dates have been excluded from this example):
+1. Конечная точка вернет ответ, содержащий `{"status": "notstarted"}`, перед обработкой. Значения `{"status": "running"}` и `{"status": "succeeded"}` будут обрабатываться после получения результата. Затем можно использовать результат, который будет иметь следующий формат (обратите внимание, что такие детали, как формат ошибок и даты, исключены из этого примера):
 
-        {
-            "status": "succeeded",
-            "operationProcessingResult": {
-                "topics": [
+		{
+			"status": "succeeded",
+			"operationProcessingResult": {
+			  	"topics": [
                     {
-                        "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
-                        "score": "5"
-                        "keyPhrase": "first topic name"
+					    "id": "8b89dd7e-de2b-4a48-94c0-8e7844265196"
+					    "score": "5"
+					    "keyPhrase": "first topic name"
                     },
                     ...
                     {
-                        "id": "359ed9cb-f793-4168-9cde-cd63d24e0d6d"
-                        "score": "3"
-                        "keyPhrase": "final topic name"
+					    "id": "359ed9cb-f793-4168-9cde-cd63d24e0d6d"
+					    "score": "3"
+					    "keyPhrase": "final topic name"
                     }
                 ],
-                "topicAssignments": [
+			  	"topicAssignments": [
                     {
-                        "topicId": "8b89dd7e-de2b-4a48-94c0-8e7844265196",
-                        "documentId": "1",
-                        "distance": "0.354"
+					    "topicId": "8b89dd7e-de2b-4a48-94c0-8e7844265196",
+					    "documentId": "1",
+					    "distance": "0.354"
                     },
                     ...
                     {
-                        "topicId": "359ed9cb-f793-4168-9cde-cd63d24e0d6d",
-                        "documentId": "55",
-                        "distance": "0.758"
+					    "topicId": "359ed9cb-f793-4168-9cde-cd63d24e0d6d",
+					    "documentId": "55",
+					    "distance": "0.758"
                     },            
                 ]
-            }
-        }
+			}
+		}
 
-Note that the successful response for topics from the `operations` endpoint will have the following schema:
+Обратите внимание, что успешный ответ с темами от конечной точки `operations` будет следовать приведенной ниже схеме.
 
-    {
-            "topics" : [{
-                "id" : "string",
-                "score" : "number",
-                "keyPhrase" : "string"
-            }],
-            "topicAssignments" : [{
-                "documentId" : "string",
-                "topicId" : "string",
-                "distance" : "number"
-            }],
-            "errors" : [{
-                "id" : "string",
-                "message" : "string"
-            }]
-        }
+	{
+    		"topics" : [{
+        		"id" : "string",
+        		"score" : "number",
+        		"keyPhrase" : "string"
+    		}],
+    		"topicAssignments" : [{
+        		"documentId" : "string",
+        		"topicId" : "string",
+        		"distance" : "number"
+    		}],
+    		"errors" : [{
+        		"id" : "string",
+        		"message" : "string"
+    		}]
+    	}
 
-Explanations for each part of this response are as follows:
+Ниже приведено описание каждой части этого ответа.
 
 **topics**
 
-| Key | Description |
+| Ключ | Description (Описание) |
 |:-----|:----|
-| id | A unique identifier for each topic. |
-| score | Count of documents assigned to topic. |
-| keyPhrase | A summarizing word or phrase for the topic. |
+| id | Уникальный идентификатор каждой темы. |
+| приложения | Количество документов, назначенных теме. |
+| KeyPhrase | Обобщающее слово или фраза для темы. |
 
 **topicAssignments**
 
-| Key | Description |
+| Ключ | Описание |
 |:-----|:----|
-| documentId | Identifier for the document. Equates to the ID included in the input. |
-| topicId | The topic ID which the document has been assigned to. |
-| distance | Document-to-topic affiliation score between 0 and 1. The lower a distance score the stronger the topic affiliation is. |
+| documentId | Идентификатор документа. Соответствует идентификатору, включенному во входные данные. |
+| topicId | Идентификатор темы, которому был назначен документ. |
+| distance | Оценка принадлежности документа к теме от 0 до 1. Чем ниже оценка, тем вероятнее принадлежность к теме. |
 
 **errors**
 
-| Key | Description |
+| Ключ | Description (Описание) |
 |:-----|:----|
-| id | Input document unique identifier the error refers to. |
-| message | Error message. |
+| id | Уникальный идентификатор входного документа, к которому относится ошибка. |
+| message | Сообщение об ошибке. |
 
-## <a name="next-steps"></a>Next steps ##
+## Дальнейшие действия ##
 
-Congratulations! You have now completed using text analytics on your data. You may now wish to look into using a tool such as [Power BI](//powerbi.microsoft.com) to visualize your data, as well as automating your insights to give you a real-time view of your text data.
+Поздравляем! Вы использовали текстовую аналитику для своих данных. Теперь вы можете ознакомиться с инструментом [Power BI](//powerbi.microsoft.com) для визуализации данных, а также с автоматизацией аналитики, чтобы видеть свои текстовые данные в режиме реального времени.
 
-To see how Text Analytics capabilities, such as sentiment, can be used as part of a bot, see the [Emotional Bot](http://docs.botframework.com/en-us/bot-intelligence/language/#example-emotional-bot) example on the Bot Framework site.
+Чтобы узнать, как возможности текстовой аналитики, например тональность, можно использовать в программе-роботе, ознакомьтесь с примером [Emotional Bot](http://docs.botframework.com/ru-RU/bot-intelligence/language/#example-emotional-bot) на сайте Bot Framework.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

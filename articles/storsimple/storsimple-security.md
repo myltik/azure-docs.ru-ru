@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple security | Microsoft Azure" 
-   description="Describes the security and privacy features that protect your StorSimple service, device, and data on premises and in the cloud." 
+   pageTitle="Безопасность StorSimple | Microsoft Azure" 
+   description="Описание функций обеспечения безопасности и конфиденциальности, защищающих службу, устройство и данные StorSimple как локально, так и в облаке." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
@@ -16,262 +16,257 @@
    ms.date="05/03/2016"
    ms.author="v-sharos"/>
 
+# Защита устройства StorSimple и данных
 
-# <a name="storsimple-security-and-data-protection"></a>StorSimple security and data protection
+## Обзор
 
-## <a name="overview"></a>Overview
+Безопасность представляет главную проблему для всех, кто внедряет новую технологию, особенно если технология используется с конфиденциальными или личными данными. По мере оценки разных технологий следует учесть увеличение рисков и расходов на защиту данных. Microsoft Azure StorSimple предоставляет решение безопасности и конфиденциальности для защиты данных, обеспечивая следующее:
 
-Security is a major concern for anyone who is adopting a new technology, especially when the technology is used with confidential or proprietary data. As you evaluate different technologies, you must consider increased risks and costs for data protection. Microsoft Azure StorSimple provides both a security and privacy solution for data protection, helping to ensure: 
+- **конфиденциальность** – только авторизованные лица могут просматривать ваши данные; 
+- **целостность** – только авторизованные лица могут изменять или удалять ваши данные.
 
-- **Confidentiality** – Only authorized entities can view your data. 
-- **Integrity** – Only authorized entities can modify or delete your data.
+Решение Microsoft Azure StorSimple состоит из четырех основных компонентов, которые взаимодействуют друг с другом.
 
-The Microsoft Azure StorSimple solution consists of four main components that interact with each other:
+- **Размещенная в Microsoft Azure служба диспетчера StorSimple** – служба управления, которая используется для настройки и подготовки устройства StorSimple.
+- **Устройство StorSimple** – физическое устройство, установленное в центре обработки данных. Все узлы и клиенты, которые создают данные, подключаются к устройству StorSimple, и устройство управляет данными и перемещает их в облако Azure соответствующим образом.
+- **Подключенные к устройству клиенты и узлы** – клиенты в вашей инфраструктуре, подключающиеся к устройству StorSimple и создающие данные, которые нуждаются в защите.
+- **Облачное хранилище** – расположение в облаке Azure, где хранятся данные.
 
-- **StorSimple Manager service hosted in Microsoft Azure** – The management service that you use to configure and provision the StorSimple device.
-- **StorSimple device** – A physical device installed in your datacenter. All hosts and clients that generate data connect to the StorSimple device, and the device manages the data and moves it to the Azure cloud as appropriate.
-- **Clients/hosts connected to the device** – The clients in your infrastructure that connect to the StorSimple device and generate data that needs to be protected.
-- **Cloud storage** – The location in the Azure cloud where data is stored.
+В следующих разделах описаны функции безопасности StorSimple, которые помогают защитить каждый из этих компонентов и данные, сохраненные в них. Далее также представлен список возможных вопросов о безопасности Microsoft Azure StorSimple и соответствующие ответы.
 
-The following sections describe the StorSimple security features that help protect each of these components and the data stored on them. It also includes a list of questions that you might have about Microsoft Azure StorSimple security, and the corresponding answers.
+## Защита службы диспетчера StorSimple
 
-## <a name="storsimple-manager-service-protection"></a>StorSimple Manager service protection
+Служба диспетчера StorSimple — это служба управления, размещенная в Microsoft Azure и использующаяся для управления всеми устройствами StorSimple, которые закупила ваша организация. Вы можете получить доступ к службе диспетчера StorSimple, используя учетные данные организации для входа на классический портал Azure через веб-браузер.
 
-The StorSimple Manager service is a management service hosted in Microsoft Azure and used to manage all StorSimple devices that your organization has procured. You can access the StorSimple Manager service by using your organizational credentials to log on to the Azure classic portal through a web browser. 
+Для доступа к службе диспетчера StorSimple у вашей организации должна быть подписка Azure, включающая StorSimple. Ваша подписка регулирует управление функциями, доступ к которым можно получить на классическом портале Azure. Если ваша организация не пользуется подпиской Azure, но вы хотите получить дополнительные сведения об этой подписке, см. раздел [Регистрация организации в Azure](../active-directory/sign-up-organization.md).
 
-Access to the StorSimple Manager service requires that your organization have an Azure subscription that includes StorSimple. Your subscription governs the features that you can access in the Azure classic portal. If your organization does not have an Azure subscription and you want to learn more about them, see [Sign up for Azure as an organization](../active-directory/sign-up-organization.md). 
+Так как служба диспетчера StorSimple размещается в Azure, она защищена функциями безопасности Azure. Дополнительные сведения о функциях безопасности, предоставленных Microsoft Azure, см. в [центре управления безопасностью Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
-Because the StorSimple Manager service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
+## Защита устройств StorSimple
 
-## <a name="storsimple-device-protection"></a>StorSimple device protection
+Устройство StorSimple — это устройство с локальным гибридным хранилищем, которое содержит твердотельные накопители (SSD) и жесткие диски (HDD), а также избыточные контроллеры и возможности автоматической отработки отказа. Контроллеры управляют уровнями хранилища, размещая недавно использовавшиеся (или активные) данные в локальном хранилище (на устройстве StorSimple или локальных серверах), перемещая редко используемые данные в облако.
 
-The StorSimple device is an on-premises hybrid storage device that contains solid state drives (SSDs) and hard disk drives (HDDs), together with redundant controllers and automatic failover capabilities. The controllers manage storage tiering, placing currently used (or hot) data on local storage (in the StorSimple device or on-premises servers), while moving less frequently used data to the cloud.
+Только авторизованные устройства StorSimple могут присоединяться к службе диспетчера StorSimple, созданной в подписке Azure. Чтобы авторизовать устройство, необходимо зарегистрировать его в службе диспетчера StorSimple, предоставив ключ регистрации службы. Ключ регистрации службы — 128-разрядный случайный ключ, созданный на классическом портале Azure.
 
-Only authorized StorSimple devices are allowed to join the StorSimple Manager service that you created in your Azure subscription. To authorize a device, you must register it with the StorSimple Manager service by providing the service registration key. The service registration key is a 128-bit random key generated in the Azure classic portal. 
+![Ключ регистрации службы](./media/storsimple-security/ServiceRegistrationKey.png)
 
-![Service registration key](./media/storsimple-security/ServiceRegistrationKey.png)
+Информацию о том, как получить ключ регистрации службы, см. в разделе [Шаг 2. Получение ключа регистрации службы](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
-To learn how get a service registration key, go to [Step 2: Get the service registration key](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
+Ключ регистрации службы — это длинный ключ, который содержит больше 100 символов. Вы можете скопировать ключ и сохранить его в текстовом файле в безопасном расположении, чтобы вы могли при необходимости использовать его для авторизации дополнительных устройств. Если ключ регистрации службы будет потерян после регистрации первого устройства, создайте новый ключ в службе диспетчера StorSimple. Это не повлияет на работу существующих устройств.
 
-The service registration key is a long key that contains 100+ characters. You can copy the key and save it in a text file in a secure location so that you can use it to authorize additional devices as necessary. If the service registration key is lost after you register your first device, you can generate a new key from the StorSimple Manager service. This will not affect the operation of existing devices. 
+После регистрации для взаимодействия с Microsoft Azure устройство использует маркеры. Ключ регистрации службы не используется после регистрации устройства.
 
-After a device is registered, it uses tokens to communicate with Microsoft Azure. The service registration key is not used after device registration.
+> [AZURE.NOTE] Мы советуем повторно создавать ключ регистрации службы после каждого использования.
 
-> [AZURE.NOTE] We recommend that you regenerate the service registration key after every use.
+## Защита решения StorSimple с помощью паролей
 
-## <a name="protect-your-storsimple-solution-via-passwords"></a>Protect your StorSimple solution via passwords
+Пароли — это важная часть безопасности компьютера. Они широко используются в решении StorSimple, предоставляя доступ к данным только авторизованным пользователям. StorSimple позволяет настроить следующие пароли:
 
-Passwords are an important aspect of computer security and are used extensively in the StorSimple solution to help ensure that your data is accessible to authorized users only. StorSimple allows you to configure the following passwords:
+- пароль администратора устройства StorSimple;
+- Пароли инициатора и целевого устройства протокола проверки паролей (CHAP)
+- Пароль диспетчера моментальных снимков StorSimple
 
-- StorSimple device administrator password
-- Challenge Handshake Authentication Protocol (CHAP) initiator and target passwords
-- StorSimple Snapshot Manager password
+### Пароли Windows PowerShell для StorSimple и администратора устройства StorSimple
 
-### <a name="windows-powershell-for-storsimple-and-the-storsimple-device-administrator-password"></a>Windows PowerShell for StorSimple and the StorSimple device administrator password
+Windows PowerShell для StorSimple — это интерфейс командной строки, который можно использовать для управления устройством StorSimple. Windows PowerShell для StorSimple содержит функции, которые позволяют зарегистрировать устройство, настроить сетевой интерфейс на устройстве, установить определенные типы обновлений, устранить неполадки с устройством в сеансе поддержки и изменить состояние устройства. Вы можете получить доступ к Windows PowerShell для StorSimple, подключившись к последовательной консоли на устройстве, или с помощью удаленного взаимодействия Windows PowerShell.
 
-Windows PowerShell for StorSimple is a command-line interface that you can use to manage the StorSimple device. Windows PowerShell for StorSimple has features that allow you to register your device, configure the network interface on your device, install certain types of updates, troubleshoot your device by accessing the support session, and change the device state. You can access Windows PowerShell for StorSimple by connecting to the serial console on the device or by using Windows PowerShell remoting.
+Удаленное взаимодействие PowerShell может осуществляться по протоколу HTTPS или HTTP. Если удаленное управление по HTTPS включено, потребуется скачать сертификат удаленного управления с устройства и установить его на удаленный клиент. Дополнительную информацию об удаленном взаимодействии с помощью PowerShell см. в статье [Удаленное подключение к устройству StorSimple](storsimple-remote-connect.md).
 
-PowerShell remoting can be done over HTTPS or HTTP. If remote management over HTTPS is enabled, you will need to download the remote management certificate from the device and install it on the remote client. For more information about PowerShell remoting, go to [Connect remotely to your StorSimple device](storsimple-remote-connect.md).
+После подключения к устройству с помощью Windows PowerShell для StorSimple, чтобы войти на устройство, потребуется предоставить пароль администратора устройства.
 
-After you use Windows PowerShell for StorSimple to connect to the device, you will need to provide the device administrator password to log on to the device.
+![Пароль администратора устройства](./media/storsimple-security/DeviceAdminPW.png)
 
-![Device administrator password](./media/storsimple-security/DeviceAdminPW.png)
+Учитывайте приведенные ниже рекомендации.
 
-Keep the following best practices in mind:
+- Удаленное управление по умолчанию выключено. Вы можете включить его в службе диспетчера StorSimple. Для безопасности рекомендуется включать удаленный доступ только в тот непосредственный период, когда это необходимо.
+- В случае изменения пароля сообщите об этом всем пользователям с удаленным доступом, чтобы они не столкнулись с неожиданной потерей подключения.
+- Служба диспетчера StorSimple не выполняет извлечение существующих паролей, а только сбрасывает их. Рекомендуется хранить все пароли в безопасном расположении, чтобы вам не потребовалось сбрасывать пароль, если вы его забудете. Если же вам нужно сбросить пароль, сообщите об этом всем пользователям. 
 
-- Remote management is turned off by default. You can use the StorSimple Manager service to enable it. As a security best practice, remote access should be enabled only during the time period that it is actually needed.
-- If you change the password, be sure to notify all remote access users so that they do not experience an unexpected connectivity loss.
-- The StorSimple Manager service cannot retrieve existing passwords: it can only reset them. We recommend that you store all passwords in a secure place so that you do not have to reset a password if it is forgotten. If you do need to reset a password, be sure to notify all users before you reset it. 
+Вы можете получить доступ к интерфейсу Windows PowerShell, используя последовательное подключение к устройству. Вы также можете получить к нему удаленный доступ по протоколу HTTP или HTTPS, что дает дополнительную защиту. HTTPS обеспечивает более высокий уровень безопасности, чем последовательное подключение или подключение по HTTP. Однако чтобы использовать HTTPS, необходимо сначала установить сертификат на клиентском компьютере, который получит доступ к устройству. Вы можете скачать сертификат удаленного доступа на странице конфигурации устройства в службе диспетчера StorSimple. Если сертификат для удаленного доступа потерян, необходимо скачать новый сертификат и распространить его на все клиенты, которые могут использовать удаленное управление.
 
-You can access the Windows PowerShell interface by using a serial connection to the device. You can also access it remotely by using either HTTP or HTTPS, which provide additional security. HTTPS provides a higher level of security than either a serial or HTTP connection. However, to use HTTPS, you must first install a certificate on the client computer that will access the device. You can download the remote access certificate from the device configuration page in the StorSimple Manager service. If the certificate for remote access is lost, you must download a new certificate and propagate it to all clients that are authorized to use remote management.
+### Пароли инициатора и целевого устройства протокола проверки паролей (CHAP)
 
-### <a name="challenge-handshake-authentication-protocol-(chap)-initiator-and-target-passwords"></a>Challenge Handshake Authentication Protocol (CHAP) initiator and target passwords
+CHAP — это схема проверки подлинности, используемая устройством StorSimple для проверки удостоверения удаленных клиентов. Проверка выполняется на основе общего пароля. Протокол CHAP может быть односторонним (однонаправленным) или двусторонним (двунаправленным). С односторонним CHAP целевое устройство (устройство StorSimple) проверяет подлинность инициатора (узла). Для взаимного или обратного CHAP требуется, чтобы целевое устройство проверило подлинность инициатора, а затем инициатор проверил подлинность целевого устройства. StorSimple можно настроить для использования любого из этих методов.
 
-CHAP is an authentication scheme used by the StorSimple device to validate the identity of remote clients. The verification is based on a shared password. CHAP can be one-way (unidirectional) or mutual (bidirectional). With one-way CHAP, the target (the StorSimple device) authenticates an initiator (host). Mutual or reverse CHAP requires that the target authenticate the initiator and then the initiator authenticate the target. Your StorSimple can be configured to use either method.
+При настройке протокола CHAP следует учитывать приведенные ниже требования.
 
-Be aware of the following when you configure CHAP:
+- Имя пользователя CHAP должно содержать меньше 233 символов.
+- Длина пароля CHAP должна быть от 12 до 16 символов. Попытка использовать более длинное имя пользователя или пароль приведет к сбою проверки подлинности на узле Windows.
+- Вы не можете использовать один и тот же пароль для инициатора и целевого устройства CHAP.
+- После установки пароля его можно изменить, но невозможно извлечь. При изменении пароля сообщите об этом всем пользователям с удаленным доступом, чтобы они могли подключиться к устройству StorSimple.
 
-- The CHAP user name must contain fewer than 233 characters.
-- The CHAP password must be between 12 and 16 characters. Attempting to use a longer user name or password will result in an authentication failure on the Windows host.
-- You cannot use the same password for both the CHAP initiator and the CHAP target.
-- After you set the password, it can be changed but it cannot be retrieved. If the password is changed, be sure to notify all remote access users so that they can successfully connect to the StorSimple device.
+Дополнительную информацию о протоколе CHAP и способах его настройки для решений StorSimple см. в статье [Настройка CHAP для устройства StorSimple](storsimple-configure-chap.md).
 
-For more information about CHAP and how to configure it for your StorSimple solution, go to [Configure CHAP for your StorSimple device](storsimple-configure-chap.md).
+### Пароль диспетчера моментальных снимков StorSimple
 
-### <a name="storsimple-snapshot-manager-password"></a>StorSimple Snapshot Manager password
+Диспетчер моментальных снимков StorSimple — это оснастка консоли управления (MMC), которая использует группы томов и службу теневого копирования томов Windows для создания резервных копий, согласованных с приложениями. Кроме того, вы можете использовать диспетчер моментальных снимков StorSimple для создания расписания архивации и клонирования или восстановления томов.
 
-StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that uses volume groups and the Windows Volume Shadow Copy Service to generate application-consistent backups. In addition, you can use StorSimple Snapshot Manager to create backup schedules and clone or restore volumes.
+При настройке на устройстве диспетчера моментальных снимков StorSimple потребуется предоставить пароль для этого диспетчера. Сначала этот пароль задается в Windows PowerShell для StorSimple во время регистрации. Пароль можно также задать и изменить в службе диспетчера StorSimple. Этот пароль используется для проверки подлинности устройства в диспетчере моментальных снимков StorSimple.
 
-When you configure a device to use StorSimple Snapshot Manager, you will be required to provide the StorSimple Snapshot Manager password. This password is first set in Windows PowerShell for StorSimple during registration. The password can also be set and changed from the StorSimple Manager service. This password authenticates the device with StorSimple Snapshot Manager.
+![Пароль диспетчера моментальных снимков StorSimple](./media/storsimple-security/SnapshotMgrPassword.png)
 
-![StorSimple Snapshot Manager password](./media/storsimple-security/SnapshotMgrPassword.png)
+Пароль диспетчера моментальных снимков StorSimple должен содержать 14–15 символов, а также включать не менее 3 сочетаний букв в верхнем и нижнем регистре, цифр и специальных символов. После назначения пароля диспетчера моментальных снимков StorSimple его можно изменить, но невозможно извлечь. При изменении пароля сообщите об этом всем удаленным пользователям.
 
-The StorSimple Snapshot Manager password must be 14 to 15 characters and must contain 3 or more of a combination of uppercase, lowercase, numeric, and special characters. After you set the StorSimple Snapshot Manager password, it can be changed but it cannot be retrieved. If you change the password, be sure to notify all remote users.
+Дополнительную информацию о диспетчере моментальных снимков StorSimple см. в статье [Диспетчер моментальных снимков StorSimple](storsimple-what-is-snapshot-manager.md).
 
-For more information about StorSimple Snapshot Manager, go to [What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
+### Рекомендации по паролям
 
-### <a name="password-best-practices"></a>Password best practices
+Следующие рекомендации помогут обеспечить надежность и хорошую защиту паролей StorSimple.
 
-We recommend that you use the following guidelines to help ensure that StorSimple passwords are strong and well-protected:
+- Меняйте пароли каждые три месяца. Изменение паролей применяется ежегодно.
+- Используйте надежные пароли. Дополнительные сведения см. в разделе [Создание более надежных паролей и их защита](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+- Всегда используйте разные пароли для разных механизмов доступа. Каждый заданный пароль должен быть уникальным.
+- Не сообщайте пароли пользователям, не имеющим права доступа к устройству StorSimple.
+- Не произносите пароль вслух рядом с посторонними и не упоминайте формат пароля.
+- Если вы подозреваете, что учетная запись или пароль были скомпрометированы, сообщите о случившемся в свой отдел по безопасности данных.
+- Рассматривайте все пароли как конфиденциальную информацию. 
 
-- Change your passwords every three months. Changing the passwords is enforced annually.
-- Use strong passwords. For more information, go to [Create stronger passwords and protect them](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
-- Always use different passwords for different access mechanisms; each of the passwords you specify should be unique.
-- Do not share passwords with anyone who is not authorized to access the StorSimple device.
-- Do not speak about a password in front of others or hint at the format of a password.
-- If you suspect that an account or password has been compromised, report the incident to your information security department.
-- Treat all passwords as sensitive, confidential information. 
+## Защита данных StorSimple
 
-## <a name="storsimple-data-protection"></a>StorSimple data protection
+В этом разделе описываются функции безопасности StorSimple, которые защищают передающиеся и хранящиеся данные.
 
-This section describes the StorSimple security features that protect data in transit and stored data.
+Как описано в других разделах, пароли используются для авторизации и проверки подлинности пользователей, которые хотят получить доступ к решению StorSimple. Другой вопрос безопасности — это защита данных от неавторизованных пользователей во время передачи из одной системы хранилища в другую, а также при хранении. В следующих разделах описаны функции защиты данных, реализованные в StorSimple.
 
-As described in other sections, passwords are used to authorize and authenticate users before they can gain access to your StorSimple solution. Another security consideration is protecting data from unauthorized users while it is being transferred between storage systems and while it is being stored. The following sections describe the data protection features provided with StorSimple.
+> [AZURE.NOTE] Дедупликация обеспечивает дополнительную защиту для данных, сохраненных на устройстве StorSimple и в хранилище Microsoft Azure. При дедупликации данных объекты данных сохраняются отдельно от метаданных, используемых для сопоставления и доступа к ним, так как нет доступного контекста уровня хранилища для восстановления данных на основе структуры томов, файловой системы или имени файла.
 
-> [AZURE.NOTE] Deduplication provides additional protection for data stored on the StorSimple device and in Microsoft Azure storage. When data is deduplicated, the data objects are stored separately from the metadata used to map and access them: there is no available storage-level context to reconstruct the data based on volume structure, file system, or file name.
+## Защита данных, передающихся через службу
 
-## <a name="protect-data-flowing-through-the-service"></a>Protect data flowing through the service
+Первичная цель службы диспетчера StorSimple — управление устройством StorSimple и его настройка. Служба диспетчера StorSimple выполняется в Microsoft Azure. Вы вводите данные конфигурации устройства на классическом портале Azure, а затем Microsoft Azure использует службу диспетчера StorSimple для отправки данных на устройство. StorSimple использует систему пар асимметричных ключей. Это нужно для того, чтобы компрометация службы Azure не привела к компрометации сохраненной информации.
 
-The primary purpose of the StorSimple Manager service is to manage and configure the StorSimple device. The StorSimple Manager service runs in Microsoft Azure. You use the Azure classic portal to enter device configuration data, and then Microsoft Azure uses the StorSimple Manager service to send the data to the device. StorSimple uses a system of asymmetric key pairs to help ensure that a compromise of the Azure service will not result in a compromise of stored information. 
+![Шифрование данных в процессе](./media/storsimple-security/DataEncryption.png)
 
-![Data encryption in flight](./media/storsimple-security/DataEncryption.png)
+Система асимметричных ключей помогает защитить данные, передающиеся в службе, следующим образом.
 
-The asymmetric key system helps protect the data that flows through the service as follows:
+1. Сертификат шифрования данных, который использует пару открытого и закрытого асимметричных ключей, создается на устройстве и используется для защиты данных. Ключи создаются при регистрации первого устройства. 
+2. Ключи сертификата шифрования данных экспортируются в файл обмена личной информацией (PFX-файл), защищенный ключом шифрования данных службы, который является надежным 128-разрядным ключом и создается первым устройством случайно во время регистрации.
+3. Службе диспетчера StorSimple предоставляется безопасный доступ к открытому ключу сертификата, а закрытый ключ остается на устройстве.
+4. Данные, которые получает служба, шифруются с помощью открытого ключа и расшифровываются с помощью закрытого ключа, сохраненного на устройстве. Таким образом, служба Azure не может расшифровать данные, передающиеся на устройство.
 
-1. A data encryption certificate that uses an asymmetric public and private key pair is generated on the device and is used to protect the data. The keys are generated when the first device is registered. 
-2. The data encryption certificate keys are exported into a Personal Information Exchange (.pfx) file that is protected by the service data encryption key, which is a strong 128-bit key that is randomly generated by the first device during registration.
-3. The public key of the certificate is securely made available to the StorSimple Manager service, and the private key remains with the device.
-4. Data entering the service is encrypted using the public key and decrypted using the private key stored on the device, ensuring that the Azure service cannot decrypt the data flowing to the device.
-
-The service data encryption key is generated on only the first device registered with the service. All subsequent devices that are registered with the service must use the same service data encryption key. 
+Ключ шифрования данных службы создается только на первом устройстве, зарегистрированном в службе. Все последующие устройства, которые регистрируются в службе, должны использовать тот же ключ шифрования данных службы.
 
 > [AZURE.IMPORTANT] 
 > 
-> It is very important to make a copy of the service data encryption key and save it in a secure location. A copy of the service data encryption key should be stored in such a way that it can be accessed by an authorized person and can be easily communicated to the device administrator.
+> Крайне важно сделать копию ключа шифрования данных службы и сохранить ее в безопасном месте. Копия ключа шифрования данных службы должна быть сохранена таким образом, чтобы она была доступна только авторизованным пользователям и чтобы ее можно было легко передать администратору устройства.
 >
-> If the service data encryption key is lost, a Microsoft support person can help you to retrieve it provided that you have at least one device in an online state. We recommend that you change the service data encryption key after it is retrieved. For instructions, go to [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
+> Если ключ шифрования данных службы потерян, сотрудник службы поддержки Майкрософт может помочь вам извлечь его при условии, что хотя бы одно устройство подключено к Интернету. После извлечения ключа шифрования данных рекомендуется изменить его. Указания см. в разделе [Изменение ключа шифрования данных службы](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
-You can change the service data encryption key and the corresponding data encryption certificate by selecting the **Change service data encryption key** option on the service dashboard. To ensure that data security is not compromised, you must use a physical StorSimple device to change the service data encryption key. Changing the encryption keys requires that all devices be updated with the new key. Therefore, we recommend that you change the key when all devices are online. If devices are offline, their keys can be changed at a different time. The devices with out-of-date keys will still be able to run backups, but they will not be able to restore data until the key is updated. For more information, go to [Use the StorSimple Manager service dashboard](storsimple-service-dashboard.md).
+Чтобы изменить ключ шифрования данных службы и соответствующий сертификат шифрования данных, выберите параметр **Изменить ключ шифрования данных службы** на панели мониторинга службы. Чтобы безопасность данных не была поставлена под угрозу, смените ключ шифрования данных службы с помощью физического устройства StorSimple. Для смены ключа шифрования необходимо, чтобы все устройства были обновлены с помощью нового ключа. Следовательно, рекомендуется изменять ключ, когда все устройства находятся в сети. Если устройства не в сети, их ключи можно изменить в другое время. Устройства с устаревшими ключами по-прежнему смогут запускать резервные копии, но не смогут восстановить данные, пока ключ не будет обновлен. Дополнительную информацию см. в статье [Использование панели мониторинга службы диспетчера StorSimple](storsimple-service-dashboard.md).
 
-The service data encryption key and the data encryption certificate do not expire. However, we recommend that you change the service data encryption key annually to help prevent key compromise.
+Ключ шифрования данных службы и сертификат шифрования данных являются бессрочными. Но для обеспечения защиты ключа шифрования мы советуем менять его ежегодно.
 
-## <a name="protect-data-at-rest"></a>Protect data at rest
+## Защита хранящихся данных
 
-The StorSimple device manages data by storing it in tiers locally and in the cloud, depending on frequency of use. All host machines that are connected to the device send data to the device, which then moves data to the cloud, as appropriate. Data is transferred from the device to the cloud securely over the Internet. Each device has one iSCSI target that surfaces all shared volumes on that device. All data is encrypted before it is sent to cloud storage. 
+Устройство StorSimple управляет данными, сохраняя их в уровнях локально и в облаке, в зависимости от частоты использования. Все хост-компьютеры, подключенные к устройству, отправляют данные на устройство, которое затем перемещает их в облако. Данные передаются с устройства в облако через Интернет по защищенному каналу. У каждого устройства есть одно целевое устройство iSCSI, которое охватывает все общие тома на этом устройстве. Все данные шифруются перед отправкой в облачное хранилище.
 
-![Cloud storage encryption key](./media/storsimple-security/CloudStorageEncryption.png)
+![Ключ шифрования облачного хранилища](./media/storsimple-security/CloudStorageEncryption.png)
 
-To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to define cloud storage encryption keys as follows:
+Чтобы обеспечить безопасность и целостность данных, перемещаемых в облако, StorSimple позволяет определить ключи шифрования облачного хранилища следующим образом.
 
-- You specify the cloud storage encryption key when you create a volume container. The key cannot be modified or added later. 
-- All volumes in a volume container share the same encryption key. If you want a different form of encryption for a specific volume, we recommend that you create a new volume container to host that volume.
-- When you enter the cloud storage encryption key in the StorSimple Manager service, the key is encrypted using the public portion of the service data encryption key and then sent to the device.
-- The cloud storage encryption key is not stored anywhere in the service and is known only to the device.
-- Specifying a cloud storage encryption key is optional. You can send data that has been encrypted at the host to the device.
+- Вы указываете ключ шифрования облачного хранилища при создании контейнера томов. Ключ невозможно изменить или добавить позже. 
+- Все тома в контейнере томов содержат один ключ шифрования. Если вам нужен другой тип шифрования для определенного тома, рекомендуется создать новый контейнер томов для размещения этого тома.
+- При вводе ключа шифрования облачного хранилища в службу диспетчера StorSimple ключ шифруется с помощью открытой части ключа шифрования данных службы, а затем отправляется на устройство.
+- Ключ шифрования облачного хранилища не хранится в службе и известен только устройству.
+- Назначать ключ шифрования облачного хранилища необязательно. Вы можете отправить зашифрованные данные на узел устройства.
 
-### <a name="additional-security-best-practices"></a>Additional security best practices
+### Дополнительные рекомендации по обеспечению безопасности
 
-- Split traffic: isolate your iSCSI SAN from user traffic on a corporate LAN by deploying a totally separated network and using VLANs where physical isolation is not an option. A dedicated network for iSCSI storage will guarantee the safety and performance of your business-critical data. Mixing storage and user traffic over a corporate LAN is not recommended and can increase latency and cause network failures.
+- Разделение трафика: изолируйте сеть хранения данных iSCSI от пользовательского трафика в корпоративной локальной сети. Для этого разверните отдельную сеть и используйте виртуальные локальные сети (VLAN) там, где физическая изоляция невозможна. Выделенная сеть для хранения данных iSCSI обеспечит безопасную и производительную обработку критически важных данных. Не рекомендуется смешивать трафик хранилища и пользовательского трафика в корпоративной локальной сети. Это может увеличить задержку и привести к сбоям сети.
 
-- For host-side network security, use network interfaces that support TCP/IP Offload Engine (TOE). TOE reduces CPU load by processing TCP on the network adapter.
+- Чтобы обеспечить безопасность сети на стороне узла, используйте сетевые интерфейсы, поддерживающие протокол разгрузки TCP/IP (TOE). TOE уменьшает нагрузку на ЦП, обрабатывая TCP на сетевом адаптере.
 
-## <a name="protect-data-via-storage-accounts"></a>Protect data via storage accounts
+## Защита данных с помощью учетных записей хранения
 
-Each Microsoft Azure subscription can create one or more storage accounts. (A storage account provides a unique namespace for working with data stored in the Azure cloud.) Access to a storage account is controlled by the subscription and access keys associated with that storage account. 
+Каждая подписка Microsoft Azure может создать одну или несколько учетных записей хранения. (Учетная запись хранения предоставляет уникальное пространство имен для работы с данными, хранящимися в облаке Azure.) Доступ к учетной записи хранения контролируется подпиской и ключами доступа, связанными с учетной записью хранения.
 
-When you create a storage account, Microsoft Azure generates two 512-bit storage access keys, one of which is used for authentication when the StorSimple device accesses the storage account. Note that only one of these keys is in use. The other key is held in reserve, allowing you to rotate the keys periodically. To rotate keys, you make the secondary key active, and then delete the primary key. You can then create a new key for use during the next rotation. (For security reasons, many datacenters require key rotation.) 
+При создании учетной записи хранения Microsoft Azure создает два 512-разрядных ключа доступа к хранилищу. Обратите внимание, что используется только один из этих ключей. Другой ключ хранится в качестве резерва и позволяет времени от времени менять ключи. Для смены ключей следует активировать вторичный ключ, а затем изменить первичный. Затем вы можете создать новый ключ для использования во время их смены. (В целях безопасности многие центры обработки данных требуют смену ключей.)
 
-We recommend that you follow these best practices for key rotation:
+Рекомендации по смене ключей.
 
-- You should rotate storage account keys regularly to help ensure that your storage account is not accessed by unauthorized users.
-- Periodically, your Azure administrator should change or regenerate the primary or secondary key by using the Storage section of the Azure classic portal to directly access the storage account.
+- Чтобы неавторизованные пользователи не могли получить доступ к вашей учетной записи хранения, регулярно меняйте ключи.
+- Время от времени, чтобы обеспечить прямой доступ к учетной записи хранения, администратор Azure должен менять или повторно создавать первичный или вторичный ключ в разделе «Хранилище» классического портала Azure.
 
 
-## <a name="protect-data-via-encryption"></a>Protect data via encryption
+## Защита данных с помощью шифрования
 
-StorSimple uses the following encryption algorithms to protect data stored in or traveling between the components of your StorSimple solution.
+StorSimple использует следующие алгоритмы шифрования для защиты данных, хранящихся или передающихся между компонентами решения StorSimple.
 
-| Algorithm | Key length | Protocols/applications/comments |
+| Алгоритм | Длина ключа | Протоколы, приложения и комментарии |
 | --------- | ---------- | ------------------------------- |
-| RSA       | 2048       | RSA PKCS 1 v1.5 is used by the Azure classic portal to encrypt configuration data that is sent to the device: for example, storage account credentials, StorSimple device configuration, and cloud storage encryption keys. |
-| AES       | 256        | AES with CBC is used to encrypt the public portion of the service data encryption key before it is sent to the Azure classic portal from the StorSimple device. It is also used by the StorSimple device to encrypt data before the data is sent to the cloud storage account. |
+| RSA | 2048 | Классический портал Azure использует RSA PKCS 1 версии 1.5 для шифрования данных конфигурации, которые отправляются на устройство, а именно: данных учетной записи хранения, конфигурации устройства StorSimple и ключей шифрования облачного хранилища. |
+| AES | 256 | AES вместе с CBC используется для шифрования открытой части ключа шифрования данных службы перед его отправкой на классический портал Azure с устройства StorSimple. Этот алгоритм также используется устройством StorSimple для шифрования данных перед их отправкой в учетную запись облачного хранилища. |
 
 
-## <a name="storsimple-virtual-device-security"></a>StorSimple virtual device security
+## Безопасность виртуального устройства StorSimple
 
-[AZURE.INCLUDE [storsimple virtual device security](../../includes/storsimple-virtual-device-security.md)]
+[AZURE.INCLUDE [безопасность виртуального устройства StorSimple](../../includes/storsimple-virtual-device-security.md)]
 
-## <a name="frequently-asked-questions-(faq)"></a>Frequently asked questions (FAQ)
+## Часто задаваемые вопросы
 
-The following are some questions and answers about security and Microsoft Azure StorSimple.
+Ниже приведены часто задаваемые вопросы о безопасности и Microsoft Azure StorSimple, а также ответы на них.
 
-**Q:** My service is compromised. What should be my next steps?
+**Вопрос.** Моя служба скомпрометирована. Что делать?
 
-**A:** You should immediately change the service data encryption key and the storage account keys for the storage account that is being used for tiering data. For instructions, go to: 
+**Ответ.** Нужно немедленно изменить ключ шифрования данных службы и ключи учетной записи хранения, которая используется для распределения данных между уровнями. Подробные инструкции описаны в разделе
 
-- [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
-- [Key rotation of storage accounts](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
+- [Изменение ключа шифрования данных службы](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Смена ключей в учетных записях хранения](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
-**Q:** I have a new StorSimple device that is asking for the service registration key. How do I retrieve it?
+**Вопрос.** У меня есть новое устройство StorSimple, которое запрашивает ключ регистрации службы. Как его извлечь?
 
-**A:** This key was created when you first created the StorSimple Manager service. When you use the StorSimple Manager service to connect to the device, you can use the service quick start page to view or regenerate the service registration key. Generating a new service registration key will not affect the existing registered devices. For instructions, go to:
+**Ответ.** Этот ключ был создан при создании службы диспетчера StorSimple. При использовании службы диспетчера StorSimple для подключения к устройству вы можете использовать страницу быстрого запуска службы, чтобы просмотреть или повторно создать ключ регистрации службы. Создание нового ключа регистрации службы не влияет на существующие зарегистрированные устройства. Подробные инструкции описаны в разделе
 
-- [View or regenerate the service registration key](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
+- [Просмотр или повторное создание ключа регистрации службы](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
 
-**Q:** I lost my service data encryption key. What do I do?
+**Вопрос.** Мой ключ шифрования данных службы утерян. Что делать?
 
-**A:** Contact Microsoft Support. They can log on to a support session on your device and help you retrieve the key (provided at least one device is online). Immediately after you obtain the service data encryption key, you should change it to ensure that the new key is known only to you. For instructions, go to:
+**Ответ.** Обратитесь в службу поддержки Майкрософт. Специалисты службы поддержки могут войти в сеанс поддержки на устройстве и извлечь ключ (при условии, что включено как минимум одно устройство). Сразу после получения ключа шифрования данных службы его необходимо изменить. Таким образом можно гарантировать, что новый ключ будет известен только вам. Подробные инструкции описаны в разделе
 
-- [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Изменение ключа шифрования данных службы](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
-**Q:**  I authorized a device for a service data encryption key change, but did not start the key change process. What should I do?
+**Вопрос.** Устройство было авторизовано для изменения ключа шифрования данных службы, но этот процесс так и не начался. Что делать?
 
-**A:** If the time-out period has expired, you will need to reauthorize the device for the service data encryption key change and start the process again.
+**Ответ.** Если время ожидания истекло, нужно повторно авторизовать устройство, чтобы изменить ключ шифрования данных службы и начать процесс заново.
 
-**Q:**  I changed the service data encryption key, but I was not able to update the other devices within 4 hours. Do I have to start again?
+**Вопрос.** Ключ шифрования данных службы изменен, но мне не удалось обновить другие устройства в течение 4 часов. Нужно ли начинать все заново?
 
-**A:** The 4-hour time period is only for initiating the change. After you start the update process on the authorized StorSimple device, the authorization is valid until all devices are updated.
+**Ответ.** Четырехчасовой период относится только к инициации изменения ключа. После начала обновления на авторизованном устройстве StorSimple авторизация будет действительна до тех пор, пока все устройства не будут обновлены.
 
-**Q:** Our StorSimple administrator has left the company. What should I do?
+**Вопрос.** Наш администратор StorSimple уволился из компании. Какие дальнейшие действия?
 
-**A:** Change and reset the passwords that allow access to the StorSimple device, and change the service data encryption key to ensure that the new information is not known to unauthorized personnel. For instructions, go to:
+**Ответ.** Измените и сбросьте пароли доступа к устройству StorSimple, а также измените ключ шифрования данных службы, чтобы неавторизованные сотрудники не имели доступ к новой информации. Подробные инструкции описаны в разделе
 
-- [Use the StorSimple Manager service to change your storsimple passwords](storsimple-change-passwords.md)
-- [Change the service data encryption key](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
-- [Configure CHAP for your StorSimple device](storsimple-configure-chap.md)
+- [Изменение паролей StorSimple с помощью службы StorSimple Manager](storsimple-change-passwords.md)
+- [Изменение ключа шифрования данных службы](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+- [Настройка CHAP для устройства StorSimple](storsimple-configure-chap.md)
 
-**Q:** I want to provide the StorSimple Snapshot Manager password to a host that is connecting to the StorSimple device, but the password is not available. What can I do?
+**Вопрос.** Я хочу отправить пароль диспетчера моментальных снимков StorSimple на узел, который подключается к устройству StorSimple, но пароль недоступен. Что можно сделать?
 
-**A:** If you have forgotten the password, you should create a new one. Then, be sure to inform all existing users that the password has been changed and that they should update their clients to use the new password. For instructions, go to:
+**Ответ.** Если вы забыли пароль, создайте новый. После этого сообщите всем существующим пользователям, что пароль был изменен, чтобы они обновили его в своих клиентах. Подробные инструкции описаны в разделе
 
-- [Change the StorSimple Snapshot Manager password](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
-- [Authenticate a device](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
+- [Изменение пароля диспетчера моментальных снимков StorSimple](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
+- [Проверка подлинности устройства](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**Q:** The certificate for remote access to the Windows PowerShell for StorSimple has been changed on the device. How do I update my remote access clients?
+**Вопрос.** Сертификат для удаленного доступа к Windows PowerShell для StorSimple изменен на устройстве. Как обновить клиенты удаленного доступа?
 
-**A:** You can download the new certificate from the StorSimple Manager service, and then provide it to be installed in the certificate store of your remote access clients. For instructions, go to:
+**Ответ.** Можно скачать новый сертификат из службы диспетчера StorSimple, а затем предоставить его для установки в хранилище сертификатов на клиентах удаленного доступа. Подробные инструкции описаны в разделе
 
-- [Import-Certificate cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
+- [Командлет Import-Certificate](https://technet.microsoft.com/library/hh848630.aspx)
 
-**Q:** Is my data protected if the StorSimple Manager service is compromised?
+**Вопрос.** Остаются ли мои данные защищенными, если служба диспетчера StorSimple скомпрометирована?
 
-**A:** Service configuration data is always encrypted with your public key when you view it in a web browser. Because the service doesn’t have access to the private key, the service will not be able to see any data. If the StorSimple Manager service is compromised, there is no impact, as there are no keys stored in the StorSimple Manager service.
+**Ответ.** Данные конфигурации службы всегда зашифрованы с помощью открытого ключа при просмотре в веб-браузере. Поскольку служба не имеет доступа к закрытому ключу, она не будет видеть никакие данные. Взлом службы диспетчера StorSimple не будет иметь отрицательных последствий, поскольку в службе диспетчера StorSimple ключи не хранятся.
 
-**Q:** If someone gains access to the data encryption certificate, will my data be compromised?
+**Вопрос.** Если кто-то получит доступ к сертификату шифрования данных, будут ли мои данные скомпрометированы?
 
-**A:** Microsoft Azure stores the customer’s data encryption key (.pfx file) in an encrypted format. Because the .pfx file is encrypted and the StorSimple service doesn’t have the service data encryption key to decrypt the .pfx file, simply getting access to the .pfx file will not expose any secrets.
+**Ответ.** Служба Microsoft Azure хранит ключ шифрования данных клиента (PFX-файл) в зашифрованном виде. Так как PFX-файл зашифрован, а в службе StorSimple нет ключа шифрования данных службы для расшифровки PFX-файла, при получении доступа к PFX-файлу вся информация останется конфиденциальной.
 
-**Q:** What happens if a governmental entity asks Microsoft for my data?
+**Вопрос.** Что произойдет, если государственная организация запросит у корпорации Майкрософт мои данные?
 
-**A:** Because all of the data is encrypted on the service and the private key is kept with the device, the governmental entity must ask the customer for the data. 
+**Ответ.** Так как все данные зашифрованы, а закрытый ключ хранится на устройстве, для получения данных государственная организация должна обратиться непосредственно к пользователю.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-[Deploy your StorSimple device](storsimple-deployment-walkthrough.md).
+[Развертывание устройства StorSimple](storsimple-deployment-walkthrough.md)
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0511_2016-->

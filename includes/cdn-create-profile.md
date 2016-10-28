@@ -1,25 +1,23 @@
-**To create a new CDN profile**
+**Создание нового профиля сети CDN**
 
-1. In the [Azure Portal](https://portal.azure.com), in the upper left, click **New**.  In the **New** blade, select **Media + CDN**, then **CDN**.
+1. На [портале Azure](https://portal.azure.com) слева вверху щелкните **Создать**. В колонке **Новый** выберите **Носитель + CDN**, а затем **CDN**.
 
-    The new CDN profile blade appears.
+    Появится колонка нового профиля сети CDN.
 
-    ![New CDN Profile](./media/cdn-create-profile/new-cdn-profile-include.png)
+    ![Новый профиль сети CDN](./media/cdn-create-profile/new-cdn-profile-include.png)
 
-2. Enter a name for your CDN profile.
+2. Введите имя профиля сети CDN.
 
-3. Select a **Location**.  This is the Azure location where your CDN profile information will be stored.  It has no impact on CDN endpoint locations.
+3. Выберите **расположение**. Это расположение Azure, где будут храниться данные профиля сети CDN. Оно не влияет на расположение конечных точек сети CDN.
 
-4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
+4. Выберите или создайте **группу ресурсов**. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md#resource-groups).
 
-5. Select a **Pricing tier**.  See the [CDN Overview](cdn-overview.md#azure-cdn-features) for a comparison of pricing tiers.
+5. Выберите **ценовую категорию**. Сравнение ценовых категорий см. в [обзоре CDN](cdn-overview.md#azure-cdn-features).
     
-    ![CDN pricing tier selection](./media/cdn-create-profile/cdn-choose-sku-include.png)
+    ![Выбор ценовой категории CDN](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
-6. Select the **Subscription** for this CDN profile.
+6. Выберите **подписку** для этого профиля сети CDN.
 
-7. Click the **Create** button to create the new profile. 
+7. Нажмите кнопку **Создать**, чтобы создать новый профиль.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

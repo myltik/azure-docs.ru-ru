@@ -1,67 +1,66 @@
 <properties 
-    pageTitle="Debug your Model in Azure Machine Learning | Microsoft Azure" 
-    description="Explains how to How to debug your Model in Azure Machine Learning." 
-    services="machine-learning"
-    documentationCenter="" 
-    authors="garyericson" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+	pageTitle="Отладка модели в Машинном обучении Azure | Microsoft Azure" 
+	description="В этой статье объясняется, как отладить машинное обучение модели в Azure." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/09/2016" 
-    ms.author="bradsev;garye" />
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/09/2016" 
+	ms.author="bradsev;garye" />
 
+# Отладка машинного обучения модели в Azure
 
-# <a name="debug-your-model-in-azure-machine-learning"></a>Debug your Model in Azure Machine Learning
+В этой статье объясняется, как отладить машинное обучение модели в Microsoft Azure. При этом внимание преимущественно уделяется потенциальным причинам, по которым при запуске модели могут возникнуть два сценария сбоя:
 
-This article explains of how to debug your models in Microsoft Azure Machine Learning. Specifically, it covers the potential reasons why either of the following two failure scenarios might be encountered when running a model:
-
-* the [Train Model][train-model] module throws an error 
-* the [Score Model][score-model] module produces incorrect results 
+* модуль [Модель обучения][train-model] выдает ошибку;
+* работа модуля [Модель подсчета][score-model] приводит к недопустимым результатам.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="train-model-module-throws-an-error"></a>Train Model Module throws an error
+## Модуль обучения модели выдает ошибку
 
-![image1](./media/machine-learning-debug-models/train_model-1.png)
+![рисунок 1](./media/machine-learning-debug-models/train_model-1.png)
 
-The [Train Model][train-model] Module expects the following 2 inputs:
+Вот какие два вида данных нужно ввести в модуль [Модель обучения][train-model]\:
 
-1. The type of Classification/Regression Model from the collection of models provided by Azure Machine Learning
-2. The training data with a specified Label column. The Label column specifies the variable to predict. The rest of the columns included are assumed to be Features.
+1. Тип модели классификации или регрессии из коллекции моделей, предоставленных службой машинного обучения Azure.
+2. Данные для обучения со столбцом метки. В столбце метки указывается переменная, которую нужно спрогнозировать. Остальные столбцы считаются признаками.
 
-This module throws an error in the following cases:
+Модуль выдает ошибку в таких случаях:
 
-1. The Label column is specified incorrectly because either more than one column is selected as the Label or an incorrect column index is selected. For example, the second case would apply if a column index of 30 was used with an input dataset which had only 25 columns.
+1. Столбец метки указан неверно, так как в качестве метки выбрано более одного столбца или выбран недопустимый индекс столбца. Пример второго случая: указан индекс столбца 30, тогда как входной набор данных содержит только 25 столбцов.
 
-2. The dataset does not contain any Feature columns. For example, if the input dataset has only 1 column, which is marked as the Label column, there would be no features with which to build the model. In this case, the [Train Model][train-model] module will throw an error.
+2. Набор данных не содержит столбцов с признаками. Например, если входной набор данных содержит только один столбец, выбранный в качестве метки, для построения модели не будет ни одного признака. В таком случае модуль [Модель обучения][train-model] выдаст ошибку.
 
-3. The input dataset (Features or Label) contain Infinity as a value.
+3. Во входном наборе данных (признаки или метка) в качестве значения указана бесконечность.
 
 
-## <a name="score-model-module-does-not-produce-correct-results"></a>Score Model Module does not produce correct results
+## Работа модуля «Модель подсчета» приводит к недопустимым результатам
 
-![image2](./media/machine-learning-debug-models/train_test-2.png)
+![рисунок 2](./media/machine-learning-debug-models/train_test-2.png)
 
-In a typical training/testing graph for supervised learning, the [Split Data][split] module divides the original dataset into two parts: the part that is used to train the model and the part that is reserved to score how well the trained model performs on data it did not train on. The trained model is then used to score the test data after which the results are evaluated to determine the accuracy of the model.
+На типичном обучающем или тестовом графе для контролируемого обучения модуль [Разделение данных][split] разбивает исходный набор данных на две части: по одной модель обучается, а по второй модель оценивается на предмет того, насколько хорошо она работает с данными, отличными от обучающих. Затем обученная модель оценивает тестовые данные, после чего оцениваются результаты и определяется точность ее работы.
 
-The [Score Model][score-model] module requires two inputs:
+Для модуля [Модель подсчета][score-model] требуется два вида входных данных:
 
-1. A trained model output from [Train Model][train-model] module
-2. A scoring dataset not that the model was not trained on
+1. выходные данные обученной модели из модуля [Модель обучения][train-model];
+2. набор оцениваемых данных, отличный от того, на котором обучалась модель.
 
-It may happen that even though the experiment succeeds, the [Score Model][score-model] module produces incorrect results. Several scenarios may cause this to happen:
+Даже если эксперимент завершится успехом, модуль [Модель подсчета][score-model] может выдать неправильные результаты. Вот в каких случаях это может произойти:
 
-1. If the specified Label is categorical and a regression model is trained on the data, an incorrect output would be produced by the [Score Model][score-model] module. This is because regression requires a continuous response variable. In this case it should be more suitable to use a classification model. 
-2. Similarly, if a classification model is trained on a dataset having floating point numbers in the Label column, it may produce undesirable results. This is because classification requires a discrete response variable that only allows values that range over a finite and usually somewhat small set of classes.
-3. If the scoring dataset does not contain all the features used to train the model, the [Score Model][score-model] will produce an error.
-4. The [Score Model][score-model] would not produce any output corresponding to a row in the scoring dataset that contains a missing value or an infinite value for any of its features.
-5. The [Score Model][score-model] may produce identical outputs for all rows in the scoring dataset. This could occur, for example, in the when attempting classification using Decision Forests if the minimum number of samples per leaf node is chosen to be more than the number of training examples available.
+1. Если указанная метка является категориальной и модель регрессии обучается с помощью данных, модуль [Модель подсчета][score-model] может выдать неправильные результаты. Это обусловлено тем, что для регрессии требуется непрерывная переменная ответа. В этом случае лучше использовать модель классификации.
+2. Аналогичным образом, если модель классификации обучается с помощью данных, которые содержат числа с плавающей запятой в столбце метки, модель может выдать недопустимые результаты. Это обусловлено тем, что для классификации требуется дискретная переменная отклика, с которой можно использовать только значения, соответствующие конечному и обычно несколько малому набору классов.
+3. Если набор оцениваемых данных не содержит все признаки, используемые для обучения модели, работа модуля [Модель подсчета][score-model] завершится ошибкой.
+4. Модуль [Модель подсчета][score-model] не выдает выходные данные, соответствующие строке в наборе оцениваемых данных, в котором для какого-либо признака отсутствует значение или указано бесконечное значение.
+5. Модуль [Модель подсчета][score-model] может выдать одинаковые выходные данные для всех строк набора оцениваемых данных. Это может случиться, например, при классификации с помощью лесов принятия решений, когда минимальное количество образцов на листовой узел превышает количество доступных обучающих примеров.
 
 
 <!-- Module References -->
@@ -70,8 +69,4 @@ It may happen that even though the experiment succeeds, the [Score Model][score-
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

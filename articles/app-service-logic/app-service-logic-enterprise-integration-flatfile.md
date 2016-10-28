@@ -1,91 +1,77 @@
 <properties
-    pageTitle="Learn to encode or decode flat files using the Enterprise Integration Pack and Logic apps| Microsoft Azure App Service | Microsoft Azure"
-    description="Use the features of Enterprise Integration Pack and Logic apps to encode or decode flat files"
-    services="app-service\logic"
-    documentationCenter=".net,nodejs,java"
-    authors="msftman"
-    manager="erikre"
-    editor="cgronlun"/>
+	pageTitle="Как закодировать или декодировать неструктурированные файлы с помощью пакета интеграции Enterprise и приложений логики | Служба приложений Microsoft Azure | Microsoft Azure"
+	description="Использование функций пакета интеграции Enterprise и приложений логики для кодирования или декодирования неструктурированных файлов."
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="msftman"
+	manager="erikre"
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/08/2016" 
-    ms.author="deonhe"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/08/2016" 
+	ms.author="deonhe"/>
 
+# Интеграция Enterprise с неструктурированными файлами
 
-# <a name="enterprise-integration-with-flat-files"></a>Enterprise integration with flat files
+## Обзор
 
-## <a name="overview"></a>Overview
+Кодирование содержимого XML может понадобиться перед его отправкой деловому партнеру в рамках сценария "бизнес — бизнес". В приложении логики, созданном с помощью функции Logic Apps службы приложений Azure, для этого можно использовать соединитель для кодирования неструктурированных файлов. Создаваемое приложение логики может получать содержимое XML из различных источников, включая триггер HTTP-запроса, другое приложение или даже один из многочисленных [соединителей](../connectors/apis-list.md). Дополнительные сведения о приложениях логики см. в [документации по приложениям логики](./app-service-logic-what-are-logic-apps.md "Узнайте больше о приложениях логики.").
 
-You may want to encode XML content before you send it to a business partner in a business-to-business (B2B) scenario. In a logic app made by the Logic Apps feature of the Azure App Service, you can use the flat file encoding connector to do this. The logic app that you create can get its XML content from a variety of sources, including from an HTTP request trigger, from another application, or even from one of the many [connectors](../connectors/apis-list.md). For more information about logic apps, see the [logic apps documentation](./app-service-logic-what-are-logic-apps.md "Learn more about Logic apps").  
+## Как создать соединитель для кодирования неструктурированных файлов
 
-## <a name="how-to-create-the-flat-file-encoding-connector"></a>How to create the flat file encoding connector
+Чтобы добавить соединитель для кодирования неструктурированных файлов в приложение логики, сделайте следующее:
 
-Follow these steps to add a flat file encoding connector to your logic app.
+1. Создайте приложение логики и [свяжите его с учетной записью интеграции](./app-service-logic-enterprise-integration-accounts.md "Узнайте, как связать учетную запись интеграции с приложением логики."). Эта учетная запись содержит схему, используемую для кодирования XML-данных.
+2. Добавьте триггер **Request - When an HTTP request is received** (Запрос: при получении HTTP-запроса) в свое приложение логики. ![Снимок экрана для выбора триггера](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)
+3. Добавьте действие декодирования неструктурированных файлов следующим образом:
 
-1. Create a logic app and [link it to your integration account](./app-service-logic-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app"). This account contains the schema you will use to encode the XML data.  
-2. Add a **Request - When an HTTP request is received** trigger to your logic app.  
-![Screenshot of trigger to select](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)    
-3. Add the flat file encoding action, as follows:
+    а. Щелкните знак **плюс**.
 
-    a. Select the **plus** sign.
+	b. Щелкните ссылку **Добавить действие** (появляется после щелчка знака "плюс").
 
-    b. Select the **Add an action** link (appears after you have selected the plus sign).
+	c. Введите слово *Flat* в поле поиска, чтобы отфильтровать все действия и оставить только те, которые вы хотите использовать.
 
-    c. In the search box, enter *Flat* to filter all the actions to the one that you want to use.
+	г) В списке выберите параметр **Кодирование неструктурированного файла**. ![Снимок экрана с параметром "Кодирование неструктурированного файла"](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)
+4. В диалоговом окне **Кодирование неструктурированного файла** выберите текстовое поле **Содержимое**. ![Снимок экрана с текстовым полем "Содержимое"](./media/app-service-logic-enterprise-integration-flatfile/flatfile-3.png)
+5. Выберите тег body в качестве содержимого, которое следует кодировать. Тег body заполнит поле содержимого. ![Снимок экрана с тегом body](./media/app-service-logic-enterprise-integration-flatfile/flatfile-4.png)
+6. Выберите поле списка **Имя схемы** и выберите схему, которую вы хотите использовать для кодирования входного содержимого. ![Снимок экрана с полем списка "Имя схемы"](./media/app-service-logic-enterprise-integration-flatfile/flatfile-5.png)
+7. Сохраните результаты своих действий. ![Снимок экрана со значком "Сохранить"](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)
 
-    d. Select the **Flat File Encoding** option from the list.   
-![Screenshot of Flat File Encoding option](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)   
-4. On the **Flat File Encoding** dialog box, select the **Content** text box.  
-![Screenshot of Content text box](./media/app-service-logic-enterprise-integration-flatfile/flatfile-3.png)  
-5. Select the body tag as the content that you want to encode. The body tag will populate the content field.     
-![Screenshot of body tag](./media/app-service-logic-enterprise-integration-flatfile/flatfile-4.png)  
-6. Select the **Schema Name** list box, and choose the schema you want to use to encode the input content.    
-![Screenshot of Schema Name list box](./media/app-service-logic-enterprise-integration-flatfile/flatfile-5.png)  
-7. Save your work.   
-![Screenshot of Save icon](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)  
+На этом настройка соединителя для кодирования неструктурированных файлов завершена. В случае реального приложения может потребоваться сохранить закодированные данные в бизнес-приложении, например Salesforce. Или же можно отправить закодированные данные торговому партнеру. Можно легко добавить действие для отправки выходных данных действия кодирования в Salesforce или торговому партнеру, используя один из других доступных соединителей.
 
-At this point, you are finished setting up your flat file encoding connector. In a real world application, you may want to store the encoded data in a line-of-business application, such as Salesforce. Or you can send that encoded data to a trading partner. You can easily add an action to send the output of the encoding action to Salesforce, or to your trading partner, by using any one of the other connectors provided.
+Теперь можно проверить свой соединитель, создав запрос к конечной точке HTTP и включив содержимое XML в текст запроса.
 
-You can now test your connector by making a request to the HTTP endpoint, and including the XML content in the body of the request.  
+## Как создать соединитель для декодирования неструктурированных файлов
 
-## <a name="how-to-create-the-flat-file-decoding-connector"></a>How to create the flat file decoding connector
+>[AZURE.NOTE] Для выполнения этих действий необходимо, чтобы файл схемы уже был передан в вашу учетную запись интеграции.
 
->[AZURE.NOTE] To complete these steps, you need to have a schema file already uploaded into you integration account.
+1. Добавьте триггер **Request - When an HTTP request is received** (Запрос: при получении HTTP-запроса) в свое приложение логики. ![Снимок экрана для выбора триггера](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)
+2. Чтобы добавить действие декодирования неструктурированного файла, сделайте следующее:
 
-1. Add a **Request - When an HTTP request is received** trigger to your logic app.  
-![Screenshot of trigger to select](./media/app-service-logic-enterprise-integration-flatfile/flatfile-1.png)    
-2. Add the flat file decoding action, as follows:
+    а. Щелкните знак **плюс**.
 
-    a. Select the **plus** sign.
+	b. Щелкните ссылку **Добавить действие** (появляется после щелчка знака "плюс").
 
-    b. Select the **Add an action** link (appears after you have selected the plus sign).
+	c. Введите слово *Flat* в поле поиска, чтобы отфильтровать все действия и оставить только те, которые вы хотите использовать.
 
-    c. In the search box, enter *Flat* to filter all the actions to the one that you want to use.
+	г) В списке выберите параметр **Декодирование неструктурированного файла**. ![Снимок экрана с параметром "Декодирование неструктурированного файла".](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)
+- Выберите элемент управления **Содержимое**. Появится список содержимого из предыдущих шагов, которое можно использовать для декодирования. Обратите внимание, что для декодирования можно использовать тег *body* из входящих HTTP-запросов. Кроме того, можно ввести содержимое для декодирования непосредственно в элементе управления **Содержимое**.
+- Выберите тег *body*. Обратите внимание, что теперь тег body отображается в элементе управления **Содержимое**.
+- Выберите имя схемы, которая будет использоваться для декодирования содержимого. На следующем снимке экрана видно, что имя выбранной схемы — *OrderFile*. Эта схема была ранее загружена в учетную запись интеграции.
 
-    d. Select the **Flat File Decoding** option from the list.   
-![Screenshot of Flat File Decoding option](./media/app-service-logic-enterprise-integration-flatfile/flatfile-2.png)   
-- Select the **Content** control. This produces a list of the content from earlier steps that you can use as the content to decode. Notice that the *Body* from the incoming HTTP request is available to be used as the content to decode. You can also enter the content to decode directly into the **Content** control.     
-- Select the *Body* tag. Notice the body tag is now in the **Content** control.
-- Select the name of the schema that you want to use to decode the content. The following screenshot shows that *OrderFile* is the selected schema name. This schema name had been uploaded into the integration account previously.
+ ![Снимок экрана с диалоговым окном "Декодирование неструктурированного файла"](./media/app-service-logic-enterprise-integration-flatfile/flatfile-decode-1.png)
+- Сохраните результаты своих действий. ![Снимок экрана со значком "Сохранить"](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)
 
- ![Screenshot of Flat File Decoding dialog box](./media/app-service-logic-enterprise-integration-flatfile/flatfile-decode-1.png)    
-- Save your work.  
-![Screenshot of Save icon](./media/app-service-logic-enterprise-integration-flatfile/flatfile-6.png)    
+На этом настройка соединителя для декодирования неструктурированных файлов завершена. В случае реального приложения может потребоваться сохранить декодированные данные в бизнес-приложении, например Salesforce. Можно легко добавить действие для отправки выходных данных действия декодирования в Salesforce.
 
-At this point, you are finished setting up your flat file decoding connector. In a real world application, you may want to store the decoded data in a line-of-business application such as Salesforce. You can easily add an action to send the output of the decoding action to Salesforce.
+Теперь можно проверить свой соединитель, создав запрос к конечной точке HTTP и включив в текст запроса содержимое XML, которое нужно декодировать.
 
-You can now test your connector by making a request to the HTTP endpoint and including the XML content you want to decode in the body of the request.  
+## Дальнейшие действия
+- [Узнайте больше о пакете интеграции Enterprise](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.").
 
-## <a name="next-steps"></a>Next steps
-- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack").  
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

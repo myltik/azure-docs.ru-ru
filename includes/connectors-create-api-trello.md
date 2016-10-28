@@ -1,22 +1,12 @@
-### <a name="prerequisites"></a>Prerequisites
-- A [Trello](http://trello.com) account 
+### Предварительные требования
+- Учетная запись [Trello](http://trello.com) 
 
-Before you can use your Trello account in a Logic app, you must authorize the Logic app to connect to your Trello account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+Чтобы использовать учетную запись Trello в приложении логики, вы должны авторизовать приложение логики для подключения к вашей учетной записи Trello. К счастью, это можно легко сделать из приложения логики на портале Azure.
 
-Here are the steps to authorize your Logic app to connect to your Trello account:
+Ниже приведены инструкции по авторизации приложения логики для подключения к учетной записи Trello.
 
-1. To create a connection to Trello, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Trello* in the search box. Select the trigger or action you'll like to use:  
-  ![](./media/connectors-create-api-trello/trello-1.png)
-2. If you haven't created any connections to Trello before, you'll get prompted to provide your Trello credentials. These credentials will be used to authorize your Logic app to connect to, and access your Trello account's data:  
-  ![](./media/connectors-create-api-trello/trello-2.png) 
-3. Allow us to connect to Trello:  
-  ![](./media/connectors-create-api-trello/trello-3.png)   
-4. Provide your Trello user name and password to authorize your Logic app:  
-  ![](./media/connectors-create-api-trello/trello-4.png)  
-5. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-  ![](./media/connectors-create-api-trello/trello-5.png)
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+1. Чтобы создать подключение к Trello, в конструкторе приложений логики в раскрывающемся списке выберите параметр **Показать управляемые API Microsoft**, а затем введите в поле поиска *Trello*. Выберите триггер или действие: ![](./media/connectors-create-api-trello/trello-1.png)
+2. Если вы ранее не создавали подключения к Trello, вам будет предложено ввести учетные данные Trello. Эти учетные данные будут использоваться для авторизации приложения логики, чтобы оно могло подключиться и получить доступ к данным вашей учетной записи Trello: ![](./media/connectors-create-api-trello/trello-2.png) 
+3. Разрешите подключение к Trello: ![](./media/connectors-create-api-trello/trello-3.png)   
+4. Укажите имя пользователя и пароль своей учетной записи Trello, чтобы авторизовать приложение логики: ![](./media/connectors-create-api-trello/trello-4.png)  
+5. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики. ![](./media/connectors-create-api-trello/trello-5.png)

@@ -1,42 +1,42 @@
 
-### <a name="to-sign-up-for-a-blitline-account"></a>To sign up for a Blitline account
+### Чтобы зарегистрироваться для получения учетной записи Blitline
 
-1. Log in to the [Azure Management Portal](https://manage.windowsazure.com/).
+1. Выполните вход на [портал управления Azure](https://manage.windowsazure.com/).
 
-2. In the lower pane of the management portal, click **New**.
+2. В нижней части портала управления щелкните **Создать**.
 
-    ![command-bar-new][command-bar-new]
+	![command-bar-new][command-bar-new]
 
-3. Click **Store**.
+3. Нажмите кнопку **Магазин**.
 
-    ![blitline-store][blitline-store]
+	![blitline-store][blitline-store]
 
-4. In the **Choose an Add-on** dialog, select **Blitline** and click the right arrow.
+4. В диалоговом окне **Выберите надстройку** выберите **Blitline** и щелкните стрелку вправо.
 
-5. In the **Personalize Add-on** dialog select the **Blitline** plan you want to sign up for.
+5. В диалоговом окне **Настроить надстройку** выберите план **Blitline**, в котором планируется зарегистрироваться.
 
-6. Enter a name to identify your **Blitline** service in your Azure settings, or use the default value of **Blitline**. Names must be between 1 and 100 characters in length and contain only alphanumeric characters, dashes, dots, and underscores. The name must be unique in your list of subscribed Azure Store Items.
+6. Введите имя для идентификации своей службы **Blitline** в параметрах настройки Azure или используйте значение по умолчанию **Blitline** Имена должны иметь длину в диапазоне от 1 до 100 знаков и содержать только алфавитно-цифровые символы, дефисы, точки и подчеркивания. Имя должно быть уникальным в списке элементов Магазина Azure, на которые вы подписались.
 
-    ![store-screen-1][store-screen-1]
+	![store-screen-1][store-screen-1]
 
-7. Choose a value for the region; for example, West US. 
+7. Выберите значение для региона, например "Запад США".
 
-8. Click the right arrow.
+8. Щелкните стрелку вправо.
 
-9. On the **Review Purchase** tab, review the plan and pricing information, and review the legal terms. If you agree to the terms, click the check mark. After you click the check mark, your Blitline account will begin the provisioning process. 
+9. На вкладке **Просмотреть приобретение** просмотрите сведения о плане и ценах, а также ознакомьтесь с условиями. Если вы согласны с данными условиями, щелкните флажок. После установки флажка для учетной записи Blitline начнется процесс подготовки.
 
 
-To use Blitline you need to have your Application ID.
+Для использования Blitline необходимо иметь код приложения.
 
-### <a name="to-find-your-blitline-application-id"></a>To find your Blitline Application ID ###
+### Чтобы найти код приложения Blitline ###
 
-1. Click **Connection Info**.
+1. Нажмите кнопку **Сведения о подключении**
 
-    ![blitline-connection-info-button][blitline-connection-info-button]
+	![blitline-connection-info-button][blitline-connection-info-button]
 
-2. In the *Connection info* dialog, you can see your Application ID
+2. В диалоговом окне *Сведения о подключении* можно просмотреть код приложения
 
-    ![blitline-connection-info][blitline-connection-info]
+	![blitline-connection-info][blitline-connection-info]
 
 <!--images-->
 
@@ -46,8 +46,4 @@ To use Blitline you need to have your Application ID.
 [blitline-connection-info-button]: ./media/blitline-signup/blitline_connection_info_button.png
 [blitline-connection-info]: ./media/blitline-signup/blitline_connection_info_screen.jpeg
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

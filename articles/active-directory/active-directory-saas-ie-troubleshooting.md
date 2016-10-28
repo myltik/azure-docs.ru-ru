@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Troubleshooting the Access Panel Extension for Internet Explorer | Microsoft Azure"
-    description="How to use group policy to deploy the Internet Explorer add-on for the My Apps portal."
+    pageTitle="Устранение неполадок, связанных с расширением панели доступа для Internet Explorer | Microsoft Azure"
+    description="Как применить групповую политику для развертывания надстройки Internet Explorer для работы с порталом «Мои приложения»."
     services="active-directory"
     documentationCenter=""
     authors="MarkusVi"
@@ -16,102 +16,97 @@
     ms.date="08/16/2016"
     ms.author="markvi"/>
 
+#Устранение неполадок, связанных с расширением панели доступа для Internet Explorer
 
-#<a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Troubleshooting the Access Panel Extension for Internet Explorer
+Эта статья поможет устранить следующие проблемы.
 
-This article will help you troubleshoot the following problems:
+- Не удается получить доступ к приложениям через портал «Мои приложения» при использовании Internet Explorer.
+- Отображается сообщение «Установка программного обеспечения», хотя программное обеспечение уже установлено.
 
-- You're unable to access your apps through the My Apps portal while using Internet Explorer.
-- You see the "Install Software" message even though you've already installed the software.
+Если вы являетесь администратором, также прочтите статью [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md).
 
-If you are an admin, see also: [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
+##Запуск средства диагностики
 
-##<a name="run-the-diagnostic-tool"></a>Run the Diagnostic Tool
+Для диагностики проблем с установкой расширения панели доступа загрузите и запустите средство диагностики панели доступа.
 
-You can diagnose installation problems with the Access Panel Extension by downloading and running the Access Panel diagnostic tool:
+1. [Щелкните здесь, чтобы загрузить средство диагностики.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 
-1. [Click here to download the diagnostic tool.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
+2. Откройте файл и нажмите кнопку **Извлечь все**.
 
-2. Open the file, and press **Extract all** button.
+	![Нажмите кнопку «Извлечь все».](./media/active-directory-saas-ie-troubleshooting/extract1.png)
 
-    ![Press Extract All](./media/active-directory-saas-ie-troubleshooting/extract1.png)
+3. Нажмите кнопку **Извлечь**, чтобы продолжить.
 
-3. Then press the **Extract** button to continue.
+	![Нажмите кнопку «Извлечь».](./media/active-directory-saas-ie-troubleshooting/extract2.png)
 
-    ![Press Extract](./media/active-directory-saas-ie-troubleshooting/extract2.png)
+4. Чтобы запустить средство, щелкните правой кнопкой мыши файл с именем **AccessPanelExtensionDiagnosticTool**, а затем выберите пункты **Открыть с помощью > Сервер сценариев на базе Microsoft Windows**.
 
-4. To run the tool, right-click the file named **AccessPanelExtensionDiagnosticTool**, then select **Open with > Microsoft Windows Based Script Host**.
+	![Открыть с помощью > Сервер сценариев на базе Microsoft Windows](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
 
-    ![Open with > Microsoft Windows Based Script Host](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
+5. Откроется следующее окно диагностики, описывающее возможные проблемы с вашей установкой.
 
-5. You will then see the following diagnostic window, which describes what might be wrong with your installation.
+	![Образец окна диагностики](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
 
-    ![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
+6. Нажмите кнопку **ДА**, чтобы программа могла решить обнаруженные проблемы.
 
-6. Click "**YES**" to let the program fix the issues that have been found.
+7. Чтобы сохранить эти изменения, закройте все окна Internet Explorer и откройте браузер снова.<br />Если приложения по-прежнему недоступны, попробуйте выполнить описанные ниже действия.
 
-7. To save these changes, close every Internet Explorer window, and then open Internet Explorer again.<br />If you still can't access your apps, try the steps below.
+##Убедитесь, что расширение панели доступа включено.
 
-##<a name="check-that-the-access-panel-extension-is-enabled"></a>Check that the Access Panel Extension is enabled
+Чтобы убедиться, что расширение панели доступа в Internet Explorer включено, выполните описанные ниже действия.
 
-To verify that the Access Panel Extension is enabled in Internet Explorer:
+1. В правом верхнем углу Internet Explorer щелкните **значок шестеренки**. Выберите **параметры обозревателя**.<br />(В более ранних версиях Internet Explorer они находятся в разделе **Сервис > Параметры Интернета**.)
 
-1. In Internet Explorer, click on the **Gear icon** on the top right corner of the window. Then select **Internet options**.<br />(In older versions of Internet Explorer you can find this under **Tools > Internet options**.
+	![Выберите пункты Сервис > Параметры Интернета.](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
 
-    ![Go to Tools > Internet Options](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
+2. Откройте вкладку **Программы** и нажмите кнопку **Управление надстройками**.
 
-2. Click on the **Programs** tab, then click on the **Manage add-ons** button.
+	![Щелкните «Управление надстройками».](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
 
-    ![Click Manage Add-Ons](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
+3. В этом диалоговом окне выберите **Расширение панели доступа** и нажмите кнопку **Включить**.
 
-3. In this dialog, select **Access Panel Extension** and then click the **Enable** button.
+	![Щелкните «Включить».](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
 
-    ![Click Enable](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
+4. Чтобы сохранить эти изменения, закройте все окна Internet Explorer и откройте браузер снова.
 
-4. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
+##Включение расширений для просмотра InPrivate
 
-##<a name="enable-extensions-for-inprivate-browsing"></a>Enable Extensions for InPrivate Browsing
+Если используется режим просмотра InPrivate, выполните следующие действия.
 
-If you are using the InPrivate Browsing mode:
+1. В правом верхнем углу Internet Explorer щелкните **значок шестеренки**. Выберите **параметры обозревателя**.<br />(В более ранних версиях Internet Explorer они находятся в разделе **Сервис > Параметры Интернета**.)
 
-1. In Internet Explorer, click on the **Gear icon** on the top right corner of the window. Then select **Internet options**.<br />(In older versions of Internet Explorer you can find this under **Tools > Internet options**.
+	![Образец окна диагностики](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
 
-    ![A sample of the diagnostic window](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
+2. Откройте вкладку **Конфиденциальность**, **снимите** флажок **Отключить панели инструментов и расширения при запуске просмотра InPrivate**</p>.
 
-2. Go to the **Privacy** tab, then **uncheck** the checkbox labeled **Disable toolbars and extensions when InPrivate Browsing starts**</p>
+	![Снимите флажок «Отключить панели инструментов и расширения при запуске просмотра InPrivate».](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
 
-    ![Uncheck Disable toolbars and extensions when InPrivate Browsing starts](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
+3. Чтобы сохранить эти изменения, закройте все окна Internet Explorer и откройте браузер снова.
 
-3. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
+##Удаление расширения панели доступа
 
-##<a name="uninstall-the-access-panel-extension"></a>Uninstall the Access Panel Extension
+Чтобы удалить расширение панели доступа с компьютера, выполните следующие действия.
 
-To uninstall the Access Panel extension from your computer:
+1. Нажмите на клавиатуре **клавишу Windows**, чтобы открыть меню «Пуск». Открыв меню, введите параметры поиска. Введите «Панель управления», а затем откройте **Панель управления**, когда она появится в результатах поиска.
 
-1. On your keyboard, press the **Windows key** to open the Start menu. When the menu is open, you can type anything to do a search. Type "Control Panel" and then open the **Control Panel** when it appears in the search results.
+	![Поиск панели управления](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
 
-    ![Search for Control Panel](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
+2. В правом верхнем углу панели управления выберите для параметра **Просмотр** значение **Крупные значки**. Затем найдите и нажмите кнопку **Программы и компоненты**.
 
-2. In the top right corner of the Control Panel, change the **View by** option to **Large icons**. Then find and click on the **Programs and Features** button.
+	![Измените представление для отображения крупных значков.](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
 
-    ![Chang the view to show Large Icons](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
+3. Выберите в списке **Расширение панели доступа** и нажмите кнопку **Удалить**.
 
-3. From the list, select **Access Panel Extension**, and the click on the **Uninstall** button.
+	![Нажмите кнопку удаления.](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
 
-    ![Click Uninstall](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
+4. Затем попробуйте установить расширение еще раз, чтобы проверить, удалось ли решить проблему.
 
-4. You can then try to install the extension again to see if the problem has been resolved.
+Если при удалении расширения возникнут проблемы, удалите его с помощью инструмента [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673).
 
-If you encounter issues uninstalling the extension, you can also remove it using the [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) tool.
+## Связанные статьи
 
-## <a name="related-articles"></a>Related Articles
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Развертывание расширения панели доступа для Internet Explorer с помощью групповой политики](active-directory-saas-ie-group-policy.md)
 
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-- [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
-- [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

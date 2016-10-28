@@ -1,67 +1,66 @@
 <properties
-    pageTitle="How to configure Twitter authentication for your App Services application"
-    description="Learn how to configure Twitter authentication for your App Services application."
-    services="app-service"
-    documentationCenter=""
-    authors="mattchenderson"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Настройка проверки подлинности Twitter для приложения служб приложений"
+	description="Узнайте, как настроить проверку подлинности Twitter для приложения служб приложений."
+	services="app-service"
+	documentationCenter=""
+	authors="mattchenderson"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="mahender"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="mahender"/>
 
-
-# <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>How to configure your App Service application to use Twitter login
+# Как настроить приложение службы приложений для использования имени для входа Twitter
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This topic shows you how to configure Azure App Service to use Twitter as an authentication provider.
+В этом разделе показано, как настроить службу приложений Azure для использования Twitter в качестве поставщика проверки подлинности.
 
-To complete the procedure in this topic, you must have a Twitter account that has a verified email address and phone number. To create a new Twitter account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
+Чтобы выполнить инструкции из этой статьи, вам потребуется номер телефона и учетная запись Twitter с проверенным электронным адресом. Чтобы создать учетную запись Twitter, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
-## <a name="<a-name="register">-</a>register-your-application-with-twitter"></a><a name="register"> </a>Register your application with Twitter
-
-
-1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Twitter app.
-
-2. Navigate to the [Twitter Developers] website, sign in with your Twitter account credentials, and click **Create New App**.
-
-3. Type in the **Name** and a **Description** for your new app. Paste in your application's **URL** for the **Website** value. Then, for the **Callback URL**, paste the **Callback URL** you copied earlier. This is your Mobile App gateway appended with the path, _/.auth/login/twitter/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Make sure that you are using the HTTPS scheme.
-
-3.  At the bottom the page, read and accept the terms. Then click **Create your Twitter application**. This registers the app displays the application details.
-
-4. Click the **Settings** tab, check **Allow this application to be used to sign in with Twitter**, then click **Update Settings**.
-
-5. Select the **Keys and Access Tokens** tab. Make a note of the values of **Consumer Key (API Key)** and **Consumer secret (API Secret)**.
-
-    > [AZURE.NOTE] The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
+## <a name="register"> </a>Регистрация приложения в Twitter
 
 
-## <a name="<a-name="secrets">-</a>add-twitter-information-to-your-application"></a><a name="secrets"> </a>Add Twitter information to your application
+1. Перейдите на [портал Azure] и перейдите к своему приложению. Скопируйте свой **URL-адрес**. Он будет использован для настройки приложения Twitter.
 
-13. Back in the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
+2. Перейдите на веб-сайт [Twitter Developers] \(Разработчики Twitter), войдите с помощью учетных данных учетной записи Twitter и щелкните **Create New App** (Создать приложение).
 
-14. If the Authentication / Authorization feature is not enabled, turn the switch to **On**.
+3. Введите в **имя** и **описание** для нового приложения. Вставьте **URL-адрес** приложения в поле **Веб-сайт**. Затем в поле **URL-адрес обратного вызова** вставьте **URL-адрес обратного вызова**, скопированный ранее. Это шлюз мобильного приложения, дополненный путем _/.auth/login/twitter/callback_. Пример: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Убедитесь, что используете схему HTTPS.
 
-15. Click **Twitter**. Paste in the App ID and App Secret values which you obtained previously. Then click **OK**.
+3.  В нижней части страницы прочтите и примите условия. Затем щелкните **Создать приложение Twitter**. После этого приложение будет зарегистрировано и появятся сведения о приложении.
+
+4. Откройте вкладку **Параметры**, установите флажок **Разрешить использовать это приложение для входа в Twitter**, затем нажмите **Обновить параметры**.
+
+5. Откройте вкладку **Ключи и токены доступа**. Запишите значения полей **Пользовательский ключ (ключ API)** и **Пользовательский секрет (секрет API)**.
+
+    > [AZURE.NOTE] Секрет клиента — это важные учетные данные безопасности. Не сообщайте никому этого секрета и не распространяйте его вместе с вашим приложением.
+
+
+## <a name="secrets"> </a>Добавление данных Twitter в приложение
+
+13. Снова вернитесь на [портал Azure] и перейдите к своему приложению. Щелкните **Параметры**, а затем **Аутентификация или авторизация**.
+
+14. Если функция аутентификации или авторизации не включена, установите переключатель в положение **Вкл**.
+
+15. Щелкните **Twitter**. Вставьте значения идентификатора и секрета приложения, полученные ранее. Нажмите кнопку **ОК**.
 
     ![][1]
 
-    By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
+	По умолчанию служба приложений обеспечивает проверку подлинности, но не ограничивает авторизованный доступ к содержимому сайта и API. Авторизация пользователей должна быть включена в код приложения.
 
-17. (Optional) To restrict access to your site to only users authenticated by Twitter, set **Action to take when request is not authenticated** to **Twitter**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Twitter for authentication.
+17. (Необязательно) Чтобы предоставить доступ к узлу только для пользователей, прошедших проверку подлинности в Twitter, установите для параметра **Действие, выполняемое, если запрос не прошел проверку подлинности** значение **Twitter**. В этом случае все запросы, не прошедшие проверку подлинности, направляются для проверки подлинности с помощью Twitter.
 
-17. Click **Save**.
+17. Щелкните **Сохранить**.
 
-You are now ready to use Twitter for authentication in your app.
+Теперь вы можете использовать Twitter для проверки подлинности в приложении.
 
-## <a name="<a-name="related-content">-</a>related-content"></a><a name="related-content"> </a>Related Content
+## <a name="related-content"> </a>Связанная информация
 
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
@@ -75,11 +74,7 @@ You are now ready to use Twitter for authentication in your app.
 <!-- URLs. -->
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Azure portal]: https://portal.azure.com/
+[портал Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

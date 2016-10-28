@@ -1,80 +1,62 @@
 <properties
-    pageTitle="Azure Active Directory Identity Protection notifications| Microsoft Azure"
-    description="Learn how notifications support your investigation activities."
-    services="active-directory"
-    keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
-    documentationCenter=""
-    authors="MarkusVi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Уведомления защиты идентификации Azure Active Directory| Microsoft Azure"
+	description="Узнайте, как уведомления помогают в изучении проблем."
+	services="active-directory"
+	keywords="защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/20/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/02/2016"
+	ms.author="markvi"/>
+
+#Уведомления защиты идентификации Azure Active Directory 
 
 
-#<a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection notifications 
+Служба защиты идентификации Azure AD отправляет по электронной почте два типа автоматических уведомлений, что упрощает управление рисками для пользователей и событиями риска:
+
+- оповещение электронной почты о том, что пользователь скомпрометирован;
+
+- сообщение электронной почты еженедельного дайджеста.
+
+## Оповещение электронной почты о том, что пользователь скомпрометирован
+
+Электронное оповещение о том, что пользователь скомпрометирован, создается, если служба защиты идентификации Azure AD определяет, что учетная запись скомпрометирована. В таком электронном сообщении содержится ссылка на отчет о пользователях, помеченных для события риска, на панели мониторинга защиты идентификации. Мы рекомендуем безотлагательно проверить уведомления о скомпрометированных пользователях.
 
 
-Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk events:
+## Сообщение электронной почты еженедельного дайджеста
 
-- User compromised alert email
+В электронном сообщении еженедельного дайджеста содержится сводка новых событий риска.<br> Сюда входят:
 
-- Weekly digest email
-
-## <a name="user-compromised-alert-email"></a>User compromised alert email
-
-A user compromised email alert is generated when Azure AD Identity Protection identifies an account as compromised. The email includes a link to the Users flagged for risk report in the Identity Protection dashboard. We recommend that you immediately investigate notifications of compromised.
-
-
-## <a name="weekly-digest-email"></a>Weekly digest email
-
-The weekly digest email contains a summary of new risk events.<br>
-It includes:
-
-- Users at risk
-- Suspicious activities
-- Detected vulnerabilities
-- Links to the related reports in Identity Protection
+- пользователи под угрозой;
+- подозрительные действия;
+- обнаруженные уязвимости;
+- ссылки на связанные отчеты в службе защиты идентификации.
 
 
-<br>
-![Remediation](./media/active-directory-identityprotection-notifications/400.png "Remediation")
-<br> 
+<br> ![Исправление](./media/active-directory-identityprotection-notifications/400.png "Исправление") <br>
 
-You can switch sending a weekly digest email off.
-<br><br>
-![User risks](./media/active-directory-identityprotection-notifications/62.png "User risks")
-<br>
+Можно отключить отправку еженедельных дайджестов по электронной почте. <br><br> ![Риск для пользователя](./media/active-directory-identityprotection-notifications/62.png "Риск для пользователя") <br>
  
 
-**To open the related configuration dialog**:
+**Вот как можно открыть диалоговое окно настройки**:
 
-1. On the **Azure AD Identity Protection** blade, click **Settings**.
-<br><br>
-![User risk policy](./media/active-directory-identityprotection-notifications/401.png "User risk policy")
-<br>
+1. В колонке **Azure AD Identity Protection** щелкните **Параметры**. <br><br> ![Политика риска пользователя](./media/active-directory-identityprotection-notifications/401.png "Политика риска пользователя") <br>
 
-2. In the **General** section, click **Notifications**.
-<br><br>
-![User risk policy](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
-<br>
+2. В разделе **Общие** щелкните **Уведомления**. <br><br> ![Политика риска пользователя](./media/active-directory-identityprotection-notifications/405.png "Политика риска пользователя") <br>
 
 
 
 
-## <a name="see-also"></a>See also
+## См. также
 
-- [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
+- [Защита идентификации Azure Active Directory.](active-directory-identityprotection.md)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,213 +1,212 @@
 <properties
-    pageTitle="Getting started with Storage Explorer (Preview) | Microsoft Azure"
-    description="Manage Azure storage resources with Storage Explorer (Preview)"
-    services="storage"
-    documentationCenter="na"
-    authors="TomArcher"
-    manager="douge"
-    editor="" />
+	pageTitle="Приступая к работе с обозревателем службы хранилища (предварительная версия) | Microsoft Azure"
+	description="Управление ресурсами хранилища Azure с помощью обозревателя хранилищ (предварительная версия)"
+	services="storage"
+	documentationCenter="na"
+	authors="TomArcher"
+	manager="douge"
+	editor="" />
 
  <tags
-    ms.service="storage"
-    ms.devlang="multiple"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/17/2016"
-    ms.author="tarcher" />
+	ms.service="storage"
+	ms.devlang="multiple"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/17/2016"
+	ms.author="tarcher" />
 
+# Приступая к работе с обозревателем службы хранилища (предварительная версия)
 
-# <a name="getting-started-with-storage-explorer-(preview)"></a>Getting started with Storage Explorer (Preview)
+## Обзор 
 
-## <a name="overview"></a>Overview 
+Обозреватель службы хранилища Microsoft Azure (предварительная версия) — это автономное приложение, позволяющее легко работать с данными из службы хранилища Azure на платформе Windows, OS X и Linux. В этой статье рассмотрены различные способы подключения к учетным записям хранения Azure и управления ими.
 
-Microsoft Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Storage data on Windows, OS X, and Linux. In this article, you'll learn the various ways of connecting to and managing your Azure storage accounts.
+![Обозреватель службы хранилища Microsoft Azure (предварительная версия)][15]
 
-![Microsoft Azure Storage Explorer (Preview)][15]
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+- [Скачайте и установите обозреватель службы хранилища (предварительная версия).](http://www.storageexplorer.com)
 
-- [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
+## Подключение к учетной записи хранения или к службе
 
-## <a name="connect-to-a-storage-account-or-service"></a>Connect to a storage account or service
+Обозреватель службы хранилища (предварительная версия) предоставляет множество способов подключения к учетным записям хранения. Можно подключиться к учетным записям хранения, связанным с подписками Azure, а также к учетным записям хранения и службам, к которым предоставлен общий доступ из других подписок Azure. Кроме того, можно подключиться к локальному хранилищу и управлять им с помощью эмулятора хранения Azure.
 
-Storage Explorer (Preview) provides a myriad ways to connect to storage accounts. This includes connecting to storage accounts associated with your Azure subscriptions, connecting to storage accounts and services shared from other Azure subscriptions, and even connecting to and managing local storage using the Azure Storage Emulator:
+- [Подключение к подписке Azure](#connect-to-an-azure-subscription) — управление ресурсами хранилища, принадлежащими к подписке Azure.
+- [Работа с локальным хранилищем разработки](#work-with-local-development-storage) — управление локальным хранилищем с помощью эмулятора хранения Azure.
+- [Подключение к внешнему хранилищу](#attach-or-detach-an-external-storage-account) — управление ресурсами хранилища, принадлежащими к другой подписке Azure, с использованием имени и ключа учетной записи хранения.
+- [Присоединение учетной записи хранения с помощью подписанного URL-адреса](#attach-storage-account-using-sas) — управление ресурсами хранилища, принадлежащими к другой подписке Azure, с использованием подписанного URL-адреса.
+- [Присоединение службы с помощью подписанного URL-адреса](#attach-service-using-sas) — управление конкретной службой хранилища (контейнером больших двоичных объектов, очередью или таблицей), принадлежащей к другой подписке Azure, с использованием подписанного URL-адреса.
 
-- [Connect to an Azure subscription](#connect-to-an-azure-subscription) - Manage storage resources belonging to your Azure subscription.
-- [Work with local development storage](#work-with-local-development-storage) - Manage local storage using the Azure Storage Emulator. 
-- [Attach to external storage](#attach-or-detach-an-external-storage-account) - Manage storage resources belonging to another Azure subscription using the storage account's account name and key.
-- [Attach storage account using SAS](#attach-storage-account-using-sas) - Manage storage resources belonging to another Azure subscription using a SAS.
-- [Attach service using SAS](#attach-service-using-sas) - Manage a specific storage service (blob container, queue, or table) belonging to another Azure subscription using a SAS.
+## Подключение к подписке Azure
 
-## <a name="connect-to-an-azure-subscription"></a>Connect to an Azure subscription
+> [AZURE.NOTE] Если у вас нет учетной записи Azure, [зарегистрируйтесь для работы с бесплатной пробной версией](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) или [активируйте преимущества для подписчиков Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
-> [AZURE.NOTE] If you don't have an Azure account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+1. В обозревателе хранилищ (предварительная версия) выберите раздел **Параметры учетной записи Azure**.
 
-1. In Storage Explorer (Preview), select **Azure Account settings**. 
+	![Параметры учетной записи Azure][0]
 
-    ![Azure account settings][0]
+1. На панели слева отобразятся все учетные записи Microsoft, в которые вы вошли. Чтобы подключиться к другой учетной записи, выберите **Добавить учетную запись**. Затем выполните инструкции в диалоговых окнах, чтобы войти в учетную запись Майкрософт, связанную минимум с одной активной подпиской Azure.
 
-1. The left pane will now display all the Microsoft accounts you've logged into. To connect to another account, select **Add an account**, and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
+	![Добавить учетную запись][1]
 
-    ![Add an account][1]
+1. Выполнив вход с помощью учетной записи Майкрософт, на панели слева вы увидите подписки Azure, связанные с этой учетной записью. Выберите подписки Azure, с которыми вы хотите работать, а затем щелкните **Применить**. (Чтобы выбрать все подписки, установите флажок **Все подписки**. Чтобы отменить выбор, снимите флажок.)
 
-1. Once you successfully sign in with a Microsoft account, the left pane will populate with the Azure subscriptions associated with that account. Select the Azure subscriptions with which you want to work, and then select **Apply**. (Selecting **All subscriptions** toggles selecting all or none of the listed Azure subscriptions.)
+	![Выбор подписок Azure][3]
 
-    ![Select Azure subscriptions][3]
+1. На панели слева отобразятся все учетные записи хранения, связанные с выбранными подписками Azure.
 
-1. The left pane will now display the storage accounts associated with the selected Azure subscriptions.
+	![Выбранные подписки Azure][4]
 
-    ![Selected Azure subscriptions][4]
+## Работа с локальным хранилищем разработки
 
-## <a name="work-with-local-development-storage"></a>Work with local development storage
+Обозреватель службы хранилища (предварительная версия) позволяет работать с локальным хранилищем с помощью эмулятора хранения Azure. Вы можете написать код и тестировать хранилище, при этом не требуется, чтобы в Azure была развернута учетная запись хранения (так как она эмулируется эмулятором хранения Azure).
 
-Storage Explorer (Preview) enables you to work against local storage using the Azure Storage Emulator. This allows you to write code against and test storage without necessarily having a storage account deployed on Azure (since the storage account is being emulated by the Azure Storage Emulator).
+>[AZURE.NOTE] В настоящее время эмулятор хранения Azure поддерживается только для Windows.
 
->[AZURE.NOTE] The Azure Storage Emulator is currently supported only for Windows. 
+1. На левой панели обозревателя хранилищ (предварительная версия) разверните узел **Локальные и присоединенные** > **Учетные записи хранения** > **Разработка**.
 
-1. In the left pane of Storage Explorer (Preview), expand the **(Local and Attached** > **Storage Accounts** > **(Development)** node.
+	![Узел локальной разработки][21]
 
-    ![Local development node][21]
+1. Если эмулятор хранения Azure еще не установлен, отобразится информационная панель со ссылкой на установку. Если информационная панель отображается, щелкните ссылку **Скачать последнюю версию**, чтобы установить эмулятор.
 
-1. If you have not yet installed the Azure Storage Emulator, you'll be prompted to do so via an infobar. If the infobar is displayed, select **Download the latest version**, and install the emulator. 
+	![Строка эмулятора хранения Azure с предложением скачать последнюю версию][22]
 
-    ![Download Azure Storage Emulator prompt][22]
+1. После установки эмулятора вы сможете создавать локальные большие двоичные объекты, очереди и таблицы, а также работать с ними. Чтобы научиться работать с каждым типом учетной записи хранения, выберите необходимую ссылку из указанных ниже:
 
-1. Once the emulator is installed, you'll have the ability to create and work with local blobs, queues, and tables. To learn how to work with each storage account type, select on the appropriate link below:
+	- [Управление ресурсами хранилища BLOB-объектов Azure](./vs-azure-tools-storage-explorer-blobs.md)
+	- Управление ресурсами хранилища файловых ресурсов Azure — *ожидается в ближайшее время*.
+	- Управление ресурсами хранилища очередей Azure — *ожидается в ближайшее время*.
+	- Управление ресурсами хранилища таблиц Azure — *ожидается в ближайшее время*.
 
-    - [Manage Azure blob storage resources](./vs-azure-tools-storage-explorer-blobs.md)
-    - Manage Azure file share storage resources - *Coming soon*
-    - Manage Azure queue storage resources - *Coming soon*
-    - Manage Azure table storage resources - *Coming soon*
+## Присоединение и отсоединение учетной записи внешнего хранилища
 
-## <a name="attach-or-detach-an-external-storage-account"></a>Attach or detach an external storage account
+Обозреватель службы хранилища (предварительная версия) позволяет присоединять учетные записи внешних хранилищ, чтобы их можно было использовать совместно. В этом разделе объясняется, как присоединить (и отсоединить) учетные записи внешних хранилищ.
 
-Storage Explorer (Preview) provides the ability to attach to external storage accounts so that storage accounts can be easily shared. This section explains how to attach to (and detach from) external storage accounts.
+### Получение учетных данных учетной записи хранилища
 
-### <a name="get-the-storage-account-credentials"></a>Get the storage account credentials
+Чтобы предоставить общий доступ к учетной записи внешнего хранилища, владельцу этой учетной записи необходимо сначала получить ее учетные данные (имя учетной записи и ключ), а затем предоставить эти сведения тому, кто хочет присоединиться к этой внешней учетной записи. Учетные данные учетной записи хранилища можно получить на портале Azure, выполнив следующее:
 
-In order to share an external storage account, the owner of that account must first get the credentials - account name and key - for the account and then share that information with the person wanting to attach to that (external) account. Obtaining the storage account credentials can be done via the Azure portal by following these steps: 
+1.	Войдите на [портал Azure](https://portal.azure.com).
+1.	Щелкните **Обзор**.
+1.	Выберите **Учетные записи хранения**.
+1.	В колонке **Учетные записи хранения** выберите нужную учетную запись хранения.
+1.	В колонке **Параметры** для выбранной учетной записи хранения выберите **Ключи доступа**.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com).
-1.  Select **Browse**.
-1.  Select **Storage Accounts**.
-1.  In the **Storage Accounts** blade, select the desired storage account.
-1.  In the **Settings** blade for the selected storage account, select **Access keys**.
+	![Варианты ключей доступа][5]
+	
+1.	В колонке **Ключи доступа** скопируйте значения параметров **Имя учетной записи хранения** и **Ключ 1**, которые будут использоваться при присоединении учетной записи хранения.
 
-    ![Access Keys option][5]
-    
-1.  In the **Access keys** blade, copy the **STORAGE ACCOUNT NAME** and **KEY 1** values for use when attaching to the storage account. 
+	![Ключи доступа][6]
 
-    ![Access keys][6]
-
-### <a name="attach-to-an-external-storage-account"></a>Attach to an external storage account
-To attach to an external storage account, you'll need the account's name and key. The section *Get the storage account credentials* explains how to obtain these values from the Azure portal. However, note that in the portal, the account key is called "key 1" so where the Storage Explorer (Preview) asks for an account key, you'll enter (or paste) the "key 1" value. 
+### Присоединение учетной записи внешнего хранилища
+Чтобы присоединить учетную запись внешнего хранилища, вам потребуется имя учетной записи и ключ. В разделе *Получение учетных данных учетной записи хранения* объясняется, как найти эти значения на портале Azure. Обратите внимание, что на портале ключ учетной записи называется "ключ 1". Поэтому, когда обозреватель хранилищ (предварительная версия) запрашивает ключ учетной записи, следует вводить (или вставлять) значение "ключ 1".
  
-1.  In Storage Explorer (Preview), select **Connect to Azure storage**.
+1.	В обозревателе хранилищ (предварительная версия) выберите **Connect to Azure storage** (Подключиться к службе хранилища Azure).
 
-    ![Connect to Azure storage option][23]
+	![Варианты подключения к службе хранилища Azure][23]
 
-1.  On the **Connect to Azure Storage** dialog, specify the account key ("key 1" value from the Azure portal), and then select **Next**.
+1.	В диалоговом окне **Connect to Azure Storage** (Подключение к службе хранилища Azure) укажите ключ учетной записи (значение "ключ 1" на портале Azure), а затем нажмите кнопку **Далее**.
 
-    ![Connect to Azure storage dialog][24] 
+	![Диалоговое окно подключения к службе хранилища Azure][24]
 
-1.  In the **Attach External Storage** dialog, enter the storage account name in the **Account name** box, specify any other desired settings, and select **Next** when done. 
+1.	В диалоговом окне **Присоединение внешнего хранилища** введите имя учетной записи хранения в поле **Имя учетной записи**, выберите нужные параметры и нажмите кнопку **Далее**.
 
-    ![Attach external storage dialog][8]
+	![Диалоговое окно присоединения внешнего хранилища][8]
 
-1.  In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
+1.	Проверьте сведения в диалоговом окне **Сводка по соединению**. Если вы хотите внести изменения, нажмите кнопку **Назад** и повторно введите нужные параметры. По завершении нажмите кнопку **Подключить**.
 
-1.  Once connected, the external storage account will be displayed with the text **(External)** appended to the storage account name. 
+1.	После подключения учетная запись внешнего хранилища появится в списке, а к ее имени будет добавлен текст **(Внешнее)**.
 
-    ![Result of connecting to an external storage account][9]
+	![Результат присоединения учетной записи внешнего хранилища][9]
 
-### <a name="detach-from-an-external-storage-account"></a>Detach from an external storage account
+### Отсоединение учетной записи внешнего хранилища
 
-1.  Right-click the external storage account you want to detach, and - from the context menu - select **Detach**.
+1. 	Щелкните правой кнопкой мыши учетную запись внешнего хранилища, которую необходимо отсоединить, и в контекстном меню выберите пункт **Отсоединить**.
 
-    ![Detach from storage option][10]
+	![Вариант отсоединения от хранилища][10]
 
-1.  When the confirmation message box appears, select **Yes** to confirm the detachment from the external storage account.
+1.	Когда появится окно с подтверждающим сообщением, нажмите кнопку **Да**, чтобы подтвердить отсоединение учетной записи внешнего хранилища.
 
-## <a name="attach-storage-account-using-sas"></a>Attach storage account using SAS
+## Присоединение учетной записи хранения с помощью подписанного URL-адреса
 
-A [SAS (Shared Access Signature)](storage/storage-dotnet-shared-access-signature-part-1.md) gives the admin of an Azure subscription the ability to grant access to a storage account on a temporary basis without having to provide their Azure subscription credentials. 
+[Подписанный URL-адрес (SAS)](storage/storage-dotnet-shared-access-signature-part-1.md) позволяет администратору подписки Azure предоставлять временный доступ к учетной записи хранения, при этом пользователям не нужно вводить учетные данные подписки Azure.
 
-To illustrate this, let's say UserA is an admin of an Azure subscription, and UserA wants to allow UserB to access a storage account for a limited time with certain permissions:
+Чтобы продемонстрировать это, представим, что пользователь UserA является администратором подписки Azure и хочет предоставить пользователю UserB доступ к учетной записи хранения на ограниченный период времени с определенными разрешениями:
 
-1. UserA generates a SAS (consisting of the connection string for the storage account) for a specific time period and with the desired permissions.
-1. UserA shares the SAS with the person wanting access to the storage account - UserB, in our example.  
-1. UserB uses Storage Explorer (Preview) to attach to the account belonging to UserA using the supplied SAS. 
+1. Пользователь UserA создает SAS (состоящий из строки подключения для учетной записи хранилища) с определенным сроком действия и необходимыми разрешениями.
+1. Затем он предоставляет этот SAS пользователю, которому нужен доступ к учетной записи хранилища. В нашем примере это UserB.
+1. Пользователь UserB использует обозреватель службы хранилища (предварительная версия), чтобы присоединить учетную запись, принадлежащую пользователю UserA, используя предоставленный SAS.
 
-### <a name="get-a-sas-for-the-account-you-want-to-share"></a>Get a SAS for the account you want to share
+### Получение SAS для учетной записи, к которой необходимо предоставить доступ
 
-1.  In Storage Explorer (Preview), right-click the storage account you want share, and - from the context menu - select **Get Shared Access Signature**.
+1.	В обозревателе хранилищ (предварительная версия) щелкните правой кнопкой мыши учетную запись хранения, к которой необходимо предоставить доступ, а затем в контекстном меню выберите пункт **Get Shared Access Signature** (Получить подписанный URL-адрес).
 
-    ![Get SAS context menu option][13]
+	![Вариант получения SAS в контекстном меню][13]
 
-1. On the **Shared Access Signature** dialog, specify the time frame and permissions you want for the account, and select **Create**.
+1. В диалоговом окне **Подписанный URL-адрес** укажите период времени и разрешения для учетной записи, а затем нажмите кнопку **Создать**.
 
-    ![Get SAS dialog][14]
+	![Диалоговое окно получения SAS][14]
  
-1. A second **Shared Access Signature** dialog will appear displaying the SAS. Select **Copy** next to the **Connection String** to copy it to the clipboard. Select **Close** to dismiss the dialog.
+1. После этого откроется второе диалоговое окно **Подписанный URL-адрес**, в котором появится SAS. Выберите команду **Копировать** рядом со **строкой подключения**, чтобы скопировать строку в буфер обмена. Нажмите кнопку **Закрыть**, чтобы закрыть диалоговое окно.
 
-### <a name="attach-to-the-shared-account-using-the-sas"></a>Attach to the shared account using the SAS
+### Присоединение общей учетной записи с использованием подписанного URL-адреса
 
-1.  In Storage Explorer (Preview), select **Connect to Azure storage**.
+1.	В обозревателе хранилищ (предварительная версия) выберите **Connect to Azure storage** (Подключиться к службе хранилища Azure).
 
-    ![Connect to Azure storage option][23]
+	![Варианты подключения к службе хранилища Azure][23]
 
-1.  On the **Connect to Azure Storage** dialog, specify the connection string, and then select **Next**.
+1.	В диалоговом окне **Connect to Azure Storage** (Подключение к службе хранилища Azure) укажите строку подключения, а затем нажмите кнопку **Далее**.
 
-    ![Connect to Azure storage dialog][24] 
+	![Диалоговое окно подключения к службе хранилища Azure][24]
 
-1.  In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
+1.	Проверьте сведения в диалоговом окне **Сводка по соединению**. Если вы хотите внести изменения, нажмите кнопку **Назад** и повторно введите нужные параметры. По завершении нажмите кнопку **Подключить**.
 
-1.  Once attached, the storage account will be displayed with the text (SAS) appended to the account name you supplied.
+1.	После присоединения учетная запись хранилища будет отображаться в списке, и к ее имени будет добавлено (SAS).
 
-    ![Result of attached to an account using SAS][17]
+	![Результат присоединения к учетной записи с помощью SAS][17]
 
-## <a name="attach-service-using-sas"></a>Attach service using SAS
+## Присоединение службы с использованием подписанного URL-адреса
 
-The section [Attach storage account using SAS](#attach-storage-account-using-sas) illustrates how an Azure subscription admin can grant temporary access to a storage account by generating (and sharing) a SAS for the storage account. Similarly, a SAS can be generated for a specific service (blob container, queue, or table) within a storage account.  
+В разделе [Присоединение учетной записи хранения с помощью подписанного URL-адреса](#attach-storage-account-using-sas) показано, как администратор подписки Azure может предоставить временный доступ к учетной записи хранения, создав SAS для учетной записи хранения (и предоставив доступ к SAS). Аналогичным образом SAS можно создать для конкретной службы (контейнера больших двоичных объектов, очереди или таблицы) в учетной записи хранилища.
 
-### <a name="generate-a-sas-for-the-service-you-want-to-share"></a>Generate a SAS for the service you want to share
+### Создание подписанного URL-адреса для службы, к которой необходимо предоставить доступ
 
-In this context, a service can be a blob container, queue, or table. The following sections explain how to generate the SAS for the listed service:
+В этом контексте служба может быть контейнером больших двоичных объектов, очередью или таблицей. Ниже приведены разделы, содержащие сведения о создании SAS для этих служб:
 
-- [Get the SAS for a blob container](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-- Get the SAS for a file share - *Coming soon*
-- Get the SAS for a queue - *Coming soon*
-- Get the SAS for a table - *Coming soon*
+- [Получение SAS для контейнера больших двоичных объектов](./vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
+- Получение SAS для файлового ресурса — *ожидается в ближайшее время*.
+- Получение SAS для очереди — *ожидается в ближайшее время*.
+- Получение SAS для таблицы — *ожидается в ближайшее время*.
 
-### <a name="attach-to-the-shared-account-service-using-the-sas"></a>Attach to the shared account service using the SAS
+### Присоединение общей учетной записи с использованием подписанного URL-адреса
 
-1.  In Storage Explorer (Preview), select **Connect to Azure storage**.
+1.	В обозревателе хранилищ (предварительная версия) выберите **Connect to Azure storage** (Подключиться к службе хранилища Azure).
 
-    ![Connect to Azure storage option][23]
+	![Варианты подключения к службе хранилища Azure][23]
 
-1.  On the **Connect to Azure Storage** dialog, specify the SAS URI, and then select **Next**.
+1.	В диалоговом окне **Connect to Azure Storage** (Подключение к службе хранилища Azure) укажите универсальный код ресурса (URI) SAS, а затем нажмите кнопку **Далее**.
 
-    ![Connect to Azure storage dialog][24] 
+	![Диалоговое окно подключения к службе хранилища Azure][24]
 
-1.  In the **Connection Summary** dialog, verify the information. If you want to change anything, select **Back** and re-enter the desired settings. Once finished, select **Connect**.
+1.	Проверьте сведения в диалоговом окне **Сводка по соединению**. Если вы хотите внести изменения, нажмите кнопку **Назад** и повторно введите нужные параметры. По завершении нажмите кнопку **Подключить**.
 
-1.  Once attached, the newly attached service will be displayed under the **(Service SAS)** node.
+1.	После присоединения служба появится в качестве элемента узла **(SAS службы)**.
 
-    ![Result of attaching to a shared service using SAS][20]
+	![Результат присоединения к общей службе с помощью SAS][20]
 
-## <a name="search-for-storage-accounts"></a>Search for storage accounts
+## Поиск учетных записей хранилищ
 
-If you have a long list of storage accounts, a quick way to locate a particular storage account is to use the search box at the top of the left pane. 
+Если у вас много учетных записей хранилищ, быстро найти определенную учетную запись можно с помощью поля поиска в верхней части левой области.
 
-As you are typing into the search box, the left pane will display only the storage accounts that match the search value you've entered up to that point. The following screen shot illustrates an example where I've searched for all storage accounts where the storage account name contains the text "tarcher".
+По мере ввода в поле поиска в левой области будут отображаться учетные записи хранилищ, имена которых соответствуют условию поиска. На приведенном ниже снимке экрана показан пример поиска всех учетных записей хранилищ, имена которых содержат слово tarcher.
 
-![Storage account search][11]
-    
-To clear the search, select the **x** button in the search box.
+![Поиск учетной записи хранения][11]
+	
+Чтобы очистить условия поиска, нажмите кнопку **x** в поле поиска.
 
-## <a name="next-steps"></a>Next steps
-- [Manage Azure blob storage resources with Storage Explorer (Preview)](./vs-azure-tools-storage-explorer-blobs.md)
+## Дальнейшие действия
+- [Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ (предварительная версия)](./vs-azure-tools-storage-explorer-blobs.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -230,8 +229,4 @@ To clear the search, select the **x** button in the search box.
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-icon.png
 [24]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connect-to-azure-storage-next.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

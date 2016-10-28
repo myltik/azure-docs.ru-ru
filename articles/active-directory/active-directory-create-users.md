@@ -1,94 +1,89 @@
 <properties
-    pageTitle="Add new users to Azure Active Directory | Microsoft Azure"
-    description="Explains how to add new users or change user information in Azure Active Directory."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Добавление новых пользователей в Azure Active Directory | Microsoft Azure"
+	description="Узнайте, как добавлять новых пользователей или изменять сведения о них в Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/22/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
+# Добавление новых пользователей или пользователей с учетными записями Майкрософт в Azure Active Directory
 
-# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Add new users  or users with Microsoft accounts to Azure Active Directory
+Добавление пользователей позволяет заполнить каталог. В этой статье объясняется, как добавить новых корпоративных пользователей, а также пользователей с учетными записями Майкрософт. Дополнительные сведения о добавлении пользователей из других каталогов в Azure Active Directory или пользователей из компаний-партнеров см. в статье [Добавление пользователей из других каталогов или компаний-партнеров в Azure Active Directory](active-directory-create-users-external.md). По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
 
-Add users to populate your directory. This article explains how to add new users in your organization, and how to add users who have Microsoft accounts. For more information about adding users from other directories in Azure Active Directory or adding users from partner companies, see [Add users from other directories or partner companies in Azure Active Directory](active-directory-create-users-external.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+## Добавление пользователей
 
-## <a name="add-a-user"></a>Add a user
+1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с помощью учетной записи глобального администратора каталога.
+2. Щелкните **Active Directory**, а затем выберите имя каталога своей организации.
+3. Откройте вкладку **Пользователи**, а затем на панели команд выберите **Добавить пользователя**.
+4. На странице **Тип учетной записи пользователя** в раскрывающемся меню **Тип пользователя** выберите один из следующих пунктов.
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) with an account that's a global admin for the directory.
-2. Select **Active Directory**, and then select the name of your organization directory.
-3. Select the **Users** tab, and then, in the command bar, select **Add User**.
-4. On the **Tell us about this user** page, under **Type of user**, select either:
+	- **Новый пользователь в вашей организации** — создает новую учетную запись пользователя в каталоге.
+	- **Пользователь с существующей учетной записью Майкрософт** — добавляет в каталог существующую учетную запись Майкрософт (например, учетную запись Outlook).
 
-    - **New user in your organization** – adds a new user account in your directory.
-    - **User with an existing Microsoft account** – adds an existing Microsoft consumer account to your directory (for example, an Outlook account)
+5. В зависимости от **типа пользователя** введите имя пользователя (для нового пользователя) или адрес электронной почты (для пользователей с учетной записью Майкрософт).
+6. На странице с **профилем** пользователя введите имя, фамилию и понятное имя, а затем выберите роль пользователя в списке **Роли**. Дополнительные сведения о ролях пользователей и администраторов см. в разделе [Назначение ролей администратора в Azure AD](active-directory-assign-admin-roles.md). Укажите, следует ли **включить многофакторную идентификацию** для пользователя.
+7. На странице **Получение временного пароля** нажмите кнопку **Создать**.
 
-5. Depending on **Type of user**, enter a user name (for new user) or an email address (for a user with a Microsoft account).
-6. On the user **Profile** page, provide a first and last name, a user-friendly name, and a user role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md). Specify whether to **Enable Multi-Factor Authentication** for the user.
-7. On the **Get temporary password** page, select **Create**.
-
-> [AZURE.IMPORTANT] If your organization uses more than one domain, you should know about the following issues when you add a user account:
+> [AZURE.IMPORTANT] Если в организации используется более одного домена, при добавлении учетной записи пользователя необходимо учитывать следующие моменты:
 >
-> - TO add user accounts with the same user principal name (UPN) across domains, **first** add, for example, geoffgrisso@contoso.onmicrosoft.com, **followed by** geoffgrisso@contoso.com.
-> - **Don't** add geoffgrisso@contoso.com before you add geoffgrisso@contoso.onmicrosoft.com. This order is important, and can be cumbersome to undo.
+> - Чтобы добавить учетные записи пользователей с тем же именем участника-пользователя (UPN) в разных доменах, **сначала** добавьте, например, geoffgrisso@contoso.onmicrosoft.com, а **затем** — geoffgrisso@contoso.com.
+> - **Не** добавляйте geoffgrisso@contoso.com, пока не добавите geoffgrisso@contoso.onmicrosoft.com. Порядок добавления важен: если вы допустите ошибку сейчас, потом ее может быть сложно исправить.
 
-## <a name="change-user-information"></a>Change user information
+## Изменение сведений о пользователе
 
-You can change any user attribute except for the object ID.
+Вы можете изменить любые атрибуты пользователя, кроме идентификатора объекта.
 
-1. Open your directory.
-2. Select the **Users** tab, and then select the display name of the user you want to change.
-3. Complete your changes, and then click **Save**.
+1. Откройте свой каталог.
+2. Перейдите на вкладку **Пользователи**, а затем выберите отображаемое имя пользователя, которое нужно изменить.
+3. Внесите необходимые изменения и нажмите кнопку **Сохранить**.
 
-If the user that you're changing is synchronized with your on-premises Active Directory service, you can't change the user information using this procedure. To change the user, use your on-premises Active Directory management tools.
+Если пользователь, имя которого вы изменяете, синхронизирован с локальной службой Active Directory, вы не сможете изменить сведения о таком пользователе с помощью описанной процедуры. Для изменения сведений о таком пользователе применяйте локальные средства управления Active Directory.
 
-## <a name="guest-user-management-and-limitations"></a>Guest user management and limitations
+## Управление гостевыми пользователями и ограничения
 
-Guest accounts are users from other directories who were invited to your directory to access SharePoint documents, applications, or other Azure resources. A guest account in your directory has its underlying UserType attribute set to "Guest." Regular users (specifically, members of your directory) have the UserType attribute "Member."
+Гостевые учетные записи — это пользователи из других каталогов, приглашенные в ваш каталог для работы с определенными документами SharePoint, приложениями или другими ресурсами Azure. Гостевая учетная запись — это учетная запись в каталоге, для основного атрибута UserType которой установлено значение Guest. У обычных пользователей (в частности, членов вашего каталога) этот атрибут имеет значение Member.
 
-Guests have a limited set of rights in the directory. These rights limit the ability for Guests to discover information about other users in the directory. However, guest users can still interact with the users and groups associated with the resources they're working on. Guest users can:
+Гости обладают ограниченным набором прав в каталоге. Эти права ограничивают возможность гостей находить информацию о других пользователях в каталоге. Однако пользователи-гости по-прежнему могут взаимодействовать с пользователями и группами, которые связаны с используемыми ресурсами. Гости могут:
 
-- See other users and groups associated with an Azure subscription to which they're assigned
-- See the members of groups to which they belong
-- Look up other users in the directory, if they know the full email address of the user
-- See only a limited set of attributes of the users they look up--limited to display name, email address, user principal name (UPN), and thumbnail photo
-- Get a list of verified domains in the directory
-- Consent to applications, granting them the same access that Members have in your directory
+- просматривать сведения о других пользователях и группах, связанных с подпиской Azure, которой они назначены;
+- просматривать участников группы, в которую они входят;
+- искать других пользователей в каталоге, если им известны их адреса электронной почты;
+- просматривать только ограниченный набор атрибутов пользователей, которых они нашли: только отображаемое имя, адрес электронной почты, имя участника-пользователя и эскиз фотографии;
+- получать список проверенных доменов каталога;
+- предоставлять согласие для приложений, наделяя их такими же правами доступа, как у членов каталога.
 
-## <a name="set-guest-user-access-policies"></a>Set guest user access policies
+## Настройка политик доступа гостевых пользователей
 
-The **Configure** tab of a directory includes options to control access for guest users. These options can be changed only in Azure classic portal by a directory global administrator. Currently, there's no PowerShell or API method.
+На вкладке **Настройка** каталога доступны параметры для управления доступом гостевых пользователей. Эти параметры может изменить только глобальный администратор каталога на классическом портале Azure. Сейчас это нельзя сделать с помощью PowerShell или API.
 
-To open the **Configure** tab in the Azure classic portal, select **Active Directory**, and then select the name of the directory.
+Чтобы открыть вкладку **Настройка** на классическом портале Azure, щелкните **Active Directory** и выберите имя каталога.
 
-![Configure tab in Azure Active Directory][1]
+![Вкладка "Настройка" в Azure Active Directory][1]
 
-Then you can edit the options to control access for guest users.
+Теперь можно изменить параметры контроля доступа для гостевых пользователей.
 
-![access control options for guest users][2]
+![параметры контроля доступа для гостевых пользователей][2]
 
 
-## <a name="what's-next"></a>What's next
+## Что дальше?
 
-- [Add users from other directories or partner companies in Azure Active Directory](active-directory-create-users-external.md)
-- [Administering Azure AD](active-directory-administer.md)
-- [Manage passwords in Azure AD](active-directory-manage-passwords.md)
-- [Manage groups in Azure AD](active-directory-manage-groups.md)
+- [Добавление пользователей из других каталогов или компаний-партнеров в Azure Active Directory](active-directory-create-users-external.md)
+- [Администрирование Azure AD](active-directory-administer.md)
+- [Управление паролями в Azure AD](active-directory-manage-passwords.md)
+- [Управление группами в Azure AD](active-directory-manage-groups.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

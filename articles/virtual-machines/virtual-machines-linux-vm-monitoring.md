@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enable or Disabling Azure VM Monitoring"
-   description="Describes How to Enable or Disable Azure VM Monitoring"
+   pageTitle="Включение и отключение мониторинга виртуальной машины Azure"
+   description="В этой статье описывается включение или отключение мониторинга виртуальной машины Azure"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
@@ -16,53 +16,46 @@
    ms.date="02/08/2016"
    ms.author="kmouss"/>
    
+# Включение и отключение мониторинга виртуальной машины Azure
 
-# <a name="enable-or-disable-azure-vm-monitoring"></a>Enable or Disable Azure VM Monitoring
+В этом разделе описывается, как включить или отключить мониторинг виртуальных машин, работающих в Azure. По умолчанию мониторинг виртуальных машин Azure включен, если они развернуты из [портала Azure](https://portal.azure.com), а диаграммы мониторинга по умолчанию отображаются с 1-минутным интервалом. Мониторинг можно включить или отключить с помощью портала или интерфейса командной строки Azure для Mac, Linux и Windows (Azure CLI).
 
-This section describes how to enable or disable monitoring on Virtual machines running on Azure. By default monitoring is enabled on Azure Virtual machines if deployed from the [Azure portal](https://portal.azure.com) and monitoring graphs are provided by default with a 1-minute period. You can enable or disable monitoring using the portal or Azure Command-line Interface for Mac, Linux, and Windows (the Azure CLI). 
-
-## <a name="enable-/-disable-monitoring-through-the-azure-portal"></a>Enable / Disable Monitoring through the Azure Portal
+## Включение и отключение мониторинга через портал Azure
  
-You can enable  monitoring of your Azure VM, which provides data about your instance in 1-minute periods. (storage changes apply). Detailed diagnostics data is then available for the VM in the portal graphs or through the API. By default, Azure portal enables monitoring, but you can turn it off as described below. You can enable monitoring while the VM is running or in stopped state.
+Вы можете включить мониторинг виртуальной машины Azure, который предоставляет данные о вашем экземпляре с интервалом в 1 минуту (применяются изменения хранилища). В результате на диаграммах портала или с помощью API становятся доступными подробные диагностические данные для виртуальной машины. По умолчанию мониторинг на портале Azure включен, но его можно отключить, как описано ниже. Включить мониторинг можно, когда виртуальная машина работает или остановлена.
 
-- Open the Azure portal at **[https://portal.azure.com](https://portal.azure.com)**
+- Откройте портал Azure по адресу **[https://portal.azure.com](https://portal.azure.com)**.
 
-- In the left navigation, click Virtual machines.
+- В левой панели навигации щелкните "Виртуальные машины".
 
-- In the list Virtual machines, select a running or stopped instance. Virtual machine blad will open.
+- В списке виртуальных машин выберите запущенный или остановленный экземпляр. Откроется колонка виртуальной машины.
 
-- Click "All settings".
+- Щелкните "Все параметры".
 
-- Click "Diagnostics".
+- Щелкните "Диагностика".
 
-- Change status to On or Off. You can also pick in this blade the level of monitoring details you would like to enable for your virtual machine.
+- Измените состояние с "Вкл" на "Выкл". В этой колонке также можно выбрать уровень детализации мониторинга для виртуальной машины.
 
-[Azure.Note] The Diagnostics On switch is the default when you create a new virtual machine
+[Azure.Note] При создании новой виртуальной машины по умолчанию устанавливается переключатель "Диагностика вкл.".
 
-![Enable / Disable Monitoring through the Azure Portal.][1]
+![Включение и отключение мониторинга через портал Azure][1]
 
 
-## <a name="enable-/-disable-monitoring-with-azure-cli"></a>Enable / Disable Monitoring with Azure CLI
+## Включение и отключение мониторинга с помощью интерфейса командной строки Azure
  
-To enable monitoring for an Azure VM.
+Чтобы включить мониторинг для виртуальной машины Azure, выполните следующие действия.
 
-- Create a file named such as PrivateConfig.json with the following content.
-        { "storageAccountName":"the storage account to receive data", "storageAccountKey":"the key of the account" }
-- Run the following Azure CLI command.
+- Создайте файл с именем, например, PrivateConfig.json со следующим содержимым. { "storageAccountName":"учетная запись хранения для приема данных", "storageAccountKey":"ключ учетной записи" }
+- Выполните следующую команду CLI Azure.
 
         azure vm extension set myvm LinuxDiagnostic Microsoft.OSTCExtensions 2.0 --private-config-path PrivateConfig.json
 
-[Azure.Note] You can change from version 2.0 to a later version when available. 
+[Azure.Note] С версии 2.0 можно переключиться на более позднюю версию, когда она появится.
 
-For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM’s performance and diagnostic data](virtual-machines-linux-classic-diagnostic-extension.md).
+Дополнительные сведения о настройке метрик мониторинга и примеры см. в документе **[Использование диагностического расширения Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux](virtual-machines-linux-classic-diagnostic-extension.md).
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png
  
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

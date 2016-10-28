@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure RemoteApp best practices | Microsoft Azure"
-    description="Best practices for configuring and using Azure RemoteApp."
+    pageTitle="Рекомендации по Azure RemoteApp | Microsoft Azure"
+    description="Рекомендации по настройке и использованию Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -15,40 +15,35 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
-
-# <a name="best-practices-for-configuring-and-using-azure-remoteapp"></a>Best practices for configuring and using Azure RemoteApp
+# Рекомендации по настройке и использованию Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
-The following information can help you configure and use Azure RemoteApp productively.
+Приведенные ниже сведения помогут вам эффективно настроить и использовать Azure RemoteApp.
 
-## <a name="connectivity"></a>Connectivity
-
-
-- Always use the latest client version. Using older clients might result in connectivity issues and other degraded experiences. Enabling automatic application updates for your device will ensure that the latest client is always installed.
-- Always use the most stable and reliable internet connection available to you.  
-- Use only supported proxy connections for optimal connectivity performance.  The SOCKS proxy is not supported.
-
-## <a name="applications"></a>Applications
+## Соединение
 
 
-- Save and close RemoteApp applications when you are done with the application. Not closing the application might result in data loss.
-- Validate custom applications before using them in Azure RemoteApp. This includes ensuring they work on a multi-session platform and don’t consume unnecessary resources such as memory and CPU that might starve another user in the same collection. For information, download and review the [Application Compatibility Best Practices for Remote Desktop Services](http://www.dabcc.com/resources/Application%20Compatibility%20Best%20Practices%20for%20Remote%20Desktop%20Services.pdf).
+- Всегда используйте клиент последней версии. Использование устаревших клиентов может привести к проблемам с подключением и другим неудобствам. Включив автоматическое обновление приложений для своего устройства, вы обеспечите, что всегда установлена последняя версия клиента.
+- Всегда используйте самое стабильное и надежное подключение к Интернету из доступных.
+- Используйте только поддерживаемые прокси-соединения, чтобы обеспечить оптимальное подключение. Прокси SOCKS не поддерживается.
 
-## <a name="configuration-and-management"></a>Configuration and management
-
-
-- Keep your template images up to date, installing software updates and other critical fixes as needed. This ensures that as Azure RemoteApp auto-scales to meet your capacity, each instance is patched.  
-- Make sure your Active Directory Federation Services (AD FS) deployment is secure and reliable. Otherwise client authentications might fail, preventing users from accessing Azure RemoteApp.
-- Configure template images with installed applications, roles, or features such that they are stateless. They should not rely on any instances of the virtual machines in a RemoteApp service being in a persistent state.
-    - Store all user data in user profiles or other storage locations external to the service, such as on-premises file shares or OneDrive.
-    - Store shared data in storage locations external to the service, such as on-premises file shares or OneDrive.
-    - Configure any system-wide settings in the template image rather than on individual virtual machines in a service.
-    - Disable automatic software updates for published applications - instead apply them manually to the template image and test them before you deploy  from the template.
+## Приложения
 
 
+- Сохраняйте и закрывайте приложения RemoteApp по завершении работы с ними. Если не закрыть приложение, данные могут быть утеряны.
+- Проверяйте настраиваемые приложения, прежде чем использовать их в Azure RemoteApp. В частности, убедитесь, что они работают на многосеансовой платформе и не потребляют избыточные ресурсы, например память и мощность процессора, ограничивая других пользователей в коллекции. Чтобы получить дополнительную информацию, скачайте и прочитайте документ [Рекомендации по совместимости приложений для служб удаленных рабочих столов](http://www.dabcc.com/resources/Application%20Compatibility%20Best%20Practices%20for%20Remote%20Desktop%20Services.pdf).
 
-<!--HONumber=Oct16_HO2-->
+## Настройка и управление
 
 
+- Поддерживайте образы шаблонов в актуальном состоянии, устанавливая обновления ПО и другие критические исправления по мере необходимости. Это обеспечит обновление каждого экземпляра при автоматическом масштабировании Azure RemoteApp.
+- Убедитесь, что развертывание служб федерации Active Directory (AD FS) защищено и надежно. В противном случае проверка подлинности клиента может завершиться с ошибкой, и пользователи не смогут получить доступ к Azure RemoteApp.
+- Настройте образы шаблонов с такими установленными приложениями, ролями и функциями, чтобы у них не было состояния. Они не должны зависеть от того, что какие-либо экземпляры виртуальных машин в службе RemoteApp находятся в устойчивом состоянии.
+	- Храните все данные пользователей в профилях пользователей или других хранилищах за пределами службы, например локальных файловых ресурсах или OneDrive.
+	- Храните общие данные в хранилищах за пределами службы, например локальных файловых ресурсах или OneDrive.
+	- Настраивайте параметры на уровне системы в образе шаблона, а не на отдельных виртуальных машинах в службе.
+	- Отключите автоматические обновления ПО для опубликованных приложений. Вместо этого применяйте их вручную к образу шаблону и тестируйте перед развертыванием из шаблона.
+
+<!---HONumber=AcomDC_0921_2016-->

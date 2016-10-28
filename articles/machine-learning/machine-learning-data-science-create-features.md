@@ -1,105 +1,100 @@
 <properties
-    pageTitle="Feature engineering in the Cortana Analytics Process | Microsoft Azure" 
-    description="Explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning."
-    services="machine-learning"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Реконструирование характеристик в процессе аналитики Кортаны | Microsoft Azure" 
+	description="Описывает цели реконструирования характеристик и приводит примеры, поясняющие его роль в совершенствовании данных в процессе машинного обучения."
+	services="machine-learning"
+	documentationCenter=""
+	authors="bradsev"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/19/2016"
-    ms.author="zhangya;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/19/2016"
+	ms.author="zhangya;bradsev" />
 
 
+# Реконструирование характеристик в процессе аналитики Кортаны 
 
-# <a name="feature-engineering-in-the-cortana-analytics-process"></a>Feature engineering in the Cortana Analytics Process 
-
-This topic explains the purposes of feature engineering and provides examples of its role in the data enhancement process of machine learning. The examples used to illustrate this process are drawn from Azure Machine Learning Studio. 
+В этой статье описаны цели реконструирования характеристик и приводятся примеры, поясняющие его роль в совершенствовании данных в процессе машинного обучения. Примеры, представленные для иллюстрирования этого процесса, взяты из студии машинного обучения Azure.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
 
-This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Это **меню** содержит ссылки на статьи, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Feature engineering attempts to increase the predictive power of learning algorithms by creating features from raw data that help facilitate the learning process. The engineering and selection of features is one part of the TDSP outlined in the [What is the Team Data Science Process?](data-science-process-overview.md) Feature engineering and selection are parts of the **Develop features** step of the TDSP. 
+Реконструирование характеристик пытается повысить эффективность прогнозирования алгоритмов обучения путем создания характеристик из необработанных данных, позволяющих упростить процесс обучения. Реконструирование и выбор характеристик являются частью процесса TDSP, описанного в разделе [Что такое процесс обработки и анализа данных группы (TDSP)?](data-science-process-overview.md) Проектирование и выбор характеристик входят в этап **разработки характеристик** процесса TDSP.
 
-* **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase the predictive power of the learning algorithm.
+* **Проектирование признаков**. Этот процесс направлен на создание дополнительных характерных признаков на основе существующих необработанных признаков и повышение эффективности прогнозирования алгоритма обучения.
 
-* **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
+* **Выбор признаков**: в этом процессе выбирается ключевое подмножество исходных признаков с целью сокращения размерности задачи обучения.
 
-Normally **feature engineering** is applied first to generate additional features, and then the **feature selection** step is performed to eliminate irrelevant, redundant, or highly correlated features.
+Как правило, сначала применяется **реконструирование характеристик** для создания дополнительных характеристик, а затем выполняется этап **выбора характеристик**, чтобы исключить несоответствующие, избыточные или сильно коррелирующие характеристики.
 
-The training data used in machine learning can often be enhanced by extraction of features from the raw data collected. An example of an engineered feature in the context of learning how to classify the images of handwritten characters is creation of a bit density map constructed from the raw bit distribution data. This map can help locate the edges of the characters more efficiently than simply using the raw distribution directly.
+Обучающие данные, используемые в машинном обучении, можно улучшить путем извлечения характеристик из собранных необработанных данных. Пример реконструирования характеристики в контексте обучения для классификации изображений рукописных символов представляет собой битовую карту распределения плотности, построенную на основе необработанных данных распределения битов. Эта карта помогает более эффективно находить края символов, чем в случае необработанных данных о распределении.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
-## <a name="creating-features-from-your-data---feature-engineering"></a>Creating Features from Your Data - Feature Engineering
+## Создание признаков из данных — реконструирование признаков
 
-The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, it is often the case that additional (engineered) features need to be constructed from the features in the raw data to generate an enhanced training dataset.
+Обучающие данные образуют матрицу из примеров (записей или наблюдений, хранимых в строках), каждый из которых имеет набор признаков (переменных или полей, хранящихся в столбцах). Признаки, указанные в схеме эксперимента должны характеризовать закономерности в данных. Несмотря на то, что многие поля необработанных данных можно напрямую включить в набор выбранных признаков, используемых для обучения модели, часто бывает так, что для формирования набора усовершенствованных обучающих данных дополнительные (реконструированные) признаки требуется создавать из признаков в необработанных данных.
 
-What kind of features should be created to enhance the dataset when training a model? Engineered features that enhance the training provide information that better differentiates the patterns in the data. We expect the new features to provide additional information that is not clearly captured or easily apparent in the original or existing feature set. But this process is something of an art. Sound and productive decisions often require some domain expertise.
+Какие признаки нужно создавать для расширения набора данных при обучении модели? Реконструированные признаки, совершенствующие обучение, содержат сведения, которые лучше выделяют закономерности в данных. Новые признаки должны предоставлять дополнительные сведения, нечетко зарегистрированные или не очевидные в исходном или существующем наборе. Это довольно творческий процесс. Обоснованные и эффективные решения часто требуют определенного знания предметной области.
 
-When starting with Azure Machine Learning, it is easiest to grasp this process concretely using samples provided in the Studio. Two examples are presented here:
+При запуске машинного обучения Azure проще всего понять этот процесс с помощью примеров, которые поставляются в комплекте со Студией. Здесь представлены два примера.
 
-* A regression example [Prediction of the number of bike rentals](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in a supervised experiment where the target values are known
-* A text mining classification example using [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
+* Пример регрессии [Прогнозирование количества прокатов велосипедов](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) в контролируемом эксперименте с известными целевыми значениями
+* Пример классификации интеллектуального анализа текста с использованием [хэширования признаков](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
-### <a name="example-1:-adding-temporal-features-for-regression-model"></a>Example 1: Adding Temporal Features for Regression Model ###
+### Пример 1. Добавление временных признаков для регрессионной модели ###
 
-Let's use the experiment "Demand forecasting of bikes" in Azure Machine Learning Studio to demonstrate how to engineer features for a regression task. The objective of this experiment is to predict the demand for the bikes, that is, the number of bike rentals within a specific month/day/hour. The dataset "Bike Rental UCI dataset" is used as the raw input data. This dataset is based on real data from the Capital Bikeshare company that maintains a bike rental network in Washington DC in the United States. The dataset represents the number of bike rentals within a specific hour of a day in the years 2011 and year 2012 and contains 17379 rows and 17 columns. The raw feature set contains weather conditions (temperature/humidity/wind speed) and the type of the day (holiday/weekday). The field to predict is "cnt", a count which represents the bike rentals within a specific hour and which ranges ranges from 1 to 977.
+Воспользуемся экспериментом «Прогнозирование спроса на велосипеды» в студии машинного обучения Azure, чтобы продемонстрировать реконструкцию признаков для задачи регрессии. Цель этого эксперимента — прогноз спроса на велосипеды, то есть количество сдаваемых напрокат велосипедов в конкретный день/месяц/час. «Набор данных по прокату велосипедов UCI» используется в качестве необработанных входных данных. Этот набор данных основывается на реальных данных компании Capital Bikeshare, которая содержит сеть проката велосипедов в Вашингтоне (ОК), США. Набор данных представляет количество сдаваемых напрокат велосипедов в определенный час дня в 2011–2012 гг. и содержит 17379 строки и 17 столбцов. Набор необработанных признаков содержит погодные условия (температура, влажность и скорость ветра) и тип дня (праздник/будний день). Поле для прогнозирования «cnt» — количество сдаваемых напрокат велосипедов в конкретный час, которое меняется в диапазоне от 1 до 977.
 
-With the goal of constructing effective features in the training data, four regression models are built using the same algorithm but with four different training datasets. The four datasets represent the same raw input data, but with an increasing number of features set. These features are grouped into four categories:
+Для создания эффективных признаков в обучающих данных строятся четыре регрессионные модели с использованием одного и того же алгоритма, но с четырьмя разными обучающими наборами данных. Четыре набора данных представляют те же необработанные входные данные, но с увеличиваемым номером набора признаков. Эти признаки сгруппированы в четыре категории:
 
-1. A = weather + holiday + weekday + weekend features for the predicted day
-2. B = number of bikes that were rented in each of the previous 12 hours
-3. C = number of bikes that were rented in each of the previous 12 days at the same hour
-4. D = number of bikes that were rented in each of the previous 12 weeks at the same hour and the same day
+1. А = «погода» + «праздник» + «рабочий день» + «выходной день» для прогнозируемого дня
+2. Б = количество велосипедов, которые сданы напрокат в каждый из предыдущих 12 часов
+3. В = количество велосипедов, которые были сданы напрокат в каждый из предыдущих 12 дней в течение одного и того же часа
+4. Г = количество велосипедов, которые были сданы напрокат в каждую из предыдущих 12 недель в течение одного и того же часа и дня
 
-Besides feature set A, which already exist in the original raw data, the other three sets of features are created through the feature engineering process. Feature set B captures very recent demand for the bikes. Feature set C captures the demand for bikes at a particular hour. Feature set D captures demand for bikes at particular hour and particular day of the week. The four training datasets each includes feature set A, A+B, A+B+C, and A+B+C+D, respectively.
+Помимо набора признаков А, который уже существует в исходных необработанных данных, другие три набора признаков создаются в процессе реконструирования признаков. Набор признаков Б охватывает новейший спрос на велосипеды. Набор признак В спрос на велосипеды в конкретный час. Набор признаков Г охватывает спрос на велосипеды в определенный час и определенный день недели. Четыре набора обучающих данных содержат наборы признаков А, А + Б, А + Б + В и A + Б + В + Г, соответственно.
 
-In the Azure Machine Learning experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except the left most branch, each of these branches contains an [Execute R Script](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) module, in which a set of derived features (feature set B, C, and D) are respectively constructed and appended to the imported dataset. The following figure demonstrates the R script used to create feature set B in the second left branch.
+В эксперименте машинного обучения Azure эти четыре наборы обучающих данных формируются через четыре ветви предварительно обработанного входного набора данных. За исключением крайней слева ветви, каждая из этих ветвей содержит модуль [Выполнить сценарий R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/), в котором набор производных признаков (набор признаков Б, В и Г) соответственно реконструируется и добавляется в импортируемый набор данных. На следующем рисунке показан сценарий R, используемый для создания набора признаков Б во второй слева ветви.
 
-![create features](./media/machine-learning-data-science-create-features/addFeature-Rscripts.png)
+![создание признаков](./media/machine-learning-data-science-create-features/addFeature-Rscripts.png)
 
-The comparison of the performance results of the four models are summarized in the following table. The best results are shown by features A+B+C. Note that the error rate decreases when additional feature set are included in the training data. It verifies our presumption that the feature set B, C provide additional relevant information for the regression task. But adding the D feature does not seem to provide any additional reduction in the error rate.
+Сравнение результатов производительности четырех моделей приведены в таблице ниже. Наилучшие результаты даются набором признаков А + Б + В. Обратите внимание, что частота ошибок уменьшается, когда в обучающие данные включается дополнительный набор признаков. Он подтверждает наше предположение, что набор признаков Б + В предоставляет дополнительные данные для задачи регрессии. Однако добавление набора признаков Г не дает дополнительного сокращения частоты ошибок.
 
-![result comparison](./media/machine-learning-data-science-create-features/result1.png)
+![сравнение результатов](./media/machine-learning-data-science-create-features/result1.png)
 
-### <a name="<a-name="example2"></a>-example-2:-creating-features-in-text-mining"></a><a name="example2"></a> Example 2: Creating Features in Text Mining  
+### <a name="example2"></a> Пример 2. Создание признаков в интеллектуальном анализе текста  
 
-Feature engineering is widely applied in tasks related to text mining, such as document classification and sentiment analysis. For example, when we want to classify documents into several categories, a typical assumption is that the word/phrases included in one doc category are less likely to occur in another doc category. In another words, the frequency of the words/phrases distribution is able to characterize different document categories. In text mining applications, because individual pieces of text-contents usually serve as the input data, the feature engineering process is needed to create the features involving word/phrase frequencies.
+Реконструирование признаков широко применяется в задачах, связанных с интеллектуальным анализом текста, например классификации документов и анализе тональностей. Например, если мы хотим классифицировать документы по нескольким категориям, типичными предположениями являются слова и фразы, которые вероятнее всего есть в одной категории документов, и которые с меньшей вероятностью есть в другой категории. Другими словами, частота распределения слов или фраз может характеризовать разные категории документов. В приложениях интеллектуального анализа текста отдельные части текстового содержимого обычно служат в качестве входных данных, поэтому для создания признаков, связанных с частотой вхождения слова или фразы, необходим процесс реконструирования признаков.
 
-To achieve this task, a technique called **feature hashing** is applied to efficiently turn arbitrary text features into indices. Instead of associating each text feature (words/phrases) to a particular index, this method functions by applying a hash function to the features and using their hash values as indices directly.
+Для выполнения этой задачи вызывается метод **хэширования признаков**, чтобы эффективно превратить произвольные признаки текста в индексы. Вместо того, чтобы сопоставлять каждый признак текста (слова или фразы) для определенного индекса, этот метод работает путем применения хэш-функции к признакам и непосредственного использования их хэш-значений как индексов.
 
-In Azure Machine Learning, there is a [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) module that creates these word/phrase features conveniently. Following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5, and the actual review content. The goal of this [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) module is to retrieve a bunch of new features that show the occurrence frequency of the corresponding word(s)/phrase(s) within the particular book review. To use this module, we need to complete the following steps:
+В машинном обучении Azure есть модуль [хэширования признаков](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/), с помощью которого удобнее создавать признаки этих слов и фраз. На рисунке ниже показан пример использования данного модуля. Входной набор данных содержит два столбца: рейтинг книги от 1 до 5 и содержимое фактической рецензии. Задача этого модуля [хэширования признаков](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) состоит в извлечении множества новых признаков, чтобы показать частоту вхождения соответствующих слов в рецензии на определенную книгу. Чтобы использовать этот модуль, необходимо выполнить такие действия.
 
-* First, select the column that contains the input text ("Col2" in this example).
-* Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number.
-* Third, set the parameter "N-grams" to 2. This gets the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter "N-grams" ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.  
+* Сначала выберите столбец, содержащий входной текст («Col2» в этом примере).
+* Затем для Hashing bitsize установите значение 8, означающее, что будет создано 2^8 = 256 признаков. Слова и фразы всего текста будут хэшированы на 256 индексов. Параметр Hashing bitsize меняется в диапазоне от 1 до 31. Слова и фразы с меньшей вероятностью хэшируются с тем же индексом при росте значения параметра.
+* После этого задайте для параметра N-grams значение 2. Этот параметр возвращает частоту вхождения униграмм (признаков для каждого отдельного слова) и биграмм (признаков для каждой пары смежных слов) во входном тексте. Параметр N-grams меняется от 0 до 10, определяя максимальное количество последовательно идущих слов, которые включены в признак.
 
-!["Feature Hashing" module](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
+![Модуль «Хэширование признаков»](./media/machine-learning-data-science-create-features/feature-Hashing1.png)
 
-The following figure shows what the these new feature look like.
+На следующем рисунке показано, на что похожи эти новые признаки.
 
-!["Feature Hashing" example](./media/machine-learning-data-science-create-features/feature-Hashing2.png)
+![Пример «Хэширование признаков»](./media/machine-learning-data-science-create-features/feature-Hashing2.png)
 
 
-## <a name="conclusion"></a>Conclusion
+## Заключение
 
-Engineered and selected features increase the efficiency of the training process which attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully.
+Реконструированные и выбранные признаки повышают эффективность процесса обучения, который пытается извлечь ключевые сведения, содержащиеся в данных. Они также дают возможность повысить возможности этих моделей, чтобы точнее классифицировать входные данные и более надежно предсказывать нужные результаты. Реконструирование и выбор признаков можно также объединять, чтобы сделать процесс обучения более алгоритмизируемым. Этого можно достичь путем расширения и сокращения числа признаков, необходимых для калибровки или обучения модели. С точки зрения математики выбранные для обучения модели признаки являются минимальным набором независимых переменных, которые определяют структуры в данных и затем успешно прогнозируют результаты.
 
-Note that it is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data we have or collect, the algorithm we pick, and the objective of the experiment.
+Обратите внимание, что он не всегда обязателен для выполнения реконструирования или выбора признаков. Его необходимость зависит от собираемых данных, используемого алгоритма и цели эксперимента.
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,131 +1,126 @@
 <properties 
-    pageTitle="Manage streaming endpoints with the Azure portal | Microsoft Azure" 
-    description="This topic shows how to manage streaming endpoints with the Azure portal." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    writer="juliako" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Управление конечными точками потоковой передачи с помощью портала Azure | Microsoft Azure" 
+	description="В этой статье рассказывается, как управлять конечными точками потоковой передачи с помощью портала Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	writer="juliako" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/29/2016"
-    ms.author="juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/29/2016"
+	ms.author="juliako"/>
 
 
+#Управление конечными точками потоковой передачи с помощью портала Azure
 
-#<a name="manage-streaming-endpoints-with-the-azure-portal"></a>Manage streaming endpoints with the Azure portal
+## Обзор
 
-## <a name="overview"></a>Overview
+> [AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+В службах мультимедиа Microsoft Azure **конечная точка потоковой передачи** — это служба потоковой передачи, которая может доставить содержимое непосредственно в клиентское приложение проигрывателя или в сеть доставки содержимого (CDN) для дальнейшего распространения. Службы мультимедиа также обеспечивают прозрачную интеграцию с Azure CDN. Исходящий поток из службы StreamingEndpoint может быть потоком трансляции или активом видео по запросу в учетной записи служб мультимедиа.
 
-In Microsoft Azure Media Services, a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account.
+Кроме того, чтобы справиться с растущими потребностями в пропускной способности, можно контролировать нагрузку службы конечной точки потоковой передачи, регулируя число единиц потоковой передачи. Рекомендуем выделить одну или несколько единиц масштабирования для приложения в рабочей среде. Единицы потоковой передачи предоставляют как выделенную пропускную способность исходящего трафика, которую можно приобрести с шагом 200 Мбит/с, так и дополнительную функциональность, которая в настоящее время включает в себя: [динамическую упаковку](media-services-dynamic-packaging-overview.md), интеграцию с CDN и расширенную конфигурацию.
 
-In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming units. It is recommended to allocate one or more scale units for applications in production environment. Streaming units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality, which includes: [dynamic packaging](media-services-dynamic-packaging-overview.md), CDN integration, and advanced configuration.
+>[AZURE.NOTE]Плата взимается, только когда конечная точка потоковой передачи используется.
 
->[AZURE.NOTE]You are only billed when your Streaming Endpoint is in running state.
+В этом разделе представлен обзор основных возможностей, предоставляемых конечными точками потоковой передачи. Здесь также показано, как использовать портал Azure для управления конечными точками потоковой передачи. Сведения о том, как масштабировать конечную точку, см. в [этом](media-services-portal-scale-streaming-endpoints.md) разделе.
 
-This topic gives an overview of the main functionalities that are provided by Streaming Endpoints. The topic also shows how to use the Azure portal to manage streaming endpoints. For information about how to scale the streaming endpoint, see [this](media-services-portal-scale-streaming-endpoints.md) topic.
+## Как приступить к управлению конечными точками потоковой передачи
 
-## <a name="start-managing-streaming-endpoints"></a>Start managing streaming endpoints
+Чтобы приступить к управлению конечными точками потоковой передачи для своей учетной записи, выполните следующие действия.
 
-To start managing streaming endpoints for your account, do the following.
+1. Войдите на [портал Azure](https://portal.azure.com/).
+2. В окне **Параметры** щелкните **Потоковые конечные точки**.
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
-2. In the **Settings** window, select **Streaming endpoints**.
+	![Конечная точка потоковой трансляции](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
-    ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+##Добавление или удаление конечной точки потоковой передачи
 
-##<a name="add/delete-a-streaming-endpoint"></a>Add/delete a streaming endpoint
+Чтобы добавить или удалить конечную точку потоковой передачи с помощью портала Azure, выполните следующие действия.
 
-To add/delete streaming endpoint using the Azure portal, do the following:
+1. Чтобы добавить конечную точку потоковой передачи, щелкните **+ Endpoint** (+ Конечная точка) в верхней части страницы.
+2. Чтобы удалить конечную точку потоковой передачи, нажмите кнопку **Удалить**.
 
-1. To add a streaming endpoint, click the **+ Endpoint** at the top of the page. 
-2. To delete a streaming endpoint, press **Delete** button. 
+	Конечную точку потоковой передачи по умолчанию удалить нельзя.
+2. Нажмите кнопку **Запуск** для запуска конечной точки.
 
-    The default streaming endpoint cannot be deleted.
-2. Click the **Start** button to start the streaming endpoint.
+	![Конечная точка потоковой трансляции](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
-    ![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+По умолчанию можно использовать до двух конечных точек потоковой передачи. Если вам необходимо больше точек, изучите раздел [Квоты и ограничения](media-services-quotas-and-limitations.md).
+	
+##<a id="configure_streaming_endpoints"></a>Настройка конечной точки потоковой передачи
 
-By default you can have up to two streaming endpoints. If you need to request more, see [Quotas and limitations](media-services-quotas-and-limitations.md).
-    
-##<a name="<a-id="configure_streaming_endpoints"></a>configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configuring the Streaming Endpoint
+Конечная точка потоковой передачи позволяет настроить следующие свойства при наличии по крайней мере 1 единицы масштабирования:
 
-Streaming Endpoint enables you to configure the following properties when you have at least 1 scale unit: 
+- управление доступом;
+- управление кэшем;
+- межсайтовые политики доступа.
 
-- Access control
-- Cache control
-- Cross site access policies
+Дополнительные сведения об этих свойствах см. в разделе [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
 
-For detailed information about these properties, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
+Конечную точку потоковой передачи можно настроить следующим образом.
 
-You can configure streaming endpoint by doing the following:
-
-1. Select the streaming endpoint that you want to configure.
-1. Click **Settings**.
+1. Выберите конечную точку потоковой передачи, которую хотите настроить.
+1. Щелкните **Параметры**.
   
-A brief description of the fields follows.
+Далее представлено краткое описание полей.
 
-![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![Конечная точка потоковой трансляции](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
   
-1. Maximum cache policy: used to configure cache lifetime for assets served through this streaming endpoint. If no value is set, the default is used. The default values can also be defined directly in Azure storage. If Azure CDN is enabled for the streaming endpoint, you should not set the cache policy value to less than 600 seconds.  
+1. Политика максимального размера кэша используется для настройки времени существования кэша для ресурсов-контейнеров, обслуживаемых данной конечной точкой потоковой передачи. Если значение не задано, то используется значение по умолчанию. Значения по умолчанию можно также задать непосредственно в службе хранилища Azure. Если для конечной точки потоковой передачи включена сеть Azure CDN, то не следует задавать значение политики кэша менее 600 секунд.
 
-2. Allowed IP addresses: used to specify IP addresses that would be allowed to connect to the published streaming endpoint. If no IP addresses specified, any IP address would be able to connect. IP addresses can be specified as either a single IP address (for example, '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.255.0)').
+2. С помощью поля разрешенных IP-адресов можно указать IP-адреса, которым будет разрешено подключение к опубликованной конечной точке потоковой передачи. Если IP-адреса не указаны, можно подключаться с любого IP-адреса. Можно указать отдельный IP-адрес (например, 10.0.0.1) или диапазон IP-адресов, используя IP-адрес и маску подсети CIDR (например, 10.0.0.1/22) или IP-адрес и маску подсети с точками (например, 10.0.0.1(255.255.255.0)).
 
-3. Configuration for Akamai signature header authentication: used to specify how signature header authentication request from Akamai servers is configured. Expiration is in UTC.
+3. Конфигурация для аутентификации заголовка подписи Akamai используется, чтобы указать, как настроен запрос аутентификации заголовка подписи от серверов Akamai. Срок действия указывается в формате UTC.
 
 
 
-##<a name="<a-id="enable_cdn"></a>enable-azure-cdn-integration"></a><a id="enable_cdn"></a>Enable Azure CDN integration
+##<a id="enable_cdn"></a>Включение интеграции Azure CDN
 
-You can specify to enable the Azure CDN integration for a Streaming Endpoint (it is disabled by default.)
+Вы можете включить интеграцию Azure CDN для конечной точки потоковой передачи (по умолчанию она отключена).
 
-To set the Azure CDN integration to true:
+Включение интеграции Azure CDN
 
-- The streaming endpoint must have at least one streaming unit. If later you want to set scale units to 0, you must first disable the CDN integration. By default when you create a new streaming endpoint one streaming unit is automatically set.
+- У конечной точки потоковой передачи должна быть по крайней мере одна единица потоковой передачи. Если позже вы захотите задать число единиц масштабирования равным 0, вначале потребуется отключить интеграцию CDN. По умолчанию при создании новой конечной точки потоковой передачи автоматически устанавливается одна единица потоковой передачи.
 
-- The streaming endpoint must be in a stopped state. Once the CDN gets enabled, you can start the streaming endpoint. 
+- Конечная точка потоковой передачи должна быть остановлена. После включения CDN вы можете запустить конечную точку потоковой передачи.
 
-It could take up to 90 min for the Azure CDN integration to get enabled.  It takes up to two hours for the changes to be active across all the CDN POPs.
+Для включения интеграции Azure CDN может потребоваться 90 минут. Активизация изменений по всем CDN POP занимает до двух часов.
 
-CDN integration is enabled in all the Azure data centers: US West, US East, North Europe, West Europe, Japan West, Japan East, South East Asia, and East Asia.
+Интеграция CDN возможна во всех центрах обработки данных Azure: Запад США, Восток США, Северная Европа, Западная Европа, Запад Японии, Восток Японии, Юго-Восточная Азия и Восточная Азия.
 
-Once it is enabled, the **Access Control** configuration gets disabled.
+После ее включения отключается конфигурация **контроля доступа**.
 
-![Streaming endpoint](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints5.png)
+![Конечная точка потоковой трансляции](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints5.png)
 
->[AZURE.IMPORTANT] Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon**.  If you wish to use **Azure CDN from Akamai** for Azure Media Services, you must [configure the endpoint manually](../cdn/cdn-create-new-endpoint.md).  For more information about Azure CDN features, see the [CDN overview](../cdn/cdn-overview.md).
+>[AZURE.IMPORTANT] Интеграция служб мультимедиа Azure с Azure CDN реализуется на базе **Azure CDN от Verizon**. Если для служб мультимедиа Azure требуется использовать **Azure CDN от Akamai**, то необходимо [настроить конечную точку вручную](../cdn/cdn-create-new-endpoint.md). Дополнительные сведения о компонентах Azure CDN см. в [обзоре CDN](../cdn/cdn-overview.md).
 
-###<a name="additional-considerations"></a>Additional considerations
+###Дополнительные замечания
 
-- When CDN is enabled for a streaming endpoint, clients cannot request content directly from the origin. If you need the ability to test your content with or without CDN, you can create another streaming endpoint that isn't CDN enabled.
-- Your streaming endpoint hostname remains the same after enabling CDN. You don’t need to make any changes to your media services workflow after CDN is enabled. For example, if your streaming endpoint hostname is strasbourg.streaming.mediaservices.windows.net, after enabling CDN, the exact same hostname is used.
-- For new streaming endpoints, you can enable CDN simply by creating a new endpoint; for existing streaming endpoints, you need to first stop the endpoint and then enable the CDN.
+- При включении CDN для конечной точки потоковой передачи клиенты не могут запрашивать содержимое непосредственно из источника. Если требуется возможность проверки содержимого с CDN или без нее, то можно создать другую конечную точку потоковой передачи, для которой не включена CDN.
+- Имя узла конечной точки потоковой передачи после включения CDN остается таким же. После включения CDN не требуется вносить никакие изменения в рабочий процесс служб мультимедиа. Например, если имя узла конечной точки потоковой передачи — strasbourg.streaming.mediaservices.windows.net, после включения CDN будет использоваться точно такое же имя узла.
+- Для новых конечных точек потоковой передачи можно включить CDN, просто создавая новые конечные точки. Для существующих конечных точек потоковой передачи необходимо сначала остановить конечную точку, а затем включить CDN.
  
 
-For more information see, [Announcing Azure Media Services integration with Azure CDN (Content Delivery Network)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
+Дополнительные сведения см. в [разделе, анонсирующем интеграцию служб мультимедиа Azure с Azure CDN (сетью доставки содержимого)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
 
 
-##<a name="next-steps"></a>Next steps
+##Дальнейшие действия
 
-Review Media Services learning paths.
+Просмотрите схемы обучения работе со службами мультимедиа.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

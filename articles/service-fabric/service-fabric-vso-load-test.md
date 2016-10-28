@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Load test your application by using Visual Studio Team Services | Microsoft Azure"
-    description="Learn how to stress test your Azure Service Fabric applications by using Visual Studio Team Services."
+    pageTitle="Нагрузочное тестирование приложения с помощью Visual Studio Team Services | Microsoft Azure"
+    description="Узнайте, как выполнить нагрузочное тестирование приложений Azure Service Fabric с помощью Visual Studio Team Services."
     services="service-fabric"
     documentationCenter="na"
     authors="cawams"
@@ -16,120 +16,119 @@
     ms.date="07/29/2016"
     ms.author="cawa" />
 
+# Нагрузочное тестирование приложения с помощью Visual Studio Team Services
 
-# <a name="load-test-your-application-by-using-visual-studio-team-services"></a>Load test your application by using Visual Studio Team Services
+В этой статье показано, как выполнить нагрузочное тестирование приложения с помощью функций нагрузочного тестирования Microsoft Visual Studio. В ней используются служба с отслеживанием состояния Azure Service Fabric в серверной части и служба без отслеживания состояния в клиентской части. Используемый здесь пример приложения представляет собой симулятор расположения самолета. Вы указываете идентификатор самолета, время вылета и место назначения. Серверная часть приложения обрабатывает запросы, а клиентская отображает на карте самолет в соответствии с заданными критериями.
 
-This article shows how to use Microsoft Visual Studio load test features to stress test an application. It uses an Azure Service Fabric stateful service back end and a stateless service web front end. The example application used here is an airplane location simulator. You provide an airplane ID, departure time, and destination. The application’s back end processes the requests, and the front end displays on a map the airplane that matches the criteria.
+Структура приложения Service Fabric, которое вы будете тестировать, показана на следующей схеме.
 
-The following diagram illustrates the Service Fabric application that you'll be testing.
+![Схема примера приложения, позволяющего определять местонахождение самолетов][0]
 
-![Diagram of the example airplane location application][0]
+## Предварительные требования
+Перед началом работы необходимо сделать следующее:
 
-## <a name="prerequisites"></a>Prerequisites
-Before getting started, you need to do the following:
+- Получите учетную запись Visual Studio Team. Это можно сделать бесплатно на веб-сайте [Visual Studio Team Services](https://www.visualstudio.com).
+- Загрузите и установите Visual Studio 2013 или Visual Studio 2015. В этой статье используется выпуск Visual Studio 2015 Enterprise, но Visual Studio 2013 и другие выпуски должны работать аналогичным образом.
+- Разверните свое приложение в промежуточной среде. Сведения об этом см. в разделе [Развертывание приложений на удаленном кластере с помощью Visual Studio](service-fabric-publish-app-remote-cluster.md).
+- Поймите схему использования вашего приложения. Эта информация используется для моделирования шаблона нагрузки.
+- Поймите цель нагрузочного тестирования. Это помогает интерпретировать и анализировать результаты нагрузочного тестирования.
 
-- Get a Visual Studio Team Services account. You can get one for free at [Visual Studio Team Services](https://www.visualstudio.com).
-- Get and install Visual Studio 2013 or Visual Studio 2015. This article uses Visual Studio 2015 Enterprise edition, but Visual Studio 2013 and other editions should work similarly.
-- Deploy your application to a staging environment. See [How to deploy applications to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md) for information about this.
-- Understand your application’s usage pattern. This information is used to simulate the load pattern.
-- Understand the goal for your load testing. This helps you interpret and analyze the load test results.
+## Создание и запуск проекта веб-тестов производительности и нагрузочных тестов
 
-## <a name="create-and-run-the-web-performance-and-load-test-project"></a>Create and run the Web Performance and Load Test project
+### Создание проекта веб-тестов производительности и нагрузочных тестов
 
-### <a name="create-a-web-performance-and-load-test-project"></a>Create a Web Performance and Load Test project
+1. Откройте Visual Studio 2015. Выберите **Файл** > **Создать** > **Проект** в меню. Откроется диалоговое окно **Новый проект**.
 
-1. Open Visual Studio 2015. Choose **File** > **New** > **Project** on the menu bar to open the **New Project** dialog box.
+2. Разверните узел **Visual C#** и выберите **Тест** > **Проект веб-тестов производительности и нагрузочных тестов**. Укажите имя проекта и нажмите кнопку **ОК**.
 
-2. Expand the **Visual C#** node and choose **Test** > **Web Performance and Load Test project**. Give the project a name and then choose the **OK** button.
+    ![Снимок экрана: диалоговое окно "Новый проект"][1]
 
-    ![Screen shot of the New Project dialog box][1]
+    На экране должен появиться новый проект веб-тестов производительности и нагрузочных тестов в обозревателе решений.
 
-    You should see a new Web Performance and Load Test project in Solution Explorer.
+    ![Снимок экрана: новый проект в обозревателе решений][2]
 
-    ![Screen shot of Solution Explorer showing the new project][2]
+### Запись веб-теста производительности
 
-### <a name="record-a-web-performance-test"></a>Record a web performance test
+1. Откройте проект .webtest.
 
-1. Open the .webtest project.
+2. Щелкните значок **Добавить запись** для запуска сеанса записи в браузере.
 
-2. Choose the **Add Recording** icon to start a recording session in your browser.
+    ![Снимок экрана: значок добавления записи в браузере][3]
 
-    ![Screen shot of the Add Recording icon in a browser][3]
+    ![Снимок экрана: кнопка записи в браузере][4]
 
-    ![Screen shot of the Record button in a browser][4]
+3. Перейдите к приложению Service Fabric. На панели записи должны отображаться веб-запросы.
 
-3. Browse to the Service Fabric application. The recording panel should show the web requests.
+    ![Снимок экрана: веб-запросы на панели записи][5]
 
-    ![Screen shot of web requests in the recording panel][5]
+4. Выполните последовательность действий, которую вы ожидаете от пользователя. Эти действия используются в качестве шаблона для создания нагрузки.
 
-4. Perform a sequence of actions that you expect the users to perform. These actions are used as a pattern to generate the load.
+5. Когда закончите, нажмите кнопку **Остановить**, чтобы остановить запись.
 
-5. When you're done, choose the **Stop** button to stop recording.
+    ![Снимок экрана: кнопка остановки][6]
 
-    ![Screen shot of the Stop button][6]
+    Проект .webtest в Visual Studio должен захватить последовательности запросов. Динамические параметры заменяются автоматически. На этом этапе можно удалить любые излишние и повторяющиеся зависимые запросы, которые не являются частью сценария тестирования.
 
-    The .webtest project in Visual Studio should have captured a series of requests. Dynamic parameters are replaced automatically. At this point, you can delete any extra, repeated dependency requests that are not part of your test scenario.
+6. Сохраните проект и выберите **Запустить тест** для запуска веб-теста производительности локально и убедитесь, что все работает правильно.
 
-6. Save the project and then choose the **Run Test** command to run the web performance test locally and make sure everything works correctly.
+    ![Снимок экрана: команда запуска теста][7]
 
-    ![Screen shot of the Run Test command][7]
+### Параметризация веб-теста производительности
 
-### <a name="parameterize-the-web-performance-test"></a>Parameterize the web performance test
+Веб-тест производительности можно параметризовать, преобразовав его в закодированный веб-тест производительности и внеся изменения в код. В качестве альтернативы можно привязать веб-тест производительности к списку данных, так чтобы тест перебирал эти данные. Сведения о преобразовании веб-теста производительности в закодированный тест см. в статье [Создание и запуск закодированного веб-теста производительности](https://msdn.microsoft.com/library/ms182552.aspx), а сведения о привязке данных к веб-тесту производительности — в статье [Добавление источника данных к веб-тесту производительности](https://msdn.microsoft.com/library/ms243142.aspx).
 
-You can parameterize the web performance test by converting it to a coded web performance test and then editing the code. As an alternative, you can bind the web performance test to a data list so that the test iterates through the data. See [Generate and run a coded web performance test](https://msdn.microsoft.com/library/ms182552.aspx) for details about how to convert the web performance test to a coded test. See [Add a data source to a web performance test](https://msdn.microsoft.com/library/ms243142.aspx) for information about how to bind data to a web performance test.
+В этом примере мы преобразуем веб-тест производительности в закодированный тест, и вы сможете заменить идентификатор самолета созданным идентификатором GUID, а также добавить дополнительные запросы для отправки рейсов в другие места.
 
-For this example, we'll convert the web performance test to a coded test so you can replace the airplane ID with a generated GUID and add more requests to send flights to different locations.
+### Создание проекта нагрузочного теста
 
-### <a name="create-a-load-test-project"></a>Create a load test project
+Проект нагрузочного теста состоит из одного или нескольких сценариев, описываемых веб-тестом производительности и модульным тестом, и дополнительных параметров нагрузочного теста. Ниже показано, как создать проект нагрузочного теста:
 
-A load test project is composed of one or more scenarios described by the web performance test and unit test, along with additional specified load test settings. The following steps show how to create a load test project:
+1. В контекстном меню проекта веб-тестов производительности и нагрузочных тестов выберите **Добавить** > **Нагрузочный тест**. В мастере **Нагрузочный тест** нажмите кнопку **Далее**, чтобы настроить параметры теста.
 
-1. On the shortcut menu of your Web Performance and Load Test project, choose **Add** > **Load Test**. In the **Load Test** wizard, choose the **Next** button to configure the test settings.
+2. В разделе **Шаблон нагрузки** выберите, хотите ли вы использовать постоянную пользовательскую нагрузку или пошаговую пользовательскую нагрузку, которая начинается с нескольких пользователей, и с течением времени их количество увеличивается.
 
-2. In the **Load Pattern** section, choose whether you want a constant user load or a step load, which starts with a few users and increases the users over time.
+    Если у вас хорошее представление об объеме пользовательской нагрузки и вы хотите посмотреть, как с ней справится текущая система, выберите **Постоянная нагрузка**. Если вы хотите узнать, будет ли система работать стабильно при различных объемах нагрузки, выберите **Пошаговая нагрузка**.
 
-    If you have a good estimate of the amount of user load and want to see how the current system performs, choose **Constant Load**. If your goal is to learn whether the system performs consistently under various loads, choose **Step Load**.
+3. В разделе **Сочетание тестов** нажмите кнопку **Добавить** и выберите тест, который хотите включить в нагрузочный тест. Для указания доли каждого теста в общем количестве запущенных тестов воспользуйтесь столбцом **Распределение**.
 
-3. In the **Test Mix** section, choose the **Add** button and then select the test that you want to include in the load test. You can use the **Distribution** column to specify the percentage of total tests run for each test.
+4. В разделе **Параметры запуска** укажите длительность нагрузочного теста.
 
-4. In the **Run Settings** section, specify the load test duration.
+    >[AZURE.NOTE] Параметр **Итерации теста** доступен только при запуске нагрузочного теста локально с помощью Visual Studio.
 
-    >[AZURE.NOTE] The **Test Iterations** option is available only when you run a load test locally using Visual Studio.
+5. В подразделе **Расположение** раздела **Параметры запуска** укажите расположение, в котором формируются запросы нагрузочного теста. Мастер может попросить вас войти в вашу учетную запись Team Services. Выполните вход и выберите географическое расположение. По завершении нажмите кнопку **Готово**.
 
-5. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Services account. Log in and then choose a geographic location. When you're done, choose the **Finish** button.
+6. После создания нагрузочного теста откройте проект .loadtest и выберите текущие параметры запуска, например: **Параметры запуска** > **Параметры запуска 1 [Активные]**. Параметры запуска откроются в окне **Свойства**.
 
-6. After the load test is created, open the .loadtest project and choose the current run setting, such as **Run Settings** > **Run Settings1 [Active]**. This opens the run settings in the **Properties** window.
+7. В разделе **Результаты** окна **Параметры запуска** для параметра **Хранилище сведений о времени** по умолчанию должно быть установлено значение **Нет**. Измените это значение на **Все индивидуальные сведения** для получения дополнительных сведений о результатах нагрузочного теста. Дополнительные сведения о том, как подключиться к Visual Studio Team Services и запустить нагрузочный тест, см. в статье [Нагрузочное тестирование](https://www.visualstudio.com/load-testing.aspx).
 
-7. In the **Results** section of the **Run Settings** properties window, the **Timing Details Storage** setting should have **None** as its default value. Change this value to **All Individual Details** to get more information on the load test results. See [Load Testing](https://www.visualstudio.com/load-testing.aspx) for more information on how to connect to Visual Studio Team Services and run a load test.
+### Запуск нагрузочного теста с помощью Visual Studio Team Services
 
-### <a name="run-the-load-test-by-using-visual-studio-team-services"></a>Run the load test by using Visual Studio Team Services
+Для запуска теста выберите **Запустить нагрузочный тест**.
 
-Choose the **Run Load Test** command to start the test run.
+![Снимок экрана: команда запуска нагрузочного теста][8]
 
-![Screen shot of the Run Load Test command][8]
+## Просмотр и анализ результатов нагрузочного теста
 
-## <a name="view-and-analyze-the-load-test-results"></a>View and analyze the load test results
+По мере выполнения нагрузочного теста информация о производительности появляется на графике. У вас должен отобразиться примерно такой график.
 
-As the load test progresses, the performance information is graphed. You should see something similar to the following graph.
+![Снимок экрана: диаграмма производительности для результатов нагрузочного теста][9]
 
-![Screen shot of performance graph for load test results][9]
+1. Выберите ссылку **Загрузить отчет** в верхней части страницы. После загрузки отчета нажмите кнопку **Просмотреть отчет**.
 
-1. Choose the **Download report** link near the top of the page. After the report is downloaded, choose the **View report** button.
+    На вкладке **График** можно увидеть графики для различных счетчиков производительности. На вкладке **Сводка** показываются общие результаты теста. На вкладке **Таблицы** отображается общее количество успешных и неудачных нагрузочных тестов.
 
-    On the **Graph** tab you can see graphs for various performance counters. On the **Summary** tab, the overall test results appear. The **Tables** tab shows the total number of passed and failed load tests.
+2. Выберите ссылки с номерами в столбцах **Тесты** > **Неудачные** и **Ошибки** > **Количество**, чтобы просмотреть подробные сведения об ошибке.
 
-2. Choose the number links on the **Test** > **Failed** and the **Errors** > **Count** columns to see error details.
+    На вкладке **Сведения** отображается информация о виртуальных пользователях и сценариях тестов для неудачных запросов. Эти данные могут быть полезными, если нагрузочный тест содержит несколько сценариев.
 
-    The **Detail** tab shows virtual user and test scenario information for failed requests. This data can be useful if the load test includes multiple scenarios.
+Дополнительные сведения о просмотре результатов нагрузочного тестирования см. в статье [Анализ результатов нагрузочного тестирования в графическом представлении диаграмм анализатора нагрузочного тестирования](https://www.visualstudio.com/load-testing.aspx).
 
-See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](https://www.visualstudio.com/load-testing.aspx) for more information on viewing load test results.
+## Автоматизация нагрузочного тестирования
 
-## <a name="automate-your-load-test"></a>Automate your load test
+Нагрузочный тест Visual Studio Team Services предоставляет интерфейсы API, которые позволяют управлять нагрузочными тестами и анализировать результаты в учетной записи Team Services. Дополнительные сведения см. в статье [Интерфейсы API Rest для облачного нагрузочного тестирования](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx).
 
-Visual Studio Team Services Load Test provides APIs to help you manage load tests and analyze results in a Team Services account. See [Cloud Load Testing Rest APIs](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) for more information.
-
-## <a name="next-steps"></a>Next steps
-- [Monitoring and diagnosing services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+## Дальнейшие действия
+- [Мониторинг и диагностика состояния служб в локальной среде разработки](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [0]: ./media/service-fabric-vso-load-test/OverviewDiagram.png
 [1]: ./media/service-fabric-vso-load-test/NewProjectDialog.png
@@ -142,8 +141,4 @@ Visual Studio Team Services Load Test provides APIs to help you manage load test
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

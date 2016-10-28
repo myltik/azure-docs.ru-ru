@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Configure Azure Run As Account | Microsoft Azure"
-    description="Tutorial that walks you through the creation, testing, and example use of security principal authentication in Azure Automation."
+    pageTitle="Настройка в Azure учетной записи запуска от имени | Microsoft Azure"
+    description="В этом руководстве приводятся пошаговые инструкции по созданию и тестированию, а также пример проверки подлинности с помощью субъекта безопасности в службе автоматизации Azure."
     services="automation"
     documentationCenter=""
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="service principal name, setspn, azure authentication"/>
+	keywords="имя субъекта-службы, SetSPN, проверка подлинности Azure"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
@@ -16,138 +16,135 @@
     ms.date="08/17/2016"
     ms.author="magoedte"/>
 
+# Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени
 
-# <a name="authenticate-runbooks-with-azure-run-as-account"></a>Authenticate Runbooks with Azure Run As account
+В этой статье объясняется, как настроить учетную запись службы автоматизации на портале Azure с помощью учетной записи запуска от имени, чтобы проверять подлинность ресурсов управления модулями Runbook в Azure Resource Manager или в службе управления службами Azure.
 
-This topic will show you how to configure an Automation account from the Azure portal using the  Run As account feature to authenticate runbooks managing resources in either Azure Resource Manager or Azure Service Management.
+При создании новой учетной записи службы автоматизации на портале Azure автоматически создаются следующие ресурсы.
 
-When you create a new Automation account in the Azure portal, it automatically creates:
+- Учетная запись запуска от имени, которая создает субъект-службу в Azure Active Directory и сертификат, а также назначает контроль доступа на основе роли участника. Будет использоваться для управления ресурсами Resource Manager с помощью модулей Runbook.
+- Классическая учетная запись запуска от имени. Создается путем отправки сертификата управления. Будет использоваться для администрирования службы управления службами Azure или классических ресурсов с помощью модулей Runbook.
 
-- Run As account which creates a new service principal in Azure Active Directory, a certificate, and assigns the Contributor role-based access control (RBAC), which will be used to manage Resource Manager resources using runbooks.   
-- Classic Run As account by uploading a management certificate, which will be used to manage Azure Service Management or classic resources using runbooks.  
+Это упрощает процесс и помогает быстро начать построение и развертывание модулей Runbook для решения конкретных задач автоматизации.
 
-This simplifies the process for you and helps you quickly start building and deploying runbooks to support your automation needs.      
+Используя учетную запись запуска от имени и классическую учетную запись, вы можете:
 
-Using a Run As and Classic Run As account, you can:
-
-- Provide a standardized way to authenticate with Azure when managing Azure Resource Manager or Azure Service Management resources from runbooks in the Azure portal.  
-- Automate the use of global runbooks configured in Azure Alerts.
-
-
->[AZURE.NOTE] The Azure [Alert integration feature](../azure-portal/insights-receive-alert-notifications.md) with Automation Global Runbooks requires an Automation account that is configured with a Run As and Classic Run As account. You can either select an Automation account that already has a Run As and Classic Run As account defined or choose to create a new one.
-
-We will show you how to create the Automation account from the Azure portal, update an Automation account using PowerShell, and demonstrate how to authenticate in your runbooks.
-
-Before we do that, there are a few things that you should understand and consider before proceeding.
-
-1. This does not impact existing Automation accounts already created in either the classic or Resource Manager deployment model.  
-2. This will only work for Automation accounts created through the Azure portal.  Attempting to create an account from the classic portal will not replicate the Run As account configuration.
-3. If you currently have runbooks and assets (i.e. schedules, variables, etc.) previously created to manage classic resources, and you want those runbooks to authenticate with the new Classic Run As account, you will need to migrate them to the new Automation account or update your existing account using the PowerShell script below.  
-4. To authenticate using the new Run As account and Classic Run As Automation account, you will need to modify your existing runbooks with the example code below.  **Please note** that the Run As account is for authentication against Resource Manager resources using the certificate-based service principal, and the Classic Run As account is for authenticating against Service Management resources with the management certificate.     
+- внедрить стандартную процедуру проверки подлинности в Azure при управлении ресурсами Azure Resource Manager и управления службами Azure с помощью модулей Runbook на портале Azure;
+- автоматизировать использование глобальных модулей Runbook, настроенных в службе оповещений Azure.
 
 
-## <a name="create-a-new-automation-account-from-the-azure-portal"></a>Create a new Automation Account from the Azure Portal
+>[AZURE.NOTE] Для работы [функции интеграции оповещений](../azure-portal/insights-receive-alert-notifications.md) Azure с глобальными модулями Runbook службы автоматизации требуется учетная запись службы автоматизации, в которой настроены учетная запись запуска от имени и классическая учетная запись запуска от имени. Вы можете выбрать учетную запись службы автоматизации, в которой уже определены учетная запись запуска от имени и классическая учетная запись запуска от имени, или создать новую.
 
-In this section, you will perform the following steps to create a new Azure Automation account  from the Azure portal.  This creates both the Run As and classic Run As account.  
+Мы покажем, как создать учетную запись службы автоматизации на портале Azure, обновить учетную запись службы автоматизации с помощью PowerShell, а также как пройти проверку подлинности модулей Runbook.
 
->[AZURE.NOTE] The user performing these steps *must* be a member of the Subscription Admins role and co-administrator of the subscription which is granting access to the subscription for the user.  The user must also be added as a User to that subscriptions default Active Directory; the account does not need to be assigned to a privileged role. 
+Прежде чем приступать к выполнению этих задач, следует принять во внимание несколько моментов.
 
-1. Log in to the Azure portal with an account that is a member of the Subscription Admins role and co-administrator of the subscription.
-2. Select **Automation Accounts**.
-3. In the Automation Accounts blade, click **Add**.<br>![Add Automation Account](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
+1. Эта конфигурация не повлияет на существующие учетные записи службы автоматизации, созданные в классической модели развертывания или в модели развертывания Resource Manager.
+2. Эта конфигурация работает только для учетных записей службы автоматизации, созданных с помощью портала Azure. При попытке создать учетную запись на классическом портале конфигурация учетной записи запуска от имени не будет реплицирована.
+3. Если вы уже создали модули Runbook и ресурсы (например, расписания, переменные и т. д.) для управления классическими ресурсами и хотите выполнять проверку подлинности этих модулей Runbook с помощью классической учетной записи запуска от имени, вы должны перенести модули в новую учетную запись службы автоматизации или обновить существующую учетную запись с помощью сценария PowerShell, приведенного ниже.
+4. Чтобы выполнять проверку подлинности с помощью новой учетной записи запуска от имени и классической учетной записи запуска от имени (учетная запись службы автоматизации), измените существующие модули Runbook с помощью примера кода, приведенного ниже. **Обратите внимание**: учетная запись запуска от имени предназначена для проверки подлинности в ресурсах Resource Manager с помощью субъекта-службы на основе сертификата. А классическая учетная запись запуска от имени используется для проверки подлинности в ресурсах Resource Manager с помощью сертификата управления.
 
-    >[AZURE.NOTE] If you see the following warning in the **Add Automation Account** blade, this is because your account is not a member of the Subscription Admins role and co-admin of the subscription.<br>![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
 
-4. In the **Add Automation Account** blade, in the **Name** box type in a name for your new Automation account.
-5. If you have more than one subscription, specify one for the new account, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
-6. Verify the value **Yes** is selected for the **Create Azure Run As account** option, and click the **Create** button.  
+## Создание учетной записи службы автоматизации на портале Azure
 
-    >[AZURE.NOTE] If you choose to not create the Run As account by selecting the option **No**, you will be presented with a warning message in the **Add Automation Account** blade.  While the account is created in the Azure portal, it will not have a corresponding authentication identity within your classic or Resource Manager subscription directory service and therefore, no access to resources in your subscription.  This will prevent any runbooks referencing this account from being able to authenticate and perform tasks against resources in those deployment models.
+В этом разделе указаны действия, с помощью которых на портале Azure можно создать новую учетную запись службы автоматизации Azure. При этом создаются учетная запись запуска от имени и классическая учетная запись запуска от имени.
+
+>[AZURE.NOTE] Пользователь, выполняющий эти действия, *должен* быть участником роли администраторов подписки и соадминистратором подписки, из которой пользователю предоставляется доступ к подписке. Пользователь также должен быть добавлен в роль "Пользователь" в стандартных подписках Active Directory. Учетной записи не нужно назначать привилегированную роль.
+
+1. Войдите на портал Azure с помощью учетной записи, которая является участником роли администраторов подписки и соадминистратором подписки.
+2. Выберите элемент **Учетные записи службы автоматизации**.
+3. В колонке "Учетные записи службы автоматизации" щелкните **Добавить**.<br>![Добавление учетной записи службы автоматизации](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
+
+    >[AZURE.NOTE] Если вы видите в колонке **Добавление учетной записи службы автоматизации** следующее предупреждение, это означает, что ваша учетная запись не является участником роли администраторов подписки и соадминистратором подписки.<br>![Предупреждение в колонке "Добавление учетной записи службы автоматизации"](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
+
+4. В колонке **Добавление учетной записи службы автоматизации** в поле **Имя** введите имя новой учетной записи службы автоматизации.
+5. Если у вас несколько подписок, укажите одну из них для новой учетной записи, а также новую или существующую **группу ресурсов** и **расположение** центра обработки данных Azure.
+6. Убедитесь, что для параметра **Создать учетную запись запуска от имени Azure** выбрано значение **Да**, и нажмите кнопку **Создать**.
+
+    >[AZURE.NOTE] Если вы решили не создавать учетную запись запуска от имени, выбрав значение **Нет**, в колонке **Добавление учетной записи службы автоматизации** появится предупреждение. Хотя учетная запись и создается на портале Azure, она не будет содержать соответствующее удостоверение проверки подлинности в службе каталогов классической подписки или подписки Resource Manager, поэтому у этой учетной записи не будет доступа к ресурсам в вашей подписке. Из-за этого модули Runbook, ссылающиеся на эту учетную запись, не смогут проходить проверку подлинности и выполнять задачи, используя ресурсы в соответствующих моделях развертывания.
     
-    >![Add Automation Account Warning](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)<br>
-    When the service principal is not created the Contributor role will not be assigned.
+    >![Предупреждение в колонке "Добавление учетной записи службы автоматизации"](media/automation-sec-configure-azure-runas-account/create-account-decline-create-runas-msg.png)<br> Если субъект-служба не создан, роль участника не назначается.
 
 
-7. While Azure creates the Automation account, you can track the progress under **Notifications** from the menu.
+7. Ход создания учетной записи службы автоматизации в Azure можно отслеживать в разделе **Уведомления** в меню.
 
-### <a name="resources-included"></a>Resources included
+### Создаваемые ресурсы
 
-When the Automation account is successfully created, several resources are automatically created for you.  The following table summarizes resources for the Run As account.<br>
+После создания учетной записи службы автоматизации автоматически создаются несколько ресурсов. В следующей таблице перечислены ресурсы для учетной записи запуска от имени.<br>
 
-Resource|Description 
+Ресурс|Описание 
 --------|-----------
-AzureAutomationTutorial Runbook|An example PowerShell runbook that demonstrates how to authenticate using the Run As account and gets all the Resource Manager resources.
-AzureAutomationTutorialScript Runbook|An example PowerShell runbook that demonstrates how to authenticate using the Run As account and gets all the Resource Manager resources. 
-AzureRunAsCertificate|Certificate asset automatically created during Automation account creation or using the PowerShell script below for an existing account.  It allows you to authenticate with Azure so that you can manage Azure Resource Manager resources from runbooks.  This certificate has a one-year lifespan. 
-AzureRunAsConnection|Connection asset automatically created during Automation account creation or using the PowerShell script below for an existing account.
+Модуль Runbook AzureAutomationTutorial|Пример модуля Runbook PowerShell, который демонстрирует, как выполнить проверку подлинности с помощью учетной записи запуска от имени, и получает доступ ко всем ресурсам Resource Manager.
+Модуль Runbook AzureAutomationTutorialScript|Пример модуля Runbook PowerShell, который демонстрирует, как выполнить проверку подлинности с помощью учетной записи запуска от имени, и получает доступ ко всем ресурсам Resource Manager. 
+AzureRunAsCertificate|Ресурс-контейнер сертификатов, который автоматически создается во время создания учетной записи службы автоматизации или с помощью приведенного ниже сценария PowerShell для существующей учетной записи. Он позволяет пройти проверку подлинности в Azure, что дает возможность управлять ресурсами Azure Resource Manager с помощью модулей Runbook. Срок действия этого сертификата — один год. 
+AzureRunAsConnection|Ресурс-контейнер подключений, который автоматически создается во время создания учетной записи службы автоматизации или с помощью приведенного ниже сценария PowerShell для существующей учетной записи.
 
-The following table summarizes resources for the Classic Run As account.<br>
+В следующей таблице перечислены ресурсы для классической учетной записи запуска от имени.<br>
 
-Resource|Description 
+Ресурс|Описание 
 --------|-----------
-AzureClassicAutomationTutorial Runbook|An example runbook which gets all the Classic VMs in a subscription using the Classic Run As Account (certificate) and then outputs the VM name and status.
-AzureClassicAutomationTutorial Script Runbook|An example runbook  which gets all the Classic VMs in a subscription using the Classic Run As Account (certificate) and then outputs the VM name and status.
-AzureClassicRunAsCertificate|Certificate asset automatically created that is used to authenticate with Azure so that you can manage Azure classic resources from runbooks.  This certificate has a one-year lifespan. 
-AzureClassicRunAsConnection|Connection asset automatically created that is used to authenticate with Azure so that you can manage Azure classic resources from runbooks.  
+Модуль Runbook AzureClassicAutomationTutorial|Пример модуля Runbook, который получает доступ ко всем классическим виртуальным машинам в подписке с помощью классической учетной записи запуска от имени (сертификат), а затем выводит имя и состояние виртуальной машины.
+Модуль Runbook AzureClassicAutomationTutorialScript|Пример модуля Runbook, который получает доступ ко всем классическим виртуальным машинам в подписке с помощью классической учетной записи запуска от имени (сертификат), а затем выводит имя и состояние виртуальной машины.
+AzureClassicRunAsCertificate|Автоматически созданный ресурс-контейнер сертификатов, который используется для проверки подлинности в Azure, что позволяет управлять классическими ресурсами Azure с помощью модулей Runbook. Срок действия этого сертификата — один год. 
+AzureClassicRunAsConnection|Автоматически созданный ресурс-контейнер подключений, который используется для проверки подлинности в Azure, что позволяет управлять классическими ресурсами Azure с помощью модулей Runbook.  
 
-## <a name="verify-run-as-authentication"></a>Verify Run As authentication
+## Тестирование проверки подлинности с помощью учетной записи запуска от имени
 
-Next we will perform a small test to confirm you are able to successfully authenticate using the new Run As account.     
+Выполним небольшой тест, чтобы убедиться, что вы сможете успешно пройти проверку подлинности с помощью новой учетной записи запуска от имени.
 
-1. In the Azure Portal, open the Automation account created earlier.  
-2. Click on the **Runbooks** tile to open the list of runbooks.
-3. Select the **AzureAutomationTutorialScript** runbook and then click **Start** to start the runbook.  You will receive a prompt verifying you wish to start the runbook.
-4. A [runbook job](automation-runbook-execution.md) is created, the Job blade is displayed, and the job status displayed in the **Job Summary** tile.  
-5. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
-6. When the runbook job completes, we should see a status of **Completed**.<br> ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationtutorialscript.png)<br>
-7. To see the detailed results of the runbook, click on the **Output** tile.
-8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all resources available in the resource group. 
-9. Close the **Output** blade to return to the **Job Summary** blade.
-13. Close the **Job Summary** and the corresponding **AzureAutomationTutorialScript** runbook blade.
+1. На портале Azure откройте учетную запись службы автоматизации, созданную ранее.
+2. Щелкните плитку **Модули Runbook**, чтобы открыть список модулей Runbook.
+3. Выберите модуль Runbook **AzureAutomationTutorialScript** и нажмите кнопку **Запустить**, чтобы запустить его. Появится запрос на подтверждение запуска модуля Runbook.
+4. Будет создано [задание Runbook](automation-runbook-execution.md), откроется колонка "Задание", а состояние задания будет отображаться на плитке **Сводка по заданию**.
+5. Сначала задание получает состояние *В очереди*. Это состояние означает, что задание ожидает, пока рабочая роль модуля Runbook в облаке станет доступной. Как только исполнитель затребует задание, оно получит состояние *Запущено*, а с началом фактического выполнения модуля Runbook — состояние *Выполняется*.
+6. После выполнения задания Runbook должно отобразиться состояние **Выполнено**.<br> ![Тестирование модуля Runbook субъекта безопасности](media/automation-sec-configure-azure-runas-account/job-summary-automationtutorialscript.png)<br>
+7. Чтобы просмотреть подробные результаты задания Runbook, щелкните плитку **Выходные данные**.
+8. В колонке **Выходные данные** должна быть информация о том, что модуль Runbook прошел проверку подлинности и вернул список всех ресурсов, доступных в группе ресурсов.
+9. Закройте колонку **Выходные данные**, чтобы вернуться к колонке **Сводка по заданию**.
+13. Закройте колонку **Сводка по заданию** и соответствующую колонку модуля Runbook **AzureAutomationTutorialScript**.
 
-## <a name="verify-classic-run-as-authentication"></a>Verify Classic Run As authentication
+## Тестирование проверки подлинности классической учетной записи запуска от имени
 
-Next we will perform a small test to confirm you are able to successfully authenticate using the new Classic Run As account.     
+Выполним небольшой тест, чтобы убедиться, что вы сможете успешно пройти проверку подлинности с помощью новой классической учетной записи запуска от имени.
 
-1. In the Azure Portal, open the Automation account created earlier.  
-2. Click on the **Runbooks** tile to open the list of runbooks.
-3. Select the **AzureClassicAutomationTutorialScript** runbook and then click **Start** to  start the runbook.  You will receive a prompt verifying you wish to start the runbook.
-4. A [runbook job](automation-runbook-execution.md) is created, the Job blade is displayed, and the job status displayed in the **Job Summary** tile.  
-5. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  
-6. When the runbook job completes, we should see a status of **Completed**.<br> ![Security Principal Runbook Test](media/automation-sec-configure-azure-runas-account/job-summary-automationclassictutorialscript.png)<br>
-7. To see the detailed results of the runbook, click on the **Output** tile.
-8. In the **Output** blade, you should see it has successfully authenticated and returned a list of all classic VM’s in the subscription. 
-9. Close the **Output** blade to return to the **Job Summary** blade.
-13. Close the **Job Summary** and the corresponding **AzureClassicAutomationTutorialScript** runbook blade.
+1. На портале Azure откройте учетную запись службы автоматизации, созданную ранее.
+2. Щелкните плитку **Модули Runbook**, чтобы открыть список модулей Runbook.
+3. Выберите модуль Runbook **AzureClassicAutomationTutorialScript** и нажмите кнопку **Запустить**, чтобы запустить его. Появится запрос на подтверждение запуска модуля Runbook.
+4. Будет создано [задание Runbook](automation-runbook-execution.md), откроется колонка "Задание", а состояние задания будет отображаться на плитке **Сводка по заданию**.
+5. Сначала задание получает состояние *В очереди*. Это состояние означает, что задание ожидает, пока рабочая роль модуля Runbook в облаке станет доступной. Как только исполнитель затребует задание, оно получит состояние *Запущено*, а с началом фактического выполнения модуля Runbook — состояние *Выполняется*.
+6. После выполнения задания Runbook должно отобразиться состояние **Выполнено**.<br> ![Тестирование модуля Runbook субъекта безопасности](media/automation-sec-configure-azure-runas-account/job-summary-automationclassictutorialscript.png)<br>
+7. Чтобы просмотреть подробные результаты задания Runbook, щелкните плитку **Выходные данные**.
+8. В колонке **Выходные данные** должна отображаться информация о том, что модуль Runbook прошел проверку подлинности и вернул список всех классических виртуальных машин в подписке.
+9. Закройте колонку **Выходные данные**, чтобы вернуться к колонке **Сводка по заданию**.
+13. Закройте колонку **Сводка по заданию** и колонку модуля Runbook **AzureClassicAutomationTutorialScript**.
 
-## <a name="update-an-automation-account-using-powershell"></a>Update an Automation Account using PowerShell
+## Обновление учетной записи службы автоматизации с помощью PowerShell
 
-Here we provide you with the option to use PowerShell to update your existing Automation account if:
+В этом разделе объясняется, как использовать PowerShell для обновления существующей учетной записи службы автоматизации в следующих случаях.
 
-1. You created an Automation account, but declined to create the Run As account 
-2. You already have an Automation account to manage Resource Manager resources and you want to update it to include the Run As account for runbook authentication 
-2. You already have an Automation account to manage classic resources and you want to update it to use the Classic Run As instead of creating a new account and migrating your runbooks and assets to it   
+1. Вы создали учетную запись службы автоматизации, но не создали учетную запись запуска от имени.
+2. У вас уже есть учетная запись службы автоматизации для управления ресурсами Resource Manager, и вы хотите обновить ее, чтобы включить учетную запись запуска от имени в процедуру проверки подлинности модуля Runbook.
+2. У вас есть учетная запись службы автоматизации для управления классическими ресурсами, и вы хотите обновить ее, чтобы использовать классическую учетную запись запуска от имени, а не создавать новую учетную запись и переносить в нее модули Runbook и ресурсы-контейнеры.
 
-Before proceeding, please verify the following:
+Прежде чем продолжить, проверьте, выполнены ли следующие действия:
 
-1. You have downloaded and installed [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) if you are running Windows 7.   
-    If you are running Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1, and Windows 7 SP1, [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) is available for installation.
-2. Azure PowerShell 1.0. For information about this release and how to install it, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). 
-3. You have created an automation account.  This account will be referenced as the value for parameters –AutomationAccountName and -ApplicationDisplayName in both scripts below.
+1. Если вы используете Windows 7, скачайте и установите [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855). Если вы используете Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1 или Windows 7 с пакетом обновления 1 (SP1), установите [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395).
+2. Azure PowerShell 1.0. Сведения об этом выпуске и его установке см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+3. Создана учетная запись службы автоматизации. Эта учетная запись будет указана как значение для параметров -AutomationAccountName и -ApplicationDisplayName в приведенных ниже сценариях.
 
-To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountName*, which are required parameters for the scripts, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
+Чтобы получить значения для параметров *SubscriptionID*, *ResourceGroup* и *AutomationAccountName*, которые являются обязательными для сценариев, на портале Azure в колонке **Учетная запись службы автоматизации** выберите свою учетную запись службы автоматизации, а затем щелкните **Все параметры**. В колонке **Все параметры** в разделе **Параметры учетной записи** выберите пункт **Свойства**. В колонке **Свойства** вы увидите нужные значения.<br> ![Свойства учетной записи службы автоматизации](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)
 
-### <a name="create-run-as-account-powershell-script"></a>Create Run As Account PowerShell script
+### Создание сценария PowerShell для учетной записи запуска от имени
 
-The PowerShell script below will configure the following:
+Сценарий PowerShell, приведенный ниже, настроит следующую конфигурацию.
 
-- An Azure AD application that will be authenticated with the self-signed cert, create a service principal account for this application in Azure AD, and assigned the Contributor role (you could change this to Owner or any other role) for this account in your current subscription.  For further information, please review the [Role-based access control in Azure Automation](../automation/automation-role-based-access-control.md) article.
-- An Automation certificate asset in the specified automation account named **AzureRunAsCertificate**, which holds the certificate used by the service principal.
-- An Automation connection asset in the specified automation account named **AzureRunAsConnection**, which holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.    
+- Приложение Azure AD, которое будет использовать для проверки подлинности самозаверяющий сертификат, создаст учетную запись субъекта-службы для этого приложения в Azure AD и назначит роль участника (вместо нее может использоваться роль владельца или любая другая роль) этой учетной записи в вашей текущей подписке. Дополнительные сведения см. в статье [Управление доступом на основе ролей в службе автоматизации Azure](../automation/automation-role-based-access-control.md).
+- Ресурс-контейнер сертификатов службы автоматизации в указанной учетной записи службы автоматизации с именем **AzureRunAsCertificate**, содержащий сертификат, используемый в субъекте-службе.
+- Ресурс-контейнер подключений к службе автоматизации в указанной учетной записи службы автоматизации с именем **AzureRunAsConnection**, содержащий идентификаторы приложения, клиента и подписки, а также отпечаток сертификата.
 
-The steps below will walk you through the process of executing the script.
+Процедура выполнения сценария описана ниже.
 
-1. Save the following script on your computer.  In this example, save it with the filename **New-AzureServicePrincipal.ps1**.  
+1. Сохраните приведенный ниже сценарий на компьютере. В этом примере используйте имя файла **New-AzureServicePrincipal.ps1**.
 
         #Requires -RunAsAdministrator
         Param (
@@ -182,7 +179,7 @@ The steps below will walk you through the process of executing the script.
         $Cert = New-SelfSignedCertificate -DnsName $ApplicationDisplayName -CertStoreLocation cert:\LocalMachine\My -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider"
 
         $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
-        Export-PfxCertificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $CertPath -Password $CertPassword -Force | Write-Verbose
+        Export-PfxCertificate -Cert ("Cert:\localmachine\my" + $Cert.Thumbprint) -FilePath $CertPath -Password $CertPassword -Force | Write-Verbose
 
         $PFXCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate -ArgumentList @($CertPath, $CertPlainPassword)
         $KeyValue = [System.Convert]::ToBase64String($PFXCert.GetRawCertData())
@@ -226,10 +223,10 @@ The steps below will walk you through the process of executing the script.
         $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
         New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 
-2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.
-3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.<br>
+2. На компьютере запустите с повышенными правами **Windows PowerShell** с **начального** экрана.
+3. Из оболочки командной строки PowerShell с повышенными правами перейдите к папке, которая содержит сценарий, созданный на этапе 1, и выполните его, изменив значения параметров *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* и *-CertPlainPassword*.<br>
 
-    >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script. You must log in with an account that is a member of the Subscription Admins role and co-admin of the subscription.
+    >[AZURE.NOTE] После выполнения сценария появится запрос на проверку подлинности в Azure. Войдите в учетную запись, которая является участником роли администраторов подписки и соадминистратором подписки.
     
         .\New-AzureServicePrincipal.ps1 -ResourceGroup <ResourceGroupName> 
         -AutomationAccountName <NameofAutomationAccount> `
@@ -238,18 +235,18 @@ The steps below will walk you through the process of executing the script.
         -CertPlainPassword "<StrongPassword>"  
 <br>
 
-After the script completes successfully, refer to the [sample code](#sample-code-to-authenticate-with-resource-manager-resources) below to authenticate with Resource Manager resources and validate credential configuration. 
+После успешного выполнения сценария используйте [пример кода](#sample-code-to-authenticate-with-resource-manager-resources), указанный ниже, для проверки подлинности с помощью ресурсов Resource Manager и проверки конфигурации учетных данных.
 
-### <a name="create-classic-run-as-account-powershell-script"></a>Create Classic Run As account PowerShell script
+### Создание сценария PowerShell для классической учетной записи запуска от имени
 
-The PowerShell script below will configure the following:
+Сценарий PowerShell, приведенный ниже, настроит следующую конфигурацию.
 
-- An Automation certificate asset in the specified automation account named **AzureClassicRunAsCertificate**, which holds the certificate used to authenticate your runbooks.
-- An Automation connection asset in the specified automation account named **AzureClassicRunAsConnection**, which holds the subscription name, subscriptionId and certificate asset name.
+- Ресурс-контейнер сертификатов службы автоматизации в указанной учетной записи службы автоматизации с именем **AzureClassicRunAsCertificate**, содержащий сертификат, используемый для проверки подлинности модулей Runbook.
+- Ресурс-контейнер подключений к службе автоматизации в указанной учетной записи службы автоматизации с именем **AzureClassicRunAsConnection**, содержащий имя подписки, идентификатор подписки и имя ресурса-контейнера сертификатов.
 
-The script will create a self-signed management certificate and save it to the temporary files folder on your computer under the user profile used to execute the PowerShell session - *%USERPROFILE%\AppData\Local\Temp*.  After script execution, you will need to upload the Azure management certificate into the management store for the subscription the Automation account was created in.  The steps below will walk you through the process of executing the script and uploading the certificate.  
+Сценарий создаст самозаверяющий сертификат управления и сохранит его в папке временных файлов на компьютере в профиле пользователя, который выполнял сеанс PowerShell: *%ПРОФИЛЬ\_ПОЛЬЗОВАТЕЛЯ%\\AppData\\Local\\Temp*. После выполнения сценария необходимо отправить сертификат управления Azure в хранилище управления подписки, в которой создана учетная запись службы автоматизации. Процедура выполнения сценария и отправки сертификата описана ниже.
 
-1. Save the following script on your computer.  In this example, save it with the filename **New-AzureClassicRunAsAccount.ps1**.
+1. Сохраните приведенный ниже сценарий на компьютере. В этом примере используйте имя файла **New-AzureClassicRunAsAccount.ps1**.
 
         #Requires -RunAsAdministrator
         Param (
@@ -286,8 +283,8 @@ The script will create a self-signed management certificate and save it to the t
         $Cert = New-SelfSignedCertificate -DnsName $ApplicationDisplayName -CertStoreLocation cert:\LocalMachine\My -KeyExportPolicy Exportable -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider"
 
         $CertPassword = ConvertTo-SecureString $CertPlainPassword -AsPlainText -Force
-        Export-PfxCertificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $CertPath -Password $CertPassword -Force | Write-Verbose
-        Export-Certificate -Cert ("Cert:\localmachine\my\" + $Cert.Thumbprint) -FilePath $CertPathCer -Type CERT | Write-Verbose
+        Export-PfxCertificate -Cert ("Cert:\localmachine\my" + $Cert.Thumbprint) -FilePath $CertPath -Password $CertPassword -Force | Write-Verbose
+        Export-Certificate -Cert ("Cert:\localmachine\my" + $Cert.Thumbprint) -FilePath $CertPathCer -Type CERT | Write-Verbose
 
         # Create the automation resources
         $ClassicCertificateAssetName = "AzureClassicRunAsCertificate"
@@ -303,10 +300,10 @@ The script will create a self-signed management certificate and save it to the t
         Write-Host -ForegroundColor red "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates."
         Write-Host -ForegroundColor red "Then click Upload and upload the certificate $CertPathCer"
 
-2. On your computer, start **Windows PowerShell** from the **Start** screen with elevated user rights.  
-3. From the elevated PowerShell command-line shell, navigate to the folder which contains the script created in Step 1 and execute the script changing the values for parameters *–ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId*, and *-CertPlainPassword*.<br>
+2. На компьютере запустите с повышенными правами **Windows PowerShell** с **начального** экрана.
+3. Из оболочки командной строки PowerShell с повышенными правами перейдите к папке, которая содержит сценарий, созданный на этапе 1, и выполните его, изменив значения параметров *-ResourceGroup*, *-AutomationAccountName*, *-ApplicationDisplayName*, *-SubscriptionId* и *-CertPlainPassword*.<br>
 
-    >[AZURE.NOTE] You will be prompted to authenticate with Azure after you execute the script. You must log in with an account that is a member of the Subscription Admins role and co-admin of the subscription.
+    >[AZURE.NOTE] После выполнения сценария появится запрос на проверку подлинности в Azure. Войдите в учетную запись, которая является участником роли администраторов подписки и соадминистратором подписки.
    
         .\New-AzureClassicRunAsAccount.ps1 -ResourceGroup <ResourceGroupName> 
         -AutomationAccountName <NameofAutomationAccount> `
@@ -314,11 +311,11 @@ The script will create a self-signed management certificate and save it to the t
         -SubscriptionId <SubscriptionId> `
         -CertPlainPassword "<StrongPassword>" 
 
-After the script completes successfully, you will need to copy the certificate created in your user profile **Temp** folder.  Follow the steps for [uploading a management API certificate](../azure-api-management-certs.md) to the Azure classic portal and then refer to the [sample code](#sample-code-to-authenticate-with-service-management-resources) to validate credential configuration with Service Management resources. 
+После успешного выполнения сценария скопируйте сертификат, созданный в папке временных файлов **Temp** своего профиля пользователя. [Отправьте сертификат управления API](../azure-api-management-certs.md) на классический портал Azure. Затем воспользуйтесь [примером кода](#sample-code-to-authenticate-with-service-management-resources), чтобы проверить конфигурацию учетных данных с помощью ресурсов управления службами.
 
-## <a name="sample-code-to-authenticate-with-resource-manager-resources"></a>Sample code to authenticate with Resource Manager resources
+## Пример кода для проверки подлинности с помощью ресурсов Resource Manager
 
-You can use the updated sample code below, taken from the **AzureAutomationTutorialScript** example runbook, to authenticate using the Run As account to manage Resource Manager resources with your runbooks.   
+Чтобы выполнить проверку подлинности с помощью учетной записи запуска от имени для управления ресурсами Resource Manager с помощью модулей Runbook, используйте обновленный пример кода, приведенный ниже, взятый из примера модуля Runbook **AzureAutomationTutorialScript**.
 
     $connectionName = "AzureRunAsConnection"
     $SubId = Get-AutomationVariable -Name 'SubscriptionId'
@@ -333,8 +330,8 @@ You can use the updated sample code below, taken from the **AzureAutomationTutor
          -TenantId $servicePrincipalConnection.TenantId `
          -ApplicationId $servicePrincipalConnection.ApplicationId `
          -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
-       "Setting context to a specific subscription"  
-       Set-AzureRmContext -SubscriptionId $SubId             
+	   "Setting context to a specific subscription"	 
+	   Set-AzureRmContext -SubscriptionId $SubId	 		 
     }
     catch {
         if (!$servicePrincipalConnection)
@@ -348,13 +345,13 @@ You can use the updated sample code below, taken from the **AzureAutomationTutor
     } 
    
 
-The script includes two additional lines of code to support referencing a subscription context so you can easily work between multiple subscriptions. A variable asset named SubscriptionId contains the ID of the subscription, and after the Add-AzureRmAccount cmdlet statement, the [Set-AzureRmContext cmdlet](https://msdn.microsoft.com/library/mt619263.aspx) is stated with the parameter set *-SubscriptionId*. If the variable name is too generic, you can revise the name of the variable to include a prefix or other naming convention to make it easier to identify for your purposes. Alternatively, you can use the parameter set -SubscriptionName instead of -SubscriptionId with a corresponding variable asset.  
+Этот скрипт включает две дополнительные строки кода, что позволяет ссылаться на контекст подписки и без проблем работать с несколькими подписками. Ресурс-контейнер переменных с именем SubscriptionId содержит идентификатор подписки, а после инструкции командлета Add-AzureRmAccount [командлет Set-AzureRmContext](https://msdn.microsoft.com/library/mt619263.aspx) указывается с набором параметров *-SubscriptionId*. Если имя переменной слишком общее, можно изменить имя переменной, включив в него префикс или другое соглашение об именовании, чтобы упростить идентификацию для ваших целей. Кроме того, можно использовать набор параметров -SubscriptionName вместо -SubscriptionId с соответствующим ресурсом-контейнером переменных.
 
-Notice the cmdlet used for authenticating in the runbook - **Add-AzureRmAccount**, uses the *ServicePrincipalCertificate* parameter set.  It authenticates by using service principal certificate, not credentials.  
+Обратите внимание, что командлет **Add-AzureRmAccount**, применяемый для проверки подлинности в модуле Runbook, использует набор параметров *ServicePrincipalCertificate*. Он выполняет проверку подлинности с помощью сертификата субъекта-службы, а не учетных данных.
 
-## <a name="sample-code-to-authenticate-with-service-management-resources"></a>Sample code to authenticate with Service Management resources
+## Пример кода для проверки подлинности с помощью ресурсов управления службами
 
-You can use the updated sample code below, taken from the **AzureClassicAutomationTutorialScript** example runbook, to authenticate using the Classic Run As account to manage classic resources with your runbooks. 
+Чтобы выполнить проверку подлинности с помощью классической учетной записи запуска от имени для управления классическими ресурсами с помощью модулей Runbook, используйте обновленный пример кода, приведенный ниже, взятый из примера модуля Runbook **AzureClassicAutomationTutorialScript**.
     
     $ConnectionAssetName = "AzureClassicRunAsConnection"
     # Get the connection
@@ -381,14 +378,10 @@ You can use the updated sample code below, taken from the **AzureClassicAutomati
     Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- For more information about Service Principals, refer to [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
-- For more information about Role-based Access Control in Azure Automation, refer to [Role-based access control in Azure Automation](../automation/automation-role-based-access-control.md).
-- For more information about certificates and Azure services, refer to [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md)
+- Дополнительные сведения о субъектах-службах см. в статье [Объекты приложений и объекты субъектов-служб](../active-directory/active-directory-application-objects.md).
+- Дополнительные сведения об управлении доступом на основе ролей в службе автоматизации Azure см. в [этой статье](../automation/automation-role-based-access-control.md).
+- Дополнительные сведения о сертификатах и службах Azure см. в статье [Общие сведения о сертификатах для облачных служб Azure](../cloud-services/cloud-services-certs-create.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

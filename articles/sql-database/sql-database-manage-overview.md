@@ -1,55 +1,49 @@
 <properties
-    pageTitle="Overview: management tools for SQL Database"
-    description="Compares tools and options for managing Azure SQL Database"
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Обзор: средства управления для Базы данных SQL"
+	description="Сравнение средств и параметров для управления Базой данных SQL Azure"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/19/2016"
-    ms.author="sstein"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/19/2016"
+	ms.author="sstein"/>
 
+# Обзор: средства управления для Базы данных SQL
 
-# <a name="overview:-management-tools-for-sql-database"></a>Overview: management tools for SQL Database
+В этом разделе рассматриваются и сравниваются средства и параметры для управления базами данных SQL Azure, чтобы вы могли выбрать для себя подходящий инструмент для работы и бизнеса. Выбор правильного средства зависит от количества баз данных, которыми вы управляете, выполняемых задач, а также то того, как часто вы их выполняете.
 
-This topic explores and compares tools and options for managing Azure SQL databases so you can pick the right tool for the job, your business, and you. Choosing the right tool depends on how many databases you manage, the task, and how often a task is performed.
+## Портал Azure
 
-## <a name="azure-portal"></a>Azure portal
+[Портал Azure](https://portal.azure.com) — это веб-приложение, в котором можно создавать, обновлять и удалять базы данных и логические серверы, а также отслеживать работу базы данных. Он превосходно подойдет для тех, кто только знакомится с Azure или управляет небольшим количеством баз данных, а также в случае, если требуется оперативно выполнить какую-либо задачу по управлению.
 
-The [Azure portal](https://portal.azure.com) is a web-based application where you can create, update, and delete databases and logical servers and monitor database activity. This tool is great if you're just getting started with Azure, managing a few databases, or need to do something quickly.
+Более подробные сведения об использовании портала см. в статье [Управление Базами данных SQL с помощью классического портала Azure](sql-database-manage-portal.md).
 
-For more information about using the portal, see [Manage SQL Databases using the Azure portal](sql-database-manage-portal.md).
+## SQL Server Management Studio и SQL Server Data Tools в Visual Studio
 
-## <a name="sql-server-management-studio-and-sql-server-data-tools-in-visual-studio"></a>SQL Server Management Studio and SQL Server Data Tools in Visual Studio
+SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) в Visual Studio представляют собой клиентские средства, которые выполняются на компьютере и позволяют подключаться к базам данных в облаке, разрабатывать их, а также управлять ими. Если вы не новичок в разработке приложений и уже знакомы с Visual Studio или другими интегрированными средами разработки (IDE), [предлагаем обратить внимание на SSDT в составе Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Многие администраторы баз данных знакомы с решением SSMS, которое можно использовать с базами данных SQL Azure. [Загрузите последнюю версию SSMS](https://msdn.microsoft.com/library/mt238290) и всегда используйте последнюю версию решения при работе с базой данных SQL Azure. Дополнительные сведения об управлении базами данных SQL Azure с помощью SSMS и SSDT см. в статье [Управление базами данных SQL с помощью SSMS](sql-database-manage-azure-ssms.md).
 
-SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) are client tools that run on your computer for managing, and developing your database in the cloud. If you're an application developer familiar with Visual Studio or other integrated development environments (IDEs), [try using SSDT in Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx). Many database administrators are familiar with SSMS, which can be used with Azure SQL databases. [Download the latest version of SSMS](https://msdn.microsoft.com/library/mt238290) and always use the latest release when working with Azure SQL Database. For more information on managing your Azure SQL Databases with SSMS, see [Manage SQL Databases using SSMS](sql-database-manage-azure-ssms.md).
+> [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и базы данных SQL, необходимо всегда использовать последнюю версию SQL Server Management Studio и SQL Server Data Tools для Visual Studio. Более старые версии этих средств не будут успешно работать с базой данных SQL.
 
-> [AZURE.IMPORTANT] Always use the latest version of SQL Server Management Studio and SQL Server Data Tools to remain synchronized with updates to Microsoft Azure and SQL Database.
+## Программы командной строки
 
+Для управления базами данных и пулами эластичных баз данных, а также для автоматизации развертывания ресурсов Azure можно использовать средства командной строки, такие как PowerShell. Мы рекомендуем использовать это средство для управления большим количеством баз данных и автоматизации развертывания и изменения ресурсов в рабочей среде.
 
-## <a name="powershell"></a>PowerShell
+Дополнительные сведения об управлении базами данных SQL Azure с помощью средств командной строки см. в статье [Управление базой данных SQL с помощью PowerShell](sql-database-command-line-tools.md).
 
-You can use PowerShell to manage databases and elastic database pools, and to automate Azure resource deployments. Microsoft recommends this tool for managing a large number of databases and automating deployment and resource changes in a production environment.
+## Инструменты эластичных баз данных
+Используйте инструменты эластичных баз данных для выполнения следующих действий.
 
-For more information, see [Manage SQL Database with PowerShell](sql-database-manage-powershell.md)
-
-## <a name="elastic-database-tools"></a>Elastic Database tools
-Use the elastic database tools to perform actions such as 
-
-* Executing a T-SQL script against a set of databases using an [elastic job](sql-database-elastic-jobs-overview.md)
-* Moving multi-tenant model databases to a single-tenant model with the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md)
-* Managing databases in a single-tenant model or a multi-tenant model using the [elastic scale client library](sql-database-elastic-database-client-library.md).
+* Выполнение сценария T-SQL для набора баз данных с помощью [задания обработки эластичных БД](sql-database-elastic-jobs-overview.md).
+* Перемещение баз данных из мультитенантной модели в модель с одним клиентом с помощью [инструмента разбиения и объединения](sql-database-elastic-scale-overview-split-and-merge.md).
+* Управление базами данных в модели с одним клиентом или мультитенантной модели с помощью [клиентской библиотеки эластичного масштабирования](sql-database-elastic-database-client-library.md).
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

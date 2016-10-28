@@ -1,13 +1,10 @@
 
-| Resource  | Default limit 
+| Ресурс | Ограничение по умолчанию 
 --- | ---
-| Zones per subscription | 100 <sup>1</sup>
-| Record sets per zone| 5000 <sup>1</sup>
-| Records per record set| 20
+| Зон на подписку | 100 <sup>1</sup>
+| Наборов записей на зону| 5000 <sup>1</sup>
+| Записей на набор записей| 20
 
-<sup>1</sup> Contact Azure Support in case you need to increase these limits.
+<sup>1</sup> Если требуется увеличить предельные значения ограничений, обратитесь в службу поддержки Azure.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

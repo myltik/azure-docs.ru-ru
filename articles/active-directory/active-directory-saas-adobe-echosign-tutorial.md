@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Adobe EchoSign | Microsoft Azure" 
-    description="Learn how to use Adobe EchoSign with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Руководство. Интеграция Azure Active Directory с Adobe EchoSign | Microsoft Azure" 
+    description="Узнайте, как использовать Adobe EchoSign вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,156 +11,148 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
+#Руководство. Интеграция Azure Active Directory с Adobe EchoSign
 
-#<a name="tutorial:-azure-active-directory-integration-with-adobe-echosign"></a>Tutorial: Azure Active Directory integration with Adobe EchoSign
+Цель данного учебника — показать интеграцию Azure и Adobe EchoSign. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-The objective of this tutorial is to show the integration of Azure and Adobe EchoSign.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+-   Действующая подписка на Azure
+-   Подписка с поддержкой единого входа в Adobe EchoSign
 
--   A valid Azure subscription
--   An Adobe EchoSign single sign on enabled subscription
+После выполнения инструкций, приведенных в этом руководстве, пользователи Azure AD, назначенные Adobe EchoSign, смогут выполнять единый вход в приложение на корпоративном веб-сайте Adobe EchoSign (вход, инициированный поставщиком услуг) или на панели доступа, как описано в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-After completing this tutorial, the Azure AD users you have assigned to Adobe EchoSign will be able to single sign into the application at your Adobe EchoSign company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-The scenario outlined in this tutorial consists of the following building blocks:
+1.  Включение интеграции приложений для Adobe EchoSign
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-1.  Enabling the application integration for Adobe EchoSign
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+![Сценарий](./media/active-directory-saas-adobe-echosign-tutorial/IC789511.png "Сценарий")
+##Включение интеграции приложений для Adobe EchoSign
 
-![Scenario](./media/active-directory-saas-adobe-echosign-tutorial/IC789511.png "Scenario")
-##<a name="enabling-the-application-integration-for-adobe-echosign"></a>Enabling the application integration for Adobe EchoSign
+В этом разделе показано, как включить интеграцию приложений для Adobe EchoSign.
 
-The objective of this section is to outline how to enable the application integration for Adobe EchoSign.
+###Чтобы включить интеграцию приложений для Adobe EchoSign, выполните следующие действия.
 
-###<a name="to-enable-the-application-integration-for-adobe-echosign,-perform-the-following-steps:"></a>To enable the application integration for Adobe EchoSign, perform the following steps:
-
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-adobe-echosign-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-adobe-echosign-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-adobe-echosign-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-adobe-echosign-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-adobe-echosign-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-adobe-echosign-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-adobe-echosign-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **Adobe EchoSign**.
+6.  В **поле поиска** введите **Adobe EchoSign**.
 
-    ![Application Gallery](./media/active-directory-saas-adobe-echosign-tutorial/IC789514.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-adobe-echosign-tutorial/IC789514.png "Коллекция приложений")
 
-7.  In the results pane, select **Adobe EchoSign**, and then click **Complete** to add the application.
+7.  В области результатов выберите **Adobe EchoSign** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![Adobe EchoSign](./media/active-directory-saas-adobe-echosign-tutorial/IC789515.png "Adobe EchoSign")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
 
-The objective of this section is to outline how to enable users to authenticate to Adobe EchoSign with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Adobe EchoSign со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **Adobe EchoSign** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  На странице интеграции с приложением **Adobe EchoSign** классического портала Azure нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/IC789516.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/IC789516.png "Настройка единого входа")
 
-2.  On the **How would you like users to sign on to Adobe EchoSign** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  На странице **Как пользователи должны входить в Adobe EchoSign?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/IC789517.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/IC789517.png "Настройка единого входа")
 
-3.  On the **Configure App URL** page, in the **Adobe EchoSign Sign On URL** textbox, type your URL using the following pattern "*https://company.echosign.com/*", and then click **Next**.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес для входа в Adobe EchoSign** введите свой URL-адрес в формате "*https://company.echosign.com/*" и нажмите кнопку **Далее**.
 
-    ![Configure App URL](./media/active-directory-saas-adobe-echosign-tutorial/IC789518.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-adobe-echosign-tutorial/IC789518.png "Настройка URL-адреса приложения")
 
-4.  On the **Configure single sign-on at Adobe EchoSign** page, click **Download certificate**, and then save the certificate file on your computer.
+4.  На странице **Настройка единого входа в Adobe EchoSign** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на локальном компьютере.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/IC789519.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/IC789519.png "Настройка единого входа")
 
-5.  In a different web browser window, log into your Adobe EchoSign company site as an administrator.
+5.  В другом окне веб-браузера войдите в свой корпоративный веб-сайт Adobe EchoSign в качестве администратора.
 
-6.  In the menu on the top, click **Account**, and then, in the navigation pane on the left die, click **SAML Settings** under **Account Settings**.
+6.  В меню в верхней части экрана выберите пункт **Account** (Учетная запись), а затем в области навигации с левой стороны выберите **SAML Settings** (Параметры SAML) в разделе **Account Settings** (Параметры учетной записи).
 
-    ![Account](./media/active-directory-saas-adobe-echosign-tutorial/IC789520.png "Account")
+    ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/IC789520.png "Учетная запись")
 
-7.  In the SAML Settings section, perform the following steps:
+7.  В разделе «Параметры SAML» выполните следующие действия.
 
-    ![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/IC789521.png "SAML Settings")
+    ![Параметры SAML](./media/active-directory-saas-adobe-echosign-tutorial/IC789521.png "Параметры SAML")
 
-    1.  As **SAML Mode**, select **SAML Mandatory**.
-    2.  Select **Allow EchoSign Account Administrators to log in using their EchoSign Credentials**.
-    3.  As **User Creation**, select **Automatically add users authenticated through SAML**.
+    1.  В разделе **SAML Mode** (Режим SAML) выберите параметр **SAML Mandatory** (SAML обязательно).
+    2.  Установите флажок **Allow EchoSign Account Administrators to log in using their EchoSign Credentials** (Разрешить администраторам учетных записей EchoSign вход с использованием учетных данных EchoSign).
+    3.  В разделе **User Creation** (Создание пользователей) установите флажок **Automatically add users authenticated through SAML** (Автоматически добавлять пользователей, прошедших проверку подлинности с использованием SAML).
 
-8.  Move on, performing the following steps:
+8.  После этого выполните следующие действия.
 
-    ![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/IC789522.png "SAML Settings")
+    ![Параметры SAML](./media/active-directory-saas-adobe-echosign-tutorial/IC789522.png "Параметры SAML")
 
-    1.  In the Azure classic portal, on the **Configure single sign-on at Adobe EchoSign** dialog page, copy the **Entity ID** value, and then paste it into the **IdP Entity ID** textbox.
-    2.  In the Azure classic portal, on the **Configure single sign-on at Adobe EchoSign** dialog page, copy the **Remote Login URL** value, and then paste it into the **IdP Login URL** textbox.
-    3.  In the Azure classic portal, on the **Configure single sign-on at Adobe EchoSign** dialog page, copy the **Remote Logout URL** value, and then paste it into the **IdP Logout URL** textbox.
-    4.  Create a **base-64 encoded** file from your downloaded certificate.  
+    1.  На классическом портале Azure на диалоговой странице **Настройка единого входа в Adobe EchoSign** скопируйте значение поля **Идентификатор сущности** и вставьте его в текстовое поле **IdP Entity ID** (Идентификатор сущности IdP).
+    2.  На классическом портале Azure на диалоговой странице **Настройка единого входа в Adobe EchoSign** скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **IdP Login URL** (URL-адрес входа для IdP).
+    3.  На классическом портале Azure на диалоговой странице **Настройка единого входа в Adobe EchoSign** скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **IdP Logout URL** (URL-адрес выхода для IdP).
+    4.  Создайте файл в кодировке **Base-64** из загруженного сертификата.
 
-        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
-    5.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Certificate** textbox 6.  Click **Save Changes**.
+		>[AZURE.TIP] Дополнительные сведения можно узнать в видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+    5.  Откройте сертификат в кодировке Base-64 в блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат IdP**.
+    6.  Нажмите кнопку **Сохранить изменения**.
 
-9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/IC789523.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Настройка единого входа](./media/active-directory-saas-adobe-echosign-tutorial/IC789523.png "Настройка единого входа")
+##Настройка подготовки учетных записей пользователей
 
-In order to enable Azure AD users to log into Adobe EchoSign, they must be provisioned into Adobe EchoSign.  
-In the case of Adobe EchoSign, provisioning is a manual task.
+Чтобы пользователи Azure AD могли входить в Adobe EchoSign, они должны быть подготовлены для Adobe EchoSign. В случае Adobe EchoSign подготовка выполняется вручную.
 
-###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
+###Чтобы подготовить учетные записи пользователей, выполните следующие действия.
 
-1.  Log in to your **Adobe EchoSign** company site as administrator.
+1.  Выполните вход на корпоративный веб-сайт **Adobe EchoSign** в качестве администратора.
 
-2.  In the menu on the top, click **Account**, and then, in the navigation pane on the left die, click **Users & Groups**, and then, click **Create a new user**.
+2.  В меню в верхней части экрана выберите пункт **Account** (Учетная запись), а затем в области навигации слева последовательно выберите пункты **Users & Groups** (Пользователи и группы) и **Create a new user** (Создать пользователя).
 
-    ![Account](./media/active-directory-saas-adobe-echosign-tutorial/IC789524.png "Account")
+    ![Учетная запись](./media/active-directory-saas-adobe-echosign-tutorial/IC789524.png "Учетная запись")
 
-3.  In the **Create New User** section, perform the following steps:
+3.  В разделе **Создание нового пользователя** выполните следующие действия.
 
-    ![Create User](./media/active-directory-saas-adobe-echosign-tutorial/IC789525.png "Create User")
+    ![Создать пользователя](./media/active-directory-saas-adobe-echosign-tutorial/IC789525.png "Создать пользователя")
 
-    1.  Type the **Email Address**, **First Name** and **Last Name** of a valid AAD account you want to provision into the related textboxes.
-    2.  Click **Create User**.
+    1.  Введите в текстовые поля **Email Address** (Адрес электронной почты), **First Name** (Имя) и **Last Name** (Фамилия) соответствующие данные действующей учетной записи AAD, которую вы хотите подготовить.
+    2.  Щелкните **Create Use** (Создать пользователя).
 
-        >[AZURE.NOTE] The Azure Active Directory account holder will receive an email that includes a link to confirm the account before it becomes active.
+		>[AZURE.NOTE] Владелец учетной записи Azure Active Directory получит по электронной почте сообщение со ссылкой для активации учетной записи.
 
->[AZURE.NOTE] You can use any other Adobe EchoSign user account creation tools or APIs provided by Adobe EchoSign to provision AAD user accounts.
+>[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя Adobe EchoSign или API, предоставляемые Adobe EchoSign для подготовки учетных записей пользователя AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
 
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-adobe-echosign,-perform-the-following-steps:"></a>To assign users to Adobe EchoSign, perform the following steps:
+###Чтобы назначить пользователей Adobe EchoSign, выполните следующие действия.
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **Adobe EchoSign **application integration page, click **Assign users**.
+2.  На странице интеграции с приложением **Adobe EchoSign** нажмите кнопку **Назначить пользователей**.
 
-    ![Assign Users](./media/active-directory-saas-adobe-echosign-tutorial/IC789526.png "Assign Users")
+    ![Назначить пользователей](./media/active-directory-saas-adobe-echosign-tutorial/IC789526.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-adobe-echosign-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-adobe-echosign-tutorial/IC767830.png "Да")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

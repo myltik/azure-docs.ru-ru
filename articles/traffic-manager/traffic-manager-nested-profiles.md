@@ -1,151 +1,153 @@
-<properties
-    pageTitle="Nested Traffic Manager Profiles | Microsoft Azure"
-    description="This article explains the 'Nested Profiles' feature of Azure Traffic Manager"
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
-<tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+<properties 
+   pageTitle="Вложенные профили диспетчера трафика | Microsoft Azure"
+   description="В этой статье описываются функции ";вложенных профилей"; диспетчера трафика Azure."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="sdwheeler"
+   manager="carmonm"
+   editor="tysonn" />
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="05/25/2016"
+   ms.author="sewhee" />
 
+# Вложенные профили диспетчера трафика
 
-# <a name="nested-traffic-manager-profiles"></a>Nested Traffic Manager profiles
+Диспетчер трафика включает в себя ряд методов маршрутизации трафика, что позволяет контролировать, каким образом он выбирает, какая конечная точка должна получить трафик от каждого из пользователей. Они описаны в разделе [Методы маршрутизации диспетчера трафика](traffic-manager-routing-methods.md), и благодаря им диспетчер трафика удовлетворяет наиболее распространенным требованиям к маршрутизации трафика.
 
-Traffic Manager includes a range of traffic-routing methods that allow you to control how Traffic Manager chooses which endpoint should receive traffic from each end user. For more information, see [Traffic Manager traffic-routing methods](traffic-manager-routing-methods.md).
+Каждый профиль диспетчера трафика определяет один метод маршрутизации трафика. Однако бывают случаи, когда более сложным приложениям требуется менее тривиальная маршрутизация трафика, чем может обеспечить один профиль диспетчера трафика.
 
-Each Traffic Manager profile specifies a single traffic-routing method. However, there are scenarios that require more sophisticated traffic routing than the routing provided by a single Traffic Manager profile. You can nest Traffic Manager profiles to combine the benefits of more than one traffic-routing method. Nested profiles allow you to override the default Traffic Manager behavior to support larger and more complex application deployments.
+Для поддержки этих сложных приложений диспетчер трафика позволяет комбинировать, или *вкладывать*, профили. Так одно приложение может пользоваться преимуществами более чем одного метода маршрутизации трафика. Вложенные профили позволяют создавать более гибкие и эффективные схемы маршрутизации трафика для удовлетворения потребностей более крупных и сложных развертываний.
 
-The following examples illustrate how to use nested Traffic Manager profiles in various scenarios.
+Кроме того, вложенные профили дают возможность переопределить поведение диспетчера трафика по умолчанию в некоторых случаях. Например, можно переопределить маршрутизацию трафика в отдельном регионе или во время отработки отказа при использовании маршрутизации трафика для повышения производительности.
 
-## <a name="example-1:-combining-'performance'-and-'weighted'-traffic-routing"></a>Example 1: Combining 'Performance' and 'Weighted' traffic routing
+Далее на этой странице на нескольких примерах поясняется, как вложенные профили диспетчера трафика могут использоваться в различных сценариях. В завершение мы рассмотрим несколько часто задаваемых вопросов о вложенных профилях.
 
-Suppose that you deployed an application in the following Azure regions: West US, West Europe, and East Asia. You use Traffic Manager's 'Performance' traffic-routing method to distribute traffic to the region closest to the user.
+## Пример 1. Объединение маршрутизации трафика для повышения производительности и маршрутизации трафика со взвешиванием
 
-![Single Traffic Manager profile][1]
+Предположим, что приложение развернуто в нескольких регионах Azure — в западной части США, Западной Европе и Азии. Метод маршрутизации трафика для повышения производительности используется диспетчером трафика для распределения трафика по ближайшему к пользователю региону.
 
-Now, suppose you wish to test an update to your service before rolling it out more widely. You want to use the 'weighted' traffic-routing method to direct a small percentage of traffic to your test deployment. You set up the test deployment alongside the existing production deployment in West Europe.
+![Отдельный профиль диспетчера трафика][1]
 
-You cannot combine both 'Weighted' and 'Performance traffic-routing in a single profile. To support this scenario, you create a Traffic Manager profile using the two West Europe endpoints and the 'Weighted' traffic-routing method. Next, you add this 'child' profile as an endpoint to the 'parent' profile. The parent profile still uses the Performance traffic-routing method and contains the other global deployments as endpoints.
+Теперь предположим, что вы хотите опробовать обновление для службы на небольшом числе пользователей, прежде чем внедрять его более масштабно. Для этого вы хотите использовать метод маршрутизации трафика со взвешиванием, который может направлять небольшой процент трафика в пробное развертывание. Используя один профиль, нельзя сочетать оба этих метода маршрутизации трафика. Это возможно благодаря вложенным профилям.
 
-The following diagram illustrates this example:
+Вот как это работает. Предположим, что нужно опробовать новое развертывание в Западной Европе. Вы настраиваете пробное развертывание наряду с существующим развертыванием в рабочей среде и создаете профиль диспетчера трафика, указав только эти две конечные точки и метод маршрутизации трафика со взвешиванием. После этого вы добавляете этот "дочерний" профиль в качестве конечной точки для "родительского" профиля, который по-прежнему использует метод маршрутизации трафика для повышения производительности и содержит остальные глобальные развертывания в качестве конечных точек.
 
-![Nested Traffic Manager profiles][2]
+Этот пример представлен на схеме ниже.
 
-In this configuration, traffic directed via the parent profile distributes traffic across regions normally. Within West Europe, the nested profile distributes traffic to the production and test endpoints according to the weights assigned.
+![Вложенные профили диспетчера трафика][2]
 
-When the parent profile uses the 'Performance' traffic-routing method, each endpoint must be assigned a location. The location is assigned when you configure the endpoint. Choose the Azure region closest to your deployment. The Azure regions are the location values supported by the Internet Latency Table. For more information, see [Traffic Manager 'Performance' traffic-routing method](traffic-manager-routing-methods.md#performance-traffic-routing-method).
+При такой схеме трафик, направляемый через родительский профиль, будет распределяться по регионам в обычном режиме. В Западной Европе трафик будет распределяться между рабочим и пробным развертываниями в соответствии с назначенными весами.
 
-## <a name="example-2:-endpoint-monitoring-in-nested-profiles"></a>Example 2: Endpoint monitoring in Nested Profiles
+Обратите внимание, что когда родительский профиль использует метод маршрутизации трафика для повышения производительности, должно быть известно расположение каждой конечной точки. Для вложенных конечных точек, как и для внешних конечных точек, это расположение должно быть указано в конфигурации конечной точки. Выберите ближайший к вашему развертыванию регион Azure. Выбрать можно из регионов Azure, так как это расположения, совместимые с таблицы задержек Интернета. Дополнительные сведения см. в разделе [Метод маршрутизации трафика для повышения производительности](traffic-manager-routing-methods.md#performance-traffic-routing-method).
 
-Traffic Manager actively monitors the health of each service endpoint. If an endpoint is unhealthy, Traffic Manager directs users to alternative endpoints to preserve the availability of your service. This endpoint monitoring and failover behavior applies to all traffic-routing methods. For more information, see [Traffic Manager Endpoint Monitoring](traffic-manager-monitoring.md). Endpoint monitoring works differently for nested profiles. With nested profiles, the parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints is used to calculate the overall health of the child profile. This health information is propagated up the nested profile hierarchy. The parent profile this aggregated health to determine whether to direct traffic to the child profile. See the [FAQ](#faq) section of this article for full details on health monitoring of nested profiles.
+## Пример 2. Мониторинг конечных точек во вложенных профилях
 
-Returning to the previous example, suppose the production deployment in West Europe fails. By default, the 'child' profile directs all traffic to the test deployment. If the test deployment also fails, the parent profile determines that the child profile should not receive traffic since all child endpoints are unhealthy. Then, the parent profile distributes traffic to the other regions.
+Диспетчер трафика активно отслеживает работоспособность каждой конечной точки службы. Если выявляется неработоспособная конечная точка, диспетчер трафика будет направлять пользователей на альтернативные конечные точки, сохраняя общую доступность службы. Этот режим мониторинга и отработки отказа конечных точек применяется ко всем методам маршрутизации трафика. Дополнительные сведения см. в разделе [О мониторинге диспетчера трафика](traffic-manager-monitoring.md).
 
-![Nested Profile failover (default behavior)][3]
+Для вложенных профилей применяется несколько особых правил мониторинга конечных точек. Так как дочерний профиль настроен в родительском профиле как вложенная конечная точка, родительский профиль не проверяет работоспособность дочернего профиля напрямую. Вместо этого для вычисления общей работоспособности дочернего профиля используется работоспособность его конечных точек. Эта информация передается вверх по иерархии вложенного профиля для определения работоспособности вложенной конечной точки в родительском профиле. Так определяется, будет ли родительский профиль направлять трафик в дочерний профиль. Подробные сведения о том, как именно вычисляется работоспособность вложенной конечной точки в родительском профиле на основании работоспособности дочернего профиля, приведены [ниже](#faq).
 
-You might be happy with this arrangement. Or you might be concerned that all traffic for West Europe is now going to the test deployment instead of a limited subset traffic. Regardless of the health of the test deployment, you want to fail over to the other regions when the production deployment in West Europe fails. To enable this failover, you can specify the 'MinChildEndpoints' parameter when configuring the child profile as an endpoint in the parent profile. The parameter determines the minimum number of available endpoints in the child profile. The default value is '1'. For this scenario, you set the MinChildEndpoints value to 2. Below this threshold, the parent profile considers the entire child profile to be unavailable and directs traffic to the other endpoints.
+Вернемся к примеру 1 и предположим, что происходит сбой рабочего развертывания в Западной Европе. По умолчанию дочерний профиль будет направлять весь трафик в пробное развертывание. Если оно тоже выйдет из строя, то родительский профиль определит, что так как все дочерние конечные точки неработоспособны, то дочерний профиль не должен получать трафик. Родительский профиль выполнит отработку отказа, перенаправив весь трафик Западной Европы в другие регионы.
 
-The following figure illustrates this configuration:
+![Отработка отказа вложенного профиля (поведение по умолчанию)][3]
 
-![Nested Profile failover with 'MinChildEndpoints' = 2][4]
+Вас может устроить такая схема или же может беспокоить, что пробное развертывание не должно использоваться для отработки отказа всего трафика Западной Европы. Например, в случае выхода из строя рабочего развертывания в Западной Европе вы бы предпочли, чтобы отработка отказа выполнялась на другие регионы, *вне зависимости* от работоспособности пробного развертывания. Это тоже возможно: при настройке дочернего профиля в качестве конечной точки в родительском профиле можно указать параметр MinChildEndpoints, который определяет минимальное количество конечных точек в дочернем профиле, которые должны быть доступны. При нарушении этого порогового значения (по умолчанию равного 1) родительский профиль сочтет весь дочерний профиль недоступным и направит трафик к другим конечным точкам родительского профиля.
 
->[AZURE.NOTE]
->The 'Priority' traffic-routing method distributes all traffic to a single endpoint. Thus there is little purpose in a MinChildEndpoints setting other than '1' for a child profile.
+Ниже приведен следующий пример: MinChildEndpoints имеет значение 2, и если произойдет сбой любого из развертываний в Западной Европе, родительский профиль определит, что дочерний профиль не должен получать трафик, и пользователи будут направлены в другие регионы.
 
-## <a name="example-3:-prioritized-failover-regions-in-'performance'-traffic-routing"></a>Example 3: Prioritized failover regions in 'Performance' traffic routing
+![Отработка отказа вложенного профиля при MinChildEndpoints = 2][4]
 
-The default behavior for the 'Performance' traffic-routing method is designed to avoid over-loading the next nearest endpoint and causing a cascading series of failures. When an endpoint fails, all traffic that would have been directed to that endpoint is evenly distributed to the other endpoints across all regions.
+Обратите внимание, что когда дочерний профиль использует метод маршрутизации трафика по приоритету, весь трафик, направляемый в этот дочерний профиль, получает одна конечная точка. Поэтому в этом случае нет смысла задавать для MinChildEndpoints значение, отличное от 1.
 
-!['Performance' traffic routing with default failover][5]
+## Пример 3. Расположенные по приоритетам регионы отработки отказа при маршрутизации трафика для повышения производительности
 
-However, suppose you prefer the West Europe traffic failover to West US, and only direct traffic to other regions when both endpoints are unavailable. You can create this solution using a child profile with the 'Priority' traffic-routing method.
+Если при использовании одного профиля с маршрутизацией трафика для повышения производительности происходит сбой конечной точки (например, в Западной Европе), то весь трафик, который направлялся бы к этой конечной точке, вместо этого распределяется по другим конечным точкам во всех регионах. Такое поведение по умолчанию метода маршрутизации трафика для повышения производительности позволяет избежать чрезмерной загрузки ближайшей соседней конечной точки, которая может привести к лавинообразной серии сбоев.
 
-!['Performance' traffic routing with preferential failover][6]
+![Маршрутизация трафика для повышения производительности с отработкой отказа по умолчанию][5]
 
-Since the West Europe endpoint has higher priority than the West US endpoint, all traffic is sent to the West Europe endpoint when both endpoints are online. If West Europe fails, its traffic is directed to West US. With the nested profile, traffic is directed to East Asia only when both West Europe and West US fail.
+Однако предположим, что вы предпочитаете выполнить отработку отказа трафика из Западной Европы в западную часть США, допуская перенаправление в другие регионы, только если обе эти конечные точки будут недоступны. Это можно сделать, создав дочерний профиль, который использует метод маршрутизации трафика по приоритету, как показано ниже.
 
-You can repeat this pattern for all regions. Replace all three endpoints in the parent profile with three child profiles, each providing a prioritized failover sequence.
+![Маршрутизация трафика для повышения производительности с отработкой отказа по предпочтению][6]
 
-## <a name="example-4:-controlling-'performance'-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Example 4: Controlling 'Performance' traffic routing between multiple endpoints in the same region
+Так как конечная точка в Западной Европе имеет более высокий приоритет, чем конечная точка в западной части США, то пока обе они доступны в сети, весь трафик будет отправляться в конечную точку в Западной Европе. В случае сбоя конечной точки в Западной Европе ее трафик направляется в западную часть США. И только в случае сбоя конечной точки в западной части США трафик Западной Европы направлялся бы в Восточную Азию.
 
-Suppose the 'Performance' traffic-routing method is used in a profile that has more than one endpoint in a particular region. By default, traffic directed to that region is distributed evenly across all available endpoints in that region.
+Эту схему можно повторить для всех регионов, заменив все три конечные точки в родительском профиле тремя дочерними профилями, каждый из которых обеспечивает последовательность отработки отказа по приоритету.
 
-!['Performance' traffic routing in-region traffic distribution (default behavior)][7]
+## Пример 4. Управление маршрутизацией трафика для повышения производительности между несколькими конечными точками в одном регионе
 
-Instead of adding multiple endpoints in West Europe, those endpoints are enclosed in a separate child profile. The child profile is added to the parent as the only endpoint in West Europe. The settings on the child profile can control the traffic distribution with West Europe by enabling priority-based or weighted traffic routing within that region.
+Предположим, что в профиле с несколькими конечными точками в каком-либо определенном регионе (например, западной части США) используется метод маршрутизации трафика для повышения производительности. По умолчанию трафик, направленный в этот регион, распределяется равномерно между всеми доступными конечными точками в этом регионе.
 
-!['Performance' traffic routing with custom in-region traffic distribution][8]
+![Распределение трафика в регионе при маршрутизации трафика для повышения производительности (поведение по умолчанию)][7]
 
-## <a name="example-5:-per-endpoint-monitoring-settings"></a>Example 5: Per-endpoint monitoring settings
+Это поведение по умолчанию можно изменить с помощью вложенных профилей диспетчера трафика. Вместо добавления нескольких конечных точек в западную часть США их можно заключить в отдельный дочерний профиль, а его — добавить в родительский как единственную конечную точку в западной части США. После этого параметры в дочернем профиле можно будет использовать для управления распределением трафика в западной части США, включив в пределах этого региона, например, маршрутизацию трафика по приоритету или со взвешиванием.
 
-Suppose you are using Traffic Manager to smoothly migrate traffic from a legacy on-premises web site to a new Cloud-based version hosted in Azure. For the legacy site, you want to use the home page URI to monitor site health. But for the new Cloud-based version, you are implementing a custom monitoring page (path '/monitor.aspx') that includes additional checks.
+![Маршрутизация трафика для повышения производительности с пользовательским распределением трафика в регионе][8]
 
-![Traffic Manager endpoint monitoring (default behavior)][9]
+## Пример 5. Параметры мониторинга каждой конечной точки
 
-The monitoring settings in a Traffic Manager profile apply to all endpoints within a single profile. With nested profiles, you use a different child profile per site to define different monitoring settings.
+Предположим, вы используете диспетчер трафика, чтобы незаметно перенести трафик с устаревшего локального веб-сайта на его новую, облачную версию, размещенную в Azure. На устаревшем веб-сайте вы хотите использовать домашнюю страницу (путь "/") для мониторинга работоспособности сайта, а в новой облачной версии вы реализуете пользовательскую страницу мониторинга с дополнительными проверками (путь "/monitor.aspx").
 
-![Traffic Manager endpoint monitoring with per-endpoint settings][10]
+![Мониторинг конечных точек диспетчером трафика (поведение по умолчанию)][9]
 
-## <a name="faq"></a>FAQ
+Параметры мониторинга в обычном профиле диспетчера трафика применяются ко всем конечным точкам в этом профиле. Это означает, что ранее вам пришлось бы использовать один тот же путь на обоих сайтах. Благодаря вложенным профилям диспетчера трафика теперь можно использовать отдельный дочерний профиль для каждого из сайтов, чтобы определить для них разные параметры мониторинга.
 
-### <a name="how-do-i-configure-nested-profiles?"></a>How do I configure nested profiles?
+![Мониторинг диспетчером трафика конечных точек с индивидуальными параметрами][10]
 
-Nested Traffic Manager profiles can be configured using both the Azure Resource Manager and the classic Azure REST APIs, Azure PowerShell cmdlets and cross-platform Azure CLI commands. They are also supported via the new Azure portal. They are not supported in the classic portal.
+## Часто задаваемые вопросы
 
-### <a name="how-many-layers-of-nesting-does-traffic-manger-support?"></a>How many layers of nesting does Traffic Manger support?
+### Как настроить вложенные профили?
 
-You can nest profiles up to 10 levels deep. 'Loops' are not permitted.
+Вложенные профили диспетчера трафика можно настроить с помощью Azure Resource Manager (ARM), интерфейсов REST API управления службами Azure (ASM), командлетов PowerShell и команд кроссплатформенного Azure CLI. Они также поддерживаются на портале Azure, однако не поддерживаются на классическом портале.
 
-### <a name="can-i-mix-other-endpoint-types-with-nested-child-profiles,-in-the-same-traffic-manager-profile?"></a>Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?
+### Число уровней вложенности поддерживает диспетчер трафика?
+Вложенность профилей может достигать 10 уровней. Использовать "циклы" нельзя.
 
-Yes. There are no restrictions on how you combine endpoints of different types within a profile.
+### Можно ли совмещать конечные точки других типов с вложенными дочерними профилями в одном профиле диспетчера трафика?
 
-### <a name="how-does-the-billing-model-apply-for-nested-profiles?"></a>How does the billing model apply for Nested profiles?
+Да. Можно без каких-либо ограничений комбинировать в профиле конечные точки разных типов.
 
-There is no negative pricing impact of using nested profiles.
+### Как модель выставления счетов применяется к вложенным профилям?
 
-Traffic Manager billing has two components: endpoint health checks and millions of DNS queries
+Использование вложенных профилей не приводит к повышению цен.
 
-- Endpoint health checks: There is no charge for a child profile when configured as an endpoint in a parent profile. Monitoring of the endpoints in the child profile are billed in the usual way.
-- DNS queries: Each query is only counted once. A query against a parent profile that returns an endpoint from a child profile is counted against the parent profile only.
+Выставление счетов за использование диспетчера трафика основано на двух составляющих: проверках работоспособности конечных точек и миллионах запросов DNS (полное описание см. нашей [странице цен](https://azure.microsoft.com/pricing/details/traffic-manager/)). Вот как это применяется к вложенным профилям.
 
-For full details, see the [Traffic Manager pricing page](https://azure.microsoft.com/pricing/details/traffic-manager/).
+- Проверки работоспособности конечных точек: плата за дочерний профиль не взимается, если он настроен как конечная точка в родительском профиле. Счета за конечные точки в дочернем профиле, наблюдающие за базовыми службами, выставляются обычным способом.
 
-### <a name="is-there-a-performance-impact-for-nested-profiles?"></a>Is there a performance impact for nested profiles?
+- Запросы DNS: каждый запрос учитывается только один раз. В случае запроса к родительскому профилю, который возвращает конечную точку из дочернего профиля, счет выставляется только за родительский профиль.
 
-No. There is no performance impact incurred when using nested profiles.
+### Снижают ли вложенные профили производительность?
 
-The Traffic Manager name servers traverse the profile hierarchy internally when processing each DNS query. A DNS query to a parent profile can receive a DNS response with an endpoint from a child profile. A single CNAME record is used whether you are using a single profile or nested profiles. There is no need to create a CNAME record for each profile in the hierarchy.
+Нет, использование вложенных профилей не отражается на производительности.
 
-### <a name="how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile?"></a>How does Traffic Manager compute the health of a nested endpoint in a parent profile?
+Серверы имен диспетчера трафика просмотрят иерархию профиля изнутри при обработке каждого запроса DNS, поэтому запрос DNS к родительскому профилю может получить ответ DNS с конечной точкой из дочернего профиля.
 
-The parent profile doesn't perform health checks on the child directly. Instead, the health of the child profile's endpoints are used to calculate the overall health of the child profile. This information is propagated up the nested profile hierarchy to determine the health of the nested endpoint. The parent profile uses this aggregated health to determine whether the traffic can be directed to the child.
+То есть используется только одна запись CNAME, как и при использовании одного профиля диспетчера трафика. Цепочка записей CNAME, по одной для каждого профиля в иерархии, **не** требуется, поэтому производительность не снижается.
 
-The following table describes the behavior of Traffic Manager health checks for a nested endpoint.
+### Как диспетчер трафика вычисляет работоспособность вложенной конечной точки в родительском профиле, исходя из работоспособности дочернего профиля?
 
-|Child Profile Monitor status|Parent Endpoint Monitor status|Notes|
+Так как дочерний профиль настроен в родительском профиле как вложенная конечная точка, родительский профиль не проверяет работоспособность дочернего профиля напрямую. Вместо этого для вычисления общей работоспособности дочернего профиля используется работоспособность его конечных точек. Эта информация передается вверх по иерархии вложенного профиля для определения работоспособности вложенной конечной точки в родительском профиле. Так определяется, будет ли родительский профиль направлять трафик в дочерний профиль.
+
+В следующей таблице описано поведение проверок работоспособности диспетчера трафика для вложенной конечной точки в родительском профиле, указывающей на дочерний профиль.
+
+|Состояние монитора дочернего профиля|Состояние монитора родительской конечной точки|Примечания|
 |---|---|---|
-|Disabled. The child profile has been disabled.|Stopped|The parent endpoint state is Stopped, not Disabled. The Disabled state is reserved for indicating that you have disabled the endpoint in the parent profile.|
-|Degraded. At least one child profile endpoint is in a Degraded state.| Online: the number of Online endpoints in the child profile is at least the value of MinChildEndpoints.<BR>CheckingEndpoint: the number of Online plus CheckingEndpoint endpoints in the child profile is at least the value of MinChildEndpoints.<BR>Degraded: otherwise.|Traffic is routed to an endpoint of status CheckingEndpoint. If MinChildEndpoints is set too high, the endpoint is always degraded.|
-|Online. At least one child profile endpoint is an Online state. No endpoint is in the Degraded state.|See above.||
-|CheckingEndpoints. At least one child profile endpoint is 'CheckingEndpoint'. No endpoints are 'Online' or 'Degraded'|Same as above.||
-|Inactive. All child profile endpoints are either Disabled or Stopped, or this profile has no endpoints.|Stopped||
+|"Отключено". Дочерний профиль был отключен пользователем.|Остановлено|Состояние родительской конечной точки — «Остановлено», а не «Отключено». Состояние «Отключено» указывает, что вы отключили конечную точку в родительском профиле.|
+|"Пониженная функциональность". Как минимум одна конечная точка дочернего профиля находится в состоянии пониженной функциональности.|"В сети": количество конечных точек в дочернем профиле, находящихся в состоянии "В сети", не меньше значения MinChildEndpoints. "Проверка конечной точки": сумма конечных точек в дочернем профиле, находящихся в состояниях "В сети" и "Проверка конечной точки", не меньше значения MinChildEndpoints. В противном случае: "Пониженная функциональность".|Трафик перенаправляется к конечной точке с состоянием "Проверка конечной точки". Если задано слишком большое значение MinChildEndpoints, функциональность конечной точки всегда будет понижена.|
+|В сети. Как минимум одна конечная точка дочернего профиля находится в состоянии "В сети" и нет ни одной точки в состоянии "Пониженная функциональность".|См. выше.||
+|"Проверка конечных точек". Как минимум одна точка находится в состоянии "Проверка конечной точки". Ни одна не находится в состоянии "В сети" или "Пониженная функциональность".|То же, что и выше.||
+|"Неактивно". Все конечные точки дочернего профиля находятся в состоянии "Отключено" или "Остановлено", либо в этом профиле нет конечных точек.|Остановлено||
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Learn more about [how Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
+Узнайте больше о том, [как работает диспетчер трафика](traffic-manager-how-traffic-manager-works.md).
 
-Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.md)
+Узнайте, как [создать профиль диспетчера трафика](traffic-manager-manage-profiles.md).
 
 <!--Image references-->
 [1]: ./media/traffic-manager-nested-profiles/figure-1.png
@@ -159,9 +161,4 @@ Learn how to [create a Traffic Manager profile](traffic-manager-manage-profiles.
 [9]: ./media/traffic-manager-nested-profiles/figure-9.png
 [10]: ./media/traffic-manager-nested-profiles/figure-10.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager template for storage | Microsoft Azure"
-   description="Shows the Resource Manager schema for deploying storage accounts through a template."
+   pageTitle="Шаблон диспетчера ресурсов для службы хранилища | Microsoft Azure"
+   description="Демонстрирует схему диспетчера ресурсов для развертывания учетных записей хранения с помощью шаблона."
    services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,14 +16,13 @@
    ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
+# Учетная запись хранения — схема шаблона
 
-# <a name="storage-account-template-schema"></a>Storage account template schema
+Создание учетной записи хранения.
 
-Creates a storage account.
+## Формат схемы
 
-## <a name="schema-format"></a>Schema format
-
-To create a storage account, add the following schema to the resources section of your template.
+Чтобы создать учетную запись хранения, добавьте следующую схему в раздел ресурсов шаблона.
 
     {
         "type": "Microsoft.Storage/storageAccounts",
@@ -32,33 +31,33 @@ To create a storage account, add the following schema to the resources section o
         "location": string,
         "properties": 
         {
-            "accountType": string
+        	"accountType": string
         }
     }
 
-## <a name="values"></a>Values
+## Значения
 
-The following tables describe the values you need to set in the schema.
+В следующих таблицах описаны значения, которые следует указать в этой схеме.
 
-| Name | Value |
+| Имя | Значение |
 | ---- | ---- |
-| type | Enum<br />Required<br />**Microsoft.Storage/storageAccounts**<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />**2015-06-15** or **2015-05-01-preview**<br /><br />The API version to use for creating the resource. | 
-| name | String<br />Required<br />Between 3 and 24 characters, only numbers and lower-case letters.<br /><br />The name of the storage account to create. The name must be unique across all of Azure. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention as shown in the example below. |
-| location | String<br />Required<br />A region that supports storage accounts. To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).<br /><br />The region to host the storage account. |
-| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the type of storage account to create. |
+| type | Перечисление.<br />Обязательное значение.<br />**Microsoft.Storage/storageAccounts**<br /><br />Тип создаваемого ресурса. |
+| версия\_API | Перечисление.<br />Обязательное значение.<br />**2015-06-15** или **2015-05-01-preview**<br /><br />Версия API, которая будет использована для создания ресурса. | 
+| name | Строка.<br />Обязательное значение.<br />От 3 до 24 знаков, допускаются только цифры и строчные буквы.<br /><br />Имя учетной записи хранения для создания. Имя должно быть уникальным в Azure. Мы рекомендуем использовать функцию [uniqueString](resource-group-template-functions.md#uniquestring) в рамках соглашения об именовании, как показано в примере ниже. |
+| location | Строка.<br />Обязательное значение.<br />Область, которая поддерживает учетные записи хранения. Сведения об определении допустимых регионов см. в разделе [Поддерживаемые регионы](resource-manager-supported-services.md#supported-regions).<br /><br />Регион для размещения учетной записи хранения. |
+| properties | Объект.<br />Обязательное значение.<br />[Объект свойств.](#properties)<br /><br />Объект, который определяет тип создаваемой учетной записи хранения. |
 
 <a id="properties" />
-### <a name="properties-object"></a>properties object
+### объект properties
 
-| Name | Value |
+| Имя | Значение |
 | ---- | ---- | 
-| accountType | String<br />Required<br />**Standard_LRS**, **Standard_ZRS**, **Standard_GRS**, **Standard_RAGRS**, or **Premium_LRS**<br /><br />The type of storage account. The permitted values correspond to Standard Locally Redundant, Standard Zone Redundant, Standard Geo-Redundant, Standard Read-Access Geo-Redundant, and Premium Locally Redundant. For information about these account types, see [Azure Storage replication](./storage/storage-redundancy.md ). |
+| accountType | Строка.<br />Обязательное значение.<br />**Standard\_LRS**, **Standard\_ZRS**, **Standard\_GRS**, **Standard\_RAGRS** или **Premium\_LRS**<br /><br />Тип учетной записи хранения. Допустимые значения обозначают соответственно: локально избыточное (цен. категория «Стандартный»), избыточное в пределах зоны (цен. категория «Стандартный»), геоизбыточное (цен. категория «Стандартный»), геоизбыточное с доступом для чтения (цен. категория «Стандартный»), локально избыточное (цен. категория Премиум»). Информацию об этих типах хранилищ см. в статье [Репликация службы хранилища Azure](./storage/storage-redundancy.md). |
 
-    
-## <a name="examples"></a>Examples
+	
+## Примеры
 
-The following example deploys a Standard Locally Redundant storage account with a unique name based on the resource group id.
+Следующий пример развертывает учетную запись хранения с типом хранилища «Локально избыточное (цен. категория «Стандартный»)» и уникальным именем, основанным на идентификаторе группы ресурсов.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -72,34 +71,30 @@ The following example deploys a Standard Locally Redundant storage account with 
                 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
                 "location": "[resourceGroup().location]",
                 "properties": 
-            {
+        	{
                     "accountType": "Standard_LRS"
-            }
+        	}
             }
         ],
         "outputs": {}
     }
 
-## <a name="quickstart-templates"></a>Quickstart templates
+## Шаблоны быстрого запуска
 
-There are many quickstart templates that include a storage account. The following templates illustrate some common scenarios:
+Существует много шаблонов быстрого запуска, включающих учетную запись хранения. Следующие шаблоны иллюстрируют некоторые распространенные сценарии:
 
-- [Create a Standard Storage Account](https://azure.microsoft.com/documentation/templates/101-storage-account-create)
-- [Simple deployment of an Windows VM](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows)
-- [Simple deployment of an Linux VM](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux)
-- [Create a CDN Profile, a CDN Endpoint with a Storage Account as origin](https://azure.microsoft.com/documentation/templates/201-cdn-with-storage-account)
-- [Create a High Availabilty SharePoint Farm with 9 VMs using the Powershell DSC Extension](https://azure.microsoft.com/documentation/templates/sharepoint-server-farm-ha)
-- [Simple deployment of a 5 Node secure Service Fabric Cluster with WAD enabled](https://azure.microsoft.com/documentation/templates/service-fabric-secure-cluster-5-node-1-nodetype-wad)
-- [Create a Virtual Machine from a Windows Image with 4 Empty Data Disks](https://azure.microsoft.com/documentation/templates/101-vm-multiple-data-disk)
-
-
-## <a name="next-steps"></a>Next steps
-
-- For general information about storage, see [Introduction to Microsoft Azure Storage](./storage/storage-introduction.md).
-- For example templates that use a new storage account with a Virtual Machine, see [Deploy a simple Linux VM](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) or [Deploy a simple Windows VM](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
+- [Создание стандартной учетной записи хранения](https://azure.microsoft.com/documentation/templates/101-storage-account-create)
+- [Простое развертывание виртуальной машины Windows](https://azure.microsoft.com/documentation/templates/101-vm-simple-windows)
+- [Простое развертывание виртуальной машины Linux](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux)
+- [Создание профиля CDN, конечной точки сети CDN с помощью учетной записи хранения в качестве источника](https://azure.microsoft.com/documentation/templates/201-cdn-with-storage-account)
+- [Создание фермы высокой доступности SharePoint с 9 виртуальными машинами с помощью расширения Powershell DSC](https://azure.microsoft.com/documentation/templates/sharepoint-server-farm-ha)
+- [Простое развертывание защищенного кластера Service Fabric с 5 узлами с включенной системой диагностики Azure](https://azure.microsoft.com/documentation/templates/service-fabric-secure-cluster-5-node-1-nodetype-wad)
+- [Создание виртуальной машины на основе образа Windows с 4 пустыми дисками данных](https://azure.microsoft.com/documentation/templates/101-vm-multiple-data-disk)
 
 
+## Дальнейшие действия
 
-<!--HONumber=Oct16_HO2-->
+- Дополнительные сведения о службе хранилища см. в статье [Знакомство со службой хранилища Microsoft Azure](./storage/storage-introduction.md).
+- Примеры шаблонов для использования новой учетной записи хранения на виртуальной машине см. в статьях [Развертывание простой виртуальной машины Linux](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) и [Развертывание простой виртуальной машины Windows](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
-
+<!---HONumber=AcomDC_0406_2016-->

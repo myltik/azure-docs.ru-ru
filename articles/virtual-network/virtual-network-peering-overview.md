@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Azure virtual network peering | Microsoft Azure"
-   description="Learn about VNet peering in Azure."
+   pageTitle="Пиринговая связь между виртуальными сетями Azure | Microsoft Azure"
+   description="Сведения о пиринговой связи между виртуальными сетями в Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="NarayanAnnamalai"
@@ -16,81 +16,76 @@
    ms.date="07/28/2016"
    ms.author="narayan" />
 
+# Пиринговая связь между виртуальными сетями
 
-# <a name="vnet-peering"></a>VNet peering
+Пиринговая связь между виртуальными сетями — это механизм подключения между двумя виртуальными сетями, находящимися в одном регионе, через магистральную сеть Azure. После создания пиринговой связи две виртуальные сети выглядят как одна при любом подключении. Они по-прежнему управляются как отдельные ресурсы, но теперь находящиеся в них виртуальные машины могут взаимодействовать друг с другом напрямую по частным IP-адресам.
 
-VNet peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
+Трафик между виртуальными машинами в таких виртуальных сетях направляется через инфраструктуру Azure, подобно трафику между виртуальными машинами в одной виртуальной сети. Некоторые преимущества пиринговой связи между виртуальными сетями:
 
-The traffic between virtual machines in the peered virtual networks is routed through the Azure infrastructure much like traffic is routed between VMs in the same virtual network. Some of the benefits of using VNet peering include:
+- подключение между ресурсами в разных виртуальных сетях, характеризующееся низкой задержкой и высокой пропускной способностью;
+- возможность использовать ресурсы, такие как сетевые устройства и VPN-шлюзы, в качестве транзитных точек в пиринговой виртуальной сети;
+- возможность подключения виртуальной сети, в которой используется модель Azure Resource Manager, к виртуальной сети, в которой используется классическая модель развертывания, с обеспечением полной связи между ресурсами в этих виртуальных сетях.
 
-- A low-latency, high-bandwidth connection between resources in different virtual networks.
-- The ability to use resources such as network appliances and VPN gateways as transit points in a peered VNet.
-- The ability to connect a virtual network that uses the Azure Resource Manager model to a virtual network that uses the classic deployment model and enable full connectivity between resources in these virtual networks.
+Требования и ключевые аспекты, касающиеся пиринговой связи между виртуальными сетями:
 
-Requirements and key aspects of VNet peering:
-
-- The two virtual networks that are peered should be in the same Azure region.
-- The virtual networks that are peered should have non-overlapping IP address spaces.
-- VNet peering is between two virtual networks, and there is no derived transitive relationship. For example, if virtual network A is peered with virtual network B, and if virtual network B is peered with virtual network C, it does not translate to virtual network A being peered with virtual network C.
-- Peering can be established between virtual networks in two different subscriptions as long a privileged user of both subscriptions authorizes the peering and the subscriptions are associated to the same Active Directory tenant. 
-- A virtual network that uses the Resource Manager deployment model can be peered with another virtual network that uses this model, or with a virtual network that uses the classic deployment model. However, virtual networks that use the classic deployment model can't be peered to each other.
-- Though the communication between virtual machines in peered virtual networks has no additional bandwidth restrictions, bandwidth cap based on VM size still applies.
-
-
-![Basic VNet peering](./media/virtual-networks-peering-overview/figure01.png)
-
-## <a name="connectivity"></a>Connectivity
-After two virtual networks are peered, a virtual machine (web/worker role) in the virtual network can directly connect with other virtual machines in the peered virtual network. These two networks have full IP-level connectivity.
-
-The network latency for a round trip between two virtual machines in peered virtual networks is the same as for a round trip within a local virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine proportionate to its size. There isn't any additional restriction on bandwidth.
-
-The traffic between the virtual machines in peered virtual networks is routed directly through the Azure back-end infrastructure and not through a gateway.
-
-Virtual machines in a virtual network can access the internal load-balanced (ILB) endpoints in the peered virtual network. Network security groups (NSGs) can be applied in either virtual network to block access to other virtual networks or subnets if desired.
-
-When users configure peering, they can either open or close the NSG rules between the virtual networks. If the user chooses to open full connectivity between peered virtual networks (which is the default option), they can then use NSGs on specific subnets or virtual machines to block or deny specific access.
-
-Azure-provided internal DNS name resolution for virtual machines doesn't work across peered virtual networks. Virtual machines have internal DNS names that are resolvable only within the local virtual network. However, users can configure virtual machines that are running in peered virtual networks as DNS servers for a virtual network.
-
-## <a name="service-chaining"></a>Service chaining
-Users can configure user-defined route tables that point to virtual machines in peered virtual networks as the "next hop" IP address, as shown in the diagram later in this article. This enables users to achieve service chaining, through which they can direct traffic from one virtual network to a virtual appliance that's running in a peered virtual network through user-defined route tables.
-
-Users can also effectively build hub-and-spoke type environments where the hub can host infrastructure components such as a network virtual appliance. All the spoke virtual networks can then peer with it, as well as a subset of traffic to appliances that are running in the hub virtual network. In short, VNet peering enables the next hop IP address on the ‘User defined route table’ to be the IP address of a virtual machine in the peered virtual network.
-
-## <a name="gateways-and-on-premises-connectivity"></a>Gateways and on-premises connectivity
-Each virtual network, regardless of whether it is peered with another virtual network, can still have its own gateway and use it to connect to on-premises. Users can also configure [VNet-to-VNet connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) by using gateways, even though the virtual networks are peered.
-
-When both options for virtual network interconnectivity are configured, the traffic between the virtual networks flows through the peering configuration (that is, through the Azure backbone).
-
-When virtual networks are peered, users can also configure the gateway in the peered virtual network as a transit point to on-premises. In this case, the virtual network that is using a remote gateway cannot have its own gateway. One virtual network can have only one gateway. It can either be a local gateway or a remote gateway (in the peered virtual network), as shown in the following picture.
-
-Gateway transit is not supported in the peering relationship between virtual networks using the Resource Manager model and those using the classic deployment model. Both virtual networks in the peering relationship need to use the Resource Manager deployment model for a gateway transit to work.
-
-When the virtual networks that are sharing a single Azure ExpressRoute connection are peered, the traffic between them goes through the peering relationship (that is, through the Azure backbone network). Users can still use local gateways in each virtual network to connect to the on-premises circuit. Alternatively, they can use a shared gateway and configure transit for on-premises connectivity.
-
-![VNet peering transit](./media/virtual-networks-peering-overview/figure02.png)
-
-## <a name="provisioning"></a>Provisioning
-VNet peering is a privileged operation. It’s a separate function under the VirtualNetworks namespace. A user can be given specific rights to authorize peering. A user who has read-write access to the virtual network inherits these rights automatically.
-
-A user who is either an admin or a privileged user of the peering ability can initiate a peering operation on another VNet. If there is a matching request for peering on the other side, and if other requirements are met, the peering will be established.
-
-Refer to the articles in the "Next steps" section to learn more about how to establish VNet peering between two virtual networks.
-
-## <a name="limits"></a>Limits
-There are limits on the number of peerings that are allowed for a single virtual network. Refer to [Azure networking limits](../azure-subscription-service-limits.md#networking-limits) for more information.
-
-## <a name="pricing"></a>Pricing
-VNet peering will be free of charge during the review period. After it is released, there will be a nominal charge on ingress and egress traffic that utilizes the peering. For more information, refer to the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
+- Две виртуальные сети, между которыми настраивается пиринговая связь, должны находиться в одном регионе Azure.
+- Для настройки пиринговой связи пространства IP-адресов используемых виртуальных сетей не должны перекрываться.
+- Пиринговая связь устанавливается между двумя виртуальными сетями. При этом возникновение производной переходной связи не предполагается. Например, если для виртуальной сети A установлена пиринговая связь с виртуальной сетью B, а для виртуальной сети B — с виртуальной сетью C, эта связь не преобразуется в пиринговую связь между сетями A и C.
+- Пиринговую связь можно установить между виртуальными сетями в двух разных подписках, если ее разрешает привилегированный пользователь обеих подписок и подписки связаны с одним и тем же клиентом Active Directory.
+- Для виртуальной сети, в которой используется модель развертывания Resource Manager, можно установить пиринговую связь с другой виртуальной сетью, в которой используется та же модель, или с виртуальной сетью, в которой используется классическая модель развертывания. Однако между двумя виртуальными сетями с классической моделью развертывания пиринговую связь установить невозможно.
+- Для обмена данными между виртуальными машинами в пиринговых виртуальных сетях нет дополнительных ограничений пропускной способности, однако объем передаваемого трафика ограничивается размером виртуальной машины.
 
 
-## <a name="next-steps"></a>Next steps
-- [Set up peering between virtual networks](virtual-networks-create-vnetpeering-arm-portal.md).
-- Learn about [NSGs](virtual-networks-nsg.md).
-- Learn about [user-defined routes and IP forwarding](virtual-networks-udr-overview.md).
+![Базовая пиринговая связь между виртуальными сетями](./media/virtual-networks-peering-overview/figure01.png)
+
+## Соединение
+После создания пиринговой связи между двумя виртуальными сетями виртуальная машина (с веб-ролью или рабочей ролью) в одной из этих сетей может напрямую подключаться к другим виртуальным машинам в пиринговой виртуальной сети. Между этими двумя сетями поддерживается полное подключение на уровне IP-адресов.
+
+Задержки в сети при круговом пути между двумя виртуальными машинами в пиринговых виртуальных сетях такие же, как и в локальной виртуальной сети. Пропускная способность сети зависит от пропускной способности виртуальной машины, которая пропорциональна ее размеру. Дополнительные ограничения пропускной способности не применяются.
+
+Трафик между виртуальными машинами в пиринговых виртуальных сетях передается напрямую через серверную инфраструктуру Azure, а не через шлюз.
+
+Виртуальные машины в виртуальной сети могут получать доступ к конечным точкам с балансировкой нагрузки, которые находятся в пиринговой виртуальной сети. Чтобы заблокировать доступ к другим виртуальным сетям или подсетям, в любой виртуальной сети можно использовать группы безопасности сети (NSG).
+
+При настройке пиринговой связи пользователи могут включать или отключать правила группы безопасности сети, регулирующие связь между виртуальными сетями. Если пользователь разрешит полное подключение между пиринговыми виртуальными сетями (параметр по умолчанию), он сможет применять группы безопасности сети к определенным подсетям или виртуальным машинам, чтобы заблокировать или запретить доступ к ним.
+
+Внутреннее разрешение DNS-имен Azure не поддерживается для виртуальных машин в пиринговых виртуальных сетях. Виртуальным машинам назначаются внутренние DNS-имена, разрешимые только в пределах локальной виртуальной сети. Тем не менее пользователи могут настроить виртуальные машины в пиринговых виртуальных сетях в качестве DNS-серверов для виртуальной сети.
+
+## Цепочка служб
+Пользователи могут настроить определяемые пользователем таблицы маршрутизации, указывающие, какие виртуальные машины в пиринговых виртуальных сетях используются для IP-адреса следующего прыжка (как показано на схеме далее в этой статье). Таким образом пользователи могут создать цепочку служб для передачи трафика из одной виртуальной сети на виртуальное устройство, запущенное в пиринговой виртуальной сети, через определяемые пользователем таблицы маршрутизации.
+
+Кроме того, можно создавать среды со звездообразным подключением, в которых в центральной виртуальной сети ("звезде") размещаются инфраструктурные компоненты, например виртуальное сетевое устройство. Все остальные виртуальные сети ("лучи") подключаются к этой сети по пиринговой связи, и часть трафика направляется на устройства, работающие в центральной виртуальной сети. Если вкратце, в определяемой пользователем таблице маршрутизации можно указать для следующего прыжка IP-адрес виртуальной машины, входящей в пиринговую виртуальную сеть.
+
+## Использование шлюзов для локального подключения
+Для каждой виртуальной сети, независимо от наличия пиринговой связи с другой виртуальной сетью, можно настроить собственный шлюз, который будет использоваться для подключения к локальной сети. С помощью шлюза также можно настроить подключение [между виртуальными сетями](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), даже если для них установлена пиринговая связь.
+
+Если для виртуальных сетей настроены оба типа подключения, трафик между виртуальными сетями проходит через пиринговую связь (т. е. через магистральную сеть Azure).
+
+Если между виртуальными сетями установлена пиринговая связь, пользователи могут использовать шлюз в одной из этих сетей в качестве транзитного пункта при подключении к локальной сети. В этом случае виртуальная сеть, использующая удаленный шлюз, не может иметь свой собственный. У одной виртуальной сети может быть только один шлюз. Это может быть локальный или удаленный шлюз (в пиринговой виртуальной сети), как показано на следующем рисунке.
+
+Транзит через шлюз не поддерживается между виртуальной сетью с классической моделью развертывания и виртуальной сетью с моделью развертывания Resource Manager. Он поддерживается, только если в обеих пиринговых виртуальных сетях используется модель Resource Manager.
+
+Трафик между пиринговыми виртуальными сетями, которые используют одно подключение Azure ExpressRoute, передается по пиринговой связи (т. е. через магистральную сеть Azure). Пользователи по-прежнему могут использовать в каждой виртуальной сети локальные шлюзы для подключения к локальному каналу или настроить транзит через общий шлюз для локального подключения.
+
+![Транзит при пиринговой связи между виртуальными сетями](./media/virtual-networks-peering-overview/figure02.png)
+
+## Подготовка
+Пиринговую связь между виртуальными сетями может настроить только привилегированный пользователь. Это отдельная функция в рамках пространства имен виртуальной сети. Пользователю можно предоставить права на авторизацию пиринга. Пользователь, имеющий доступ для чтения и записи к виртуальной сети, автоматически наследует эти права.
+
+Администратор и привилегированный пользователь с правами на настройку пиринговой связи могут инициировать пиринговую связь с другой виртуальной сетью. Если на другой стороне есть такой же запрос и другие требования выполняются, пиринговая связь устанавливается.
+
+Дополнительные сведения о настройке пиринговой связи между двумя виртуальными сетями см. в других статьях, указанных в разделе "Дальнейшие действия".
+
+## Ограничения
+Существуют ограничения на число пиринговых связей в одной виртуальной сети. Дополнительные сведения см. в разделе [Ограничения сети](../azure-subscription-service-limits.md#networking-limits).
+
+## Цены
+В течение ознакомительного периода пиринговую связь между виртуальными сетями можно использовать бесплатно. После выпуска общедоступной версии за входящий и исходящий трафик по пиринговой связи будет взиматься номинальная плата. Дополнительные сведения см. на странице с [ценами](https://azure.microsoft.com/pricing/details/virtual-network).
 
 
+## Дальнейшие действия
+- [Настройка пиринга виртуальных сетей с помощью портала Azure](virtual-networks-create-vnetpeering-arm-portal.md).
+- Дополнительные сведения о [группах безопасности сети](virtual-networks-nsg.md).
+- Дополнительные сведения об [определяемых пользователем маршрутах и IP-пересылке](virtual-networks-udr-overview.md).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

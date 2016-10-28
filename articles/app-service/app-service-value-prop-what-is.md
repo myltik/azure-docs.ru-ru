@@ -1,88 +1,83 @@
 <properties 
-    pageTitle="Azure App Service for web apps and mobile apps | Microsoft Azure" 
-    description="Learn how Azure App Service helps you develop, deploy, and manage web and mobile apps." 
-    keywords="app service, azure app service, app service cost, scale, scalable, app deployment, azure app deployment, paas, platform-as-a-service"
-    services="app-service" 
-    documentationCenter="" 
-    authors="omarkmsft" 
-    manager="dwrede" 
-    editor="jimbe"/>
+	pageTitle="Создание мобильных и веб-приложений в службе приложений Azure | Microsoft Azure" 
+	description="Узнайте, как служба приложений Azure позволяет разрабатывать и развертывать веб-приложения и мобильные приложения, а также управлять ими." 
+	keywords="служба приложений, служба приложений Azure, стоимость службы приложений, масштабировать, масштабируемый, развертывание приложений, развертывание приложений Azure, PaaS, платформа как услуга"
+	services="app-service" 
+	documentationCenter="" 
+	authors="omarkmsft" 
+	manager="dwrede" 
+	editor="jimbe"/>
 
 <tags 
-    ms.service="app-service" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="05/25/2016" 
-    ms.author="omark"/>
+	ms.service="app-service" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="05/25/2016" 
+	ms.author="omark"/>
 
+# Что такое служба приложений Azure?
 
-# <a name="what-is-azure-app-service?"></a>What is Azure App Service?
+*Служба приложений* — это решение на основе модели [платформа как услуга](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) от Microsoft Azure, которое позволяет создавать веб- и мобильные приложения для любой платформы или устройства. Кроме того, с его помощью можно интегрировать приложения с решениями SaaS, подключаться к локальным приложениям и автоматизировать бизнес-процессы. Azure запускает приложения на полностью управляемых виртуальных машинах. При этом вы можете выбрать тип виртуальных машин, которые необходимо использовать для вашей нагрузки (общие или выделенные).
 
-*App Service* is a [platform-as-a-service](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) offering of Microsoft Azure. Create web and mobile apps for any platform or device. Integrate your apps with SaaS solutions, connect with on-premises applications, and automate your business processes. Azure runs your apps on fully managed virtual machines (VMs), with your choice of shared VM resources or dedicated VMs. 
+Служба приложений обладает возможностями для работы в сетевой и мобильной среде, которые ранее предлагались в составе отдельных решений Веб-сайты Azure и мобильные службы Azure. Она также предусматривает новые возможности для автоматизации бизнес-процессов и размещения облачных API. Интегрированная служба приложений позволяет легко создать единое решение, объединяющее несколько компонентов (например, веб-сайты, серверные части мобильных приложений, интерфейсы API RESTful и бизнес-процессы).
 
-App Service includes the web and mobile capabilities that we previously delivered separately as Azure Websites and Azure Mobile Services.  It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service lets you compose various components -- websites, mobile app back ends, RESTful APIs, and business processes -- into a single solution.
+Следующее 4-минутное видео знакомит вас с новыми возможностями службы приложений и объясняет ее связь с предыдущими предложениями Azure.
 
-The following 4-minute video provides a brief explanation of how App Service relates to earlier Azure offerings and what's new in it.
+\+[AZURE.VIDEO app-service-history-lesson] 
 
-+[AZURE.VIDEO app-service-history-lesson] 
+## Преимущества службы приложений
 
-## <a name="why-use-app-service?"></a>Why use App Service?
+Ниже приведены некоторые основные функции и возможности службы приложений.
 
-Here are some key features and capabilities of App Service: 
+- **Поддержка нескольких языков и платформ**. Служба приложений превосходно поддерживает ASP.NET, Node.js, Java, PHP и Python. Кроме того, в виртуальных машинах службы приложений можно запустить [Windows PowerShell и другие сценарии или исполняемые файлы](../app-service-web/web-sites-create-web-jobs.md).
 
-- **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, Node.js, Java, PHP, and Python. You can also run [Windows PowerShell and other scripts or executables](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs.
-
-- **DevOps optimization** - Set up [continuous integration and deployment](../app-service-web/app-service-continuous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](../app-service-web/web-sites-staged-publishing.md). Perform [A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md). Manage your apps in App Service by using [Azure PowerShell](../powershell-install-configure.md) or the [cross-platform command-line interface (CLI)](../xplat-cli-install.md).
+- **Оптимизация DevOps**. Настраивайте [непрерывную интеграцию и развертывание](../app-service-web/app-service-continuous-deployment.md) в Visual Studio Team Services, GitHub или BitBucket. Повышайте уровень обновлений с помощью [тестовых и промежуточных сред](../app-service-web/web-sites-staged-publishing.md). Выполняйте [тестирование A/B](../app-service-web/app-service-web-test-in-production-get-start.md). Управляйте приложениями в службе приложений с помощью оболочки [Azure PowerShell](../powershell-install-configure.md) или [кроссплатформенного интерфейса командной строки (CLI)](../xplat-cli-install.md).
  
-- **Global scale with high availability** - Scale [up](../app-service-web/web-sites-scale.md) or [out](../azure-portal/insights-how-to-scale.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
+- **Высокодоступное глобальное масштабирование**. [Увеличивайте](../app-service-web/web-sites-scale.md) либо [уменьшайте](../azure-portal/insights-how-to-scale.md) размер вручную или автоматически. Храните приложения в любом месте глобальной инфраструктуры центра обработки данных. При этом [соглашение об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/app-service/) гарантирует высокую доступность.
 
-- **Connections to SaaS platforms and on-premises data** - Choose from more than 50 [connectors](../connectors/apis-list.md) for enterprise systems (such as SAP, Siebel, and Oracle), SaaS services (such as Salesforce and Office 365), and internet services (such as Facebook and Twitter). Access on-premises data using [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
+- **Подключение к платформам SaaS и локальным данным**. На выбор доступно более 50 [соединителей](../connectors/apis-list.md) для корпоративных систем (например, SAP, Siebel и Oracle), служб SaaS (например, Salesforce и Office 365) и популярных интернет-служб (например, Facebook и Twitter). Получайте доступ к локальным данным с помощью [гибридных подключений](../biztalk-services/integration-hybrid-connection-overview.md) и [виртуальных сетей Azure](../app-service-web/web-sites-integrate-with-vnet.md).
 
-- **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/).
+- **Безопасность и соответствие требованиям**. Служба приложений совместима со стандартами [ISO, SOC и PCI](https://www.microsoft.com/TrustCenter/).
 
-- **Application templates** - Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/) that let you use a wizard to install popular open-source software such as WordPress, Joomla, and Drupal.
+- **Шаблоны приложений**. Вы можете выбрать любой шаблон из обширного списка шаблонов приложений в [Azure Marketplace](https://azure.microsoft.com/marketplace/). Эти шаблоны позволяют устанавливать популярное программное обеспечение с открытым исходным кодом, например WordPress, Joomla и Drupal, с помощью мастера.
 
-- **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
+- **Интеграция с Visual Studio**. Выделенные инструменты в Visual Studio упрощают создание, развертывание и отладку приложений.
 
-## <a name="app-types-in-app-service"></a>App types in App Service
+## Типы приложений в службе приложений
 
-App Service offers several *app types*, each of which is  intended to host a specific kind of workload:
+Служба приложений предоставляет несколько *типов приложений*, которые предназначены для размещения разных рабочих нагрузок.
 
-- [**Web Apps**](../app-service-web/app-service-web-overview.md) - For hosting websites and web applications.
+- [**Веб-приложения**](../app-service-web/app-service-web-overview.md) — для размещения веб-сайтов и веб-приложений.
 
-- [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) For hosting mobile app back ends.
+- [**Мобильные приложения**](../app-service-mobile/app-service-mobile-value-prop.md) — для размещения серверной части мобильных приложений.
    
-- [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - For hosting cloud APIs. 
+- [**Приложения API**](../app-service-api/app-service-api-apps-why-best-platform.md) — для размещения облачных API.
  
-- [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - For automating the access and use of data across clouds without writing code.
+- [**Приложения логики**](../app-service-logic/app-service-logic-what-are-logic-apps.md) — для автоматизации доступа к данным и их использования в облаке без написания кода.
 
-The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front-end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
+Здесь под *приложением* подразумеваются ресурсы размещения, выделенные для запуска рабочей нагрузки. Большинство пользователей думают, что для функционирования веб-приложения в браузере требуются вычислительные ресурсы и код приложения. В службе приложений *веб-приложение* — это вычислительные ресурсы, предоставляемые средой Azure для размещения кода приложения. Если приложение состоит из веб-интерфейса и серверной части интерфейса API RESTful, можно развернуть оба этих компонента или только код внешнего интерфейса в веб-приложении, а код серверной части — в приложении API. Ваше приложение может состоять из нескольких разных приложений службы приложений.
 
-## <a name="app-service-plans"></a>App Service Plans
+## Планы службы приложений
 
-[App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) specify the kind of compute resources that your apps run on. If you expect light traffic loads, you can use shared virtual machines (VMs). For higher loads, you can choose from several sizes of dedicated VMs. Multiple App Service apps can share the same plan, and they scale up and down together with the plan.
+[Планы службы приложений](azure-web-sites-web-hosting-plans-in-depth-overview.md) определяют тип вычислительных ресурсов, которые используются приложением. Если ожидаются незначительные объемы трафика, можно использовать общие виртуальные машины. Для более высоких нагрузок следует использовать выделенные виртуальные машины. Для нескольких приложений службы приложений можно использовать один и тот же план. Их размер зависит от используемого плана.
 
-If you need more scalability and network isolation, you can run your apps in an [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md). 
+Если вам требуется больше возможностей в отношении масштабируемости и сетевой изоляции, для работы с приложениями можно использовать [среду службы приложений](../app-service-web/app-service-app-service-environment-intro.md).
 
-## <a name="pricing"></a>Pricing
+## Цены
 
-For information about how much App Service costs, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/). 
+Дополнительные сведения о ценах на службу приложений см. [здесь](https://azure.microsoft.com/pricing/details/app-service/).
 
-## <a name="get-started-with-app-service"></a>Get Started with App Service
+## Начало работы со службой приложений
 
-[Create a temporary web app, mobile app, or logic app](http://go.microsoft.com/fwlink/?LinkId=523751) right away for free, with no credit card required, no commitments, no hassles.
+[Создайте временное веб-, мобильное приложение или приложение логики](http://go.microsoft.com/fwlink/?LinkId=523751) бесплатно без кредитных карт, обязательств и проблем.
 
-Or open a [free Azure account](https://azure.microsoft.com/pricing/free-trial/), and try one of our getting-started tutorials:
+Или создайте [бесплатную учетную запись Azure](https://azure.microsoft.com/pricing/free-trial/) и ознакомьтесь с одним из руководств по началу работы:
 
-* [Tutorial: Create a web app](../app-service-web/app-service-web-get-started.md)
-* [Tutorial: Create a mobile app](../app-service-mobile/app-service-mobile-android-get-started.md)
-* [Tutorial: Create an API app](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Tutorial: Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Создание веб-приложения](../app-service-web/app-service-web-get-started.md)
+* [Создание мобильного приложения](../app-service-mobile/app-service-mobile-android-get-started.md)
+* [Создание приложения API](../app-service-api/app-service-api-dotnet-get-started.md)
+* [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

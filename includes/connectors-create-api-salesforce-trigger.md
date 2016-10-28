@@ -1,18 +1,16 @@
-In this walk-through, you will learn how to use the **Salesforce - When an object is created** trigger to initiate a logic app workflow when a new lead is created in your Salesforce.
+В этом пошаговом руководстве вы узнаете, как использовать триггер **Salesforce — при создании объекта** для запуска рабочего процесса приложения логики при создании нового интереса в Salesforce.
 
->[AZURE.NOTE]You will get prompted to sign into your Salesforce account if you have not already created a *connection* to Salesforce.  
+>[AZURE.NOTE]Вам будет предложено войти с учетной записью Salesforce, если вы еще не создали *подключение* к Salesforce.
 
-1. Enter *salesforce* in the search box on the logic apps designer then select the **Salesforce - When an object is created**  trigger.  
-![Salesforce trigger image 1](./media/connectors-create-api-salesforce/trigger-1.png)   
-- The **When an object is created** control is displayed.  
-![Salesforce trigger image 2](./media/connectors-create-api-salesforce/trigger-2.png)   
-- Select the **Object Type** then select *Lead* from the list of objects. In this step you are indicating that you are creating a trigger that will notify your logic app whenever a new lead is created in Salesforce.   
-![Salesforce trigger image 3](./media/connectors-create-api-salesforce/trigger-3.png)   
-- That's it. You've created the trigger. However, you need to create at least one action in order to make this a valid logic app.    
-![Salesforce trigger image 4](./media/connectors-create-api-salesforce/trigger-4.png)   
+1. В конструкторе приложений логики в поле поиска введите запрос *salesforce*, а затем выберите триггер **Salesforce — при создании объекта**.  
+![Триггер Salesforce, изображение 1](./media/connectors-create-api-salesforce/trigger-1.png)  
+- Отобразится элемент управления **При создании объекта**.  
+![Триггер Salesforce, изображение 2](./media/connectors-create-api-salesforce/trigger-2.png)  
+- Укажите **тип объекта**, а затем выберите *Интерес* из списка объектов. На этом шаге вы указываете, что создаете триггер, который будет уведомлять приложение логики о создании интереса в Salesforce.  
+![Триггер Salesforce, изображение 3](./media/connectors-create-api-salesforce/trigger-3.png)  
+- Вот и все. Вы создали триггер. Тем не менее необходимо создать хотя бы одно действие, чтобы приложение логики стало действительным.  
+![Триггер Salesforce, изображение 4](./media/connectors-create-api-salesforce/trigger-4.png)  
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow when a new item is created in your Salesforce.  
+На этом этапе для приложения логики настроен триггер, который будет активировать другие триггеры и действия в рабочем процессе при создании нового элемента в Salesforce.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

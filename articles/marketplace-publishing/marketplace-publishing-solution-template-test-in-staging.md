@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Testing your solution template offer for the Marketplace | Microsoft Azure"
-   description="Understand how to test your solution template offer for the Azure Marketplace."
+   pageTitle="Тестирование предложения шаблона решения для Marketplace | Microsoft Azure"
+   description="Узнайте, как протестировать предложение шаблона решения для Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
@@ -16,32 +16,27 @@
    ms.date="12/04/2015"
    ms.author="hascipio; v-divte" />
 
+# Тестирование предложения шаблона решения в промежуточной среде
+Промежуточное развертывание подразумевает развертывание предложения в частной песочнице, в которой вы можете проверить все его функциональные возможности и убедиться в их работе перед публикацией в рабочей среде. Предложение отображается в промежуточной среде точно так же, как на компьютере выполнившего развертывание клиента. Для промежуточного развертывания предложение должно пройти сертификацию.
 
-# <a name="test-your-solution-template-offer-in-staging"></a>Test your solution template offer in staging
-Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer appears in staging just as it would to a customer who has deployed it. Your offer must be certified to be pushed to staging.
+После промежуточного развертывания предложения его можно просмотреть и проверить на [портале Azure](https://portal.azure.com/).
 
-After the offer is staged, you can view and test the offer in the [Azure Portal](https://portal.azure.com/).
+Выполните следующие шаги, чтобы отправить предложение в промежуточную среду и провести его тестирование на [портале Azure](https://portal.azure.com/).
 
-Follow the steps below to push your offer to staging and test it in the [Azure Portal](https://portal.azure.com/):
+1.	Откройте [портал публикации](https://publish.windowsazure.com), выберите вкладку **Шаблоны решений** > ваше предложение > **Публикация** и щелкните **Перейти к промежуточному развертыванию**.
+2.	Укажите список подписок Azure, которые будут использоваться для предварительного просмотра и тестирования предложения.
+3.	Войдите на портал предварительной версии Azure, применяя идентификатор подписки, указанной на предыдущем этапе.
+4.	На портале предварительной версии Azure выполните по крайней мере один цикл тестирования по пунктам, указанным ниже.
+  -	Убедитесь, что маркетинговое содержимое правильно отображается в Azure Marketplace.
+  -	Топология развернута полностью.
+  -	Выполните тестирование производительности и стрессовое тестирование.
+  -	Убедитесь, что топология соответствует рекомендациям.
 
-1.  Go to the [Publishing Portal](https://publish.windowsazure.com) > **Solution Templates** tab > your offer > **Publish** > **Push to Staging**.
-2.  Provide the list of Azure subscriptions that you will use to preview and test your offer.
-3.  Sign in to the Azure preview portal by using the subscription ID that you used in the previous step.
-4.  Carry out at least one round of testing in the Azure preview portal on the points mentioned below:
-  - Make sure that marketing content shows up correctly in the Azure Marketplace.
-  - End-to-end deployment of the topology.
-  - Perform performance testing and stress testing.
-  - Ensure that your topology adheres to the best practices.
+## Дальнейшие действия
+Если вы довольны результатами, то можете перейти к завершающему этапу публикации предложения, **Шаг 4.** [Развертывание предложения в Marketplace](marketplace-publishing-push-to-production.md). В противном случае внесите изменения в предложение и запросите повторную сертификацию.
 
-## <a name="next-steps"></a>Next steps
-If you are satisfied with the results, then you can proceed to the final offer publishing phase, **Step 4**:  [Deploying your offer to the Marketplace](marketplace-publishing-push-to-production.md). Otherwise, make changes in your offer and request certification again.
+> [AZURE.NOTE]Для изменения маркетингового содержимого сертификация не обязательна.
 
-> [AZURE.NOTE] For marketing content changes, certification is not required.
+Руководство по всем задачам издателя см. в статье [Приступая к работе: публикация предложения в Azure Marketplace](marketplace-publishing-getting-started.md).
 
-See [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md) for a guide to all publisher tasks.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1210_2015-->

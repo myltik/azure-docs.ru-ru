@@ -1,17 +1,15 @@
-Caches can be accessed in the [Azure portal](https://portal.azure.com) using the **Browse** blade.
+Доступ к кэшу можно получить на [портале Azure](https://portal.azure.com) с помощью колонки **Обзор**.
 
-![Azure Redis Cache Browse Blade](media/redis-cache-browse/redis-cache-browse.png)
+![Колонка обзора кэша Redis для Azure](media/redis-cache-browse/redis-cache-browse.png)
 
-To view your caches, click **More services > Redis Caches**. If you have recently browsed to a Redis Cache, you can click **Redis Caches** directly from the list without clicking **More services**.
+Чтобы просмотреть свои кэши, щелкните **Больше служб > Кэши Redis**. Если вы недавно просматривали кэш Redis, то можете выбрать **Кэши Redis** прямо из списка, не щелкая **Больше служб**.
 
-Select the desired cache to view the properties for that cache.
+Выберите необходимый кэш для просмотра его свойств.
 
-![Azure Redis Cache Browse Cache List](media/redis-cache-browse/redis-caches.png)
+![Список кэшей в обзоре кэша Redis для Azure](media/redis-cache-browse/redis-caches.png)
 
-Click **Settings** or **All settings** to view and configure your cache.
+Для отображения и настройки кэша щелкните **Параметры** или **Все параметры**.
 
-![Redis Cache All Settings](media/redis-cache-browse/redis-cache-blade.png)
+![Все параметры кэша Redis](media/redis-cache-browse/redis-cache-blade.png)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

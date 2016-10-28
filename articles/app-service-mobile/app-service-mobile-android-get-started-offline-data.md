@@ -1,125 +1,119 @@
 <properties
-    pageTitle="Enable offline sync for your Azure Mobile App (Android)"
-    description="Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application"
-    documentationCenter="android"
-    authors="yuaxu"
-    manager="erikre"
-    services="app-service\mobile"/>
+	pageTitle="Включение автономной синхронизации для мобильного приложения Azure (Android)"
+	description="Узнайте, как использовать мобильные приложения службы приложений для кэширования и синхронизации автономных данных в приложении Android."
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="erikre"
+	services="app-service\mobile"/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="java"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="yuaxu"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="07/21/2016"
+	ms.author="ricksal"/>
 
-
-# <a name="enable-offline-sync-for-your-android-mobile-app"></a>Enable offline sync for your Android mobile app
+# Включение автономной синхронизации для мобильного приложения Android
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-## <a name="overview"></a>Overview
+## Обзор
 
-This tutorial covers the offline sync feature of Azure Mobile Apps for Android. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
+В этом учебнике рассматривается функция автономной синхронизации мобильных приложений Azure для Android. Автономная синхронизация позволяет конечным пользователям взаимодействовать с мобильным приложением (просматривать, добавлять или изменять данные) даже при отсутствии подключения к сети. Изменения хранятся в локальной базе данных; после подключения устройства к сети эти изменения синхронизируются с удаленным внутренним сервером.
 
-If this is your first experience with Azure Mobile Apps, you should first complete the tutorial [Create an Android App]. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Если вы впервые работаете с мобильными приложениями Azure, сначала изучите учебник [Создание приложения Android]. Если вы не используете скачанный проект быстрого запуска сервера, в проект необходимо добавить пакет расширений для доступа к данным. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
+Дополнительные сведения о функции автономной синхронизации см. в статье [Автономная синхронизация данных в мобильных приложениях Azure].
 
-## <a name="update-the-app-to-support-offline-sync"></a>Update the app to support offline sync
+## Обновление приложения для поддержки синхронизации автономных данных
 
-With offline sync you read to and write from a *sync table* (using the *IMobileServiceSyncTable* interface), which is part of a **SQLite** database on your device.
+При включенной синхронизации автономных данных операции чтения и записи осуществляются с помощью *таблицы синхронизации* (с помощью интерфейса *IMobileServiceSyncTable*), которая является частью базы данных **SQLight** на вашем устройстве.
 
-To push and pull changes between the device and Azure Mobile Services, you use a *synchronization context* (*MobileServiceClient.SyncContext*), which you initialize with the local database that you use to store data locally.
+Для принудительной отправки изменений на устройстве в мобильные службы Azure и получения изменений из мобильных служб используйте *контекст синхронизации* (*MobileServiceClient.SyncContext*), который инициализируется с помощью локальной базы данных.
 
-1. In `TodoActivity.java`, comment out the existing definition of `mToDoTable` and uncomment the sync table version:
+1. В `TodoActivity.java` закомментируйте существующее определение `mToDoTable` и раскомментируйте версию таблицы синхронизации.
 
-        private MobileServiceSyncTable<ToDoItem> mToDoTable;
+	    private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
-2. In the `onCreate` method, comment out the existing initialization of `mToDoTable` and uncomment this definition:
+2. В методе `onCreate` закомментируйте существующую инициализацию `mToDoTable` и раскомментируйте следующее определение.
 
         mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 
-3. In `refreshItemsFromTable` comment out the definition of `results` and uncomment this definition:
+3. В `refreshItemsFromTable` закомментируйте определение `results` и раскомментируйте следующее определение.
 
-        // Offline Sync
-        final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
+		// Offline Sync
+		final List<ToDoItem> results = refreshItemsFromMobileServiceTableSyncTable();
 
-4. Comment out the definition of `refreshItemsFromMobileServiceTable`.
+4. Закомментируйте определение `refreshItemsFromMobileServiceTable`.
 
-5. Uncomment the definition of `refreshItemsFromMobileServiceTableSyncTable`:
+5. Раскомментируйте определение `refreshItemsFromMobileServiceTableSyncTable`.
 
-        private List<ToDoItem> refreshItemsFromMobileServiceTableSyncTable() throws ExecutionException, InterruptedException {
-            //sync the data
-            sync().get();
-            Query query = QueryOperations.field("complete").
-                    eq(val(false));
-            return mToDoTable.read(query).get();
-        }
+	    private List<ToDoItem> refreshItemsFromMobileServiceTableSyncTable() throws ExecutionException, InterruptedException {
+	        //sync the data
+	        sync().get();
+	        Query query = QueryOperations.field("complete").
+	                eq(val(false));
+	        return mToDoTable.read(query).get();
+	    }
 
-6. Uncomment the definition of `sync`:
+6. Раскомментируйте определение `sync`.
 
-        private AsyncTask<Void, Void, Void> sync() {
-            AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
-                @Override
-                protected Void doInBackground(Void... params) {
-                    try {
-                        MobileServiceSyncContext syncContext = mClient.getSyncContext();
-                        syncContext.push().get();
-                        mToDoTable.pull(null).get();
-                    } catch (final Exception e) {
-                        createAndShowDialogFromTask(e, "Error");
-                    }
-                    return null;
-                }
-            };
-            return runAsyncTask(task);
-        }
+	    private AsyncTask<Void, Void, Void> sync() {
+	        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
+	            @Override
+	            protected Void doInBackground(Void... params) {
+	                try {
+	                    MobileServiceSyncContext syncContext = mClient.getSyncContext();
+	                    syncContext.push().get();
+	                    mToDoTable.pull(null).get();
+	                } catch (final Exception e) {
+	                    createAndShowDialogFromTask(e, "Error");
+	                }
+	                return null;
+	            }
+	        };
+	        return runAsyncTask(task);
+	    }
 
-## <a name="test-the-app"></a>Test the app
+## Тестирование приложения
 
-In this section, you will test the behavior with WiFi on, and then turn off WiFi to create an offline scenario.
+В этом разделе мы протестируем поведение приложения при доступной сети Wi-Fi, а затем отключим Wi-Fi и рассмотрим автономный сценарий.
 
-When you add data items, they are held in the local SQLite store, but not synced to the mobile service until you press the **Refresh** button. Other apps may have different requirements regarding when data needs to be synchronized, but for demo purposes this tutorial has the user explicitly request it.
+Добавляемые элементы данных будут находиться в локальном хранилище SQLight, но не будут синхронизированы с мобильной службой, пока вы не нажмете кнопку **Обновить**. У разных приложений могут быть разные требования к синхронизации данных, но для демонстрационных целей этого учебника мы будем считать, что пользователь явно запрашивает ее.
 
-When you press that button, a new background task starts, and first pushes all the changes made to the local store, by using the synchronization context, and then pulls all changed data from Azure to the local table.
+При нажатии этой кнопки запускается новая фоновая задача, которая сначала принудительно отправляет все изменения в локальном хранилище, используя контекст синхронизации, а затем извлекает все измененные данные из Azure в локальную таблицу.
 
-### <a name="offline-testing"></a>Offline testing
+### Тестирование в автономном режиме
 
-1. Place the device or simulator in *Airplane Mode*. This creates an offline scenario.
+1. Переведите устройство или эмулятор в режим *В самолете*. Это позволит смоделировать автономный сценарий.
 
-2. Add some *ToDo* items, or mark some items as complete. Quit the device or simulator (or forcibly close the app) and restart. Verify that your changes have been persisted on the device because they are held in the local SQLite store.
+2. Добавьте несколько элементов *ToDo* или отметьте некоторые элементы как завершенные. Выйдите из эмулятора (или принудительно закройте приложение) и перезапустите его. Убедитесь, что изменения на устройстве по прежнему отображаются (так как они хранятся в локальном хранилище SQLight).
 
-3. View the contents of the Azure *TodoItem* table either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*. Verify that the new items have _not_ been synced to the server
+3. Просмотрите содержимое таблицы Azure *TodoItem* либо с помощью инструмента SQL, например *SQL Server Management Studio*, или с помощью клиента REST, например *Fiddler* или *Postman*. Убедитесь, что новые элементы _не_ были синхронизированы с сервером.
 
-    + For a Node.js backend, go to the [Azure portal](https://portal.azure.com/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
-    + For a .NET backend, view the table contents either with a SQL tool such as *SQL Server Management Studio*, or a REST client such as *Fiddler* or *Postman*.
+   	+ Для серверной части Node.js перейдите на [портал Azure](https://portal.azure.com/), затем на странице серверной части своего мобильного приложения щелкните **Easy Tables** > **TodoItem**, чтобы просмотреть содержимое таблицы `TodoItem`.
+   	+ Для серверной части .NET просмотрите содержимое таблицы либо с помощью средства SQL, например *SQL Server Management Studio*, или с помощью клиента REST, например *Fiddler* или *Postman*.
 
-4. Turn on WiFi in the device or simulator. Next, press the **Refresh** button.
+4. Включите Wi-Fi в эмуляторе или на устройстве. Затем нажмите кнопку **Обновить**.
 
-5. View the TodoItem data again in the Azure portal. The new and changed TodoItems should now appear.
+5. Снова просмотрите данные TodoItem на портале Azure. Должны отображаться как новые, так и измененные TodoItem.
 
-## <a name="additional-resources"></a>Additional Resources
+## Дополнительные ресурсы
 
-* [Offline Data Sync in Azure Mobile Apps]
+* [Автономная синхронизация данных в мобильных приложениях Azure]
 
-* [Cloud Cover: Offline Sync in Azure Mobile Services] \(note: the video is on Mobile Services, but offline sync works in a similar way in Azure Mobile Apps\)
+* [Облачное покрытие: автономная синхронизация в мобильных службах Azure] \(примечание: видео рассказывает о мобильных службах, однако точно так же автономная синхронизация работает в мобильных приложениях Azure)
 
 
 <!-- URLs. -->
 
-[Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
+[Автономная синхронизация данных в мобильных приложениях Azure]: ../app-service-mobile-offline-data-sync.md
 
-[Create an Android App]: app-service-mobile-android-get-started.md
+[Создание приложения Android]: ../app-service-mobile-android-get-started.md
 
-[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

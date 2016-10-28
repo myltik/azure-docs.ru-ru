@@ -1,89 +1,86 @@
 <properties
-    pageTitle="Notification Hubs Localized Breaking News Tutorial"
-    description="Learn how to use Azure Notification Hubs to send localized breaking news notifications."
-    services="notification-hubs"
-    documentationCenter="windows"
-    authors="wesmc7777"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Передача локализованных экстренных новостей с помощью центров уведомлений"
+	description="Узнайте, как использовать Центры уведомлений Azure для отправки уведомлений о локализованных экстренных новостях."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-windows"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="06/29/2016" 
-    ms.author="wesmc"/>
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/29/2016" 
+	ms.author="wesmc"/>
 
-
-# <a name="use-notification-hubs-to-send-localized-breaking-news"></a>Use Notification Hubs to send localized breaking news
+# Использование концентраторов уведомлений для передачи локализованных экстренных новостей
 
 > [AZURE.SELECTOR]
-- [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
+- [C# в Магазине Windows](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 - [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-##<a name="overview"></a>Overview
+##Обзор
 
-This topic shows you how to use the **template** feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the Windows Store app created in [Use Notification Hubs to send breaking news]. When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
-
-
-There are two parts to this scenario:
-
-- the Windows Store app allows client devices to specify a language, and to subscribe to different breaking news categories;
-
-- the back-end broadcasts the notifications, using the **tag** and **template** feautres of Azure Notification Hubs.
+В этом разделе показано, как использовать функцию **template** концентраторов уведомлений Azure для рассылки уведомлений об экстренных новостях, локализованных для языка и устройства. В этом учебнике вы начнете с приложения Магазина Windows, созданного в учебнике [Использование концентраторов уведомлений для передачи экстренных новостей] По завершении вы сможете регистрировать для категорий, которые вас интересуют, указывать язык уведомлений, и получать push-уведомления только для выбранных категорий на этом языке.
 
 
+Этот сценарий состоит из двух частей:
 
-##<a name="prerequisites"></a>Prerequisites
+- приложение Магазина Windows позволяет клиентским устройствам указывать язык и подписываться на различные категории экстренных новостей;
 
-You must have already completed the [Use Notification Hubs to send breaking news] tutorial and have the code available, because this tutorial builds directly upon that code.
-
-You also need Visual Studio 2012 or later.
-
-
-##<a name="template-concepts"></a>Template concepts
-
-In [Use Notification Hubs to send breaking news] you built an app that used **tags** to subscribe to notifications for different news categories.
-Many apps, however, target multiple markets and require localization. This means that the content of the notifications themselves have to be localized and delivered to the correct set of devices.
-In this topic we will show how to use the **template** feature of Notification Hubs to easily deliver localized breaking news notifications.
-
-Note: one way to send localized notifications is to create multiple versions of each tag. For instance, to support English, French, and Mandarin, we would need three different tags for world news: "world_en", "world_fr", and "world_ch". We would then have to send a localized version of the world news to each of these tags. In this topic we use templates to avoid the proliferation of tags and the requirement of sending multiple messages.
-
-At a high level, templates are a way to specify how a specific device should receive a notification. The template specifies the exact payload format by referring to properties that are part of the message sent by your app back-end. In our case, we will send a locale-agnostic message containing all supported languages:
-
-    {
-        "News_English": "...",
-        "News_French": "...",
-        "News_Mandarin": "..."
-    }
-
-Then we will ensure that devices register with a template that refers to the correct property. For instance, a Windows Store app that wants to receive a simple toast message will register for the following template with any corresponding tags:
-
-    <toast>
-      <visual>
-        <binding template=\"ToastText01\">
-          <text id=\"1\">$(News_English)</text>
-        </binding>
-      </visual>
-    </toast>
+- сервер рассылает уведомления, используя функции **tag** и **template** концентраторов уведомлений Azure.
 
 
 
-Templates are a very powerful feature you can learn more about in our [Templates](notification-hubs-templates-cross-platform-push-messages.md) article. 
+##Предварительные требования
+
+Вы должны предварительно выполнить учебник [Использование концентраторов уведомлений для передачи экстренных новостей], чтобы у вас был нужный код, так как этот учебник построен непосредственно на этом коде.
+
+Также требуется Visual Studio 2012 или более поздняя версия.
 
 
-##<a name="the-app-user-interface"></a>The app user interface
+##Основные сведения о шаблонах
 
-We will now modify the Breaking News app that you created in the topic [Use Notification Hubs to send breaking news] to send localized breaking news using templates.
+В учебнике [Использование центров уведомлений для передачи экстренных новостей] вы создали приложение, которое использовало **теги** для подписки на уведомления для различных категорий новостей. Однако многие приложения ориентированы на несколько рынков и требуют локализации. Это означает, что само содержимое уведомлений должно быть локализовано и доставлено в правильный набор устройств. В этом разделе будут продемонстрированы способы использования **шаблонов** центров уведомлений, которые позволяют легко доставлять уведомления о локализованных экстренных новостях.
 
-In your Windows Store app:
+Примечание. Один из способов отправки локализованных уведомлений — создание нескольких версий каждого тега. Например, для поддержки английского, французского и китайского нам понадобится три разных тега для мировых новостей: "world\_en", "world\_fr" и "world\_ch". Затем необходимо отправить локализованную версию мировых новостей по каждому из этих тегов. В этом разделе мы используем шаблоны во избежание избыточного количества тегов и необходимости отправки нескольких сообщений.
 
-Change your MainPage.xaml to include a locale combobox:
+В общих чертах, шаблоны представляют собой способ указать, как конкретное устройство должно получать уведомления. Шаблон указывает точный формат полезных данных путем обращения к свойствам, которые являются частью сообщения, отправленного сервером вашего приложение. В нашем случае мы отправим независимое от языка сообщение, которое содержит все поддерживаемые языки:
 
-    <Grid Margin="120, 58, 120, 80"  
-            Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+	{
+		"News_English": "...",
+		"News_French": "...",
+		"News_Mandarin": "..."
+	}
+
+Затем мы убедимся, что устройство зарегистрировано с шаблоном, который ссылается на нужное свойство. Например, приложение Магазина Windows, которое хочет получать простое всплывающее сообщение, будет зарегистрировано для следующего шаблона с любыми соответствующими тегами.
+
+	<toast>
+	  <visual>
+	    <binding template="ToastText01">
+	      <text id="1">$(News_English)</text>
+	    </binding>
+	  </visual>
+	</toast>
+
+
+
+Шаблоны — это очень мощная функция, о них можно узнать больше в нашей статье [Шаблоны](notification-hubs-templates-cross-platform-push-messages.md).
+
+
+##Пользовательский интерфейс приложения
+
+Теперь изменим приложение "Экстренные новости", созданное в разделе [Использование концентраторов уведомлений для передачи экстренных новостей] для отправки локализованных экстренных новостей с помощью шаблонов.
+
+В приложении Магазина Windows:
+
+Измените свой MainPage.xaml, чтобы включить поле языкового стандарта:
+
+	<Grid Margin="120, 58, 120, 80"  
+			Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -111,9 +108,9 @@ Change your MainPage.xaml to include a locale combobox:
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
 
-##<a name="building-the-windows-store-client-app"></a>Building the Windows Store client app
+##Разработка клиентского приложения Магазина Windows
 
-1. In your Notifications class, add a locale parameter to your  *StoreCategoriesAndSubscribe* and *SubscribeToCateories* methods.
+1. В классе Notifications добавьте параметр языкового стандарта к методам *StoreCategoriesAndSubscribe* и *SubscribeToCategories*.
 
         public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
@@ -133,24 +130,24 @@ Change your MainPage.xaml to include a locale combobox:
 
             // Using a template registration. This makes supporting notifications across other platforms much easier.
             // Using the localized tags based on locale selected.
-            string templateBodyWNS = String.Format("<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(News_{0})</text></binding></visual></toast>", locale);
+            string templateBodyWNS = String.Format("<toast><visual><binding template="ToastText01"><text id="1">$(News_{0})</text></binding></visual></toast>", locale);
 
             return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "localizedWNSTemplateExample", categories);
         }
 
-    Note that instead of calling the *RegisterNativeAsync* method we call *RegisterTemplateAsync*: we are registering a specific notification format in which the template depends on the locale. We also provide a name for the template ("localizedWNSTemplateExample"), because we might want to register more than one template (for instance one for toast notifications and one for tiles) and we need to name them in order to be able to update or delete them.
+	Обратите внимание, что вместо вызова метода *RegisterNativeAsync* мы вызываем метод *RegisterTemplateAsync*: мы регистрируем специальный формат уведомлений, в котором шаблон зависит от языкового стандарта. Мы также предоставляем имя шаблона (localizedWNSTemplateExample), потому что нам может понадобиться зарегистрировать более одного шаблона (например, один для всплывающих уведомлений и один для элементов) и нам нужно назвать их, чтобы иметь возможность обновлять или удалять.
 
-    Note that if a device registers multiple templates with the same tag, an incoming message targeting that tag will result in multiple notifications delivered to the device (one for each template). This behavior is useful when the same logical message has to result in multiple visual notifications, for instance showing both a badge and a toast in a Windows Store application.
+	Обратите внимание, что если устройство регистрирует несколько шаблонов с тем же тегом, одно входящее сообщение для этого тега приведет к передаче нескольких уведомлений на устройство (по одному для каждого шаблона). Это полезно, когда одного логическое сообщение должно привести к нескольким визуальным уведомлениям в приложении Магазина Windows, например в виде эмблемы и во всплывающем окне.
 
-2. Add the following method to retrieve the stored locale:
+2. Для получения сохраненного языкового стандарта добавьте следующий метод:
 
-        public string RetrieveLocale()
+		public string RetrieveLocale()
         {
             var locale = (string) ApplicationData.Current.LocalSettings.Values["locale"];
             return locale != null ? locale : "English";
         }
 
-3. In your MainPage.xaml.cs, update your button click handler by retrieving the current value of the Locale combo box and providing it to the call to the Notifications class, as shown:
+3. В файле MainPage.xaml.cs обновите обработчик нажатия кнопки, чтобы он получал текущее значение языкового стандарта (поля со списком Locale) и передавал его в вызове класса Notifications, как показано ниже.
 
         private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -165,16 +162,16 @@ Change your MainPage.xaml to include a locale combobox:
             if (SportsToggle.IsOn) categories.Add("Sports");
 
             var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(locale,
-                 categories);
+				 categories);
 
             var dialog = new MessageDialog("Locale: " + locale + " Subscribed to: " + 
-                string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
+				string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
 
 
-4. Finally, in your App.xaml.cs file, make sure to update your `InitNotificationsAsync` method to retrieve the locale and use it when subscribing:
+4. Наконец, в файле App.xaml.cs обязательно обновите метод `InitNotificationsAsync`, чтобы получать языковый стандарт и использовать его при подписке.
 
         private async void InitNotificationsAsync()
         {
@@ -190,7 +187,7 @@ Change your MainPage.xaml to include a locale combobox:
         }
 
 
-##<a name="send-localized-notifications-from-your-back-end"></a>Send localized notifications from your back-end
+##Отправка уведомлений из серверной части
 
 [AZURE.INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
@@ -204,7 +201,7 @@ Change your MainPage.xaml to include a locale combobox:
 [The app user interface]: #ui
 [Building the Windows Store client app]: #building-client
 [Send notifications from your back-end]: #send
-[Next Steps]:#next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
@@ -212,7 +209,8 @@ Change your MainPage.xaml to include a locale combobox:
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
-[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
+[Использование концентраторов уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-dotnet
+[Использование центров уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -230,8 +228,4 @@ Change your MainPage.xaml to include a locale combobox:
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

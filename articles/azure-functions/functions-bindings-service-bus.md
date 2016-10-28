@@ -1,48 +1,47 @@
 <properties
-    pageTitle="Azure Functions Service Bus triggers and bindings | Microsoft Azure"
-    description="Understand how to use Azure Service Bus triggers and bindings in Azure Functions."
-    services="functions"
-    documentationCenter="na"
-    authors="christopheranderson"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, dynamic compute, serverless architecture"/>
+	pageTitle="Триггеры и привязки служебной шины в функциях Azure | Microsoft Azure"
+	description="Узнайте, как использовать триггеры и привязки служебной шины Azure в функциях Azure."
+	services="functions"
+	documentationCenter="na"
+	authors="christopheranderson"
+	manager="erikre"
+	editor=""
+	tags=""
+	keywords="функции azure, функции, обработка событий, динамические вычисления, независимая архитектура"/>
 
 <tags
-    ms.service="functions"
-    ms.devlang="multiple"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="08/22/2016"
-    ms.author="chrande; glenga"/>
+	ms.service="functions"
+	ms.devlang="multiple"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
-
-# <a name="azure-functions-service-bus-triggers-and-bindings-for-queues-and-topics"></a>Azure Functions Service Bus triggers and bindings for queues and topics
+# Триггеры и привязки служебной шины в функциях Azure, используемые для очередей и разделов
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-This article explains how to configure and code Azure Service Bus triggers and bindings in Azure Functions. 
+Эта статья объясняет, как настроить и запрограммировать триггеры и привязки служебной шины в функциях Azure.
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 
+[AZURE.INCLUDE [общие сведения](../../includes/functions-bindings-intro.md)]
 
-## <a name="<a-id="sbtrigger"></a>-service-bus-queue-or-topic-trigger"></a><a id="sbtrigger"></a> Service Bus queue or topic trigger
+## <a id="sbtrigger"></a> Триггер служебной шины для очереди или раздела
 
-#### <a name="function.json"></a>function.json
+#### function.json
 
-The *function.json* file specifies the following properties.
+Файл *function.json* определяет следующие свойства:
 
-- `name` : The variable name used in function code for the queue or topic, or the queue or topic message. 
-- `queueName` : For queue trigger only, the name of the queue to poll.
-- `topicName` : For topic trigger only, the name of the topic to poll.
-- `subscriptionName` : For topic trigger only, the subscription name.
-- `connection` : The name of an app setting that contains a Service Bus connection string. The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. If the connection string doesn't have manage rights, set the `accessRights` property. If you leave `connection` empty, the trigger or binding will work with the default Service Bus connection string for the function app, which is specified by the AzureWebJobsServiceBus app setting.
-- `accessRights` : Specifies the access rights available for the connection string. Default value is `manage`. Set to `listen` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights.
-- `type` : Must be set to *serviceBusTrigger*.
-- `direction` : Must be set to *in*. 
+- `name` — имя переменной, используемой в коде функции для очереди или раздела либо для сообщения очереди или раздела.
+- `queueName` — имя очереди для опроса (только для триггера очереди).
+- `topicName` — имя раздела для опроса (только для триггера раздела).
+- `subscriptionName` — имя подписки (только для триггера раздела).
+- `connection` — имя параметра приложения, содержащего строку подключения к служебной шине. Строка подключения указывается для пространства имен служебной шины, и она не должна ограничиваться определенной очередью или разделом. Если строка подключения не имеет прав на управление, задайте свойство `accessRights`. Если оставить свойство `connection` пустым, привязка или триггер будут использовать строку подключения служебной шины по умолчанию для приложения-функции. Она задается в параметре приложения AzureWebJobsServiceBus.
+- `accessRights` — указывает права доступа для строки подключения. Значение по умолчанию — `manage`. Если используется строка подключения, которая не предоставляет разрешения на управление, задайте здесь значение `listen`. В противном случае выполнение операций, для которых требуются права на управление, в среде выполнения функций может завершиться ошибкой.
+- `type` — для этого свойства нужно задать значение *serviceBusTrigger*.
+- `direction` — для этого свойства необходимо задать значение *in*.
 
-Example *function.json* for a Service Bus queue trigger:
+Пример файла *function.json* для триггера очереди служебной шины:
 
 ```json
 {
@@ -59,7 +58,7 @@ Example *function.json* for a Service Bus queue trigger:
 }
 ```
 
-#### <a name="c#-code-example-that-processes-a-service-bus-queue-message"></a>C# code example that processes a Service Bus queue message
+#### Пример кода C#, который обрабатывает сообщение очереди служебной шины
 
 ```csharp
 public static void Run(string myQueueItem, TraceWriter log)
@@ -68,14 +67,14 @@ public static void Run(string myQueueItem, TraceWriter log)
 }
 ```
 
-#### <a name="f#-code-example-that-processes-a-service-bus-queue-message"></a>F# code example that processes a Service Bus queue message
+#### Пример кода F#, который обрабатывает сообщение очереди служебной шины
 
 ```fsharp
 let Run(myQueueItem: string, log: TraceWriter) =
     log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
-#### <a name="node.js-code-example-that-processes-a-service-bus-queue-message"></a>Node.js code example that processes a Service Bus queue message
+#### Пример кода Node.js, который обрабатывает сообщение очереди служебной шины
 
 ```javascript
 module.exports = function(context, myQueueItem) {
@@ -84,43 +83,43 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-#### <a name="supported-types"></a>Supported types
+#### Поддерживаемые типы
 
-The Service Bus queue message can be deserialized to any of the following types:
+Сообщение очереди служебной шины можно десериализировать в один из следующих типов:
 
-* Object (from JSON)
+* объект (JSON);
 * string
-* byte array 
-* `BrokeredMessage` (C#) 
+* массив байтов;
+* `BrokeredMessage` (C#)
 
-#### <a name="<a-id="sbpeeklock"></a>-peeklock-behavior"></a><a id="sbpeeklock"></a> PeekLock behavior
+#### <a id="sbpeeklock"></a> Поведение PeekLock
 
-The Functions runtime receives a message in `PeekLock` mode and calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. If the function runs longer than the `PeekLock` timeout, the lock is automatically renewed.
+Среда выполнения функций получает сообщение в режиме `PeekLock` и вызывает для сообщения метод `Complete`, если функция выполнена успешно, или метод `Abandon` в случае сбоя. Если функция выполняется дольше времени ожидания `PeekLock`, блокировка возобновляется автоматически.
 
-#### <a name="<a-id="sbpoison"></a>-poison-message-handling"></a><a id="sbpoison"></a> Poison message handling
+#### <a id="sbpoison"></a> Обработка подозрительных сообщений
 
-Service Bus does its own poison message handling which can't be controlled or configured in Azure Functions configuration or code. 
+В служебной шине выполняется собственная обработка подозрительных сообщений, которую нельзя контролировать или настраивать с помощью конфигурации или кода функций Azure.
 
-#### <a name="<a-id="sbsinglethread"></a>-single-threading"></a><a id="sbsinglethread"></a> Single-threading
+#### <a id="sbsinglethread"></a> Однопоточная обработка
 
-By default the Functions runtime processes multiple queue messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `serviceBus.maxConcurrrentCalls` to 1 in the *host.json* file. For information about the *host.json* file, see [Folder Structure](functions-reference.md#folder-structure) in the Developer reference article, and [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) in the WebJobs.Script repository wiki.
+По умолчанию в среде выполнения функций одновременно обрабатываются несколько сообщений очереди. Чтобы среда выполнения обрабатывала в любой момент времени только одно сообщение очереди или раздела, для свойства `serviceBus.maxConcurrrentCalls` в файле *host.json* нужно задать значение 1. Дополнительные сведения о файле *host.json* см. в разделе [Структура папок](functions-reference.md#folder-structure) статьи "Справочник разработчика по функциям Azure" и в разделе [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) в репозитории вики WebJobs.Script.
 
-## <a name="<a-id="sboutput"></a>-service-bus-queue-or-topic-output-binding"></a><a id="sboutput"></a> Service Bus queue or topic output binding
+## <a id="sboutput"></a> Выходная привязка для очереди или раздела служебной шины
 
-#### <a name="function.json"></a>function.json
+#### function.json
 
-The *function.json* file specifies the following properties.
+Файл *function.json* определяет следующие свойства:
 
-- `name` : The variable name used in function code for the queue or queue message. 
-- `queueName` : For queue trigger only, the name of the queue to poll.
-- `topicName` : For topic trigger only, the name of the topic to poll.
-- `subscriptionName` : For topic trigger only, the subscription name.
-- `connection` : Same as for Service Bus trigger.
-- `accessRights` : Specifies the access rights available for the connection string. Default value is `manage`. Set to `send` if you're using a connection string that doesn't provide manage permissions. Otherwise the Functions runtime might try and fail to do operations that require manage rights, such as creating queues.
-- `type` : Must be set to *serviceBus*.
-- `direction` : Must be set to *out*. 
+- `name` — имя переменной, используемой в коде функции для очереди или сообщения очереди.
+- `queueName` — имя очереди для опроса (только для триггера очереди).
+- `topicName` — имя раздела для опроса (только для триггера раздела).
+- `subscriptionName` — имя подписки (только для триггера раздела).
+- `connection` — то же, что и для триггера служебной шины.
+- `accessRights` — указывает права доступа для строки подключения. Значение по умолчанию — `manage`. Если используется строка подключения, которая не предоставляет разрешения на управление, задайте здесь значение `send`. В противном случае выполнение операций, для которых требуются права на управление (например, для создания очереди), в среде выполнения функций может завершиться ошибкой.
+- `type` — для этого свойства нужно задать значение *serviceBus*.
+- `direction` — для этого свойства необходимо задать значение *out*.
 
-Example *function.json* for using a timer trigger to write Service Bus queue messages:
+Пример файла *function.json* с использованием триггера таймера для записи сообщений очереди служебной шины:
 
 ```JSON
 {
@@ -144,23 +143,23 @@ Example *function.json* for using a timer trigger to write Service Bus queue mes
 }
 ``` 
 
-#### <a name="supported-types"></a>Supported types
+#### Поддерживаемые типы
 
-Azure Functions can create a Service Bus queue message from any of the following types.
+Функции Azure могут создать сообщение очереди служебной шины из следующих типов:
 
-* Object (always creates a JSON message, creates the message with a null object if the value is null when the function ends)
-* string (creates a message if the value is non-null when the function ends)
-* byte array (works like string) 
-* `BrokeredMessage` (C#, works like string)
+* объект (всегда создает сообщение JSON; создает сообщение с пустым объектом, если по завершении функции значение — null);
+* строка (создает сообщение, если по завершении функции значение не равно null);
+* массив байтов (действует как строка);
+* `BrokeredMessage` (C#, действует как строка).
 
-For creating multiple messages in a C# function, you can use `ICollector<T>` or `IAsyncCollector<T>`. A message is created when you call the `Add` method.
+Чтобы создать несколько сообщений в функции C#, можно использовать `ICollector<T>` или `IAsyncCollector<T>`. Сообщение создается при вызове метода `Add`.
 
-#### <a name="c#-code-examples-that-create-service-bus-queue-messages"></a>C# code examples that create Service Bus queue messages
+#### Примеры кода C# для создания сообщений очереди служебной шины
 
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
 {
-    string message = $"Service Bus queue message created at: {DateTime.Now}";
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
     log.Info(message); 
     outputSbQueue = message;
 }
@@ -169,14 +168,14 @@ public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQu
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
 {
-    string message = $"Service Bus queue message created at: {DateTime.Now}";
+	string message = $"Service Bus queue message created at: {DateTime.Now}";
     log.Info(message); 
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
 ```
 
-#### <a name="f#-code-example-that-creates-a-service-bus-queue-message"></a>F# code example that creates a Service Bus queue message
+#### Пример кода F#, который создает сообщение очереди служебной шины
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
@@ -185,7 +184,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
-#### <a name="node.js-code-example-that-creates-a-service-bus-queue-message"></a>Node.js code example that creates a Service Bus queue message
+#### Пример кода Node.js, которые создает сообщение очереди служебной шины
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -202,12 +201,8 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-[AZURE.INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)] 
+[AZURE.INCLUDE [дальнейшие действия](../../includes/functions-bindings-next-steps.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

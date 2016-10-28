@@ -8,30 +8,27 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## <a name="connect-to-the-azure-portal-with-a-subscription"></a>Connect to the Azure portal with a subscription
+## Подключение к порталу Azure с помощью подписки
 
-To connect to the Azure portal, you must have a subscription.
+Для подключения к порталу Azure вам нужна подписка.
 
-### <a name="get-a-new-account"></a>Get a new account
+### Получение новой учетной записи
 
-If you do not have an existing Azure account, choose one of the following options to obtain an account:
+Если у вас нет учетной записи Azure, перейдите по одной из ссылок ниже, чтобы создать учетную запись.
 
-- Get a [free account](https://azure.microsoft.com/get-started/).
-- Use an [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/).
+- Получите [бесплатную учетную запись](https://azure.microsoft.com/get-started/).
+- Используйте [подписку MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/).
 
-### <a name="sign-in-by-using-your-existing-account"></a>Sign in by using your existing account
+### Вход с помощью существующей учетной записи
 
-Using your [existing subscription]( https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
+Используя [существующую подписку](https://account.windowsazure.com/Home/Index), выполните следующие действия, чтобы подключиться к порталу Azure.
 
-1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
+1. Откройте любой браузер и подключитесь к [порталу Azure](https://portal.azure.com/).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Выполните вход на [портал Azure](https://portal.azure.com/).
 
-1. On the **Sign in** page, provide the credentials for your subscription.
+1. На странице **входа** введите учетные данные своей подписки.
 
-   ![Sign in](./media/azure-getting-started-portal-login/login.png)
+   ![Вход](./media/azure-getting-started-portal-login/login.png)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0912_2016-->

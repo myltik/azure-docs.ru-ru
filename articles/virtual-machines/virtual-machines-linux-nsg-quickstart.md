@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Open ports to a Linux VM | Microsoft Azure"
-   description="Learn how to open a port / create an endpoint to your Linux VM using the Azure resource manager deployment model and the Azure CLI"
+   pageTitle="Открытие портов для виртуальной машины Linux | Microsoft Azure"
+   description="Узнайте, как открыть порт или создать конечную точку для виртуальной машины Linux, используя модель развертывания с помощью Azure Resource Manager и Azure CLI."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,53 +16,49 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
+# Открытие портов для виртуальной машины Linux в Azure
+Чтобы открыть порт или создать конечную точку для виртуальной машины в Azure, создайте сетевой фильтр для подсети или сетевого интерфейса виртуальной машины. Эти фильтры, контролирующие входящий и исходящий трафик, добавляются в группу безопасности сети и присоединяются к ресурсу, который будет получать трафик. Давайте используем распространенный пример веб-трафика через порт 80.
 
-# <a name="opening-ports-to-a-linux-vm-in-azure"></a>Opening ports to a Linux VM in Azure
-You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or VM network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic. Let's use a common example of web traffic on port 80.
+## Быстрые команды
+Для создания группы безопасности сети и правил нужен [интерфейс командной строки Azure](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).
 
-## <a name="quick-commands"></a>Quick commands
-To create a Network Security Group and rules you need [the Azure CLI](../xplat-cli-install.md) in Resource Manager mode (`azure config mode arm`).
-
-Create your Network Security Group, entering your own names and location appropriately:
+Создайте группу безопасности сети, указав собственные имена и расположение.
 
 ```
 azure network nsg create --resource-group TestRG --name TestNSG --location westus
 ```
 
-Add a rule to allow HTTP traffic to your webserver (or adjust for your own scenario, such as SSH access or database connectivity):
+Добавьте правило, разрешающее HTTP-трафик к вашему веб-серверу (или настройте правило под собственные нужды, например доступ по протоколу SSH или подключение к базе данных).
 
 ```
 azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
     --destination-port-range 80 --access allow --resource-group TestRG --nsg-name TestNSG --name AllowHTTP
 ```
 
-Associate the Network Security Group with your VM's network interface:
+Свяжите группу безопасности сети с сетевым интерфейсом виртуальной машины.
 
 ```
 azure network nic set --resource-group TestRG --name TestNIC --network-security-group-name TestNSG
 ```
 
-Alternatively, you can associate your Network Security Group with a virtual network subnet rather than just to the network interface on a single VM:
+Кроме того, можно связать группу безопасности сети с подсетью виртуальной сети, а не только с сетевым интерфейсом на отдельной виртуальной машине.
 
 ```
 azure network vnet subnet set --resource-group TestRG --name TestSubnet --network-security-group-name TestNSG
 ```
 
-## <a name="more-information-on-network-security-groups"></a>More information on Network Security Groups
-The quick commands here allow you to get up and running with traffic flowing to your VM. Network Security Groups provide many great features and granularity for controlling access to your resources. You can read more about [creating a Network Security Group and ACL rules here](../virtual-network/virtual-networks-create-nsg-arm-cli.md).
+## Дополнительная информация о группах безопасности сети
+Приведенные здесь быстрые команды позволят настроить трафик, поступающий в виртуальную машину. Группы безопасности сети предоставляют множество полезных функций и всевозможные настройки для управления доступом к ресурсам. [Здесь](../virtual-network/virtual-networks-create-nsg-arm-cli.md) вы можете больше прочитать о создании группы безопасности сети и правил ACL.
 
-You can define Network Security Groups and ACL rules as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../virtual-network/virtual-networks-create-nsg-arm-template.md).
+Группы безопасности сети и правила ACL можно также определять в шаблонах Azure Resource Manager. Узнайте больше о [создании групп безопасности сети с помощью шаблонов](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-If you need to use port-forwarding to map a unique external port to an internal port on your VM, use a load balancer and Network Address Translation (NAT) rules. For example, you may want to expose TCP port 8080 externally and have traffic directed to TCP port 80 on a VM. You can learn about [creating an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+Если необходимо использовать перенаправление портов, чтобы сопоставить уникальный внешний порт с внутренним портом на своей виртуальной машине, то воспользуйтесь балансировщиком нагрузки и правилами преобразования сетевых адресов (NAT). Например, может потребоваться открыть TCP-порт 8080 для доступа извне и направить трафик на TCP-порт 80 виртуальной машины. Вы можете узнать о [создании балансировщика нагрузки с выходом в Интернет](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
 
-## <a name="next-steps"></a>Next steps
-In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:
+## Дальнейшие действия
+В этом примере создано простое правило, разрешающее трафик HTTP. Информацию о создании более детализированных сред можно найти в следующих статьях.
 
-- [Azure Resource Manager overview](../resource-group-overview.md)
-- [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md)
-- [Azure Resource Manager Overview for Load Balancers](../load-balancer2    /load-balancer-arm.md)
+- [Общие сведения о диспетчере ресурсов Azure](../resource-group-overview.md)
+- [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md)
+- [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](../load-balancer2 /load-balancer-arm.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

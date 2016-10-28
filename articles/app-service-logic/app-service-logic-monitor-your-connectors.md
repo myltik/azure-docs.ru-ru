@@ -1,131 +1,130 @@
 <properties
-    pageTitle="Manage and Monitor your Connectors and API Apps in App Service | Microsoft Azure"
-    description="View performance of your Connectors and API Apps in Logic Apps; microservices architecture"
-    services="app-service\logic"
-    documentationCenter=".net,nodejs,java"
-    authors="MandiOhlinger"
-    manager="anneta"
-    editor="cgronlun"/>
+	pageTitle="Управление соединителями и приложениями API и их мониторинг в службе приложений Azure | Microsoft Azure"
+	description="Просмотр метрик производительности соединителей и приложений API в Logic Apps. Архитектура микрослужб."
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="MandiOhlinger"
+	manager="dwrede"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="logic-apps"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="mandia"/>
+	ms.service="logic-apps"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="mandia"/>
 
+# Управление встроенными приложениями API и соединителями, а также их мониторинг
 
-# <a name="manage-and-monitor-your-built-in-api-apps-and-connectors"></a>Manage and Monitor your built-in API Apps and Connectors
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2014-12-01-preview.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+Вы создали встроенное приложение API. Что дальше?
 
-You created a built-in API App. Now what?
+Размещенные в Azure приложения API – это отдельные веб-сайты. Следовательно, вы можете без труда просматривать не только количество отправленных запросов, но и объем данных, используемых соединителем. Кроме того, вы можете выполнять резервное копирование приложения API, создавать оповещения, включать Tinfoil Security и добавлять пользователей и роли.
 
-In Azure, every API App is a separate web site hosted on Azure. As a result, you can easily see how many requests are made, and see how much data is being used by the connector. You can also backup your API App, create alerts, enable Tinfoil Security, and add users and roles.
+В этом разделе описаны некоторые из доступных возможностей управления приложением API.
 
-This topic describes some of the different options to manage your API App.
-
-To see these built-in features, open your API App in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). If the API App is on your startboard, select it to open the properties. You can also select **Browse**, select **API Apps**, and then select your API App:
+Для отображения этих встроенных функций откройте приложение API на [портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Если приложение API закреплено на начальной панели, выберите его, чтобы открыть окно свойств. Кроме того, можно нажать кнопку **Обзор**, щелкнуть **Приложения API** и выбрать необходимое приложение API.
 
 ![][browse]
 
-## <a name="see-the-properties-you-entered"></a>See the properties you entered
+## Просмотр заданных свойств
 
-When you open the API App, there are several features and tasks available:
+После открытия приложения API становятся доступными несколько функций и задач.
 
 ![][settings]
 
-You can:
+Вы можете:
 
-- **Settings** shows specific information on the API App, including your subscription details, and lists the users who have access to your API app. You can also increase or decrease the number of instances of your API App using the Scale feature; among other features.
-- Use the **Start** and **Stop** buttons to control the API App.
-- When product updates are made to the underlying files used by your API App, you can click **Update** to get the latest versions. For example, if there is a fix or a security update released by Microsoft, clicking **Update** automatically updates your API App to include this fix.
-- Select **Change Plan** to upgrade or downgrade based on the data usage of the API App. You can also use this feature to see your data usage.
-- When you create a connector that has tables, like the SQL connector, you can optionally enter a table name to connect to. A schema based on the table is automatically created and available when you click **Download Schemas**. You can then use this downloaded schema to create a transform or a map.
+- Элемент **Параметры** отображает определенные сведения о приложении API, включая сведения о подписке, а также список пользователей, имеющих доступ к этому приложению. Кроме того, вы можете увеличить или уменьшить количество экземпляров приложения API с помощью функции масштабирования (помимо других функций).
+- С помощью кнопок **Запустить** и **Остановить** можно управлять приложением API.
+- При обновлении базовых файлов, используемых приложением API, можно щелкнуть **Обновить**, чтобы получить последние версии. Например, если доступно выпущенное корпорацией Майкрософт исправление или обновление для системы безопасности, то можно щелкнуть **Обновить**, чтобы автоматически запустить обновление приложения API.
+- Выберите элемент **Изменить план**, чтобы, в зависимости от использования данных приложения API, запустить обновление или перейти на использование более ранней версии. Кроме того, вы можете с помощью этой функции просматривать сведения об использовании данных.
+- При создании соединителя, который содержит таблицы (например, соединителя SQL), при необходимости можно ввести имя таблицы для подключения. Если щелкнуть **Скачать схемы**, то будет автоматически создана и станет доступной схема на основе таблицы. Затем эту загруженную схему можно использовать для создания преобразования или карты.
 
-## <a name="change-your-connector-or-api-configuration-values-you-entered"></a>Change your connector or API configuration values you entered
+## Изменение соединителя или заданных значений конфигурации API
 
-After you configured or created your built-connector, you can change the values you entered. For example, if you configured the SQL Connector and you want to change the SQL Server name or table name, you can do this in the API App blade for your connector.
+После настройки или создания встроенного соединителя вы можете изменить введенные значения. Например, если после настройки соединителя SQL вам нужно изменить имя сервера SQL Server или имя таблицы, вы можете сделать это в колонке приложения API, относящейся к вашему соединителю.
 
-Steps include:
+Вот какие действия для этого нужно выполнить:
 
-1. Open your connector or API App. When you do, the API App blade opens.
-2. In **Essentials**, click the hyperlink under the Host property. The hyperlink is named something like *slackconnector* or *microsoftsqlconnector123*:
+1. Откройте соединитель или приложение API. Отобразится колонка приложения API.
+2. В списке **Основные компоненты** щелкните ссылку под свойством "Узел". У гиперссылки должно быть имя наподобие *slackconnector* или *microsoftsqlconnector123*.
 
-    ![][apiapphost]
+	![][apiapphost]
 
-3. In the API App Host blade, select **Settings**. In the Settings blade, select **Application Settings**. Your configuration values are listed under **App Settings**:
+3. В колонке узла приложения API выберите элемент **Параметры**. В колонке "Параметры" щелкните **Параметры приложения**. Значения конфигурации приведены в разделе **Параметры приложения**.
 
-    ![][hostsettings]
+	![][hostsettings]
 
-4. Click the setting you want to change, enter the new value, and **Save** your changes.
+4. Выберите параметр, который необходимо изменить, введите новое значение и нажмите кнопку **Сохранить**.
 
 
-## <a name="install-the-hybrid-connection-manager---optional"></a>Install the Hybrid Connection Manager - Optional
+## Установка диспетчера гибридного подключения (необязательно)
 
 ![][hcsetup]
 
-The Hybrid Connection Manager gives you the ability to connect to an on-premises system, like SQL Server or SAP. This hybrid connectivity uses Azure Service Bus to connect and to control the security between your Azure resources and your on-premises resources.
+Диспетчер гибридного подключения предоставляет возможность подключения к локальной системе, такой как SQL Server или SAP. Это гибридное подключение использует служебную шину Azure для подключения и управления безопасностью ресурсов Azure и локальных ресурсов.
 
-See [Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md).
+См. статью [Подключение к локальным соединителям, размещенным в службе приложений Azure, с помощью диспетчера гибридных подключений](app-service-logic-hybrid-connection-manager.md).
 
-> [AZURE.NOTE] Hybrid Connection Manager is required only if you are connecting to an on-premises resource behind your firewall. If you are not connecting to an on-premises system,  the Hybrid Connection Manager may not be listed in your connector blade.
+> [AZURE.NOTE] Диспетчер локальных подключений необходим только для подключения к локальному ресурсу за брандмауэром. Если не вы подключены к локальной системе, диспетчер гибридного подключения может не отображаться в колонке соединителя.
 
-## <a name="monitor-the-performance"></a>Monitor the performance
-Performance metrics are built-in features and included with every API App you create. These metrics are specific to your API App hosted in Azure. Sample metrics:
+## Мониторинг производительности
+Метрики производительности – это встроенные функции, включенные в состав каждого создаваемого приложения API. Эти метрики относятся только к приложению API, размещенному в Azure. Пример метрик:
 
 ![][monitoring]
 
-You can:
+Вы можете:
 
-- Select **Requests and errors** to add different performance metrics including commonly-known HTTP error codes, like 200, 400, or 500 HTTP status codes. You can also see response times,  see how many requests are made to the API App, and see how much data comes in and how much data goes out. Based on the performance metrics, you can create email Alerts if a metric exceeds a threshold of your choosing.
-- In **Usage**, you can see how much **CPU** is used by the API App, review the current **Usage Quota** in MB, and see your maximum data usage based on your cost tier. **Estimated spend**  can help you determine the potential costs of running your API App.
-- Select **Processes** to open Process Explorer. This shows your web instances and their properties, including thread count and memory usage.
+- Добавлять разные метрики производительности, включая известные коды ошибок, такие как коды состояния HTTP 200, 400 или 500, щелкнув **Запросы и ошибки**. Просматривать время ответа, количество отправленных в приложение API запросов, а также объем входящих или исходящих данных. На основе метрик производительности можно создавать оповещения, рассылаемые по электронной почте, когда метрика превышает заданное вами пороговое значение.
+- В разделе **Использование** вы можете отслеживать показатели загрузки **ЦП** приложением API, просматривать текущую **квоту использования** в мегабайтах, а также оценивать максимальный объем используемых данных на основе уровня затрат. В разделе **Ожидаемые затраты** вы можете определить потенциальные расходы, связанные с работой вашего приложения API.
+- Открывать обозреватель процессов, выбрав **Процессы**. В нем отображаются веб-экземпляры и их свойства, включая число потоков и использование памяти.
 
-Using these tools, you can determine if the App Service Plan should be scaled up or scaled down, based on your business needs. These features are built-in to the portal with no additional tools required.
+С помощью этих средств вы можете на основе ваших бизнес-потребностей определять, в какую сторону нужно масштабировать план службы приложений. Эти функции встроены в портал, и установка дополнительных средств не требуется.
 
-## <a name="control-the-security"></a>Control the security
+## Управление безопасностью
 
-API Apps use role-based security. These roles apply to the entire Azure experience, including API Apps and other Azure resources. The roles include:
+В приложениях API безопасность обеспечивается на основе ролей. Эти роли распространяются на все ресурсы Azure, включая приложения API. Существуют такие роли.
 
-Role | Description
+Роль | Описание
 --- | ---
-Owner | Have full access to the management experience and can give access to other users or groups.
-Contributor | Have full access to the management experience. Cannot give access to other users or groups.
-Reader | Can view all resources except secrets.
-User Access Administrator | Can view all resources, create/manage roles, and create/manage support tickets.
+владелец; | Полный доступ к возможностям управления и предоставление доступа другим пользователям или группам.
+Участник | Полный доступ к возможностям управления. Нет прав предоставления доступа другим пользователям или группам.
+читатель. | Просмотр всех ресурсов, кроме секретных данных.
+Администратор доступа пользователей | Просмотр всех ресурсов, создание ролей и управление ими, создание запросов в службу поддержки и управление ими.
 
-See [Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md).
+См. статью [Управление доступом на основе ролей на портале Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
-You can easily add users and assign them specific roles to your API App. The portal shows you the users that have access and their assigned role:
+Вы можете без усилий добавлять пользователей и назначать им конкретные роли в рамках приложения API. Портал отображает сведения о пользователях с правом доступа, а также назначенные им роли.
 
-![][access]  
+![][access]
 
-- Select **Users** to add a user, assign a role, and remove a user.
-- Select **Roles** to see all the users in a specific role, add a user to a role, and remove a user from a role.
+- В разделе **Пользователи** можно добавлять и удалять пользователей, а также назначать им роли.
+- В разделе **Роли** можно отображать всех пользователей с определенной ролью, а также назначать им роли и отменять их.
 
 
-## <a name="more-good-stuff"></a>More Good Stuff
-- Select **API definition** to open the automatically-created Swagger file for your specific API app.
-- Select **Dependencies** to view the files required by your API App. For example, if you're using the SAP connector, you install some additional files on the on-premises Hybrid Connection Manager. These dependencies are shown in your API app blade.
+## Дополнительные полезные сведения
+- Выберите пункт **Определение API**, чтобы открыть автоматически созданный файл Swagger для конкретного приложения API.
+- Выберите пункт **Зависимости**, чтобы просмотреть файлы, необходимые для приложения API. Например, если используется соединитель SAP, в локальный диспетчер гибридного подключения устанавливаются некоторые дополнительные файлы. Эти зависимости отображаются в колонке приложения API.
 
->[AZURE.IMPORTANT] When you open your API app properties and look under **Essentials**, there are **Host** and **Gateway** links that open new blades:
+>[AZURE.IMPORTANT] Открыв свойства приложения API, в разделе **Основные компоненты** вы увидите ссылки **Узел** и **Шлюз**, с помощью которых можно открыть новые колонки.
 >
 > ![][host]
 >
->These properties are specific to the website that hosts your API App. When using a built-in API App or connector, most of these properties don't really apply and we recommend that you  don't update these properties. If you created your own API App in Visual Studio and deployed it to your Azure subscription, then you can use the Host and Gateway blades. <br/><br/>
+>Эти свойства относятся только к сайту, на котором размещено приложение API. При использовании встроенных приложений API или соединителя большая часть этих свойств не используется. Мы рекомендуем не обновлять эти свойства. Создав приложение API в Visual Studio и развернув его в среду, определяемую подпиской Azure, вы сможете использовать колонки с параметрами узла и шлюза. <br/><br/>
 
 
->[AZURE.NOTE] To get started with Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can create a short-lived starter logic app. No credit cards required and no commitments.
+>[AZURE.NOTE] Чтобы начать работу с Logic Apps, не создавая учетную запись Azure, перейдите на [эту страницу](https://tryappservice.azure.com/?appservice=logic). Там вы сможете создать простое кратковременное приложение логики. Не требуется никаких кредитных карт и обязательств.
 
-## <a name="read-more"></a>Read More
+## Подробнее
 
-[Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/>
-[Connectors and API Apps List in App Service](app-service-logic-connectors-list.md)<br/>
-[Role-based access control in the Microsoft Azure portal](../active-directory/role-based-access-control-configure.md)<br/>
-[Using the Hybrid Connection Manager in Azure App Service](app-service-logic-hybrid-connection-manager.md)
+[Мониторинг приложений логики](app-service-logic-monitor-your-logic-apps.md)<br/>
+[Список соединителей и приложений API в службе приложений Microsoft Azure](app-service-logic-connectors-list.md)<br/>
+[Управление доступом на основе ролей на портале Microsoft Azure](../active-directory/role-based-access-control-configure.md)<br/>
+[Использование диспетчера гибридных подключений в службе приложений Azure](app-service-logic-hybrid-connection-manager.md)
 
 
 <!--Image references-->
@@ -138,8 +137,4 @@ You can easily add users and assign them specific roles to your API App. The por
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

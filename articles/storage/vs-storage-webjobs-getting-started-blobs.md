@@ -1,239 +1,234 @@
 <properties
-    pageTitle="Get started with blob storage and Visual Studio connected services (WebJob projects) | Microsoft Azure"
-    description="How to get started using Blob storage in a WebJob project after connecting to an Azure storage using Visual Studio connected services."
-    services="storage"
-    documentationCenter=""
-    authors="TomArcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Начало работы с хранилищем больших двоичных объектов Azure и подключенными службами Visual Studio (проекты веб-заданий) | Microsoft Azure"
+	description="Как приступить к работе, используя хранилище больших двоичных объектов в проекте веб-задания после подключения к хранилищу Azure с использованием подключенных служб Visual Studio."
+	services="storage"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="storage"
-    ms.workload="web"
-    ms.tgt_pltfrm="vs-getting-started"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/18/2016"
-    ms.author="tarcher"/>
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/18/2016"
+	ms.author="tarcher"/>
 
-
-# <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-(webjob-projects)"></a>Get started with Azure Blob storage and Visual Studio connected services (WebJob projects)
+# Начало работы с подключенными службами хранилища больших двоичных объектов Azure и Visual Studio (проекты веб-заданий)
 
 [AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Overview
+## Обзор
 
-This article provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use the [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) version 1.x. When you add a storage account to a WebJob project by using the Visual Studio **Add Connected Services** dialog, the appropriate Azure Storage NuGet package is installed, the appropriate .NET references are added to the project, and connection strings for the storage account are updated in the App.config file.
+В этой статье приведены примеры кода на C# для запуска процессов при создании или обновлении большого двоичного объекта Azure. В примерах кода используется [пакет SDK для веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk.md) версии 1.x. Когда вы добавляете учетную запись хранения в проект веб-задания с помощью диалогового окна **Добавление подключенных служб** в Visual Studio, устанавливается соответствующий пакет NuGet службы хранилища Azure. Также в проект добавляются соответствующие ссылки .NET, а в файле App.config обновляются строки подключения для учетной записи хранения.
 
 
 
-## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>How to trigger a function when a blob is created or updated
+## Вызов функции при создании или обновлении большого двоичного объекта
 
-This section shows how to use the **BlobTrigger** attribute.
+В этом разделе показано, как использовать атрибут **BlobTrigger**.
 
- **Note:** The WebJobs SDK scans log files to watch for new or changed blobs. This process is inherently slow; a function might not get triggered until several minutes or longer after the blob is created.  If your application needs to process blobs immediately, the recommended method is to create a queue message when you create the blob, and use the [QueueTrigger](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) attribute instead of the **BlobTrigger** attribute on the function that processes the blob.
+ **Примечание.** Пакет SDK для веб-заданий проверяет файлы журнала и отслеживает новые или измененные большие двоичные объекты. Это медленный процесс. После создания большого двоичного объекта функция может не вызываться несколько минут или даже дольше. Если вашему приложению нужно обработать большой двоичный объект немедленно, советуем во время его создания создать сообщение очереди и использовать атрибут триггера [QueueTrigger](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) вместо атрибута **BlobTrigger** в функции, которая обрабатывает большой двоичный объект.
 
-### <a name="single-placeholder-for-blob-name-with-extension"></a>Single placeholder for blob name with extension  
+### Один заполнитель для имени большого двоичного объекта и расширения  
 
-The following code sample copies text blobs that appear in the *input* container to the *output* container:
+Следующий пример кода копирует текстовые большие двоичные объекты, которые появляются в контейнере *input*, в контейнер *output*:
 
-        public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
-            [Blob("output/{name}")] out string output)
-        {
-            output = input.ReadToEnd();
-        }
+		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
+		    [Blob("output/{name}")] out string output)
+		{
+		    output = input.ReadToEnd();
+		}
 
-The attribute constructor takes a string parameter that specifies the container name and a placeholder for the blob name. In this example, if a blob named *Blob1.txt* is created in the *input* container, the function creates a blob named *Blob1.txt* in the *output* container.
+Конструктор атрибута принимает параметр строки, который указывает имя контейнера и заполнитель для имени большого двоичного объекта. В этом примере при создании большого двоичного объекта с именем *Blob1.txt* в контейнере *input* функция создает большой двоичный объект *Blob1.txt* в контейнере *output*.
 
-You can specify a name pattern with the blob name placeholder, as shown in the following code sample:
+Можно указать шаблон имени с заполнителем имени большого двоичного объекта, как показано в следующем примере кода:
 
-        public static void CopyBlob([BlobTrigger("input/original-{name}")] TextReader input,
-            [Blob("output/copy-{name}")] out string output)
-        {
-            output = input.ReadToEnd();
-        }
+		public static void CopyBlob([BlobTrigger("input/original-{name}")] TextReader input,
+		    [Blob("output/copy-{name}")] out string output)
+		{
+		    output = input.ReadToEnd();
+		}
 
-This code copies only blobs that have names beginning with "original-". For example, *original-Blob1.txt* in the *input* container is copied to *copy-Blob1.txt* in the *output* container.
+Этот код копируется только большие двоичные объекты, имена которых начинаются с original-. Например, *original-Blob1.txt* в контейнере *input* копируется в *copy-Blob1.txt* в контейнер *output*.
 
-If you need to specify a name pattern for blob names that have curly braces in the name, double the curly braces. For example, if you want to find blobs in the *images* container that have names like this:
+Если необходимо указать шаблон для имен больших двоичных объектов с фигурными скобками, используйте две фигурные скобки. Например, если нужно найти большие двоичные объекты в контейнере *images* с такими именами:
 
-        {20140101}-soundfile.mp3
+		{20140101}-soundfile.mp3
 
-use this for your pattern:
+используйте следующую команду для своего шаблона:
 
-        images/{{20140101}}-{name}
+		images/{{20140101}}-{name}
 
-In the example, the *name* placeholder value would be *soundfile.mp3*.
+В этом примере у заполнителя *name* будет значение *soundfile.mp3*.
 
-### <a name="separate-blob-name-and-extension-placeholders"></a>Separate blob name and extension placeholders
+### Отдельные заполнители для имени большого двоичного объекта и расширения
 
-The following code sample changes the file extension as it copies blobs that appear in the *input* container to the *output* container. The code logs the extension of the *input* blob and sets the extension of the *output* blob to *.txt*.
+Следующий пример кода изменяет расширение файла во время копирования больших двоичных объектов, которые появляются в контейнере *input*, в контейнер *output*. Код записывает в журнал расширение большого двоичного объекта в *input* и задает для объекта в *output* расширение *.txt*.
 
-        public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
-            [Blob("output/{name}.txt")] out string output,
-            string name,
-            string ext,
-            TextWriter logger)
-        {
-            logger.WriteLine("Blob name:" + name);
-            logger.WriteLine("Blob extension:" + ext);
-            output = input.ReadToEnd();
-        }
+		public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
+		    [Blob("output/{name}.txt")] out string output,
+		    string name,
+		    string ext,
+		    TextWriter logger)
+		{
+		    logger.WriteLine("Blob name:" + name);
+		    logger.WriteLine("Blob extension:" + ext);
+		    output = input.ReadToEnd();
+		}
 
-## <a name="types-that-you-can-bind-to-blobs"></a>Types that you can bind to blobs
+## Типы, которые можно привязать к большим двоичным объектам
 
-You can use the **BlobTrigger** attribute on the following types:
+Атрибут **BlobTrigger** можно использовать со следующими типами:
 
 * **string**
-* **TextReader**
-* **Stream**
-* **ICloudBlob**
+* **TextReader;**
+* **Поток**
+* **ICloudBlob;**
 * **CloudBlockBlob**
-* **CloudPageBlob**
-* Other types deserialized by [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder)
+* **CloudPageBlob.**
+* другие типы, десериализованные с помощью [ICloudBlobStreamBinder](#getting-serialized-blob-content-by-using-icloudblobstreambinder).
 
-If you want to work directly with the Azure storage account, you can also add a **CloudStorageAccount** parameter to the method signature.
+При работе непосредственно с учетной записью хранения Azure можно также добавить параметр **CloudStorageAccount** в сигнатуру метода.
 
-## <a name="getting-text-blob-content-by-binding-to-string"></a>Getting text blob content by binding to string
+## Получение содержимого текстового большого двоичного объекта путем привязки к строке
 
-If text blobs are expected, **BlobTrigger** can be applied to a **string** parameter. The following code sample binds a text blob to a **string** parameter named **logMessage**. The function uses that parameter to write the contents of the blob to the WebJobs SDK dashboard.
+Если будут использоваться текстовые большие двоичные объекты, можно применить к параметру **string** метод **BlobTrigger**. Код в следующем примере привязывает текстовый большой двоичный объект к параметру **string** с именем **logMessage**. Функция использует этот параметр для записи содержимого большого двоичного объекта на панель мониторинга пакета SDK для заданий WebJob.
 
-        public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
-            string name,
-            TextWriter logger)
-        {
-             logger.WriteLine("Blob name: {0}", name);
-             logger.WriteLine("Content:");
-             logger.WriteLine(logMessage);
-        }
+		public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
+		    string name,
+		    TextWriter logger)
+		{
+		     logger.WriteLine("Blob name: {0}", name);
+		     logger.WriteLine("Content:");
+		     logger.WriteLine(logMessage);
+		}
 
-## <a name="getting-serialized-blob-content-by-using-icloudblobstreambinder"></a>Getting serialized blob content by using ICloudBlobStreamBinder
+## Получение содержимого сериализованного большого двоичного объекта с помощью ICloudBlobStreamBinder
 
-The following code sample uses a class that implements **ICloudBlobStreamBinder** to enable the **BlobTrigger** attribute to bind a blob to the **WebImage** type.
+В следующем примере кода используется класс, реализующий **ICloudBlobStreamBinder**, позволяющий включить атрибут **BlobTrigger** для привязки больших двоичных объектов к типу **WebImage**.
 
-        public static void WaterMark(
-            [BlobTrigger("images3/{name}")] WebImage input,
-            [Blob("images3-watermarked/{name}")] out WebImage output)
-        {
-            output = input.AddTextWatermark("WebJobs SDK",
-                horizontalAlign: "Center", verticalAlign: "Middle",
-                fontSize: 48, opacity: 50);
-        }
-        public static void Resize(
-            [BlobTrigger("images3-watermarked/{name}")] WebImage input,
-            [Blob("images3-resized/{name}")] out WebImage output)
-        {
-            var width = 180;
-            var height = Convert.ToInt32(input.Height * 180 / input.Width);
-            output = input.Resize(width, height);
-        }
+		public static void WaterMark(
+		    [BlobTrigger("images3/{name}")] WebImage input,
+		    [Blob("images3-watermarked/{name}")] out WebImage output)
+		{
+		    output = input.AddTextWatermark("WebJobs SDK",
+		        horizontalAlign: "Center", verticalAlign: "Middle",
+		        fontSize: 48, opacity: 50);
+		}
+		public static void Resize(
+		    [BlobTrigger("images3-watermarked/{name}")] WebImage input,
+		    [Blob("images3-resized/{name}")] out WebImage output)
+		{
+		    var width = 180;
+		    var height = Convert.ToInt32(input.Height * 180 / input.Width);
+		    output = input.Resize(width, height);
+		}
 
-The **WebImage** binding code is provided in a **WebImageBinder** class that derives from **ICloudBlobStreamBinder**.
+Код привязки **WebImage** предоставляется в классе **WebImageBinder**, производном от **ICloudBlobStreamBinder**.
 
-        public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
-        {
-            public Task<WebImage> ReadFromStreamAsync(Stream input,
-                System.Threading.CancellationToken cancellationToken)
-            {
-                return Task.FromResult<WebImage>(new WebImage(input));
-            }
-            public Task WriteToStreamAsync(WebImage value, Stream output,
-                System.Threading.CancellationToken cancellationToken)
-            {
-                var bytes = value.GetBytes();
-                return output.WriteAsync(bytes, 0, bytes.Length, cancellationToken);
-            }
-        }
+		public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
+		{
+		    public Task<WebImage> ReadFromStreamAsync(Stream input,
+		        System.Threading.CancellationToken cancellationToken)
+		    {
+		        return Task.FromResult<WebImage>(new WebImage(input));
+		    }
+		    public Task WriteToStreamAsync(WebImage value, Stream output,
+		        System.Threading.CancellationToken cancellationToken)
+		    {
+		        var bytes = value.GetBytes();
+		        return output.WriteAsync(bytes, 0, bytes.Length, cancellationToken);
+		    }
+		}
 
-## <a name="how-to-handle-poison-blobs"></a>How to handle poison blobs
+## Способ обработки подозрительных больших двоичных объектов
 
-When a **BlobTrigger** function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.
+При сбое функции **BlobTrigger** пакет SDK вызывает ее снова, если сбой вызван временной ошибкой. Если сбой вызван содержимым большого двоичного объекта, каждый раз при попытке обработать большой двоичный объект будет происходить сбой функции. По умолчанию пакет SDK вызывает функцию до 5 раз для заданного большого двоичного объекта. Если при пятой попытке происходит сбой, пакет SDK добавляет сообщение в очередь с именем *webjobs-blobtrigger-poison*.
 
-The maximum number of retries is configurable. The same [MaxDequeueCount](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) setting is used for poison blob handling and poison queue message handling.
+Можно настроить максимальное количество попыток. Тот же параметр [MaxDequeueCount](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) используется для обработки подозрительных больших двоичных объектов и подозрительных сообщений очереди.
 
-The queue message for poison blobs is a JSON object that contains the following properties:
+Сообщением очереди для подозрительных больших двоичных объектов является объект JSON, содержащий следующие свойства:
 
-* FunctionId (in the format *{WebJob name}*.Functions.*{Function name}*, for example: WebJob1.Functions.CopyBlob)
-* BlobType ("BlockBlob" or "PageBlob")
-* ContainerName
+* FunctionId (в формате *{имя\_веб-задания}*. Functions.*{имя\_функции}*, например: WebJob1.Functions.CopyBlob);
+* BlobType (BlockBlob или PageBlob);
+* ContainerName;
 * BlobName
-* ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+* ETag (идентификатор версии BLOB-объектов, например 0x8D1DC6E70A277EF)
 
-In the following code sample, the **CopyBlob** function has code that causes it to fail every time it's called. After the SDK calls it for the maximum number of retries, a message is created on the poison blob queue, and that message is processed by the **LogPoisonBlob** function.
+В следующем примере кода функция **CopyBlob** содержит код, который приводит к сбою при каждом вызове функции. После того как пакет SDK вызывает ее максимальное количество раз, в очереди подозрительных больших двоичных объектов создается сообщение, и оно обрабатывается функцией **LogPoisonBlob**.
 
-        public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
-            [Blob("textblobs/output-{name}")] out string output)
-        {
-            throw new Exception("Exception for testing poison blob handling");
-            output = input.ReadToEnd();
-        }
+		public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
+		    [Blob("textblobs/output-{name}")] out string output)
+		{
+		    throw new Exception("Exception for testing poison blob handling");
+		    output = input.ReadToEnd();
+		}
 
-        public static void LogPoisonBlob(
-        [QueueTrigger("webjobs-blobtrigger-poison")] PoisonBlobMessage message,
-            TextWriter logger)
-        {
-            logger.WriteLine("FunctionId: {0}", message.FunctionId);
-            logger.WriteLine("BlobType: {0}", message.BlobType);
-            logger.WriteLine("ContainerName: {0}", message.ContainerName);
-            logger.WriteLine("BlobName: {0}", message.BlobName);
-            logger.WriteLine("ETag: {0}", message.ETag);
-        }
+		public static void LogPoisonBlob(
+		[QueueTrigger("webjobs-blobtrigger-poison")] PoisonBlobMessage message,
+		    TextWriter logger)
+		{
+		    logger.WriteLine("FunctionId: {0}", message.FunctionId);
+		    logger.WriteLine("BlobType: {0}", message.BlobType);
+		    logger.WriteLine("ContainerName: {0}", message.ContainerName);
+		    logger.WriteLine("BlobName: {0}", message.BlobName);
+		    logger.WriteLine("ETag: {0}", message.ETag);
+		}
 
-The SDK automatically deserializes the JSON message. Here is the **PoisonBlobMessage** class:
+Пакет SDK автоматически выполняет десериализацию сообщения JSON. Вот класс **PoisonBlobMessage**:
 
-        public class PoisonBlobMessage
-        {
-            public string FunctionId { get; set; }
-            public string BlobType { get; set; }
-            public string ContainerName { get; set; }
-            public string BlobName { get; set; }
-            public string ETag { get; set; }
-        }
+		public class PoisonBlobMessage
+		{
+		    public string FunctionId { get; set; }
+		    public string BlobType { get; set; }
+		    public string ContainerName { get; set; }
+		    public string BlobName { get; set; }
+		    public string ETag { get; set; }
+		}
 
-### <a name="blob-polling-algorithm"></a>Blob polling algorithm
+### Алгоритм опроса больших двоичных объектов
 
-The WebJobs SDK scans all containers specified by **BlobTrigger** attributes at application start. In a large storage account this scan can take some time, so it might be a while before new blobs are found and **BlobTrigger** functions are executed.
+Пакет SDK для веб-заданий проверяет все контейнеры, задаваемые атрибутами **BlobTrigger** при запуске приложения. Такая проверка может занять некоторое время в большой учетной записи хранения. Поэтому для поиска новых больших двоичных объектов и выполнения функций **BlobTrigger** может потребоваться много времени.
 
-To detect new or changed blobs after application start, the SDK periodically reads from the blob storage logs. The blob logs are buffered and only get physically written every 10 minutes or so, so there may be significant delay after a blob is created or updated before the corresponding **BlobTrigger** function executes.
+Чтобы обнаружить новые или измененные большие двоичные объекты после запуска приложения, пакет SDK периодически проверяет записи в журналах хранилища больших двоичных объектов. Журналы больших двоичных объектов помещаются в буфер, а физическая запись происходит каждые 10 минут или около того. Поэтому после создания или обновления большого двоичного объекта соответствующая функция **BlobTrigger** может выполняться со значительной задержкой.
 
-There is an exception for blobs that you create by using the **Blob** attribute. When the WebJobs SDK creates a new blob, it passes the new blob immediately to any matching **BlobTrigger** functions. Therefore if you have a chain of blob inputs and outputs, the SDK can process them efficiently. But if you want low latency running your blob processing functions for blobs that are created or updated by other means, we recommend using **QueueTrigger** rather than **BlobTrigger**.
+Существует одно исключение для больших двоичных объектов, создаваемых с помощью атрибута **BlobTrigger**. Когда пакет SDK для веб-заданий создает новый большой двоичный объект, он немедленно передает его любой соответствующей функции **BlobTrigger**. Поэтому при объединении входящих и исходящих больших двоичных объектов в цепочку пакет SDK может их эффективно обрабатывать. Но если при выполнении функций обработки больших двоичных объектов, созданных или обновленных другими способами, нужны малые задержки, советуем использовать **QueueTrigger** вместо **BlobTrigger**.
 
-### <a name="blob-receipts"></a>Blob receipts
+### Уведомления о получении большого двоичного объекта
 
-The WebJobs SDK makes sure that no **BlobTrigger** function gets called more than once for the same new or updated blob. It does this by maintaining *blob receipts* in order to determine if a given blob version has been processed.
+Пакет SDK для веб-заданий гарантирует, что для одного и того же нового или обновленного большого двоичного объекта функция **BlobTrigger** будет вызываться только один раз. Это достигается за счет сохранения *уведомлений о получении большого двоичного объекта*, которые позволяют определить, обработана ли версия этого большого двоичного объекта.
 
-Blob receipts are stored in a container named *azure-webjobs-hosts* in the Azure storage account specified by the AzureWebJobsStorage connection string. A blob receipt has the following  information:
+Уведомления о получении большого двоичного объекта хранятся в контейнере с именем *azure-webjobs-hosts* в учетной записи хранения Azure, указанной в строке подключения AzureWebJobsStorage. Уведомление о получении большого двоичного объекта содержит следующую информацию:
 
-* The function that was called for the blob ("*{WebJob name}*.Functions.*{Function name}*", for example: "WebJob1.Functions.CopyBlob")
-* The container name
-* The blob type ("BlockBlob" or "PageBlob")
-* The blob name
-* The ETag (a blob version identifier, for example: "0x8D1DC6E70A277EF")
+* функция, вызванная для большого двоичного объекта (*{имя\_веб-задания}*.Functions.*{имя\_функции}*, например WebJob1.Functions.CopyBlob);
+* имя контейнера;
+* тип большого двоичного объекта (BlockBlob или PageBlob);
+* имя большого двоичного объекта;
+* ETag (идентификатор версии больших двоичных объектов, например 0x8D1DC6E70A277EF).
 
-If you want to force reprocessing of a blob, you can manually delete the blob receipt for that blob from the *azure-webjobs-hosts* container.
+Если вам необходимо выполнить принудительную повторную обработку большого двоичного объекта, уведомление о получении этого большого двоичного объекта можно удалить из контейнера *azure-webjobs-hosts* вручную.
 
-## <a name="related-topics-covered-by-the-queues-article"></a>Related topics covered by the queues article
+## Связанные разделы, которые описаны в статье об очередях
 
-For information about how to handle blob processing triggered by a queue message, or for WebJobs SDK scenarios not specific to blob processing, see [How to use Azure queue storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
+Дополнительную информацию об обработке больших двоичных объектов, которая инициируется сообщением очереди, а также несвязанные с обработкой больших двоичных объектов сценарии для пакета SDK для веб-заданий см. в статье [Использование пакета SDK веб-заданий для работы с хранилищем очередей](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 
-Related topics covered in that article include the following:
+В этой статье рассматриваются следующие связанные разделы:
 
-* Async functions
-* Multiple instances
-* Graceful shutdown
-* Use WebJobs SDK attributes in the body of a function
-* Set the SDK connection strings in code.
-* Set values for WebJobs SDK constructor parameters in code
-* Configure **MaxDequeueCount** for poison blob handling.
-* Trigger a function manually
-* Write logs
+* Асинхронные функции
+* Выполнение на нескольких экземплярах
+* Корректное завершение работы
+* Использование атрибутов пакета SDK для заданий WebJob очереди в теле функции
+* Установка строк подключения пакета SDK в коде.
+* Установка значений параметров конструктора пакета SDK для заданий WebJob в коде
+* Настройте **MaxDequeueCount** для обработки подозрительных больших двоичных объектов.
+* Вызов функции вручную
+* Запись журналов
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-This article has provided code samples that show how to handle common scenarios for working with Azure blobs. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).
+В этой статье приведены примеры кода обработки обычных сценариев для работы с большими двоичными объектами Azure. Дополнительную информацию об использовании веб-заданий Azure и пакета SDK веб-заданий см. в [ресурсах с документацией по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage your StorSimple volume containers | Microsoft Azure"
-   description="Explains how you can use the StorSimple Manager service volume containers page to add, modify, or delete a volume container."
+   pageTitle="Управление контейнерами томов StorSimple | Microsoft Azure"
+   description="В данной статье рассказывается, как на странице контейнеров томов службы диспетчера StorSimple добавить, изменить или удалить контейнер томов."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,60 +15,55 @@
    ms.date="05/24/2016"
    ms.author="v-sharos" />
 
+# Использование службы диспетчера StorSimple для управления контейнерами томов StorSimple
 
-# <a name="use-the-storsimple-manager-service-to-manage-storsimple-volume-containers"></a>Use the StorSimple Manager service to manage StorSimple volume containers
+## Обзор
 
-## <a name="overview"></a>Overview
+В данном учебнике рассказывается, как с помощью службы диспетчера StorSimple создавать контейнеры томов StorSimple и управлять ими.
 
-This tutorial explains how to use the StorSimple Manager service to create and manage StorSimple volume containers.
+Контейнер томов в устройстве Microsoft Azure StorSimple содержит один или несколько томов, которые совместно используют учетную запись хранения, функцию шифрования и параметры потребления полосы пропускания. В устройстве может быть несколько контейнеров томов для всех его томов.
 
-A volume container in a Microsoft Azure StorSimple device contains one or more volumes that share storage account, encryption, and bandwidth consumption settings. A device can have multiple volume containers for all its volumes. 
+У контейнера томов имеются указанные ниже атрибуты.
 
-A volume container has the following attributes:
+- **Тома** — многоуровневые или локально закрепленные тома StorSimple, содержащиеся в контейнере томов. Контейнер томов может содержать до 256 томов StorSimple.
 
-- **Volumes** – The tiered or locally pinned StorSimple volumes that are contained within the volume container. A volume container may contain up to 256 StorSimple volumes.
+- **Шифрование** — ключ шифрования, который можно задать для каждого контейнера томов. Этот ключ используется для шифрования данных, отправляемых с устройства StorSimple в облако. Для шифрования используется алгоритм AES-256 (оборонного класса), использующий вводимый пользователем ключ. Для защиты данных, размещаемых в облаке, рекомендуется всегда шифровать их.
 
-- **Encryption** – An encryption key that can be defined for each volume container. This key is used for encrypting the data that is sent from your StorSimple device to the cloud. A military-grade AES-256 bit key is used with the user-entered key. To secure your data, we recommend that you always enable cloud storage encryption.
+- **Учетная запись хранения** — учетная запись хранения, связанная с поставщиком услуг облачного хранилища. Все тома, находящиеся в контейнере томов, совместно используют эту учетную запись хранения. При создании контейнера томов можно выбрать учетную запись хранения из существующего списка или создать новую, а затем указать учетные данные доступа для этой учетной записи.
 
-- **Storage account** – The storage account that is linked to your cloud storage service provider. All the volumes residing in a volume container share this storage account. You can choose a storage account from an existing list, or create a new account when you create the volume container and then specify the access credentials for that account.
+- **Пропускная способность облака** — часть пропускной способности, потребляемая устройством при передаче данных из устройства в облако. При настройке контейнера можно ограничить пропускную способность, указав значение от 1 до 1000 Мбит/с. Если необходимо, чтобы устройство потребляло всю доступную полосу пропускания, выберите для этого поля значение "Не ограничено". Кроме того, можно создать и применить шаблон пропускной способности для распределения пропускной способности по расписанию.
 
-- **Cloud bandwidth** – The bandwidth consumed by the device when the data from the device is being sent to the cloud. You can enforce a bandwidth control by specifying a value between 1 and 1000 Mbps when you define this container. If you want the device to consume all available bandwidth, set this field to Unlimited. You can also create and apply a bandwidth template to allocate bandwidth based on schedule.
+![Страница контейнеров томов](./media/storsimple-manage-volume-containers/HCS_VolumeContainersPage.png)
 
-![Volume containers page](./media/storsimple-manage-volume-containers/HCS_VolumeContainersPage.png)
+Ниже рассказывается, как на странице **Контейнеры томов** StorSimple выполнять указанные ниже стандартные операции.
 
-This following procedures explain how to use the StorSimple **Volume containers** page to complete the following common operations:
+- Добавление контейнера томов 
+- Изменение контейнера томов 
+- Удаление контейнера томов 
 
-- Add a volume container 
-- Modify a volume container 
-- Delete a volume container 
+## Добавление контейнера томов
 
-## <a name="add-a-volume-container"></a>Add a volume container
-
-Perform the following steps to add a volume container.
+Чтобы добавить контейнер томов, выполните указанные ниже действия.
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
 
-## <a name="modify-a-volume-container"></a>Modify a volume container
+## Изменение контейнера томов
 
-Perform the following steps to modify a volume container.
+Чтобы изменить контейнер томов, выполните указанные ниже действия.
 
 [AZURE.INCLUDE [storsimple-modify-volume-container](../../includes/storsimple-modify-volume-container.md)]
 
 
-## <a name="delete-a-volume-container"></a>Delete a volume container
+## Удаление контейнера томов
 
-A volume container has volumes within it. It can be deleted only if all the volumes contained in it are first deleted. Perform the following steps to delete a volume container.
+Контейнер томов содержит тома. Чтобы удалить контейнер, необходимо сначала удалить из него все тома. Чтобы удалить контейнер томов, выполните указанные ниже действия.
 
 [AZURE.INCLUDE [storsimple-delete-volume-container](../../includes/storsimple-delete-volume-container.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md). 
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md). 
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0525_2016-->

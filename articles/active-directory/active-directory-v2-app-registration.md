@@ -1,55 +1,50 @@
 <properties
-    pageTitle="v2.0 app registration | Microsoft Azure"
-    description="How to register an app with Microsoft for enabling sign-in and accessing Microsoft services using the v2.0 endpoint"
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Регистрация приложения версии 2.0 | Microsoft Azure"
+	description="Как зарегистрировать приложение в корпорации Майкрософт, чтобы использовать вход и доступ к службам Майкрософт с помощью конечной точки версии 2.0."
+	services="active-directory"
+	documentationCenter=""
+	authors="dstrockis"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="dastrock"/>
 
+# Как зарегистрировать приложение с использованием конечной точки версии 2.0
 
-# <a name="how-to-register-an-app-with-the-v2.0-endpoint"></a>How to register an app with the v2.0 endpoint
-
-To build an app that accepts both MSA & Azure AD sign-in, you'll first need to register an app with Microsoft.  At this time, you won't be able to use any existing apps you may have with Azure AD or MSA - you'll need to create a brand new one.
+Для создания приложения, которое поддерживает единый вход MSA b Azure AD вход, сначала необходимо зарегистрировать приложение в Майкрософт. На данном этапе вы не сможете использовать любые существующие приложения с Azure AD или учетными записями Майкрософт, необходимо будет создать новое приложение.
 
 > [AZURE.NOTE]
-    Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
 
-## <a name="visit-the-microsoft-app-registration-portal"></a>Visit the Microsoft app registration portal
-First things first - navigate to [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is a new app registration portal where you can manage your Microsoft apps.
+## Посетите портал регистрации приложения Майкрософт
+Для начала перейдите на страницу [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com). Это новый портал регистрации приложений, где вы можете управлять своими приложениями Майкрософт.
 
-Sign in with either a personal or work or school Microsoft account.  If you don't have either, sign up for a new personal account. Go ahead, it won't take long - we'll wait here.
+Войти с помощью личной, рабочей или учебной учетной записи Майкрософт. Если у вас нет учетной записи, зарегистрируйтесь для получения личной учетной записи. Вперед, это не займет много времени.
 
-Done? You should now be looking at your list of Microsoft apps, which is probably empty.  Let's change that.
+Готово? Теперь вы должны увидеть список своих приложений Майкрософт, который, вероятно, пуст. Изменим это.
 
-Click **Add an app**, and give it a name.  The portal will assign your app a globally unique  Application Id that you'll use later in your code.  If your app includes a server-side component that needs access tokens for calling APIs (think: Office, Azure, or your own web API), you'll want to create an **Application Secret** here as well.
+Щелкните **Добавить приложение** и присвойте приложению имя. Портал назначит приложению глобальный уникальный идентификатор, который вы используете в коде в дальнейшем. Если приложение содержит серверный компонент, которому требуются маркеры доступа для вызова интерфейсов API (например, Office, Azure или собственного веб-API), вам необходимо также создать **секрет приложения**.
 <!-- TODO: Link for app secrets -->
 
-Next, add the Platforms that your app will use.
+Добавьте платформы, которые будет использовать приложение.
 
-- For web based apps, provide a **Redirect URI** where sign-in messages can be sent.
-- For mobile apps, copy down the default redirect uri automatically created for you.
+- Для веб-приложений укажите **универсальный код ресурса (URI) перенаправления** для отправки сообщений о входе.
+- Для мобильных приложений скопируйте автоматически созданный для вас универсальный код ресурса (URI) по умолчанию.
 
-Optionally, you can customize the look and feel of your sign-in page in the Profile section.  Make sure to click **Save** before moving on.
+При необходимости можно настроить внешний вид страницы входа в разделе "Профиль". Нажмите кнопку **Сохранить** перед продолжением.
 
-> [AZURE.NOTE] When you create an application using [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com), the application will be registered in the home tenant of the account that you use to sign into the portal.  This means that you can not register an application in your Azure AD tenant using a personal Microsoft account.  If you explicitly wish to register an application in a particular tenant, sign in with an account originally created in that tenant.
+> [AZURE.NOTE] При создании приложения с помощью [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com) оно будет зарегистрировано в главном клиенте учетной записи, которая используется для входа на портал. Это означает, что нельзя зарегистрировать приложение в клиенте Azure AD с помощью личной учетной записи Майкрософт. Если требуется явно зарегистрировать приложение в конкретном клиенте, войдите с помощью учетной записи, первоначально созданной в этом клиенте.
 
-## <a name="build-a-quick-start-app"></a>Build a quick start app
-Now that you have a Microsoft app, you can complete one of our v2.0 quick start tutorials.  Here are a few recommendations:
+## Создание приложения быстрого запуска
+Теперь, когда у вас есть приложение Майкрософт, вы можете изучить один из кратких учебников по версии 2.0. Вот несколько рекомендаций.
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

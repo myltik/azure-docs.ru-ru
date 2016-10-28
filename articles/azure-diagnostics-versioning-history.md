@@ -1,98 +1,93 @@
 <properties
-    pageTitle="Azure Diagnostics Version History"
-    description="Explanation of changes in the different versions of Azure diagnostics as shipped with different Microsoft Azure SDKs versions."
-    services="multiple"
-    documentationCenter=".net"
-    authors="rboucher"
-    manager="jwhit"
-    editor=""/>
+	pageTitle="Журнал версий системы диагностики Azure"
+	description="Описание изменений в разных версиях системы диагностики Azure, поставляемых с разными версиями пакета SDK для Microsoft Azure."
+	services="multiple"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="02/12/2016"
-    ms.author="robb"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="02/12/2016"
+	ms.author="robb"/>
+
+
+# Журнал версий системы диагностики Microsoft Azure
+
+Не приходилось использовать систему диагностики Azure? См. [обзор системы диагностики Azure](azure-diagnostics.md).
+
+С каждой версией пакета SDK для Azure обычно поставляется новая версия системы диагностики Azure. В следующей таблице описываются версии пакетов SDK для Azure и систем диагностики Azure, связанных с выпуском пакета SDK.
 
 
 
-# <a name="microsoft-azure-diagnostics-version-history"></a>Microsoft Azure Diagnostics Version History
-
-New to Azure Diagnostics? See [Azure Diagnostics Overview](azure-diagnostics.md).
-
-Each version of Azure SDK typically ships with a new version of Azure Diagnostics. The table below describes the Azure SDK and Azure Diagnostics versions associated with the SDK release.
-
-
-
-Azure SDK version | Azure Diagnostics version | Model
+Версия пакета SDK для Azure | Версия системы диагностики Azure | Модель
 --- | --- | ---
-1.x      | 1.0 | plug-in
-2.0 to 2.4| 1.0 | "
-2.5      | 1.2 | extension
-2.6      | 1.3 | "
-2.7      | 1.4 | "
-2.8      | 1.5 | "
+1\.x | 1\.0 | Подключаемый модуль
+2\.0–2.4| 1\.0 | "
+2\.5 | 1\.2 | Расширение
+2\.6 | 1,3 | "
+2\.7 | 1\.4 | "
+2\.8 | 1\.5 | "
 
 
-The latest version is 1.5, which shipped with Azure SDK 2.8. The version of Azure Diagnostics extension that ships with the SDK is only used for local emulator scenarios. Any deployed application automatically uses the latest version when running in Azure, irrespective of which version of the SDK the application is built with. However, unless you install the latest Azure SDK, you may not have all the tools that help you utilize the new features.
+Последняя версия — 1.5, которая поставляется с пакетом SDK для Azure 2.8. Версия расширения системы диагностики Azure, поставляемая с пакетом SDK, используется только для сценариев локального эмулятора. Любое развернутое приложение, запущенное в Azure, автоматически использует последнюю версию, вне зависимости от того, какая версия пакета SDK использовалась при сборке приложения. Тем не менее, если не установить последний пакет SDK для Azure, могут быть доступны не все инструменты, позволяющие использовать новые возможности.
 
-Various features and changes described below.
+Различные функции и изменения описаны ниже.
 
-## <a name="azure-sdk-2.8"></a>Azure SDK 2.8
-Azure SDK 2.8 added the ability to send diagnostics data to [Application Insights](./application-insights/app-insights-cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
+## Пакет SDK для Azure 2.8
+В пакет SDK для Azure 2.8 была добавлена возможность отправлять данные диагностики в [Application Insights](./application-insights/app-insights-cloudservices.md). Это упрощает диагностирование проблем в приложении, а также на уровне системы и инфраструктуры.
 
-## <a name="azure-2.6-diagnostics-changes"></a>Azure 2.6 diagnostics changes
+## Изменения в системе диагностики Azure версии 2.6
 
-For Azure SDK 2.6 Cloud Service projects in Visual Studio, the following changes were made. (These changes also apply to later versions of Azure SDK.)
+Для проектов облачной службы, созданных в Visual Studio с помощью пакета SDK для Azure 2.6, были внесены следующие изменения. (Эти изменения действуют и в более поздних версиях Azure SDK.)
 
-- The local emulator now supports diagnostics. This means you can collect diagnostics data and ensure your application is creating the right traces while you're developing and testing in Visual Studio. The connection string `UseDevelopmentStorage=true` enables diagnostics data collection while you're running your cloud service project in Visual Studio by using the Azure storage emulator. All diagnostics data is collected in the (Development Storage) storage account.
+- Локальный эмулятор теперь поддерживает систему диагностики. Это означает, что на этапе разработки и тестирования в Visual Studio вы можете собирать диагностические данные. Это позволит вам убедиться, что приложение создает правильные трассировки. При запуске проекта облачной службы в Visual Studio строка подключения `UseDevelopmentStorage=true` включает сбор диагностических данных с помощью эмулятора хранения Azure. Все диагностические данные собираются в учетную запись хранения (хранилище для разработки).
 
-- The diagnostics storage account connection string (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) is stored once again in the service configuration (.cscfg) file. In Azure SDK 2.5 the diagnostics storage account was specified in the diagnostics.wadcfgx file.
+- Строка подключения к учетной записи хранения диагностической информации (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) также хранится в файле конфигурации (CSCFG) службы. В пакете Azure SDK версии 2.5 учетная запись хранения диагностических данных указывается в файле diagnostics.wadcfgx.
 
-There are some notable differences between how the connection string worked in Azure SDK 2.4 and earlier and how it works in Azure SDK 2.6 and later.
+Существуют важные различия между работой строки подключения в старых версиях пакета Azure SDK (до версии 2.4 включительно) и более новых (начиная с версии 2.6).
 
-- In Azure SDK 2.4 and earlier, the connection string was used as a runtime by the diagnostics plugin to get the storage account information for transferring diagnostics logs.
+- В Azure SDK 2.4 и более ранних версиях строка подключения использовалась как среда выполнения подключаемого модуля диагностики, который получал из нее параметры учетной записи хранения для передачи журналов диагностики.
 
-- In Azure SDK 2.6 and later, the diagnostics connection string is used by Visual Studio to configure the diagnostics extension with the appropriate storage account information during publishing. The connection string lets you define different storage accounts for different service configurations that Visual Studio will use when publishing. However, because the diagnostics plugin is no longer available (after Azure SDK 2.5), the .cscfg file by itself can't enable the Diagnostics Extension. You have to enable the extension separately through tools such as Visual Studio or PowerShell.
+- В Azure SDK 2.6 и более поздних версиях Visual Studio использует строку подключения диагностики для настройки учетной записи хранения в расширении диагностики во время публикации. Строка подключения позволяет вам указать разные учетные записи хранения для различных конфигураций службы. Visual Studio будет использовать их во время публикации. Но подключаемый модуль диагностики больше не доступен (в пакетах Azure SDK, начиная с версии 2.5), поэтому сам CSCFG-файл уже не может включить расширение диагностики. Его нужно включать отдельно с помощью таких средств, как Visual Studio или PowerShell.
 
-- To simplify the process of configuring the diagnostics extension with PowerShell, the package output from Visual Studio also contains the public configuration XML for the diagnostics extension for each role. Visual Studio uses the diagnostics connection string to populate the storage account information present in the public configuration. The public config files are created in the Extensions folder and follow the pattern PaaSDiagnostics.<RoleName>.PubConfig.xml. Any PowerShell based deployments can use this pattern to map each configuration to a Role.
+- Выходные данные пакета Visual Studio содержат, среди прочего, общедоступный XML-файл конфигурации расширения диагностики для каждой роли. Это позволяет упростить процесс настройки расширения с помощью PowerShell. С помощью строки подключения диагностики Visual Studio получает из общедоступной конфигурации данные учетной записи хранения. Общедоступные файлы конфигураций создаются в папке «Расширения» с именами в формате bvt.bnPaaSDiagnostics.<RoleName>.PubConfig.xml. Все развертывания с использованием PowerShell могут использовать этот шаблон имени для сопоставления каждой конфигурации с ролью.
 
-- The connection string in the .cscfg file is also used by the Azure portal to access the diagnostics data so it can appear in the **Monitoring** tab. The connection string is needed to configure the service to show verbose monitoring data in the portal.
+- Строку подключения из CSCFG-файла также использует портал Azure для доступа к диагностическим данным, отображаемым на вкладке **Мониторинг**. Строка подключения позволяет настроить в службе отображение на портале подробных данных мониторинга.
 
-### <a name="migrating-projects-to-azure-sdk-2.6-and-later"></a>Migrating projects to Azure SDK 2.6 and later
+### Перенос проектов на Azure SDK версии 2.6 и выше
 
-When migrating from Azure SDK 2.5 to Azure SDK 2.6 or later, if you had a diagnostics storage account specified in the .wadcfgx file, then it will stay there. To take advantage of the flexibility of using different storage accounts for different storage configurations, you'll have to manually add the connection string to your project. If you're migrating a project from Azure SDK 2.4 or earlier to Azure SDK 2.6, then the diagnostics connection strings are preserved. However, please note the changes in how connection strings are treated in Azure SDK 2.6 as specified in the previous section.
+Когда проект переносится с Azure SDK 2.5 на Azure SDK 2.6 или более новую версию, данные учетной записи хранения диагностической информации, указанные в WADCFGX-файле, сохраняются. Чтобы воспользоваться преимуществами гибкости использования различных учетных записей хранения для разных конфигураций хранилища, необходимо вручную добавить строку подключения в проект. Если при переносе проекта на основе пакета SDK для Azure 2.4 или более ранней версии на пакет SDK для Azure 2.6 строки подключения системы диагностики сохраняются. Однако не забывайте, что в Azure SDK 2.6 строки подключения используются иначе (см. предыдущий раздел).
 
-### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>How Visual Studio determines the diagnostics storage account
+### Определение учетной записи хранения диагностических данных в Visual Studio
 
-- If a diagnostics connection string is specified in the .cscfg file, Visual Studio uses it to configure the diagnostics extension when publishing, and when generating the public configuration xml files during packaging.
+- Если в CSCFG-файле указана строка подключения диагностики, Visual Studio использует ее для настройки расширения диагностики во время публикации, а также при создании общедоступных XML-файлов конфигурации на этапе упаковки.
 
-- If no diagnostics connection string is specified in the .cscfg file, then Visual Studio falls back to using the storage account specified in the .wadcfgx file to configure the diagnostics extension when publishing, and generating the public configuration xml files when packaging.
+- Если в CSCFG-файле строка подключения диагностики не указана, Visual Studio использует для этих же целей учетную запись хранения, указанную в WADCFGX-файле.
 
-- The diagnostics connection string in the .cscfg file takes precedence over the storage account in the .wadcfgx file. If a diagnostics connection string is specified in the .cscfg file, then Visual Studio uses that and ignores the storage account in .wadcfgx.
+- Строка подключения диагностики в CSCFG-файле имеет более высокий приоритет, чем учетная запись хранения в WADCFGX-файле. Если в CSCFG-файле присутствует строка подключения диагностики, Visual Studio использует именно ее, игнорируя учетную запись хранения в WADCFGX-файле.
 
-### <a name="what-does-the-"update-development-storage-connection-strings…"-checkbox-do?"></a>What does the "Update development storage connection strings…" checkbox do?
+### Флажок «Обновлять строки подключения хранилища разработки...»
 
-The checkbox for **Update development storage connection strings for Diagnostics and Caching with Microsoft Azure storage account credentials when publishing to Microsoft Azure** gives you a convenient way to update any development storage account connection strings with the Azure storage account specified during publishing.
+Флажок **Обновлять строки подключения хранилища разработки для диагностики и кэширования, используя учетную запись хранения Microsoft Azure, при публикации в Microsoft Azure** позволяет быстро заменить строку подключения хранилища для разработки учетной записью хранения Azure, указанной во время публикации.
 
-For example, suppose you select this checkbox and the diagnostics connection string specifies `UseDevelopmentStorage=true`. When you publish the project to Azure, Visual Studio will automatically update the diagnostics connection string with the storage account you specified in the Publish wizard. However, if a real storage account was specified as the diagnostics connection string, then that account is used instead.
+Предположим, вы установили этот флажок, а в строке подключения диагностики указан параметр `UseDevelopmentStorage=true`. Когда вы будете публиковать проект в Azure, Visual Studio автоматически заменит строки подключения диагностики учетной записью хранения, которую вы указали в мастере публикации. Но если в строке подключения диагностики указана реальная учетная запись хранения, будет использоваться именно она.
 
-## <a name="diagnostics-functionality-differences-between-azure-sdk-2.4-and-earlier-and-azure-sdk-2.5-and-later"></a>Diagnostics functionality differences between Azure SDK 2.4 and earlier and Azure SDK 2.5 and later
+## Функциональные различия диагностики в Azure SDK между более ранними (до 2.4 включительно) и более поздними (с 2.5 включительно) версиями
 
-If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, you should bear in mind the following diagnostics functionality differences.
+Обновляя свой проект с Azure SDK 2.4 на Azure SDK 2.5 и выше, помните о следующих функциональных различиях.
 
-- **Configuration APIs are deprecated** – Programmatic configuration of diagnostics is available in Azure SDK 2.4 or earlier versions, but is deprecated in Azure SDK 2.5 and later. If your diagnostics configuration is currently defined in code, you'll need to reconfigure those settings from scratch in the migrated project in order for diagnostics to keep working. The diagnostics configuration file for Azure SDK 2.4 is diagnostics.wadcfg, and diagnostics.wadcfgx for Azure SDK 2.5 and later.
+- **API конфигурации больше не используются**. Программная конфигурация диагностики доступна в Azure SDK 2.4 и более ранних версиях, но начиная с версии Azure SDK 2.5 она не используется. Если конфигурация диагностики в вашем проекте определена в коде, после переноса проекта на более новую версию SDK все нужно настроить заново, иначе диагностика работать не будет. Azure SDK 2.4 используется файл конфигурации диагностики diagnostics.wadcfg, а Azure SDK 2.5 и более поздние версии — diagnostics.wadcfgx.
 
-- **Diagnostics for cloud service applications can only be configured at the role level, not at the instance level.**
+- **Диагностику для приложений облачной службы можно настроить только на уровне роли, а не на уровне экземпляра.**
 
-- **Every time you deploy your app, the diagnostics configuration is updated** – This can cause parity issues if you change your diagnostics configuration from Server Explorer and then redeploy your app.
+- **Конфигурация диагностики обновляется при каждом развертывании приложения**. Если вы измените конфигурацию диагностики в обозревателе сервера и повторно развернете приложение, могут возникнуть проблемы с контролем четности.
 
-- **In Azure SDK 2.5 and later, crash dumps are configured in the diagnostics configuration file, not in code** – If you have crash dumps configured in code, you'll have to manually transfer the configuration from code to the configuration file, because the crash dumps aren't transferred during the migration to Azure SDK 2.6.
+- **В Azure SDK 2.5 и более поздних версиях аварийные дампы настраиваются в файле конфигурации диагностики, а не в коде**. Если вы настроили аварийные дампы в коде проекта, следует вручную перенести параметры из кода в файл конфигурации, поскольку при переходе на Azure SDK 2.6 аварийные дампы не переносятся.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0302_2016-->

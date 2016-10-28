@@ -1,6 +1,6 @@
-## <a name="parameter-file"></a>Parameter file
+## Файл параметров
 
-If you use a parameter file to pass parameter values during deployment, you need to create a JSON file with a format similar to the following example.
+Если вы используете файл параметров для передачи значений параметров во время развертывания, то необходимо создать JSON-файл с форматом, как в приведенном ниже примере.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -26,11 +26,8 @@ If you use a parameter file to pass parameter values during deployment, you need
        }
     }
 
-If you need to provide a sensitive value for a parameter (such as a password), add that value to a key vault. Retrieve the key vault during deployment as shown in the previous example. For more information, see [Pass secure values during deployment](../articles/resource-manager-keyvault-parameter.md). 
+Если требуется предоставить конфиденциальное значение для параметра (например, пароль), добавьте это значение в хранилище ключей. Получите хранилище ключей во время развертывания, как показано в предыдущем примере. Дополнительные сведения см. в статье [Передача безопасных значений в процессе развертывания](../articles/resource-manager-keyvault-parameter.md).
 
-The size of the parameter file cannot be more than 64 KB.
+Размер файла параметров не может быть более 64 КБ.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

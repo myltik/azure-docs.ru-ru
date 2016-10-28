@@ -1,180 +1,172 @@
 <properties
-    pageTitle="Single sign-on with Application Proxy | Microsoft Azure"
-    description="Covers how to provide single sign-on using Azure AD Application Proxy."
-    services="active-directory"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor=""/>
+	pageTitle="Единый вход с помощью прокси приложения | Microsoft Azure"
+	description="Статья описывает, как реализовать единый вход с помощью прокси приложения Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/10/2016"
-    ms.author="kgremban"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2016"
+	ms.author="kgremban"/>
 
 
+# Единый вход с помощью прокси приложения
 
-# <a name="single-sign-on-with-application-proxy"></a>Single sign-on with Application Proxy
+Единый вход — это ключевой элемент прокси приложения Azure AD. Он предоставляет собой удобный пользовательский интерфейс с набором следующих действий.
 
-Single sign-on is a key element of Azure AD Application Proxy. It provides the best user experience with the following steps:
+1. Пользователь входит в облако.
+2. Все проверки безопасности происходят в облаке (предварительная проверка подлинности)
+3. Если запрос отправляется в приложение в локальной среде, соединитель прокси-службы приложения олицетворяет пользователя. Серверная часть приложения полагает, что это обычный пользователь, который вошел в приложение с устройства, присоединенного к домену.
 
-1. A user signs in to the cloud  
-2. All security validations happen in the cloud (preauthentication)  
-3. When the request is sent to the on-prem application, the Application Proxy Connector impersonates the user. The backend application thinks this is a regular user coming from a domain-joined device.
+![Схема доступа от конечного пользователя и корпоративной сети через прокси приложения](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
-![Access diagram from end user, through Application Proxy, to the corporate network](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
-
-Azure AD Application Proxy helps you provide a single sign-on (SSO) experience for your users. Use the following instructions to publish your apps using SSO:
-
-
-## <a name="sso-for-on-prem-iwa-apps-using-kcd-with-application-proxy"></a>SSO for on-prem IWA apps using KCD with Application Proxy
-You can enable single sign-on to your applications using Integrated Windows Authentication (IWA) by giving Application Proxy Connectors permission in Active Directory to impersonate users, and send and receive tokens on their behalf.
+Прокси приложения Azure AD позволяет реализовать единый вход для пользователей. Для публикации приложений с помощью единого входа руководствуйтесь следующими инструкциями:
 
 
-### <a name="network-diagram"></a>Network diagram
-
-This diagram explains the flow when a user attempts to access an on-prem application that uses IWA.
-
-![Microsoft AAD authentication flow diagram](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
-
-1. The user enters the URL to access the on-prem application through Application Proxy.
-2. Application Proxy redirects the request to Azure AD authentication services to preauthenticate. At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Azure AD creates a token and sends it to the user.
-3. The user passes the token to Application Proxy.
-4. Application Proxy validates the token and retrieves the User Principal Name (UPN) from it, and then sends the request, the UPN, and the Service Principal Name (SPN) to the Connector through a dually authenticated secure channel.
-5. The Connector performs Kerberos Constrained Delegation (KCD) negotiation with the on-prem AD, impersonating the user to get a Kerberos token to the application.
-6. Active Directory sends the Kerberos token for the application to the Connector.
-7. The Connector sends the original request to the application server, using the Kerberos token it received from AD.
-8. The application sends the response to the Connector which is then returned to the Application Proxy service and finally to the user.
-
-### <a name="prerequisites"></a>Prerequisites
-
-Before you get started with SSO for Application Proxy, make sure your environment is ready with the following settings and configurations:
-
-- Your apps, like SharePoint Web apps, are set to use Integrated Windows Authentication. For more information see [Enable Support for Kerberos Authentication](https://technet.microsoft.com/library/dd759186.aspx), or for SharePoint see [Plan for Kerberos authentication in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
-
-- All your apps have Service Principal Names.
-
-- The server running the Connector and the server running the app are domain joined and part of the same domain or trusting domains. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
-
-- The server running the Connector has access to read the TokenGroupsGlobalAndUniversal for users. This is a default setting that might have been impacted by security hardening the environment. Get more help with this in [KB2009157](https://support.microsoft.com/en-us/kb/2009157).
-
-### <a name="active-directory-configuration"></a>Active Directory configuration
-
-The Active Directory configuration varies, depending on whether your Application Proxy Connector and the published server are in the same domain or not.
-
-#### <a name="connector-and-published-server-in-the-same-domain"></a>Connector and published server in the same domain
-
-1. In Active Directory, go to **Tools** > **Users and Computers**.
-2. Select the server running the Connector.
-3. Right-click and select **Properties** > **Delegation**.
-4. Select **Trust this computer for delegation to specified services only** and under **Services to which this account can present delegated credentials**, add the value for the SPN identity of the application server.
-5. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
-
-![Connector-SVR Properties window screenshot](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
-
-#### <a name="connector-and-published-server-in-different-domains"></a>Connector and published server in different domains
-
-1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](https://technet.microsoft.com/library/hh831477.aspx).
-2. In Windows 2012 R2, use the `principalsallowedtodelegateto` property on the Connector server to enable the Application Proxy to delegate for the Connector server, where the published server is `sharepointserviceaccount` and the delegating server is `connectormachineaccount`.
-
-        $connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
-
-        Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
-
-        Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
+## Единый вход для локальных приложений IWA с использованием ограниченного делегирования Kerberos с прокси приложения
+Для приложений с использованием встроенной проверки подлинности Windows (IWA) можно активировать единый вход (SSO), разрешив соединителям прокси приложения олицетворять пользователей, а также отправлять и получать токены от их имени в Active Directory.
 
 
->[AZURE.NOTE] `sharepointserviceaccount` can be the SPS machine account or a service account under which the SPS app pool is running.
+### Схема сети
+
+На схеме показан процесс, когда пользователь пытается получить доступ к локальному приложению, использующему IWA.
+
+![Схема проверки подлинности Microsoft Azure AD](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
+
+1. Пользователь вводит URL-адрес для доступа к локальному приложению через прокси приложения.
+2. Прокси приложения перенаправляет запрос в службы проверки подлинности Azure AD, чтобы выполнить предварительную проверку подлинности. На этом этапе Azure AD применяет все применимые политики проверки подлинности и авторизации, например многофакторную проверку подлинности. Если пользователь проверен, Azure AD создает токен и отправляет его пользователю.
+3. Пользователь передает токен в прокси приложения.
+4. Прокси приложения проверяет токен и извлекает из него имя участника-пользователя, затем отправляет запрос, имя участника-пользователя и имя субъекта-службы в соединитель через безопасный канал с двойной проверкой подлинности.
+5. Соединитель выполняет согласование ограниченного делегирования Kerberos с локальной службой AD, олицетворяя пользователя, чтобы получить токен Kerberos для приложения.
+6. Active Directory отправляет токен Kerberos для приложения соединителю.
+7. Соединитель отправляет исходный запрос на сервер приложений, используя токен Kerberos, полученный от AD.
+8. Приложение отправляет соединителю ответ, который затем возвращается службе прокси приложения и, наконец, пользователю.
+
+### Предварительные требования
+
+Прежде чем использовать единый вход для прокси приложений, подготовьте в своей среде следующие параметры и конфигурации.
+
+- Настройте свои приложения, например веб-приложения SharePoint, на использование встроенной проверки подлинности Windows. Дополнительные сведения см. в статье [Включение поддержки проверки подлинности Kerberos](https://technet.microsoft.com/library/dd759186.aspx) или (для SharePoint) в статье [Планирование проверки подлинности Kerberos в SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
+
+- Все приложения должны иметь имена субъектов-служб.
+
+- Сервер, на котором работает соединитель, и сервер, на котором работает приложение, должны быть присоединены к домену и должны быть частью одного и того же домена или доверенных доменов. Дополнительные сведения о присоединении к домену см. в разделе [Присоединение компьютера к домену](https://technet.microsoft.com/library/dd807102.aspx).
+
+- Сервер, на котором работает соединитель, должен иметь доступ на чтение TokenGroupsGlobalAndUniversal для пользователей. Это стандартная настройка, которая может измениться в случае укрепления системы безопасности среды. Дополнительную информацию см. в статье базы знаний [KB2009157](https://support.microsoft.com/ru-RU/kb/2009157).
+
+### Настройка в Active Directory
+
+Действия по настройке в Active Directory зависят от того, находятся ли соединитель прокси приложения и опубликованный сервер в одном и том же домене.
+
+#### Соединитель и опубликованный сервер в одном и том же домене
+
+1. В Active Directory выберите **Средства** > **Пользователи и компьютеры**.
+2. Выберите сервер, на котором работает соединитель.
+3. Щелкните правой кнопкой мыши и выберите пункты **Свойства** > **Делегирование**.
+4. Выберите **Доверять компьютеру делегирование указанных служб** и в разделе **Службы, с которыми эта учетная запись может использовать делегированные учетные данные** добавьте значение для идентификации имени субъекта-службы сервера приложений.
+5. После этого соединитель прокси приложения будет олицетворять пользователей в AD при работе с приложениями, указанными в списке.
+
+![Окно свойств соединителя SVR (снимок экрана)](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
+
+#### Соединитель и опубликованный сервер в разных доменах
+
+1. Список предварительных требований для работы с ограниченным делегированием Kerberos в разных доменах см. в статье [Ограниченное делегирование Kerberos в разных доменах](https://technet.microsoft.com/library/hh831477.aspx).
+2. В Windows 2012 R2 используйте свойство `principalsallowedtodelegateto` сервера соединителя, чтобы включить делегирование прокси приложения для сервера соединителя, где опубликованным сервером является `sharepointserviceaccount`, а делегирующим сервером — `connectormachineaccount`.
+
+		$connector= Get-ADComputer -Identity connectormachineaccount -server dc.connectordomain.com
+
+		Set-ADComputer -Identity sharepointserviceaccount -PrincipalsAllowedToDelegateToAccount $connector
+
+		Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
 
 
-### <a name="azure-classic-portal-configuration"></a>Azure classic portal configuration
+>[AZURE.NOTE] `sharepointserviceaccount` может быть учетной записью компьютера SPS или учетной записью службы, под которой выполняется пул приложений SPS.
 
-1. Publish your application according to the instructions described in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
-2. After your application appears in the list of applications, select it and click **Configure**.
-3. Under **Properties**, set **Internal Authentication Method** to **Integrated Windows Authentication**.  
-  ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
-4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.  
 
->[AZURE.IMPORTANT] If your on-premises UPN and the UPN in Azure Active Directory are not identical, you will need to configure the [delegated login identity](#delegated-login-identity) in order for preauthentication to work.
+### Настройка на классическом портале Azure
 
-|  |  |
+1. Опубликуйте приложение в соответствии с инструкциями, описанными в статье [Публикация приложений с помощью прокси приложения](active-directory-application-proxy-publish.md). Обязательно выберите **Azure Active Directory** в качестве **метода предварительной проверки подлинности**.
+2. Когда приложение появится в списке приложений, выберите его и нажмите кнопку **Настроить**.
+3. В разделе **Свойства** в качестве **метода внутренней проверки подлинности** выберите **интегрированную проверку подлинности Windows**. ![Дополнительная настройка приложения](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
+4. Введите **Внутреннее имя субъекта-службы приложения** сервера приложений. В этом примере таким именем для опубликованного приложения будет http/lob.contoso.com.
+
+>[AZURE.IMPORTANT] Если ваш локальный UPN и UPN в Azure Active Directory не совпадают, необходимо настроить [делегированную идентификацию для входа](#delegated-login-identity) для правильной работы предварительной проверки подлинности.
+
+| | |
 | --- | --- |
-| Internal Authentication Method | If you use Azure AD for preauthentication, you can set an internal authentication method to enable your users to benefit from single sign-on (SSO) to this application. <br><br> Select **Integrated Windows Authentication** (IWA) if your application uses IWA and you can configure Kerberos Constrained Delegation (KCD) to enable SSO for this application. Applications that use IWA must be configured using KCD, otherwise Application Proxy will not be able to publish these applications. <br><br> Select **None** if your application does not use IWA. |
-| Internal Application SPN | This is the Service-Principal-Name (SPN) of the internal application as configured in the on-prem Azure AD. The SPN is used by the Application Proxy Connector to fetch Kerberos tokens for the application using KCD. |
+| Метод внутренней проверки подлинности | Если вы используете Azure AD для предварительной проверки подлинности, можно настроить метод внутренней проверки подлинности, чтобы предоставить пользователям преимущество единого входа в это приложение. <br><br> Выберите значение **Встроенная проверка подлинности Windows** (IWA), если ваше приложение использует этот метод, и настройте ограниченное делегирование Kerberos (KCD), чтобы включить единый вход для этого приложения. Приложения, использующие IWA, следует настроить с использованием ограниченного делегирования Kerberos. В противном случае прокси приложения не сможет опубликовать эти приложения. <br><br> Выберите **Нет**, если ваше приложение не использует IWA. |
+| Внутреннее имя субъекта-службы приложения | Это имя субъекта-службы внутреннего приложения, настроенное в локальной службе Azure AD. При помощи имени субъекта-службы соединитель прокси приложения получает токены Kerberos для приложения, использующего ограниченное делегирование Kerberos. |
 
 
-## <a name="sso-for-non-windows-apps"></a>SSO for non-Windows apps
-The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy Connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. There are a number of protocols that define how to send such requests. Most non-Windows servers expect Negotiate/SPNego that is now supported on Azure AD Application Proxy.
+## Единый вход для приложений не на базе Windows
+Поток делегирования Kerberos в прокси приложения Azure AD запускается, когда Azure AD проверяет подлинность пользователя в облаке. После поступления запроса в локальную среду соединитель прокси приложения Azure AD выдает билет Kerberos от имени пользователя посредством взаимодействия с локальным Active Directory. Этот процесс называется ограниченным делегированием Kerberos (KCD). На следующем этапе запрос отправляется во внутреннее приложение с этим билетом Kerberos. Существует несколько протоколов, определяющих процедуру отправки таких запросов. Большинство серверов не на базе Windows ожидают механизм Negotiate/SPNego, который теперь поддерживается в прокси приложения Azure AD.
 
-![Non-Windows SSO diagram](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
+![Схема единого входа (не Windows)](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
-### <a name="delegated-login-identity"></a>Delegated login identity
-Delegated login identity helps you handle two different login scenarios:
+### Делегированная идентификация для входа
+Делегированная идентификация для входа позволяет обработать два сценария входа.
 
-- Non-Windows applications that typically get user identity in the form of a username or SAM account name, not an email address (username@domain).
-- Alternative login configurations where the UPN in Azure AD and the UPN in your on-premises Active Directory are different.
+- Приложения не на базе Windows, которые обычно получают удостоверение пользователя в форме имени пользователя или имени учетной записи SAM, а не в форме адреса электронной почты (username@domain).
+- Альтернативные конфигурации входа при различных UPN в Azure AD и UPN в локальной Active Directory.
 
-With Application Proxy, you can select which identity to use to obtain the Kerberos ticket. This setting is per application. Some of these options are suitable for systems that do not accept email address format, others are designed for alternative login.
+С помощью прокси приложения можно выбрать удостоверение для получения билета Kerberos. Этот параметр устанавливается в каждом отдельном приложении. Некоторые из этих параметров подходят для систем, не поддерживающих значения в формате адреса электронной почты, другие предназначены для альтернативного входа в систему.
 
-![Delegated login identity parameter screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
+![Снимок экрана параметра "Делегированное удостоверение для входа"](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
 
-If delegated login identity is used, the value might not be unique for all the domains or forests in your organization. You can avoid this issue by publishing these applications twice using two different Connector groups. Since each application has a different user audience, you can join its Connectors to a different domain.
-
-
-## <a name="working-with-sso-when-on-premises-and-cloud-identities-are-not-identical"></a>Working with SSO when on-premises and cloud identities are not identical
-Unless otherwise configured, Application Proxy assumes that users have exactly the same identity in the cloud and on-premises. You can configure, for each application, which identity should be used when performing single sign-on.  
-
-This capability allows many organizations that have different on-prem and cloud identities to have SSO from the cloud to on-prem apps without requiring the users to enter different usernames and passwords. This includes organizations that:
-
-- Have multiple domains internally (joe@us.contoso.com, joe@eu.contoso.com) and a single domain in the cloud (joe@contoso.com).
-
-- Have non-routable domain name internally (joe@contoso.usa) and a legal one in the cloud.
-
-- Do not use domain names internally (joe)
-
-- Use different aliases on-prem and in the cloud. E.g. joe-johns@contoso.com vs. joej@contoso.com  
-
-It will also help with applications that do not accept addresses in the form of email address, which is a very common scenario for non-Windows backend servers.
+При использовании делегированной идентификации для входа значение может не быть уникальным для всех доменов или лесов вашей организации. Этой проблемы можно избежать, опубликовав приложения дважды с использованием двух разных групп соединителей. Поскольку каждое приложение имеет собственную аудиторию, его соединители можно присоединить к другому домену.
 
 
-### <a name="setting-sso-for-different-cloud-and-on-prem-identities"></a>Setting SSO for different cloud and on-prem identities
+## Работа с единым входом при совпадении локальных и облачных удостоверений
+Если в параметрах не указано иначе, прокси приложения предполагает, что пользователи имеют одно и то же удостоверение как в облаке, так и в локальной среде. Для каждого приложения можно настроить, какое именно удостоверение следует использовать при выполнении единого входа.
 
-1. Configure Azure AD Connect settings so the main identity will be the email address (mail). This is done as part of the customize process, by changing the **User Principle Name** field in the sync settings. Note that these settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  
-  ![Identifying users screenshot - User Principal Name dropdown](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
-2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:
-  - User Principle Name: joe@contoso.com  
-  - Alternate User Principle Name: joed@contoso.local  
-  - Username part of User Principle Name: joe  
-  - Username part of Alternate User Principle Name: joed  
-  - On-premises SAM account name: depending on-prem domain controller configuration
+Эта возможность позволяет многим организациям, имеющим различные локальные и облачные удостоверения, реализовать единый вход из облака в локальные приложения, не требующий от пользователей ввода различных имен пользователя и паролей. Сюда относятся следующие виды организаций:
 
-  ![Delegated login identity drop-down menu screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)  
+- организации, имеющие несколько внутренних доменов (joe@us.contoso.com, joe@eu.contoso.com) и отдельный домен в облаке (joe@contoso.com);
 
-### <a name="troubleshooting-sso-for-different-identities"></a>Troubleshooting SSO for different identities
-If there is an error in the SSO process it will appear in the Connector machine event log as explained in [Troubleshooting](active-directory-application-proxy-troubleshoot.md).
-But, in some cases, the request will be successfully sent to the backend application while this application will reply in various other HTTP responses. Troubleshooting these cases should start by examining event number 24029 on the Connector machine in the Application Proxy session event log. The user identity that was used for delegation will appear in the “user” field within the event details. To turn on session log, select **Show analytic and debug logs** in the event viewer view menu.
+- организации, у которых внутреннее доменное имя не поддерживает маршрутизацию (joe@contoso.usa), а допустимое доменное имя относится к облаку;
+
+- организации, которые не используют внутренние доменные имена (joe);
+
+- организации, использующие разные псевдонимы в локальной и облачной средах. Например, joe-johns@contoso.com и joej@contoso.com
+
+Она также поможет организовать работу с приложениями, которые не принимают адреса в формате адреса электронной почты, что является очень распространенным сценарием для внутренних серверов не на базе Windows.
 
 
-## <a name="see-also"></a>See also
+### Настройка единого входа для различных облачных и локальных удостоверений
 
-- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
-- [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
-- [Enable conditional access](active-directory-application-proxy-conditional-access.md)
+1. Настройте параметры Azure AD Connect так, чтобы основным удостоверением был адрес электронной почты (почта). Это осуществляется во время процесса настройки путем изменения поля **Имя субъекта-пользователя** в параметрах синхронизации. Эти параметры также определяют, как именно пользователи входят в Office 365, на устройства Windows 10 и в другие приложения, использующие Azure AD в качестве хранилища своих удостоверений. ![Снимок экрана "Идентификация пользователей": раскрывающееся меню "Имя участника-пользователя"](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)
+2. В параметрах конфигурации приложения для приложения, которое вы хотите изменить, выберите нужное значение параметра **Делегированное удостоверение для входа**:
+  - Имя субъекта-пользователя: joe@contoso.com
+  - Альтернативное имя субъекта-пользователя: joed@contoso.local
+  - Компонент, содержащий имя пользователя, в имени субъекта-пользователя: joe
+  - Компонент, содержащий имя пользователя, в альтернативном имени субъекта-пользователя: joed
+  - Имя локальной учетной записи управления лицензиями: в зависимости от локальной конфигурации контроллера домена
 
-For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
+  ![Снимок экрана с раскрывающимся меню "Делегированное удостоверение для входа"](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
+
+### Устранение неполадок единого входа для различных удостоверений
+При возникновении ошибки в процессе единого входа она заносится в журнал событий компьютера соединителя, как описано в разделе [Устранение неполадок](active-directory-application-proxy-troubleshoot.md). Однако в некоторых случаях запрос успешно отправляется внутреннему приложению, пока оно обрабатывает разные другие HTTP-ответы. Устранение подобных неполадок следует начать с проверки события с номером 24029 на компьютере соединителя в журнале событий сеанса прокси приложения. Удостоверение пользователя, которое использовалось для делегирования, будет отображаться в поле "пользователь" в сведениях о событии. Чтобы включить журнал сеанса, выберите пункт **Отобразить аналитический и отладочный журналы** в меню "Вид" средства просмотра событий.
+
+
+## Дополнительные материалы
+
+- [Опубликуйте приложения с помощью прокси-сервера приложений.](active-directory-application-proxy-publish.md)
+- [Устранение неполадок с прокси приложения](active-directory-application-proxy-troubleshoot.md)
+- [Работа с приложениями, поддерживающими утверждения](active-directory-application-proxy-claims-aware-apps.md)
+- [Включение условного доступа](active-directory-application-proxy-conditional-access.md)
+
+Последние новости и обновления см. в блоге, посвященном [прокси приложений](http://blogs.technet.com/b/applicationproxyblog/).
 
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png
 [2]: ./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

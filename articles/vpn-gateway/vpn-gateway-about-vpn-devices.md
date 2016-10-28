@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="About VPN Devices for Site-to-Site VPN Gateway connections for Azure Virtual Networks | Microsoft Azure"
-   description="This article discusses VPN devices and IPsec parameters for S2S VPN Gateway connections and contains links to configuration instructions and samples."
+   pageTitle="О VPN-устройствах для подключений VPN-шлюзов типа ";сеть — сеть"; в виртуальных сетях Azure | Microsoft Azure"
+   description="В этой статье рассматриваются VPN-устройства и параметры IPsec для подключения VPN-шлюза типа ";сеть — сеть";. Статья содержит ссылки на инструкции по настройке и примеры."
    services="vpn-gateway"
    documentationCenter="na"
    authors="yushwang"
@@ -16,155 +16,141 @@
    ms.date="09/13/2016"
    ms.author="yushwang;cherylmc" />
 
+# О VPN-устройствах для подключений VPN-шлюзов типа "сеть — сеть"
 
-# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>About VPN devices for Site-to-Site VPN Gateway connections
+Для настройки VPN-подключения типа "сеть — сеть" требуется VPN-устройство. Подключения типа "сеть — сеть" можно использовать для создания гибридного решения или в случае, когда требуется безопасное подключение между локальной и виртуальной сетями. В этой статье рассматриваются совместимые VPN-устройства и параметры конфигурации.
 
-A VPN device is required to configure a Site-to-Site (S2S) VPN connection. Site-to-Site connections can be used to create a hybrid solution, or whenever you want a secure connection between your on-premises network and your virtual network. This article discusses compatible VPN devices and configuration parameters. 
+>[AZURE.NOTE] При настройке подключения типа "сеть — сеть" для VPN-устройства необходимо указывать общедоступный IP-адрес IPv4.
 
->[AZURE.NOTE] When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.                                                                                                                                                                               
+Если устройство не отображается в таблице [проверенных VPN-устройств](#devicetable), см. раздел [Непроверенные VPN-устройства](#additionaldevices) в этой статье. Возможно, ваше устройство будет работать в Azure. За поддержкой VPN-устройства обратитесь к его изготовителю.
 
-If your device doesn't appear in the [Validated VPN devices](#devicetable) table, see the [Non-validated VPN devices](#additionaldevices) section of this article. It's possible that your device may still work with Azure. For VPN device support, please contact your device manufacturer.
+**На что следует обратите внимание при просмотре таблицы:**
 
-**Items to note when viewing the tables:**
-
-- There has been a terminology change for static and dynamic routing. You'll likely run into both terms. There is no functionality change, only the names are changing.
-    - Static Routing = PolicyBased
-    - Dynamic Routing = RouteBased
-- Specifications for High Performance VPN gateway and RouteBased VPN gateway are the same unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the Azure High Performance VPN gateway. 
-
-
-## <a name="<a-name="devicetable"></a>validated-vpn-devices"></a><a name="devicetable"></a>Validated VPN devices 
-
-We have validated a set of standard VPN devices in partnership with device vendors. All the devices in the device families contained in the following list should work with Azure VPN gateways. See [About VPN Gateway](vpn-gateway-about-vpngateways.md) to verify the type of gateway that you need to create for the solution you want to configure. 
-
-To help configure your VPN device, refer to the links that correspond to appropriate device family. For VPN device support, please contact your device manufacturer.
+- Изменилась терминология, связанная со статической и динамической маршрутизацией. Скорее всего, вы столкнетесь и с той, и с другой. Функциональность осталась прежней, изменились только названия.
+	- Статическая маршрутизация — на основе политик (PolicyBased).
+	- Динамическая маршрутизация — на основе маршрутов (RouteBased).
+- Спецификации высокопроизводительных VPN-шлюзов и VPN-шлюзов типа RouteBased одинаковы, если не указано иное. Например, проверенные VPN-устройства, совместимые с VPN-шлюзами RouteBased, также совместимы с высокопроизводительными VPN-шлюзами Azure.
 
 
+## <a name="devicetable"></a>Проверенные VPN-устройства 
 
-| **Vendor**                      | **Device family**                                        | **Minimum OS version**                             | **PolicyBased**                                                                                                                                                                                                             | **RouteBased**                                                                                                                                                                    |
+Мы утвердили набор стандартных VPN-устройств в сотрудничестве с поставщиками устройств. Все устройства их приведенного ниже списка семейств должны работать с VPN-шлюзами Azure. Инструкции по проверке типа шлюза, который необходимо создать для настраиваемого решения, см. в статье [О VPN-устройствах для подключений VPN-шлюзов типа "сеть — сеть"](vpn-gateway-about-vpngateways.md).
+
+Чтобы настроить VPN-устройство, обратитесь к ссылкам, соответствующим семейству устройств. За поддержкой VPN-устройства обратитесь к его изготовителю.
+
+
+
+| **поставщик** | **Семейство устройств** | **Минимальная версия ОС** | **PolicyBased** | **RouteBased** |
 |---------------------------------|----------------------------------------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Allied Telesis                  | AR Series VPN Routers                                    | 2.9.2                                              | Coming soon                                                                                                                                                                                                                                          | Not compatible                                                                                                                                                                                               |
-| Barracuda Networks, Inc.        | Barracuda NextGen Firewall F-series             | PolicyBased: 5.4.3, RouteBased: 6.2.0  | [Configuration instructions](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) | [Configuration instructions](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW)                                                                                                                                                                                              |
-| Barracuda Networks, Inc.        |  Barracuda NextGen Firewall X-series                 | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Not compatible                                                                                                                                                                                               |
-| Brocade                         | Vyatta 5400 vRouter                                      | Virtual Router 6.6R3 GA                            | [Configuration instructions](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html)                                       | Not compatible                                                                                                                                                                                               |
-| Check Point                     | Security Gateway                                         | R75.40, R75.40VS                                     | [Configuration instructions](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275)                                         | [Configuration instructions](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco                           | ASA                                                      | 8.3                                                | [Cisco samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)                                                                                                                                                                        | Not compatible                                                                                                                                                                                               |
-| Cisco                           | ASR                                                      | IOS 15.1 (PolicyBased), IOS 15.2 (RouteBased)                | [Cisco samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR)                                                                                                                                                                        | [Cisco samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR)                                                                                                                                 |
-| Cisco                           | ISR                                                      | IOS 15.0 (PolicyBased), IOS 15.1 (RouteBased*)               | [Cisco samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR)                                                                                                                                                                        | [Cisco samples*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR)                                                                                                                                |
-| Citrix                          | NetScaler MPX, SDX, VPX      |10.1 and above                                           | [Integration instructions](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html)                                                                                                                                                                            | Not compatible                                                                                                                                                                                               |
-| Dell SonicWALL                  | TZ Series, NSA Series, SuperMassive Series, E-Class NSA Series | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646 )          | [Instructions - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instructions - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850)                                                                                                                                   | [Instructions - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Instructions - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850)                                                                                                                                                                                      |
-| F5                              | BIG-IP series                                 |           12.0                                            | [Configuration instructions](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip)                                                                                                                                                                          | [Configuration instructions](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling)                                                                                                                                                                                         |
-| Fortinet                        | FortiGate                                                | FortiOS 5.2.7                                      | [Configuration instructions](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure)                                                                                                                                                                          | [Configuration instructions](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure)                                                                                                                                  |
-| Internet Initiative Japan (IIJ) | SEIL Series                                              | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20            | [Configuration instructions](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf)                                                                                                                                                                   | Not compatible                                                                                                                                                                                               |
-| Juniper                         | SRX                                                      | JunOS 10.2 (PolicyBased), JunOS 11.4 (RouteBased)            | [Juniper samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX)                                                                                                                                                                      | [Juniper samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX)                                                                                                                              |
-| Juniper                         | J-Series                                                 | JunOS 10.4r9 (PolicyBased), JunOS 11.4 (RouteBased)          | [Juniper samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries)                                                                                                                                                                 | [Juniper samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries)                                                                                                                         |
-| Juniper                         | ISG                                                      | ScreenOS 6.3 (PolicyBased and RouteBased)                  | [Juniper samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG)                                                                                                                                                                      | [Juniper samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG)                                                                                                                              |
-| Juniper                         | SSG                                                      | ScreenOS 6.2 (PolicyBased and RouteBased)                  | [Juniper samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG)                                                                                                                                                                      | [Juniper samples](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG)                                                                                                                              |
-| Microsoft                       | Routing and Remote Access Service                        | Windows Server 2012                                | Not compatible                                                                                                                                                                                                                                       | [Microsoft samples](http://go.microsoft.com/fwlink/p/?LinkId=717761)                                                                                           |
-| Open Systems AG | Mission Control Security Gateway | N/A | [Installation guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) | [Installation guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
-| Openswan                        | Openswan                                                 | 2.6.32                                             | (Coming soon)                                                                                                                                                                                                                                        | Not compatible                                                                                                                                                                                               |
-| Palo Alto Networks              | All devices running PAN-OS     | PAN-OS 6.1.5 or later (PolicyBased), PAN-OS 7.0.5 or later (RouteBased)       | [Configuration instructions]( https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065)                                                                                                                                                                                          | [Configuration instructions](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340)                                                                                                                                                                                    |
-| Watchguard                      | All                                                      | Fireware XTM v11.x                                 | [Configuration instructions](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/)                                                                                                                                                                          | Not compatible                                                                                                                                                                                               |
+| Allied Telesis | VPN-маршрутизаторы серии AR | 2\.9.2 | Скоро | Не совместимо |
+| Barracuda Networks, Inc. | Брандмауэр Barracuda NextGen серии F | PolicyBased: 5.4.3, RouteBased: 6.2.0 | [Инструкции по настройке](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) | [Инструкции по настройке](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
+| Barracuda Networks, Inc. | Брандмауэр Barracuda NextGen серии Х | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Не совместимо |
+| Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [Инструкции по настройке](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | Не совместимо |
+| Check Point | Security Gateway | R75.40, R75.40VS | [Инструкции по настройке](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Инструкции по настройке](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
+| Cisco | ASA | 8\.3 | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) | Не совместимо |
+| Cisco | ASR | IOS 15.1 (PolicyBased), IOS 15.2 (RouteBased) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
+| Cisco | ISR | IOS 15.0 (PolicyBased), IOS 15.1 (RouteBased*) | [Примеры Cisco](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) | [Примеры Cisco*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Citrix | NetScaler MPX, SDX, VPX |10\.1 и выше | [Инструкции по интеграции](https://docs.citrix.com/ru-RU/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) | Не совместимо |
+| Dell SonicWALL | Серия TZ, серия NSA, серия SuperMassive, серия NSA класса E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Инструкции — SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [инструкции — SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Инструкции — SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [инструкции — SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
+| F5 | Серия BIG-IP | 12\.0 | [Инструкции по настройке](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | [Инструкции по настройке](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
+| Fortinet | FortiGate | FortiOS 5.2.7 | [Инструкции по настройке](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) | [Инструкции по настройке](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
+| Internet Initiative Japan (IIJ) | Серия SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Инструкции по настройке](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Не совместимо |
+| Juniper | SRX | JunOS 10.2 (PolicyBased), JunOS 11.4 (RouteBased) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
+| Juniper | Серия J | JunOS 10.4r9 (PolicyBased), JunOS 11.4 (RouteBased) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
+| Juniper | ISG | ScreenOS 6.3 (PolicyBased и RouteBased) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
+| Juniper | SSG | ScreenOS 6.2 (PolicyBased и RouteBased) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) | [Примеры Juniper](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
+| Microsoft | Служба маршрутизации и удаленного доступа | Windows Server 2012 | Не совместимо | [Примеры Майкрософт](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
+| Open Systems AG | Шлюз безопасности Mission Control | Недоступно | [Руководство по установке](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) | [Руководство по установке](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
+| Openswan | Openswan | 2\.6.32 | (Ожидается в ближайшее время) | Не совместимо |
+| Palo Alto Networks | Все устройства под управлением PAN-OS | PAN-OS 6.1.5 и более поздней версии (PolicyBased), PAN-OS 7.0.5 и более поздней версии (RouteBased) | [Инструкции по настройке](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) | [Инструкции по настройке](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| WatchGuard | Все | Fireware XTM v11.x | [Инструкции по настройке](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | Не совместимо |
 
-(*) ISR 7200 Series routers only support PolicyBased VPNs.
+* Маршрутизаторы ISR серии 7200 поддерживают только VPN типа PolicyBased.
 
-## <a name="<a-name="additionaldevices"></a>non-validated-vpn-devices"></a><a name="additionaldevices"></a>Non-validated VPN devices
+## <a name="additionaldevices"></a>Непроверенные VPN-устройства
 
-If you don’t see your device listed in the Validated VPN devices table, it still may work with a Site-to-Site connection. Verify that your VPN device meets the minimum requirements outlined in the Gateway Requirements section of the [About VPN Gateways](vpn-gateway-about-vpngateways.md#gateway-requirements) article. Devices meeting the minimum requirements should also work well with VPN gateways. Contact your device manufacturer for additional support and configuration instructions.
+Даже если ваше устройство не указано в представленной таблице проверенных VPN-устройств, оно может поддерживать подключение типа "сеть — сеть". Убедитесь, что ваше VPN-устройство соответствует минимальным требованиям, указанным в разделе "Требования к шлюзу" статьи [О шлюзах VPN](vpn-gateway-about-vpngateways.md#gateway-requirements). Устройства, соответствующие минимальным требованиям, также должны хорошо работать с VPN-шлюзами. Чтобы получить дополнительную информацию и инструкции по настройке, обратитесь к изготовителю устройства.
 
 
-## <a name="editing-device-configuration-samples"></a>Editing device configuration samples
+## Изменение примеров конфигурации устройств
 
-After you download the provided VPN device configuration sample, you’ll need to replace some of the values to reflect the settings for your environment. 
+После скачивания предоставленного примера конфигурации VPN-устройства некоторые значения необходимо заменить в соответствии с параметрами вашей среды.
 
-**To edit a sample:**
+**Чтобы изменить образец, выполните описанные ниже действия**
 
-1. Open the sample using Notepad. 
-1. Search and replace all <*text*> strings with the values that pertain to your environment. Be sure to include < and >. When a name is specified, the name you select should be unique. If a command does not work, consult your device manufacturer documentation.
+1. Откройте пример с помощью блокнота.
+1. Найдите и замените все строки <*text*> значениями, отражающими свойства вашей среды. Не забудьте добавить "<" и ">". Если указывается имя, оно должно быть уникальным. Если команда не работает, обратитесь к документации изготовителя устройства.
 
-| **Sample text**                | **Change to**                                                                                                        |
+| **Пример текста** | **Изменить на** |
 |----------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| &lt;RP_OnPremisesNetwork&gt;           | Your chosen name for this object. Example: myOnPremisesNetwork                                                       |
-| &lt;RP_AzureNetwork&gt;                | Your chosen name for this object. Example: myAzureNetwork                                                            |
-| &lt;RP_AccessList&gt;                  | Your chosen name for this object. Example: myAzureAccessList                                                         |
-| &lt;RP_IPSecTransformSet&gt;           | Your chosen name for this object. Example: myIPSecTransformSet                                                       |
-| &lt;RP_IPSecCryptoMap&gt;              | Your chosen name for this object. Example: myIPSecCryptoMap                                                          |
-| &lt;SP_AzureNetworkIpRange&gt;         | Specify range. Example: 192.168.0.0                                                                                  |
-| &lt;SP_AzureNetworkSubnetMask&gt;      | Specify subnet mask. Example: 255.255.0.0                                                                            |
-| &lt;SP_OnPremisesNetworkIpRange&gt;    | Specify on-premises range. Example: 10.2.1.0                                                                         |
-| &lt;SP_OnPremisesNetworkSubnetMask&gt; | Specify on-premises subnet mask. Example: 255.255.255.0                                                              |
-| &lt;SP_AzureGatewayIpAddress&gt;       | This information specific to your virtual network and is located in the Management Portal as **Gateway IP address**. |
-| &lt;SP_PresharedKey&gt;                | This information is specific to your virtual network and is located in the Management Portal as Manage Key.          |
+| &lt;RP\_OnPremisesNetwork&gt; | Выбранное имя для данного объекта. Пример: myOnPremisesNetwork. |
+| &lt;RP\_AzureNetwork&gt; | Выбранное имя для данного объекта. Пример: myAzureNetwork. |
+| &lt;RP\_AccessList&gt; | Выбранное имя для данного объекта. Пример: myAzureAccessList. |
+| &lt;RP\_IPSecTransformSet&gt; | Выбранное имя для данного объекта. Пример: myIPSecTransformSet. |
+| &lt;RP\_IPSecCryptoMap&gt; | Выбранное имя для данного объекта. Пример: myIPSecCryptoMap. |
+| &lt;SP\_AzureNetworkIpRange&gt; | Укажите диапазон. Пример: 192.168.0.0. |
+| &lt;SP\_AzureNetworkSubnetMask&gt; | Укажите маску подсети. Пример: 255.255.0.0. |
+| &lt;SP\_OnPremisesNetworkIpRange&gt; | Укажите локальный диапазон. Пример: 10.2.1.0. |
+| &lt;SP\_OnPremisesNetworkSubnetMask&gt; | Укажите локальную маску подсети. Пример: 255.255.255.0. |
+| &lt;SP\_AzureGatewayIpAddress&gt; | Эта информация относится к виртуальной сети и находится на портале управления в поле **IP-адрес шлюза**. |
+| &lt;SP\_PresharedKey&gt; | Эта информация относится к виртуальной сети и находится на портале управления в разделе «Управление ключами». |
 
 
 
-## <a name="ipsec-parameters"></a>IPsec Parameters
+## Параметры IPsec
 
->[AZURE.NOTE] Although the values listed in the following table are supported by the Azure VPN Gateway, currently there is no way for you to specify or select a specific combination from the Azure VPN Gateway. You must specify any constraints from the on-premises VPN device. In addition, you must clamp MSS at 1350.
+>[AZURE.NOTE] Хотя VPN-шлюз Azure и поддерживает перечисленные ниже значения, сейчас на нем нельзя указать или выбрать конкретную комбинацию. Все ограничения необходимо указывать на локальном VPN-устройстве. Кроме того, необходимо установить для MSS значение 1350.
 
-### <a name="ike-phase-1-setup"></a>IKE Phase 1 setup
+### Настройка этапа 1 IKE
 
-| **Property**                                       | **PolicyBased** | **RouteBased and Standard or High Performance VPN gateway** |
+| **Свойство** | **PolicyBased** | **VPN-шлюз типа RouteBased и стандартный или высокопроизводительный VPN-шлюз** |
 |----------------------------------------------------|--------------------------------|------------------------------------------------------------------|
-| IKE Version                                        | IKEv1                          | IKEv2                                                            |
-| Diffie-Hellman Group                               | Group 2 (1024 bit)             | Group 2 (1024 bit)                                               |
-| Authentication Method                              | Pre-Shared Key                 | Pre-Shared Key                                                   |
-| Encryption Algorithms                              | AES256 AES128 3DES             | AES256 3DES                                                      |
-| Hashing Algorithm                                  | SHA1(SHA128)                   | SHA1(SHA128), SHA2(SHA256)                                                     |
-| Phase 1 Security Association (SA) Lifetime (Time) | 28,800 seconds                 | 10,800 seconds                                                   |
+| Версия IKE | IKEv1 | IKEv2 |
+| Группа Диффи — Хелмана | Группа 2 (1024 бита) | Группа 2 (1024 бита) |
+| Метод проверки подлинности | Общий ключ | Общий ключ |
+| Алгоритмы шифрования | AES256 AES128 3DES | AES256 3DES |
+| Алгоритм хэширования | SHA1(SHA128) | SHA1(SHA128), SHA2(SHA256) |
+| Время существования сопоставления безопасности первого этапа (время) | 28 800 сек | 10 800 секунд |
 
 
-### <a name="ike-phase-2-setup"></a>IKE Phase 2 setup
+### Настройка этапа 2 IKE
 
-| **Property**                                                             | **PolicyBased**                 | **RouteBased and Standard or High Performance VPN gateway**   |
+| **Свойство** | **PolicyBased** | **VPN-шлюз типа RouteBased и стандартный или высокопроизводительный VPN-шлюз** |
 |--------------------------------------------------------------------------|------------------------------------------------|--------------------------------------------------------------------|
-| IKE Version                                                              | IKEv1                                          | IKEv2                                                              |
-| Hashing Algorithm                                                        | SHA1(SHA128)                                   | SHA1(SHA128)                                                       |
-| Phase 2 Security Association (SA) Lifetime (Time)                        | 3,600 seconds                                  | 3,600 seconds                                                                  |
-| Phase 2 Security Association (SA) Lifetime (Throughput)                  | 102,400,000 KB                                 | -                                                                  |
-| IPsec SA Encryption & Authentication Offers (in the order of preference) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A | See *RouteBased Gateway IPsec Security Association (SA) Offers* (below) |
-| Perfect Forward Secrecy (PFS)                                            | No                                             | No (*)|
-| Dead Peer Detection                                                      | Not supported                                  | Supported                                                          |
+| Версия IKE | IKEv1 | IKEv2 |
+| Алгоритм хэширования | SHA1(SHA128) | SHA1(SHA128) |
+| Время существования сопоставления безопасности второго этапа (время) | 3600 секунд | 3600 секунд |
+Время существования сопоставления безопасности второго этапа (пропускная способность) | 102 400 000 КБ | - | | Предложения для шифрования и аутентификации IPsec SA (в порядке предпочтения) | 1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Н/д | См. *предложения по сопоставлению безопасности IPsec для шлюзов типа RouteBased* (ниже) || Полная безопасность пересылки (PFS) | Нет | Нет* || Обнаружение неиспользуемых одноранговых узлов | Не поддерживается | Поддерживается |
 
-(*) Azure Gateway as IKE responder can accept PFS DH Group 1, 2, 5, 14, 24.
+* Шлюз Azure в качестве ответчика по протоколу IKE может принять группы DH 1, 2, 5, 14, 24 с обеспечением полной безопасности пересылки (PFS).
 
-### <a name="routebased-gateway-ipsec-security-association-(sa)-offers"></a>RouteBased Gateway IPsec Security Association (SA) Offers
+### Предложения по сопоставлению безопасности IPsec для шлюзов типа RouteBased
 
-The following table lists IPsec SA Encryption and Authentication Offers. Offers are listed the order of preference that the offer is presented or accepted.
+В таблице ниже перечислены предложения для шифрования с помощью сопоставлений безопасности и аутентификации IPsec. Предложения перечислены в порядке предпочтения представления или принятия предложения.
 
-| **IPsec SA Encryption and Authentication Offers** | **Azure Gateway as initiator**                               | **Azure Gateway as responder**                                   |
+| **Предложения для шифрования с помощью сопоставлений безопасности и аутентификации IPsec** | **Шлюз Azure в качестве инициатора** | **Шлюз Azure в качестве ответчика** |
 |---------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|
-| 1                                                 | ESP AES_256 SHA                                              | ESP AES_128 SHA                                              |
-| 2                                                 | ESP AES_128 SHA                                              | ESP 3_DES MD5                                                |
-| 3                                                 | ESP 3_DES MD5                                                | ESP 3_DES SHA                                                |
-| 4                                                 | ESP 3_DES SHA                                                | AH SHA1 with ESP AES_128 with null HMAC                      |
-| 5                                                 | AH SHA1 with ESP AES_256 with null HMAC                      | AH SHA1 with ESP 3_DES with null HMAC                        |
-| 6                                                 | AH SHA1 with ESP AES_128 with null HMAC                      | AH MD5 with ESP 3_DES with null HMAC, no lifetimes proposed |
-| 7                                                 | AH SHA1 with ESP 3_DES with null HMAC                        | AH SHA1 with ESP 3_DES SHA1, no lifetimes                    |
-| 8                                                 | AH MD5 with ESP 3_DES with null HMAC, no lifetimes proposed | AH MD5 with ESP 3_DES MD5, no lifetimes                     |
-| 9                                                 | AH SHA1 with ESP 3_DES SHA1, no lifetimes                    | ESP DES MD5                                                  |
-| 10                                                | AH MD5 with ESP 3_DES MD5, no lifetimes                     | ESP DES SHA1, no lifetimes                                   |
-| 11                                                | ESP DES MD5                                                  | AH SHA1 with ESP DES null HMAC, no lifetimes proposed        |
-| 12                                                | ESP DES SHA1, no lifetimes                                   | AH MD5 with ESP DES null HMAC, no lifetimes proposed        |
-| 13                                                | AH SHA1 with ESP DES null HMAC, no lifetimes proposed        | AH SHA1 with ESP DES SHA1, no lifetimes                      |
-| 14                                                | AH MD5 with ESP DES null HMAC, no lifetimes proposed        | AH MD5 with ESP DES MD5, no lifetimes                       |
-| 15                                                | AH SHA1 with ESP DES SHA1, no lifetimes                      | ESP SHA, no lifetimes                                        |
-| 16                                                | AH MD5 with ESP DES MD5, no lifetimes                       | ESP MD5, no lifetimes                                        |
-| 17                                                | -                                                            | AH SHA, no lifetimes                                         |
-| 18                                                | -                                                            | AH MD5, no lifetimes                                        |
+| 1 | ESP AES\_256 SHA | ESP AES\_128 SHA |
+| 2 | ESP AES\_128 SHA | ESP 3\_DES MD5 |
+| 3 | ESP 3\_DES MD5 | ESP 3\_DES SHA |
+| 4 | ESP 3\_DES SHA | AH SHA1 с ESP AES\_128 с HMAC со значением NULL |
+| 5 | AH SHA1 с ESP AES\_256 с HMAC со значением NULL | AH SHA1 с ESP 3\_DES с HMAC со значением NULL |
+| 6 | AH SHA1 с ESP AES\_128 с HMAC со значением NULL | AH MD5 с ESP 3\_DES с HMAC со значением NULL, без предлагаемого времени существования |
+| 7 | AH SHA1 с ESP 3\_DES с HMAC со значением NULL | AH SHA1 с ESP 3\_DES SHA1, без времени существования |
+| 8 | AH MD5 с ESP 3\_DES с HMAC со значением NULL, без предлагаемого времени существования | AH MD5 с ESP 3\_DES MD5, без времени существования |
+| 9 | AH SHA1 с ESP 3\_DES SHA1, без времени существования | ESP DES MD5 |
+| 10 | AH MD5 с ESP 3\_DES MD5, без времени существования | ESP DES SHA1, без времени существования |
+| 11 | ESP DES MD5 | AH SHA1 с ESP DES с HMAC со значением NULL, без предлагаемого времени существования |
+| 12 | ESP DES SHA1, без времени существования | AH MD5 с ESP DES с HMAC со значением NULL, без предлагаемого времени существования |
+| 13\. | AH SHA1 с ESP DES с HMAC со значением NULL, без предлагаемого времени существования | AH SHA1 с ESP DES SHA1, без времени существования |
+| 14 | AH MD5 с ESP DES с HMAC со значением NULL, без предлагаемого времени существования | AH MD5 с ESP DES MD5, без времени существования |
+| 15 | AH SHA1 с ESP DES SHA1, без времени существования | ESP SHA, без времени существования |
+| 16 | AH MD5 с ESP DES MD5, без времени существования | ESP MD5, без времени существования |
+| 17 | - | AH SHA, без времени существования || 18 | - | AH MD5, без времени существования |
 
 
-- You can specify IPsec ESP NULL encryption with RouteBased and High Performance VPN gateways. Null based encryption does not provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required.  Clients may choose to use this in VNet-to-VNet communication scenarios, or when encryption is being applied elsewhere in the solution.
+- Можно указать NULL-шифрование ESP IPsec для высокопроизводительных VPN-шлюзов и VPN-шлюзов типа RouteBased. NULL-шифрование не защищает данные при передаче. Его следует использовать только в случаях, когда требуется максимальная пропускная способность и минимальная задержка. Клиенты могут выбрать его в случаях, когда данные передаются между виртуальными сетями или где-то в решении применяется шифрование.
 
-- For cross-premises connectivity through the Internet, use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the tables above to ensure security of your critical communication.
+- Для распределенных подключений через Интернет используйте параметры по умолчанию VPN-шлюзов Azure с алгоритмами шифрования и хэширования, перечисленными в таблицах выше, чтобы обеспечить безопасность обмена важными данными.
 
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

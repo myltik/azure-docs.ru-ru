@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Onit | Microsoft Azure" 
-    description="Learn how to use Onit with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Учебник. Интеграция Azure Active Directory с Onit | Microsoft Azure" 
+    description="Узнайте, как использовать Onit с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,185 +11,175 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-onit"></a>Tutorial: Azure Active Directory integration with Onit
+#Учебник. Интеграция Azure Active Directory с Onit
   
-The objective of this tutorial is to show the integration of Azure and Onit.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+Цель данного учебника — показать интеграцию Azure и Onit. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
--   A valid Azure subscription
--   An Onit single sign-on enabled subscription
+-   Действующая подписка на Azure
+-   Подписка с поддержкой единого входа Onit.
   
-After completing this tutorial, the Azure AD users you have assigned to Onit will be able to single sign into the application at your Onit company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+По завершении работы с этим руководством пользователи Azure AD, назначенные в Onit, будут иметь возможность единого входа в приложение на веб-сайте Onit компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1.  Enabling the application integration for Onit
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Включение интеграции приложений для Onit
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-![Scenario](./media/active-directory-saas-onit-tutorial/IC791166.png "Scenario")
-##<a name="enabling-the-application-integration-for-onit"></a>Enabling the application integration for Onit
+![Сценарий](./media/active-directory-saas-onit-tutorial/IC791166.png "Сценарий")
+##Включение интеграции приложений для Onit
   
-The objective of this section is to outline how to enable the application integration for Onit.
+В этом разделе показано, как включить интеграцию приложений для Onit.
 
-###<a name="to-enable-the-application-integration-for-onit,-perform-the-following-steps:"></a>To enable the application integration for Onit, perform the following steps:
+###Чтобы включить интеграцию приложений для Onit, выполните следующие действия:
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-onit-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-onit-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-onit-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-onit-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-onit-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-onit-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-onit-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **Onit**.
+6.  В **поле поиска** введите **Onit**.
 
-    ![Application Gallery](./media/active-directory-saas-onit-tutorial/IC791167.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-onit-tutorial/IC791167.png "Коллекция приложений")
 
-7.  In the results pane, select **Onit**, and then click **Complete** to add the application.
+7.  В области результатов выберите **Onit** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![Onit](./media/active-directory-saas-onit-tutorial/IC795325.png "Onit")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
   
-The objective of this section is to outline how to enable users to authenticate to Onit with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for Onit requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+В этом разделе показано, как разрешить пользователям проходить аутентификацию в Onit со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. Чтобы настроить единый вход для Onit, необходимо извлечь значение отпечатка из сертификата. Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
   
-Your Onit application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
-The following screenshot shows an example for this.
+Приложение Onit ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в конфигурацию **атрибутов токена SAML**. На следующем снимке экрана приведен пример.
 
-![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791168.png "Single Sign-On")
+![Единый вход](./media/active-directory-saas-onit-tutorial/IC791168.png "Единый вход")
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **Onit** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+1.  На странице интеграции с приложением **Onit** классического портала Azure в верхнем меню щелкните **Атрибуты**, чтобы открыть диалоговое окно **Атрибуты токена SAML**.
 
-    ![Attributes](./media/active-directory-saas-onit-tutorial/IC791169.png "Attributes")
+    ![Атрибуты](./media/active-directory-saas-onit-tutorial/IC791169.png "Атрибуты")
 
-2.  To add the required attribute mappings, perform the following steps:
+2.  Чтобы добавить обязательные сопоставления атрибутов, выполните следующие действия.
 
     
-  	|Attribute Name|Attribute Value|
-  	|---|---|
-  	|name|User.userprincipalname|
-  	|email|User.mail|
+    |Имя атрибута|Значение атрибута|
+	|---|---|
+	|name|User.userprincipalname|
+    |email|User.mail|
 
-    1.  For each data row in the table above, click **add user attribute**.
-    2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
-    3.  From the **Attribute Value** list, select the attribute value shown for that row.
-    4.  Click **Complete**.
+    1.  Для каждой строки данных в приведенной выше таблице нажмите кнопку **добавить атрибут пользователя**.
+    2.  В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
+    3.  В списке **Значение атрибута** выберите значение атрибута, отображаемое для этой строки.
+    4.  Нажмите **Завершено**.
 
-3.  Click **Apply Changes**.
+3.  Нажмите кнопку **Применить изменения**.
 
-4.  In your browser, click **Back** to open the **Quick Start** dialog again.
+4.  В браузере нажмите кнопку **Назад**, чтобы снова открыть диалоговое окно **Быстрый запуск**.
 
-5.  Click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+5.  Щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791170.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-onit-tutorial/IC791170.png "Настройка единого входа")
 
-6.  On the **How would you like users to sign on to Onit** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+6.  На странице **Как пользователи должны входить в Onit** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791171.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-onit-tutorial/IC791171.png "Настройка единого входа")
 
-7.  On the **Configure App URL** page, in the **Onit Sign On URL** textbox, type the URL used by your users to sign on to your Onit application (e.g.: "*https://ms-sso-test.onit.com*”), and then click **Next**.
+7.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес для входа в Onit** введите URL-адрес, используемый пользователями для входа в приложение Onit (например, "*https://ms-sso-test.onit.com*”), и нажмите кнопку **Далее**.
 
-    ![Configure App URL](./media/active-directory-saas-onit-tutorial/IC791172.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-onit-tutorial/IC791172.png "Настройка URL-адреса приложения")
 
-8.  On the **Configure single sign-on at Onit** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+8.  На странице **Настройка единого входа в Onit** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата локально на компьютере.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791173.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-onit-tutorial/IC791173.png "Настройка единого входа")
 
-9.  In a different web browser window, log into your Onit company site as an administrator.
+9.  В другом окне веб-браузера войдите на свой корпоративный сайт Onit в качестве администратора.
 
-10. In the menu on the top, click **Administration**.
+10. В меню в верхней части страницы щелкните **Администрирование**.
 
-    ![Administration](./media/active-directory-saas-onit-tutorial/IC791174.png "Administration")
+    ![Администрирование](./media/active-directory-saas-onit-tutorial/IC791174.png "Администрирование")
 
-11. Click **Edit Corporation**.
+11. Щелкните **Изменить корпорацию**.
 
-    ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791175.png "Edit Corporation")
+    ![Изменение корпорации](./media/active-directory-saas-onit-tutorial/IC791175.png "Изменение корпорации")
 
-12. Click the **Security** tab.
+12. Щелкните вкладку **Безопасность**.
 
-    ![Edit Company Information](./media/active-directory-saas-onit-tutorial/IC791176.png "Edit Company Information")
+    ![Изменение информации о компании](./media/active-directory-saas-onit-tutorial/IC791176.png "Изменение информации о компании")
 
-13. On the **Security** tab, perform the following steps:
+13. На вкладке **Безопасность** сделайте следующее:
 
-    ![Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791177.png "Single Sign-On")
+    ![Единый вход](./media/active-directory-saas-onit-tutorial/IC791177.png "Единый вход")
 
-    1.  As **Authentication Strategy**, select **Single Sign On and Password**.
-    2.  In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Login URL** value, and then paste it into the **Idp Target URL** textbox.
-    3.  In the Azure classic portal, on the **Configure single sign-on at Onit** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Idp logout URL** textbox.
-    4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Idp Cert Fingerprint (SHA1)** textbox.  
+    1.  Для параметра **Стратегия аутентификации** выберите значение **Единый вход и пароль**.
+    2.  На диалоговой странице **Настройка единого входа в Onit** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **Idp Target URL** (Целевой URL-адрес поставщика удостоверений).
+    3.  На диалоговой странице **Настройка единого входа в Onit** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **Idp logout URL** (URL-адрес выхода для поставщика удостоверений).
+    4.  Скопируйте значение поля **Отпечаток** из экспортированного сертификата и вставьте его в текстовое поле **Отпечаток сертификата IdP (SHA1)**.
 
-        >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Дополнительные сведения можно узнать из видео [Как получить значение отпечатка сертификата](http://youtu.be/YKQF266SAxI).
 
-    5.  As **SSO Type**, select **SAML**.
-    6.  In the **SSO login button text** textbox, type a button text you like.
-    7.  Select **Login with SSO: Required for the following domains/users**, type the email address of a test user into the related textbox, and then click **Update**.
-        ![Edit Corporation](./media/active-directory-saas-onit-tutorial/IC791178.png "Edit Corporation")
+    5.  Для параметра **Тип SSO** выберите значение **SAML**.
+    6.  В текстовом поле **Текст кнопки единого входа** введите текст кнопки по своему усмотрению.
+    7.  Выберите **Единый вход: требуется для следующих доменов и пользователей**, введите электронный адрес тестового пользователя в соответствующее текстовое поле и нажмите кнопку **Обновить**. ![Изменение корпорации](./media/active-directory-saas-onit-tutorial/IC791178.png "Изменение корпорации")
 
-14. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+14. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-onit-tutorial/IC791179.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Настройка единого входа](./media/active-directory-saas-onit-tutorial/IC791179.png "Настройка единого входа")
+##Настройка подготовки учетных записей пользователей
   
-In order to enable Azure AD users to log into Onit, they must be provisioned into Onit.  
-In the case of Onit, provisioning is a manual task.
+Чтобы пользователи Azure AD могли выполнять вход в Onit, они должны быть подготовлены для Onit. В случае с Onit подготовка выполняется вручную.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
 
-1.  Sign on to your **Onit** company site as an administrator.
+1.  Выполните вход на веб-сайт **Onit** компании в качестве администратора.
 
-2.  Click **Add User**.
+2.  Нажмите кнопку **Добавить пользователя**.
 
-    ![Administration](./media/active-directory-saas-onit-tutorial/IC791180.png "Administration")
+    ![Администрирование](./media/active-directory-saas-onit-tutorial/IC791180.png "Администрирование")
 
-3.  On the **Add User** dialog page, perform the following steps:
+3.  На диалоговой странице **Добавление пользователя** выполните следующие действия:
 
-    ![Add User](./media/active-directory-saas-onit-tutorial/IC791181.png "Add User")
+    ![Добавить пользователя](./media/active-directory-saas-onit-tutorial/IC791181.png "Добавить пользователя")
 
-    1.  Type the **Name** and the **Email Address** of a valid AAD account you want to provision into the related textboxes.
-    2.  Click **Create**.  
+    1.  Заполните текстовые поля **Имя** и **Электронный адрес** действующей учетной записи AAD, которую требуется подготовить.
+    2.  Щелкните **Создать**.
 
-        >[AZURE.NOTE] The account owner will get an email including a link to confirm the account before it becomes active.
+        >[AZURE.NOTE] Владелец учетной записи получит электронное сообщение со ссылкой для подтверждения учетной записи перед ее активацией.
 
->[AZURE.NOTE] You can use any other Onit user account creation tools or APIs provided by Onit to provision AAD user accounts.
+>[AZURE.NOTE] Вы можете использовать любые другие инструменты создания учетных записей пользователя Onit или API, предоставляемые Onit для подготовки учетных записей пользователя AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-onit,-perform-the-following-steps:"></a>To assign users to Onit, perform the following steps:
+###Чтобы назначить пользователей Onit, выполните следующие действия:
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **Onit **application integration page, click **Assign users**.
+2.  На странице интеграции с приложением **Onit** щелкните **Назначить пользователей**.
 
-    ![Assign Users](./media/active-directory-saas-onit-tutorial/IC791182.png "Assign Users")
+    ![Назначить пользователей](./media/active-directory-saas-onit-tutorial/IC791182.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-onit-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-onit-tutorial/IC767830.png "Да")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

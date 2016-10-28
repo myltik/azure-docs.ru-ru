@@ -1,249 +1,255 @@
 <properties
-    pageTitle="Azure AD Password Reset | Microsoft Azure"
-    description="Description of password management capabilities in Azure AD, including password reset, change, password management reporting, and writeback to your local on-premises Active Directory."
-    services="active-directory"
-    documentationCenter=""
-    authors="asteen"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Сброс паролей Azure AD | Microsoft Azure"
+	description="Описание возможностей управления паролями в Azure AD, таких как сброс и изменение паролей, отчеты об управлении паролями и обратная запись в локальную службу Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/13/2016"
-    ms.author="asteen"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="asteen"/>
 
 
+# Сброс паролей Azure AD для пользователей и администраторов
 
-# <a name="azure-ad-password-reset-for-it-administrators"></a>Azure AD Password Reset for IT Administrators
+  >[AZURE.IMPORTANT] Вы здесь, потому что вам требуется сбросить пароль Azure или Office 365? В таком случае [пропустите этот раздел](#users-how-to-manage-your-own-password).
 
-  >[AZURE.IMPORTANT] Are you here because you want to reset your Azure or O365 password?  If so, please [skip to this section](#users-how-to-manage-your-own-password).
+Переход к самообслуживанию давно стал главной целью ИТ-подразделений компаний во всем мире, так как он позволяет сократить затраты и уменьшить нагрузку на ИТ-персонал. Сегодня на рынке предлагается широкий выбор продуктов, позволяющих управлять локальными группами, паролями и профилями пользователей в облаке и локально. Azure AD выделяется на общем фоне благодаря одним из самых эффективных и удобных возможностей самообслуживания.
 
-Self-service has long been a key goal for IT departments across the world as a cost-reduction and labor-saving measure.  Indeed, the market is flooded with products that let you manage your on-premises groups, passwords, or user profiles from the cloud or on-premises. Azure AD sets itself apart from these offerings by providing some of the easiest to use and most powerful self-service capabilities available today.
+**Служба управления паролями AD Azure** позволяет пользователям независимо от их местонахождения или времени суток управлять своими паролями с любых устройств, обеспечивая при этом соблюдение политик безопасности.
 
-**Azure AD Password Management** is a set of capabilities that allow your users to manage any password from any device, at any time, from any location, while remaining in compliance with the security policies you define.
+##ПОЛЬЗОВАТЕЛИ. Управление собственными паролями
+Если вы являетесь пользователем (не администратором) в организации, которая использует для доступа к рабочим ресурсам Office 365 или учетные записи Майкрософт, щелкните ссылки ниже, чтобы узнать, как устранить распространенные проблемы с вашим паролем.
 
-
-##<a name="admins:-learn-about-how-to-get-started-with-azure-ad-password-reset"></a>ADMINS: Learn about how to get started with Azure AD Password Reset
-If you're an admin who wants to enable Azure AD Password Reset, or just learn more about it, start with the links below to get to what you're interested in.
-
-| Topic |  |
+| Раздел | |
 | --------- | --------- |
-| Supported scenarios | [What is possible with Azure AD Password Reset?](#what-is-possible-with-azure-ad-password-reset) |
-| Why use it? | [Why use Azure AD Password Reset?](#why-use-azure-ad-password-reset) |
-| Pricing and availability | [Pricing and availability](#pricing-and-availability) |
-| Enable password reset  | [Enable password reset for your users](#enable-password-reset-for-your-users) |
-| Customize how it works | [Customize password reset behavior](#customize-password-reset-behavior) |
-| Roll it out to my users | [Configure your users to use password reset](#configure-your-users-to-use-password-reset) |
-| View reports  | [View password reset activity with integrated reports](#view-password-reset-activity-with-integrated-reports) |
-| Reset a user's password  | [Manage your users' passwords](#manage-your-users-passwords) |
-| Set my organization's password policies | [Set password policies](#set-password-policies) |
-| Troubleshoot a problem  | [Troubleshoot a problem](#troubleshoot-a-problem) |
-| FAQ | [Read a FAQ](#read-a-faq) |
-| Technical details | [Understand the technical details](#understand-the-technical-details) |
-| Newly released features | [Recent service updates](#recent-service-updates) |
-| Links to other documentation | [Links to password reset documentation](#links-to-password-reset-documentation) |
+| Я хочу пройти регистрацию для сброса пароля | [Регистрация для сброса пароля](active-directory-passwords-update-your-own-password.md#how-to-register-for-password-reset) |
+| Мне нужно изменить пароль из Office 365 | [Изменение пароля из Office 365](active-directory-passwords-update-your-own-password.md#how-to-change-your-password-from-o365) |
+| Мне нужно изменить пароль из myapps.microsoft.com | [Изменение пароля из панели доступа](active-directory-passwords-update-your-own-password.md#how-to-change-your-password-from-the-access-panel) |
+| Я не помню свой пароль и хочу его сбросить | [Сброс пароля](active-directory-passwords-update-your-own-password.md#how-to-reset-your-password) |
+| Мне не удается войти в систему и необходимо разблокировать учетную запись | [Разблокирование локальной учетной записи](active-directory-passwords-update-your-own-password.md#how-to-unlock-your-account) |
+| Мне нужна помощь по поводу неудачного сброса пароля | [Общие проблемы и способы их устранения](active-directory-passwords-update-your-own-password.md#common-problems-and-their-solutions) |
 
-### <a name="what-is-possible-with-azure-ad-password-reset?"></a>What is possible with Azure AD Password Reset?
-Here are some of the things you can do with Azure AD's password management capabilities.
+##АДМИНИСТРАТОРЫ. Дополнительные сведения о начале работы со службой сброса паролей Azure AD
+Если вы — администратор, которому требуется включить службу сброса паролей Azure AD или просто больше узнать об этой службе, начните с ссылок ниже для получения интересующих вас сведений.
 
-- **Self-service password change** allows end users or administrators to change their expired or non-expired passwords without calling an administrator or helpdesk for support.
-- **Self-service password reset** allows end users or administrators to reset their passwords automatically without calling an administrator or helpdesk for support. Self-service password reset requires Azure AD Premium or Basic. For more information, see Azure Active Directory Editions.
-- **Administrator-initiated password reset** allows an administrator to reset an end user’s or another administrator’s password from within the [Azure Management Portal](https://manage.windowsazure.com).
-- **Password management activity reports** give administrators insights into password reset and registration activity occurring in their organization.
-- **Password Writeback** allows management of on-premises passwords from the cloud so all of the above scenarios can be performed by, or on the behalf of, federated or password synchronized users. Password Writeback requires Azure AD Premium. For more information, see Getting started with Azure AD Premium.
-
-### <a name="why-use-azure-ad-password-reset?"></a>Why use Azure AD Password Reset?
-Here are some of the reasons you should use Azure AD's password management capabilities
-
-- **Reduce costs** - support-assisted password reset is typically 20% of organization's IT spend
-- **Improve user experiences** - users don't want to call helpdesk and spend an hour on the phone every time they forget their passwords
-- **Lower helpdesk volumes** - password management is the single largest helpdesk driver for most organizations
-- **Enable mobility** - users can reset their passwords from wherever they are
-
-### <a name="pricing-and-availability"></a>Pricing and availability
-Azure AD Password Reset is available in 3 tiers, depending on which subscription you have:
-
-- **Azure AD Free** - cloud-only administrators can reset their own passwords
-- **Azure AD Basic or any Paid O365 Subscription** - cloud-only users and cloud-only administrators can reset their own passwords
-- **Azure AD Premium** - any user or administrator, including cloud-only, federated, or password synced users, can reset their own passwords (requires [password writeback to be enabled](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords))
-
-For more information on Azure AD Premium or Basic pricing, visit the [Active Directory Pricing Details](https://azure.microsoft.com/pricing/details/active-directory/) page.
-
-##<a name="enable-password-reset-for-your-users"></a>Enable password reset for your users
-| Topic |  |
+| Раздел | |
 | --------- | --------- |
-| How do I enable password reset for cloud users? | [Enable users to reset their cloud Azure Active Directory passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) |
-| How do I enable password reset and change for on-premises users? | [Enable users to reset or change their on-premises Active Directory passwords](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) |
-| How do I scope password reset to a specific set of users? | [Restrict password reset to specific users](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
-| How do I test cloud password reset? | [Reset your Azure AD password as a user](active-directory-passwords-getting-started.md#step-3-reset-your-azure-ad-password-as-a-user) |
-| How do I test on-premises password reset? | [Reset your on-premises AD password as a user](active-directory-passwords-getting-started.md#step-5-reset-your-ad-password-as-a-user) |
-| How do I disable password reset at a later time? | [Setting: users enabled for password reset](active-directory-passwords-customize.md#users-enabled-for-password-reset) |
+| Поддерживаемые сценарии использования. | [Какие возможности открывает служба сброса паролей AD Azure?](#what-is-possible-with-azure-ad-password-reset) |
+| Преимущества | [Преимущества службы сброса паролей Azure AD](#why-use-azure-ad-password-reset) |
+| Цены и доступность | [Цены и доступность](#pricing-and-availability) |
+| Включение сброса паролей | [Включение сброса паролей для пользователей](#enable-password-reset-for-your-users) |
+| Настройка работы службы | [Настройка работы службы сброса паролей](#customize-password-reset-behavior) |
+| Развертывание для пользователей | [Настройка использования сброса паролей пользователями](#configure-your-users-to-use-password-reset) |
+| Просмотр отчетов | [Просмотр действий по сбросу паролей с помощью интегрированных отчетов](#view-password-reset-activity-with-integrated-reports) |
+| Сброс пароля пользователя | [Управление паролями пользователей](#manage-your-users-passwords) |
+| Задание политик паролей организации | [Настройка политик паролей](#set-password-policies) |
+| Устранение неполадок | [Устранение неполадок](#troubleshoot-a-problem) |
+| Часто задаваемые вопросы | [Вопросы и ответы](#read-a-faq) |
+| Технические сведения | [Понимание технических деталей](#understand-the-technical-details) |
+| Новые возможности | [Последние обновления служб](#recent-service-updates) |
+| Ссылки на другую документацию | [Ссылки на документацию по сбросу паролей](#links-to-password-reset-documentation) |
 
+### Какие возможности открывает служба сброса паролей AD Azure?
+Вот лишь некоторые задачи, которые можно выполнять с помощью службы управления паролями в Azure AD.
 
-##<a name="customize-password-reset-behavior"></a>Customize password reset behavior
-| Topic |  |
+- **Самостоятельное изменение пароля**. Пользователи и администраторы могут менять свои пароли с истекшим или неистекшим сроком действия без помощи администратора или службы технической поддержки.
+- **Самостоятельный сброс пароля**. Пользователи и администраторы могут автоматически сбрасывать свои пароли с истекшим или неистекшим сроком действия без помощи администратора или службы технической поддержки. Для самостоятельного сброса пароля требуется выпуск Azure AD Premium или Basic. Дополнительную информацию см. в статье «Выпуски Azure Active Directory».
+- **Сброс пароля администратором**. Администратор может сбросить пароль пользователя или другого администратора на [портале управления Azure](https://manage.windowsazure.com).
+- **Отчеты по операциям управления паролями** позволяют администраторам лучше понять ситуацию с регистрацией и сбросом паролей в организации.
+- **Обратная запись паролей** позволяет управлять локальными паролями из облака. Благодаря ей федеративные пользователи и пользователи с синхронизированными паролями (или кто-то от их лица) могут выполнять все перечисленные выше задачи. Для обратной записи паролей требуется выпуск Azure AD Premium. Дополнительные сведения см. в разделе «Приступая к работе с Azure AD Premium».
+
+### Преимущества службы сброса паролей Azure AD
+Вот несколько преимуществ службы управления паролями в Azure AD.
+
+- **Снижение затрат**: на поддержку сброса паролей обычно приходится 20% ИТ-расходов организации.
+- **Повышение удобства работы пользователей**: пользователям не нужно обращаться в службу технической поддержки и тратить драгоценное время каждый раз, когда они забудут свой пароль.
+- **Снижение нагрузки на службу технической поддержки**: управление паролями — мощнейший инструмент снижения обращений в службу технической поддержки в большинстве организаций.
+- **Поддержка мобильности**: пользователи могут сбрасывать пароли независимо от своего местонахождения.
+
+### Цены и доступность
+Сброс пароля Azure AD доступен на 3 уровнях в зависимости от имеющейся подписки.
+
+- **Бесплатная подписка Azure AD** — администраторы облака могут сбрасывать свои пароли.
+- **Azure AD Basic или любая платная подписка Office 365** — пользователи и администраторы облака могут сбрасывать свои пароли.
+- **Azure AD Premium** — любой пользователь или администратор, включая пользователей облака, федеративных пользователей и пользователей с синхронизацией паролей, могут сбрасывать свои пароли (требуется [включить компонент обратной записи паролей](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)).
+
+Дополнительные сведения о ценах на подписку Azure AD Basic или Azure AD Premium см. на странице [Сведения о ценах — Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+
+##Включение сброса паролей для пользователей
+| Раздел | |
 | --------- | --------- |
-| How do I change what authentication methods are supported? | [Setting: authentication methods available to users](active-directory-passwords-customize.md#authentication-methods-available-to-users) |
-| How do I change number of authentication methods required? | [Setting: number of authentication methods required](active-directory-passwords-customize.md#number-of-authentication-methods-required) |
-| How do I set up custom security questions? | [Setting: custom security questions](active-directory-passwords-customize.md#custom-security-questions) |
-| How do I set up pre-canned localized security questions? | [Setting: knowledge-based security questions](active-directory-passwords-customize.md#knowledge-based-security-questions) |
-| How can I change how many security questions are required? | [Setting: number of security questions for registration or reset](active-directory-passwords-customize.md#number-of-questions-required-to-register) |
-| How can I customize how a user gets in touch with an admin? | [Setting: customize the "contact your administrator" link](active-directory-passwords-customize.md#customize-the-contact-your-administrator-link) |
-| How can I allow users to unlock AD accounts without resetting a password? | [Setting: enable users to unlock their AD accounts without resetting a password](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password) |
-| How can I enable password reset notifications for users? | [Setting: notify users when their passwords have been reset](active-directory-passwords-customize.md#notify-users-and-admins-when-their-own-password-has-been-reset) |
-| How can I enable password reset notifications for admins? | [Setting: notify other admins when an admin reset their own password](active-directory-passwords-customize.md#notify-admins-when-other-admins-reset-their-own-passwords) |
-| How can I customize password reset look and feel? | [Setting: company name, branding, and logo ](active-directory-passwords-customize.md#password-management-look-and-feel) |
+| Как включить самостоятельный сброс паролей для пользователей облака? | [Включение для пользователей возможности сбрасывать пароли облачной службы Azure Active Directory](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) |
+| Как включить сброс и смену паролей для локальных пользователей? | [Включение для пользователей возможности сбрасывать или изменять пароли локальной службы Active Directory](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) |
+| Как задать область сброса паролей для определенной группы пользователей? | [Ограничение сброса паролей для определенных пользователей](active-directory-passwords-customize.md#restrict-access-to-password-reset) |
+| Как протестировать сброс пароля в облаке? | [Сброс пароля Azure AD от имени пользователя](active-directory-passwords-getting-started.md#step-3-reset-your-azure-ad-password-as-a-user) |
+| Как протестировать сброс пароля в локальной среде? | [Сброс пароля в локальной службе AD от имени пользователя](active-directory-passwords-getting-started.md#step-5-reset-your-ad-password-as-a-user) |
+| Как отключить сброс пароля в дальнейшем? | [Настройка: пользователям разрешен сброс паролей](active-directory-passwords-customize.md#users-enabled-for-password-reset) |
 
 
-##<a name="configure-your-users-to-use-password-reset"></a>Configure your users to use password reset
-| Topic |  |
+##Настройка работы службы сброса паролей
+| Раздел | |
 | --------- | --------- |
-| How do I know if an account is configured for password reset? | [What makes an account configured for password reset?](active-directory-passwords-best-practices.md#what-makes-an-account-configured) |
-| How do I get my users configured for password reset? | [Ways to populate password reset authentication data for your users](active-directory-passwords-best-practices.md#ways-to-populate-authentication-data) |
-| How do I manually upload data for my users? | [Uploading password reset data yourself](active-directory-passwords-best-practices.md#uploading-data-yourself) |
-| How do I use PowerShell to read or set data for my users? | [How to access password reset data for your users](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) |
-| How can I synchronize password reset data from on-premises? | [What data is used by password reset](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
-| How can I use an email campaign to get my users to register for and use password reset? | [Email-based rollout of password reset](active-directory-passwords-best-practices.md#email-based-rollout) |
-| How can I force my users to register when signing in? | [Enforced registration-based rollout of password reset](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) |
-| How can I force my users to re-confirm their registered periodically? | [Setting: number of days before users must re-confirm their authentication data](active-directory-passwords-customize.md#number-of-days-before-users-must-confirm-their-contact-data) |
-| What are best practices around communicating password reset to end users? | [Creating your own password portal for your users to use](active-directory-passwords-best-practices.md#creating-your-own-password-portal) |
+| Как изменить поддерживаемые методы проверки подлинности? | [Настройка: доступные пользователям методы проверки подлинности](active-directory-passwords-customize.md#authentication-methods-available-to-users) |
+| Как изменить необходимое количество методов проверки подлинности? | [Настройка: необходимое количество методов проверки подлинности](active-directory-passwords-customize.md#number-of-authentication-methods-required) |
+| Как настроить пользовательские контрольные вопросы? | [Настройка: пользовательские контрольные вопросы](active-directory-passwords-customize.md#custom-security-questions) |
+| Как настроить предустановленные локализованные контрольные вопросы? | [Настройка: контрольные вопросы на основе знаний](active-directory-passwords-customize.md#knowledge-based-security-questions) |
+| Как изменить необходимое количество контрольных вопросов? | [Настройка: количество контрольных вопросов для регистрации или сброса](active-directory-passwords-customize.md#number-of-questions-required-to-register) |
+| Как настроить способы связи пользователя с администратором? | [Настройка: ссылка "Обратитесь к администратору"](active-directory-passwords-customize.md#customize-the-contact-your-administrator-link) |
+| Как разрешить пользователям разблокировать учетные записи AD без сброса пароля? | [Настройка: включение для пользователей возможности разблокировать учетные записи AD без сброса пароля](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Как включить уведомления о сбросе пароля для пользователей? | [Настройка: уведомление пользователей о сбросе паролей](active-directory-passwords-customize.md#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| Как включить уведомления о сбросе пароля для администраторов? | [Настройка: уведомление других администраторов о сбросе пароля администратора](active-directory-passwords-customize.md#notify-admins-when-other-admins-reset-their-own-passwords) |
+| Как настроить оформление интерфейса сброса пароля? | [Настройка: название организации, фирменная символика и эмблемы](active-directory-passwords-customize.md#password-management-look-and-feel) |
 
 
-##<a name="view-password-reset-activity-with-integrated-reports"></a>View password reset activity with integrated reports
-| Topic |  |
+##Настройка использования сброса паролей пользователями
+| Раздел | |
 | --------- | --------- |
-| Where do I go to see password reset reports? | [Overview of password management reports](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
-| Where can I see how users are using password reset in my organization? | [View password reset activity](active-directory-passwords-get-insights.md#view-password-reset-activity) |
-| Where can I see how many users are registering, and what they are registering for? | [View password reset registration activity](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
-| How can I get password reset reports from an API? | [Creating an azure ad application to access the reporting API](active-directory-reporting-api-getting-started.md#creating-an-azure-ad-application-to-access-the-api) |
-| What kind of password reset reporting information is available through an API? | [Password reset and registration events available in the reporting API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
+| Как узнать, что учетная запись настроена для сброса пароля? | [Настройка учетной записи для сброса пароля](active-directory-passwords-best-practices.md#what-makes-an-account-configured) |
+| Как выполнить настройку пользователей для сброса пароля? | [Способы внесения данных проверки подлинности для сброса паролей пользователей](active-directory-passwords-best-practices.md#ways-to-populate-authentication-data) |
+| Как вручную загрузить данные для пользователей? | [Самостоятельная передача данных для сброса паролей](active-directory-passwords-best-practices.md#uploading-data-yourself) |
+| Как использовать PowerShell для чтения или задания данных для пользователей? | [Получение доступа к данным для сброса паролей пользователей](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) |
+| Как синхронизировать данные сброса пароля из локальной среды? | [Какие данные используются при сбросе пароля](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
+| Как использовать рассылку по электронной почте для отправки пользователям сведений о регистрации и использовании службы сброса паролей? | [Развертывание сброса паролей на основе электронной почты](active-directory-passwords-best-practices.md#email-based-rollout) |
+| Как настроить принудительную регистрацию пользователей при входе в систему? | [Развертывание сброса паролей на основе принудительной регистрации](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) |
+| Как настроить периодическое принудительное подтверждение регистрации для пользователей? | [Настройка: число дней до подтверждения данных проверки подлинности пользователями](active-directory-passwords-customize.md#number-of-days-before-users-must-confirm-their-contact-data) |
+| Каковы рекомендации по передаче конечным пользователям данных для сброса паролей? | [Создание собственного портала паролей для пользователей](active-directory-passwords-best-practices.md#creating-your-own-password-portal) |
 
 
-##<a name="manage-your-users'-passwords"></a>Manage your users' passwords
-| Topic |  |
+##Просмотр действий по сбросу паролей с помощью интегрированных отчетов
+| Раздел | |
 | --------- | --------- |
-| How do I reset a user's password from the O365 management portal? | [Reset a user's password in Office 365](https://support.office.com/article/Reset-a-user-s-password-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C) |
-| How do I reset a user's password using PowerShell? | [Reset a user's password with Set-MsolUserPassword](https://msdn.microsoft.com/library/azure/dn194140.aspx) |
+| Где можно просмотреть отчеты о сбросе паролей? | [Общие сведения об отчетах об управлении паролями](active-directory-passwords-get-insights.md#overview-of-password-management-reports) |
+| Где можно просмотреть, как пользователи используют сброс паролей в организации? | [Просмотр действий по сбросу пароля](active-directory-passwords-get-insights.md#view-password-reset-activity) |
+| Где можно узнать, сколько пользователей регистрируется и для чего? | [Просмотр действий по регистрации сброса паролей](active-directory-passwords-get-insights.md#view-password-reset-registration-activity) |
+| Как получить отчеты о сбросе паролей из API? | [Создание приложения Azure AD для доступа к API отчетов](active-directory-reporting-api-getting-started.md#creating-an-azure-ad-application-to-access-the-api) |
+| Какие данные отчетов о сбросе паролей доступны через API? | [События сброса паролей и регистрации, доступные в API отчетов](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview#SsprActivityEvent) |
 
 
-##<a name="set-password-policies"></a>Set password policies
-| Topic |  |
+##Управление паролями пользователей
+| Раздел | |
 | --------- | --------- |
-| How do I set organization password expiration policy from Office 365? | [Set password expiration policy](https://support.office.com/article/Set-a-user-s-password-expiration-policy-0f54736f-eb22-414c-8273-498a0918678f) |
-| How do I set a specific user's passwords to never expire with PowerShell? | [Set individual user's password to never expire using PowerShell](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466) |
-| How do I find out whether a user's password is set to never expire using PowerShell | [Check individual user's password expiration status using PowerShell](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466#__toc378845827) |
+| Как сбросить пароль пользователя из портала управления Office 365? | [Сброс пароля пользователя в Office 365](https://support.office.com/article/Reset-a-user-s-password-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C) |
+| Как сбросить пароль пользователя с помощью PowerShell? | [Сброс пароля пользователя с помощью команды Set-MsolUserPassword](https://msdn.microsoft.com/library/azure/dn194140.aspx) |
 
 
-##<a name="troubleshoot-a-problem"></a>Troubleshoot a problem
-| Topic |  |
+##Настройка политик паролей
+| Раздел | |
 | --------- | --------- |
-| What information should I provide to support if I need help? | [Information to include when you need help](active-directory-passwords-troubleshoot.md#information-to-include-when-you-need-help) |
-| How can I fix a problem with password reset | [Troubleshoot the password reset portal](active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-portal) |
-| How can I fix a problem with password writeback | [Troubleshoot password writeback](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
-| How can I fix a problem with password writeback connectivity | [Troubleshoot password writeback connectivity](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) |
-| How can I fix a problem with password reset configuration | [Troubleshoot password reset configuration in the azure management portal](active-directory-passwords-troubleshoot.md#troubleshoot-password-reset-configuration-in-the-azure-management-portal) |
-| How can I fix a problem with password reset reports | [Troubleshoot password management reports in the azure management portal](active-directory-passwords-troubleshoot.md#troubleshoot-password-management-reports-in-the-azure-management-portal) |
-| How can I fix a problem with password reset registration | [Troubleshoot the password reset registration portal](active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-registration-portal) |
-| Password writeback event log error codes | [Password writeback event log error codes](active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes) |
+| Как задать политику истечения срока действия паролей организации из Office 365? | [Настройка политики срока действия паролей](https://support.office.com/article/Set-a-user-s-password-expiration-policy-0f54736f-eb22-414c-8273-498a0918678f) |
+| Как настроить неограниченный срок действия паролей определенного пользователя с помощью PowerShell? | [Настройка неограниченного срока действия паролей определенного пользователя с помощью PowerShell](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466) |
+| Как узнать, задан ли для пароля пользователя неограниченный срок действия, с помощью PowerShell? | [Проверка состояния срока действия пароля отдельного пользователя с помощью PowerShell](https://support.office.com/article/Set-an-individual-user-s-password-to-never-expire-f493e3af-e1d8-4668-9211-230c245a0466#__toc378845827) |
 
 
-##<a name="read-a-faq"></a>Read a FAQ
-| Topic |  |
+##Устранение неполадок
+| Раздел | |
 | --------- | --------- |
-| I want to read a FAQ about password reset registration | [Password reset registration FAQ](active-directory-passwords-faq.md#password-reset-registration) |
-| I want to read a FAQ about password reset | [Password reset FAQ](active-directory-passwords-faq.md#password-reset) |
-| I want to read a FAQ about password reset reports | [Password management reports FAQ](active-directory-passwords-faq.md#password-management-reports) |
-| I want to read a FAQ about password writeback | [Password writeback FAQ](active-directory-passwords-faq.md#password-writeback) |
+| Какие сведения нужно предоставить в службу поддержки, если требуется помощь? | [Сведения, которые необходимо указать, если требуется помощь](active-directory-passwords-troubleshoot.md#information-to-include-when-you-need-help) |
+| Как устранить проблемы со сбросом паролей? | [Устранение неполадок с порталом сброса паролей](active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-portal) |
+| Как устранить проблемы с обратной записью паролей? | [Устранение неполадок с обратной записью паролей](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Как устранить проблемы с подключением обратной записи паролей? | [Устранение неполадок подключения обратной записи паролей](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) |
+| Как устранить проблемы с конфигурацией сброса паролей? | [Устранение неполадок в конфигурации сброса пароля на портале управления Azure](active-directory-passwords-troubleshoot.md#troubleshoot-password-reset-configuration-in-the-azure-management-portal) |
+| Как устранить проблемы с отчетами о сбросе паролей? | [Устранение неполадок с отчетами об управлении паролями на портале управления Azure](active-directory-passwords-troubleshoot.md#troubleshoot-password-management-reports-in-the-azure-management-portal) |
+| Как устранить проблемы с регистрацией сброса паролей? | [Устранение неполадок с порталом регистрации сброса паролей](active-directory-passwords-troubleshoot.md#troubleshoot-the-password-reset-registration-portal) |
+| Коды ошибок журнала событий обратной записи паролей | [Коды ошибок журнала событий обратной записи паролей](active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes) |
 
 
-##<a name="understand-the-technical-details"></a>Understand the technical details
-
-| Topic |  |
+##Вопросы и ответы
+| Раздел | |
 | --------- | --------- |
-| I want to learn about what password writeback is | [Password writeback overview](active-directory-passwords-learn-more.md#password-writeback-overview) |
-| I want to learn about how password writeback works | [How does password writeback work?](active-directory-passwords-learn-more.md#how-password-writeback-works) |
-| I want to learn about what scenarios are supported by password writeback | [Scenarios supported for password writeback](active-directory-passwords-learn-more.md#scenarios-supported-for-password-writeback) |
-| I want to learn about how password writeback is secured | [Password writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model) |
-| I want to learn about how the password reset portal works | [How does the password reset portal work?](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work) |
-| I want to learn about what data is used by password reset | [What data is used by password reset?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
-
-## <a name="recent-service-updates"></a>Recent service updates
-
-####<a name="enforce-password-reset-registration-at-sign-in-to-office-365-apps---november-2015"></a>Enforce Password Reset Registration at Sign-In to Office 365 Apps - November 2015
-
-- Now, after enabling the [enforced registration](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) feature, your users will be required to register from anywhere they sign in with a work or school account.  This dramatically increases the speed at which many organizations can onboard to password reset.  With this new feature we've seen large organizations onboarding in as little as 2 weeks!
-
-####<a name="support-for-unlocking-active-directory-accounts-without-resetting-a-password---november-2015"></a>Support for Unlocking Active Directory Accounts without Resetting a Password - November 2015
-
-- Unlock only (without reset) is a huge helpdesk driver these days.  In fact, many organizations spend up to 70% of their password reset budget unlocking accounts!  To meet this demand, now with Azure AD Password reset, you can enable a feature to let your users unlock AD accounts separately from password reset.  Check out how to turn it on here: [Setting: enable users to unlock their AD accounts without resetting a password](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
-
-####<a name="usability-updates-to-registration-page---october-2015"></a>Usability updates to Registration Page - October 2015
-
-- Now, when a user has data already registered, he or she can just click "looks good" to update the data without needing to re-send the email or phone call.
-
-####<a name="improved-reliability-of-password-writeback---september-2015"></a>Improved Reliability of Password Writeback - September 2015
-
-- As of the September release of Azure AD Connect, the password writeback agent will now more aggressively retry connections and additional, more robust, failover capabilities.
-
-####<a name="api-for-retrieving-password-reset-reporting-data---august-2015"></a>API for Retrieving Password Reset Reporting Data - August 2015
-
-- Now, the data behind the password reset reports can be retrieved directly from the [Azure AD Reports and Events API](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
-
-####<a name="support-for-azure-ad-password-reset-during-cloud-domain-join---august-2015"></a>Support for Azure AD Password Reset During Cloud Domain Join - August 2015
-
-- Now, any cloud user can reset his or her password right from the Windows 10 sign in screen during the cloud domain join onboarding experience.  Note, this is not yet exposed on the Windows 10 sign in screen.
-
-####<a name="enforce-password-reset-registration-at-sign-in-to-azure-and-federated-apps---july-2015"></a>Enforce Password Reset Registration at Sign-In to Azure and Federated Apps - July 2015
-
-- In addition to enforcing registration when signing into myapps.microsoft.com, we now support enforcing registration during sign ins to the Azure Management Portal and any of your federated single-sign on applications
-
-####<a name="security-question-localization-support---may-2015"></a>Security Question Localization Support - May 2015
-
-- Now, you have the option to select pre-defined security questions which are localized in the full O365 language set when configuring Security Questions for password reset.
-
-####<a name="account-unlock-support-during-password-reset---june-2015"></a>Account Unlock Support during Password Reset - June 2015
-
-- If you're using password writeback and you reset your password when your account is locked, we'll automatically unlock your Active Directory account!
-
-####<a name="branded-sspr-registration---april-2015"></a>Branded SSPR Registration - April 2015
-
-- The password reset registration page is now branded with your company logo!
-
-####<a name="security-questions---march-2015"></a>Security Questions - March 2015
-
-- We released security questions to GA!
-
-####<a name="account-unlock---march-2015"></a>Account Unlock - March 2015
-
-- Now users can unlock their accounts when password reset occurs
-
-## <a name="coming-soon"></a>Coming soon
-
-Below are some of the cool features we're working on right now!
-
-**Support for Reminding Users to Update their Registered Data During Sign-in** - Work in progress
-
-- Today, we support reminding users to update their registered data when accessing myapps.microsoft.com, but we're working on the ability to do so for all sign ins.
-
-## <a name="links-to-password-reset-documentation"></a>Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages:
-
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
-* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
-* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
-* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
-* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
-* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
-* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
-* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
+| Мне нужно прочитать вопросы и ответы о регистрации сброса паролей | [Часто задаваемые вопросы о регистрации сброса паролей](active-directory-passwords-faq.md#password-reset-registration) |
+| Мне нужно прочитать вопросы и ответы о сбросе паролей | [Часто задаваемые вопросы о сбросе паролей](active-directory-passwords-faq.md#password-reset) |
+| Мне нужно прочитать вопросы и ответы об отчетах о сбросе паролей | [Часто задаваемые вопросы об отчетах об управлении паролями](active-directory-passwords-faq.md#password-management-reports) |
+| Мне нужно прочитать вопросы и ответы об обратной записи паролей | [Часто задаваемые вопросы об обратной записи паролей](active-directory-passwords-faq.md#password-writeback) |
 
 
+##Понимание технических деталей
 
-<!--HONumber=Oct16_HO2-->
+| Раздел | |
+| --------- | --------- |
+| Я хочу узнать о том, что такое обратная запись паролей. | [Обзор обратной записи паролей](active-directory-passwords-learn-more.md#password-writeback-overview) |
+| Я хочу узнать о том, как работает обратная запись паролей | [Как работает обратная запись паролей](active-directory-passwords-learn-more.md#how-password-writeback-works) |
+| Я хочу узнать о том, какие сценарии поддерживаются обратной записью паролей | [Сценарии, поддерживаемые для обратной записи паролей](active-directory-passwords-learn-more.md#scenarios-supported-for-password-writeback) |
+| Я хочу узнать о том, как обеспечивается защита обратной записи паролей | [Модель безопасности обратной записи паролей](active-directory-passwords-learn-more.md#password-writeback-security-model) |
+| Я хочу узнать о том, как работает портал сброса паролей | [Как работает портал для сброса паролей](active-directory-passwords-learn-more.md#how-does-the-password-reset-portal-work) |
+| Я хочу узнать о том, какие данные используются при сбросе пароля | [Какие данные используются при сбросе пароля?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) |
 
+## Последние обновления служб
 
+####Принудительная регистрация сброса пароля при входе в приложения Office 365 — ноябрь 2015 г.
+
+- После включения функции [принудительной регистрации](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) пользователям потребуется пройти регистрацию на любом устройстве входа в систему с рабочей или учебной учетной записью. Это значительно увеличивает скорость внедрения службы сброса паролей во многих организациях. Благодаря использованию этой новой функции внедрение в крупных организациях может занимать всего 2 недели.
+
+####Поддержка разблокирования учетных записей Active Directory без сброса пароля — ноябрь 2015 г.
+
+- Реализация только разблокировки (без сброса) — это фактор огромной силы, влияющий на работу службы технической поддержки в наши дни. Фактически, многие организации тратят до 70 % бюджета на внедрение сброса паролей только при разблокировании учетных записей. Для удовлетворения этой потребности в службе сброса паролей Azure AD можно включить функцию, которая позволит пользователям разблокировать учетные записи AD отдельно от сброса паролей. Дополнительные сведения см. в статье [Настройка: включение для пользователей возможности разблокировать учетные записи AD без сброса пароля](active-directory-passwords-customize.md#allow-users-to-unlock-accounts-without-resetting-their-password).
+
+####Обновления интерфейса страницы регистрации — октябрь 2015 г.
+
+- Теперь, после регистрации данных, пользователь может щелкнуть «выглядит хорошо», и данные будут обновлены без повторной отправки электронного письма или звонка.
+
+####Повышение надежности компонента обратной записи паролей — сентябрь 2015 г.
+
+- В сентябрьском выпуске Azure AD Connect компонент обратной записи паролей выполняет более активные попытки повторных подключений и обладает дополнительными, более надежными, возможностями отработки отказа.
+
+####API для получения данных отчетов о сбросе паролей — август 2015 г.
+
+- Теперь данные отчетов о сбросе паролей можно получить непосредственно с помощью [API отчетов и событий Azure AD](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+
+####Поддержка сброса пароля Azure AD во время присоединения к облачному домену — август 2015 г.
+
+- Теперь любой пользователь облака может сбросить свой пароль прямо в окне входа в систему Windows 10 во время присоединения к облачному домену. Обратите внимание, что в окне входа в систему Windows 10 эта возможность еще не реализована.
+
+####Принудительная регистрация сброса пароля при входе в Azure и федеративные приложения — июль 2015 г.
+
+- Наряду с принудительной регистрацией при входе на сайт myapps.microsoft.com теперь мы поддерживаем принудительную регистрацию при входе на портал управления Azure и в любое из федеративных приложений единого входа.
+
+####Поддержка локализации секретных вопросов — май 2015 г.
+
+- Теперь при настройке вопросов безопасности для сброса пароля вы можете выбрать предварительно определенные секретные вопросы, которые локализованы для полного набора языков Office 365.
+
+####Поддержка разблокирования учетной записи при сбросе пароля — июнь 2015 г.
+
+- Если вы используете компонент обратной записи паролей и сбрасываете пароль при блокировке учетной записи, мы автоматически разблокируем вашу учетную запись Active Directory!
+
+####Фирменная символика на странице регистрации — апрель 2015 г.
+
+- На странице регистрации для сброса паролей теперь используется логотип вашей компании.
+
+####Секретные вопросы — март 2015 г.
+
+- Мы добавили поддержку секретных вопросов в общедоступный выпуск.
+
+####Разблокировка учетных записей — март 2015 г.
+
+- Теперь пользователи могут снимать блокировку учетных записей после сброса пароля.
+
+## Скоро
+
+Ниже приведены некоторые полезные функции, над которыми мы работаем прямо сейчас!
+
+**Поддержка напоминания пользователям об обновлении их регистрационных данных при входе в систему** — работа продолжается.
+
+- Сегодня мы поддерживаем напоминание об обновлении их регистрационных данных при входе на сайт myapps.microsoft.com, но мы работаем над тем, чтобы реализовать эту возможность при любом входе в систему.
+
+## Ссылки на документацию по сбросу паролей
+Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
+
+* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
+* [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
+* [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
+* [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
+* [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
+* [**Аналитика**](active-directory-passwords-get-insights.md) — узнайте об интегрированных функциях отчетности.
+* [**Часто задаваемые вопросы**](active-directory-passwords-faq.md) — ознакомьтесь с ответами на часто задаваемые вопросы.
+* [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
+* [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
+
+<!---HONumber=AcomDC_0727_2016-->

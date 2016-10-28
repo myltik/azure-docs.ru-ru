@@ -1,10 +1,10 @@
 <properties
 pageTitle="GitHub | Microsoft Azure"
-description="Create Logic apps with Azure App service. GitHub is a web-based Git repository hosting service. It offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+description="Создание приложений логики с помощью службы приложений Azure. GitHub — это веб-служба размещения репозиториев Git. Она предоставляет все возможности распределенного управления редакциями и исходным кодом (SCM) Git, а также собственные функции."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,164 +17,160 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Начало работы с соединителем GitHub
 
-# <a name="get-started-with-the-github-connector"></a>Get started with the GitHub connector
+GitHub — это веб-служба размещения репозиториев Git. Она предоставляет все возможности распределенного управления редакциями и исходным кодом (SCM) Git, а также собственные функции.
 
-GitHub is a web-based Git repository hosting service. It offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+Для начала можно создать приложение логики, как указано в соответствующей [статье](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Триггеры и действия
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+Соединитель GitHub можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
 
-The GitHub connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+ Соединитель GitHub предоставляет следующие триггеры и действия:
 
- The GitHub connector has the following action(s) and/or trigger(s) available:
+### Действия GitHub
+Вы можете выполнять перечисленные ниже действия:
 
-### <a name="github-actions"></a>GitHub actions
-You can take these action(s):
-
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[CreateIssue](connectors-create-api-github.md#createissue)|Creates an issue|
-### <a name="github-triggers"></a>GitHub triggers
-You can listen for these event(s):
+|[CreateIssue](connectors-create-api-github.md#createissue)|Создает вопрос|
+### Триггеры GitHub
+Можно прослушивать указанные ниже события:
 
-|Trigger | Description|
+|Триггер | Описание|
 |--- | ---|
-|When an issue is opened|An issue is opened|
-|When an issue is closed|An issue is closed|
-|When an issue is assigned|An issue is assigned|
+|При открытии вопроса|Вопрос открыт|
+|При закрытии вопроса|Вопрос закрыт|
+|При назначении вопроса|Вопрос назначен|
 
 
-## <a name="create-a-connection-to-github"></a>Create a connection to GitHub
-To create Logic apps with GitHub, you must first create a **connection** then provide the details for the following properties: 
+## Создание подключения к GitHub
+Для создания приложений логики с помощью GitHub необходимо создать **подключение**, а затем указать данные для следующих свойств.
 
-|Property| Required|Description|
+|Свойство| Обязательно|Description (Описание)|
 | ---|---|---|
-|Token|Yes|Provide GitHub Credentials|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+|Маркер|Да|Укажите учетные данные GitHub|
+Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
 
->[AZURE.INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
+>[AZURE.INCLUDE [Шаги по созданию подключения к GitHub](../../includes/connectors-create-api-github.md)]
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
 
-## <a name="reference-for-github"></a>Reference for GitHub
-Applies to version: 1.0
+## Справочник по GitHub
+Относится к версии 1.0.
 
-## <a name="createissue"></a>CreateIssue
-Create an issue: Creates an issue 
+## CreateIssue
+Создание вопроса: создает вопрос
 
-```POST: /repos/{repositoryOwner}/{repositoryName}/issues``` 
+```POST: /repos/{repositoryOwner}/{repositoryName}/issues```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|repositoryOwner|string|yes|path|none|Repository owner|
-|repositoryName|string|yes|path|none|Repository name|
-|issueBasicDetails| |yes|body|none|Issue details|
+|repositoryOwner|string|Да|path|Нет|Владелец репозитория|
+|repositoryName|string|Да|path|Нет|Имя репозитория|
+|issueBasicDetails| |Да|текст|Нет|Сведения о вопросе|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="issueopened"></a>IssueOpened
-When an issue is opened: An issue is opened 
+## IssueOpened
+При открытии вопроса: вопрос открыт
 
-```GET: /trigger/issueOpened``` 
+```GET: /trigger/issueOpened```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+Для этого вызова параметры отсутствуют
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="issueclosed"></a>IssueClosed
-When an issue is closed: An issue is closed 
+## IssueClosed
+При закрытии вопроса: вопрос закрыт
 
-```GET: /trigger/issueClosed``` 
+```GET: /trigger/issueClosed```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+Для этого вызова параметры отсутствуют
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="issueassigned"></a>IssueAssigned
-When an issue is assigned: An issue is assigned 
+## IssueAssigned
+При назначении вопроса: вопрос назначен
 
-```GET: /trigger/issueAssigned``` 
+```GET: /trigger/issueAssigned```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+Для этого вызова параметры отсутствуют
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="object-definitions"></a>Object definitions 
+## Определения объектов 
 
-### <a name="issuebasicdetailsmodel"></a>IssueBasicDetailsModel
+### IssueBasicDetailsModel
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|title|string|Yes |
-|body|string|Yes |
-|assignee|string|Yes |
+|title|string|Да |
+|текст|string|Да |
+|assignee|string|Да |
 
 
 
-### <a name="issuedetailsmodel"></a>IssueDetailsModel
+### IssueDetailsModel
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|title|string|Yes |
-|body|string|Yes |
-|assignee|string|Yes |
-|number|string|No |
-|state|string|No |
-|created_at|string|No |
-|repository_url|string|No |
+|title|string|Да |
+|текст|string|Да |
+|assignee|string|Да |
+|number|string|Нет |
+|state|string|Нет |
+|created\_at|string|Нет |
+|repository\_url|string|Нет |
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Дальнейшие действия
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

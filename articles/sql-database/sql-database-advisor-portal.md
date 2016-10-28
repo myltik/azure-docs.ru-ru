@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure SQL Database Advisor using the Azure portal | Microsoft Azure" 
-   description="You can use the Azure SQL Database Advisor in the Azure portal to review and implement recommendations for your existing SQL Databases that can improve current query performance." 
+   pageTitle="Использование помощника по базам данных SQL Azure на портале Azure | Microsoft Azure" 
+   description="Используя помощник по базам данных SQL Azure на портале Azure можно просматривать и реализовывать рекомендации для существующих баз данных SQL, которые могут повысить текущую производительность запросов." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,175 +13,164 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/30/2016"
+   ms.date="06/22/2016"
    ms.author="sstein"/>
 
-
-# <a name="sql-database-advisor-using-the-azure-portal"></a>SQL Database Advisor using the Azure portal
+# Помощник по работе с базами данных SQL
 
 > [AZURE.SELECTOR]
-- [SQL Database Advisor Overview](sql-database-advisor.md)
-- [Portal](sql-database-advisor-portal.md)
+- [Обзор помощника по базам данных SQL](sql-database-advisor.md)
+- [Портал](sql-database-advisor-portal.md)
 
-You can use the Azure SQL Database Advisor in the Azure portal to review and implement recommendations for your existing SQL Databases that can improve current query performance.
+Используя помощник по базам данных SQL Azure на портале Azure можно просматривать и реализовывать рекомендации для существующих баз данных SQL, которые могут повысить текущую производительность запросов.
 
-## <a name="viewing-recommendations"></a>Viewing recommendations
+## Просмотр рекомендаций
 
-The recommendations page is where you view the top recommendations based on their potential impact to improve performance. You can also view the status of the historical operations. Select a recommendation or status to see  more details.
+На странице рекомендаций приводится список основных предлагаемых рекомендаций с учетом их потенциального влияния на повышение производительности. Здесь же можно увидеть состояние последних операций. Выберите рекомендацию или состояние, чтобы увидеть подробные сведения.
 
-To view and apply recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-configure.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
+Чтобы просмотреть и применить рекомендации, необходимо изменить разрешения [управления доступом на основе ролей](../active-directory/role-based-access-control-configure.md) в Azure. Разрешения **Читатель** и **Участник баз данных SQL** необходимы для просмотра рекомендаций, а разрешения **Владелец**, **Участник баз данных SQL** необходимы для выполнения действий: создание, удаление индекса и отмена создания индекса.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **More services** > **SQL databases**, and select your database.
-5. Click **Performance recommendation** to view available recommendations for the selected database.
+1. Войдите на [портал Azure](https://portal.azure.com/).
+2. Выберите **ОБЗОР** > **Базы данных SQL** и выберите свою базу данных.
+5. Выберите **Все параметры** > **Рекомендации**, чтобы просмотреть доступные **рекомендации** для выбранной базы данных.
 
-> [AZURE.NOTE] To get recommendations a database needs to have about a day of usage, and there needs to be some activity. There also needs to be some consistent activity. The SQL Database Advisor can more easily optimize for consistent query patterns than it can for random spotty bursts of activity. If recommendations are not available, the **Performance recommendation** page should provide a message explaining why.
+> [AZURE.NOTE] Чтобы рекомендации сформировались, база данных должна использоваться примерно одну неделю и в течение этой недели должна быть активность. Кроме того, активность должна быть однообразной. Помощник по работе с базами данных SQL обеспечивает более эффективную оптимизацию при стабильном потоке запросов, чем на основе случайных всплесков активности. Если доступных рекомендаций нет, на странице **Рекомендации** будет указана причина.
 
-![Recommendations](./media/sql-database-advisor-portal/recommendations.png)
+![Рекомендации](./media/sql-database-advisor-portal/recommendations.png)
 
-Here is an example of "Fix schema issue" recommendation in the Azure portal.
+Ниже приведен пример рекомендаций по устранению ошибки схемы на портале Azure.
 
-![Fix Schema Issue](./media/sql-database-advisor-portal/sql-database-advisor-schema-issue.png)
+![Устранение ошибки схемы](./media/sql-database-advisor-portal/sql-database-advisor-schema-issue.png)
 
-Recommendations are sorted by their potential impact on performance into the following four categories:
+Рекомендации сортируются по их возможному влиянию на производительность и делятся на 4 категории:
 
-| Impact | Description |
+| Влияние | Описание |
 | :--- | :--- |
-| High | High impact recommendations should provide the most significant performance impact. |
-| Medium | Medium impact recommendations should improve performance, but not substantially. |
-| Low | Low impact recommendations should provide better performance than without, but improvements might not be significant. 
+| Высокий | Рекомендации с высоким уровнем влияния должны обеспечить наиболее значимое изменение производительности. |
+| Средний | Рекомендации со средним уровнем влияния должны улучшить производительность, но не существенным образом. |
+| Низкий | Рекомендации с низким уровнем влияния должны улучшить производительность, но улучшения не будут значительными. 
 
 
-### <a name="removing-recommendations-from-the-list"></a>Removing recommendations from the list
+### Удаление рекомендаций из списка
 
-If your list of recommendations contains items that you want to remove from the list, you can discard the recommendation:
+Если какие-либо рекомендации в списке нужно удалить, отклоните соответствующую рекомендацию, выполнив описанные ниже действия.
 
-1. Select a recommendation in the list of **Recommendations**.
-2. Click **Discard** on the **Details** blade.
-
-
-If desired, you can add discarded items back to the **Recommendations** list:
-
-1. On the **Recommendations** blade click **View discarded**.
-1. Select a discarded item from the list to view its details.
-1. Optionally, click **Undo Discard** to add the index back to the main list of **Recommendations**.
+1. Выберите рекомендацию из списка **Рекомендации**.
+2. Щелкните **Отклонить** в колонке **Сведения**.
 
 
+При необходимости отклоненные рекомендации можно вернуть в список **Рекомендации**, выполнив следующие действия.
 
-## <a name="applying-recommendations"></a>Applying recommendations
-
-SQL Database Advisor gives you full control over how recommendations are enabled using any of the following three options: 
-
-- Apply individual recommendations one at a time.
-- Enable the advisor to automatically apply recommendations (currently applies to index recommendations only).
-- To implement a recommendation manually, run the recommended T-SQL script against your database .
-
-Select any recommendation to view its details and then click **View script** to review the exact details of how the recommendation is created.
-
-The database remains online while the advisor applies the recommendation -- using SQL Database Advisor never takes a database offline.
-
-### <a name="apply-an-individual-recommendation"></a>Apply an individual recommendation
-
-You can review and accept recommendations one at a time.
-
-1. On the **Recommendations** blade, click a recommendation.
-2. On the **Details** blade click **Apply**.
-
-    ![Apply recommendation](./media/sql-database-advisor-portal/apply.png)
-
-### <a name="enable-automatic-index-management"></a>Enable automatic index management
-
-You can set the SQL Database Advisor to implement recommendations automatically. As recommendations become available they will automatically be applied. As with all index operations managed by the service if the performance impact is negative the recommendation will be reverted.
-
-1. On the **Recommendations** blade, click **Automate**:
-
-    ![Advisor settings](./media/sql-database-advisor-portal/settings.png)
-
-2. Set the advisor to automatically **Create** or **Drop** indexes:
-
-    ![Recommended Indexes](./media/sql-database-advisor-portal/automation.png)
-
-
-### <a name="manually-run-the-recommended-t-sql-script"></a>Manually run the recommended T-SQL script
-
-Select any recommendation and then click **View script**. Run this script against your database to manually apply the recommendation.
-
-*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
-
-
-### <a name="canceling-recommendations"></a>Canceling recommendations
-
-Recommendations that are in a **Pending**, **Verifying**, or **Success** status can be canceled. Recommendations with a status of **Executing** cannot be canceled.
-
-1. Select a recommendation in the **Tuning History** area to open the **recommendations details** blade.
-2. Click **Cancel** to abort the process of applying the recommendation.
+1. В колонке **Рекомендации** щелкните **Представление отклонено**.
+1. Выберите отклоненный элемент из списка, чтобы просмотреть сведения о нем.
+1. При необходимости щелкните **Отменить отклонение**, чтобы вернуть индекс обратно в основной список **рекомендаций**.
 
 
 
-## <a name="monitoring-operations"></a>Monitoring operations
+## Применение рекомендаций
 
-Applying a recommendation might not happen instantaneously. The portal provides details regarding the status of recommendation operations. The following are possible states that an index can be in:
+Помощник по работе с базами данных SQL предоставляет полный контроль над применением рекомендаций с помощью следующих 3 параметров:
 
-| Status | Description |
+- применять отдельные рекомендаций по одной;
+- разрешить помощнику автоматически применять рекомендации (в настоящее время применяется только к рекомендациям по индексам);
+- запустить рекомендованный сценарий T-SQL для выполнения рекомендации в базе данных вручную.
+
+Выберите рекомендацию, чтобы просмотреть ее описание, и щелкните **Показать скрипт**, чтобы узнать, как будет создана рекомендация.
+
+Пока помощник применяет рекомендацию, база данных остается доступной — при работе помощника по работе с базами данных SQL база данных никогда не оказывается вне сети.
+
+### Применение отдельной рекомендации
+
+Рекомендации можно просматривать и применять по одной.
+
+1. В колонке **Рекомендации** щелкните рекомендацию.
+2. В колонке **Сведения** щелкните **Применить**.
+
+    ![Применить рекомендацию](./media/sql-database-advisor-portal/apply.png)
+
+### Включение автоматического управления индексами
+
+Помощник по работе с базами данных SQL можно настроить на автоматическое выполнение рекомендаций. В этом случае появляющиеся рекомендации будут применяться автоматически. Как и во всех остальных операциях с индексами, управляемых службой, если выполнение рекомендации ведет к ухудшению производительности, она отменяется.
+
+1. В колонке **Рекомендации** щелкните **Автоматизация**.
+
+    ![Настройки помощника](./media/sql-database-advisor-portal/settings.png)
+
+2. Настройте помощник для автоматического **создания** или **удаления** индексов.
+
+    ![Рекомендованные индексы](./media/sql-database-advisor-portal/automation.png)
+
+
+### Выполнение рекомендованного сценария T-SQL вручную
+
+Выберите рекомендацию и щелкните **Показать скрипт**. Выполните этот сценарий для базы данных, чтобы применить рекомендацию вручную.
+
+*Для индексов, созданных вручную, не выполняется мониторинг и проверка влияния на производительность службы*, поэтому после создания индекса убедитесь в том, что он действительно повысил производительность, и при необходимости измените или удалите этот индекс. Дополнительные сведения о создании индексов см. в разделе [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+
+
+### Отмена рекомендаций
+
+Рекомендации с состоянием **Ожидает**, **Проверка** или **Успешно** можно отменить. Рекомендация с состоянием **Выполняется** не может быть отменена.
+
+1. Выберите рекомендацию в области **Журнал настройки**, чтобы открыть колонку **сведений о рекомендации**.
+2. Щелкните **Отменить**, чтобы прервать процесс применения рекомендации.
+
+
+
+## Мониторинг операций
+
+Применение рекомендаций может происходить не мгновенно. Портал предоставляет сведения о состоянии операций с рекомендациями. Ниже перечислены состояния, в которых может находиться индекс.
+
+| Состояние | Описание |
 | :--- | :--- |
-| Pending | Apply recommendation command has been received and is scheduled for execution. |
-| Executing | The recommendation is being applied. |
-| Success | Recommendation was successfully applied. |
-| Error | An error occurred during the process of applying the recommendation. This can be a transient issue, or possibly a schema change to the table and the script is no longer valid. |
-| Reverting | The recommendation was applied, but has been deemed non-performant and is being automatically reverted. |
-| Reverted | The recommendation was reverted. |
+| Ожидает | Команда на применение рекомендации получена и запланирована для выполнения. |
+| Executing | Идет применение рекомендации. |
+| Успешно | Рекомендация была успешно применена. |
+| Ошибка | В процессе применения рекомендации возникла ошибка. Это может быть временной проблемой, либо это может быть результатом изменения схемы, в результате чего скрипт больше не работает. |
+| Возврат | Рекомендация была применена, но не дала существенного улучшения и была автоматически отменена. |
+| Отмена | Рекомендация была отменена. |
 
-Click an in-process recommendation from the list to see more details:
+Щелкните внутрипроцессную рекомендацию в списке, чтобы увидеть ее данные:
 
-![Recommended Indexes](./media/sql-database-advisor-portal/operations.png)
-
-
-### <a name="reverting-a-recommendation"></a>Reverting a recommendation
-
-If you used the advisor to apply the recommendation (meaning you did not manually run the T-SQL script) it will automatically revert it if it finds the performance impact to be negative. If for any reason you simply want to revert a recommendation you can do the following:
+![Рекомендованные индексы](./media/sql-database-advisor-portal/operations.png)
 
 
-1. Select a successfully applied recommendation in the **Tuning history** area.
-2. Click **Revert** on the **recommendation details** blade.
+### Отмена рекомендации
 
-![Recommended Indexes](./media/sql-database-advisor-portal/details.png)
-
-
-## <a name="monitoring-performance-impact-of-index-recommendations"></a>Monitoring performance impact of index recommendations
-
-After recommendations are successfully implemented (currently, index operations and parameterize queries recommendations only) you can click **Query Insights** on the recommendation details blade to open [Query Performance Insights](sql-database-query-performance.md) and see the performance impact of your top queries.
-
-![Monitor performance impact](./media/sql-database-advisor-portal/query-insights.png)
+Если для применения рекомендации использовался помощник (то есть вы не запускали сценарий T-SQL вручную), он автоматически отменит рекомендацию, ухудшившую производительность. Если по какой-то причине рекомендацию необходимо отменить, выполните указанные ниже действия.
 
 
+1. Выберите успешно примененную рекомендацию в области **Журнал настройки**.
+2. Щелкните **Отменить** в колонке **сведений о рекомендации**.
 
-## <a name="summary"></a>Summary
+![Рекомендованные индексы](./media/sql-database-advisor-portal/details.png)
 
-SQL Database Advisor provides recommendations for improving SQL database performance. By providing T-SQL scripts, as well as individual and fully-automatic (currently index only), the advisor provides helpful assistance in optimizing your database and ultimately improving query performance.
+
+## Мониторинг влияния рекомендаций по индексам на производительность
+
+После успешного применения рекомендаций (в настоящее время доступны только рекомендации по операциям с индексами и параметризации запросов) щелкните **Подробные сведения о запросе** в колонке сведений о рекомендации, чтобы отобразить [анализ производительности запросов](sql-database-query-performance.md) и просмотреть влияние на производительность ваших основных запросов.
+
+![Мониторинг влияния на производительность](./media/sql-database-advisor-portal/query-insights.png)
 
 
 
-## <a name="next-steps"></a>Next steps
+## Сводка
 
-Monitor your recommendations and continue to apply them to refine performance. Database workloads are dynamic and change continuously. SQL Database advisor will continue to monitor and provide recommendations that can potentially improve your database's performance. 
+Помощник по работе с базами данных SQL предоставляет рекомендации по повышению производительности базы данных SQL. Предоставляя сценарии T-SQL, а также параметры индивидуального или полностью автоматизированного управления (в настоящее время только для индексов), помощник помогает оптимизировать базу данных и, таким образом, повысить производительность запросов.
 
- - See [SQL Database Advisor](sql-database-advisor.md) for an overview of SQL Database Advisor.
- - See [Query Performance Insights](sql-database-query-performance.md) to learn about viewing the performance impact of your top queries.
 
-## <a name="additional-resources"></a>Additional resources
 
-- [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
+## Дальнейшие действия
+
+Отслеживайте рекомендации и продолжайте применять их для повышения производительности. Рабочие нагрузки базы данных являются динамическими и меняются непрерывно. Помощник по работе с базами данных SQL продолжит отслеживать работу и давать рекомендации, которые могут повысить производительность базы данных.
+
+ - В разделе [Помощник по работе с базами данных SQL](sql-database-advisor.md) представлен обзор помощника по базам данных SQL.
+ - Ознакомьтесь с разделом [Анализ производительности запросов базы данных Azure SQL](sql-database-query-performance.md), чтобы узнать о том, как просмотреть влияние на производительность основных запросов.
+
+## Дополнительные ресурсы
+
+- [Хранилище запросов](https://msdn.microsoft.com/library/dn817826.aspx)
 - [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-- [Role-based access control](../active-directory/role-based-access-control-configure.md)
+- [Контроль доступа на основе ролей](../active-directory/role-based-access-control-configure.md)
 
-
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

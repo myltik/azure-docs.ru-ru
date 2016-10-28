@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure portal dashboards | Microsoft Azure"
-   description="This article explains how to create and edit dashboards in the Azure portal."
+   pageTitle="Панели мониторинга портала Azure | Microsoft Azure"
+   description="В этой статье описывается, как создавать и изменять панели мониторинга на портале Azure."
    services="azure-portal"
    documentationCenter=""
    authors="sewatson"
@@ -16,94 +16,90 @@
    ms.date="09/06/2016"
    ms.author="sewatson"/>
 
+# Создание панелей мониторинга и предоставление общего доступа к ним на портале Azure
 
-# <a name="creating-and-sharing-dashboards-in-the-azure-portal"></a>Creating and sharing dashboards in the Azure portal
+Можно создать несколько панелей мониторинга и предоставить к ним общий доступ другим пользователям, у которых есть доступ к вашим подпискам Azure. В этой статье представлены основные сведения о создании, изменении и публикации панелей мониторинга, а также об управлении доступом к ним.
 
-You can create multiple dashboards and share them with others who have access to your Azure subscriptions.  This post goes through the basics of creating/editing, publishing, and managing access to dashboards.
+## Настройка панелей мониторинга и колонок
 
-## <a name="customizing-dashboards-versus-blades"></a>Customizing dashboards versus blades
+С момента запуска панелей мониторинга, который состоялся несколько месяцев назад, панели мониторинга настраиваются гораздо чаще, чем колонки. Сложившаяся тенденция показала, что пользователи предпочитают настраивать панели мониторинга, а не колонки. Учитывая эту тенденцию, мы удалим возможность настройки колонок и направим свои усилия на улучшение функциональных возможностей панели мониторинга. Настройки колонок скоро будут удалены. Чтобы сохранить их, закрепите настроенные плитки на панели мониторинга. Щелкните плитку правой кнопкой мыши и выберите пункт **Закрепить на панели мониторинга**, как показано на следующем рисунке.
 
-Since launching dashboards a few months ago, there has been a steady decline in blade customizations and a rapid increase in dashboard customizations. This strong usage trend shows that you prefer customizing dashboards over blades. To support that trend, we will remove the ability to customize blades and dedicate our efforts to enhancing dashboard functionality. If you customized a blade, your customization will soon be removed. To preserve that customization, pin the customized tiles to a dashboard. Simply right-click the tile and select **Pin to dashboard** as shown in the following image.
+![сохранение настроенной плитки](./media/azure-portal-dashboards/save-customization.png)
 
-![save customized tile](./media/azure-portal-dashboards/save-customization.png)
+## Создание панели мониторинга
 
-## <a name="create-a-dashboard"></a>Create a dashboard
+Чтобы создать панель мониторинга, нажмите кнопку **Создать панель мониторинга** возле имени текущей панели мониторинга.
 
-To create a dashboard, select the **New dashboard** button next to the current dashboard's name.  
+![создание панели мониторинга](./media/azure-portal-dashboards/new-dashboard.png)
 
-![create dashboard](./media/azure-portal-dashboards/new-dashboard.png)
+В результате этого действия будет создана пустая закрытая панель мониторинга. Затем вы перейдете в режим настройки, в котором можно присвоить имя панели мониторинга, а также добавить плитки или изменить их порядок. В этом режиме сворачиваемая коллекция плиток находится в меню навигации слева. В коллекции плиток можно разными способами искать плитки для ресурсов Azure: по [группе ресурсов](../resource-group-overview.md#resource-groups), типу ресурса, [тегу](../resource-group-using-tags.md) или имени ресурса.
 
-This action creates a new, empty, private dashboard and puts you into customization mode where you can name your dashboard and add or rearrange tiles.  When in this mode, the collapsible tile gallery takes over the left navigation menu.  The tile gallery lets you find tiles for your Azure resources in various ways: you can browse by [resource group](../resource-group-overview.md#resource-groups), by resource type, by [tag](../resource-group-using-tags.md), or by searching for your resource by name.  
+![настройка панели мониторинга](./media/azure-portal-dashboards/customize-dashboard.png)
 
-![customize dashboard](./media/azure-portal-dashboards/customize-dashboard.png)
+Чтобы добавить плитку, перетащите ее в любое место на рабочей области панели мониторинга.
 
-Add tiles by dragging and dropping them onto the dashboard surface wherever you want.
+Появилась новая категория **Общие** для плиток, не связанных с определенным ресурсом. В этом примере мы закрепим плитку Markdown. С помощью этой плитки можно добавить пользовательское содержимое на панель мониторинга. Плитка поддерживает обычный текст, [синтаксис Markdown](https://daringfireball.net/projects/markdown/syntax) и ограниченное количество элементов HTML. (В целях безопасности нельзя вставлять теги `<script>` или использовать определенные элементы стилей CSS, которые могут конфликтовать с порталом.)
 
-There's a new category called **General** for tiles that are not associated with a particular resource.  In this example, we pin the Markdown tile.  You use this tile to add custom content to your dashboard.  The tile supports plain text, [Markdown syntax](https://daringfireball.net/projects/markdown/syntax), and a limited set of HTML.  (For safety, you can't do things like inject `<script>` tags or use certain styling element of CSS that might interfere with the portal.) 
+![добавление Markdown](./media/azure-portal-dashboards/add-markdown.png)
 
-![add markdown](./media/azure-portal-dashboards/add-markdown.png)
+## Изменение панели мониторинга
 
-## <a name="edit-a-dashboard"></a>Edit a dashboard
+После создания панели мониторинга на ней можно закрепить плитки из коллекции плиток или представления плиток колонок. Давайте закрепим представление группы ресурсов. Это можно сделать при просмотре элемента или из колонки группы ресурсов. Так или иначе, в результате представление плитки группы ресурсов будет закреплено.
 
-After creating your dashboard, you can pin tiles from the tile gallery or the tile representation of blades. Let's pin the representation of our resource group. You can either pin when browsing the item, or from the resource group blade. Both approaches result in pinning the tile representation of the resource group.
+![закрепление на панели мониторинга](./media/azure-portal-dashboards/pin-to-dashboard.png)
 
-![pin to dashboard](./media/azure-portal-dashboards/pin-to-dashboard.png)
+После закрепления элемента он появляется на панели мониторинга.
 
-After pinning the item, it appears on your dashboard.
+![просмотр панели мониторинга](./media/azure-portal-dashboards/view-dashboard.png)
 
-![view dashboard](./media/azure-portal-dashboards/view-dashboard.png)
+Прикрепив плитку Markdown и группу ресурсов на панели мониторинга, можно изменить размер плиток и расположить их, как вам удобно.
 
-Now that we have a Markdown tile and a resource group pinned to the dashboard, we can resize and rearrange the tiles into a suitable layout.
+Если навести курсор мыши и выбрать значок "..." или щелкнуть плитку правой кнопкой мыши, отобразятся все команды контекстного меню для этой плитки. По умолчанию отображаются два пункта:
 
-By hovering and selecting "…" or right-clicking on a tile you can see all the contextual commands for that tile. By default, there are two items:
+1. **Открепить от панели мониторинга**. Эта команда удаляет плитки с панели мониторинга.
+2.	**Настроить**. Эта команда позволяет включить режим настройки.
 
-1. **Unpin from dashboard** – removes the tile from the dashboard
-2.  **Customize** – enters customize mode
+![настройка плитки](./media/azure-portal-dashboards/customize-tile.png)
 
-![customize tile](./media/azure-portal-dashboards/customize-tile.png)
+Выбрав пункт "Настроить", можно изменить размер плиток и их порядок. Чтобы изменить размер плитки, выберите в контекстном меню новое значение размера, как показано на следующем рисунке.
 
-By selecting customize, you can resize and reorder tiles. To resize a tile, select the new size from the contextual menu, as shown in the following image.
+![изменение размера плитки](./media/azure-portal-dashboards/resize-tile.png)
 
-![resize tile](./media/azure-portal-dashboards/resize-tile.png)
+Если плитка поддерживает любой размер, можно растянуть нижний правый угол до нужного размера.
 
-Or, if the tile supports any size, you can drag the bottom right-hand corner to the desired size.
+![изменение размера плитки](./media/azure-portal-dashboards/resize-corner.png)
 
-![resize tile](./media/azure-portal-dashboards/resize-corner.png)
+Изменив размер плитки, просмотрите панель мониторинга.
 
-After resizing tiles, view the dashboard.
+![просмотр плитки](./media/azure-portal-dashboards/view-tile.png)
 
-![view tile](./media/azure-portal-dashboards/view-tile.png)
+Завершив настройку панели мониторинга, выберите элемент **Настройка выполнена**, чтобы выйти из режима настройки, или щелкните правой кнопкой мыши и выберите пункт **Настройка выполнена** в контекстном меню.
 
-Once you are finished customizing a dashboard, simply select the **Done customizing** to exit customize mode or right-click and select **Done customizing** from the context menu.
+## Публикация панели мониторинга и управление контролем доступа
 
-## <a name="publish-a-dashboard-and-manage-access-control"></a>Publish a dashboard and manage access control
+При создании панель мониторинга является закрытой по умолчанию. Это означает, что ее можете просматривать только вы. Чтобы сделать ее видимой для других пользователей, нажмите кнопку **Share** (Общий доступ) рядом с остальными командами панели мониторинга.
 
-When you create a dashboard, it is private by default, which means you are the only person who can see it.  To make it visible to others, use the **Share** button that appears alongside the other dashboard commands.
+![предоставление общего доступа к панели мониторинга](./media/azure-portal-dashboards/share-dashboard.png)
 
-![share dashboard](./media/azure-portal-dashboards/share-dashboard.png)
+Вам будет предложено выбрать подписку и группу ресурсов для публикации панели мониторинга. Чтобы обеспечить простоту интеграции панелей мониторинга в экосистеме, мы внедрили общие панели мониторинга в качестве ресурсов Azure (поэтому нельзя предоставить общий доступ, введя адрес электронной почты). Доступ к информации, отображаемой на большинстве плиток на портале, контролируется с помощью [управления доступом на основе ролей Azure](../active-directory/role-based-access-control-configure.md). С точки зрения контроля доступа общие панели мониторинга ничем не отличаются от виртуальных машин и учетных записей хранения.
 
-You are asked to choose a subscription and resource group for your dashboard to be published to. To seamlessly integrate dashboards into the ecosystem, we've implemented shared dashboards as Azure resources (so you can't share by typing an email address).  Access to the information displayed by most of the tiles in the portal are governed by [Azure Role Based Access Control](../active-directory/role-based-access-control-configure.md ). From an access control perspective, shared dashboards are no different from a virtual machine or a storage account.  
+Допустим, у вас есть подписка Azure, а участникам рабочей группы назначены роли **владельца**, **участника** или **читателя** в подписке. Пользователи, являющиеся владельцами или участниками, могут просматривать, создавать, изменять и удалять панели мониторинга в подписке, а также получать их списки. Пользователи, являющиеся читателями, могут просматривать панели мониторинга и получать их списки, но не могут изменять или удалять их. Пользователи с доступом для чтения могут вносить локальные изменения в общую панель мониторинга, но не могут публиковать эти изменения на сервере. Тем не менее они могут создать частную копию панели мониторинга для собственных нужд. Обычно отдельные плитки на панели мониторинга принудительно применяют собственные правила контроля доступа (в зависимости от ресурсов, к которым они относятся).
 
-Let's say you have an Azure subscription and members of your team have been assigned the roles of **owner**, **contributor**, or **reader** of the subscription.  Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within that subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a shared dashboard, but are not able to publish those changes back to the server.  However, they can make a private copy of the dashboard for their own use.  As always, individual tiles on the dashboard enforce their own access control rules based on the resources they correspond to.  
+Для удобства при публикации на портале панели мониторинга помещаются в группу ресурсов с названием **dashboards**.
 
-For convenience, the portal's publishing experience guides you towards a pattern where you place dashboards in a resource group called **dashboards**.  
+![публикация панели мониторинга](./media/azure-portal-dashboards/publish-dashboard.png)
 
-![publish dashboard](./media/azure-portal-dashboards/publish-dashboard.png)
+Кроме того, панель мониторинга можно опубликовать в конкретной группе ресурсов. Контроль доступа для этой панели мониторинга соответствует контролю доступа для группы ресурсов. У пользователей, которые могут управлять ресурсами в этой группе ресурсов, также есть доступ к панелям мониторинга.
 
-You can also choose to publish a dashboard to a particular resource group.  The access control for that dashboard matches the access control for the resource group.  Users that can manage the resources in that resource group also have access to the dashboards.
+![публикация панели мониторинга в группе ресурсов](./media/azure-portal-dashboards/publish-to-resource-group.png)
 
-![publish dashboard to resource group](./media/azure-portal-dashboards/publish-to-resource-group.png)
+После публикации панели мониторинга панель **Sharing + access control** (Общий доступ и контроль доступа) обновится. На ней появятся сведения об опубликованной панели мониторинга, включая ссылку для управления доступом пользователей к этой панели. Эта ссылка позволяет запустить стандартную колонку управления доступом на основе ролей, используемую для управления доступом к любому ресурсу Azure. К этому представлению можно вернуться в любое время, нажав кнопку **Share** (Общий доступ).
 
-After your dashboard is published, the **Sharing + access** control pane will refresh and show you information about the published dashboard, including a link to manage user access to the dashboard.  This link launches the standard Role Based Access Control blade used to manage access for any Azure resource.  You can always get back to this view by selecting **Share**.
+![управление контролем доступа](./media/azure-portal-dashboards/manage-access.png)
 
-![manage access control](./media/azure-portal-dashboards/manage-access.png)
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+- Сведения об управлении ресурсами см. в статье [Управление ресурсами Azure через портал](resource-group-portal.md).
+- Сведения о развертывании ресурсов см. в статье [Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure](../resource-group-template-deploy-portal.md).
 
-- To manage resources, see [Manage Azure resources through portal](resource-group-portal.md).
-- To deploy resources, see [Deploy resources with Resource Manager templates and Azure portal](../resource-group-template-deploy-portal.md).
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

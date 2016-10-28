@@ -1,194 +1,181 @@
 <properties 
-    pageTitle="Enterprise integration with EDIFACT | Microsoft Azure" 
-    description="Learn how to use EDIFACT agreements to create Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="jeffhollan" 
-    manager="erikre" 
-    editor="cgronlun"/>
+	pageTitle="Интеграция Enterprise с EDIFACT | Microsoft Azure" 
+	description="Сведения об использовании соглашений EDIFACT для создания приложений логики" 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="jeffhollan" 
+	manager="erikre" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="app-service-logic" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/26/2016" 
-    ms.author="jonfan"/>
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/26/2016" 
+	ms.author="jonfan"/>
+
+# Интеграция Enterprise с EDIFACT 
+
+> [AZURE.NOTE] В этой статье описываются функции EDIFACT приложений логики. Сведения об X12 см. [здесь](app-service-logic-enterprise-integration-x12.md).
+
+## Создание соглашения EDIFACT 
+Прежде чем начать обмен сообщениями EDIFACT, необходимо создать соглашение EDIFACT и сохранить его в учетной записи интеграции. Ниже последовательно описывается создание соглашения EDIFACT.
+
+### Вот что понадобится для начала работы
+- В подписке Azure должна быть определена [учетная запись интеграции](./app-service-logic-enterprise-integration-accounts.md).
+- В учетной записи интеграции должны быть определены по крайней мере два [партнера](./app-service-logic-enterprise-integration-partners.md).
+
+>[AZURE.NOTE]При создании соглашения нужно учитывать, что содержимое сообщений, которыми вы будете обмениваться с партнером, должно соответствовать типу соглашения.
 
 
-# <a name="enterprise-integration-with-edifact"></a>Enterprise integration with EDIFACT 
+После [настройки учетной записи интеграции](./app-service-logic-enterprise-integration-accounts.md) и [добавления партнеров](./app-service-logic-enterprise-integration-partners.md) можно создать соглашение EDIFACT, выполнив приведенные ниже действия.
 
-> [AZURE.NOTE] This page covers the EDIFACT features of Logic Apps. For information on X12 click [here](app-service-logic-enterprise-integration-x12.md).
+### На домашней странице портала Azure
 
-## <a name="create-an-edifact-agreement"></a>Create an EDIFACT agreement 
-Before you can exchange EDIFACT messages, you need to create an EDIFACT agreement and store it in your integration account. The following steps will walk you through the process of creating an EDIFACT agreement.
+Войдите на [портал Azure](http://portal.azure.com "Портал Azure") и сделайте следующее:
+1. Выберите **Обзор** в меню слева.
 
-### <a name="here's-what-you-need-before-you-get-started"></a>Here's what you need before you get started
-- An [integration account](./app-service-logic-enterprise-integration-accounts.md) defined in your Azure subscription  
-- At least two [partners](./app-service-logic-enterprise-integration-partners.md) already defined in your integration account  
+>[AZURE.TIP]Если вы не видите ссылку **Обзор**, возможно, сначала потребуется развернуть меню. Для этого щелкните ссылку **Показать меню**, расположенную в верхнем левом углу свернутого меню.
 
->[AZURE.NOTE]When creating an agreement, the content in the messages you will receive/send to and from the partner must match the agreement type.    
+![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-0.png)
+2. В поле фильтра поиска введите *интеграция*, а затем в списке результатов выберите **Учетные записи интеграции**. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-3.png)
+3. В открывшейся колонке **Учетные записи интеграции** выберите учетную запись интеграции для создания соглашения. Если вы не видите списков учетных записей интеграции, [сначала создайте такую учетную запись](./app-service-logic-enterprise-integration-accounts.md "Все об учетных записях интеграции"). ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-4.png)
+4.  Выберите плитку **Соглашения**. Если вы не видите эту плитку, добавьте соглашение. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-5.png)
+5. В открывшейся колонке "Соглашения" щелкните **Добавить**. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-agreement-2.png)
+6. В открывшейся колонке "Соглашения" введите **имя** соглашения, затем задайте значения параметров **Тип соглашения** (EDIFACT), **Главный партнер**, **Главный идентификатор**, **Гостевой партнер**, **Гостевой идентификатор**. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1.png)
+7. Как только вы зададите свойства соглашения, выберите **Настройки получения**, чтобы настроить обработку сообщений, получаемых в рамках этого соглашения.
+8. Элемент управления "Настройки получения" состоит из приведенных ниже разделов, в том числе "Идентификаторы", "Подтверждение", "Схемы", "Контрольные номера", "Проверки", "Внутренние параметры" и "Пакетная обработка". Настройте доступные в них свойства в соответствии с вашим соглашением с партнером, с которым вы будете обмениваться сообщениями. Ниже приведено представление этих элементов управления. Настройте их в зависимости от того, как посредством соглашения должны идентифицироваться и обрабатываться входящие сообщения. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-2.png)
+9. Нажмите кнопку **ОК**, чтобы сохранить параметры.
 
+### "Identifiers" (Идентификаторы)
 
-After you've [created an integration account](./app-service-logic-enterprise-integration-accounts.md) and [added partners](./app-service-logic-enterprise-integration-partners.md), you can create an EDIFACT agreement by following these steps:  
-
-### <a name="from-the-azure-portal-home-page"></a>From the Azure portal home page
-
-After you log into the [Azure portal](http://portal.azure.com "Azure portal"):  
-1. Select **Browse** from the menu on the left.  
-
->[AZURE.TIP]If you don't see the **Browse** link, you may need to expand the menu first. Do this by selecting the **Show menu** link that's located at the top left of the collapsed menu.  
-
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-0.png)    
-2. Type *integration* into the filter search box then select **Integration Accounts** from the list of results.       
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-3.png)    
-3. In the **Integration Accounts** blade that opens up, select the integration account in which you will create the agreement. If you don't see any integration accounts lists, [create one first](./app-service-logic-enterprise-integration-accounts.md "All about integration accounts").  
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-4.png)  
-4.  Select the **Agreements** tile. If you don't see the agreements tile, add it first.   
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1-5.png)     
-5. Select the **Add** button in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-agreement-2.png)  
-6. Enter a **Name** for your agreement then select the **Agreement type** for EDIFACT, **Host Partner**, **Host Identity**,  **Guest Partner**, **Guest Identity**, in the Agreements blade that opens.  
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-1.png)  
-7. After you have set the agreement properties, select **Receive Settings** to configure how messages received via this agreement are to be handled.  
-8. The Receive Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Control Numbers, Validation, Internal Settings and Batch processing. Configure these properties based on your agreement with the partner you will be exchanging messages with. Here is a view of these controls, configure them based on how you want this agreement to identify and handle incoming messages:  
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-2.png)  
-9. Select the **OK** button to save your settings.  
-
-### <a name="identifiers"></a>Identifiers
-
-|Property|Description |
+|Свойство|Описание |
 |---|---|
-|UNB6.1 (Recipient Reference Password)|Enter an alphanumeric value ranging between 1 and 14 characters.|
-|UNB6.2 (Recipient Reference Qualifier)|Enter an alphanumeric value with a minimum of one character and a maximum of two characters.|
+|UNB6.1 (эталонный пароль получателя)|Введите буквенно-цифровое значение, содержащее от 1 до 14 знаков|
+|UNB6.2 (эталонный квалификатор получателя)|Введите буквенно-цифровое значение, содержащее от 1 до 2 знаков|
 
-### <a name="acknowledgments"></a>Acknowledgments 
+### Благодарности 
 
-|Property|Description |
+|Свойство|Описание |
 |----|----|
-|Receipt of Message (CONTRL)|Select this checkbox to return a technical (CONTRL) acknowledgment to the interchange sender. The acknowledgment is sent to the interchange sender based on the Send Settings for the agreement.|
-|Acknowledgement (CONTRL)|Select this checkbox to return a functional (CONTRL) acknowledgment to the interchange sender The acknowledgment is sent to the interchange sender based on the Send Settings for the agreement.|
+|Получение сообщения (CONTRL)|Установите этот флажок, чтобы возвращать техническое подтверждение (CONTRL) отправителю при обмене. Это подтверждение отсылается отправителю при обмене в зависимости от параметров отправки для соглашения|
+|Подтверждение (CONTRL)|Установите этот флажок, чтобы возвращать функциональное подтверждение (CONTRL) отправителю при обмене. Это подтверждение отсылается отправителю при обмене в зависимости от параметров отправки для соглашения|
 
-### <a name="schemas"></a>Schemas
+### Схемы
 
-|Property|Description |
+|Свойство|Описание |
 |----|----|
-|UNH2.1 (TYPE)|Select a transaction set type.|
-|UNH2.2 (VERSION)|Enter the message version number. (Minimum, one character; maximum, three characters).|
-|UNH2.3 (RELEASE)|Enter the message release number. (Minimum, one character; maximum, three characters).|
-|UNH2.5 (ASSOCIATED ASSIGNED CODE)|Enter the assigned code. (Maximum, six characters. Must be alphanumeric).|
-|UNG2.1 (APP SENDER ID)|Enter an alphanumeric value with a minimum of one character and a maximum of 35 characters.|
-|UNG2.2 (APP SENDER CODE QUALIFIER)|Enter an alphanumeric value, with a maximum of four characters.|
-|SCHEMA|Select the previously uploaded schema you want to use from your associated Integration Account.|
+|UNH2.1 (ТИП)|Выберите тип набора транзакций|
+|UNH2.2 (ВЕРСИЯ)|Введите номер версии сообщения (от 1 до 3 знаков)|
+|UNH2.3 (ВЫПУСК)|Введите номер выпуска сообщения (от 1 до 3 знаков)|
+|UNH2.5 (ASSOCIATED ASSIGNED CODE) (UNH2.5 (СВЯЗАННЫЙ НАЗНАЧЕННЫЙ КОД))|Введите назначенный код (буквенно-цифровое значение, содержащее не более 6 знаков)|
+|UNG2.1 (APP SENDER ID) (UNG2.1 (ИДЕНТИФИКАТОР ПРИЛОЖЕНИЯ-ОТПРАВИТЕЛЯ))|Введите буквенно-цифровое значение, содержащее от 1 до 35 знаков|
+|UNG2.2 (APP SENDER CODE QUALIFIER) (UNG2.2 (КВАЛИФИКАТОР КОДА ПРИЛОЖЕНИЯ-ОТПРАВИТЕЛЯ))|Введите буквенно-цифровое значение, содержащее не более четырех знаков|
+|SCHEMA (Схема)|Выберите ранее отправленную схему, которую вы хотите использовать, из связанной учетной записи интеграции|
 
-### <a name="control-numbers"></a>Control Numbers
+### Control Numbers (Контрольные номера)
 
-|Property|Description |
+|Свойство|Описание |
 |----|----|
-|Disallow Interchange Control Number duplicates|Select this checkbox to block duplicate interchanges. If selected, the EDIFACT Decode Action checks that the interchange control number (UNB5) for the received interchange does not match a previously processed interchange control number. If a match is detected, then the the interchange is not processed.
-|Check for duplicate UNB5 every (days)|If you opted to disallow duplicate interchange control numbers, you can specify the number of days at which the check is performed by giving the appropriate value for **Check for duplicate UNB5 every (days)** option.|
-|Disallow Group control number duplicates|Select this checkbox to block interchanges with duplicate group control numbers (UNG5).|
-|Disallow Transaction set control number duplicates|Select this checkbox to block interchanges with duplicate transaction set control numbers (UNH1).|
-|EDIFACT Acknowledgement Control Number|To designate the transaction set reference numbers to be used in an acknowledgment, enter a value for the prefix, a range of reference numbers, and a suffix.|
+|Disallow Interchange Control Number duplicates (Запретить повторяющиеся контрольные номера обмена)|Установите этот флажок, чтобы запретить повторяющиеся операции обмена. Если флажок установлен, то действие декодирования EDIFACT проверяет, соответствует ли контрольный номер (UNB5) полученного обмена ранее обработанному контрольному номеру обмена. Если обнаружено совпадение, обмен не обрабатывается.
+|Проверять дубликаты UNB5 через (дн.)|Если вы решили запретить повторяющиеся контрольные номера, то можно указать число дней, в течение которых выполняется проверка, задав соответствующее значение для параметра **Проверять дубликаты UNB5 через (дн.)**|
+|Disallow Group control number duplicates (Запретить повторяющиеся контрольные номера групп)|Установите этот флажок, чтобы запретить операции обмена с повторяющимися контрольными номерами групп (UNG5)|
+|Disallow Transaction set control number duplicates (Запретить повторяющиеся контрольные номера наборов транзакций)|Установите этот флажок, чтобы запретить операции обмена с повторяющимися контрольными номерами наборов транзакций (UNH1)|
+|Контрольный номер подтверждения EDIFACT|Чтобы назначить контрольные номера набора транзакций для использования в подтверждении, введите значение префикса, диапазон контрольных номеров и суффикс|
 
-### <a name="validations"></a>Validations
+### Validations (Проверки)
 
-|Property|Description |
+|Свойство|Описание |
 |----|----|
-|Message Type|Specify the message type. As each validation row is completed, another will be automatically added. If no rules are specified, then the row marked as default is used for validation.|
-|EDI Validation|Select this check box to perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators.|
-|Extended Validation|Select this check box to enable extended (XSD) validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation.|
-|Allow Leading/Trailing Zeroes|Select **Allow** to allow leading/trailing zeros; **NotAllowed** to not allow leading/trailing zeros, or **Trim** to trim the leading and trailing zeroes.|
-|Trim Leading/Trailing Zeroes|Select this check box to trim any leading or trailing zeroes|
-|Trailing Separator Policy|Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared invalid. Select **Optional** to accept interchanges with or without trailing delimiters and separators. Select **Mandatory** if the received interchange must contain trailing delimiters and separators.|
+|Message Type (Тип сообщения)|Укажите тип сообщения. После завершения проверки каждой строки автоматически будет добавляться следующая. Если правила не заданы, то для проверки используется строка по умолчанию|
+|EDI Validation (Проверка EDI)|Установите этот флажок, чтобы выполнять проверку EDI для типов данных в соответствии со свойствами EDI схемы, ограничениями длины, пустыми элементами данных и конечными разделителями|
+|Extended Validation (Расширенная проверка)|Установите этот флажок, чтобы включить расширенную проверку обмена (XSD), получаемого от отправителя при обмене. В дополнение к проверке типов данных XSD она включает в себя проверку длины поля, необязательности и числа повторов.|
+|Allow Leading/Trailing Zeroes (Разрешить начальные и конечные нули)|Выберите значение **Разрешить**, чтобы разрешить использовать начальные и конечные нули, **Запрещено** — чтобы запретить их использование, и **Обрезать**, чтобы обрезать начальные и конечные нули|
+|Обрезать начальные и конечные нули|Установите этот флажок, чтобы обрезать все начальные и конечные нули|
+|Trailing Separator Policy (Политика конечных разделителей)|Выберите значение **Запрещено**, чтобы запретить конечные разделители в обмене, получаемом от отправителя при обмене. Если обмен содержит конечные разделители, он будет объявлен недопустимым. Выберите значение **Необязательно**, чтобы принимать обмен с конечными разделителями или без них. Выберите значение **Обязательно**, если получаемый обмен должен содержать конечные разделители|
 
-### <a name="internal-settings"></a>Internal Settings
+### Internal Settings (Внутренние параметры)
 
-|Property|Description |
+|Свойство|Описание |
 |----|----|
-|Create empty XML tags if trailing separators are allowed|Select this check box to have the interchange sender include empty XML tags for trailing separators.|
-|Inbound batching processing|Options include:</br></br>**Split Interchange as Transaction Sets - suspend Transaction Sets on Error**: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope to the transaction set. With this option, if one or more transaction sets in the interchange fail validation, then only those transaction sets are suspended. Split Interchange as Transaction Sets - suspend Interchange on Error: Parses each transaction set in an interchange into a separate XML document by applying the appropriate envelope. With this option, if one or more transaction sets in the interchange fail validation, then the entire interchange will be suspended.</br></br>**Preserve Interchange - suspend Transaction Sets on Error**: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then only those transaction sets are suspended, while all other transaction sets are processed.</br></br>**Preserve Interchange - suspend Interchange on Error**: Leaves the interchange intact, creating an XML document for the entire batched interchange. With this option, if one or more transaction sets in the interchange fail validation, then the entire interchange is suspended.|
+|Create empty XML tags if trailing separators are allowed (Создать пустые теги XML, если конечные разделители разрешены)|Установите этот флажок, чтобы отправитель при обмене добавлял пустые теги XML для конечных разделителей.|
+|Inbound batching processing (Пакетная обработка входящего трафика)|Доступные параметры: </br></br>**Разделение документа Interchange на наборы транзакций — заблокировать наборы транзакций при ошибке**: позволяет анализировать каждый набор транзакций в операции обмена в виде отдельного XML-документа, применяя соответствующую оболочку к набору транзакций. Если этот параметр включен, то в случае, если один или несколько наборов транзакций в операции обмена не проходят проверку, приостанавливается обработка только этих наборов. "Разделение документа Interchange на наборы транзакций — заблокировать документ Interchange при ошибке": позволяет анализировать каждый набор транзакций в операции обмена в виде отдельного XML-документа, применяя соответствующую оболочку. Если этот параметр включен, то в случае, если один или несколько наборов транзакций в операции обмена не проходят проверку, весь обмен приостанавливается.</br></br>**Preserve Interchange - suspend transaction sets on error** (Сохранить обмен — приостанавливать обработку наборов транзакций в случае ошибки): позволяет не затрагивать операцию обмена, создавая XML-документ для всего пакетного обмена. Если этот параметр включен, то в случае, если один или несколько наборов транзакций в операции обмена не проходят проверку, приостанавливается обработка только этих наборов транзакций, а обработка всех прочих наборов транзакций продолжается.</br></br>**Сохранение документа Interchange — заблокировать документ Interchange при ошибке**: позволяет не затрагивать операцию обмена, создавая XML-документ для всего пакетного обмена. Если этот параметр включен, то в случае, если один или несколько наборов транзакций в операции обмена не проходят проверку, весь обмен приостанавливается.|
 
-Your agreement is ready to handle incoming messages that conform to the settings you selected.
+Ваше соглашение готово к обработке входящих сообщений, которые соответствуют выбранным параметрам.
 
-To configure the settings that handle messages you send to partners:  
-10. Select **Send Settings** to configure how messages sent via this agreement are to be handled.  
+Для настройки параметров обработки сообщений, отправляемых партнерам, выполните следующее.
+10. Выберите **Настройки отправки**, чтобы настроить обработку сообщений, отправляемых при помощи данного соглашения.
 
-The Send Settings control is divided into the following sections, including Identifiers, Acknowledgment, Schemas, Envelopes, Character Sets and Separators, Control Numbers and Validation. 
+Элемент управления "Настройки отправки" состоит из приведенных ниже разделов, в том числе "Идентификаторы", "Подтверждение", "Схемы", Envelopes (Оболочки), "Кодировки и разделители", "Контрольные номера" и "Проверки".
 
-Here is a view of these controls. Make the selections based on how you want to handle messages you send to partners via this agreement:   
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-3.png)    
-11. Select the **OK** button to save your settings.  
+Ниже приведено представление этих элементов управления. Выберите параметры в соответствии с тем, как требуется обрабатывать сообщения, отправляемые партнерам посредством этого соглашения. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-3.png)
+11. Нажмите кнопку **ОК**, чтобы сохранить параметры.
 
-### <a name="identifiers"></a>Identifiers
-|Property|Description |
+### "Identifiers" (Идентификаторы)
+|Свойство|Описание |
 |----|----|
-|UNB1.2 (Syntax version)|Select a value between **1** and **4**.|
-|UNB2.3 (Sender Reverse Routing Address)|Enter an alphanumeric value with a minimum of one character and a maximum of 14 characters.|
-|UNB3.3 (Recipient Reverse Routing Address)|Enter an alphanumeric value with a minimum of one character and a maximum of 14 characters.|
-|UNB6.1 (Recipient Reference Password)|Enter an alphanumeric value with a minimum of one and a maximum of 14 characters.|
-|UNB6.2 (Recipient Reference Qualifier)|Enter an alphanumeric value with a minimum of one character and a maximum of two characters.|
-|UNB7 (Application Reference ID)|Enter an alphanumeric value with a minimum of one character and a maximum of 14 characters|
+|UNB1.2 (версия синтаксиса)|Выберите значение в диапазоне от **1** до **4**|
+|UNB2.3 (обратный адрес маршрутизации для отправителя)|Введите буквенно-цифровое значение, содержащее от 1 до 14 знаков|
+|UNB3.3 (обратный адрес маршрутизации для получателя)|Введите буквенно-цифровое значение, содержащее от 1 до 14 знаков|
+|UNB6.1 (эталонный пароль получателя)|Введите буквенно-цифровое значение, содержащее от 1 до 14 знаков|
+|UNB6.2 (эталонный квалификатор получателя)|Введите буквенно-цифровое значение, содержащее от 1 до 2 знаков|
+|UNB7 (эталонный ИД приложения)|Введите буквенно-цифровое значение, содержащее от 1 до 14 знаков|
 
-### <a name="acknowledgment"></a>Acknowledgment
-|Property|Description |
+### Acknowledgment (Подтверждение)
+|Свойство|Описание |
 |----|----|
-|Receipt of Message (CONTRL)|Select this checkbox if the hosted partner expects to receive to receive a technical (CONTRL) acknowledgment. This setting specifies that the hosted partner, who is sending the message, requests an acknowledgement from the guest partner.|
-|Acknowledgement (CONTRL)|Select this checkbox if the hosted partner expects to receive a functional (CONTRL) acknowledgment. This setting specifies that the hosted partner, who is sending the message, requests an acknowledgement from the guest partner.|
-|Generate SG1/SG4 loop for accepted transaction sets|If you chose to request a functional acknowledgement, select this checkbox to force generation of SG1/SG4 loops in functional CONTRL acknowledgments for accepted transaction sets.|
+|Получение сообщения (CONTRL)|Установите этот флажок, если размещаемому партнеру необходимо отправлять техническое подтверждение (CONTRL). Этот параметр указывает, что размещенный партнер, отправляющий сообщение, запрашивает подтверждение от гостевого партнера|
+|Подтверждение (CONTRL)|Установите этот флажок, если размещаемому партнеру необходимо отправлять функциональное подтверждение (CONTRL). Этот параметр указывает, что размещенный партнер, отправляющий сообщение, запрашивает подтверждение от гостевого партнера|
+|Создать цикл SG1/SG4 для принятых наборов транзакций|Если вы хотите получать функциональное подтверждение, установите этот флажок для принудительного создания циклов SG1/SG4 в функциональных подтверждениях CONTRL для принятых наборов транзакций|
 
-### <a name="schemas"></a>Schemas
-|Property|Description |
+### Схемы
+|Свойство|Описание |
 |----|----|
-|UNH2.1 (TYPE)|Select a transaction set type.|
-|UNH2.2 (VERSION)|Enter the message version number.|
-|UNH2.3 (RELEASE)|Enter the message release number.|
-|SCHEMA|Select the schema to use. Schemas are located in your integration account. To access your schemas, first link your integration account to your Logic app.|
+|UNH2.1 (ТИП)|Выберите тип набора транзакций|
+|UNH2.2 (ВЕРСИЯ)|Введите номер версии сообщения|
+|UNH2.3 (ВЫПУСК)|Введите номер выпуска сообщения|
+|SCHEMA (Схема)|Выберите схему для использования. Схемы находятся в вашей учетной записи интеграции. Для получения доступа к схемам следует сначала связать учетную запись интеграции с приложением логики.|
 
-### <a name="envelopes"></a>Envelopes
-|Property|Description |
+### Envelopes (Оболочка)
+|Свойство|Описание |
 |----|----|
-|UNB8 (Processing Priority Code)|Enter an alphabetical value which is not more than one character long.|
-|UNB10 (Communication Agreement)|Enter an alphanumeric value with a minimum of one character and a maximum of 40 characters.|
-|UNB11 (Test Indicator)|Select this checkbox to indicate that the interchange generated is test data|
-|Apply UNA Segment (Service String Advice)|Select this checkbox to generate a UNA segment for the interchange to be sent.|
-|Apply UNG Segments (Function Group Header)|Select this checkbox to create grouping segments in the functional group header in the messages sent to the guest partner. The following values are used to create the UNG segments:</br></br>For **UNG1**, enter an alphanumeric value with a minimum of one character and a maximum of six characters.</br></br>For **UNG2.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters.</br></br>For **UNG2.2**, enter an alphanumeric value, with a maximum of four characters.</br></br>For **UNG3.1**, enter an alphanumeric value with a minimum of one character and a maximum of 35 characters.</br></br>For **UNG3.2**, enter an alphanumeric value, with a maximum of four characters.</br></br>For **UNG6**, enter an alphanumeric value with a minimum of one and a maximum of three characters.</br></br>For **UNG7.1**, enter an alphanumeric value with a minimum of one character and a maximum of three characters.</br></br>For **UNG7.2**, enter an alphanumeric value with a minimum of one character and a maximum of three characters.</br></br>For **UNG7.3**, enter an alphanumeric value with a minimum of 1 character and a maximum of 6 characters.</br></br>For **UNG8**, enter an alphanumeric value with a minimum of one character and a maximum of 14 characters.|
+|UNB8 (код приоритета обработки)|Введите буквенно-цифровое значение, содержащее один знак|
+|UNB10 (соглашение о связи)|Введите буквенно-цифровое значение, содержащее от 1 до 40 знаков|
+|UNB11 (тестовый индикатор)|Установите этот флажок, чтобы указать, что содержимое обмена данными представляет собой тестовые данные|
+|Применить сегмент UNA (совет для строки службы)|Установите этот флажок, чтобы создать сегмент UNA для отправляемого обмена|
+|Применить сегменты UNG (заголовок группы функций)|Установите этот флажок, чтобы создавать сегменты объединения в заголовке функциональной группы сообщений, отправляемых гостевому партнеру. Для создания сегментов UNG можно использовать следующие значения:</br></br>В качестве значения **UNG1** введите буквенно-цифровое значение, содержащее от 1 до 6 знаков.</br></br>В качестве значения **UNG2.1** введите буквенно-цифровое значение, содержащее от 1 до 35 знаков.</br></br>В качестве значения **UNG2.2** введите буквенно-цифровое значение, содержащее не более 4 знаков.</br></br>В качестве значения **UNG3.1** введите буквенно-цифровое значение, содержащее от 1 до 35 знаков.</br></br>В качестве значения **UNG3.2** введите буквенно-цифровое значение, содержащее не более 4 знаков.</br></br>В качестве значения **UNG6** введите буквенно-цифровое значение, содержащее от 1 до 3 знаков.</br></br>В качестве значения **UNG7.1** введите буквенно-цифровое значение, содержащее от 1 до 3 знаков.</br></br>В качестве значения **UNG7.2** введите буквенно-цифровое значение, содержащее от 1 до 3 знаков.</br></br>В качестве значения **UNG7.3** введите буквенно-цифровое значение, содержащее от 1 до 6 знаков.</br></br>В качестве значения **UNG8** введите буквенно-цифровое значение, содержащее от 1 до 14 знаков|
 
-### <a name="character-sets-and-separators"></a>Character Sets and Separators
-Other than the character set, you can enter a different set of delimiters to be used for each message type. If a character set is not specified for a given message schema, then the default character set is used.
+### Character Sets and Separators (Наборы символов и разделители)
+Отдельно от набора символов можно ввести отличающийся набор разделителей для каждого типа сообщений. Если для заданной схемы сообщений набор символов не указан, то используется набор символов по умолчанию.
 
-|Property|Description |
+|Свойство|Описание |
 |----|----|
-|UNB1.1 (System Identifier)|Select the EDIFACT character set to be applied on the outgoing interchange.|
-|Schema|Select a schema from the drop-down list. As each row is completed a new row will be added. For the selected schema, select the separators set to be used:</br></br>**Component element separator** – Enter a single character to separate composite data elements.</br></br>**Data Element Separator** – Enter a single character to separate simple data elements within composite data elements.</br></br></br></br>**Replacement Character** – Select this check box if the payload data contains characters that are also used as data, segment, or component separators. You can then enter a replacement character. When generating the outbound EDIFACT message, all instances of separator characters in the payload data are replaced with the specified character.</br></br>**Segment Terminator** – Enter a single character to indicate the end of an EDI segment.</br></br>**Suffix** – Select the character that is used with the segment identifier. If you designate a suffix, then the segment terminator data element can be empty. If the segment terminator is left empty, then you must designate a suffix.|
+|UNB1.1 (идентификатор системы)|Выберите набор знаков EDIFACT, который нужно применять к исходящему обмену|
+|Схема|Выберите схему из раскрывающегося списка. По завершении каждой строки добавляется новая строка. Выберите разделители, которые будут использоваться для выбранной схемы:</br></br>**Component element separator** (Разделитель составляющих элементов) — введите один знак для разделения составных элементов данных.</br></br>**Data Element Separator** (Разделитель элементов данных) — введите один знак для разделения простых элементов данных в составных элементах данных.</br></br></br></br>**Replacement Character** (Знак замены) — установите этот флажок, если полезные данные содержат знаки, которые используются также как разделители данных, сегментов или составляющих элементов. После этого вы сможете ввести знак для замены. При создании исходящего сообщения EDIFACT все экземпляры знаков разделителей в полезных данных будут заменены указанным знаком.</br></br>**Символ завершения сегмента** — введите знак для указания конца сегмента EDI.</br></br>**Суффикс** — выберите знак, который будет использоваться с идентификатором сегмента. Если указывается суффикс, то элемент данных признака конца сегмента может быть пустым. Если признак конца сегмента оставить пустым, то необходимо будет указать суффикс.|
 
-### <a name="control-numbers"></a>Control Numbers
-|Property|Description |
+### Control Numbers (Контрольные номера)
+|Свойство|Описание |
 |----|----|
-|UNB5 (Interchange Control Number)|Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate an outgoing interchange. The prefix and suffix are optional; the control number is required. The control number is incremented for each new message; the prefix and suffix remain the same.|
-|UNG5 (Group Control Number)|Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the group control number. The prefix and suffix are optional; the control number is required. The control number is incremented for each new message until the maximum value is reached; the prefix and suffix remain the same.|
-|UNH1 (Message Header Reference Number)|Enter a prefix, a range of values for the interchange control number, and a suffix. These values are used to generate the message header reference number. The prefix and suffix are optional; the reference number is required. The reference number is incremented for each new message; the prefix and suffix remain the same.|
+|UNB5 (контрольный номер обмена)|Введите префикс, диапазон значений для контрольного номера обмена и суффикс. Эти значения используются для создания исходящего обмена. Префикс и суффикс указывать необязательно, однако нужно указать контрольный номер. Значение контрольного номера увеличивается для каждого нового сообщения. Префикс и суффикс не меняются|
+|UNG5 (контрольный номер группы)|Введите префикс, диапазон значений для контрольного номера обмена и суффикс. Эти значения используются для создания контрольного номера группы. Префикс и суффикс указывать необязательно, однако нужно указать контрольный номер. Контрольный номер увеличивается для каждого нового сообщения до достижения максимального значения. Префикс и суффикс не меняются|
+|UNH1 (эталонный номер заголовка сообщения)|Введите префикс, диапазон значений для контрольного номера обмена и суффикс. Эти значения используются для создания эталонного номера заголовка сообщения. Префикс и суффикс указывать необязательно, однако нужно указать эталонный номер. Значение эталонного номера увеличивается для каждого нового сообщения. Префикс и суффикс не меняются|
 
-### <a name="validations"></a>Validations
-|Property|Description |
+### Validations (Проверки)
+|Свойство|Описание |
 |----|----|
-|Message Type|Selecting this option enables validation on the interchange receiver. This validation performs EDI validation on transaction-set data elements, validating data types, length restrictions, and empty data elements and training separators.|
-|EDI Validation|Select this check box to perform EDI validation on data types as defined by the EDI properties of the schema, length restrictions, empty data elements, and trailing separators.|
-|Extended Validation|Selecting this option enables extended validation of interchanges received from the interchange sender. This includes validation of field length, optionality, and repeat count in addition to XSD data type validation. You can enable extension validation without enabling EDI validation, or vice versa.|
-|Allow leading/trailing zeroes|Selecting this option specifies that an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of or trailing spaces, but does conform to its length requirement when they are removed.|
-|Trim Leading/Trailing Zeroes|Selecting this option will trim the leading and trailing zeroes.|
-|Trailing separator|Selecting this option specifies an EDI interchange received from the party does not fail validation if a data element in an EDI interchange does not conform to its length requirement because of leading (or trailing) zeroes or trailing spaces, but does conform to its length requirement when they are removed.</br></br>Select **Not Allowed** if you do not want to allow trailing delimiters and separators in an interchange received from the interchange sender. If the interchange contains trailing delimiters and separators, it is declared invalid.</br></br>Select **Optional** to accept interchanges with or without trailing delimiters and separators.</br></br>Select **Mandatory** if the received interchange must contain trailing delimiters and separators.|
+|Message Type (Тип сообщения)|Этот параметр позволяет включить проверку для получателя обмена. Эта позволяет выполнять проверку EDI для элементов данных набора транзакций, проверяя типы данных, ограничения длины, пустые элементы данных и конечных разделители.|
+|EDI Validation (Проверка EDI)|Установите этот флажок, чтобы выполнять проверку EDI для типов данных в соответствии со свойствами EDI схемы, ограничениями длины, пустыми элементами данных и конечными разделителями|
+|Extended Validation (Расширенная проверка)|Этот параметр позволяет включить расширенную проверку обмена, получаемого от отправителя при обмене. В дополнение к проверке типов данных XSD она включает в себя проверку длины поля, необязательности и числа повторов. Можно включить расширенную проверку, не включая проверку EDI, и наоборот.|
+|Разрешить начальные и конечные нули|Если выбрать этот параметр, то обмен EDI, полученный от какой-либо стороны, пройдет проверку, если элемент данных в обмене EDI не соответствует требованиям к длине из-за конечных пробелов, но соответствует этим требованиям после их удаления.|
+|Обрезать начальные и конечные нули|Если выбрать этот параметр, начальные и конечные нули будут обрезаться|
+|Trailing Separator (Конечный разделитель)|Если выбрать этот параметр, то обмен EDI, полученный от какой-либо стороны, пройдет проверку, если элемент данных в обмене EDI не соответствует требованиям к длине из-за начальных (или конечных) нулей или конечных пробелов, но соответствует этим требованиям после их удаления.</br></br>Выберите значение **Запрещено**, если хотите запретить конечные разделители в обмене, получаемом от отправителя. Если обмен содержит конечные разделители, он будет объявлен недопустимым.</br></br>Выберите значение **Необязательно**, чтобы принимать обмен с конечными разделителями или без них.</br></br>Выберите значение **Обязательно**, если получаемый обмен должен содержать конечные разделители.|
 
-After you select **OK** on the open blade:  
-12. Select the **Agreements** tile on the Integration Account blade and you will see the newly added agreement listed.  
-![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-4.png)   
+После нажатия кнопки **ОК** откроется колонка.
+12. Выберите элемент **Соглашения** в колонке "Учетная запись интеграции", и вы увидите новое соглашение в списке. ![](./media/app-service-logic-enterprise-integration-edifact/EDIFACT-4.png)
 
-## <a name="learn-more"></a>Learn more
-- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+## Подробнее
+- [Узнайте больше о пакете интеграции Enterprise.](./app-service-logic-enterprise-integration-overview.md "Узнайте о пакете интеграции Enterprise.")
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

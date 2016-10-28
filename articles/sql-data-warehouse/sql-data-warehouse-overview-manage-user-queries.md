@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Monitor user queries in Azure SQL Data Warehouse | Microsoft Azure"
-   description="Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse"
+   pageTitle="Мониторинг запросов пользователей в хранилище данных SQL Azure | Microsoft Azure"
+   description="Обзор вопросов, рекомендаций и задач, связанных с мониторингом запросов пользователей в хранилище данных SQL Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -16,41 +16,36 @@
    ms.date="08/17/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
+# Мониторинг запросов пользователей в хранилище данных SQL Azure
 
-# <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Monitor user queries in Azure SQL Data Warehouse
-
-Overview of the considerations, best practices, and tasks for monitoring user queries in SQL Data Warehouse.
-
+Обзор вопросов, рекомендаций и задач, связанных с мониторингом запросов пользователей в хранилище данных SQL.
 
 
-| Category                | Task or consideration                           | Description  |
+
+| Категория | Задача или рекомендация | Описание |
 | :-----------------------| :---------------------------------------------- | :----------- |
-| Slow performance        | Find a long-running user query                  | [Find long-running queries][] |
-| Concurrency             | Assign concurrent resources to user queries     | [Concurrency and workload management][] |
+| Низкая производительность | Поиск долго выполняющегося запроса пользователя | [Поиск долго выполняющихся запросов][] |
+| Параллелизм | Назначение параллельных ресурсов запросам пользователей | [Управление параллелизмом и рабочей нагрузкой][] |
 
 
 
 
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-For more management tips, head over to the [Management overview][].
+Дополнительные советы по управлению см. в статье [Управление базами данных в хранилище данных SQL Azure][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Find long-running queries]: sql-data-warehouse-manage-monitor.md
-[Concurrency and workload management]: sql-data-warehouse-develop-concurrency.md
-[Management overview]: sql-data-warehouse-overview-manage.md
+[Поиск долго выполняющихся запросов]: sql-data-warehouse-manage-monitor.md
+[Управление параллелизмом и рабочей нагрузкой]: sql-data-warehouse-develop-concurrency.md
+[Управление базами данных в хранилище данных SQL Azure]: sql-data-warehouse-overview-manage.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

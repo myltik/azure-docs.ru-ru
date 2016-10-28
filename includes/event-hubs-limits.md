@@ -1,17 +1,14 @@
-The following table lists quotas and limits specific to Azure Event Hubs. For more information about Event Hubs, see [Event Hubs Pricing](https://azure.microsoft.com/pricing/details/event-hubs/). For information about pricing and other quotas for Service Bus, see the [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/) overview.
+В следующей таблице перечислены квоты и ограничения для концентраторов событий Azure. Дополнительную информацию о концентраторах событий см. в разделе [Цены на концентраторы событий](https://azure.microsoft.com/pricing/details/event-hubs/). Сведения о ценах и других квотах для служебной шины см. в статье [Цены на использование служебной шины](https://azure.microsoft.com/pricing/details/service-bus/).
 
-| Limit                                            | Scope       | Type   | Behavior when exceeded                                                                                                 | Value    |
+| Ограничение | Область | Тип | Поведение при превышении квот | Значение |
 |--------------------------------------------------|-------------|--------|------------------------------------------------------------------------------------------------------------------------|----------|
-| Number of Event Hubs per namespace               | Namespace   | Static | Subsequent requests for creation of a new namespace will be rejected.                                                  | 10       |
-| Number of partitions per Event Hub               | Entity      | Static |  -                                                                                                                      | 32       |
-| Number of consumer groups per Event Hub          | Entity      | Static |  -                                                                                                                      | 20       |
-| Number of AMQP connections per namespace         | Namespace   | Static | Subsequent requests for additional connections will be rejected and an exception will be received by the calling code. | 5,000    |
-| Maximum event size                               | System-wide | Static |  -                                                                                                                      | 256KB    |
-| Number of non-epoch receivers per consumer group | Entity      | Static |  -                                                                                                                      | 5        |
-| Maximum retention period of event data           | Entity      | Static |  -                                                                                                                      | 1-7 days |
-| Maximum throughput units           | Namespace      | Static | Exceeding the throughput unit limit will cause your data to be throttled and generate a **ServerBusyException**. You can request a larger number of throughput units for a Standard tier by filing a support ticket. Additional throughput units are available in blocks of twenty on a committed purchase basis.                                                                                                                       | 20 |
+| Количество концентраторов событий на пространство имен | Пространство имен | Статическое | Последующие запросы на создание нового пространства имен будут отклонены. | 10 |
+| Число секций на концентратор событий | Сущность | Статическое | - | 32 |
+| Число групп потребителей на концентратор событий | Сущность | Статическое | - | 20 |
+| Число подключений AMQP на пространство имен | Пространство имен | Статическое | Последующие запросы на дополнительные подключения будут отклонены и вызывающим кодом будет получено исключение. | 5000 |
+| Максимальный размер события | Уровень системы | Статическое | - | 256 КБ |
+| Число получателей вне эпохи на группу потребителей | Сущность | Статическое | - | 5 |
+| Максимальный срок хранения данных о событиях | Сущности | Статическое | - | 1–7 дн |
+| Максимальное число единиц пропускной способности | Пространство имен | Статическое | Превышение предела единиц пропускной способности приведет к регулированию данных и порождению исключения **ServerBusyException**. Вы можете запросить большее количество единиц пропускной способности для уровня "Стандартный", отправив запрос в службу поддержки. Дополнительные единицы пропускной способности доступны блоками по 20 на основе подтвержденной покупки. | 20 |
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

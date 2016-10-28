@@ -1,66 +1,61 @@
 <properties
-    pageTitle="Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight using the HDInsight .NET SDK | Microsoft Azure"
-    description="Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using the HDInsight .NET SDK."
-    services="hdinsight"
-    documentationCenter=""
-    authors="mumian"
-    manager="jhubbard"
-    editor="cgronlun"
-    tags="azure-portal"/>
+   	pageTitle="Создание кластеров Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью пакета SDK для HDInsight .NET | Microsoft Azure"
+   	description="Узнайте, как создавать кластеры Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью пакета SDK для HDInsight .NET."
+   	services="hdinsight"
+   	documentationCenter=""
+   	authors="mumian"
+   	manager="jhubbard"
+   	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-data"
-    ms.date="09/02/2016"
-    ms.author="jgao"/>
+   	ms.service="hdinsight"
+   	ms.devlang="na"
+   	ms.topic="article"
+   	ms.tgt_pltfrm="na"
+   	ms.workload="big-data"
+   	ms.date="09/02/2016"
+   	ms.author="jgao"/>
 
-
-#<a name="create-linux-based-clusters-in-hdinsight-using-the-.net-sdk"></a>Create Linux-based clusters in HDInsight using the .NET SDK
+#Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. This document demonstrates how to create a Linux-based HDInsight cluster using the .NET SDK.
+Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из приложения .NET Framework. В этом документе показано, как создать кластер HDInsight под управлением Linux с помощью пакета SDK для .NET.
 
-> [AZURE.IMPORTANT] The steps in this document create a cluster with one worker node. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
+> [AZURE.IMPORTANT] Действия, описанные в этом документе, позволяют создать кластер с одним узлом рабочей роли. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
 >
-> For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+> Дополнительные сведения о размерах узлов и их стоимости см. в статье [Сведения о ценах на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-##<a name="prerequisites"></a>Prerequisites
+##Предварительные требования
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- __Visual Studio 2013 or 2015__
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- __Visual Studio 2013 или 2015__
 
-### <a name="access-control-requirements"></a>Access control requirements
+## Создание кластеров
 
-[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+1. Откройте Visual Studio 2013 или 2015.
 
-## <a name="create-clusters"></a>Create clusters
+2. Создайте новый проект Visual Studio со следующими параметрами:
 
-1. Open Visual Studio 2013 or 2015.
+    |Свойство|Значение|
+    |--------|-----|
+    |Шаблон|Templates/Visual C#/Windows/Console Application|
+    |Имя|CreateHDICluster|
 
-2. Create a new Visual Studio project with the following settings
+5. В меню **Средства** щелкните **Диспетчер пакетов Nuget**, а затем щелкните **Консоль диспетчера пакетов**.
 
-  	|Property|Value|
-  	|--------|-----|
-  	|Template|Templates/Visual C#/Windows/Console Application|
-  	|Name|CreateHDICluster|
-
-5. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**.
-
-6. Run the following command in the console to install the packages:
+6. Чтобы установить пакеты, выполните в консоли следующую команду:
 
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
 
-    These commands add .NET libraries and references to them to the current Visual Studio project.
+    Эти команды добавляют библиотеки .NET и ссылки на них в текущий проект Visual Studio.
 
-6. From Solution Explorer, double-click **Program.cs** to open it, paste the following code, and provide values for the variables:
+6. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте указанный ниже код и укажите значения для переменных.
 
         using System;
         using System.Threading;
@@ -182,16 +177,16 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                 }
             }
         }
-    
-10. Replace the class member values.
+	
+10. Замените значения членов класса.
 
-7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
+7. Нажмите клавишу **F5** для запуска приложения. Должно открыться окно консоли, в котором отображается состояние приложения. Появится запрос на ввод учетных данных учетной записи Azure. На подготовку кластера HDInsight может уйти несколько минут (обычно около 15).
 
-## <a name="use-bootstrap"></a>Use bootstrap
+## Использование начальной загрузки
 
-For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+Дополнительную информацию см. в статье [Настройка кластеров HDInsight с помощью начальной загрузки](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-Modify the sample in [Create clusters](#create-clusters) to configure a Hive setting:
+Измените пример в разделе [Создание кластеров](#create-clusters) для настройки параметра Hive.
 
     static void Main(string[] args)
     {
@@ -315,11 +310,11 @@ Modify the sample in [Create clusters](#create-clusters) to configure a Hive set
     }
 
 
-## <a name="use-script-action"></a>Use Script Action
+## Использование действия сценария
 
-For more inforamtion, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+Дополнительную информацию см. в статье [Настройка кластеров HDInsight под управлением Linux с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md).
 
-Modify the sample in [Create clusters](#create-clusters) to call a Script Action to install R:
+Измените пример в разделе [Создание кластеров](#create-clusters) для вызова действия сценария для установки R.
 
     static void Main(string[] args)
     {
@@ -363,44 +358,40 @@ Modify the sample in [Create clusters](#create-clusters) to call a Script Action
         System.Console.ReadLine();
     }
 
-##<a name="next-steps"></a>Next steps
+##Дальнейшие действия
 
-Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster. 
+Теперь, когда вы успешно создали кластер HDInsight, обратитесь к следующим статьям, чтобы научиться работать с кластером.
 
-###<a name="hadoop-clusters"></a>Hadoop clusters
+###Кластеры Hadoop
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
+* [Использование Hive с HDInsight](hdinsight-use-hive.md)
+* [Использование Pig с HDInsight](hdinsight-use-pig.md)
+* [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-###<a name="hbase-clusters"></a>HBase clusters
+###Кластеры HBase
 
-* [Get started with HBase on HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
-* [Develop Java applications for HBase on HDInsight](hdinsight-hbase-build-java-maven-linux.md)
+* [Начало работы с HBase в HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Разработка приложений Java для HBase в HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
-###<a name="storm-clusters"></a>Storm clusters
+###Кластеры Storm
 
-* [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python-topology.md)
-* [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Разработка приложений Java для Storm в HDInsight](hdinsight-storm-develop-java-topology.md)
+* [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python-topology.md)
+* [Развертывание и мониторинг топологий с помощью Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-###<a name="spark-clusters"></a>Spark clusters
+###Кластеры Spark
 
-* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
+* [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
+* [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
+* [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
 
-### <a name="run-jobs"></a>Run jobs
+### Выполнение заданий
 
-- [Run Hive jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-- [Run Pig jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-pig-dotnet-sdk.md)
-- [Run Sqoop jobs in HDInsight using .NET SDK](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
-- [Run Oozie jobs in HDInsight](hdinsight-use-oozie.md)
+- [Выполнение заданий Hive в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+- [Выполнение заданий Pig в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+- [Выполнение заданий Sqoop в HDInsight с помощью пакета SDK для .NET](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+- [Запуск заданий Oozie в HDInsight](hdinsight-use-oozie.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

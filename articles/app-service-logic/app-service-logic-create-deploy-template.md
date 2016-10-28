@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a logic app deployment template | Microsoft Azure"
-   description="Learn how to create a logic app deployment template and use it for release management"
+   pageTitle="Создание шаблона развертывания приложения логики | Microsoft Azure"
+   description="Узнайте, как создать шаблон развертывания приложения логики и использовать его для управления выпусками."
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,78 +16,73 @@
    ms.date="05/25/2016"
    ms.author="jehollan"/>
 
+# Создание шаблона развертывания приложения логики
 
-# <a name="create-a-logic-app-deployment-template"></a>Create a logic app deployment template
+После создания приложения логики на его основе можно создать шаблон Azure Resource Manager. Таким образом вы сможете легко развернуть приложение логики в любой среде или группе ресурсов, где это может потребоваться. Общие сведения о шаблонах Resource Manager см. в статьях [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md) и [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](../resource-group-template-deploy.md).
 
-After a logic app has been created, you might want to create it as an Azure Resource Manager template. This way, you can easily deploy the logic app to any environment or resource group where you might need it. For an introduction to Resource Manager templates, be sure to check out the articles on [authoring Azure Resource Manager templates](../resource-group-authoring-templates.md) and [deploying resources by using Azure Resource Manager templates](../resource-group-template-deploy.md).
+## Шаблон развертывания приложения логики
 
-## <a name="logic-app-deployment-template"></a>Logic app deployment template
+Приложение логики состоит из трех основных компонентов:
 
-A logic app has three basic components:
+* **Ресурс приложения логики**. Этот ресурс содержит такие сведения, как тарифный план, расположение и определение рабочего процесса.
+* **Определение рабочего процесса**. Это то, что отображается в представлении кода. В него входит определение действий процесса и принцип работы механизма. Это свойство `definition` ресурса приложения логики.
+* **Подключения**. Это отдельные ресурсы для безопасного хранения метаданных, связанных со всеми подключениями соединителя, таких как строка подключения и маркер доступа. Они указываются в разделе `parameters` ресурса приложения логики.
 
-* **Logic app resource**. This resource contains information about things like pricing plan, location, and the workflow definition.
-* **Workflow definition**. This is what is seen in code view. It includes the definition of the steps of the flow and how the engine should execute. This is the `definition` property of the logic app resource.
-* **Connections**. These are separate resources that securely store metadata about any connector connections, such as a connection string and an access token. You reference these in a logic app in the `parameters` section of the logic app resource.
+Вы можете просмотреть все эти компоненты имеющихся приложений логики с помощью таких инструментов, как [обозреватель ресурсов Azure](http://resources.azure.com).
 
-You can view all of these pieces for existing logic apps by using a tool like [Azure Resource Explorer](http://resources.azure.com).
+Чтобы создать шаблон для приложения логики, который можно использовать для развертываний групп ресурсов, необходимо определить ресурсы и при необходимости параметризовать их. Например, если развертывание осуществляется в тестовой, рабочей среде или в среде разработки, скорее всего, в каждой из этих сред потребуется использовать различные строки подключения к базе данных SQL. Или выполнить развертывания в разных подписках или группах ресурсов.
 
-To make a template for a logic app to use with resource group deployments, you need to define the resources and parameterize as needed. For example, if you're deploying to a development, test, and production environment, you'll likely want to use different connection strings to a SQL database in each environment. Or, you might want to deploy within different subscriptions or resource groups.  
+## Создание шаблона развертывания приложения логики
 
-## <a name="create-a-logic-app-deployment-template"></a>Create a logic app deployment template
+При создании шаблона для развертывания приложения логики могут быть полезными некоторые инструменты. Его можно создать вручную, используя указанные выше ресурсы и настроив требуемые параметры. Также можно использовать модуль PowerShell для [создания шаблона приложения логики](https://github.com/jeffhollan/LogicAppTemplateCreator). Этот модуль с открытым исходным кодом оценивает приложение логики и все подключения, используемые в этом приложении, а затем создает ресурсы шаблона с необходимыми параметрами для развертывания. Например, если приложение логики получило сообщение из очереди служебной шины Azure и добавило данные в базу данных SQL Azure, инструмент сохранит всю логику оркестрации и параметризует строки подключения SQL и служебной шины, чтобы их можно было настроить во время развертывания.
 
-A few tools can assist you as you create a logic app deployment template. You can author by hand, that is, by using the resources already discussed here to create parameters as needed. Another option is to use a [logic app template creator](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell module. This open-source module first evaluates the logic app and any connections that it is using, and then generates template resources with the necessary parameters for deployment. For example, if you have a logic app that receives a message from an Azure Service Bus queue and adds data to an Azure SQL database, the tool will preserve all of the orchestration logic and parameterize the SQL and Service Bus connection strings so that they can be set at deployment.
+>[AZURE.NOTE] Подключения должны относиться к той же группе ресурсов, что и приложение логики.
 
->[AZURE.NOTE] Connections must be within the same resource group as the logic app.
+### Установка модуля PowerShell для шаблона приложения логики
 
-### <a name="install-the-logic-app-template-powershell-module"></a>Install the logic app template PowerShell module
+Проще всего установить модуль через [коллекцию PowerShell](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1) с использованием команды `Install-Module -Name LogicAppTemplate`.
 
-The easiest way to install the module is via the [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), by using the command `Install-Module -Name LogicAppTemplate`.  
+Также можно установить модуль PowerShell вручную:
 
-You also can install the PowerShell module manually:
+1. Скачайте последний выпуск [модуля для создания шаблона приложения логики](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).
+1. Извлеките содержимое папки в папку модуля PowerShell (обычно это `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
-1. Download the latest release of the [logic app template creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
-1. Extract the folder in your PowerShell module folder (usually `%UserProfile%\Documents\WindowsPowerShell\Modules`).
+Чтобы модуль поддерживал любой маркер доступа клиента или подписки, рекомендуется использовать программу командной строки [ARMClient](https://github.com/projectkudu/ARMClient). В этой [записи блога](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) программа ARMClient рассматривается подробней.
 
-For the module to work with any tenant and subscription access token, we recommend that you use it with the [ARMClient](https://github.com/projectkudu/ARMClient) command line tool.  This [blog post ](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) discusses ARMClient in more detail.
+### Создание шаблона приложения логики с помощью PowerShell
 
-### <a name="generate-a-logic-app-template-by-using-powershell"></a>Generate a logic app template by using PowerShell
-
-After PowerShell is installed, you can generate a template by using the following command:
+После установки PowerShell можно создать шаблон, используя следующую команду:
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
-`$SubscriptionId` is the Azure subscription ID. This line first gets an access token via ARMClient, then pipes it through to the PowerShell script, and then creates the template in a JSON file.
+`$SubscriptionId` — это идентификатор подписки Azure. Эта строка сначала получает маркер доступа через программу ARMClient, затем передает его по конвейеру в сценарий PowerShell и создает шаблон в JSON-файл.
 
-## <a name="add-parameters-to-a-logic-app-template"></a>Add parameters to a logic app template
+## Добавление параметров для шаблона приложения логики
 
-After you create your logic app template, you can continue to add or modify parameters that you might need. For example, if your definition includes a resource ID to an Azure function or nested workflow that you plan to deploy in a single deployment, you can add more resources to your template and parameterize IDs as needed. The same applies to any references to custom APIs or Swagger endpoints you expect to deploy with each resource group.
+После создания шаблона приложения логики можно добавлять или изменять любые дополнительные параметры. Например, если определение включает идентификатор ресурса в функции Azure или вложенном рабочем процессе, где планируется одно развертывание, можно добавить дополнительные ресурсы для шаблона и при необходимости параметризовать идентификаторы. То же касается и ссылок на пользовательские интерфейсы API или конечные точки Swagger, которые будут развернуты в каждой группе ресурсов.
 
-## <a name="deploy-a-logic-app-template"></a>Deploy a logic app template
+## Развертывание шаблона приложения логики
 
-You can deploy your template by using any number of tools, including PowerShell, REST API, Visual Studio Release Management, and the Azure Portal Template Deployment. See this article about [deploying resources by using Azure Resource Manager templates](../resource-group-template-deploy.md) for additional information. Also, we recommend that you create a [parameter file](../resource-group-template-deploy.md#parameter-file) to store values for the parameter.
+Шаблон можно развернуть, используя любое количество инструментов, включая PowerShell, REST API, управление выпусками Visual Studio или портал Azure. Дополнительные сведения см. в статье [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](../resource-group-template-deploy.md). Рекомендуется также создать [файл параметров](../resource-group-template-deploy.md#parameter-file) для хранения их значений.
 
-### <a name="authorize-oauth-connections"></a>Authorize OAuth connections
+### Авторизация подключений OAuth
 
-After deployment, the logic app works end-to-end with valid parameters. However, OAuth connections still will need to be authorized to generate a valid access token. You can do this by opening the logic app in the designer and then authorizing connections. Or, if you want to automate, you can use a script to consent to each OAuth connection. There's an example script on GitHub under the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
+После развертывания приложение логики будет полноценно работать с допустимыми параметрами. Но чтобы создать допустимый маркер доступа, необходимо авторизовать подключения OAuth. Это можно сделать, открыв приложение логики в конструкторе и авторизовав подключения. Или, чтобы автоматизировать эту процедуру, можно использовать сценарий, предоставляющий разрешение на каждое подключение OAuth. На GitHub есть пример сценария в проекте [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth).
 
-## <a name="visual-studio-release-management"></a>Visual Studio Release Management
+## Управление выпусками Visual Studio
 
-A common scenario for deploying and managing an environment is to use a tool like Visual Studio Release Management, with a logic app deployment template. Visual Studio Team Services includes a [Deploy Azure Resource Group](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) task that you can add to any build or release pipeline. You need to have a [service principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) for authorization to deploy, and then you can generate the release definition.
+При развертывании среды и управлении ею часто используется управление выпусками Visual Studio и шаблон развертывания приложения логики. Visual Studio Team Services содержит задачу [развертывания группы ресурсов Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup), которую можно добавить в любую сборку или конвейер выпуска. Для авторизации развертывания требуется [субъект-служба](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). При ее наличии можно создать определение выпуска.
 
-1. In Release Management, to create a new definition, select **Empty**  to start with an empty definition.
+1. Для создания нового определения в управлении выпусками выберите пункт **Пусто**, чтобы открыть пустое определение.
 
-    ![Create a new, empty definition][1]   
+    ![Создание нового пустого определения][1]
 
-1. Choose any resources you need for this. This likely will be the logic app template generated manually or as part of the build process.
-1. Add an **Azure Resource Group Deployment** task.
-1. Configure with a [service principal](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/), and reference the Template and Template Parameters files.
-1. Continue to build out steps in the release process for any other environment, automated test, or approvers as needed.
+1. Выберите все необходимые ресурсы. Это скорее всего будет шаблон приложения логики, созданный вручную или в процессе сборки.
+1. Добавьте задачу **развертывания группы ресурсов Azure**.
+1. Настройте использование [субъекта-службы](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) и добавьте ссылку на файлы шаблона и параметров шаблона.
+1. При необходимости выполните соответствующие действия в процессе выпуска для других сред, автоматических тестов или механизмов утверждения.
 
 <!-- Image References -->
 [1]: ./media/app-service-logic-create-deploy-template/emptyReleaseDefinition.PNG
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

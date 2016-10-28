@@ -15,34 +15,34 @@ articles/sql-database/sql-database-connect-query.md
 -->
 
 
-1. Log in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
+1. Войдите на портал [Azure](https://portal.azure.com/) по адресу http://portal.azure.com/.
 
-2. In the left banner, click **BROWSE ALL**. The **Browse** blade is displayed.
+2. В заголовке слева щелкните **ПРОСМОТРЕТЬ ВСЕ**. Отобразится колонка **Обзор**.
 
-3. Scroll and click **SQL servers**. The **SQL servers** blade is displayed.
+3. Найдите и выберите **Серверы SQL Server**. Отобразится колонка **Серверы SQL Server**.
 
-    ![Find your Azure SQL Database server in the portal][b21-FindServerInPortal]
+	![Поиск своего сервера Базы данных SQL Azure на портале][b21-FindServerInPortal]
 
-4. For convenience, click the minimize control on the earlier **Browse** blade.
+4. Для удобства щелкните элемент управления "Свернуть" в предыдущей колонке **Обзор**.
 
-5. In the filter text box, start typing the name of your server. Your row is displayed.
+5. В текстовом поле фильтра начните вводить имя своего сервера. Отобразится строка.
 
-6. Click the row for your server. A blade for your server is displayed.
+6. Щелкните строку с вашим сервером. Отобразится колонка для вашего сервера.
 
-7. On your server blade, click **Settings**. The **Settings** blade is displayed.
+7. На колонке вашего сервера нажмите кнопку **Параметры**. Отобразится колонка **Параметры**.
 
-8. Click **Firewall**. The **Firewall Settings** blade is displayed.
+8. Щелкните пункт **Брандмауэр**. Отобразится колонка **Параметры брандмауэра**.
 
-    ![Click Settings > Firewall][b31-SettingsFirewallNavig]
+	![Последовательно выберите пункты "Параметры" > "Брандмауэр"][b31-SettingsFirewallNavig]
 
-9. Click **Add Client IP**. Type in a name for your new rule into the first text box.
+9. Щелкните **Добавить IP-адрес клиента**. В первом текстовом поле введите имя для нового правила.
 
-10. Type in the low and high IP address values for the range you want to enable.
-    - It can be handy to have the low value end with **.0** and the high with **.255**.
+10. Введите нижнее и верхнее значения IP-адресов для требуемого диапазона.
+	- Удобными могут оказаться нижнее значение, оканчивающееся на **.0**, и верхнее — на **.255**.
 
-    ![Add an IP address range to allow][b41-AddRange]
+	![Добавьте допустимый диапазон IP-адресов][b41-AddRange]
 
-11. Click **Save**.
+11. Щелкните **Сохранить**.
 
 
 
@@ -63,7 +63,4 @@ includes/sql-database-include-ip-address-22-v12portal.md
 ? includes/sql-database-include-ip-address-*.md
 -->
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0330_2016-->

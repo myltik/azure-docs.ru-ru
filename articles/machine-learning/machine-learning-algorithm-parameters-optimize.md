@@ -1,84 +1,73 @@
-<properties
-    pageTitle="Choose parameters to optimize your algorithms in Azure Machine Learning | Microsoft Azure"
-    description="Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning."
-    services="machine-learning"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun"/>
+<properties 
+	pageTitle="Как выбрать параметры для оптимизации алгоритмов в Машинном обучении Azure | Microsoft Azure" 
+	description="В этой статье содержится информация о том, как выбрать оптимальный набор параметров для алгоритма в Машинном обучении Azure." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/12/2016" 
+	ms.author="bradsev" />
 
 
+# Как выбрать параметры для оптимизации алгоритмов в Машинном обучении Azure
 
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Choose parameters to optimize your algorithms in Azure Machine Learning
-
-This topic describes how to choose the right hyperparameter set for an algorithm in Azure Machine Learning. Most machine learning algorithms have parameters to set. When you train a model, you need to provide values for those parameters. The efficacy of the trained model depends on the model parameters that you choose. The process of finding the optimal set of parameters is known as *model selection*.
+В этой статье описывается, как выбрать правильный набор гиперпараметров для алгоритма в Машинном обучении Azure. В большинстве алгоритмов машинного обучения есть параметры, которые необходимо настроить. При обучении модели необходимо задать значения для этих параметров. Эффективность обученной модели зависит от выбираемых для нее параметров. Процесс определения оптимального набора параметров называется выбором модели.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-There are various ways to do model selection. In machine learning, cross-validation is one of the most widely used methods for model selection, and it is the default model selection mechanism in Azure Machine Learning. Because Azure Machine Learning supports both R and Python, you can always implement their own model selection mechanisms by using either R or Python.
+Модель можно выбрать несколькими способами. Один из наиболее часто используемых методов выбора модели в машинном обучении — перекрестная проверка. Этот метод также является механизмом выбора модели по умолчанию в Машинном обучении Azure. Так как в Машинном обучении Azure поддерживается как язык R, так и Python, вы всегда можете реализовать собственный механизм выбора модели, используя один из этих языков.
 
-There are four steps in the process of finding the best parameter set:
+Существует четыре этапа определения оптимального набора параметров.
 
-1.  **Define the parameter space**: For the algorithm, first decide the exact parameter values you want to consider.
-2.  **Define the cross-validation settings**: Decide how to choose cross-validation folds for the dataset.
-3.  **Define the metric**: Decide what metric to use for determining the best set of parameters, such as accuracy, root mean squared error, precision, recall, or f-score.
-4.  **Train, evaluate, and compare**: For each unique combination of the parameter values, cross-validation is carried out by and based on the error metric you define. After evaluation and comparison, you can choose the best-performing model.
+1.	**Определение пространства параметров**: сначала мы определяем точные значения параметров, которые нужно учесть для алгоритма.
+2.	**Определение параметров перекрестной проверки**: далее нам необходимо определить способ выбора сверток перекрестной проверки для набора данных.
+3.	**Определение метрики**: затем нужно выбрать метрику, которая будет использоваться для определения оптимального набора параметров, таких как точность, среднеквадратическая погрешность, прецизионность, отзыв или F-оценка.
+4.	**Обучение, оценка и сравнение**: после этого для каждого уникального сочетания значений параметров на основе выбранной пользователем метрики погрешности выполняется перекрестная проверка. На этом этапе можно выбрать оптимальную для выполнения модель.
 
-The following image illustrates shows how this can be achieved in Azure Machine Learning.
+В следующем эксперименте показано, как это можно сделать в Машинном обучении Azure.
 
-![Find the best parameter set](./media/machine-learning-algorithm-parameters-optimize/fig1.png)
+![рисунок 1](./media/machine-learning-algorithm-parameters-optimize/fig1.png)
+ 
+## Определение пространства параметров
+Набор параметров можно определить на этапе инициализации модели. На панели параметров всех алгоритмов машинного обучения есть два режима учителя: **Один параметр** и **Диапазон параметров**. Нам необходимо выбрать режим **Диапазон параметров** (см. рис. 1). Этот режим позволяет вводить несколько значений для каждого параметра. Значения можно ввести в текстовое поле через запятую. В качестве альтернативы для определения минимального и максимального количества точек в сетке, а также общего количества создаваемых точек можно использовать параметр **Использовать построитель диапазонов**. По умолчанию значения параметров отображаются на линейной шкале. Но если установлен флажок **Логарифмическая шкала**, то значения будут отображаться на логарифмической шкале (т. е. соотношение соседних точек остается стабильным и не меняется). Для параметров целочисленного типа диапазон можно определить с помощью дефиса «-», например "1-10". В этом примере все целые числа от 1 до 10 (включая оба этих числа) образуют набор параметров. Также поддерживается смешанный режим, например "1-10, 20, 50". В этом случае, помимо чисел от 1 до 10, в набор параметров также будут добавлены числа 20 и 50.
+  
+![рисунок 2](./media/machine-learning-algorithm-parameters-optimize/fig2.png) ![image3](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
 
-## <a name="define-the-parameter-space"></a>Define the parameter space
-You can define the parameter set at the model initialization step. The parameter pane of all machine learning algorithms has two trainer modes: *Single Parameter* and *Parameter Range*. Choose Parameter Range mode. In Parameter Range mode, you can enter multiple values for each parameter. You can enter comma-separated values in the text box.
+## Определение свертки перекрестной проверки
+Модуль [Секционирование и выборка][partition-and-sample] используется для назначения сверток данным в случайном порядке. На следующем рисунке показан пример конфигурации для модуля, где в качестве количества сверток задано число 5 и выбран параметр случайного присвоения номеров сверток экземплярам выборки.
 
-![Two-class boosted decision tree, single parameter](./media/machine-learning-algorithm-parameters-optimize/fig2.png)
-
- Alternately, you can define the maximum and minimum points of the grid and the total number of points to be generated with **Use Range Builder**. By default, the parameter values are generated on a linear scale. But if **Log Scale** is checked, the values are generated in the log scale (that is, the ratio of the adjacent points is constant instead of their difference). For integer parameters, you can define a range by using a hyphen. For example, “1-10” means that all integers between 1 and 10 (both inclusive) form the parameter set. A mixed mode is also supported. For example, the parameter set “1-10, 20, 50” would include integers 1-10, 20, and 50.
-
-![Two-class boosted decision tree, parameter range](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
-
-## <a name="define-cross-validation-folds"></a>Define cross-validation folds
-The [Partition and Sample][partition-and-sample] module can be used to randomly assign folds to the data. In the following sample configuration for the module, we define five folds and randomly assign a fold number to the sample instances.
-
-![Partition and sample](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
+![image4](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
 
-## <a name="define-the-metric"></a>Define the metric
-The [Tune Model Hyperparameters][tune-model-hyperparameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. In addition to other information regarding training the model, the **Properties** pane of this module includes the metric for determining the best parameter set. It has two different drop-down list boxes for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm, the regression metric is ignored and vice versa. In this specific example, the metric is **Accuracy**.   
+## Определение метрики
+Модуль [Гиперпараметры модели настройки][tune-model-hyperparameters] позволяет эмпирически выбрать оптимальный набор параметров для заданного алгоритма и набора данных. Помимо другой информации, касающейся обучения модели, на панели свойств этого модуля содержится метрика, которая используется для определения оптимального набора параметров. На этой панели также есть два разных раскрывающихся списка для алгоритмов классификации и регрессии соответственно. Если рассматривается алгоритм классификации, то метрика регрессии игнорируется и наоборот. В этом примере в качестве метрики выбрана **Точность**.
+ 
+![рисунок 5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
-![Sweep parameters](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
+## Обучение, оценка и сравнение  
+Тот же модуль [Tune Model Hyperparameters][tune-model-hyperparameters] \(Гиперпараметры модели настройки) обучает все модели, которые соответствуют набору параметров, оценивает различные метрики, а затем выводит оптимально обученную модель на основе выбранной вами метрики. Для этого модуля необходимо обязательно предоставить следующие входные данные:
 
-## <a name="train,-evaluate,-and-compare"></a>Train, evaluate, and compare  
-The same [Tune Model Hyperparameters][tune-model-hyperparameters] module trains all the models that correspond to the parameter set, evaluates various metrics, and then creates the best-trained model based on the metric you choose. This module has two mandatory inputs:
+* необученный ученик;
+* набор данных.
 
-* The untrained learner
-* The dataset
+Для модуля также можно указать дополнительный набор данных. Мы подключаем набор данных с информацией о свертке к обязательному набору данных. Если для набора данных не назначена информация о свертке, по умолчанию будет автоматически выполняться перекрестная проверка 10 сверток. Если свертка не назначена, а на дополнительный порт набора данных подан проверочный набор данных, то будет выбран режим тестового обучения, при котором первый набор данных используется для обучения модели с каждым сочетанием параметров. А затем в проверочном наборе данных выполняется оценка модели. Левый порт вывода модуля отображает различные метрики в качестве функции значений параметров. Правый порт вывода предоставляет обученную модель, соответствующую оптимальной модели, по каждой выбранной метрике (в данном случае — точности).
 
-The module also has an optional dataset input. Connect the dataset with fold information to the mandatory dataset input. If the dataset is not assigned any fold information, then a 10-fold cross-validation is automatically executed by default. If the fold assignment is not done and a validation dataset is provided at the optional dataset port, then a train-test mode is chosen and the first dataset is used to train the model for each parameter combination.
+![рисунок 6](./media/machine-learning-algorithm-parameters-optimize/fig6a.png) ![рисунок 7](./media/machine-learning-algorithm-parameters-optimize/fig6b.png)
+ 
+Чтобы увидеть точные выбранные параметры, необходимо выполнить визуализацию правого порта вывода. Эту модель можно использовать для оценки проверочного набора или в развернутой веб-службе после сохранения обученной модели.
 
-![Boosted decision tree classifier](./media/machine-learning-algorithm-parameters-optimize/fig6a.png)
-
-The model is then evaluated on the validation dataset. The left output port of the module shows different metrics as functions of parameter values. The right output port gives the trained model that corresponds to the best-performing model according to the chosen metric (**Accuracy** in this case).  
-
-![Validation dataset](./media/machine-learning-algorithm-parameters-optimize/fig6b.png)
-
-You can see the exact parameters chosen by visualizing the right output port. This model can be used in scoring a test set or in an operationalized web service after saving as a trained model.
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
 [tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+ 
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

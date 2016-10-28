@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement User Interface - Reach Criterion" 
-   description="Learn how to use targeting criteria to send push campaigns to a select subset of your users using Azure Mobile Engagement" 
+   pageTitle="Пользовательский интерфейс Azure Mobile Engagement — условия охвата" 
+   description="Узнайте, как в службе Azure Mobile Engagement можно организовать кампанию по рассылке push-уведомлений выбранному подмножеству пользователей." 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -17,71 +17,70 @@
    ms.author="piyushjo"/>
 
 
+# Организация кампаний по рассылке push-уведомлений выбранному подмножеству пользователей с помощью условий таргетинга
 
-# <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>How to use targeting criteria to send push campaigns to a select subset of your users
+Выбор целевой аудитории с помощью определенных условий, доступных после нажатия кнопки «Создать условия», — одна из важнейших возможностей, предусмотренных в службе Azure Mobile Engagement. Благодаря этой возможности вы можете отправлять push-уведомления только тем клиентам, для которых эти уведомления представляют ценность — больше никаких рассылок всем без разбора. Определив свою аудиторию с помощью стандартных условий и симитировав рассылку, вы сможете определить, сколько пользователей получит ваше уведомление.
 
-Targeting your audience by specific criteria with the "New Criteria" button is one of the most powerful concepts in Azure Mobile Engagement that helps you send relevant push notifications that the customers will respond to instead of Spamming everyone. You can limit your audience based on standard criteria and simulate pushes to determine how many people will receive the notification.
+**См. также:**
 
-**See also:**
+- [Создание кампании по рассылке push-уведомлений и управление ею][Link 27]
 
-- [UI Documentation - Reach - New Push Campaign][Link 27]
+## Вот некоторые из возможных условий выбора целевой аудитории.
+- **Технические данные.** Вы можете выбирать целевую аудиторию, используя те же технические сведения, которые можно увидеть в разделах аналитики и мониторинга. **См. также:** [Документация по пользовательскому интерфейсу — аналитика][Link 15], [Документация по пользовательскому интерфейсу — монитор][Link 16]
+- **Местоположение**. Приложения, которые используют данные о геозонах и местоположении в реальном времени, в качестве условия выбора целевой аудитории могут использовать сведения о географическом положении, для определения которого используется GPS-приемник. Сведения о положении мобильного телефона, определяемом только по сотовой или беспроводной сети, тоже можно использовать для таргетинга уведомлений. Использование данных о местоположении, определяемом через GPS-приемник, а также по сотовой или беспроводной сети необходимо активировать из пакета SDK. **См. также:** [Документация по пакету SDK для интеграции с iOS][Link 5] и [Документация по пакету SDK для интеграции с Android][Link 5].
+- **Отзывы о кампании**. Выбирать аудиторию можно также на основе отзывов клиентов о предыдущей кампании. Эти данные доступны в разделах объявлений, опросов и отправленных данных. Отзывы после первых двух или трех рассылок позволяют лучше понять целевую аудиторию и в дальнейшем проводить кампании более эффективно. Это условие может также использоваться для отфильтровывания пользователей, которые уже получили похожее уведомление. Для этого в настройках кампании нужно указать, что уведомления не должны отправляться пользователям, которые уже получили определенное уведомление из предыдущей кампании. Вы даже можете исключать из списка получателей новых уведомлений пользователей, которые являются целевой аудиторией другой проводимой кампании. **См. также:** [Управление уникальным содержимым различных типов кампаний по рассылке push-уведомлений][Link 29].
+- **Отслеживание данных об установке**. Вы можете отслеживать информацию, используя данные о месте установки вашего приложения. **См. также:** [Управление глобальными параметрами приложения][Link 20].
+- **Профиль пользователя**. Вы можете выбирать целевую аудиторию, исходя из стандартных сведений о пользователях и данных о настраиваемом приложении, которое вы создали. Это подразумевает пользователей, вошедших в данный момент в систему, и пользователей, которые ответили на определенные вопросы в самом приложении. В этом случае не учитывается отклик пользователей на предыдущие кампании. В этом списке отображаются все сведения, которые вы определили для своего приложения.
+- Сегменты. Выбирать целевую аудиторию можно также, исходя из сегментов, которые вы создали на основе определенного поведения пользователей. Такое поведение обычно определяется несколькими условиями. В этом списке отображаются все сегменты, которые вы определили для своего приложения. **См. также:** [Создание сегментов пользователей для определения особенностей использования и управление этими сегментами][Link 18].
+- **Сведения о приложении**. В разделе «Параметры» можно создать теги со сведениями о настраиваемом приложении, которые помогут отслеживать поведение пользователей. **См. также:** [Управление глобальными параметрами приложения][Link 20].
 
-## <a name="audience-criteria-can-include:"></a>Audience criteria can include:
-- **Technicals: ** You can target based on the same technical information you can see in the Analytics and Monitor sections. **See also:** [UI Documentation - Analytics][Link 15],  [UI Documentation - Monitor][Link 16]
-- **Location:** Applications that use "Real time location reporting" with Geo-Fencing can use Geo-Location as a criteria to target an audience from the GPS location. "Lazy Area Location Reporting" call also be used to target an audience from the cell phone location ("Real time location reporting" and "Lazy Area Location Reporting" must be activated from the SDK). **See also:** [SDK Documentation - iOS -  Integration][Link 5], [SDK Documentation - Android -  Integration][Link 5]
-- **Reach Feedback:** You can target your audience based on their feedback from previous reach notifications through reach feedback from Announcements, Polls, and Data Pushes. This enables you to better target your audience after two or three reach campaigns than you could the first time. It can also be used to filter out users who already received a notification with similar content, by setting a campaign to NOT be sent to users who already received a specific previous campaign. You can even exclude users who are included a specific campaign that is still active from receiving new Pushes. **See also:** [UI Documentation -  Reach - Push Content][Link 29]
-- **Install Tracking:** You can track information based on where your users installed your App. **See also:** [UI Documentation -  Settings][Link 20]
-- **User Profile:** You can target based on standard user information and you can target based on the custom app info that you have created. This includes users who are currently logged in and users that have answered specific questions you have asked them to set in the app itself instead of just how they have responded to previous campaigns. All of your App Info's defined for your app show up on this list.
-- Segments: You can also target based on segments that you have created based on specific user behavior containing multiple criteria. All of your segments defined for your app show up on this list. **See also:** [UI Documentation -  Segments][Link 18]
-- **App Info:** Custom App Info Tags can be created from “Settings” to track user behavior. **See also:** [UI Documentation -  Settings][Link 20]
+## Пример: 
+Чтобы разослать объявление только пользователям, которые что-то покупали внутри приложения, сделайте вот что.
 
-## <a name="example:"></a>Example: 
-If you want to push an announcement only to the sub-set of your users that have performed an in-app purchase action.
-
-1. Go to your application settings page, select the "App info" menu and select "New app info"
-2. Register a new Boolean app info called "inAppPurchase"
-3. Make your application set this app info to "true" when the user successfully performs an in-app purchase (by using the sendAppInfo("inAppPurchase", ...) function)
-4. If you don't want to do this from your application, you can do it from your backend by using the device API)
-5. Then, you just need to create your announcement, with a criterion limiting your audience to users having "inAppPurchase" set to "true")
+1. Перейдите на страницу параметров приложения, откройте меню App info (Сведения о приложении) и выберите пункт New app info (Создать сведения о приложении).
+2. Зарегистрируйте новую информацию с логическими значениями и назовите ее inAppPurchase.
+3. Настройте свое приложение таким образом, чтобы оно указывало для этой информации значение true, когда пользователь что-то покупает в приложении (используйте функцию sendAppInfo ("inAppPurchase", ...)).
+4. Это можно сделать как в самом приложении, так и на сервере через API устройства.
+5. Затем создайте объявление и добавьте в него условие, сужающее аудиторию только до тех пользователей, которые сделали покупку в приложении (inAppPurchase = true).
  
-> Note: Targeting based on criteria other than app info tags requires Azure Mobile Engagement to gather information from your users' devices before the push is sent and so can cause a delay. Complex push configuration options (like updating badges) can also delay pushes. Using a "one shot" campaign from the Push API is the absolute fastest push method in Azure Mobile Engagement. Using only app info tags as push criteria for a Reach campaign (either from the Reach API or the UI) is the next fastest method since app info tags are stored on the server side. Using other targeting criteria for a push campaign is the most flexible but slowest push method since Azure Mobile Engagement has to query the devices in order to send the campaign.
+> Примечание. Для выбора целевой аудитории на основе условий, отличных от тегов со сведениями о приложении, нужно, чтобы служба Azure Mobile Engagement собрала сведения с пользовательских устройств. Сбор сведений происходит до отправки push-уведомлений, что может привести к задержке рассылки. Использование расширенных параметров push-уведомлений (например, обновление индикаторов событий) также может привести к задержке рассылки. Использование одноразовой кампании через API push-уведомлений — самый быстрый способ отправки push-уведомлений в Azure Mobile Engagement. Второй по скорости способ рассылки рекламы — отправка push-уведомлений с использованием тегов со сведениями о приложении (через API охвата или пользовательский интерфейс), так эти теги хранятся на сервере. Другие условия таргетинга push-уведомлений предлагают наибольшую гибкость настроек, но рассылка происходит медленнее всего. Это связано с тем, что для осуществления рассылки служба Azure Mobile Engagement должна сначала собрать данные с устройств.
  
-![Reach-Criterion1][29] 
+![Охват — условие 1][29]
 
-## <a name="criterion-options-apply-to:"></a>Criterion Options Apply to:
-- **Technicals**     
-- Firmware name:    Firmware name
-- Firmware version:    Firmware version
-- Device model:    Device model
-- Device manufacturer:    Device manufacturer
-- Application version:    Application version
-- Carrier name:    Carrier name, undefined
-- Carrier country:    Carrier country, undefined
-- Network type:    Network type
-- Locale:    Locale
-- Screen size:    Screen size
-- **Location**      
-- Last known area:    Country, Region, Locality
-- Real time geo-fencing:    List of POIs (Name, Actions), Circular POI (Name, Latitude, Longitude, Radius in meters)
-- **Reach feedback**     
-- Announcement feedback:    Announcement, feedback
-- Poll feedback:    Poll, feedback
-- Poll answer feedback:    Poll answer feedback, question, choice
-- Data Push feedback:    Data Push, feedback
-- **Install Tracking**     
-- Store:    Store, Undefined
-- Source:    Source, Undefined
-- **User profile**     
-- Gender:    male or female, undefined
-- Birth date:    operator, date, undefined
-- Opt-in:    true or false, undefined
-- **App Info**      
-- String:    String, undefined
-- Date:    operator, date, undefined
-- Integer:    operator, number, undefined
-- Boolean:    true or false, undefined
-- **Segment**    
-- Name of Segments (from dropdown list), Exclusion (target users that are not a part of this segment).
+## Подробные сведения об условиях таргетинга
+- **Технические данные.**
+- Имя встроенного ПО: имя встроенного ПО.
+- Версия встроенного ПО: версия встроенного ПО.
+- Модель устройства: модель устройства.
+- Производитель устройства: производитель устройства.
+- Версия приложения: версия приложения.
+- Имя оператора: имя оператора, не указано.
+- Страна оператора: страна оператора, не указано.
+- Тип сети: тип сети.
+- Языковой стандарт: языковой стандарт.
+- Размер экрана: размер экрана.
+- **Местоположение.**
+- Последнее известное местоположение: страна, регион, населенный пункт.
+- Сведение о геозоне в реальном времени: список объектов (название, действия), круговой объект (название, широта, долгота, радиус в метрах).
+- **Отзывы о кампании.**
+- Отзывы об объявлении: объявление, отзывы.
+- Отзывы об опросе: опрос, отзывы.
+- Отзывы об ответах на вопросы опроса: отзывы об ответах на вопросы опроса, вопрос, варианты ответа.
+- Отзывы об отправленных данных: отправленные данные, отзывы.
+- **Отслеживание данных об установке.**
+- Хранилище: хранилище, не указано.
+- Источник: источник, не указано.
+- **Профиль пользователя.**
+- Пол: мужчина или женщина, не указано.
+- Дата рождения: оператор, дата, не указано.
+- Участие: true или false, не указано.
+- **Сведения о приложении.**
+- Строка: строка, не указано.
+- Дата: оператор, дата, не указано.
+- Целое число: оператор, число, не указано.
+- Логическое значение: true или false, не указано.
+- **Сегмент.**
+- Имя сегмента (из раскрывающегося списка), исключение (пользователи, не входящие в этот сегмент).
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -175,8 +174,4 @@ If you want to push an announcement only to the sub-set of your users that have 
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

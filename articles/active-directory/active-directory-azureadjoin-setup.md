@@ -1,63 +1,58 @@
 <properties
-    pageTitle="Setting up Azure AD Join for your users| Microsoft Azure"
-    description="Explains how administrators can set up Azure AD Join for on-premises directory and device registration."
-    services="active-directory"
-    documentationCenter=""
-    authors="femila"
-    manager="swadhwa"
-    editor=""
-    tags="azure-classic-portal"/>
+	pageTitle="Настройка присоединения Azure AD для ваших пользователей| Microsoft Azure"
+	description="В этой статье объясняется, как администраторы могут настроить присоединение к Azure AD для регистрации локальных каталогов и устройств."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/27/2016"
-    ms.author="femila"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/27/2016"
+	ms.author="femila"/>
+
+# Настройка присоединения к Azure AD в организации
+
+Прежде чем приступить к настройке присоединения к Azure Active Directory, необходимо синхронизировать локальный каталог пользователей с облаком или вручную создать управляемые учетные записи в Azure AD.
+
+Подробные инструкции по синхронизации локальных пользователей с Azure AD представлены в разделе [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
 
-# <a name="setting-up-azure-ad-join-in-your-organization"></a>Setting up Azure AD Join in your organization
+Сведения о том, как вручную создать пользователей и управлять ими в Azure AD, содержатся в статье [Управление пользователями в Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
-Before you set up Azure Active Directory Join (Azure AD Join), you need to either sync up your on-premises directory of users to the cloud or manually create managed accounts in Azure AD.
+## Настройка регистрации устройств
+1. Войдите на портал Azure с учетной записью администратора.
+2. На панели слева выберите **Active Directory**.
+3. На вкладке **Каталог** выберите требуемый каталог.
+4. Перейдите на вкладку **Настройка**.
+5. Откройте раздел **Устройства**.
+6. На вкладке **устройства** задайте указанные ниже настройки.
+   * **Максимальное количество устройств на пользователя**: выберите максимальное количество устройств, которое пользователь может иметь в Azure AD. По достижении этой квоты пользователь больше не сможет добавлять дополнительные устройства до тех пор, пока не будут удалены одно или несколько существующих устройств.
+   * **Требовать многофакторной проверки подлинности для присоединения устройств**: укажите, следует ли пользователям предоставлять второй фактор проверки подлинности для присоединения устройства к Azure AD. Дополнительные сведения об Azure Multi-Factor Authentication см. в статье [Приступая к работе с Azure Multi-Factor Authentication в облаке](..\multi-factor-authentication\multi-factor-authentication-get-started-cloud.md).
+   * **Пользователи, которые могут присоединять устройства к Azure AD**: выберите пользователей и группы, которым разрешено присоединять устройства к Azure AD.
+   * **Дополнительные администраторы присоединенных к Azure AD устройств**: в Azure AD Premium или Enterprise Mobility Suite (EMS) можно выбрать, каким пользователям предоставляются права локального администратора на устройстве. По умолчанию права локального администратора предоставляются глобальным администраторам и владельцам устройств.
 
-Detailed instructions for syncing your on-premises users to Azure AD is covered in [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+<center>![Настройка регистрации устройств](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 
+После настройки подключения к Azure AD для пользователей они могут подключаться к Azure AD, используя свои корпоративные или личные устройства.
 
-To manually create and manage users in Azure AD, refer to [User management in Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
+Ниже приведены три сценария предоставления пользователям возможности настроить присоединения к Azure AD.
 
-## <a name="set-up-device-registration"></a>Set up device registration
-1. Log on to the Azure portal as an administrator.
-2. On the left pane, select **Active Directory**.
-3. On the **Directory** tab, select your directory.
-4. Select the **Configure** tab.
-5. Go to the **Devices** section.
-6. On the **devices** tab, set the following:  
-   * **MAXIMUM NUMBER OF DEVICES PER USER**: Select the maximum number of devices that a user can have in Azure AD.  If a user reaches this quota, they will not be able to add additional devices until one or more of their existing devices are removed.
-   * **REQUIRE MULTI-FACTOR AUTH TO JOIN DEVICES**: Set whether users are required to provide a second authentication factor to join their device to Azure AD. For more information on Azure Multi-Factor Authentication, see [Getting started with Azure Multi-Factor Authentication in the cloud](..\multi-factor-authentication\multi-factor-authentication-get-started-cloud.md).
-   * **USERS MAY AZURE AD JOIN DEVICES**: Select the users and groups that are allowed to join devices to Azure AD.
-   * **ADDITIONAL ADMINISTRATORS ON AZURE AD JOINED DEVICES**: With Azure AD Premium or the Enterprise Mobility Suite (EMS), you can choose which users are granted local administrator rights to the device. Global administrators and device owners are granted local administrator rights by default.
+- Присоединение пользователями устройств, принадлежащих компании, напрямую к Azure AD.
+- Присоединение пользователями подключенных к домену устройств, принадлежащих компании, к локальной службе Active Directory и расширение устройства до Azure AD.
+- Добавление пользователями рабочих или учебных учетных записей Windows на личные устройства.
 
-<center>![Set up device regisration](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
+## Дополнительная информация
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-After you set up Azure AD Join for your users, they can connect to Azure AD through their corporate or personal devices.
-
-Following are the three scenarios you can use to enable your users to set up Azure AD Join:
-
-- Users join a company-owned device directly to Azure AD.
-- Users domain-join a company-owned device to the on-premises Active Directory and then extend the device to Azure AD.
-- Users add work or school accounts to Windows on a personal device
-
-## <a name="additional-information"></a>Additional information
-* [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
-* [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
-* [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

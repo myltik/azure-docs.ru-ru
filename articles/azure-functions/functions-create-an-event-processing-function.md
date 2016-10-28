@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create an event processing function | Microsoft Azure"
-   description="Use Azure Functions create a C# function that runs based on an event timer."
+   pageTitle="Создание функции обработки событий | Microsoft Azure"
+   description="Использование Функций Azure для создания функций на C#, которые срабатывают по таймеру событий."
    services="functions"
    documentationCenter="na"
    authors="ggailey777"
@@ -18,75 +18,67 @@
    ms.date="09/25/2016"
    ms.author="glenga"/>
    
+# Создание функции Azure для обработки событий
 
-# <a name="create-an-event-processing-azure-function"></a>Create an event processing Azure Function
+Функции Azure — это ориентированная на события среда вычислений по требованию, которая позволяет создавать выполняемые по расписанию или активируемые блоки кода, реализованные с помощью разных языков программирования. Дополнительные сведения о функциях Azure см. в статье [Обзор функций Azure](functions-overview.md).
 
-Azure Functions is an event-driven, compute-on-demand experience that enables you to create scheduled or triggered units of code implemented in a variety of programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
+В этой статье показано, как создать функцию на C#, которая добавляет сообщения в очередь хранилища, срабатывая по таймеру событий.
 
-This topic shows you how to create a new function in C# that executes based on an event timer to add messages to a storage queue. 
+## Предварительные требования 
 
-## <a name="prerequisites"></a>Prerequisites 
+Для создания функций необходима активная учетная запись Azure. Если у вас ее нет, воспользуйтесь [бесплатной учетной записью Azure](https://azure.microsoft.com/free/).
 
-Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/).
+## Создание активируемой по таймеру функции на основе шаблона
 
-## <a name="create-a-timer-triggered-function-from-the-template"></a>Create a timer-triggered function from the template
+Выполнение функций в Azure происходит с помощью приложения функций. Для создания функций необходима активная учетная запись Azure. Если у вас ее нет, воспользуйтесь [бесплатной учетной записью Azure](https://azure.microsoft.com/free/).
 
-A function app hosts the execution of your functions in Azure. Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/). 
+1. Перейдите на [портал функций Azure](https://functions.azure.com/signin) и войдите, используя свою учетную запись Azure.
 
-1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
+2. Если у вас есть готовое приложение функций, выберите его в списке **приложений функций** и нажмите кнопку **Открыть**. Чтобы создать приложение функций, введите уникальное **имя** нового приложения функций или воспользуйтесь созданным, выберите предпочтительный **регион**, а затем щелкните **Создать + приступить к работе**.
 
-2. If you have an existing function app to use, select it from **Your function apps** then click **Open**. To create a new function app, type a unique **Name** for your new function app or accept the generated one, select your preferred **Region**, then click **Create + get started**. 
+3. В приложении-функции щелкните **+ New Function** (+ Создать функцию) > **TimerTrigger — C#** > **Создать**. Таким образом будет создана функция с именем по умолчанию, которая выполняется согласно расписанию по умолчанию — каждую минуту.
 
-3. In your function app, click **+ New Function** > **TimerTrigger - C#** > **Create**. This creates a function with a default name that is run on the default schedule of once every minute. 
+	![Создание активируемой по таймеру функции](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 
-    ![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
+4. В разделе новой функции щелкните вкладку **Интеграция** > **Новые выходные данные** > **Azure Storage Queue** (Очередь службы хранилища Azure) > **Выбрать**.
 
-4. In your new function, click the **Integrate** tab > **New Output** > **Azure Storage Queue** > **Select**.
+	![Создание активируемой по таймеру функции](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-    ![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
+5. В разделе **выходных данных очереди службы хранилища Azure** выберите существующее **Подключение к учетной записи хранения** или создайте новое, а затем нажмите кнопку **Сохранить**.
 
-5. In  **Azure Storage Queue output**, select an existing **Storage account connection**, or create a new one, then click **Save**. 
+	![Создание активируемой по таймеру функции](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
-    ![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
+6. Вернитесь на вкладку **Разработка**, замените существующий сценарий C# в окне **Код** следующим кодом:
 
-6. Back in the **Develop** tab, replace the existing C# script in the **Code** window with the following code:
+		using System;
+		
+		public static void Run(TimerInfo myTimer, out string outputQueueItem, TraceWriter log)
+		{
+		    // Add a new scheduled message to the queue.
+		    outputQueueItem = $"Ping message added to the queue at: {DateTime.Now}.";
+		    
+		    // Also write the message to the logs.
+		    log.Info(outputQueueItem);
+		}
 
-        using System;
-        
-        public static void Run(TimerInfo myTimer, out string outputQueueItem, TraceWriter log)
-        {
-            // Add a new scheduled message to the queue.
-            outputQueueItem = $"Ping message added to the queue at: {DateTime.Now}.";
-            
-            // Also write the message to the logs.
-            log.Info(outputQueueItem);
-        }
+	Этот код добавляет новое сообщение в очередь с текущей датой и временем выполнения функции.
 
-    This code adds a new message to the queue with the current date and time when the function is executed.
+7. Нажмите кнопку **Сохранить**. Следующее выполнение функции можно просмотреть в окне **Журналы**.
 
-7. Click **Save** and watch the **Logs** windows for the next function execution.
+8. Перейдите к учетной записи хранения и убедитесь, что сообщения добавлены в очередь (необязательно).
 
-8. (Optional) Navigate to the storage account and verify that messages are being added to the queue.
+9. Вернитесь на вкладку **Интеграция** и измените значение поля расписания на `0 0 * * * *`. Теперь функция будет выполняться каждый час.
 
-9. Go back to the **Integrate** tab and change the schedule field to `0 0 * * * *`. The function now runs once every hour. 
+Это простой пример триггера таймера и выходной привязки очереди службы хранилища. Дополнительные сведения см. в статьях [Триггеры с таймерами в функциях Azure](functions-bindings-timer.md) и [Триггеры и привязки для службы хранилища Azure в функциях Azure](functions-bindings-storage.md).
 
-This is a very simplified example of both a timer trigger and a storage queue output binding. For more information, see both the [Azure Functions timer trigger](functions-bindings-timer.md) and the [Azure Functions triggers and bindings for Azure Storage](functions-bindings-storage.md) topics.
+##Дальнейшие действия
 
-##<a name="next-steps"></a>Next steps
+Дополнительные сведения о функциях Azure см. в следующих статьях.
 
-See these topics for more information about Azure Functions.
++ [Azure Functions developer reference](functions-reference.md) (Справочник разработчика функций Azure) Справочник программиста по созданию функций, а также определению триггеров и привязок.
++ [Testing Azure Functions](functions-test-a-function.md) (Тестирование функций Azure) Описание различных средств и методов тестирования функций.
++ [How to scale Azure Functions](functions-scale.md) (Масштабирование функций Azure). Обсуждение планов обслуживания Azure, доступных для использования с функциями Azure (включая динамический план обслуживания), а также выбор подходящего плана.
 
-+ [Azure Functions developer reference](functions-reference.md)  
-Programmer reference for coding functions and defining triggers and bindings.
-+ [Testing Azure Functions](functions-test-a-function.md)  
-Describes various tools and techniques for testing your functions.
-+ [How to scale Azure Functions](functions-scale.md)  
-Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan.  
+[AZURE.INCLUDE [Начало работы](../../includes/functions-get-help.md)]
 
-[AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

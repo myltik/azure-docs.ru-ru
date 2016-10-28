@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure an Azure Cloud Service Project with Visual Studio | Microsoft Azure"
-   description="Learn how to configure an Azure cloud service project in Visual Studio, depending on your requirements for that project."
+   pageTitle="Настройка проекта облачной службы в Visual Studio | Microsoft Azure"
+   description="Узнайте, как настроить проект облачной службы Azure в Visual Studio в соответствии с требованиями к этому проекту."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,55 +15,50 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Настройка проекта облачной службы в Visual Studio
 
-# <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Configure an Azure Cloud Service Project with Visual Studio
+Проект облачной службы Azure можно настроить в соответствии с вашими требованиями к этому проекту. Для проекта можно настраивать свойства следующих категорий.
 
-You can configure an Azure cloud service project, depending on your requirements for that project. You can set properties for the project for the following categories:
+- **Публикация облачной службы в Azure**
 
-- **Publish a cloud service to Azure**
+  Свойство можно задать таким образом, чтобы не допустить случайного удаления облачной службы, уже развернутой в Azure.
 
-  You can set a property to make sure that an existing cloud service deployed to Azure is not accidentally deleted.
+- **Запуск или отладка облачной службы на локальном компьютере**
 
-- **Run or debug a cloud service on the local computer**
+  Вы можете выбрать нужную конфигурацию службы и указать, должен ли запускаться эмулятор хранения Azure.
 
-  You can select a service configuration to use and indicate whether you want to start the Azure storage emulator.
+- **Проверка пакета облачной службы при его создании**
 
-- **Validate a cloud service package when it is created**
+  Вы можете выбрать обработку всех предупреждений как ошибок, чтобы обеспечить развертывание пакета облачной службы без всяких ошибок. Это уменьшит время ожидания, если в процессе развертывания возникнет сбой.
 
-  You can decide to treat any warnings as errors so that you can make sure that the cloud service package will deploy without any issues. This reduces your wait time if you deploy and then discover that a failure occurred.
+На приведенной ниже иллюстрации показано, как выбрать нужную конфигурацию при локальном выполнении или отладке облачной службы. Как видно, в этом окне можно настроить любые необходимые свойства проекта.
 
-The following illustration shows how to select a configuration to use when you run or debug your cloud service locally. You can set any of the project properties that you require from this window, as shown in the illustration.
+![Настройка проекта Microsoft Azure](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
 
-![Configure a Microsoft Azure Project](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
+## Настройка проекта облачной службы Azure
 
-## <a name="to-configure-an-azure-cloud-service-project"></a>To configure an Azure cloud service project
+1. Чтобы настроить проект облачной службы в **обозревателе решений**, откройте контекстное меню для проекта облачной службы и выберите **Свойства**.
 
-1. To configure a cloud service project from **Solution Explorer**, open the shortcut menu for the cloud service project and then choose **Properties**.
+  В редакторе Visual Studio откроется страница с именем проекта облачной службы.
 
-  A page with the name of the cloud service project appears in the Visual Studio editor.
+1. Выберите вкладку **Разработка**.
 
-1. Choose the **Development** tab.
+1. Чтобы случайно не удалить уже существующее в Azure развертывание, в запросе перед удалением существующего развертывания выберите значение **True**.
 
-1. To make sure that you don't accidentally delete an existing deployment in Azure, in the prompt before deleting an existing deployment list, choose **True**.
+1. Чтобы выбрать конфигурацию службы, которая будет использоваться при локальном запуске или отладке облачной службы, выберите **конфигурацию службы** в одноименном списке.
 
-1. To select the service configuration that you want to use when you run or debug your cloud service locally, in the **Service configuration** list choose the service configuration.
+  >[AZURE.NOTE] Инструкции по созданию конфигурации службы см. в статье «Управление конфигурациями и профилями службы». Инструкции по настройке конфигурации службы для роли см. в статье [Настройка ролей для облачной службы Azure с помощью Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-  >[AZURE.NOTE] If you want to create a service configuration to use, see How to: Manage Service Configurations and Profiles. If you want to modify a service configuration for a role, see [How to configure the roles for an Azure cloud service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+1. Чтобы при локальном запуске или отладке облачной службы запускался эмулятор хранилища Azure, в поле **Запуск эмулятора хранения Azure** выберите значение **True**.
 
-1. To start the Azure storage emulator when you run or debug your cloud service locally, in the **Start Azure storage emulator**, choose **True**.
+1. Чтобы запретить публикацию при наличии ошибок проверки пакетов, в поле **Обрабатывать предупреждения как ошибки** выберите значение **True**.
 
-1. To make sure that you cannot publish if there are package validation errors, in **Treat warnings as errors**, choose **True**.
+1. Чтобы убедиться в том, что при каждом локальном запуске веб-роли в IIS Express используется один и тот же порт, в поле **Использовать порты веб-проектов** выберите значение **True**. Чтобы использовать определенный порт для определенного веб-проекта, откройте контекстное меню этого веб-проекта, перейдите на вкладку **Свойства**, а затем на вкладку **Веб** и измените номер порта в поле **URL-адрес проекта** в разделе **IIS Express**. Например, введите `http://localhost:14020` в качестве URL-адреса проекта.
 
-1. To make sure that your web role uses the same port each time it starts locally in IIS Express, in **Use web project ports**, choose **True**. To use a specific port for a particular web project, open the shortcut menu for the web project, choose the **Properties** tab, choose the **Web** tab, and change the port number in the **Project Url** setting in the **IIS Express** section. For example, enter `http://localhost:14020` as the project URL.
+1. Чтобы сохранить изменения, внесенные в свойства проекта облачной службы, нажмите кнопку **Сохранить** на панели инструментов.
 
-1. To save any changes that you have made to the properties of the cloud service project, choose the **Save** button on the toolbar.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+Дополнительные сведения о настройке проектов облачной службы Azure в Visual Studio см. в статье [Настройка проекта Azure с помощью нескольких конфигураций службы](vs-azure-tools-multiple-services-project-configurations.md).
 
-To learn more about how to configure Azure cloud service projects in Visual Studio, see [Configuring Your Azure project using multiple service configurations](vs-azure-tools-multiple-services-project-configurations.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

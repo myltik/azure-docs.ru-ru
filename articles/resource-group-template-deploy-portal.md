@@ -1,131 +1,121 @@
 <properties 
-    pageTitle="Use Azure portal to deploy Azure resources | Microsoft Azure" 
-    description="Use Azure portal and Azure Resource Manage to deploy your resources." 
-    services="azure-resource-manager,azure-portal" 
-    documentationCenter="" 
-    authors="tfitzmac" 
-    manager="timlt" 
-    editor="tysonn"/>
+	pageTitle="Развертывание ресурсов Azure с помощью портала Azure | Microsoft Azure" 
+	description="Узнайте, как использовать портал Azure для развертывания ресурсов и управления ими." 
+	services="azure-resource-manager,azure-portal" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
-    ms.service="azure-resource-manager" 
-    ms.workload="multiple" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/15/2016" 
-    ms.author="tomfitz"/>
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/15/2016" 
+	ms.author="tomfitz"/>
 
-
-# <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Deploy resources with Resource Manager templates and Azure portal
+# Развертывание ресурсов с использованием шаблонов Resource Manager и портала Azure
 
 > [AZURE.SELECTOR]
 - [PowerShell](resource-group-template-deploy.md)
-- [Azure CLI](resource-group-template-deploy-cli.md)
-- [Portal](resource-group-template-deploy-portal.md)
-- [REST API](resource-group-template-deploy-rest.md)
+- [Интерфейс командной строки Azure](resource-group-template-deploy-cli.md)
+- [Портал](resource-group-template-deploy-portal.md)
+- [ИНТЕРФЕЙС REST API](resource-group-template-deploy-rest.md)
 
-This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](./azure-portal/resource-group-portal.md).
+В этой статье показано, как использовать [портал Azure](https://portal.azure.com) и [Azure Resource Manager](resource-group-overview.md) для развертывания ресурсов Azure. Сведения об управлении ресурсами см. в статье [Управление ресурсами Azure через портал](./azure-portal/resource-group-portal.md).
 
-Currently, not every service supports the portal or Resource Manager. For those services, you need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/).
+В настоящее время не все службы поддерживают текущую версию портала или диспетчер ресурсов. Для некоторых служб необходимо использовать [классический портал](https://manage.windowsazure.com). Состояние каждой службы можно просмотреть в [таблице доступности портала Azure](https://azure.microsoft.com/features/azure-portal/availability/).
 
-## <a name="create-resource-group"></a>Create resource group
+## Создать группу ресурсов
 
-1. To create an empty resource group, select **New** > **Management** > **Resource Group**.
+1. Чтобы создать пустую группу ресурсов, выберите **Создать** > **Управление** > **Группа ресурсов**.
 
-    ![create empty resource group](./media/resource-group-template-deploy-portal/create-empty-group.png)
+    ![создание группы ресурсов](./media/resource-group-template-deploy-portal/create-empty-group.png)
 
-2. Give it a name and location, and, if necessary, select a subscription. You need to provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
+2. Укажите имя группы, ее расположение и при необходимости выберите подписку. Вам нужно указать расположение группы, так как она хранит метаданные ресурсов. Для соответствия требованиям вам, возможно, нужно указать, где хранятся эти метаданные. Обычно мы рекомендуем указывать расположение, в котором будет храниться большинство ресурсов. Используя одно и то же расположение, можно упростить шаблон.
 
-    ![set group values](./media/resource-group-template-deploy-portal/set-group-properties.png)
+    ![настройка значений группы](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
-## <a name="deploy-resources-from-marketplace"></a>Deploy resources from Marketplace
+## Развертывание ресурсов из Marketplace
 
-After you create a resource group, you can deploy resources to it from the Marketplace. The Marketplace provides pre-defined solutions for common scenarios.
+Создав группу ресурсов, вы можете развернуть в ней ресурсы из Marketplace. Marketplace предоставляет предварительно определенные решения для распространенных сценариев использования.
 
-1. To start a deployment, select **New** and the type of resource you would like to deploy. Then, look for the particular version of the resource you would like to deploy.
+1. Чтобы начать развертывание, щелкните **Создать** и выберите тип ресурса, который хотите развернуть. Затем найдите определенную версию ресурса, которую требуется развернуть.
 
-    ![deploy resource](./media/resource-group-template-deploy-portal/deploy-resource.png)
+    ![развертывание ресурсов](./media/resource-group-template-deploy-portal/deploy-resource.png)
 
-2. If you do not see the particular solution you would like to deploy, you can search the Marketplace for it.
+2. Если конкретное решение, которое вы хотите развернуть, отсутствует, его можно поискать в Marketplace.
 
-    ![search marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
+    ![поиск в Marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
-3. Depending on the type of selected resource, you have a collection of relevant properties to set before deployment. Those options are not shown here, as they vary based on resource type. For all types, you must select a destination resource group. The following image shows how to create a web app and deploy it to the resource group you created.
+3. В зависимости от выбранного типа ресурса вам потребуется задать набор соответствующих свойств, прежде чем начинать развертывание. Здесь эти свойства не показаны, так как они варьируются в зависимости от типа ресурса. Для всех типов необходимо выбрать целевую группу ресурсов. Ниже показано создание веб-приложения и его развертывание в уже созданной группе ресурсов.
 
-    ![create resource group](./media/resource-group-template-deploy-portal/select-existing-group.png)
+    ![Создать группу ресурсов](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
-    Alternatively, you can decide to create a resource group when deploying your resources. Select **Create new** and give the resource group a name.
+    Кроме того, можно создать новую группу ресурсов непосредственно при развертывании ресурсов. Щелкните **Создать** и укажите имя группы ресурсов.
 
-    ![create new resource group](./media/resource-group-template-deploy-portal/select-new-group.png)
+    ![создание новой группы ресурсов](./media/resource-group-template-deploy-portal/select-new-group.png)
 
-4. Your deployment begins. The deployment could take a few minutes. When the deployment has finished, you see a notification.
+4. Начнется развертывание. Это может занять несколько минут. По окончании развертывания появится уведомление.
 
-    ![view notification](./media/resource-group-template-deploy-portal/view-notification.png)
+    ![просмотр уведомления](./media/resource-group-template-deploy-portal/view-notification.png)
 
-5. After deploying your resources, you can add more resources to the resource group by using the **Add** command on the resource group blade.
+5. Развернув ресурсы, вы можете добавлять в группу другие ресурсы с помощью команды **Добавить** в колонке этой группы ресурсов.
 
-    ![add resource](./media/resource-group-template-deploy-portal/add-resource.png)
+    ![Добавить ресурсы](./media/resource-group-template-deploy-portal/add-resource.png)
 
-## <a name="deploy-resources-from-custom-template"></a>Deploy resources from custom template
+## Развертывание ресурсов с помощью настраиваемого шаблона
 
-If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+Если вы хотите выполнить развертывание без использования шаблонов из Marketplace, создайте настраиваемый шаблон, определяющий инфраструктуру для вашего решения. Сведения о создании шаблонов см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
 
-1. To deploy a customized template through the portal, select **New**, and start searching for **Template Deployment** until you can select it from the options.
+1. Чтобы развернуть настроенный шаблон на портале, выберите **Создать** и начните поиск по словам **Развертывание шаблона**, пока не появится соответствующий пункт.
 
-    ![search template deployment](./media/resource-group-template-deploy-portal/search-template.png)
+    ![поиск развертывания шаблона](./media/resource-group-template-deploy-portal/search-template.png)
 
-2. Select **Template Deployment** from the available resources.
+2. В списке доступных ресурсов выберите **Развертывание шаблона**.
 
-    ![select template deployment](./media/resource-group-template-deploy-portal/select-template.png)
+    ![выберите "развертывание шаблона"](./media/resource-group-template-deploy-portal/select-template.png)
 
-3. After launching the template deployment, open the blank template that is available for customizing.
+3. После запуска развертывания шаблона откройте пустой шаблон, доступный для настройки.
 
-    ![create template](./media/resource-group-template-deploy-portal/show-custom-template.png)
+    ![создание шаблона](./media/resource-group-template-deploy-portal/show-custom-template.png)
 
-    In the editor, add the JSON syntax that defines the resources you want to deploy. Select **Save** when done. For guidance on writing the JSON syntax, see [Resource Manager template walkthrough](resource-manager-template-walkthrough.md).
+    В редакторе добавьте данные в формате JSON, определяющие ресурсы, которые требуется развернуть. По завершении нажмите кнопку **Сохранить**. Указания по созданию данных в формате JSON см. в [пошаговом руководстве по созданию шаблона Resource Manager](resource-manager-template-walkthrough.md).
 
-    ![edit template](./media/resource-group-template-deploy-portal/edit-template.png)
+    ![изменение шаблона](./media/resource-group-template-deploy-portal/edit-template.png)
 
-4. Or, you can select a pre-existing template from the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/). These templates are contributed by the community. They cover many common scenarios, and someone may have added a template that is similar to what you are trying to deploy. You can search the templates to find something that matches your scenario.
+4. Кроме того, можно выбрать готовый шаблон на странице [шаблонов быстрого запуска Azure](https://azure.microsoft.com/documentation/templates/). Эти шаблоны предоставлены сообществом. Они охватывают множество распространенных сценариев, а кто-то мог добавить шаблон, который подходит и вам. Выполните поиск, чтобы найти шаблон, соответствующий вашему сценарию.
 
-    ![select quickstart template](./media/resource-group-template-deploy-portal/select-quickstart-template.png)
+    ![выбор шаблона быстрого запуска](./media/resource-group-template-deploy-portal/select-quickstart-template.png)
 
-    You can view the selected template in the editor.
+    Выбранный шаблон можно просмотреть в редакторе.
 
-5. After providing all the other values, select **Create** to deploy the template. 
+5. Указав все остальные значения, нажмите кнопку **Создать**, чтобы развернуть шаблон.
 
-    ![deploy template](./media/resource-group-template-deploy-portal/create-custom-deploy.png)
+    ![развертывание шаблона](./media/resource-group-template-deploy-portal/create-custom-deploy.png)
 
-## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Deploy resources from a template saved to your account
+## Развертывание ресурсов с помощью шаблона, сохраненного в учетной записи
 
-The portal enables you to save a template to your Azure account, and redeploy it later. For more information about working with these saved templates, [Get started with private templates on the Azure portal](./marketplace-consumer/mytemplates-getstarted.md).
+Портал позволяет сохранить шаблон в свою учетную запись Azure для последующего повторного развертывания. Дополнительные сведения о работе с сохраненными шаблонами см. в разделе [Начало работы с частными шаблонами на портале Azure](./marketplace-consumer/mytemplates-getstarted.md).
 
-1. To find your saved templates, select **Browse** > **Templates**.
+1. Чтобы найти сохраненные шаблоны, выберите **Обзор** > **Шаблоны**.
 
-    ![browse templates](./media/resource-group-template-deploy-portal/browse-templates.png)
+    ![просмотр шаблонов](./media/resource-group-template-deploy-portal/browse-templates.png)
 
-2. From the list of templates saved to your account, select the one you wish to work on.
+2. Из списка шаблонов, сохраненных в вашей учетной записи, выберите тот, с которым вы хотите работать.
 
-    ![saved templates](./media/resource-group-template-deploy-portal/saved-templates.png)
+    ![сохраненные шаблоны](./media/resource-group-template-deploy-portal/saved-templates.png)
 
-3. Select **Deploy** to redeploy this saved template.
+3. Нажмите кнопку **Развернуть**, чтобы повторно развернуть этот сохраненный шаблон.
 
-    ![deploy saved template](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
+    ![развертывание сохраненного шаблона](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-- To view audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
-- To troubleshoot deployment errors, see [Troubleshooting resource group deployments with Azure portal](resource-manager-troubleshoot-deployments-portal.md).
-- To retrieve a template from a deployment or resource group, see [Export Azure Resource Manager template from existing resources](resource-manager-export-template.md).
+- Сведения о просмотре журналов аудита см. в статье [Операции аудита с помощью Resource Manager](resource-group-audit.md).
+- Сведения об устранении неполадок развертывания см. в статье [Просмотр операций развертывания с помощью портала Azure](resource-manager-troubleshoot-deployments-portal.md).
+- Чтобы извлечь шаблон из развернутой службы или группы ресурсов, ознакомьтесь со статьей [Экспорт шаблона Azure Resource Manager из существующих ресурсов](resource-manager-export-template.md).
 
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,210 +1,209 @@
 <properties
-    pageTitle="Patterns for Resource Manager templates | Microsoft Azure"
-    description="Show design patterns for Azure Resource Manager templates"
-    services="azure-resource-manager"
-    documentationCenter=""
-    authors="tfitzmac"
-    manager="timlt"
-    editor="tysonn"/>
+	pageTitle="Рекомендации для шаблонов Resource Manager | Microsoft Azure"
+	description="Просмотр шаблонов разработки для диспетчера ресурсов Azure"
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
-    ms.service="azure-resource-manager"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="tomfitz"/>
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="tomfitz"/>
 
+# Рекомендации по разработке шаблонов Azure Resource Manager
 
-# <a name="patterns-for-designing-azure-resource-manager-templates"></a>Patterns for designing Azure Resource Manager templates
+При работе с предприятиями, системными интеграторами, поставщиками облачных служб и рабочими группами проектов по разработке программного обеспечения с открытым исходным кодом часто бывает необходимо выполнять быстрое развертывание сред, рабочих нагрузок или единиц масштабирования. Эти развертывания должны поддерживаться, а также соответствовать проверенным методикам и определенным политикам. Гибкий подход, основывающийся на использовании шаблонов Azure Resource Manager, позволяет быстро и согласованно развертывать сложные топологии. Эти развертывания можно с легкостью адаптировать по мере развития основных предложений. Кроме того, можно работать с вариантами для сценариев выбросов или клиентов.
 
-In our work with enterprises, system integrator (SIs), cloud service vendor (CSVs), and open source software (OSS) project teams, it's often necessary to quickly deploy environments, workloads, or scale units. These deployments need to be supported, follow proven practices, and adhere to identified policies. Using a flexible approach based on Azure Resource Manager templates, you can deploy complex topologies quickly and consistently. You can adapt these deployments easily as core offerings evolve or to accommodate variants for outlier scenarios or customers.
+Эта статья является частью другого технического документа. Чтобы ознакомиться с полным текстом этого документа, скачайте файл [World Class Azure Resource Manager Templates Considerations and Proven Practices] \(Рекомендации по работе с шаблонами Azure Resource Manager мирового класса)(http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
-This topic is part of a larger whitepaper. To read the full paper, download [World Class Azure Resource Manager Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Шаблоны сочетают преимущества базового диспетчера ресурсов Azure с адаптивностью и удобочитаемостью нотации объектов JavaScript (JSON). Шаблоны можно использовать следующим образом.
 
-Templates combine the benefits of the underlying Azure Resource Manager with the adaptability and readability of JavaScript Object Notation (JSON). Using templates, you can:
+- Последовательное развертывание топологий и рабочих нагрузок.
+- Управление всеми ресурсами в приложении с помощью групп ресурсов.
+- Управление доступом на основе ролей (RBAC) для предоставления соответствующего доступа пользователям, группам и службам.
+- Использование сопоставления добавления тегов для упрощения задач, включая сведение при выставлении счетов.
 
-- Deploy topologies and their workloads consistently.
-- Manage all your resources in an application together using resource groups.
-- Apply role-based access control (RBAC) to grant appropriate access to users, groups, and services.
-- Use tagging associations to streamline tasks such as billing rollups.
+В этой статье приводятся сведения об использовании сценариев, архитектуры и шаблонов реализации, определенных во время сеансов разработки и реализации шаблона в реальных условиях с клиентами группы консультирования клиентов Azure (AzureCAT). Далеко не теоретические, эти проверенные методики подкреплены опытом разработки шаблонов для 12 популярных программных решений с открытым исходным кодом на основе ОС Linux, включая Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise, управляемых Apache-Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis и Nagios. Большинство из этих шаблонов разработаны с привлечением хорошо известных поставщиков определенного дистрибутива. Кроме того, были учтены требования корпоративных клиентов Майкрософт и системных интеграторов, высказанные в отношении последних проектов.
 
-This article provides details on consumption scenarios, architecture, and implementation patterns identified during our design sessions and real-world template implementations with Azure Customer Advisory Team (AzureCAT) customers. Far from academic, these approaches are proven practices informed by the development of templates for 12 of the top Linux-based OSS technologies, including: Apache Kafka, Apache Spark, Cloudera, Couchbase, Hortonworks HDP, DataStax Enterprise powered by Apache Cassandra, Elasticsearch, Jenkins, MongoDB, Nagios, PostgreSQL, Redis, and Nagios. Most these templates were developed with a well-known vendor of a given distribution and influenced by the requirements of Microsoft’s enterprise and SI customers during recent projects.
+В статье приводятся эти проверенные методики, помогающие проектировать шаблоны диспетчера ресурсов Azure мирового класса.
 
-This article shares these proven practices to help you architect world class Azure Resource Manager templates.  
+При работе с клиентами мы определили объемы использования шаблонов Resource Manager предприятиями, системными интеграторами и поставщиками облачных служб. В следующих разделах приведен высокоуровневый обзор распространенных сценариев и шаблонов для разных типов клиентов.
 
-In our work with customers, we have identified several Resource Manager template consumption experiences across enterprises, System Integrators (SI)s, and CSVs. The following sections provide a high-level overview of common scenarios and patterns for different customer types.
+## Предприятия и системные интеграторы
 
-## <a name="enterprises-and-system-integrators"></a>Enterprises and system integrators
+Пользователи шаблонов Resource Manager в рамках крупных организаций чаще всего представлены двумя типами: группами разработчиков программного обеспечения для внутреннего пользования и корпоративными ИТ-отделами. Мы обнаружили, что сценарии для системных интеграторов сопоставлены с таковыми для предприятий, поэтому для двух типов клиентов действительны одинаковые условия.
 
-Within large organizations, we commonly see two consumers of Resource Manager templates: internal software development teams and corporate IT. We've found that the scenarios for the SIs map to the scenarios for Enterprises, so the same considerations apply.
+### Группы разработчиков программного обеспечения для внутреннего пользования
 
-### <a name="internal-software-development-teams"></a>Internal software development teams
+Если группа разрабатывает программное обеспечение для поддержки бизнеса, шаблоны позволяют быстро и просто развертывать технологии для использования в бизнес-решениях. Вы также можете использовать шаблоны для быстрого создания сред обучения, с помощью которых участники группы могут получить необходимые навыки.
 
-If your team develops software to support your business, templates provide an easy way to quickly deploy technologies for use in business-specific solutions. You can also use templates to rapidly create training environments that enable team members to gain necessary skills.
+Вы можете использовать шаблоны как есть, расширять их или создавать в соответствии со своими потребностями. Добавляя теги в шаблоны, вы можете отображать сводку по выставленным счетам с использованием разных представлений — уровня отдельного пользователя, группы или проекта — включая обучающие представления.
 
-You can use templates as-is or extend or compose them to accommodate your needs. Using tagging within templates, you can provide a billing summary with various views such as team, project, individual, and education.
+Организациям часто требуются группы разработчиков программного обеспечения, которые не только создают шаблоны для согласованного развертывания решения, но и предлагают ограничения, благодаря которым определенные элементы в этой среде остаются фиксированными и не могут быть переопределены. Например, банку может потребоваться шаблон для включения RBAC, который запрещает программисту настраивать в банковском решении отправку данных на личную учетную запись хранения.
 
-Businesses often want software development teams to create a template for consistent deployment of a solution while also offering constraints so certain items within that environment remain fixed and can’t be overridden. For example, a bank might require a template to include RBAC so a programmer can’t revise a banking solution to send data to a personal storage account.
+### Корпоративные ИТ-отделы
 
-### <a name="corporate-it"></a>Corporate IT
+Корпоративные ИТ-отделы обычно используют шаблоны для доставки емкости облака и возможностей размещения в облаке.
 
-Corporate IT organizations typically use templates for delivering cloud capacity and cloud-hosted capabilities.
+#### Емкость облака
 
-#### <a name="cloud-capacity"></a>Cloud capacity
+Чаще всего ИТ-группы предоставляют емкость облака для групп в виде "размеров футболки", где речь идет о малом, среднем и большом размерах конфигурации. Предложения в виде «размеров футболки» позволяют не только комбинировать разные типы и количества ресурсов, но и обеспечивают уровень стандартизации, который позволяет использовать шаблоны. Шаблоны предоставляют емкость согласованно, применяя корпоративные политики и используя теги. Это позволяет организациям-потребителям использовать возвратный платеж.
 
-A common way for corporate IT groups to provide cloud capacity for teams is with "t-shirt sizes", which are standard offering sizes such as small, medium, and large. The t-shirt sized offerings can mix different resource types and quantities while providing a level of standardization that makes it possible to use templates. The templates deliver capacity in a consistent way that enforces corporate policies and uses tagging to provide chargeback to consuming organizations.
+Например, вам необходимо предоставить среды для разработки, тестирования или производства, в которых группы разработчиков программного обеспечения смогут развернуть свои решения. Среда содержит предопределенную сетевую топологию и элементы, которые группы разработчиков программного обеспечения не могут изменять. Сюда входят правила, определяющие общий доступ в Интернет и проверку пакетов. Этим средам также можно назначить роли конкретной организации, предоставляющие уникальные права доступа.
 
-For example, you may need to provide development, test, or production environments within which the software development teams can deploy their solutions. The environment has a predefined network topology and elements that the software development teams cannot change, such as rules governing access to the public internet and packet inspection. You may also have organization-specific roles for these environments with distinct access rights for the environment.
+#### Возможности размещения в облаке
 
-#### <a name="cloud-hosted-capabilities"></a>Cloud-hosted capabilities
+Шаблоны можно использовать для поддержки возможностей размещения в облаке. Эти возможности представлены отдельными пакетами программного обеспечения или составными предложениями для внутренних бизнес-процессов. Пример составного предложения — это аналитика как услуга — технологии аналитики, визуализации и пр. Такие предложения реализуются в оптимизированной и подключенной конфигурации в рамках предопределенной сетевой топологии.
 
-You can use templates to support cloud-hosted capabilities, including individual software packages or composite offerings that are offered to internal lines of business. An example of a composite offering would be analytics-as-a-service—analytics, visualization, and other technologies—delivered in an optimized, connected configuration on a predefined network topology.
+Возможности размещения в облаке зависят от условий безопасности и ролей, определенных предложением емкости облака и используемых при их создании, как описано выше. Эти возможности предоставляются как есть или в качестве управляемой службы. Во втором случае для предоставления доступа к среде с целью управления требуются роли, ограничивающие доступ.
 
-Cloud-hosted capabilities are affected by the security and role considerations established by the cloud capacity offering on which they’re built as described above. These capabilities are offered as is or as a managed service. For the latter, access-constrained roles are required to enable access into the environment for management purposes.
+## Поставщики облачных служб
 
-## <a name="cloud-service-vendors"></a>Cloud service vendors
+После общения со многими поставщиками облачных служб мы определили несколько подходов, которые можно использовать при развертывании служб для клиентов в соответствии с их требованиями.
 
-After talking to many CSVs, we identified multiple approaches you can take to deploy services for your customers and associated requirements.
+### Предложения, размещаемые поставщиками облачных служб
 
-### <a name="csv-hosted-offering"></a>CSV-hosted offering
+При размещении предложения в подписке Azure обычно используется два подхода: отдельное развертывание для каждого клиента и развертывание единиц масштабирования, которые обеспечивают общую инфраструктуру, используемую для всех клиентов.
 
-If you host your offering in your own Azure subscription, two hosting approaches are common: deploying a distinct deployment for every customer or deploying scale units that underpin a shared infrastructure used for all customers.
+- **Отдельные развертывания для каждого клиента.** Отдельные развертывания для каждого клиента требуют наличия фиксированной топологии разных известных конфигураций. Эти развертывания могут быть представлены разными размерами виртуальных машин, разным количеством узлов, а также разными объемами связанного хранилища. Добавление тегов развертываний используется для сведенного выставления счетов каждому клиенту. Функция RBAC может быть включена для предоставления клиентам доступа к компонентам облачной среды.
+- **Единицы масштабирования в общей среде с несколькими клиентами.** Шаблон может представлять единицу масштабирования для сред с несколькими клиентами. В этом случае одна инфраструктура используется для поддержки всех клиентов. Развертывания представляют группу ресурсов, которые определяют емкость размещенных предложений, например количество пользователей и количество транзакций. Эти единицы масштабирования увеличиваются или уменьшаются по запросу.
 
-- **Distinct deployments for each customer.** Distinct deployments per customer require fixed topologies of different known configurations. These deployments may have different virtual machine (VM) sizes, varying numbers of nodes, and different amounts of associated storage. Tagging of deployments is used for roll-up billing of each customer. RBAC may be enabled to allow customers access to aspects of their cloud environment.
-- **Scale units in shared multi-tenant environments.** A template can represent a scale unit for multi-tenant environments. In this case, the same infrastructure is used to support all customers. The deployments represent a group of resources that deliver a level of capacity for the hosted offering, such as number of users and number of transactions. These scale units are increased or decreased as demand requires.
+### Внедрение предложений поставщиков облачных служб в подписку клиента
 
-### <a name="csv-offering-injected-into-customer-subscription"></a>CSV offering injected into customer subscription
+Вам может потребоваться развернуть программное обеспечение в подписки, принадлежащие клиентам. Вы можете использовать шаблоны для развертывания отдельных развертываний в клиентской учетной записи Azure.
 
-You may want to deploy your software into subscriptions owned by end customers. You can use templates to deploy distinct deployments into a customer’s Azure account.
+Эти развертывания используют RBAC, поэтому вы можете обновлять развертывания и управлять ими в рамках учетной записи клиента.
 
-These deployments use RBAC so you can update and manage the deployment within the customer’s account.
+### Azure Marketplace
 
-### <a name="azure-marketplace"></a>Azure Marketplace
+Если вы хотите рекламировать и продавать предложения через магазин (например, Azure Marketplace), можно разработать шаблоны для предоставления разных типов развертывания, которые будут выполняться в клиентской учетной записи Azure. Эти разные развертывания обычно можно описать с помощью "размеров футболки" (малый, средний, большой), типа продукта и аудитории (сообщество, разработчики, предприятие) или типа функции (базовый, высокий уровень доступности). В некоторых случаях эти типы позволяют задавать несколько атрибутов развертывания, включая тип виртуальной машины или количество дисков.
 
-To advertise and sell your offerings through a marketplace, such as Azure Marketplace, you can develop templates to deliver distinct types of deployments that run in a customer’s Azure account. These distinct deployments can be typically described as a t-shirt size (small, medium, large), product/audience type (community, developer, enterprise), or feature type (basic, high availability).  In some cases, these types allow you to specify certain attributes of the deployment, such as VM type or number of disks.
+## Программные проекты с открытым исходным кодом
 
-## <a name="oss-projects"></a>OSS projects
+В рамках проектов с открытым исходным кодом шаблоны диспетчера ресурсов позволяют сообществам быстро развертывать решения с использованием проверенных методик. Шаблоны можно хранить в репозитории GitHub, чтобы участники сообщества могли изменять их со временем. Пользователи могут развертывать эти шаблоны в своих подписках Azure.
 
-Within open source projects, Resource Manager templates enable a community to deploy a solution quickly using proven practices. You can store templates in a GitHub repository so the community can revise them over time. Users deploy these templates in their own Azure subscriptions.
+В следующих разделах описываются моменты, которые следует принять во внимание перед разработкой решения.
 
-The following sections identify the things you need to consider before designing your solution.
+## Определение внутренних и внешних возможностей виртуальной машины
 
-## <a name="identifying-what-is-outside-and-inside-of-a-vm"></a>Identifying what is outside and inside of a VM
+При разработке шаблона полезно оценивать требования ко внешним и внутренним характеристикам виртуальных машин.
 
-As you design your template, it’s helpful to look at the requirements in terms of what's outside and inside the virtual machines (VMs):
+- Внешние характеристики означают саму виртуальную машину и другие ресурсы развертывания, включая топологию сети, теги, ссылки на сертификаты и секреты, а также управление доступом на основе ролей. Все эти ресурсы являются частью шаблона.
+- Внутренние характеристики включают установленное программное обеспечение и настройку требуемого состояния. Другие механизмы, включая расширения виртуальной машины или сценарии, используются целиком или частично. Шаблон может определять и выполнять эти механизмы, но только как внешние по отношению к себе объекты.
 
-- Outside means the VMs and other resources of your deployment, such as the network topology, tagging, references to the certs/secrets, and role-based access control. All these resources are part of your template.
-- Inside means the installed software and overall desired state configuration. Other mechanisms, such as VM extensions or scripts, are used in whole or in part. These mechanisms may be identified and executed by the template but aren’t in it.
+Среди наиболее распространенных примеров стандартных выполняемых действий:
 
-Common examples of activities you would do “inside the box” include -  
+- установка и удаление ролей и компонентов сервера;
+- установка и настройка программного обеспечения на уровне узла или кластера;
+- развертывание веб-сайтов на веб-сервере;
+- развертывание схем базы данных;
+- управление реестром или другими типами параметров конфигурации;
+- управление файлами и каталогами;
+- запуск и остановка процессов и служб, а также управление ими;
+- управление локальными группами и учетными записями пользователей;
+- установка пакетов и управление ими (файлы MSI и ЕХЕ, yum и т. д.);
+- настройка переменных среды;
+- запуск собственных скриптов (Windows PowerShell, bash и т. д.).
 
-- Install or remove server roles and features
-- Install and configure software at the node or cluster level
-- Deploy websites on a web server
-- Deploy database schemas
-- Manage registry or other types of configuration settings
-- Manage files and directories
-- Start, stop, and manage processes and services
-- Manage local groups and user accounts
-- Install and manage packages (.msi, .exe, yum, etc.)
-- Manage environment variables
-- Run native scripts (Windows PowerShell, bash, etc.)
+### Настройка требуемого состояния
 
-### <a name="desired-state-configuration-(dsc)"></a>Desired state configuration (DSC)
+Внутреннее состояние виртуальных машин после развертывания предполагает выполнение проверки, которая определяет расхождения с конфигурацией, определенной и отправленной в систему управления версиями. Этот подход предотвращает появление ситуаций, когда разработчики или сотрудники вносят в среду ad-hoc-изменения, которые не были просмотрены, протестированы или записаны в системе управления версиями. Это важно, так как вносимые вручную изменения не регистрируются в системе управления версиями. Кроме того, они не являются частью стандартного развертывания и влияют на будущие автоматические развертывания программного обеспечения.
 
-Thinking about the internal state of your VMs beyond deployment, you want to make sure this deployment doesn’t "drift" from the configuration that you have defined and checked into source control. This approach ensures your developers or operations staff don’t make ad-hoc changes to an environment that are not vetted, tested, or recorded in source control. This control is important, because the manual changes are not in source control, they are also not part of the standard deployment and will impact future automated deployments of the software.
+Помимо управления доступом внутренних сотрудников настройка требуемого состояния имеет большое значение для безопасности. Злоумышленники постоянно пытаются нарушить конфиденциальность и воспользоваться программными системами. Когда им это удается, они, как правило, устанавливают файлы или другим образом изменяют состояние системы, к которой они получили доступ. С помощью настройки требуемого состояния вы можете определить разницу между требуемым и фактическим состоянием, а также восстановить известную конфигурацию.
 
-Beyond your internal employees, desired state configuration is also important from a security perspective. Hackers are regularly trying to compromise and exploit software systems. When successful, it's common to install files and otherwise change the state of a compromised system. Using desired state configuration, you can identify deltas between the desired and actual state and restore a known configuration.
+Существуют расширения ресурсов для самых популярных механизмов настройки требуемого состояния — PowerShell DSC, Puppet и Chef. Каждое из этих расширений может развернуть начальное состояние виртуальной машины. С их помощью также можно проверить, поддерживается ли требуемое состояние.
 
-There are resource extensions for the most popular mechanisms for DSC - PowerShell DSC, Chef, and Puppet. Each of these extensions can deploy the initial state of your VM and also be used to make sure the desired state is maintained.
+## Общие области действия шаблона
 
-## <a name="common-template-scopes"></a>Common template scopes
+На практике мы сталкиваемся с тремя ключевыми областями действия шаблонов. Эти три области, определяющие емкость, возможности и законченное решение, описаны в следующих разделах.
 
-In our experience, we’ve seen three key solution templates scopes emerge. These three scopes – capacity, capability, and end-to-end solution – are described in the following sections.
+### Область определения емкости
 
-### <a name="capacity-scope"></a>Capacity scope
+Область определения емкости предоставляет набор ресурсов в стандартной топологии, который предварительно настроен в соответствии с правилами и политиками. Наиболее распространенный пример — это развертывание стандартной среды разработки в сценарии корпоративного ИТ-отдела или системного интегратора.
 
-A capacity scope delivers a set of resources in a standard topology that is pre-configured to be in compliance with regulations and policies. The most common example is deploying a standard development environment in an Enterprise IT or SI scenario.
+### Область определения возможностей
 
-### <a name="capability-scope"></a>Capability scope
+Область определения возможностей фокусируется на развертывании и настройке топологии для данной технологии. Типичные сценарии включают такие технологии, как SQL Server, Cassandra, Hadoop и т. д.
 
-A capability scope is focused on deploying and configuring a topology for a given technology. Common scenarios including technologies such as SQL Server, Cassandra, Hadoop.
+### Область законченного решения
 
-### <a name="end-to-end-solution-scope"></a>End-to-end solution scope
+Область законченного решения не ограничивается каким-то одним типом возможностей, а задает законченному решению набор возможностей.
 
-An End-to-End Solution Scope is targeted beyond a single capability, and instead focused on delivering an end to end solution comprised of multiple capabilities.  
+Область действия шаблона, определяющего решение, представляет собой некий набор. Этот набор состоит из одного или нескольких шаблонов, определяющих возможности, со специальными ресурсами, логикой и требуемым состоянием конкретного решения. Пример шаблона, определяющего решение, — шаблон законченного решения конвейера данных. Этот шаблон может сочетать топологию и состояние конкретного решения с несколькими шаблонами решений, определяющими возможности, включая Kafka, Storm и Hadoop.
 
-A solution-scoped template scope manifests itself as a set of one or more capability-scoped templates with solution-specific resources, logic, and desired state. An example of a solution-scoped template is an end to end data pipeline solution template. The template might mix solution-specific topology and state with multiple capability scoped solution templates such as Kafka, Storm, and Hadoop.
+## Конфигурации свободной формы и известные конфигурации
 
-## <a name="choosing-free-form-vs.-known-configurations"></a>Choosing free-form vs. known configurations
+Может показаться, что использование шаблона обеспечивает клиентам наибольшую гибкость. Тем не менее, выбор между использованием конфигураций свободной формы или известных конфигураций зависит от множества факторов. В этом разделе указаны ключевые требования клиента и технические вопросы, которые формируют описанный в этом документе подход.
 
-You might initially think a template should give consumers the utmost flexibility, but many considerations affect the choice of whether to use free-form configurations vs. known configurations. This section identifies the key customer requirements and technical considerations that shaped the approach shared in this document.
+### Конфигурации свободной формы
 
-### <a name="free-form-configurations"></a>Free-form configurations
+На первый взгляд, конфигурации свободной формы являются идеальным решением. Они позволяют выбрать тип виртуальной машины и использовать произвольное количество узлов и подключенных дисков для этих узлов, реализуя эти действия в качестве параметров шаблона. Тем не менее этот подход не подходит для некоторых сценариев.
 
-On the surface, free-form configurations sound ideal. They allow you to select a VM type and provide an arbitrary number of nodes and attached disks for those nodes — and do so as parameters to a template. However, this approach is not ideal for some scenarios.
+В статье [Размеры виртуальных машин](./virtual-machines/virtual-machines-windows-sizes.md) определяются разные типы виртуальных машин, доступные размеры и количество надежных дисков (2, 4, 8, 16 или 32), которые можно подключить. Каждый подключенный диск выполняет 500 операций ввода-вывода в секунду; несколько таких дисков могут быть объединены для увеличения этого показателя. Например, 16 объединенных дисков выполняют 8000 операций ввода-вывода в секунду. Настройка параметров объединения в операционной системе выполняется с помощью дисковых пространств (Майкрософт) в ОС Windows или избыточного массива независимых дисков (RAID) в ОС Linux.
 
-In [Sizes for virtual machines](./virtual-machines/virtual-machines-windows-sizes.md), the different VM types and available sizes are identified, and each of the number of durable disks (2, 4, 8, 16, or 32) that can be attached. Each attached disk provides 500 IOPS and multiples of these disks can be pooled for a multiplier of that number of IOPS. For example, 16 disks can be pooled to provide 8,000 IOPS. Pooling is done with configuration in the operating system, using Microsoft Windows Storage Spaces or redundant array of inexpensive disks (RAID) in Linux.
+Конфигурации свободной формы позволяют выбирать количество экземпляров виртуальных машин, количество разных типов виртуальных машин и размеры этих экземпляров, количество дисков, которые могут отличаться в зависимости от типа виртуальной машины, а также один или несколько сценариев для настройки содержимого виртуальной машины.
 
-A free-form configuration enables the selection of a number of VM instances, a number of different VM types and sizes for those instances, a number of disks that can vary based on the VM type, and one or more scripts to configure the VM contents.
+Чаще всего развертывание может иметь несколько типов узлов, включая главные узлы и узлы данных, поэтому гибкое использование обеспечивается для каждого типа узла.
 
-It is common that a deployment may have multiple types of nodes, such as master and data nodes, so this flexibility is often provided for every node type.
+Прежде чем развернуть кластер любой значимости, необходимо увеличить количество узлов всех типов. Например, при развертывании кластера Hadoop с 8 главными узлами и 200 узлами данных, а также 4 объединенными дисками, подключенными к каждому главному узлу, и 16 объединенными дисками, подключенными к каждому узлу данных, вам необходимо управлять 208 виртуальными машинами и 3232 дисками.
 
-As you start to deploy clusters of any significance, you begin to work with multiples of all of these. If you were deploying a Hadoop cluster, for example, with 8 master nodes and 200 data nodes, and pooled 4 attached disks on each master node and pooled 16 attached disks per data node, you would have 208 VMs and 3,232 disks to manage.
+Поскольку учетная запись хранения будет регулировать запросы, превышающие определенный лимит в 20 000 транзакций в секунду, рассмотрите возможность разделения учетной записи хранилища и использования вычислений, чтобы определить соответствующее количество учетных записей хранилища для размещения этой топологии. Учитывая множество сочетаний, поддерживаемых подходом с использованием свободной формы, для определения соответствующих разделов требуются динамические вычисления. Поскольку язык шаблона диспетчера ресурсов Azure в настоящее время не позволяет использовать математические функции, вам необходимо выполнить эти вычисления в коде, создав уникальный жестко заданный шаблон с соответствующими свойствами.
 
-A storage account will throttle requests above its identified 20,000 transactions/second limit, so you should look at storage account partitioning and use calculations to determine the appropriate number of storage accounts to accommodate this topology. Given the multitude of combinations supported by the free-form approach, dynamic calculations are required to determine the appropriate partitioning. The Azure Resource Manager Template Language does not presently provide mathematical functions, so you must perform these calculations in code, generating a unique, hard-coded template with the appropriate details.
+В сценариях корпоративных ИТ-отделов и системных интеграторов кто-то должен обслуживать шаблоны и обеспечивать поддержку для развернутых топологий для одной или нескольких организаций. Эти дополнительные издержки — наличие разных конфигураций и шаблонов для каждого клиента — сложно назвать идеальным вариантом.
 
-In enterprise IT and SI scenarios, someone must maintain the templates and provide support for the deployed topologies for one or more organizations. This additional overhead — different configurations and templates for each customer — is far from desirable.
+Эти шаблоны можно использовать для развертывания сред в рамках подписки клиента Azure. Корпоративные ИТ-отделы и поставщики облачных служб обычно развертывают их в своих подписках, используя функцию взимания средств за использование для выставления счетов клиентам. Цель этих сценариев — развертывание ресурсов для нескольких клиентов в рамках пула подписок, а также плотное заполнение подписок развертываниями во избежание разрастания инфраструктуры, требующей управления. Из-за действительно динамических размеров развертывания реализация этого типа плотности требует тщательного планирования и дополнительной разработки для скаффолдинга от имени организации.
 
-You can use these templates to deploy environments in your customer’s Azure subscription, but both corporate IT teams and CSVs typically deploy them into their own subscriptions, using a chargeback function to bill their customers. In these scenarios, the goal is to deploy capacity for multiple customers across a pool of subscriptions and keep deployments densely populated into the subscriptions to minimize subscription sprawl—that is, more subscriptions to manage. With truly dynamic deployment sizes, achieving this type of density requires careful planning and additional development for scaffolding work on behalf of the organization.
+Более того, так как создавать подписки через вызов API невозможно, это необходимо делать на портале вручную. Разрастание инфраструктуры из-за роста количества подписок требует вмешательства пользователя. Это регулирование не может быть автоматизировано. Из-за большого разнообразия размеров развертываний вам потребуется выполнять предварительную подготовку множества подписок вручную для обеспечения их доступности.
 
-In addition, you can’t create subscriptions via an API call but must do so manually through the portal. As the number of subscriptions increases, any resulting subscription sprawl requires human intervention—it can’t be automated. With so much variability in the sizes of deployments, you would have to pre-provision a number of subscriptions manually to ensure subscriptions are available.
+Учитывая все эти факторы, конфигурации свободной формы являются в реальности менее привлекательным решением, чем на первый взгляд.
 
-Considering all these factors, a truly free-form configuration is less appealing than at first blush.
+### Известные конфигурации — подход «размер футболки»
 
-### <a name="known-configurations-—-the-t-shirt-sizing-approach"></a>Known configurations — the t-shirt sizing approach
+Распространенной альтернативой использованию шаблона, который обеспечивает гибкость и множество вариантов, является предоставление возможности выбора известных конфигураций. Фактически размеры песочницы определяются по аналогии со стандартными размерами футболки (малый, средний и большой). Другие примеры использования этого подхода включают такие продукты, как Community Edition или Enterprise Edition. Другие случаи могут быть представлены конфигурациями технологий, зависящими от рабочей нагрузки, включая решения Map/Reduce или NoSQL.
 
-Rather than offer a template that provides total flexibility and countless variations, in our experience a common pattern is to provide the ability to select known configurations — in effect, standard t-shirt sizes such as sandbox, small, medium, and large. Other examples of t-shirt sizes are product offerings, such as community edition or enterprise edition.  In other cases, it may be workload-specific configurations of a technology – such as map reduce or no sql.
+Многие корпоративные ИТ-отделы, поставщики программного обеспечения с открытым исходным кодом и системные интеграторы предоставляют свои продукты локально, в виртуализованных средах (предприятия) или в качестве программного обеспечения как услуги (SaaS) (поставщики облачных служб и поставщики решений с открытым исходным кодом).
 
-Many enterprise IT organizations, OSS vendors, and SIs make their offerings available today in this way in on-premises, virtualized environments (enterprises) or as software-as-a-service (SaaS) offerings (CSVs and OSVs).
+Такой подход позволяет использовать хорошие и известные конфигурации разных размеров, предварительно настроенные для клиентов. Если пользователи не используют известные конфигурации, им необходимо определять размеры кластеров самостоятельно, учитывая ограничения ресурсов платформы и выполняя математические вычисления для определения итогового разделения учетных записей хранилища и других ресурсов (из-за ограничений, связанных с размерами кластеров и ресурсами). Известные конфигурации позволяют пользователям легко выбирать нужный размер по аналогии с выбором размера футболки, в данном случае — конкретного развертывания. Кроме оптимизации возможностей для клиента, небольшое количество известных конфигураций также проще обслуживать. Кроме того, вы получаете более высокий уровень плотности.
 
-This approach provides good, known configurations of varying sizes that are preconfigured for customers. Without known configurations, end customers must determine cluster sizing on their own, factor in platform resource constraints, and do math to identify the resulting partitioning of storage accounts and other resources (due to cluster size and resource constraints). Known configurations enable customers to easily select the right t-shirt size—that is, a given deployment. In addition to making a better experience for the customer, a small number of known configurations is easier to support and can help you deliver a higher level of density.
+Подход с применением известной конфигурации по методу «размер футболки» также характеризуется переменным количеством узлов одного размера. Например, «футболка» малого размера может включать от 3 до 10 узлов. Подход «размер футболки» позволяет включать до 10 узлов, предоставляя клиенту возможность выбора свободной формы вплоть до максимального определенного размера.
 
-A known configuration approach focused on t-shirt sizes may also have varying number of nodes within a size. For example, a small t-shirt size may be between 3 and 10 nodes.  The t-shirt size would be designed to accommodate up to 10 nodes and provide the consumer the ability to make free form selections up to the maximum size identified.  
+Задаваемый по этому методу размер, основывающийся на типе рабочей нагрузки, может иметь гораздо более произвольный характер с точки зрения количества узлов, которые могут быть развернуты. При этом вы получите определенный размер узла рабочей нагрузки и конфигурацию программного обеспечения, установленного на этом узле.
 
-A t-shirt size based on workload type, may be more free form in nature in terms of the number of nodes that can be deployed but will have workload distinct node size and configuration of the software on the node.
+Зависящие от особенностей продукта (Community Edition или Enterprise Edition) «размеры футболки» могут включать разные типы ресурсов и максимальное количество узлов, которые могут быть развернуты. Обычно это связано с особенностями лицензирования или доступностью функций разных продуктов.
 
-T-shirt sizes based on product offerings, such as community or Enterprise, may have distinct resource types and maximum number of nodes that can be deployed, typically tied to licensing considerations or feature availability across the different offerings.
+Вы также можете предложить клиентам уникальные варианты с использованием шаблонов на основе JSON. При работе с выбросами можно включить соответствующее планирование и рекомендации по разработке, поддержке и учету затрат.
 
-You can also accommodate customers with unique variants using the JSON-based templates. When dealing with outliers, you can incorporate the appropriate planning and considerations for development, support, and costing.
+Подход к декомпозиции шаблонов мы определили на основе сценариев использования шаблона клиентом, требований, описанных в начале этого документа, и нашего практического опыта создания множества шаблонов.
 
-Based on the customer template consumption scenarios, requirements identified at the start of this document, and our hands-on experience creating numerous templates, we identified a pattern for template decomposition.
+## Шаблоны решений, определяющие емкость и возможности
 
-## <a name="capacity-and-capability-scoped-solution-templates"></a>Capacity and capability-scoped solution templates
+Декомпозиция предоставляет модульный подход к разработке шаблонов, поддерживая возможности повторного использования, расширяемости, тестирования и применения средств. В этом разделе содержится подробное описание применения декомпозиции к шаблонам, определяющим возможности или емкость.
 
-Decomposition provides a modular approach to template development that supports reuse, extensibility, testing, and tooling. This section provides detail on how a decomposition approach can be applied to templates with a Capacity or Capability scope.
+В рамках этого подхода основной шаблон получает значения параметров из шаблона клиента, связывая их затем с несколькими типами шаблонов и скриптами на более низком уровне, как показано ниже. Параметры, а также статические и созданные переменные используются для предоставления значений связанным шаблонам и за их пределами.
 
-In this approach, a main template receives parameter values from a template consumer, then links to several types of templates and scripts downstream as shown below. Parameters, static variables, and generated variables are used to provide values in and out of the linked templates.
+![Параметры шаблона](./media/best-practices-resource-manager-design-templates/template-parameters.png)
 
-![Template parameters](./media/best-practices-resource-manager-design-templates/template-parameters.png)
+**Параметры передаются в основной шаблон, а затем в связанные шаблоны**
 
-**Parameters are passed to a main template then to linked templates**
+В следующих разделах подробно описаны типы шаблонов и скриптов, на которые можно разложить один шаблон. Кроме того, здесь рассматриваются подходы к передаче шаблонам сведений о состоянии. Каждый описанный тип шаблонов и скриптов приводится вместе с примерами. Контекстные примеры см. в разделе «Сборка: пример реализации» далее в этом документе.
 
-The following sections focus on the types of templates and scripts that a single template is decomposed into. The sections present approaches for passing state information among the templates. Each template and the script types in the image are described along with examples. For a contextual example, see "Putting it together: a sample implementation" later in this document.
+### Метаданные шаблона
 
-### <a name="template-metadata"></a>Template metadata
+Метаданные шаблона (файл metadata.json) содержат пары «ключ — значение», описывающие шаблон в формате JSON, который может быть прочитан человеком и программными системами.
 
-Template metadata (the metadata.json file) contains key/value pairs that describe a template in JSON, which can be read by humans and software systems.
+![Метаданные шаблона](./media/best-practices-resource-manager-design-templates/template-metadata.png)
 
-![Template metadata](./media/best-practices-resource-manager-design-templates/template-metadata.png)
+**Метаданные шаблона описываются в файле metadata.json**
 
-**Template metadata is described in the metadata.json file**
+Агенты программного обеспечения могут получить файл metadata.json и опубликовать сведения и ссылку на шаблон на веб-странице или в каталоге. Элементы включают: *itemDisplayName*,*description*, *summary*, *githubUsername* и *dateUpdated*.
 
-Software agents can retrieve the metadata.json file and publish the information and a link to the template in a web page or directory. Elements include *itemDisplayName*, *description*, *summary*, *githubUsername*, and *dateUpdated*.
-
-An example file is shown below in its entirety.
+Ниже приведен пример файла целиком.
 
     {
         "itemDisplayName": "PostgreSQL 9.3 on Ubuntu VMs",
@@ -214,175 +213,171 @@ An example file is shown below in its entirety.
         "dateUpdated": "2015-04-24"
     }
 
-### <a name="main-template"></a>Main template
+### Основной шаблон
 
-The main template receives parameters from a user, uses that information to populate complex object variables, and executes the linked templates.
+Основной шаблон получает параметры от пользователя, использует эти сведения для заполнения переменных сложного объекта, а также выполняет связанные шаблоны.
 
-![Main template](./media/best-practices-resource-manager-design-templates/main-template.png)
+![Основной шаблон](./media/best-practices-resource-manager-design-templates/main-template.png)
 
-**The main template receives parameters from a user**
+**Основной шаблон получает параметры от пользователя**
 
-One parameter that is provided is a known configuration type also known as the t-shirt size parameter because of its standardized values such as small, medium, or large. In practice, you can use this parameter in multiple ways. For details, see "Known configuration resources template" later in this document.
+Один из предоставляемых параметров — это тип известной конфигурации, также известный как параметр «размер футболки» из-за его стандартизированных значений (малый, средний и большой). На практике этот параметр можно использовать разными способами. Дополнительные сведения см. в разделе «Шаблоны ресурсов известной конфигурации» далее в этом документе.
 
-Some resources are deployed regardless of the known configuration specified by a user parameter. These resources are provisioned using a single shared resource template and are shared by other templates, so the shared resource template is run first.
+Некоторые ресурсы развертываются независимо от известной конфигурации, задаваемой указанным пользователем параметром. Эти ресурсы настраиваются с помощью одного шаблона общих ресурсов и совместно используются другими шаблонами, при этом шаблон общих ресурсов выполняется первым.
 
-Some resources are deployed optionally regardless of the specified known configuration.
+Некоторые ресурсы будут развернуты при необходимости независимо от указанной известной конфигурации.
 
-### <a name="shared-resources-template"></a>Shared resources template
+### Шаблон общих ресурсов
 
-This template delivers resources that are common across all known configurations. It contains the virtual network, availability sets, and other resources that are required regardless of the known configuration template that is deployed.
+Этот шаблон предоставляет ресурсы, которые являются общими для всех известных конфигураций. Он содержит виртуальную сеть, группы доступности и другие ресурсы, которые требуются независимо от развертываемого шаблона известной конфигурации.
 
-![Template resources](./media/best-practices-resource-manager-design-templates/template-resources.png)
+![Ресурсы шаблона](./media/best-practices-resource-manager-design-templates/template-resources.png)
 
-**Shared resources template**
+**Шаблон общих ресурсов**
 
-Resource names, such as the virtual network name, are based on the main template. You can specify them as a variable within that template or receive them as a parameter from the user, as required by your organization.
+Имена ресурсов, включая имя виртуальной сети, основываются на основном шаблоне. Можно указать их в качестве переменной в рамках этого шаблона или получить их в качестве параметра от пользователя в соответствии с требованиями вашей организации.
 
-### <a name="optional-resources-template"></a>Optional resources template
+### Шаблон дополнительных ресурсов
 
-The optional resources template contains resources that are programmatically deployed based on the value of a parameter or variable.
+Шаблон дополнительных ресурсов содержит ресурсы, которые развертываются программным способом на основе значения параметра или переменной.
 
-![Optional resources](./media/best-practices-resource-manager-design-templates/optional-resources.png)
+![Дополнительные ресурсы](./media/best-practices-resource-manager-design-templates/optional-resources.png)
 
-**Optional resources template**
+**Шаблон дополнительных ресурсов**
 
-For example, you can use an optional resources template to configure a jumpbox that enables indirect access to a deployed environment from the public Internet. You would use a parameter or variable to identify whether the jumpbox should be enabled and the *concat* function to build the target name for the template, such as *jumpbox_enabled.json*. Template linking would use the resulting variable to install the jumpbox.
+Например, вы можете использовать шаблон дополнительных ресурсов для настройки основной виртуальной машины, предоставляющей непрямой доступ к развернутой среде из общедоступного сегмента Интернета. Параметр или переменную можно использовать, чтобы определить необходимость включения основной виртуальной машины и функции *concat* для создания целевого имени шаблона, такого как *jumpbox\_enabled.json*. Для установки основной виртуальной машины связывание шаблона будет использовать результирующую переменную.
 
-You can link the optional resources template from multiple places:
+Вы можете связать шаблон дополнительных ресурсов из нескольких мест.
 
--   When applicable to every deployment, create a parameter-driven link from the shared resources template.
--   When applicable to select known configurations—for example, only install on large deployments—create a parameter-driven or variable-driven link from the known configuration template.
+-	Если это применимо, создавайте для каждого развертывания управляемую параметрами ссылку из шаблона общих ресурсов.
+-	Если это применимо, выбирайте известные конфигурации — например, устанавливайте решения только в больших развертываниях — создавайте управляемые параметрами или переменными ссылки из шаблона известной конфигурации.
 
-Whether a given resource is optional may not be driven by the template consumer but instead by the template provider. For example, you may need to satisfy a particular product requirement or product add-on (common for CSVs) or to enforce policies (common for SIs and enterprise IT groups). In these cases, you can use a variable to identify whether the resource should be deployed.
+Если данный ресурс является дополнительным, он может управляться не пользователем шаблона, а его поставщиком. Например, вам может потребоваться удовлетворить конкретные требования к продукту или его надстройке (поставщики облачных служб) либо соблюсти политики (системные интеграторы и корпоративные ИТ-отделы). В этих случаях можно использовать переменную, чтобы определить необходимость развертывания ресурса.
 
-### <a name="known-configuration-resources-template"></a>Known configuration resources template
+### Шаблон известной конфигурации ресурсов
 
-In the main template, a parameter can be exposed to allow the template consumer to specify a desired known configuration to deploy. Often, this known configuration uses a t-shirt size approach with a set of fixed configuration sizes such as sandbox, small, medium, and large.
+В основном шаблоне параметр может быть доступен для предоставления пользователю шаблона возможности указывать требуемую известную конфигурацию для развертывания. Зачастую эта известная конфигурация использует подход "размер футболки" с набором фиксированных размеров конфигураций песочницы: малый, средний и большой.
 
-![Known configuration resources](./media/best-practices-resource-manager-design-templates/known-config.png)
+![Ресурсы известной конфигурации](./media/best-practices-resource-manager-design-templates/known-config.png)
 
-**Known configuration resources template**
+**Шаблон известной конфигурации ресурсов**
 
-The t-shirt size approach is commonly used, but the parameters can represent any set of known configurations. For example, you can specify a set of environments for an enterprise application such as Development, Test, and Product. Or you could use it for a cloud service to represent different scale units, product versions, or product configurations such as Community, Developer, or Enterprise.
+Подход «размер футболки» используется повсеместно; при этом параметры могут представлять любой набор известных конфигураций. Например, вы можете указать набор сред для корпоративного приложения, включая среды для разработки, тестирования и производства. Или же вы можете использовать его для облачной службы, чтобы представлять разные единицы масштабирования, версии или конфигурации продукта для сообщества, разработчиков или организаций.
 
-As with the shared resource template, variables are passed to the known configurations template from either:
+Как и в случае с шаблоном общих ресурсов, переменные передаются шаблону известных конфигураций следующим образом.
 
--   An end user—that is, the parameters sent to the main template.
--   An organization—that is, the variables in the main template that represent internal requirements or policies.
+-	От конечного пользователя — параметры передаются основному шаблону.
+-	От организации — переменные в основном шаблоне представляют внутренние требования или политики.
 
-### <a name="member-resources-template"></a>Member resources template
+### Шаблон элемента ресурсов
 
-Within a known configuration, one or more member node types are often included. For example, with Hadoop you have master nodes and data nodes. If you are installing MongoDB, you have data nodes and an arbiter. If you are deploying DataStax, you have data nodes and a VM with OpsCenter installed.
+В известную конфигурацию часто включены один или несколько типов элементов узла. Например, при работе с Hadoop у вас есть основные узлы и узлы данных. При установке MongoDB у вас будут узлы данных и арбитр. При развертывании DataStax у вас будут узлы данных, а также ВМ с установленной службой OpsCenter.
 
-![Members resources](./media/best-practices-resource-manager-design-templates/member-resources.png)
+![Ресурсы элементов](./media/best-practices-resource-manager-design-templates/member-resources.png)
 
-**Member resources template**
+**Шаблон элемента ресурсов**
 
-Each type of nodes can have different sizes of VMs, numbers of attached disks, scripts to install and set up the nodes, port configurations for the VMs, number of instances, and other details. So each node type gets its own member resource template, which contains the details for deploying and configuring an infrastructure as well as executing scripts to deploy and configure software within the VM.
+Каждый тип узлов может иметь разные размеры виртуальной машины, некоторое количество подключенных дисков, скрипты для установки и настройки узлов, конфигурации порта для виртуальной машины, некоторое количество экземпляров и другие сведения. Поэтому каждый тип узла получает свой собственный шаблон элемента ресурсов, который содержит сведения о развертывании и настройке инфраструктуры, а также о выполнении скриптов для развертывания и настройки программного обеспечения в виртуальной машине.
 
-For VMs, typically two types of scripts are used, widely reusable and custom scripts.
+Для виртуальной машины обычно используется два типа скриптов: повторно используемые и пользовательские.
 
-### <a name="widely-reusable-scripts"></a>Widely reusable scripts
+### Повторно используемые скрипты
 
-Widely reusable scripts can be used across multiple types of templates. One of the better examples of these widely reusable scripts sets up RAID on Linux to pool disks and gain a greater number of IOPS. Regardless of the software being installed in the VM, this script provides reuse of proven practices for common scenarios.
+Повторно используемые скрипты можно использовать для нескольких типов шаблонов. Один из лучших примеров — повторное использование скриптов, настраивающих RAID в ОС Linux для объединения дисков и увеличения частоты операций ввода-вывода в секунду. Независимо от программного обеспечения, установленного в виртуальной машине, этот скрипт обеспечивает повторное использование проверенных методик для распространенных сценариев.
 
-![Reusable scripts](./media/best-practices-resource-manager-design-templates/reusable-scripts.png)
+![Скрипты повторного использования](./media/best-practices-resource-manager-design-templates/reusable-scripts.png)
 
-**Member resources templates can call widely reusable scripts**
+**Шаблоны элементов ресурсов могут вызывать повторно используемые скрипты**
 
-### <a name="custom-scripts"></a>Custom scripts
+### Пользовательские скрипты
 
-Templates commonly call one or more scripts that install and configure software within VMs. A common pattern is seen with large topologies where multiple instances of one or more member types are deployed. An installation script is initiated for every VM that can be run in parallel, followed by a setup script that is called after all VMs (or all VMs of a given member type) are deployed.
+Шаблоны часто вызывают один или несколько скриптов, отвечающих за установку и настройку программного обеспечения в виртуальной машине. Общий шаблон используется с большими топологиями, в которых развернуто несколько экземпляров одного или нескольких типов элементов. Скрипт установки инициируется для каждой виртуальной машины, которая может быть запущена параллельно. Затем выполняется скрипт установки, который вызывается после развертывания всех виртуальных машин (или всех виртуальных машин данного типа элемента).
 
-![Custom scripts](./media/best-practices-resource-manager-design-templates/custom-scripts.png)
+![Пользовательские скрипты](./media/best-practices-resource-manager-design-templates/custom-scripts.png)
 
-**Member resources templates can call scripts for a specific purpose such as VM configuration**
+**Шаблоны элементов ресурсов могут вызывать скрипты для выполнения определенных задач, например, конфигурации виртуальной машины**
 
-## <a name="capability-scoped-solution-template-example---redis"></a>Capability-scoped solution template example - Redis
+## Пример шаблона решения, определяющего возможности — Redis
 
-To show how an implementation might work, let's look at a practical example of building a template that facilitates the deployment and configuration of Redis in standard t-shirt sizes.  
+В качестве примера работы реализации рассмотрим практический случай создания шаблона, который облегчает развертывание и настройку Redis с использованием стандартных "размеров футболки".
 
-For the deployment, there are a set of shared resources (virtual network, storage account, availability sets) and an optional resource (jumpbox). There are multiple known configurations represented as t-shirt sizes (small, medium, large) but each with a single node type. There are also two purpose-specific scripts (installation, configuration).
+Для развертывания доступен набор общих ресурсов (виртуальная сеть, учетная запись хранилища, группы доступности) и необязательные ресурсы (основная виртуальная машина). Существует несколько известных конфигураций, представленных в рамках подхода «размеры футболки» (малая, средняя, большая), каждая с одним типом узла. Кроме того, есть два соответствующих задаче скрипта (установка и настройка).
 
-### <a name="creating-the-template-files"></a>Creating the template files
+### Создание файлов шаблона
 
-You would create a Main Template named azuredeploy.json.
+Будет создан основной шаблон с именем azuredeploy.json.
 
-You create Shared Resources Template named shared-resources.json
+Создание шаблона общих ресурсов с именем resources.json
 
-You create an Optional Resource Template to enable the deployment of a jumpbox, named jumpbox_enabled.json
+Создание шаблона дополнительных ресурсов, включающего развертывание основной виртуальной машины, с именем jumpbox\_enabled.json
 
-Redis uses just a single node type, so you create a single Member Resource Template named node-resources.json.
+Redis использует только один тип узла, поэтому создается один шаблон элемента ресурсов с именем node-resources.json.
 
-With Redis, you want to install each individual node, and then set up the cluster.  You have scripts to accommodate the installation and set up, redis-cluster-install.sh and redis-cluster-setup.sh.
+С помощью Redis необходимо установить каждый отдельный узел, а затем настроить кластер. Для этого у вас есть соответствующие скрипты redis-cluster-install.sh и redis-cluster-setup.sh.
 
-### <a name="linking-the-templates"></a>Linking the templates
+### Связывание шаблонов
 
-Using template linking, the main template links out to the shared resources template, which establishes the virtual network.
+Вы можете связать основной шаблон с шаблоном общих ресурсов, который определяет виртуальную сеть.
 
-Logic is added within the main template to enable consumers of the template to specify whether a jumpbox should be deployed. An *enabled* value for the *EnableJumpbox* parameter indicates that the customer wants to deploy a jumpbox. When this value is provided, the template concatenates *_enabled* as a suffix to a base template name for the jumpbox capability.
+Логика добавляется в основной шаблон, позволяя пользователям шаблона определять необходимость развертывания основной виртуальной машины. Значение *enabled* для параметра *EnableJumpbox* означает, что клиент хочет развернуть основную виртуальную машину. Если указано это значение, шаблон присоединяет значение *\_enabled* в качестве суффикса к имени базового шаблона возможности основной виртуальной машины.
 
-The main template applies the *large* parameter value as a suffix to a base template name for t-shirt sizes, and then uses that value in a template link out to *technology_on_os_large.json*.
+Основной шаблон присоединяет значение *large* в качестве суффикса к имени базового шаблона (по методу «размер футболки»), а затем использует это значение для связывания шаблона *technology\_on\_os\_large.json*.
 
-The topology would resemble this illustration.
+Пример топологии приведен на этом рисунке.
 
-![Redis template](./media/best-practices-resource-manager-design-templates/redis-template.png)
+![Шаблон Redis](./media/best-practices-resource-manager-design-templates/redis-template.png)
 
-**Template structure for a Redis template**
+**Структура шаблона для шаблона Redis**
 
-### <a name="configuring-state"></a>Configuring state
+### Настройка состояния
 
-For the nodes in the cluster, there are two steps to configuring the state, both represented by Purpose Specific Scripts.  "redis-cluster-install.sh" installs Redis and "redis-cluster-setup.sh" sets up the cluster.
+Для узлов кластера существуют два этапа настройки состояния, представленные скриптами особого назначения. Скрипт redis-cluster-install.sh выполнит установку Redis, а скрипт redis-cluster-setup.sh настроит кластер.
 
-### <a name="supporting-different-size-deployments"></a>Supporting Different Size Deployments
+### Поддержка развертываний разных размеров
 
-Inside variables, the t-shirt size template specifies the number of nodes of each type to deploy for the specified size (*large*). It then deploys that number of VM instances using resource loops, providing unique names to resources by appending a node name with a numeric sequence number from *copyIndex()*. It does these steps for both hot and warm zone VMs, as defined in the t-shirt name template
+Шаблон "размер футболки" определяет в переменных количество узлов для каждого типа развертывания указанного размера (*большой*). Он также развертывает соответствующее количество экземпляров виртуальной машины с помощью циклов ресурсов и предоставляет уникальные имена для ресурсов, добавляя имя узла с номером числовой последовательности из *copyIndex()*. Это происходит для виртуальных машин горячей и теплой зон в соответствии с определением имени шаблона "размер футболки".
 
-## <a name="decomposition-and-end-to-end-solution-scoped-templates"></a>Decomposition and end-to-end solution scoped templates
+## Декомпозиция и шаблоны законченных решений
 
-A solution template with an end-to-end solution scope is focused on delivering an end-to-end solution.  This approach is typically a composition of multiple capability scoped templates with additional resources, logic, and state.
+Шаблон решения, определяющий законченные решения, отвечает за предоставление законченного решения. Обычно такой шаблон представляет собой сочетание нескольких шаблонов заданных возможностей с дополнительными ресурсами, логикой и состоянием.
 
-As highlighted in the image below, the same model used for capability scoped templates is extended for templates with an End-to-End Solution Scope.
+Как видно на рисунке ниже, одна и та же модель, используемая для шаблонов с заданными возможностями, расширяется для использования с шаблонами в рамках области законченного решения.
 
-A Shared Resources Template and Optional Resources Templates serve the same function as in the capacity and capability scoped template approaches, but are scoped for the end to end solution.
+Шаблон общих ресурсов и шаблоны дополнительных ресурсов выполняют одинаковую функцию в рамках подходов с использованием шаблонов, определяющих емкость и возможности. При этом они ограничены областью применения законченного решения.
 
-As end to end solution scoped templates also can typically have t-shirt sizes, the Known Configuration Resources template reflects what is required for a given known configuration of the solution.
+Поскольку шаблоны, определяющие законченные решения, как правило, также могут использовать подход «размер футболки», шаблон ресурсов известной конфигурации отражает требования к заданной известной конфигурации решения.
 
-The Known Configuration Resources Template links to one or more capability scoped solution templates that are relevant to the end to end solution as well as the Member Resource Templates that are required for the end to end solution.
+Шаблон ресурсов известной конфигурации свяжется с одним или несколькими шаблонами решения, определяющими возможности и относящимися к законченному решению, — как и шаблоны элементов ресурсов, которые необходимы для создания законченного решения.
 
-As the t-shirt size of the solution may be different than that of individual capability scoped template, variables within the Known Configuration Resources Template are used to provide the appropriate values for downstream capability scoped solution templates to deploy the appropriate t-shirt size.
+Значение «размера футболки» решения может отличаться от размера отдельного шаблона, определяющего возможности. Поэтому переменные шаблона ресурсов известной конфигурации должны предоставить соответствующие значения для подчиненных шаблонов решений, определяющих возможности. Благодаря этому шаблоны развертывают правильный «размер футболки».
 
-![End-to-end](./media/best-practices-resource-manager-design-templates/end-to-end.png)
+![Законченное решение](./media/best-practices-resource-manager-design-templates/end-to-end.png)
 
-**The model used for capacity or capability scoped solution templates can be readily extended for end to end solution template scopes**
+**Модель, используемую для шаблонов решений, определяющих возможности или емкость, можно легко расширить для областей действия шаблона, определяющих законченное решение**
 
-## <a name="preparing-templates-for-the-marketplace"></a>Preparing templates for the Marketplace
+## Подготовка шаблонов для размещения в Marketplace
 
-The preceding approach readily accommodates scenarios where Enterprises, SIs, and CSVs want to either deploy the templates themselves or enable their customers to deploy on their own.
+Описанный выше подход позволяет использовать сценарии, в рамках которых организации, системные интеграторы и поставщики облачных служб развертывают шаблоны самостоятельно или делегируют это развертывание своим пользователям.
 
-Another desired scenario is deploying a template via the marketplace.  This decomposition approach works for the marketplace as well, with some minor changes.
+Еще одним требуемым сценарием является развертывание шаблона через магазин. Этот подход к декомпозиции также будет работать с магазином с некоторыми незначительными изменениями.
 
-As mentioned previously, templates can be used to offer distinct deployment types for sale in the marketplace. Distinct deployment types may be t-shirt sizes (small, medium, large), product/audience type (community, developer, enterprise), or feature type (basic, high availability).
+Как упоминалось ранее, шаблоны можно использовать, предлагая для продажи в магазине развертывания разных типов. Разные типы развертываний могут быть представлены разными "размерами футболки" (малый, средний, большой), типом продукта и аудитории (сообщества, разработчики, организации) или типом функции (базовый, высокий уровень доступности).
 
-As shown below, the existing end to end solution or capability scoped templates can be readily utilized to list the different known configurations in the marketplace.
+Как показано ниже, существующие шаблоны, определяющие законченные решения или возможности, можно легко использовать для создания в магазине списка различных известных конфигураций.
 
-The parameters to the main template are first modified to remove the inbound parameter named tshirtSize.
+Параметры основного шаблона изменяются первыми для удаления входящего параметра с именем tshirtSize.
 
-While the distinct deployment types map to the Known Configuration Resources Template, they also need the common resources and configuration found in the Shared Resources Template and potentially those in Optional Resource Templates.
+Во время сопоставления разных типов развертывания с шаблоном ресурсов известной конфигурации также необходимы общие ресурсы и конфигурация, включенные в шаблон общих ресурсов и, возможно, в шаблоны дополнительных ресурсов.
 
-If you want to publish your template to the marketplace, you simply establish distinct copies of your Main template that replaces the previously available inbound parameter of tshirtSize to a variable embedded within the template.
+Чтобы опубликовать шаблон в магазине, просто установите отдельные копии общего шаблона, который заменяет ранее доступный входящий параметр tshirtSize переменной, внедренной в шаблон.
 
 ![Marketplace](./media/best-practices-resource-manager-design-templates/marketplace.png)
 
-**Adapting a solution scoped template for the marketplace**
+**Адаптация шаблона заданного решения к магазину**
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- For recommendations about how to handle security in Azure Resource Manager, see [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)
-- To learn about sharing state into and out of templates, see [Sharing state in Azure Resource Manager templates](best-practices-resource-manager-state.md).
+- Рекомендации по безопасности диспетчера ресурсов Azure см. в разделе [Вопросы безопасности для диспетчера ресурсов Azure](best-practices-resource-manager-security.md).
+- Дополнительные сведения о состоянии общего доступа в рамках шаблонов и за их пределами см. в статье [Состояние общего доступа в шаблонах диспетчера ресурсов Azure](best-practices-resource-manager-state.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

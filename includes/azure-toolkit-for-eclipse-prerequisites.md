@@ -1,28 +1,25 @@
-### <a name="prerequisites"></a>Prerequisites
+### Предварительные требования
 
-The Azure Toolkit for Eclipse requires the following software components:
+Набор средств Azure для Eclipse требует установки следующих программных компонентов:
 
-* Eclipse IDE for Java EE Developers, Luna or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
+* Интегрированная среда разработки Eclipse для разработчиков Java EE, версия Luna или более поздняя. Среду также можно загрузить с веб-страницы <http://www.eclipse.org/downloads/>.
 
-* A Java Developer Kit (JDK), v1.8 or later. 
+* Java Developer Kit (JDK), версия 1.8 или более поздняя.
 
-* Operating Systems - the Azure Toolkit for Eclipse has been tested on the following operating systems:
+* Операционные системы — набор средств Azure для Eclipse проверен на следующих операционных системах:
 
-    * Windows 10, Windows 8 and 8.1, Windows 7
-    * Windows Server 2012 and 2012 R2, Windows Server 2008 and 2008 R2
-    * [Mac OS X](http://www.apple.com/osx) Versions "Yosemite" and "El Captain"
-    * [Ubuntu Linux](http://www.ubuntu.com) Versions 12, 14, and 15
+    * Windows 10, Windows 8 и 8.1, Windows 7
+    * Windows Server 2012 и 2012 R2, Windows Server 2008 и 2008 R2
+    * [Mac OS X](http://www.apple.com/osx) версии Yosemite и El Captain
+    * [Ubuntu Linux](http://www.ubuntu.com) версии 12, 14 и 15
 
-More information can be found on the [Azure Toolkit for Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) page at the Eclipse Marketplace.
+Дополнительные сведения можно найти на странице [Набор средств Azure для Eclipse](http://marketplace.eclipse.org/content/azure-toolkit-eclipse) в магазине Eclipse.
 
-> [AZURE.IMPORTANT] If you are using the Azure Toolkit for Eclipse on Windows, the toolkit requires installing the Azure SDK 2.9.1 or later. You have two options for installing the Azure SDK:
+> [AZURE.IMPORTANT] При использовании набора средств Azure для Eclipse в Windows необходимо установить пакет SDK Azure 2.9.1 или более поздней версии. Существует два варианта установки этого пакета SDK Azure.
 > 
-> * You can download and install the Azure SDK by using the [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838).
-> * If you do not have the Azure SDK installed when you create your first Azure deployment project, you will be prompted to automatically download install the requisite version of the Azure SDK.
+> * Вы можете скачать и установить пакет SDK Azure с помощью [установщика веб-платформы (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838).
+> * Если при создании первого проекта развертывания Azure пакет SDK не установлен, выводится запрос, предлагающий автоматически скачать и установить соответствующую версию пакета SDK Azure.
 > 
-> Note that the Azure SDK is only required on Windows.
+> Обратите внимание, что пакет SDK Azure требуется только в Windows.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

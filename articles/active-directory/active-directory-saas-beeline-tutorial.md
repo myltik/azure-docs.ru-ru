@@ -1,259 +1,256 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Beeline | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Beeline."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Учебник. Интеграция Azure Active Directory с Beeline | Microsoft Azure"
+	description="Узнайте, как настроить единый вход между Azure Active Directory и Beeline."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/19/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/19/2016"
+	ms.author="jeedes"/>
 
 
+# Учебник. Интеграция Azure Active Directory с Beeline
 
-# <a name="tutorial:-azure-active-directory-integration-with-beeline"></a>Tutorial: Azure Active Directory integration with Beeline
+В этом руководстве описано, как интегрировать Beeline с Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to integrate Beeline with Azure Active Directory (Azure AD).
+Интеграция Beeline с Azure AD обеспечивает следующие преимущества.
 
-Integrating Beeline with Azure AD provides you with the following benefits:
+- С помощью Azure AD вы можете контролировать доступ к Beeline.
+- Вы можете включить автоматический вход пользователей в Beeline (единый вход) с учетной записью Azure AD.
+- Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-- You can control in Azure AD who has access to Beeline
-- You can enable your users to automatically get signed-on to Beeline (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+Чтобы настроить интеграцию Azure AD с Beeline, вам потребуется:
 
-To configure Azure AD integration with Beeline, you need the following items:
-
-- An Azure AD subscription
-- A Beeline single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- подписка Azure AD;
+- подписка Beeline с активированной функцией единого входа.
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
 
-## <a name="scenario-description"></a>Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. The scenario outlined in this tutorial consists of two main building blocks:
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-1. Adding Beeline from the gallery
-2. Configuring and testing Azure AD single sign-on
-
-
-## <a name="adding-beeline-from-the-gallery"></a>Adding Beeline from the gallery
-To configure the integration of Beeline into Azure AD, you need to add Beeline from the gallery to your list of managed SaaS apps.
-
-**To add Beeline from the gallery, perform the following steps:**
-
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
-
-    ![Active Directory][1]
-
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Beeline**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_01.png)
-
-7. In the results pane, select **Beeline**, and then click **Complete** to add the application.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_06.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Beeline based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Beeline is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Beeline needs to be established.
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Beeline.
-
-To configure and test Azure AD single sign-on with Beeline, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating an Beeline test user](#creating-an-beeline-test-user)** - to have a counterpart of Britta Simon in Beeline that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
-
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Beeline application.
-
-Your Beeline application expects the SAML assertions in a specific format. Please work with Beeline team first to identify the correct user identifier which will be mapped into the application. Also please take the guidance from Beeline team about the attribute which they want to use for this mapping. Microsoft recommend to use the **"NameIdentifier"** attribute as user identifier. You can manage the value of this attribute from the **"Atrribute"** tab of the application. The following screenshot shows an example for this. Here we have mapped the nameidentifier claim with the **userprincipalname** attribute, which provides unique user ID, which will be sent to the Beeline application in the every successful SAML Response.
-
-![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_07.png) 
+- Не следует использовать рабочую среду при отсутствии необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 
-**To configure Azure AD single sign-on with Beeline, perform the following steps:**
+## Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. In the classic portal, on the **Beeline** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-
-     ![Configure Single Sign-On][6] 
-
-2. On the **How would you like users to sign on to Beeline** page, select **Azure AD Single Sign-On**, and then click **Next**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_03.png) 
-
-3. On the **Configure App Settings** dialog page, perform the following steps:.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_04.png) 
+1. Добавление Beeline из коллекции
+2. Настройка и проверка единого входа в Azure AD
 
 
-    a. In the **Identifier** textbox, type the URL used by your users to sign-on to your Beeline application using the following pattern: `https://projects.beeline.net/<instance name>`
+## Добавление Beeline из коллекции
+Чтобы настроить интеграцию приложения Beeline с Azure AD, необходимо добавить это приложение из коллекции в список управляемых приложений SaaS.
 
-    b. In the Reply URL type the URL in the following pattern: `https://projects.beeline.net/<instance name>/SSO_External.ashx` or `https://projects.beeline.net/<company name>/SSO_External.ashx`
+**Чтобы добавить Beeline из коллекции, выполните следующие действия.**
+
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+
+	![Active Directory][1]
+
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
+3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+
+	![Приложения][2]
+
+4. В нижней части страницы нажмите кнопку **Добавить**.
+
+	![Приложения][3]
+
+5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+
+	![Приложения][4]
+
+6. В поле поиска введите **Beeline**.
+
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_01.png)
+
+7. В области результатов выберите **Beeline** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_06.png)
+
+##  Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в Beeline с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Beeline соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Beeline. Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Beeline.
+
+Чтобы настроить и проверить единый вход Azure AD в Beeline, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+4. **[Создание тестового пользователя Beeline](#creating-an-beeline-test-user)** требуется для создания пользователя Britta Simon в Beeline, связанного с соответствующим представлением в Azure AD.
+5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы разрешить пользователю Britta Simon использовать единый вход Azure AD.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### Настройка единого входа в Azure AD
+
+В данном разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении Beeline.
+
+Приложение Beeline ожидает утверждения SAML в определенном формате. Обратитесь в службу поддержки Beeline, чтобы определить правильный идентификатор пользователя, который будет сопоставляться в приложении. Необходимо выполнить рекомендации от службы поддержки Beeline, касающиеся атрибута, который она хочет использовать для данного сопоставления. Корпорация Майкрософт рекомендует использовать атрибут **"NameIdentifier"** в качестве идентификатора пользователя. Управлять значением этого атрибута можно на вкладке **Атрибут** приложения. На следующем снимке экрана приведен пример. Утверждение nameidentifier было сопоставлено с атрибутом **userprincipalname**. Таким образом был получен уникальный идентификатор пользователя, который будет отправляться в приложение Beeline в каждом успешном ответе SAML.
+
+![Настройка единого входа](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_07.png)
 
 
-4. On the **Configure single sign-on at Beeline** page, perform the following steps:
+**Чтобы настроить единый вход Azure AD в Beeline, выполните следующие действия.**
 
-    ![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_05.png) 
+1. На классическом портале Azure на странице интеграции с приложением **Beeline** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    a. Click **Download metadata**, and then save the file on your computer.
+	 ![Настройка единого входа][6]
 
-    b. Click **Next**.
+2. На странице **Как пользователи должны входить в Beeline?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+ 	
+	![Настройка единого входа](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_03.png)
+
+3. На странице диалогового окна **Настройка параметров приложения** выполните следующие действия.
+
+	![Настройка единого входа](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_04.png)
 
 
-5.  To get SSO configured for your application, contact Beeline Support team and they will assist to configure SSO. Please note that you have to send email and attach downloaded metadata file and also provide the Entity ID and Single Sign Out Service URL.
+    а. В текстовом поле **Идентификатор** введите URL-адрес, используемый пользователями для входа в приложение Beeline, применяя следующий шаблон: `https://projects.beeline.net/<instance name>`.
+
+	b. В поле "URL-адрес ответа" введите URL-адрес в следующем формате: `https://projects.beeline.net/<instance name>/SSO_External.ashx` или `https://projects.beeline.net/<company name>/SSO_External.ashx`.
+
+
+4. На странице **Настройка единого входа в Beeline** выполните следующие действия.
+
+	![Настройка единого входа](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_05.png)
+
+    а. Нажмите **Загрузить метаданные** и сохраните файл на свой компьютер.
+
+    b. Нажмите кнопку **Далее**.
+
+
+5.  Чтобы получить помощь при настройке единого входа для своего приложения, обратитесь в службу поддержки Beeline. Обратите внимание, что для выполнения настройки необходимо отправить по электронной почте сообщение, прикрепив к нему скачанный файл метаданных, а также указать идентификатор сущности и URL-адрес службы единого выхода.
   
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-    
-    ![Azure AD Single Sign-On][10]
+6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
+	
+	![Единый вход в Azure AD][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
-    
-    ![Azure AD Single Sign-On][11]
-
-
-
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+  	
+	![Единый вход в Azure AD][11]
 
 
-![Create Azure AD User][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+### Создание тестового пользователя Azure AD
+В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-    
-    ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/create_aaduser_09.png) 
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+![Создание пользователя Azure AD][20]
 
-3. To display the list of users, in the menu on the top, click **Users**.
-    
-    ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/create_aaduser_03.png) 
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+	
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-beeline-tutorial/create_aaduser_09.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/create_aaduser_04.png) 
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
+	
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-beeline-tutorial/create_aaduser_03.png)
+
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-beeline-tutorial/create_aaduser_04.png)
+
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
  
-    ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/create_aaduser_05.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-beeline-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Нажмите кнопку **Далее**.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/create_aaduser_06.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-beeline-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. В текстовое поле **Фамилия** введите **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    г) В списке **Роль** выберите **Пользователь**.
 
-    e. Click **Next**.
+    д. Нажмите кнопку **Далее**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/create_aaduser_07.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-beeline-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-beeline-tutorial/create_aaduser_08.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-beeline-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    а. Запишите значение поля **Новый пароль**.
 
-    b. Click **Complete**.   
-
-
-
-### <a name="creating-an-beeline-test-user"></a>Creating an Beeline test user
-
-In this section, you create a user called Britta Simon in Beeline. Beeline application need all the users to be provisioned in the application before doing Single Sign On. So please work with the Beeline Customer support associate to provision all these users into the application. 
+    b. Нажмите **Завершено**.
 
 
-> [AZURE.NOTE] If you need to create a user manually or batch of users, you need to contact the Beeline support team.
+
+### Создание тестового пользователя Beeline
+
+В этом разделе описано, как создать пользователя Britta Simon в приложении Beeline. Перед выполнением единого входа все пользователи должны быть подготовлены в приложении Beeline. Для этого обратитесь в службу поддержки клиентов Beeline.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Beeline.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Beeline, perform the following steps:**
-
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **Beeline**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_50.png) 
-
-1. In the menu on the top, click **Users**.
-
-    ![Assign User][203] 
-
-1. In the Users list, select **Britta Simon**.
-
-2. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+> [AZURE.NOTE] Чтобы создать пользователя или несколько пользователей вручную, обратитесь в службу поддержки Beeline.
 
 
-### <a name="testing-single-sign-on"></a>Testing single sign-on
+### Назначение тестового пользователя Azure AD
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
-When you click the Beeline tile in the Access Panel, you should get automatically signed-on to your Beeline application.
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к Beeline.
+
+![Назначение пользователя][200]
+
+**Чтобы назначить пользователя Britta Simon в Beeline, выполните следующие действия.**
+
+1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в меню вверху.
+
+	![Назначение пользователя][201]
+
+2. В списке приложений выберите **Beeline**.
+
+	![Настройка единого входа](./media/active-directory-saas-beeline-tutorial/tutorial_beeline_50.png)
+
+1. В меню в верхней части страницы щелкните **Пользователи**.
+
+	![Назначение пользователя][203]
+
+1. В списке пользователей выберите **Britta Simon**.
+
+2. На панели инструментов внизу щелкните **Назначить**.
+
+	![Назначение пользователя][205]
 
 
-## <a name="additional-resources"></a>Additional resources
+### Проверка единого входа
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа. Щелкнув элемент Beeline на панели доступа, вы автоматически войдете в приложение Beeline.
+
+
+## Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -275,8 +272,4 @@ When you click the Beeline tile in the Access Panel, you should get automaticall
 [204]: ./media/active-directory-saas-beeline-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-beeline-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

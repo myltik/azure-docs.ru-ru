@@ -1,6 +1,6 @@
-### <a name="app-service-plan"></a>App Service plan
+### План обслуживания приложения
 
-Creates the service plan for hosting the web app. You provide the name of the plan through the **hostingPlanName** parameter. The location of the plan is the same location used for the resource group. The pricing tier and worker size are specified in the **sku** and **workerSize** parameters
+Создает план обслуживания для размещения веб-приложения. Имя плана задается с помощью параметра **hostingPlanName**. Расположение плана совпадает с расположением группы ресурсов. Ценовая категория и размер рабочего процесса задаются с помощью параметров **sku** и **workerSize**.
 
     {
       "apiVersion": "2015-08-01",
@@ -15,9 +15,4 @@ Creates the service plan for hosting the web app. You provide the name of the pl
         "name": "[parameters('hostingPlanName')]"
       }
     },
-
-
-
-<!--HONumber=Oct16_HO2-->
-
 

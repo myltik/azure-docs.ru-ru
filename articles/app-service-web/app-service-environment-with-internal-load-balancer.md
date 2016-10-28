@@ -1,163 +1,162 @@
 <properties
-    pageTitle="Creating and using an Internal Load Balancer with an App Service Environment | Microsoft Azure"
-    description="Creating and using an ASE with an ILB"
-    services="app-service"
-    documentationCenter=""
-    authors="ccompy"
-    manager="stefsch"
-    editor=""/>
+	pageTitle="Создание и использование внутреннего балансировщика нагрузки в среде службы приложений | Microsoft Azure"
+	description="Создание и использование ASE с внутренним балансировщиком нагрузки."
+	services="app-service"
+	documentationCenter=""
+	authors="ccompy"
+	manager="stefsch"
+	editor=""/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/12/2016"
-    ms.author="ccompy"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="ccompy"/>
+
+# Использование внутреннего балансировщика нагрузки в среде службы приложений #
+
+Среды службы приложений (ASE) — это функция службы приложений Azure уровня служб "Премиум", которая предоставляет возможность расширенной настройки, недоступную в многопользовательских метках. Функция ASE фактически развертывает службу приложений Azure в виртуальной сети Azure. Чтобы узнать больше о возможностях, доступных в средах службы приложений, см. документацию [Возможности среды службы приложений][WhatisASE]. Если вам неизвестны преимущества работы в виртуальной сети, прочитайте раздел [Часто задаваемые вопросы по виртуальной сети][virtualnetwork].
 
 
-# <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Using an Internal Load Balancer with an App Service Environment #
-
-The App Service Environments(ASE) feature is a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  The ASE feature essentially deploys the Azure App Service in your Azure Virtual Network(VNet).  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.  If you don't know the benefits of operating in a VNet read the [Azure Virtual Network FAQ][virtualnetwork].  
+## Обзор ##
 
 
-## <a name="overview"></a>Overview ##
+ASE может развертываться с конечной точкой, доступной из Интернета, или IP-адресом в вашей виртуальной сети. Чтобы в качестве адреса виртуальной сети задать IP-адрес, необходимо развернуть ASE с внутренним балансировщиком нагрузки (ILB). Настройка среды ASE с внутренним балансировщиком нагрузки обеспечивает следующие возможности.
+
+- Ваш собственный домен или поддомен. Чтобы упростить процесс, в данном документе предполагается поддомен, но вы можете настроить и домен.
+- Сертификат, используемый для HTTPS.
+- Управление DNS для поддомена.
 
 
-An ASE can be deployed with an internet accessible endpoint or with an IP address in your VNet.  In order to set the IP address to a VNet address you need to deploy your ASE with an Internal Load Balancer(ILB).  When your ASE is configured with an ILB you provide:
+Это дает следующие возможности:
 
-- your own domain or subdomain.  To make it easy, this document assumes subdomain but you can configure it either way.  
-- the certificate used for HTTPS
-- DNS management for your subdomain.  
-
-
-In return, you can do things such as:
-
-- host intranet applications, like line of business applications, securely in the cloud which you access through a Site to Site or ExpressRoute VPN
-- host apps in the cloud that are not listed in public DNS servers
-- create internet isolated backend apps which your front end apps can securely integrate with
+- безопасное размещение в облаке приложений из интрасети, например бизнес-приложений, доступ к которым осуществляется через VPN типа "сеть — сеть" или ExpressRoute;
+- размещение в облаке приложений, которые не указаны на общедоступных DNS-серверах;
+- создание изолированных от Интернета внутренних приложений, с которыми можно безопасно интегрировать свои внешние приложения.
 
 
-#### <a name="disabled-functionality"></a>Disabled functionality ####
+#### Отключенные функциональные возможности ####
 
-There are some things that you cannot do when using an ILB ASE.  Those things include:
+Существуют некоторые функции, недоступные при использовании ASE с внутренним балансировщиком нагрузки. К ним относятся:
 
-- using IPSSL
-- assigning IP addresses to specific apps
-- buying and using a certificate with an app through the portal.  You can of course still obtain certificates directly with a Certificate Authority and use it with your apps, just not through the Azure portal.
+- использование SSL на основе IP;
+- назначение IP-адресов конкретным приложениям;
+- приобретение и использование сертификата с приложением на портале. Разумеется, по-прежнему можно получить сертификаты непосредственно в центре сертификации и использовать их с приложениями, но только не на портале Azure.
 
 
-## <a name="creating-an-ilb-ase"></a>Creating an ILB ASE ##
+## Создание ASE с внутренним балансировщиком нагрузки ##
 
-Creating an ILB ASE is not much different from creating an ASE normally.  For a deeper discussion on creating an ASE read [How to Create an App Service Environment][HowtoCreateASE].  The process to create an ILB ASE is the same between creating a VNet during ASE creation or selecting a pre-existing VNet.  To create an ILB ASE: 
+Создание ASE с внутренним балансировщиком нагрузки не сильно отличается от создания ASE обычным образом. Более подробно создание ASE рассматривается в разделе [Создание среды службы приложений][HowtoCreateASE]. В процессе создания ASE с внутренним балансировщиком нагрузки точно так же создается новая или выбирается существующая виртуальная сеть. Чтобы создать ASE с внутренним балансировщиком нагрузки, выполните следующее.
 
-1.  In the Azure portal select **New -> Web + Mobile -> App Service Environment**
-2.  Select your subscription
-3.  Select or create a resource group
-4.  Select or create a VNet
-5.  Select or create a subnet if selecting a VNet
-6.  Select **Virtual Network/Location -> VNet Configuration** and set the VIP Type to Internal
-7.  Provide subdomain name (this will be the subdomain used for apps created in this ASE)
-8.  Select Ok and then Create
+1.	На портале Azure последовательно выберите **Создать > Интернет+мобильные устройства > Среда службы приложений**.
+2.	Выберите свою подписку.
+3.	Выберите или создайте группу ресурсов.
+4.	Выберите или создайте виртуальную сеть.
+5.	Выберите или создайте подсеть, если была выбрана виртуальная сеть.
+6.	Выберите **Виртуальная сеть/расположение > VNet Configuration** (Конфигурация виртуальной сети) и задайте тип виртуального IP-адреса "Внутренний".
+7.	Введите имя поддомена (он будет использоваться для приложений, создаваемых в этой ASE).
+8.	Нажмите кнопку "ОК", а затем — "Создать".
 
 
 ![][1]
 
 
-Within the Virtual Network blade there is a VNet Configuration option.  This lets you select between an External VIP or Internal VIP.  The default is External.  If you have it set to External then your ASE will use an internet accessible VIP.  If you select Internal, your ASE will be configured with an ILB on an IP address within your VNet.  
+В колонке "Виртуальная сеть" есть параметр "VNet Configuration" (Конфигурация виртуальной сети). Он позволяет выбрать внешний или внутренний виртуальный IP-адрес. По умолчанию используется внешний виртуальный IP-адрес. Если задать внешний виртуальный IP-адрес, то ASE будет использовать виртуальный IP-адрес, доступный из Интернета. Если выбрать внутренний виртуальный IP-адрес, то для ASE будет настроен внутренний балансировщик нагрузки с IP-адресом в виртуальной сети.
 
 
-After selecting Internal, the ability to add more IP addresses to your ASE is removed and instead you need to provide the subdomain of the ASE.  In an ASE with an External VIP the name of the ASE is used in the subdomain for apps created in that ASE.  
-If your ASE was called ***contosotest*** and your app in that ASE was called ***mytest*** then the subdomain would be of the format ***contosotest.p.azurewebsites.net*** and the URL for that app would be ***mytest.contosotest.p.azurewebsites.net***.  
-If you set the VIP Type to Internal, your ASE name is not used in the subdomain for the ASE.  You specify the subdomain explicitly.  If your subdomain was ***contoso.corp.net*** and you made an app in that ASE named ***timereporting*** then the URL for that app would be ***timereporting.contoso.corp.net***.
+После выбора внутреннего виртуального IP-адреса возможность добавлять дополнительные IP-адреса для ASE исчезнет, и вместо этого необходимо будет предоставить поддомен ASE. В ASE с внешним виртуальным IP-адресом имя среды службы приложений указывается в поддомене для приложений, создаваемых в этой среде. Например, если ASE называется ***contosotest***, а приложение в ASE называется ***mytest***, то поддомен будет иметь вид ***contosotest.p.azurewebsites.net***, а URL-адресом этого приложения будет ***mytest.contosotest.p.azurewebsites.net***. Если указать внутренний виртуальный IP-адрес, то имя среды ASE не используется в ее поддомене. В этом случае поддомен указывается явным образом. Например, если используется поддомен ***contoso.corp.net*** и вы создали в этой ASE приложение с именем ***timereporting***, то URL-адресом этого приложения будет ***timereporting.contoso.corp.net***.
 
 
-## <a name="apps-in-an-ilb-ase"></a>Apps in an ILB ASE ##
+## Приложения в ASE с внутренним балансировщиком нагрузки ##
 
-Creating an app in an ILB ASE is the same as creating an app in an ASE normally.  
+Создание приложения в ASE и ASE с внутренним балансировщиком нагрузки не отличается.
 
-1. In the Azure portal select **New -> Web + Mobile -> Web** or **Mobile** or **API App**
-2. Enter name of app
-2. Select subscription
-3. Select or create resource group
-4. Select or create App Service Plan(ASP).  If creating a new ASP then select your ASE as the location and select the worker pool you want your ASP to be created in.  When you create the ASP you select your ASE as the location and the worker pool.  When you specify the name of the app you will see that the subdomain under your app name is replaced by the subdomain for your ASE.   
-5. Select Create.  You should select the **Pin to dashboard** checkbox if you want the app to show up on your dashboard.  
+1. На портале Azure последовательно выберите **Создать > Интернет+мобильные устройства > Интернет**, **Мобильные** или **Приложение API**.
+2. Введите имя приложения.
+2. Выберите подписку.
+3. Выберите или создайте группу ресурсов.
+4. Выберите или создайте план службы приложений. В случае создания нового плана службы приложений выберите свою среду ASE в качестве расположения, а также выберите рабочий пул, в котором будет создан этот план. При создании плана службы приложений следует выбрать ASE в качестве расположения и рабочий пул. При указании имени приложения вы увидите, что поддомен в имени вашего приложения заменяется поддоменом ASE.
+5. Нажмите кнопку Создать. Следует установить флажок **Закрепить на панели мониторинга**, если требуется отобразить приложение на панели мониторинга.
 
 ![][2]
 
 
-Under the app name the subdomain name gets updated to reflect the subdomain of your ASE.  
+Поддомен в имени приложения обновится с учетом поддомена ASE.
 
 
-## <a name="post-ilb-ase-creation-validation"></a>Post ILB ASE creation validation ##
+## Проверка после создания ASE с внутренним балансировщиком нагрузки ##
 
-An ILB ASE is slightly different than the non-ILB ASE.  As already noted you need to manage your own DNS and you also have to provide your own certificate for HTTPS connections.  
+ASE с внутренним балансировщиком нагрузки немного отличается от ASE без такового. Как уже сказано, в ней нужно управлять собственной службой DNS, а также необходимо предоставлять собственный сертификат для подключений по протоколу HTTPS.
 
 
-After you create your ASE you will notice that the subdomain shows the subdomain you specified and there is a new item in the **Setting** menu called **ILB Certificate**.  Until you set a certificate for your ASE you will not be able to reach the apps in your ASE over HTTPS.  
+После создания среды ASE вы обратите внимание, что отображается указанный вами поддомен, а в меню **Параметры** появился новый элемент **Сертификат ILB**. Пока не задан сертификат для ASE, к приложениям в ASE будет невозможно подключиться по протоколу HTTPS.
 
 ![][3]
 
 
-If you are simply trying things out and don't know how to create a certificate, you can use the IIS MMC console application to create a self signed certificate.  Once it is created you can export it as a .pfx file and then upload it in the ILB Certificate UI. When you access a site secured with a self-signed certificate, your browser will give you a warning that the site you are accessing is not secure due to the inability to validate the certificate.  If you want to avoid that warning you need a properly signed certificate that matches your subdomain and has a chain of trust that is recognized by your browser.
+Если вы просто изучаете возможности и не знаете, как создать сертификат, то вы можете использовать консольное приложение IIS MMC, чтобы создать самозаверяющий сертификат. После создания сертификат можно экспортировать в PFX-файл, а затем передать его в пользовательский интерфейс сертификата ILB. При подключении к сайту, защищенному с помощью самозаверяющего сертификата, браузер отобразит предупреждение о том, что сайт, к которому вы подключаетесь, не является безопасным из-за невозможности проверить сертификат. Чтобы предотвратить появление этого предупреждения, нужен должным образом подписанный сертификат, который соответствует вашему поддомену и имеет цепочку сертификатов, распознаваемую браузером.
 
 ![][6]
 
-If you want to test both HTTP and HTTPS access to your ASE:
+Если требуется проверить доступ к ASE по протоколам HTTP и HTTPS, то выполните следующее.
 
-1.  Go to ASE UI after ASE is created **ASE -> Settings -> ILB Certificates**
-2.  Set ILB certificate by selecting certificate pfx file and provide password.  This step takes a little while to process and the message that a scaling operation is in progress will be shown.
-3.  Get the ILB address for your ASE (**ASE -> Properties -> Virtual IP Address**)
-4.  Create a web app in ASE after creation 
-5.  Create a VM if you don't have one in that VNET (Not in the same subnet as the ASE or things break)
-6.  Set DNS for your subdomain.  You can use a wildcard with your subdomain in your DNS or if you want to do some simple tests, edit the hosts file on your VM to set web app name to VIP IP address.  If your ASE had the subdomain name .ilbase.com and you made the web app mytestapp so that it would be addressed at mytestapp.ilbase.com then set that in your hosts file.  (On Windows the hosts file is at C:\Windows\System32\drivers\etc\ )
-7.  Use a browser on that VM and go to http://mytestapp.ilbase.com (or whatever your web app name is with your subdomain)
-8.  Use a browser on that VM and go to https://mytestapp.ilbase.com   You will have to accept the lack of security if using a self-signed certificate.  
+1.	Перейдите к пользовательскому интерфейсу среды ASE после ее создания **ASE > Параметры > Сертификаты ILB**.
+2.	Задайте сертификат ILB, выбрав PFX-файл сертификата, и введите пароль. На выполнение этой операции потребуется некоторое времени, после чего отобразится сообщение о том, что выполняется операция масштабирования.
+3.	Получите адрес внутреннего балансировщика нагрузки для среды ASE (**ASE > Свойства > Виртуальный IP-адрес**).
+4.	Создайте веб-приложение в среде ASE после ее создания.
+5.	Создайте виртуальную машину, если в виртуальной сети нет ни одной (но не в той же подсети, что и ASE, иначе операция будет прервана).
+6.	Задайте DNS для поддомена. Можно указать в DNS подстановочные знаки с поддоменом или, если вы хотите выполнить несколько простых проверок, можно изменить файл hosts на виртуальной машине, чтобы в качестве имени веб-приложения задать виртуальный IP-адрес. Если имя поддомена вашей ASE — .ilbase.com и вы создали веб-приложение mytestapp, которое доступно по адресу mytestapp.ilbase.com, то укажите это в файле hosts. (В Windows файл hosts находится в папке C:\\Windows\\System32\\drivers\\etc\\.)
+7.	Откройте браузер на этой виртуальной машине и перейдите по адресу http://mytestapp.ilbase.com (или по имени своего веб-приложения с поддоменом).
+8.	В браузере на этой виртуальной машине перейдите по адресу https://mytestapp.ilbase.com. Нужно будет согласиться с недостаточной безопасностью, если используется самозаверяющий сертификат.
 
 
-The IP address for your ILB is listed in your Properties as the Virtual IP Address
+IP-адрес вашего внутреннего балансировщика нагрузки указан в свойствах как виртуальный IP-адрес.
 
 ![][4]
 
 
-## <a name="using-an-ilb-ase"></a>Using an ILB ASE ##
+## Использование ASE с внутренним балансировщиком нагрузки ##
 
-#### <a name="network-security-groups"></a>Network Security Groups ####
+#### группы сетевой безопасности; ####
 
-An ILB ASE enables network isolation for your apps as the apps are not accessible or even known by the internet.  This is excellent for hosting intranet sites such as line of business applications.  When you need to restrict access even further you can still use Network Security Groups(NSGs) to control access at the network level. 
-
-
-If you wish to use NSGs to further restrict access then you need to make sure you do not break the communication that the ASE needs in order to operate.  Even though the HTTP/HTTPS access is only through the ILB used by the ASE the ASE still depends on resource outside of the VNet.  To see what network access is still required look at the information in the document on [Controlling Inbound Traffic to an App Service Environment][ControlInbound] and the document on [Network Configuration Details for App Service Environments with ExpressRoute][ExpressRoute].  
+ASE с внутренним балансировщиком нагрузки обеспечивает сетевую изоляцию приложений, так как они недоступны или даже неизвестны в Интернете. Это прекрасно подходит для размещения сайтов интрасети, например бизнес-приложений. Если необходимо еще строже ограничить доступ, то можно по-прежнему использовать группы безопасности сети для управления доступом на уровне сети.
 
 
-To configure your NSGs you need to know the IP address that is used by Azure to manage your ASE.  That IP address is also the outbound IP address from your ASE if it makes internet requests.  To find this IP address go to **Settings -> Properties** and find the **Outbound IP Address**.  
+Если вы хотите использовать группы безопасности сети, чтобы еще больше ограничить доступ, то необходимо убедиться, что это не нарушает обмен данными, необходимый для работы ASE. Несмотря на то, что доступ по протоколам HTTP и HTTPS осуществляется только через внутренний балансировщик нагрузки, используемый средой ASE, она по-прежнему зависит от ресурсов за пределами виртуальной сети. Чтобы узнать, какой доступ к сети по-прежнему необходим, просмотрите сведения в документах [Как управлять входящим трафиком в среде службы приложений][ControlInbound] и [Сведения о конфигурации сети для сред службы приложений с ExpressRoute][ExpressRoute].
+
+
+Для настройки группы безопасности сети необходимо знать IP-адрес, используемый Azure для управления средой ASE. Этот IP-адрес также является исходящим IP-адресом среды ASE, если она отправляет запросы через Интернет. Чтобы найти этот IP-адрес, выберите **Параметры > Свойства** и найдите параметр **Исходящий IP-адрес**.
 
 ![][5]
 
 
-#### <a name="general-ilb-ase-management"></a>General ILB ASE management ####
+#### Общее управление ASE с внутренним балансировщиком нагрузки ####
 
-Managing an ILB ASE is largely the same as managing an ASE normally.  You need to scale up your worker pools to host more ASP instances and scale up your Front End servers to handle increased amounts of HTTP/HTTPS traffic.  For general information on managing the configuration of an ASE, read the document on [Configuring an App Service Environment][ASEConfig].  
-
-
-The additional management items are certificate management and DNS management.  You need to obtain and upload the certificate used for HTTPS after ILB ASE creation and replace it before it expires.  Because Azure owns the base domain we can provide certificates for ASEs with an External VIP.  Since the subdomain used by an ILB ASE can be anything, you need to provide your own certificate for HTTPS. 
+Управление ASE и ASE с внутренним балансировщиком нагрузки во многом одинаково. Необходимо увеличивать масштаб рабочих пулов для размещения дополнительных экземпляров плана службы приложений и увеличивать масштаб серверов переднего плана для обработки возрастающего объема трафика HTTP и HTTPS. Общие сведения об управлении конфигурацией ASE см. в документе [Настройка среды службы приложений][ASEConfig].
 
 
-#### <a name="dns-configuration"></a>DNS Configuration ####
-
-When using an External VIP the DNS is managed by Azure.  Any app created in your ASE is automatically added to Azure DNS which is a public DNS.  In an ILB ASE you have to manage your own DNS.  For a given subdomain such as contoso.corp.net you need to create DNS A records that point to your ILB address for:
-
-    * 
-    *.scm ftp publish 
+Дополнительными элементами управления являются управление сертификатами и управление DNS. После создания ASE с внутренним балансировщиком нагрузки необходимо получить и передать сертификат, используемый для подключений HTTPS, а затем заменять его, пока срок его действия не истек. Так как Azure принадлежит базовый домен, мы можем предоставлять сертификаты для сред ASE с внешним виртуальным IP-адресом. Поскольку поддомен, используемый ASE с внутренним балансировщиком нагрузки, может быть любым, необходимо предоставить собственный сертификат для подключений по протоколу HTTPS.
 
 
-## <a name="getting-started"></a>Getting started
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
+#### Настройка DNS ####
 
-To get started with App Service Environments, see [Introduction to App Service Environments][WhatisASE]
+При использовании внешнего виртуального IP-адреса службой DNS управляет Azure. Любое приложение, созданное в ASE, автоматически добавляется в службу Azure DNS, которая является общедоступной. В ASE с внутренним балансировщиком нагрузки необходимо управлять собственной службой DNS. Для заданного поддомена, например contoso.corp.net, необходимо создать записи А DNS, указывающие на адрес внутреннего балансировщика нагрузки.
 
-For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
+	* 
+	*.scm 
+	ftp 
+	publish 
+
+
+## Приступая к работе
+Все статьи и практические руководства, посвященные средам службы приложений, доступны в [файле сведений для сред службы приложений](../app-service/app-service-app-service-environments-readme.md).
+
+Чтобы начать работу со средами службы приложений, см. статью [Введение в среды службы приложений][WhatisASE]
+
+Дополнительные сведения о платформе службы приложений Azure см. в статье [Служба приложений Azure][AzureAppService].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -184,8 +183,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,69 +1,67 @@
 <properties 
-    pageTitle="Azure Mobile Engagement implementation for Gaming App"
-    description="Gaming app scenario to implement Azure Mobile Engagement" 
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo"
-    manager="dwrede"
-    editor=""/>
+	pageTitle="Реализация службы Azure Mobile Engagement в игровом приложении"
+	description="Сценарий для реализации службы Azure Mobile Engagement в игровом приложении." 
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-    ms.service="mobile-engagement"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="mobile-multiple"
-    ms.workload="mobile" 
-    ms.date="08/19/2016"
-    ms.author="piyushjo"/>
+	ms.service="mobile-engagement"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.workload="mobile" 
+	ms.date="08/19/2016"
+	ms.author="piyushjo"/>
 
+#Реализация службы Mobile Engagement в игровом приложении
 
-#<a name="implement-mobile-engagement-with-gaming-app"></a>Implement Mobile Engagement with Gaming App
+## Обзор
 
-## <a name="overview"></a>Overview
+Игровой стартап запустил новое игровое приложение про рыбалку на базе ролей/стратегии. Игра работает в течение 6 месяцев. Она имеет невероятный успех и миллионы скачиваний, а также высокий период удержания по сравнению с другими приложениями игровых стартапов. На квартальном собрании акционеры согласились, что им нужно увеличить средний доход на пользователя (ARPU). Премиум-пакеты в игре доступны как специальные предложения. Эти игровые пакеты позволяют обновлять внешний вид и эффективность лески и наживки или снастей в игре. Однако продажи пакета очень низкие. Поэтому акционеры принимают решение сначала проанализировать впечатления пользователей с помощью средства аналитики и затем разработать программу привлечения для увеличения продаж с помощью расширенной сегментации.
 
-A gaming start-up has launched a new fishing based role-play/strategy game app. The game has been up and running for 6 months. This game is a huge success, and it has millions of downloads and the retention is very high compared to other start-up game apps. At the quarterly review meeting, stakeholders agree they need to increase average revenue per user (ARPU). Premium in-game packages are available as special offers. These game packs allow users to upgrade the appearance and performance of their fishing lines and lures or tackles in the game. However, package sales are very low. So they decide first to analyze the customer experience with an analytics tool, and then to develop an engagement program to increase sales using advanced segmentation.
+На базе статьи [Служба Azure Mobile Engagement. Руководство по началу работы и рекомендации](mobile-engagement-getting-started-best-practices.md) они создали стратегию привлечения.
 
-Based on the [Azure Mobile Engagement - Getting Started Guide with Best practices](mobile-engagement-getting-started-best-practices.md) they build an engagement strategy.
+##Цели и ключевые показатели эффективности
 
-##<a name="objectives-and-kpis"></a>Objectives and KPIs
+Встречаются основные акционеры игры. Все собравшиеся пришли к согласию относительно основной цели: увеличить уровень продаж премиум-пакета на 15 %. Кроме этого, на совещании обсудили ключевые показатели эффективности бизнеса, которые позволяют определить коэффициент эффективности и стимулировать достижение цели:
 
-Key stakeholders for the game meet. All agree on one main objective - to increase premium package sales by 15%. They create Business Key Performance Indicators (KPIs) to measure and drive this objective
+* На каком уровне игры приобретаются эти пакеты?
+* Каков доход с одного пользователя за сеанс, за неделю и за месяц?
+* Какие типы покупок предпочитают пользователи?
 
-* On which level of the game are these packages purchased?
-* What is the revenue per user, per session, per week, and per month?
-* What are the favorite purchase types?
+Часть 1 из [руководства по началу работы](mobile-engagement-getting-started-best-practices.md) объясняет, как определить цели и ключевые показатели эффективности.
 
-Part 1 of the [Getting Started Guide](mobile-engagement-getting-started-best-practices.md) explains how to define the objectives and KPIs. 
+После определения ключевых показателей эффективности организации менеджер по продуктам для мобильных устройств создает ключевые показатели эффективности привлечения для определения тенденций новых пользователей и методов удержания.
 
-With the Business KPIs now defined, the Mobile Product Manager creates Engagement KPIs to determine new user trends and retention.
+* Отслеживайте период удержания и используйте через следующие интервалы: ежедневно, каждые 2 дня, еженедельно, ежемесячно и каждые 3 месяца
+* Количество активных пользователей
+* Оценка приложения в магазине приложений
 
-* Monitor retention and use across the following intervals: daily, every 2 days, weekly, monthly and every 3 months
-* Active user counts
-* The app rating in the store
+Следуя рекомендациям ИТ-отдела, были добавлены следующие технические ключевые показатели эффективности:
 
-Based on recommendations from the IT team, the following technical KPIs were added to answer the following questions:
+* путь пользователя (посещаемая страница, количество времени, которые пользователи тратят на ее просмотр);
+* количество сбоев или ошибок на сеанс;
+* версии операционных систем, используемые пользователями;
+* средний размер экрана пользователей;
+* тип подключения к Интернету, используемый пользователями.
 
-* What is my user path (which page is visited, how much time users spend on it)
-* Number of crashes or bugs encountered per session
-* What OS versions are my users running?
-* What is the average size of screen for my users?
-* What kind of internet connectivity do my users have?
+Для каждого ключевого показателя эффективности менеджер по продуктам для мобильных устройств указывает необходимые данные и их расположение в сборнике тренировочных заданий.
 
-For each KPI the Mobile Product Manager specifies the data she needs and where it is located in her playbook.
+## Программа привлечения и интеграция
 
-## <a name="engagement-program-and-integration"></a>Engagement program and integration
+Перед созданием программы расширенного привлечения ответственный за проект руководитель проектов для мобильных устройств должен иметь глубокое понимание того, как и когда продукты используются пользователями.
 
-Before building an advanced engagement program, the Mobile Project Director in charge of the project should have a deep understanding of how and when products are consumed by the users.
+Через 3 месяца руководитель проектов для мобильных устройств собрал достаточно данных, чтобы улучшить продажи push-уведомлений в приложении. Он узнал, что:
 
-After 3 months, the Mobile Project Director has collected enough data to enhance his in-app push notification sales. He learns that:
+* первая покупка обычно происходит на уровне 14; в 90 % таких случаях приобретается новое легендарное оружие за 3 доллара;
+* в 80 % таких случаев пользователи, сделавшие покупку, продолжают использовать продукт и делать покупки;
+* пользователи, которые прошли уровень 20, начинают тратить более 10 долларов в неделю;
+* пользователи склонны приобретать премиум-пакеты на уровнях 16, 24 и 32.
 
-* The first purchase generally happens at the level 14. For 90% of those cases, the purchase is new legendary weapons for $3.
-* In 80 % of those cases, users who have made a purchase, continue with the product and make more purchases.
-* Users who have passed the level 20, start to spend more than $10/week.
-* Users tend to buy premium packages at level 16, 24 and 32.
-
-Thanks to this analysis the Mobile Project Director decides to create specific push notification sequences to increase in app sales. He creates three push sequences which he calls: Welcome program, Sales Program, and Inactive Program. For more information refer to the [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
-    ![][1]
+Благодаря анализу руководитель проектов для мобильных устройств решает создать специальную серию push-уведомлений для увеличения продаж в приложении. Он создает три серии push-уведомлений, которые он называет: "Программа приветствия", "Программа продаж" и "Программа неактивности". Дополнительные сведения см. в [сборниках тренировочных заданий](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks). ![][1]
 
 <!--Image references-->
 
@@ -71,8 +69,4 @@ Thanks to this analysis the Mobile Project Director decides to create specific p
 
 <!--Link references-->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

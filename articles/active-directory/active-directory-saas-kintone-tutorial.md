@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory Integration with Kintone | Microsoft Azure" 
-    description="Learn how to use Kintone with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Руководство. Интеграция Azure Active Directory с Kintone | Microsoft Azure" 
+    description="Узнайте, как использовать Kintone вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,161 +14,155 @@
     ms.date="09/01/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-kintone"></a>Tutorial: Azure Active Directory Integration with Kintone
+#Руководство. Интеграция Azure Active Directory с Kintone
   
-The objective of this tutorial is to show the integration of Azure and Kintone.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+Цель данного руководства — показать интеграцию Azure и Kintone. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
--   A valid Azure subscription
--   A Kintone single sign-on enabled subscription
+-   Действующая подписка на Azure
+-   Подписка с поддержкой единого входа Kintone
   
-After completing this tutorial, the Azure AD users you have assigned to Kintone will be able to single sign into the application at your Kintone company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+По завершении работы с этим руководством пользователи Azure AD, назначенные в Kintone, смогут выполнять единый вход в приложение на веб-сайте Kintone компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1.  Enabling the application integration for Kintone
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Включение интеграции приложений для Kintone
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-![Scenario](./media/active-directory-saas-kintone-tutorial/IC785859.png "Scenario")
-##<a name="enabling-the-application-integration-for-kintone"></a>Enabling the application integration for Kintone
+![Сценарий](./media/active-directory-saas-kintone-tutorial/IC785859.png "Сценарий")
+##Включение интеграции приложений для Kintone
   
-The objective of this section is to outline how to enable the application integration for Kintone.
+В этом разделе показано, как включить интеграцию приложений для Kintone.
 
-###<a name="to-enable-the-application-integration-for-kintone,-perform-the-following-steps:"></a>To enable the application integration for Kintone, perform the following steps:
+###Чтобы включить интеграцию приложений для Kintone, выполните следующие действия.
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-kintone-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-kintone-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-kintone-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-kintone-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-kintone-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-kintone-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-kintone-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **Kintone**.
+6.  В **поле поиска** введите **Kintone**.
 
-    ![Application Gallery](./media/active-directory-saas-kintone-tutorial/IC785867.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-kintone-tutorial/IC785867.png "Коллекция приложений")
 
-7.  In the results pane, select **Kintone**, and then click **Complete** to add the application.
+7.  В области результатов выберите **Kintone** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![Kintone](./media/active-directory-saas-kintone-tutorial/IC785871.png "Kintone")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
   
-The objective of this section is to outline how to enable users to authenticate to Kintone with their account in Azure AD using federation based on the SAML protocol.
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Kintone со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **Kintone** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  На странице интеграции с приложением **Kintone** классического портала Azure нажмите кнопку **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785872.png "Настройка единого входа")
 
-2.  On the **How would you like users to sign on to Kintone** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  На странице **Как пользователи должны входить в Kintone?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785873.png "Настройка единого входа")
 
-3.  On the **Configure App URL** page, in the **Kintone Sign On URL** textbox, type your URL using the following pattern "*https://company.kintone.com*", and then click **Next**.
+3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в Kintone** введите свой URL-адрес, используя следующий шаблон "*https://company.kintone.com*", а затем нажмите кнопку **Далее**.
 
-    ![Configure App URL](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-kintone-tutorial/IC785875.png "Настройка URL-адреса приложения")
 
-4.  On the **Configure single sign-on at Kintone** page, to download your certificate, click **Download certificate**, and then save the certificate file on your computer.
+4.  Для скачивания сертификата на странице **Настройка единого входа в Kintone** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-kintone-tutorial/IC785878.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785878.png "Настройка единого входа")
 
-5.  In a different web browser window, log into your **Kintone** company site as an administrator.
+5.  В другом окне веб-браузера войдите на веб-сайт **Kintone** компании в качестве администратора.
 
-6.  Click **Settings**.
+6.  Щелкните **Параметры**.
 
-    ![Settings](./media/active-directory-saas-kintone-tutorial/IC785879.png "Settings")
+    ![Параметры](./media/active-directory-saas-kintone-tutorial/IC785879.png "Параметры")
 
-7.  Click **Users & System Administration**.
+7.  Нажмите **Администрирование пользователей и системы**.
 
-    ![Users & System Administration](./media/active-directory-saas-kintone-tutorial/IC785880.png "Users & System Administration")
+    ![Администрирование пользователей и системы](./media/active-directory-saas-kintone-tutorial/IC785880.png "Администрирование пользователей и системы")
 
-8.  Under **System Administration \> Security** click **Login**.
+8.  В разделе **Системное администрирование > Безопасность** щелкните **Вход**.
 
-    ![Login](./media/active-directory-saas-kintone-tutorial/IC785881.png "Login")
+    ![Вход](./media/active-directory-saas-kintone-tutorial/IC785881.png "Вход")
 
-9.  Click **Enable SAML authentication**.
+9.  Установите флажок **Включить проверку подлинности SAML**.
 
-    ![SAML Authentication](./media/active-directory-saas-kintone-tutorial/IC785882.png "SAML Authentication")
+    ![Проверка подлинности SAML](./media/active-directory-saas-kintone-tutorial/IC785882.png "Проверка подлинности SAML")
 
-10. In the SAML Authentication section, perform the following steps:
+10. В разделе «Проверка подлинности SAML» выполните следующие действия.
 
-    ![SAML Authentication](./media/active-directory-saas-kintone-tutorial/IC785883.png "SAML Authentication")
+    ![Проверка подлинности SAML](./media/active-directory-saas-kintone-tutorial/IC785883.png "Проверка подлинности SAML")
 
-    1.  In the Azure classic portal, on the **Configure single sign-on at Kintone** dialog page, copy the **Remote Login URL** value, and then paste it into the **Login URL** textbox.
-    2.  In the Azure classic portal, on the **Configure single sign-on at Kintone** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
-    3.  Click **Browse** to upload your downloaded certificate.
-    4.  Click **Save**.
+    1.  На странице диалогового окна **Настройка единого входа в Kintone** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес входа**.
+    2.  На странице диалогового окна **Настройка единого входа в Kintone** классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **URL-адрес выхода**.
+    3.  Чтобы передать скачанный сертификат, нажмите кнопку **Обзор**.
+    4.  Щелкните **Сохранить**.
 
-11. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+11. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-kintone-tutorial/IC785884.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785884.png "Настройка единого входа")
+##Настройка подготовки учетных записей пользователей
   
-In order to enable Azure AD users to log into Kintone, they must be provisioned into Kintone.  
-In the case of Kintone, provisioning is a manual task.
+Чтобы разрешить пользователям Azure AD вход в Kintone, они должны быть подготовлены для Kintone. В случае с Kintone подготовка выполняется вручную.
 
-###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
+###Чтобы подготовить учетные записи пользователей, выполните следующие действия:
 
-1.  Log in to your **Kintone** company site as an administrator.
+1.  Выполните вход на веб-сайт **Kintone** компании в качестве администратора.
 
-2.  Click **Setting**.
+2.  Щелкните **Параметр**.
 
-    ![Settings](./media/active-directory-saas-kintone-tutorial/IC785879.png "Settings")
+    ![Параметры](./media/active-directory-saas-kintone-tutorial/IC785879.png "Параметры")
 
-3.  Click **Users & System Administration**.
+3.  Нажмите **Администрирование пользователей и системы**.
 
-    ![User & System Administration](./media/active-directory-saas-kintone-tutorial/IC785880.png "User & System Administration")
+    ![Администрирование пользователей и системы](./media/active-directory-saas-kintone-tutorial/IC785880.png "Администрирование пользователей и системы")
 
-4.  Under **User Administration**, click **Departments & Users**.
+4.  В разделе **Администрирование пользователей** щелкните **Отделы и пользователи**.
 
-    ![Department & Users](./media/active-directory-saas-kintone-tutorial/IC785888.png "Department & Users")
+    ![Отделы и пользователи](./media/active-directory-saas-kintone-tutorial/IC785888.png "Отделы и пользователи")
 
-5.  Click **New User**.
+5.  Щелкните **Новый пользователь**.
 
-    ![New Users](./media/active-directory-saas-kintone-tutorial/IC785889.png "New Users")
+    ![Новые пользователи](./media/active-directory-saas-kintone-tutorial/IC785889.png "Новые пользователи")
 
-6.  In the **New User** section, perform the following steps:
+6.  В разделе **New User** (Новый пользователь) выполните следующие действия.
 
-    ![New Users](./media/active-directory-saas-kintone-tutorial/IC785890.png "New Users")
+    ![Новые пользователи](./media/active-directory-saas-kintone-tutorial/IC785890.png "Новые пользователи")
 
-    1.  Type a **Display Name**, **Login Name**, **New Password**, **Confirm Password**, **E-mail Address** and other details of a valid AAD account you want to provision into the related texboxes.
-    2.  Click **Save**.
+    1.  Заполните поля **Отображаемое имя**, **Имя входа**, **Новый пароль**, **Подтверждение пароля**, **Адрес электронной почты** и введите другие данные действующей учетной записи AAD, которую требуется подготовить, в соответствующих текстовых полях.
+    2.  Щелкните **Сохранить**.
 
->[AZURE.NOTE] You can use any other Kintone user account creation tools or APIs provided by Kintone to provision AAD user accounts.
+>[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя Kintone или API, предоставляемые Kintone для подготовки учетных записей пользователя AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-kintone,-perform-the-following-steps:"></a>To assign users to Kintone, perform the following steps:
+###Чтобы назначить пользователей Kintone, выполните следующие действия.
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **Kintone **application integration page, click **Assign users**.
+2.  На странице интеграции с приложением **Kintone** нажмите кнопку **Назначить пользователей**.
 
-    ![Assign Users](./media/active-directory-saas-kintone-tutorial/IC785891.png "Assign Users")
+    ![Назначить пользователей](./media/active-directory-saas-kintone-tutorial/IC785891.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-kintone-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-kintone-tutorial/IC767830.png "Да")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

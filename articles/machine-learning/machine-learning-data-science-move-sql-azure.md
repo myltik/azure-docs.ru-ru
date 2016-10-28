@@ -1,97 +1,88 @@
 <properties 
-    pageTitle="Move data to an Azure SQL Database for Azure Machine Learning | Azure" 
-    description="Create SQL Table and load data to SQL Table" 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun" />
+	pageTitle="Перемещение данных в базу данных SQL Azure для машинного обучения Azure | Azure" 
+	description="Создание таблицы SQL и загрузка данных в таблицу SQL" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev"
+	manager="jhubbard"
+	editor="cgronlun" />
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/14/2016"
-    ms.author="bradsev" /> 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2016"
+	ms.author="bradsev" />
 
+# Перемещение данных в базу данных SQL Azure для машинного обучения Azure
 
-# <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Move data to an Azure SQL Database for Azure Machine Learning
+В этой статье описаны варианты перемещения данных из неструктурированных файлов (в формате CSV или TSV) или с локального сервера SQL Server в базу данных SQL Azure. Эти задачи перемещения данных в облако являются этапом процесса обработки и анализа данных группы.
 
-This topic outlines the options for moving data either from flat files (CSV or TSV formats) or from data stored in an on-premise SQL Server to an Azure SQL database. These tasks for moving data to the cloud are part of the Team Data Science Process.
+Описание вариантов перемещения данных на локальный сервер SQL Server для машинного обучения см. в разделе [Перемещение данных в SQL Server на виртуальной машине Azure](machine-learning-data-science-move-sql-server-virtual-machine.md).
 
-For a topic that outlines the options for moving data to an on-premise SQL Server for Machine Learning, see [Move data to SQL Server on an Azure virtual machine](machine-learning-data-science-move-sql-server-virtual-machine.md).
-
-The following **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
+В следующем **меню** содержатся ссылки на разделы, описывающие прием данных в целевых средах, где они могут храниться и обрабатываться процессом обработки и анализа данных группы (TDSP).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-The following table summarizes the options for moving data to an Azure SQL Database.
+В следующей таблице перечислены варианты перемещения данных в базу данных SQL Azure.
 
-<b>SOURCE</b> |<b>DESTINATION: Azure SQL Database</b> |
+<b>Источник</b> |<b>Назначение: база данных SQL Azure</b> |
 -------------- |--------------------------------|
-<b>Flat file (CSV or TSV formatted)</b> |<a href="#bulk-insert-sql-query">Bulk Insert SQL Query |
-<b>On-premise SQL Server</b> | 1. <a href="#export-flat-file">Export to Flat File<br> 2. <a href="#insert-tables-bcp">SQL Database Migration Wizard<br> 3. <a href="#db-migration">Database back up and restore<br> 4. <a href="#adf">Azure Data Factory |
+<b>Неструктурированный файл (в формате CSV или TSV)</b> |<a href="#bulk-insert-sql-query">SQL-запрос на массовую вставку |
+<b>Локальный сервер SQL Server</b> | 1\. <a href="#export-flat-file">Экспорт в неструктурированный файл<br> 2. <a href="#insert-tables-bcp">Мастер миграции баз данных SQL<br> 3. <a href="#db-migration">Архивация и восстановление базы данных<br> 4. <a href="#adf">Фабрика данных Azure |
 
 
-## <a name="<a-name="prereqs"></a>prerequisites"></a><a name="prereqs"></a>Prerequisites
-The procedures outlined here require that you have:
+## <a name="prereqs"></a>Предварительные требования
+Для выполнения описанных процедур вам необходимы следующие компоненты:
 
-* An **Azure subscription**. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* An **Azure storage account**. You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
-* Access to an **Azure SQL Database**. If you must set up an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database](../sql-database/sql-database-get-started.md) provides information on how to provision a new instance of an Azure SQL Database.
-* Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* **Подписка Azure.**. Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/).
+* **Учетная запись хранения Azure**. Учетная запись хранения Azure используется в этом учебнике для хранения данных. Если у вас ее нет, см. раздел [Создание учетной записи хранения](storage-create-storage-account.md#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. См. разделы о [просмотре, копировании и повторном создании ключей доступа к хранилищу](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Доступ к **базе данных SQL Azure**. Если требуется настроить базу данных SQL Azure, то обратитесь к статье [Руководство по базам данных SQL: создание базы данных SQL за несколько минут с помощью портала Azure](../sql-database/sql-database-get-started.md), которая содержит сведения о том, как подготовить новый экземпляр базы данных SQL Azure.
+* Установленная и настроенная локальная среда **Azure PowerShell**. Инструкции см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
-**Data**: The migration processes are demonstrated using the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/). The NYC Taxi dataset contains information on trip data and fairs and is available, as noted that post, on Azure blob storage: [NYC Taxi Data](http://www.andresmh.com/nyctaxitrips/). A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](machine-learning-data-science-process-sql-walkthrough.md#dataset).
+**Данные**: процессы миграции демонстрируются с помощью [набора данных о такси Нью-Йорка](http://chriswhong.com/open-data/foil_nyc_taxi/). Набор данных о такси Нью-Йорка содержит сведения о поездках и тарифах и доступен, как отмечено в этой статье, в хранилище больших двоичных объектов Azure [здесь](http://www.andresmh.com/nyctaxitrips/). Пример и описание этих файлов приведены в [описании набора данных «Поездки такси Нью-Йорка»](machine-learning-data-science-process-sql-walkthrough.md#dataset).
  
-You can either adapt the procedures described here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your on-premise SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premise SQL Server is the same.
+Вы можете либо адаптировать описанные здесь процедуры к собственному набору данных, либо выполнить описанные действия с набором данных о такси Нью-Йорка. Для передачи набора данных о такси Нью-Йорка в базу данных локального SQL Server выполните процедуру, описанную в разделе [Массовый импорт данных в базу данных SQL Server](machine-learning-data-science-process-sql-walkthrough.md#dbload). Эти инструкции предназначены для SQL Server на виртуальной машине Azure, но для локального SQL Server процедура идентична.
 
 
-## <a name="<a-name="file-to-azure-sql-database"></a>-moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a> Moving data from a flat file source to an Azure SQL database
+## <a name="file-to-azure-sql-database"></a> Перемещение данных из неструктурированного файла в базу данных SQL Azure
 
-Data in flat files (CSV or TSV formatted) can be moved to an Azure SQL database using a Bulk Insert SQL Query.
+Данные в неструктурированных файлах (форматов CSV или TSV) можно переместить в базу данных SQL Azure с помощью SQL-запроса на массовую вставку данных.
 
-### <a name="<a-name="bulk-insert-sql-query"></a>-bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a> Bulk Insert SQL Query
+### <a name="bulk-insert-sql-query"></a>SQL-запрос на массовую вставку
 
-The steps for the procedure using the Bulk Insert SQL Query are similar to those covered in the sections for moving data from a flat file source to SQL Server on an Azure VM. For details, see [Bulk Insert SQL Query](machine-learning-data-science-move-sql-server-virtual-machine.md#insert-tables-bulkquery).
-
-
-##<a name="<a-name="sql-on-prem-to-sazure-sql-database"></a>-moving-data-from-on-premise-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a> Moving Data from on-premise SQL Server to an Azure SQL database
-
-If the source data is stored in an on-premise SQL Server, there are various possibilities for moving the data to an Azure SQL database:
-
-1. [Export to Flat File](#export-flat-file) 
-2. [SQL Database Migration Wizard](#insert-tables-bcp)
-3. [Database back up and restore](#db-migration)
-4. [Azure Data Factory](#adf)
-
-The steps for the first three are very similar to those sections in [Move data to SQL Server on an Azure virtual machine](machine-learning-data-science-move-sql-server-virtual-machine.md) that cover these same procedures. Links to the appropriate sections in that topic are provided in the following instructions.
-
-###<a name="<a-name="export-flat-file"></a>export-to-flat-file"></a><a name="export-flat-file"></a>Export to Flat File
-
-The steps for this exporting to a flat file are similar to those covered in [Export to Flat File](machine-learning-data-science-move-sql-server-virtual-machine.md#export-flat-file).
-
-###<a name="<a-name="insert-tables-bcp"></a>sql-database-migration-wizard"></a><a name="insert-tables-bcp"></a>SQL Database Migration Wizard
-
-The steps for using the SQL Database Migration Wizard are similar to those covered in [SQL Database Migration Wizard](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration).
-
-###<a name="<a-name="db-migration"></a>database-back-up-and-restore"></a><a name="db-migration"></a>Database back up and restore
-
-The steps for using database back up and restore are similar to those covered in [Database back up and restore](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup).
-
-###<a name="<a-name="adf"></a>azure-data-factory"></a><a name="adf"></a>Azure Data Factory
-
-The procedure for moving data to an Azure SQL database with Azure Data Factory (ADF) is provided in the topic [Move data from an on-premise SQL server to SQL Azure with Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md). This topic shows how to move data from an on-premise SQL Server database to an Azure SQL database via Azure Blob Storage using ADF. 
-
-Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it when being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations.
+Этапы выполнения процедуры с использованием SQL-запроса на массовую вставку аналогичны этапам процедуры перемещения данных из неструктурированного файла в SQL Server на виртуальной машине Azure. Дополнительные сведения см. в разделе [SQL-запрос на массовую вставку](machine-learning-data-science-move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
 
+##<a name="sql-on-prem-to-sazure-sql-database"></a> Перемещение данных с локального сервера SQL Server в базу данных SQL Azure
 
+Если источник данных расположен на локальном SQL Server, существуют различные варианты перемещения данных в базу данных Azure SQL:
 
+1. [Экспорт в неструктурированный файл](#export-flat-file)
+2. [Мастер миграции баз данных SQL](#insert-tables-bcp)
+3. [Архивация и восстановление базы данных](#db-migration)
+4. [Фабрика данных Azure](#adf)
 
+Первые три этапа процедуры очень похожи на соответствующие этапы процедуры, описанной в статье [Перемещение данных в SQL Server на виртуальной машине Azure](machine-learning-data-science-move-sql-server-virtual-machine.md). В следующих инструкциях приводятся ссылки на соответствующие разделы этой статьи.
 
+###<a name="export-flat-file"></a>Экспорт в неструктурированный файл
 
-<!--HONumber=Oct16_HO2-->
+Этапы экспорта в неструктурированный файл похожи на этапы экспорта, описанные в разделе [Экспорт в неструктурированный файл](machine-learning-data-science-move-sql-server-virtual-machine.md#export-flat-file).
 
+###<a name="insert-tables-bcp"></a>Мастер миграции баз данных SQL
 
+Этапы использования мастера миграции Базы данных SQL похожи на аналогичные этапы, описанные в разделе [Мастер миграции баз данных SQL](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-migration).
+
+###<a name="db-migration"></a>Архивация и восстановление базы данных
+
+Этапы архивации и восстановления базы данных похожи на аналогичные этапы, описанные в разделе [Восстановление и резервное копирование базы данных](machine-learning-data-science-move-sql-server-virtual-machine.md#sql-backup).
+
+###<a name="adf"></a>Фабрика данных Azure
+
+Процедура перемещения данных в базу данных SQL Azure с помощью фабрики данных Azure (ADF) приводится в статье [Перенос данных из локального SQL Server в SQL Azure с фабрикой данных Azure](machine-learning-data-science-move-sql-azure-adf.md). В этой статье показано, как перенести данные из локальной базы данных SQL Server в базу данных SQL Azure через хранилище BLOB-объектов Azure с помощью фабрики данных Azure.
+
+Фабрику данных Azure стоит использовать в том случае, когда данные нужно постоянно переносить в гибридном сценарии, при котором осуществляется доступ как к локальным, так и к облачным ресурсам, и когда при переносе данные необходимо обработать, изменить или добавить к ним операции бизнес-логики. ADF позволяет выполнять планирование и отслеживание заданий с помощью простых сценариев JSON, управляющих перемещением данных на периодической основе. ADF также обладает другими возможностями, такими как поддержка сложных операций.
+
+<!---HONumber=AcomDC_0921_2016-->

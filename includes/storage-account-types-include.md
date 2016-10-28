@@ -1,32 +1,27 @@
-There are two types of storage accounts:
+Существует два типа учетных записей хранения:
 
-### <a name="general-purpose-storage-accounts"></a>General-purpose Storage Accounts
+### Учетные записи хранения общего назначения
 
-A general-purpose storage account gives you access to Azure Storage services such as Tables, Queues, Files, Blobs and Azure virtual machine disks under a single account. This type of storage account has two performance tiers:
+Учетная запись хранения общего назначения обеспечивает доступ к службам хранилища Azure, таким как таблицы, очереди, файлы, большие двоичные объекты и диски виртуальных машин Azure, в одной учетной записи. В этом типе учетной записи хранения доступны два уровня производительности.
 
-- A standard storage performance tier which allows you to store Tables, Queues, Files, Blobs and Azure virtual machine disks.
-- A premium storage performance tier which currently only supports Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/storage-premium-storage.md) for an in-depth overview of Premium storage.
+- Стандартный уровень производительности хранилища, который позволяет хранить таблицы, очереди, файлы, большие двоичные объекты и диски виртуальных машин Azure.
+- Уровень производительности хранилища класса Premium, который в настоящее время поддерживает только хранение дисков виртуальных машин Azure. Подробный обзор хранилища класса Premium см. в статье [Хранилище Premium: высокопроизводительное хранилище для рабочих нагрузок виртуальных машин Azure](../articles/storage/storage-premium-storage.md).
 
-### <a name="blob-storage-accounts"></a>Blob Storage Accounts
+### Учетные записи хранения BLOB-объектов
 
-A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
+Учетные записи хранения BLOB-объектов — это специализированные учетные записи хранения таких неструктурированных данных, как большие двоичные объекты, в службе хранилища Azure. Учетные записи хранения BLOB-объектов аналогичны учетным записям хранения общего назначения и обладают такими же функциями обеспечения устойчивости, надежности, масштабируемости и производительности, которые вы уже используете, а также отличаются полной согласованностью API в плане блочных BLOB-объектов и добавления больших двоичных объектов. Для приложений, требующих только блокировки или добавления больших двоичных объектов, рекомендуется использовать учетные записи хранения больших двоичных объектов.
 
-> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
+> [AZURE.NOTE] Учетные записи хранения BLOB-объектов поддерживают только блочные и добавочные BLOB-объекты и не поддерживают страничные.
 
-Blob storage accounts expose the **Access Tier** attribute which can be specified during account creation and modified later as needed. There are two types of access tiers that can be specified based on your data access pattern:
+Учетные записи хранения BLOB-объектов предоставляют атрибут **Уровень доступа**, который можно указать во время создания учетной записи и изменить позднее при необходимости. В зависимости от шаблона доступа к данным вы можете указать два типа уровней доступа.
 
-- A **Hot** access tier which indicates that the objects in the storage account will be more frequently accessed. This allows you to store data at a lower access cost.
-- A **Cool** access tier which indicates that the objects in the storage account will be less frequently accessed. This allows you to store data at a lower data storage cost.
+- **Горячий** уровень доступа, который означает, что доступ к объектам в учетной записи хранения будет осуществляться чаще по сравнению с другими объектами. Этот уровень позволяет хранить данные при более низкой стоимости доступа.
+- **Холодный** уровень доступа, который означает, что доступ к объектам в учетной записи хранения будет осуществляться реже по сравнению с другими объектами. Этот уровень позволяет хранить данные при более низкой стоимости хранения данных.
 
-If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+Если нужно изменить шаблон использования данных, вы в любое время можете изменить уровень доступа. За изменение уровня доступа может взиматься дополнительная плата. Дополнительные сведения см. в разделе [о ценах и выставлении счетов за использование учетных записей хранения BLOB-объектов](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing).
 
-For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/storage-blob-storage-tiers.md).
+Дополнительные сведения см. в статье [Хранилище BLOB-объектов Azure: уровни холодных и горячих данных](../articles/storage/storage-blob-storage-tiers.md).
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+Прежде чем создавать учетную запись хранения, необходимо оформить подписку Azure, которая представляет собой план, дающий доступ к различным службам Azure. Вы можете начать работу с Azure с [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/). Когда вы решите приобрести план подписки, то сможете выбрать один из множества [вариантов приобретения](https://azure.microsoft.com/pricing/purchase-options/). Если вы являетесь [подписчиком MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), то получаете бесплатно ежемесячные кредиты, которые можно использовать для служб Azure, включая хранилище Azure. Дополнительные сведения о ценах см. на странице [Цены на хранилища Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-To learn how to create a storage account, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more details. You can create up to 100 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account limits.
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+Чтобы узнать, как создать стандартную учетную запись хранения, см. раздел [Создайте учетную запись хранения.](../articles/storage/storage-create-storage-account.md#create-a-storage-account). В рамках одной подписки можно создать до 100 учетных записей хранения с уникальными именами. Сведения об ограничениях учетной записи хранения см. в статье [Целевые показатели масштабируемости и производительности службы хранилища Azure](../articles/storage/storage-scalability-targets.md).

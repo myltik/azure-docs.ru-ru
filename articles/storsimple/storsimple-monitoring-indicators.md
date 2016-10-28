@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="StorSimple monitoring indicators | Microsoft Azure" 
-    description="Describes the light-emitting diodes (LEDs) and audible alarms used to monitor the status of the StorSimple device."
+    pageTitle="Индикаторы мониторинга StorSimple | Microsoft Azure" 
+    description="В статье описываются светодиодные индикаторы и звуковые сигналы, которые позволяют отслеживать состояние устройства StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
@@ -15,244 +15,243 @@
     ms.date="08/18/2016"
     ms.author="alkohli" />
 
+# Использование индикаторов мониторинга StorSimple для управления устройством   
 
-# <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Use StorSimple monitoring indicators to manage your device   
+## Обзор
 
-## <a name="overview"></a>Overview
+На устройствах StorSimple находятся светодиодные индикаторы (индикаторы) и сигнальные устройства, с помощью которых можно осуществлять мониторинг модулей и отслеживать общее состояние устройства StorSimple. Индикаторы мониторинга можно найти на аппаратных компонентах основного корпуса и корпуса EBOD устройства. Индикаторы мониторинга могут быть реализованы в виде светодиодных индикаторов или звуковых сигналов.
 
-Your StorSimple device includes light-emitting diodes (LEDs) and alarms that you can use to monitor the modules and overall status of the StorSimple device. The monitoring indicators can be found on the hardware components of the device's primary enclosure and the EBOD enclosure. The monitoring indicators can be either LEDs or audible alarms.
+Светодиодные индикаторы могут отображать состояние модуля в трех режимах: зеленый цвет, красно-желтый и мигающий попеременно зеленым и красно-желтым цветом.
 
-There are three LED states used to indicate the status of a module: green, flashing green to red-amber, or red-amber.  
+- Зеленые индикаторы указывают на работоспособное состояние.
+- Мигающие зеленым и красно-желтым индикаторы указывают на наличие некритических условий, которые могут потребовать вмешательства пользователя.
+- Красно-желтые индикаторы указывают на наличие критического сбоя в модуле.
 
-- Green LEDs represent a healthy operating status.  
-- Flashing green to red-amber LEDs represent the presence of non-critical conditions that might require user intervention.  
-- Red-amber LEDs indicate that there is a critical fault present within the module.  
+Далее в статье описываются различные светодиодные индикаторы, их расположение на устройстве StorSimple, состояния устройства, на которые указывают индикаторы и сопутствующие звуковые сигналы.
 
-The remainder of this article describes the various monitoring indicator LEDs, their locations on the StorSimple device, the device status based on the LED states, and any associated audible alarms.
+## Светодиодные индикаторы на передней панели
 
-## <a name="front-panel-indicator-leds"></a>Front panel indicator LEDs
+На передней панели, также называемой *панелью управления* или *ПУ*, отображается общее состояние всех модулей в системе. Передние панели на первичном устройстве StorSimple и корпусе EBOD идентичны, а их внешний вид показан ниже.
 
-The front panel, also known as the *operations panel* or *ops panel*, displays the aggregate status of all the modules in the system. The front panel is identical on the StorSimple primary and the EBOD enclosure, and is illustrated below.  
-
-   ![Device front panel][1]
+   ![Передняя панель устройства][1]
  
-The front panel contains the following indicators:  
+На передней панели расположены следующие индикаторы:
 
-1. Mute button
-2. Power indicator LED (green/red-amber)
-3. Module fault indicator LED (ON red-amber/OFF)
-4. Logical fault indicator LED (ON red-amber/OFF
-5. Unit ID display  
+1. Кнопка выключения
+2. Светодиодный индикатор питания (зеленый/красно-желтый)
+3. Светодиодный индикатор сбоя модуля (ВКЛ., красно-желтый/ВЫКЛ.)
+4. Светодиодный индикатор логического сбоя (ВКЛ., красно-желтый/ВЫКЛ.)
+5. Дисплей идентификатора модуля
 
-The major difference between the front panel LEDs for the device and those for the EBOD enclosure is the **System Unit Identification Number** shown on the LED display. The default unit ID displayed on the device is **00**, whereas the default unit ID displayed on the EBOD enclosure is **01**. This allows you to quickly differentiate between the device and the EBOD enclosure when the device is turned on. If your device is turned off, use the information provided in [Turn on a new device](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) to differentiate the device from the EBOD enclosure.  
+Основное различие между светодиодными индикаторами передней панели устройства и корпуса EBOD — **идентификационный номер модуля системы**, который отображается на светодиодном дисплее. Идентификационный номер модуля по умолчанию на устройстве — это **00**, а идентификационный номер модуля по умолчанию на корпусе EBOD — **01**. Это позволяет легко различать устройство и корпус EBOD при включении устройства. Если устройство отключено, используйте сведения из статьи [Включение нового устройства](storsimple-turn-device-on-or-off.md#turn-on-a-new-device), чтобы отличить корпус EBOD от устройства.
 
-## <a name="front-panel-led-status"></a>Front panel LED status  
+## Состояние светодиодных индикаторов на передней панели  
 
-Use the following table to identify the status indicated by the LEDs on the front panel for the device or the EBOD enclosure.  
+Чтобы определить состояние, отображаемое светодиодными индикаторами на передней панели корпуса EBOD или устройства, воспользуйтесь следующей таблицей.
 
-|System power | Module fault | Logical fault | Alarm | Status|
+|Питание системы | Сбой модуля | Логический сбой | Сигнал | Состояние|
 |-------------|---------------|-----------------|-------|-------|
-|Red-amber | OFF     | OFF | N/A | AC power lost, operating on backup power, or AC power ON and the controller modules were removed.|
-|Green | ON | ON | N/A | Ops panel power on (5s) test state|
-|Green | OFF | OFF | N/A | Power on, all functions good|
-|Green | ON |N/A | PCM fault LEDs, fan fault LEDs | Any PCM fault, fan fault, over or under temperature|
-| Green | ON | N/A | I/O module LEDs  | Any controller module fault|
-| Green | ON | N/A | N/A | Enclosure logic fault|
-| Green | Flash | N/A | Module status LED on controller module. PCM fault LEDs, fan fault LEDs | Unknown controller module type installed, I2C bus failure, controller module vital product data (VPD) configuration error |
+|Красно-желтый | ВЫКЛ. | ВЫКЛ. | Недоступно | Питание от электросети отсутствует, используется резервный источник питания; или питание от электросети включено, но модули контроллера извлечены.|
+|Зеленый | ВКЛ | ВКЛ | Недоступно | Состояние тестирования с включенным питанием ПУ (5 с)|
+|Зеленый | ВЫКЛ. | ВЫКЛ. | Недоступно | Питание включено, все функционирует нормально|
+|Зеленый | ВКЛ |Недоступно | Светодиодные индикаторы сбоя блока питания с охлаждением (БПО), светодиодные индикаторы сбоя вентилятора | Любой сбой БПО, сбой вентилятора, слишком высокая или слишком низкая температура|
+| Зеленый | ВКЛ | Недоступно | Светодиодные индикаторы модуля ввода-вывода | Любой сбой модуля контроллера|
+| Зеленый | ВКЛ | Недоступно | Недоступно | Логический сбой корпуса|
+| Зеленый | Мигание | Недоступно | Светодиодный индикатор состояния модуля на модуле контроллера. Светодиодные индикаторы сбоя блока питания с охлаждением (БПО), светодиодные индикаторы сбоя вентилятора | Установлен модуль контроллера неизвестного типа, сбой шины I2C, ошибка конфигурации VPD модуля контроллера |
 
-## <a name="power-cooling-module-(pcm)-indicator-leds"></a>Power cooling module (PCM) indicator LEDs   
+## Светодиодные индикаторы БПО   
 
-Power cooling module (PCM) indicator LEDs can be found on the back of the primary enclosure or EBOD enclosure on each PCM module. This topic discusses how to use the following LEDs to monitor the status of your StorSimple device.  
+Светодиодные индикаторы БПО можно найти на обратной стороне основного корпуса или корпуса EBOD на каждом модуле БПО. В этом разделе описывается использование следующих светодиодных индикаторов для мониторинга состояния устройства StorSimple.
 
-- PCM LEDs for the primary enclosure
-- PCM LEDs for the EBOD enclosure
+- Светодиодные индикаторы БПО на основном корпусе
+- Светодиодные индикаторы БПО на корпусе EBOD
 
-## <a name="pcm-leds-for-the-primary-enclosure"></a>PCM LEDs for the primary enclosure  
+## Светодиодные индикаторы БПО на основном корпусе  
 
-The StorSimple device has a 764W PCM module with an additional battery. The following illustration shows the LED panel for the device.  
+На устройстве StorSimple установлен модуль БПО мощностью 764 Вт с дополнительным аккумулятором. На рисунке ниже показана панель светодиодных индикаторов для устройства.
 
-   ![PCM LEDs on the primary enclosure][2]
+   ![Светодиодные индикаторы БПО на основном корпусе][2]
 
-LED legend:
+Условные обозначения светодиодных индикаторов:
 
-1. AC power failure
-2. Fan failure
-3. Battery fault
-4. PCM OK
-5. DC failure
-6. Battery good  
+1. Сбой питания от электросети
+2. Сбой вентилятора
+3. Сбой аккумулятора
+4. БПО исправен
+5. Сбой питания от аккумулятора
+6. Аккумулятор исправен
 
-The status of the PCM is indicated on the LED panel. The device PCM LED panel has six LEDs. Four of these LEDs display the status of the power supply and the fan. The remaining two LEDs indicate the status of the backup battery module in the PCM. You can use the following tables to determine the status of the PCM.  
+Состояние БПО отображается на светодиодной панели. На светодиодной панели БПО устройства расположены шесть светодиодных индикаторов. Четыре из них сигнализируют о состоянии питания и вентилятора. Оставшиеся два указывают на состояние модуля резервного аккумулятора БПО. Для определения состояния БПО можно воспользоваться следующими таблицами.
 
-### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>PCM indicator LEDs for power supply and fan
-| Status | PCM OK (green) | AC fail (amber) | Fan fail (amber) | DC fail (amber) |
+### Светодиодные индикаторы БПО для состояния питания и вентилятора
+| Состояние | БПО исправен (зеленый) | Сбой питания от электросети (желтый) | Сбой вентилятора (желтый) | Сбой питания от аккумулятора (желтый) |
 |--------|----------------|-----------------------|------------------|----------------------|
-| No AC power (to enclosure) | OFF | OFF | OFF | OFF|
-| No AC power (this PCM only) | OFF | ON | OFF | ON |
-| AC present PCM ON - OK     | ON | OFF | OFF | OFF |
-| PCM fail (fan fail) | OFF | OFF | ON | N/A |
-| PCM fault (over amp, over voltage, over current) | OFF | ON | ON | ON |
-| PCM (fan out of tolerance) | ON | OFF | OFF | ON |
-| Standby mode | Flashing | OFF | OFF | OFF |
-| PCM firmware download | OFF | Flashing | Flashing | Flashing |
+| Нет питания от электросети (на корпус) | ВЫКЛ. | ВЫКЛ. | ВЫКЛ. | ВЫКЛ.|
+| Нет питания от электросети (только на этот БПО) | ВЫКЛ. | ВКЛ | ВЫКЛ. | ВКЛ |
+| Питание от электросети есть, БПО включен — исправен | ВКЛ | ВЫКЛ. | ВЫКЛ. | ВЫКЛ. |
+| Сбой БПО (сбой вентилятора) | ВЫКЛ. | ВЫКЛ. | ВКЛ | Недоступно |
+| Отказ БПО (избыточный ток, перенапряжение, сверхток) | ВЫКЛ. | ВКЛ | ВКЛ | ВКЛ. |
+| БПО (недопустимый режим вентилятора) | ВКЛ | ВЫКЛ. | ВЫКЛ. | ВКЛ |
+| Режим ожидания | Мигание | ВЫКЛ. | ВЫКЛ. | ВЫКЛ. |
+| Загрузка встроенного программного обеспечения БПО | ВЫКЛ. | Мигание | Мигание | Мигание |
 
-### <a name="pcm-indicator-leds-for-the-backup-battery"></a>PCM indicator LEDs for the backup battery  
+### Светодиодные индикаторы БПО для резервного аккумулятора  
 
-| Status | Battery good (green) | Battery fault (amber) |
+| Состояние | Аккумулятор исправен (зеленый) | Сбой аккумулятора (желтый) |
 |--------|----------------------|-----------------------|
-| Battery not present | OFF | OFF |
-| Battery present and charged | ON | OFF |
-| Battery charging or maintenance discharge | Flashing | OFF |
-| Battery “soft” fault (recoverable) | OFF | Flashing |
-| Battery “hard” fault (non-recoverable) | OFF | ON |
-| Battery disarmed | Flashing | OFF |
+| Отсутствует аккумулятор | ВЫКЛ. | ВЫКЛ. |
+| Аккумулятор присутствует и заряжен | ВКЛ | ВЫКЛ. |
+| Аккумулятор заряжается или разряжается для проведения обслуживания | Мигание | ВЫКЛ. |
+| "Мягкий" отказ аккумулятора (восстановимый) | ВЫКЛ. | Мигание |
+| "Жесткий" отказ аккумулятора (невосстановимый) | ВЫКЛ. | ВКЛ |
+| Снят аккумулятор | Мигание | ВЫКЛ. |
 
-## <a name="pcm-leds-for-the-ebod-enclosure"></a>PCM LEDs for the EBOD enclosure  
+## Светодиодные индикаторы БПО на корпусе EBOD  
 
-The EBOD enclosure has a 580W PCM and no additional battery. The PCM panel for the EBOD enclosure has indicator LEDs only for the power supplies and the fan. The following illustration shows these LEDs.
+В корпусе EBOD установлен БПО мощностью 580 Вт без дополнительного аккумулятора. На панели БПО корпуса EBOD расположены светодиодные индикаторы только для источников питания и вентилятора. Эти светодиодные индикаторы показаны на рисунке ниже.
 
-   ![PCM LEDs on the EBOD enclosure][3] 
+   ![Светодиодные индикаторы БПО на корпусе EBOD][3]
  
-You can use the following table to determine the status of the PCM.  
+Для определения состояния БПО можно воспользоваться следующими таблицами.
 
-| Status | PCM OK (green) | AC fail (amber) | Fan fail (amber) | DC fail (amber) |
+| Состояние | БПО исправен (зеленый) | Сбой питания от электросети (желтый) | Сбой вентилятора (желтый) | Сбой питания от аккумулятора (желтый) |
 |--------|---------------|------------------------|------------------|----------------------|
-| No AC power (to enclosure) | OFF | OFF | OFF | OFF |
-| No AC power (this PCM only) | OFF | ON | OFF | ON |
-| AC present PCM ON – OK | ON | OFF | OFF | OFF |
-| PCM fail (fan fail) | OFF | OFF | ON | X |
-| PCM fault (over amp, over voltage, over current | OFF | ON | ON | ON |
-| PCM (fan out of tolerance) | ON | OFF | OFF | ON |
-| Standby model | Flashing | OFF | OFF | OFF |
-| PCM firmware download | OFF | Flashing | Flashing | Flashing |
+| Нет питания от электросети (на корпус) | ВЫКЛ. | ВЫКЛ. | ВЫКЛ. | ВЫКЛ. |
+| Нет питания от электросети (только на этот БПО) | ВЫКЛ. | ВКЛ | ВЫКЛ. | ВКЛ |
+| Питание от электросети есть, БПО включен — исправен | ВКЛ | ВЫКЛ. | ВЫКЛ. | ВЫКЛ. |
+| Сбой БПО (сбой вентилятора) | ВЫКЛ. | ВЫКЛ. | ВКЛ | X |
+| Отказ БПО (избыточный ток, перенапряжение, сверхток) | ВЫКЛ. | ВКЛ | ВКЛ | ВКЛ. |
+| БПО (недопустимый режим вентилятора) | ВКЛ | ВЫКЛ. | ВЫКЛ. | ВКЛ |
+| Режим ожидания | Мигание | ВЫКЛ. | ВЫКЛ. | ВЫКЛ. |
+| Загрузка встроенного программного обеспечения БПО | ВЫКЛ. | Мигание | Мигание | Мигание |
 
-## <a name="controller-module-indicator-leds"></a>Controller module indicator LEDs  
+## Светодиодные индикаторы модуля контроллера  
 
-The StorSimple device contains LEDs for the primary controller and the EBOD controller modules.   
+На устройстве StorSimple есть индикаторы основного контроллера и модулей контроллеров EBOD.
 
-### <a name="monitoring-leds-for-the-primary-controller"></a>Monitoring LEDs for the primary controller
-The following illustration helps you identify the LEDs on the primary controller. (All of the components are listed to aid in orientation.)  
+### Светодиодные индикаторы мониторинга для основного контроллера
+Рисунок поможет определить индикаторы на основном контроллере. (Все компоненты перечислены в таком порядке, чтобы в них было удобно ориентироваться.)
 
-   ![Monitoring LEDs - primary controller][4]
+   ![Светодиодные индикаторы мониторинга для основного контроллера][4]
  
-Use the following table to determine whether the controller module is operating correctly.  
+Используйте таблицу ниже, чтобы определить, правильно ли работает модуль контроллера.
 
-### <a name="controller-indicator-leds"></a>Controller indicator LEDs  
+### Светодиодные индикаторы контроллера  
 
-| LED | Description                                                                            
+| Светодиодный индикатор | Описание                                                                            
 |---- | ----------- |
-| ID LED (blue) | Indicates that the module is being identified. If the blue LED is blinking on a running controller, then the controller is the active controller and the other one is the standby controller. For more information, see [Identify the active controller on your device](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
-| Fault LED (amber) | Indicates a fault in the controller.        
-| OK LED (green) | Steady green indicates that the controller is OK. Flashing green indicates a controller VPD configuration error. |
-| SAS activity LEDs (green) | Steady green indicates a connection with no current activity. Flashing green indicates the connection has ongoing activity. |
-| Ethernet status LEDs | Right side indicates link/network activity: (steady green) link active, (flashing green) network activity. Left side indicates network speed: (yellow) 1000 Mb/s, (green) 100 Mb/s, and (OFF) 10 Mb/s. Depending on the component model, this light might blink even if the network interface is not enabled. |
-| POST LEDs | Indicates the boot progress when the controller is turned on. If the StorSimple device fails to boot, this LED will help Microsoft Support identify the point in the boot process at which the failure occurred. |
+| Светодиодный индикатор идентификационного номера (синий) | Указывает на то, что модуль идентифицирован. Если синий индикатор мигает на работающем контроллере, один контроллер является активным, а другой находится в режиме ожидания. Дополнительные сведения см. в статье [Определение активного контроллера устройства](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| Светодиодный индикатор сбоя (желтый) | Указывает на сбой контроллера.        
+| Светодиодный индикатор нормального состояния (зеленый) | Постоянное свечение зеленым указывает на то, что контроллер исправен. Мигающий зеленый указывает на ошибку конфигурации VPD контроллера. |
+| Светодиодные индикаторы активности SAS (зеленые) | Постоянное свечение зеленым означает подключение при отсутствии текущей активности. Мигающий зеленый означает наличие текущей активности соединения. |
+| Индикаторы состояния Ethernet | Индикатор справа указывает на активность в сети или канале: канал активен (постоянный зеленый), сетевая активность (мигающий зеленый). Индикатор слева указывает на скорость сетевого подключения: (желтый) 1000 Мбит/с; (зеленый) 100 Мбит/с; (ВЫКЛ.) 10 Мбит/с. В зависимости от модели компонента, этот индикатор может мигать, даже если сетевой интерфейс выключен. |
+| Светодиодные индикаторы POST | Показывают ход выполнения загрузки при включении контроллера. Если устройство StorSimple не загружается, эти индикаторы помогут службе технической поддержки Майкрософт определить момент в процессе загрузки, в который произошел сбой. |
 
 >[AZURE.IMPORTANT] 
-If the fault LED is lit, there is a problem with the controller module that might be resolved by restarting the controller. Please contact Microsoft Support if restarting the controller does not resolve this issue.  
+Если светодиодный индикатор сбоя светится, возникла проблема с модулем контроллера, которая может быть решена путем перезагрузки контроллера. Если перезапуск контроллера не устранил неполадку, обратитесь в службу технической поддержки Майкрософт.
 
 
-### <a name="monitoring-leds-for-the-ebod-(ebod-enclosure)"></a>Monitoring LEDs for the EBOD (EBOD enclosure)  
+### Светодиодные индикаторы мониторинга для EBOD (корпуса EBOD)  
 
-Each of the 6 Gb/s SAS EBOD controllers has LEDs that indicate its status as shown in the following illustration.  
+Каждый из SAS-контроллеров EBOD на 6 Гбит/с оснащен индикаторами, показывающими его состояние, как показано на рисунке ниже.
 
-  ![Monitoring LEDs - EBOD enclosure][5]
+  ![Светодиодные индикаторы мониторинга для корпуса EBOD][5]
 
-Use the following table to determine whether the EBOD controller module is operating normally.  
+Используйте таблицу ниже, чтобы определить, правильно ли работает модуль контроллера EBOD.
 
-### <a name="ebod-controller-module-indicator-leds"></a>EBOD controller module indicator LEDs  
+### Светодиодные индикаторы модуля контроллера EBOD  
 
-|Status | I/O module OK (green) | I/O module fault (amber) | Host port activity (green) |
+|Состояние | Модуль ввода-вывода исправен (зеленый) | Сбой модуля ввода-вывода (желтый) | Активность порта узла (зеленый) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Controller module OK | ON | OFF | - |
-| Controller module fault | OFF | ON | - |
-| No external host port connection | - | - | OFF |
-| External host port connection – no activity | - | - | ON |
-| External host port connection - activity | - | - | Flashing |
-| Controller module metadata error | Flashing | - | - |
+| Модуль контроллера исправен| ВКЛ. | ВЫКЛ. | - | 
+| Сбой модуля контроллера | ВЫКЛ. | ВКЛ. | - | 
+| Нет подключения к порту внешнего узла | - | - | ВЫКЛ. | 
+| Подключение к порту внешнего узла — нет активности | - | - | ВКЛ. | 
+| Подключение к порту внешнего узла — активность | - | - | Мигание | 
+| Ошибка метаданных модуля контроллера | Мигание | - | - |
 
-## <a name="disk-drive-indicator-leds-for-the-primary-enclosure-and-ebod-enclosure"></a>Disk drive indicator LEDs for the primary enclosure and EBOD enclosure
+## Светодиодные индикаторы дисков основного корпуса и корпуса EBOD
 
-The StorSimple device has disk drives located in both the primary enclosure and the EBOD enclosure. Each disk drive contains monitoring indicator LEDs, as described in this section. 
+Диски устройства StorSimple находятся в основном корпусе и корпусе EBOD. Для каждого диска предусмотрены светодиодные индикаторы мониторинга, как описано в этом разделе.
 
-For the disk drives, the drive status is indicated by a green LED and a red-amber LED mounted on the front of each drive carrier module. The following illustration shows these LEDs.
+О состоянии дисков сигнализируют зеленый и красно-желтый индикаторы, расположенные на передней панели каждого дискового модуля. Эти светодиодные индикаторы показаны на рисунке ниже.
 
-  ![Disk drive LEDs][6]
+  ![Светодиодные индикаторы дисков][6]
  
-Use the following table to determine the state of each disk drive, which in turn affects the overall front panel LED status.  
+Используйте следующую таблицу для определения состояния каждого диска, который в свою очередь влияет на общие показания индикаторов состояния на передней панели.
 
-### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Disk drive indicator LEDs for the EBOD enclosure  
+### Светодиодные индикаторы дисков на корпусе EBOD  
 
-| Status | Activity OK LED (green) | Fault LED (red-amber) | Associated ops panel LED |
+| Состояние | Светодиодный индикатор нормальной активности (зеленый) | Светодиодный индикатор сбоя (красно-желтый) | Светодиодный индикатор связанной ПУ |
 |-------|--------------------------|----------------------|-------------------------|
-| No drive installed | OFF | OFF | None |
-| Drive installed and operational | Flashing on/off with activity | X | None |
-| SCSI Enclosure Services (SES) device identity set | ON | Flashing 1 second on/1 second off | None |
-| SES device fault bit set | ON | ON | Logical fault (red) |
-| Power control circuit failure | OFF | ON | Module fault (red) |
+| Диск не установлен | ВЫКЛ. | ВЫКЛ. | None |
+| Диск установлен и функционирует | Мигание при активности | X | None |
+| Задана идентификация устройства с поддержкой SES | ВКЛ | Мигание с интервалом 1 секунда | None |
+| Задан бит отказа устройства SES | ВКЛ | ВКЛ | Логический сбой (красный) |
+| Сбой схемы управления питанием | ВЫКЛ. | ВКЛ | Сбой модуля (красный) |
 
-## <a name="audible-alarms"></a>Audible alarms  
+## Звуковые сигналы  
 
-A StorSimple device contains audible alarms associated with both the primary enclosure and the EBOD enclosure. An audible alarm is located on the front panel (also known as the ops panel) of both enclosures. The audible alarm indicates when a fault condition is present. The following conditions will activate the alarm:  
+Устройство StorSimple может подавать звуковые сигналы для основного корпуса и корпуса EBOD. Динамик для подачи звуковых сигналов расположен на передней панели (также называется ПУ) обоих корпусов. Звуковой сигнал раздается при возникновении ошибки. Звуковой сигнал подается в таких ситуациях:
 
-- Fan fault or failure
-- Voltage out of range
-- Over or under temperature condition
-- Thermal overrun
-- System fault
-- Logical fault
-- Power supply fault
-- Removal of a power cooling module (PCM)  
+- Сбой или отказ вентилятора
+- Напряжение вне допустимого диапазона
+- Температура выше или ниже пороговых значений
+- Перегрев
+- Сбой системы
+- Логический сбой
+- Сбой источника питания
+- Извлечение модуля БПО
 
-The following table describes the various alarm states.  
+В таблице ниже описаны различные звуковые сигналы.
 
-### <a name="alarm-states"></a>Alarm states  
+### Сигналы тревоги  
 
-| Alarm state | Action | Action with mute button pressed |
+| Сигнал тревоги | Действие | Действие с нажатой кнопкой выключения звука |
 |------------|---------|---------------------------------|
-| S0 | Normal mode: silent | Beep twice |
-| S1 | Fault mode: 1 second on/1 second off | Transition to S2 or S3 (see notes) |
-| S2 | Remind mode: intermittent beep | None |
-| S3 | Muted mode: silent | None |
-| S4 | Critical fault mode: continuous alarm | Not available: mute not active |
+| S0 | Обычный режим: без звука | Двойной сигнал |
+| S1 | Режим сбоя: прерывистый сигнал с интервалом 1 секунда | Переход в S2 или S3 (см. примечания) |
+| S2 | Режим напоминания: кратковременный сигнал | None |
+| S3 | Режим с отключенным звуком: без звука | None |
+| S4 | Режим критического сбоя: непрерывный сигнал | Недоступно: нельзя выключить звук |
 
 > [AZURE.NOTE] 
 
->  - In alarm state S1, if you do not press mute within 2 minutes, the state automatically transitions to S2 or S3.  
->  - Alarm states S1 to S4 return to S0 after the fault condition is cleared.  
->  - Critical fault state S4 can be entered from any other state.  
+>  - Сигнал тревоги S1, если не нажимать кнопку выключения звука в течение 2 минут, автоматически превратится в сигнал S2 или S3.
+>  - Сигналы тревоги S1–S4 превращаются в сигнал S0 после устранения неисправности.
+>  - Любой звуковой сигнал может превратиться в сигнал критического сбоя S4.
 
-You can mute the audible alarm by pressing the mute button on the ops panel. Automatic muting will occur after two minutes if the mute switch is not manually operated. When the alarm is muted, it will continue to sound with short intermittent beeps to indicate that a problem still exists. The alarm will be silent when all the problems are cleared.  
+Звуковой сигнал можно выключить нажатием кнопки выключения звука на панели управления. Автоматическое отключение звука произойдет через две минуты, если звук не отключен вручную. Если отключить подачу сигнала, он все равно продолжит звучать, но будет перемежаться короткими сигналами, указывающими на то, что проблема не устранена. Звуковой сигнал будет автоматически отключен после решения всех проблем.
 
-The following table describes the various alarm conditions.  
+В таблице ниже описаны условия подачи различных звуковых сигналов.
 
-### <a name="alarm-conditions"></a>Alarm conditions  
+### Условия подачи звукового сигнала  
 
-| Status | Severity | Alarm | Ops panel LED |
+| Состояние | Уровень серьезности | Сигнал | Светодиодный индикатор ПУ |
 |--------|---------|--------|----------------|
-| PCM alert – loss of DC power from a single PCM | Fault – no loss of redundancy | S1 | Module fault|
-|PCM alert – loss of DC power from a single PCM | Fault – loss of redundancy | S1 | Module fault |
-| PCM fan fail | Fault – loss of redundancy | S1 | Module fault |
-| SBB module detected PCM fault | Fault | S1 | Module fault |
-| PCM removed | Configuration error | None | Module fault |
-| Enclosure configuration error | Fault – critical | S1 | Module fault |
-| Low warning temperature alert | Warning | S1 | Module fault |
-| High warning temperature alert | Warning | S1 | Module fault |
-| Over temperature alarm | Fault – critical | S1 | Module fault |
-| I2C bus failure | Fault – loss of redundancy | S1 | Module fault |
-| Ops panel communication error (I2C) | Fault – critical     | S1 | Module fault |
-| Controller error | Fault – critical | S1 | Module fault |
-| SBB interface module fault | Fault – critical | S1 | Module fault |
-| SBB interface module fault – No functioning modules remaining | Fault – critical | S4 | Module fault |
-| SBB interface module removed | Warning | None | Module fault |
-| Drive power control fault | Warning – no loss of drive power | S1 | Module fault |
-| Drive power control fault | Fault – critical; loss of drive power | S1 | Module fault |
-| Drive removed | Warning | None | Module fault |
-| Insufficient power available | Warning | none | Module fault |
+| Предупреждение БПО — отключение питания от аккумулятора одного из БПО | Сбой — без потери избыточности | S1 | Сбой модуля|
+|Предупреждение БПО — отключение питания от аккумулятора одного из БПО | Сбой — потеря избыточности | S1 | Сбой модуля |
+| Сбой вентилятора БПО | Сбой — потеря избыточности | S1 | Сбой модуля |
+| Модуль SBB обнаружил сбой БПО | Сбой | S1 | Сбой модуля |
+| БПО удален | Ошибка конфигурации | None | Сбой модуля |
+| Ошибка конфигурации корпуса | Сбой — критический | S1 | Сбой модуля |
+| Предупреждение о низкой температуре | Предупреждение | S1 | Сбой модуля |
+| Предупреждение о высокой температуре | Предупреждение | S1 | Сбой модуля |
+| Сигнал перегрева | Сбой — критический | S1 | Сбой модуля |
+| Сбой шины I2C | Сбой — потеря избыточности | S1 | Сбой модуля |
+| Ошибка связи с ПУ (I2C) | Сбой — критический | S1 | Сбой модуля |
+| Ошибка контроллера | Сбой — критический | S1 | Сбой модуля |
+| Сбой интерфейсного модуля SBB | Сбой — критический | S1 | Сбой модуля |
+| Сбой интерфейсного модуля SBB — не осталось работоспособных модулей | Сбой — критический | S4 | Сбой модуля |
+| Извлечен интерфейсный модуль SBB | Предупреждение | None | Сбой модуля |
+| Сбой управления питанием диска | Предупреждение — без отключения питания диска | S1 | Сбой модуля |
+| Сбой управления питанием диска | Сбой — критический; отключение питания диска | S1 | Сбой модуля |
+| Диск удален | Предупреждение | None | Сбой модуля |
+| Недостаточно доступной мощности электропитания | Предупреждение | Нет | Сбой модуля |
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Learn more about [StorSimple hardware components and status](storsimple-monitor-hardware-status.md).
+Узнайте подробнее о [компонентах оборудования StorSimple и их состоянии](storsimple-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
@@ -263,8 +262,4 @@ Learn more about [StorSimple hardware components and status](storsimple-monitor-
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

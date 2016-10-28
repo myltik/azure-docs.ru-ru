@@ -1,77 +1,71 @@
 
 <properties
-    pageTitle="Using Azure AD Connect Health with sync | Microsoft Azure"
-    description="This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Использование Azure AD Connect Health для синхронизации | Microsoft Azure"
+	description="На этой странице Azure AD Connect Health описывается отслеживание синхронизации Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
+# Использование Azure AD Connect Health для синхронизации
+Приведенная ниже документация относится к мониторингу синхронизации Azure AD Connect с помощью Azure AD Connect Health. Сведения о мониторинге AD FS с помощью Azure AD Connect Health см. в статье [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md). Сведения о мониторинге доменных служб Active Directory с помощью Azure AD Connect Health см. в статье [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md) (Использование Azure AD Connect Health с AD DS).
 
-# <a name="using-azure-ad-connect-health-for-sync"></a>Using Azure AD Connect Health for sync
-The following documentation is specific to monitoring Azure AD Connect (Sync) with Azure AD Connect Health.  For information on monitoring AD FS with Azure AD Connect Health see [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md). Additionally, for information on monitoring Active Directory Domain Services with Azure AD Connect Health see [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md).
+![Azure AD Connect Health для синхронизации](./media/active-directory-aadconnect-health-sync/sync.png)
 
-![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/sync.png)
+## Оповещения Azure AD Connect Health для синхронизации
+Раздел оповещений Azure AD Connect Health для синхронизации содержит список активных оповещений. Каждое оповещение содержит соответствующую информацию, действия по устранению и ссылки на связанную документацию. Если выбрать активное или разрешенное оповещение, появится новая колонка с дополнительной информацией, действиями, которые можно предпринять для устранения причин оповещения, и ссылками на дополнительную документацию. Можно также просмотреть данные журнала об оповещениях, которые были разрешены в прошлом.
 
-## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Alerts for Azure AD Connect Health for sync
-The Azure AD Connect Health Alerts for sync section provides you the list of active alerts. Each alert includes relevant information, resolution steps, and links to related documentation. By selecting an active or resolved alert you will see a new blade with additional information, as well as steps you can take to resolve the alert, and links to additional documentation. You can also view historical data on alerts that were resolved in the past.
+Если выбрать оповещение, отобразится дополнительная информация, действия, которые можно предпринять для устранения причин оповещения, и ссылки на дополнительную документацию.
 
-By selecting an alert you will be provided with additional information as well as steps you can take to resolve the alert and links to additional documentation.
+![Ошибка синхронизации Azure AD Connect](./media/active-directory-aadconnect-health-sync/alert.png)
 
-![Azure AD Connect sync error](./media/active-directory-aadconnect-health-sync/alert.png)
+### Ограниченное ознакомление с оповещениями
+Если Azure AD Connect не использует конфигурацию по умолчанию (например, для фильтрации атрибутов выбрана пользовательская конфигурация), агент Azure AD Connect Health не будет передавать события ошибок, связанные с Azure AD Connect.
 
-### <a name="limited-evaluation-of-alerts"></a>Limited Evaluation of Alerts
-If Azure AD Connect is NOT using the default configuration (for example, if Attribute Filtering is changed from the default configuration to a custom configuration), then the Azure AD Connect Health agent will not upload the error events related to Azure AD Connect. 
+Это не позволяет службе в полной мере изучать оповещения. На портале Azure в разделе службы появится соответствующее сообщение.
 
-This limits the evaluation of alerts by the service. You'd will see a banner that indicates this condition in the Azure Portal under your service.
+![Azure AD Connect Health для синхронизации](./media/active-directory-aadconnect-health-sync/banner.png)
 
-![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/banner.png)
+Чтобы исправить это, в меню "Параметры" разрешите агенту Azure AD Connect Health передавать все журналы ошибок.
 
-You can change this by clicking "Settings" and allowing Azure AD Connect Health agent to upload all error logs.
+![Azure AD Connect Health для синхронизации](./media/active-directory-aadconnect-health-sync/banner2.png)
 
-![Azure AD Connect Health for Sync](./media/active-directory-aadconnect-health-sync/banner2.png)
+## Sync Insight
+В последнем выпуске службы Azure AD Connect Health для синхронизации добавлены следующие новые возможности:
 
-## <a name="sync-insight"></a>Sync Insight
-With the latest release of Azure AD Connect Health for sync the following new capabilities have been added:
+- задержка операций синхронизации;
+- тренд, отображающий изменения объектов.
 
-- Latency of sync operations
-- Object Change trend
+### Задержка синхронизации
+Этот компонент отвечает за графическое отображение тренда задержек операций синхронизации (импорт, экспорт и т. д.) для соединителей. Он позволяет не только быстро оценить задержки операций (например, при наличии большого количества происходящих изменений), но также определить аномальные задержки, требующие дополнительного изучения.
 
-### <a name="sync-latency"></a>Sync Latency
-This feature provides a graphical trend of latency of the sync operations (import, export, etc.) for connectors.  This provides a quick and easy way to understand not only the latency of your operations (great if you have a large set of changes occurring) but also a way to detect anomalies in the latency that may require further investigation.
+![Задержка синхронизации](./media/active-directory-aadconnect-health-sync/synclatency.png)
 
-![Sync Latency](./media/active-directory-aadconnect-health-sync/synclatency.png)
+По умолчанию для соединителя Azure AD отображаются только задержки операции экспорта. Чтобы просмотреть дополнительные операции в этом соединителе или операции в других соединителях, щелкните правой кнопкой мыши на схеме и выберите интересующие вас операцию и соединитель.
 
-By default, only the latency of the 'Export' operation for the Azure AD connector is shown.  To see more operations on the connector or to view operations from other connectors, right-click on the chart and choose the specific operation and connector.
+### Изменения объектов синхронизации
+Этот компонент отвечает за графическое отображение тренда количества изменений, которые вычисляются и экспортируются в Azure AD. Сейчас сбор такой информации из журналов синхронизации затруднен. Схема — это не только простое средство мониторинга количества изменений, происходящих в вашей среде, она также предоставляет визуальные сведения о происходящих сбоях.
 
-### <a name="sync-object-changes"></a>Sync Object Changes
-This feature provides a graphical trend of the number of changes that are being evaluated and exported to Azure AD.  Today, trying to gather this information from the sync logs is difficult.  The chart gives you, not only a simpler way of monitoring the number of changes that are occurring in your environment, but also a visual view of the failures that are occurring.
+![Задержка синхронизации](./media/active-directory-aadconnect-health-sync/syncobjectchanges.png)
 
-![Sync Latency](./media/active-directory-aadconnect-health-sync/syncobjectchanges.png)
-
-## <a name="related-links"></a>Related links
+## Связанные ссылки
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
-* [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
-* [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
-* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
-* [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
-* [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
+* [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
+* [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
+* [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
+* [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
+* [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

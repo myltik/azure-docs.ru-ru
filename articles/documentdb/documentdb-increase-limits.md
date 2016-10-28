@@ -1,69 +1,64 @@
 <properties
-    pageTitle="Request increased DocumentDB account quotas | Microsoft Azure"
-    description="Learn how to request an adjustment to DocumentDB database quotas such as document storage and throughput per collection."
-    services="documentdb"
-    authors="AndrewHoh"
-    manager="jhubbard"
-    editor="monicar"
-    documentationCenter=""/>
+	pageTitle="Запрос увеличения квот учетной записи DocumentDB | Microsoft Azure"
+	description="Узнайте, как запросить изменение квот базы данных DocumentDB, например объема хранилища документов или пропускной способности для коллекции."
+	services="documentdb"
+	authors="AndrewHoh"
+	manager="jhubbard"
+	editor="monicar"
+	documentationCenter=""/>
 
 <tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="anhoh"/>
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2016"
+	ms.author="anhoh"/>
 
+# Запрос увеличения ограничения учетной записи DocumentDB
 
-# <a name="request-increased-documentdb-account-limits"></a>Request increased DocumentDB account limits
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) применяет ряд квот по умолчанию, которые могут быть изменены при обращении в службу поддержки Azure. В этой статье показано, как запросить увеличение квоты.
 
-[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) has a set of default quotas that can be adjusted by contacting Azure support.  This article shows how to request a quota increase.
+Ознакомившись с данной статьей, вы сможете ответить на следующие вопросы.
 
-After reading this article, you'll be able to answer the following questions:  
+-	Какие квоты базы данных DocumentDB могут быть изменены при обращении в службу поддержки Azure?
+-	Как запросить изменение квоты учетной записи DocumentDB?
 
--   Which DocumentDB database quotas can be adjusted by contacting Azure support?
--   How can I request a DocumentDB account quota adjustment?
+##<a id="Quotas"></a> Квоты учетной записи DocumentDB
 
-##<a name="<a-id="quotas"></a>-documentdb-account-quotas"></a><a id="Quotas"></a> DocumentDB account quotas
-
-The following table describes the DocumentDB quotas. The quotas that have an asterisk (*) can be adjusted by contacting Azure support:
+В следующей таблице описаны квоты DocumentDB. Квоты со звездочкой (*) могут быть изменены при обращении в службу поддержки Azure.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 
-##<a name="<a-id="requestquotaincrease"></a>-request-a-quota-adjustment"></a><a id="RequestQuotaIncrease"></a> Request a quota adjustment
-The following steps show how to request a quota adjustment.
+##<a id="RequestQuotaIncrease"></a> Запрос изменения квоты
+Ниже показано, как запросить изменение квоты.
 
-1. In the [Azure portal](https://portal.azure.com), click **More Services**, and then click **Help + support**.
+1. На [портале Azure](https://portal.azure.com) нажмите кнопку **Другие службы**, а затем щелкните **Справка и поддержка**.
 
-    ![Screenshot of launching help and support](media/documentdb-increase-limits/helpsupport.png)
+	![Снимок экрана запуска справки и поддержки](media/documentdb-increase-limits/helpsupport.png)
 
-2. In the **Help + support** blade, click **New support request**.
+2. В колонке **Справка и поддержка** щелкните **Новый запрос в службу поддержки**.
 
-    ![Screenshot of creating a support ticket](media/documentdb-increase-limits/getsupport.png)
+	![Снимок экрана создания запроса в службу поддержки](media/documentdb-increase-limits/getsupport.png)
 
-3. In the **New support request** blade, click **Basics**. Next, set **Issue type** to **Quota**, **Subscription** to your subscription that hosts your DocumentDB account, **Quota type** to **DocumentDB**, and **Support plan** to **Quota SUPPORT - Included**. Then, click **Next**.
+3. В колонке **Создать запрос поддержки** щелкните **Основные**. Затем задайте для параметра **Тип проблемы** значение **Квота**, для параметра **Подписка** укажите свою подписку, которая содержит учетную запись DocumentDB. Задайте для параметра **Тип квоты** значение **DocumentDB**, а для параметра **План поддержки** — значение **Quota SUPPORT - Included** (Поддержка квоты включена). Нажмите кнопку **Далее**.
 
-    ![Screenshot of support ticket request type](media/documentdb-increase-limits/supportrequest1.png)
+	![Снимок экрана: тип запроса поддержки](media/documentdb-increase-limits/supportrequest1.png)
 
-4. In the **Problem** blade, choose a severity and include information about your quota increase in **Details**. Click **Next**.
+4. В колонке **Проблема** выберите степень серьезности и укажите сведения об увеличении квоты в поле **Сведения**. Нажмите кнопку **Далее**.
 
-    ![Screenshot of support ticket subscription picker](media/documentdb-increase-limits/supportrequest2.png)
+	![Снимок экрана: средство выбора подписки запроса в службу поддержки](media/documentdb-increase-limits/supportrequest2.png)
 
-5. Finally, fill in your contact information in the **Contact information** blade and click **Create**.
+5. Наконец, заполните колонку **Контактные данные** и щелкните **Создать**.
 
-Once the support ticket has been created, you should receive the support request number via email.  You can also view the support request by clicking **Manage support requests** in the **Help + support** blade.
+После создания запроса в службу поддержки вы получите номер запроса по электронной почте. Чтобы просмотреть запрос, нажмите кнопку **Запросы технической поддержки** в колонке **Справка и поддержка**.
 
-![Screenshot of support requests blade](media/documentdb-increase-limits/supportrequest4.png)
-
-
-##<a name="<a-name="nextsteps"></a>-next-steps"></a><a name="NextSteps"></a> Next steps
-- To learn more about DocumentDB, click [here](http://azure.com/docdb).
+![Снимок экрана: колонка запросов поддержки](media/documentdb-increase-limits/supportrequest4.png)
 
 
+##<a name="NextSteps"></a>Дальнейшие действия
+- Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

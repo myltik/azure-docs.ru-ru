@@ -1,100 +1,95 @@
 <properties
-    pageTitle="Azure Data Catalog  | Microsoft Azure"
-    description="This article shows the Keyboard shortcuts for Azure Data Catalog."
-    services="data-catalog"
-    documentationCenter=""
-    authors="spelluru"
-    manager="NA"
-    editor=""
-    tags=""/>
+	pageTitle="Каталог данных Azure | Microsoft Azure"
+	description="В этой статье представлены сочетания клавиш для каталога данных Azure."
+	services="data-catalog"
+	documentationCenter=""
+	authors="spelluru"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
-    ms.service="data-catalog"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-catalog"
-    ms.date="09/13/2016"
-    ms.author="spelluru"/>
+	ms.service="data-catalog"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="09/13/2016"
+	ms.author="spelluru"/>
 
+# Сочетания клавиш для каталога данных Azure
 
-# <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Keyboard shortcuts for Azure Data Catalog
+## Сочетания клавиш для инструмента регистрации источников данных в каталоге данных
 
-## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Keyboard shortcuts for the Data Catalog data source registration tool
+### Основные сочетания клавиш
 
-### <a name="general-keyboard-shortcuts"></a>General keyboard shortcuts
-
-|Operation|Press
+|Операция|Нажмите клавишу
 |---|---
-|Tab to each control on a page|Tab
-|Choose an option|Enter or Spacebar
-|Maximize page|WIN+UP
-|Restore/minimize page | WIN+DOWN
-|Open page menu| ALT+SPACEBAR
+|Tab для перехода между элементами управления на странице.|Tab
+|Выбрать параметр.|Ввод или пробел
+|Развернуть страницу|WIN + СТРЕЛКА ВВЕРХ
+|Восстановить или свернуть страницу | WIN + СТРЕЛКА ВНИЗ
+|Открыть страницу меню| ALT + ПРОБЕЛ
 
 
-### <a name="authentication-page"></a>Authentication page
+### Страница проверки подлинности
 
-|Operation|Press
+|Операция|Нажмите клавишу
 |---|---
-|Sign into service|ALT+S
+|Войти в службу.|ALT + S
 
-### <a name="data-source-selection-page"></a>Data source selection page
+### Страница выбора источника данных
 
-|Operation|Press
+|Операция|Нажмите клавишу
 |---|---
-|Go to next page (if enabled)|ALT+N
-|Change selected type when the focus is on a tile|LEFT, UP, RIGHT, or DOWN ARROW
+|Перейти на следующую страницу (если она включена).|ALT + N
+|Изменить выбранный тип, когда выделен заголовок.|СТРЕЛКА ВВЕРХ, ПРАВО, ВЛЕВО ИЛИ ВНИЗ
 
-### <a name="data-source-connection-page"></a>Data source connection page
+### Страница подключения к источнику данных
 
-|Operation|Press
+|Операция|Нажмите клавишу
 |---|---
-|Go to previous page (if enabled)|ALT+P
-|Choose Connect button.| ALT+C
+|Перейти на предыдущую страницу (если она включена).|ALT + P
+|Нажать кнопку "Подключение".| ALT + C
 
-### <a name="connection-context-page"></a>Connection context page
+### Страница контекста подключения
 
-|Operation|Press
+|Операция|Нажмите клавишу
 |---|---
-|Register button (if enabled)| ALT+R
-|Include Preview checkbox (if available)|ALT+P
-|Include Data Profile checkbox (if available)|ALT+D
-|Navigate to each list item|UP or DOWN ARROW
-| Server Hierarchy, expand a tree view's node |RIGHT ARROW
-| Move selected items for **Available Objects** or **Objects to be registered** | SPACEBAR
+|Нажать кнопку регистрации (если включена).| ALT + R
+|Установить флажок для включения предварительного просмотра (если доступен).|ALT + P
+|Установить флажок для включения профиля данных (если доступен).|ALT + D
+|Пролистать список.|СТРЕЛКА ВВЕРХ или ВНИЗ
+| Развернуть узел дерева в иерархии серверов. |СТРЕЛКА ВПРАВО
+| Переместить выбранные элементы в список **Доступные объекты** или **Объекты для регистрации**. | ПРОБЕЛ
 
-### <a name="publish-progress-page"></a>Publish progress page
+### Страница публикации хода выполнения
 
-|Operation|Press
+|Операция|Нажмите клавишу
 |---|---
-|Cancel button|ALT+C
-|Register More Objects button| ALT+R
-|View Portal button  | ALT+V
+|Нажать кнопку отмены|ALT + C
+|Нажать кнопку регистрации дополнительных объектов| ALT + R
+|Нажать кнопку просмотра портала | ALT+V
 
-### <a name="publish-progress-page"></a>Publish progress page
+### Страница публикации хода выполнения
 
-|Operation|Press
+|Операция|Нажмите клавишу
 |---|---
-|Save button (if enabled)| ALT+S
-|Cancel button|ALT+C
+|Нажать кнопку сохранения (если включена)| ALT + S
+|Нажать кнопку отмены|ALT + C
 
-## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Keyboard shortcuts for the Data Catalog portal
+## Сочетания клавиш для портала каталога данных
 
-|Operation|Press
+|Операция|Нажмите клавишу
 |---|---
-|Navigate| TAB and SHIFT+TAB
-|Click an item| SPACE or ENTER
-|Drill down into a section| SPACE or ENTER
-|Exit out of a section| ESC
-|Pin/unpin an asset| ALT+P
-|On the discover page, when an asset has focus, select asset| SPACE or ENTER
-|Adds/remove asset from multi-select| CTRL+SPACE or ENTER
-|Toggle the search matches menu| ALT+S
-|Toggle **Open In** menu | ALT+O
-|Explore container, if the asset is a container | ALT+L
+|Перейти.| TAB и SHIFT+TAB
+|Щелкнуть элемент.| ПРОБЕЛ или ВВОД
+|Углубиться в раздел.| ПРОБЕЛ или ВВОД
+|Выйти из раздела.| ESC
+|Закрепить или открепить ресурс-контейнер.| ALT + P
+|На странице обнаружения, когда ресурс-контейнер находится в фокусе, выбрать его.| ПРОБЕЛ или ВВОД
+|Добавить или удалить ресурс-контейнер из множественного выбора.| CTRL+ПРОБЕЛ или ВВОД
+|Переключить меню поиска совпадений.| ALT + S
+|Переключить меню **Открыть в**. | ALT+O
+|Изучить контейнер, если ресурс является контейнером. | ALT+L
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

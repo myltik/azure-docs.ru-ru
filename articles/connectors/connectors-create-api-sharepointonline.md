@@ -1,10 +1,10 @@
 <properties
-pageTitle="Learn how to use the SharePoint Online connector in logic apps | Microsoft Azure"
-description="Create logic apps with the SharePoint Online connector to mange lists on SharePoint."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+pageTitle="Использование соединителя SharePoint Online в приложениях логики | Microsoft Azure"
+description="Создание приложений логики с соединителем SharePoint Online для управления списками на сайте SharePoint."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,640 +17,639 @@ ms.workload="integration"
 ms.date="07/19/2016"
 ms.author="deonhe"/>
 
+# Приступая к работе с соединителем SharePoint Online
 
-# <a name="get-started-with-the-sharepoint-online-connector"></a>Get started with the SharePoint Online connector
+Соединитель SharePoint Online можно использовать для управления списками SharePoint.
 
-Use the SharePoint Online connector to manage SharePoint lists.  
+Чтобы использовать [соединитель](./apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Подключение к SharePoint Online
 
-## <a name="connect-to-sharepoint-online"></a>Connect to SharePoint Online
+Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [подключение](./connectors-overview.md) между приложением логики и другой службой.
 
-Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
+### Создание подключения к SharePoint Online
 
-### <a name="create-a-connection-to-sharepoint-online"></a>Create a connection to SharePoint Online
+>[AZURE.INCLUDE [Шаги по созданию подключения к SharePoint](../../includes/connectors-create-api-sharepointonline.md)]
 
->[AZURE.INCLUDE [Steps to create a connection to SharePoint](../../includes/connectors-create-api-sharepointonline.md)]
+## Использование триггера SharePoint Online
 
-## <a name="use-a-sharepoint-online-trigger"></a>Use a SharePoint Online trigger
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+>[AZURE.INCLUDE [Шаги по созданию триггера SharePoint Online](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 
->[AZURE.INCLUDE [Steps to create a SharePoint Online trigger](../../includes/connectors-create-api-sharepointonline-trigger.md)]
+## Использование действия SharePoint Online
 
-## <a name="use-a-sharepoint-online-action"></a>Use a SharePoint Online action
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+>[AZURE.INCLUDE [Шаги по созданию действия SharePoint Online](../../includes/connectors-create-api-sharepointonline-action.md)]
 
->[AZURE.INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
+## Технические сведения
 
-## <a name="technical-details"></a>Technical Details
+Ниже приведены сведения о триггерах, действиях и ответах, которые поддерживает это подключение.
 
-Here are the details about the triggers, actions and responses that this connection supports:
+## Триггеры SharePoint Online
 
-## <a name="sharepoint-online-triggers"></a>SharePoint Online triggers
+В SharePoint доступны следующие триггеры.
 
-SharePoint has the following trigger(s):  
-
-|Trigger | Description|
+|Триггер | Описание|
 |--- | ---|
-|[When a file is created](connectors-create-api-sharepointonline.md#when-a-file-is-created)|This operation triggers a flow when a new file is created in a SharePoint folder.|
-|[When a file is modified](connectors-create-api-sharepointonline.md#when-a-file-is-modified)|This operation triggers a flow when a file is modified in a SharePoint folder.|
-|[When a new item is created](connectors-create-api-sharepointonline.md#when-a-new-item-is-created)|This operation triggers a flow when a new item is created in a SharePoint list.|
-|[When an existing item is modified](connectors-create-api-sharepointonline.md#when-an-existing-item-is-modified)|This operation triggers a flow when an existing item is modified in a SharePoint list.|
+|[При создании файла](connectors-create-api-sharepointonline.md#when-a-file-is-created)|Активирует поток при создании файла в папке SharePoint.|
+|[При изменении файла](connectors-create-api-sharepointonline.md#when-a-file-is-modified)|Активирует поток при изменении файла в папке SharePoint.|
+|[When a new item is created](connectors-create-api-sharepointonline.md#when-a-new-item-is-created) (При создании элемента)|Активирует поток при создании элемента в списке SharePoint.|
+|[When an existing item is modified](connectors-create-api-sharepointonline.md#when-an-existing-item-is-modified) (При изменении имеющегося элемента)|Активирует поток при изменении имеющегося элемента в списке SharePoint.|
 
 
-## <a name="sharepoint-online-actions"></a>SharePoint Online actions
+## Действия SharePoint Online
 
-SharePoint has the following actions:
+В SharePoint доступны следующие действия.
 
 
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[Get file metadata](connectors-create-api-sharepointonline.md#get-file-metadata)|This operation gets file metadata using the file id.|
-|[Update file](connectors-create-api-sharepointonline.md#update-file)|This operation updates file content.|
-|[Delete file](connectors-create-api-sharepointonline.md#delete-file)|This operation deletes a file.|
-|[Get file metadata using path](connectors-create-api-sharepointonline.md#get-file-metadata-using-path)|This operation gets file metadata using the file path.|
-|[Get file content using path](connectors-create-api-sharepointonline.md#get-file-content-using-path)|This operation gets file contents using the file path.|
-|[Get file content](connectors-create-api-sharepointonline.md#get-file-content)|This operation gets file content using the file id.|
-|[Create file](connectors-create-api-sharepointonline.md#create-file)|This operation uploads a file to a SharePoint site.|
-|[Copy file](connectors-create-api-sharepointonline.md#copy-file)|This operation copies a file to a SharePoint site.|
-|[List folder](connectors-create-api-sharepointonline.md#list-folder)|This operation gets files contained in a SharePoint folder.|
-|[List root folder](connectors-create-api-sharepointonline.md#list-root-folder)|This operaiton gets the files in the root SharePoint folder.|
-|[Extract folder](connectors-create-api-sharepointonline.md#extract-folder)|This operation extracts an archive file into a SharePoint folder (example: .zip).|
-|[Get items](connectors-create-api-sharepointonline.md#get-items)|This operation gets items from a SharePoint list.|
-|[Create item](connectors-create-api-sharepointonline.md#create-item)|This operation creates a new item in a SharePoint list.|
-|[Get item](connectors-create-api-sharepointonline.md#get-item)|This operation gets a single item by its id from a SharePoint list.|
-|[Delete item](connectors-create-api-sharepointonline.md#delete-item)|This operation deletes an item from a SharePoint list.|
-|[Update item](connectors-create-api-sharepointonline.md#update-item)|This operation updates an item in a SharePoint list.|
-|[Get entity values](connectors-create-api-sharepointonline.md#get-entity-values)|This operation gets possible values for a SharePoint entity.|
-|[Get lists](connectors-create-api-sharepointonline.md#get-lists)|This operation gets SharePoint lists from a site.|
-### <a name="action-details"></a>Action details
+|[Get file metadata (Получение метаданных файла)](connectors-create-api-sharepointonline.md#get-file-metadata)|Извлекает метаданные файла с помощью идентификатора файла.|
+|[Обновление файла](connectors-create-api-sharepointonline.md#update-file)|Обновляет содержимое файла.|
+|[Удаление файла](connectors-create-api-sharepointonline.md#delete-file)|Удаляет файл.|
+|[Получение метаданных файла с помощью пути](connectors-create-api-sharepointonline.md#get-file-metadata-using-path)|Извлекает метаданные файла с помощью пути к файлу.|
+|[Получение содержимого файла с помощью пути](connectors-create-api-sharepointonline.md#get-file-content-using-path)|Извлекает содержимое файла с помощью пути к файлу.|
+|[Получение содержимого файла](connectors-create-api-sharepointonline.md#get-file-content)|Получает содержимое файла, используя идентификатор.|
+|[Создание файла](connectors-create-api-sharepointonline.md#create-file)|Отправляет файл на сайт SharePoint.|
+|[Копирование файла](connectors-create-api-sharepointonline.md#copy-file)|Копирует файл на сайт SharePoint.|
+|[List folder](connectors-create-api-sharepointonline.md#list-folder) (Получение содержимого папки)|Получает файлы, содержащиеся в папке SharePoint.|
+|[List root folder](connectors-create-api-sharepointonline.md#list-root-folder) (Получение содержимого корневой папки)|Получает файлы, содержащиеся в корневой папке SharePoint.|
+|[Извлечение папки](connectors-create-api-sharepointonline.md#extract-folder)|Извлекает файл архива в папку SharePoint (например, ZIP-файл).|
+|[Get items](connectors-create-api-sharepointonline.md#get-items) (Получение элементов)|Получает элементы из списка SharePoint.|
+|[Create item](connectors-create-api-sharepointonline.md#create-item) (Создание элемента)|Создает элемент в списке SharePoint.|
+|[Get item](connectors-create-api-sharepointonline.md#get-item) (Получение элемента)|Получает один элемент из списка SharePoint, используя идентификатор.|
+|[Удаление элемента](connectors-create-api-sharepointonline.md#delete-item)|Удаляет элемент из списка SharePoint.|
+|[Обновление элемента](connectors-create-api-sharepointonline.md#update-item)|Обновляет элемент в списке SharePoint.|
+|[Get entity values](connectors-create-api-sharepointonline.md#get-entity-values) (Получение значений сущности)|Получает возможные значения для сущности SharePoint.|
+|[Получение списков](connectors-create-api-sharepointonline.md#get-lists)|Получает списки SharePoint с сайта.|
+### Сведения о действиях
 
-Here are the details for the actions and triggers for this connector, along with their responses:
-
-
-
-### <a name="get-file-metadata"></a>Get file metadata
-This operation gets file metadata using the file id. 
+Ниже приведены подробные сведения о действиях и триггерах этого соединителя, а также ответы на них.
 
 
-|Property Name| Display Name|Description|
+
+### Get file metadata (Получение метаданных файла)
+Извлекает метаданные файла с помощью идентификатора файла.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
-|id*|File identifier|Select a file|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
+|id*|Идентификатор файла|Выбор файла|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="update-file"></a>Update file
-This operation updates file content. 
+### Обновление файла
+Обновляет содержимое файла.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
-|id*|File identifier|Select a file|
-|body*|File Content|Content of the file|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
+|id*|Идентификатор файла|Выбор файла|
+|body*|Содержимое файла|Содержимое файла|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="delete-file"></a>Delete file
-This operation deletes a file. 
+### Удаление файла
+Удаляет файл.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
-|id*|File identifier|Select a file|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
+|id*|Идентификатор файла|Выбор файла|
 
-An * indicates that a property is required
-
-
+Звездочка (*) означает, что свойство является обязательным.
 
 
-### <a name="get-file-metadata-using-path"></a>Get file metadata using path
-This operation gets file metadata using the file path. 
 
 
-|Property Name| Display Name|Description|
+### Получение метаданных файла с помощью пути
+Извлекает метаданные файла с помощью пути к файлу.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
-|path*|File path|Select a file|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
+|path*|Путь к файлу|Выбор файла|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="get-file-content-using-path"></a>Get file content using path
-This operation gets file contents using the file path. 
+### Получение содержимого файла с помощью пути
+Извлекает содержимое файла с помощью пути к файлу.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
-|path*|File path|Select a file|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
+|path*|Путь к файлу|Выбор файла|
 
-An * indicates that a property is required
-
-
+Звездочка (*) означает, что свойство является обязательным.
 
 
-### <a name="get-file-content"></a>Get file content
-This operation gets file content using the file id. 
 
 
-|Property Name| Display Name|Description|
+### Получение содержимого файла
+Получает содержимое файла, используя идентификатор.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
-|id*|File identifier|Select a file|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
+|id*|Идентификатор файла|Выбор файла|
 
-An * indicates that a property is required
-
-
+Звездочка (*) означает, что свойство является обязательным.
 
 
-### <a name="create-file"></a>Create file
-This operation uploads a file to a SharePoint site. 
 
 
-|Property Name| Display Name|Description|
+### Создание файла
+Отправляет файл на сайт SharePoint.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
-|folderPath*|Folder Path|Select a file|
-|name*|File name|Name of the file|
-|body*|File Content|Content of the file|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
+|folderPath*|Путь к папке|Выбор файла|
+|name*|Имя файла|Имя файла|
+|body*|Содержимое файла|Содержимое файла|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="copy-file"></a>Copy file
-This operation copies a file to a SharePoint site. 
+### Копирование файла
+Копирует файл на сайт SharePoint.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
-|source*|Source file Path|Path to the source file|
-|destination*|Destination file path|Path to the destination file|
-|overwrite|Overwrite flag|Whether or not to overwrite the destination file if it exists|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
+|source*|Путь к исходному файлу|Путь к исходному файлу|
+|destination*|Путь к конечному файлу|Путь к конечному файлу|
+|перезаписать|Флажок перезаписи|Указывает, нужно ли перезаписывать конечный файл, если он существует|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="when-a-file-is-created"></a>When a file is created
-This operation triggers a flow when a new file is created in a SharePoint folder. 
+### При создании файла
+Активирует поток при создании файла в папке SharePoint.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url|
-|folderId*|Folder Id|Select a folder|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint|
+|folderId*|Идентификатор папки|Выбор папки|
 
-An * indicates that a property is required
-
-
+Звездочка (*) означает, что свойство является обязательным.
 
 
-### <a name="when-a-file-is-modified"></a>When a file is modified
-This operation triggers a flow when a file is modified in a SharePoint folder. 
 
 
-|Property Name| Display Name|Description|
+### При изменении файла
+Активирует поток при изменении файла в папке SharePoint.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url|
-|folderId*|Folder Id|Select a folder|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint|
+|folderId*|Идентификатор папки|Выбор папки|
 
-An * indicates that a property is required
-
-
+Звездочка (*) означает, что свойство является обязательным.
 
 
-### <a name="list-folder"></a>List folder
-This operation gets files contained in a SharePoint folder. 
 
 
-|Property Name| Display Name|Description|
+### List folder (Получение содержимого папки)
+Получает файлы, содержащиеся в папке SharePoint.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
-|id*|File identifier|Unique identifier of the folder|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
+|id*|Идентификатор файла|Уникальный идентификатор папки|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
 
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="list-root-folder"></a>List root folder
-This operaiton gets the files in the root SharePoint folder. 
+### List root folder (Получение содержимого корневой папки)
+Получает файлы, содержащиеся в корневой папке SharePoint.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
 
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="extract-folder"></a>Extract folder
-This operation extracts an archive file into a SharePoint folder (example: .zip). 
+### Извлечение папки
+Извлекает файл архива в папку SharePoint (например, ZIP-файл).
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
-|source*|Source file Path|Path to the source file|
-|destination*|Destination folder path|Path to the destination folder|
-|overwrite|Overwrite flag|Whether or not to overwrite the destination file if it exists|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint, например http://contoso.sharepoint.com/sites/mysite|
+|source*|Путь к исходному файлу|Путь к исходному файлу|
+|destination*|Путь к конечной папке|Путь к конечной папке|
+|перезаписать|Флажок перезаписи|Указывает, нужно ли перезаписывать конечный файл, если он существует|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
 
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="when-a-new-item-is-created"></a>When a new item is created
-This operation triggers a flow when a new item is created in a SharePoint list. 
+### When a new item is created (При создании элемента)
+Активирует поток при создании элемента в списке SharePoint.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table*|List name|SharePoint list name|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
+|table*|Имя списка|Имя списка SharePoint|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию – 0)|
+|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию – 256)|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 ItemsList
 
 
-| Property Name | Data Type | 
+| Имя свойства | Тип данных | 
 |---|---|
 |value|array|
 
 
 
 
-### <a name="when-an-existing-item-is-modified"></a>When an existing item is modified
-This operation triggers a flow when an existing item is modified in a SharePoint list. 
+### When an existing item is modified (При изменении имеющегося элемента)
+Активирует поток при изменении имеющегося элемента в списке SharePoint.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table*|List name|SharePoint list name|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
+|table*|Имя списка|Имя списка SharePoint|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию – 0)|
+|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию – 256)|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 ItemsList
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
 
 
-### <a name="get-items"></a>Get items
-This operation gets items from a SharePoint list. 
+### Get items (Получение элементов)
+Получает элементы из списка SharePoint.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table*|List name|SharePoint list name|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
+|table*|Имя списка|Имя списка SharePoint|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию – 0)|
+|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию – 256)|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 ItemsList
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
 
 
-### <a name="create-item"></a>Create item
-This operation creates a new item in a SharePoint list. 
+### Create item (Создание элемента)
+Создает элемент в списке SharePoint.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table*|List name|SharePoint list name|
-|item*|Item|Item to create|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
+|table*|Имя списка|Имя списка SharePoint|
+|item*|Элемент|Создаваемый элемент|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
-Item
+Элемент
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
+|---|---|
+|ItemInternalId|строка|
+
+
+
+
+### Get item (Получение элемента)
+Получает один элемент из списка SharePoint, используя идентификатор.
+
+
+|Имя свойства| Отображаемое имя|Описание|
+| ---|---|---|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
+|table*|Имя списка|Имя списка SharePoint|
+|id*|Идентификатор|Уникальный идентификатор извлекаемого элемента|
+
+Звездочка (*) означает, что свойство является обязательным.
+
+#### Сведения о выходных данных
+
+Элемент
+
+
+| Имя свойства | Тип данных |
 |---|---|
 |ItemInternalId|string|
 
 
 
 
-### <a name="get-item"></a>Get item
-This operation gets a single item by its id from a SharePoint list. 
+### Удаление элемента
+Удаляет элемент из списка SharePoint.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table*|List name|SharePoint list name|
-|id*|Id|Unique identifier of item to be retrieved|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
+|table*|Имя списка|Имя списка SharePoint|
+|id*|Идентификатор|Уникальный идентификатор удаляемого элемента|
 
-An * indicates that a property is required
-
-#### <a name="output-details"></a>Output Details
-
-Item
+Звездочка (*) означает, что свойство является обязательным.
 
 
-| Property Name | Data Type |
+
+
+### Обновление элемента
+Обновляет элемент в списке SharePoint.
+
+
+|Имя свойства| Отображаемое имя|Описание|
+| ---|---|---|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
+|table*|Имя списка|Имя списка SharePoint|
+|id*|Идентификатор|Уникальный идентификатор обновляемого элемента|
+|item*|Элемент|Элемент с измененными свойствами|
+
+Звездочка (*) означает, что свойство является обязательным.
+
+#### Сведения о выходных данных
+
+Элемент
+
+
+| Имя свойства | Тип данных |
 |---|---|
-|ItemInternalId|string|
+|ItemInternalId|строка|
 
 
 
 
-### <a name="delete-item"></a>Delete item
-This operation deletes an item from a SharePoint list. 
+### Get entity values (Получение значений сущности)
+Получает возможные значения для сущности SharePoint.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table*|List name|SharePoint list name|
-|id*|Id|Unique identifier of item to be deleted|
+|dataset*|URL-адрес сайта SharePoint|URL-адрес сайта SharePoint|
+|table*|Имя таблицы|Имя таблицы|
+|id*|Идентификатор сущности|Идентификатор сущности|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-
-
-
-### <a name="update-item"></a>Update item
-This operation updates an item in a SharePoint list. 
+#### Сведения о выходных данных
 
 
-|Property Name| Display Name|Description|
+
+
+
+### Получение списков
+Получает списки SharePoint с сайта.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table*|List name|SharePoint list name|
-|id*|Id|Unique identifier of item to be updated|
-|item*|Item|Item with changed properties|
+|dataset*|URL-адрес сайта|URL-адрес сайта SharePoint (например, http://contoso.sharepoint.com/sites/mysite).|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
-
-Item
-
-
-| Property Name | Data Type |
-|---|---|
-|ItemInternalId|string|
-
-
-
-
-### <a name="get-entity-values"></a>Get entity values
-This operation gets possible values for a SharePoint entity. 
-
-
-|Property Name| Display Name|Description|
-| ---|---|---|
-|dataset*|SharePoint site url|SharePoint site url|
-|table*|table name|table name|
-|id*|entity id|entity id|
-
-An * indicates that a property is required
-
-#### <a name="output-details"></a>Output Details
-
-
-
-
-
-### <a name="get-lists"></a>Get lists
-This operation gets SharePoint lists from a site. 
-
-
-|Property Name| Display Name|Description|
-| ---|---|---|
-|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
-
-An * indicates that a property is required
-
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 TablesList
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
 
-## <a name="http-responses"></a>HTTP responses
+## Ответы HTTP
 
-The actions and triggers above can return one or more of the following HTTP status codes: 
+Описанные выше действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже.
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred.|
-|default|Operation Failed.|
+|200|ОК|
+|202|Принято|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка.|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
 
@@ -666,10 +665,7 @@ The actions and triggers above can return one or more of the following HTTP stat
 
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Дальнейшие действия
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0803_2016-->

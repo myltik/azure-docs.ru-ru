@@ -1,81 +1,76 @@
 <properties
-    pageTitle="Azure AD Domain Services: Enable password synchronization | Microsoft Azure"
-    description="Getting started with Azure Active Directory Domain Services"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+	pageTitle="Доменные службы Azure AD: включение синхронизации паролей | Microsoft Azure"
+	description="Приступая к работе с доменными службами Azure Active Directory"
+	services="active-directory-ds"
+	documentationCenter=""
+	authors="mahesh-unnikrishnan"
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/20/2016"
-    ms.author="maheshu"/>
+	ms.service="active-directory-ds"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/20/2016"
+	ms.author="maheshu"/>
 
+# Включение синхронизации паролей с доменными службами Azure AD
+В предыдущих задачах вы включили доменные службы Azure AD для вашего клиента Azure AD. Следующая задача — включить необходимые хэши учетных данных, чтобы синхронизировать проверку подлинности NTLM и Kerberos с доменными службами Azure AD. Когда синхронизация учетных данных настроена, пользователи могут входить в управляемый домен с помощью учетных данных организации.
 
-# <a name="enable-password-synchronization-to-azure-ad-domain-services"></a>Enable password synchronization to Azure AD Domain Services
-In preceding tasks, you enabled Azure AD Domain Services for your Azure AD tenant. The next task is to enable credential hashes required for NTLM and Kerberos authentication to synchronize to Azure AD Domain Services. Once credential synchronization is set up, users can sign in to the managed domain using their corporate credentials.
-
-The steps involved are different based on whether your organization has a cloud-only Azure AD tenant or is set to synchronize with your on-premises directory using Azure AD Connect.
+Этапы настройки различаются в зависимости от того, является ли ваша организация только облачным клиентом Azure AD или для нее настроена синхронизация локального каталога с помощью Azure AD Connect.
 
 <br>
 
 > [AZURE.SELECTOR]
-- [Cloud-only Azure AD tenant](active-directory-ds-getting-started-password-sync.md)
-- [Synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Исключительно облачный клиент Azure AD](active-directory-ds-getting-started-password-sync.md)
+- [Синхронизированный клиент Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
 
-## <a name="task-5:-enable-password-synchronization-to-aad-domain-services-for-a-cloud-only-azure-ad-tenant"></a>Task 5: Enable password synchronization to AAD Domain Services for a cloud-only Azure AD tenant
-Azure AD Domain Services needs credential hashes in a format suitable for NTLM and Kerberos authentication, to authenticate users on the managed domain. Unless you enable AAD Domain Services for your tenant, Azure AD does not generate or store credential hashes in the format required for NTLM or Kerberos authentication. For obvious security reasons, Azure AD also does not store any credentials in clear-text form. Therefore, Azure AD does not have a way to generate these NTLM or Kerberos credential hashes based on users' existing credentials.
+## Задача 5. Включение синхронизации паролей в доменных службах AAD для исключительно облачного каталога Azure AD
+Чтобы проверять подлинность пользователей в управляемом домене, доменным службам Azure AD нужны хэши учетных данных в формате, который подходит для проверки подлинности NTLM и Kerberos. Если не включить доменные службы AAD для клиента, служба Azure AD не будет создавать и хранить хэши учетных данных в формате, который нужен для проверки подлинности NTLM или Kerberos. Из очевидных соображений безопасности служба Azure AD не хранит учетные данные в формате открытого текста. Поэтому она не может создавать хэши учетных данных NTLM и Kerberos на основании существующих учетных данных пользователей.
 
-> [AZURE.NOTE] If your organization has a cloud-only Azure AD tenant, users that need to use Azure AD Domain Services must change their passwords.
+> [AZURE.NOTE] Если у вашей организации есть только облачный клиент Azure AD, пользователи, которые хотят воспользоваться доменными службами Azure AD, должны изменить свои пароли.
 
-This password change process causes the credential hashes required by Azure AD Domain Services for Kerberos and NTLM authentication to be generated in Azure AD. You can either expire passwords for all users in the tenant that need to use Azure AD Domain Services or instruct these users to change their passwords.
+Для этого необходимо сформировать в Azure AD хэши учетных данных, необходимые доменным службам Azure AD для проверки подлинности Kerberos и NTLM. Вы можете либо принудительно сделать так, чтобы срок действия паролей для всех пользователей в клиенте доменных служб Azure AD истек, либо отправить пользователям инструкции по изменению паролей.
 
 
-### <a name="enable-ntlm-and-kerberos-credential-hash-generation-for-a-cloud-only-azure-ad-tenant"></a>Enable NTLM and Kerberos credential hash generation for a cloud-only Azure AD tenant
-Here are instructions you need to provide end users, so they can change their passwords:
+### Включение создания хэшей учетных данных NTLM и Kerberos для исключительно облачного клиента Azure AD
+Инструкции по изменению паролей, которые необходимо отправить пользователям, таковы:
 
-1. Navigate to the Azure AD Access Panel page for your organization at [http://myapps.microsoft.com](http://myapps.microsoft.com).
+1. Перейдите на страницу панели доступа Azure AD для вашей организации по адресу [http://myapps.microsoft.com](http://myapps.microsoft.com).
 
-2. Select the **profile** tab on this page.
+2. Выберите вкладку **Профиль** на этой странице.
 
-3. Click the **Change password** tile on this page.
+3. Щелкните плитку **Изменить пароль** на этой странице.
 
-    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
+    ![Создание виртуальной сети для доменных служб Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-    > [AZURE.NOTE] If you do not see the **Change password** option on the Access Panel page, ensure that your organization has configured [password management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+    > [AZURE.NOTE] Если плитка **Изменение пароля** не отображается на странице панели доступа, убедитесь, что ваша организация настроила [управление паролями в Azure AD](../active-directory/active-directory-passwords-getting-started.md).
 
-4. On the **change password** page, type your existing (old) password and then type a new password and confirm it. Click **submit**.
+4. На странице **изменения пароля** введите старый пароль, затем введите новый пароль и подтвердите его. Щелкните **Отправить**.
 
-    ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
+    ![Создание виртуальной сети для доменных служб Azure AD.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
-After you have changed your password, the new password will be usable in Azure AD Domain Services shortly. After a few minutes (typically, about 20 minutes), you can sign in to computers joined to the managed domain using the newly changed password.
+Новый пароль становится доступным в доменных службах Azure AD вскоре после изменения. Входить на компьютеры, подключенные к управляемому домену, с помощью нового пароля можно уже через несколько (обычно примерно через 20) минут.
 
 <br>
 
-## <a name="related-content"></a>Related Content
+## Похожий контент
 
-- [How to update your own password](../active-directory/active-directory-passwords-update-your-own-password.md)
+- [Как изменить свой пароль](../active-directory/active-directory-passwords-update-your-own-password.md)
 
-- [Getting started with Password Management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
+- [Приступая к работе с компонентами управления паролями](../active-directory/active-directory-passwords-getting-started.md)
 
-- [Enable password synchronization to AAD Domain Services for a synced Azure AD tenant](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Доменные службы Azure AD (предварительная версия) — включение синхронизации паролей в доменные службы Azure AD](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
-- [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
+- [Administer an Azure AD Domain Services managed domain (Администрирование управляемого домена доменных служб Azure AD)](active-directory-ds-admin-guide-administer-domain.md)
 
-- [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
+- [Join a Windows virtual machine to an Azure AD Domain Services managed domain (Присоединение виртуальной машины Windows к управляемому домену доменных служб Azure AD)](active-directory-ds-admin-guide-join-windows-vm.md)
 
-- [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+- [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain (Присоединение виртуальной машины Red Hat Enterprise Linux к управляемому домену доменных служб Azure AD)](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016--->

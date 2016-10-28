@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Learningpool | Microsoft Azure" 
-    description="Learn how to use Learningpool with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Руководство. Интеграция Azure Active Directory с Learningpool | Microsoft Azure" 
+    description="Узнайте, как использовать Learningpool вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,147 +11,140 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/08/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-learningpool"></a>Tutorial: Azure Active Directory integration with Learningpool
+#Руководство. Интеграция Azure Active Directory с Learningpool
   
-The objective of this tutorial is to show the integration of Azure and Learningpool.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+Цель данного учебника — показать интеграцию Azure и Learningpool. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
--   A valid Azure subscription
--   A Learningpool single sign-on enabled subscription
+-   Действующая подписка на Azure
+-   Подписка с поддержкой единого входа Learningpool
   
-After completing this tutorial, the Azure AD users you have assigned to Learningpool will be able to single sign into the application at your Learningpool company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+После завершения этого руководства пользователи Azure AD, назначенные Learningpool, будут иметь возможность единого входа в приложение на веб-сайте компании Learningpool (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1.  Enabling the application integration for Learningpool
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Включение интеграции приложений для Learningpool
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-![Scenario](./media/active-directory-saas-learningpool-tutorial/IC791166.png "Scenario")
-##<a name="enabling-the-application-integration-for-learningpool"></a>Enabling the application integration for Learningpool
+![Сценарий](./media/active-directory-saas-learningpool-tutorial/IC791166.png "Сценарий")
+##Включение интеграции приложений для Learningpool
   
-The objective of this section is to outline how to enable the application integration for Learningpool.
+В этом разделе показано, как включить интеграцию приложений для Learningpool.
 
-###<a name="to-enable-the-application-integration-for-learningpool,-perform-the-following-steps:"></a>To enable the application integration for Learningpool, perform the following steps:
+###Чтобы включить интеграцию приложений для Learningpool, выполните следующие действия.
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-learningpool-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-learningpool-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-learningpool-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-learningpool-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-learningpool-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-learningpool-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-learningpool-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **Learningpool**.
+6.  В **поле поиска** введите **Learningpool**.
 
-    ![Application Gallery](./media/active-directory-saas-learningpool-tutorial/IC795073.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-learningpool-tutorial/IC795073.png "Коллекция приложений")
 
-7.  In the results pane, select **Learningpool**, and then click **Complete** to add the application.
+7.  В области результатов выберите **Learningpool** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![Learningpool](./media/active-directory-saas-learningpool-tutorial/IC809577.png "Learningpool")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
   
-The objective of this section is to outline how to enable users to authenticate to Learningpool with their account in Azure AD using federation based on the SAML protocol.
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Learningpool со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
   
-Your Learningpool application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
-The following screenshot shows an example for this.
+Приложение Learningpool ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию **атрибутов токена SAML**. На следующем снимке экрана приведен пример.
 
-![SAML Token Attributes](./media/active-directory-saas-learningpool-tutorial/IC795074.png "SAML Token Attributes")
+![Атрибуты токена SAML](./media/active-directory-saas-learningpool-tutorial/IC795074.png "Атрибуты токена SAML")
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **Learningpool** application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+1.  На странице интеграции приложений **Learningpool** классического портала Azure выберите в верхнем меню пункт **Атрибуты**, чтобы открыть диалоговое окно **Атрибуты токена SAML**.
 
-    ![Attributes](./media/active-directory-saas-learningpool-tutorial/IC795075.png "Attributes")
+    ![Атрибуты](./media/active-directory-saas-learningpool-tutorial/IC795075.png "Атрибуты")
 
-2.  To add the required attribute mappings, perform the following steps:
+2.  Чтобы добавить обязательные сопоставления атрибутов, выполните следующие действия.
 
-    ###  
+    ###
 
-  	|Attribute Name                |Attribute Value            |
-  	|------------------------------|---------------------------|
+    |Имя атрибута |Значение атрибута |
+	|------------------------------|---------------------------|
 
      urn:oid:1.2.840.113556.1.4.221 | User.userprincipalname
-  	|-------------------------------|--------------------------|  
-     urn:oid:2.5.4.42|User.givenname   
-  	|urn:oid:0.9.2342.19200300.100.1.3|User.mail
-  	|urn:oid:2.5.4.4|User.surname
+	|-------------------------------|--------------------------|  
+	 urn:oid:2.5.4.42|User.givenname   
+    |urn:oid:0.9.2342.19200300.100.1.3|User.mail
+    |urn:oid:2.5.4.4|User.surname
 
-    1.  For each data row in the table above, click **add user attribute**.
-    2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
-    3.  From the **Attribute Value** list, select the attribute value shown for that row.
-    4.  Click **Complete**.
+    1.  Для каждой строки данных в приведенной выше таблице нажмите кнопку **добавить атрибут пользователя**.
+    2.  В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
+    3.  В списке **Значение атрибута** выберите значение атрибута, отображаемое для этой строки.
+    4.  Нажмите **Завершено**.
 
-3.  Click **Apply Changes**.
+3.  Нажмите кнопку **Применить изменения**.
 
-4.  In your browser, click **Back** to open the **Quick Start** dialog again.
+4.  В браузере нажмите кнопку **Назад**, чтобы снова открыть диалоговое окно **Быстрый запуск**.
 
-5.  Click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+5.  Щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Singel Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795076.png "Configure Singel Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-learningpool-tutorial/IC795076.png "Настройка единого входа")
 
-6.  On the **How would you like users to sign on to Learningpool** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+6.  На странице **Как пользователи должны входить в Learningpool?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-learningpool-tutorial/IC795077.png "Настройка единого входа")
 
-7.  On the **Configure App URL** page, in the **Learningpool Sign On URL** textbox, type the URL used by your users to sign on to your Learningpool application ( e.g.: https://parliament.preview.learningpool.com/auth/shibboleth/index.php), and then click **Next**.
+7.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Learningpool** введите URL-адрес, используемый вашими пользователями для входа в приложение Learningpool (например, https://parliament.preview.learningpool.com/auth/shibboleth/index.php), и нажмите кнопку **Далее**.
 
-    ![Configure App URL](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-learningpool-tutorial/IC795078.png "Настройка URL-адреса приложения")
 
-8.  On the **Configure single sign-on at Learningpool** page, to download your metadata, click **Download metadata**, and then save the certificate file locally on your computer.
+8.  На странице **Настройка единого входа в Learningpool** нажмите кнопку **Загрузить метаданные** для скачивания метаданных, а затем сохраните файл сертификата локально на компьютере.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795079.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-learningpool-tutorial/IC795079.png "Настройка единого входа")
 
-9.  Forward that Metadata file to your Learningpool Support team.
+9.  Передайте этот файл метаданных в группу поддержки Learningpool.
 
-    >[AZURE.NOTE]Single sign-on has to be enabled by the Learningpool support team.
+    >[AZURE.NOTE]Группа поддержки Learningpool должна включить единый вход.
 
-10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Настройка единого входа](./media/active-directory-saas-learningpool-tutorial/IC795080.png "Настройка единого входа")
+##Настройка подготовки учетных записей пользователей
   
-In order to enable Azure AD users to log into Learningpool, they must be provisioned into Learningpool.
+Чтобы разрешить пользователям Azure AD вход в Learningpool, они должны быть подготовлены для Learningpool.
   
-There is no action item for you to configure user provisioning to Learningpool.  
-Users need to be created by your Learningpool support team.
+Элемент действия для настройки подготовки пользователей в Learningpool отсутствует. Группа поддержки Learningpool должна создать пользователей.
 
->[AZURE.NOTE]You can use any other Learningpool user account creation tools or APIs provided by Learningpool to provision AAD user accounts.
+>[AZURE.NOTE]Вы можете использовать любые другие средства создания учетной записи пользователя Learningpool или API, предоставляемые Learningpool для подготовки учетных записей пользователя AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-learningpool,-perform-the-following-steps:"></a>To assign users to Learningpool, perform the following steps:
+###Чтобы назначить пользователей Learningpool, выполните следующие действия.
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **Learningpool **application integration page, click **Assign users**.
+2.  На странице интеграции приложений **Learningpool** щелкните **Назначить пользователей**.
 
-    ![Assign Users](./media/active-directory-saas-learningpool-tutorial/IC795081.png "Assign Users")
+    ![Назначить пользователей](./media/active-directory-saas-learningpool-tutorial/IC795081.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-learningpool-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-learningpool-tutorial/IC767830.png "Да")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,71 +1,63 @@
 
-Each endpoint has a *public port* and a *private port*:
+У каждой конечной точки есть *общий* и *частный* порты.
 
-- The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
-- The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
+- Общий порт используется подсистемой балансировки нагрузки Azure для прослушивания входящего трафика на виртуальную машину из Интернета.
+- Частный порт используется виртуальной машиной для прослушивания входящего трафика, который, как правило, предназначен для приложения или службы, запущенных на виртуальной машине.
 
-Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Azure classic portal. For custom endpoints, you'll need to specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you'll need to create a load-balanced set consisting of multiple endpoints.
+Значения по умолчанию для протокола IP и TCP- или UDP-порты для хорошо известных сетевых протоколов предоставляются при создании конечных точек с помощью классического портала Azure. Для пользовательских конечных точек потребуется указать правильный IP-протокол (TCP или UDP), а также общий и частный порты. Чтобы распределить входящий трафик по нескольким виртуальным машинам случайным образом, необходимо создать набор балансировки нагрузки, состоящий из нескольких конечных точек.
 
-After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based on its source IP address. However, if the virtual machine is in an Azure virtual network, you should use network security groups instead. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+После создания конечной точки вы можете использовать список управления доступом (ACL) для определения правил, разрешающих или запрещающих входящий трафик на открытый порт конечной точки на основе его IP-адреса источника. Однако, если виртуальная машина находится в виртуальной сети Azure, вместо этого необходимо использовать группы безопасности сети. Дополнительную информацию см. в разделе [О группах безопасности сети](../articles/virtual-network/virtual-networks-nsg.md).
 
-> [AZURE.NOTE]Firewall configuration for Azure virtual machines is done automatically for ports associated with remote connectivity endpoints that Azure sets up automatically. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration. To configure the firewall, see the documentation or on-line help for the operating system running on the virtual machine.
+> [AZURE.NOTE]Брандмауэр для виртуальных машин Azure настраивается автоматически для портов, связанных с удаленными конечными точками подключения, которые Azure создает автоматически. Для портов, указанных для всех остальных конечных точек, автоматическая настройка брандмауэра для виртуальных машин не выполняется. При создании конечной точки для виртуальной машины, необходимо обеспечить, чтобы брандмауэр виртуальной машины также разрешал трафик для протокола и частного порта, соответствующий конфигурации конечной точки. Инструкции по настройке брандмауэра см. в документации или в интерактивной справке операционной системы, под управлением которой работает виртуальная машина.
 
-## <a name="create-an-endpoint"></a>Create an endpoint
+## Создание конечной точки
 
-1.  If you haven't already done so, sign in to the [Azure classic portal](http://manage.windowsazure.com).
-2.  Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3.  Click **Endpoints**. The **Endpoints** page lists all the current endpoints for the virtual machine. (This example is a Windows VM. A Linux VM will by default show an endpoint for SSH.)
+1.	Войдите на [классический портал Azure](http://manage.windowsazure.com), если вы еще не сделали это.
+2.	Щелкните **Виртуальные машины**, а затем щелкните имя виртуальной машины, которую необходимо настроить.
+3.	Нажмите кнопку **Конечные точки**. На странице **Конечные точки** перечислены все текущие конечные точки виртуальной машины. (В этом примере используется виртуальная машина Windows. На виртуальных машинах Linux по умолчанию отображается конечная точка для SSH.)
 
-    ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
+	![Конечные точки](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 
-4.  In the taskbar, click **Add**.
-5.  On the **Add an endpoint to a virtual machine** page, choose the type of endpoint.
+4.	На панели задач щелкните **Добавить**.
+5.	На странице **Добавление конечной точки к виртуальной машине** выберите тип конечной точки.
 
-    - If you're creating a new endpoint that isn't part of a load-balanced set, or is the first endpoint in a new load-balanced set, choose **Add a stand-alone endpoint**, then click the left arrow.
-    - Otherwise, choose **Add an endpoint to an existing load-balanced set**, select the name of the load-balanced set, then click the left arrow. On the **Specify the details of the endpoint** page, type a name for the endpoint, then click the check mark to create the endpoint.
+	- При создании новой конечной точки, которая не входит в набор балансировки нагрузки или является первым элементом в новом наборе балансировки нагрузки, выберите **Добавить автономную конечную точку**, а затем щелкните стрелку влево.
+	- В противном случае выберите **Добавить конечную точку в существующий набор балансировки нагрузки**, выберите имя набора балансировки нагрузки, а затем щелкните стрелку влево. На странице **Укажите сведения о конечной точке** введите имя для конечной точки, а затем щелкните флажок, чтобы создать конечную точку.
 
-6.  On the **Specify the details of the endpoint** page, type a name for the endpoint in **Name**. You can also choose a network protocol name from the list, which will fill in initial values for the **Protocol**, **Public Port**, and **Private Port**.
-7.  For a customized endpoint, in **Protocol**, choose either **TCP** or **UDP**.
-8.  For customized ports, in **Public Port**, type the port number for the incoming traffic from the Internet. In **Private Port**, type the port number on which the virtual machine is listening. These port numbers can be different. Ensure that the firewall on the virtual machine has been configured to allow the traffic corresponding to the protocol (in step 7) and private port.
-9.  If this endpoint will be the first one in a load-balanced set, click **Create a load-balanced set**, and then click the right arrow. On the **Configure the load-balanced set** page, specify a load-balanced set name, a probe protocol and port, and the probe interval and number of probes sent. The Azure load balancer sends probes to the virtual machines in a load-balanced set to monitor their availability. The Azure load balancer does not forward traffic to virtual machines that do not respond to the probe. Click the right arrow.
-10. Click the check mark to create the endpoint.
+6.	На странице **Указания сведений о конечной точке** введите имя для конечной точки в поле **Имя**. Можно также выбрать из списка имя сетевого протокола, который будет заполнять начальные значения в полях **Протокол**, **Общий порт** и **Частный порт**.
+7.	Для настраиваемой конечной точки выберите в поле **Протокол** значение **TCP** или **UDP**.
+8.	Для настраиваемых портов в поле **Общий порт** введите номер порта для входящего трафика из Интернета. В поле **Частный порт** введите номер порта, который используется виртуальной машиной для прослушивания. Эти номера портов могут отличаться. Убедитесь в том, что брандмауэр на виртуальной машине был настроен таким образом, чтобы разрешить трафик, соответствующий протоколу (на шаге 7) и частному порту.
+9.	Если эта конечная точка окажется первой в наборе балансировки нагрузки, щелкните **Создать набор балансировки нагрузки**, а затем щелкните стрелку вправо. На странице **Настройка набора балансировки нагрузки** укажите имя набора балансировки нагрузки, протокол пробы и порт, а также интервал и количество отправленных проб. Подсистема балансировки нагрузки Azure отправляет пробы на виртуальные машины в комплекте балансировки нагрузки для мониторинга их доступности. Подсистема балансировки нагрузки Azure не направляет трафик на виртуальные машины, которые не отвечают на пробы. Щелкните стрелку вправо.
+10.	Чтобы создать конечную точку, поставьте галочку.
 
-The new endpoint will be listed on the **Endpoints** page.
+Новая конечная точка будет указана на странице **Конечные точки**.
 
-![Endpoint creation successful](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
+![Конечная точка успешно создана](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
  
 
-## <a name="manage-the-acl-on-an-endpoint"></a>Manage the ACL on an endpoint
+## Управление ACL для конечной точки
 
-To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
+Чтобы определить набор компьютеров, которые могут отправлять трафик, ACL для конечной точки может ограничить трафик на основе исходного IP-адреса. Выполните следующие действия, чтобы добавить, изменить или удалить ACL для конечной точки.
 
-> [AZURE.NOTE] If the endpoint is part of a load-balanced set, any changes you make to the ACL on an endpoint are applied to all endpoints in the set.
+> [AZURE.NOTE] Если конечная точка является частью набора балансировки нагрузки, любые изменения, внесенные в ACL для конечной точки, будут применены ко всем конечным точкам в наборе.
 
-If the virtual machine is in an Azure virtual network, we recommend network security groups instead of ACLs. For details, see [About network security groups](../articles/virtual-network/virtual-networks-nsg.md).
+Если виртуальная машина находится в виртуальной сети Azure, вместо списков ACL рекомендуется использовать группы безопасности сети. Дополнительную информацию см. в разделе [О группах безопасности сети](../articles/virtual-network/virtual-networks-nsg.md).
 
-1.  If you haven't already done so, sign in to the Azure classic portal.
-2.  Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
-3.  Click **Endpoints**. From the list, select the appropriate endpoint.
+1.	Войдите на классический портал Azure, если вы этого еще не сделали.
+2.	Щелкните **Виртуальные машины**, а затем щелкните имя виртуальной машины, которую необходимо настроить.
+3.	Нажмите кнопку **Конечные точки**. Выберите в списке требуемую конечную точку.
 
-    ![ACL list](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
+    ![Список ACL](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
 
-5.  In the taskbar, click **Manage ACL** to open the **Specify ACL details** dialog box.
+5.	На панели задач щелкните **Управление ACL-адресами**, чтобы открыть диалоговое окно **Укажите сведения об ACL**.
 
-    ![Specify ACL details](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
+    ![Укажите сведения об ACL](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
 
-6.  Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer uses to permit or deny the traffic based on its source IP address. Be sure to specify the IP address range in CIDR format, also known as address prefix format. An example is 131.107.0.0/16.
+6.	Используйте строки в списке для добавления, удаления или изменения правил для ACL, а также для изменения их порядка. Значение **Удаленная подсеть** представляет собой диапазон IP-адресов для входящего трафика из Интернета, который балансировщик нагрузки Azure использует, чтобы разрешать или запрещать трафик по его исходному IP-адресу. Не забудьте указать диапазон IP-адресов в формате CIDR, который также известен как формат префикса адреса. Например, 131.107.0.0/16.
 
-You can use rules to allow only traffic from specific computers corresponding to your computers on the Internet or to deny traffic from specific, known address ranges.
+Можно использовать правила, чтобы разрешать трафик только от конкретных компьютеров, соответствующих компьютерам в Интернете, или запрещать трафик от определенных известных диапазонов адресов.
 
-The rules are evaluated in order starting with the first rule and ending with the last rule. This means that rules should be ordered from least restrictive to most restrictive. For examples and more information, see [What is a Network Access Control List?](../articles/virtual-network/virtual-networks-acl.md).
+Правила оцениваются по порядку, начиная с первого и заканчивая последним правилом. Это означает, что правила должны быть упорядочены, начиная от наименее строгого к наиболее строгому. Примеры и дополнительную информацию см. в разделе [Сетевой список контроля доступа](../articles/virtual-network/virtual-networks-acl.md).
 
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

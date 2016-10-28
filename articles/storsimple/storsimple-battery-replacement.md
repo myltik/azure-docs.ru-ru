@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Replace the battery on a StorSimple device | Microsoft Azure"
-   description="Describes how to remove, replace, and maintain the backup battery module on your StorSimple device."
+   pageTitle="Замена аккумулятора на устройстве StorSimple | Microsoft Azure"
+   description="Описывает процедуры снятия, замены и обслуживания модуля резервного аккумулятора на устройстве StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,109 +15,104 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+# Замена резервного аккумулятора на устройстве StorSimple
 
-# <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Replace the backup battery module on your StorSimple device
+## Обзор
 
-## <a name="overview"></a>Overview
+Блок питания и охлаждения (БПО) устройства Microsoft Azure StorSimple имеет резервный аккумулятор. Он позволит сохранить данные устройства StorSimple при исчезновении питания основного корпуса. Резервный аккумулятор здесь называется *модулем резервного аккумулятора*. Модуль резервного аккумулятора используется только для основного корпуса устройства StorSimple (для корпуса EBOD модуль резервного аккумулятора не используется).
 
-The primary enclosure Power and Cooling Module (PCM) on your Microsoft Azure StorSimple device has an additional battery pack. This pack provides power so that the StorSimple device can save data if there is loss of AC power to the primary enclosure. This battery pack is referred to as the *backup battery module*. The backup battery module exists only for the primary enclosure in your StorSimple device (the EBOD enclosure does not contain a backup battery module). 
+В этом учебнике объясняется, как выполнить такие задачи:
 
-This tutorial explains how to:
+- Снятие модуля резервного аккумулятора
+- Установка нового модуля резервного аккумулятора
+- Обслуживание модуля резервного аккумулятора
 
-- Remove the backup battery module 
-- Install a new backup battery module
-- Maintain the backup battery module
+>[AZURE.IMPORTANT] Перед извлечением и заменой модуля резервного аккумулятора ознакомьтесь с мерами предосторожности в разделе [Общие сведения о замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
 
->[AZURE.IMPORTANT] Before removing and replacing a backup battery module, review the safety information in the [Introduction to StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+## Снятие модуля резервного аккумулятора
 
-## <a name="remove-the-backup-battery-module"></a>Remove the backup battery module
+Модуль резервного аккумулятора устройства StorSimple является модулем, заменяемым в полевых условиях. Перед установкой в БПО модуль резервного аккумулятора должен храниться в оригинальной упаковке. Чтобы извлечь резервный аккумулятор, выполните указанные ниже действия.
 
-The backup battery module for your StorSimple device is a field-replaceable unit. Before it is installed in the PCM, the battery module should be stored in its original packaging. Perform the following steps to remove the backup battery.
+#### Для снятия модуля резервного аккумулятора
 
-#### <a name="to-remove-the-backup-battery-module"></a>To remove the backup battery module
+1. На классическом портале Azure щелкните **Устройства** > **Обслуживание** > **Состояние оборудования**. В разделе **Общие компоненты** взгляните на состояние батареи.
 
-1. In the Azure classic portal, go to **Devices** > **Maintenance** > **Hardware Status**. Under **Shared Components**, look at the status of the battery.
+2. Определите БПО, в котором произошел сбой батареи. На рис. 1 показана задняя поверхность устройства StorSimple.
 
-2. Identify the PCM in which the battery has failed. Figure 1 shows the back of the StorSimple device.
+    ![Задняя панель модулей основного корпуса устройства](./media/storsimple-battery-replacement/IC740994.png)
 
-    ![Backplane Of Device Primary Enclosure Modules](./media/storsimple-battery-replacement/IC740994.png)
+    **Рис. 1.** Задняя поверхность основного устройства с БПО и модулями контроллера
 
-    **Figure 1** Back of primary device showing PCM and controller modules
+    |Метка|Description (Описание)|
+    |:----|:----------|
+    |1|PCM 0|
+    |2|PCM 1|
+    |3|Контроллер 0|
+    |4\.|Контроллер 1|
 
-  	|Label|Description|
-  	|:----|:----------|
-  	|1|PCM 0|
-  	|2|PCM 1|
-  	|3|Controller 0|
-  	|4|Controller 1|
+    Как показывает число 3 на рис. 2, должен гореть индикатор для БПО 0, который соответствует **Неисправности батареи**.
 
-    As shown by number 3 in the Figure 2, the monitoring indicator LED on PCM 0 that corresponds to **Battery Fault** should be lit.
+    ![Светодиодные индикаторы мониторинга на задней панели БПО устройства](./media/storsimple-battery-replacement/IC740992.png)
 
-    ![Backplane Of Device PCM Monitoring Indicator LEDs](./media/storsimple-battery-replacement/IC740992.png)
+    **Рис. 2.** Задняя поверхность БПО с индикаторами
 
-    **Figure 2** Back of PCM showing the monitoring indicator LEDs
+    |Метка|Описание|
+    |:---|:-----------|
+    |1|Сбой питания от электросети|
+    |2|Сбой вентилятора|
+    |3|Сбой аккумулятора|
+    |4\.|БПО исправен|
+    |5|Сбой постоянного напряжения|
+    |6|Батарея работоспособна|
 
-  	|Label|Description|
-  	|:---|:-----------|
-  	|1|AC power failure|
-  	|2|Fan failure|
-  	|3|Battery fault|
-  	|4|PCM OK|
-  	|5|DC power failure|
-  	|6|Battery healthy|
+3. Для снятия БПО с неисправной батареей выполните действия, описанные в разделе [Снятие БПО](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
 
-3. To remove the PCM with a failed battery, follow the steps in [Remove a PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+4. Сняв БПО, поднимите и поверните рукоятку модуля аккумулятора вверх, как показано на следующем рисунке, и потяните за нее для снятия модуля аккумулятора.
 
-4. With the PCM removed, lift and rotate the battery module handle upward as indicated in the following figure, and pull it up to remove the battery.
+    ![Снятие батареи БПО](./media/storsimple-battery-replacement/IC741019.png)
 
-    ![Removing Battery From PCM](./media/storsimple-battery-replacement/IC741019.png)
+    **Рис. 3.** Извлечение аккумуляторной батареи из БПО
 
-    **Figure 3** Removing the battery from the PCM
+5. Поместите модуль в упаковку модуля, заменяемого в полевых условиях.
 
-5. Place the module in the field-replaceable unit packaging.
+6. Верните неисправный блок Microsoft для соответствующего обслуживания.
 
-6. Return the defective unit to Microsoft for proper servicing and handling.
+## Установка нового модуля резервного аккумулятора
 
-## <a name="install-a-new-backup-battery-module"></a>Install a new backup battery module
+Чтобы установить новый модуль аккумулятора в БПО в основном корпусе устройства StorSimple, выполните указанные ниже действия.
 
-Perform the following steps to install the replacement battery module in the PCM in the primary enclosure of your StorSimple device.
+#### Для установки модуля аккумулятора
 
-#### <a name="to-install-the-battery-module"></a>To install the battery module
+1. Установите модуль резервного аккумулятора в БПО в правильном положении.
 
-1. Place the backup battery module in the proper orientation in the PCM.
+2. Нажимайте на модуль аккумулятора до упора, чтобы он вошел в разъем.
 
-2. Press down the battery module handle all the way to seat the connector.
+3. Замените БПО в основном корпусе в соответствии с инструкциями в разделе [Замена блока питания и охлаждения для устройства StorSimple](storsimple-power-cooling-module-replacement.md).
 
-3. Replace the PCM in the primary enclosure by following the guidelines in [Replace a Power and Cooling Module on your StorSimple device](storsimple-power-cooling-module-replacement.md).
+4. По завершении замены на классическом портале Azure выберите **Устройства** > **Обслуживание** > **Состояние оборудования**. Проверьте состояние аккумулятора, чтобы убедиться в том, что установка прошла успешно. Зеленый индикатор указывает на то, что аккумулятор исправен.
 
-4. After the replacement is complete, go to **Devices** > **Maintenance** > **Hardware Status** in the Azure classic portal. Verify the status of the battery to make sure that the installation was successful. A green status indicates that the battery is healthy.
+## Обслуживание модуля резервного аккумулятора
 
-## <a name="maintain-the-backup-battery-module"></a>Maintain the backup battery module
+Модуль резервного аккумулятора в устройстве StorSimple предоставляет аварийное питание для контроллера при исчезновении сетевого напряжения. Это позволяет устройству StorSimple сохранить важные данные до завершения работы контролируемым образом. С двумя полностью заряженными аккумуляторами в БПО система может выдержать два последовательных отключения питания.
 
-In your StorSimple device, the backup battery module provides power to the controller during a power loss event. It allows the StorSimple device to save critical data prior to shutting down in a controlled manner. With two fully charged batteries in the PCMs, the system can handle two consecutive loss events.
+На классическом портале Azure в разделе **Состояние оборудования** на странице **Обслуживание** отображается информация о неисправности аккумулятора и об окончании срока службы аккумуляторной батареи. Состояние аккумуляторов отображается в разделах **Аккумулятор в БПО 0** и **Аккумулятор в БПО 1** в разделе **Общие компоненты**. На этой странице отображается состояние **ОГРАНИЧЕН** при приближении окончания срока службы и **НЕИСПРАВЕН** при окончании срока службы.
 
-In the Azure classic portal, the **Hardware Status** on the **Maintenance** page indicates whether the battery is malfunctioning or the end-of-life is approaching. The battery status is indicated by **Battery in PCM 0** or **Battery in PCM 1** under **Shared Components**. This page will show a **DEGRADED** state for end-of-life approaching, and **FAILED** for end-of-life reached. 
-
->[AZURE.NOTE] The battery can report **FAILED** when it simply needs to be charged.
+>[AZURE.NOTE] Состояние аккумулятора может измениться на **НЕИСПРАВЕН** при необходимости его зарядки.
  
-If the **DEGRADED** state appears, we recommend the following course of action:
+При появлении состояния **ОГРАНИЧЕН** рекомендуется следующий порядок действий:
 
-- The system may have experienced a recent power loss or the batteries may be undergoing periodic maintenance. Observe the system for 12 hours before proceeding.
+- Система могла недавно подвергнуться отключению питания или аккумуляторы могут подвергаться периодическому обслуживанию. Перед выполнением дальнейших действий наблюдайте за состоянием системы в течение 12 часов.
 
-    - If the state is still **DEGRADED** after 12 hours of continuous connection to AC power with the controllers and PCMs running, then the battery needs to be replaced. Please [contact Microsoft Support](storsimple-contact-microsoft-support.md) for a replacement backup battery module.
+    - Если по истечении 12 часов подключения к сети питания с работающими контроллерами и БПО аккумулятор по-прежнему находится в состоянии **ОГРАНИЧЕН**, этот аккумулятор необходимо заменить. Для получения нового модуля резервного аккумулятора [обратитесь в службу поддержки Microsoft](storsimple-contact-microsoft-support.md).
 
-    - If the state becomes OK after 12 hours, the battery is operational, and it only needed a maintenance charge.
+    - Если за 12 часов состояние аккумулятора изменилось на исправное, аккумулятор работает нормально, и ему требуется только обслуживание.
 
-- If there has not been an associated loss of AC power and the PCM is turned on and connected to AC power, the battery needs to be replaced. [Contact Microsoft Support](storsimple-contact-microsoft-support.md) to order a replacement backup battery module.
+- Если соответствующего отключения сетевого напряжения не было, БПО включен и подключен к сети, аккумулятор необходимо заменить. Для получения нового модуля резервного аккумулятора [обратитесь в службу поддержки Microsoft](storsimple-contact-microsoft-support.md).
 
->[AZURE.IMPORTANT] Dispose of the failed battery according to national and regional regulations. 
+>[AZURE.IMPORTANT] Утилизируйте неисправную батарею в соответствии с федеральным и региональным законодательством.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Learn more about [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

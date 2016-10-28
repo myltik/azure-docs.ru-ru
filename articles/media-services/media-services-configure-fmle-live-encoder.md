@@ -1,23 +1,22 @@
 <properties 
-    pageTitle="Configure the FMLE encoder to send a single bitrate live stream | Microsoft Azure" 
-    description="This topic shows how to configure the Flash Media Live Encoder (FMLE) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Настройка кодировщика FMLE для отправки односкоростного обновляющегося потока | Microsoft Azure" 
+	description="В этой статье показано, как настроить кодировщик Flash Media Live Encoder (FMLE) для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="ne" 
-    ms.topic="article" 
-    ms.date="10/12/2016"
-    ms.author="juliako;cenkdin;anilmur"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="09/19/2016"
+	ms.author="juliako;cenkdin;anilmur"/>
 
-
-#<a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Use the FMLE encoder to send a single bitrate live stream
+#Использование кодировщика FMLE для отправки односкоростного обновляющегося потока
 
 > [AZURE.SELECTOR]
 - [FMLE](media-services-configure-fmle-live-encoder.md)
@@ -25,156 +24,150 @@
 - [Tricaster](media-services-configure-tricaster-live-encoder.md)
 - [Wirecast](media-services-configure-wirecast-live-encoder.md)
 
-This topic shows how to configure the [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+В этой статье показано, как настроить кодировщик [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени. Дополнительные сведения см. в разделе [Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
+В этом учебнике показано, как управлять службами мультимедиа Azure (AMS) с помощью Обозревателя служб мультимедиа Azure. Это средство запускается только на компьютерах с ОС Windows. Если у вас Mac или Linux, воспользуйтесь классическим порталом Azure для создания [каналов](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) и [программ](media-services-portal-creating-live-encoder-enabled-channel.md#create-and-manage-a-program).
 
-Note that this tutorial describes using AAC. However, FMLE doesn’t supports AAC by default. You would need to purchase a plugin for AAC encoding such as from MainConcept: [AAC plugin](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Обратите внимание, что в этом руководстве мы используем кодек AAC. Однако FMLE не поддерживает AAC по умолчанию. Для использования AAC необходимо приобрести подключаемый модуль, например, от MainConcept: [подключаемый модуль AAC](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
-##<a name="prerequisites"></a>Prerequisites
+##Предварительные требования
 
-- [Create an Azure Media Services account](media-services-portal-create-account.md)
-- Ensure there is a Streaming Endpoint running with at least one streaming unit allocated. For more information, see [Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md)
-- Install the latest version of the [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) tool.
-- Launch the tool and connect to your AMS account.
+- [Создание учетной записи служб мультимедиа Azure](media-services-create-account.md)
+- Убедитесь, что запущена конечная точка потоковой трансляции как минимум с одной выделенной единицей потоковой трансляции. Дополнительные сведения см. в разделе [Управление конечными точками потоковой передачи в учетной записи служб мультимедиа](media-services-portal-manage-streaming-endpoints.md)
+- Установите последнюю версию средства [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer).
+- Запустите его и подключитесь к учетной записи AMS.
 
-##<a name="tips"></a>Tips
+##Советы
 
-- Whenever possible, use a hardwired internet connection.
-- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
-- When using software based encoders, close out any unnecessary programs.
+- По возможности используйте проводное подключение к Интернету.
+- Для получения необходимой пропускной способности рекомендуется удвоить скорость потоковой передачи. Хотя это требование не является обязательным, оно поможет уменьшить влияние перегрузки сети на пропускную способность.
+- При использовании программных кодировщиков закройте все ненужные программы.
 
-## <a name="create-a-channel"></a>Create a channel
+## Создание канала
 
-1.  In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.
+1.  В средстве AMSE перейдите на вкладку **Поток** и щелкните правой кнопкой мыши в области канала. Выберите **Создать канал...** в меню.
 
 ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-2. Specify a channel name, the description field is optional. Under Channel Settings, select **Standard** for the Live Encoding option, with the Input Protocol set to **RTMP**. You can leave all other settings as is.
+2. Укажите имя канала, поле описания является необязательным. В разделе «Параметры каналов» для параметра «Кодирование в реальном времени» установите значение **Стандартное**, а для параметра «Входной протокол» — значение **RTMP**. Остальные параметры можно оставить без изменений.
 
 
-Make sure the **Start the new channel now** is selected.
+Убедитесь, что флажок **Start the new channel now** (Сразу запустить новый канал) установлен.
 
-3. Click **Create Channel**.
-![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
+3. Щелкните **Создать канал**. ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
->[AZURE.NOTE] The channel can take as long as 20 minutes to start.
+>[AZURE.NOTE] На запуск канала может потребоваться до 20 минут.
 
 
-While the channel is starting you can [configure the encoder](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
+Во время запуска канала можно [настроить кодировщик](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
->[AZURE.IMPORTANT] Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
+>[AZURE.IMPORTANT] Обратите внимание, что тарификация начинается сразу же после перехода канала в состояние готовности. Дополнительные сведения см. в разделе [Состояния канала](media-services-manage-live-encoder-enabled-channels.md#states).
 
-##<a name="<a-id=configure_fmle_rtmp></a>configure-the-fmle-encoder"></a><a id=configure_fmle_rtmp></a>Configure the FMLE encoder
+##<a id=configure_fmle_rtmp></a>Настройка кодировщика FMLE
 
-In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail. 
+В этом руководстве используются следующие параметры вывода. В оставшейся части этого раздела этапы настройки описываются более подробно.
 
-**Video**:
+**Видео:**
  
-- Codec: H.264 
-- Profile: High (Level 4.0) 
-- Bitrate: 5000 kbps 
-- Keyframe: 2 seconds (60 seconds) 
-- Frame Rate: 30
+- Кодек: H.264
+- Профиль: High (уровень 4.0)
+- Скорость: 5000 Кбит/с
+- Опорный кадр: 2 секунды (60 секунд)
+- Частота кадров: 30
  
-**Audio**:
+**Звук:**
 
-- Codec: AAC (LC) 
-- Bitrate: 192 kbps 
-- Sample Rate: 44.1 kHz
+- Кодек: AAC (LC)
+- Скорость: 192 Кбит/с
+- Частота выборки: 44,1 кГц
 
 
-###<a name="configuration-steps"></a>Configuration steps
+###Этапы настройки
 
-1. Navigate to the Flash Media Live Encoder’s (FMLE) interface on the machine being used.
+1. Перейдите к интерфейсу Flash Media Live Encoder (FMLE) на используемом компьютере.
 
-    The interface is one main page of settings. Please take note of the following recommended settings to get started with streaming using FMLE.
-    
-    - Format: H.264 Frame Rate: 30.00 
-    - Input Size: 1280 x 720 
-    - Bit Rate: 5000 Kbps (Can be adjusted based on network limitations)  
+	Интерфейс представляет собой одну главную страницу с параметрами. Пожалуйста, обратите внимание на следующие рекомендуемые параметры для потоковой передачи с FMLE.
+	
+	- Формат: H.264 Частота кадров: 30.00
+	- Размер входного потока: 1280 x 720
+	- Скорость: 5000 кбит/сек (это значение можно изменить в зависимости от ограничений сети)
 
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
+	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
-    When using interlaced sources, please checkmark the “Deinterlace” option
+	При использовании источников с чересстрочной разверткой установите флажок «Устранить чересстрочную развертку».
 
-2. Select the wrench icon next to Format, these additional settings should be:
+2. Выберите значок гаечного ключа рядом с полем «Формат», там должны быть установлены следующие дополнительные параметры:
 
-    - Profile: Main
-    - Level: 4.0
-    - Keyframe Frequency: 2 seconds 
-    
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
+	- Профиль: основной
+	- Уровень: 4.0
+	- Частота опорного кадра: 2 секунды
+	
+	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
 
-3. Set the following important audio setting:
-    
-    - Format: AAC 
-    - Sample Rate: 44100 Hz
-    - Bitrate: 192 Kbps
-    
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
+3. Установите следующие важные параметры звука:
+	
+	- Формат: AAC
+	- Частота выборки: 44100 Гц
+	- Скорость: 192 Кбит/с
+	
+	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
 
-6. Get the channel's input URL in order to assign it to the FMLE's **RTMP Endpoint**.
-    
-    Navigate back to the AMSE tool, and check on the channel completion status. Once the State has changed from **Starting** to **Running**, you can get the input URL.
-      
-    When the channel is running, right click the channel name, navigate down to hover over **Copy Input URL to clipboard** and then select **Primary Input  URL**.  
-    
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
+6. Получите входной URL-адрес канала, чтобы назначить его **конечной точке RTMP** FMLE.
+	
+	Перейдите обратно в средство AMSE и проверьте состояние запуска канала. После изменения состояния с **Starting** (Запуск) на **Running** (Выполняется) вы сможете получить входной URL-адрес.
+	  
+	Когда канал запустится, щелкните правой кнопкой мыши имя канала, перейдите вниз к элементу **Скопировать входной URL-адрес в буфер обмена** и выберите **Основной входной URL-адрес**.
+	
+	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
 
-7. Paste this information in the **FMS URL** field of the output section, and assign a stream name. 
+7. Вставьте этот адрес в поле **URL-адрес FMS** раздела выхода и укажите имя потока.
 
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
+	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
-    For extra redundancy, repeat these steps with the Secondary Input URL.
-8. Select **Connect**.
+	Для обеспечения дополнительной надежности повторите эти действия с полем «Дополнительный входной URL-адрес».
+8. Нажмите кнопку **Подключиться**.
 
->[AZURE.IMPORTANT] Before you click **Connect**, you **must** ensure that the Channel is ready. 
->Also, make sure not to leave the Channel in a ready state without an input contribution feed for longer than > 15 minutes.
+>[AZURE.IMPORTANT] Перед нажатием кнопки **Подключиться** **обязательно** убедитесь в том, что канал находится в состоянии готовности. Кроме того, не оставляйте канал в состоянии готовности без входного потока более 15 минут.
 
-##<a name="test-playback"></a>Test playback
+##Проверка воспроизведения
   
-1. Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
+1. Перейдите в средство AMSE и щелкните правой кнопкой мыши на канале, который необходимо проверить. В меню наведите указатель мыши на пункт **Playback the Preview** (Воспроизведение для предварительного просмотра) и выберите **with Azure Media Player** (с помощью мультимедиапроигрывателя Azure).
 
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
+	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
-If the stream appears in the player, then the encoder has been properly configured to connect to AMS. 
+Если поток отображается в проигрывателе, то кодировщик правильно настроен для подключения к AMS.
 
-If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.  
+При получении ошибки необходимо сбросить канал и настроить параметры кодировщика. Рекомендации см. в разделе [Устранение неполадок](media-services-troubleshooting-live-streaming.md).
 
-##<a name="create-a-program"></a>Create a program
+##Создание программы
 
-1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right click within the program area and select **Create New Program**.  
+1. После проверки воспроизведения канала создайте программу. На вкладке **Live** (Передача) в инструменте AMSE щелкните правой кнопкой мыши в области программы и выберите **Create New Program** (Создать новую программу).
 
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
+	![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
 
-2. Name the program and, if needed, adjust the **Archive Window Length** (which defaults to 4 hours). You can also specify a storage location or leave as the default.  
-3. Check the **Start the Program now** box.
-4. Click **Create Program**.  
+2. Укажите имя программы и при необходимости измените параметр **Archive Window Length** (Длительность окна архивации) (по умолчанию она составляет 4 часа). Также можно указать расположение для хранения или оставить значение по умолчанию.
+3. Установите флажок **Start the Program now** (Запустить программу сейчас).
+4. Щелкните **Create Program** (Создать программу).
   
-    Note: Program creation takes less time than channel creation.    
+	Примечание. Создание программы занимает меньше времени, чем создание канала.
  
-5. Once the program is running, confirm playback by right clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
-6. Once confirmed, right click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu). 
+5. После запуска программы проверьте воспроизведение, щелкнув правой кнопкой мыши программу, перейдя к пункту **Playback the program(s)** (Воспроизвести программы) и выбрав **with Azure Media Player** (с помощью мультимедиапроигрывателя Azure).
+6. После проверки снова щелкните правой кнопкой мыши на программе и выберите **Копировать выходной URL-адрес в буфер обмена** (или получите этот адрес с помощью пункта меню **Сведения о программе и параметры**).
 
-The stream is now ready to be embedded in a player, or distributed to an audience for live viewing.  
-
-
-## <a name="troubleshooting"></a>Troubleshooting
-
-Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance. 
+Теперь поток можно внедрить в проигрыватель или транслировать аудитории для просмотра в режиме реального времени.
 
 
-##<a name="media-services-learning-paths"></a>Media Services learning paths
+## Устранение неполадок
+
+Рекомендации см. в разделе [Устранение неполадок](media-services-troubleshooting-live-streaming.md).
+
+
+##Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

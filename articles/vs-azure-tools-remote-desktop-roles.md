@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Using Remote Desktop with Azure Roles | Microsoft Azure"
-   description="Using Remote Desktop with Azure Roles"
+   pageTitle="Использование удаленного рабочего стола с ролями Azure | Microsoft Azure"
+   description="Использование удаленного рабочего стола с ролями Azure"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,71 +15,64 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Использование удаленного рабочего стола с ролями Azure
 
-# <a name="using-remote-desktop-with-azure-roles"></a>Using Remote Desktop with Azure Roles
+С помощью пакета SDK Azure и служб удаленных рабочих столов можно получать доступ к ролям Azure и виртуальным машинам, размещенным в Azure. В Visual Studio можно настроить службы удаленных рабочих столов из проекта Azure. Чтобы включить службы удаленных рабочих столов, необходимо создать рабочий проект, содержащий одну или несколько ролей, а затем опубликовать его в Azure.
 
-By using the Azure SDK and Remote Desktop Services, you can access Azure roles and virtual machines that are hosted by Azure. In Visual Studio, you can configure Remote Desktop Services from an Azure project. To enable Remote Desktop Services, you must create a working project that contains one or more roles and then publish it to Azure.
+>[AZURE.IMPORTANT] К роли Azure следует обращаться только для разработки или устранения неполадок. Каждая виртуальная машина предназначена для выполнения определенной роли в приложении Azure, а не для выполнения других клиентских приложений. Если вы хотите использовать Azure для размещения виртуальной машины, которую можно использовать для любых целей, см. статью «Доступ к виртуальным машинам Azure из обозревателя серверов».
 
->[AZURE.IMPORTANT] You should access an Azure role for troubleshooting or development only. The purpose of each virtual machine is to run a specific role in your Azure application, not to run other client applications. If you want to use Azure to host a virtual machine that you can use for any purpose, see Accessing Azure Virtual Machines from Server Explorer.
+## Включение и использование удаленного рабочего стола для роли Azure
 
-## <a name="to-enable-and-use-remote-desktop-for-an-azure-role"></a>To enable and use Remote Desktop for an Azure Role
+1. Откройте контекстное меню проекта в обозревателе решений и выберите **Опубликовать**.
 
-1. In Solution Explorer, open the shortcut menu for your project, and then choose **Publish**.
+    Откроется мастер **публикации приложений Azure**.
 
-    The **Publish Azure Application** wizard appears.
+    ![Команда «Опубликовать» для проекта облачной службы](./media/vs-azure-tools-remote-desktop-roles/IC799161.png)
 
-    ![Publish command for a Cloud Service project](./media/vs-azure-tools-remote-desktop-roles/IC799161.png)
+1. В нижней части страницы **Параметры публикации Microsoft Azure** мастера установите флажок **Включить удаленный рабочий стол** для всех ролей.
 
-1. At the bottom of **Microsoft Azure Publish Settings** page of the wizard, select the **Enable Remote Desktop** for all roles check box. 
+    Появится диалоговое окно **Конфигурация удаленного рабочего стола**.
 
-    The **Remote Desktop Configuration** dialog box appears.
-
-1. At the bottom of the **Remote Desktop Configuration** dialog box, choose the **More Options** button. 
+1. В нижней части диалогового окна **Конфигурация удаленного рабочего стола** нажмите кнопку **Дополнительные параметры**.
  
-    This displays a dropdown list box that lets you create or choose a certificate so that you can encrypt credentials information when connecting via remote desktop.
+    Отобразится раскрывающийся список, с помощью которого можно создать или выбрать сертификат, чтобы шифровать учетные данные при подключении через удаленный рабочий стол.
 
-1. In the dropdown list, choose **&lt;Create>**, or choose an existing one from the list. 
+1. В раскрывающемся списке выберите пункт **&lt;Create>** либо существующий сертификат.
 
-    If you choose an existing certificate, skip the following steps.
+    Если вы выбрали существующий сертификат, пропустите следующие шаги.
 
-    >[AZURE.NOTE] The certificates that you need for a remote desktop connection are different from the certificates that you use for other Azure operations. The remote access certificate must have a private key.
+    >[AZURE.NOTE] Сертификаты, необходимые для подключения к удаленному рабочему столу, отличаются от сертификатов, используемых для других операций в Azure. Сертификат удаленного доступа должен иметь закрытый ключ.
 
-    The **Create Certificate** dialog box appears.
+    Появится диалоговое окно **Создание сертификата**.
 
-    1. Provide a friendly name for the new certificate, and then choose the **OK** button. The new certificate appears in the dropdown list box.
+    1. Введите понятное имя для нового сертификата, а затем нажмите кнопку **ОК**. Новый сертификат появится в раскрывающемся списке.
 
-    1. In the **Remote Desktop Configuration** dialog box, provide a user name and a password.
+    1. В диалоговом окне **Конфигурация удаленного рабочего стола** введите имя пользователя и пароль.
     
-        You can’t use an existing account. Don’t specify Administrator as the user name for the new account.
+        Нельзя использовать существующую учетную запись. Не указывайте Administrator как имя пользователя для новой учетной записи.
 
-        >[AZURE.NOTE] If the password doesn’t meet the complexity requirements, a red icon appears next to the password text box. The password must include capital letters, lowercase letters, and numbers or symbols.
+        >[AZURE.NOTE] Если пароль не отвечает требованиям сложности, рядом с текстовым полем пароля появится красный значок. Пароль должен содержать прописные буквы, строчные буквы, а также цифры или символы.
 
-    1. Choose a date on which the account will expire and after which remote desktop connections will be blocked.
+    1. Выберите дату окончания срока действия учетной записи, после которой подключения к удаленному рабочему столу будут заблокированы.
 
-    1. After you've provided all the required information, choose the **OK** button.
+    1. Указав все необходимые сведения, нажмите кнопку **ОК**.
     
-        Several settings that enable Remote Access Services are added to the .cscfg and .csdef files.
+        Несколько параметров, использующихся для включения служб удаленного доступа, добавляются в файлы CSCFG и CSDEF.
 
-1. In the **Microsoft Azure Publish Settings** wizard, choose the **OK** button when you’re ready to publish your cloud service.
+1. В мастере **Параметры публикации Microsoft Azure** нажмите кнопку **ОК**, когда будете готовы опубликовать облачную службу.
 
-    If you're not ready to publish, choose the **Cancel** button. The configuration settings are saved, and you can publish your cloud service later.
+    Если вы не готовы к публикации, нажмите кнопку **Отменить**. Параметры конфигурации будут сохранены, и вы сможете опубликовать облачную службу позже.
 
-## <a name="connect-to-an-azure-role-by-using-remote-desktop"></a>Connect to an Azure Role by using Remote Desktop
+## Подключение к роли Azure с помощью удаленного рабочего стола
 
-After you publish your cloud service on Azure, you can use Server Explorer to log into the virtual machines that Azure hosts. 
+Опубликовав облачную службу в Azure, можно входить в виртуальные машины, размещенные в Azure, с помощью обозревателя сервера.
 
-1. In Server Explorer, expand the **Azure** node, and then expand the node for a cloud service and one of its roles to display a list of instances.
+1. В обозревателе сервера разверните узел **Azure**, а затем разверните узел для облачной службы и одну из ее ролей, чтобы отобразить список экземпляров.
 
-1. Open the shortcut menu for an instance node, and then choose **Connect Using Remote Desktop**.
+1. Откройте контекстное меню для узла экземпляра и выберите **Подключиться с помощью удаленного рабочего стола**.
 
-    ![Connecting via remote desktop](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
+    ![Подключение через удаленный рабочий стол](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 
-1. Enter the user name and password that you created previously. You are now logged into your remote session.
+1. Введите имя пользователя и пароль, созданный ранее. Вы вошли в удаленный сеанс.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,121 +1,115 @@
 <properties
-    pageTitle="Routing and Tag Expressions"
-    description="This topic explains routing and tag expressions for Azure notification hubs."
-    services="notification-hubs"
-    documentationCenter=".net"
-    authors="wesmc7777"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Маршрутизация и выражения тегов"
+	description="В этом разделе рассказывается о маршрутизации и выражениях тегов для центров уведомлений Azure."
+	services="notification-hubs"
+	documentationCenter=".net"
+	authors="wesmc7777"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-multiple"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="06/29/2016"
-    ms.author="wesmc"/>
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/29/2016"
+	ms.author="wesmc"/>
+
+# Маршрутизация и выражения тегов
+
+##Обзор
+
+Выражения тегов позволяют выбирать определенные целевые наборы устройств, а точнее регистраций, при отправке push-уведомлений через центры уведомлений.
 
 
-# <a name="routing-and-tag-expressions"></a>Routing and tag expressions
+## Выбор регистраций
 
-##<a name="overview"></a>Overview
+Единственный способ выбрать определенные регистрации для получения уведомлений — это связать с ними теги, а затем указывать эти теги в качестве назначения. Как описано в статье [Управление регистрациями](notification-hubs-push-notification-registration-management.md), для получения push-уведомлений приложение должно зарегистрировать маркер устройства в центре уведомлений. После создания регистрации в центре уведомлений серверная часть приложения может отправлять ей push-уведомления. Серверная часть приложения выбирает целевые регистрации для отправки определенных уведомлений следующим образом.
 
-Tag expressions enable you to target specific sets of devices, or more specifically registrations, when sending a push notification through Notification Hubs.
+1. **Широковещательная рассылка**: уведомление получают все регистрации в центре уведомлений.
+2. **По тегу**: уведомление получают все регистрации, которые содержат указанный тег.
+3. **По выражению тега**: уведомление получают все регистрации, набор тегов которых соответствует указанному выражению.
 
+## Теги
 
-## <a name="targeting-specific-registrations"></a>Targeting specific registrations
-
-The only way to target specific notification registrations is to associate tags with them, then target those tags. As discussed in [Registration Management](notification-hubs-push-notification-registration-management.md), in order to receive push notifications an app has to register a device handle on a notification hub. Once a registration is created on a notification hub, the application backend can send push notifications to it.
-The application backend can choose the registrations to target with a specific notification in the following ways:
-
-1. **Broadcast**: all registrations in the notification hub receive the notification.
-2. **Tag**: all registrations that contain the specified tag receive the notification.
-3. **Tag expression**: all registrations whose set of tags match the specified expression receive the notification.
-
-## <a name="tags"></a>Tags
-
-A tag can be any string, up to 120 characters, containing alphanumeric and the following non-alphanumeric characters: ‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’. The following example shows an application from which you can receive toast notifications about specific music groups. In this scenario, a simple way to route notifications is to label registrations with tags that represent the different bands, as in the following picture.
+Тегом может быть любая строка длиной до 120 символов, содержащая буквы, цифры и следующие символы: "\_", "@", "#", ".", ":", "-". В следующем примере показано приложение, из которого можно получать всплывающие уведомления об определенных музыкальных группах. В этом случае для маршрутизации уведомлений удобно пометить регистрации тегами различных групп, как показано на следующем рисунке.
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 
-In this picture, the message tagged **Beatles** reaches only the tablet that registered with the tag **Beatles**.
+На этом рисунке сообщение с тегом **Beatles** поступает только на планшет, зарегистрированный с тегом **Beatles**.
 
-For more information about creating registrations for tags, see [Registration Management](notification-hubs-push-notification-registration-management.md).
+Дополнительные сведения о создании регистраций по тегам см. в статье [Управление регистрациями](notification-hubs-push-notification-registration-management.md).
 
-You can send notifications to tags using the send notifications methods of the `Microsoft.Azure.NotificationHubs.NotificationHubClient` class in the [Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) SDK. You can also use Node.js, or the Push Notifications REST APIs.  Here's an example using the SDK.
-
-
-    Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
-
-    // Windows 8.1 / Windows Phone 8.1
-    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
-    "You requested a Beatles notification</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles");
-
-    // Windows 10
-    toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
-    "You requested a Wailers notification</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
+Можно отправлять уведомления для тегов, используя методы отправки уведомлений класса `Microsoft.Azure.NotificationHubs.NotificationHubClient` из пакета SDK [центров уведомлений Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/). Также можно использовать Node.js или интерфейсы API REST push-уведомлений. Ниже приведен пример с использованием пакета SDK.
 
 
+	Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
+
+	// Windows 8.1 / Windows Phone 8.1
+	var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
+	"You requested a Beatles notification</text></binding></visual></toast>";
+	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Beatles");
+
+	// Windows 10
+	toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
+	"You requested a Wailers notification</text></binding></visual></toast>";
+	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
 
 
-Tags do not have to be pre-provisioned and can refer to multiple app-specific concepts. For example, users of this example application can comment on bands and want to receive toasts, not only for the comments on their favorite bands, but also for all comments from their friends, regardless of the band on which they are commenting. The following picture shows an example of this scenario:
+
+
+Теги необязательно определяются заранее и могут быть связаны с несколькими аспектами приложения. Например, пользователи приложения из этого примера могут оставлять свои комментарии по группам и хотят получать всплывающие уведомления не только о комментариях по своим любимым группам, но и обо всех комментариях от своих друзей, независимо от того, какую группу они комментируют. На рисунке ниже показан пример такого сценария.
 
 
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
 
-In this picture, Alice is interested in updates for the Beatles, and Bob is interested in updates for the Wailers. Bob is also interested in Charlie’s comments, and Charlie is in interested in the Wailers. When a notification is sent for Charlie’s comment on the Beatles, both Alice and Bob receive it.
+На этом рисунке Алиса интересуется новостями о Beatles, а Боб — о Wailers. Боба также интересуют комментарии Чарли, а Чарли интересуется Wailers. Когда отправляется уведомление о комментарии Чарли по Beatles, его получают и Алиса, и Боб.
 
-While you can encode multiple concerns in tags (for example, “band_Beatles” or “follows_Charlie”), tags are simple strings and not properties with values. A registration is matched only on the presence or absence of a specific tag.
+Несмотря на то, что теги могут соответствовать нескольким характеристикам сразу (например, "band\_Beatles" или "follows\_Charlie"), они являются простыми строками, это не свойства со значениями. Успешное сопоставление с регистрацией происходит только при наличии или отсутствии конкретного тега.
 
-For a full step-by-step tutorial on how to use tags for sending to interest groups, see [Breaking News](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
+Полное пошаговое руководство по использованию тегов для отправки сообщений по группам интересов см. в статье [Экстренные новости](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
 
-## <a name="using-tags-to-target-users"></a>Using tags to target users
+## Использование тегов для выбора конечных пользователей
 
-Another way to use tags is to identify all the devices of a particular user. Registrations can be tagged with a tag that contains a user id, as in the following picture:
+Теги также могут использоваться для идентификации всех устройств определенного пользователя. Регистрации можно пометить тегом, который содержит идентификатор пользователя, как показано на следующем рисунке.
 
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
 
-In this picture, the message tagged uid:Alice reaches all registrations tagged uid:Alice; hence, all of Alice’s devices.
+На этом рисунке сообщение с тегом Alice поступает во все регистрации с тегом Alice, то есть на все устройства Алисы.
 
 
-##<a name="tag-expressions"></a>Tag expressions
+##Выражения тегов
 
-There are cases in which a notification has to target a set of registrations that is identified not by a single tag, but by a Boolean expression on tags.
+Бывают случаи, когда уведомление должно направляться в ряд регистраций, которые определяются не одним тегом, а логическим выражением с тегами.
 
-Consider a sports application that sends a reminder to everyone in Boston about a game between the Red Sox and Cardinals. If the client app registers tags about interest in teams and location, then the notification should be targeted to everyone in Boston who is interested in either the Red Sox or the Cardinals. This condition can be expressed with the following Boolean expression:
+Рассмотрим спортивное приложение, которое отправляет напоминание всем пользователям в Бостоне об игре между командами Red Sox и Cardinals. Если в клиентском приложении регистрируются теги об интересе к командам и месту, то уведомление должно отправляться всем пользователям в Бостоне, интересующимся Red Sox или Cardinals. Это условие можно задать с помощью следующего логического выражения:
 
-    (follows_RedSox || follows_Cardinals) && location_Boston
+	(follows_RedSox || follows_Cardinals) && location_Boston
 
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
 
-Tag expressions can contain all Boolean operators, such as AND (&&), OR (||), and NOT (!). They can also contain parentheses. Tag expressions are limited to 20 tags if they contain only ORs; otherwise they are limited to 6 tags.
+Выражения тегов могут содержать любые логические операторы, такие как AND (&&), OR (||) и NOT (!). В них также можно использовать скобки. В выражении можно использовать не больше 20 тегов, если в нем содержатся только операторы OR; в противном случае максимальное число тегов равно 6.
 
-Here's an example for sending notifications with tag expressions using the SDK.
-
-
-    Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
-
-    String userTag = "(location_Boston && !follows_Cardinals)"; 
-
-    // Windows 8.1 / Windows Phone 8.1
-    var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
-    "You want info on the Red Socks</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
-
-    // Windows 10
-    toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
-    "You want info on the Red Socks</text></binding></visual></toast>";
-    outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+Ниже приведен пример отправки уведомлений с помощью выражения тегов и пакета SDK.
 
 
+	Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
 
-<!--HONumber=Oct16_HO2-->
+	String userTag = "(location_Boston && !follows_Cardinals)";	
 
+	// Windows 8.1 / Windows Phone 8.1
+	var toast = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" +
+	"You want info on the Red Socks</text></binding></visual></toast>";
+	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
 
+	// Windows 10
+	toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
+	"You want info on the Red Socks</text></binding></visual></toast>";
+	outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
+
+<!---HONumber=AcomDC_0706_2016-->

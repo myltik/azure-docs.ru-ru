@@ -1,105 +1,104 @@
 <properties
-    pageTitle="Batch service quotas and limits | Microsoft Azure"
-    description="Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases"
-    services="batch"
-    documentationCenter=""
-    authors="mmacy"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Квоты и ограничения пакетной службы | Microsoft Azure"
+	description="Узнайте о квотах по умолчанию, лимитах и ограничениях пакетной службы Azure, а также о том, как запросить увеличение квоты."
+	services="batch"
+	documentationCenter=""
+	authors="mmacy"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="batch"
-    ms.workload="big-compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/10/2016"
-    ms.author="marsma"/>
+	ms.service="batch"
+	ms.workload="big-compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/10/2016"
+	ms.author="marsma"/>
 
+# Квоты и ограничения пакетной службы Azure
 
-# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Quotas and limits for the Azure Batch service
+Как и в других службах Azure, существуют ограничения на некоторые ресурсы, связанные с пакетной службой. Многие из этих ограничений являются квотами по умолчанию, которые Azure применяет на уровне подписки или учетной записи. В данной статье рассматриваются эти значения по умолчанию и то, как запросить увеличение квот.
 
-As with other Azure services, there are limits on certain resources associated with the Batch service. Many of these limits are default quotas applied by Azure at the subscription or account level. This article discusses those defaults, and how you can request quota increases.
+Если планируется выполнять рабочие нагрузки в производственной среде с использованием пакетной службы, имеет смысл увеличить одну или несколько квот по сравнению со значениями по умолчанию. Для увеличения квоты отправьте (бесплатно) [запрос в службу поддержки клиентов](#increase-a-quota).
 
-If you plan to run production workloads in Batch, you may need to increase one or more of the quotas above the default. If you want to raise a quota, you can open an online [customer support request](#increase-a-quota) at no charge.
+>[AZURE.NOTE] Квота — это кредитный лимит, а не гарантия наличия ресурсов. Если вам нужны ресурсы в очень большом объеме, обратитесь в службу поддержки Azure.
 
->[AZURE.NOTE] A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
-
-## <a name="subscription-quotas"></a>Subscription quotas
-**Resource**|**Default Limit**|**Maximum Limit**
+## Квоты для подписки
+**Ресурс**|**Ограничение по умолчанию**|**Максимальное ограничение**
 ---|---|---
-Batch accounts per region per subscription | 1 | 50
+Учетных записей пакетной службы на регион на подписку | 1 | 50
 
-## <a name="batch-account-quotas"></a>Batch account quotas
+## Квоты для учетной записи пакетной службы
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-## <a name="other-limits"></a>Other limits
-**Resource**|**Maximum Limit**
+## Другие ограничения
+**Ресурс**|**Максимальное ограничение**
 ---|---
-[Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores
-[Applications](batch-application-packages.md) per Batch account        | 20
-Application packages per application  | 40
-Application package size (each)       | Approx. 195GB<sup>1</sup>
+[Количество параллельных задач](batch-parallel-node-tasks.md) на один вычислительный узел | В 4 раза больше, чем количество ядер в узле
+[Количество приложений](batch-application-packages.md) на одну учетную запись пакетной службы | 20
+Пакеты приложения на приложение | 40
+Размер пакета приложения (каждый) | Примерно 195 ГБ<sup>1</sup>
 
-<sup>1</sup> Azure Storage limit for maximum block blob size
+<sup>1</sup> Ограничение службы хранилища Azure для максимального размера блочного BLOB-объекта.
 
-## <a name="view-batch-quotas"></a>View Batch quotas
+## Просмотр квот пакетной службы
 
-View your Batch account quotas in the [Azure portal][portal].
+Просмотрите квоты своей учетной записи пакетной службы на [портале Azure][portal].
 
-1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
+1. Щелкните **Уч. записи пакетной службы** на портале, затем выберите учетную запись пакетной службы, которая вас интересует.
 
-2. Select **Properties** on the Batch account's menu blade
+2. Выберите **Свойства** в колонке меню учетной записи пакетной службы.
 
-3. The Properties blade displays the **quotas** currently applied to the Batch account
+3. В колонке **Свойства** отображаются квоты, которые в настоящее время действуют в отношении учетной записи пакетной службы.
 
-    ![Batch account quotas][account_quotas]
+	![Квоты для учетной записи пакетной службы][account_quotas]
 
-## <a name="increase-a-quota"></a>Increase a quota
+## Увеличение квоты
 
-Follow the steps below to request a quota increase using the [Azure portal][portal].
+Выполните следующие действия, чтобы запросить увеличение квоты с помощью [портала Azure][portal].
 
-1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
+1. На панели мониторинга портала выберите элемент **Справка и поддержка**, или щелкните вопросительный знак (**?**) в правом верхнем углу портала.
 
-2. Select **New support request** > **Basics**.
+2. Выберите **Новый запрос в службу поддержки** > **Основы**.
 
-3. On the **Basics** blade:
+3. В колонке **Основы**:
 
-    a. **Issue Type** > **Quota**
+	а. **Тип вопроса** > **Квота**
 
-    b. Select your subscription.
+	b. Выберите свою подписку.
 
-    c. **Quota type** > **Batch**
+	c. **Тип квоты** > **Пакет**
 
-    d. **Support plan** > **Quota support - Included**
+	г) **План поддержки** > **Quota support - Included** (Поддержка квоты включена)
 
-    Click **Next**.
+	Нажмите кнопку **Далее**.
 
-4. On the **Problem** blade:
+4. В колонке **Проблема**:
 
-    a. Select a **Severity** according to your [business impact][support_sev].
+	а. Выберите **Серьезность** в соответствии с [воздействием на ваш бизнес][support_sev].
 
-    b. In **Details**, specify each quota you want to change, the Batch account name, and the new limit.
+	b. В разделе **Сведения** укажите все квоты,которые хотите изменить, имя учетной записи пакетной службы и новые ограничения.
 
-    Click **Next**.
+	Нажмите кнопку **Далее**.
 
-5. On the **Contact information** blade:
+5. В колонке **Контактные данные** :
 
-    a. Select a **Preferred contact method**.
+	а. Выберите **Preferred contact method** (Предпочтительный способ связи).
 
-    b. Verify and enter the required contact details.
+	b. Проверьте и введите необходимые контактные данные.
 
-    Click **Create** to submit the support request.
+	Щелкните **Создать**, чтобы отправить запрос в службу поддержки.
 
-Once you've submitted your support request, Azure support will contact you. Note that completing the request can take up to 2 business days.
+После отправки запроса служба поддержки Azure свяжется с вами. Обратите внимание, что обработка запроса может занять до 2 рабочих дней.
 
-## <a name="related-topics"></a>Related topics
+## Связанные разделы
 
-* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
+* [Создание учетной записи пакетной службы Azure на портале Azure и управление ею](batch-account-create-portal.md)
 
-* [Azure Batch feature overview](batch-api-basics.md)
+* [Обзор функций пакетной службы Azure](batch-api-basics.md)
 
-* [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md)
+* [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md)
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
@@ -107,8 +106,4 @@ Once you've submitted your support request, Azure support will contact you. Note
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

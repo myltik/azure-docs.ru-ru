@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enable data collection in Azure Security Center | Microsoft Azure"
-   description=" Learn how to enable data collection in Azure Security Center. "
+   pageTitle="Включение сбора данных в Центре безопасности Azure | Microsoft Azure"
+   description=" Узнайте, как включать сбор данных в Центре безопасности Azure. "
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,68 +16,61 @@
    ms.date="07/29/2016"
    ms.author="terrylan"/>
 
+# Включение сбора данных в центре безопасности Azure
 
-# <a name="enable-data-collection-in-azure-security-center"></a>Enable data collection in Azure Security Center
+Чтобы помочь клиентам предотвращать и выявлять угрозы, а также реагировать на них, центр безопасности Azure собирает и обрабатывает данные о виртуальных машинах Azure, в том числе сведения о конфигурации, метаданные, журналы событий и многое другое. Когда вы впервые обращаетесь к центру обеспечения безопасности, сбор данных включен на всех виртуальных машин в рамках подписки. Сбор данных — рекомендуемый параметр, но вы можете отключить его в политике Центра безопасности (см. раздел [Отключение сбора данных](#disabling-data-collection) ниже). Если вы отключите сбор данных, Центр безопасности порекомендует включить его в политике безопасности для этой подписки.
 
-To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes data about your Azure virtual machines, including configuration information, metadata, event logs, and more. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by turning data collection off in the Security Center policy (see [Disabling data collection](#disabling-data-collection)). If you turn data collection off, Security Center will recommend that you turn on data collection in the security policy for that subscription.
+> [AZURE.NOTE] В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment. This is not a step-by-step guide.
+## Выполнение рекомендаций
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. В колонке **Центр безопасности** выберите плитку **Рекомендации**. После этого откроется колонка **Рекомендации**. ![Колонка "Центр безопасности"][1]
 
-1. Select the **Recommendations** tile on the **Security Center** blade.  This opens the **Recommendations** blade.
-![Security Center blade][1]
+2. В колонке **Рекомендации** выберите **Enable data collection for subscriptions** (Включение сбора данных для подписок). Откроется колонка **Turn on data collection** (Включение сбора данных). ![Колонка "Рекомендации"][2]
 
-2. On the **Recommendations** blade, select **Enable data collection for subscriptions**.  This will open the **Turn on data collection** blade.
-![Recommendations blade][2]
+3. В колонке **Turn on data collection** (Включение сбора данных) выберите подписку. Откроется колонка **Политика безопасности** для этой подписки.
 
-3. On the **Turn on data collection** blade, select your subscription. The **Security policy** blade for that subscription opens.
+4. Чтобы включить автоматическую сборку данных журналов, в колонке **Политика безопасности** выберите **Вкл.** для параметра **Сбор данных**. Кроме того, включение сбора данных позволит подготовить расширение мониторинга для всех действующих и новых поддерживаемых виртуальных машин в подписке. ![Колонка "Политика безопасности"][3]
 
-4. On the **Security policy** blade, select **On** under **Data collection** to automatically collect logs. Turning on data collection will also provision the monitoring extension on all current and new supported VMs in the subscription.
-![Security policy blade][3]
+5.	Щелкните **Сохранить**.
 
-5.  Select **Save**.
+6.	Выберите **Choose a storage account per region** (Выбрать учетную запись хранения для региона). Для каждого региона, в котором у вас есть виртуальные машины, выберите учетную запись хранения, где хранятся данные, собираемые с этих виртуальных машин. Если вы не выберете учетную запись хранения для каждого региона, она будет создана автоматически. В этом примере мы выберем учетную запись **newstoracct**. Учетную запись хранения можно изменить позже, вернувшись в колонку политики безопасности подписки и выбрав другую учетную запись. ![Выбор учетной записи хранения][4]
 
-6.  Select **Choose a storage account per region**. For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. If you do not choose a storage account for each region, it will be automatically created for you. In this example, we’ll choose **newstoracct**. You can change the storage account later by returning to the security policy for your subscription and choosing a different storage account.
-![Choose a storage account][4]
+7.	Нажмите кнопку **ОК**.
 
-7.  Select **OK**.
+> [AZURE.NOTE] Рекомендуем сначала включить сбор данных и выбрать учетную запись хранения на уровне подписки. Политики безопасности можно настроить на уровне подписки Azure и группы ресурсов, но настройка сбора данных и учетной записи хранения осуществляется только на уровне подписки.
 
-> [AZURE.NOTE] We recommend that you turn on data collection and choose a storage account at the subscription level first. Security policies can be set at the Azure subscription level and resource group level but configuration of data collection and storage account occurs at the subscription level only.
+## После включения сбора данных
 
-## <a name="after-data-collection-is-enabled"></a>After data collection is enabled
+Сбор данных включается с помощью агента мониторинга Azure и расширения "Мониторинг безопасности Azure". Расширение "Мониторинг безопасности Azure" сканирует систему на наличие конфигураций, связанных с безопасностью, и отправляет их в [службу трассировки событий Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Кроме того, операционная система создает записи в журнале событий. Агент мониторинга Azure считывает записи журнала событий и трассировки ETW и копирует их в вашу учетную запись хранения для анализа. Он также копирует файлы аварийных дампов в вашу учетную запись хранения. Это учетная запись хранения, настроенная в политике безопасности.
 
-Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configuration and sends it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system creates event log entries. The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis. The Monitoring Agent also copies crash dump files to your storage account. This is the storage account you configured in the security policy.
+## Отключение сбора данных
 
-## <a name="disabling-data-collection"></a>Disabling data collection
+Вы можете отключить сбор данных в любое время. Это приведет к удалению всех агентов мониторинга, ранее установленных Центром безопасности. Для отключения сбора данных необходимо выбрать подписку.
 
-You can disable data collection at any time, which will remove any Monitoring Agents previous installed by Security Center.  You must select a subscription to turn data collection off.
+> [AZURE.NOTE] Политики безопасности можно настроить на уровне подписки Azure и на уровне группы ресурсов, но для отключения сбора данных необходимо выбрать подписку.
 
-> [AZURE.NOTE] Security policies can be set at the Azure subscription level and resource group level but you must select a subscription to turn data collection off.
+1.	Вернитесь в колонку **Центр безопасности** и выберите плитку **Политика**. Откроется колонка политики безопасности **Security policy-Define policy per subscription or resource group** (Определить политику для подписки или группы ресурсов). ![Выбор плитки "Политика"][5]
 
-1.  Return to the **Security Center** blade and select the **Policy** tile. This opens the **Security policy-Define policy per subscription or resource group** blade.
-![Select the policy tile][5]
+2.	В колонке политики безопасности **Security policy-Define policy per subscription or resource group** (Определить политику для подписки или группы ресурсов) выберите подписку, для которой необходимо отключить сбор данных. ![Выбор подписки для отключения сбора данных][6]
 
-2.  On the **Security policy-Define policy per subscription or resource group** blade, select the subscription that you wish to disable data collection.
-![Select subscription to disable data collection][6]
+3.	Откроется колонка **Политика безопасности** для этой подписки. Выберите **Выкл.** для параметра "Сбор данных".
 
-3.  The **Security policy** blade for that subscription opens.  Select **Off** under Data collection.
+4.	В верхней ленте щелкните **Сохранить**.
 
-4.  Select **Save** in the top ribbon.
+5.	Чтобы удалить агенты с имеющихся виртуальных машин, в верхней ленте щелкните **Delete agents** (Удалить агенты).
 
-5.  Select **Delete agents** in the top ribbon to remove agents from existing virtual machines.
+## См. также
 
-## <a name="see-also"></a>See also
+В этой статье объясняется, как выполнить рекомендацию Центра безопасности относительно включения сбора данных. Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
-This article showed you how to implement the Security Center recommendation "Enable data collection.” To learn more about Security Center, see the following:
-
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
+- [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — сведения о настройке политик безопасности для подписок и групп ресурсов Azure.
+- [Управление рекомендациями по безопасности в Центре безопасности Azure](security-center-recommendations.md) — узнайте, как рекомендации могут помочь вам защитить ресурсы Azure.
+- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md) — сведения о мониторинге работоспособности ресурсов Azure.
+- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — сведения о том, как управлять оповещениями системы безопасности и реагировать на них.
+- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md) — узнайте, как отслеживать состояние работоспособности решений партнеров.
+- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
+- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — последние новости и информация об обеспечении безопасности в Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-data-collection/security-center-blade.png
@@ -87,8 +80,4 @@ This article showed you how to implement the Security Center recommendation "Ena
 [5]: ./media/security-center-enable-data-collection/policy.png
 [6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,71 +1,69 @@
 
-1. In **Project Explorer** in Android Studio, open the ToDoActivity.java file and add the following import statements.
+1. В **обозревателе проектов** в Android Studio откройте файл ToDoActivity.java и добавьте следующие операторы import:
 
-        import java.util.concurrent.ExecutionException;
-        import java.util.concurrent.atomic.AtomicBoolean;
+		import java.util.concurrent.ExecutionException;
+		import java.util.concurrent.atomic.AtomicBoolean;
 
-        import android.content.Context;
-        import android.content.SharedPreferences;
-        import android.content.SharedPreferences.Editor;
+		import android.content.Context;
+		import android.content.SharedPreferences;
+		import android.content.SharedPreferences.Editor;
 
-        import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
-        import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
+		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
+		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-2. Add the following method to the **ToDoActivity** class: 
-    
-        private void authenticate() {
-            // Login using the Google provider.
-            
-            ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-    
-            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-                @Override
-                public void onFailure(Throwable exc) {
-                    createAndShowDialog((Exception) exc, "Error");
-                }           
-                @Override
-                public void onSuccess(MobileServiceUser user) {
-                    createAndShowDialog(String.format(
-                            "You are now logged in - %1$2s",
-                            user.getUserId()), "Success");
-                    createTable();  
-                }
-            });     
-        }
-
-
-    This creates a new method to handle the authentication process. The user is authenticated by using a Google login. A dialog is displayed which displays the ID of the authenticated user. You cannot proceed without a positive authentication.
-
-    > [AZURE.NOTE] If you are using an identity provider other than Google, change the value passed to the **login** method above to one of the following: _MicrosoftAccount_, _Facebook_, _Twitter_, or _windowsazureactivedirectory_.
-
-3. In the **onCreate** method, add the following line of code after the code that instantiates the `MobileServiceClient` object.
-
-        authenticate();
-
-    This call starts the authentication process.
-
-4. Move the remaining code after `authenticate();` in the **onCreate** method to a new **createTable** method, which looks like this:
-
-        private void createTable() {
-    
-            // Get the table instance to use.
-            mToDoTable = mClient.getTable(ToDoItem.class);
-    
-            mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
-    
-            // Create an adapter to bind the items with the view.
-            mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
-            ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-            listViewToDo.setAdapter(mAdapter);
-    
-            // Load the items from Azure.
-            refreshItemsFromTable();
-        }
-
-9. From the **Run** menu, then click **Run app** to start the app and sign in with your chosen identity provider. 
-
-    When you are successfully logged-in, the app should run without errors, and you should be able to query the backend service and make updates to data.
-
-<!--HONumber=Oct16_HO2-->
+2. Добавьте в класс **ToDoActivity** следующий метод:
+	
+		private void authenticate() {
+		    // Login using the Google provider.
+		    
+			ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
+	
+	    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+	    		@Override
+	    		public void onFailure(Throwable exc) {
+	    			createAndShowDialog((Exception) exc, "Error");
+	    		}   		
+	    		@Override
+	    		public void onSuccess(MobileServiceUser user) {
+	    			createAndShowDialog(String.format(
+	                        "You are now logged in - %1$2s",
+	                        user.getUserId()), "Success");
+	    			createTable();	
+	    		}
+	    	});   	
+		}
 
 
+	При этом создается новый метод для обработки процесса проверки подлинности. Пользователь прошел проверку подлинности с использованием имени входа в Google. Открывается диалоговое окно, в котором отображается идентификатор пользователя, прошедшего проверку подлинности. Без успешной проверки подлинности продолжение невозможно.
+
+    > [AZURE.NOTE]Если используется поставщик идентификаторов, отличный от Google, измените значение, переданное в методе **login**, выше на одно из следующих: _MicrosoftAccount_, _Facebook_, _Twitter_ или _windowsazureactivedirectory_.
+
+3. Добавьте в метод **onCreate** следующую строку после кода, который формирует экземпляр объекта `MobileServiceClient`:
+
+		authenticate();
+
+	Этот вызов запускает процесс проверки подлинности.
+
+4. Переместите оставшийся код после `authenticate();` в методе **onCreate** в новый метод **createTable**, который выглядит следующим образом:
+
+		private void createTable() {
+	
+			// Get the table instance to use.
+			mToDoTable = mClient.getTable(ToDoItem.class);
+	
+			mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
+	
+			// Create an adapter to bind the items with the view.
+			mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
+			ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
+			listViewToDo.setAdapter(mAdapter);
+	
+			// Load the items from Azure.
+			refreshItemsFromTable();
+		}
+
+9. В меню **Запуск** щелкните **Запуск приложения**, чтобы запустить приложение и выполнить вход с помощью выбранного поставщика удостоверений.
+
+   	После входа мобильное приложение должно работать без ошибок, а у вас должна быть возможность отправлять запросы в серверную службу и обновлять данные.
+
+<!---HONumber=AcomDC_1210_2015-->

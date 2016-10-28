@@ -1,30 +1,27 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### <a name="to-cable-for-power"></a>To cable for power
+#### Чтобы подключить кабели питания
 
-1. Make sure that the power switches on each of the Power and Cooling Modules (PCMs) are in the OFF position.
+1. Убедитесь, что переключатели питания на всех блоках питания и охлаждения PCM установлены в положение OFF.
 
-2. Connect the power cords to each of the PCMs in the primary enclosure.
+2. На основном корпусе подключите кабели питания ко всем блокам PCM.
 
-3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following image. Make sure that the two PCMs use separate power sources.
+3. Присоедините кабели питания ко всем распределительным блокам стойки, как показано на следующем рисунке. Убедитесь, что для двух блоков PCM используются разные источники питания.
 
-    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. 
+    >[AZURE.IMPORTANT]Чтобы обеспечить высокий уровень доступности системы, рекомендуем строго придерживаться схемы подключения кабелей питания, показанной на следующей диаграмме.
 
-    ![Cable your 2U device for power](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    ![Подключите питание к устройству 2U](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
 
-    **Power cabling on an 8100 device**
+    **Подключение кабелей питания на устройстве 8100**
 
-    |Label|Description|
+    |Метка|Описание|
     |:----|:----------|
     |1|PCM 0|
-    |2|Controller 1|
-    |3|Controller 0|
-    |4|PCM 1|
-    |5|PDUs|
+    |2|Контроллер 1|
+    |3|Контроллер 0|
+    |4\.|PCM 1|
+    |5|Блоки распределения питания|
 
-4. To turn on the system, flip the power switches on both PCMs to the ON position.
+4. Чтобы включить систему, установите переключатели питания на обоих блоках PCM в положение ON.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

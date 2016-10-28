@@ -1,48 +1,47 @@
 <properties
-    pageTitle="Grant user permissions to specific lab policies | Microsoft Azure"
-    description="Learn how to grant user permissions to specific lab policies in DevTest Labs based on each user's needs"
-    services="devtest-lab,virtual-machines,visual-studio-online"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Предоставление пользователю разрешений для определенных политик лаборатории | Microsoft Azure"
+	description="Узнайте, как предоставить пользователю разрешения для определенных политик лаборатории в DevTest Labs исходя из его потребностей."
+	services="devtest-lab,virtual-machines,visual-studio-online"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>
 
+# Предоставление пользователю разрешений для определенных политик лаборатории
 
-# <a name="grant-user-permissions-to-specific-lab-policies"></a>Grant user permissions to specific lab policies
+## Обзор
 
-## <a name="overview"></a>Overview
+В этой статье рассказывается, как с помощью PowerShell предоставить пользователям разрешения для определенной политики лаборатории. Разрешения могут предоставляться в зависимости от потребностей каждого пользователя. Например, определенному пользователю можно разрешить изменить параметры политики виртуальной машины, но не политики затрат.
 
-This article illustrates how to use PowerShell to grant users permissions to a particular lab policy. That way, permissions can be applied based on each user's needs. For example, you might want to grant a particular user the ability to change the VM policy settings, but not the cost policies.
+## Политики как ресурсы
 
-## <a name="policies-as-resources"></a>Policies as resources
+Как уже обсуждалось в одноименной статье, [управление доступом на основе ролей (RBAC)](../active-directory/role-based-access-control-configure.md) обеспечивает точное управление доступом для Azure. С помощью RBAC вы можете распределить обязанности внутри команды разработчиков и предоставить пользователям доступ на том уровне, который им необходим для выполнения поставленных задач.
 
-As discussed in the [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
+В DevTest Labs политика — это тип ресурса, который включает действие RBAC **Microsoft.DevTestLab/labs/policySets/policies/**. Каждая политика лаборатории представляет собой ресурс типа "Политика" и может быть назначена в качестве области действия для роли RBAC.
 
-In DevTest Labs, a policy is a resource type that enables the RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each lab policy is a resource in the Policy resource type, and can be assigned as a scope to an RBAC role.
+Например, чтобы предоставить пользователям разрешения на чтение и запись в отношении политики **Allowed VM Sizes** (Допустимые размеры виртуальных машин), необходимо создать пользовательскую роль, работающую с действием **Microsoft.DevTestLab/labs/policySets/policies/***, а затем назначить пользователей этой роли в области **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
-For example, in order to grant users read/write permission to the **Allowed VM Sizes** policy, you would create a custom role that works with the **Microsoft.DevTestLab/labs/policySets/policies/*** action, and then assign the appropriate users to this custom role in the scope of **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
+Дополнительные сведения о пользовательских ролях см. в разделе о [пользовательских ролях в Azure RBAC](../active-directory/role-based-access-control-configure.md#custom-roles-in-azure-rbac) статьи [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../active-directory/role-based-access-control-configure.md).
 
-To learn more about custom roles in RBAC, see the [Custom roles access control](../active-directory/role-based-access-control-custom-roles.md).
+##Создание пользовательской роли лаборатории с помощью PowerShell
+Чтобы начать работу, прочтите статью [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre), в которой рассказывается, как установить и настроить командлеты Azure PowerShell.
 
-##<a name="creating-a-lab-custom-role-using-powershell"></a>Creating a lab custom role using PowerShell
-In order to get started, you’ll need to read the following article, which will explain how to install and configure the Azure PowerShell cmdlets: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
+Настроив командлеты Azure PowerShell, вы сможете выполнять следующие задачи:
 
-Once you’ve set up the Azure PowerShell cmdlets, you can perform the following tasks:
+- Получать список всех операций и действий по тому или иному поставщику ресурсов.
+- Получать список действий по определенной роли:
+- Создание настраиваемой роли
 
-- List all the operations/actions for a resource provider
-- List actions in a particular role:
-- Create a custom role
-
-The following PowerShell script illustrates examples of how to perform these tasks:
+Примеры выполнения этих задач демонстрирует следующий сценарий PowerShell:
 
     ‘List all the operations/actions for a resource provider.
     Get-AzureRmProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
@@ -60,10 +59,10 @@ The following PowerShell script illustrates examples of how to perform these tas
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
     $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
 
-##<a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>Assigning permissions to a user for a specific policy using custom roles
-Once you’ve defined your custom roles, you can assign them to users. In order to assign a custom role to a user, you must first obtain the **ObjectId** representing that user. To do that, use the **Get-AzureRmADUser** cmdlet.
+##Предоставление пользователю разрешений в отношении определенной политики с помощью пользовательских ролей
+Определив пользовательские роли, можно назначить их пользователям. Чтобы назначить пользовательскую роль, необходимо получить **ObjectId** соответствующего пользователя. Для этого используйте командлет **Get-AzureRmADUser**.
 
-In the following example, the **ObjectId** of the *SomeUser* user is 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
+В следующем примере **ObjectId** пользователя *SomeUser* имеет значение 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
 
     PS C:\>Get-AzureRmADUser -SearchString "SomeUser"
 
@@ -71,11 +70,11 @@ In the following example, the **ObjectId** of the *SomeUser* user is 05DEFF7B-0A
     -----------                    ----                           --------
     someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 
-Once you have the **ObjectId** for the user and a custom role name, you can assign that role to the user with the **New-AzureRmRoleAssignment** cmdlet:
+Получив **ObjectId** пользователя и имя пользовательской роли, можно назначить эту роль пользователю с помощью командлета **New-AzureRmRoleAssignment**.
 
     PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/policies/AllowedVmSizesInLab
 
-In the previous example, the **AllowedVmSizesInLab** policy is used. You can use any of the following polices:
+В предыдущем примере использовалась политика **AllowedVmSizesInLab**. Также можно использовать любую из следующих политик:
 
 - MaxVmsAllowedPerUser
 - MaxVmsAllowedPerLab
@@ -84,22 +83,18 @@ In the previous example, the **AllowedVmSizesInLab** policy is used. You can use
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Once you've granted user permissions to specific lab policies, here are some next steps to consider:
+После того как пользователю будут предоставлены разрешения для определенных политик лаборатории, можно выполнить следующие действия.
 
-- [Secure access to a lab](devtest-lab-add-devtest-user.md).
+- [Безопасный доступ к лаборатории](devtest-lab-add-devtest-user.md).
 
-- [Set lab policies](devtest-lab-set-lab-policy.md).
+- [Определение политик лаборатории](devtest-lab-set-lab-policy.md).
 
-- [Create a lab template](devtest-lab-create-template.md).
+- [Создание шаблона лаборатории](devtest-lab-create-template.md).
 
-- [Create custom artifacts for your VMs](devtest-lab-artifact-author.md).
+- [Создание пользовательских артефактов для виртуальных машин](devtest-lab-artifact-author.md).
 
-- [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md).
+- [Добавление виртуальной машины с артефактами в лабораторию](devtest-lab-add-vm-with-artifacts.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

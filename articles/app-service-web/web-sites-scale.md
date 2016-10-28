@@ -1,128 +1,124 @@
 <properties
-    pageTitle="Scale up an app in Azure | Microsoft Azure"
-    description="Learn how to scale up an app in Azure App Service to add capacity and features."
-    services="app-service"
-    documentationCenter=""
-    authors="cephalin"
-    manager="wpickett"
-    editor="mollybos"/>
+	pageTitle="Увеличение масштаба приложения в Azure | Microsoft Azure"
+	description="Узнайте, как увеличить масштаб приложения в службе приложений Azure для добавления емкости и расширения функций."
+	services="app-service"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor="mollybos"/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/05/2016"
-    ms.author="cephalin"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/05/2016"
+	ms.author="cephalin"/>
 
+# Увеличение масштаба приложения в Azure #
 
-# <a name="scale-up-an-app-in-azure"></a>Scale up an app in Azure #
+В этой статье показано, как масштабировать приложение в службе приложений Azure. Существует два рабочих процесса масштабирования (увеличение масштаба и развертывание), и в этой статье рассматривается первый из них.
 
-This article shows you how to scale your app in Azure App Service. There are two workflows for scaling, scale up and scale out, and this article explains the scale up workflow.
+- [Увеличение масштаба](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) — получение дополнительных ресурсов, в том числе ЦП, памяти и места на диске, и дополнительных возможностей, таких как выделенные виртуальные машины, пользовательские домены и сертификаты, промежуточные слоты, автоматическое масштабирование и т. д. Чтобы увеличить масштаб приложения, следует изменить ценовую категорию плана службы приложений, к которому относится ваше приложение.
+- [Развертывание](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) — увеличение количества экземпляров виртуальных машин, на которых работает приложение. В зависимости от ценовой категории вы можете развернуть приложение на виртуальных машинах в количестве до 20 экземпляров. Использование [сред службы приложений](../app-service/app-service-app-service-environments-readme.md) на уровне **Премиум** позволит увеличить масштаб, развертывая до 50 экземпляров. Дополнительные сведения см. в статье [Масштабирование числа экземпляров вручную или автоматически](../azure-portal/insights-how-to-scale.md). В ней вы узнаете, как использовать автомасштабирование, которое позволяет масштабировать число экземпляров автоматически на основе предварительно определенных правил и расписаний.
 
-- [Scale up](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Get more CPU, memory, disk space, and extra features like dedicated virtual machines (VMs), custom domains and certificates, staging slots, autoscaling, and more. You scale up by changing the pricing tier of the App Service plan that your app belongs to.
-- [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of VM instances that run your app.
-You can scale out to as many as 20 instances, depending on your pricing tier. [App Service Environments](../app-service/app-service-app-service-environments-readme.md) in **Premium** tier will further increase your scale-out count to 50 instances. For more information about scaling out, see [Scale instance count manually or automatically](../azure-portal/insights-how-to-scale.md). There you will find out how to use autoscaling, which is to scale instance count automatically based on predefined rules and schedules.
+Применение этих параметров масштаба занимает всего несколько секунд, но они влияют на все приложения в вашем [плане службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Для этого не требуется вносить изменения в код или повторно развертывать приложение.
 
-The scale settings take only seconds to apply and affect all apps in your [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-They do not require you to change your code or redeploy your application.
+Сведения о ценах и функциях отдельных планов службы приложений см. [здесь](/pricing/details/web-sites/).
 
-For information about the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/web-sites/).  
+> [AZURE.NOTE] Прежде чем сменить уровень **Бесплатный** для плана службы приложений, следует снять имеющиеся [ограничения на расходы](/pricing/spending-limits/), установленные для вашей подписки Azure. Сведения о просмотре или изменении параметров подписки на службу приложений Microsoft Azure см. в разделе [Подписки Microsoft Azure][azuresubscriptions].
 
-> [AZURE.NOTE] Before you switch an App Service plan from the **Free** tier, you must first remove the [spending limits](/pricing/spending-limits/) in place for your Azure subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
+<a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
 
-<a name="scalingsharedorbasic"></a>
-<a name="scalingstandard"></a>
+## Увеличение масштаба ценовой категории
 
-## <a name="scale-up-your-pricing-tier"></a>Scale up your pricing tier
+1. В браузере откройте [портал Azure][portal].
 
-1. In your browser, open the [Azure portal][portal].
+2. В колонке приложения щелкните **Все параметры**, а затем — **Увеличить масштаб**.
 
-2. In your app's blade, click **All settings**, and then click **Scale Up**.
+	![Переход для увеличения масштаба приложения Azure][ChooseWHP]
 
-    ![Navigate to scale up your Azure app.][ChooseWHP]
+4. Выберите нужную категорию, а затем щелкните **Выбрать**.
 
-4. Choose your tier, and then click **Select**.
-
-    The **Notifications** tab will flash a green **SUCCESS** after the operation is complete.
+	После завершения операции на вкладке **Уведомления** появится зеленая надпись **Выполнено**.
 
 <a name="ScalingSQLServer"></a>
-## <a name="scale-related-resources"></a>Scale related resources
-If your app depends on other services, such as Azure SQL Database or Azure Storage, you can also scale up those resources based on your needs. These resources are not scaled with the App Service plan and must be scaled separately.
+## Масштабирование связанных ресурсов
+Если приложение зависит от других служб, таких как база данных SQL Azure или служба хранилища Azure, их масштаб также можно увеличить в зависимости от ваших потребностей. Эти ресурсы не масштабируется с планом службы приложений и должны масштабироваться отдельно.
 
-1. In **Essentials**, click the **Resource group** link.
+1. В разделе **Основные компоненты** щелкните ссылку **Группа ресурсов**.
 
-    ![Scale up your Azure app's related resources](./media/web-sites-scale/RGEssentialsLink.png)
+	![Увеличение масштаба связанных ресурсов приложения Azure](./media/web-sites-scale/RGEssentialsLink.png)
 
-2. In the **Summary** part of the **Resource group** blade, click a resource that you want to scale. The following screenshot shows a SQL Database resource and an Azure Storage resource.
+2. Затем в области **Сводка** колонки **Группа ресурсов** щелкните ресурс, который требуется масштабировать. На приведенном ниже снимке экрана показаны ресурс базы данных SQL и ресурс службы хранилища Azure.
 
-    ![Navigate to resource group blade to scale up your Azure app](./media/web-sites-scale/ResourceGroup.png)
+	![Переход в колонку группы ресурсов для увеличения масштаба приложения Azure](./media/web-sites-scale/ResourceGroup.png)
 
-3. For a SQL Database resource, click **Settings** > **Pricing tier** to scale the pricing tier.
+3. Для ресурса базы данных SQL щелкните **Параметры** > **Ценовая категория**, чтобы выбрать масштаб ценовой категории.
 
-    ![Scale up the SQL Database backend for your Azure app](./media/web-sites-scale/ScaleDatabase.png)
+	![Увеличение масштаба внутреннего сервера базы данных SQL для приложения Azure](./media/web-sites-scale/ScaleDatabase.png)
 
-    You can also turn on [geo-replication](../sql-database/sql-database-geo-replication-overview.md) for your SQL Database instance.
+	Можно также включить [георепликацию](../sql-database/sql-database-geo-replication-overview.md) для экземпляра базы данных SQL.
 
-    For an Azure Storage resource, click **Settings** > **Configuration** to scale up your storage options.
+    Для ресурса службы хранилища Azure щелкните **Параметры** > **Конфигурация**, чтобы масштабировать возможности хранилища.
 
-    ![Scale up the Azure Storage account used by your Azure app](./media/web-sites-scale/ScaleStorage.png)
+    ![Увеличение масштаба учетной записи хранения Azure, используемой приложением Azure](./media/web-sites-scale/ScaleStorage.png)
 
 <a name="devfeatures"></a>
-## <a name="learn-about-developer-features"></a>Learn about developer features
-Depending on the pricing tier, the following developer-oriented features are available:
+## Возможности для разработчика
+В зависимости от ценовой категории будут доступны следующие возможности для разработчиков.
 
-### <a name="bitness"></a>Bitness ###
+### Разрядность ###
 
-- The **Basic**, **Standard**, and **Premium** tiers support 64-bit and 32-bit applications.
-- The **Free** and **Shared** plan tiers support 32-bit applications only.
+- Уровни **Basic**, **Standard** и **Premium** поддерживают 64-разрядные и 32-разрядные приложения.
+- Уровни плана **Бесплатный** и **Общий** поддерживают только 32-разрядные приложения.
 
-### <a name="debugger-support"></a>Debugger support ###
+### Поддержка отладчика ###
 
-- Debugger support is available for the **Free**, **Shared**, and **Basic** modes at one connection per App Service plan.
-- Debugger support is available for the **Standard** and **Premium** modes at five concurrent connections per App Service plan.
+- Поддержка отладчика доступна в режимах **Бесплатный**, **Общий** и **Базовый** при одном подключении на план обслуживания приложений.
+- Поддержка отладчика доступна в режимах **Стандартный** и **Премиум** при пяти одновременных подключениях на план обслуживания приложений.
 
 <a name="OtherFeatures"></a>
-## <a name="learn-about-other-features"></a>Learn about other features
+## Дополнительные возможности
 
-- For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](/pricing/details/web-sites/).
+- Подробные сведения обо всех оставшихся функциях в планах службы приложений, включая цены и функции, интересующие всех пользователей (в том числе разработчиков), см. в разделе [Сведения о ценах службы приложений](/pricing/details/web-sites/).
 
->[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) where you can immediately create a short-lived starter web app in App Service. No credit cards are required and there are no commitments.
+>[AZURE.NOTE] Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) (Пробное использование службы приложений), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Не требуется никаких кредитных карт и обязательств.
 
 <a name="Next Steps"></a>
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
-- For information about pricing, support, and SLA, visit the following links.
+- Чтобы начать работу с Azure, см. раздел [Бесплатная пробная версия Microsoft Azure](/pricing/free-trial/).
+- Сведения о ценах, поддержке и соглашениях об уровне обслуживания см. по следующим ссылкам:
 
-    [Data Transfers Pricing Details](/pricing/details/data-transfers/)
+	[Сведения о ценах — передача данных](/pricing/details/data-transfers/)
 
-    [Microsoft Azure Support Plans](/support/plans/)
+	[Планы поддержки Microsoft Azure](/support/plans/)
 
-    [Service Level Agreements](/support/legal/sla/)
+	[Соглашения об уровне обслуживания](/support/legal/sla/)
 
-    [SQL Database Pricing Details](/pricing/details/sql-database/)
+	[Сведения о ценах — база данных SQL](/pricing/details/sql-database/)
 
-    [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
+	[Размеры виртуальных машин и облачных служб для Microsoft Azure][vmsizes]
 
-    [App Service Pricing Details](/pricing/details/app-service/)
+	[Сведения о ценах на службу приложений](/pricing/details/app-service/)
 
-    [App Service Pricing Details - SSL Connections](/pricing/details/web-sites/#ssl-connections)
+	[Сведения о ценах на службу приложений — SSL-соединения](/pricing/details/web-sites/#ssl-connections)
 
-- For information about Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+- Рекомендации по службе приложений Azure, в том числе по созданию масштабируемой и устойчивой архитектуры, см. в статье [Best Practices: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx) (Рекомендации. Веб-приложения службы приложений Azure).
 
-- For videos about scaling App Service apps, see the following resources:
+- Видео о масштабировании приложений службы приложений см. на следующих ресурсах:
 
-    - [When to Scale Azure Websites - with Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-    - [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
-    - [How Azure Websites Scale - with Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
+	- [Стефан Шаков (Stefan Schackow). Когда следует масштабировать веб-сайты Azure](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	- [Стефан Шаков (Stefan Schackow). Автоматическое масштабирование веб-сайтов Azure, ЦП или по расписанию](/documentation/videos/auto-scaling-azure-web-sites/)
+	- [Стефан Шаков (Stefan Schackow). Как масштабируются веб-сайты Azure](/documentation/videos/how-azure-web-sites-scale/)
 
 
 <!-- LINKS -->
-[vmsizes]:/pricing/details/app-service/
-[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[vmsizes]: /pricing/details/app-service/
+[SQLaccountsbilling]: http://go.microsoft.com/fwlink/?LinkId=234930
+[azuresubscriptions]: http://go.microsoft.com/fwlink/?LinkID=235288
 [portal]: https://portal.azure.com/
 
 <!-- IMAGES -->
@@ -141,8 +137,4 @@ Depending on the pricing tier, the following developer-oriented features are ava
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

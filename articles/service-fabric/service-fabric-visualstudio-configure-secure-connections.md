@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure secure connections supported by the Service Fabric cluster | Microsoft Azure"
-   description="Learn how to use Visual Studio to configure secure connections that are supported by the Azure Service Fabric cluster."
+   pageTitle="Настройка безопасных подключений, поддерживаемых кластером Service Fabric | Microsoft Azure"
+   description="Узнайте о том, как использовать Visual Studio для настройки безопасных подключений, поддерживаемых кластером Azure Service Fabric."
    services="service-fabric"
    documentationCenter="na"
    authors="cawaMS"
@@ -16,46 +16,45 @@
    ms.date="10/08/2015"
    ms.author="cawaMS" />
 
+# Настройка безопасных подключений к кластеру Service Fabric из Visual Studio
 
-# <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configure secure connections to a Service Fabric cluster from Visual Studio
+Узнайте, как использовать Azure Visual Studio для безопасного доступа к кластеру Service Fabric с настроенной политикой контроля доступа.
 
-Learn how to use Visual Studio to securely access an Azure Service Fabric cluster with access control policies configured.
+## Типы подключения кластера
 
-## <a name="cluster-connection-types"></a>Cluster connection types
+Существует два типа подключений, поддерживаемых кластером Azure Service Fabric: **небезопасные** подключения и безопасные подключения **на основе сертификата x509**. (Для кластеров Service Fabric, размещенных локально, также поддерживается проверка подлинности **Windows** и **dSTS**.) Тип подключения кластера необходимо настроить при создании кластера. После создания изменить тип подключения нельзя.
 
-Two types of connections are supported by the Azure Service Fabric cluster: **non-secure** connections and **x509 certificate-based** secure connections. (For Service Fabric clusters hosted on-premises, **Windows** and **dSTS** authentications are also supported.) You have to configure the cluster connection type when the cluster is being created. Once it's created, the connection type can’t be changed.
+Средства Service Fabric Visual Studio поддерживают все типы проверки подлинности для подключения к кластеру для публикации. Инструкции по настройке безопасного кластера Service Fabric см. в разделе [Настройка кластера Service Fabric на портале Azure](service-fabric-cluster-creation-via-portal.md).
 
-The Visual Studio Service Fabric tools support all authentication types for connecting to a cluster for publishing. See [Setting up a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for instructions on how to set up a secure Service Fabric cluster.
+## Настройка подключения кластера в профилях публикации
 
-## <a name="configure-cluster-connections-in-publish-profiles"></a>Configure cluster connections in publish profiles
+При публикации проекта Service Fabric из Visual Studio в диалоговом окне **Публикация приложения Service Fabric** можно выбрать кластер Azure Service Fabric, нажав кнопку **Выбрать** в разделе **Конечная точка подключения**. Вы можете войти в учетную запись Azure и выбрать существующий кластер в своих подписках.
 
-If you publish a Service Fabric project from Visual Studio, use the **Publish Service Fabric Application** dialog box to choose an Azure Service Fabric cluster by clicking the **Select** button in **Connection endpoint** section. You can sign in to your Azure account and then select an existing cluster under your subscriptions.
+![Диалоговое окно **Публикации приложения Service Fabric** позволяет настроить подключение к Service Fabric.][publishdialog]
 
-![The **Publish Service Fabric Application** dialog box is used to configure a Service Fabric connection.][publishdialog]
+Диалоговое окно **Выбор кластера Service Fabric** автоматически проверяет подключение кластера. Если проверка проходит успешно, это означает, что в системе установлены необходимые сертификаты для безопасного подключения к кластеру или то, что кластер не является безопасным. Неудачный результат проверки может быть вызван проблемами с сетью или неправильной настройкой системы для безопасного подключения к кластеру.
 
-The **Select Service Fabric Cluster** dialog box automatically validates the cluster connection. If validation passes, it means that your system has the correct certificates installed to connect to the cluster securely, or your cluster is non-secure. Validation failures can be caused by network issues or by not having your system correctly configured to connect to a secure cluster.
+![Диалоговое окно **Выбор кластера Service Fabric** позволяет настроить существующее подключение к кластеру Service Cluster или создать новое подключение.][selectsfcluster]
 
-![In the **Select Service Fabric Cluster** dialog box, you can configure an existing Service Fabric cluster connection or create and configure a new cluster connection.][selectsfcluster]
+### Безопасное подключение к кластеру
 
-### <a name="to-connect-to-a-secure-cluster"></a>To connect to a secure cluster
+1.	Убедитесь, что вам доступен один из клиентских сертификатов, которым доверяет целевой кластер. Сертификат обычно распространяется в виде файла обмена персональной информацией (.pfx). Руководство по настройке доступа клиента к серверу см. в разделе [Настройка кластера Service Fabric на портале Azure](service-fabric-cluster-creation-via-portal.md).
 
-1.  Make sure you can access one of the client certificates that the destination cluster trusts. The certificate is usually shared as a Personal Information Exchange (.pfx) file. See [Setting up a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for how to configure the server to grant access to a client.
+2.	Установите доверенный сертификат. Для этого дважды щелкните PFX-файл или импортируйте сертификаты с помощью сценария PowerShell PfxCertificate. Установите сертификат в каталог **Cert:\\LocalMachine\\My**. При импорте сертификата можно принять все настройки по умолчанию.
 
-2.  Install the trusted certificate. To do this, double-click the .pfx file, or use the PowerShell script Import-PfxCertificate to import the certificates. Install the certificate to **Cert:\LocalMachine\My**. It's OK to accept all default settings while importing the certificate.
+3.	Выберите **Опубликовать...** в контекстном меню проекта, чтобы открыть диалоговое окно **Публикация приложения Azure**, а затем выберите целевой кластер. Средство автоматически разрешает подключение и сохраняет параметры безопасного подключения в профиле публикации.
 
-3.  Choose the **Publish...** command on the shortcut menu of the project to open the **Publish Azure Application** dialog box and then select the target cluster. The tool automatically resolves the connection and saves the secure connection parameters in the publish profile.
+4.	[Необязательно]: можно изменить профиль публикации, указав в нем безопасное подключение к кластеру.
 
-4.  [Optional]: You can edit the publish profile to specify a secure cluster connection.
+    Так как вы добавляете информацию о сертификате в XML-файл профиля публикации вручную, запишите имя хранилища сертификатов, расположение хранилища и отпечаток сертификата. Эти значения нужно будет указать в качестве имени и расположения хранилища сертификатов. Для получения дополнительных сведений см. раздел [Руководство: получение отпечатка сертификата](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx).
 
-    Since you're manually editing the Publish Profile XML file to specify the certificate information, be sure to note the certificate store name, store location, and certificate thumbprint. You'll need to provide these values for the certificate's store name and store location. See [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695(v=vs.110).aspx) for more information.
+    Параметры *ClusterConnectionParameters* позволяют задать параметры PowerShell для подключения к кластеру Service Fabric. Допустимы все значения параметров, которые принимаются командлетом Connect-ServiceFabricCluster. Список доступных параметров см. в разделе [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
-    You can use the *ClusterConnectionParameters* parameters to specify the PowerShell parameters to use when connecting to the Service Fabric cluster. Valid parameters are any that are accepted by the Connect-ServiceFabricCluster cmdlet. See [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) for a list of available parameters.
-
-    If you’re publishing to a remote cluster, you need to specify the appropriate parameters for that specific cluster. The following is an example of connecting to a non-secure cluster:
+    При публикации на удаленный кластер необходимо указать соответствующие параметры для этого конкретного кластера. Ниже приведен пример небезопасного подключения к кластеру:
 
     `<ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000" />`
 
-    Here’s an example for connecting to an x509 certificate-based secure cluster:
+    Ниже приведен пример для безопасного подключения к кластеру на основе сертификатов x509:
 
     ```
     <ClusterConnectionParameters
@@ -68,17 +67,13 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
     StoreName="My" />
     ```
 
-5.  Edit any other necessary settings, such as upgrade parameters and Application Parameter file location, and then publish your application from the **Publish Service Fabric Application** dialog box in Visual Studio.
+5.	Измените другие необходимые параметры, такие как параметры обновления и расположение файла параметров приложения, и снова опубликуйте приложение из диалогового окна **Публикация приложения Service Fabric** в Visual Studio.
 
-## <a name="next-steps"></a>Next steps
-For more information about accessing Service Fabric clusters, see [Visualizing your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+## Дальнейшие действия
+Дополнительные сведения о доступе к кластерам Service Fabric см. в разделе [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md).
 
 <!--Image references-->
-[publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
-[selectsfcluster]:./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
+[publishdialog]: ./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
+[selectsfcluster]: ./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,32 +1,30 @@
 <properties
-    pageTitle="Deploy Machine Learning Workspace Using Azure Resource Manager Template | Microsoft Azure"
-    description="How to deploy a workspace for Azure Machine Learning using Azure Resource Manager template"
-    services="machine-learning"
-    documentationCenter=""
-    authors="ahgyger"
-    manager="haining"
-    editor="garye"/>
+	pageTitle="Развертывание рабочей области машинного обучения с помощью шаблона Azure Resource Manager | Microsoft Azure"
+	description="Развертывание рабочей области для Машинного обучения Azure с помощью шаблона Azure Resource Manager"
+	services="machine-learning"
+	documentationCenter=""
+	authors="ahgyger"
+	manager="haining"
+	editor="garye"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/23/2016"
-    ms.author="ahgyger"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2016"
+	ms.author="ahgyger"/>
+# Развертывание рабочей области машинного обучения с помощью Azure Resource Manager
 
-# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Deploy Machine Learning Workspace Using Azure Resource Manager
+## Введение
+Шаблон развертывания Azure Resource Manager позволяет сэкономить время, предоставляя масштабируемый способ развертывания взаимосвязанных компонентов с возможностью проверки и механизмом повтора. Чтобы настроить рабочие области Машинного обучения Azure, например, сначала необходимо настроить учетную запись хранения Azure, а затем развернуть рабочую область. Представьте себе выполнение этого задания вручную для сотен рабочих областей. Простой альтернативой является развертывание рабочей области машинного обучения Azure и всех ее зависимых компонентов с помощью шаблона Azure Resource Manager. В этой статье представлено пошаговое выполнение этого процесса. Подробный обзор Azure Resource Manager см. в статье [Общие сведения об Azure Resource Manager](../resource-group-overview.md).
 
-## <a name="introduction"></a>Introduction
-Using an Azure Resource Manager deployment template saves you time by giving you a scalable way to deploy interconnected components with a validation and retry mechanism. To set up Azure Machine Learning Workspaces, for example, you need to first configure an Azure storage account and then deploy your workspace. Imagine doing this manually for hundreds of workspaces. An easier alternative is to use an Azure Resource Manager template to deploy an Azure Machine Learning Workspace and all its dependencies. This article takes you through this process step-by-step. For a great overview of Azure Resource Manager, see [Azure Resource Manager overview](../resource-group-overview.md).
+## Пошаговое создание рабочей области машинного обучения
+Сначала мы создадим группу ресурсов Azure, а затем развернем новую учетную запись хранения Azure и рабочую область машинного обучения Azure с помощью шаблона Resource Manager. После завершения развертывания мы выведем важные сведения о созданных рабочих областях (первичный ключ, идентификатор и URL-адрес рабочей области).
 
-## <a name="step-by-step:-create-a-machine-learning-workspace"></a>Step-by-step: create a Machine Learning Workspace
-We will create an Azure resource group, then deploy a new Azure storage account and a new Azure Machine Learning Workspace using a Resource Manager template. Once the deployment is complete, we will print out important information about the workspaces that were created (the primary key, the workspaceID, and the URL to the workspace).
-
-### <a name="create-an-azure-resource-manager-template"></a>Create an Azure Resource Manager template
-A Machine Learning Workspace requires an Azure storage account to store the dataset linked to it.
-The following template uses the name of the resource group to generate the storage account name and the workspace name.  It also uses the storage account name as a property when creating the workspace.
+### Создание шаблона Azure Resource Manager
+Рабочей области машинного обучения требуется учетная запись хранения Azure для хранения связанного с ней набора данных. В следующем шаблоне для создания имени учетной записи хранения и рабочей области используется имя группы ресурсов. Имя учетной записи хранения также используется в качестве свойства при создании рабочей области.
 
 ```
 {
@@ -73,11 +71,11 @@ The following template uses the name of the resource group to generate the stora
 }
 
 ```
-Save this template as mlworkspace.json file under c:\temp\.
+Сохраните этот шаблон как файл mlworkspace.json в папке C:\\temp.
 
-### <a name="deploy-the-resource-group,-based-on-the-template"></a>Deploy the resource group, based on the template
-* Open PowerShell
-* Install modules for Azure Resource Manager and Azure Service Management  
+### Развертывание группы ресурсов на основе шаблона
+* Откройте PowerShell.
+* Установите модули для Azure Resource Manager и управления службами Azure.
 
 ```
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -87,58 +85,57 @@ Install-Module AzureRM -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   These steps download and install the modules necessary to complete the remaining steps. This only needs to be done once in the environment where you are executing the PowerShell commands.   
+   При этом скачиваются и устанавливаются модули, необходимые для выполнения оставшихся действий. Их достаточно выполнить один раз в среде выполнения команд PowerShell.
 
-* Authenticate to Azure  
+* Проверка подлинности в Azure
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
 Add-AzureRmAccount
 ```
-This step needs to be repeated for each session. Once authenticated, your subscription information should be displayed.
+Этот шаг необходимо выполнять для каждого сеанса. После выполнения проверки подлинности должны отображаться сведения о подписке.
 
-![Azure Account][1]
+![Учетная запись Azure][1]
 
-Now that we have access to Azure, we can create the resource group.
+Получив доступ к Azure, мы можем создать группу ресурсов.
 
-* Create a resource group
+* Создание группы ресурсов
 
 ```
 $rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
 $rg
 ```
 
-Verify that the resource group is correctly provisioned. **ProvisioningState** should be “Succeeded.”
-The resource group name is used by the template to generate the storage account name. The storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+Убедитесь, что группа ресурсов должным образом подготовлена к работе. Для **ProvisioningState** должно отображаться состояние Succeeded. Шаблон использует имя группы ресурсов для создания имени учетной записи хранения. Имя учетной записи хранения должно содержать от 3 до 24 знаков и состоять только из цифр и букв нижнего регистра.
 
-![Resource Group][2]
+![Группа ресурсов][2]
 
-* Using the resource group deployment, deploy a new Machine Learning Workspace.
+* Разверните новую рабочую область машинного обучения с помощью развертывания группы ресурсов.
 
 ```
 # Create a Resource Group, TemplateFile is the location of the JSON template.
 $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
-Once the deployment is completed, it is straightforward to access properties of the workspace you deployed. For example, you can access the Primary Key Token.
+После завершения развертывания очень просто получить доступ к свойствам развернутой рабочей области. Например, можно получить доступ к сведениям о маркере первичного ключа.
 
 ```
 # Access Azure ML Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Another way to retrieve tokens of existing workspace is to use the Invoke-AzureRmResourceAction command. For example, you can list the primary and secondary tokens of all workspaces.
+Другой способ получения маркеров существующей рабочей области — использовать команду Invoke-AzureRmResourceAction. Например, можно отобразить список основных и дополнительных маркеров всех рабочих областей.
 
 ```  
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
 ```
-After the workspace is provisioned, you can also automate many Azure Machine Learning Studio tasks using the [PowerShell Module for Azure Machine Learning](http://aka.ms/amlps).
+После подготовки рабочей области к работе можно автоматизировать многие задачи Студии машинного обучения Azure с помощью [модуля PowerShell для Машинного обучения Azure](http://aka.ms/amlps).
 
-## <a name="next-steps"></a>Next Steps 
-* Learn more about [authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md). 
-* Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates). 
-* Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
+## Дальнейшие действия 
+* Узнайте больше о [создании шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
+* Просмотрите [репозиторий шаблонов быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates).
+* Просмотрите видео об [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
  
 <!--Image references-->
 [1]: ../media/machine-learning-deploy-with-resource-manager-template/azuresubscription.png
@@ -147,8 +144,4 @@ After the workspace is provisioned, you can also automate many Azure Machine Lea
 
 <!--Link references-->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

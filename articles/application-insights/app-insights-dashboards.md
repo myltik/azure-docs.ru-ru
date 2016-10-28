@@ -1,169 +1,158 @@
 <properties
-    pageTitle="Using the Application Insights portal"
-    description="Metrics, search, dashboards and settings in the Application Insights portal."
-    services="application-insights"
+	pageTitle="Использование портала Application Insights"
+	description="Метрики, поиск, панели мониторинга и параметры на портале Application Insights."
+	services="application-insights"
     documentationCenter=""
-    authors="alancameronwills"
-    manager="douge"/>
+	authors="alancameronwills"
+	manager="douge"/>
 
 <tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza"
-    ms.devlang="multiple"
-    ms.topic="article" 
-    ms.date="07/30/2016"
-    ms.author="awills"/>
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="multiple"
+	ms.topic="article" 
+	ms.date="07/30/2016"
+	ms.author="awills"/>
+
+# Навигация и панели мониторинга на портале Application Insights
+
+После того как вы [настроите Application Insights для проекта](app-insights-overview.md), данные телеметрии о производительности и использовании вашего приложения будут отображаться в ресурсе Application Insights проекта на [портале Azure](https://portal.azure.com).
+
+## Поиск телеметрии
+
+Выполните вход на [портал Azure](https://portal.azure.com) и перейдите к ресурсу Application Insights, который вы создали для приложения.
+
+![Щелкните «Обзор», выберите «Application Insights», а затем свое приложение.](./media/app-insights-dashboards/00-start.png)
+
+Страница обзора содержит некоторые основные данные телеметрии, а также ссылки на дополнительные данные. Содержимое зависит от типа приложения и может быть настроено.
 
 
-# <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigation and Dashboards in the Application Insights portal
+## Колонка обзора приложения
 
-After you have [set up Application Insights on your project](app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
+Колонка (страница) обзора приложения содержит основные метрики диагностики вашего приложения и предоставляет доступ к остальным функциям портала.
 
-## <a name="find-your-telemetry"></a>Find your telemetry
+Нажмите:
 
-Sign in to the [Azure portal](https://portal.azure.com) and browse to the Application Insights resource that you created for your app.
-
-![Click Browse, select Application Insights, then your app.](./media/app-insights-dashboards/00-start.png)
-
-The overview page gives you some basic telemetry, plus links to more.
-The contents depend on the type of your app, and can be customized.
-
-
-## <a name="the-app-overview-blade"></a>The app overview blade
-
-The overview blade (page) for your app shows a summary of the key diagnostic metrics of your app, and is a gateway to the other features of the portal.
-
-Click:
-
-* **Any chart or tile** to see more detail about what's displayed on the chart.
-* **Settings** to get to predefined blades of other metrics, as well as configuration pages.
-* [**Metrics Explorer**](app-insights-metrics-explorer.md) to create metrics pages of your own choice.
-* [**Search**](app-insights-diagnostic-search.md) to investigate specific instances of events such as requests, exceptions, or log traces.
-* [**Analytics**](app-insights-analytics.md) for powerful queries over your telemetry.
-* [**Live Stream**](app-insights-metrics-explorer.md#live-stream) for a fixed set of near-instant metrics, useful when deploying a new build or debugging.
+* **Любую диаграмму или элемент**, чтобы просмотреть подробные сведения о том, что отображается на диаграмме.
+* **Параметры**, чтобы получить стандартные колонки других метрик, а также страницы конфигурации.
+* [**Обозреватель метрик**](app-insights-metrics-explorer.md), чтобы создать страницы метрики по собственному выбору.
+* [**Поиск**](app-insights-diagnostic-search.md), чтобы изучить определенные экземпляры таких событий, как запросы, исключения или журналы трассировки.
+* [**Аналитика**](app-insights-analytics.md) для эффективных запросов телеметрии.
+* [**Динамический поток**](app-insights-metrics-explorer.md#live-stream) для фиксированного набора почти мгновенных метрик, полезных при отладке или развертывании новой сборки.
 
 
-![Major routes to view your telemetry](./media/app-insights-dashboards/010-oview.png)
+![Основные маршруты для просмотра телеметрии](./media/app-insights-dashboards/010-oview.png)
 
 
-### <a name="customize-the-overview-blade"></a>Customize the overview blade 
+### Настройка колонки обзора 
 
-Choose what you want to see on the overview. In Customize, you can insert section titles, drag tiles and charts around, remove items, and add new tiles and charts from the gallery.
+Выберите, что должно отображаться в обзоре. В окне настройки можно вставить элементы разделов, перетащить элементы и диаграммы, удалить элементы и добавить новые элементы и диаграммы из коллекции.
 
-![Click Edit. Drag tiles and charts. Add tiles from the gallery. Then click Done.](./media/app-insights-dashboards/020-customize.png)
+![Нажмите кнопку «Изменить». Перетащите элементы и диаграммы. Добавление элементы из коллекции. Затем нажмите кнопку "Готово".](./media/app-insights-dashboards/020-customize.png)
 
-## <a name="dashboards"></a>Dashboards
+## Панели мониторинга
 
-The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Visual Studio Application Insights](app-insights-overview.md).
+Выполнив вход на [портал Microsoft Azure](https://portal.azure.com), вы попадаете на панель мониторинга. Здесь можно собрать наиболее важные для вас диаграммы из всех ресурсов Azure, включая данные телеметрии из [Visual Studio Application Insights](app-insights-overview.md).
  
 
-![A customized dashboard.](./media/app-insights-dashboards/31.png)
+![Настроенная панель мониторинга.](./media/app-insights-dashboards/31.png)
 
 
-1. Edit, create, and share dashboards using the dashboard toolbar.
-2. Return to the current dashboard, or switch to other recent views.
-3. Switch dashboards.
-4. Create, edit, and share dashboards.
-5. Hover over a tile and then use its top bar to move, customize, or remove it.
+1. Изменяйте и создавайте панели мониторинга, а также используйте их совместно с другими пользователями c помощью панели инструментов панели мониторинга.
+2. Возвращайтесь на текущую панель мониторинга или переходите в другие недавно открытые представления.
+3. Переключайте панели мониторинга.
+4. Создавайте и изменяйте панели мониторинга, а также используйте их совместно с другими пользователями.
+5. Перемещайте, настраивайте и удаляйте плитки путем наведения на них указателя мыши и использования верхней панели.
 
-## <a name="add-to-a-dashboard"></a>Add to a dashboard
+## Добавить на панель мониторинга
 
-When you're looking at a blade or set of charts that's particularly interesting, you can pin a copy of it to the dashboard. You'll see it next time you return there.
+Если вы просматриваете колонку или набор диаграмм, которая особенно интересна, закрепите ее копию на панели мониторинга. Вы увидите ее, когда в очередной раз откроете панель.
 
-![To pin a chart, hover over it and then click "..." in the header.](./media/app-insights-dashboards/33.png)
+![Чтобы закрепить диаграмму, наведите на нее курсор мыши и нажмите кнопку "..." в заголовке.](./media/app-insights-dashboards/33.png)
 
-1. Pin chart to dashboard. A copy of the chart appears on the dashboard.
-2. Pin the whole blade to the dashboard - it appears on the dashboard as a tile that you can click through.
-3. Click the top left corner to return to the current dashboard. Then you can use the drop-down menu to return to the current view.
+1. Закрепите диаграмму на панели мониторинга. На панели мониторинга появится копия диаграммы.
+2. Закрепите целую колонку на панели мониторинга — она отображается на панели мониторинга в виде плитки, которую можно щелкнуть.
+3. Щелкните клавишей мыши в левом верхнем углу, чтобы вернуться к текущей панели мониторинга. Затем используйте раскрывающееся меню, чтобы вернуться в текущее представление.
 
-Notice that charts are grouped into tiles: a tile can contain more than one chart. You pin the whole tile to the dashboard.
+Обратите внимание, что диаграммы группируются в плитки и каждая плитка может содержать сразу несколько диаграмм. Плитку можно закрепить на панели мониторинга целиком.
 
-### <a name="analytics-charts"></a>Analytics charts
+### Диаграммы аналитики
 
-You can also [pin Analytics](app-insights-analytics-using.md#pin-to-dashboard) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics.
+Вы также можете [закрепить диаграммы аналитики](app-insights-analytics-using.md#pin-to-dashboard) на [общей](#share-dashboards-with-your-team) панели мониторинга. Это позволяет добавлять диаграммы из любого произвольного запроса вместе со стандартными метриками.
 
-## <a name="adjust-a-tile-on-the-dashboard"></a>Adjust a tile on the dashboard
+## Корректировка плитки на панели мониторинга
 
-Once a tile is on the dashboard, you can adjust it.
+Плитку, закрепленную на панели мониторинга, можно скорректировать.
 
-![Hover over a chart in order to edit it.](./media/app-insights-dashboards/36.png)
+![Наведите указатель мыши на диаграмму, чтобы ее изменить.](./media/app-insights-dashboards/36.png)
 
-1. Add a chart to the tile. 
-2. Set the metric, group-by dimension and style (table, graph) of a chart.
-3. Set the timespan and filter properties for the charts on the tile. You can set the chart's own timespan, or inherit from the timespan of the dashboard.
-4. Set tile title.
+1. Добавить на плитку диаграмму.
+2. Настроить метрику, параметры группировки и стиль (таблица, график) диаграммы.
+3. Настроить промежуток времени и фильтрацию свойств для диаграмм на плитке. Для диаграммы можно настроить собственный временной диапазон или наследовать его из панели мониторинга.
+4. Настроить название плитки.
 
-Tiles pinned from metric explorer blades have more editing options than tiles pinned from an Overview blade.
+Плитки, закрепленные из колонок обозревателя метрик, имеют больше параметров редактирования, чем плитки, закрепленные из колонки обзора.
 
-The original tile that you pinned isn't affected by your edits.
-
-
-## <a name="switch-between-dashboards"></a>Switch between dashboards
-
-You can save more than one dashboard and switch between them. When you pin a chart or blade, they're added to the current dashboard.
-
-![To switch between dashboards, click Dashboard and select a saved dashboard. To create and save a new dashboard, click New. To rearrange, click Edit.](./media/app-insights-dashboards/32.png)
-
-For example, you might have one dashboard for displaying full screen in the team room, and another for general development.
+На оригинальное название плитки ваши правки не влияют.
 
 
-On the dashboard, a blade appears as a tile: click it to go to the blade. A chart replicates the chart in its original location.
+## Переключение между панелями мониторинга
 
-![Click a tile to open the blade it represents](./media/app-insights-dashboards/35.png)
+Можно сохранить несколько панелей мониторинга и переключаться между ними. При закреплении диаграммы или колонки они добавляются к текущей панели мониторинга.
+
+![Для переключения между панелями мониторинга щелкните "Панель мониторинга" и выберите сохраненную панель мониторинга. Чтобы создать и сохранить новую панель мониторинга, нажмите кнопку "Создать". Чтобы изменить расположение панелей, нажмите кнопку "Изменить".](./media/app-insights-dashboards/32.png)
+
+Например, у вас может быть одна панель мониторинга для отображения полного экрана в комнате команды, а другая — для общей разработки.
 
 
-## <a name="share-dashboards-with-your-team"></a>Share dashboards with your team
+На панели мониторинга появится колонка в виде элемента: щелкните его, чтобы перейти к колонке. Диаграмма реплицирует диаграмму в исходном расположении.
 
-When you've created a dashboard, you can share it with other users.
+![Щелкните плитку, чтобы открыть соответствующую ей колонку.](./media/app-insights-dashboards/35.png)
 
-![In the dashboard header, click Share](./media/app-insights-dashboards/41.png)
 
-Learn about [Roles and access control](app-insights-resources-roles-access-control.md).
+## Предоставление доступа к панелям мониторинга другим участникам команды
 
-## <a name="settings"></a>Settings
+Создав панель мониторинга, вы можете предоставить к ней доступ другим пользователям.
 
-The Settings button on the overview blade is not only about configuration, but also provides a way into several types of chart.
+![Щелкните общую папку в заголовке панели мониторинга.](./media/app-insights-dashboards/41.png)
 
-* **Audit logs** - Review alerts and actions that have been performed on your app resource.
-* [New support request](app-insights-get-dev-support.md) - Options for help with any aspect of Azure. For Application Insights, you can also get help by using the smiley button at top right of the window.
-* [Application map](app-insights-dependencies.md#application-map) - Active map showing the components of your application, derived from the dependency information.
-* [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) - Key metrics with a latency of about 1s, for monitoring a new release.
-* **Failures** - Failed requests, failed dependency calls, and exceptions. [Editable metrics blade](app-insights-metrics-explorer.md).
-* **Performance** - Response time, dependency response times. [Editable metrics blade](app-insights-metrics-explorer.md).
-* [Servers](app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](app-insights-monitor-performance-live-website-now.md).
-* **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](app-insights-javascript.md).
-* **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](app-insights-javascript.md).
-* **Getting started** - inline tutorial.
-* **Properties** - instrumentation key, subscription and resource id.
-* [Availability](app-insights-monitor-web-app-availability.md) - web test configuration and results.
-* [Alerts](app-insights-alerts.md) - metric alert configuration.
-* [Continuous export](app-insights-export-telemetry.md) - configure export of telemetry to Azure storage.
-* [Performance testing](app-insights-monitor-web-app-availability.md#performance-tests) - set up a synthetic load on your website.
-* [Quota and pricing](app-insights-pricing.md) and [ingestion sampling](app-insights-sampling.md).
-* **API Access** - currently used to create [release annotations](app-insights-annotations.md) and for the Data Access API.
-* [**Work Items**](app-insights-diagnostic-search.md#create-work-item) - connect to a work tracking system so that you can create bugs while inspecting telemetry.
-* [**Users**](app-insights-resources-roles-access-control.md) - Manage who has access to your app resource.
-* [**Roles**](app-insights-resources-roles-access-control.md) - manage what users can do.
-* [**Tags**](..\resource-group-using-tags.md) - organize Azure resources.
-* [**Locks**](..\resource-group-lock-resources.md) - lock Azure resources
-* [**Export template**](app-insights-powershell.md) - export a definition of the Azure resource so that you can use it as a template to create new resources.
+Дополнительные сведения о [ролях и контроле доступа](app-insights-resources-roles-access-control.md).
 
-## <a name="what's-next?"></a>What's next?
+## Параметры
+
+Кнопка "Параметры" в колонке "Обзор" — это не только доступ к конфигурации, но и возможность выбрать из нескольких типов диаграмм.
+
+* **Журналы аудита** — просмотр оповещений и действий, которые имели место в ресурсе приложения.
+* [Новый запрос в службу поддержки](app-insights-get-dev-support.md) — получение справки по любому вопросу, связанному с Azure. Справку по Application Insights также можно получить, используя кнопку улыбающегося лица в правом верхнем углу окна.
+* [Схема сопоставления приложений](app-insights-dependencies.md#application-map) — активная карта, на которой показаны компоненты приложения, основанные на сведениях о зависимостях.
+* [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream) (Динамический поток метрик) — ключевые метрики для мониторинга нового выпуска, отображаемые с задержкой примерно в 1 секунду.
+* **Сбои** — неудавшиеся запросы, вызовы зависимостей и исключения. [Колонка редактируемых метрик](app-insights-metrics-explorer.md).
+* **Производительность** — время отклика, время отклика зависимостей. [Колонка редактируемых метрик](app-insights-metrics-explorer.md).
+* [Серверы](app-insights-web-monitor-performance.md) — счетчики производительности. Доступны, если [установить монитор состояния](app-insights-monitor-performance-live-website-now.md).
+* **Браузер** — производительность просмотра страниц и вызовов технологии AJAX. Доступно, если [инструментировать веб-страницы](app-insights-javascript.md).
+* **Использование** — число просмотров страниц, пользователей и сеансов. Доступно, если [инструментировать веб-страницы](app-insights-javascript.md).
+* **Начало работы** — встроенное руководство.
+* **Свойства** — ключ инструментирования, идентификатор подписки и ресурса.
+* [Доступность](app-insights-monitor-web-app-availability.md) — конфигурация и результаты веб-теста.
+* [Оповещения](app-insights-alerts.md) — конфигурация оповещений для метрик.
+* [Непрерывный экспорт](app-insights-export-telemetry.md) — настройка экспорта данных телеметрии в службе хранилища Azure.
+* [Тестирование производительности](app-insights-monitor-web-app-availability.md#performance-tests) — настройка искусственной нагрузки на веб-сайт.
+* [Квота и цены](app-insights-pricing.md) и [выборка приема](app-insights-sampling.md).
+* **Доступ к API** — в настоящее время используется для создания [аннотаций к выпуску](app-insights-annotations.md) и для API доступа к данным.
+* [**Рабочие элементы**](app-insights-diagnostic-search.md#create-work-item) — подключение к системе отслеживания работы, позволяющей создавать ошибки при проверке данных телеметрии.
+* [**Пользователи**](app-insights-resources-roles-access-control.md) — управление доступом к ресурсу приложения.
+* [**Роли**](app-insights-resources-roles-access-control.md) — управление действиями пользователей.
+* [**Теги**](..\resource-group-using-tags.md) — упорядочение ресурсов Azure.
+* [**Блокировки**](..\resource-group-lock-resources.md) — блокировка ресурсов Azure.
+* [**Экспорт шаблона**](app-insights-powershell.md) — экспорт определения ресурса Azure, позволяющий использовать его как шаблон для создания новых ресурсов.
+
+## Что дальше?
 
 ||
 |---|---
-|[Metrics explorer](app-insights-metrics-explorer.md)<br/>Filter and segment metrics|![Search example](./media/app-insights-dashboards/64.png)
-|[Diagnostic search](app-insights-diagnostic-search.md)<br/>Find and inspect events, related events, and create bugs |![Search example](./media/app-insights-dashboards/61.png)
-|[Analytics](app-insights-analytics.md)<br/>Powerful query language| ![Search example](./media/app-insights-dashboards/63.png)
+|[Обозреватель метрик](app-insights-metrics-explorer.md)<br/>Фильтрация и сегментирование метрик|![Пример поиска](./media/app-insights-dashboards/64.png)
+|[Поиск по журналу диагностики](app-insights-diagnostic-search.md)<br/>Поиск и проверка событий, связанные события и создание ошибок |![Пример поиска](./media/app-insights-dashboards/61.png)
+|[Аналитика](app-insights-analytics.md)<br/>Эффективный язык запросов| ![Пример поиска](./media/app-insights-dashboards/63.png)
 
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

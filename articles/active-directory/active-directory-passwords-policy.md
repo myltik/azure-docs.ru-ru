@@ -1,71 +1,66 @@
 <properties
-    pageTitle="Password policies and restrictions in Azure Active Directory | Microsoft Azure"
-    description="Describes the policies that apply to passwords in Azure Active Directory, including allowed characters, length, and expiration"
+	pageTitle="Политики и ограничения для паролей в Azure Active Directory | Microsoft Azure"
+	description="Описание политик, которые применяются к паролям в Azure Active Directory, включая допустимые символы, длину и окончание срока действия"
   services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
+	ms.author="curtand"/>
 
 
+# Политики и ограничения для паролей в Azure Active Directory
 
-# <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Password policies and restrictions in Azure Active Directory
+В этой статье описываются политики паролей и требования к сложности, связанные с учетными записями пользователей, которые хранятся в каталоге Azure AD.
 
-This article describes the password policies and complexity requirements associated with user accounts stored in your Azure AD directory.
+> [AZURE.IMPORTANT] **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
 
-> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+## Политики UserPrincipalName, которые применяются ко всем учетным записям пользователей
 
-## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName policies that apply to all user accounts
+Все учетные записи пользователей, используемые для входа в систему проверки подлинности Azure AD, должны иметь уникальное значение атрибута имени субъекта-пользователя (UPN), связанное с этой учетной записью. В следующей таблице описываются политики, которые применяются к локальным учетным записям пользователей из Active Directory (синхронизируются с облаком) и к учетным записям пользователей в облаке.
 
-Every user account that needs to sign in to the Azure AD authentication system must have a unique user principal name (UPN) attribute value associated with that account. The following table outlines the polices  that apply to both on-premises Active Directory-sourced user accounts   (synced to the cloud) and to cloud-only user accounts.
-
-|   Property           |     UserPrincipalName requirements  |
+| Свойство | Требования UserPrincipalName |
 |   ----------------------- |   ----------------------- |
-|  Characters allowed    |  <ul> <li>A – Z</li> <li>a -z </li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
-|  Characters not allowed  | <ul> <li>Any '@' character that is not separating the user name from the domain.</li> <li>Cannot contain a period character '.' immediately preceding the '@' symbol</li></ul> |
-| Length constraints  |       <ul> <li>Total length must not exceed 113 characters</li><li>64 characters before the ‘@’ symbol</li><li>48 characters after the ‘@’ symbol</li></ul>
+| Допустимые символы | <ul> <li>A–Z</li> <li>a–z </li><li>0–9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| Недопустимые символы | <ul> <li>Любой знак "@", который не отделяет имя пользователя от домена.</li> <li>Не может содержать знак точки "." непосредственно перед знаком "@".</li></ul> |
+| Ограничения длины | <ul> <li>Общая длина не должна превышать 113 символов</li><li>64 символа до символа "@"</li><li>48 символов после символа "@"</li></ul>
 
-## <a name="password-policies-that-apply-only-to-cloud-user-accounts"></a>Password policies that apply only to cloud user accounts
+## Политики паролей, которые применяются только к учетным записям пользователей в облаке.
 
-The following table describes the available password policy settings that can be applied to user accounts that are created and managed in   Azure AD.
+В следующей таблице приведены доступные параметры политики паролей, которые могут применяться к учетным записям пользователей, создаваемым и управляемым в Azure AD.
 
-|  Property       |    Requirements          |
+| Свойство | Требования |
 |   ----------------------- |   ----------------------- |
-|  Characters allowed   |   <ul><li>A – Z</li><li>a -z </li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
-|  Characters not allowed   |       <ul><li>Unicode characters</li><li>Spaces</li><li> **Strong passwords only**: Cannot contain a dot character '.' immediately preceding the '@' symbol</li></ul> |
-|   Password restrictions | <ul><li>8 characters minimum and 16 characters maximum</li><li>**Strong passwords only**: Requires 3 out of 4 of the following:<ul><li>Lowercase characters</li><li>Uppercase characters</li><li>Numbers (0-9)</li><li>Symbols (see password restrictions above)</li></ul></li></ul> |
-| Password expiry duration      | <ul><li>Default value: **90** days </li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
-| Password expiry notification |  <ul><li>Default value: **14** days (before password expires)</li><li>Value is configurable using the Set-MsolPasswordPolicy cmdlet.</li></ul> |
-| Password Expiry |  <ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. </li></ul> |
-|  Password history  | Last password cannot be used again. |
-|  Password history duration | Forever |
-|  Account Lockout | After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
+| Допустимые символы | <ul><li>A– Z</li><li>a–z </li><li>0– 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| Недопустимые символы | <ul><li>Символы Юникода.</li><li>Пробелы.</li><li> **Только надежные пароли**: не могут содержать знак точки "." непосредственно перед знаком "@".</li></ul> |
+| Ограничения для пароля | <ul><li>Минимум 8 знаков, максимум 16 знаков.</li><li>**Только надежные пароли**: необходимо выполнить 3 из 4 следующих требований.<ul><li>Знаки в нижнем регистре.</li><li>Знаки в верхнем регистре.</li><li>Цифры (0–9).</li><li>Символы (см. ограничения для паролей выше).</li></ul></li></ul> |
+| Длительность срока действия пароля | <ul><li>Значение по умолчанию: **90** дней </li><li>Значение можно изменить с помощью командлета Set-MsolPasswordPolicy из модуля Azure Active Directory для Windows PowerShell.</li></ul> |
+| Уведомление об окончании срока действия пароля | <ul><li>Значение по умолчанию: **14** дней (до окончания срока действия пароля)</li><li>Значение можно изменить с помощью командлета Set-MsolPasswordPolicy.</li></ul> |
+| Окончание срока действия пароля | <ul><li>Значение по умолчанию: **false** дней (означает, что срок действия пароля включен) </li><li>Значение можно настроить для каждой учетной записи пользователя с помощью командлета Set-MsolUser. </li></ul> |
+| Журнал паролей | Последний пароль не может быть использован повторно. |
+| Длительность журнала паролей | Постоянно |
+| Блокировка учетной записи | После 10 неудачных попыток входа (с неверным паролем) пользователь будет заблокирован на одну минуту. Последующие неудачные попытки входа приведут к блокировке пользователя на более длительное время. |
 
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-* [Manage your passwords from anywhere](active-directory-passwords.md)
-* [How Password Management works](active-directory-passwords-how-it-works.md)
-* [Getting started with Password Mangement](active-directory-passwords-getting-started.md)
-* [Customize Password Management](active-directory-passwords-customize.md)
-* [Password Management Best Practices](active-directory-passwords-best-practices.md)
-* [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
-* [Password Management FAQ](active-directory-passwords-faq.md)
-* [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
-* [Learn More](active-directory-passwords-learn-more.md)
+* **Вы здесь потому, что возникают проблемы при входе?** Если это так, [с помощью этих инструкций можно изменить и сбросить пароль](active-directory-passwords-update-your-own-password.md).
+* [Управление паролями из любой точки мира](active-directory-passwords.md)
+* [Как работает управление паролями](active-directory-passwords-how-it-works.md)
+* [Приступая к работе с компонентами управления паролями](active-directory-passwords-getting-started.md)
+* [Настройка компонентов управления паролями](active-directory-passwords-customize.md)
+* [Рекомендации по управлению паролями](active-directory-passwords-best-practices.md)
+* [Получение оперативной аналитики с помощью отчетов об управлении паролями](active-directory-passwords-get-insights.md)
+* [Вопросы и ответы об управлении паролями](active-directory-passwords-faq.md)
+* [Устранение неполадок, связанных с управлением паролями](active-directory-passwords-troubleshoot.md)
+* [Дополнительные сведения](active-directory-passwords-learn-more.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure SQL Database Performance Insight | Microsoft Azure" 
-   description="The Azure SQL Database provides performance tools to help you identify areas that can improve current query performance." 
+   pageTitle="Анализ производительности базы данных SQL Azure | Microsoft Azure" 
+   description="База данных SQL Azure предоставляет средства оценки производительности для выявления областей, которые могут улучшить производительность текущих запросов." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,60 +16,56 @@
    ms.date="07/19/2016"
    ms.author="sstein"/>
 
+# Анализ производительности базы данных SQL
 
-# <a name="sql-database-performance-insight"></a>SQL Database Performance Insight
+База данных SQL Azure включает средства оценки производительности, которые помогают измерять и повышать производительность баз данных, предоставляя действия интеллектуальной настройки и рекомендации.
 
-Azure SQL Database provides performance tools to help you identify and improve the performance of your databases by providing intelligent tuning actions and recommendations. 
-
-1. Browse to your database in the [Azure Portal](http://portal.azure.com) and click **All settings** > **Performance ** > **Overview** to open the **Performance** page. 
-
-
-2. Click **Recommendations** to open the [SQL Database Advisor](#sql-database-advisor), and click **Queries** to open [Query Performance Insight](#query-performance-insight).
-
-    ![View Performance](./media/sql-database-performance/entries.png)
+1. Перейдите к своей базе данных на [портале Azure](http://portal.azure.com) и выберите **Все параметры** > **Производительность** > **Обзор**, чтобы открыть страницу **Производительность**.
 
 
+2. Щелкните **Рекомендации**, чтобы открыть [помощник по базам данных SQL](#sql-database-advisor), и **Запросы**, чтобы открыть [анализ производительности запросов](#query-performance-insight).
 
-## <a name="performance-overview"></a>Performance Overview
-
-Clicking on **Overview** or on the **Performance** tile will take you to the performance dashboard for your database. This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
-
-![Performance](./media/sql-database-performance/performance.png)
-
-- The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top 3 recommendations are shown if there are more). Clicking this tile takes you to **SQL Database Advisor**. 
-- The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
-- The **Auto-tuning** tile shows the auto-tuning configuration for your database (which tuning actions are configured to be automatically applied to your database). Clicking this tile opens the automation configuration dialog.
-- The **Database queries** tile shows the summary of the query performance for your database (overall DTU usage and top resource consuming queries). Clicking this tile takes you to **Query Performance Insight**.
+    ![Производительность просмотра](./media/sql-database-performance/entries.png)
 
 
 
-## <a name="sql-database-advisor"></a>SQL Database Advisor
+## Общие сведения о производительности
+
+Щелкнув **Обзор** или элемент **Производительность**, вы перейдете на панель мониторинга производительности для базы данных. Это представление содержит сводку данных по производительности базы данных и помогает в настройке производительности и устранения неполадок.
+
+![Производительность](./media/sql-database-performance/performance.png)
+
+- Элемент **Рекомендации** содержит разбор рекомендаций по настройке базы данных (если рекомендаций много, отображаются только первые три). Если щелкнуть этот элемент, отобразится **помощник по базам данных SQL**.
+- Элемент **Действие настройки** содержит сводные данные о текущих и выполненных действиях настройки базы данных и позволяет быстро получить представление об истории действий настройки. Щелчок по этой плитке открывает полную историю настройки вашей базы данных.
+- На элементе **Автонастройка** отображается конфигурация автоматической настройки вашей базы данных (какие действия настройки должны применяться к базе данных автоматически). Щелкнув по этой плитке, вы откроете диалоговое окно настройки автоматизации.
+- На элементе **Запросы к базе данных** отображаются сводные данные о производительности запросов к вашей базе данных (общий объем использования DTU и наиболее ресурсоемкие запросы). Если щелкнуть этот элемент, отобразится **анализ производительности запросов**.
 
 
-[SQL Database Advisor](sql-database-advisor.md) provides intelligent tuning recommendations that can help improve your database's performance. 
 
-- Recommendations on which indexes to create or drop (and an option to apply index recommendations automatically without any user interaction and automatically rolling back recommendations that have a negative impact on performance).
-- Recommendations when schema issues are identified in the database.
-- Recommendations when queries can benefit from parameterized queries.
+## Помощник по работе с базами данных SQL
 
 
+[Помощник по базам данных SQL](sql-database-advisor.md) предоставляет интеллектуальные рекомендации по настройке, которые помогут вам повысить производительность базы данных.
+
+- Рекомендации по выбору индексов для создания или удаления (а также возможность автоматического применения индексов без участия пользователя и автоматической отмены рекомендаций, которые вызвали ухудшение производительности).
+- Рекомендации по действиям при обнаружении ошибок схемы в базе данных.
+- Рекомендации по использованию параметризованных запросов для повышения производительности запросов.
 
 
-## <a name="query-performance-insight"></a>Query Performance Insight
-
-[Query Performance Insight](sql-database-query-performance.md) allows you to spend less time troubleshooting database performance by providing:
-
-- Deeper insight into your databases resource (DTU) consumption. 
-- The top CPU consuming queries, which can potentially be tuned for improved performance. 
-- The ability to drill down into the details of a query. 
 
 
-## <a name="additional-resources"></a>Additional resources
+## Анализ производительности запросов
 
-- [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md)
-- [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md)
+[Анализ производительности запросов](sql-database-query-performance.md) позволяет тратить меньше времени на устранение неполадок с производительностью базы данных, предоставляя следующие возможности.
+
+- Более глубокое понимание потребления ресурсов базы данных (DTU).
+- Определение запросов, максимально использующих ресурсы процессора. Этот показатель можно настроить и улучшить производительность.
+- Возможность получить подробные сведения о запросе.
 
 
-<!--HONumber=Oct16_HO2-->
+## Дополнительные ресурсы
 
+- [Руководство по производительности базы данных SQL Azure](sql-database-performance-guidance.md)
+- [Когда следует использовать пул эластичных баз данных?](sql-database-elastic-pool-guidance.md)
 
+<!---HONumber=AcomDC_0720_2016-->

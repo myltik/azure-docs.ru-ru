@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Azure Active Directory Authentication Protocols | Microsoft Azure"
-   description="An overview of the authentication protocols supported by Azure Active Directory (AD)"
+   pageTitle="Протоколы аутентификации Azure Active Directory | Microsoft Azure"
+   description="Обзор протоколов проверки подлинности, поддерживаемых в Azure Active Directory (AD)"
    documentationCenter="dev-center-name"
-   authors="bryanla"
+   authors="msmbaldwin"
    services="active-directory"
    manager="mbaldwin"
    editor=""/>
@@ -16,48 +16,43 @@
    ms.date="09/16/2016"
    ms.author="mbaldwin"/>
 
+# Протоколы проверки подлинности Azure Active Directory
 
-# <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory Authentication Protocols
+Служба Azure Active Directory (Azure AD) поддерживает несколько широко используемых протоколов проверки подлинности и авторизации. В перечисленных ниже разделах мы рассказываем о поддерживаемых протоколах и их реализации в Azure AD. В эти разделы вошли обзор поддерживаемых типов утверждений, основные сведения об использовании метаданных федерации, подробная документация по протоколам OAuth 2.0 и SAML 2.0, а также советы по устранению неполадок.
 
-Azure Active Directory (Azure AD) supports several of the most widely used authentication and authorization protocols. The topics in this section describe the supported protocols and their implementation in Azure AD. The topics included a review of supported claim types, an introduction to the use of federation metadata, detailed OAuth 2.0. and SAML 2.0 protocol reference documentation, and a troubleshooting section.
+## Статьи и другие справочные материалы по протоколам проверки подлинности
 
-## <a name="authentication-protocols-articles-and-reference"></a>Authentication Protocols Articles and Reference
-
-- [Important Information About Signing Key Rollover in Azure AD](active-directory-signing-key-rollover.md) – Learn about Azure AD’s signing key rollover cadence, changes you can make to update the key automatically, and discussion for how to update the most common application scenarios.
-
-
-- [Supported Token and Claim Types](active-directory-token-and-claims.md) - Learn about the claims in the tokens that Azure AD issue.
+- [Важные сведения об откате ключа подписи в Azure AD](active-directory-signing-key-rollover.md) — дополнительные сведения об откате ключа подписи Azure AD, изменениях, которые можно вносить для автоматического обновления ключа, и порядок обновления самых распространенных сценариев приложений.
 
 
-- [Federation Metadata](https://msdn.microsoft.com/library/azure/dn195592.aspx) - Learn how to find and interpret the metadata documents that Azure AD generates.
+- [Поддерживаемые типы маркеров и утверждений](active-directory-token-and-claims.md) — сведения об утверждениях в маркерах, издаваемых Azure AD.
 
 
-- [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) - Learn about the implementation of OAuth 2.0 in Azure AD.
+- [Метаданные федерации](https://msdn.microsoft.com/library/azure/dn195592.aspx) — узнайте, как находить и интерпретировать документы метаданных, создаваемые Azure AD.
 
 
-- [OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx) - Learn how to use OAuth 2.0, an authorization protocol, for authentication.
+- [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx) — сведения о реализации протокола OAuth 2.0 в Azure AD.
 
 
-- [SAML Protocol Reference](https://msdn.microsoft.com/library/azure/dn195591.aspx) - Learn about the Single Sign-On and Single Sign-out SAML profiles of Azure AD.
+- [OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx) — сведения об использовании протокола авторизации OAuth 2.0 для проверки подлинности.
 
 
-- [WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) - Learn about WS-Federation 1.2 in Azure AD.
+- [Справочник по протоколу SAML](https://msdn.microsoft.com/library/azure/dn195591.aspx) — сведения о профилях единого входа и единого выхода SAML в Azure AD.
 
 
-- [Troubleshooting Authentication Protocols](https://msdn.microsoft.com/library/azure/dn195584.aspx) - Learn how to prevent problems and interpret and resolve errors when using Azure AD.
+- [WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) — сведения о WS-Federation 1.2 в Azure AD.
 
 
-
-## <a name="see-also"></a>See Also
-
-[Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
-
-[Using Azure AD for Authentication](../app-service-web/web-sites-authentication-authorization.md)
-
-[Active Directory Code Samples](active-directory-code-samples.md)
+- [Устранение неполадок протоколов проверки подлинности](https://msdn.microsoft.com/library/azure/dn195584.aspx) — узнайте, как предотвратить возникновение проблем, интерпретировать и устранять ошибки при использовании Azure AD.
 
 
 
-<!--HONumber=Oct16_HO2-->
+## См. также
 
+[Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 
+[Использование Azure AD для проверки подлинности](../app-service-web/web-sites-authentication-authorization.md)
+
+[Примеры кода Active Directory](active-directory-code-samples.md)
+
+<!---HONumber=AcomDC_0921_2016-->

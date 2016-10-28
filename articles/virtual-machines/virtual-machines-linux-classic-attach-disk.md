@@ -1,207 +1,201 @@
 <properties
-    pageTitle="Attach a disk to a Linux VM | Microsoft Azure"
-    description="Learn how to attach a data disk to an Azure virtual machine running Linux and initialize it so it's ready for use."
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="iainfoulds"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management"/>
+	pageTitle="Подключение диска к виртуальной машине Linux | Microsoft Azure"
+	description="Узнайте, как подключить диск данных к виртуальной машине Linux в Azure и инициализировать его, чтобы подготовить к использованию."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="iainfoulds"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/23/2016"
-    ms.author="iainfou"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2016"
+	ms.author="iainfou"/>
 
+# Подключение диска данных к виртуальной машине Linux
 
-# <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>How to Attach a Data Disk to a Linux Virtual Machine
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] См. статью о том, как [присоединить диск данных, используя модель развертывания с помощью Resource Manager](virtual-machines-linux-add-disk.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] See how to [attach a data disk using the Resource Manager deployment model](virtual-machines-linux-add-disk.md).
+К виртуальным машинам Azure можно присоединять пустые диски и диски с данными. В обоих случаях диски — это VHD-файлы, которые размещаются в учетной записи хранения Azure. Как и при добавлении диска к машине Linux, после присоединения диск нужно инициализировать и отформатировать, чтобы подготовить его к использованию. В этой статье подробно описывается присоединение пустых дисков и дисков с данными к виртуальным машинам, а также рассматривается, как затем инициализировать и отформатировать новый диск.
 
-You can attach both empty disks and disks that contain data to your Azure VMs. Both types of disks are .vhd files that reside in an Azure storage account. As with adding any disk to a Linux machine, after you attach the disk you need to initialize and format it so it's ready for use. This article details attaching both empty disks and disks already containing data to your VMs, as well as how to then initialize and format a new disk.
-
-> [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has an operating system disk and a temporary disk. **Do not use the temporary disk to store persistent data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
-> The temporary disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, a data disk might be named by the Linux kernel something like `/dev/sdc`, and you need to partition, format, and mount this resource. See the [Azure Linux Agent User Guide][Agent] for details.
+> [AZURE.NOTE] Рекомендуется использовать один или несколько отдельных дисков для хранения данных виртуальной машины. При создании виртуальной машины Azure у нее есть диск для операционной системы и временный диск. **Не используйте для постоянного хранения данных временный диск.** Как и предполагает его имя, он предназначен только для временного хранения. Этот диск не обеспечивает избыточности или резервного копирования, поскольку он не размещается в хранилище Azure. Временный диск обычно управляется агентом Linux для Azure и автоматически подключается к **/mnt/resource** (или **/mnt** в образах Ubuntu). Однако в некоторых случаях диск данных может получить от ядра Linux обозначение вида `/dev/sdc`, и тогда вам необходимо самостоятельно разделить, отформатировать и подключить этот ресурс. Подробную информацию см. в статье [Руководство пользователя агента Linux для Azure][Agent].
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
-## <a name="initialize-a-new-data-disk-in-linux"></a>Initialize a new data disk in Linux
+## Инициализация нового диска данных в Linux
 
-1. SSH to your VM. For further details, see [How to log on to a virtual machine running Linux][Logon].
+1. Установите SSH-подключение к виртуальной машине. Дополнительные сведения см. в статье [Создание ключей SSH для виртуальных машин Linux в ОС Linux и Mac в Azure][Logon].
 
-2. Next you need to find the device identifier for the data disk to initialize. There are two ways to do that:
+2. Далее вам необходимо найти идентификатор устройства для инициализации диска данных. Это можно осуществить двумя способами.
 
-    a) Grep for SCSI devices in the logs, such as in the following command:
+	а) примените функцию grep для устройств SCSI в журналах, например, как в следующей команде:
 
-            $sudo grep SCSI /var/log/messages
+			$sudo grep SCSI /var/log/messages
 
-    For recent Ubuntu distributions, you may need to use `sudo grep SCSI /var/log/syslog` because logging to `/var/log/messages` might be disabled by default.
+	Для установки последних дистрибутивов Ubuntu вам может потребоваться использовать `sudo grep SCSI /var/log/syslog`, так как вход в `/var/log/messages` может быть отключен по умолчанию.
 
-    You can find the identifier of the last data disk that was added in the messages that are displayed.
+	Идентификатор последнего добавленного диска данных можно найти в отображаемых сообщениях.
 
-    ![Get the disk messages](./media/virtual-machines-linux-classic-attach-disk/scsidisklog.png)
+	![Получение сообщений диска](./media/virtual-machines-linux-classic-attach-disk/scsidisklog.png)
 
-    OR
+	ИЛИ
 
-    b) Use the `lsscsi` command to find out the device id. `lsscsi` can be installed by either `yum install lsscsi` (on Red Hat based distributions) or `apt-get install lsscsi` (on Debian based distributions). You can find the disk you are looking for by its _lun_ or **logical unit number**. For example, the _lun_ for the disks you attached can be easily seen from `azure vm disk list <virtual-machine>` as:
+	б) Используйте команду `lsscsi`, чтобы узнать идентификатор устройства. Вы можете установить `lsscsi` с помощью `yum install lsscsi` (в дистрибутивах на основе Red Hat) или `apt-get install lsscsi` (в дистрибутивах на основе Debian). Нужный вам диск вы можете найти по его _LUN_ (**логическому номеру устройства**). Например, для подключенных вами дисков _LUN_ можно легко получить, выполнив команду `azure vm disk list <virtual-machine>`.
 
-            ~$ azure vm disk list TestVM
-            info:    Executing command vm disk list
-            + Fetching disk images
-            + Getting virtual machines
-            + Getting VM disks
-            data:    Lun  Size(GB)  Blob-Name                         OS
-            data:    ---  --------  --------------------------------  -----
-            data:         30        TestVM-2645b8030676c8f8.vhd  Linux
-            data:    0    100       TestVM-76f7ee1ef0f6dddc.vhd
-            info:    vm disk list command OK
+			~$ azure vm disk list TestVM
+			info:    Executing command vm disk list
+			+ Fetching disk images
+			+ Getting virtual machines
+			+ Getting VM disks
+			data:    Lun  Size(GB)  Blob-Name                         OS
+			data:    ---  --------  --------------------------------  -----
+			data:         30        TestVM-2645b8030676c8f8.vhd  Linux
+			data:    0    100       TestVM-76f7ee1ef0f6dddc.vhd
+			info:    vm disk list command OK
 
-    Compare this data with the output of `lsscsi` for the same sample virtual machine:
+	Сравните эти данные с выводом команды `lsscsi` для той же виртуальной машины.
 
-            ops@TestVM:~$ lsscsi
-            [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
-            [2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
-            [3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
-            [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+			ops@TestVM:~$ lsscsi
+			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
 
-    The last number in the tuple in each row is the _lun_. See `man lsscsi` for more information.
+	Последний номер в кортеже в каждой строке и есть логический номер устройства (_LUN_). См. `man lsscsi` для получения подробной информации.
 
-3. At the prompt, type the following command to create your device:
+3. В командной строке введите следующую команду, чтобы создать устройство:
 
-        $sudo fdisk /dev/sdc
+		$sudo fdisk /dev/sdc
 
 
-4. When prompted, type **n** to create a new partition.
+4. При появлении запроса введите **n** для создания нового раздела.
 
 
-    ![Create device](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
+	![Создание устройства](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
 
-5. When prompted, type **p** to make the partition the primary partition. Type **1** to make it the first partition, and then type enter to accept the default value for the cylinder. On some systems, it can show the default values of the first and the last sectors, instead of the cylinder. You can choose to accept these defaults.
+5. При появлении запроса введите **p**, чтобы сделать раздел основным (primary). Введите **1**, чтобы сделать его первым разделом, а затем нажмите клавишу ВВОД, чтобы принять значение по умолчанию для цилиндра. В некоторых системах в первом и последнем секторах вместо цилиндра могут отображаться значения по умолчанию. При желании вы можете их принять.
 
 
-    ![Create partition](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
+	![Создание раздела](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
 
 
 
-6. Type **p** to see the details about the disk that is being partitioned.
+6. Введите **p**, чтобы просмотреть сведения о диске, на котором создаются разделы.
 
 
-    ![List disk information](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
+	![Просмотр сведений о диске](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
 
 
 
-7. Type **w** to write the settings for the disk.
+7. Введите **w**, чтобы записать параметры данного диска.
 
 
-    ![Write the disk changes](./media/virtual-machines-linux-classic-attach-disk/fdiskwritedisk.png)
+	![Запись изменений на диске](./media/virtual-machines-linux-classic-attach-disk/fdiskwritedisk.png)
 
-8. Now you can create the file system on the new partition. Append the partition number to the device ID (in the following example `/dev/sdc1`). The following example creates an ext4 partition on /dev/sdc1:
+8. Теперь можно создать файловую систему в новом разделе. Добавьте номер раздела в код устройства (в примере ниже это `/dev/sdc1`). В следующем примере создается раздел ext4 в устройстве /dev/sdc1:
 
-        # sudo mkfs -t ext4 /dev/sdc1
+		# sudo mkfs -t ext4 /dev/sdc1
 
-    ![Create file system](./media/virtual-machines-linux-classic-attach-disk/mkfsext4.png)
+	![Создание файловой системы](./media/virtual-machines-linux-classic-attach-disk/mkfsext4.png)
 
-    >[AZURE.NOTE] SuSE Linux Enterprise 11 systems only support read-only access for ext4 file systems. For these systems, it is recommended to format the new file system as ext3 rather than ext4.
+	>[AZURE.NOTE] Системы SuSE Linux Enterprise 11 поддерживают доступ только для чтения в файловых системах ext4. Для этих систем рекомендуется форматировать новую файловую систему как ext3, а не ext4.
 
 
-9. Make a directory to mount the new file system, as follows:
+9. Создайте каталог для подключения новой файловой системы с помощью следующей команды:
 
-        # sudo mkdir /datadrive
+		# sudo mkdir /datadrive
 
 
-10. Finally you can mount the drive, as follows:
+10. Теперь вы можете подключить диск с помощью следующей команды:
 
-        # sudo mount /dev/sdc1 /datadrive
+		# sudo mount /dev/sdc1 /datadrive
 
-    The data disk is now ready to use as **/datadrive**.
-    
-    ![Create the directory and mount the disk](./media/virtual-machines-linux-classic-attach-disk/mkdirandmount.png)
+	Диск данных теперь готов для использования как **/datadrive**.
+	
+	![Создание каталога и подключение диска](./media/virtual-machines-linux-classic-attach-disk/mkdirandmount.png)
 
 
-11. Add the new drive to /etc/fstab:
+11. Добавьте новый диск в /etc/fstab:
 
-    To ensure the drive is remounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). Using the UUID avoids the incorrect disk being mounted to a given location if the OS detects a disk error during boot and any remaining data disks then being assigned those device IDs. To find the UUID of the new drive, you can use the **blkid** utility:
+	Чтобы обеспечить автоматическое повторное подключение диска после перезагрузки, его необходимо добавить в файл /etc/fstab. Кроме того, для ссылки на диск настоятельно рекомендуется использовать идентификатор UUID (глобально уникальный идентификатор) в /etc/fstab, а не просто имя устройства (т. е. /dev/sdc1). Использование идентификатора UUID позволяет избежать подключения неправильного диска к нужному расположению, если операционная система обнаруживает сбой диска во время загрузки, а остальные диски с данными связываются с этими идентификаторами устройств. Чтобы найти идентификатор UUID нового диска, можно использовать служебную программу **blkid**:
 
-        # sudo -i blkid
+		# sudo -i blkid
 
-    The output looks similar to the following:
+	Результат будет выглядеть примерно так:
 
-        /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
-        /dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
-        /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+		/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
+		/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
+		/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 
 
-    >[AZURE.NOTE] Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+	>[AZURE.NOTE] Некорректное изменение файла **/etc/fstab** может привести к невозможности загрузить систему. Если у вас есть сомнения, см. инструкции по правильному изменению этого файла в документации дистрибутива. Также рекомендуется перед внесением изменений создать резервную копию файла /etc/fstab.
 
-    Next, open the **/etc/fstab** file in a text editor:
+	Затем откройте файл **/etc/fstab** в текстовом редакторе:
 
-        # sudo vi /etc/fstab
+		# sudo vi /etc/fstab
 
-    In this example, we use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. Add the following line to the end of the **/etc/fstab** file:
+	В этом примере мы используем значение UUID для нового устройства **/dev/sdc1**, созданного на предыдущих шагах, и точку подключения **/datadrive**. Добавьте следующую строку в конец файла **/etc/fstab**:
 
-        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
+		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
 
-    Or, on systems based on SuSE Linux you may need to use a slightly different format:
+	В системах на базе SUSE Linux может потребоваться использовать другой формат:
 
-        /dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
-    You can now test that the file system is mounted properly by unmounting and then remounting the file system, i.e. using the example mount point `/datadrive` created in the earlier steps:
+	Теперь можно проверить, правильно ли подключена файловая система, отключив и повторно подключив файловую систему, т. е. используя типовую точку подключения `/datadrive`, созданную на предыдущих этапах:
 
-        # sudo umount /datadrive
-        # sudo mount /datadrive
+		# sudo umount /datadrive
+		# sudo mount /datadrive
 
-    If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created, enter them into /etc/fstab separately as well.
+	Если команда `mount` приводит к ошибке, проверьте правильность синтаксиса в файле /etc/fstab. При создании дополнительных дисков данных и разделов также введите их в файл /etc/fstab отдельно.
 
-    Make the drive writable by using this command:
+	Сделайте диск доступным для записи, выполнив следующую команду:
 
-        # sudo chmod go+w /datadrive
+		# sudo chmod go+w /datadrive
 
->[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
+>[AZURE.NOTE] Последующее удаление диска данных без редактирования fstab может привести к тому, что виртуальная машина не загрузится. Если это происходит часто, то большинство дистрибутивов предоставляют варианты `nofail` и/или `nobootwait` fstab, которые позволяют системе загружаться, даже если диск не подключается во время загрузки. Дополнительные сведения об этих параметрах см. в документации дистрибутива.
 
-### <a name="trim/unmap-support-for-linux-in-azure"></a>TRIM/UNMAP support for Linux in Azure
-Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. These operations are primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded. Discarding pages can save cost if you create large files and then delete them.
+### Поддержка операций TRIM и UNMAP для Linux в Azure
+Некоторые ядра Linux поддерживают операции TRIM и UNMAP для отмены неиспользуемых блоков на диске. Эти операции особенно удобно использовать в хранилище уровня "Стандартный", чтобы сообщать Azure о том, что удаленные страницы больше не действительны и могут быть удалены. Удаление страниц позволит сократить затраты, если вы создаете большие файлы, а затем удаляете их.
 
-There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
+Существует два способа включить поддержку операций TRIM в виртуальной машине Linux. Как обычно, обратитесь к документации дистрибутива, чтобы выбрать рекомендуемый метод.
 
-- Use the `discard` mount option in `/etc/fstab`, for example:
+- Используйте параметр подключения `discard` в `/etc/fstab`. Ниже приведен пример.
 
-        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+		UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
 
-- Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
+- Кроме того, вы можете вручную выполнить команду `fstrim` из командной строки или добавить ее в crontab для регулярного выполнения.
 
-    **Ubuntu**
+	**Ubuntu**
 
-        # sudo apt-get install util-linux
-        # sudo fstrim /datadrive
+		# sudo apt-get install util-linux
+		# sudo fstrim /datadrive
 
-    **RHEL/CentOS**
+	**RHEL или CentOS**
 
-        # sudo yum install util-linux
-        # sudo fstrim /datadrive
+		# sudo yum install util-linux
+		# sudo fstrim /datadrive
 
-## <a name="troubleshooting"></a>Troubleshooting
+## Устранение неполадок
 [AZURE.INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
 
-## <a name="next-steps"></a>Next Steps
-You can read more about using your Linux VM in the following articles:
+## Дальнейшие действия
+Узнать больше об использовании виртуальной машины Linux можно в следующих статьях.
 
-- [How to log on to a virtual machine running Linux][Logon]
+- [Вход в виртуальную машину под управлением ОС Linux][Logon]
 
-- [How to detach a disk from a Linux virtual machine](virtual-machines-linux-classic-detach-disk.md)
+- [Отсоединение диска от виртуальной машины Linux](virtual-machines-linux-classic-detach-disk.md)
 
-- [Using the Azure CLI with the Classic deployment model](../virtual-machines-command-line-tools.md)
+- [Команды Azure CLI в режиме управления службами Azure (ASM)](../virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-mac-create-ssh-keys.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,142 +1,137 @@
 <properties
-    pageTitle="DocumentDB storage and performance | Microsoft Azure" 
-    description="Learn about data storage and document storage in DocumentDB and how you can scale DocumentDB to meet the capacity needs of your application." 
-    keywords="document storage"
-    services="documentdb" 
-    authors="syamkmsft" 
-    manager="jhubbard" 
-    editor="cgronlun" 
-    documentationCenter=""/>
+	pageTitle="Хранилище и производительность DocumentDB | Microsoft Azure" 
+	description="Дополнительные сведения о хранилище данных и документов в DocumentDB и масштабировании DocumentDB в соответствии с требованиями вашего приложения." 
+	keywords="хранилище документов"
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
 <tags 
-    ms.service="documentdb" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/18/2016" 
-    ms.author="syamk"/>
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/18/2016" 
+	ms.author="mimig"/>
 
+# Дополнительные сведения о подготовке хранилища и прогнозируемой производительности в DocumentDB
+Azure DocumentDB — это полностью управляемая масштабируемая служба базы данных NoSQL для документов JSON. Благодаря DocumentDB вам не нужно арендовать виртуальные машины, развертывать программное обеспечение или отслеживать работу баз данных. Система DocumentDB обслуживается и непрерывно контролируется инженерами корпорации Майкрософт, что позволяет добиться доступности, производительности и защиты данных мирового уровня.
 
-# <a name="learn-about-storage-and-predictable-performance-provisioning-in-documentdb"></a>Learn about storage and predictable performance provisioning in DocumentDB
-Azure DocumentDB is a fully managed, scalable document-oriented NoSQL database service for JSON documents. With DocumentDB, you don’t have to rent virtual machines, deploy software, or monitor databases. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
+Чтобы приступить к работе с DocumentDB, на [портале Azure](https://portal.azure.com/) [создайте учетную запись базы данных](documentdb-create-account.md) и [базу данных DocumentDB](documentdb-create-database.md). Базы данных DocumentDB предлагаются в виде единиц хранения на основе твердотельных накопителей с определенной пропускной способностью. Эти единицы хранения предоставляются при [создании коллекций баз данных](documentdb-create-collection.md) в учетной записи базы данных. Для каждой коллекции резервируется определенная пропускная способность, которую в любое время можно уменьшать или увеличивать в соответствии с требованиями вашего приложения.
 
-You can get started with DocumentDB by [creating a database account](documentdb-create-account.md) and a [DocumentDB database](documentdb-create-database.md) through the [Azure portal](https://portal.azure.com/). DocumentDB databases are offered in units of solid-state drive (SSD) backed storage and throughput. These storage units are provisioned by [creating database collections](documentdb-create-collection.md) within your database account, each collection with reserved throughput that can be scaled up or down at any time to meet the demands of your application. 
+Если в приложении превышены уровни производительности для одной или нескольких коллекций, количество запросов будет ограничено. Это значит, что некоторые запросы приложения могут выполняться успешно, а к другим может быть применено регулирование.
 
-If your application exceeds your reserved throughput for one or multiple collections, requests are limited on a per collection basis. This means that some application requests may succeed while others may be throttled.
+В этой статье содержится обзор ресурсов и показателей, доступных для управления пропускной способностью и планирования хранилища данных.
 
-This article provides an overview of the resources and metrics available to manage capacity and plan data storage. 
+## Учетная запись базы данных
+Как подписчик Azure вы можете подготовить для управления ресурсами баз данных одну или несколько учетных записей базы данных DocumentDB. Каждая подписка связана с одной подпиской Azure.
 
-## <a name="database-account"></a>Database account
-As an Azure subscriber, you can provision one or more DocumentDB database accounts to manage your database resources. Each subscription is associated with a single Azure subscription. 
+Учетные записи DocumentDB можно создавать с помощью [портала Azure](documentdb-create-account.md), [шаблона ARM или Azure CLI](documentdb-automation-resource-manager-cli.md).
 
-DocumentDB accounts can be created through the [Azure portal](documentdb-create-account.md), or by using [an ARM template or Azure CLI](documentdb-automation-resource-manager-cli.md).
+## Базы данных
+Каждая база данных DocumentDB может содержать практически неограниченное хранилище документов, разбитое на коллекции. Коллекции обеспечивают изоляцию производительности — каждую коллекцию можно подготовить с объемом пропускной способности, который не используется совместно с другими коллекциями в той же базе данных или учетной записи. База данных DocumentDB является эластичной, позволяя использовать SSD-хранилище документов размером от нескольких гигабайт до нескольких терабайт и подготовленную пропускную способность. В отличие от традиционных реляционных СУБД, база данных в DocumentDB не ограничена одним узлом и может охватывать несколько компьютеров или кластеров.
 
-## <a name="databases"></a>Databases
-A single DocumentDB database can contain practically an unlimited amount of document storage grouped into collections. Collections provide performance isolation - each collection can be provisioned with throughput that is not shared with other collections in the same database or account. A DocumentDB database is elastic in size, ranging from GBs to TBs of SSD backed document storage and provisioned throughput. Unlike a traditional RDBMS database, a database in DocumentDB is not scoped to a single machine and can span multiple machines or clusters.  
+Благодаря DocumentDB по мере роста вашего приложения вы можете создать больше коллекций или баз данных, либо и то, и другое. Базы данных можно создавать на [портале Azure](documentdb-create-database.md) или с помощью любого [пакета SDK для DocumentDB](documentdb-dotnet-samples.md).
 
-With DocumentDB, as you need to scale your applications, you can create more collections or databases or both. Databases can be created through the [Azure portal](documentdb-create-database.md) or through any one of the [DocumentDB SDKs](documentdb-dotnet-samples.md).   
+## Коллекции базы данных
+Каждая база данных DocumentDB может содержать одну или несколько коллекций. Коллекции выступают в качестве высокодоступных разделов для хранения и обработки данных. В каждой коллекции могут храниться документы с разнородными схемами. Автоматическое индексирование DocumentDB и возможность выполнять запросы позволяют с легкостью фильтровать и извлекать документы. Коллекция обеспечивает область для хранения документов и выполнения запросов. Коллекция также является доменом транзакций для всех входящих в ее состав документов. Коллекции определяют выделяемую пропускную способность на основе значения, заданного на портале Azure или с помощью пакетов SDK.
 
-## <a name="database-collections"></a>Database collections
-Each DocumentDB database can contain one or more collections. Collections act as highly available data partitions for document storage and processing. Each collection can store documents with heterogeneous schema. DocumentDB's automatic indexing and query capabilities allow you to easily filter and retrieve documents. A collection provides the scope for document storage and query execution. A collection is also a transaction domain for all the documents contained within it. Collections are allocated throughput based on the value set in the Azure portal or via the SDKs. 
+DocumentDB автоматически секционирует коллекции на один или несколько физических серверов. При создании коллекции можно указать подготовленную пропускную способность в единицах запросов в секунду и свойство ключа раздела. Служба DocumentDB учитывает это значение при распределении документов между разделами и перенаправлении запросов. Значение ключа раздела тоже выступает в качестве границы транзакции для хранимых процедур и триггеров. Каждой коллекции назначается зарезервированный объем пропускной способности, который не используется совместно с другими коллекциями в данной учетной записи. Таким образом, для приложения можно масштабировать как объем хранилища, так и пропускную способность.
 
-Collections are automatically partitioned into one or more physical servers by DocumentDB. When you create a collection, you can specify the provisioned throughput in terms of request units per second and a partition key property. The value of this property is used by DocumentDB to distribute documents among partitions and route requests like queries. The partition key value also acts as the transaction boundary for stored procedures and triggers. Each collection has a reserved amount of throughput specific to that collection, which is not shared with other collections in the same account. Therefore, you can scale out your application both in terms of storage and throughput. 
-
-Collections can be created through the [Azure portal](documentdb-create-collection.md) or through any one of the [DocumentDB SDKs](documentdb-sdk-dotnet.md).   
+Коллекции можно создавать на [портале Azure](documentdb-create-collection.md) или с помощью любого [пакета SDK для DocumentDB](documentdb-sdk-dotnet.md).
  
-## <a name="request-units-and-database-operations"></a>Request units and database operations
+## Единицы запросов и операции базы данных
 
-When you create a collection, you reserve throughput in terms of [request units (RU)](documentdb-request-units.md) per second. Instead of thinking about and managing hardware resources, you can think of a **request unit** as a single measure for the resources required to perform various database operations and service an application request. A read of a 1 KB document consumes the same 1 RU regardless of the number of items stored in the collection or the number of concurrent requests running at the same. All requests against DocumentDB, including complex operations like SQL queries have a predictable RU value that can be determined at development time. If you know the size of your documents and the frequency of each operation (reads, writes and queries) to support for your application, you can provision the exact amount of throughput to meet your application's needs, and scale your database up and down as your performance needs change. 
+Создавая коллекцию, вы резервируете пропускную способность в [единицах запросов](documentdb-request-units.md) в секунду. Вы можете забыть о необходимости управления аппаратными ресурсами, вместо этого рассматривая **единицу запросов** как универсальную меру оценки ресурсов, требуемых для выполнения различных операций с базами данных и обслуживания запросов приложения. Чтение документа размером 1 КБ потребляет 1 единицу запроса вне зависимости от числа элементов в коллекции или количества параллельных запросов, выполняемых одновременно. Все запросы к DocumentDB, включая сложные операции, такие как SQL-запросы, потребляют прогнозируемое количество единиц запросов, которое можно определить при разработке. Если известен размер документов и частота выполнения каждой операции (операций чтения, записи и запросов) для обеспечения работоспособности приложения, можно подготовить точный объем пропускной способности и масштабировать базу данных вверх и вниз при изменении потребностей в производительности.
 
-Each collection can be reserved with throughput in blocks of 100 request units per second, from hundreds up to millions of request units per second. The provisioned throughput can be adjusted throughout the life of a collection to adapt to the changing processing needs and access patterns of your application. For more information, see [DocumentDB performance levels](documentdb-performance-levels.md). 
+Для каждой коллекции можно резервировать пропускную способность блоками по 100 единиц запросов в секунду (число запросов может варьироваться от сотен до миллионов в секунду). Для адаптации к меняющимся потребностям обработки и получения доступа к шаблонам вашего приложения подготовленную пропускную способность можно настраивать на протяжении жизненного цикла коллекции. Дополнительные сведения см. в статье [Уровни производительности DocumentDB](documentdb-performance-levels.md).
 
->[AZURE.IMPORTANT] Collections are billable entities. The cost is determined by the provisioned throughput of the collection measured in request units per second along with the total consumed storage in gigabytes. 
+>[AZURE.IMPORTANT] За коллекции взимается плата. Стоимость определяется по подготовленной пропускной способности коллекции, измеряемой в единицах запросов в секунду, и общему использованному месту в гигабайтах.
 
-How many request units will a particular operation like insert, delete, query, or stored procedure execution consume? A request unit is a normalized measure of request processing cost. A read of a 1 KB document is 1 RU, but a request to insert, replace or delete the same document will consume more processing from the service and thereby more request units. Each response from the service includes a custom header (`x-ms-request-charge`) that reports the request units consumed for the request. This header is also accessible through the [SDKs](documentdb-sdk-dotnet.md). In the .NET SDK, [RequestCharge](https://msdn.microsoft.com/library/azure/dn933057.aspx#P:Microsoft.Azure.Documents.Client.ResourceResponse`1.RequestCharge) is a property of the [ResourceResponse](https://msdn.microsoft.com/library/azure/dn799209.aspx) object. If you want to estimate your throughput needs before making a single call, you can use the [capacity planner](documentdb-request-units.md#estimating-throughput-needs) to help with this estimation. 
+Сколько единиц запросов использует определенная операция, например выполнение вставки, удаления, запроса или хранимой процедуры? Единица запроса — это нормализованная мера стоимости обработки запросов. Чтение документа размером 1 КБ предусматривает использование 1 единицы запроса; при этом для выполнения запросов на вставку, замену или удаление этого же документа службе нужно больше вычислительных ресурсов и, соответственно, больше единиц запросов. Каждый ответ от службы включает настраиваемый заголовок (`x-ms-request-charge`), который информирует о числе единиц запросов, затраченных на этот запрос. Этот заголовок также доступен и в [пакетах SDK](documentdb-sdk-dotnet.md). В пакете SDK для .NET у объекта [ResourceResponse](https://msdn.microsoft.com/library/azure/dn799209.aspx) есть свойство [RequestCharge](https://msdn.microsoft.com/library/azure/dn933057.aspx#P:Microsoft.Azure.Documents.Client.ResourceResponse`1.RequestCharge). Если вы хотите оценить потребность в производительности до вызова запроса, вам поможет [планировщик ресурсов](documentdb-request-units.md#estimating-throughput-needs).
 
->[AZURE.NOTE] The baseline of 1 request unit for a 1 KB document corresponds to a simple GET of the document with [Session Consistency](documentdb-consistency-levels.md). 
+>[AZURE.NOTE] Базовое соотношение — 1 единица запроса для документа размером 1 КБ — соответствует простой команде GET [с согласованностью на уровне сеансов](documentdb-consistency-levels.md).
 
-There are several factors that impact the request units consumed for an operation against a DocumentDB database account. These factors include:
+На расход единиц запросов на выполнение операций в учетной записи базы данных DocumentDB влияет несколько факторов. К ним относятся:
 
-- Document size. As document sizes increase the units consumed to read or write the data will also increase.
-- Property count. Assuming default indexing of all properties, the units consumed to write a document will increase as the property count increases.
-- Data consistency. When using data consistency levels of Strong or Bounded Staleness, additional units will be consumed to read documents.
-- Indexed properties. An index policy on each collection determines which properties are indexed by default. You can reduce your request unit consumption by limiting the number of indexed properties. 
-- Document indexing. By default each document is automatically indexed, you will consume fewer request units if you choose not to index some of your documents.
+- Размер документа. По мере увеличения размера документа увеличивается и число единиц запросов, расходуемых на чтение или запись данных.
+- Число свойств. Если все свойства индексируются, число единиц запросов, расходуемых на запись документа, увеличивается вместе с увеличением количества свойств.
+- Согласованность данных. При использовании уровней согласованности данных Strong или Bounded Staleness на чтение документов расходуются дополнительные единицы запросов.
+- Индексированные свойства. Свойства, которые индексируются по умолчанию, определяются политикой индексирования для каждой коллекции. Вы можете сократить потребление единиц запросов, ограничив количество индексируемых свойств.
+- Индексирование документов. По умолчанию каждый документ индексируется автоматически. Исключение некоторых документов из этого процесса позволяет сэкономить единицы запросов.
 
-For more information, see [DocumentDB request units](documentdb-request-units.md). 
+Дополнительные сведения см. в статье [Единицы запросов DocumentDB](documentdb-request-units.md).
 
-For example, here's a table that shows how many request units to provision at three different document sizes (1KB, 4KB, and 64KB) and at two different performance levels (500 reads/second + 100 writes/second and 500 reads/second + 500 writes/second). The data consistency was configured at Session, and the indexing policy was set to None.
+Например, ниже приведена таблица, показывающая количество единиц запросов для подготовки с тремя разными размерами документа (1 КБ, 4 КБ и 64 КБ) и двумя разными уровнями производительности (500 операций чтения в секунду + 100 операций записи в секунду и 500 операций чтения в секунду + 500 операций записи в секунду). Согласованность данных была настроена в сеансе, а политике индексации было присвоено значение "Нет".
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
-            <td valign="top"><p><strong>Document size</strong></p></td>
-            <td valign="top"><p><strong>Reads/second</strong></p></td>
-            <td valign="top"><p><strong>Writes/second</strong></p></td>
-            <td valign="top"><p><strong>Request units</strong></p></td>
+            <td valign="top"><p><strong>Размер документа</strong></p></td>
+            <td valign="top"><p><strong>Операций чтения в секунду</strong></p></td>
+            <td valign="top"><p><strong>Операций записи в секунду</strong></p></td>
+            <td valign="top"><p><strong>Единиц запросов</strong></p></td>
         </tr>
         <tr>
-            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>1 КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1) + (100 * 5) = 1,000 RU/s</p></td>
+            <td valign="top"><p>(500 * 1) + (100 * 5) = 1000 единиц запросов в секунду</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>1 KB</p></td>
+            <td valign="top"><p>1 КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 5) + (100 * 5) = 3,000 RU/s</p></td>
+            <td valign="top"><p>(500 * 5) + (100 * 5) = 3000 единиц запросов в секунду</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>4 КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1.3) + (100 * 7) = 1,350 RU/s</p></td>
+            <td valign="top"><p>(500 * 1.3) + (100 * 7) = 1350 единиц запросов в секунду</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>4 KB</p></td>
+            <td valign="top"><p>4 КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 1.3) + (500 * 7) = 4,150 RU/s</p></td>
+            <td valign="top"><p>(500 * 1.3) + (500 * 7) = 4150 единиц запросов в секунду</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>64&#160;КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 10) + (100 * 48) = 9,800 RU/s</p></td>
+            <td valign="top"><p>(500 * 10) + (100 * 48) = 9800 единиц запросов в секунду</p></td>
         </tr>
         <tr>
-            <td valign="top"><p>64 KB</p></td>
+            <td valign="top"><p>64&#160;КБ</p></td>
             <td valign="top"><p>500</p></td>
             <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 10) + (500 * 48) = 29,000 RU/s</p></td>
+            <td valign="top"><p>(500 * 10) + (500 * 48) = 29&#160;000 единиц запросов в секунду</p></td>
         </tr>
     </tbody>
 </table>
 
-Queries, stored procedures, and triggers consume request units based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how each operation is consuming request unit capacity.  
+Запросы, хранимые процедуры и триггеры расходуют единицы запросов с учетом сложности выполняемых операций. При разработке приложения проверяйте заголовок со стоимостью в единицах запросов, чтобы лучше понять, как эти ресурсы используются каждой из операций.
 
 
-## <a name="choice-of-consistency-level-and-throughput"></a>Choice of consistency level and throughput
-The choice of default consistency level has an impact on the throughput and latency. You can set the default consistency level both programmatically and through the Azure portal. You can also override the consistency level on a per request basis. By default, the consistency level is set to **Session**, which provides monotonic read/writes and read your write guarantees. Session consistency is great for user-centric applications and provides an ideal balance of consistency and performance trade-offs.    
+## Выбор уровня согласованности и пропускной способности
+Выбор уровня согласованности по умолчанию влияет на производительность и задержки. Вы можете установить уровень согласованности по умолчанию как программно, так и через портал Azure. Вы также можете переопределить уровень согласованности для каждого запроса. По умолчанию используется согласованность на уровне **сеанса**, то есть гарантируются монотонное чтение и запись, а также чтение записанных данных. Согласованность уровня Session отлично подходит для приложений, ориентированных на пользователей, и предлагает оптимальный компромисс между согласованностью и производительностью.
 
-For instructions on changing your consistency level on the Azure portal, see [How to Manage a DocumentDB Account](documentdb-manage-account.md#consistency). Or, for more information on consistency levels, see [Using consistency levels](documentdb-consistency-levels.md).
+Инструкции по изменению уровня согласованности на портале Azure см. в разделе [Управление учетной записью DocumentDB](documentdb-manage-account.md#consistency). Дополнительные сведения об уровнях согласованности см. в разделе [Использование уровней согласованности](documentdb-consistency-levels.md).
 
-## <a name="provisioned-document-storage-and-index-overhead"></a>Provisioned document storage and index overhead
-DocumentDB supports the creation of both single-partition and partitioned collections. Each partition in DocumentDB supports up to 10 GB of SSD backed storage. The 10GB of document storage includes the documents plus storage for the index. By default, a DocumentDB collection is configured to automatically index all of the documents without explicitly requiring any secondary indices or schema. Based on applications using DocumentDB, the typical index overhead is between 2-20%. The indexing technology used by DocumentDB ensures that regardless of the values of the properties, the index overhead does not exceed more than 80% of the size of the documents with default settings. 
+## Подготавливаемое хранилище документов и затраты на индексирование
+DocumentDB поддерживает создание коллекций с одним разделом и секционированных коллекций. Каждый раздел в DocumentDB поддерживает SSD-хранилище размером до 10 ГБ. В эти 10 ГБ включено как место для хранения собственно документов, так и место для хранения индекса. По умолчанию коллекция DocumentDB настроена на автоматическое индексирование всех документов без явного указания вторичных индексов или схем. В зависимости от приложения, использующего DocumentDB, обычные затраты на индекс составляют от 2 до 20 %. Технология индексирования, используемая DocumentDB, гарантирует, что независимо от значений свойств, показатель накладных расходов не превышает 80% от размера документов с параметрами по умолчанию.
 
-By default all documents are indexed by DocumentDB automatically. However, if you want to fine-tune the index overhead, you can choose to remove certain documents from being indexed at the time of inserting or replacing a document, as described in [DocumentDB indexing policies](documentdb-indexing-policies.md). You can configure a DocumentDB collection to exclude all documents within the collection from being indexed. You can also configure a DocumentDB collection to selectively index only certain properties or paths with wildcards of your JSON documents, as described in [Configuring the indexing policy of a collection](documentdb-indexing-policies.md#configuring-the-indexing-policy-of-a-collection). Excluding properties or documents also improves the write throughput – which means you will consume fewer request units.   
+По умолчанию все документы индексируются DocumentDB автоматически. Но если нужно уменьшить расходы на индексирование, вы можете отменить индексацию некоторых документов. Это можно сделать при вставке или замене документа, как описано в статье [Политики индексации DocumentDB](documentdb-indexing-policies.md). Вы можете настроить коллекцию DocumentDB чтобы исключить все документы в коллекции от индексации. Вы также можете настроить выборочную индексацию коллекции DocumentDB, например индексацию только определенных свойств или путей в документах JSON (используются подстановочные знаки). См. раздел с описанием [настройки политики индексации для коллекции](documentdb-indexing-policies.md#configuring-the-indexing-policy-of-a-collection). Исключение свойств или документов их индексирования также улучшает пропускную способность записи, это значит, вы будете потреблять меньшее количество единиц запросов.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-To continue learning about how DocumentDB works, see [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data.md).
+Дополнительные сведения о работе DocumentDB можно найти в статье [Секционирование и масштабирование в Azure DocumentDB](documentdb-partition-data.md).
 
-For instructions on monitoring performance levels on the Azure portal, see [Monitor a DocumentDB account](documentdb-monitor-accounts.md). For more information on choosing performance levels for collections, see [Performance levels in DocumentDB](documentdb-performance-levels.md).
+Мониторинг уровней производительности на портале Azure описан в статье [Мониторинг запросов, использования и хранилища DocumentDB](documentdb-monitor-accounts.md). Дополнительные сведения о выборе уровней производительности коллекций см. в статье [Уровни производительности в DocumentDB](documentdb-performance-levels.md).
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

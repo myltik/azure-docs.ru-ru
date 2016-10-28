@@ -1,10 +1,10 @@
 <properties
- pageTitle="Scheduler High-Availability and Reliability"
- description="Scheduler High-Availability and Reliability"
+ pageTitle="Высокая доступность и надежность планировщика"
+ description="Высокая доступность и надежность планировщика"
  services="scheduler"
  documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,81 +13,76 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/16/2016"
- ms.author="deli"/>
+ ms.author="krisragh"/>
 
 
+# Высокая доступность и надежность планировщика
 
-# <a name="scheduler-high-availability-and-reliability"></a>Scheduler High-Availability and Reliability
+## Высокая доступность планировщика Azure
 
-## <a name="azure-scheduler-high-availability"></a>Azure Scheduler High-Availability
+Будучи основной службой платформы Azure, планировщик Azure отличается высокой доступностью и отличается как географически избыточным развертыванием служб, так и репликацией заданий по географическим регионам.
 
-As a core Azure platform service, Azure Scheduler is highly available and features both geo-redundant service deployment and geo-regional job replication.
+### Географически избыточное развертывание служб
 
-### <a name="geo-redundant-service-deployment"></a>Geo-redundant service deployment
+Пользоваться планировщиком Azure можно через пользовательский интерфейс практически в любом географическом регионе, который входит в систему Azure на сегодняшний день. Список регионов, в которых доступен планировщик Azure, см. [здесь](https://azure.microsoft.com/regions/#services). Если центр обработки данных в регионе размещения отображается как недоступный, услуги планировщика Azure может предоставить другой центр обработки данных.
 
-Azure Scheduler is available via the UI in almost every geo region that's in Azure today. The list of regions that Azure Scheduler is available in is [listed here](https://azure.microsoft.com/regions/#services). If a data center in a hosted region is rendered unavailable, the failover capabilities of Azure Scheduler are such that the service is available from another data center.
+### Репликация заданий по географическим регионам
 
-### <a name="geo-regional-job-replication"></a>Geo-regional job replication
+Планировщик Azure не только обеспечивает доступность внешнего интерфейса для запросов на управление, но и поддерживает репликацию ваших заданий по географическим регионам. В случае сбоя в одном регионе планировщик Azure отрабатывает отказ и обеспечивает выполнение задания из другого центра обработки данных в связанном географическом регионе.
 
-Not only is the Azure Scheduler front-end available for management requests, but your own job is also geo-replicated. When there’s an outage in one region, Azure Scheduler fails over and ensures that the job is run from another data center in the paired geographic region.
-
-For example, if you’ve created a job in South Central US, Azure Scheduler automatically replicates that job in North Central US. When there’s a failure in South Central US, Azure Scheduler ensures that the job is run from North Central US. 
+Например, если задание создано в Южно-Центральной части США, планировщик Azure обеспечивает его автоматическую репликацию в Северо-Центральной части США. В случае сбоя в Южно-Центральной части США планировщик Azure гарантирует выполнение задания из Северо-Центральной части США.
 
 ![][1]
 
-As a result, Azure Scheduler ensures that your data stays within the same broader geographic region in case of an Azure failure. As a result, you need not duplicate your job just to add high availability – Azure Scheduler automatically provides high-availability capabilities for your jobs.
+Таким образом, в случае сбоя системы Azure планировщик Azure сохраняет данные в том же расширенном географическом регионе. Это значит, что вам не нужно дублировать задание, чтобы повысить его доступность: планировщик Azure обеспечивает высокий уровень доступности заданий автоматически.
 
-## <a name="azure-scheduler-reliability"></a>Azure Scheduler Reliability
+## Надежность планировщика Azure
 
-Azure Scheduler guarantees its own high-availability and takes a different approach to user-created jobs. For example, your job may invoke an HTTP endpoint that’s unavailable. Azure Scheduler nonetheless tries to execute your job successfully, by giving you alternative options to deal with failure. Azure Scheduler does this in two ways:
+Доступность самого планировщика Azure поддерживается на высоком уровне, а к созданным пользователями заданиям применяются различные методы. Например, предположим, что конечная точка HTTP, вызываемая вашим заданием, недоступна. Несмотря на это, планировщик Azure пытается выполнить задание, предлагая вам альтернативные варианты обхода этой проблемы. Ниже описаны два варианта, предлагаемых планировщиком Azure.
 
-### <a name="configurable-retry-policy-via-“retrypolicy”"></a>Configurable Retry Policy via “retryPolicy”
+### Настройка политики повтора с помощью параметра retryPolicy
 
-Azure Scheduler allows you to configure a retry policy. By default, if a job fails, Scheduler tries the job again four more times, at 30-second intervals. You may re-configure this retry policy to be more aggressive (for example, ten times, at 30-second intervals) or looser (for example, two times, at daily intervals.)
+Планировщик Azure позволяет настроить политику повтора. По умолчанию при сбое задания планировщик выполняет еще четыре попытки выполнить это задание с интервалом 30 секунд. Эту политику повтора можно изменить в сторону большей или меньшей настойчивости (например, 10 попыток с интервалом 30 секунд или две попытки с интервалом в сутки).
 
-As an example of when this may help, you may create a job that runs once a week and invokes an HTTP endpoint. If the HTTP endpoint is down for a few hours when your job runs, you may not want to wait one more week for the job to run again since even the default retry policy will fail. In such cases, you may reconfigure the standard retry policy to retry every three hours (for example) instead of every 30 seconds.
+Рассмотрим преимущество этой возможности на примере: предположим, что созданное пользователем задание выполняется один раз в неделю и включает вызов конечной точки HTTP. Если к моменту выполнения задания конечная точка HTTP не работает уже нескольких часов, то задание, скорее всего, не будет выполнено даже после применения политики повтора по умолчанию, а следующая попытка будет произведена только через неделю. Для таких случаев можно изменить стандартную политику повтора, задав выполнение повторных попыток, например, через каждые три часа (вместо 30 секунд).
 
-To learn how to configure a retry policy, refer to [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+Инструкции по настройке политики повтора см. в разделе [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
-### <a name="alternate-endpoint-configurability-via-“erroraction”"></a>Alternate Endpoint Configurability via “errorAction”
+### Возможность настройки альтернативных конечных точек с помощью параметра errorAction
 
-If the target endpoint for your Azure Scheduler job remains unreachable, Azure Scheduler falls back to the alternate error-handling endpoint after following its retry policy. If an alternate error-handling endpoint is configured, Azure Scheduler invokes it. With an alternate endpoint, your own jobs are highly available in the face of failure.
+Если конечная точка назначения для задания планировщика Azure остается недостижимой, после применения политики повтора планировщик Azure возвращается к альтернативной конечной точке для обработки ошибок. Если для обработки ошибок настроена альтернативная конечная точка, она вызывается из планировщика Azure. Альтернативная конечная точка обеспечивает высокий уровень доступности пользовательских заданий в случае сбоя.
 
-As an example, in the diagram below, Azure Scheduler follows its retry policy to hit a New York web service. After the retries fail, it checks if there's an alternate. It then goes ahead and starts making requests to the alternate with the same retry policy.
+Например, на приведенной ниже схеме планировщик Azure, следуя своей политике повтора, вызывает веб-службу в Нью-Йорке. Когда повторная попытка не приносит успеха, он проверяет наличие альтернативной конечной точки. После этого планировщик начинает запрашивать альтернативную конечную точку, следуя той же политике возврата.
 
 ![][2]
 
-Note that the same retry policy applies to both the original action and the alternate error action. It’s also possible to have the alternate error action’s action type be different from the main action’s action type. For example, while the main action may be invoking an HTTP endpoint, the error action may instead be a storage queue, service bus queue, or service bus topic action that does error-logging.
+Обратите внимание на то, что и исходное, и альтернативное действие выполняются в соответствии с одной и той же политикой повтора. Также можно сделать так, чтобы тип альтернативного действия отличался от типа основного действия. Например, если основное действие заключается в вызове конечной точки HTTP, то альтернативным может стать действие очереди хранилища, очереди служебной шины или раздела служебной шины, связанное с регистрацией ошибки.
 
-To learn how to configure an alternate endpoint, refer to [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+Инструкции по настройке альтернативной конечной точки см. в разделе [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
-## <a name="see-also"></a>See Also
+## См. также
 
- [What is Scheduler?](scheduler-intro.md)
+ [Что такое планировщик?](scheduler-intro.md)
 
- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+ [Основные понятия, терминология и иерархия сущностей планировщика Azure](scheduler-concepts-terms.md)
 
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+ [Приступая к работе с планировщиком Azure на портале Azure](scheduler-get-started-portal.md)
 
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Планы и выставление счетов в планировщике Azure](scheduler-plans-billing.md)
 
- [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [Как создавать сложные расписания и расширенное повторение с помощью планировщика Azure](scheduler-advanced-complexity.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+ [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/mt629143)
 
- [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+ [Справочник по командлетам PowerShell планировщика Azure](scheduler-powershell-reference.md)
 
- [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+ [Ограничения, значения по умолчанию и коды ошибок планировщика Azure](scheduler-limits-defaults-errors.md)
 
- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+ [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
 
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

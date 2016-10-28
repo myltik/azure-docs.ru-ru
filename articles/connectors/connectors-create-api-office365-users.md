@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Add the Office 365 Users connector in Logic Apps | Microsoft Azure"
-    description="Overview of Office 365 Users connector with REST API parameters"
+    pageTitle="Добавление соединителя ";Office 365 Пользователи"; в приложения логики | Microsoft Azure"
+    description="Обзор соединителя Office 365 Пользователи с параметрами интерфейса API REST"
     services=""    
     documentationCenter=""     
     authors="msftman"    
@@ -17,176 +17,170 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Начало работы с соединителем Office 365 Пользователи
 
-# <a name="get-started-with-the-office-365-users-connector"></a>Get started with the Office 365 Users connector
+Подключившись к Office 365 Пользователи, вы сможете получать профили, искать пользователей и выполнять многие другие действия.
 
-Connect to Office 365 Users to get profiles, search users, and more. 
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
+С помощью Office 365 Пользователи вы можете:
 
-With Office 365 Users, you can:
+- формировать бизнес-процессы на основе данных, получаемых из Office 365 Пользователи;
+- использовать действия для получения непосредственных подчиненных, профиля пользователя для менеджера и т. д. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, можно получить список непосредственных подчиненных того или иного лица и внести соответствующие изменения в базу данных SQL Azure.
 
-- Build your business flow based on the data you get from Office 365 Users. 
-- Use actions that get direct reports, get a manager's user profile, and more. These actions get a response, and then make the output available for other actions. For example, get a person's direct reports, and then take this information and update a SQL Azure database. 
+Сведения о добавлении операции в приложения логики см. в статье [Создание приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Триггеры и действия
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+Соединитель Office 365 Пользователи предоставляет описанные ниже действия. Триггеры отсутствуют.
 
-The Office 365 Users connector has the following actions available. There are no triggers.
-
-| Triggers | Actions|
+| триггеры; | Действия|
 | --- | --- |
-|None | <ul><li>Get manager</li><li>Get my profile</li><li>Get direct reports</li><li>Get user profile</li><li>Search for users</li></ul>|
+|None | <ul><li>Получение диспетчера</li><li>Получение моего профиля</li><li>Получение подчиненных</li><li>Получение профиля пользователя</li><li>Поиск пользователей</li></ul>|
 
-All connectors support data in JSON and XML formats. 
-
-
-## <a name="create-a-connection-to-office-365-users"></a>Create a connection to Office 365 Users
-
-When you add this connector to your logic apps, you must sign-in to your Office 365 Users account and allow logic apps to connect to your account.
-
->[AZURE.INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
-
-After you create the connection, you enter the Office 365 Users properties, like the user ID. The **REST API reference** in this topic describes these properties.
-
->[AZURE.TIP] You can use this same Office 365 Users connection in other logic apps.
+Все соединители поддерживают данные в форматах JSON и XML.
 
 
-## <a name="office-365-users-rest-api-reference"></a>Office 365 Users REST API reference
-Applies to version: 1.0.
+## Создание подключения к Office 365 Пользователи
 
-### <a name="get-my-profile"></a>Get my profile 
-Retrieves the profile for the current user.  
-```GET: /users/me``` 
+При добавлении этого соединителя в приложения логики необходимо войти в учетную запись Office 365 Пользователи и разрешить приложениям логики подключаться к вашей учетной записи.
 
-There are no parameters for this call.
+>[AZURE.INCLUDE [Шаги по созданию подключения к Office 365 Пользователи](../../includes/connectors-create-api-office365users.md)]
 
-#### <a name="response"></a>Response
+После создания подключения укажите свойства Office 365 Пользователи, такие как идентификатор пользователя. Эти свойства описаны далее в **справочнике по REST API**.
 
-|Name|Description|
+>[AZURE.TIP] Подключение к Office 365 Пользователи можно также использовать в других приложениях логики.
+
+
+## Справочник по API REST Office 365 Пользователи
+Относится к версии 1.0.
+
+### Получение моего профиля 
+Извлекает профиль для текущего пользователя. ```GET: /users/me```
+
+Для этого вызова параметры отсутствуют.
+
+#### Ответ
+
+|Имя|Описание|
 |---|---|
-|200|Operation was successful|
-|202|Operation was successful|
+|200|Операция выполнена успешно|
+|202|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="get-user-profile"></a>Get user profile 
-Retrieves a specific user profile.  
-```GET: /users/{userId}``` 
+### Получение профиля пользователя 
+Извлекает профиль конкретного пользователя. ```GET: /users/{userId}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|userId|string|yes|path|none|User principal name or email id|
+|userId|string|Да|path|Нет|Имя участника-пользователя или идентификатор электронной почты|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|Operation was successful|
-|202|Operation was successful|
+|200|Операция выполнена успешно|
+|202|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="get-manager"></a>Get manager 
-Retrieves user profile for the manager of the specified user.  
-```GET: /users/{userId}/manager``` 
+### Получение руководителя 
+Извлекает профиль руководителя указанного пользователя. ```GET: /users/{userId}/manager```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|userId|string|yes|path|none|User principal name or email id|
+|userId|string|Да|path|Нет|Имя участника-пользователя или идентификатор электронной почты|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|Operation was successful|
-|202|Operation was successful|
+|200|Операция выполнена успешно|
+|202|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
 
-### <a name="get-direct-reports"></a>Get direct reports 
-Get direct reports.  
-```GET: /users/{userId}/directReports``` 
+### Получение непосредственных подчиненных 
+Получение подчиненных. ```GET: /users/{userId}/directReports```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|userId|string|yes|path|none|User principal name or email id|
+|userId|string|Да|path|Нет|Имя участника-пользователя или идентификатор электронной почты|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|Operation was successful|
-|202|Operation was successful|
+|200|Операция выполнена успешно|
+|202|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
 
-### <a name="search-for-users"></a>Search for users 
-Retrieves search results of user profiles.  
-```GET: /users``` 
+### Поиск пользователей 
+Извлекает результаты поиска профилей пользователей. ```GET: /users```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|searchTerm|string|no|query|none|Search string (applies to: display name, given name, surname, mail, mail nickname and user principal name)|
+|searchTerm|string|Нет|запрос|Нет|Строка поиска (применяется к отображаемому имени, имени, фамилии, почте, псевдониму почты и имени участника-пользователя)|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|Operation was successful|
-|202|Operation was successful|
+|200|Операция выполнена успешно|
+|202|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
 
-## <a name="object-definitions"></a>Object definitions
+## Определения объектов
 
-#### <a name="user:-user-model-class"></a>User: User model class
+#### User: класс модели пользователя
 
-|Property Name | Data Type |Required
+|Имя свойства | Тип данных |Обязательно
 |---|---|---|
-|DisplayName|string|no|
-|GivenName|string|no|
-|Surname|string|no|
-|Mail|string|no|
-|MailNickname|string|no|
-|TelephoneNumber|string|no|
-|AccountEnabled|boolean|no|
-|Id|string|yes
-|UserPrincipalName|string|no|
-|Department|string|no|
-|JobTitle|string|no|
-|mobilePhone|string|no|
+|DisplayName|string|Нет|
+|GivenName|string|Нет|
+|Surname|string|Нет|
+|Mail|string|Нет|
+|MailNickname|string|Нет|
+|TelephoneNumber|string|Нет|
+|AccountEnabled|Логическое|Нет|
+|Идентификатор|string|Да
+|UserPrincipalName|string|Нет|
+|Department|string|Нет|
+|JobTitle|string|Нет|
+|mobilePhone|string|Нет|
 
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Go back to the [APIs list](apis-list.md).
+Вы можете вернуться к [списку интерфейсов API](apis-list.md).
 
 <!--References-->
 [5]: https://portal.azure.com
@@ -196,8 +190,4 @@ Go back to the [APIs list](apis-list.md).
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

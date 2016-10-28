@@ -1,8 +1,5 @@
-Custom probes allows you to have more granular control about health monitoring status for your back end pool of servers. You can change the interval checks, failed request threshold and timeout settings.
+Пользовательские проверки позволяют осуществлять более детальный контроль работоспособности пула внутренних серверов. Вы можете изменить параметры проверки интервалов, пороговое значение сбоя и время ожидания.
 
-This article will guide you to create an application gateway with a custom probe or adding a custom probe to an existing application gateway. 
+Эта статья поможет создать шлюз приложений с пользовательской проверкой или добавить пользовательскую проверку к существующему шлюзу приложений.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0107_2016-->

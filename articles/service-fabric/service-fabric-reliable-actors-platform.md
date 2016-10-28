@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors on Service Fabric | Microsoft Azure"
-   description="Describes how Reliable Actors are layered on Reliable Services and use the features of the Service Fabric platform."
+   pageTitle="Reliable Actors в Service Fabric | Microsoft Azure"
+   description="В этой статье описывается структура субъектов Reliable Actors в службах Reliable Services и работа с функциями платформы Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,38 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/19/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
+# Использование платформы Service Fabric надежными субъектами
 
-# <a name="how-reliable-actors-use-the-service-fabric-platform"></a>How Reliable Actors use the Service Fabric platform
+В этой статье объясняется, как работают субъекты Reliable Actors на платформе Service Fabric. Субъекты Reliable Actors выполняются в среде, размещенной в реализации службы Reliable Services с отслеживанием состояния под названием *служба субъектов*. Служба субъектов содержит все компоненты, необходимые для управления жизненным циклом и диспетчеризации относящихся к субъектам сообщений:
 
-This article explains how Reliable Actors work on the Service Fabric platform. Reliable Actors run in a framework that is hosted in an implementation of a stateful Reliable Service called the *Actor Service*. The Actor Service contains all the components necessary to manage the lifecycle and message dispatching for your actors:
+ - Среда выполнения субъектов управляет жизненным циклом и сбором мусора, а также обеспечивает однопоточный доступ.
+ - Прослушиватель удаленных взаимодействий субъекта службы принимает вызовы удаленного доступа к субъектам и отправляет их диспетчеру для маршрутизации в соответствующий экземпляр субъекта.
+ - Поставщик состояний субъекта служит оболочкой для поставщиков состояний (например для поставщика состояний надежных коллекций) и предоставляет адаптер для управления состоянием субъекта.
 
- - The Actor Runtime manages lifecycle, garbage collection, and enforces single-threaded access.
- - An actor service remoting listener accepts remote access calls to actors and sends them to a dispatcher to route to the appropriate actor instance.
- - The Actor State Provider wraps state providers (such as the Reliable Collections state provider) and provides an adapter for actor state management.
+Вместе эти компоненты образуют платформу Reliable Actors.
 
-These components together form the Reliable Actor framework. 
+## Структура служб
 
-## <a name="service-layering"></a>Service Layering
+Поскольку служба субъектов сама по себе является службой Reliable Services, понятия [модели приложений](service-fabric-application-model.md), жизненного цикла, [упаковки](service-fabric-application-model.md#package-an-application), [развертывания]((service-fabric-deploy-remove-applications.md#deploy-an-application), обновления и масштабирования, связанные с Reliable Services, также относятся и к службам субъектов.
 
-Because the Actor Service itself is a Reliable Service, all of the [application model](service-fabric-application-model.md), lifecycle, [packaging](service-fabric-application-model.md#package-an-application), [deployment]((service-fabric-deploy-remove-applications.md#deploy-an-application), upgrade, and scaling concepts of Reliable Services apply the same way to Actor services. 
+![Структура службы субъектов][1]
 
-![Actor Service layering][1]
-
-The diagram above shows the relationship between the Service Fabric application frameworks and user code. Blue elements represent the Reliable Services application framework, orange represents the Reliable Actor framework, and green represents user code. 
+На представленной выше схеме показана связь между платформами приложений Service Fabric и кодом пользователя. Синие элементы обозначают платформу приложений служб Reliable Services, оранжевые — платформу Reliable Actor, а зеленые — код пользователя.
 
 
-In Reliable Services, your service inherits the `StatefulService` class, which itself is derived from `StatefulServiceBase`. (or `StatelessService` for stateless services). In Reliable Actors, you use the Actor Service which is a different implementation of the `StatefulServiceBase` class that implements the actor pattern where your actors execute. Since the Actor Service itself is just an implementation of `StatefulServiceBase`, you can write your own service that derives from `ActorService` and implement service-level features the same way you would when inheriting `StatefulService`, such as:
+В службах Reliable Services служба наследует класс `StatefulService`, производный от `StatefulServiceBase` (`StatelessService` для служб без отслеживания состояния). В субъектах Reliable Actors вы используете службу субъектов с другой реализацией класса `StatefulServiceBase` — она реализует шаблон субъекта, где выполняются ваши объекты. Поскольку служба субъектов — всего лишь реализация класса `StatefulServiceBase`, вы можете написать свою собственную службу, производную от класса `ActorService`, и реализовать в ней функции уровня службы таким же образом, как при наследовании класса `StatefulService`, например:
 
- - Service back-up and restore.
- - Shared functionality for all Actors, for example, a circuit-breaker.
- - Remoting procedure calls on the actor service itself, as well as on each individual actor. 
+ - резервное копирование и восстановление службы;
+ - общие функции для всех субъектов, например автоматическое выключение;
+ - вызовы удаленных взаимодействий для самой службы субъектов, а также для любого отдельного субъекта.
 
-### <a name="using-the-actor-service"></a>Using the Actor Service
+### Работа со службой субъектов
 
-Actor instances have access to the Actor Service in which they are executing. Through the Actor Service, actor instances can programmatically obtain the Service Context which has the partition ID, service name, application name, and other Service Fabric platform-specific information:
+Экземпляры субъектов имеют доступ к службе субъектов, в которой они выполняются. Через службу субъектов они могут программным образом получить контекст службы, включая идентификатор секции, имя службы, имя приложения и другие данные конкретной платформы Service Fabric:
 
 ```csharp
 Task MyActorMethod()
@@ -56,7 +55,7 @@ Task MyActorMethod()
 }
 ```
 
-Like all Reliable Services, the Actor Service must be registered with a service type in the Service Fabric runtime. In order for the Actor Service to run your actor instances, your actor type must also be registered with the Actor Service. The `ActorRuntime` registration method performs this work for actors. In the simplest case, you can just register your actor type, and the Actor Service with default settings will implicitly be used:
+Как и все службы Reliable Services, служба субъектов должна быть зарегистрирована в среде выполнения Service Fabric с указанием типа службы. Для того чтобы служба субъектов выполняла экземпляры вашей службы, тип вашего субъекта также нужно зарегистрировать в службе субъектов. Метод регистрации `ActorRuntime` выполняет это действие для субъектов. В самом простом случае можно просто зарегистрировать тип субъекта, и служба субъектов будет использоваться по умолчанию с предустановленными параметрами:
 
 ```csharp
 static class Program
@@ -70,7 +69,7 @@ static class Program
 }
 ```  
 
-Alternatively, you can use a lambda provided by the registration method to construct the Actor Service yourself. This allows you to configure the Actor Service as well as explicitly construct your actor instances, where you can inject dependencies to your actor through its constructor:
+Также можно сформировать саму службу субъектов, воспользовавшись лямбда-выражением, предоставляемым методом регистрации. Это позволяет настраивать службу субъектов, а также явно формировать экземпляры субъектов, в которые можно закладывать зависимости для субъекта через конструктор:
 
 ```csharp
 static class Program
@@ -86,14 +85,14 @@ static class Program
 }
 ```
 
-### <a name="actor-service-methods"></a>Actor Service methods
+### Методы службы субъектов
 
-The Actor Service implements `IActorService` which in turn implements `IService`. This is the interface used by Reliable Services remoting, which allows remote procedure calls on service methods. It contains service-level methods that can be called remotely using service remoting.
+Служба субъектов реализует метод `IActorService`, который в свою очередь реализует метод `IService`. Это интерфейс используется удаленными взаимодействиями служб Reliable Services, что позволяет вызывать удаленные процедуры в методах службы. Он содержит методы уровня службы, которые можно вызывать удаленно с помощью удаленных взаимодействий служб.
 
 
-#### <a name="enumerating-actors"></a>Enumerating actors
+#### Перечисление субъектов
 
-The Actor Service allows a client to enumerate metadata about the actors being hosted by the service. Since the Actor Service is a partitioned stateful service, enumeration is performed per partition. Because each partition may contain a large number of actors, the enumeration is return as a set of paged results. The pages are looped over until all pages are read. The following example shows how to create a list of all active actors in one partition of an actor service:
+Служба субъектов позволяет клиенту перечислять метаданные о размещенных службой субъектах. Поскольку служба субъектов — это секционированная служба с отслеживанием состояния, перечисление выполняется по каждому разделу. Так как каждая секция может содержать большое количество субъектов, перечисление возвращается как набор постраничных результатов. Страницы зацикливаются до тех пор, пока все они не будут прочитаны. В следующем примере показано, как создать список всех активных субъектов в одной секции службы субъектов:
 
 ```csharp
 IActorService actorServiceProxy = ActorServiceProxy.Create(
@@ -113,9 +112,9 @@ do
 while (continuationToken != null);
 ```
 
-#### <a name="deleting-actors"></a>Deleting actors
+#### Удаление субъектов
 
-The Actor Service also provides a function for deleting actors:
+В службе субъектов имеется также функция удаления субъектов:
 
 ```csharp
 ActorId actorToDelete = new ActorId(id);
@@ -126,11 +125,11 @@ IActorService myActorServiceProxy = ActorServiceProxy.Create(
 await myActorServiceProxy.DeleteActorAsync(actorToDelete, cancellationToken)
 ```
 
-For more information on deleting actors and their state, refer to the [actor lifecycle documentation](service-fabric-reliable-actors-lifecycle.md).
+Дополнительные сведения об удалении субъектов и их состояний см. в [документации по жизненному циклу субъектов](service-fabric-reliable-actors-lifecycle.md).
 
-### <a name="custom-actor-service"></a>Custom Actor Service
+### Пользовательская служба субъектов
 
-Using the actor registration lambda, you can also register your own custom actor service that derives from `ActorService` where you can implement your own service-level functionality. This is done by writing a service class that inherits `ActorService`. A custom actor service inherits all of the actor runtime functionality from `ActorService` and can be used to implement your own service methods.
+С помощью лямбда-выражения для регистрации субъектов можно также зарегистрировать собственную пользовательскую службу субъектов, производную от `ActorService`, и реализовать в ней собственные функции уровня службы. Для этого нужно написать класс службы, наследующий класс `ActorService`. Пользовательская служба субъектов наследует все функции среды выполнения субъектов от класса `ActorService` и может использовать ваши собственные методы.
 
 ```csharp
 class MyActorService : ActorService
@@ -156,9 +155,9 @@ static class Program
 ```
 
 
-#### <a name="implementing-actor-back-up-and-restore"></a>Implementing actor back-up and restore
+#### Реализация резервного копирования и восстановления субъектов
 
- In the following example, the custom actor service exposes a method to back-up actor data by taking advantage of the remoting listener already present in `ActorService`:
+ В следующем примере пользовательская служба субъектов предоставляет метод для резервного копирования данных субъектов с использованием прослушивателя удаленных взаимодействий, уже присутствующего в `ActorService`:
 
 ```csharp
 public interface IMyActorService : IService
@@ -192,7 +191,7 @@ class MyActorService : ActorService, IMyActorService
 }
 ```
 
-In this example, `IMyActorService` is a remoting contract that implements `IService` and is then implemented by `MyActorService`. By adding this remoting contract, methods on `IMyActorService` are now also available to a client by creating a remoting proxy using `ActorServiceProxy`:
+В этом примере `IMyActorService` — это контракт удаленного взаимодействия, который реализует класс `IService`, а затем реализуется классом `MyActorService`. При добавлении удаленного контракта методы в классе `IMyActorService` становятся доступными для клиента за счет создания удаленного прокси с помощью метода `ActorServiceProxy`:
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
@@ -202,43 +201,43 @@ await myActorServiceProxy.BackupActorsAsync();
 ```
 
 
-## <a name="application-model"></a>Application model
+## Модель приложения
 
-Actor services are Reliable Services, so the application model is the same. However, the actor framework build tools generate much of the application model files for you.
+Службы субъектов — это службы Reliable Services, поэтому используют точно такую же модель приложений. В то же время средства сборки платформы субъектов создают для вас множество файлов модели приложений.
 
-### <a name="service-manifest"></a>Service Manifest
+### Манифест службы
  
-The contents of your actor service's ServiceManifest.xml are generated automatically by the actor framework build tools. This includes:
+Содержимое файла ServiceManifest.xml для службы субъектов создается средствами сборки платформы субъектов автоматически. А именно:
 
- - The actor service type. The type name is generated based on your actor project name. Based on the persistence attribute on your actor, the HasPersistedState flag is also set accordingly.
- - Code package.
- - Config package.
- - Resources and endpoints
+ - Тип службы субъектов. Имя типа создается с учетом имени проекта субъекта. В зависимости от атрибута сохраняемости у субъекта устанавливается флаг HasPersistedState.
+ - Пакет кода.
+ - Пакет конфигурации.
+ - Ресурсы и конечные точки
 
-### <a name="application-manifest"></a>Application Manifest
+### Манифест приложения
 
-The actor framework build tools automatically create a default service definition for your actor service. The default service properties are populated by the build tools:
+Средства сборки платформы субъектов автоматически создают для вашей службы субъектов определение по умолчанию. Свойства службы по умолчанию заполняются средствами сборки:
 
- - Replica set count is determined by the persistence attribute on your actor. Each time the persistence attribute on your actor is changed, the replica set count in the default service definition will be reset accordingly.
- - Partition scheme and range is set to Uniform Int64 with the full Int64 key range.
+ - Счетчик наборов реплик определяется атрибутом сохраняемости у субъекта. Каждый раз, когда атрибут сохраняемости у субъекта изменяется, счетчик наборов реплик в определении службы по умолчанию сбрасывается.
+ - Устанавливается схема секционирования и диапазон Uniform Int64 с полным диапазоном ключей Int64.
 
-## <a name="service-fabric-partition-concepts-for-actors"></a>Service Fabric partition concepts for actors
+## Основные понятия о секции Service Fabric для субъектов
 
-Actor services are partitioned stateful services. Each partition of an actor service contains a set of actors. Service partitions are automatically distributed over multiple nodes in Service Fabric. Thus, actor instances are distributed as a result.
+Службы субъектов — это секционированные службы с отслеживанием состояния. Каждая секция службы субъектов содержит набор субъектов. Секции службы автоматически распределяются между несколькими узлами Service Fabric. В результате распространяются экземпляры субъектов.
 
-![Actor partitioning and distribution][5]
+![Секционирование и распределение субъектов][5]
 
-Reliable Services can be created with different partition schemes and partition key ranges. The Actor Service uses the Int64 partitioning scheme with the full Int64 key range to map actors to partitions. 
+Службы Reliable Services создаются с использованием различных схем и диапазонов ключей секционирования. Служба субъектов использует схему секционирования Int64 с полным диапазоном ключей Int64 для сопоставления субъектов и секций.
 
-### <a name="actor-id"></a>Actor ID
+### Идентификатор субъекта
 
-Each actor that's created in the service has a unique ID associated with it, represented by the `ActorId` class. The `ActorId` is an opaque id value that can be used for uniform distribution of actors across the service partitions by generating random IDs:
+Каждый созданный в службе субъект имеет уникальный идентификатор, представляемый классом `ActorId`. `ActorId` — это непрозрачное значение идентификатора, которое можно использовать для равномерного распределения субъектов между секциями служб за счет генерации идентификаторов случайным образом:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
 ```
 
-Every `ActorId` is hashed to an Int64, which is why the actor service must use an Int64 partitioning scheme with the full Int64 key range. However, custom ID values can be used for an `ActorID`, including GUIDs, strings, and Int64s. 
+Каждый `ActorId` хэшируется в значение типа Int64, поэтому в службе субъектов необходимо использовать схему секционирования Int64 с полным диапазоном ключей Int64. Тем не менее, для `ActorID` можно использовать пользовательские значения идентификаторов, включая строковые значения, а также GUID и значения типа Int64.
 
 ```csharp
 ActorProxy.Create<IMyActor>(new ActorId(Guid.NewGuid()));
@@ -246,13 +245,13 @@ ActorProxy.Create<IMyActor>(new ActorId("myActorId"));
 ActorProxy.Create<IMyActor>(new ActorId(1234));
 ```
 
-When using GUIDs and strings, the values are hashed to an Int64. However, when explicitly providing an Int64 to an `ActorId`, the Int64 will map directly to a partition without further hashing. This can be used to control which partition actors are placed in.
+При использовании строк и GUID значения хэшируются в значения типа Int64. Однако, если значение типа Int64 предоставляется в `ActorId` напрямую, Int64 сопоставляется с секцией напрямую без дополнительного хэширования. Его можно использовать для управления тем, в каких секциях будут размещаться субъекты.
 
-## <a name="next-steps"></a>Next steps
- - [Actor state management](service-fabric-reliable-actors-state-management.md)
- - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
- - [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+## Дальнейшие действия
+ - [Управление состоянием субъекта](service-fabric-reliable-actors-state-management.md)
+ - [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
+ - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Пример кода](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 
  
 <!--Image references-->
@@ -262,8 +261,4 @@ When using GUIDs and strings, the values are hashed to an Int64. However, when e
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

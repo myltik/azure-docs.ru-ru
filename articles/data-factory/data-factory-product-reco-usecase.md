@@ -1,71 +1,67 @@
 <properties 
-    pageTitle="Data Factory Use Case - Product Recommendations" 
-    description="Learn about an use case implemented by using Azure Data Factory along with other services." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="sharonlo101" 
-    manager="jhubbard" 
-    editor="monicar"/>
+	pageTitle="Вариант использования фабрики данных: система рекомендации товаров" 
+	description="Сведения о решении, в котором используется фабрика данных Azure и другие службы." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/01/2016" 
-    ms.author="shlo"/>
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2016" 
+	ms.author="spelluru"/>
 
+# Вариант использования: система рекомендации товаров 
 
-# <a name="use-case---product-recommendations"></a>Use Case - Product Recommendations 
+Фабрика данных Azure — одна из многочисленных служб, используемых для внедрения набора аналитических инструментов Cortana Intelligence Suite для ускорителей решений. Подробные сведения об этом наборе см. на странице [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). В этой статье мы рассмотрим проверенное и реализованное многими пользователями Azure решение, в котором используется фабрика данных Azure и другие службы компонентов Cortana Intelligence.
 
-Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  See [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) page for details about this suite. In this document, we describe a common use case that Azure users have already solved and implemented using Azure Data Factory and other Cortana Intelligence component services.
+## Сценарий
 
-## <a name="scenario"></a>Scenario
+Как правило, интернет-магазины пытаются привлечь клиентов, предлагая им те товары, которые заинтересуют их с наибольшей вероятностью и, следовательно, которые они скорее всего купят. Для этого продавцам необходимо настроить показ товаров на сайте, используя персонализированные рекомендации товаров для конкретного пользователя. В этих рекомендациях должны учитываться исторические и текущие данные о покупательском поведении, сведения о товарах и новых торговых марках, а также данные о сегментации товаров и клиентов. Кроме того, продавцы могут рекомендовать пользователям товары, основываясь на результатах анализа обобщенного покупательского поведения всех пользователей.
 
-Online retailers commonly want to entice their customers to purchase products by presenting them with products they are most likely to be interested in, and therefore most likely to buy. To accomplish this, online retailers need to customize their user’s online experience by using personalized product recommendations for that specific user. These personalized recommendations are to be made based on their current and historical shopping behavior data, product information, newly introduced brands, and product and customer segmentation data.  Additionally, they can provide the user product recommendations based on analysis of overall usage behavior from all their users combined.
+Цель таких продавцов — оптимизировать конверсию просмотров в продажи и получить более высокий доход. Они добиваются этого, предоставляя контекстные рекомендации товаров, основанные на покупательском поведении, интересах и действиях клиента. В данном случае мы используем интернет-магазины в качестве примера компаний, которые стараются подстраиваться под своих клиентов. Эти же принципы относятся к любой компании, которая хочет привлечь клиентов к своим товарам и услугам и улучшить процесс покупки, предоставляя клиентам персонализированные рекомендации.
 
-The goal of these retailers is to optimize for user click-to-sale conversions and earn higher sales revenue.  They achieve this conversion by delivering contextual, behavior-based product recommendations based on customer interests and actions. For this use case, we use online retailers as an example of businesses that want to optimize for their customers. However, these principles apply to any business that wants to engage its customers around its goods and services and enhance their customers’ buying experience with personalized product recommendations.
+## Сложности
 
-## <a name="challenges"></a>Challenges
+Интернет-магазины сталкиваются со множеством трудностей при попытке реализовать такую модель.
 
-There are many challenges that online retailers face when trying to implement this type of use case. 
+Во-первых, данные разных объемов и форм должны поступать из нескольких источников данных, как локальных, так и облачных. Эти данные включают данные о товарах, исторические данные о поведении клиента и данные о просмотре пользователем сайта интернет-магазина.
 
-First, data of different sizes and shapes must be ingested from multiple data sources, both on-premises and in the cloud. This data includes product data, historical customer behavior data, and user data as the user browses the online retail site. 
+Во-вторых, подбор и прогнозирование персонализированных рекомендаций должны быть объективными и точными. Помимо данных о товарах, торговых марках, покупательском поведении и просмотренных клиентом страницах, интернет-магазину также необходимо учитывать отзывы о товарах от других покупателей. Вместе эти данные позволят подобрать лучшие рекомендации для каждого конкретного пользователя.
 
-Second, personalized product recommendations must be reasonably and accurately calculated and predicted. In addition to product, brand, and customer behavior and browser data, online retailers also need to include customer feedback on past purchases to factor in the determination of the best product recommendations for the user. 
+В-третьих, пользователи должны мгновенно получать эти рекомендации. Это не только сделает процесс работы с сайтом более удобным, а процедуру покупки более простой, но и позволит пользователям получать наиболее актуальные и релевантные рекомендации.
 
-Third, the recommendations must be immediately deliverable to the user to provide a seamless browsing and purchasing experience, and provide the most recent and relevant recommendations. 
+И наконец, продавцам нужно оценивать эффективность такого подхода путем отслеживания количества успешных дополнительных и перекрестных продаж (конверсия просмотров в продажи) и корректировать последующие рекомендации.
 
-Finally, retailers need to measure the effectiveness of their approach by tracking overall up-sell and cross-sell click-to-conversion sales successes, and adjust to their future recommendations.
+## Обзор решения
 
-## <a name="solution-overview"></a>Solution Overview
+Этот пример решения испытан и реализован реальными пользователями Azure. При этом использовалась фабрика данных Azure и другие службы компонентов Cortana Intelligence, включая [HDInsight](https://azure.microsoft.com/services/hdinsight/) и [Power BI](https://powerbi.microsoft.com/).
 
-This example use case has been solved and implemented by real Azure users by using Azure Data Factory and other Cortana Intelligence component services, including [HDInsight](https://azure.microsoft.com/services/hdinsight/) and [Power BI](https://powerbi.microsoft.com/).
+Для хранения данных на протяжении всего рабочего процесса интернет-магазин использует хранилище BLOB-объектов Azure, локальный сервер SQL, базу данных SQL Azure и киоск реляционных данных. Хранилище BLOB-объектов содержит данные о клиентах, их поведении и сведения о товарах. Информация о товарах — это, в частности, сведения о торговых марках и каталоге товаров, который храниться локально в хранилище данных SQL.
 
-The online retailer uses an Azure Blob store, an on-premises SQL server, Azure SQL DB, and a relational data mart as their data storage options throughout the workflow.  The blob store contains customer information, customer behavior data, and product information data. The product information data includes product brand information and a product catalog stored on-premises in a SQL data warehouse. 
+Все данные объединяются и передаются в систему рекомендаций товаров, предоставляющую персонализированные рекомендации на основе интересов и действий клиента, когда он просматривает товары в каталоге на веб-сайте магазина. Клиенту также показываются товары, которые могут иметь отношение к просматриваемой позиции, на основании общих моделей использования веб-сайта, не относящихся к конкретному пользователю.
 
-All the data is combined and fed into a product recommendation system to deliver personalized recommendations based on customer interests and actions, while the user browses products in the catalog on the website. The customers also see products that are related to the product they are looking at based on overall website usage patterns that are not related to any one user.
+![схема решения](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-![use case diagram](./media/data-factory-product-reco-usecase/diagram-1.png)
+Ежедневно с веб-сайта интернет-магазина передаются гигабайты необработанных веб-журналов в виде частично структурированных файлов. Необработанные файлы веб-журналов и сведения о каталогах клиентов и товаров регулярно поступают в хранилище BLOB-объектов Azure. Для этого в фабрике данных используется глобально развернутая служба перемещения. Необработанные файлы журналов за день группируются (по году и месяцу) в хранилище BLOB-объектов для долговременного хранения. [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) группирует необработанные файлы журналов в хранилище BLOB-объектов и обрабатывает полученные объемы с помощью скриптов Hive и Pig. Из сгруппированных данных веб-журналов затем извлекаются необходимые сведения, которые передаются в систему рекомендаций. С помощью машинного обучения эти данные обрабатываются, и на их основе система предлагает персонализированные рекомендации.
 
-Gigabytes of raw web log files are generated daily from the online retailer’s website as semi-structured files. The raw web log files and the customer and product catalog information is ingested regularly into an Azure Blob storage using Data Factory’s globally deployed data movement as a service. The raw log files for the day are partitioned (by year and month) in blob storage for long-term storage.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) is used to partition the raw log files in the blob store and process the ingested logs at scale using both Hive and Pig scripts. The partitioned web logs data is then processed to extract the needed inputs for a machine learning recommendation system to generate the personalized product recommendations.
+В этом примере для машинного обучения используется открытая платформа рекомендаций [Apache Mahout](http://mahout.apache.org/). Вместо нее в этом случае можно использовать [службы машинного обучения Azure](https://azure.microsoft.com/services/machine-learning/) или любую другую пользовательскую модель. Модель Mahout используется для определения сходства между элементами на веб-сайте интернет-магазина на основе общей модели использования веб-сайта, а также для создания персонализированных рекомендаций, основанных на данных о конкретном пользователе.
 
-The recommendation system used for the machine learning in this example is an open source machine learning recommendation platform from [Apache Mahout](http://mahout.apache.org/).  Any [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) or custom model can be applied to the scenario.  The Mahout model is used to predict the similarity between items on the website based on overall usage patterns, and to generate the personalized recommendations based on the individual user.
+Наконец, финальный набор персонализированных рекомендаций перемещается в киоск реляционных данных, откуда его и берет веб-сайт интернет-магазина. Для других приложений финальный набор также может быть доступен непосредственно в хранилище BLOB-объектов. Кроме того, для других потребителей и вариантов использования набор можно переместить в дополнительные хранилища.
 
-Finally, the result set of personalized product recommendations is moved to a relational data mart for consumption by the retailer website.  The result set could also be accessed directly from blob storage by another application, or moved to additional stores for other consumers and use cases.
+## Преимущества
 
-## <a name="benefits"></a>Benefits
+Вследствие оптимизации стратегии по рекомендациям товаров и ее согласования с целями предприятия решение позволило интернет-магазину достичь своих целей в области сбыта и маркетинга. Кроме того, продавец смог организовать систему рекомендаций и получил инструменты, которые позволяют не только эффективно, а и надежно управлять ею без лишних затрат. Этот подход позволяет с легкостью обновить и настроить имеющуюся модель на основе данных о конверсии просмотров в продажи. Использование фабрики данных Azure дало возможность отказаться от ручного управления облачными ресурсами, которое сопряжено с высокими затратами времени и ресурсов, и перейти к модели управления облачными ресурсами по требованию. Таким образом, это позволило сэкономить время и деньги, а также сократить сроки развертывания решения. Благодаря удобному пользовательскому интерфейсу фабрики данных для мониторинга и управления на портале Azure стало проще визуализировать представления журнала преобразований данных и устранять неполадки в работе службы. Теперь решение может постоянно выдавать готовые данные и доставлять их пользователям. При этом управление данными и обработка зависимостей осуществляются автоматически без человеческого вмешательства.
 
-By optimizing their product recommendation strategy and aligning it with business goals, the solution met the online retailer’s merchandising and marketing objectives. Additionally, they were able to operationalize and manage the product recommendation workflow in an efficient, reliable, and cost effective manner. The approach made it easy for them to update their model and fine-tune its effectiveness based on the measures of sales click-to-conversion successes. By using Azure Data Factory, they were able to abandon their time consuming and expensive manual cloud resource management and move to on-demand cloud resource management. Therefore, they were able to save time, money, and reduce their time to solution deployment. Data lineage views and operational service health became easy to visualize and troubleshoot with the intuitive Data Factory monitoring and management UI available from the Azure portal. Their solution can now be scheduled and managed so that finished data is reliably produced and delivered to users, and data and processing dependencies are automatically managed without human intervention.
-
-By providing this personalized shopping experience, the online retailer created a more competitive, engaging customer experience and therefore increase sales and overall customer satisfaction.
+Внедрив такой персонализированный подход, интернет-магазин предложил своим клиентам более увлекательный процесс покупок. За счет этого повысилась конкурентоспособность бизнеса и появились условия для роста продаж и общей удовлетворенности клиентов.
 
 
 
   
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

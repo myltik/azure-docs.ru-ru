@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure multiple NICs on a Linux VM | Microsoft Azure"
-   description="Learn how to create a VM with multiple NICs attached to it using the Azure CLI or Resource Manager templates."
+   pageTitle="Настройка нескольких сетевых карт на виртуальной машине Linux | Microsoft Azure"
+   description="Узнайте, как создать виртуальную машину с несколькими сетевыми картами с помощью Azure CLI или шаблонов Resource Manager."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,36 +16,35 @@
    ms.date="08/02/2016"
    ms.author="iainfou"/>
 
+# Создание виртуальной машины с несколькими сетевыми картами
+Можно создать виртуальную машину (ВМ) в Azure, к которой подключено несколько виртуальных сетевых интерфейсов (сетевых карт). Распространен сценарий, когда разные подсети используются для интерфейсных и внутренних подключений, или когда для решения мониторинга или архивации используется выделенная сеть. Этой статье описываются быстрые команды для создания виртуальной машины с несколькими сетевыми картами. Чтобы получить дополнительные сведения, в том числе узнать, как создать нескольких сетевых карт в собственных сценариях Bash, узнайте больше о [развертывании виртуальных машин с несколькими сетевыми картами](../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Различные [размеры виртуальных машин](virtual-machines-linux-sizes.md) поддерживают разное число сетевых карт, так что выбирайте соответствующий размер виртуальной машины.
 
-# <a name="creating-a-vm-with-multiple-nics"></a>Creating a VM with multiple NICs
-You can create a virtual machine (VM) in Azure that has multiple virtual network interfaces (NICs) attached to it. A common scenario would be to have different subnets for front-end and back-end connectivity, or a network dedicated to a monitoring or backup solution. This article provides quick commands to create a VM with multiple NICs attached to it. For detailed information, including how to create multiple NICs within your own Bash scripts, read more about [deploying multi-NIC VMs](../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Different [VM sizes](virtual-machines-linux-sizes.md) support a varying number of NICs, so size your VM accordingly.
+>[AZURE.WARNING] Подключать несколько сетевых карт следует при создании виртуальной машины. Их нельзя добавить в существующую виртуальную машину. Вы можете [создать новую виртуальную машины на основе исходных виртуальных дисков](virtual-machines-linux-copy-vm.md) и создать несколько сетевых карт при развертывании это виртуальной машины.
 
->[AZURE.WARNING] You must attach multiple NICs when you create a VM - you cannot add NICs to an existing VM. You can [create a new VM based on the original virtual disk(s)](virtual-machines-linux-copy-vm.md) and create multiple NICs as you deploy the VM.
+## Быстрые команды
+Войдите в [интерфейс командной строки Azure](../xplat-cli-install.md) (Azure CLI) и перейдите в режим Resource Manager (`azure config mode arm`).
 
-## <a name="quick-commands"></a>Quick commands
-Make sure that you have the [Azure CLI](../xplat-cli-install.md) logged in and using Resource Manager mode (`azure config mode arm`).
-
-First, create a resource group:
+Сначала создайте группу ресурсов.
 
 ```bash
 azure group create TestRG --location WestUS
 ```
 
-Create a storage account to hold your VMs:
+Создайте учетную запись хранения для размещения виртуальных машин.
 
 ```bash
 azure storage account create teststorage --resource-group TestRG \
     --location WestUS --kind Storage --sku-name PLRS
 ```
 
-Create a virtual network to connect your VMs to:
+Создайте виртуальную сеть для подключения к этим виртуальным машинам.
 
 ```bash
 azure network vnet create --resource-group TestRG --location WestUS \
     --name TestVNet --address-prefixes 192.168.0.0/16 
 ```
 
-Create two virtual network subnets - one for front-end traffic and one for back-end traffic:
+Создайте две подсети виртуальной сети — для интерфейсного трафика и для внутреннего трафика.
 
 ```bash
 azure network vnet subnet create --resource-group TestRG --vnet-name TestVNet \
@@ -54,7 +53,7 @@ azure network vnet subnet create --resource-group TestRG --vnet-name TestVNet \
     --name BackEnd --address-prefix 192.168.2.0/24
 ```
 
-Create two NICs, attaching one NIC to the front-end subnet and one NIC to the back-end subnet:
+Создайте две сетевые карты и подключите одну из них к интерфейсной подсети, а другую — к внутренней подсети.
 
 ```bash
 azure network nic create --resource-group TestRG --location WestUS \
@@ -63,7 +62,7 @@ azure network nic create --resource-group TestRG --location WestUS \
     -n NIC2 --subnet-vnet-name TestVNet --subnet-name BackEnd
 ```
 
-Finally create your VM, attaching the two NICs you previously created:
+Наконец, создайте виртуальную машину, подключив к ней две сетевые карты, созданные ранее.
 
 ```bash
 azure vm create \            
@@ -79,10 +78,10 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
-## <a name="creating-multiple-nics-using-azure-cli"></a>Creating multiple NICs using Azure CLI
-If you have previously created a VM using the Azure CLI, the quick commands should be familiar. The process is the same to create one NIC or multiple NICs. You can read more details about [deploying multiple NICs using the Azure CLI](../virtual-network/virtual-network-deploy-multinic-arm-cli.md), including scripting the process of looping through to create all the NICs.
+## Создание нескольких сетевых карт с помощью Azure CLI
+Если ранее вы создали виртуальную машину с помощью Azure CLI, значит, вы ознакомлены с быстрыми командами. Процесс создания одной или нескольких сетевых карт аналогичен. Можно прочитать дополнительные сведения о [развертывание нескольких сетевых карт с помощью Azure CLI](../virtual-network/virtual-network-deploy-multinic-arm-cli.md), включая создание сценария для циклического создания всех сетевых карт.
 
-The following example creates two NICs, with one NIC connecting to each subnet:
+В следующем примере создаются две сетевые карты, каждая из которых подключена к отдельной подсети.
 
 ```bash
 azure network nic create --resource-group TestRG --location WestUS \
@@ -91,14 +90,14 @@ azure network nic create --resource-group TestRG --location WestUS \
     -n NIC2 --subnet-vnet-name TestVNet --subnet-name BackEnd
 ```
 
-Typically you would also create a [network security group](../virtual-network/virtual-networks-nsg.md) or [load balancer](../load-balancer/load-balancer-overview.md) to help manage and distribute traffic across your VMs. Again, the commands are the same when working with multiple NICs. The NICs you create get bound to a network security group or load balancer using `azure network nic set`, such as in the following example:
+Обычно также создается [группа безопасности сети](../virtual-network/virtual-networks-nsg.md) или [балансировщик нагрузки](../load-balancer/load-balancer-overview.md) для управления трафиком и его распределения между виртуальными машинами. Опять же, эти команды используются для работы с несколькими сетевыми картами. Создаваемые сетевые карты привязываются к группе безопасности сети или балансировщику нагрузки с помощью команды `azure network nic set`, как показано в следующем примере.
 
 ```bash
 azure network nic set --resource-group TestRG --name NIC1 \
     --network-security-group-name TestNSG
 ```
 
-When creating the VM, you now specify multiple NICs. Rather using `--nic-name` to provide a single NIC, instead you use `--nic-names` and provide a comma-separated list of NICs. You also need to take care when you select the VM size. There are limits for the total number of NICs that you can add to a VM. Read more about [Linux VM sizes](virtual-machines-linux-sizes.md). The following example shows how to specify multiple NICs and then a VM size that supports using multiple NICs (`Standard_DS2_v2`):
+Теперь при создании виртуальной машины следует указать несколько сетевых карт. Вместо того, чтобы использовать `--nic-name` для указания одной сетевой карты, используйте `--nic-names` и укажите разделенный запятыми список сетевых карт. Необходимо выбрать соответствующий размер виртуальной машины. Для каждой виртуальной машины существуют ограничения на общее количество сетевых карт, которые можно в нее добавить. Прочитайте дополнительные сведения о [размерах виртуальных машин Linux](virtual-machines-linux-sizes.md). В следующем примере показано, как указать несколько сетевых карт, а затем — размер виртуальной машины, который поддерживает использование нескольких сетевых карт (`Standard_DS2_v2`).
 
 ```bash
 azure vm create \            
@@ -114,8 +113,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
-## <a name="creating-multiple-nics-using-resource-manager-templates"></a>Creating multiple NICs using Resource Manager templates
-Azure Resource Manager templates use declarative JSON files to define your environment. You can read an [overview of Azure Resource Manager](../resource-group-overview.md). Resource Manager templates provide a way to create multiple instances of a resource during deployment, such as creating multiple NICs. You use *copy* to specify the number of instances to create:
+## Создание нескольких сетевых карт с помощью шаблонов Resource Manager
+В шаблонах Azure Resource Manager используются декларативные JSON-файлы для определения среды. Вы можете прочитать [обзор Azure Resource Manager](../resource-group-overview.md), чтобы узнать больше об этом. Шаблоны Resource Manager дают возможность создать несколько экземпляров ресурса во время развертывания, в том числе создать несколько сетевых карт. Чтобы указать число создаваемых экземпляров, используется объект *copy*.
 
 ```bash
 "copy": {
@@ -124,22 +123,19 @@ Azure Resource Manager templates use declarative JSON files to define your envir
 }
 ```
 
-Read more about [creating multiple instances using *copy*](../resource-group-create-multiple.md). 
+Вы можете прочитать дополнительные сведения о [создании нескольких экземпляров с помощью объекта *copy*](../resource-group-create-multiple.md).
 
-You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `NIC1`, `NIC2`, etc. The following shows an example of appending the index value:
+Можно также использовать `copyIndex()`, чтобы добавить номер к имени ресурса, что позволяет создать `NIC1`, `NIC2` и т. д. Ниже показан пример добавления значения индекса.
 
 ```bash
 "name": "[concat('NIC-', copyIndex())]", 
 ```
 
-You can read a complete example of [creating multiple NICs using Resource Manager templates](../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+Вы можете ознакомиться с полным примером [создания нескольких сетевых карт с помощью шаблонов Resource Manager](../virtual-network/virtual-network-deploy-multinic-arm-template.md).
 
-## <a name="next-steps"></a>Next steps
-Make sure to review [Linux VM sizes](virtual-machines-linux-sizes.md) when trying to creating a VM with multiple NICs. Pay attention to the maximum number of NICs each VM size supports. 
+## Дальнейшие действия
+Обязательно ознакомьтесь с [размерами виртуальных машин Linux](virtual-machines-linux-sizes.md), когда будете создавать виртуальную машину с несколькими сетевыми картами. Обратите внимание на максимальное число сетевых карт, поддерживаемых каждым из размеров виртуальной машины.
 
-Remember that you cannot add additional NICs to an existing VM, you must create all the NICs when you deploy the VM. Take care when planning your deployments to make sure that you have all the required network connectivity from the outset.
+Помните, что невозможно добавить дополнительные сетевые карты в существующую виртуальную машины. Все сетевые карты должны быть созданы при развертывании виртуальной машины. Будьте внимательны при планировании развертываний. С самого начала убедитесь в наличии всех необходимых сетевых подключений.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

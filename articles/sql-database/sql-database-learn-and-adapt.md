@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Learns and Adapts"
-   description="Learn how SQL Database learns and adapts"
+   pageTitle="Развитие и адаптация базы данных SQL Azure"
+   description="Узнайте, как обучается и адаптируется база данных SQL"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -14,55 +14,49 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/13/2016"
+   ms.date="07/19/2016"
    ms.author="carlrab"/>
 
+# Развитие и адаптация базы данных SQL Azure
 
-# <a name="azure-sql-database-learns-&amp;-adapts"></a>Azure SQL Database Learns &amp; Adapts
 
+## База данных SQL Azure развивается и адаптируется вместе с приложением
 
-## <a name="how-azure-sql-database-learns,-adapts,-and-grows-with-your-application"></a>How Azure SQL Database learns, adapts, and grows with your application
-
-Azure SQL Database manages billions of transactions and millions of databases per day. And one of its key features is that SQL Database is always learning and adapting with your app. That way you can dynamically maximize performance, reliability, and data security&mdash;with little effort on your part.
+База данных SQL Azure ежедневно управляет миллиардами транзакций и миллионами баз данных. Одной из важнейших особенностей базы данных SQL является постоянное развитие и адаптация к приложениям. Это позволяет динамически увеличивать производительность, надежность и безопасность данных с минимальными усилиями с вашей стороны.
 
 ![learn-and-adapt](./media/sql-database-learn-and-adapt/sql-database-learn-and-adapt.png)
 
-## <a name="threat-detection-and-alerts"></a>Threat detection and alerts  
-With threat and anomaly detection, SQL Database has built-in behavioral analysis, real-time alerts, a configurable threat policy, an audit log, and intelligent ways to detect and fix unusual patterns.
+## Обнаружение угроз и оповещения  
+База данных SQL имеет функции обнаружения угроз и аномалий: встроенный поведенческий анализ, оповещения в реальном времени, настраиваемые политики угроз, журнал аудита и интеллектуальные методы обнаружения и исправления нетипичных сценариев.
 
-[Read the documentation](sql-database-threat-detection-get-started.md)
+[Ознакомьтесь с документацией](sql-database-threat-detection-get-started.md).
 
-## <a name="automatic-tuning"></a>Automatic tuning
-SQL Database is equipped to make your app run at its best performance. By continuously learning your app’s patterns, adaptively self-tuning its performance, and automatically refining without you doing anything&mdash;because we know you don’t want to anyway.
+## Автоматическая настройка
+База данных SQL помогает оптимизировать производительность приложений. Выполняется непрерывный анализ типовых действий приложений, адаптивная настройка и автоматическая коррекция производительности. При этом от вас не требуется никаких действий — мы знаем, что вы хотите обойтись без них.
 
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787566)
+[Ознакомьтесь с документацией](http://go.microsoft.com/fwlink/?LinkID=787566).
 
-## <a name="insights-when-you-need-them"></a>Insights when you need them
-SQL Database is able to track each query and its duration, frequency, and resource utilization. Based on this telemetry, automatic algorithms optimally tune your databases exactly to your queries. Additionally, SQL Database provides insights to help minimize time tuning queries and troubleshooting performance issues. That means you gain direct insight into resource consumption, top performing queries, and the ability to drill down for more details.
+## Своевременные рекомендации
+База данных SQL может отслеживать каждый запрос и оценивать его длительность, частоту и затраты ресурсов. На основании этих данных автоматические алгоритмы корректируют настройки базы данных оптимальным образом в соответствии с характером запросов. Кроме того, база данных SQL предоставляет аналитические рекомендации, которые помогают сократить время настройки запросов и устранение неполадок, связанных с производительностью. Это значит, что вы получите оперативную информацию о потреблении ресурсов и наиболее эффективных запросах, а также сможете изучить более подробные сведения.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787567)
+[Ознакомьтесь с документацией](http://go.microsoft.com/fwlink/?LinkID=787567).
 
-## <a name="no-administration-required"></a>No administration required
-SQL Database provides the automatic administration and data protection your app needs so you can go back to doing what you do best&mdash;coding. You automatically get back-ups, disaster recovery failover, infrastructure maintenance, security and software patches, and feature updates. You’ll not only save money and time as SQL Database works behind the scenes, but you’ll also never have to worry about that dreaded app downtime.
+## Администрирование не требуется
+База данных SQL обеспечивает автоматическое администрирование и защиту данных в соответствии с потребностями приложения. Вам остается только заниматься основной задачей — программированием. Вы сможете автоматически использовать резервное копирование, аварийное восстановление при отработке отказа, обслуживание инфраструктуры, исправления систем безопасности и программного обеспечения, обновления компонентов. Фоновая работа базы данных SQL позволит не только сэкономить деньги и время, но и не волноваться больше о простоях приложений.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787568)
+[Ознакомьтесь с документацией](http://go.microsoft.com/fwlink/?LinkID=787568).
 
-Go to the homepage to see what else SQL Database has to offer.
-[Check it out](https://azure.microsoft.com/services/sql-database/) 
+Ознакомиться с другими преимуществами базы данных SQL вы можете [здесь.](https://azure.microsoft.com/services/sql-database/)
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+Вы можете получить [бесплатную подписку Azure](https://azure.microsoft.com/get-started/) и [создать первую Базу данных SQL Azure](sql-database-get-started.md).
 
-## <a name="additional-resources"></a>Additional resources
+## Дополнительные ресурсы
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
  
-Review the [technical overview of SQL Database](sql-database-technical-overview.md).
+Вы можете ознакомиться с [техническим обзором Базы данных SQL](sql-database-technical-overview.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

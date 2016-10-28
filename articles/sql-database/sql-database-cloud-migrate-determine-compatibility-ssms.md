@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database | Microsoft Azure"
-   description="Microsoft Azure SQL Database, database migration, SQL Database compatibility, Export Data Tier Application Wizard"
+   pageTitle="Использование SQL Server Management Studio для определения совместимости базы данных SQL Azure перед переносом | Microsoft Azure"
+   description="База данных SQL Microsoft Azure, миграция базы данных, совместимость базы данных SQL, мастер экспорта приложений на уровне данных "
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -16,61 +16,55 @@
    ms.date="08/29/2016"
    ms.author="carlrab"/>
 
-
-# <a name="use-sql-server-management-studio-to-determine-sql-database-compatibility-before-migration-to-azure-sql-database"></a>Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database
+# Использование SQL Server Management Studio для определения совместимости базы данных SQL Azure перед миграцией
 
 > [AZURE.SELECTOR]
 - [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 - [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-- [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
+- [Помощник по обновлению](http://www.microsoft.com/download/details.aspx?id=48119)
 - [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
  
-In this article you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio.
+В этой статье вы узнаете, как определить, подходит ли база данных SQL Server для миграции с помощью мастера экспорта приложений на уровне данных в среде SQL Server Management Studio.
 
-## <a name="using-sql-server-management-studio"></a>Using SQL Server Management Studio
+## Использование среды SQL Server Management Studio
 
-1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
+1. Убедитесь, что у вас установлена последняя версия среды SQL Server Management Studio. Новые версии среды Management Studio обновляются ежемесячно для поддержания синхронизации с обновлениями портала Azure.
 
-     > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+ 	 > [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-2. Open Management Studio and connect to your source database in Object Explorer.
-3. Right-click the source database in the Object Explorer, point to **Tasks**, and click **Export Data-Tier Application…**
+2. Откройте среду Management Studio и подключитесь к исходной базе данных в обозревателе объектов.
+3. В обозревателе объектов щелкните правой кнопкой мыши исходную базу данных, наведите указатель мыши на пункт **Задачи** и выберите команду **Экспорт приложения уровня данных...**.
 
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
+	![Экспорт приложения уровня данных из меню "Задачи"](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS01.png)
 
-4. In the export wizard, click **Next**, and then on the **Settings** tab, configure the export to save the BACPAC file to either a local disk location or to an Azure blob. A BACPAC file is saved if you have no database compatibility issues. If there are compatibility issues, they are be displayed on the console.
+4. В окне мастера экспорта щелкните **Далее** и на вкладке **Параметры** настройте сохранение BACPAC-файла на локальный диск или в большой двоичный объект Azure. BACPAC-файл будет сохранен, если нет проблем совместимости базы данных. При наличии проблем совместимости они отображаются в консоли.
 
-    ![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
+	![Параметры экспорта](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS02.png)
 
-5. To skip exporting data, click the **Advanced tab** and clear the **Select All** checkbox. Our goal at this point is only to test for compatibility.
+5. Чтобы пропустить экспорт данных, перейдите на вкладку **Дополнительно** и снимите флажок **Выделить все**. На этом этапе нашей целью является только проверка совместимости.
 
-    ![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
+	![Параметры экспорта](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS03.png)
 
-6. Click **Next** and then click **Finish**. Database compatibility issues, if any, appear after the wizard validates the schema.
+6. Нажмите кнопку **Далее**, а затем — кнопку **Готово**. При наличии проблем совместимости базы данных они отобразятся после проверки схемы мастером.
 
-    ![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
+	![Параметры экспорта](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS04.png)
 
-7. If no errors appear, your database is compatible and you are ready to migrate. If you have errors, you need to fix them. To see the errors, click **Error** for **Validating schema**. 
-    ![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
+7. Если проблемы отсутствуют, значит база данных совместима и все готово к переносу. Если имеются проблемы, их необходимо устранить. Чтобы просмотреть проблемы, нажмите ссылку **Ошибка** для соответствующей **Проверки схемы**. ![Параметры экспорта](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
 
-8.  If the *.BACPAC file is successfully generated, then your database is compatible with SQL Database, and you are ready to migrate.
+8.	Если файл *. BACPAC успешно создан, то ваша база данных совместима с Базой данных SQL и вы готовы к миграции.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-- [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
-- [Fix database migration compatibility issues](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
-- [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
+- [Последняя версия SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Последняя версия SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+- [Устранение проблем совместимости при миграции базы данных](sql-database-cloud-migrate.md#fix-database-migration-compatibility-issues)
+- [Перенос совместимой базы данных SQL Server в Базу данных SQL](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
-## <a name="additional-resources"></a>Additional resources
+## Дополнительные ресурсы
 
-- [SQL Database V12](sql-database-v12-whats-new.md)
-- [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-- [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+- [База данных SQL версии 12.](sql-database-v12-whats-new.md)
+- [Частично или полностью неподдерживаемые функции Transact-SQL.](sql-database-transact-sql-information.md)
+- [Migrate non-SQL Server databases using SQL Server Migration Assistant (Миграция баз данных не на основе SQL Server с помощью помощника по миграции SQL Server).](http://blogs.msdn.com/b/ssma/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

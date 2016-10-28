@@ -1,7 +1,7 @@
 
 <properties
-pageTitle="SCP.NET programming guide | Azure"
-description="Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm on HDInsight."
+pageTitle="Руководство по программированию для SCP.NET | Azure"
+description="Узнайте, как использовать SCP.NET для создания топологий Storm на основе .NET для использования со Storm в HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="raviperi"
@@ -17,42 +17,41 @@ ms.workload="big-data"
 ms.date="05/16/2016"
 ms.author="raviperi"/>
 
+#Руководство по программированию для SCP
 
-#<a name="scp-programming-guide"></a>SCP programming guide
+SPC — это платформа для создания надежного, согласованного и высокопроизводительного приложения для обработки данных в реальном времени. Она основана на [Apache Storm](http://storm.incubator.apache.org/) — системе обработки потоковых данных, созданной сообществами разработчиков OSS. Создателем Storm является Натан Марц (Nathan Marz), программа имеет открытый код и распространяется компанией Twitter. В платформе используется [Apache ZooKeeper](http://zookeeper.apache.org/) — еще один проект Apache для обеспечения высоконадежной распределенной координации и управления состоянием.
 
-SCP is a platform to build real time, reliable, consistent and high performance data processing application. It is built on top of [Apache Storm](http://storm.incubator.apache.org/) -- a stream processing system designed by the OSS communities. Storm is designed by Nathan Marz and open sourced by Twitter. It leverages [Apache ZooKeeper](http://zookeeper.apache.org/), another Apache project to enable highly reliable distributed coordination and state management. 
+С помощью проекта SPC удалось не только перенести Storm в Windows, но и добавить расширения и адаптировать его для работы в экосистеме Windows. Дополнения включают в себя возможности разработки .NET и библиотеки; адаптация заключается в возможности развертывания на основе Windows.
 
-Not only the SCP project ported Storm on Windows but also the project added extensions and customization for the Windows ecosystem. The extensions include .NET developer experience, and libraries, the customization includes Windows-based deployment. 
+Дополнения и адаптация выполнены таким образом, что нам не придется разветвлять проекты OSS, а можно использовать производные экосистемы, созданные на базе Storm.
 
-The extension and customization is done in such a way that we do not need to fork the OSS projects and we could leverage derived ecosystems built on top of Storm. 
+## Модель обработки данных 
 
-## <a name="processing-model"></a>Processing model 
+Данные в SCP оформляются в виде постоянных потоков кортежей данных. Обычно кортежи оформляются в виде очереди на первом этапе, затем бизнес-логика приложения, находящегося внутри топологии Storm, подбирает и трансформирует их. Наконец, данные на выходе могут подаваться в виде кортежей в другую систему SCP или отправляться на хранение в системы распределенных файлов или базы данных, например SQL Server.
 
-The data in SCP is modeled as continuous streams of tuples. Typically the tuples flow into some queue first, then picked up, and transformed by business logic hosted inside a Storm topology, finally the output could be piped as tuples to another SCP system, or be committed to stores like distributed file system or databases like SQL Server.
+![Схема очереди, передающей данные для обработки, которая наполняет хранилище данных](media/hdinsight-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
 
-![A diagram of a queue feeding data to processing, which feeds a data store](media/hdinsight-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+В Storm вычислительные графы определяются топологией приложения. Каждый узел в топологии содержит логическую схему обработки информации, а по связям между узлами можно определить движение потока данных. Узлы, которые "вливают" входные данные в топологию, называются "воронками" (Spout) и могут использоваться для создания последовательности потока данных. Входные данные могут располагаться в файлах журнала, транзакционной базе данных, системном счетчике производительности и т. д. Узлы для потоков входных и выходных данных называются "ситами", они осуществляют фактическую фильтрацию, и выбор и агрегацию данных.
 
-In Storm, an application topology defines a graph of computation. Each node in a topology contains processing logic, and links between nodes indicate data flow. The nodes to inject input data into the topology are called Spouts, which can be used to sequence the data. The input data could reside in file logs, transactional database, system performance counter etc. The nodes with both input and output data flows are called Bolts, which do the actual data filtering and selections and aggregation.
+SCP поддерживает максимальное качество работы при типе обработки данных "минимум однажды" и "только однажды". В распределенном приложении для обработки потоковой передачи могут возникать различные ошибки во время обработки данных, например сбой сети, аппаратный сбой, ошибка в коде пользователя и т. п. Обработка по принципу "минимум однажды" гарантирует, что все данные будут обрабатываться по крайней мере один раз благодаря автоматической повторной обработке тех же данных в случае ошибки. Модель обработки "только однажды" проста и надежна и отлично подходит для многих приложений. Однако в случаях, когда приложение требует, например, точного подсчета данных, вид обработки "минимум однажды" недостаточен, поскольку одни и те же данные могут проходить через топологию приложения несколько раз. Для подобных случаев разработан вид обработки "только однажды". Он обеспечивает достоверность итоговых данных даже в тех случаях, когда данные могут посылаться повторно и обрабатываться несколько раз подряд.
 
-SCP supports best efforts, at-least-once and exactly-once data processing. In a distributed streaming processing application, various errors may happen during data processing, such as network outage, machine failure, or user code error etc. At-least-once processing ensures all data will be processed at least once by replaying automatically the same data when error happens. At-least-once processing is simple and reliable and suits well in many applications. However, when the application requires exact counting, for example, at-least-once processing is insufficient since the same data could potentially be played in the application topology. In that case, exactly-once processing is designed to make sure the result is correct even when the data may be replayed and processed multiple times.
+SCP позволяет разработчикам для .NET создавать приложения для обработки данных в реальном времени со скрытым использованием возможностей Storm на виртуальных машинах Java (JVM). .NET и JVM обмениваются данными через локальный TCP-сокет. По сути, каждая пара "воронка/сито" — это пара процессов .Net/Java, в которой логика пользователя задействована в процессе .Net в качестве дополнительного модуля.
 
-SCP enables .NET developers to develop real time data process applications while leverage the Java Virtual Machine (JVM) based Storm under the cover. The .NET and JVM communicate via TCP local socket. Basically each Spout/Bolt is a .Net/Java process pair, where the user logic runs in .Net process as a plugin.
+Для создания приложения для обработки данных поверх SCP необходимо выполнить следующее:
 
-To build a data processing application on top of SCP, several steps are needed:
+-   Создать и активировать "воронки" для извлечения данных из очереди.
 
--   Design and implement the Spouts to pull in data from queue.
+-   Создать и активировать "сита" для обработки входящих данных и сохранения данных после обработки во внешнем хранилище, например в базе данных.
 
--   Design and implement Bolts to process the input data, and save data to external stores such as Database.
+-   Создать топологию процесса, загрузить и запустить ее. Топология определяет вершины и поток данных между вершинами. SCP получает спецификацию топологии и размещает из в кластере Storm, где каждая вершина работает в отдельном логическом узле. Переход на резервный ресурс и масштабирование выполняет планировщик задач Storm.
 
--   Design the topology, then submit and run the topology. The topology defines vertexes and the data flows between the vertexes. SCP will take the topology specification and deploy it on a Storm cluster, where each vertex runs on one logical node. The failover and scaling will be taken care of by the Storm task scheduler.
+В этой статье мы разберем несколько простых примеров создания приложения для обработки данных с помощью SCP.
 
-This document will use some simple examples to walk through how to build data processing application with SCP.
+## Интерфейс подключаемого модуля SCP 
 
-## <a name="scp-plugin-interface"></a>SCP Plugin Interface 
+Дополнительные модули (или приложения) SCP — это автономные файлы типа EXE, которые можно запускать в Visual Studio во время фазы разработки, а также можно подключать к конвейеру Storm после завершения разработки. Процесс написания кода дополнительного модуля SCP ничем не отличается от процессов написания кода для стандартных приложений в консоли Windows. Платформа SCP.NET объявляет интерфейс для "воронки" и "сита", которые пользователю нужно заполнить программным кодом для модуля. Это делается для того, чтобы пользователь мог сосредоточиться на своей задаче и предоставил платформе SCP.NET позаботиться обо всех остальных аспектах.
 
-SCP plugins (or applications) are standalone EXEs that can both run inside Visual Studio during the development phase, and be plugged into the Storm pipeline after deployment in production. Writing the SCP plugin is just the same as writing any other standard Windows console applications. SCP.NET platform declares some interface for spout/bolt, and the user plugin code should implement these interfaces. The main purpose of this design is that the user can focus on their own business logics, and leaving other things to be handled by SCP.NET platform.
-
-The user plugin code should implement one of the followings interfaces, depends on whether the topology is transactional or non-transactional, and whether the component is spout or bolt.
+Код дополнительного модуля нужно внести в один из следующих интерфейсов, в зависимости от того, является ли топология транзакционной или нетранзакционной и является ли компонент "воронкой" или "ситом".
 
 -   ISCPSpout
 
@@ -62,286 +61,286 @@ The user plugin code should implement one of the followings interfaces, depends 
 
 -   ISCPBatchBolt
 
-### <a name="iscpplugin"></a>ISCPPlugin
+### ISCPPlugin
 
-ISCPPlugin is the common interface for all kinds of plugins. Currently, it is a dummy interface.
+ISCPPlugin — это общий интерфейс для различных дополнительных модулей. В данном случае мы работаем с имитатором интерфейса.
 
-    public interface ISCPPlugin 
-    {
-    }
+	public interface ISCPPlugin 
+	{
+	}
 
-### <a name="iscpspout"></a>ISCPSpout
+### ISCPSpout
 
-ISCPSpout is the interface for non-transactional spout.
+ISCPSpout — это интерфейс для нетранзакционных "воронок".
 
-     public interface ISCPSpout : ISCPPlugin                    
-     {
-         void NextTuple(Dictionary<string, Object> parms);         
-         void Ack(long seqId, Dictionary<string, Object> parms);   
-         void Fail(long seqId, Dictionary<string, Object> parms);  
-     }
+	 public interface ISCPSpout : ISCPPlugin                    
+	 {
+		 void NextTuple(Dictionary<string, Object> parms);         
+		 void Ack(long seqId, Dictionary<string, Object> parms);   
+		 void Fail(long seqId, Dictionary<string, Object> parms);  
+	 }
 
-When `NextTuple()` is called, the C\# user code can emit one or more tuples. If there is nothing to emit, this method should return without emitting anything. It should be noted that `NextTuple()`, `Ack()`, and `Fail()` are all called in a tight loop in a single thread in C\# process. When there are no tuples to emit, it is courteous to have NextTuple sleep for a short amount of time (such as 10 milliseconds) so as not to waste too much CPU.
+Когда вы вызываете `NextTuple()`, пользовательский код C# может отправить один или несколько кортежей. Если данных для отправки не существует, то возвращение метода должно произойти без отправки данных. Нужно отметить, что команды `NextTuple()`, `Ack()` и `Fail()` вызываются в сплошном цикле однопоточной обработки процесса C#. Если кортежей для отправки не существует, то разумно будет приостановить NextTuple на короткий промежуток времени (около 10 миллисекунд), чтобы излишне не нагружать ЦП.
 
-`Ack()` and `Fail()` will be called only when ack mechanism is enabled in spec file. The `seqId` is used to identify the tuple which is acked or failed. So if ack is enabled in non-transactional topology, the following emit function should be used in Spout:
+Команды `Ack()` и `Fail()` вызываются только в случае активации механизма подтверждения в файле спецификации. `seqId` используется для определения подтверждения или отклонения принятия кортежа. Если подтверждение включено в нетранзакционной топологии, в "воронке" должны использоваться следующие функции отправки:
 
-    public abstract void Emit(string streamId, List<object> values, long seqId); 
+	public abstract void Emit(string streamId, List<object> values, long seqId); 
 
-If ack is not supported in non-transactional topology, the `Ack()` and `Fail()` can be left as empty function.
+Если подтверждение не поддерживается нетранзакционной топологией, функции `Ack()` и `Fail()` можно не заполнять кодом.
 
-The `parms` input parameters in these functions are just empty Dictionary, they are reserved for future use.
+Если входные параметры `parms` в этих функциях представляют собой пустой словарь, то их резервируют для использования в будущем.
 
-### <a name="iscpbolt"></a>ISCPBolt
+### ISCPBolt
 
-ISCPBolt is the interface for non-transactional bolt.
+ISCPBolt — это интерфейс для нетранзакционных "сит"
 
-    public interface ISCPBolt : ISCPPlugin 
-    {
-    void Execute(SCPTuple tuple);           
-    }
+	public interface ISCPBolt : ISCPPlugin 
+	{
+	void Execute(SCPTuple tuple);           
+	}
 
-When new tuple is available, the `Execute()` function will be called to process it.
+При наличии нового кортежа для его обработки будет вызвана функция `Execute()`.
 
-### <a name="iscptxspout"></a>ISCPTxSpout
+### ISCPTxSpout
 
-ISCPTxSpout is the interface for transactional spout.
+ISCPTxSpout — это интерфейс для транзакционных "воронок".
 
-    public interface ISCPTxSpout : ISCPPlugin
-    {
-        void NextTx(out long seqId, Dictionary<string, Object> parms);  
-        void Ack(long seqId, Dictionary<string, Object> parms);         
-        void Fail(long seqId, Dictionary<string, Object> parms);        
-    }
+	public interface ISCPTxSpout : ISCPPlugin
+	{
+		void NextTx(out long seqId, Dictionary<string, Object> parms);  
+		void Ack(long seqId, Dictionary<string, Object> parms);         
+		void Fail(long seqId, Dictionary<string, Object> parms);        
+	}
 
-Just like their non-transactional counter-part, `NextTx()`, `Ack()`, and `Fail()` are all called in a tight loop in a single thread in C\# process. When there are no data to emit, it is courteous to have `NextTx` sleep for a short amount of time (10 milliseconds) so as not to waste too much CPU.
+Так же, как и в случае с нетранзакционными "воронками", команды `NextTx()`, `Ack()` и `Fail()` вызываются в сплошном цикле однопоточной обработки процесса C#. Если данных для отправки не существует, то разумно будет приостановить `NextTx` на короткий промежуток времени (около 10 миллисекунд), чтобы излишне не нагружать ЦП.
 
-`NextTx()` is called to start a new transaction, the out parameter `seqId` is used to identify the transaction, which is also used in `Ack()` and `Fail()`. In `NextTx()`, user can emit data to Java side. The data will be stored in ZooKeeper to support replay. Because the capacity of ZooKeeper is very limited, user should only emit metadata, not bulk data in transactional spout.
+`NextTx()` вызывается для того, чтобы начать новую передачу, для обозначения транзакции используется выходной параметр `seqId`, который также используется в командах `Ack()` и `Fail()`. В случае с `NextTx()` пользователь может отправлять данные в часть Java. Данные сохраняются в ZooKeeper для возможности провести повторную передачу. Поскольку возможности хранения ZooKeeper ограничены, пользователи могут отправлять метаданные, но не могут отправлять данные большого объема в транзакционных "воронках".
 
-Storm will replay a transaction automatically if it fails, so `Fail()` should not be called in normal case. But if SCP can check the metadata emitted by transactional spout, it can call `Fail()` when the metadata is invalid.
+Storm автоматически повторит транзакцию, если она завершилась с ошибкой, поэтому в нормальных условиях `Fail()` вызывать не следует. Но так как платформа SCP может проверить метаданные от транзакционной "воронки", то она может вызвать `Fail()`, если метаданные неверны.
 
-The `parms` input parameters in these functions are just empty Dictionary, they are reserved for future use.
+Если входные параметры `parms` в этих функциях представляют собой пустой словарь, то их резервируют для использования в будущем.
 
-### <a name="iscpbatchbolt"></a>ISCPBatchBolt
+### ISCPBatchBolt
 
-ISCPBatchBolt is the interface for transactional bolt.
+ISCPBatchBolt — это интерфейс для транзакционных "сит".
 
-    public interface ISCPBatchBolt : ISCPPlugin           
-    {
-        void Execute(SCPTuple tuple);
-        void FinishBatch(Dictionary<string, Object> parms);  
-    }
+	public interface ISCPBatchBolt : ISCPPlugin           
+	{
+		void Execute(SCPTuple tuple);
+		void FinishBatch(Dictionary<string, Object> parms);  
+	}
 
-`Execute()` is called when there is new tuple arriving at the bolt. `FinishBatch()` is called when this transaction is ended. The `parms` input parameter is reserved for future use.
+`Execute()` вызывается при наличии нового кортежа, поступающего в "сито". `FinishBatch()` вызывается после завершения этой транзакции. Входной параметр `parms` зарезервирован для использованию в будущем.
 
-For transactional topology, there is an important concept – `StormTxAttempt`. It has two fields, `TxId` and `AttemptId`. `TxId` is used to identify a specific transaction, and for a given transaction, there may be multiple attempt if the transaction fails and is replayed. SCP.NET will new a different ISCPBatchBolt object to process each `StormTxAttempt`, just like what Storm do in Java side. The purpose of this design is to support parallel transactions processing. User should keep it in mind that if transaction attempt is finished, the corresponding ISCPBatchBolt object will be destroyed and garbage collected.
+Для транзакционной топологии существует важная концепция — `StormTxAttempt`. Она содержит два поля, `TxId` и `AttemptId`. `TxId` используется для определения специальной транзакции, и для заданной транзакции может предприниматься несколько попыток, если перед этим она завершилась ошибкой и была повторена. SCP.NET создает отдельный объект ISCPBatchBolt для обработки `StormTxAttempt`, точно так же, как это делает Storm в части Java. Это делается для поддержки параллельной обработки данных. Пользователю необходимо помнить, что после завершения попытки передачи соответствующий объект ISCPBatchBolt будет уничтожен и удален как мусор.
 
-## <a name="object-model"></a>Object Model
+## Объектная модель
 
-SCP.NET also provides a simple set of key objects for developers to program with. They are **Context**, **StateStore**, and **SCPRuntime**. They will be discussed in the rest part of this section.
+SCP.NET предоставляет разработчикам простой набор ключевых объектов для программирования. В их число входят: **Context**, **StateStore** и **SCPRuntime**. О них пойдет речь в оставшейся части раздела.
 
-### <a name="context"></a>Context
+### Context
 
-Context provides a running environment to the application. Each ISCPPlugin instance (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) has a corresponding Context instance. The functionality provided by Context can be divided into two parts: (1) the static part which is available in the whole C\# process, (2) the dynamic part which is only available for the specific Context instance.
+Context обеспечивает рабочую среду для приложений. Каждому экземпляру дополнительного модуля ISCP (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) соответствует экземпляр объекта Context. Функциональные возможности, предоставляемые Context, можно разделить на две части: (1) статическая часть, которая доступна во всем процессе C#, (2) динамическая часть, которая доступна только для определенного экземпляра Context.
 
-### <a name="static-part"></a>Static Part
+### Статическая часть
 
-    public static ILogger Logger = null;
-    public static SCPPluginType pluginType;                      
-    public static Config Config { get; set; }                    
-    public static TopologyContext TopologyContext { get; set; }  
+	public static ILogger Logger = null;
+	public static SCPPluginType pluginType;                      
+	public static Config Config { get; set; }                    
+	public static TopologyContext TopologyContext { get; set; }  
 
-`Logger` is provided for log purpose.
+`Logger` отвечает за создание записей в журнале.
 
-`pluginType` is used to indicate the plugin type of the C\# process. If the C\# process is run in local test mode (without Java), the plugin type is `SCP_NET_LOCAL`.
+`pluginType` используется для указания типа подключаемого модуля в процессе C#. Если процесс C# запущен в локальном тестовом режиме (без Java), в качестве типа подключаемого модуля задается `SCP_NET_LOCAL`.
 
-    public enum SCPPluginType 
-    {
-        SCP_NET_LOCAL = 0,       
-        SCP_NET_SPOUT = 1,       
-        SCP_NET_BOLT = 2,        
-        SCP_NET_TX_SPOUT = 3,   
-        SCP_NET_BATCH_BOLT = 4  
-    }
+	public enum SCPPluginType 
+	{
+		SCP_NET_LOCAL = 0,       
+		SCP_NET_SPOUT = 1,       
+		SCP_NET_BOLT = 2,        
+		SCP_NET_TX_SPOUT = 3,   
+		SCP_NET_BATCH_BOLT = 4  
+	}
 
-`Config` is provided to get configuration parameters from Java side. The parameters are passed from Java side when C\# plugin is initialized. The `Config` parameters are divided into two parts: `stormConf` and `pluginConf`.
+`Config` предназначен для получения параметров конфигурации из части Java. Параметры передаются со стороны Java после запуска дополнительного модуля на C#. Параметры `Config` делятся на две части: `stormConf` и `pluginConf`.
 
-    public Dictionary<string, Object> stormConf { get; set; }  
-    public Dictionary<string, Object> pluginConf { get; set; }  
+	public Dictionary<string, Object> stormConf { get; set; }  
+	public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf` is parameters defined by Storm and `pluginConf` is the parameters defined by SCP. For example:
+`stormConf` — это параметры, определенные Storm, а `pluginConf` — это параметры, определенные SCP. Например:
 
-    public class Constants
-    {
-        … …
+	public class Constants
+	{
+		… …
 
-        // constant string for pluginConf
-        public static readonly String NONTRANSACTIONAL_ENABLE_ACK = "nontransactional.ack.enabled";  
+		// constant string for pluginConf
+		public static readonly String NONTRANSACTIONAL_ENABLE_ACK = "nontransactional.ack.enabled";  
 
-        // constant string for stormConf
-        public static readonly String STORM_ZOOKEEPER_SERVERS = "storm.zookeeper.servers";           
-        public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
-    }
+		// constant string for stormConf
+		public static readonly String STORM_ZOOKEEPER_SERVERS = "storm.zookeeper.servers";           
+		public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
+	}
 
-`TopologyContext` is provided to get the topology context, it is most useful for components with multiple parallelism. Here is an example:
-
-    //demo how to get TopologyContext info
-    if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
-    {
-        Context.Logger.Info("TopologyContext info:");
-        TopologyContext topologyContext = Context.TopologyContext;                    
-        Context.Logger.Info("taskId: {0}", topologyContext.GetThisTaskId());          
-        taskIndex = topologyContext.GetThisTaskIndex();
-        Context.Logger.Info("taskIndex: {0}", taskIndex);
-        string componentId = topologyContext.GetThisComponentId();                    
-        Context.Logger.Info("componentId: {0}", componentId);
-        List<int> componentTasks = topologyContext.GetComponentTasks(componentId);  
-        Context.Logger.Info("taskNum: {0}", componentTasks.Count);                    
-    }
+`TopologyContext` предоставляется для получения контекста топологии и особенно полезен для компонентов с поддержкой множественного параллелизма. Пример:
+
+	//demo how to get TopologyContext info
+	if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
+	{
+		Context.Logger.Info("TopologyContext info:");
+		TopologyContext topologyContext = Context.TopologyContext;                    
+		Context.Logger.Info("taskId: {0}", topologyContext.GetThisTaskId());          
+		taskIndex = topologyContext.GetThisTaskIndex();
+		Context.Logger.Info("taskIndex: {0}", taskIndex);
+		string componentId = topologyContext.GetThisComponentId();                    
+		Context.Logger.Info("componentId: {0}", componentId);
+		List<int> componentTasks = topologyContext.GetComponentTasks(componentId);  
+		Context.Logger.Info("taskNum: {0}", componentTasks.Count);                    
+	}
 
-### <a name="dynamic-part"></a>Dynamic Part
-
-The following interfaces are pertinent to a certain Context instance. The Context instance is created by SCP.NET platform and passed to the user code:
-
-    \* Declare the Output and Input Stream Schemas \*                
-
-    public void DeclareComponentSchema(ComponentStreamSchema schema);   
-
-    \* Emit tuple to default stream. \*
-    public abstract void Emit(List<object> values);                   
-
-    \* Emit tuple to the specific stream. \*
-    public abstract void Emit(string streamId, List<object> values);  
-
-For non-transactional spout supporting ack, the following method is provided:
-
-    \* for non-transactional Spout which supports ack \*
-    public abstract void Emit(string streamId, List<object> values, long seqId);  
+### Динамическая часть
+
+Следующие интерфейсы привязаны к определенным экземплярам объекта Context. Экземпляр объекта Context создается платформой SCP.NET и передается в код пользователя.
+
+	* Declare the Output and Input Stream Schemas *                
+
+	public void DeclareComponentSchema(ComponentStreamSchema schema);   
+
+	* Emit tuple to default stream. *
+	public abstract void Emit(List<object> values);                   
+
+	* Emit tuple to the specific stream. *
+	public abstract void Emit(string streamId, List<object> values);  
+
+Для нетранзакционных "воронок" с поддержкой функции подтверждения обработки данных предусмотрен следующий метод:
+
+	* for non-transactional Spout which supports ack *
+	public abstract void Emit(string streamId, List<object> values, long seqId);  
 
-For non-transactional bolt supporting ack, it should explicitly `Ack()` or `Fail()` the tuple it received. And when emitting new tuple, it must also specify the anchors of the new tuple. The following methods are provided.
+Для нетранзакционных "сит" с поддержкой функции подтверждения получения данных после принятия кортежа возможны только две команды: `Ack()` и `Fail()`. При отправке нового кортежа данных "сита" также должны указывать привязки для него. Существуют следующие методы.
 
-    public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values); 
-    public abstract void Ack(SCPTuple tuple);
-    public abstract void Fail(SCPTuple tuple);
+	public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values); 
+	public abstract void Ack(SCPTuple tuple);
+	public abstract void Fail(SCPTuple tuple);
 
-### <a name="statestore"></a>StateStore
+### StateStore
 
-`StateStore` provides metadata services, monotonic sequence generation, and wait-free coordination. Higher-level distributed concurrency abstractions can be built on `StateStore`, including distributed locks, distributed queues, barriers, and transaction services.
+`StateStore` предоставляет службы метаданных, создание монотонных последовательностей и координацию без ожидания. Распределенные многозадачные абстракции высокого уровня могут создаваться на базе `StateStore`, включая создание распределенных блокировок, распределенных очередей, барьеров и служб транзакций.
 
-SCP applications may use the `State` object to persist some information in ZooKeeper, especially for transactional topology. Doing so, if transactional spout crashes and restart, it can retrieve the necessary information from ZooKeeper and restart the pipeline.
+Приложения SCP могут использовать объект `State` для сохранения определенной информации в ZooKeeper, особенно в транзакционной топологии. Если во время этого процесса в транзакционной "воронке" происходит сбой и перезагрузка, вся необходимая информация может быть получена из ZooKeeper, и конвейер данных будет восстановлен.
 
-The `StateStore` object mainly has these methods:
+Объект `StateStore` в основном обладает следующими методами.
 
-    /// <summary>
-    /// Static method to retrieve a state store of the given path and connStr 
-    /// </summary>
-    /// <param name="storePath">StateStore Path</param>
-    /// <param name="connStr">StateStore Address</param>
-    /// <returns>Instance of StateStore</returns>
-    public static StateStore Get(string storePath, string connStr);
+	/// <summary>
+	/// Static method to retrieve a state store of the given path and connStr 
+	/// </summary>
+	/// <param name="storePath">StateStore Path</param>
+	/// <param name="connStr">StateStore Address</param>
+	/// <returns>Instance of StateStore</returns>
+	public static StateStore Get(string storePath, string connStr);
 
-    /// <summary>
-    /// Create a new state object in this state store instance
-    /// </summary>
-    /// <returns>State from StateStore</returns>
-    public State Create();
+	/// <summary>
+	/// Create a new state object in this state store instance
+	/// </summary>
+	/// <returns>State from StateStore</returns>
+	public State Create();
 
-    /// <summary>
-    /// Retrieve all states that were previously uncommitted, excluding all aborted states 
-    /// </summary>
-    /// <returns>Uncommited States</returns>
-    public IEnumerable<State> GetUnCommitted();
+	/// <summary>
+	/// Retrieve all states that were previously uncommitted, excluding all aborted states 
+	/// </summary>
+	/// <returns>Uncommited States</returns>
+	public IEnumerable<State> GetUnCommitted();
 
-    /// <summary>
-    /// Get all the States in the StateStore
-    /// </summary>
-    /// <returns>All the States</returns>
-    public IEnumerable<State> States();
+	/// <summary>
+	/// Get all the States in the StateStore
+	/// </summary>
+	/// <returns>All the States</returns>
+	public IEnumerable<State> States();
 
-    /// <summary>
-    /// Get state or registry object
-    /// </summary>
-    /// <param name="info">Registry Name(Registry only)</param>
-    /// <typeparam name="T">Type, Registry or State</typeparam>
-    /// <returns>Return Registry or State</returns>
-    public T Get<T>(string info = null);
+	/// <summary>
+	/// Get state or registry object
+	/// </summary>
+	/// <param name="info">Registry Name(Registry only)</param>
+	/// <typeparam name="T">Type, Registry or State</typeparam>
+	/// <returns>Return Registry or State</returns>
+	public T Get<T>(string info = null);
 
-    /// <summary>
-    /// List all the committed states
-    /// </summary>
-    /// <returns>Registries contain the Committed State </returns> 
-    public IEnumerable<Registry> Commited();
+	/// <summary>
+	/// List all the committed states
+	/// </summary>
+	/// <returns>Registries contain the Committed State </returns> 
+	public IEnumerable<Registry> Commited();
 
-    /// <summary>
-    /// List all the Aborted State in the StateStore
-    /// </summary>
-    /// <returns>Registries contain the Aborted State</returns>
-    public IEnumerable<Registry> Aborted();
+	/// <summary>
+	/// List all the Aborted State in the StateStore
+	/// </summary>
+	/// <returns>Registries contain the Aborted State</returns>
+	public IEnumerable<Registry> Aborted();
 
-    /// <summary>
-    /// Retrieve an existing state object from this state store instance 
-    /// </summary>
-    /// <returns>State from StateStore</returns>
-    /// <typeparam name="T">stateId, id of the State</typeparam>
-    public State GetState(long stateId)
+	/// <summary>
+	/// Retrieve an existing state object from this state store instance 
+	/// </summary>
+	/// <returns>State from StateStore</returns>
+	/// <typeparam name="T">stateId, id of the State</typeparam>
+	public State GetState(long stateId)
 
-The `State` object mainly has these methods:
+Объект `State` в основном обладает следующими методами.
 
-    /// <summary>
-    /// Set the status of the state object to commit 
-    /// </summary>
-    public void Commit(bool simpleMode = true); 
+	/// <summary>
+	/// Set the status of the state object to commit 
+	/// </summary>
+	public void Commit(bool simpleMode = true); 
 
-    /// <summary>
-    /// Set the status of the state object to abort 
-    /// </summary>
-    public void Abort();
+	/// <summary>
+	/// Set the status of the state object to abort 
+	/// </summary>
+	public void Abort();
 
-    /// <summary>
-    /// Put an attribute value under the give key 
-    /// </summary>
-    /// <param name="key">Key</param> 
-    /// <param name="attribute">State Attribute</param> 
-    public void PutAttribute<T>(string key, T attribute); 
+	/// <summary>
+	/// Put an attribute value under the give key 
+	/// </summary>
+	/// <param name="key">Key</param> 
+	/// <param name="attribute">State Attribute</param> 
+	public void PutAttribute<T>(string key, T attribute); 
 
-    /// <summary>
-    /// Get the attribute value associated with the given key 
-    /// </summary>
-    /// <param name="key">Key</param> 
-    /// <returns>State Attribute</returns>               
-    public T GetAttribute<T>(string key);                    
+	/// <summary>
+	/// Get the attribute value associated with the given key 
+	/// </summary>
+	/// <param name="key">Key</param> 
+	/// <returns>State Attribute</returns>               
+	public T GetAttribute<T>(string key);                    
 
-For the `Commit()` method, when simpleMode is set to true, it will simply delete the corresponding ZNode in ZooKeeper. Otherwise, it will delete the current ZNode, and adding a new node in the COMMITTED\_PATH.
+Для метода `Commit()`, когда значение simpleMode имеет значение true, соответствующий ZNode будет удален из ZooKeeper. В противном случае будет удален текущий Z-узел и создан новый в COMMITTED\_PATH.
 
-### <a name="scpruntime"></a>SCPRuntime
+### SCPRuntime
 
-SCPRuntime provides the following two methods.
+SCPRuntime обеспечивает работу двух методов:
 
-    public static void Initialize();
-    
-    public static void LaunchPlugin(newSCPPlugin createDelegate);  
+	public static void Initialize();
+	
+	public static void LaunchPlugin(newSCPPlugin createDelegate);  
 
-`Initialize()` is used to initialize the SCP runtime environment. In this method, the C\# process will connect to the Java side, and gets configuration parameters and topology context.
+`Initialize()` используется для инициализации среды выполнения SCP. В этом методе процесс C# соединяется со стороной Java и получает параметры конфигурации и контекст топологии.
 
-`LaunchPlugin()` is used to kick off the message processing loop. In this loop, the C\# plugin will receive messages form Java side (including tuples and control signals), and then process the messages, perhaps calling the interface method provide by the user code. The input parameter for method `LaunchPlugin()` is a delegate that can return an object that implement ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt interface.
+`LaunchPlugin()` используется для запуска цикла обработки сообщений. В этом цикле дополнительный модуль C# получает сообщения со стороны Java (включая кортежи данных и управляющие сигналы), а затем обрабатывает сообщения, с возможностью вызова метода интерфейса, описанного в коде пользователя. Входной параметр для метода `LaunchPlugin()` является делегатом, который может возвращать объект, реализующий интерфейс ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt.
 
-    public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary\<string, Object\> parms); 
+	public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary<string, Object> parms); 
 
-For ISCPBatchBolt, we can get `StormTxAttempt` from `parms`, and use it to judge whether it is a replayed attempt. This is usually done at the commit bolt, and it is demonstrated in the `HelloWorldTx` example.
+Для ISCPBatchBolt мы можем получить `StormTxAttempt` из `parms` и определить, имела ли место повторная попытка. Этот процесс обычно происходит в подтверждающем "сите". Ознакомьтесь с примером `HelloWorldTx`.
 
-Generally speaking, the SCP plugins may run in two modes here:
+Как правило, дополнительный модуль SCP в такой ситуации может работать в двух режимах:
 
-1. Local Test Mode: In this mode, the SCP plugins (the C\# user code) run inside Visual Studio during the development phase. `LocalContext` can be used in this mode, which provides method to serialize the emitted tuples to local files, and read them back to memory.
+1. Локальный тестовый режим. В этом режиме подключаемые модули SCP (пользовательский код C#) выполняются в Visual Studio на этапе разработки. `LocalContext` может использоваться в этом режиме, что обеспечивает метод для сериализации отправленных кортежей в локальные файлы и чтения их обратно в память.
 
         public interface ILocalContext
         {
-            List\<SCPTuple\> RecvFromMsgQueue();
+            List<SCPTuple> RecvFromMsgQueue();
             void WriteMsgQueueToFile(string filepath, bool append = false);  
             void ReadFromFileToMsgQueue(string filepath);                    
         }
 
-2. Regular Mode: In this mode, the SCP plugins are launched by storm java process.
+2. Обычный режим. В этом режиме подключаемые модули SCP запускаются процессом Java Storm.
 
-    Here is an example of launching SCP plugin:
+    Ниже дан пример запуска дополнительного модуля SCP:
 
         namespace Scp.App.HelloWorld
         {
@@ -368,62 +367,62 @@ Generally speaking, the SCP plugins may run in two modes here:
         }
 
 
-## <a name="topology-specification-language"></a>Topology Specification Language 
+## Язык спецификации топологии 
 
-SCP Topology Specification is a domain specific language for describing and configuring SCP topologies. It is based on Storm’s Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) and is extended by SCP.
+Спецификация топологии SCP представляет собой специализированный язык для описания и настройки топологий SCP. Он основан на языке Storm Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) и расширен с помощью SCP.
 
-Topology specifications can be submitted directly to storm cluster for execution via the ***runspec*** command.
+Данные спецификации топологии могут быть отправлены напрямую в кластер Storm для выполнения через команду ***runspec***.
 
-SCP.NET has add follow functions to define the Transactional Topology:
+SCP.NET добавляет следующие функции для определения транзакционной топологии:
 
-|**New Functions**|**Parameters**|**Description**|
+|**Новые функции**|**Параметры**|**Описание**|
 |---|---|---|
-|**tx-topolopy**|topology-name<br />spout-map<br />bolt-map|Define a transactional topology with the topology name, &nbsp;spouts definition map and the bolts definition map|
-|**scp-tx-spout**|exec-name<br />args<br />fields|Define a transactional spout. It will run the application with ***exec-name*** using ***args***.<br /><br />The ***fields*** is the Output Fields for spout|
-|**scp-tx-batch-bolt**|exec-name<br />args<br />fields|Define a transactional Batch Bolt. It will run the application with ***exec-name*** using ***args.***<br /><br />The Fields is the Output Fields for bolt.|
-|**scp-tx-commit-bolt**|exec-name<br />args<br />fields|Define a transactional Committer Bolt. It will run the application with ***exec-name*** using ***args***.<br /><br />The ***fields*** is the Output Fields for bolt|
-|**nontx-topolopy**|topology-name<br />spout-map<br />bolt-map|Define a nontransactional topology with the topology name,&nbsp; spouts definition map and the bolts definition map|
-|**scp-spout**|exec-name<br />args<br />fields<br />parameters|Define a nontransactional spout. It will run the application with ***exec-name*** using ***args***.<br /><br />The ***fields*** is the Output Fields for spout<br /><br />The ***parameters*** is optional, using it to specify some parameters such as "nontransactional.ack.enabled".|
-|**scp-bolt**|exec-name<br />args<br />fields<br />parameters|Define a nontransactional Bolt. It will run the application with ***exec-name*** using ***args***.<br /><br />The ***fields*** is the Output Fields for bolt<br /><br />The ***parameters*** is optional, using it to specify some parameters such as "nontransactional.ack.enabled".|
+|**tx-topolopy**|topology-name<br />spout-map<br />bolt-map|Определение транзакционной топологии по имени, карты для определения "воронок" и "сит".|
+|**scp-tx-spout**|exec-name<br />args<br />fields|Определение транзакционной "воронки". Запускает приложение с помощью ***exec-name***, используя ***args***<br /><br />. ***Поля*** — это поля вывода для "воронки".|
+|**scp-tx-batch-bolt**|exec-name<br />args<br />fields|Определение транзакционного пакетного "сита". Запускает приложение с ***exec-name***, используя ***args.***<br /><br />fields — это поля вывода для "воронки".|
+|**scp-tx-commit-bolt**|exec-name<br />args<br />fields|Определение транзакционного подтверждающего "сита" Запускает приложение с ***exec-name***, используя ***args***<br /><br />.***fields*** — это поля вывода для "воронки".|
+|**nontx-topolopy**|topology-name<br />spout-map<br />bolt-map|Определение нетранзакционной топологии по имени, карты для определения "воронок" и "сит".|
+|**scp-spout**|exec-name<br />args<br />fields<br />parameters|Определение нетранзакционной "воронки". Запускает приложение с помощью ***exec-name***, используя ***args***.<br /><br />Поля — это поля вывода для "воронки"<br /><br />. ***Параметры*** не являются обязательными. Используйте их для определения таких параметров, как "nontransactional.ack.enabled".|
+|**scp-bolt**|exec-name<br />args<br />fields<br />parameters|Определение нетранзакционного "сита". Запускает приложение с помощью ***exec-name***, используя ***args***.<br /><br />Поля — это поля вывода для "сита"<br /><br />. ***Параметры*** не являются обязательными. Используются для определения таких параметров, как "nontransactional.ack.enabled".|
 
-SCP.NET has follow keys words defined:
+Для SCP.NET определены следующие ключевые слова:
 
-|**Key Words**|**Description**|
+|**Ключевые слова**|**Описание**|
 |---|---|
-|**:name**|Define the Topology Name|
-|**:topology**|Define the Topology using the above functions and build in ones.|
-|**:p**|Define the parallelism hint for each spout or bolt.|
-|**:config**|Define configure parameter or update the existing ones|
-|**:schema**|Define the Schema of Stream.|
+|**:name**|Определение имени топологии|
+|**:topology**|Определение топологии с использованием функций, описанных выше, а также встроенных функций.|
+|**:p**|Определение подсказок по параллелизму для каждой из "воронок" и "сита".|
+|**:config**|Определение параметров конфигурации или обновление существующих параметров.|
+|**:schema**|Определение Схемы потока данных|
 
-And frequently-used parameters:
+И часто используемые параметры:
 
-|**Parameter**|**Description**|
+|**Параметр**|**Описание**|
 |---|---|
-|**"plugin.name"**|exe file name of the C# plugin|
-|**"plugin.args"**|plugin args|
-|**"output.schema"**|Output schema|
-|**"nontransactional.ack.enabled"**|Whether ack is enabled for nontransactional topology|
+|**"plugin.name"**|Имя exe-файла для дополнительного модуля на C#|
+|**"plugin.args"**|Аргументы параметров дополнительного модуля|
+|**"output.schema"**|Схема вывода|
+|**"nontransactional.ack.enabled"**|Если подтверждение обработки для нетранзакционной топологии активно.|
 
-The runspec command will be deployed together with the bits, the usage is like:
+Команда "runspec" будет реализована вместе с пакетами BITS следующим образом:
 
-    .\bin\runSpec.cmd
-    usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
-    ex: runSpec examples\HelloWorld\HelloWorld.spec specs examples\HelloWorld\Target
+	.\bin\runSpec.cmd
+	usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
+	ex: runSpec examples\HelloWorld\HelloWorld.spec specs examples\HelloWorld\Target
 
-The ***resource-dir*** parameter is optional, you need to specify it when you want to plug a C\# application, and this directory will contain the application, the dependencies and configurations.
+Параметр ***resource-dir*** не является обязательным. Вам необходимо указать его значение, если вы хотите подключить приложение C#. В этом каталоге будет находиться приложение, а также данные зависимостей и конфигураций.
 
-The ***classpath*** parameter is also optional. It is used to specify the Java classpath if the spec file contains Java Spout or Bolt.
+Параметр ***classpath*** также не является обязательным. Он используется для указания пути к классу Java, если файл со спецификацией содержит "воронку" или "сито" на Java.
 
-## <a name="miscellaneous-features"></a>Miscellaneous Features
+## Прочие функции
 
-### <a name="input-and-output-schema-declaration"></a>Input and Output Schema Declaration
+### Объявление схемы ввода и вывода
 
-The user can emit tuple in C\# process, the platform needs to serialize the tuple into byte[], transfer to Java side, and Storm will transfer this tuple to the targets. Meanwhile in downstream component, the C\# process will receive tuple back from java side, and convert it to the original types by platform, all these operations are hidden by the Platform.
+В процессе C# пользователь может отправить кортеж, платформе необходимо сериализовать будет этот кортеж в байты, передать его в часть Java, после чего Storm передаст его в места назначения. В то же самое время в компоненте, находящемся далее по линии перемещения данных, процесс C# получает кортеж данных со стороны Java и преобразует его в изначальный тип данных с помощью платформы. Данные действия производятся платформой в скрытом режиме.
 
-To support the serialization and deserialization, user code needs to declare the schema of the inputs and outputs.
+Для поддержки процессов сериализации и десериализации код пользователя должен объявить схемы ввода и вывода.
 
-The input/output stream schema is defined as a dictionary, the key is the StreamId and the value is the Types of the columns. The component can have multi-streams declared.
+Схема ввода и вывода потока — это словарь, ключом является значение Идентификатора потока, а значением — Тип колонки Можно объявить, что компонент поддерживает несколько потоков.
 
     public class ComponentStreamSchema
     {
@@ -437,17 +436,17 @@ The input/output stream schema is defined as a dictionary, the key is the Stream
     }
 
 
-In Context object, we have the following API added:
+В объект Context у нас будут добавлены следующие прикладные программные интерфейсы (API):
 
-    public void DeclareComponentSchema(ComponentStreamSchema schema)
+	public void DeclareComponentSchema(ComponentStreamSchema schema)
 
-User code must make sure the tuples emitted obey the schema defined for that stream, or the system will throw a runtime exception.
+Код пользователя должен гарантировать, что отправленные кортежи данных подчиняются схеме, заданной для этого потока. В противном случае система создаст исключение во время выполнения.
 
-### <a name="multi-stream-support"></a>Multi-Stream Support
+### Поддержка многопоточности
 
-SCP supports user code to emit or receive from multiple distinct streams at the same time. The support reflects in the Context object as the Emit method takes an optional stream ID parameter.
+SCP предоставляет пользовательскому коду возможность получения и отправки данных с помощью множества различных потоков одновременно. Эта возможность отражается в объекте Context, так как метод отправки получает оптимальный параметр идентификатора потока.
 
-Two methods in the SCP.NET Context object have been added. They are used to emit Tuple or Tuples to specify StreamId. The StreamId is a string and it needs to be consistent in both C\# and the Topology Definition Spec.
+В объект SCP.NET Context были добавлены два метода. Они используются при отправке кортежа или кортежей данных для обозначения идентификатора потока. Идентификатор потока (StreamId) — это строка, которая должна одновременно соответствовать C# и Спецификации определений топологии.
 
         /* Emit tuple to the specific stream. */
         public abstract void Emit(string streamId, List<object> values);
@@ -455,62 +454,62 @@ Two methods in the SCP.NET Context object have been added. They are used to emit
         /* for non-transactional Spout only */
         public abstract void Emit(string streamId, List<object> values, long seqId);
 
-The emitting to a non-existing stream will cause runtime exceptions.
+Отправка в несуществующий поток приведет к созданию исключения во время выполнения.
 
-### <a name="fields-grouping"></a>Fields Grouping
+### Группирование полей
 
-The build-in Fields Grouping in Strom is not working properly in SCP.NET. On the Java Proxy side, all the fields data types are actually byte[], and the fields grouping uses the byte[] object hash code to perform the grouping. The byte[] object hash code is the address of this object in memory. So the grouping will be wrong for two byte[] objects that share the same content but not the same address.
+Встроенная в Storm функция объединения полей не работает должным образом в SCP.NET. На стороне прокси-сервера Java типом всех полей данных фактически является байт, и функция группирования полей использует хэш-код байтового объекта для группирования. Хэш-код байтового объекта — это адрес этого объекта в памяти. Поэтому группирование будет работать неправильно для двух байтовых объектов, у которых одинаковое содержимое, но различные адреса.
 
-SCP.NET adds a customized grouping method, and it will use the content of the byte[] to do the grouping. In **SPEC** file, the syntax is like:
+Для SCP.NET добавлен адаптированный метод группирования, который использует содержимое байтовых объектов. Синтаксис файла **SPEC** выглядит следующим образом:
 
-    (bolt-spec
-        {
-            "spout_test" (scp-field-group :non-tx [0,1])
-        }
-        …
-    )
+	(bolt-spec
+	    {
+	        "spout_test" (scp-field-group :non-tx [0,1])
+	    }
+	    …
+	)
 
 
-Here,
+В данном случае
 
-1.  "scp-field-group" means "Customized field grouping implemented by SCP".
+1.  "scp-field-group" означает "адаптированный метод группирования полей с помощью SCP".
 
-2.  ":tx" or ":non-tx" means if it’s transactional topology. We need this information since the starting index is different in tx vs. non-tx topologies.
+2.  ":tx" или "non-tx" означает транзакционную или нетранзакционную топологию. Эта информация полезна для нас, поскольку начальных индекс в топологиях ":tx" и "non-tx" отличается.
 
-3.  [0,1] means a hashset of field Ids, starting from 0.
+3.  [0,1] означает набор хэш-функций идентификаторов полей (начальное значение = "0").
 
-### <a name="hybrid-topology"></a>Hybrid topology
+### Гибридная топология
 
-The native Storm is written in Java. And SCP.Net has enhanced it to enable our customs to write C\# code to handle their business logic. But we also support hybrid topologies, which contains not only C\# spouts/bolts, but also Java Spout/Bolts.
+Изначально система Storm написана на языке Java. И платформа SCP.NET усовершенствовала ее, чтобы наши клиенты имели возможности писать код C# для обработки бизнес-логики. Но мы также поддерживаем гибридные топологии, в которых возможны не только "воронки" и "сита" на C#, но и на Java.
 
-### <a name="specify-java-spout/bolt-in-spec-file"></a>Specify Java Spout/Bolt in spec file
+### Задание "воронок" и "сит" на Java в файле спецификаций.
 
-In spec file, "scp-spout" and "scp-bolt" can also be used to specify Java Spouts and Bolts, here is an example:
+В файле спецификаций команды "scp-spout" и "scp-bolt" также можно использовать для указания "воронок " и "сит" на Java. Пример:
 
     (spout-spec 
       (microsoft.scp.example.HybridTopology.Generator.)           
       :p 1)
 
-Here `microsoft.scp.example.HybridTopology.Generator` is the name of the Java Spout class.
+Здесь `microsoft.scp.example.HybridTopology.Generator` является именем класса "воронки" Java.
 
-### <a name="specify-java-classpath-in-runspec-command"></a>Specify Java Classpath in runSpec Command
+### Указание classpath Java в команде runSpec
 
-If you want to submit topology containing Java Spouts or Bolts, you need to first compile the Java Spouts or Bolts and get the Jar files. Then you should specify the java classpath that contains the Jar files when submitting topology. Here is an example:
+Если вы хотите отправить топологию с "воронками" и "ситами" Java, сначала необходимо скомпилировать "воронки" или "сита" Java и получить JAR-файлы. Затем при отправке топологии нужно указать classpath Java, который содержит JAR-файлы. Пример:
 
-    bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
+	bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target*
 
-Here **examples\\HybridTopology\\java\\target\\** is the folder containing the Java Spout/Bolt Jar file.
+**examples\\HybridTopology\\java\\target** — папка с JAR-файлом "воронки" или "сита" Java.
 
-### <a name="serialization-and-deserialization-between-java-and-c\#"></a>Serialization and Deserialization between Java and C\#
+### Сериализация или десериализация между Java и C#
 
-Our SCP component includes Java side and C\# side. In order to interact with native Java Spouts/Bolts, Serialization/Deserialization must be carried out between Java side and C\# side, as illustrated in the following graph.
+Наш компонент SCP включает в себя часть C# и часть Java. Для взаимодействия с собственными "воронками" и "ситами" Java нужно выполнять сериализацию и десериализацию между частями Java и C#, как показано на следующей схеме.
 
-![diagram of java component sending to SCP component sending to Java component](media/hdinsight-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+![Схема компонента Java, отправляющего данные в компонент SCP, который отправляет данные в компонент Java](media/hdinsight-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
 
-1.  **Serialization in Java side and Deserialization in C\# side**
-    
-    First we provide default implementation for serialization in Java side and deserialization in C\# side. The serialization method in Java side can be specified in SPEC file:
-    
+1.  **Сериализация в части Java и десериализация в части C#**
+	
+	Для начала нам нужно обеспечить стандартное применение сериализации на стороне Java и десериализации на стороне C#. Метод сериализации на стороне Java можно задать через файл спецификаций:
+	
         (scp-bolt
             {
                 "plugin.name" "HybridTopology.exe"
@@ -518,61 +517,61 @@ Our SCP component includes Java side and C\# side. In order to interact with nat
                 "output.schema" {}
                 "customized.java.serializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer"]
             })
-    
-    The deserialization method in C\# side should be specified in C\# user code:
-    
+	
+	Метод десериализации на стороне C# можно задать через программный код пользователя:
+	
         Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
         inputSchema.Add("default", new List<Type>() { typeof(Person) });
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
-        this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());            
-    
-    This default implementation should handle most cases if the data type is not too complex. For certain cases, either because the user data type is too complex, or because the performance of our default implementation does not meet the user's requirement, user can plug-in their own implementation.
+        this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());	        
+	
+    Стандартная сериализация должна работать должным образом в большинстве случаев, если тип данных не слишком сложный. В некоторых случаях пользователь может добавить свой тип реализации — либо из-за сложного типа данных, либо из-за того, что стандартная реализация не отвечает требованиям пользователя.
 
-    The serialize interface in java side is defined as:
-    
+    Интерфейс сериализации на стороне Java задается следующим образом:
+	
         public interface ICustomizedInteropJavaSerializer {
             public void prepare(String[] args);
             public List<ByteBuffer> serialize(List<Object> objectList);
         }
-    
-    The deserialize interface in C\# side is defined as:
-    
-    public interface ICustomizedInteropCSharpDeserializer
-    
-        public interface ICustomizedInteropCSharpDeserializer
-        {
-            List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
-        }
+	
+	Интерфейс сериализации на стороне C# задается следующим образом:
+	
+	Общедоступный интерфейс ICustomizedInteropCSharpDeserializer.
+	
+	    public interface ICustomizedInteropCSharpDeserializer
+	    {
+	        List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
+	    }
 
-2.  **Serialization in C\# side and Deserialization in Java side side**
+2.  **Сериализация в части C# и десериализация в части Java**
 
-    The serialization method in C\# side should be specified in C\# user code:
-    
-        this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
-    
-    The Deserialization method in Java side should be specified in SPEC file:
-    
-      (scp-spout     {       "plugin.name" "HybridTopology.exe"       "plugin.args" ["generator"]       "output.schema" {"default" ["person"]}       "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]     })
-    
-    Here "microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" is the name of Deserializer, and "microsoft.scp.example.HybridTopology.Person" is the target class the data is deserialized to.
-    
-    User can also plug-in their own implementation of C\# serializer and Java Deserializer. This is the interface for C\# serializer:
-    
-        public interface ICustomizedInteropCSharpSerializer
-        {
-            List<byte[]> Serialize(List<object> dataList);
-        }
-    
-    This is the interface for Java Deserializer:
-    
-        public interface ICustomizedInteropJavaDeserializer {
-            public void prepare(String[] targetClassNames);
-            public List<Object> Deserialize(List<ByteBuffer> dataList);
-        }
+	Метод десериализации в части C# следует указать в пользовательском коде C#.
+	
+		this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
+	
+	Метод десериализации в части Java следует указать в SPEC-файле.
+	
+	  (scp-spout { "plugin.name" "HybridTopology.exe" "plugin.args" ["generator"] "output.schema" {"default" ["person"]} "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"] })
+	
+	Здесь microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer — имя десериализатора, а microsoft.scp.example.HybridTopology.Person — целевой класс, в который десериализуются данные.
+	
+	Пользователь может также подключить свою собственную реализацию сериализатора C# и десериализатора Java. Это интерфейс для сериализатора C#.
+	
+	    public interface ICustomizedInteropCSharpSerializer
+	    {
+	        List<byte[]> Serialize(List<object> dataList);
+	    }
+	
+	Это интерфейс для десериализатора Java.
+	
+	    public interface ICustomizedInteropJavaDeserializer {
+	        public void prepare(String[] targetClassNames);
+	        public List<Object> Deserialize(List<ByteBuffer> dataList);
+	    }
 
-## <a name="scp-host-mode"></a>SCP Host Mode
+## Хост-режим SCP
 
-In this mode, user can compile their codes to DLL, and use SCPHost.exe provided by SCP to submit topology. The spec file looks like this:
+В этом режиме пользователь может компилировать код в DLL-файл и использовать предоставляемый SCP файл SCPHost.exe, чтобы задать топологию. Соответствующий файл спецификации выглядит следующим образом:
 
     (scp-spout
       {
@@ -581,23 +580,23 @@ In this mode, user can compile their codes to DLL, and use SCPHost.exe provided 
         "output.schema" {"default" ["sentence"]}
       })
 
-Here, `plugin.name` is specified as `SCPHost.exe` provided by SCP SDK. SCPHost.exe which accepts exactly three parameters:
+Здесь в качестве `plugin.name` указан `SCPHost.exe` из пакета SDK для SCP. SCPHost.exe принимает только три параметра:
 
-1.  The first one is the DLL name, which is `"HelloWorld.dll"` in this example.
+1.  Первый из них — это имя библиотеки DLL. В данном примере это `"HelloWorld.dll"`.
 
-2.  The second one is the Class name, which is `"Scp.App.HelloWorld.Generator"` in this example.
+2.  Второй — это имя класса. В данном примере это `"Scp.App.HelloWorld.Generator"`.
 
-3.  The third one is the name of a public static method, which can be invoked to get an instance of ISCPPlugin.
+3.  Третий — это общедоступный статический метод, который можно вызвать для того, чтобы получить экземпляр ISCPPlugin.
 
-In host mode, user code is compiled as DLL, and is invoked by SCP platform. So SCP platform can get full control of the whole processing logic. So we recommend our customers to submit topology in SCP host mode since it can simplify the development experience and bring us more flexibility and better backward compatibility for later release as well.
+В хост-режиме код пользователя компилируется в DLL-файл и вызывается платформой SCP. Поэтому платформа SCP получает полный контроль над всей логической схемой обработки информации. Мы рекомендуем нашим клиентам задавать топологию через хост-режим SCP, поскольку это упрощает процесс программирования, способствует увеличению его гибкости, а также лучшей совместимости с предыдущими версиями.
 
-## <a name="scp-programming-examples"></a>SCP Programming Examples 
+## Примеры программирования для SCP 
 
-### <a name="helloworld"></a>HelloWorld
+### HelloWorld
 
-**HelloWorld** is a very simple example to show a taste of SCP.Net. It uses a non-transactional topology, with a spout called **generator**, and two bolts called **splitter** and **counter**. The spout **generator** will randomly generate some sentences, and emit these sentences to **splitter**. The bolt **splitter** will split the sentences to words and emit these words to **counter** bolt. The bolt "counter" uses a dictionary to record the occurrence number of each word.
+Программа **HelloWorld** — это простой пример, на котором можно продемонстрировать удобство работы с SCP.NET. Она использует нетранзакционную топологию, в которой "воронка" называется **generator**, а два "сита" — **splitter** и **counter**. Воронка **generator** случайным образом создает предложения и отправляет их в **splitter**. "Сито" **splitter** разбивает эти предложения на слова и отправляет их в "сито" **counter**. "Сито" "counter" использует словарь для записи частоты употребления каждого слова.
 
-There are two spec files, **HelloWorld.spec** and **HelloWorld\_EnableAck.spec** for this example. In the C\# code, it can find out whether ack is enabled by getting the pluginConf from Java side.
+Для этого примера есть два файла спецификации — **HelloWorld.spec** и **HelloWorld\_EnableAck.spec**. В программном коде C# можно выяснить, задействована ли функция подтверждения, получив pluginConf со стороны Java.
 
     /* demo how to get pluginConf info */
     if (Context.Config.pluginConf.ContainsKey(Constants.NONTRANSACTIONAL_ENABLE_ACK))
@@ -606,7 +605,7 @@ There are two spec files, **HelloWorld.spec** and **HelloWorld\_EnableAck.spec**
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-In the spout, if ack is enabled, a dictionary is used to cache the tuples that have not been acked. If Fail() is called, the failed tuple will be replayed:
+Если служба подтверждения задействована, то в "воронке" словарь используется для помещения неподтвержденных кортежей во временную память. Если вызывается Fail(), то кортежи данных с ошибками будут отсылаться повторно.
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {
@@ -626,17 +625,17 @@ In the spout, if ack is enabled, a dictionary is used to cache the tuples that h
         }
     }
 
-### <a name="helloworldtx"></a>HelloWorldTx
+### HelloWorldTx
 
-The **HelloWorldTx** example demonstrates how to implement transactional topology. It have one spout called **generator**, a batch bolts called **partial-count**, and a commit bolt called **count-sum**. There are also three pre-created txt files: **DataSource0.txt**, **DataSource1.txt** and **DataSource2.txt**.
+Пример **HelloWorldTx** демонстрирует, как реализовать транзакционную топологию. В ней "воронка" называется **generator**, пакетные "сита" называются **partial-count**, а подтверждающее "сито" называется **count-sum**. В примере три предварительно созданных текстовых файла: **DataSource0.txt**, **DataSource1.txt** и **DataSource2.txt**.
 
-In each transaction, the spout **generator** will randomly choose two files from the pre-created three files, and emit the two file names to the **partial-count** bolt. The bolt **partial-count** will first get the file name from the received tuple, then open the file and count the number of words in this file, and finally emit the word number to the **count-sum** bolt. The **count-sum** bolt will summarize the total count.
+При каждой транзакции "воронка" **generator** случайным образом выбирает два из трех предварительно созданных файла и отправляет их имена в "сито" **partial-count**. "Сито" **partial-count** сначала получает имя файла из полученного кортежа, открывает этот файл и считает количество слов в нем, после чего отправляет полученное значение в "сито" **count-sum**. "Сито" **count-sum** вычисляет итоговое количество.
 
-To achieve **exactly once** semantics, the commit bolt **count-sum** need to judge whether it is a replayed transaction. In this example, it has a static member variable:
+Для достижения семантики **только однажды** подтверждающее "сито" **count-sum** должно определить перезапущенные транзакции. В этом примере транзакция имеет статическую переменную-член.
 
-    public static long lastCommittedTxId = -1; 
+	public static long lastCommittedTxId = -1; 
 
-When an ISCPBatchBolt instance is created, it will get the `txAttempt` from input parameters:
+После создания экземпляра ISCPBatchBolt он получает `txAttempt` из входящих параметров.
 
     public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
     {
@@ -652,7 +651,7 @@ When an ISCPBatchBolt instance is created, it will get the `txAttempt` from inpu
         }
     }
 
-When `FinishBatch()` is called, the `lastCommittedTxId` will be update if it is not a replayed transaction.
+После вызова `FinishBatch()` параметр `lastCommittedTxId` обновляется, если транзакция не была перезапущена.
 
     public void FinishBatch(Dictionary<string, Object> parms)
     {
@@ -669,28 +668,24 @@ When `FinishBatch()` is called, the `lastCommittedTxId` will be update if it is 
     }
 
 
-### <a name="hybridtopology"></a>HybridTopology
+### Гибридная топология
 
-This topology contains a Java Spout and a C\# Bolt. It uses the default serialization and deserialization implementation provided by SCP platform. Please ref the **HybridTopology.spec** in **examples\\HybridTopology** folder for the spec file details, and **SubmitTopology.bat** for how to specify Java classpath.
+Данная топология содержит "воронку" на Java и "сито" на C#. В ней используются стандартные для платформы SCP процессы сериализации и десериализации. Сведения о файле спецификаций см. в файле **HybridTopology.spec** в папке **examples\\HybridTopology**, а сведения об указании classpath Java см. в файле **SubmitTopology.bat**.
 
-### <a name="scphostdemo"></a>SCPHostDemo
+### SCPHostDemo
 
-This example is the same as HelloWorld in essence. The only difference is that the user code is compiled as DLL and the topology is submitted by using SCPHost.exe. Please ref the section "SCP Host Mode" for more detailed explanation.
+Этот пример по своей сути не отличается от примера с программой HelloWorld. Единственное отличие заключается в том, что пользовательский код компилируется в DLL-файл и топология задается через файл SCPHost.exe. Дополнительная информация содержится в разделе "Хост-режим SCP".
 
-##<a name="next-steps"></a>Next Steps
+##Дальнейшие действия
 
-For examples of Storm topologies created using SCP, see the following:
+Примеры топологий Storm, созданных с помощью SCP, приведены в следующих статьях.
 
-* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-* [Process events from Azure Event Hubs with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md)
-* [Create multiple data streams in a C# Storm topology](hdinsight-storm-twitter-trending.md)
-* [Use Power Bi to visualize data from a Storm topology](hdinsight-storm-power-bi-topology.md)
-* [Process vehicle sensor data from Event Hubs using Storm on HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
-* [Extract, Transform, and Load (ETL) from Azure Event Hubs to HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
-* [Correlate events using Storm and HBase on HDInsight](hdinsight-storm-correlation-topology.md)
+* [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Обработка событий из концентраторов событий Azure с помощью Storm в HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md)
+* [Создание нескольких потоков данных в топологии Storm на C#](hdinsight-storm-twitter-trending.md)
+* [Использование Power Bi для визуализации данных из топологии Storm](hdinsight-storm-power-bi-topology.md)
+* [Обработка данных с датчиков автомобиля из концентраторов событий с использованием Storm в HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [Extract, Transform, and Load (ETL) from Azure Event Hubs to HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample) (Извлечение, преобразование и загрузка данных из концентраторов событий Azure в HBase)
+* [Сопоставление событий с помощью Storm и HBase в HDInsight](hdinsight-storm-correlation-topology.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

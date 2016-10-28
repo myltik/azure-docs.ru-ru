@@ -1,45 +1,43 @@
-## <a name="public-ip-address"></a>Public IP address
-A public IP address resource provides either a reserved or dynamic Internet facing IP address. Although you can create a public IP address as a stand alone object, you need to associate it to another object to actually use the address. You can associate a public IP address to a load balancer, application  gateway, or a NIC to provide Internet access to those resources.  
+## Общедоступный IP-адрес
+Ресурс общедоступного IP-адреса предоставляет зарезервированный или динамический общедоступный IP-адрес для Интернета. Хотя вы можете создать общедоступный IP-адрес как отдельный объект, его необходимо связать с другим объектом, чтобы использовать адрес. Вы можете связать общедоступный IP-адрес с подсистемой балансировки нагрузки, шлюзом приложений или сетевым адаптером, чтобы предоставить доступ к Интернету указанным ресурсам.
 
-|Property|Description|Sample values|
+|Свойство|Описание|Примеры значений|
 |---|---|---|
-|**publicIPAllocationMethod**|Defines if the IP address is *static* or *dynamic*.|static, dynamic|
-|**idleTimeoutInMinutes**|Defines the idle time out, with a default value of 4 minutes. If no more packets for a given session is received within this time, the session is terminated.|any value between 4 and 30|
-|**ipAddress**|IP address assigned to object. This is a read-only property.|104.42.233.77|
+|**publicIPAllocationMethod**|Определяет, является ли IP-адрес *статическим* или *динамическим*.|static, dynamic|
+|**idleTimeoutInMinutes**|Задает время ожидания простоя (значение по умолчанию — 4 минуты). Если в течение этого времени не получено ни одного пакета для определенного сеанса, этот сеанс прерывается.|любое значение от 4 до 30|
+|**ipAddress**|IP-адрес, назначенный объекту. Это свойство доступно только для чтения.|104\.42.233.77|
 
-### <a name="dns-settings"></a>DNS settings
-Public IP addresses have a child object named **dnsSettings** containing the following properties:
+### Параметры DNS
+У общедоступного IP-адреса может быть дочерний объект под названием **dnsSettings**, содержащий следующие свойства:
 
-|Property|Description|Sample values|
+|Свойство|Описание|Примеры значений|
 |---|---|---|
-|**domainNameLabel**|Host named used for name resolution.|www, ftp, vm1|
-|**fqdn**|Fully qualified name for the public IP.|www.westus.cloudapp.azure.com|
-|**reverseFqdn**|Fully qualified domain name that resolves to the IP address and is registered in DNS as a PTR record.|www.contoso.com.|
+|**domainNameLabel**|Узел для разрешения имен.|www, ftp, vm1|
+|**fqdn**|Полное имя общедоступного IP-адреса.|www.westus.cloudapp.azure.com|
+|**reverseFqdn**|Полное доменное имя, которое разрешается к IP-адресу и регистрируется в DNS как запись PTR.|www.contoso.com.|
 
-Sample public IP address in JSON format:
+Пример общедоступного IP-адреса в формате JSON:
 
-    {
-       "name": "PIP01",
-       "location": "North US",
-       "tags": { "key": "value" },
-       "properties": {
-          "publicIPAllocationMethod": "Static",
-          "idleTimeoutInMinutes": 4,
-          "ipAddress": "104.42.233.77",
-          "dnsSettings": {
-             "domainNameLabel": "mylabel",
-             "fqdn": "mylabel.westus.cloudapp.azure.com",
-             "reverseFqdn": "contoso.com."
-          }
-       }
-    } 
+	{
+	   "name": "PIP01",
+	   "location": "North US",
+	   "tags": { "key": "value" },
+	   "properties": {
+	      "publicIPAllocationMethod": "Static",
+	      "idleTimeoutInMinutes": 4,
+		  "ipAddress": "104.42.233.77",
+	      "dnsSettings": {
+	         "domainNameLabel": "mylabel",
+			 "fqdn": "mylabel.westus.cloudapp.azure.com",
+	         "reverseFqdn": "contoso.com."
+	      }
+	   }
+	} 
 
-### <a name="additional-resources"></a>Additional resources
+### Дополнительные ресурсы
 
-- Get more information about [public IP addresses](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
-- Learn about [instance level public IP addresses](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
-- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt163638.aspx) for public IP addresses.
+- См. дополнительные сведения об [общедоступных IP-адресах](../articles/virtual-network/virtual-networks-reserved-public-ip.md).
+- Узнайте об [общедоступных IP-адресах уровня экземпляра](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
+- Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt163638.aspx) для общедоступных IP-адресов.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

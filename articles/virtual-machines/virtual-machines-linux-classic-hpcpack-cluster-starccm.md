@@ -1,6 +1,6 @@
 <properties
- pageTitle="Run STAR-CCM+ with HPC Pack on Linux VMs | Microsoft Azure"
- description="Deploy a Microsoft HPC Pack cluster on Azure and run an STAR-CCM+ job on multiple Linux compute nodes across an RDMA network."
+ pageTitle="Выполнение заданий STAR-CCM+ с помощью пакета HPC на виртуальных машинах Linux | Microsoft Azure"
+ description="Развертывание кластера Microsoft HPC в Azure и запуск задания STAR-CCM+ на нескольких вычислительных узлах Linux в сети RDMA."
  services="virtual-machines-linux"
  documentationCenter=""
  authors="xpillons"
@@ -16,30 +16,29 @@
  ms.date="09/13/2016"
  ms.author="xpillons"/>
 
-
-# <a name="run-star-ccm+-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Run STAR-CCM+ with Microsoft HPC Pack on a Linux RDMA cluster in Azure
-This article shows you how to deploy a Microsoft HPC Pack cluster on Azure and run a [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) job on multiple Linux compute nodes that are interconnected with InfiniBand.
+# Выполнение заданий STAR-CCM+ в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC
+В этой статье показано, как развернуть кластер пакета Microsoft HPC в Azure и запустить задание [STAR-CCM+ CD-adapco](http://www.cd-adapco.com/products/star-ccm%C2%AE) на нескольких вычислительных узлах Linux, соединенных с помощью InfiniBand.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. HPC Pack also supports running Linux HPC applications on Linux compute-node VMs that are deployed in an HPC Pack cluster. For an introduction to using Linux compute nodes with HPC Pack, see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+Пакет Microsoft HPC предоставляет функции, необходимые для работы приложений высокопроизводительных и параллельных вычислений, включая приложения MPI, в кластерах виртуальных машин Microsoft Azure. Пакет HPC также поддерживает приложения высокопроизводительных вычислений для Linux на виртуальных вычислительных узлах Linux, развернутых в кластере HPC. Общие сведения об использовании вычислительных узлов Linux и пакета HPC см. в статье [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
 
-## <a name="set-up-an-hpc-pack-cluster"></a>Set up an HPC Pack cluster
-Download the HPC Pack IaaS deployment scripts from the [Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=44949) and extract them locally.
+## Настройка кластера пакета HPC
+Скачайте сценарии развертывания IaaS из пакета HPC из [Центра загрузки](https://www.microsoft.com/ru-RU/download/details.aspx?id=44949) и извлеките их в локальное расположение.
 
-Azure PowerShell is a prerequisite. If PowerShell is not configured on your local machine, please read the article [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+В системе должен быть установлен компонент Azure PowerShell. Если Azure PowerShell не настроен на локальном компьютере, см. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
-At the time of this writing, the Linux images from the Azure Marketplace (which contains the InfiniBand drivers for Azure) are for SLES 12, CentOS 6.5, and CentOS 7.1. This article is based on the usage of SLES 12. To retrieve the name of all Linux images that support HPC in the Marketplace, you can run the following PowerShell command:
+На момент написания этой статьи образы Linux из Azure Marketplace (включая драйверы InfiniBand для Azure) предназначены для SLES 12, CentOS 6.5 и CentOS 7.1. В этой статье используется SLES 12. Чтобы получить имена всех образов Linux, поддерживающих HPC в Marketplace, можно выполнить следующую команду PowerShell:
 
 ```
     get-azurevmimage | ?{$_.ImageName.Contains("hpc") -and $_.OS -eq "Linux" }
 ```
 
-The output lists the location in which these images are available and the image name (**ImageName**) to be used in the deployment template later.
+На экран будут выведены расположение этих образов и имя образа (**ImageName**), который будет использоваться в шаблоне развертывания позже.
 
-Before you deploy the cluster, you have to build an HPC Pack deployment template file. Because we're targeting a small cluster, the head node will be the domain controller and host a local SQL database.
+Перед развертыванием кластера необходимо создать файл шаблона развертывания пакета HPC. Поскольку мы намереваемся создать небольшой кластер, головной узел будет контроллером домена и на нем будет размещаться локальная база данных SQL.
 
-The following template will deploy such a head node, create an XML file named **MyCluster.xml**, and replace the values of **SubscriptionId**, **StorageAccount**, **Location**, **VMName**, and **ServiceName** with yours.
+Этот головной узел можно развернуть с помощью следующего шаблона. Создайте XML-файл с именем **MyCluster.xml** и задайте для параметров **SubscriptionId**, **StorageAccount**, **Location**, **VMName** и **ServiceName** собственные значения.
 
     <?xml version="1.0" encoding="utf-8" ?>
     <IaaSClusterConfig>
@@ -75,99 +74,98 @@ The following template will deploy such a head node, create an XML file named **
       </LinuxComputeNodes>
     </IaaSClusterConfig>
 
-Start the head-node creation by running the PowerShell command in an elevated command prompt:
+Создайте головной узел, выполнив команду PowerShell в командной строке с повышенными привилегиями:
 
 ```
     .\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml
 ```
 
-After 20 to 30 minutes, the head node should be ready. You can connect to it from the Azure portal by clicking the **Connect** icon of the virtual machine.
+Создание головного узла обычно занимает 20–30 минут. Вы можете подключиться к нему на портале Azure, щелкнув значок **подключения** виртуальной машины.
 
-You might eventually have to fix the DNS forwarder. To do so, start DNS Manager.
+Со временем может потребоваться исправить DNS-сервер пересылки. Для этого необходимо запустить диспетчер DNS.
 
-1.  Right-click the server name in DNS Manager, select **Properties**, and then click the **Forwarders** tab.
+1.  Щелкните правой кнопкой мыши имя сервера в диспетчере DNS, выберите пункт **Свойства** и перейдите на вкладку **Серверы пересылки**.
 
-2.  Click the **Edit** button to remove any forwarders, and then click **OK**.
+2.  Нажмите кнопку **Изменить**, чтобы удалить серверы пересылки, а затем нажмите кнопку **ОК**.
 
-3.  Make sure that the **Use root hints if no forwarders are available** check box is selected, and then click **OK**.
+3.  Убедитесь, что установлен флажок **Использовать корневые ссылки, если нет доступных серверов пересылки**, и нажмите кнопку **ОК**.
 
-## <a name="set-up-linux-compute-nodes"></a>Set up Linux compute nodes
-You deploy the Linux compute nodes by using the same deployment template that you used to create the head node.
+## Настройка вычислительных узлов Linux
+Развертывание вычислительных узлов Linux выполняется с помощью того же шаблона развертывания, который использовался для создания головного узла.
 
-Copy the file **MyCluster.xml** from your local machine to the head node, and update the **NodeCount** tag with the number of nodes that you want to deploy (<=20). Be careful to have enough available cores in your Azure quota, because each A9 instance will consume 16 cores in your subscription. You can use A8 instances (8 cores) instead of A9 if you want to use more VMs in the same budget.
+Скопируйте файл **MyCluster.xml** с локального компьютера в головной узел и укажите для тега **NodeCount** число узлов, которые требуется развернуть (не более 20). Убедитесь, что в квотах Azure достаточно доступных ядер, так как для каждого экземпляра A9 в подписке используется 16 ядер. Если вы хотите увеличить число виртуальных машин в рамках того же бюджета, вместо A9 можно использовать экземпляры A8 (8 ядер).
 
-On the head node, copy the HPC Pack IaaS deployment scripts.
+В головном узле скопируйте сценарии развертывания IaaS из пакета HPC.
 
-Run the following Azure PowerShell commands in an elevated command prompt:
+В командной строке с повышенными привилегиями выполните следующие команды Azure PowerShell:
 
-1.  Run **Add-AzureAccount** to connect to your Azure subscription.
+1.  Выполните командлет **Add-AzureAccount**, чтобы подключиться к подписке Azure.
 
-2.  If you have multiple subscriptions, run **Get-AzureSubscription** to list them.
+2.  При наличии нескольких подписок выполните командлет **Get-AzureSubscription**, чтобы получить их список.
 
-3.  Set a default subscription by running the **Select-AzureSubscription -SubscriptionName xxxx -Default** command.
+3.  Установите подписку по умолчанию, выполнив команду **Select-AzureSubscription -SubscriptionName xxxx -Default**.
 
-4.  Run **.\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** to start deploying Linux compute nodes.
+4.  Выполните команду **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml**, чтобы запустить развертывание вычислительных узлов Linux.
 
-    ![Head-node deployment in action][hndeploy]
+    ![Развертывание головного узла][hndeploy]
 
-Open the HPC Pack Cluster Manager tool. After few minutes, Linux compute nodes will regularly appear in list of cluster compute nodes. With the classic deployment mode, IaaS VMs are created sequentially. So if the number of nodes is important, getting them all deployed can take a significant amount of time.
+Откройте диспетчер кластера пакета HPC. Через несколько минут вычислительные узлы Linux станут периодически появляться в списке вычислительных узлов кластера. В режиме классического развертывания виртуальные машины IaaS создаются последовательно. Поэтому, если важно количество узлов, развертывание всех машин может занять значительное время.
 
-![Linux nodes in HPC Pack Cluster Manager][clustermanager]
+![Узлы Linux в диспетчере кластера пакета HPC][clustermanager]
 
-Now that all nodes are up and running in the cluster, there are additional infrastructure settings to make.
+Теперь, когда все узлы работают в кластере, нужно настроить дополнительные параметры инфраструктуры.
 
-## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Set up an Azure File share for Windows and Linux nodes
-You can use the Azure File service to store scripts, application packages, and data files. Azure File provides CIFS capabilities on top of Azure Blob storage as a persistent store. Be aware that this is not the most scalable solution, but it is the simplest one and doesn’t require dedicated VMs.
+## Настройка общей папки Azure для узлов Windows и Linux
+Службу файлов Azure можно использовать для хранения сценариев, пакетов приложений и файлов данных. Служба файлов Azure предоставляет возможности CIFS на базе хранилища BLOB-объектов Azure как постоянного хранилища. Это не самое масштабируемое решение, но оно самое простое и не требует выделенных виртуальных машин.
 
-Create an Azure File share by following the instructions in the article [Get started with Azure File storage on Windows](..\storage\storage-dotnet-how-to-use-files.md).
+Создайте общую папку Azure, следуя инструкциям в статье [Приступая к работе с хранилищем файлов Azure в Windows](..\storage\storage-dotnet-how-to-use-files.md).
 
-Keep the name of your storage account as **saname**, the file share name as **sharename**, and the storage account key as **sakey**.
+Оставьте **saname** в качестве имени учетной записи хранения, **sharename** — в качестве имени общей папки и **sakey** — в качестве ключа учетной записи хранения.
 
-### <a name="mount-the-azure-file-share-on-the-head-node"></a>Mount the Azure File share on the head node
-Open an elevated command prompt and run the following command to store the credentials in the local machine vault:
+### Подключение общей папки Azure в головном узле
+Откройте командную строку с повышенными привилегиями и выполните команду, указанную ниже, чтобы сохранить учетные данные в локальном хранилище компьютера.
 
 ```
     cmdkey /add:<saname>.file.core.windows.net /user:<saname> /pass:<sakey>
 ```
 
-Then, to mount the Azure File share, run:
+Затем, чтобы подключить общую папку Azure, выполните следующую команду:
 
 ```
-    net use Z: \\<saname>.file.core.windows.net\<sharename> /persistent:yes
+    net use Z: \<saname>.file.core.windows.net<sharename> /persistent:yes
 ```
 
-### <a name="mount-the-azure-file-share-on-linux-compute-nodes"></a>Mount the Azure File share on Linux compute nodes
-One useful tool that comes with HPC Pack is the clusrun tool. You can use this command-line tool to run the same command simultaneously on a set of compute nodes. In our case, it's used to mount the Azure File share and persist it to survive reboots.
-In an elevated command prompt on the head node, run the following commands.
+### Подключение общей папки Azure в вычислительных узлах Linux
+В пакете HPC содержится один полезный инструмент — средство clusrun. Это средство командной строки позволяет выполнить одну и ту же команду одновременно на нескольких вычислительных узлах. В нашем случае оно используется для подключения общей папки Azure и ее сохранения после перезагрузки. Выполните следующие команды в головном узле в командной строке с повышенными привилегиями.
 
-To create the mount directory:
+Чтобы создать каталог подключения:
 
 ```
     clusrun /nodegroup:LinuxNodes mkdir -p /hpcdata
 ```
 
-To mount the Azure File share:
+Чтобы подключить общую папку Azure:
 
 ```
     clusrun /nodegroup:LinuxNodes mount -t cifs //<saname>.file.core.windows.net/<sharename> /hpcdata -o vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777
 ```
 
-To persist the mount share:
+Чтобы сохранить общую папку подключения:
 
 ```
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
-## <a name="install-star-ccm+"></a>Install STAR-CCM+
-Azure VM instances A8 and A9 provide InfiniBand support and RDMA capabilities. The kernel drivers that enable those capabilities are available for Windows Server 2012 R2, SUSE 12, CentOS 6.5, and CentOS 7.1 images in the Azure Marketplace. Microsoft MPI and Intel MPI (release 5.x) are the two MPI libraries that support those drivers in Azure.
+## Установка STAR-CCM+
+Экземпляры виртуальной машины Azure A8 и A9 обеспечивают поддержку InfiniBand и возможности RDMA. Драйверы ядра, обеспечивающие эти возможности, доступны для образов Windows Server 2012 R2, SUSE 12, CentOS 6.5 и CentOS 7.1 в Azure Marketplace. Microsoft MPI и Intel MPI (выпуск 5.x) — это две библиотеки MPI, которые поддерживают эти драйверы в среде Azure.
 
-CD-adapco STAR-CCM+ release 11.x and later is bundled with Intel MPI version 5.x, so InfiniBand support for Azure is included.
+В состав пакета STAR-CCM+ CD-adapco (11.x и более поздней версии) входит библиотека Intel MPI версии 5.x, что обеспечивает поддержку InfiniBand для Azure.
 
-Get the Linux64 STAR-CCM+ package from the [CD-adapco portal](https://steve.cd-adapco.com). In our case, we used version 11.02.010 in mixed precision.
+Скачайте пакет Linux64 STAR-CCM+ с [портала CD-adapco](https://steve.cd-adapco.com). В нашем случае мы использовали версию 11.02.010 в режиме смешанной точности.
 
-On the head node, in the **/hpcdata** Azure File share, create a shell script named **setupstarccm.sh** with the following content. This script will be run on each compute node to set up STAR-CCM+ locally.
+На головном узле в общем файловом ресурсе Azure **/hpcdata** создайте сценарий оболочки **setupstarccm.sh** со следующим содержимым. Этот сценарий будет выполняться на каждом вычислительном узле для локальной настройки STAR-CCM+.
 
-#### <a name="sample-setupstarcm.sh-script"></a>Sample setupstarcm.sh script
+#### Пример сценария setupstarcm.sh
 ```
     #!/bin/bash
     # setupstarcm.sh to set up STAR-CCM+ locally
@@ -188,35 +186,35 @@ On the head node, in the **/hpcdata** Azure File share, create a shell script na
     echo "*               hard    memlock         unlimited" >> /etc/security/limits.conf
     echo "*               soft    memlock         unlimited" >> /etc/security/limits.conf
 ```
-Now, to set up STAR-CCM+ on all your Linux compute nodes, open an elevated command prompt and run the following command:
+Чтобы настроить STAR-CCM+ на всех вычислительных узлах Linux, откройте командную строку с повышенными привилегиями и выполните следующую команду:
 
 ```
     clusrun /nodegroup:LinuxNodes bash /hpcdata/setupstarccm.sh
 ```
 
-While the command is running, you can monitor the CPU usage by using the heat map of Cluster Manager. After few minutes, all nodes should be correctly set up.
+Во время выполнения команды можно отслеживать загрузку ЦП на тепловой карте диспетчера кластеров. Через несколько минут все узлы будут настроены должным образом.
 
-## <a name="run-star-ccm+-jobs"></a>Run STAR-CCM+ jobs
-HPC Pack is used for its job scheduler capabilities in order to run STAR-CCM+ jobs. To do so, we need the support of a few scripts that are used to start the job and run STAR-CCM+. The input data is kept on the Azure File share first for simplicity.
+## Запуск заданий STAR-CCM+
+Пакет HPC используется в качестве планировщика заданий для выполнения заданий STAR-CCM+. Для этого требуется обеспечить поддержку нескольких сценариев, которые используются для запуска задания и выполнения STAR-CCM+. Для упрощения входные данные хранятся в общей папке Azure.
 
-The following PowerShell script is used to queue a STAR-CCM+ job. It takes three arguments:
+Следующий сценарий PowerShell применяется для помещения задания STAR-CCM+ в очередь. Он принимает три аргумента:
 
-*  The model name
+*  имя модели;
 
-*  The number of nodes to be used
+*  количество используемых узлов;
 
-*  The number of cores on each node to be used
+*  число используемых ядер на каждом узле.
 
-Because STAR-CCM+ can fill the memory bandwidth, it's usually better to use fewer cores per compute nodes and add new nodes. The exact number of cores per node will depend on the processor family and the interconnect speed.
+Так как STAR-CCM+ может использовать всю пропускную способность памяти, как правило, лучше использовать меньше ядер на один вычислительный узел и добавлять новые узлы. Точное число ядер на каждый узел будет зависеть от семейства процессора и скорости взаимодействия.
 
-The nodes are allocated exclusively for the job and can’t be shared with other jobs. The job is not started as an MPI job directly. The **runstarccm.sh** shell script will start the MPI launcher.
+Узлы выделяются исключительно для конкретного задания, и их не могут совместно использовать другие задания. Задание не запускается как задание MPI напрямую. Сценарий оболочки **runstarccm.sh** запустит средство запуска MPI.
 
-The input model and the **runstarccm.sh** script are stored in the **/hpcdata** share that was previously mounted.
+Модель ввода и сценарий **runstarccm.sh** хранятся в общей папке **/hpcdata**, подключенной ранее.
 
-Log files are named with the job ID and are stored in the **/hpcdata share**, along with the STAR-CCM+ output files.
+Файлам журнала присваиваются имена с использованием идентификаторов заданий. Файлы журнала и выходные файлы STAR-CCM+ хранятся в **общей папке /hpcdata**.
 
 
-#### <a name="sample-submitstarccmjob.ps1-script"></a>Sample SubmitStarccmJob.ps1 script
+#### Пример сценария SubmitStarccmJob.ps1
 ```
     Add-PSSnapin Microsoft.HPC -ErrorAction silentlycontinue
     $scheduler="headnodename"
@@ -231,7 +229,7 @@ Log files are named with the job ID and are stored in the **/hpcdata share**, al
     $jobId = [String]$job.Id
 
     #---------------------------------------------------------------------------------------------------------
-    # Submit the job    
+    # Submit the job 	
     $workdir =  "/hpcdata"
     $execName = "$nbCoresPerNode runner.java $modelName.sim"
 
@@ -240,9 +238,9 @@ Log files are named with the job ID and are stored in the **/hpcdata share**, al
 
     Submit-HpcJob -Job $job -Scheduler $scheduler
 ```
-Replace **runner.java** with your preferred STAR-CCM+ Java model launcher and logging code.
+Замените **runner.java** предпочтительным средством запуска моделей Java и кодом ведения журнала STAR-CCM+.
 
-#### <a name="sample-runstarccm.sh-script"></a>Sample runstarccm.sh script
+#### Пример сценария runstarccm.sh
 ```
     #!/bin/bash
     echo "start"
@@ -269,86 +267,82 @@ Replace **runner.java** with your preferred STAR-CCM+ Java model launcher and lo
     NBNODES=0
     while [ ${I} -lt ${COUNT} ]
     do
-        echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
-        let "I=${I}+2"
-        let "NBNODES=${NBNODES}+1"
+    	echo "${NODESCORES[${I}]}" >> ${NODELIST_PATH}
+    	let "I=${I}+2"
+    	let "NBNODES=${NBNODES}+1"
     done
     let "NBCORES=${NBNODES}*${NBCORESPERNODE}"
 
     # Run STAR-CCM with the hostfile argument
     #  
     ${STARCCM} -np ${NBCORES} -machinefile ${NODELIST_PATH} \
-        -power -podkey "<yourkey>" -rsh ssh \
-        -mpi intel -fabric UDAPL -cpubind bandwidth,v \
-        -mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
-        -batch $2 $3
+    	-power -podkey "<yourkey>" -rsh ssh \
+    	-mpi intel -fabric UDAPL -cpubind bandwidth,v \
+    	-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0" \
+    	-batch $2 $3
     RTNSTS=$?
     rm -f ${NODELIST_PATH}
 
     exit ${RTNSTS}
 ```
 
-In our test, we used a Power-On-Demand license token. For that token, you have to set the **$CDLMD_LICENSE_FILE** environment variable to **1999@flex.cd-adapco.com** and the key in the **-podkey** option of the command line.
+В рамках теста мы использовали маркер лицензии увеличения мощности по требованию. Для этого маркера переменной среды **$CDLMD\_LICENSE\_FILE** необходимо присвоить значение **1999@flex.cd-adapco.com**. Кроме того, нужно задать ключ в параметре командной строки **-podkey**.
 
-After some initialization, the script extracts--from the **$CCP_NODES_CORES** environment variables that HPC Pack set--the list of nodes to build a hostfile that the MPI launcher uses. This hostfile will contain the list of compute node names that are used for the job, one name per line.
+После инициализации сценарий извлечет из переменных среды **$CCP\_NODES\_CORES**, заданных в пакете HPC, список узлов для создания файла узла, используемого средством запуска MPI. Этот файл узла будет содержать список имен вычислительных узлов, используемых для задания (по одному имени в строке).
 
-The format of **$CCP_NODES_CORES** follows this pattern:
+Формат **$CCP\_NODES\_CORES** соответствует следующему шаблону.
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
 ```
 
-Where:
+Описание
 
-* `<Number of nodes>` is the number of nodes allocated to this job.
+* `<Number of nodes>` — количество узлов, выделенных для этого задания.
 
-* `<Name of node_n_...>` is the name of each node allocated to this job.
+* `<Name of node_n_...>` — имя каждого узла, выделенного для этого задания.
 
-* `<Cores of node_n_...>` is the number of cores on the node allocated to this job.
+* `<Cores of node_n_...>` — количество ядер узла, выделенного для этого задания.
 
-The number of cores (**$NBCORES**) is also calculated based on the number of nodes (**$NBNODES**) and the number of cores per node (provided as parameter **$NBCORESPERNODE**).
+Число ядер (**$NBCORES**) рассчитывается на основе числа узлов (**$NBNODES**) и числа ядер на узел, заданного в параметре **$NBCORESPERNODE**.
 
-For the MPI options, the ones that are used with Intel MPI on Azure are:
+Для Intel MPI в среде Azure используются следующие параметры MPI:
 
-*   `-mpi intel` to specify Intel MPI.
+*   `-mpi intel` для указания Intel MPI;
 
-*   `-fabric UDAPL` to use Azure InfiniBand verbs.
+*   `-fabric UDAPL` для использования команд Azure InfiniBand;
 
-*   `-cpubind bandwidth,v` to optimize bandwidth for MPI with STAR-CCM+.
+*   `-cpubind bandwidth,v` для оптимизации пропускной способности для MPI со STAR-CCM+;
 
-*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` to make Intel MPI work with Azure InfiniBand, and to set the required number of cores per node.
+*   `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` для настройки работы Intel MPI с Azure InfiniBand и задания необходимого числа ядер на узел;
 
-*   `-batch` to start STAR-CCM+ in batch mode with no UI.
+*   `-batch` для запуска STAR-CCM+ в пакетном режиме без пользовательского интерфейса.
 
 
-Finally, to start a job, make sure that your nodes are up and running and are online in Cluster Manager. Then from a PowerShell command prompt, run this:
+Наконец, чтобы запустить задание, убедитесь, что узлы работают и подключены в диспетчере кластера. В командной строке PowerShell выполните следующую команду:
 
 ```
     .\ SubmitStarccmJob.ps1 <model> <nbNodes> <nbCoresPerNode>
 ```
 
-## <a name="stop-nodes"></a>Stop nodes
-Later on, after you're done with your tests, you can use the following HPC Pack PowerShell commands to stop and start nodes:
+## Остановка узлов
+Чтобы останавливать и запускать узлы после завершения тестов, можно выполнить следующие команды PowerShell пакета HPC:
 
 ```
     Stop-HPCIaaSNode.ps1 -Name <prefix>-00*
     Start-HPCIaaSNode.ps1 -Name <prefix>-00*
 ```
 
-## <a name="next-steps"></a>Next steps
-Try running other Linux workloads. For example, see:
+## Дальнейшие действия
+Попробуйте запустить другие рабочие нагрузки Linux. Например, ознакомьтесь со следующими статьями:
 
-* [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
+* [Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
 
-* [Run OpenFOAM with Microsoft HPC Pack on a Linux RDMA cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
+* [Выполнение заданий OpenFoam в кластере Linux RDMA в Azure с помощью пакета Microsoft HPC](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
 
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

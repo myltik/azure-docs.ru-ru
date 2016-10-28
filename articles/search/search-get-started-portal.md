@@ -1,179 +1,177 @@
 <properties 
-    pageTitle="Get started with Azure Search | Microsoft Azure | DocumentDB | Cloud search service" 
-    description="Learn how to create your first Azure Search index using this tutorial walkthrough and DocumentDB sample data. This portal-based, code-free exercise uses the Import Data wizard." 
-    services="search" 
-    documentationCenter="" 
-    authors="HeidiSteen" 
-    manager="jhubbard" 
-    editor=""
+	pageTitle="Начало работы со службой поиска Azure | Microsoft Azure | DocumentDB | Облачная служба поиска" 
+	description="Узнайте, как создать первый индекс службы поиска Azure с помощью этого пошагового руководства и примеров данных DocumentDB. Вы сможете это сделать без необходимости писать код, используя функции портала и мастер импорта данных." 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="jhubbard" 
+	editor=""
     tags="azure-portal"/>
 
 <tags 
-    ms.service="search" 
-    ms.devlang="na" 
-    ms.workload="search" 
-    ms.topic="hero-article" 
-    ms.tgt_pltfrm="na" 
-    ms.date="10/03/2016" 
-    ms.author="heidist"/>
+	ms.service="search" 
+	ms.devlang="na" 
+	ms.workload="search" 
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="10/03/2016" 
+	ms.author="heidist"/>
 
+# Начало работы со службой поиска Azure на портале
 
-# <a name="get-started-with-azure-search-in-the-portal"></a>Get started with Azure Search in the portal
+В этой статье в общих чертах (без примеров кода) описывается использование службы поиска Microsoft Azure с помощью средств портала.
 
-This code-free introduction gets you started with Microsoft Azure Search using capabilities built right into the portal. 
+Для работы с этим руководством вам понадобится [образец базы данных Azure DocumentDB](#apdx-sampledata), который легко создать с помощью наших инструкций и данных. Вы также можете адаптировать эти действия к существующим данным в базе данных DocumentDB или SQL.
 
-The tutorial assumes a [sample Azure DocumentDB database](#apdx-sampledata) that's simple to create using our data and instructions, but you can also adapt these steps to your existing data in either DocumentDB or SQL Database.
-
-> [AZURE.NOTE] This Get Started tutorial requires an [Azure subscription](/pricing/free-trial/?WT.mc_id=A261C142F) and an [Azure Search service](search-create-service-portal.md). 
+> [AZURE.NOTE] Кроме того, вам понадобятся [подписка Azure](/pricing/free-trial/?WT.mc_id=A261C142F) и [служба поиска Azure](search-create-service-portal.md).
  
-## <a name="find-your-service"></a>Find your service
+## Поиск службы
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Выполните вход на [портал Azure](https://portal.azure.com).
 
-2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
-    - In the Jumpbar, click **Search services**. The Jumpbar lists every service provisioned in your subscription. If a search service has been defined, you see **Search services** in the list.
-    - In the Jumpbar, click **Browse** and then type "search" in the search box to produce a list of all search services created in your subscriptions.
+2. Откройте служебную панель службы поиска Azure. Найти панель мониторинга можно несколькими способами.
+	- В указателе щелкните **Службы поиска**. В указателе отображаются все службы, подготовленные в вашей подписке. Если служба поиска определена, вы увидите в списке пункт **Службы поиска**.
+	- В указателе щелкните **Обзор** и введите в поле поиска слово "поиск". Отобразится список всех служб поиска, созданных в ваших подписках.
 
-## <a name="check-for-space"></a>Check for space
+## Проверка доступного пространства
 
-Many customers start with the free service. This version is limited to three indexes, three data sources, and three indexers. Make sure you have room for extra items before you begin. This walkthrough creates one of each object.
+Многие пользователи предпочитают начать работу с бесплатной службой. В бесплатной версии можно использовать только три индекса, три источника данных и три индексатора. Перед началом работы убедитесь, что у вас достаточно места для дополнительных элементов. В этом руководстве каждый объект создается один раз.
 
-## <a name="create-an-index-and-load-data"></a>Create an index and load data
+## Создание индекса и загрузка данных
 
-Search queries iterate over an *index* containing searchable data, metadata, and constructs used for optimizing certain search behaviors. As a first step, define and populate an index.
+Поисковые запросы выполняют итерацию по *индексу*, содержащему доступные для поиска данные, метаданные и конструкции, которые используются для оптимизации способов поиска. Для начала необходимо определить и заполнить индекс.
 
-There are several ways to create an index. If your data is in a store that Azure Search can crawl - such as Azure SQL Database, SQL Server on an Azure VM, or DocumentDB - you can create and populate an index very easily using an *indexer*.
+Создать индекс можно несколькими способами. Если ваши данные расположены в хранилище, которое может просканировать служба поиска Azure (это может быть база данных SQL Azure, SQL Server на виртуальной машине Azure или база данных DocumentDB), создайте и заполните индекс с помощью *индексатора*.
 
-To keep this task portal-based, we use data from DocumentDB that can be crawled using an indexer via the **Import data** wizard. 
+Чтобы выполнить эту задачу с помощью портала, мы будем использовать данные в базе данных DocumentDB. Индексатор сможет просканировать эту базу данных с помощью мастера **импорта данных**.
 
-Before you continue, create a [sample DocumentDB database](#apdx-sampledata) to use with this tutorial, and then return to this section to complete the steps below.
+Прежде чем продолжать работу с этим руководством, создайте [пример базы данных DocumentDB](#apdx-sampledata), а затем вернитесь в этот раздел для выполнения указанных ниже действий.
 
 <a id="defineDS"></a>
-#### <a name="step-1:-define-the-data-source"></a>Step 1: Define the data source
+#### Этап 1. Определение источника данных
 
-1. On your Azure Search service dashboard, click **Import data** in the command bar to start a wizard that both creates and populates an index.
+1. На панели мониторинга службы поиска Azure щелкните в командной строке **Импорт данных**. Запустится мастер, который создает и заполняет индекс.
 
     ![][7]
 
-2. In the wizard, click **Data Source** > **DocumentDB** > **Name**, type a name for the data source. A data source is a connection object in Azure Search that can be used with other indexers. Once you create it, it becomes available as an "existing data source" in your service.
+2. В окне мастера щелкните **Источник данных** > **DocumentDB** > **Имя**, а затем введите имя источника данных. Источник данных — это объект подключения в службе поиска Azure, который может использоваться с другими индексаторами. После создания он будет доступен в службе как существующий источник данных.
 
-3. Choose your existing DocumentDB account, and the database and collection. If you're using the sample data we provide, your data source definition looks like this:
+3. Выберите существующую учетную запись DocumentDB, а также базу данных и коллекцию. Если вы используете наш пример данных, определение источника данных будет выглядеть так:
 
     ![][2]
 
-Notice that we are skipping the query. This is because we're not implementing change tracking in our dataset this time around. If your dataset includes a field that keeps track of when a record is updated, you can configure an Azure Search indexer to use change tracking for selective updates to your index.
+Обратите внимание, что мы пропускаем поле запроса. Это связано с тем, что сейчас мы не внедряем отслеживание изменений в наш набор данных. Если набор данных включает поле, которое отвечает за отслеживание обновления записи, вы можете настроить индексатор поиска Azure и отслеживать выборочные изменения индекса.
 
-Click **OK** to complete this step of the wizard.
+Нажмите кнопку **ОК**, чтобы завершить этот этап работы мастера.
 
-#### <a name="step-2:-define-the-index"></a>Step 2: Define the index
+#### Этап 2. Определение индекса
 
-Still in the wizard, click **Index** and take a look at the design surface used to create an Azure Search index. Minimally, an index requires a name, and a fields collection, with one field marked as the document key. Because we're using a DocumentDB data set, fields are detected by the wizard automatically and the index is preloaded with fields and data type assignments. 
+В окне мастера щелкните **Индекс**. Отобразится рабочая область конструирования, которая нужна для того, чтобы создать индекс службы поиска Azure. Для индекса необходимо указать как минимум имя и коллекцию полей, а одно поле отметить как ключ документа. Поскольку мы используем набор данных DocumentDB, поля определяются мастером автоматически, а индекс загружается с предварительно назначенными полями и типами данных.
 
   ![][3]
 
-Although the fields and data types are configured, you still need to assign attributes. The check boxes across the top of the field list are *index attributes* that control how the field is used. 
+Хотя поля и типы данных настроены, вам нужно назначить атрибуты. Флажки в верхней части списка полей — это *атрибуты индекса*, которые определяют, как используется поле.
 
-- **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example when fields used only in filter expressions. 
-- **Filterable**, **Sortable**, and **Facetable** determine whether a field can be used in a filter, a sort, or a facet navigation structure. 
-- **Searchable** means that a field is included in full text search. Strings are usually searchable. Numeric fields and Boolean fields are often marked as not searchable. 
+- Атрибут **Доступный для получения** означает, что поле будет показано в списке результатов поиска. Вы можете снять этот флажок напротив отдельных полей, чтобы исключить их из результатов поиска (например, если такие поля используются только в выражениях фильтра).
+- Атрибуты **Фильтруемый**, **Сортируемый** и **Аспектируемый** определяют, может ли поле использоваться в структуре фильтруемой, сортируемой или фасетной навигации.
+- Атрибут **Доступный для поиска** включает поле в полнотекстовый поиск. Строки обычно являются доступными для поиска. Поиск по числовым и логическим полям часто исключается.
 
-Before you leave this page, mark the fields in your index to use the following options (Retrievable, Searchable, and so on). Most fields are Retrievable. Most string fields are Searchable (you don't need to make the Key searchable). A few fields like genre, orderableOnline, rating, and tags are also Filterable, Sortable, and Facetable. 
-    
-Field | Type | Options |
+Прежде чем покинуть эту страницу, отметьте поля в индексе, используя перечисленные параметры ("Доступный для получения", "Доступный для поиска" и т. д.). Большинство полей отмечаются как доступные для получения. Большинство строковых полей отмечаются как доступные для поиска (вам не нужно делать ключ доступным для поиска). Несколько полей, включая genre, orderableOnline, rating и tags, также являются фильтруемыми, сортируемыми и аспектируемыми.
+	
+Поле | Тип | Параметры |
 ------|------|---------|
 id | Edm.String | |
-albumTitle | Edm.String | Retrievable, Searchable |
-albumUrl | Edm.String | Retrievable, Searchable |
-genre | Edm.String | Retrievable, Searchable, Filterable, Sortable, Facetable |
-genreDescription | Edm.String | Retrievable, Searchable |
-artistName | Edm.String | Retrievable, Searchable |
-orderableOnline | Edm.Boolean | Retrievable, Filterable, Sortable, Facetable |
-tags | Collection(Edm.String) | Retrievable, Filterable, Facetable |
-price | Edm.Double | Retrievable, Filterable, Facetable |
+albumTitle | Edm.String | Доступное для получения, доступное для поиска |
+albumUrl | Edm.String | Доступное для получения, доступное для поиска |
+genre | Edm.String | Доступное для получения, доступное для поиска, фильтруемое, сортируемое, аспектируемое |
+genreDescription | Edm.String | Доступное для получения, доступное для поиска |
+artistName | Edm.String | Доступное для получения, доступное для поиска |
+orderableOnline | Edm.Boolean | Доступное для получения, фильтруемое, сортируемое, аспектируемое |
+tags | Collection(Edm.String) | Доступное для получения, фильтруемое, аспектируемое |
+price | Edm.Double | Доступное для получения, фильтруемое, аспектируемое |
 margin | Edm.Int32 | |
-rating | Edm.Int32 | Retrievable, Filterable, Sortable, Facetable |
-inventory | Edm.Int32 | Retrievable |
+рейтинг | Edm.Int32 | Доступное для получения, фильтруемое, сортируемое, аспектируемое |
+inventory | Edm.Int32 | Доступный для получения |
 lastUpdated | Edm.DateTimeOffset | |
 
-As a point of comparison, the following screenshot is an illustration of an index built to the specification in the previous table.
+Для сравнения на следующем снимке экрана показан индекс, соответствующий спецификации в предыдущей таблице.
 
  ![][4]
 
-Click **OK** to complete this step of the wizard.
+Нажмите кнопку **ОК**, чтобы завершить этот этап работы мастера.
 
-#### <a name="step-3:-define-the-indexer"></a>Step 3: Define the indexer
+#### Этап 3. Определение индексатора
 
-Still in the **Import data** wizard, click **Indexer** > **Name**, type a name for the indexer, and use defaults for all the other values. This object defines an executable process. Once you create it, you could put it on recurring schedule, but for now use the default option to run the indexer once, immediately, when you click **OK**. 
+В мастере **импорта данных** щелкните **Индексатор** > **Имя**, введите имя индексатора и оставьте значения по умолчанию для всех остальных параметров. Этот объект определяет исполняемый процесс. Создав его, вы можете задать для него повторяющееся расписание. А пока используйте параметр по умолчанию, чтобы однократно и немедленно запустить индексатор после нажатия кнопки **ОК**.
 
-Your import data entries should be all filled in and ready to go.
+Все импортируемые элементы данных должны быть заполнены и готовы к работе.
 
   ![][5]
 
-To run the wizard, click **OK** to start the import and close the wizard.
+Нажмите кнопку **ОК**, чтобы запустить мастер и начать импорт, а затем закройте мастер.
 
-## <a name="check-progress"></a>Check progress
+## Проверка хода выполнения
 
-To check progress, go back to the service dashboard, scroll down, and double-click the **Indexers** tile to open the indexers list. You should see the indexer you just created in the list, and you should see status indicating "in progress" or success, along with the number of documents indexed into Azure Search.
+Чтобы проверить ход выполнения, на панели мониторинга службы прокрутите вниз и дважды щелкните плитку **Индексаторы**. Откроется список индексаторов. В списке вы увидите только что созданный индексатор, состояние, указывающее на выполнение или завершение, а также количество документов, проиндексированных в службе поиска Azure.
 
   ![][6]
 
-## <a name="query-the-index"></a>Query the index
+## Запрос индекса
 
-You now have a search index that's ready to query. 
+Теперь индекс службы поиска может создавать запросы.
 
-**Search explorer** is a query tool built into the portal. It provides a search box so that you can verify a search input returns the data you expect. 
+**Проводник поиска** — это средство работы с запросами, встроенное в портал. Это поле для поиска, с помощью которого можно проверить, как условия поиска возвращают ожидаемые данные.
 
-1. Click **Search explorer** on the command bar.
-2. Notice which index is active. If it's not the one you just created, click **Change index** on the command bar to select the one you want.
-2. Leave the search box empty and then click the **Search** button to execute a wildcard search that returns all documents.
-3. Enter a few full-text search queries. You can review the results from your wildcard search to get familiar with artists, albums, and genres to query.
-4. Try other query syntax using the [examples provided at the end of this article](https://msdn.microsoft.com/library/azure/dn798927.aspx) for ideas, modifying your query to use search strings that are likely to be found in your index.
+1. Щелкните **Проводник поиска** на панели команд.
+2. Проверьте, какой индекс является активным. Если это не тот индекс, который вы только что создали, на панели команд щелкните **Изменить индекс** и выберите нужный индекс.
+2. Оставьте поле поиска пустым и нажмите кнопку **Поиск**, чтобы выполнить поиск с использованием подстановочных знаков, который возвращает все документы.
+3. Введите несколько запросов для полнотекстового поиска. Просмотрев результаты поиска, в котором используются подстановочные знаки, вы можете ознакомиться с исполнителями, альбомами и жанрами и создавать на основе этих сведений запросы.
+4. Попробуйте использовать другой синтаксис запросов (см. [примеры, приведенные в конце этой статьи](https://msdn.microsoft.com/library/azure/dn798927.aspx)), чтобы запрос включал строки поиска, которые предположительно можно найти в вашем индексе.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-After you run the wizard once, you can go back and view or modify individual components: index, indexer, or data source. Some edits, such as the changing the field data type, are not allowed on the index, but most properties and settings are modifiable. To view individual components, click the **Index**, **Indexer**, or **Data Sources** tiles on your dashboard to display a list of existing objects.
+После первого запуска мастера вы можете вернуться назад и просмотреть или изменить отдельные компоненты: индекс, индексатор или источник данных. Некоторые изменения, например изменение типа данных поля, недоступны в индексе, но большинство свойств и настроек можно изменять. Чтобы просмотреть отдельные компоненты, на панели мониторинга щелкните плитку **Индекс**, **Индексатор** или **Источники данных**. Отобразится список существующих объектов.
 
-To learn more about other features mentioned in this article, visit these links:
+Дополнительные сведения о других возможностях, упоминаемых в этом руководстве, см. в следующих статьях.
 
-- [Indexers](search-indexer-overview.md)
-- [Create Index (includes a detailed explanation of the index attributes)](https://msdn.microsoft.com/library/azure/dn798941.aspx)
-- [Search Explorer](search-explorer.md)
-- [Search Documents (includes examples of query syntax)](https://msdn.microsoft.com/library/azure/dn798927.aspx)
+- [Индексаторы](search-indexer-overview.md)
+- [Create Index (Azure Search Service REST API) (Создание индекса (REST API службы поиска Azure)). Содержит подробное описание атрибутов индекса.](https://msdn.microsoft.com/library/azure/dn798941.aspx)
+- [Обозреватель поиска](search-explorer.md)
+- [Search Documents (Azure Search Service REST API) (Поиск по документам (REST API службы поиска Azure)). Содержит примеры синтаксиса запросов.](https://msdn.microsoft.com/library/azure/dn798927.aspx)
 
-You can try this same workflow, using the Import data wizard for other data sources like Azure SQL Database or SQL Server on Azure virtual machines.
+Попробуйте выполнить эти же действия, используя мастер импорта данных с другими источниками данных, например с базой данных SQL Azure или SQL Server на виртуальных машинах Azure.
 
-> [AZURE.NOTE] Newly announced is indexer support for crawling Azure Blob Storage, but that feature is in preview and not yet a portal option. To try that indexer, you need to write code. See [Indexing Azure Blob storage in Azure Search](search-howto-indexing-azure-blob-storage.md) for more information.
-<a id="apdx-sampledata"></a>
+> [AZURE.NOTE] Недавно на портале была реализована поддержка индексатора для сканирования хранилища BLOB-объектов Azure, но пока эта функция доступна только в режиме предварительной версии. Чтобы протестировать этот индексатор, необходимо написать код. Дополнительные сведения см. в статье [Индексирование документов в хранилище BLOB-объектов Azure с помощью службы поиска Azure](search-howto-indexing-azure-blob-storage.md). <a id="apdx-sampledata"></a>
 
 
-## <a name="appendix:-create-sample-data-in-documentdb"></a>Appendix: Create sample data in DocumentDB
+## Приложение. Создание демонстрационных данных в DocumentDB
 
-This section creates a small database in DocumentDB that can be used to complete the tasks in this tutorial.
+В этом разделе описывается создание небольшой базы данных в DocumentDB, которую можно использовать для работы с руководством.
 
-The following instructions give you general guidance, but are not exhaustive. If you need more help with DocumentDB portal navigation or tasks, you can refer to DocumentDB documentation, but most of the commands you need are either in the service command bar at the top of the dashboard or in the database blade. 
+Приведенные ниже инструкции содержат общие рекомендации, но не являются исчерпывающими. Если вам нужна дополнительная помощь по навигации или задачам на портале DocumentDB, см. документацию по DocumentDB. Большинство нужных команд находится на панели команд службы в верхней части панели мониторинга или в колонке базы данных.
 
   ![][1]
 
-### <a name="create-musicstoredb-for-this-tutorial"></a>Create musicstoredb for this tutorial
+### Создание базы данных musicstoredb для работы с этим руководством
 
-1. [Click here](https://github.com/HeidiSteen/azure-search-get-started-sample-data) to download a ZIP file containing the music store JSON data files. We provide 246 JSON documents for this dataset.
-2. Add DocumentDB to your subscription and then open the service dashboard.
-2. Click **Add Database** to create a new database with an id of `musicstoredb`. It shows up in the database tile further down the page after it's created.
-2. Click on the database name to open the database blade.
-3. Click **Add Collection** to create a collection with an id of `musicstorecoll`.
-3. Click **Document Explorer**.
-4. Click **Upload**.
-5. In **Upload Document**, navigate to the local folder that contains the JSON files you downloaded previously. Select JSON files in batches of 100 or fewer.
-    - 386.json
-    - 387.json
-    - . . .
-    - 486.json
-6. Repeat to get the next batch of files until you've uploaded the last one, 669.json.
-7. Click **Query Explorer** to verify the data is uploaded to meet the upload requirements of Document Explorer.
+1. [Щелкните здесь](https://github.com/HeidiSteen/azure-search-get-started-sample-data), чтобы скачать ZIP-архив, содержащий JSON-файлы данных из магазина музыки. Для этого набора данных доступно 246 документов JSON.
+2. Добавьте DocumentDB в свою подписку, а затем откройте панель мониторинга службы.
+2. Щелкните **Добавить базу данных**, чтобы создать базу данных с идентификатором `musicstoredb`. Созданная база данных отобразится на плитке баз данных в нижней части страницы.
+2. Щелкните имя базы данных, чтобы открыть колонку базы данных.
+3. Щелкните **Добавить коллекцию**, чтобы создать коллекцию с идентификатором `musicstorecoll`.
+3. Щелкните **Обозреватель документов**.
+4. Щелкните **Отправить**.
+5. В области **Отправка документа** перейдите к локальной папке, содержащей ранее скачанные JSON-файлы. JSON-файлы следует выбирать пакетами не более чем по 100.
+	- 386\.json
+	- 387\.json
+	- ...
+	- 486\.json
+6. Повторите для получения следующего пакета файлов, пока не будет отправлен последний файл — 669.json.
+7. Щелкните **Обозреватель запросов** и убедитесь, что данные загружаются в соответствии с требованиями обозревателя документов к отправке.
 
-An easy way to do this is to use the default query, but you can also modify the default query so that it selects the top 300 (there are fewer than 300 items in this dataset).
+Проще всего это сделать с помощью запроса по умолчанию. Этот запрос можно изменить так, чтобы он выбирал 300 лучших результатов (всего в этом наборе данных доступно меньше 300 элементов).
 
-You should get back JSON output, starting with document number 386, and ending with document 669. Once the data is loaded, you can [return to the steps in this walkthrough](#defineDS) to build an index using the  **Import data wizard**.
+Вы должны получить выходные данные JSON, представленные набором документов с номерами 386–669. После загрузки данных вы можете [вернуться к соответствующему разделу этого руководства](#defineDS), чтобы создать индекс с помощью **мастера импорта данных**.
 
 
 <!--Image references-->
@@ -185,8 +183,4 @@ You should get back JSON output, starting with document number 386, and ending w
 [6]: ./media/search-get-started-portal/AzureSearch-GetStart-IndexerList.png
 [7]: ./media/search-get-started-portal/search-data-import-wiz-btn.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

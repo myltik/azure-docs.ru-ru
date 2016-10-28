@@ -1,48 +1,47 @@
 <properties 
-    pageTitle="Lock Resources with Resource Manager | Microsoft Azure" 
-    description="Prevent users from updating or deleting certain resources by applying a restriction to all users and roles." 
-    services="azure-resource-manager" 
-    documentationCenter="" 
-    authors="tfitzmac" 
-    manager="timlt" 
-    editor="tysonn"/>
+	pageTitle="Блокировка ресурсов с помощью диспетчера ресурсов | Microsoft Azure" 
+	description="Запрет на обновление или удаление определенных ресурсов для пользователей путем применения ограничения для всех пользователей и ролей." 
+	services="azure-resource-manager" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="timlt" 
+	editor="tysonn"/>
 
 <tags 
-    ms.service="azure-resource-manager" 
-    ms.workload="multiple" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="tomfitz"/>
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/15/2016" 
+	ms.author="tomfitz"/>
 
+# Блокировка ресурсов с помощью диспетчера ресурсов Azure
 
-# <a name="lock-resources-with-azure-resource-manager"></a>Lock resources with Azure Resource Manager
+Администратору иногда требуется заблокировать подписку, ресурс или группу ресурсов, чтобы другие пользователи в организации не могли случайно удалить или изменить критически важные ресурсы. Можно установить уровень блокировки **CanNotDelete** или **ReadOnly**.
 
-As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to **CanNotDelete** or **ReadOnly**. 
+- **CanNotDelete** означает, что авторизованные пользователи смогут читать и изменять ресурс, но не смогут его удалить.
+- **ReadOnly** означает, что авторизованные пользователи смогут только читать ресурс, но не смогут не только удалить его, но и производить с ним какие-либо действия. Разрешение для ресурса будет ограничено до роли **Читатель**.
 
-- **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete it. 
-- **ReadOnly** means authorized users can read from a resource, but they can't delete it or perform any actions on it. The permission on the resource is restricted to the **Reader** role. 
+Применение уровня блокировки **ReadOnly** (Только чтение) может привести к непредвиденным результатам, так как некоторые операции, кажущиеся операциями чтения, на самом деле требуют дополнительных действий. Например, установка уровня блокировки **ReadOnly** для учетной записи хранения не позволит всем пользователям получить список ключей. Операция отображения списка ключей обрабатывается с помощью запроса POST, поскольку возвращаемые ключи могут быть доступны для операций записи. Еще один пример: установка уровня блокировки **ReadOnly** для ресурса службы приложений не позволит обозревателю сервера Visual Studio отображать файлы для ресурса, так как для их взаимодействия требуется доступ на запись.
 
-Applying **ReadOnly** can lead to unexpected results because some operations that seem like read operations actually require additional actions. For example, placing a **ReadOnly** lock on a storage account prevents all users from listing the keys. The list keys operation is handled through a POST request because the returned keys are available for write operations. For another example, placing a **ReadOnly** lock on an App Service resource prevents Visual Studio Server Explorer from displaying files for the resource because that interaction requires write access.
+В отличие от управления доступом на основе ролей блокировки управления используются для применения ограничения для всех пользователей и ролей. Сведения о настройке разрешений для пользователей и ролей см. в статье [Контроль доступа на основе ролей Azure](./active-directory/role-based-access-control-configure.md).
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
+При применении блокировки к родительской области все дочерние ресурсы наследуют ту же блокировку. Даже ресурсы, добавляемые позже, наследуют блокировку от родительского ресурса. Приоритет имеет наиболее строгая блокировка.
 
-When you apply a lock at a parent scope, all child resources inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
+## Кто может создавать и удалять блокировки в вашей организации
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>Who can create or delete locks in your organization
+Для создания или удаления блокировок управления необходимо иметь доступ к действиям **Microsoft.Authorization/*** или **Microsoft.Authorization/locks/***. Из встроенных ролей эти действия предоставляются только **Владельцу** и **Администратору доступа пользователей**.
 
-To create or delete management locks, you must have access to **Microsoft.Authorization/\*** or **Microsoft.Authorization/locks/\*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions.
-
-## <a name="creating-a-lock-through-the-portal"></a>Creating a lock through the portal
+## Создание блокировки с помощью портала
 
 [AZURE.INCLUDE [resource-manager-lock-resources](../includes/resource-manager-lock-resources.md)]
 
-## <a name="creating-a-lock-in-a-template"></a>Creating a lock in a template
+## Создание блокировки в шаблоне
 
-The following example shows a template that creates a lock on a storage account. The storage account on which to apply the lock is provided as a parameter. The name of the lock is created by concatenating the resource name with **/Microsoft.Authorization/** and the name of the lock, in this case **myLock**.
+В приведенном ниже примере показан шаблон, который создает блокировку для учетной записи хранения. Учетная запись хранения, к которой применяется блокировка, указывается в качестве параметра. Имя блокировки составляется из имени ресурса с **/Microsoft.Authorization/** и имени самой блокировки (в этом случае — **myLock**).
 
-The type provided is specific to the resource type. For storage, set the type to "Microsoft.Storage/storageaccounts/providers/locks".
+Используемый тип зависит от типа ресурса. Тип для хранилища — Microsoft.Storage/storageaccounts/providers/locks.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -64,17 +63,17 @@ The type provided is specific to the resource type. For storage, set the type to
       ]
     }
 
-## <a name="creating-a-lock-with-rest-api"></a>Creating a lock with REST API
+## Создание блокировки с помощью REST API
 
-You can lock deployed resources with the [REST API for management locks](https://msdn.microsoft.com/library/azure/mt204563.aspx). The REST API enables you to create and delete locks, and retrieve information about existing locks.
+Вы можете заблокировать развернутые ресурсы с помощью [REST API для блокировок управления](https://msdn.microsoft.com/library/azure/mt204563.aspx). REST API позволяет создавать и удалять блокировки и получать информацию о существующих блокировках.
 
-To create a lock, run:
+Чтобы создать блокировку, выполните следующую команду:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-The scope could be a subscription, resource group, or resource. The lock-name is whatever you want to call the lock. For api-version, use **2015-01-01**.
+Областью может быть подписка, группа ресурсов или ресурс. Вы можете назначить блокировке любое имя. В качестве версии API (api-version) используйте значение **2015-01-01**.
 
-In the request, include a JSON object that specifies the properties for the lock.
+В запросе включите объект JSON, который задает свойства блокировки.
 
     {
       "properties": {
@@ -83,25 +82,21 @@ In the request, include a JSON object that specifies the properties for the lock
       }
     } 
 
-For examples, see [REST API for management locks](https://msdn.microsoft.com/library/azure/mt204563.aspx).
+Примеры см. в статье [REST API для блокировок управления](https://msdn.microsoft.com/library/azure/mt204563.aspx).
 
-## <a name="creating-a-lock-with-azure-powershell"></a>Creating a lock with Azure PowerShell
+## Создание блокировки с помощью Azure PowerShell
 
-You can lock deployed resources with Azure PowerShell by using the **New-AzureRmResourceLock** as shown in the following example.
+Вы можете заблокировать развернутые ресурсы с помощью Azure PowerShell, используя командлет **New-AzureRmResourceLock**, как показано в примере ниже.
 
     New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 
-Azure PowerShell provides other commands for working locks, such as **Set-AzureRmResourceLock** to update a lock and **Remove-AzureRmResourceLock** to delete a lock.
+В Azure PowerShell доступны другие команды для рабочих блокировок, такие как **Set-AzureRmResourceLock** для обновления блокировки и **Remove-AzureRmResourceLock** для удаления блокировки.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- For more information about working with resource locks, see [Lock Down Your Azure Resources](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
-- To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
-- To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
-- You can apply restrictions and conventions across your subscription with customized policies. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+- Дополнительные сведения о работе с блокировкой ресурсов см. в статье [Блокировка ресурсов Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx).
+- Дополнительные сведения о логической организации ресурсов см. в статье [Использование тегов для организации ресурсов](resource-group-using-tags.md).
+- Для изменения группы, в которой находится ресурс, см. статью [Перемещение ресурсов в новую группу ресурсов](resource-group-move-resources.md).
+- Ограничения и соглашения можно применять внутри подписки с помощью настраиваемых политик. Дополнительные сведения см. в статье [Применение политик для управления ресурсами и контроля доступа](resource-manager-policy.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

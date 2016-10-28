@@ -1,13 +1,10 @@
-Resource|Default Limit|Maximum Limit
+Ресурс|Ограничение по умолчанию|Максимальное ограничение
 ---|---|---
-[Virtual machines](../articles/virtual-machines/virtual-machines-linux-about.md) per cloud service<sup>1</sup>|50|50
-Input endpoints per cloud service<sup>2</sup>|150|150
+[Виртуальных машин](../articles/virtual-machines/virtual-machines-linux-about.md) на облачную службу<sup>1</sup>|50|50
+Входных конечных точек на облачную службу<sup>2</sup>|150|150
 
-<sup>1</sup>Virtual machines created in Service Management (instead of Resource Manager) are automatically stored in a cloud service. You can add more virtual machines to that cloud service for load balancing and availability. See  [How to Connect Virtual Machines with a Virtual Network or Cloud Service](../articles/virtual-machines/virtual-machines-linux-classic-connect-vms.md).
+<sup>1</sup>Виртуальные машины, созданные с помощью управления службами (а не диспетчера ресурсов), автоматически сохраняются в облачной службе. Для балансировки нагрузки и обеспечения доступности можно добавить дополнительные виртуальные машины в эту облачную службу. Ознакомьтесь с разделом [Подключение виртуальных машин с помощью виртуальной сети или облачной службы](../articles/virtual-machines/virtual-machines-linux-classic-connect-vms.md).
 
-<sup>2</sup>Input endpoints allow communications to a virtual machine from outside the virtual machine's cloud service. Virtual machines in the same cloud service or virtual network can automatically communicate with each other. See [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md). 
+<sup>2</sup>Входные конечные точки позволяют обмениваться данными с виртуальной машиной за пределами облачной службы, в которой находится эта виртуальная машина. Виртуальные машины, размещенные в одной и той же облачной службе или виртуальной сети, могут автоматически взаимодействовать друг с другом. См. статью [Настройка конечных точек для виртуальной машины](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

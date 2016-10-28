@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure the upgrade of a Service Fabric application | Microsoft Azure"
-   description="Learn how to configure the settings for upgrading a Service Fabric application by using Microsoft Visual Studio."
+   pageTitle="Настройка обновления приложения Service Fabric | Microsoft Azure"
+   description="Узнайте, как настроить параметры обновления приложения Service Fabric с помощью Microsoft Visual Studio."
    services="service-fabric"
    documentationCenter="na"
    authors="cawaMS"
@@ -15,69 +15,68 @@
    ms.date="07/29/2016"
    ms.author="cawa" />
 
+# Настройка обновления приложения Service Fabric в Visual Studio
 
-# <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configure the upgrade of a Service Fabric application in Visual Studio
+Средства Visual Studio для Azure Service Fabric обеспечивают поддержку обновления для публикации на локальных и удаленных кластерах. У обновления приложения до более новой версии есть два преимущества по сравнению с заменой приложения во время тестирования и отладки:
 
-Visual Studio tools for Azure Service Fabric provide upgrade support for publishing to local or remote clusters. There are two advantages to upgrading your application to a newer version instead of replacing the application during testing and debugging:
+- данные приложения не будут потеряны во время обновления;
+- достигается высокий уровень доступности, так как не будет перерывов в доступности службы по время обновления, если по доменам обновления распределено достаточное количество экземпляров службы.
 
-- Application data won't be lost during the upgrade.
-- Availability remains high so there won't be any service interruption during the upgrade, if there are enough service instances spread across upgrade domains.
+Тесты для приложения могут запускаться во время его обновления.
 
-Tests can be run against an application while it's being upgraded.
+## Параметры, необходимые для обновления
 
-## <a name="parameters-needed-to-upgrade"></a>Parameters needed to upgrade
+Существует два типа развертывания: обычное или обновление. При обычном развертывании стираются все предыдущие сведения о развертывании и данные в кластере, а при обновлении они сохраняются. При обновлении приложения Service Fabric в Visual Studio необходимо указать параметры обновления приложения и политики проверки работоспособности. Параметры обновления приложения помогают управлять обновлением, а политики проверки работоспособности определяют, было обновление успешным или нет. Дополнительные сведения см. в разделе [Обновление приложений Service Fabric: параметры обновления](service-fabric-application-upgrade-parameters.md).
 
-You can choose from two types of deployment: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade a Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade, while health check policies determine whether the upgrade was successful. See [Service Fabric application upgrade: upgrade parameters](service-fabric-application-upgrade-parameters.md) for more details.
+Существует три режима обновления: *отслеживаемое*, *неотслеживаемое автоматическое* и *ручное*.
 
-There are three upgrade modes: *Monitored*, *UnmonitoredAuto*, and *UnmonitoredManual*.
+  - При отслеживаемом обновлении процесс обновления и проверка работоспособности приложения автоматизируются.
 
-  - A Monitored upgrade automates the upgrade and application health check.
+  - При неотслеживаемом автоматическом обновлении процесс обновления автоматизируется, но проверка работоспособности приложения пропускается.
 
-  - An UnmonitoredAuto upgrade automates the upgrade, but skips the application health check.
+  - При выполнении неотслеживаемого ручного обновления необходимо вручную обновить каждый домен обновления.
 
-  - When you do an UnmonitoredManual upgrade, you need to manually upgrade each upgrade domain.
+Для каждого режима обновления необходим различный набор параметров. Для получения дополнительных сведений о доступных параметрах обновления см. раздел [Параметры обновления приложений](service-fabric-application-upgrade-parameters.md).
 
-Each upgrade mode requires different sets of parameters. See [Application upgrade parameters](service-fabric-application-upgrade-parameters.md) to learn more about the available upgrade options.
+## Обновление приложения Service Fabric в Visual Studio
 
-## <a name="upgrade-a-service-fabric-application-in-visual-studio"></a>Upgrade a Service Fabric application in Visual Studio
+При использовании средств Service Fabric Visual Studio для обновления приложения Service Fabric можно указать, что процесс публикации будет подразумевать обновление, а не обычное развертывание, установив флажок **Обновить приложение**.
 
-If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fabric application, you can specify a publish process to be an upgrade rather than a regular deployment by checking the **Upgrade the application** check box.
+### Настройка параметров обновления
 
-### <a name="to-configure-the-upgrade-parameters"></a>To configure the upgrade parameters
+1. Нажмите кнопку **Параметры** рядом с флажком. Откроется диалоговое окно **Изменение параметров обновления**. Диалоговое окно **Изменение параметров обновления** поддерживает отслеживаемое, неотслеживаемое автоматическое и ручное обновления.
 
-1. Click the **Settings** button next to the check box. The **Edit Upgrade Parameters** dialog box appears. The **Edit Upgrade Parameters** dialog box supports the Monitored, UnmonitoredAuto, and UnmonitoredManual upgrade modes.
+2. Выберите режим обновления, который хотите использовать, и заполните сетку параметров.
 
-2. Select the upgrade mode that you want to use and then fill out the parameter grid.
+    Каждый параметр имеет значения по умолчанию. Необязательный параметр *DefaultServiceTypeHealthPolicy* принимает входную хэш-таблицу. Ниже приведен пример формата входной хэш-таблицы для *DefaultServiceTypeHealthPolicy*:
 
-    Each parameter has default values. The optional parameter *DefaultServiceTypeHealthPolicy* takes a hash table input. Here’s an example of the hash table input format for *DefaultServiceTypeHealthPolicy*:
-
-    ```
+	```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
+	```
+
+    *ServiceTypeHealthPolicyMap* — еще один необязательный параметр, который принимает входную хэш-таблицу в следующем формате:
+
+	```    
+	@ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
+	```
+
+    Ниже приведен пример из реальной жизни:
+
     ```
+	@{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
+	```
 
-    *ServiceTypeHealthPolicyMap* is another optional parameter that takes a hash table input in the following format:
+3. При выборе неотслеживаемого автоматического обновления необходимо будет вручную запустить консоль PowerShell для продолжения и завершения процесса обновления. Чтобы узнать, как работает ручное обновление, обратитесь к разделу [Обновление приложения Service Fabric: дополнительные разделы](service-fabric-application-upgrade-advanced.md).
 
-    ```    
-    @ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
-    ```
+## Обновление приложения с помощью PowerShell
 
-    Here's a real-life example:
+Обновить приложение Service Fabric можно с помощью командлетов PowerShell. Подробные сведения см. в разделах [Учебник по обновлению приложений Service Fabric](service-fabric-application-upgrade-tutorial.md) и [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx).
 
-    ```
-    @{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
-    ```
+## Задание политики проверки работоспособности в файле манифеста приложения
 
-3. If you select UnmonitoredManual upgrade mode, you must manually start a PowerShell console to continue and finish the upgrade process. Refer to [Service Fabric application upgrade: advanced topics](service-fabric-application-upgrade-advanced.md) to learn how manual upgrade works.
+Каждая служба в приложении Service Fabric может иметь собственные параметры политики работоспособности, которые переопределяют значения по умолчанию. Эти значения параметров можно указать в файле манифеста приложения.
 
-## <a name="upgrade-an-application-by-using-powershell"></a>Upgrade an application by using PowerShell
-
-You can use PowerShell cmdlets to upgrade a Service Fabric application. See [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md) and [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx) for detailed information.
-
-## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Specify a health check policy in the application manifest file
-
-Every service in a Service Fabric application can have its own health policy parameters that override the default values. You can provide these parameter values in the application manifest file.
-
-The following example shows how to apply a unique health check policy for each service in the application manifest.
+В следующем примере показано, как применить уникальную политику проверки работоспособности для каждой службы в манифесте приложения.
 
 ```
 <Policies>
@@ -92,11 +91,7 @@ The following example shows how to apply a unique health check policy for each s
     </HealthPolicy>
 </Policies>
 ```
-## <a name="next-steps"></a>Next steps
-For more information about deploying an application, see [Deploy an existing application in Azure Service Fabric](service-fabric-deploy-existing-app.md).
+## Дальнейшие действия
+Дополнительные сведения о развертывании приложений см. в разделе [Развертывание существующего приложения в Azure Service Fabric](service-fabric-deploy-existing-app.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,375 +1,384 @@
 <properties 
-    pageTitle="Use Azure Event Hubs with Apache Spark in HDInsight to process streaming data | Microsoft Azure" 
-    description="Step-by-step instructions on how to send a data stream to Azure Event Hub and then receive those events in Spark using a scala application" 
-    services="hdinsight" 
-    documentationCenter="" 
-    authors="nitinme" 
-    manager="jhubbard" 
-    editor="cgronlun"
-    tags="azure-portal"/>
+	pageTitle="Использование концентраторов событий Azure с Apache Spark в HDInsight для обработки потоковых данных | Microsoft Azure" 
+	description="Пошаговые инструкции по отправке потока данных в концентратор событий Azure и последующего получения этих событий в Spark с помощью приложения Scala" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="jhubbard" 
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
-    ms.service="hdinsight" 
-    ms.workload="big-data" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/30/2016" 
-    ms.author="nitinme"/>
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/25/2016" 
+	ms.author="nitinme"/>
 
 
+# Потоковая передача Spark. Обработка событий из концентраторов событий Azure с помощью кластера Apache Spark в HDInsight на платформе Linux
 
-# <a name="spark-streaming:-process-events-from-azure-event-hubs-with-apache-spark-cluster-on-hdinsight-linux"></a>Spark Streaming: Process events from Azure Event Hubs with Apache Spark cluster on HDInsight Linux
+Потоковая передача Spark расширяет возможности основного API Spark по созданию масштабируемых, отказоустойчивых приложений для обработки потоковых данных с высокой пропускной способностью. Данные могут поступать из множества источников. В этой статье для приема данных используются концентраторы событий Azure. Концентраторы событий — это высокомасштабируемая система приема, которая может принимать миллионы событий в секунду
 
-Spark Streaming extends the core Spark API to build scalable, high-throughput, fault-tolerant stream processing applications. Data can be ingested from many sources. In this article we use Azure Event Hubs to ingest data. Event Hubs is a highly scalable ingestion system that can intake millions of events per second. 
+В этом руководстве вы узнаете, как создать концентратор событий Azure, как организовать прием сообщений в него с помощью консольного приложения на языке Java, а также параллельно извлекать их с помощью приложения Spark, написанного на языке Scala. Это приложение принимает данные, которые передаются потоком через концентраторы событий, и перенаправляет их в различные объекты вывода (большой двоичный объект службы хранилища Azure, таблицу Hive и таблицу SQL).
 
-In this tutorial, you will learn how to create an Azure Event Hub, how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using a Spark application written in Scala. This application consumes the data streamed through Event Hubs and routes it to different outputs (Azure Storage Blob, Hive table, and SQL table).
+> [AZURE.NOTE] Для выполнения инструкций в этой статье необходимо использовать обе версии портала Azure. Концентратор событий будет создаваться на [классическом портале Azure](https://manage.windowsazure.com). Для работы с кластером HDInsight Spark будет использоваться [портал Azure](https://portal.azure.com/).
 
-> [AZURE.NOTE] To follow the instructions in this article, you will have to use both versions of the Azure portal. To create an Event Hub you will use the [Azure Classic portal](https://manage.windowsazure.com). To work with the HDInsight Spark cluster, you will use the [Azure Portal](https://portal.azure.com/).  
+**Предварительные требования:**
 
-**Prerequisites:**
+Необходимо следующее:
 
-You must have the following:
+- Подписка Azure. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Кластер Apache Spark. Инструкции см. в разделе [Создание кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+- Комплект разработчика Oracle Java. Его можно установить [отсюда](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+- Java IDE. В этой статье используется среда IntelliJ IDEA 15.0.1. Ее можно установить [отсюда](https://www.jetbrains.com/idea/download/).
+- Драйвер Microsoft JDBC для SQL Server версии 4.1 или более поздней. Он требуется для записи данных событий в базу данных SQL Server. Его можно установить [отсюда](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
+- База данных SQL Azure. Инструкции см. в статье [Создание базы данных SQL за несколько минут](../sql-database/sql-database-get-started.md).
 
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
-- Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- A Java IDE. This article uses IntelliJ IDEA 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
-- Microsoft JDBC driver for SQL Server, v4.1 or later. This is required to write the event data into a SQL Server database. You can install it from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
-- An Azure SQL database. For instructions, see [Create a SQL database in minutes](../sql-database/sql-database-get-started.md).
+## Каково предназначение этого решения?
 
-## <a name="what-does-this-solution-do?"></a>What does this solution do?
+Решение потоковой передачи предусматривает следующие этапы:
 
-This is how the streaming solution flows:
+1. Создание концентратора событий Azure, который будет принимать поток событий.
 
-1. Create an Azure Event Hub that will receive a stream of events.
+2. Запуск локального автономного приложения, которое создает события и передает их в концентратор событий Azure. Пример такого приложения опубликован по адресу [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples).
 
-2. Run a local standalone application that generates events and pushes it the Azure Event Hub. The sample application that does this is published at [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples).
+2. Удаленный запуск приложения потоковой передачи в кластере Spark. Это приложение считывает события потоковой передачи из концентратора событий Azure и отправляет их в различные расположения (большой двоичный объект службы хранилища Azure, таблицу Hive и таблицу базы данных SQL).
 
-2. Run a streaming application remotely on a Spark cluster that reads streaming events from Azure Event Hub and pushes it out to different locations (Azure Blob, Hive table, and SQL database table). 
+## Создание концентратора событий Azure
 
-## <a name="create-azure-event-hub"></a>Create Azure Event Hub
+1. На [портале Azure](https://manage.windowsazure.com) выберите **СОЗДАТЬ** > **Служебная шина** > **Концентратор событий** > **Настраиваемое создание **.
 
-1. From the [Azure Portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
+2. В диалоговом окне **Добавление нового концентратора событий**введите **Имя концентратора событий**, выберите **Регион** для создания в нем концентратора и создайте новое пространство имен или выберите существующее. Щелкните **стрелку** для продолжения.
 
-2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**, select the **Region** to create the hub in, and create a new namespace or select an existing one. Click the **Arrow** to continue.
+	![страница мастера 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Создание концентратора событий Azure")
 
-    ![wizard page 1](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub.png "Create an Azure Event Hub")
+	> [AZURE.NOTE] Для сокращения задержек и затрат в поле **Расположение** следует выбрать то же расположение, в котором находится кластер Apache Spark в HDInsight.
 
-    > [AZURE.NOTE] You should select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
+3. В диалоговом окне **Настроить концентратор событий** введите значения в полях **Количество разделов** и **Хранение сообщений**, а затем щелкните значок с флажком. В этом примере числу разделов присвойте значение 10, а хранению сообщений — 1. Запомните количество разделов, поскольку это значение понадобится позже.
 
-3. On the **Configure Event Hub** screen, enter the **Partition count** and **Message Retention** values, and then click the check mark. For this example, use a partition count of 10 and a message retention of 1. Note the partition count because you will need this value later.
+	![страница мастера 2](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Укажите размер раздела и срок хранения в днях для концентратора событий")
 
-    ![wizard page 2](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Specify partition size and retention days for Event Hub")
+4. Щелкните созданный концентратор событий, выберите **Настройка**, а затем создайте две политики доступа для концентратора событий.
 
-4. Click the Event Hub that you created, click **Configure**, and then create two access policies for the event hub.
+	<table>
+	<tr><th>Имя</th><th>Разрешения</th></tr>
+	<tr><td>mysendpolicy</td><td>Отправка</td></tr>
+	<tr><td>myreceivepolicy</td><td>Прослушивание</td></tr>
+	</table>
 
-    <table>
-    <tr><th>Name</th><th>Permissions</th></tr>
-    <tr><td>mysendpolicy</td><td>Send</td></tr>
-    <tr><td>myreceivepolicy</td><td>Listen</td></tr>
-    </table>
+	После создания разрешений выберите значок **Сохранить** в нижней части страницы. При этом создаются политики совместного доступа, которые будут использоваться для отправки (**mysendpolicy**) сообщений в этот концентратор событий и их прослушивания (**myreceivepolicy**).
 
-    After You create the permissions, select the **Save** icon at the bottom of the page. This creates the shared access policies that will be used to send (**mysendpolicy**) and listen (**myreceivepolicy**) to this Event Hub.
+	![политики](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Создание политик концентратора событий")
 
-    ![policies](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Create Event Hub policies")
+	
+5. На этой же странице запишите ключи политики, созданные для двух политик. Сохраните эти ключи для использования в дальнейшем.
 
-    
-5. On the same page, take a note of the policy keys generated for the two policies. Save these keys because they will be used later.
+	![ключи политики](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Сохранение ключей политики")
 
-    ![policy keys](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Save policy keys")
+6. На странице **панели мониторинга** в нижней части экрана щелкните **Сведения о подключении**, чтобы получить и сохранить строки подключения для концентратора событий с помощью двух политик.
 
-6. On the **Dashboard** page, click **Connection Information** from the bottom to retrieve and save the connection strings for the Event Hub using the two policies.
+	![ключи политики](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Сохранение строк подключения политики")
 
-    ![policy keys](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Save policy connection strings")
+## Использование приложения Scala для отправки сообщений в концентратор событий
 
-## <a name="use-a-scala-application-to-send-messages-to-event-hub"></a>Use a Scala application to send messages to Event Hub
+В этом разделе вы используете локальное автономное приложение Scala для отправки потока событий в концентратор событий Azure, созданный на предыдущем шаге. Это приложение доступно на сайте GitHub по адресу [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer). Здесь предполагается, что в репозитории GitHub уже созданы разветвления.
 
-In this section you use a standalone local Scala application to send a stream of events to Azure Event Hub that you created in the previous step. This application is available on GitHub at [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer). The steps here assume that you have already forked this GitHub repository.
+1. Откройте приложение **EventhubsSampleEventProducer** в IntelliJ IDEA.
+	
+2. Создайте проект. В меню **Build** («Сборка») выберите пункт **Make Project** («Создать проект»). Выходной JAR-файл будет создан в разделе **\\out\\artifacts**.
 
-1. Open the application, **EventhubsSampleEventProducer**, in IntelliJ IDEA.
-    
-2. Build the project. From the **Build** menu, click **Make Project**. The output jar is created under **\out\artifacts**.
+>[AZURE.TIP] Можно создать проект непосредственно из репозитория GitHub с помощью параметра в IntelliJ IDEA. Чтобы понять, как использовать этот подход, следуйте инструкциям в следующем разделе. Обратите внимание, что большинство действий, описанных в следующем разделе, не применимы для приложения Scala, создаваемого на этом шаге. Например:
 
->[AZURE.TIP] You can also use an option available in IntelliJ IDEA to directly create the project from a GitHub repository. To understand how to use that approach, use the instructions in the next section for guidance. Note that a lot of steps that are described in the next section will not be applicable for the Scala application that you create in this step. For example:
+> * Не требуется обновлять модель объекта проекта, чтобы добавить в нее версию Spark. Это связано с тем, что при создании этого приложения не используется Spark.
+> * Не требуется добавлять в библиотеку проекта JAR-файлы каких-либо зависимостей. Это объясняется тем, что эти JAR-файлы не нужны для этого проекта.
 
-> * You will not have to update the POM to include the Spark version. That's because there is no dependency on Spark for creating this application
-> * You will not have to add some dependency jars to the project library. That's because those jars are not required for this project.
+## Обновление приложения потоковой передачи Scala для приема событий
 
-## <a name="update-the-scala-streaming-application-for-receiving-the-events"></a>Update the Scala streaming application for receiving the events
+Пример приложения Scala для приема событий и их перенаправления в различные места назначения доступен по адресу [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Выполните действия ниже, чтобы обновить приложение и создать выходной JAR-файл.
 
-A sample Scala application to receive the event and route it to different destinations is available at [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Follow the steps below to update the application and create the output jar.
+1. Запустите IntelliJ IDEA и на экране запуска щелкните **Check out from Version Control** («Извлечь из системы управления версиями») и выберите пункт **Git**.
+		
+	![Получение источников из Git](./media/hdinsight-apache-spark-eventhub-streaming/get-source-from-git.png)
 
-1. Launch IntelliJ IDEA and from the launch screen select **Check out from Version Control** and then click **Git**.
-        
-    ![Get sources from Git](./media/hdinsight-apache-spark-eventhub-streaming/get-source-from-git.png)
+2. В диалоговом окне **Clone Repository** («Клонирование репозитория») введите URL-адрес репозитория Git, который нужно клонировать, укажите каталог, в который будет выполняться клонирование, а затем нажмите кнопку **Clone** («Клонировать»).
 
-2. In the **Clone Repository** dialog box, provide the URL to the Git repository to clone from, specify the directory to clone to, and then click **Clone**.
+	![Клонирование из Git](./media/hdinsight-apache-spark-eventhub-streaming/clone-from-git.png)
 
-    ![Clone from Git](./media/hdinsight-apache-spark-eventhub-streaming/clone-from-git.png)
+	
+3. Следуйте инструкциям на экране, пока проект полностью не клонируется. Нажмите клавиши **Alt+1**, чтобы открыть **представление проекта**. Оно должно выглядеть так:
 
-    
-3. Follow the prompts till the project is completely cloned. Press **Alt + 1** to open the **Project View**. It should resemble the following.
+	![Представление проекта](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
+	
+4. Откройте узел **pom.xml**, чтобы убедиться, что используется правильная версия Spark. В узле <properties> найдите фрагмент кода ниже и проверьте версию Spark.
 
-    ![Project View](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
-    
-4. Make sure the application code is compiled with Java8. To ensure this, click **File**, click **Project Structure**, and on the **Project** tab, make sure Project language level is set to **8 - Lambdas, type annotations, etc.**.
+		<scala.version>2.10.4</scala.version>
+    	<scala.compat.version>2.10.4</scala.compat.version>
+    	<scala.binary.version>2.10</scala.binary.version>
+    	<spark.version>1.6.1</spark.version>
 
-    ![Project structure](./media/hdinsight-apache-spark-eventhub-streaming/java-8-compiler.png)
+	Убедитесь, что для параметра **spark.version** указано значение **1.5.1**.
 
-5. Open the **pom.xml** and make sure the Spark version is correct. Under <properties> node, look for the following snippet and verify the Spark version.
+5. Для приложения требуется два JAR-файла зависимостей:
 
-        <scala.version>2.10.4</scala.version>
-        <scala.compat.version>2.10.4</scala.compat.version>
-        <scala.binary.version>2.10</scala.binary.version>
-        <spark.version>1.6.2</spark.version>
-    
-5. The application requires two dependency jars:
+	* **JAR-файл для приема из концентратора событий**. Этот файл необходим для приема сообщений из концентратора событий в приложении Spark. Чтобы добавить этот JAR-файл, измените файл **pom.xml**, добавив следующий код под элементом `<repositories>..</repositories>`. Если элемент `<repositories>` не существует, создайте его на том же уровне, на котором расположен `<properties>`.
 
-    * **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. To use this jar, update the **pom.xml** to add the following under `<dependencies>`.
+			  <repository>
+			  	<id>spark-eventhubs</id>
+			  	<url>https://raw.github.com/hdinsight/spark-eventhubs/maven-repo/</url>
+			  	<snapshots>
+					<enabled>true</enabled>
+					<updatePolicy>always</updatePolicy>
+			  	</snapshots>
+			  </repository>
+			
 
-            <dependency>
-              <groupId>com.microsoft.azure</groupId>
-              <artifactId>spark-streaming-eventhubs_2.10</artifactId>
-              <version>1.6.0</version>
-            </dependency> 
+		Добавьте следующий код под `<dependencies>`.
 
-    * **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Add reference to this jar in the project library. Perform the following steps:
+			<dependency>
+			  <groupId>com.microsoft.azure</groupId>
+			  <artifactId>spark-streaming-eventhubs_2.10</artifactId>
+			  <version>1.0.0</version>
+			</dependency> 
 
-        1. From IntelliJ IDEA window where you have the application open, click **File**, click **Project Structure**, and then click **Libraries**. 
-        
-        2. Click the add icon (![add icon](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), click **Java**, and then navigate to the location where you downloaded the JDBC driver jar. Follow the prompts to add the jar file to the project library.
+	* **JAR-файл драйвера JDBC**. Этот файл необходим для записи сообщений, полученных из концентратора событий, в базу данных SQL Azure. Этот JAR-файл версии 4.1 или более поздней можно скачать [здесь](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Добавьте ссылку на этот JAR-файл в библиотеке проекта. Выполните следующие действия:
 
-            ![add missing dependencies](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Add missing dependency jars")
+		1. В окне IntelliJ IDEA, где открыто приложение, щелкните **File** («Файл»), выберите **Project Structure** («Структура проекта») и щелкните **Libraries** («Библиотеки»).
+		
+		2. Щелкните значок "Добавить" (![добавление значка](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), выберите **Java** и перейдите в папку, куда вы скачали JAR-файл драйвера JDBC. Следуйте инструкциям, чтобы добавить JAR-файл в библиотеку проектов.
 
-        3. Click **Apply**.
+			![добавление отсутствующих зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Добавление отсутствующих JAR-файлов зависимостей")
 
-6. Create the output jar file. Perform the following steps.
-    1. In the **Project Structure** dialog box, click **Artifacts** and then click the plus symbol. From the pop-up dialog box, click **JAR**, and then click **From modules with dependencies**.
+		3. Нажмите кнопку **Применить**.
 
-        ![Create JAR](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-1.png)
+6. Создайте выходной JAR-файл. Выполните следующие действия:
+	1. В диалоговом окне **Project Structure** («Структура проекта») выберите **Artifacts** («Артефакты») и щелкните знак плюса. Во всплывающем диалоговом окне щелкните **JAR**, а затем выберите **From modules with dependencies** («На основе модулей с зависимостями»).
 
-    1. In the **Create JAR from Modules** dialog box, click the ellipsis (![ellipsis](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)) against the **Main Class**.
+		![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-1.png)
 
-    1. In the **Select Main Class** dialog box, select any of the available classes and then click **OK**.
+	1. В диалоговом окне **Create JAR from Modules** («Создание JAR-файла на основе модулей») нажмите кнопку с многоточием (![многоточие](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)) возле пункта **Main Class** («Основной класс»).
 
-        ![Create JAR](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-2.png)
+	1. В диалоговом окне **Select Main Class** («Выбор основного класса») выберите любой из доступных классов и нажмите кнопку **OK** («ОК»).
 
-    1. In the **Create JAR from Modules** dialog box, make sure that the option to **extract to the target JAR** is selected, and then click **OK**. This creates a single JAR with all dependencies.
+		![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-2.png)
 
-        ![Create JAR](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-3.png)
+	1. В диалоговом окне **Create JAR from Modules** («Создание JAR-файла на основе модулей») установите переключатель **extract to the target JAR** («Извлечь в целевой JAR-файл) и нажмите кнопку **OK** («ОК»). В результате будет создан один JAR-файл, содержащий все зависимости.
 
-    1. The **Output Layout** tab lists all the jars that are included as part of the Maven project. You can select and delete the ones on which the Scala application has no direct dependency. For the application we are creating here, you can remove all but the last one (**microsoft-spark-streaming-examples compile output**). Select the jars to delete and then click the **Delete** icon (![delete icon](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png)).
+		![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-3.png)
 
-        ![Create JAR](./media/hdinsight-apache-spark-eventhub-streaming/delete-output-jars.png)
+	1. На вкладке **Макет выходных данных** содержится список всех JAR-файлов, которые включены в проект Maven. Здесь можно выбрать и удалить файлы, от которых не зависит работа приложения Scala. Для создаваемого приложения можно удалить все файлы, кроме последнего (**microsoft-spark-streaming-examples compile output** («Выходные данные компиляции microsoft-spark-streaming-examples»)). Выберите JAR-файлы, которые нужно удалить, и щелкните значок **Delete** («Удалить») (![значок удаления](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png)).
 
-        Make sure **Build on make** box is selected, which ensures that the jar is created every time the project is built or updated. Click **Apply** and then **OK**.
+		![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/delete-output-jars.png)
 
-    1. In the **Output Layout** tab, right at the bottom of the **Available Elements** box, you have the SQL JDBC jar that you added earlier to the project library. You must add this to the **Output Layout** tab. Right-click the jar file, and then click **Extract Into Output Root**.
+		Установите флажок **Build on make** («Сборка на основе созданного»), чтобы JAR-файл создавался при каждом создании и обновлении проекта. Нажмите кнопку **Применить**, а затем **ОК**.
 
-        ![Extract dependency jar](./media/hdinsight-apache-spark-eventhub-streaming/extract-dependency-jar.png)  
+	1. На вкладке **Output Layout** (Макет выходных данных) под полем **Доступные элементы** отображается JAR-файл SQL JDBC, ранее добавленный в библиотеку проекта. Его необходимо добавить на вкладку **Output Layout** (Макет выходных данных). Щелкните JAR-файл правой кнопкой мыши и выберите пункт **Extract Into Output Root** (Извлечь в корень выходных данных).
 
-        The **Output Layout** tab should now look like this.
+		![Извлечение JAR-файла зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/extract-dependency-jar.png)
 
-        ![Final output tab](./media/hdinsight-apache-spark-eventhub-streaming/final-output-tab.png)     
+		Вкладка **макета выходных данных** теперь должна выглядеть следующим образом:
 
-        In the **Project Structure** dialog box, click **Apply** and then click **OK**. 
+		![Вкладка окончательных выходных данных](./media/hdinsight-apache-spark-eventhub-streaming/final-output-tab.png)
 
-    1. From the menu bar, click **Build**, and then click **Make Project**. You can also click **Build Artifacts** to create the jar. The output jar is created under **\out\artifacts**.
+		В диалоговом окне **Project Structure** («Структура проекта») нажмите кнопку **Apply** («Применить»), а затем — **OK** («ОК»).
 
-        ![Create JAR](./media/hdinsight-apache-spark-eventhub-streaming/output.png)
+	1. В строке меню щелкните **Build** («Сборка») и выберите **Make Project** («Создать проект»). Кроме того, можно щелкнуть **Build Artifacts** («Сборка артефактов»), чтобы создать JAR-файл. Выходной JAR-файл будет создан в разделе **\\out\\artifacts**.
 
-## <a name="run-the-applications-remotely-on-a-spark-cluster-using-livy"></a>Run the applications remotely on a Spark cluster using Livy
+		![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/output.png)
 
-We will use Livy to run the streaming application remotely on a Spark cluster. For detailed discussion on how to use Livy with HDInsight Spark cluster, see [Submit jobs remotely to an Apache Spark cluster on Azure HDInsight](hdinsight-apache-spark-livy-rest-interface.md). Before you can start running the remote jobs to stream events using Spark there are a couple of things you should do:
+## Удаленный запуск приложений с помощью Livy в кластере Spark
 
-1. Start the local standalone application to generate events and sent to Event Hub. Use the following command to do so:
+Для удаленного запуска приложения потоковой передачи на кластере Spark будет использоваться Livy. Подробное описание использования Livy с кластером HDInsight Spark см. в статье [Удаленная отправка заданий в кластер Apache Spark в Azure HDInsight](hdinsight-apache-spark-livy-rest-interface.md). Прежде чем начать выполнение удаленных заданий для потоковой передачи событий с помощью Spark, нужно выполнить несколько дополнительных действий.
 
-        java -cp EventhubsSampleEventProducer.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
+1. Запустите локальное автономное приложение для создания и отправки событий в концентратор событий. Используйте следующую команду:
 
-2. Copy the streaming jar (**microsoft-spark-streaming-examples.jar**) to the Azure Blob storage associated with the cluster. This makes the jar accessible to Livy. You can use [**AzCopy**](../storage/storage-use-azcopy.md), a command line utility, to do so. There are a lot of other clients you can use to upload data. You can find more about them at [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).
+		java -cp EventhubsSampleEventProducer.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
-3. Install CURL on the computer where you are running these applications from. We use CURL to invoke the Livy endpoints to run the jobs remotely.
+2. Скопируйте JAR-файл потоковой передачи (**microsoft-spark-streaming-examples.jar**) в хранилище BLOB-объектов Azure, связанное с кластером. Таким образом JAR-файл станет доступным для Livy. Для этого можно использовать служебную программу командной строки [**AzCopy**](../storage/storage-use-azcopy.md). Кроме того, для отправки данных можно использовать множество других клиентов. Дополнительные сведения о них см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 
-### <a name="run-the-applications-to-receive-the-events-into-an-azure-storage-blob-as-text"></a>Run the applications to receive the events into an Azure Storage Blob as text
+3. Установите служебную программу cURL на компьютере, где выполняются эти приложения. Эта программа понадобится нам, чтобы вызывать конечные точки Livy для удаленного выполнения заданий.
 
-Open a command prompt, navigate to the directory where you installed CURL, and run the following command (replace username/password and cluster name):
+### Запуск приложений для отправки событий в большой двоичный объект службы хранилища Azure в виде текста
 
-    curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputBlob.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+Откройте командную строку, перейдите в каталог, где установлена программа cURL, и выполните следующую команду (введите соответствующие имя пользователя, пароль и имя кластера):
 
-The parameters in the file **inputBlob.txt** are defined as follows:
+	curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputBlob.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-    { "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsEventCount", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
+Параметры в файле **inputBlob.txt** определяются следующим образом:
 
-Let us understand what the parameters in the input file are:
+	{ "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsEventCount", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
-* **file** is the path to the application jar file on the Azure storage account associated with the cluster.
-* **className** is the name of the class in the jar.
-* **args** is the list of arguments required by the class
-* **numExecutors** is the number of cores used by Spark to run the streaming application. This should always be at least twice the number of Event Hub partitions.
-* **executorMemory**, **executorCores**, **driverMemory** are parameters used to assign required resources to the streaming application.
+Ниже приведено описание параметров во входном файле.
 
->[AZURE.NOTE] You do not need to create the output folders (EventCheckpoint, EventCount/EventCount10) that are used as parameters. The streaming application creates them for you.
-    
-When you run the command, you should see an output like the following:
+* **file** — путь к JAR-файлу приложения в учетной записи хранения Azure, связанной с кластером.
+* **className** — имя класса в JAR-файле.
+* **args** — список аргументов, требуемых для класса.
+* **numExecutors** — количество ядер, используемых Spark для запуска приложения потоковой передачи. Это количество должно быть по крайней мере в два раза больше числа разделов в концентраторе событий.
+* **executorMemory**, **executorCores**, **driverMemory** — параметры, используемые для назначения необходимых ресурсов приложению потоковой передачи.
 
-    < HTTP/1.1 201 Created
-    < Content-Type: application/json; charset=UTF-8
-    < Location: /18
-    < Server: Microsoft-IIS/8.5
-    < X-Powered-By: ARR/2.5
-    < X-Powered-By: ASP.NET
-    < Date: Tue, 01 Dec 2015 05:39:10 GMT
-    < Content-Length: 37
-    <
-    {"id":1,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
+>[AZURE.NOTE] Вам не нужно создавать выходные папки (EventCheckpoint, EventCount или EventCount10), используемые в качестве параметров. Приложение потоковой передачи создаст их самостоятельно.
+	
+После выполнения команды вы должны увидеть следующие выходные данные:
 
-Make a note of the batch ID in the last line of the output (in this example it is '1'). To verify that the application runs successfully, you can look at your Azure storage account associated with the cluster and you should see the **/EventCount/EventCount10** folder created there. This folder should contain blobs that captures the number of events processed within the time period specified for the parameter **batch-interval-in-seconds**.
+	< HTTP/1.1 201 Created
+	< Content-Type: application/json; charset=UTF-8
+	< Location: /18
+	< Server: Microsoft-IIS/8.5
+	< X-Powered-By: ARR/2.5
+	< X-Powered-By: ASP.NET
+	< Date: Tue, 01 Dec 2015 05:39:10 GMT
+	< Content-Length: 37
+	<
+	{"id":1,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
 
-The application will continue to run until you kill it. To do so, use the following command:
+Запишите идентификатор пакетной службы, указанный в последней строке выходных данных (в данном примере — 1). Чтобы убедиться, что приложение выполняется успешно, зайдите в учетную запись хранения Azure, связанную с кластером. Там должна быть создана папка **/EventCount/EventCount10**. В этой папке должны содержаться большие двоичные объекты, которые записывают число событий, обработанных в течение периода времени, заданного для параметра **batch-interval-in-seconds**.
 
-    curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/1"
+Приложение будет продолжать работу, пока вы не остановите его. Используйте для этого следующую команду:
 
-### <a name="run-the-applications-to-receive-the-events-into-an-azure-storage-blob-as-json"></a>Run the applications to receive the events into an Azure Storage Blob as JSON
+	curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/1"
 
-Open a command prompt, navigate to the directory where you installed CURL, and run the following command (replace username/password and cluster name):
+### Запуск приложений для отправки событий в большой двоичный объект службы хранилища Azure в виде JSON-файла
 
-    curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputJSON.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+Откройте командную строку, перейдите в каталог, где установлена программа cURL, и выполните следующую команду (введите соответствующие имя пользователя, пароль и имя кластера):
 
-The parameters in the file **inputJSON.txt** are defined as follows:
+	curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputJSON.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-    { "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureBlobAsJSON", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--event-store-folder", "/EventStore10"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
+Параметры в файле **inputJSON.txt** определяются следующим образом:
 
-The parameters are similar to what you specified for the text output, in the previous step. Again, you do not need to create the output folders (EventCheckpoint, EventCount/EventCount10) that are used as parameters. The streaming application creates them for you.
+	{ "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureBlobAsJSON", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--event-store-folder", "/EventStore10"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
- After you run the command, you can look at your Azure storage account associated with the cluster and you should see the **/EventStore10** folder created there. Open any file prefixed with **part-** and you should see the events processed in a JSON format.
+Параметры аналогичны тем, которые вы указали для выходного текстового файла на предыдущем шаге. Опять же, вам не нужно создавать выходные папки (EventCheckpoint, EventCount или EventCount10), используемые в качестве параметров. Приложение потоковой передачи создаст их самостоятельно.
 
-### <a name="run-the-applications-to-receive-the-events-into-a-hive-table"></a>Run the applications to receive the events into a Hive table
+ После выполнения команды зайдите в учетную запись хранения Azure, связанную с кластером. Там должна быть создана папка **EventStore10**. Откройте любой файл с префиксом **part-**. Там будут содержаться события, обработанные в формате JSON.
 
-To run the application that streams events into a Hive table you need some additional components. These are:
+### Запуск приложений для отправки событий в таблицу Hive
 
-* datanucleus-api-jdo-3.2.6.jar
-* datanucleus-rdbms-3.2.9.jar
-* datanucleus-core-3.2.10.jar
+Для запуска приложения, которое передает события потоком в таблицу Hive, требуются некоторые дополнительные компоненты, а именно:
+
+* datanucleus-api-jdo-3.2.6.jar;
+* datanucleus-rdbms-3.2.9.jar;
+* datanucleus-core-3.2.10.jar;
 * hive-site.xml
 
-The **.jar** files are available on your HDInsight Spark cluster at `/usr/hdp/current/spark-client/lib`. The **hive-site.xml** is available at `/usr/hdp/current/spark-client/conf`.
+**JAR**-файлы доступны в кластере HDInsight Spark в каталоге `/usr/hdp/current/spark-client/lib`. Файл **hive-site.xml** доступен в каталоге `/usr/hdp/current/spark-client/conf`.
 
 
 
-You can use [WinScp](http://winscp.net/eng/download.php) to copy over these files from the cluster to your local computer. You can then use tools to copy these files over to your storage account associated with the cluster. For more information on how to upload files to the storage account, see [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md).
+С помощью клиента [WinScp](http://winscp.net/eng/download.php) можно копировать эти файлы из кластера на локальный компьютер. Затем их можно копировать в учетную запись хранения, связанную с кластером, используя соответствующие инструменты. Дополнительные сведения об отправке файлов в учетную запись хранения см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 
-Once you have copied over the files to your Azure storage account, open a command prompt, navigate to the directory where you installed CURL, and run the following command (replace username/password and cluster name):
+Скопировав файлы в учетную запись хранения Azure, откройте командную строку, перейдите в каталог, где установлена программа cURL, и выполните следующую команду (введите соответствующие имя пользователя, пароль и имя кластера):
 
-    curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputHive.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
+	curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputHive.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-The parameters in the file **inputHive.txt** are defined as follows:
+Параметры в файле **inputHive.txt** определяются следующим образом:
 
-    { "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToHiveTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--event-hive-table", "EventHiveTable10" ], "jars":["wasbs:///example/jars/datanucleus-api-jdo-3.2.6.jar", "wasbs:///example/jars/datanucleus-rdbms-3.2.9.jar", "wasbs:///example/jars/datanucleus-core-3.2.10.jar"], "files":["wasbs:///example/jars/hive-site.xml"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
+	{ "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToHiveTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--event-hive-table", "EventHiveTable10" ], "jars":["wasbs:///example/jars/datanucleus-api-jdo-3.2.6.jar", "wasbs:///example/jars/datanucleus-rdbms-3.2.9.jar", "wasbs:///example/jars/datanucleus-core-3.2.10.jar"], "files":["wasbs:///example/jars/hive-site.xml"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
-The parameters are similar to what you specified for the text output, in the previous steps. Again, you do not need to create the output folders (EventCheckpoint, EventCount/EventCount10) or the output Hive table (EventHiveTable10) that are used as parameters. The streaming application creates them for you. Note that the **jars** and **files** option includes paths to the .jar files and the hive-site.xml that you copied over to the storage account.
+Параметры аналогичны тем, которые вы указали для выходного текстового файла на предыдущих шагах. Опять же, вам не нужно создавать выходные папки (EventCheckpoint, EventCount или EventCount10) или выходную таблицу (Hive EventHiveTable10), используемые в качестве параметров. Приложение потоковой передачи создаст их самостоятельно. Обратите внимание, что в параметрах **jars** и **files** содержатся пути к JAR-файлам и файлу hive-site.xml, скопированным в учетную запись хранения.
 
-To verify that the hive table was successfully created, you can SSH into the cluster and run Hive queries. For instructions, see [Use Hive with Hadoop in HDInsight with SSH](hdinsight-hadoop-use-hive-ssh.md). Once you are connected using SSH, you can run the following command to verify that the Hive table, **EventHiveTable10**, is created.
+Чтобы убедиться, что таблица Hive успешно создана, подключитесь к кластеру по SSH и выполните запросы Hive. Инструкции см. в статье [Использование Hive с Hadoop в HDInsight с применением протокола SSH](hdinsight-hadoop-use-hive-ssh.md). Выполнив подключение с использованием SSH, можно выполнить следующую команду, чтобы убедиться, что таблица Hive, **EventHiveTable10**, создана.
 
-    show tables;
+	show tables;
 
-You should see an output similar to the following:
+Должен отобразиться результат, аналогичный приведенному ниже:
 
-    OK
-    eventhivetable10
-    hivesampletable
+	OK
+	eventhivetable10
+	hivesampletable
 
-You can also run a SELECT query to view the contents of the table.
+Можно также выполнить запрос SELECT, чтобы просмотреть содержимое таблицы.
 
-    SELECT * FROM eventhivetable10 LIMIT 10;
+	SELECT * FROM eventhivetable10 LIMIT 10;
 
-You should see an output like the following:
+Вы должны увидеть подобные выходные данные:
 
-    ZN90apUSQODDTx7n6Toh6jDbuPngqT4c
-    sor2M7xsFwmaRW8W8NDwMneFNMrOVkW1
-    o2HcsU735ejSi2bGEcbUSB4btCFmI1lW
-    TLuibq4rbj0T9st9eEzIWJwNGtMWYoYS
-    HKCpPlWFWAJILwR69MAq863nCWYzDEw6
-    Mvx0GQOPYvPR7ezBEpIHYKTKiEhYammQ
-    85dRppSBSbZgThLr1s0GMgKqynDUqudr
-    5LAWkNqorLj3ZN9a2mfWr9rZqeXKN4pF
-    ulf9wSFNjD7BZXCyunozecov9QpEIYmJ
-    vWzM3nvOja8DhYcwn0n5eTfOItZ966pa
-    Time taken: 4.434 seconds, Fetched: 10 row(s)
-
-
-### <a name="run-the-applications-to-receive-the-events-into-an-azure-sql-database-table"></a>Run the applications to receive the events into an Azure SQL database table
-
-Before running this step, make sure you have an Azure SQL database created. You will need values for database name, database server name, and the database administrator credentials as parameters. You do not need to create the database table though. The streaming application creates that for you.
-
-Open a command prompt, navigate to the directory where you installed CURL, and run the following command:
-
-    curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputSQL.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
-
-The parameters in the file **inputSQL.txt** are defined as follows:
-
-    { "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureSQLTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--sql-server-fqdn", "<database-server-name>.database.windows.net", "--sql-database-name", "mysparkdatabase", "--database-username", "sparkdbadmin", "--database-password", "<put-password-here>", "--event-sql-table", "EventContent" ], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
-
-To verify that the application runs successfully, you can connect to the Azure SQL database using SQL Server Management Studio. For instructions on how to do that, see [Connect to SQL Database with SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md). Once you are connected to the database, you can navigate to the **EventContent** table that was created by the streaming application. You can run a quick query to get the data from the table. Run the following query:
-
-    SELECT * FROM EventCount
-
-You should see output similar to the following:
-
-    00046b0f-2552-4980-9c3f-8bba5647c8ee
-    000b7530-12f9-4081-8e19-90acd26f9c0c
-    000bc521-9c1b-4a42-ab08-dc1893b83f3b
-    00123a2a-e00d-496a-9104-108920955718
-    0017c68f-7a4e-452d-97ad-5cb1fe5ba81b
-    001KsmqL2gfu5ZcuQuTqTxQvVyGCqPp9
-    001vIZgOStka4DXtud0e3tX7XbfMnZrN
-    00220586-3e1a-4d2d-a89b-05c5892e541a
-    0029e309-9e54-4e1b-84be-cd04e6fce5ec
-    003333cf-874f-4045-9da3-9f98c2b4ea49
-    0043c07e-8d73-420a-9af7-1fcb94575356
-    004a11a9-0c2c-4bc0-a7d5-2e0ebd947ab9
-
-    
-## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>See also
+	ZN90apUSQODDTx7n6Toh6jDbuPngqT4c
+	sor2M7xsFwmaRW8W8NDwMneFNMrOVkW1
+	o2HcsU735ejSi2bGEcbUSB4btCFmI1lW
+	TLuibq4rbj0T9st9eEzIWJwNGtMWYoYS
+	HKCpPlWFWAJILwR69MAq863nCWYzDEw6
+	Mvx0GQOPYvPR7ezBEpIHYKTKiEhYammQ
+	85dRppSBSbZgThLr1s0GMgKqynDUqudr
+	5LAWkNqorLj3ZN9a2mfWr9rZqeXKN4pF
+	ulf9wSFNjD7BZXCyunozecov9QpEIYmJ
+	vWzM3nvOja8DhYcwn0n5eTfOItZ966pa
+	Time taken: 4.434 seconds, Fetched: 10 row(s)
 
 
-* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
+### Запуск приложений для отправки событий в таблицу базы данных SQL Azure
 
-### <a name="scenarios"></a>Scenarios
+Прежде чем выполнять этот шаг, убедитесь, что у вас есть созданная база данных SQL Azure. В качестве значений параметров потребуется указать имя базы данных, имя сервера базы данных и учетные данные администратора базы данных. Однако создавать таблицу базы данных не нужно. Приложение потоковой передачи создаст ее самостоятельно.
 
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+Откройте командную строку, перейдите в каталог, где установлена программа cURL, и выполните следующую команду:
 
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+	curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputSQL.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+Параметры в файле **inputSQL.txt** определяются следующим образом:
 
-* [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+	{ "file":"wasbs:///example/jars/microsoft-spark-streaming-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureSQLTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--sql-server-fqdn", "<database-server-name>.database.windows.net", "--sql-database-name", "mysparkdatabase", "--database-username", "sparkdbadmin", "--database-password", "<put-password-here>", "--event-sql-table", "EventContent" ], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
-### <a name="create-and-run-applications"></a>Create and run applications
+Чтобы убедиться, что приложение выполняется успешно, подключитесь к базе данных SQL Azure с помощью SQL Server Management Studio. Соответствующие инструкции см. в статье [Подключение к базе данных SQL с помощью SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md). После подключения к базе данных можно перейти в таблицу **EventContent**, созданную с помощью приложения потоковой передачи. Для получения данных из таблицы используется быстрый запрос. Выполните следующий запрос:
 
-* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+	SELECT * FROM EventCount
 
-* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
+Вы должны увидеть результат, аналогичный приведенному ниже:
 
-### <a name="tools-and-extensions"></a>Tools and extensions
+	00046b0f-2552-4980-9c3f-8bba5647c8ee
+	000b7530-12f9-4081-8e19-90acd26f9c0c
+	000bc521-9c1b-4a42-ab08-dc1893b83f3b
+	00123a2a-e00d-496a-9104-108920955718
+	0017c68f-7a4e-452d-97ad-5cb1fe5ba81b
+	001KsmqL2gfu5ZcuQuTqTxQvVyGCqPp9
+	001vIZgOStka4DXtud0e3tX7XbfMnZrN
+	00220586-3e1a-4d2d-a89b-05c5892e541a
+	0029e309-9e54-4e1b-84be-cd04e6fce5ec
+	003333cf-874f-4045-9da3-9f98c2b4ea49
+	0043c07e-8d73-420a-9af7-1fcb94575356
+	004a11a9-0c2c-4bc0-a7d5-2e0ebd947ab9
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+	
+## <a name="seealso"></a>См. также:
 
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+### Сценарии
 
-* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+* [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
 
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Использование Spark с машинным обучением. Использование Spark в HDInsight для анализа температуры в здании на основе данных системы кондиционирования](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-### <a name="manage-resources"></a>Manage resources
+* [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Анализ журнала веб-сайта с использованием Spark в HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)
+### Создание и запуск приложений
+
+* [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
+
+* [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
+
+### Средства и расширения
+
+* [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания и отправки приложений Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
+
+* [Удаленная отладка приложений Spark в кластере HDInsight Spark Linux с помощью подключаемого модуля средств HDInsight для IntelliJ IDEA](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
+* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+
+* [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
+
+* [Использование внешних пакетов с записными книжками Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Установка записной книжки Jupyter на компьютере и ее подключение к кластеру Apache Spark в Azure HDInsight (предварительная версия)](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
+### Управление ресурсами
+
+* [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Отслеживание и отладка заданий в кластере Apache Spark в HDInsight на платформе Linux](hdinsight-apache-spark-job-debugging.md)
 
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -380,10 +389,6 @@ You should see output similar to the following:
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-create-storageaccount]: ../storage-create-storage-account/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

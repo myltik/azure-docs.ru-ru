@@ -1,76 +1,75 @@
 <properties 
-    pageTitle="FAQ: Publish and use Machine Learning apps in Azure Marketplace | Microsoft Azure" 
-    description="Frequently Asked Questions" 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="bharaths" 
-    manager="jhubbard" 
-    editor="cgronlun"/>
+	pageTitle="Вопросы и ответы о публикации и использовании приложений машинного обучения в магазине Azure Marketplace | Microsoft Azure" 
+	description="Часто задаваемые вопросы" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bharaths" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/11/2016" 
-    ms.author="bharaths"/> 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2016" 
+	ms.author="bharaths"/>
+
+#Вопросы и ответы о публикации и использовании приложений машинного обучения в магазине Azure Marketplace
+
+##Вопросы об использовании приложений из Marketplace
 
 
-#<a name="publishing-and-using-machine-learning-apps-in-the-azure-marketplace:-faq"></a>Publishing and using Machine Learning apps in the Azure Marketplace: FAQ
+**1. Почему, когда я ввожу данные для веб-службы, отображается такое сообщение об ошибке:**
 
-##<a name="questions-about-consuming-from-marketplace"></a>Questions about consuming from Marketplace
+**При выполнении запроса возникла внутренняя ошибка или истекло время ожидания. Наша команда изучает эту проблему. Приносим извинения за причиненные неудобства. (500)**
 
-
-**1. Why do I get the following error message after I enter input for the web service:**
-
-**The request resulted in a back-end time out or back-end error. The team is investigating the issue. We are sorry for the inconvenience. (500)**
-
-Your input parameter(s) may not conform to the required format for the specific web service. Please refer to the corresponding documentation link to find the correct format for input parameters and the limitations of this web service.
+Возможно, формат указанных вами входных параметров не соответствует требованиям для этой веб-службы. Правильный формат входных параметров и ограничения для данной веб-службы см. по ссылке на соответствующую документацию.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-**2. If I copy the API link for the web service that I see on the "Explore this dataset" page and paste it into another browser window, what credentials should I use to access the results, and how do I see them?**
+**2. Если скопировать ссылку на API для веб-службы из страницы «Просмотр набора данных» и вставить ее в другом окне браузера, какие учетные данные нужно использовать для просмотра результатов и в каком виде они отображаются?**
 
-You should use your Marketplace account as the username and the primary account key as the password. The primary account key can be found on the **Explore this dataset** page under the description of the web service (click the **show** button). The result may display in the browser or it may be available to  download, depending on which browser you are using.
+Укажите имя пользователя своей учетной записи Marketplace, а в качестве пароля — основной ключ к ней. Ключ основной учетной записи можно найти на странице **Просмотр набора данных** под описанием веб-службы (нажмите кнопку **Показать**). Результат может отображаться в браузере или будет доступен для загрузки (в зависимости от вашего браузера).
 
-**3. Why do I get the following error message after I enter the input for the web service on the "Explore this dataset" page:** 
+**3. Почему, когда я ввожу данные для веб-службы на странице «Просмотр набора данных», отображается такое сообщение об ошибке:**
 
-**An unexpected error occurred while processing your request. Please try again.**
+**При обработке запроса произошла непредвиденная ошибка. Повторите попытку позже.**
 
-One or more input parameters of your web service may have exceeded the length limit when consuming the web service on the marketplace **Explore this dataset** page. The services can be called with a longer input length by using HTTP POST methods. For examples, see [Sample solutions using R on Machine Learning and published to Marketplace](machine-learning-r-csharp-web-service-examples.md).
+Когда вы использовали веб-службу на странице магазина **Просмотр набора данных**, длина некоторых входных параметров вашей веб-службы превысила максимальное значение. С помощью методов HTTP POST можно вызывать службы с большей длиной входных данных. Примеры см. в разделе [Примеры веб-служб, построенных с помощью языка R в Azure ML и опубликованных в Marketplace](machine-learning-r-csharp-web-service-examples.md).
 
-**4. Why do I not see anything in the "API EXPLORER" tab int the Store in the Azure Classic Portal?** 
+**4. Почему ничего не отображается на вкладке "ОБОЗРЕВАТЕЛЬ API" в магазине на классическом портале Azure?**
 
-This is a known issue with the Azure Classic Portal Marketplace. The team is working to resolve this issue. 
+Это известная проблема с магазином Marketplace классического портала Azure. Наша команда работает над ее устранением.
 
 
-##<a name="questions-about-publishing-from-azure-machine-learning-on-marketplace"></a>Questions about publishing from Azure Machine Learning on Marketplace
+##Вопросы о публикации с помощью веб-служб машинного обучения Azure в магазине Marketplace
 
-**1. Why are my transactions of logos or images not refreshing for my web service?** 
+**1. Почему в моей веб-службе не отражаются транзакции логотипов или изображений?**
 
-Logos and images are cached in the publishing portal, and it may take up to 10 days for the new logo or image to update on the portal.
+Логотипы и изображения кэшируются на портале публикации, и их обновление на портале может занять до 10 дней.
 
-**2. Why is the “Detail" tab of my web service on Marketplace showing an error message?**
+**2. Почему на вкладке «Подробности» моей веб-службы в магазине Marketplace отображается сообщение об ошибке?**
 
-There is a known Marketplace issue when connecting to Azure Machine Learning for service details. The team is working to resolve this issue.
+Это известная проблема Marketplace, возникающая при попытке подключиться к платформе Azure ML и запросить сведения о службе. Наша команда работает над ее устранением.
 
-**3. Why does the R sample code in the Azure Machine Learning web services not work for consuming the web services in Marketplace?**
+**3. Почему с помощью образца кода R веб-служб Azure ML не удается использовать веб-службы Marketplace?**
 
-The authentication systems are different when connecting to Azure Machine Learning web services directly compared to connecting to these web services through the Marketplace. The services in Marketplace are OData services, and they can be called with GET or POST methods. 
+При подключении к веб-службам Azure ML напрямую и при подключении через Marketplace применяются разные системы аутентификации. Службы Marketplace являются службами OData, и для их вызова можно использовать методы GET и POST.
 
-**4. Why are the support links of my web service offers not updating correctly for some of my offers?**
+**4. Почему для некоторых из предлагаемых мною веб-служб неправильно обновляются ссылки для получения поддержки?**
 
-The support links are global per publisher, not per offer. 
+Ссылки для получения поддержки задаются глобально для издателя, а не для каждого из его предложений.
 
-**5. How do I publish a web service with batch input mode in Marketplace?**
+**5. Как опубликовать в Marketplace веб-службу с пакетным режимом ввода?**
 
-The batch input mode is currently not supported in Marketplace web services.
+В настоящее время веб-службы Marketplace не поддерживают пакетный режим ввода.
 
-**6. Who should I contact to get help if I have questions about becoming a data publisher, or if I have issues during publishing?**
+**6. К кому можно обратиться с вопросом о том, как стать издателем данных, или при возникновении проблем во время публикации?**
 
-Please contact the Azure Marketplace team at <datamarketbd@microsoft.com> for more information.
+Чтобы получить дополнительные сведения, напишите команде Azure Marketplace на адрес <datamarketbd@microsoft.com>.
 
 
 
@@ -78,8 +77,4 @@ Please contact the Azure Marketplace team at <datamarketbd@microsoft.com> for mo
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

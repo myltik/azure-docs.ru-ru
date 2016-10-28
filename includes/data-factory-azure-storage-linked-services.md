@@ -1,58 +1,55 @@
-## <a name="azure-storage-linked-service"></a>Azure Storage Linked Service
+## Связанная служба хранилища Azure
 
-The **Azure Storage linked service** allows you to link an Azure storage account to an Azure data factory by using the **account key**. This provides the data factory with global access to the Azure Storage. The following table provides description for JSON elements specific to Azure Storage linked service.
+**Связанная служба хранилища Azure** позволяет связать учетную запись хранения Azure с фабрикой данных Azure с помощью **ключа учетной записи**. В этом случае фабрика данных получает глобальный доступ к хранилищу Azure. В таблице ниже приведено описание элементов JSON, которые относятся к связанной службе хранилища Azure.
 
-| Property | Description | Required |
+| Свойство | Описание | Обязательно |
 | :-------- | :----------- | :-------- |
-| type | The type property must be set to: **AzureStorage** | Yes |
-| connectionString | Specify information needed to connect to Azure storage for the connectionString property. | Yes |
+| type | Для свойства type необходимо задать значение **AzureStorage**. | Да |
+| connectionString | В свойстве connectionString указываются сведения, необходимые для подключения к службе хранилища Azure. | Да |
 
-See the following article for steps to view/copy the account key for an Azure Storage: [View, copy, and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Действия по просмотру или копированию ключа учетной записи для хранилища Azure см. в статье [Просмотр, копирование и повторное создание ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
-**Example:**  
+**Пример**
   
-    {  
-        "name": "StorageLinkedService",  
-        "properties": {  
-            "type": "AzureStorage",  
-            "typeProperties": {  
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-            }  
-        }  
-    }  
+	{  
+		"name": "StorageLinkedService",  
+		"properties": {  
+			"type": "AzureStorage",  
+			"typeProperties": {  
+				"connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
+			}  
+		}  
+	}  
 
 
-## <a name="azure-storage-sas-linked-service"></a>Azure Storage Sas Linked Service  
-A shared access signature (SAS) provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all of the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method. For detailed information about SAS, see [Shared Access Signatures: Understanding the SAS Model](../articles/storage/storage-dotnet-shared-access-signature-part-1.md)
+## Связанная служба SAS хранилища Azure  
+Подписанный URL-адрес (SAS) обеспечивает делегированный доступ к ресурсам в вашей учетной записи хранения. Это означает, что клиенту можно предоставить ограниченное право на работу с объектами в вашей учетной записи хранения на определенный период времени и с определенным набором разрешений, не сообщая ему ключи доступа к своей учетной записи. Подпись общего доступа — это URI, который в своих параметрах запроса содержит все сведения, необходимые доступа к ресурсу хранилища с прохождением проверки подлинности. Для доступа к ресурсам хранилища с помощью SAS клиенту достаточно передать SAS в соответствующий конструктор или метод. Дополнительные сведения о подписанном URL-адресе см. в разделе [Подписанные URL-адреса: общие сведения о модели SAS](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
   
-The Azure Storage SAS linked service allows you to link an Azure Storage Account to an Azure data factory by using a Shared Access Signature (SAS). This provides the data factory with restricted/time-bound access to all/specific resources (blob/container) in the storage. The following table provides description for JSON elements specific to Azure Storage SAS linked service. 
+Связанная служба SAS хранилища Azure позволяет связать учетную запись хранения Azure с фабрикой данных Azure с помощью подписанного URL-адреса (SAS). В этом случае фабрика данных получает ограниченный или привязанный ко времени доступ ко всем или конкретным ресурсам (BLOB-объектам или контейнерам) в хранилище. В таблице ниже приведено описание элементов JSON, которые относятся к связанной службе SAS хранилища Azure.
 
-| Property | Description | Required |
+| Свойство | Описание | Обязательно |
 | :-------- | :----------- | :-------- |
-| type | The type property must be set to: **AzureStorageSas**  | Yes |
-| sasUri | Specify Shared Access Signature URI to the Azure Storage resources such as blob, container, or table. See the notes below for details. | Yes | 
+| type | Для свойства type необходимо задать значение **AzureStorageSas**. | Да |
+| sasUri | Укажите URI подписанного URL-адреса к ресурсам хранилища Azure, например BLOB-объектам, контейнерам или таблицам. Подробные сведения см. ниже. | Да | 
 
 
-**Example:**
+**Пример**
   
-    {  
-        "name": "StorageSasLinkedService",  
-        "properties": {  
-            "type": "AzureStorageSas",  
-            "typeProperties": {  
-                "sasUri": "<storageUri>?<sasToken>"   
-            }  
-        }  
-    }  
+	{  
+		"name": "StorageSasLinkedService",  
+		"properties": {  
+			"type": "AzureStorageSas",  
+			"typeProperties": {  
+				"sasUri": "<storageUri>?<sasToken>"   
+			}  
+		}  
+	}  
 
-When creating an **SAS URI**, considering the following:  
+При создании **URI SAS** следует принять во внимание следующие моменты:
 
-- Azure Data Factory supports only **Service SAS**, not Account SAS. See [Types of Shared Access Signatures](../articles/storage/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) for details about these two types.
-- Appropriate read/write **permissions** need to be set on objects based on how the linked service (read, write, read/write) will be used in your data factory.
-- **Expiry time** needs to be set appropriately. Make sure that the access to Azure Storage objects does not expire within the active period of the pipeline.
-- Uri should be created at the right container/blob or Table level based on the need. A SAS Uri to an Azure blob allows the Data Factory service to access that particular blob. A SAS Uri to an Azure blob container allows the Data Factory service to iterate through blobs in that container. If you need to provide access more/fewer objects later, or update the SAS URI, remember to update the linked service with the new URI.   
+- Фабрика данных Azure поддерживает только **SAS службы**, а не SAS учетной записи. Сведения об этих двух типах см. в разделе [Типы подписанных URL-адресов](../articles/storage/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures).
+- Для объектов следует задать соответствующие **разрешения** на чтение или запись. Они устанавливаются с учетом назначения связанной службы (чтение, запись, чтение и запись) в фабрике данных.
+- Необходимо соответствующим образом задать **время окончания срока действия**. Убедитесь, что срок действия доступа к объектам хранилища Azure не истекает в период активности конвейера.
+- В зависимости от потребности URI следует создать на нужном уровне контейнера, большого двоичного объекта или таблицы. URI SAS для большого двоичного объекта Azure позволяет службе фабрики данных обращаться к данному конкретному большому двоичному объекту. URI SAS для контейнера больших двоичных объектов Azure позволяет службе фабрики данных выполнять итерацию по большим двоичным объектам в этом контейнере. Чтобы предоставить доступ к большему или меньшему количеству объектов позднее или обновить URI SAS, не забудьте обновить связанную службу с помощью нового URI.   
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0224_2016-->

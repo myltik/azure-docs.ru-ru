@@ -1,133 +1,132 @@
 <properties
-    pageTitle="Integrate a Storage Account with CDN | Microsoft Azure"
-    description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Интеграция учетной записи хранения с CDN | Microsoft Azure"
+	description="Узнайте, как использовать сеть доставки содержимого (CDN) Azure для доставки больших объемов контента с помощью кэширования BLOB-объектов в службе хранилища Azure."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
 
 
+# Интеграция учетной записи хранения с CDN
 
-# <a name="integrate-a-storage-account-with-cdn"></a>Integrate a Storage Account with CDN
-
-CDN can be enabled to cache content from your Azure storage. It offers developers a global solution for delivering high-bandwidth content by caching blobs and static content of compute instances at physical nodes in the United States, Europe, Asia, Australia and South America.
+CDN можно включить для кэширования содержимого из хранилища Azure. Она предоставляет разработчикам глобальное решение для доставки большого объема содержимого с возможностью кэширования больших двоичных объектов и статического содержимого на физических узлах в США, Европе, Азии, Австралии и Южной Америке.
 
 
-## <a name="step-1:-create-a-storage-account"></a>Step 1: Create a storage account
+## Шаг 1. Создание учетной записи хранения
 
-Use the following procedure to create a new storage account for a Azure subscription. A storage account gives access to Azure storage services. The storage account represents the highest level of the namespace for accessing each of the Azure storage service components: Blob services, Queue services, and Table services. For more information, refer to the [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
+Чтобы создать новую учетную запись хранения для подписки Azure, воспользуйтесь следующей процедурой. Учетная запись хранения предоставляет доступ к службам хранилища Azure. Учетная запись хранения представляет собой высший уровень пространства имен для доступа ко всем компонентам службы хранения Azure: службам BLOB-объектов, службам очередей и службам таблиц. Дополнительные сведения см. в статье [Введение в службу хранилища Microsoft Azure](../storage/storage-introduction.md).
 
-To create a storage account, you must be either the service administrator or a co-administrator for the associated subscription.
+Чтобы создать учетную запись хранения, вы должны быть администратором службы или соадминистратором для связанной подписки.
 
-> [AZURE.NOTE] There are several methods you can use to create a storage account, including the Azure Portal and Powershell.  For this tutorial, we'll be using the Azure Portal.  
+> [AZURE.NOTE] Существует несколько способов, которые можно использовать для создания учетной записи хранения. В их число входят портал Azure и Powershell. В этом учебнике мы будем использовать портал Azure.
 
-**To create a storage account for an Azure subscription**
+**Создание учетной записи хранения для подписки Azure**
 
-1.  Sign in to the [Azure Portal](https://portal.azure.com).
-2.  In the upper left corner, select **New**. In the **New** Dialog, select **Data  + Storage**, then click **Storage account**.
+1.  Войдите на [портал Azure](https://portal.azure.com).
+2.  В нижнем левом углу щелкните **Создать**. В диалоговом окне **Создание** выберите **Данные + хранилище**, затем щелкните **Учетная запись хранения**.
 
-    The **Create storage account** blade appears.
+    Появится колонка **Учетная запись хранения**.
 
-    ![Create Storage Account][create-new-storage-account]
+    ![Создать учетную запись хранения][create-new-storage-account]
 
-4. In the **Name** field, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
+4. В поле **Имя** введите имя поддомена. Запись может содержать от 3 до 24 строчных букв и цифр.
 
-    This value becomes the host name within the URI that is used to address Blob, Queue, or Table resources for the subscription. To address a container resource in the Blob service, you would use a URI in the following format, where *&lt;StorageAccountLabel&gt;* refers to the value you typed in **Enter a URL**:
+    Это значение станет именем узла в URI, который используется для адресации ресурсов большого двоичного объекта, очереди и таблицы в подписке. Чтобы обратиться по адресу ресурса контейнера в службе BLOB-объектов, следует использовать URI в следующем формате, где *<StorageAccountLabel>* указывает значение, которое вы ввели в поле **Введите URL-адрес**:
 
     http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
 
-    **Important:** The URL label forms the subdomain of the storage  account URI and must be unique among all hosted services in  Azure.
+    **Важно!** Метка URL-адреса образует поддомен URI учетной записи хранения и должна быть уникальной на уровне всех размещенных служб в Azure.
 
-    This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
+	Это значение также используется как имя этой учетной записи хранения на портале или при доступе к данной учетной записи программным способом.
 
-5. Leave the defaults for **Deployment model**, **Account kind**, **Performance**, and **Replication**. 
+5. Оставьте значения по умолчанию для **модели развертывания**, **типа учетной записи**, **производительности** и **репликации**.
 
-6. Select the **Subscription** that the storage account will be used with.
+6. Выберите **подписку**, с которой будет использоваться данная учетная запись хранения.
 
-7. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
+7. Выберите или создайте **группу ресурсов**. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md#resource-groups).
 
-8. Select a location for your storage account.
+8. Выберите расположение для вашей учетной записи хранения.
 
-8. Click **Create**. The process of creating the storage account might take several minutes to complete.
+8. Щелкните **Создать**. Процесс создания учетной записи хранения может занять несколько минут.
 
 
-## <a name="step-2:-create-a-new-cdn-profile"></a>Step 2: Create a new CDN profile
+## Шаг 2. Создание нового профиля сети CDN
 
-A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
+Профиль сети CDN представляет собой коллекцию конечных точек сети CDN. Каждый профиль содержит одну или несколько конечных точек сети CDN. Вы можете использовать несколько профилей для упорядочения конечных точек сети CDN по домену Интернета, веб-приложению или согласно другим условиям.
 
-> [AZURE.TIP] If you already have a CDN profile that you want to use for this tutorial, proceed to [Step 3](#step-3-create-a-new-cdn-endpoint).
+> [AZURE.TIP] Если у вас уже есть профиль CDN для работы, перейдите к разделу [Шаг 3](#step-3-create-a-new-cdn-endpoint).
 
 [AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## <a name="step-3:-create-a-new-cdn-endpoint"></a>Step 3: Create a new CDN endpoint
+## Шаг 3. Создание новой конечной точки сети CDN
 
-**To create a new CDN endpoint for your storage account**
+**Создание новой конечной точки CDN для учетной записи хранения**
 
-1. In the [Azure Management Portal](https://portal.azure.com), navigate to your CDN profile.  You may have pinned it to the dashboard in the previous step.  If you not, you can find it by clicking **Browse**, then **CDN profiles**, and clicking on the profile you plan to add your endpoint to.
+1. На [портале управления Azure](https://portal.azure.com) перейдите к профилю сети CDN. На предыдущем шаге вы могли прикрепить его к панели мониторинга. Если профиль не прикреплен, найдите его, нажав кнопку **Обзор**, выбрав **Профили CDN** и щелкнув профиль, к которому нужно добавить конечную точку.
 
-    The CDN profile blade appears.
+    Появится колонка профиля сети CDN.
 
-    ![CDN profile][cdn-profile-settings]
+    ![Профиль сети CDN][cdn-profile-settings]
 
-2. Click the **Add Endpoint** button.
+2. Нажмите кнопку **Добавить конечную точку**.
 
-    ![Add endpoint button][cdn-new-endpoint-button]
+    ![Кнопка "Добавить конечную точку"][cdn-new-endpoint-button]
 
-    The **Add an endpoint** blade appears.
+    Появится колонка **Добавление конечной точки**.
 
-    ![Add endpoint blade][cdn-add-endpoint]
+    ![Колонка "Добавление конечной точки"][cdn-add-endpoint]
 
-3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<endpointname>.azureedge.net`.
+3. Введите **имя** конечной точки сети CDN. Это имя будет использоваться для доступа к кэшированным ресурсам в домене `<endpointname>.azureedge.net`.
 
-4. In the **Origin type** dropdown, select *Storage*.  
+4. В раскрывающемся списке **Тип источника** выберите *Хранилище*.
 
-5. In the **Origin hostname** dropdown, select your storage account.
+5. В раскрывающемся списке **Имя узла источника** выберите учетную запись хранения.
 
-6. Leave the defaults for **Origin path**, **Origin host header**, and **Protocol/Origin port**.  You must specify at least one protocol (HTTP or HTTPS).
+6. Оставьте значения по умолчанию для параметров **Путь к источнику**, **Заголовок узла источника** и **Протокол и порт источника**. Необходимо указать хотя бы один протокол (HTTP или HTTPS).
 
-    > [AZURE.NOTE] This configuration enables all of your publicly visible containers in your storage account for caching in the CDN.  If you want to limit the scope to a single container, use **Origin path**.  Note the container must have its visibility set to public.
+    > [AZURE.NOTE] Эта конфигурация позволяет использовать все общедоступные контейнеры в вашей учетной записи хранилища для кэширования в сети CDN. Если требуется ограничить область одним контейнером, используйте параметр **Путь к источнику**. Обратите внимание, что видимость контейнера должна иметь значение "Общедоступная".
 
-7. Click the **Add** button to create the new endpoint.
+7. Нажмите кнопку **Создать**, чтобы создать новую конечную точку.
 
-8. Once the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the URL to use to access cached content, as well as the origin domain.
+8. Созданная конечная точка отображается в списке конечных точек для профиля. В режиме списка отображается URL-адрес для доступа к кэшированному содержимому, а также исходному домену.
 
-    ![CDN endpoint][cdn-endpoint-success]
+    ![Конечная точка сети CDN][cdn-endpoint-success]
 
-    > [AZURE.NOTE] The endpoint will not immediately be available for use.  It can take up to 90 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 404 until the content is available via the CDN.
-
-
-## <a name="step-4:-access-cdn-content"></a>Step 4: Access CDN content
-
-To access cached content on the CDN, use the CDN URL provided in the portal. The address for a cached blob will be similar to the following:
-
-http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
-
-> [AZURE.NOTE] Once you enable CDN access to a storage account or hosted service, all publicly available objects are eligible for CDN edge caching. If you modify an object that is currently cached in the CDN, the new content will not be available via the CDN until the CDN refreshes its content when the cached content time-to-live period expires.
-
-## <a name="step-5:-remove-content-from-the-cdn"></a>Step 5: Remove content from the CDN
-
-If you no longer wish to cache an object in the Azure Content Delivery Network (CDN), you can take one of the following steps:
-
--   You can make the container private instead of public. See [Manage anonymous read access to containers and blobs](../storage/storage-manage-access-to-resources.md) for more information.
--   You can disable or delete the CDN endpoint using the Management Portal.
--   You can modify your hosted service to no longer respond to requests for the object.
-
-An object already cached in the CDN will remain cached until the time-to-live period for the object expires or until the endpoint is purged. When the time-to-live period expires, the CDN will check to see whether the CDN endpoint is still valid and the object still anonymously accessible. If it is not, then the object will no longer be cached.
+    > [AZURE.NOTE] Конечная точка не сразу будет доступна для использования. Распространение регистрации по сети CDN может занять 90 минут. Если пользователь попытается незамедлительно воспользоваться именем домена CDN, он может столкнуться с кодом состояния 404, пока содержимое не станет доступно через CDN.
 
 
-## <a name="additional-resources"></a>Additional resources
+## Шаг 4. Доступ к содержимому CDN
 
--   [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+Для доступа к кэшированному содержимому в сети CDN воспользуйтесь URL-адресом CDN, отображаемым в портале. Адрес для кэшированного BLOB-объекта будет иметь следующий вид:
+
+http://<*имя\_конечной\_точки*>.azureedge.net/<*общедоступный\_контейнер*>/<*имя\_Blob-объекта*>
+
+> [AZURE.NOTE] После включения CDN-доступа к учетной записи хранения или размещенной службе все общедоступные объекты будут пригодны для пограничного кэширования CDN. Если изменить объект, находящийся в данный момент в кэше сети CDN, новое содержимое будет недоступно через сеть CDN до обновления содержимого CDN по истечении срока действия кэшированного содержимого.
+
+## Шаг 5. Удаление содержимого из сети CDN
+
+Если кэширование объекта в сети CDN Azure больше не требуется, можно выполнить одно из следующих действий.
+
+-   Можно сделать контейнер закрытым, а не общедоступным. Дополнительные сведения см. в статье [Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам](../storage/storage-manage-access-to-resources.md).
+-   Вы можете отключить или удалить конечную точку CDN на портале управления.
+-   Вы можете изменить размещенную службу, чтобы она перестала отвечать на запросы объекта.
+
+Объект, уже кэшированный в сети CDN, останется в кэше до истечения срока действия этого объекта или до удаления конечной точки. По истечении срока действия CDN выполнит проверку конечной точки CDN, чтобы выяснить, что она еще действует и объект по-прежнему находится в анонимном доступе. Если это не так, объект больше не будет кэшироваться.
+
+
+## Дополнительные ресурсы
+
+-   [Сопоставление содержимого CDN с пользовательским доменом](cdn-map-content-to-custom-domain.md)
 
 [create-new-storage-account]: ./media/cdn-create-a-storage-account-with-cdn/CDN_CreateNewStorageAcct.png
 
@@ -136,8 +135,4 @@ An object already cached in the CDN will remain cached until the time-to-live pe
 [cdn-add-endpoint]: ./media/cdn-create-a-storage-account-with-cdn/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-a-storage-account-with-cdn/cdn-endpoint-success.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,10 +1,10 @@
 <properties
-pageTitle="OneDrive for Business | Microsoft Azure"
-description="Create Logic apps with Azure App service. Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+pageTitle="OneDrive для бизнеса | Microsoft Azure"
+description="Создание приложений логики с помощью службы приложений Azure. Подключитесь к OneDrive для бизнеса, чтобы управлять файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,351 +17,347 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Начало работы с соединителем OneDrive для бизнеса
 
-# <a name="get-started-with-the-onedrive-for-business-connector"></a>Get started with the OneDrive for Business connector
+Подключитесь к OneDrive для бизнеса, чтобы управлять файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов.
 
-Connect to OneDrive for Business to manage your files. You can perform various actions such as upload, update, get, and delete on files.
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+Для начала можно создать приложение логики, как указано в соответствующей [статье](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Триггеры и действия
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+Соединитель OneDrive для бизнеса можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
 
-The OneDrive for Business connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+ Соединитель OneDrive для бизнеса предоставляет следующие триггеры и действия:
 
- The OneDrive for Business connector has the following action(s) and/or trigger(s) available:
+### Действия OneDrive для бизнеса
+Вы можете выполнять перечисленные ниже действия:
 
-### <a name="onedrive-for-business-actions"></a>OneDrive for Business actions
-You can take these action(s):
-
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[GetFileMetadata](connectors-create-api-onedriveforbusiness.md#getfilemetadata)|Retrieves metadata of a file in OneDrive for Business using id|
-|[UpdateFile](connectors-create-api-onedriveforbusiness.md#updatefile)|Updates a file in OneDrive for Business|
-|[DeleteFile](connectors-create-api-onedriveforbusiness.md#deletefile)|Deletes a file from OneDrive for Business|
-|[GetFileMetadataByPath](connectors-create-api-onedriveforbusiness.md#getfilemetadatabypath)|Retrieves metadata of a file in OneDrive for Business using path|
-|[GetFileContentByPath](connectors-create-api-onedriveforbusiness.md#getfilecontentbypath)|Retrieves contents of a file in OneDrive for Business using path|
-|[GetFileContent](connectors-create-api-onedriveforbusiness.md#getfilecontent)|Retrieves contents of a file in OneDrive for Business using id|
-|[CreateFile](connectors-create-api-onedriveforbusiness.md#createfile)|Uploads a file to OneDrive for Business|
-|[CopyFile](connectors-create-api-onedriveforbusiness.md#copyfile)|Copies a file to OneDrive for Business|
-|[ListFolder](connectors-create-api-onedriveforbusiness.md#listfolder)|Lists files in a OneDrive for Business folder|
-|[ListRootFolder](connectors-create-api-onedriveforbusiness.md#listrootfolder)|Lists files in the OneDrive for Business root folder|
-|[ExtractFolderV2](connectors-create-api-onedriveforbusiness.md#extractfolderv2)|Extracts a folder to OneDrive for Business|
-### <a name="onedrive-for-business-triggers"></a>OneDrive for Business triggers
-You can listen for these event(s):
+|[GetFileMetadata](connectors-create-api-onedriveforbusiness.md#getfilemetadata)|Получает метаданные файла в OneDrive для бизнеса с помощью идентификатора|
+|[UpdateFile](connectors-create-api-onedriveforbusiness.md#updatefile)|Обновляет файл в OneDrive для бизнеса|
+|[DeleteFile](connectors-create-api-onedriveforbusiness.md#deletefile)|Удаляет файл в OneDrive для бизнеса|
+|[GetFileMetadataByPath](connectors-create-api-onedriveforbusiness.md#getfilemetadatabypath)|Получает метаданные файла в OneDrive для бизнеса с помощью пути|
+|[GetFileContentByPath](connectors-create-api-onedriveforbusiness.md#getfilecontentbypath)|Получает содержимое файла в OneDrive для бизнеса с помощью пути|
+|[GetFileContent](connectors-create-api-onedriveforbusiness.md#getfilecontent)|Получает содержимое файла в OneDrive для бизнеса с помощью идентификатора|
+|[CreateFile](connectors-create-api-onedriveforbusiness.md#createfile)|Передает файл в OneDrive для бизнеса|
+|[CopyFile](connectors-create-api-onedriveforbusiness.md#copyfile)|Копирует файл в OneDrive для бизнеса|
+|[ListFolder](connectors-create-api-onedriveforbusiness.md#listfolder)|Перечисляет файлы в папке OneDrive для бизнеса|
+|[ListRootFolder](connectors-create-api-onedriveforbusiness.md#listrootfolder)|Перечисляет файлы в корневой папке OneDrive для бизнеса|
+|[ExtractFolderV2](connectors-create-api-onedriveforbusiness.md#extractfolderv2)|Извлекает папку в OneDrive для бизнеса|
+### Триггеры OneDrive для бизнеса
+Можно прослушивать указанные ниже события:
 
-|Trigger | Description|
+|Триггер | Описание|
 |--- | ---|
-|When a file is created|Triggers a flow when a new file is created in a OneDrive for Business folder|
-|When a file is modified|Triggers a flow when a file is modified in a OneDrive for Business folder|
+|При создании файла|Запускает поток при создании файла в папке OneDrive для бизнеса|
+|При изменении файла|Запускает поток при изменении файла в папке OneDrive для бизнеса|
 
 
-## <a name="create-a-connection-to-onedrive-for-business"></a>Create a connection to OneDrive for Business
-To create Logic apps with OneDrive for Business, you must first create a **connection** then provide the details for the following properties: 
+## Создание подключения к OneDrive для бизнеса
+Для создания приложений логики с помощью OneDrive для бизнеса необходимо создать **подключение**, а затем указать данные для следующих свойств.
 
-|Property| Required|Description|
+|Свойство| Обязательно|Описание|
 | ---|---|---|
-|Token|Yes|Provide OneDrive for Business Credentials|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article. 
+|Маркер|Да|Укажите учетные данные OneDrive для бизнеса|
+Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
 
->[AZURE.INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
+>[AZURE.INCLUDE [Шаги по созданию подключения к OneDrive для бизнеса](../../includes/connectors-create-api-onedriveforbusiness.md)]
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
 
-## <a name="reference-for-onedrive-for-business"></a>Reference for OneDrive for Business
-Applies to version: 1.0
+## Справочник по OneDrive для бизнеса
+Относится к версии 1.0.
 
-## <a name="getfilemetadata"></a>GetFileMetadata
-Get file metadata using id: Retrieves metadata of a file in OneDrive for Business using id 
+## GetFileMetadata
+Получение метаданных файла с помощью идентификатора: получает метаданные файла в OneDrive для бизнеса с помощью идентификатора
 
-```GET: /datasets/default/files/{id}``` 
+```GET: /datasets/default/files/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none|Specify the file|
+|id|string|Да|path|Нет|Укажите файл|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="updatefile"></a>UpdateFile
-Update file: Updates a file in OneDrive for Business 
+## UpdateFile
+Изменение файла: изменяет файл в OneDrive для бизнеса
 
-```PUT: /datasets/default/files/{id}``` 
+```PUT: /datasets/default/files/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none|Specify the file to update|
-|body| |yes|body|none|Content of the file to update in OneDrive for Business|
+|id|string|Да|path|Нет|Укажите изменяемый файл|
+|текст| |Да|текст|Нет|Содержимое файла, изменяемого в OneDrive для бизнеса|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="deletefile"></a>DeleteFile
-Delete file: Deletes a file from OneDrive for Business 
+## DeleteFile
+Удаление файла: удаляет файл из OneDrive для бизнеса
 
-```DELETE: /datasets/default/files/{id}``` 
+```DELETE: /datasets/default/files/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none|Specify the file to delete|
+|id|string|Да|path|Нет|Укажите файл для удаления|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="getfilemetadatabypath"></a>GetFileMetadataByPath
-Get file metadata using path: Retrieves metadata of a file in OneDrive for Business using path 
+## GetFileMetadataByPath
+Получение метаданных файла с помощью пути: получает метаданные файла в OneDrive для бизнеса с помощью пути
 
-```GET: /datasets/default/GetFileByPath``` 
+```GET: /datasets/default/GetFileByPath```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|path|string|yes|query|none|Unique path to the file in OneDrive for Business|
+|path|string|Да|запрос|Нет|Уникальный путь к файлу в OneDrive для бизнеса|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="getfilecontentbypath"></a>GetFileContentByPath
-Get file content using path: Retrieves contents of a file in OneDrive for Business using path 
+## GetFileContentByPath
+Получение содержимого файла с помощью пути: получает содержимое файла в OneDrive для бизнеса с помощью пути
 
-```GET: /datasets/default/GetFileContentByPath``` 
+```GET: /datasets/default/GetFileContentByPath```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|path|string|yes|query|none|Unique path to the file in OneDrive for Business|
+|path|string|Да|запрос|Нет|Уникальный путь к файлу в OneDrive для бизнеса|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="getfilecontent"></a>GetFileContent
-Get file content using id: Retrieves contents of a file in OneDrive for Business using id 
+## GetFileContent
+Получение содержимого файла с помощью идентификатора: получает содержимое файла в OneDrive для бизнеса с помощью идентификатора
 
-```GET: /datasets/default/files/{id}/content``` 
+```GET: /datasets/default/files/{id}/content```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none|Specify the file|
+|id|string|Да|path|Нет|Укажите файл|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="createfile"></a>CreateFile
-Create file: Uploads a file to OneDrive for Business 
+## CreateFile
+Создание файла: передает файл в OneDrive для бизнеса
 
-```POST: /datasets/default/files``` 
+```POST: /datasets/default/files```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|folderPath|string|yes|query|none|Folder path to upload the file to OneDrive for Business|
-|name|string|yes|query|none|Name of the file to create in OneDrive for Business|
-|body| |yes|body|none|Content of the file to upload to OneDrive for Business|
+|folderPath|string|Да|запрос|Нет|Путь к папке для отправки файла в OneDrive для бизнеса|
+|name|string|Да|запрос|Нет|Имя файла, создаваемого в OneDrive для бизнеса|
+|текст| |Да|текст|Нет|Содержимое файла, отправляемого в OneDrive для бизнеса|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="copyfile"></a>CopyFile
-Copy file: Copies a file to OneDrive for Business 
+## CopyFile
+Копирование файла: копирует файл в OneDrive для бизнеса
 
-```POST: /datasets/default/copyFile``` 
+```POST: /datasets/default/copyFile```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|source|string|yes|query|none|Url to source file|
-|destination|string|yes|query|none|Destination file path in OneDrive for Business, including target filename|
-|overwrite|boolean|no|query|false|Overwrites the destination file if set to 'true'|
+|источник|string|Да|запрос|Нет|URL-адрес исходного файла|
+|ресурс destination|string|Да|запрос|Нет|Путь к конечному файлу в OneDrive для бизнеса, включая имя конечного файла|
+|overwrite|Логическое|Нет|запрос|нет|Перезаписывает конечный файл, если задано значение "true"|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="onnewfile"></a>OnNewFile
-When a file is created: Triggers a flow when a new file is created in a OneDrive for Business folder 
+## OnNewFile
+При создании файла: запускает поток при создании файла в папке OneDrive для бизнеса
 
-```GET: /datasets/default/triggers/onnewfile``` 
+```GET: /datasets/default/triggers/onnewfile```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|folderId|string|yes|query|none|Specify a folder|
+|folderId|string|Да|запрос|Нет|Укажите папку|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="onupdatedfile"></a>OnUpdatedFile
-When a file is modified: Triggers a flow when a file is modified in a OneDrive for Business folder 
+## OnUpdatedFile
+При изменении файла: запускает поток при изменении файла в папке OneDrive для бизнеса
 
-```GET: /datasets/default/triggers/onupdatedfile``` 
+```GET: /datasets/default/triggers/onupdatedfile```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|folderId|string|yes|query|none|Specify a folder|
+|folderId|string|Да|запрос|Нет|Укажите папку|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="listfolder"></a>ListFolder
-List files in folder: Lists files in a OneDrive for Business folder 
+## ListFolder
+Список файлов в папке: перечисляет файлы в папке OneDrive для бизнеса
 
-```GET: /datasets/default/folders/{id}``` 
+```GET: /datasets/default/folders/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none|Specify the folder|
+|id|string|Да|path|Нет|Укажите папку|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="listrootfolder"></a>ListRootFolder
-List root folder: Lists files in the OneDrive for Business root folder 
+## ListRootFolder
+Список файлов в корневой папке: перечисляет файлы в корневой папке OneDrive для бизнеса
 
-```GET: /datasets/default/folders``` 
+```GET: /datasets/default/folders```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+Для этого вызова параметры отсутствуют
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="extractfolderv2"></a>ExtractFolderV2
-Extract folder: Extracts a folder to OneDrive for Business 
+## ExtractFolderV2
+Извлечение папки: извлекает папку в OneDrive для бизнеса
 
-```POST: /datasets/default/extractFolderV2``` 
+```POST: /datasets/default/extractFolderV2```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|source|string|yes|query|none|Path to the archive file|
-|destination|string|yes|query|none|Path in OneDrive for Business to extract the archive contents|
-|overwrite|boolean|no|query|false|Overwrites the destination files if set to 'true'|
+|источник|string|Да|запрос|Нет|Путь к файлу архива|
+|ресурс destination|string|Да|запрос|Нет|Путь в OneDrive для бизнеса для извлечения содержимого архива|
+|overwrite|Логическое|Нет|запрос|нет|Перезаписывает конечные файлы, если задано значение "true"|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="object-definitions"></a>Object definitions 
+## Определения объектов 
 
-### <a name="datasetsmetadata"></a>DataSetsMetadata
+### DataSetsMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|tabular|not defined|No |
-|blob|not defined|No |
+|tabular|не определено|Нет |
+|blob-объект|не определено|Нет |
 
 
 
-### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
+### TabularDataSetsMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|source|string|No |
-|displayName|string|No |
-|urlEncoding|string|No |
-|tableDisplayName|string|No |
-|tablePluralName|string|No |
+|источник|string|Нет |
+|displayName|string|Нет |
+|urlEncoding|string|Нет |
+|tableDisplayName|string|Нет |
+|tablePluralName|string|Нет |
 
 
 
-### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
+### BlobDataSetsMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|source|string|No |
-|displayName|string|No |
-|urlEncoding|string|No |
+|источник|string|Нет |
+|displayName|string|Нет |
+|urlEncoding|string|Нет |
 
 
 
-### <a name="blobmetadata"></a>BlobMetadata
+### BlobMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Id|string|No |
-|Name|string|No |
-|DisplayName|string|No |
-|Path|string|No |
-|LastModified|string|No |
-|Size|integer|No |
-|MediaType|string|No |
-|IsFolder|boolean|No |
-|ETag|string|No |
-|FileLocator|string|No |
+|Идентификатор|string|Нет |
+|Имя|string|Нет |
+|DisplayName|string|Нет |
+|Путь|string|Нет |
+|LastModified|string|Нет |
+|Размер|целое число|Нет |
+|MediaType|string|Нет |
+|IsFolder|Логическое|Нет |
+|ETag|string|Нет |
+|FileLocator|string|Нет |
 
 
 
-### <a name="object"></a>Object
+### Объект
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Дальнейшие действия
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

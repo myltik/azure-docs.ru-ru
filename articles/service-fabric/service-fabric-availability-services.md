@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Availability of Service Fabric services | Microsoft Azure"
-   description="Describes fault detection, failover, and recovery for services"
+   pageTitle="Доступность служб Service Fabric | Microsoft Azure"
+   description="Описание процессов обнаружения сбоев, отработки отказа, восстановления для служб"
    services="service-fabric"
    documentationCenter=".net"
    authors="appi101"
@@ -16,43 +16,38 @@
    ms.date="08/10/2016"
    ms.author="aprameyr"/>
 
+# Доступность служб структуры служб
+Службы Azure Service Fabric могут предусматривать или не предусматривать отслеживание состояния. Настоящая статья предоставляет обзор способа, который используется в структуре служб для поддержания доступности службы в случае сбоев.
 
-# <a name="availability-of-service-fabric-services"></a>Availability of Service Fabric services
-Azure Service Fabric services can be either stateful or stateless. This article gives an overview of how Service Fabric maintains availability of a service in the event of failures.
+## Доступность служб без отслеживания состояния в структуре служб
+Служба без отслеживания состояния — это служба приложения, которая не имеет [локального постоянного состояния](service-fabric-concepts-state.md).
 
-## <a name="availability-of-service-fabric-stateless-services"></a>Availability of Service Fabric stateless services
-A stateless service is an application service that does not have any [local persistent state](service-fabric-concepts-state.md).
+Создание службы без отслеживания состояний требует задания определенного количества экземпляров службы без отслеживания состояния, которая должна быть запущена в кластере. В кластере реализуется определенное количество копий соответствующей логики приложения. Увеличение количества экземпляров — это рекомендованный способ масштабирования службы без отслеживания состояния.
 
-Creating a stateless service requires defining an instance count, which is the number of instances of the stateless service that should be running in the cluster. This is the number of copies of the application logic that will be instantiated in the cluster. Increasing the number of instances is the recommended way of scaling up a stateless service.
+При обнаружении ошибки в любом из экземпляров службы без отслеживания состояния будет создана новая служба на каком-либо другом подходящем узле кластера.
 
-When a fault is detected on any instance of a stateless service, a new instance is created on some other eligible node in the cluster.
+## Доступность служб с отслеживанием состояния в структуре служб
+Служба с отслеживанием состояния обладает определенным состоянием, которое с ней связано. В структуре служб служба с отслеживанием состояния моделируется в виде набора реплик. Каждая реплика является экземпляром кода службы, в которой имеется копия состояния. Операции чтения и записи выполняются в одной реплике (которая называется первичной). Изменения в состоянии, вызванные операциями записи, *реплицируются* на множество других реплик (которые называются активными вторичными репликами). Это сочетание первичной и активных вторичных реплик представляет собой набор реплик службы.
 
-## <a name="availability-of-service-fabric-stateful-services"></a>Availability of Service Fabric stateful services
-A stateful service has some state associated with it. In Service Fabric, a stateful service is modeled as a set of replicas. Each replica is an instance of the code of the service that has a copy of the state. Read and write operations are performed at one replica (called the primary). Changes to state from write operations are *replicated* to multiple other replicas (called active secondaries). The combination of primary and active secondary replicas is the replica set of the service.
+Первичная реплика, обслуживающая запросы на чтение и запись, может быть только одна. Активных вторичных реплик может быть несколько. Количество активных вторичных реплик является настраиваемым, и большее количество вторичных реплик позволяет обрабатывать большее количество программных и аппаратных сбоев.
 
-There can be only one primary replica servicing read and write requests, but there can be multiple active secondary replicas. The number of active secondary replicas is configurable, and a higher number of replicas can tolerate a greater number of concurrent software and hardware failures.
+В случае сбоя (при котором первичная реплика перестает работать) Service Fabric передает функции первичной реплики одной из активных вторичных реплик. Активная вторичная реплика уже имеет обновленную версию состояния (через *репликацию*) и может продолжить дальнейшую обработку операций чтения и записи.
 
-In the event of a fault (when the primary replica goes down), Service Fabric makes one of the active secondary replicas the new primary replica. This active secondary replica already has the updated version of the state (via *replication*), and it can continue processing further read and write operations.
+Такое представление о том, что реплика может быть первичной или активной вторичной, известно как роль реплики.
 
-This concept--of a replica being either a primary or active secondary--is known as the replica role.
+### Роли реплик
+Роль реплики используется для управления жизненным циклом состояния, управляемого этой репликой. Реплика, роль которой определена как первичная, обслуживает запросы на чтение. Кроме того, она обслуживает запросы на запись путем обновления своего состояния и репликации изменений на активные вторичные реплики в своем наборе реплик. Активная вторичная реплика отвечает за получение изменений состояния, реплицируемых первичной репликой, а также за обновление представления о собственном состоянии.
 
-### <a name="replica-roles"></a>Replica roles
-The role of a replica is used to manage the life cycle of the state being managed by that replica. A replica whose role is primary services read requests. It also services write requests by updating its state and replicating the changes to the active secondaries in its replica set. The role of an active secondary is to receive state changes that the primary replica has replicated and update its view of the state.
+>[AZURE.NOTE] Модели программирования более высокого уровня, такие как [среда Reliable Actors](service-fabric-reliable-actors-introduction.md), абстрагируют представление о роли реплики от разработчика.
 
->[AZURE.NOTE] Higher-level programming models such as the [reliable actors framework](service-fabric-reliable-actors-introduction.md) abstract away the concept of replica role from the developer.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+Дополнительные сведения о концепциях Service Fabric см. в следующих статьях:
 
-For more information on Service Fabric concepts, see the following:
+- [Масштабируемость служб структуры служб](service-fabric-concepts-scalability.md)
 
-- [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
+- [Разделение служб Service Fabric](service-fabric-concepts-partitioning.md)
 
-- [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
+- [Определение состояния и управление им](service-fabric-concepts-state.md)
 
-- [Defining and managing state](service-fabric-concepts-state.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

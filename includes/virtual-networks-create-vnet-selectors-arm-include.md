@@ -1,9 +1,7 @@
 > [AZURE.SELECTOR]
-- [Azure Portal](../articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md)
+- [Портал Azure](../articles/virtual-network/virtual-networks-create-vnet-arm-pportal.md)
 - [PowerShell](../articles/virtual-network/virtual-networks-create-vnet-arm-ps.md)
-- [Azure CLI](../articles/virtual-network/virtual-networks-create-vnet-arm-cli.md)
-- [ARM template](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md)
+- [Интерфейс командной строки Azure](../articles/virtual-network/virtual-networks-create-vnet-arm-cli.md)
+- [Шаблон ARM](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

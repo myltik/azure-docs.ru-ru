@@ -1,11 +1,9 @@
-## <a name="peering-vnets-in-the-same-subscription"></a>Peering VNets in the same subscription
+## Пиринг виртуальных сетей в рамках одной подписки
 
-In this scenario you will create a peering between two VNets named **VNet1** and **VNet2** belonging to the same subscription. 
+В этом сценарии вы создадите пиринг между двумя виртуальными сетями, **VNet1** и **VNet2**, принадлежащими к одной подписке.
 
-![Basic scenario](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)
+![Базовый сценарий](./media/virtual-networks-create-vnetpeering-scenario-basic-include/figure01.PNG)
 
-VNet peering will allow full connectivity between the entire address space of peered virtual networks.    
+Пиринг виртуальных сетей обеспечивает возможность полного подключения во всем адресном пространстве виртуальных сетей, участвующих в пиринге.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

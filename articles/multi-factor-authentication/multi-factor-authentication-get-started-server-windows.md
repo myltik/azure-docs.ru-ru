@@ -1,58 +1,52 @@
 <properties 
-    pageTitle="Windows Authentication and Azure Multi-Factor Authentication Server"
-    description="This is the Azure Multi-factor authentication page that will assist in deploying Windows Authentication and Azure Multi-Factor Authentication Server."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Проверка подлинности Windows и сервер Azure Multi-Factor Authentication"
+	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности Windows и сервера Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
+# Проверка подлинности Windows и сервер Azure Multi-Factor Authentication
 
-# <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows Authentication and Azure Multi-Factor Authentication Server
+В разделе проверки подлинности Windows администратор может включить и настроить проверку подлинности Windows для одного или нескольких приложений. Ниже приведен список факторов, которые необходимо учитывать до настройки проверки подлинности Windows.
 
-The Windows Authentication section allows the administrator to enable and configure Windows authentication for one or more applications.  The following is a list of things to keep in mind prior to setting up Windows Authentication.
-
--  reboot is needed before the Azure Multi-Factor Authentication for Terminal Services will be in effect.
--  If ‘Require Azure Multi-Factor Authentication user match’ is checked and you are not in the user list, you will not be able to log into the machine after reboot.
--  Trusted IPs is dependent on whether the application can provide the client IP with the authentication. Currently only Terminal Services is supported.  
-
-
+-  Прежде чем будет выполняться служба Azure Multi-Factor Authentication для служб терминалов, необходимо перезагрузить компьютер.
+-  Если установлен флажок «Требуется сопоставление пользователей Multi-Factor Authentication» и вас нет в списке пользователей, после перезагрузки вы не сможете войти в систему.
+-  Надежные IP-адреса зависят от того, может ли приложение предоставлять IP-адрес клиента с проверкой подлинности. В настоящее время поддерживаются только службы терминалов.
 
 
 
 
 
->[AZURE.NOTE]This feature is not supported to secure Terminal Services on Windows Server 2012 R2.
+
+
+>[AZURE.NOTE]Для обеспечения безопасности служб терминалов в Windows Server 2012 R2 эта функция не поддерживается.
 
 
 
 
-## <a name="to-secure-an-application-with-windows-authentication,-use-the-following-procedure."></a>To secure an application with Windows Authentication, use the following procedure.
+## Для защиты приложения с помощью проверки подлинности Windows используйте следующую процедуру.
 
-1. In the Azure Multi-Factor Authentication Server click the Windows Authentication icon.
-![Windows Authentication](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
-2. Check the Enable Windows authentication checkbox. By default, this box is unchecked.
-3. The Applications tab allows the administrator to configure one or more applications for Windows Authentication.
-4. Select a server or application – specify whether the server/application is enabled. Click OK.
-5. Click Add… button.
-6. The Trusted IPs tab allows you to skip Azure Multi-Factor Authentication for Windows sessions originating from specific IPs. For example, if employees use the application from the office and from home, you may decide you don't want their phones ringing for Azure Multi-Factor Authentication while at the office. For this, you would specify the office subnet as Trusted IPs entry.
-7. Click Add… button.
-8. Select Single IP if you would like to skip a single IP address.
-9. Select IP Range if you would like to skip an entire IP range. Example 10.63.193.1-10.63.193.100.
-10. Select Subnet if you would like to specify a range of IPs using subnet notation. Enter the subnet's starting IP and pick the appropriate netmask from the drop-down list.
-11. Click the OK button.
+1. На сервере Azure Multi-Factor Authentication щелкните значок проверки подлинности Windows. ![Проверка подлинности Windows](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
+2. Установите флажок «Включить проверку подлинности Windows». По умолчанию этот флажок не установлен.
+3. На вкладке «Приложения» администратор может настроить одно или несколько приложений для проверки подлинности Windows.
+4. Выберите сервер или приложение — укажите, включен ли сервер или приложение. Нажмите кнопку ОК.
+5. Нажмите кнопку «Добавить».
+6. На вкладке «Надежные IP-адреса» можно пропустить Azure Multi-Factor Authentication для сеансов Windows с конкретных IP-адресов. Например, если сотрудники используют приложение как в офисе, так и дома, то можно сделать так, чтобы их телефоны не звонили для службы Azure Multi-Factor Authentication, пока они находятся в офисе. Для этого для офисной подсети установите значение «Надежные IP-адреса».
+7. Нажмите кнопку «Добавить».
+8. Выберите один IP-адрес, если необходимо пропустить один IP-адрес.
+9. Выберите диапазон IP-адресов, если необходимо пропустить целый диапазон IP-адресов. Пример: 10.63.193.1-10.63.193.100.
+10. Выберите подсеть, если необходимо указать диапазон IP-адресов с помощью подсети. Введите начальный IP-адрес подсети и выберите соответствующую маску сети в раскрывающемся списке.
+11. Нажмите кнопку «ОК».
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

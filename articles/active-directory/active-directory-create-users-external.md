@@ -1,96 +1,91 @@
 <properties
-    pageTitle="Add users from other directories or partner companies in Azure Active Directory | Microsoft Azure"
-    description="Explains how to add users or change user information in Azure Active Directory, including external and guest users."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Добавление пользователей из других каталогов или компаний-партнеров в Azure Active Directory | Microsoft Azure"
+	description="Узнайте, как добавлять пользователей (в том числе внешних и гостевых) или изменять сведения о них в Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/22/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
-
-# <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Add users from other directories or partner companies in Azure Active Directory
+# Добавление пользователей из других каталогов или компаний-партнеров в Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [Azure portal](active-directory-users-create-external-azure-portal.md)
-- [Azure classic portal](active-directory-create-users-external.md)
+- [Портал Azure](active-directory-users-create-external-azure-portal.md)
+- [Классический портал Azure](active-directory-create-users-external.md)
 
-This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+В этой статье объясняется, как добавлять в Azure Active Directory пользователей из других каталогов, а также пользователей из компаний-партнеров. Сведения о добавлении новых корпоративных пользователей, а также пользователей с учетными записями Майкрософт см. в статье [Добавление новых пользователей в Azure Active Directory](active-directory-create-users.md). По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
 
-## <a name="add-a-user"></a>Add a user
+## Добавление пользователей
 
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com) with an account that's a global admin for the directory.
+1. Войдите на [классический портал Azure](https://manage.windowsazure.com) с помощью учетной записи глобального администратора каталога.
 
-2. Select **Active Directory**, and then open your directory.
+2. Выберите **Active Directory**, а затем откройте каталог.
 
-3. Select the **Users** tab, and then, in the command bar, select **Add User**.
+3. Откройте вкладку **Пользователи**, а затем на панели команд выберите **Добавить пользователя**.
 
-4. On the **Tell us about this user** page, under **Type of user**, select either:
+4. На странице **Тип учетной записи пользователя** в раскрывающемся меню **Тип пользователя** выберите один из следующих пунктов.
 
-    - **User in another Azure AD directory** – adds a user account to your directory that's sourced from another Azure AD directory. You can select a user in another directory only if you're also a member of that directory.
-    - **Users in partner companies** - to invite and authorize partner company users to your directory (See [Azure Active Directory B2B collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)). You'll need to [upload a CSV file specifying email addresses](active-directory-b2b-references-csv-file-format.md).
+	- **Пользователь из другого каталога Azure AD** — добавляет в каталог учетную запись пользователя из другого каталога Azure AD. Выбрать пользователя в другом каталоге можно, только если вы также внесены в этот каталог.
+	- **Пользователи в компаниях-партнерах** — если нужно пригласить в каталог и авторизовать пользователей, которые работают в компаниях-партнерах (см. статью [Служба Azure Active Directory B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)). Вам потребуется [отправить CSV-файл с адресами электронной почты](active-directory-b2b-references-csv-file-format.md).
 
-6. On the user **Profile** page, provide a first and last name, a user-friendly name, and a user role from the **Roles** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md). Specify whether to **Enable Multi-Factor Authentication** for the user.
+6. На странице с **профилем** пользователя введите имя, фамилию и понятное имя, а затем выберите роль пользователя в списке **Роли**. Дополнительные сведения о ролях пользователей и администраторов см. в разделе [Назначение ролей администратора в Azure AD](active-directory-assign-admin-roles.md). Укажите, следует ли **включить многофакторную идентификацию** для пользователя.
 
-7. On the **Get temporary password** page, select **Create**.
+7. На странице **Получение временного пароля** нажмите кнопку **Создать**.
 
-> [AZURE.IMPORTANT] If your organization uses more than one domain, you should know about the following issues when you add a user account:
+> [AZURE.IMPORTANT] Если в организации используется более одного домена, при добавлении учетной записи пользователя необходимо учитывать следующие моменты:
 >
-> - TO add user accounts with the same user principal name (UPN) across domains, **first** add, for example, geoffgrisso@contoso.onmicrosoft.com, **followed by** geoffgrisso@contoso.com.
-> - **Don't** add geoffgrisso@contoso.com before you add geoffgrisso@contoso.onmicrosoft.com. This order is important, and can be cumbersome to undo.
+> - Чтобы добавить учетные записи пользователей с тем же именем участника-пользователя (UPN) в разных доменах, **сначала** добавьте, например, geoffgrisso@contoso.onmicrosoft.com, а **затем** — geoffgrisso@contoso.com.
+> - **Не** добавляйте geoffgrisso@contoso.com, пока не добавите geoffgrisso@contoso.onmicrosoft.com. Порядок добавления важен: если вы допустите ошибку сейчас, потом ее может быть сложно исправить.
 
-If you change information for a user whose identity is synchronized with your on-premises Active Directory service, you can't change the user information in the Azure classic portal. To change the user information, use your on-premises Active Directory management tools.
+Если изменить данные пользователя, удостоверение которого синхронизируется с локальной службой Active Directory, данные такого пользователя невозможно будет изменить на классическом портале Azure. Чтобы изменить сведения о таком пользователе, используйте локальные средства управления Active Directory.
 
-## <a name="add-external-users"></a>Add external users
+## Добавление внешних пользователей
 
-You can also add users from another Azure AD directory to which you belong, or from partner companies by uploading a CSV file. To add an external user, for **Type of User**, specify **User in another Microsoft Azure AD directory** or **Users in partner companies**.
+Можно также добавить пользователей из другого каталога Azure AD, к которому они принадлежат, или из компаний-партнеров, передав файл CSV. Чтобы добавить внешнего пользователя, в меню **Тип пользователя** выберите **Пользователь в другом каталоге Microsoft Azure AD** или **Пользователи в компаниях-партнерах**.
 
-Users of either type are sourced from another directory and are added as **external users**. External users can collaborate with other users in a directory without any requirement to add new accounts and credentials. External users authenticate with their home directory when they sign in, and that authentication works for any other directories to which they have been added.
+Пользователи обоих типов добавляются из других каталогов в качестве **внешних пользователей**. Внешние пользователи могут работать совместно с другими пользователями в каталоге. При этом не требуется добавлять новые учетные записи и учетные данные. При входе внешние пользователи проходят проверку подлинности в домашнем каталоге, и эта проверка действует для всех остальных каталогов, в которые они были добавлены.
 
-## <a name="external-user-management-and-limitations"></a>External user management and limitations
+## Управление внешними пользователями и ограничениями
 
-When you add a user from another directory to your directory, that user is an external user in your directory. The display name and user name are copied from their home directory and used for the external user in your directory. From then on, properties of the external user account are entirely independent. If property changes are made to the user in their home directory, those changes aren't propagated to the external user account in your directory.
+При добавлении в каталог пользователя из другого каталога такой пользователь будет для вашего каталога внешним. Отображаемое имя и имя пользователя копируются из домашнего каталога и используются для внешнего пользователя в вашем каталоге. С этого момента свойства учетной записи внешнего пользователя становятся полностью независимыми. Если в свойства учетной записи пользователя вносятся изменения в домашнем каталоге, эти изменения не распространяются на учетную запись внешнего пользователя в вашем каталоге.
 
-The only linkage between the two accounts is that the user always authenticates against their home directory or with their Microsoft account. That's why you don't see an option to reset the password or enable multi-factor authentication for an external user. Currently, the authentication policy of the home directory or Microsoft account is the only one that's evaluated when the user signs in.
+Две учетные записи связывает только то, что пользователь всегда проходит проверку подлинности в домашнем каталоге или с помощью учетной записи Майкрософт. Вот почему для внешнего пользователя не отображается параметр сброса пароля или включения многофакторной проверки подлинности. Сейчас при входе пользователя проверяется только политика проверки подлинности домашнего каталога или учетная запись Майкрософт.
 
 > [AZURE.NOTE]
-> You can still disable the external user in the directory, which blocks access to your directory.
+Вы все еще можете отключить внешнего пользователя в каталоге. Это заблокирует доступ к вашему каталогу.
 
-If a user is deleted in their home directory or they cancel their Microsoft account, the external user still exists in your directory. However, the user in your directory can't access resources because they can't authenticate with a home directory or Microsoft account.
+Если пользователь будет удален в домашнем каталоге или удалит учетную запись Майкрософт, внешний пользователь в каталоге сохранится. Но пользователь в вашем каталоге не сможет получить доступ к ресурсам, так как не сможет пройти проверку подлинности в домашнем каталоге или учетной записи Майкрософт.
 
-### <a name="services-that-currently-support-access-by-azure-ad-external-users"></a>Services that currently support access by Azure AD external users
+### Службы, которые сейчас поддерживают доступ для внешних пользователей Azure AD
 
-- **Azure classic portal**: allows an external user who's an administrator of multiple directories to manage each of those directories.
-- **SharePoint Online**: if external sharing is enabled, allows an external user to access SharePoint Online authorized resources.
-- **Dynamics CRM**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics CRM.
-- **Dynamics AX**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics AX. The limitations for [Azure AD external users](#known-limitations-of-azure-ad-external-users) apply to external users in Dynamics AX as well.
+- **Классический портал Azure** позволяет внешнему пользователю, который является администратором нескольких каталогов, управлять каждым из этих каталогов.
+- **SharePoint Online** позволяет внешнему пользователю обращаться к авторизованным ресурсам SharePoint Online, если включен внешний общий доступ.
+- **Dynamics CRM** позволяет внешнему пользователю обращаться к авторизованным ресурсам Dynamics CRM, если у него есть лицензия PowerShell.
+- **Dynamics AX** позволяет внешнему пользователю обращаться к авторизованным ресурсам Dynamics AX, если у него есть лицензия PowerShell. На внешних пользователей в Dynamics AX также распространяются ограничения для [внешних пользователей Azure AD](#known-limitations-of-azure-ad-external-users).
 
-### <a name="known-limitations-of-azure-ad-external-users"></a>Known limitations of Azure AD external users
+### Известные ограничения для внешних пользователей Azure AD
 
-- External users who are admins can't add users from partner companies to directories (B2B collaboration) outside their home directory
-- External users can't consent to multi-tenant applications in directories outside of their home directory
-- PowerBI doesn't currently support access by external users
-- Office Portal doesn't support licensing external users
-- With respect to Azure AD PowerShell, external users are logged into their home directory and cannot manage directories in which they are external users
-
-
-## <a name="what's-next"></a>What's next
-
-- [Add new users to Azure Active Directory](active-directory-create-users.md)
-- [Administering Azure AD](active-directory-administer.md)
-- [Manage passwords in Azure AD](active-directory-manage-passwords.md)
-- [Manage groups in Azure AD](active-directory-manage-groups.md)
+- Внешние пользователи, которые являются администраторами, не могут добавлять пользователей компаний-партнеров в другие каталоги (совместная работа B2B) за пределами своего домашнего каталога.
+- Внешние пользователи не могут предоставлять согласие на использование мультитенантных приложениях в каталогах, не принадлежащих к домашнему каталогу.
+- Сейчас PowerBI не поддерживает доступ внешних пользователей.
+- Портал Office не поддерживает лицензирование внешних пользователей.
+- Что касается Azure AD PowerShell, внешние пользователи входят в домашний каталог и не могут управлять каталогами, в которых они выступают внешними пользователями.
 
 
+## Что дальше?
 
-<!--HONumber=Oct16_HO2-->
+- [Добавление новых пользователей в Azure Active Directory](active-directory-create-users.md)
+- [Администрирование Azure AD](active-directory-administer.md)
+- [Управление паролями в Azure AD](active-directory-manage-passwords.md)
+- [Управление группами в Azure AD](active-directory-manage-groups.md)
 
-
+<!---HONumber=AcomDC_0928_2016-->

@@ -1,6 +1,6 @@
 <properties
-pageTitle="Azure Active Directory v2.0 .NET Native App | Microsoft Azure"
-description="How to build a .NET native app that signs users in with both personal Microsoft Account and work or school accounts."
+pageTitle="Собственное приложение .NET версии 2.0 для Azure Active Directory | Microsoft Azure"
+description="Как создать собственное приложение .NET, которое поддерживает вход пользователей с помощью личной учетной записи Майкрософт, а также рабочей или учебной учетных записей."
 services="active-directory"
 documentationCenter=""
 authors="dstrockis"
@@ -16,65 +16,64 @@ ms.topic="article"
 ms.date="07/30/2016"
 ms.author="dastrock; vittorib"/>
 
+# Добавление функции входа в классическое приложение для Windows
 
-# <a name="add-sign-in-to-a-windows-desktop-app"></a>Add sign-in to a Windows Desktop app
+Точка доступа версии 2.0 позволяет быстро реализовать в классических приложениях аутентификацию с поддержкой личных учетных записей Майкрософт, а также рабочих или учебных учетных записей. Она также позволяет приложению безопасно обмениваться данными с серверным веб-API, а также [Microsoft Graph](https://graph.microsoft.io) и несколькими [унифицированными API Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
 
-With the the v2.0 endpoint, you can quickly add authentication to your desktop apps with support for both personal Microsoft accounts and work or school accounts.  It also enables your app to securely communicate with a backend web api, as well as [the Microsoft Graph](https://graph.microsoft.io) and a few of the [Office 365 Unified APIs](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
+> [AZURE.NOTE] Не все сценарии и компоненты Azure Active Directory (AD) поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку версии 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
 
-> [AZURE.NOTE] Not all Azure Active Directory (AD) scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+Для [собственных приложений .NET, запущенных на устройстве](active-directory-v2-flows.md#mobile-and-native-apps), в Azure AD предлагается использовать библиотеку проверки подлинности Майкрософт (MSAL). MSAL помогает приложению быстро получать маркеры доступа и вызывать веб-службы. Чтобы показать, насколько это просто, создадим приложение To Do List (ведение списка дел) для .NET WPF, которое:
 
-For [.NET native apps that run on a device](active-directory-v2-flows.md#mobile-and-native-apps), Azure AD provides the Microsoft Identity Authentication Library, or MSAL.  MSAL's sole purpose in life is to make it easy for your app to get tokens for calling web services.  To demonstrate just how easy it is, here we'll build a .NET WPF To-Do List app that:
+- выполняет вход пользователя и получает маркеры доступа с помощью [протокола проверки подлинности OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow);
+- безопасно вызывает серверную веб-службу списка дел, которая также защищена OAuth 2.0.
+- обеспечивает выход пользователя из приложения.
 
-- Signs the user in & gets access tokens using the [OAuth 2.0 authentication protocol](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
-- Securely calls a backend To-Do List web service, which is also secured by OAuth 2.0.
-- Signs the user out.
+## Скачивание примера кода
 
-## <a name="download-sample-code"></a>Download sample code
-
-The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) or clone the skeleton:
+Код в этом учебнике размещен на портале [GitHub](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet). Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/skeleton.zip) или клонировать ее:
 
     git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
 
-The completed app is provided at the end of this tutorial as well.
+Готовое приложение также приводится в конце этого руководства.
 
-## <a name="register-an-app"></a>Register an app
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## регистрация приложения;
+Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните [эти подробные указания](active-directory-v2-app-registration.md). Не забудьте:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Mobile** platform for your app.
+- запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
+- Добавьте для приложения **мобильную** платформу.
 
-## <a name="install-&-configure-msal"></a>Install & Configure MSAL
-Now that you have an app registered with Microsoft, you can install MSAL and write your identity-related code.  In order for MSAL to be able to communicate the v2.0 endpoint, you need to provide it with some information about your app registration.
+## Установка и настройка MSAL
+Ваше приложение зарегистрировано в Майкрософт. Теперь вы можете установить MSAL и написать собственный код для работы с удостоверением. Чтобы библиотека MSAL могла обмениваться информацией с конечной точкой версии 2.0, вам нужно предоставить определенную информацию о регистрации приложения.
 
--   Begin by adding MSAL to the TodoListClient project using the Package Manager Console.
+-	Сначала добавьте MSAL в проект TodoListClient с помощью консоли диспетчера пакетов.
 
 ```
 PM> Install-Package Microsoft.Identity.Client -ProjectName TodoListClient -IncludePrerelease
 ```
 
--   In the TodoListClient project, open `app.config`.  Replace the values of the elements in the `<appSettings>` section to reflect the values you input into the app registration portal.  Your code will reference these values whenever it uses MSAL.
-    -   The `ida:ClientId` is the **Application Id** of your app you copied from the portal.
+-	В проекте TodoListClient откройте `app.config`. Замените значения элементов в разделе `<appSettings>` на значения, введенные на портале регистрации приложений. Код будет использовать эти значения при каждом обращении к библиотеке MSAL.
+    -	`ida:ClientId` — это **идентификатор приложения**, скопированный с портала.
 
-- In the TodoList-Service project, open `web.config` in the root of the project.  
-    - Replace the `ida:Audience` value with the same **Application Id** from the portal.
+- В проекте TodoList-Service откройте `web.config` в корневой папке проекта.
+    - Замените значение `ida:Audience` на **идентификатор приложения** с портала.
 
-## <a name="use-msal-to-get-tokens"></a>Use MSAL to get tokens
-The basic principle behind MSAL is that whenever your app needs an access token, you simply call `app.AcquireToken(...)`, and MSAL does the rest.  
+## Использование MSAL для получения маркеров
+MSAL используется следующим образом. Каждый раз, когда приложению требуется маркер доступа, оно будет просто вызывать `app.AcquireToken(...)`, а MSAL сделает все остальное.
 
--   In the `TodoListClient` project, open `MainWindow.xaml.cs` and locate the `OnInitialized(...)` method.  The first step is to initialize your app's `PublicClientApplication` - MSAL's primary class representing native applications.  This is where you pass MSAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
+-	В проекте `TodoListClient` откройте `MainWindow.xaml.cs` и найдите метод `OnInitialized(...)`. Первый шаг — инициализация в приложении `PublicClientApplication`, основного класса MSAL, представляющего собственные приложения. На этом этапе вы отправляете в MSAL координаты, необходимые для взаимодействия с Azure AD, а также сообщаете о способе кэширования маркеров.
 
 ```C#
 protected override async void OnInitialized(EventArgs e)
 {
-        base.OnInitialized(e);
+		base.OnInitialized(e);
 
-        app = new PublicClientApplication(new FileCache());
-        AuthenticationResult result = null;
-        ...
+		app = new PublicClientApplication(new FileCache());
+		AuthenticationResult result = null;
+		...
 }
 ```
 
-- When the app starts up, we want to check and see if the user is already signed into the app.  However, we don't want to invoke a sign-in UI just yet - we'll make the user click "Sign In" to do so.  Also in the `OnInitialized(...)` method:
+- После запуска приложения необходимо проверить, выполнил ли пользователь вход в приложение. Однако пока нет необходимости вызывать пользовательский интерфейс входа: пользователь должен нажать кнопку "Вход". Также в методе `OnInitialized(...)`:
 
 ```C#
 // As the app starts, we want to check to see if the user is already signed in.
@@ -111,12 +110,12 @@ catch (MsalException ex)
 
 ```
 
-- If the user is not signed in and they click the "Sign In" button, we want to invoke a login UI and have the user enter their credentials.  Implement the Sign-In button handler:
+- Если пользователь не выполнил вход и нажал кнопку "Вход", необходимо вызвать пользовательский интерфейс входа и запросить ввод учетных данных. Реализуйте обработчик кнопки "Вход".
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-        // TODO: Sign the user out if they clicked the "Clear Cache" button
+		// TODO: Sign the user out if they clicked the "Clear Cache" button
 
 // If the user clicked the 'Sign-In' button, force
 // MSAL to prompt the user for credentials by using
@@ -159,7 +158,7 @@ catch (MsalException ex)
 }
 ```
 
-- If the user successfully signs-in, MSAL will receive and cache a token for you, and you can proceed to call the `GetTodoList()` method with confidence.  All that's left to get a user's tasks is to implement the `GetTodoList()` method.
+- Если пользователь успешно выполняет вход, MSAL получает и кэширует маркер, а вы можете вызвать метод `GetTodoList()`. Осталось получить задачи пользователя — реализовать метод `GetTodoList()`.
 
 ```C#
 private async void GetTodoList()
@@ -207,7 +206,7 @@ catch (MsalException ex)
 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
 
-        ...
+		...
 ...
 
 
@@ -216,50 +215,46 @@ httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-        // If the user clicked the 'clear cache' button,
-        // clear the MSAL token cache and show the user as signed out.
-        // It's also necessary to clear the cookies from the browser
-        // control so the next user has a chance to sign in.
+		// If the user clicked the 'clear cache' button,
+		// clear the MSAL token cache and show the user as signed out.
+		// It's also necessary to clear the cookies from the browser
+		// control so the next user has a chance to sign in.
 
-        if (SignInButton.Content.ToString() == "Clear Cache")
-        {
-                TodoList.ItemsSource = string.Empty;
-                app.UserTokenCache.Clear(app.ClientId);
-                ClearCookies();
-                SignInButton.Content = "Sign In";
-                return;
-        }
+		if (SignInButton.Content.ToString() == "Clear Cache")
+		{
+				TodoList.ItemsSource = string.Empty;
+				app.UserTokenCache.Clear(app.ClientId);
+				ClearCookies();
+				SignInButton.Content = "Sign In";
+				return;
+		}
 
-        ...
+		...
 ```
 
-## <a name="run"></a>Run
+## Выполнить
 
-Congratulations! You now have a working .NET WPF app that has the ability to authenticate users & securely call Web APIs using OAuth 2.0.  Run your both projects, and sign in with either a personal Microsoft account or a work or school account.  Add tasks to that user's To-Do list.  Sign out, and sign back in as another user to view their To-Do list.  Close the app, and re-run it.  Notice how the user's session remains intact - that is because the app caches tokens in a local file.
+Поздравляем! Теперь у вас есть работающее приложение .NET WPF, которое может проверять подлинность пользователей и выполнять безопасные вызовы веб-API при помощи OAuth 2.0. Запустите оба проекта и выполните вход с личной учетной записью Майкрософт, рабочей или учебной учетной записью. Добавьте задачи в список дел этого пользователя.   Выйдите из системы и выполните вход от имени других пользователей, чтобы просмотреть их списки дел. Закройте приложение и снова его запустите. Обратите внимание, что сеанс пользователя при этом не прерывается, так как приложение кэширует маркеры в локальный файл.
 
-MSAL makes it easy to incorporate common identity features into your app, using both personal and work accounts.  It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more.  All you really need to know is a single API call, `app.AcquireTokenAsync(...)`.
+MSAL позволяет легко включать в приложение общие функции идентификации, позволяя использовать личные и рабочие учетные записи. Он отвечает за всю грязную работу: управление кэшем, поддержку протокола OAuth, предоставление пользователю пользовательского интерфейса для входа, обновление истекших маркеров и многое другое. Все, что вам действительно нужно знать, — это вызов интерфейса API `app.AcquireTokenAsync(...)`.
 
-For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip), or you can clone it from GitHub:
+Готовый пример (без ваших значений конфигурации) [можно скачать в виде ZIP-файла здесь](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip) или клонировать с портала GitHub.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-You can now move onto more advanced topics.  You may want to try:
+Теперь можно перейти к более сложным темам. Можно попробовать:
 
-- [Securing the TodoListService Web API with the v2.0 endpoint](active-directory-v2-devquickstarts-dotnet-api.md)
+- [Защита веб-API TodoListService с помощью конечной точки версии 2.0](active-directory-v2-devquickstarts-dotnet-api.md)
 
-For additional resources, check out:  
+Дополнительные ресурсы:
 
-- [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow "msal" tag >>](http://stackoverflow.com/questions/tagged/msal)
+- [Руководство разработчика версии 2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Тег msal на сайте StackOverflow >>](http://stackoverflow.com/questions/tagged/msal)
 
-## <a name="get-security-updates-for-our-products"></a>Get security updates for our products
+## Получение обновлений системы безопасности для наших продуктов
 
-We encourage you to get notifications of when security incidents occur by visiting [this page](https://technet.microsoft.com/security/dd252948) and subscribing to Security Advisory Alerts.
+Рекомендуем вам настроить уведомления о нарушениях безопасности. Это можно сделать, подписавшись на уведомления безопасности консультационных служб на [этой странице](https://technet.microsoft.com/security/dd252948).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

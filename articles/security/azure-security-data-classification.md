@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Data Classification for Azure | Microsoft Azure"
-   description="This article provides an introduction to the fundamentals of data classification, and highlights its value, specifically in the context of cloud computing and using Microsoft Azure"
+   pageTitle="Классификация данных для Azure | Microsoft Azure"
+   description="В этой статье описываются основы классификации данных и подчеркивается ее ценность, особенно в контексте облачных вычислений и использования Microsoft Azure"
    services="security"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,233 +16,227 @@
    ms.date="08/16/2016"
    ms.author="yurid"/>
 
+# Классификация данных для Azure
 
-# <a name="data-classification-for-azure"></a>Data classification for Azure
+В этой статье описываются основы классификации данных и подчеркивается ее ценность, особенно в контексте облачных вычислений и использования Microsoft Azure.
 
-This article provides an introduction to the fundamentals of data classification and highlights its value, specifically in the context of cloud computing and using Microsoft Azure. 
+## Основы классификации данных
 
-## <a name="data-classification-fundamentals"></a>Data classification fundamentals
-
-Successful data classification in an organization requires broad awareness of your organization’s needs and a thorough understanding of where your data assets reside.  
+Для успешной классификации данных в организации требуются полная осведомленность о потребностях организации и исчерпывающие сведения о размещении ресурсов данных.
  
-Data exists in one of three basic states: 
+Данные существуют в одном из трех основных состояний:
 
-- At rest 
-- In process 
-- In transit 
+- неактивные данные;
+- Выполняется
+- В пути
  
-All three states require unique technical solutions for data classification, but the applied principles of data classification should be the same for each. Data that is classified as confidential needs to stay confidential when at rest, in process, and in transit. 
+Все три состояния требуют уникальных технических решений для классификации данных, но применяемые при этом принципы должны быть одинаковыми для каждого из них. Данные, которые классифицируются как конфиденциальные, должны оставаться конфиденциальными при хранении, обработке и передаче.
  
-Data can also be either structured or unstructured. Typical classification processes for the structured data found in databases and spreadsheets are less complex and time-consuming to manage than those for unstructured data such as documents, source code, and email. 
+Кроме того, данные могут быть структурированными и неструктурированными. Обычно классификация структурированных данных из баз данных и электронных таблиц требует меньше усилий и времени, чем классификация неструктурированных данных, например документов, исходного кода и электронной почты.
 
-> [AZURE.TIP] for more information regarding Azure capabilities and best practices for data encryption read [Azure Data Encryption Best Practices](azure-security-data-encryption-best-practices.md)
+> [AZURE.TIP] Дополнительные сведения о возможностях Azure и рекомендациях по шифрованию данных см. в статье [Azure Data Encryption Best Practices](azure-security-data-encryption-best-practices.md) (Рекомендации по шифрованию данных Azure).
 
-In general, organizations will have more unstructured data than structured data. Regardless of whether data is structured or unstructured, it is important for you to manage data sensitivity. When properly implemented, data classification helps ensure that sensitive or confidential data assets are managed with greater oversight than data assets that are considered public or free to distribute. 
+Как правило, объем неструктурированных данных превышает объем структурированных данных в организациях. Независимо от типа данных важно управлять их конфиденциальностью. При правильной реализации классификация данных обеспечивает более строгое управление закрытыми или конфиденциальными ресурсами данных, чем управление ресурсами данных, которые считаются общедоступными или подлежащими свободному распространению.
 
-### <a name="controlling-access-to-data"></a>Controlling access to data 
+### Управление доступом к данным 
 
-Authentication and authorization are often confused with each other and their roles misunderstood. In reality they are quite different, as shown in the following figure.  
+Проверку подлинности и авторизацию часто путают друг с другом, понимая их роли неправильно. На самом деле между ними есть довольно большие различия, как показано на следующем рисунке.
 
-![Data access and control](./media/azure-security-data-classification/azure-security-data-classification-fig1.png)
+![Доступ к данным и управление ими](./media/azure-security-data-classification/azure-security-data-classification-fig1.png)
 
-### <a name="authentication"></a>Authentication 
+### Аутентификация 
 
-Authentication typically consists of at least two parts: a username or user ID to identify a user and a token, such as a password, to confirm that the username credential is valid. The process does not provide the authenticated user with access to any items or services; it verifies that the user is who they say they are.   
+Обычно при проверке подлинности используются по крайней мере два компонента: имя или идентификатор пользователя, которые позволяют идентифицировать пользователя, и маркер, например пароль, который позволяет подтвердить допустимость имени пользователя. При этом пользователь, прошедший проверку подлинности, не получает доступ ко всем элементам или службам. Таким образом проверяется достоверность предоставленных им данных.
 
-> [AZURE.TIP] [Azure Active Directory](../active-directory/active-directory-whatis.md) provides cloud-based identity services that allow you to authenticate and authorize users. 
+> [AZURE.TIP] [Azure Active Directory](../active-directory/active-directory-whatis.md) предоставляет облачные службы идентификации, которые позволяют выполнять проверку подлинности и авторизацию пользователей.
 
-### <a name="authorization"></a>Authorization
+### Авторизация
  
-Authorization is the process of providing an authenticated user the ability to access an application, data set, data file, or some other object. Assigning authenticated users the rights to use, modify, or delete items that they can access requires attention to data classification. 
+Авторизация — это процесс предоставления пользователю, прошедшему проверку подлинности, возможности доступа к приложению, набору данных, файлу данных или другому объекту. Назначая пользователям, прошедшим проверку подлинности, права на использование, изменение или удаление элементов, к которым они могут получить доступ, нужно обратить внимание на классификацию данных.
 
-Successful authorization requires implementation of a mechanism to validate individual users’ needs to access files and information based on a combination of role, security policy, and risk policy considerations. For example, data from specific line-of-business (LOB) applications might not need to be accessed by all employees, and only a small subset of employees will likely need access to human resources (HR) files. But for organizations to control who can access data, as well as when and how, an effective system for authenticating users must be in place. 
+Для успешной авторизации требуется внедрить механизм оценки потребности отдельных пользователей в получении доступа к файлам и данным на основе роли, политики безопасности и политики риска. Например, данные определенных бизнес-приложений не должны быть доступны для всех сотрудников и только небольшой группе сотрудников может понадобиться доступ к файлам отдела кадров. Однако для управления доступом к данным (кто может получать доступ, когда и как) в организации требуется внедрить эффективную систему проверки подлинности пользователей.
 
-> [AZURE.TIP] in Microsoft Azure, make sure to leverage Azure Role-Based Access Control (RBAC) to grant only the amount of access that users need to perform their jobs. Read [Use role assignments to manage access to your Azure Active Directory resources](../active-directory/role-based-access-control-configure.md) for more information. 
+> [AZURE.TIP] В Microsoft Azure следует использовать управление доступом на основе ролей (RBAC), чтобы предоставлять уровень доступа, необходимый пользователям для выполнения своей работы. Дополнительные сведения см. в статье [Использование назначений ролей для управления доступом к ресурсам Azure Active Directory](../active-directory/role-based-access-control-configure.md).
 
-### <a name="roles-and-responsibilities-in-cloud-computing"></a>Roles and responsibilities in cloud computing 
+### Роли и обязанности в облачных вычислениях 
 
-Although cloud providers can help manage risks, customers need to ensure that data classification management and enforcement is properly implemented to provide the appropriate level of data management services.  
+Несмотря на то, что поставщики облачных услуг могут помочь в управлении рисками, клиентам необходимо обеспечить должную реализацию управления и принудительного применения классификации данных. Таким образом они смогут предоставлять службы управления данными на соответствующем уровне.
  
-Data classification responsibilities will vary based on which cloud service model is in place, as shown in the following figure. The three primary cloud service models are infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS). Implementation of data classification mechanisms will also vary based on the reliance on and expectations of the cloud provider. 
+Обязанности при классификации данных меняются в зависимости от используемой модели облачной службы, как показано на рисунке ниже. Облачные службы предоставляются по трем моделям: инфраструктура как услуга (IaaS), платформа как услуга (PaaS) и программное обеспечение как услуга (SaaS). Реализация механизмов классификации данных также отличается с учетом зависимости от поставщика облачных услуг и ожиданий.
 
-![Roles](./media/azure-security-data-classification/azure-security-data-classification-fig2.png)
+![Роли](./media/azure-security-data-classification/azure-security-data-classification-fig2.png)
 
-Although you are responsible for classifying your data, cloud providers should make written commitments about how they will secure and maintain the privacy of the customer data stored within their cloud.  
+Хотя вы сами отвечаете за классификацию своих данных, поставщик облачных услуг должен составить письменное обязательство по защите и обеспечению конфиденциальности данных клиента, хранящихся в облаке.
 
-- **IaaS providers** requirements are limited to ensuring that the virtual environment can accommodate data classification capabilities and customer compliance requirements. IaaS providers have a smaller role in data classification because they only need to ensure that customer data addresses compliance requirements. However, providers must still ensure that their virtual environments address data classification requirements in addition to securing their data centers.
-- **PaaS providers** responsibilities may be mixed, because the platform could be used in a layered approach to provide security for a classification tool. PaaS providers may be responsible for authentication and possibly some authorization rules, and must provide security and data classification capabilities to their application layer. Much like IaaS providers, PaaS providers need to ensure that their platform complies with any relevant data classification requirements.
-- **SaaS providers** will frequently be considered as part of an authorization chain, and will need to ensure that the data stored in the SaaS application can be controlled by classification type. SaaS applications can be used for LOB applications, and by their very nature need to provide the means to authenticate and authorize data that is used and stored. 
+- От **поставщиков услуг IaaS** требуется лишь обеспечить возможность виртуальной среде использовать классификацию данных и удовлетворить требования клиента. Поставщикам услуг IaaS отведена небольшая роль в классификации данных, так как им нужно только обеспечить соответствие данных клиента нормативным требованиям. Однако им нужно обеспечивать не только защиту центров обработки данных, но и соответствие виртуальной среды требованиям к классификации данных.
+- **Поставщики услуг PaaS** могут отвечать за выполнение различных задач, так как для обеспечения безопасности средства классификации к платформе может применяться многоуровневый подход. Эти поставщики могут отвечать за правила проверки подлинности и, возможно, некоторые правила авторизации. Кроме того, они должны предоставлять возможности обеспечения безопасности и классификации данных на уровне приложения. Как и поставщики услуг IaaS, поставщики услуг PaaS отвечают за соответствие своей платформы всем требованиям к классификации данных.
+- **Поставщики услуг SaaS** часто считаются частью цепочки авторизации. Они должны обеспечить управление данными, хранящимися в приложении SaaS, по типу классификации. Приложения SaaS можно использовать для бизнес-приложений. С учетом структуры приложений SaaS они должны содержать средства для проверки подлинности и авторизации хранимых и используемых данных.
 
-## <a name="classification-process"></a>Classification process 
+## Процесс классификации 
 
-Many organizations that understand the need for data classification and want to implement it face a basic challenge: where to begin?
+Во многих организациях, которые осознают необходимость классификации данных и ее реализации, возникает главный вопрос: с чего начать?
 
-One effective and simple way to implement data classification is to use the PLAN, DO, CHECK, ACT model from [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). The following figure charts the tasks that are required to successfully implement data classification in this model.  
+Один из эффективных и простых способов реализации классификации данных — использование модели "ПЛАНИРОВАНИЕ, ВЫПОЛНЕНИЕ, ПРОВЕРКА, РЕАГИРОВАНИЕ" [MOF](https://technet.microsoft.com/solutionaccelerators/dd320379.aspx). На схеме ниже представлены задачи, необходимые для успешной реализации классификации данных по этой модели.
 
-1. **PLAN**. Identify data assets, a data custodian to deploy the classification program, and develop protection profiles. 
-2. **DO**. After data classification policies are agreed upon, deploy the program and implement enforcement technologies as needed for confidential data.  
-3. **CHECK**. Check and validate reports to ensure that the tools and methods being used are effectively addressing the classification policies. 
-4. **ACT**. Review the status of data access and review files and data that require revision using a reclassification and revision methodology to adopt changes and to address new risks.  
+1. **ПЛАНИРОВАНИЕ**. Определите ресурсы данных, хранителя данных для развертывания программы классификации и разработайте профили защиты.
+2. **ВЫПОЛНЕНИЕ**. После согласования политик классификации данных разверните программу и внедрите технологии принудительного применения, необходимые для конфиденциальных данных.
+3. **ПРОВЕРКА**. Проверьте отчеты, чтобы убедиться, что используемые средства и методы соответствуют политикам классификации.
+4. **РЕАГИРОВАНИЕ**. Проверьте состояние доступа к данным, а также файлы и данные, которые требуется изменить, используя методы реклассификации и исправления, чтобы применить изменения и учесть новые риски.
 
-![Plan, do, Check, Act](./media/azure-security-data-classification/azure-security-data-classification-fig3.png)
+![Планирование, выполнение, проверка, реагирование](./media/azure-security-data-classification/azure-security-data-classification-fig3.png)
  
-###<a name="select-a-terminology-model-that-addresses-your-needs"></a>Select a terminology model that addresses your needs
+###Выбор модели терминологии, соответствующей требованиям
  
-Several types of processes exist for classifying data, including manual processes, location-based processes that classify data based on a user’s or system’s location, application-based processes such as database-specific classification, and automated processes used by various technologies, some of which are described in the “Protecting confidential data” section later in this article.  
+Для классификации данных используются процессы нескольких типов, в том числе процессы, выполняемые вручную, процессы, при которых данные классифицируются с учетом расположения пользователя или компьютера, процессы на уровне приложения, например классификация по конкретной базе данных, и автоматизированные процессы, используемые в различных технологиях. Некоторые из них описаны в разделе "Защита конфиденциальных данных" далее в этой статье.
  
-This article introduces two generalized terminology models that are based on well-used and industry-respected models. These terminology models, both of which provide three levels of classification sensitivity, are shown in the following table.  
+В этой статье рассматриваются две общие модели терминологии, основанные на широко используемых и принятых в отрасли моделях. Эти модели терминологии, обеспечивающие три уровня классификации, указаны в следующей таблице.
 
-> [AZURE.NOTE] when classifying a file or resource that combines data that would typically be classified at differing levels, the highest level of classification present should establish the overall classification. For example, a file containing sensitive and restricted data should be classified as restricted.  
+> [AZURE.NOTE] При классификации файла или ресурса, содержащего данные на различных уровнях классификации, общая классификация определяется по самому высокому уровню. Например, файл, содержащий закрытые данные и данные с ограниченным доступом, должен быть классифицирован как файл с ограниченным доступом.
 
-| **Sensitivity**   | **Terminology model 1**   | **Terminology model 2** |
+| **Уровень** | **Модель терминологии 1** | **Модель терминологии 2** |
 |--------------------|---------------------------|-------------------------|
-| High               | Confidential              | Restricted              |
-| Medium             | For internal use only     | Sensitive               |
-| Low                | Public                    | Unrestricted            |
+| Высокий | Конфиденциально | С ограниченным доступом |
+| Средний | Только для внутреннего использования | Закрытые данные |
+| Низкий | Общедоступные | С неограниченным доступом |
 
-#### <a name="confidential-(restricted)"></a>Confidential (restricted) 
+#### Конфиденциальная информация (с ограниченным доступом) 
 
-Information that is classified as confidential or restricted includes data that can be catastrophic to one or more individuals and/or organizations if compromised or lost. Such information is frequently provided on a “need to know” basis and might include: 
+Информация, которая классифицируется как конфиденциальная или с ограниченным доступом — это сведения, компрометация или потеря которых может привести к катастрофическим последствиям для одного или нескольких пользователей и/или организации. Такие сведения часто предоставляются по принципу служебной необходимости и могут включать следующие:
 
-- Personal data, including personally identifiable information such as Social Security or national identification numbers, passport numbers, credit card numbers, driver's license numbers, medical records, and health insurance policy ID numbers.  
-- Financial records, including financial account numbers such as checking or investment account numbers. 
-- Business material, such as documents or data that is unique or specific intellectual property.  
-- Legal data, including potential attorney-privileged material. 
-- Authentication data, including private cryptography keys, username password pairs, or other identification sequences such as private biometric key files. 
+- Личные данные, включая персональные сведения, например номер социального страхования или национальный идентификационный номер, номер и серия паспорта, номера кредитных карт, номера водительских удостоверений, номера медицинских карт и номер договора страхования.
+- Финансовая документация, включая номера финансовых счетов, например номера расчетных или инвестиционных счетов.
+- Корпоративные материалы, например документы или данные, которые являются уникальными или рассматриваются как интеллектуальная собственность.
+- Юридические данные, включая потенциальные материалы, к которым может получить доступ только юрист.
+- Данные проверки подлинности, включая закрытые криптографические ключи, пары имен пользователей и паролей или другие идентификационные сведения, например личные файлы с биометрическими ключами.
 
-Data that is classified as confidential frequently has regulatory and compliance requirements for data handling. 
+К обработке данных, которые классифицируются как конфиденциальные, часто применяются нормы и требования.
 
-#### <a name="for-internal-use-only-(sensitive)"></a>For internal use only (sensitive)
+#### Сведения только для внутреннего использования (закрытые данные)
  
-Information that is classified as being of medium sensitivity includes files and data that would not have a severe impact on an individual and/or organization if lost or destroyed. Such information might include: 
+Сведения, которые классифицируются как закрытые (средний уровень), включают файлы и данные, потеря или уничтожение которых не приведет к серьезным последствиям для отдельного пользователя и/или организации. Такие сведения могут включать:
 
-- Email, most of which can be deleted or distributed without causing a crisis (excluding mailboxes or email from individuals who are identified in the confidential classification).  
-- Documents and files that do not include confidential data.
+- Сообщения электронной почты, большинство из которых можно беспроблемно удалить или распространить (кроме почтовых ящиков или электронных сообщений от отдельных пользователей, определенных в рамках классификации конфиденциальных данных).
+- Документы и файлы, которые не содержат конфиденциальные данные.
  
-Generally, this classification includes anything that is not confidential. This classification can include most business data, because most files that are managed or used day-to-day can be classified as sensitive. With the exception of data that is made public or is confidential, all data within a business organization can be classified as sensitive by default. 
+Как правило, сюда относятся любые сведения, не являющиеся конфиденциальными. Эта классификация может включать большинство бизнес-данных, так как большинство файлов, используемых ежедневно, можно классифицировать как закрытые. Все данные в организации можно по умолчанию классифицировать как закрытые, кроме общедоступных или конфиденциальных данных.
 
-#### <a name="public-(unrestricted)"></a>Public (unrestricted)
+#### Общедоступные сведения (с неограниченным доступом)
  
-Information that is classified as public includes data and files that are not critical to business needs or operations. This classification can also include data that has deliberately been released to the public for their use, such as marketing material or press announcements. In addition, this classification can include data such as spam email messages stored by an email service. 
+Сведения, которые классифицируются как общедоступные, включают данные и файлы, которые не являются критически важными для удовлетворения требований организации или выполнения операций. Эта классификация может также включать данные, намеренно предоставленные для общего использования, например маркетинговые материалы и пресс-релизы. Кроме того, эта классификация может включать нежелательные сообщения электронной почты, которые хранятся в службе электронной почты.
 
-### <a name="define-data-ownership"></a>Define data ownership
+### Определение владельца данных
  
-It’s important to establish a clear custodial chain of ownership for all data assets. The following table identifies different data ownership roles in data classification efforts and their respective rights.  
+Очень важно установить четкую цепочку владения для всех ресурсов данных. В следующей таблице указаны роли владельцев данных с учетом процессов, выполняемых при классификации данных, и их права.
 
-| **Role**        | **Create**    | **Modify/delete**   | **Delegate**  | **Read**    | **Archive/restore**   |
+| **Роль** | **Создание** | **Изменение и удаление** | **Делегирование** | **чтение** | **Архивация и восстановление** |
 |-----------------|---------------|---------------------|---------------|-------------|-----------------------|
-| Owner           | X             | X                   | X             | X           | X                     |
-| Custodian       |               |                     | X             |             |                       |
-| Administrator   |               |                     |               |             | X                     |
-| User\*          |               | X                   |               | X           |                       |
-**Users may be granted additional rights such as edit and delete by a custodian* 
+| Владелец | X | X | X | X | X |
+| Хранитель | | | X | | |
+| Администратор | | | | | X |
+| Пользователь* | | X | | X | |
+* *Хранитель может предоставить пользователю дополнительные права, например права на изменение и удаление.*
 
-> [AZURE.NOTE] this table does not provide an exhaustive list of roles and rights, but merely a representative sample. 
+> [AZURE.NOTE] Эта таблица не содержит исчерпывающий список ролей и прав. Она приведена в качестве репрезентативного примера.
 
-The **data asset owner** is the original creator of the data, who can delegate ownership and assign a custodian. When a file is created, the owner should be able to assign a classification, which means that they have a responsibility to understand what needs to be classified as confidential based on their organization’s policies. All of a data asset owner’s data can be auto-classified as for internal use only (sensitive) unless they are responsible for owning or creating confidential (restricted) data types. Frequently, the owner’s role will change after the data is classified. For example, the owner might create a database of classified information and relinquish their rights to the data custodian.  
+**Владелец ресурса данных** — это создатель данных, который может делегировать права владельца и назначать хранителей. При создании файла у владельца должна быть возможность назначения классификации. Это означает, что он должен определить, какой информации следует присвоить статус конфиденциальной на основе политик организации. Все данные владельца ресурса данных могут быть автоматически классифицированы как данные только для внутреннего использования (закрытые данные), если он не отвечает за владение конфиденциальными данными (с ограниченным доступом) или их создание. Как правило, роль владельца изменяется после классификации данных. Например, владелец может создать базу данных с классифицированной информацией и передать свои права хранителю данных.
 
-> [AZURE.NOTE] data asset owners often use a mixture of services, devices, and media, some of which are personal and some of which belong to the organization. A clear organizational policy can help ensure that usage of devices such as laptops and smart devices is in accordance with data classification guidelines.  
+> [AZURE.NOTE] Зачастую владельцы ресурсов данных используют разные службы, устройства и носители, некоторые из которых являются личными, а некоторые — принадлежат организации. Явно определенная политика организации может обеспечить использование устройств, например ноутбуков и интеллектуальных устройств, в соответствии с требованиями классификации данных.
 
-The **data asset custodian** is assigned by the asset owner (or their delegate) to manage the asset according to agreements with the asset owner or in accordance with applicable policy requirements. Ideally, the custodian role can be implemented in an automated system. An asset custodian ensures that necessary access controls are provided and is responsible for managing and protecting assets delegated to their care. The responsibilities of the asset custodian could include:  
+**Хранителя ресурсов данных** назначает владелец ресурсов (или его делегат). Хранитель управляет ресурсами в соответствии с условиями соглашения с владельцем ресурсов или в соответствии с требованиями политики. В идеале роль хранителя можно реализовать в автоматизированной системе. Хранитель ресурсов обеспечивает предоставление необходимых элементов управления доступом и отвечает за защиту делегированных ресурсов и управление ими. Хранитель ресурсов может иметь следующие обязанности:
 
-- Protecting the asset in accordance with the asset owner’s direction or in agreement with the asset owner 
-- Ensuring that classification policies are complied with 
-- Informing asset owners of any changes to agreed-upon controls and/or protection procedures prior to those changes taking effect 
-- Reporting to the asset owner about changes to or removal of the asset custodian’s responsibilities 
-- An **administrator** represents a user who is responsible for ensuring that integrity is maintained, but they are not a data asset owner, custodian, or user. In fact, many administrator roles provide data container management services without having access to the data. The administrator role includes backup and restoration of the data, maintaining records of the assets, and choosing, acquiring, and operating the devices and storage that house the assets. 
-- The asset user includes anyone who is granted access to data or a file. Access assignment is often delegated by the owner to the asset custodian.  
+- Защита ресурсов в соответствии с указаниями или условиями владельца ресурсов.
+- Обеспечение соблюдения политик классификации.
+- Информирование владельцев ресурсов о любых изменениях в согласованных элементах управления и процедурах защиты до вступления этих изменений в силу.
+- Информирование владельца ресурсов об изменении или снятии обязанностей хранителя ресурсов.
+- **Администратор** — это пользователь, отвечающий за обеспечение целостности данных. Администратор не является владельцем, хранителем или пользователем ресурсов данных. На самом деле множество ролей администратора предусматривают управление контейнерами данных без доступа к данным. Роль администратора включает следующие права: резервное копирование и восстановление данных, ведение записей о ресурсах, а также выбор, получение и контроль устройств и хранилища, в которых размещаются ресурсы.
+- Пользователь ресурсов — лицо, которому предоставлен доступ к данным или файлу. Владелец часто делегирует назначение доступа хранителю ресурса.
 
-### <a name="implementation"></a>Implementation
+### Реализация
   
-Management considerations apply to all classification methodologies. These considerations need to include details about who, what, where, when, and why a data asset would be used, accessed, changed, or deleted. All asset management must be done with an understanding of how an organization views its risks, but a simple methodology can be applied as defined in the data classification process. Additional considerations for data classification include the introduction of new applications and tools, and managing change after a classification method is implemented.  
+Рекомендации по управлению применяются ко всем методам классификации. В них следует включить сведения о том, кто будет использовать, изменять и удалять ресурсы данных, а также получать к ним доступ, с какими ресурсами данных будут проводиться операции, время, причину выполнения операций и место получения доступа. При управлении ресурсами следует учитывать риски организации. Однако для этого можно использовать простые методы, как определено в процессе классификации данных. Дополнительные рекомендации по классификации данных включают внедрение новых приложений и средств и управление изменениями после реализации метода классификации.
 
-### <a name="reclassification"></a>Reclassification
+### Реклассификация
  
-Reclassifying or changing the classification state of a data asset needs to be done when a user or system determines that the data asset’s importance or risk profile has changed. This effort is important for ensuring that the classification status continues to be current and valid. Most content that is not classified manually can be classified automatically or based on usage by a data custodian or data owner. 
+Реклассификацию или изменение состояния классификации ресурса данных необходимо применить, если пользователь или система определяет изменение профиля важности или риска для ресурса данных. Это важно для обеспечения актуальности и допустимости состояния классификации. Большую часть содержимого, которая не классифицируется вручную, можно классифицировать автоматически. Кроме того, данные могут классифицировать хранители или владельцы данных с учетом сведений об использовании.
 
-### <a name="manual-data-reclassification"></a>Manual data reclassification
+### Реклассификация данных вручную
  
-Ideally, this effort would ensure that the details of a change are captured and audited. The most likely reason for manual reclassification would be for reasons of sensitivity, or for records kept in paper format, or a requirement to review data that was originally misclassified. Because this paper considers data classification and moving data to the cloud, manual reclassification efforts would require attention on a case-by-case basis and a risk management review would be ideal to address classification requirements. Generally, such an effort would consider the organization’s policy about what needs to be classified, the default classification state (all data and files being sensitive but not confidential), and take exceptions for high-risk data. 
+В идеале такая операция позволит обеспечить фиксирование и аудит сведений об изменениях. Наиболее вероятная причина выполнения реклассификации вручную — обеспечение конфиденциальности, хранение записей в печатном виде или требование пересмотра данных, которые изначально были неправильно классифицированы. Так как в этом документе рассматривается классификация и перемещение данных в облако, реклассификация вручную требует внимания в каждом конкретном случае. Чтобы удовлетворить требованиям классификации, в идеале необходимо пересмотреть управление рисками. Как правило, при выполнении такого задания учитывается корпоративная политика классификации и состояние классификации по умолчанию (все данные и файлы являются закрытыми, но не конфиденциальными). Для особо ценных данных делаются исключения.
 
-### <a name="automatic-data-reclassification"></a>Automatic data reclassification
+### Автоматическая реклассификация данных
  
-Automatic data reclassification uses the same general rule as manual classification. The exception is that automated solutions can ensure that rules are followed and applied as needed. Data classification can be done as part of a data classification enforcement policy, which can be enforced when data is stored, in use, and in transit using authorization technology.
+При автоматической реклассификации данных применяется то же общее правило, что и при классификации вручную. Исключением является то, что автоматизированные решения могут обеспечить соответствие правилам и их применение по мере необходимости. Классификация данных может выполняться как часть политики принудительной классификации данных, которая может применяться при хранении, использовании и передаче данных с применением технологии авторизации.
 
-- Application-based. Using certain applications by default sets a classification level. For example, data from customer relationship management (CRM) software, HR, and health record management tools is confidential by default. 
-- Location-based. Data location can help identify data sensitivity. For example, data that is stored by an HR or financial department is more likely to be confidential in nature.  
+- На основе приложения. При использовании некоторых приложений уровень классификации определяется по умолчанию. Например, данные программного обеспечения по управлению отношениями с клиентами, отдела кадров и средств управления медицинскими картами являются конфиденциальными по умолчанию.
+- На основе расположения. Расположение данных может помочь определить, относятся ли они к конфиденциальным. Например, данные, хранящиеся в отделе кадров или финансовом отделе, скорее всего будут конфиденциальными.
  
-### <a name="data-retention,-recovery,-and-disposal"></a>Data retention, recovery, and disposal 
+### Хранение, восстановление и удаление данных 
 
-Data recovery and disposal, like data reclassification, is an essential aspect of managing data assets. The principles for data recovery and disposal would be defined by a data retention policy and enforced in the same manner as data reclassification; such an effort would be performed by the custodian and administrator roles as a collaborative task.  
+Восстановление и удаление данных, как и реклассификация данных, являются важным аспектом управления ресурсами данных. Принципы восстановления и удаления данных определяются политикой хранения данных и принудительно применяются так же, как и при реклассификации данных. Эту задачу совместно выполняют хранитель и администратор.
 
-Failure to have a data retention policy could mean data loss or failure to comply with regulatory and legal discovery requirements. Most organizations that do not have a clearly defined data retention policy tend to use a default “keep everything” retention policy. However, such a retention policy has additional risks in cloud services scenarios. 
+Отсутствие политики хранения данных может означать потерю данных или несоответствие нормам и юридическим требованиям к представлению документов. Большинство организаций, у которых нет четко определенной политики хранения данных, как правило, по умолчанию используют политику "тотального" хранения. Однако такая политика хранения вносит дополнительные риски в сценариях облачных служб.
 
-For example, a data retention policy for cloud service providers can be considered as for "the duration of the subscription” (as long as the service is paid for, the data is retained). Such a pay-for-retention agreement may not address corporate or regulatory retention policies. Defining a policy for confidential data can ensure that data is stored and removed based on best practices. In addition, an archival policy can be created to formalize an understanding about what data should be disposed of and when. 
+Например, политика хранения данных для поставщиков облачных служб может предусматривать период действия подписки (хранение данных обеспечивается при оплате службы). Такое соглашение с хранением при оплате может не соответствовать корпоративным или нормативным политикам хранения. Определение политики для конфиденциальных данных обеспечивает хранение и удаление данных с учетом рекомендаций. Кроме того, можно создать политику архивации, чтобы формально зафиксировать сведения о том, какие данные следует удалять и когда это нужно делать.
 
-Data retention policy should address the required regulatory and compliance requirements, as well as corporate legal retention requirements. Classified data might provoke questions about retention duration and exceptions for data that has been stored with a provider; such questions are more likely for data that has not been classified correctly. 
+Политика хранения данных должна соответствовать необходимым нормативным требованиям и требованиям соответствия, а также корпоративным юридическим требованиям к хранению. При классификации данных могут возникнуть вопросы о длительности хранения и исключениях для данных, которые сохранил поставщик. Такие вопросы, скорее всего, касаются данных, которые не классифицированы должным образом.
 
-> [AZURE.TIP] learn more about Azure Data Retention policies and more by reading the [Microsoft Online Subscription Agreement](https://azure.microsoft.com/support/legal/subscription-agreement/)
+> [AZURE.TIP] Дополнительные сведения о политиках хранения данных Azure см. в [соглашении Microsoft Online Subscription](https://azure.microsoft.com/support/legal/subscription-agreement/).
 
-## <a name="protecting-confidential-data"></a>Protecting confidential data
+## Защита конфиденциальных данных
   
-After data is classified, finding and implementing ways to protect confidential data becomes an integral part of any data protection deployment strategy. Protecting confidential data requires additional attention to how data is stored and transmitted in conventional architectures as well as in the cloud. 
+После классификации данных поиск и реализация способов их защиты становится неотъемлемой частью любой стратегии развертывания защиты данных. При защите конфиденциальных данных требуется уделить дополнительное внимание способу хранения и передачи данных в стандартных архитектурах и в облаке.
 
-This section provides basic information about some technologies that can automate enforcement efforts to help protect data that has been classified as confidential. 
+Этот раздел содержит основные сведения о некоторых технологиях, которые могут автоматизировать процессы принудительного применения для защиты данных, классифицированных как конфиденциальные.
  
-As the following figure shows, these technologies can be deployed as on-premises or cloud-based solutions—or in a hybrid fashion, with some of them deployed on-premises and some in the cloud. (Some technologies, such as encryption and rights management, also extend to user devices.)  
+Как показано на рисунке ниже, эти технологии можно развернуть как локальные или облачные решения, а также как гибридные решения (некоторые развернуты локально, а некоторые — в облаке). (Некоторые технологии, например шифрование и управление правами, также распространяются на устройства пользователей.)
 
-![Technologies](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
+![Технологии](./media/azure-security-data-classification/azure-security-data-classification-fig4.png)
 
-### <a name="rights-management-software"></a>Rights management software  
+### Программное обеспечение для управления правами  
 
-One solution for preventing data loss is rights management software. Unlike approaches that attempt to interrupt the flow of information at exit points in an organization, rights management software works at deep levels within data storage technologies. Documents are encrypted, and control over who can decrypt them uses access controls that are defined in an authentication control solution such as a directory service.  
+Одним из решений для предотвращения потери данных является программное обеспечение для управления правами. В отличие от подходов, при которых поток информации в организации прерывается в точках выхода, программное обеспечение для управления правами работает на глубоких уровнях в рамках технологий хранения данных. Документы шифруются, а управление правами на расшифровку осуществляется посредством элементов управления доступом, которые определяются в решении по управлению проверкой подлинности, например службе каталогов.
 
-> [AZURE.TIP] you can use Azure Rights Management (Azure RMS) as the information protection solution to protect data in different scenarios. Read [What is Azure Rights Management?](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms) for more information about this Azure solution.
+> [AZURE.TIP] Для защиты данных в разных сценариях можно использовать управление правами Azure (Azure RMS). Дополнительные сведения об этом решении Azure см. в статье [Что такое управление правами Azure](https://docs.microsoft.com/rights-management/understand-explore/what-is-azure-rms).
 
-Some of the benefits of rights management software include: 
+Ниже перечислены некоторые преимущества программного обеспечения для управления правами:
 
-- Safeguarded sensitive information. Users can protect their data directly using rights management-enabled applications. No additional steps are required—authoring documents, sending email, and publishing data offer a consistent data protection experience. 
-- Protection travels with the data. Customers remain in control of who has access to their data, whether in the cloud, existing IT infrastructure, or at the user’s desktop. Organizations can choose to encrypt their data and restrict access according to their business requirements. 
-- Default information protection policies. Administrators and users can use standard policies for many common business scenarios, such as "Company Confidential–Read Only" and "Do Not Forward." A rich set of usage rights are supported such as read, copy, print, save, edit, and forward to allow flexibility in defining custom usage rights. 
+- Защита закрытой информации. Пользователи могут напрямую защитить свои данные с помощью приложений, поддерживающих управление правами. Не нужно выполнять никаких дополнительных действий. При создании документов, отправке электронной почты и публикации данных обеспечивается непрерывная защита данных.
+- Передача данных с установленным уровнем защиты. Пользователи самостоятельно управляют тем, кто имеет доступ к данным в облаке, существующей ИТ-инфраструктуре или на рабочем столе. Организации могут шифровать данные и ограничивать доступ в соответствии с корпоративными требованиями.
+- Политики защиты информации по умолчанию. Администраторы и пользователи могут использовать стандартные политики для множества распространенных бизнес-сценариев, например "Только для служебного использования без возможности изменения" и "Не пересылать". Поддерживается широкий спектр прав использования, например права на чтение, копирование, печать, сохранение, изменение и пересылку, чтобы обеспечить гибкость при определении пользовательских прав использования.
 
-> [AZURE.TIP] you can protect data in Azure Storage by using [Azure Storage Service Encryption](../storage/storage-service-encryption.md) for Data at Rest. You can also use [Azure Disk Encryption](azure-security-disk-encryption.md) to help protect data contained on virtual disks used for Azure Virtual Machines.
+> [AZURE.TIP] Неактивные данные в службе хранилища Azure можно защитить с помощью [шифрования службы хранилища Azure](../storage/storage-service-encryption.md). Кроме того, для защиты данных на виртуальных дисках, используемых для виртуальных машин Azure, можно использовать [шифрование дисков Azure](azure-security-disk-encryption.md).
 
-### <a name="encryption-gateways"></a>Encryption gateways
+### Шлюзы шифрования
 
-Encryption gateways operate in their own layers to provide encryption services by rerouting all access to cloud-based data. This approach should not be confused with that of a virtual private network (VPN). Encryption gateways are designed to provide a transparent layer to cloud-based solutions.   
+Шлюзы шифрования работают на собственных уровнях, чтобы предоставлять службы шифрования путем перенаправления доступа к облачным данным. Этот подход не следует путать с подходом, используемым в виртуальной частной сети (VPN). Шлюзы шифрования предоставляют прозрачный уровень для облачных решений.
 
-Encryption gateways can provide a means to manage and secure data that has been classified as confidential by encrypting the data in transit as well as data at rest.  
+Эти шлюзы могут предоставить средства защиты данных, классифицированных как конфиденциальные, и управления ими, шифруя передаваемые и неактивные данные.
  
-Encryption gateways are placed into the data flow between user devices and application data centers to provide encryption/decryption services. These solutions, like VPNs, are predominantly on-premises solutions. They are designed to provide a third party with control over encryption keys, which helps reduce the risk of placing both the data and key management with one provider. Such solutions are designed, much like encryption, to work seamlessly and transparently between users and the service. 
+Шлюзы шифрования помещаются в поток данных между устройствами пользователей и центрами обработки данных приложений и предоставляют услуги шифрования и расшифровки. Эти решения, как и VPN, являются преимущественно локальными. Они позволяют стороннему производителю управлять ключами шифрования, за счет чего снижается риск передачи управления данными и ключами одному поставщику. Такие решения, как и шифрование, должны работать прозрачно и без проблем между пользователями и службой.
 
-> [AZURE.TIP] you can use Azure ExpressRoute to extend your on-premises networks into the Microsoft cloud over a dedicated private connection. Read [ExpressRoute technical overview](../expressroute/expressroute-introduction.md) for more information about this capability. Another options for cross premises connectivity between your on-premises network and [Azure is a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+> [AZURE.TIP] Можно использовать Azure ExpressRoute, чтобы переносить локальные сети в облако Microsoft по выделенному частному подключению. Дополнительные сведения об этой возможности см. в статье [Технический обзор ExpressRoute](../expressroute/expressroute-introduction.md). Другой вариант распределенного подключения между локальной сетью и [сетью Azure — это VPN типа "сеть — сеть"](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-### <a name="data-loss-prevention"></a>Data loss prevention 
-Data loss (sometimes referred to as data leakage) is an important consideration, and the prevention of external data loss via malicious and accidental insiders is paramount for many organizations.  
+### Защита от потери данных 
+Потеря данных (иногда называется утечкой данных) является важным аспектом. Предотвращение внешней потери данных из-за вредоносных или непреднамеренных действий сотрудников — первостепенная задача для многих организаций.
  
-Data loss prevention (DLP) technologies can help ensure that solutions such as email services do not transmit data that has been classified as confidential. Organizations can take advantage of DLP features in existing products to help prevent data loss. Such features use policies that can be easily created from scratch or by using a template supplied by the software provider.  
+Технологии защиты от потери данных позволяют обеспечить, что решения, например службы электронной почты, не будут передавать данные, классифицированные как конфиденциальные. Организации могут воспользоваться преимуществами возможностей этих технологий в существующих продуктах для защиты от потери данных. Такие функции используют политики, которые можно легко создать с нуля или на основе шаблона, предоставленного поставщиком программного обеспечения.
  
-DLP technologies can perform deep content analysis through keyword matches, dictionary matches, regular expression evaluation, and other content examination to detect content that violates organizational DLP policies. For example, DLP can help prevent the loss of the following types of data: 
+Технологии защиты от потери данных могут выполнять глубокий анализ содержимого за счет сопоставления по ключевым словам и словарям, вычисления регулярных выражений и других возможностей проверки содержимого, чтобы обнаружить содержимое, которое нарушает корпоративные политики защиты от потери данных. Например, такие политики могут помочь предотвратить потерю следующих типов данных:
 
-- Social Security and national identification numbers 
-- Banking information 
-- Credit card numbers  
-- IP addresses 
+- номера социального страхования или национальные идентификационные номера;
+- банковская информация;
+- номера кредитных карт;
+- IP-адреса;
 
-Some DLP technologies also provide the ability to override the DLP configuration (for example, if an organization needs to transmit Social Security number information to a payroll processor). In addition, it’s possible to configure DLP so that users are notified before they even attempt to send sensitive information that should not be transmitted. 
+Некоторые технологии защиты от потери данных также позволяют переопределить конфигурацию соответствующих политик (например, если в организации нужно передать сведения о номерах социального страхования специалисту по расчету зарплаты). Кроме того, можно настроить политику защиты от потери данных таким образом, чтобы пользователи получали уведомления перед попыткой отправить закрытые данные, которые не следует передавать.
 
-> [AZURE.TIP] you can use Office 365 DLP capabilities to protect your documents. Read [Office 365 compliance controls: Data Loss Prevention](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) for more information.
+> [AZURE.TIP] Для защиты документов можно использовать возможности защиты от потери данных службы Office 365. Дополнительные сведения см. в записи блога [Office 365 compliance controls: Data Loss Prevention](https://blogs.office.com/2013/10/28/office-365-compliance-controls-data-loss-prevention/) (Управление соответствием требованиям в службе Office 365: защита от потери данных).
 
-## <a name="see-also"></a>See also
+## Дополнительные материалы
 
-- [Azure Data Encryption Best Practices](azure-security-data-encryption-best-practices.md)
-- [Azure Identity Management and access control security best practices](azure-security-identity-management-best-practices.md)
-- [Azure Security Team Blog](http://blogs.msdn.com/b/azuresecurity/)
-- [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
+- [Рекомендации по защите и шифрованию данных в Azure](azure-security-data-encryption-best-practices.md)
+- [Рекомендации по обеспечению безопасности за счет управления удостоверениями и контроля доступа Azure](azure-security-identity-management-best-practices.md)
+- [Блог группы безопасности Azure](http://blogs.msdn.com/b/azuresecurity/)
+- [Центр Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

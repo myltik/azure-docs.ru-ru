@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create an Azure Automation Integration Module | Microsoft Azure"
-   description="Tutorial that walks you through the creation, testing, and example use of  integration modules in Azure Automation."
+   pageTitle="Создание модуля интеграции службы автоматизации Azure | Microsoft Azure"
+   description="В этом руководстве приводятся пошаговые инструкции по созданию и тестированию, а также примеры модулей интеграции в службе автоматизации Azure."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -16,24 +16,23 @@
    ms.date="09/12/2016"
    ms.author="magoedte" />
 
+# Модули интеграции службы автоматизации Azure
 
-# <a name="azure-automation-integration-modules"></a>Azure Automation Integration Modules
+Служба автоматизации Azure создана с использованием технологии PowerShell. Поэтому модули PowerShell — основной компонент для расширения службы автоматизации Azure. В этой статье рассматриваются особенности использования модулей PowerShell (которые называются модулями интеграции) в службе автоматизации Azure и рекомендации по созданию своих модулей PowerShell и обеспечению их работы в качестве модулей интеграции в службе автоматизации Azure.
 
-PowerShell is the fundamental technology behind Azure Automation. Since Azure Automation is built on PowerShell, PowerShell modules are key to the extensibility of Azure Automation. In this article, we will guide you through the specifics of Azure Automation’s use of PowerShell modules, referred to as “Integration Modules”, and best practices for creating your own PowerShell modules to make sure they work as Integration Modules within Azure Automation. 
+## Что такое модуль PowerShell?
 
-## <a name="what-is-a-powershell-module?"></a>What is a PowerShell Module?
+Модуль PowerShell — это группа командлетов PowerShell, таких как **Get-Date** или **Copy-Item**, которые можно использовать в консоли, сценариях, рабочих процессах, Runbook PowerShell, и ресурсы PowerShell DSC, которые можно использовать в конфигурациях PowerShell DSC, например WindowsFeature или File. Все функции PowerShell предоставляются через командлеты и ресурсы DSC. Каждый командлет или ресурс DSC поддерживает модуль PowerShell, множество из которых поставляются с самим решением PowerShell. Например, командлет **Get-Date** — часть модуля Microsoft.PowerShell.Utility PowerShell, **Copy-Item** входит в состав модуля Microsoft.PowerShell.Management PowerShell, а ресурс Package DSC содержится в модуле PSDesiredStateConfiguration PowerShell. Эти модули поставляются с PowerShell. Но множество модулей не поставляются с PowerShell. Они идут в комплекте с продуктами Майкрософт или сторонними продуктами, такими как System Center 2012 Configuration Manager. Кроме того, они доступны в обширном сообществе PowerShell, например в коллекции PowerShell. Эти модули полезны, так как упрощают сложные задачи благодаря инкапсулированным возможностям. Дополнительные сведения о [модулях PowerShell см. в библиотеке MSDN](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx).
 
-A PowerShell module is a group of PowerShell cmdlets like **Get-Date** or **Copy-Item**, that can be used from the PowerShell console, scripts, workflows, runbooks, and PowerShell DSC resources like WindowsFeature or File, that can be used from PowerShell DSC configurations. All of the functionality of PowerShell is exposed through cmdlets and DSC resources, and every cmdlet/DSC resource is backed by a PowerShell module, many of which ship with PowerShell itself. For example, the **Get-Date** cmdlet is part of the Microsoft.PowerShell.Utility PowerShell module, and **Copy-Item** cmdlet is part of the Microsoft.PowerShell.Management PowerShell module and the Package DSC resource is part of the PSDesiredStateConfiguration PowerShell module. Both of these modules ship with PowerShell. But many PowerShell modules do not ship as part of PowerShell, and are instead distributed with first or third-party products like System Center 2012 Configuration Manager or by the vast PowerShell community on places like PowerShell Gallery.  The modules are useful because they make complex tasks simpler through encapsulated functionality.  You can learn more about [PowerShell modules on MSDN](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx). 
+## Что такое модуль интеграции службы автоматизации Azure?
 
-## <a name="what-is-an-azure-automation-integration-module?"></a>What is an Azure Automation Integration Module?
+Модуль интеграции не сильно отличается от модуля PowerShell. Это просто модуль PowerShell с одним дополнительным файлом — файлом метаданных, содержащим сведения о типе соединения службы автоматизации Azure, который следует использовать в командлетах модуля в Runbook. С дополнительным файлом или без него эти модули PowerShell можно импортировать в службу автоматизации Azure, чтобы командлеты можно было использовать в Runbook, а ресурсы DSC — в конфигурации DSC. Служба автоматизации Azure хранит эти модули и при выполнении задания Runbook и компиляции DSC загружает их в "песочницы" службы автоматизации Azure, где выполняются Runbook и компилируются конфигурации DSC. Все ресурсы DSC в модулях также автоматически помещаются на опрашивающий сервер Automation DSC, чтобы компьютеры могли извлечь их при попытке применения конфигурации DSC. По умолчанию в службе автоматизации Azure доступно несколько модулей PowerShell Azure, которые позволяют приступить к автоматизации управления Azure немедленно. Но модули PowerShell можно с легкостью импортировать в любую систему, службу или средство, с которыми нужно провести интеграцию.
 
-An Integration Module isn't very different from a PowerShell module. Its simply a PowerShell module that optionally contains one additional file - a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in runbooks. Optional file or not, these PowerShell modules can be imported into Azure Automation to make their cmdlets available for use within runbooks and their DSC resources available for use within DSC configurations. Behind the scenes, Azure Automation stores these modules, and at runbook job and DSC compiliation job execution time loads them into the Azure Automation sandboxes where runbooks are executed and DSC configurations are compiled.  Any DSC resources in modules are also automatically placed on the Automation DSC pull server, so that they can be pulled by machines attempting to apply DSC configurations.  We ship a number of Azure  PowerShell modules out of the box in Azure Automation for you to use so you can get started automating Azure management right away, but you can easily import PowerShell modules for whatever System, service, or tool you want to integrate with. 
+>[AZURE.NOTE] В службе автоматизации некоторые модули поставляются как "глобальные модули". Эти глобальные модули предоставляются по умолчанию после создания учетной записи службы автоматизации. Иногда они обновляются, и эти изменения автоматически отправляются в учетную запись службы автоматизации. Если вы не хотите, чтобы они обновлялись автоматически, вы всегда можете импортировать в службу такой же модуль самостоятельно. Он будет иметь приоритет над версией глобального модуля, поставляемого в службе.
 
->[AZURE.NOTE] Certain modules are shipped as “global modules” in the Automation service. These global modules are available to you out of the box when you create an automation account, and we update them sometimes which automatically pushes them out to your automation account. If you don’t want them to be auto-updated, you can always import the same module yourself, and that will take precedence over the global module version of that module that we ship in the service. 
+Пакет модуля интеграции импортируется в виде сжатого файла с тем же именем, что и у модуля, и расширением ZIP. Он содержит модуль Windows PowerShell и все вспомогательные файлы, в том числе файл манифеста (PSD1), если он есть в модуле.
 
-The format in which you import an Integration Module package is a compressed file with the same name as the module and a .zip extension. It contains the Windows PowerShell module and any supporting files, including a manifest file (.psd1) if the module has one.
-
-If the module should contain an Azure Automation connection type, it must also contain a file with the name *<ModuleName>*-Automation.json that specifies the connection type properties. This is a json file placed within the module folder of your compressed .zip file, and contains the fields of a “connection” that is required to connect to the system or service the module represents. This will end up creating a connection type in Azure Automation. Using this file you can set the field names, types, and whether the fields should be encrypted and / or optional, for the connection type of the module. The following is a template in the json file format:
+Если модуль должен содержать сведения о типе соединения для службы автоматизации Azure, в нем также должен быть файл с именем *<имя\_модуля>*-Automation.json, в котором указываются свойства типа соединения. Этот JSON-файл находится в папке модуля в сжатом ZIP-файле и содержит поля со сведениями о соединении, необходимые для подключения к системе или службе, которую представляет модуль. Таким образом в службе автоматизации Azure создается тип соединения. С помощью этого файла можно задать имена и типы полей, а также указать, нужно ли шифровать поля и/или являются ли они необязательными для типа соединения модуля. Ниже представлен шаблон JSON-файла.
 
 ```
 { 
@@ -61,14 +60,14 @@ If the module should contain an Azure Automation connection type, it must also c
 }
 ```
 
-If you have deployed Service Management Automation and created Integration Modules packages for your automation runbooks, this should look very familiar to you. 
+Если вы уже развернули Service Management Automation и создали пакеты модулей интеграции для Runbook службы автоматизации, этот шаблон покажется очень похожим.
 
 
-## <a name="authoring-best-practices"></a>Authoring Best Practices
+## Рекомендации по созданию
 
-Just because Integration Modules are essentially  PowerShell modules, that doesn’t mean we don’t have a set of practices around authoring them. There’s still a number of things we recommend you consider while authoring a PowerShell module, to make it most usable in Azure Automation. Some of these are Azure Automation specific, and some of them are useful just to make your modules work well in PowerShell Workflow, regardless of whether or not you’re using Automation. 
+Если модули интеграции по сути являются модулями PowerShell, это еще не значит, что нет рекомендаций по их созданию. У нас все же есть несколько рекомендаций по созданию модуля PowerShell, благодаря которым вы сможете использовать его в службе автоматизации Azure максимально эффективно. Одни из них предназначены для службы автоматизации Azure, другие же позволяют гарантировать непрерывную работу модулей в рабочем процессе PowerShell, независимо от того, используется ли служба автоматизации.
 
-1. Include a synopsis, description, and help URI for every cmdlet in the module. In PowerShell, you can define certain help information for cmdlets to allow the user to receive help on using them with the **Get-Help** cmdlet. For example, here’s how you can define a synopsis and help URI for a PowerShell module written in a .psm1 file.<br>  
+1. Добавьте краткие сведения, описание и справочный универсальный код ресурса (URI) в каждый командлет в модуле. В PowerShell можно указать некоторые справочные сведения для командлетов, чтобы предоставить пользователю возможность получать справку по их использованию с помощью командлета **Get-Help**. Например, вот как можно определить краткие сведения и справочный URI для модуля PowerShell, записанного в файле с расширением PSM1:<br>
 
     ```
     <#
@@ -104,10 +103,8 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
     $response.TwilioResponse.IncomingPhoneNumbers.IncomingPhoneNumber
     }
     ```
-<br> 
-  Providing this info will not only show this help using the **Get-Help** cmdlet in the PowerShell console, it will also expose this help functionality within Azure Automation, for example when inserting activities during runbook authoring. Clicking “View detailed help” will open the help URI in another tab of the web browser you’re using to access Azure Automation.<br>![Integration Module Help](media/automation-integration-modules/automation-integration-module-activitydesc.png)
-2. If the module runs against a remote system, a. It should contain an Integration Module metadata file that defines the information needed to connect to that remote system, meaning the connection type. b. Each cmdlet in the module should be able to take in a connection object (an instance of that connection type) as a parameter.  
-    Cmdlets in the module become easier to use in Azure Automation if you allow passing an object with the fields of the connection type as a parameter to the cmdlet. This way users don’t have to map parameters of the connection asset to the cmdlet's corresponding parameters each time they call a cmdlet. Based on the runbook example above, it uses a Twilio connection asset called CorpTwilio to access Twilio and return all the phone numbers in the account.  Notice how it is mapping the fields of the connection to the parameters of the cmdlet?<br>
+<br>Если указать эти сведения, они будут отображаться не только при использовании командлета **Get-Help** в консоли PowerShell, но и в виде справочных сведений в службе автоматизации Azure, например при вставке действий во время создания модуля Runbook. Если щелкнуть "Просмотреть подробную справку", в браузере, используемом для получения доступа к службе автоматизации Azure, откроется вкладка со справочным URI.<br>![Справка по модулям интеграции](media/automation-integration-modules/automation-integration-module-activitydesc.png)
+2. Если модуль работает в удаленной системе, нужно выполнить следующие требования. Модуль должен содержать файл метаданных модуля интеграции, в котором указаны сведения, необходимые для подключения к этой удаленной системе, то есть тип соединения. Каждый командлет в модуле должен принимать объект соединения (экземпляр этого типа соединения) в качестве параметра. Использование командлетов в модуле в службе автоматизации Azure можно упростить, разрешив передачу объекта с полями типа соединения в качестве параметра в командлет. Благодаря этому пользователям не нужно будет сопоставлять параметры ресурса подключения с соответствующими параметрами командлета при каждом вызове командлета. В примере Runbook выше видно, что он использует ресурс подключения Twilio (CorpTwilio), чтобы получить доступ к Twilio и вернуть все номера телефонов в учетной записи. Обратите внимание на то, как он сопоставляет поля со сведениями о подключении с параметрами командлета.<br>
 
     ```
     workflow Get-CorpTwilioPhones
@@ -119,8 +116,7 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
         -AuthToken $CorptTwilio.AuthToken
     }
     ```
-<br>
-    An easier and better way to approach this is directly passing the connection object to the cmdlet -
+<br>Проще и лучше всего передать объект подключения непосредственно в командлет:
 
     ```
     workflow Get-CorpTwilioPhones
@@ -130,8 +126,7 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
       Get-TwilioPhoneNumbers -Connection $CorpTwilio
     }
     ```
-<br>
-    You can enable behavior like this for your cmdlets by allowing them to accept a connection object directly as a parameter, instead of just connection fields for parameters. Usually you’ll want a parameter set for each, so that a user not using Azure Automation can call your cmdlets without constructing a hashtable to act as the connection object. Parameter set **SpecifyConnectionFields** below is used to pass the connection field properties one by one. **UseConnectionObject** lets you pass the connection straight through. As you can see, the Send-TwilioSMS cmdlet in the [Twilio PowerShell module](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) allows passing either way: 
+<br>Вы можете задать такое поведение для командлетов, разрешив им принимать в качестве параметра напрямую объект подключения, а не только поля подключения. Обычно для каждого командлета нужно указать набор параметров, чтобы пользователь, который не использует службу автоматизации Azure, смог вызывать командлеты, не создавая хэш-таблицу, используемую в качестве объекта подключения. Набор параметров **SpecifyConnectionFields** ниже используется для последовательной передачи свойств поля подключения. **UseConnectionObject** позволяет передать подключение напрямую. Как видно, командлет Send-TwilioSMS в [модуле Twilio PowerShell](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) позволяет выполнять передачу любым из следующих способов:
 
     ```
     function Send-TwilioSMS {
@@ -157,8 +152,8 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
     }
     ```
 <br>
-3. Define output type for all cmdlets in the module. Defining an output type for a cmdlet allows design-time IntelliSense to help you determine the output properties of the cmdlet, for use during authoring. It is especially helpful during Automation runbook graphical authoring, where design time knowledge is key to an easy user experience with your module.<br> ![Graphical Runbook Output Type](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> This is similar to the "type ahead" functionality of a cmdlet's output in PowerShell ISE without having to run it.<br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
-4. Cmdlets in the module should not take complex object types for parameters. PowerShell Workflow is different from PowerShell in that it stores complex types in deserialized form. Primitive types will stay as primitives, but complex types are converted to their deserialized versions, which are essentially property bags. For example, if you used the **Get-Process** cmdlet in a runbook (or a PowerShell Workflow for that matter), it would return an object of type [Deserialized.System.Diagnostic.Process], not the expected [System.Diagnostic.Process] type. This type has all the same properties as the non-deserialized type, but none of the methods. And if you try to pass this value as a parameter to a cmdlet, where the cmdlet expects a [System.Diagnostic.Process] value for this parameter, you’ll receive the following error: *Cannot process argument transformation on parameter 'process'. Error: "Cannot convert the "System.Diagnostics.Process (CcmExec)" value of type  "Deserialized.System.Diagnostics.Process" to type "System.Diagnostics.Process".*   This is because there is a type mismatch between the expected [System.Diagnostic.Process] type and the given [Deserialized.System.Diagnostic.Process] type. The way around this issue is to ensure the cmdlets of your module do not take complex types for parameters. Here is the wrong way to do it.
+3. Укажите тип выходных данных для всех командлетов в модуле. При этом можно воспользоваться технологией IntelliSense, используемой во время разработки, чтобы определить свойства выходных данных командлета, используемых при создании модуля. Это особенно полезно при графической разработке Runbook в службе автоматизации, при которой знание аспектов разработки упрощает работу пользователей с модулем.<br> ![Тип выходных данных графического модуля Runbook](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br>Это похоже на упреждающий ввод выходных данных командлета в интегрированной среде сценариев PowerShell, при котором не нужно запускать командлет.<br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
+4. Командлеты в модуле не должны принимать сложные типы объектов в качестве параметров. Рабочий процесс PowerShell отличается от PowerShell, так как сложные типы объектов хранятся в нем в десериализованной форме. Примитивные типы останутся примитивными, а сложные типы преобразуются в десериализованные типы, которые по сути являются контейнерами свойств. Например, если использовать командлет **Get-Process** в Runbook (или в рабочем процессе PowerShell, если на то пошло), будет возвращен объект типа [Deserialized.System.Diagnostic.Process], а не [System.Diagnostic.Process]. У этого типа те же свойства, что и у недесериализованного, но в нем нет соответствующих методов. При попытке передать это значение в качестве параметра в командлет, в котором для этого параметра требуется значение [System.Diagnostic.Process], возникнет следующая ошибка: *Cannot process argument transformation on parameter 'process'. Error: "Cannot convert the "System.Diagnostics.Process (CcmExec)" value of type "Deserialized.System.Diagnostics.Process" to type "System.Diagnostics.Process" (Не удается обработать преобразование аргументов для параметра process. Ошибка. Невозможно преобразовать значение System.Diagnostics.Process (CcmExec) типа Deserialized.System.Diagnostics.Process в тип System.Diagnostics.Process).* Она возникает из-за несоответствия требуемого типа [System.Diagnostic.Process] и указанного типа [Deserialized.System.Diagnostic.Process]. Чтобы устранить эту проблему, нужно обеспечить, что командлеты модуля не будут принимать сложные типы для параметров. Вот как не следует это делать:
 
     ```
     function Get-ProcessDescription {
@@ -168,8 +163,7 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
       $process.Description
     }
     ``` 
-<br>
- And here is the right way, taking in a primitive that can be used internally by the cmdlet to grab the complex object and use it. Since cmdlets execute in the context of PowerShell, not PowerShell Workflow, inside the cmdlet $process becomes the correct [System.Diagnostic.Process] type.  
+<br>Нужно принять примитивный тип, который можно использовать в командлете для получения и использования сложного объекта. Так как командлеты выполняются в контексте PowerShell, а не рабочего процесса PowerShell, для параметра $process в командлете указывается правильный тип [System.Diagnostic.Process].
 
     ```
     function Get-ProcessDescription {
@@ -181,9 +175,8 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
       $process.Description
     }
     ```
-<br>
- Connection assets in runbooks are hashtables, which are a complex type, and yet these hashtables seem to be able to be passed into cmdlets for their –Connection parameter perfectly, with no cast exception. Technically, some PowerShell types are able to cast properly from their serialized form to their deserialized form, and hence can be passed into cmdlets for parameters accepting the non- deserialized type. Hashtable is one of these. It’s possible for a module author’s defined types to be implemented in a way that they can correctly deserialize as well, but there are some tradeoffs to make. The type needs to have a default constructor, have all of its properties public, and have a PSTypeConverter. However, for already-defined types that the module author does not own, there is no way to “fix” them, hence the recommendation to avoid complex types for parameters all together. Runbook Authoring tip: If for some reason your cmdlets need to take a complex type parameter, or you are using someone else’s module that requires a complex type parameter, the workaround in PowerShell Workflow runbooks and PowerShel Workflows in local PowerShell, is to wrap the cmdlet that generates the complex type and the cmdlet that consumes the complex type in the same InlineScript activity. Since InlineScript executes its contents as PowerShell rather than PowerShell Workflow, the cmdlet generating the complex type would produce that correct type, not the deserialized complex type.
-5. Make all cmdlets in the module stateless. PowerShell Workflow runs every cmdlet called in the workflow in a different session. This means any cmdlets that depend on session state created / modified by other cmdlets in the same module will not work in PowerShell Workflow runbooks.  Here is an example of what not to do.
+<br>Ресурсы-контейнеры подключения в Runbook — это хэш-таблицы сложного типа. Но благодаря параметру –Connection их можно без проблем передавать в командлеты. Такая передача не породит исключение приведения. С технической точки зрения некоторые типы PowerShell можно должным образом приводить из сериализованной формы к десериализованной, поэтому их можно передавать в командлеты для параметров, принимающих недесериализованный тип. Один из таких типов — хэш-таблица. Определенные разработчиком типы модуля можно реализовать так, чтобы можно было выполнить их десериализацию должным образом. Тем не менее и тут есть некоторые недостатки. Для типа должен быть настроен конструктор по умолчанию, все его свойства должны быть общедоступными, а также он должен содержать параметр PSTypeConverter. Тем не менее невозможно преобразовать уже определенные типы, которыми не владеет разработчик модуля, поэтому рекомендуется не использовать сложные типы для всех параметров. Совет по созданию в Runbook. Если по какой-либо причине нужно, чтобы командлеты принимали параметр сложного типа, или вы используете сторонний модуль, который требует параметр сложного типа, для Runbook рабочего процесса PowerShell и рабочих процессов PowerShell в локальной версии PowerShell рекомендуется поместить командлет, создающий сложный тип, и командлет, использующий сложный тип, в оболочку одного действия InlineScript. Так как InlineScript выполняет содержимое в PowerShell, а не в рабочем процессе PowerShell, командлет, создающий сложный тип, создаст правильный, а не десериализованный сложный тип.
+5. Не указывайте сведения о состоянии всех командлетов. Рабочий процесс PowerShell выполняет каждый командлет, вызванный в рабочем процессе, в отдельном сеансе. Это значит, что все командлеты, зависящие от состояния сеанса, которое создают или изменяют другие командлеты в том же модуле, не будут работать в Runbook рабочего процесса PowerShell. Ниже представлен пример неправильного использования.
 
     ```
     $globalNum = 0
@@ -201,14 +194,11 @@ Just because Integration Modules are essentially  PowerShell modules, that doesn
     }
     ```
 <br>
-6. The module should be fully contained in an Xcopy-able package. Because Azure Automation modules are distributed to the Automation sandboxes when runbooks need to execute, they need to work independently of the host they are running on. What this means is that you should be able to Zip up the module package, move it to any other host with the same or newer PowerShell version, and have it function as normal when imported into that host’s PowerShell environment. In order for that to happen, the module should not depend on any files outside the module folder (the folder that gets zipped up when importing into Azure Automation), or on any unique registry settings on a host, such as those set by the install of a product. If this best practice is not followed, the module will not be useable in Azure Automation.  
+6. Модуль должен полностью находиться в пакете с поддержкой Xcopy. Так как модули службы автоматизации Azure распространяются в "песочницы" перед запуском модулей Runbook, их работа не должна зависеть от узла, на котором они работают. Это значит, что должна быть возможность запаковки модуля в пакет, его перемещения на другой узел с использованием той же или более новой версии PowerShell и нормального функционирования при импорте в среду PowerShell этого узла. Для этого модуль не должен зависеть от файлов вне папки модуля (папки, которая запаковывается при импорте в службу автоматизации Azure) или от любых уникальных параметров реестра на узле, например от параметров, заданных при установке продукта. При несоблюдении этой рекомендации модуль нельзя использовать в службе автоматизации Azure.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
-- To learn more about creating PowerShell Modules, see [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
+- Чтобы приступить к работе с модулями Runbook рабочих процессов PowerShell, обратитесь к статье [Мой первый модуль Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
+- Дополнительные сведения о создании модулей PowerShell см. в статье [Writing a Windows PowerShell Module(Написание модуля Windows PowerShell)](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

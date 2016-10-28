@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a custom probe for Application Gateway by using PowerShell in the classic deployment model | Microsoft Azure"
-   description="Learn how to create a custom probe for Application Gateway by using PowerShell in the classic deployment model"
+   pageTitle="Создание пользовательской проверки для шлюза приложений с помощью PowerShell в классической модели развертывания | Microsoft Azure"
+   description="Узнайте, как создавать пользовательские проверки для шлюза приложений с помощью PowerShell в классической модели развертывания."
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -17,67 +17,66 @@
    ms.date="08/09/2016"
    ms.author="gwallace" />
 
-
-# <a name="create-a-custom-probe-for-azure-application-gateway-(classic)-by-using-powershell"></a>Create a custom probe for Azure Application Gateway (classic) by using PowerShell
+# Создание пользовательской проверки для шлюза приложений (классического) Azure с помощью PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](application-gateway-create-probe-portal.md)
-- [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
-- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+- [Портал Azure](application-gateway-create-probe-portal.md)
+- [PowerShell и диспетчер ресурсов Azure](application-gateway-create-probe-ps.md)
+- [Классическая модель — Azure PowerShell](application-gateway-create-probe-classic-ps.md)
 
-<BR>
+.<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](application-gateway-create-probe-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия с помощью модели Resource Manager](application-gateway-create-probe-ps.md).
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
-## <a name="create-a-application-gateway"></a>Create a application gateway
+## Создание шлюза приложений
 
-To create an application gateway:
+Создание шлюза приложений:
 
-1. Create an application gateway resource.
-2. Create a configuration XML file or a configuration object.
-3. Commit the configuration to the newly created application gateway resource.
+1. Создайте ресурс шлюза приложений.
+2. Создайте XML-файл конфигурации или объект конфигурации.
+3. Применить конфигурацию к созданному ресурсу шлюза приложений.
 
-### <a name="create-an-application-gateway-resource"></a>Create an application gateway resource
+### Создание ресурса шлюза приложений
 
-To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
+Для создания шлюза используйте командлет **New-AzureApplicationGateway**, подставив в него свои значения. Выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
 
-The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
+В следующем примере создается шлюз приложений с использованием виртуальной сети testvnet1 и подсети subnet-1.
 
-    New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
-To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
+Чтобы проверить, создан ли шлюз, используйте командлет **Get-AzureApplicationGateway**.
 
-    Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
->[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Small, Medium, and Large.
+>[AZURE.NOTE]  Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать значения Small, Medium или Large.
 
- *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
+ Параметры *VirtualIPs* и *DnsName* отображаются без значений, так как шлюз еще не запущен. Эти значения будут заданы после его запуска.
 
-## <a name="configure-an-application-gateway"></a>Configure an application gateway
+## Настройка шлюза приложений
 
-You can configure the application gateway by using XML or a configuration object.
+Можно настроить шлюз приложений с помощью XML-файла или объекта конфигурации.
 
-## <a name="configure-an-application-gateway-by-using-xml"></a>Configure an application gateway by using XML
+## Настройка шлюза приложений с помощью XML-файла
 
-In the following example, you use an XML file to configure all application gateway settings and commit them to the application gateway resource.  
+В следующем примере все параметры шлюза приложений настраиваются и применяются к ресурсу шлюза приложений при помощи XML-файла.
 
-### <a name="step-1"></a>Step 1
+### Шаг 1
 
-Copy the following text to Notepad.
+Скопируйте следующий текст в Блокнот.
 
-    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
         <FrontendIPConfiguration>
             <Name>fip1</Name>
             <Type>Private</Type>
         </FrontendIPConfiguration>
     </FrontendIPConfigurations>    
-    <FrontendPorts>
+	<FrontendPorts>
         <FrontendPort>
             <Name>port1</Name>
             <Port>80</Port>
@@ -99,7 +98,7 @@ Copy the following text to Notepad.
             <Name>pool1</Name>
             <IPAddresses>
                 <IPAddress>1.1.1.1</IPAddress>
-                <IPAddress>2.2.2.2</IPAddress>
+				<IPAddress>2.2.2.2</IPAddress>
             </IPAddresses>
         </BackendAddressPool>
     </BackendAddressPools>
@@ -117,7 +116,7 @@ Copy the following text to Notepad.
         <HttpListener>
             <Name>listener1</Name>
             <FrontendIP>fip1</FrontendIP>
-        <FrontendPort>port1</FrontendPort>
+	    <FrontendPort>port1</FrontendPort>
             <Protocol>Http</Protocol>
         </HttpListener>
     </HttpListeners>
@@ -130,44 +129,44 @@ Copy the following text to Notepad.
             <BackendAddressPool>pool1</BackendAddressPool>
         </HttpLoadBalancingRule>
     </HttpLoadBalancingRules>
-    </ApplicationGatewayConfiguration>
+	</ApplicationGatewayConfiguration>
 
 
-Edit the values between the parentheses for the configuration items. Save the file with extension .xml.
+Измените значения в скобках для элементов конфигурации. Сохраните файл с расширением XML.
 
-The following example shows how to use a configuration file to set up the application gateway, to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses by using a custom probe.
+В приведенном ниже примере показано, как использовать файл конфигурации, чтобы настроить шлюз приложений для балансировки нагрузки HTTP-трафика на общем порте 80 и направления сетевого трафика на внутренний порт 80 между двумя IP-адресами с помощью пользовательской пробы.
 
->[AZURE.IMPORTANT] The protocol item Http or Https is case-sensitive.
+>[AZURE.IMPORTANT] В элементе протокола HTTP или HTTPS учитывается регистр.
 
-A new configuration item <Probe> is added to configure custom probes.
+Новый элемент конфигурации <Probe> добавляется для настройки пользовательских проверок работоспособности.
 
-The configuration parameters are:
+Используются следующие параметры конфигурации:
 
-- **Name** - Reference name for custom probe.
-- **Protocol** - Protocol used (possible values are HTTP or HTTPS).
-- **Host** and **Path** - Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.
-- **Interval** - Configures the probe interval checks in seconds.
-- **Timeout** - Defines the probe time-out for an HTTP response check.
-- **UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.
+- **Name** — имя пользовательской пробы.
+- **Protocol** — используемый протокол (возможные значения: HTTP или HTTPS).
+- **Host** и **Path** — полный путь URL-адреса, который вызывается шлюзом приложений для определения работоспособности экземпляра. Например, если у вас есть веб-сайт http://contoso.com/, то пользовательскую пробу работоспособности для получения успешного ответа HTTP можно настроить в формате http://contoso.com/path/custompath.htm.
+- **Interval** — задает интервал между пробами в секундах.
+- **Timeout** — определяет время ожидания для проверки ответа HTTP.
+- **UnhealthyThreshold** — количество неудачных ответов HTTP, по достижении которого серверный экземпляр считается *неработоспособным*.
 
-The probe name is referenced in the <BackendHttpSettings> configuration to assign which back-end pool uses custom probe settings.
+Имя пробы указывается в конфигурации <BackendHttpSettings> для назначения внутреннего пула, который будет использовать параметры пользовательской пробы.
 
-## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>Add a custom probe configuration to an existing application gateway
+## Добавление конфигурации пользовательской проверки к существующему шлюзу приложений
 
-Changing the current configuration of an application gateway requires three steps: Get the current XML configuration file, modify to have a custom probe, and configure the application gateway with the new XML settings.
+Изменение текущей конфигурации шлюза приложений состоит из трех шагов: получение XML-файла конфигурации, внесение изменений для пользовательской проверки и настройка шлюза приложений с использованием новых параметров XML.
 
-### <a name="step-1"></a>Step 1
+### Шаг 1
 
-Get the XML file by using get-AzureApplicationGatewayConfig. This exports the configuration XML to be modified to add a probe setting.
+Получите XML-файл с помощью командлета Get-AzureApplicationGatewayConfig. Он экспортирует XML-файл конфигурации, который можно изменить, чтобы добавить параметры пробы.
 
-    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
-### <a name="step-2"></a>Step 2
+### Шаг 2
 
-Open the XML file in a text editor. Add a `<probe>` section after `<frontendport>`.
+Откройте XML-файл в текстовом редакторе. Добавьте раздел `<probe>` после `<frontendport>`.
 
-    <Probes>
+	<Probes>
         <Probe>
             <Name>Probe01</Name>
             <Protocol>Http</Protocol>
@@ -179,7 +178,7 @@ Open the XML file in a text editor. Add a `<probe>` section after `<frontendport
         </Probe>
     </Probes>
 
-In the backendHttpSettings section of the XML, add the probe name as shown in the following example:
+В разделе backendHttpSettings XML-файла добавьте имя пробы, как показано в следующем примере.
 
         <BackendHttpSettings>
             <Name>setting1</Name>
@@ -190,23 +189,19 @@ In the backendHttpSettings section of the XML, add the probe name as shown in th
             <Probe>Probe01</Probe>
         </BackendHttpSettings>
 
-Save the XML file.
+Сохраните XML-файл.
 
-### <a name="step-3"></a>Step 3
+### Шаг 3.
 
-Update the application gateway configuration with the new XML file by using **Set-AzureApplicationGatewayConfig**. This updates your application gateway with the new configuration.
+Обновите конфигурацию шлюза приложений с использованием нового XML-файла, выполнив командлет **Set-AzureApplicationGatewayConfig**. Он команда обновит шлюз приложений с учетом новой конфигурации.
 
-    Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
-
-
-## <a name="next-steps"></a>Next steps
-
-If you want to configure Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
-
-If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
+	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
+## Дальнейшие действия
 
-<!--HONumber=Oct16_HO2-->
+Указания по настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
 
+Указания по настройке шлюза приложений для использования с внутренним балансировщиком нагрузки см. в статье [Создание шлюза приложений с внутренней подсистемой балансировщика нагрузки (ILB)](application-gateway-ilb.md).
 
+<!---HONumber=AcomDC_0907_2016-->

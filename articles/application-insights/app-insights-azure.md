@@ -1,48 +1,44 @@
 <properties 
-    pageTitle="Application Insights for Microsoft Azure apps" 
-    description="Analyze usage and performance of your Azure app with Application Insights." 
-    services="application-insights" 
+	pageTitle="Application Insights для приложений Microsoft Azure" 
+	description="Анализ использования и производительности приложения Azure с помощью Application Insights." 
+	services="application-insights" 
     documentationCenter="windows"
-    authors="alancameronwills" 
-    manager="douge"/>
+	authors="alancameronwills" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/15/2016" 
+	ms.author="awills"/>
+
+#  Application Insights для приложений Microsoft Azure
+
+*Доступна только предварительная версия Application Insights.*
 
 
-#  <a name="application-insights-for-microsoft-azure-apps"></a>Application Insights for Microsoft Azure apps
+Обнаружение проблем, решение проблем и постоянное усовершенствование приложений. Быстрая диагностика любых проблем в работающем приложении. Понимание действий, выполняемых пользователями с этим приложением.
 
-*Application Insights is in preview.*
+Настроить службу очень легко, так что вы сможете увидеть результаты через несколько минут.
 
+Какого рода у вас приложение?
 
-Detect issues, solve problems, and continuously improve your applications. Quickly diagnose any problems in your live application. Understand what your users do with it.
-
-Configuration is very easy, and you'll see results within minutes.
-
-What type of app do you have?
-
-* [Azure web app](app-insights-asp-net.md)
-* [Azure Cloud Services App - web and worker roles](app-insights-cloudservices.md)
-* [Web app on IIS in Azure VM](app-insights-asp-net.md)
-* [Application outside Azure](app-insights-overview.md)
+* [Веб-приложение Azure](app-insights-asp-net.md)
+* [Приложение облачных служб Azure — веб- и рабочие роли](app-insights-cloudservices.md)
+* [Веб-приложение в службах IIS на виртуальной машине Azure](app-insights-asp-net.md)
+* [Приложения за пределами Azure](app-insights-overview.md)
 
 
-Additional telemetry
+Дополнительная телеметрия
 
-* [Show Azure diagnostic logs in Application Insights](app-insights-azure-diagnostics.md)
+* [Отображение журналов системы диагностики Azure в Application Insights](app-insights-azure-diagnostics.md)
 
 
 
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

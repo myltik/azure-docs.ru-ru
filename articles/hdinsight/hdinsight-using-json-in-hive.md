@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Analyze and Process JSON documents with Hive in HDInsight | Microsoft Azure"
-   description="Learn how to use JSON documents and analyze them using Hive in HDInsight."
+   pageTitle="Анализ и обработка документов JSON с помощью Hive в HDInsight | Microsoft Azure"
+   description="Узнайте, как использовать документы JSON и анализировать их с помощью Hive в HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="rashimg"
@@ -17,171 +17,170 @@
    ms.author="rashimg"/>
 
 
+# Обрабатывайте и анализируйте документы JSON с использованием Hive в HDInsight
 
-# <a name="process-and-analyze-json-documents-using-hive-in-hdinsight"></a>Process and analyze JSON documents using Hive in HDInsight
+Узнайте, как обрабатывать и анализировать файлы JSON с помощью Hive в HDInsight. В этом руководстве будет использоваться следующий документ JSON
 
-Learn how to process and analyze JSON files using Hive in HDInsight. The following JSON document will be used in the tutorial
+	{
+	    "StudentId": "trgfg-5454-fdfdg-4346",
+	    "Grade": 7,
+	    "StudentDetails": [
+	        {
+	            "FirstName": "Peggy",
+	            "LastName": "Williams",
+	            "YearJoined": 2012
+	        }
+	    ],
+	    "StudentClassCollection": [
+	        {
+	            "ClassId": "89084343",
+	            "ClassParticipation": "Satisfied",
+	            "ClassParticipationRank": "High",
+	            "Score": 93,
+	            "PerformedActivity": false
+	        },
+	        {
+	            "ClassId": "78547522",
+	            "ClassParticipation": "NotSatisfied",
+	            "ClassParticipationRank": "None",
+	            "Score": 74,
+	            "PerformedActivity": false
+	        },
+	        {
+	            "ClassId": "78675563",
+	            "ClassParticipation": "Satisfied",
+	            "ClassParticipationRank": "Low",
+	            "Score": 83,
+	            "PerformedActivity": true
+	        }
+	    ]
+	}
 
-    {
-        "StudentId": "trgfg-5454-fdfdg-4346",
-        "Grade": 7,
-        "StudentDetails": [
-            {
-                "FirstName": "Peggy",
-                "LastName": "Williams",
-                "YearJoined": 2012
-            }
-        ],
-        "StudentClassCollection": [
-            {
-                "ClassId": "89084343",
-                "ClassParticipation": "Satisfied",
-                "ClassParticipationRank": "High",
-                "Score": 93,
-                "PerformedActivity": false
-            },
-            {
-                "ClassId": "78547522",
-                "ClassParticipation": "NotSatisfied",
-                "ClassParticipationRank": "None",
-                "Score": 74,
-                "PerformedActivity": false
-            },
-            {
-                "ClassId": "78675563",
-                "ClassParticipation": "Satisfied",
-                "ClassParticipationRank": "Low",
-                "Score": 83,
-                "PerformedActivity": true
-            }
-        ]
-    }
+Файл можно найти в wasbs://processjson@hditutorialdata.blob.core.windows.net/. Дополнительные сведения об использовании хранилища Azure Blob с HDInsight приведены в разделе [Использование HDFS-совместимого хранилища Azure Blob с Hadoop в HDInsight](hdinsight-hadoop-use-blob-storage.md). При желании можно скопировать файл в контейнер по умолчанию кластера.
 
-The file can be found at wasbs://processjson@hditutorialdata.blob.core.windows.net/. For more information on using Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster if you want.
+В этом руководстве используется консоль Hive. Инструкции по открытию консоли Hive приведены в разделе [Использование Hive с Hadoop в HDInsight с помощью удаленного рабочего стола](hdinsight-hadoop-use-hive-remote-desktop.md).
 
-In this tutorial, you will use the Hive console.  For instructions of opening the Hive console, see [Use Hive with Hadoop on HDInsight with Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md).
+##Документы JSON, преобразованные в плоскую структуру
 
-##<a name="flatten-json-documents"></a>Flatten JSON documents
+Методы, перечисленные в следующем разделе требуют, чтобы документ JSON содержал одну строку. Поэтому необходимо преобразовать документ JSON в строку. Если документ JSON уже преобразован, можно пропустить этот шаг и сразу перейти к следующему разделу, посвященному анализу данных JSON.
 
-The methods listed in the next section require the JSON document in a single row. So you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on Analyzing JSON data.
+	DROP TABLE IF EXISTS StudentsRaw;
+	CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
 
-    DROP TABLE IF EXISTS StudentsRaw;
-    CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
+	DROP TABLE IF EXISTS StudentsOneLine;
+	CREATE EXTERNAL TABLE StudentsOneLine
+	(
+	  json_body string
+	)
+	STORED AS TEXTFILE LOCATION '/json/students';
 
-    DROP TABLE IF EXISTS StudentsOneLine;
-    CREATE EXTERNAL TABLE StudentsOneLine
-    (
-      json_body string
-    )
-    STORED AS TEXTFILE LOCATION '/json/students';
+	INSERT OVERWRITE TABLE StudentsOneLine
+	SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
+	      FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
+	      GROUP BY INPUT__FILE__NAME;
 
-    INSERT OVERWRITE TABLE StudentsOneLine
-    SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
-          FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
-          GROUP BY INPUT__FILE__NAME;
+	SELECT * FROM StudentsOneLine
 
-    SELECT * FROM StudentsOneLine
+Необработанный файл JSON находится в **wasbs://processjson@hditutorialdata.blob.core.windows.net/**. Таблица Hive *StudentsRaw* указывает на необработанный документ JSON.
 
-The raw JSON file is located at **wasbs://processjson@hditutorialdata.blob.core.windows.net/**. The *StudentsRaw* Hive table points to the raw un-flattened JSON document.
+Таблица Hive *StudentsOneLine* сохранит данные в файловой системе по умолчанию HDInsight в каталоге */json/students/*.
 
-The *StudentsOneLine* Hive table will store the data in the HDInsight default file system under the */json/students/* path.
+Запрос INSERT заполняет таблицу StudentOneLine плоскими данными JSON.
 
-The INSERT statement populate the StudentOneLine table with the flattened JSON data.
+Запрос SELECT должен возвращать всего 1 строку.
 
-The SELECT statement shall only return 1 row.
+Вот результат выполнения запроса SELECT:
 
-Here is the output of the SELECT statement:
+![Преобразование документа JSON в плоскую структуру][image-hdi-hivejson-flatten]
 
-![Flattening of the JSON document.][image-hdi-hivejson-flatten]
+##Анализ документов JSON в Hive
 
-##<a name="analyze-json-documents-in-hive"></a>Analyze JSON documents in Hive
+Hive предоставляет три различных механизма для выполнения запросов к документам JSON:
 
-Hive provides three different mechanisms to run queries on JSON documents:
+- определяемая пользователем функция GET\_JSON\_OBJECT
+- определяемая пользователем функция JSON\_TUPLE
+- пользовательские SerDe
+- написание собственной определяемой пользователем функции с использованием Python или других языков. Информация о выполнении кода Python в Hive приведена [в этой статье][hdinsight-python].
 
-- use the GET\_JSON\_OBJECT UDF (User Defined Function)
-- use the JSON_TUPLE UDF
-- use custom SerDe
-- write you own UDF using Python or other languages. See [this article][hdinsight-python] on running your own Python code with Hive.
+### Использование определяемой пользователем функции GET\_JSON\_OBJECT
+В Hive есть встроенная определяемая пользователем функция под названием [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object), которая может выполнять запросы JSON во время выполнения. Этот метод принимает два аргумента — имя таблицы, которая содержит плоский документ JSON, и поле JSON, которое требуется проанализировать. Рассмотрим на примере, как работает эта пользовательская функция.
 
-### <a name="use-the-get\_json_object-udf"></a>Use the GET\_JSON_OBJECT UDF
-Hive provides a built-in UDF called [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) which can perform JSON querying during run time. This method takes two arguments – the table name and method name which has the flattened JSON document and the JSON field that needs to be parsed. Let’s look at an example to see how this UDF works.
+Получение имени и фамилии каждого студента
 
-Get the first name and last name for each student
+	SELECT
+	  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
+	  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
+	FROM StudentsOneLine;
 
-    SELECT
-      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
-      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
-    FROM StudentsOneLine;
+Вот какие результаты дает выполнение этого запроса в окне консоли.
 
-Here is the output when running this query in console window.
+![Пользовательская функция get\_json\_object][image-hdi-hivejson-getjsonobject]
 
-![get_json_object UDF][image-hdi-hivejson-getjsonobject]
+У определяемой пользователем функции get-json\_object есть несколько ограничений.
 
-There are a few limitations of the get-json_object UDF.
-
-- Because each field in the query requires re-parsing the query, it affects the performance.
-- GET\_JSON_OBJECT() returns the string representation of an array. To convert this to a Hive array, you will have to use regular expressions to replace the square brackets ‘[‘ and ‘]’ and then also call split to get the array.
+- Поскольку каждое поле в запросе требует повторного синтаксического анализа запроса, это влияет на производительность.
+- GET\_JSON\_OBJECT() возвращает строковое представление массива. Для преобразования строкового представления в массив Hive необходимо использовать регулярные выражения для замены квадратных скобок ‘[‘ и ‘]’, а затем также выполнить разбиение для получения массива.
 
 
-This is why the Hive wiki recommends using json_tuple.  
+Именно поэтому в вики Hive рекомендуется использовать json\_tuple.
 
-### <a name="use-the-json_tuple-udf"></a>Use the JSON_TUPLE UDF
+### Использование определяемой пользователем функции JSON\_TUPLE
 
-Another UDF provided by Hive is called [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple) which performs better than [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). This method takes a set of keys and a JSON string, and returns a tuple of values using one function. The following query returns the student id and the grade from the JSON document:
+Еще одна определяемая пользователем функция в Hive называется [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), и она дает лучшие результаты по сравнению с [get\_ json \_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Этот метод принимает набор ключей и строку JSON, а затем возвращает кортеж из значений, используя одну функцию. Следующий запрос возвращает идентификатор студента и его оценку из документа JSON.
 
     SELECT q1.StudentId, q1.Grade
       FROM StudentsOneLine jt
       LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
         AS StudentId, Grade;
 
-The output of this script in the Hive console:
+Выходные данные этого сценария в консоли Hive:
 
-![json_tuple UDF][image-hdi-hivejson-jsontuple]
+![Пользовательская функция json\_tuple][image-hdi-hivejson-jsontuple]
 
-JSON\_TUPLE uses the [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) syntax in Hive which allows json\_tuple to create a virtual table by applying the UDT function to each row of the original table.  Complex JSONs become too unwieldy because of the repeated use of LATERAL VIEW. Furthermore, JSON_TUPLE cannot handle nested JSONs.
+JSON\_TUPLE использует синтаксис [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) Hive, который позволяет json\_tuple создать виртуальную таблицу путем применения определяемой пользователем функции к каждой строке исходной таблицы. Из-за многократного использования LATERAL VIEW синтаксис сложных документов JSON становится слишком громоздким. Кроме того, JSON\_TUPLE не может обрабатывать вложенные JSON.
 
 
-###<a name="use-custom-serde"></a>Use custom SerDe
+###Использование пользовательских SerDe
 
-SerDe is the best choice for parsing nested JSON documents, it allows you to define the JSON schema, and use the schema to parse the documents. In this tutorial, you will use one of the more popular SerDe that has been developed by [rcongiu](https://github.com/rcongiu).
+SerDe — лучший выбор для синтаксического анализа вложенных документов JSON, так как с ними можно определить схему JSON и использовать ее для синтаксического анализа документов. В этом руководстве мы воспользуемся более распространенными SerDe, которые были разработаны [rcongiu](https://github.com/rcongiu).
 
-**To use the custom SerDe:**
+**Для использования пользовательских SerDe выполните следующие действия:**
 
-1. Install [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Choose the Windows X64 version of the JDK if you are going to be using the Windows deployment of HDInsight
+1. Установите [Java SE Development Kit 7u55 JDK 1.7.0\_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR). Если вы собираетесь использовать развертывание HDInsight в Windows, выберите версию JDK для 64-разрядной Windows
 
-    >[AZURE.WARNING] JDK 1.8 doesn't work with this SerDe.
+	>[AZURE.WARNING] JDK 1.8 не будет работать с этим SerDe.
 
-    After the installation is completed, add a new user environment variable:
+	После завершения установки добавьте новую переменную среды пользователя:
 
-    1. Open **View advanced system settings** from the Windows screen.
-    2. Click **Environment Variables**.  
-    3. Add a new **JAVA_HOME** environment variable is pointing to **C:\Program Files\Java\jdk1.7.0_55** or wherever your JDK is installed.
+	1. Откройте окно **Дополнительные параметры системы** в Windows.
+	2. Выберите **Переменные среды**.
+	3. Добавьте новую переменную среды **JAVA\_HOME**, которая указывает на **C:\\Program Files\\Java\\jdk1.7.0\_55** или на другую папку, в которую установлен JDK.
 
-    ![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
+	![Настройка правильных значений конфигурации для JDK][image-hdi-hivejson-jdk]
 
-2. Install [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
+2. Установите [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip).
 
-    Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The screenshot below shows you how to do this.
+	Добавьте в путь папку bin, выбрав на панели управления команду "Изменение системных переменных среды" для переменных среды вашей учетной записи. На следующем снимке экрана показано, как это сделать.
 
-    ![Setting up Maven][image-hdi-hivejson-maven]
+	![Настройка Maven][image-hdi-hivejson-maven]
 
-3. Clone the project from [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github site. You can do this by clicking on the “Download Zip” button as shown in the screenshot below.
+3. Создайте клон проекта с сайта [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master). Это можно сделать, нажав кнопку Download Zip ("Скачать ZIP-файл"), как показано на следующем снимке экрана.
 
-    ![Cloning the project][image-hdi-hivejson-serde]
+	![Клонирование проекта][image-hdi-hivejson-serde]
 
-4: Go to the folder where you have downloaded this package and  type “mvn package”. This should create the necessary jar files that you can then copy over to the cluster.
+4: Перейдите в папку, в которую загрузили этот пакет, и наберите “mvn package”. При этом должны создаться нужные JAR-файлы, который затем можно скопировать в кластер.
 
-5: Go to the target folder under the root folder where you downloaded the package. Upload the json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar file to head-node of your cluster. I usually put it under the hive binary folder: C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin or something similar.
+5: Перейдите в целевую папку в корневой папке, в которую загрузили пакет. Добавьте файл json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar в головной узел кластера. Я обычно помещаю его в папку двоичных файлов Hive: C:\\apps\\dist\\hive-0.13.0.2.1.11.0-2316\\bin или что-то подобное.
 
-6: In the hive prompt, type “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”. Since in my case, the jar is in the C:\apps\dist\hive-0.13.x\bin folder, I can directly add the jar with the name as shown below:
+6: В командной строке Hive введите “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”. Так как в моем случае JAR-файл находится в папке C:\\apps\\dist\\hive-0.13.x\\bin, можно напрямую добавить JAR с этим именем, как показано ниже:
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
-    ![Adding JAR to your project][image-hdi-hivejson-addjar]
+	![Adding JAR to your project][image-hdi-hivejson-addjar]
 
-Now, you are ready to use the SerDe to run queries against the JSON document.
+Теперь мы можем использовать SerDe для выполнения запросов к документу JSON.
 
-The following statement create a table with a defined schema
+Следующий запрос создает таблицу с заданной схемой
 
     DROP TABLE json_table;
     CREATE EXTERNAL TABLE json_table (
@@ -204,49 +203,48 @@ The following statement create a table with a defined schema
     ) ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
     LOCATION '/json/students';
 
-To list the first name and last name of the student
+Для вывода имени и фамилии студента
 
     SELECT StudentDetails.FirstName, StudentDetails.LastName FROM json_table;
 
-Here is the result from the Hive console.
+Вот результат из консоли Hive:
 
-![SerDe Query 1][image-hdi-hivejson-serde_query1]
+![Запрос SerDe 1][image-hdi-hivejson-serde_query1]
 
-To calculate the sum of scores of the JSON document
+Для вычисления суммы оценок из документа JSON
 
     SELECT SUM(scores)
     FROM json_table jt
       lateral view explode(jt.StudentClassCollection.Score) collection as scores;
 
-The query above uses [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) UDF to expand the array of scores so that they can be summed.
+В приведенном выше запросе используется пользовательская функция [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView), позволяющая развернуть массив оценок, чтобы просуммировать их.
 
-Here is the output from the Hive console.
+Вот результат из консоли Hive:
 
-![SerDe Query 2][image-hdi-hivejson-serde_query2]
+![Запрос SerDe 2][image-hdi-hivejson-serde_query2]
 
-To find which subjects a given student has scored more than 80 points SELECT  
-      jt.StudentClassCollection.ClassId FROM json_table jt lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
+Для поиска студентов, которые набрали более 80 баллов, выполните запрос SELECT jt.StudentClassCollection.ClassId FROM json\_table jt lateral view explode(jt.StudentClassCollection.Score) collection as score where score > 80;
 
-The query above returns a Hive array unlike get\_json\_object which returns a string.
+Приведенный выше запрос возвращает массив Hive (в отличие от функции get\_json\_object, которая возвращает строку).
 
-![SerDe Query 3][image-hdi-hivejson-serde_query3]
+![Запрос SerDe 3][image-hdi-hivejson-serde_query3]
 
-If you want to skil malformed JSON, then as explained in the [wiki page](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) of this SerDe you can achieve that by typing the code below:  
+Если вы хотите пропустить документы JSON неправильного формата, просмотрите инструкции на [вики-странице](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) этого SerDe. Чтобы сделать это, можно ввести следующий код:
 
     ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
 
 
 
 
-##<a name="summary"></a>Summary
-In conclusion, the type of JSON operator in Hive that you choose depends on your scenario. If you have a simple JSON document and you only have one field to look up on – you can choose to use the Hive UDF get\_json\_object. If you have more than one keys to look up on then you can use json_tuple. If you have a nested document, then you should use the JSON SerDe.
+##Сводка
+Напоследок следует заметить, что тип оператора JSON в Hive, который нужно выбрать, зависит от ситуации. Если вам требуется найти всего одно поле в простом документе JSON, можно применять пользовательскую функцию Hive get\_json\_object. Если нужно выполнить поиск по нескольким ключам, можно использовать json\_tuple. При наличии вложенного документа следует использовать SerDe JSON.
 
-For other related articles, see
+Другие статьи по этой теме приведены в
 
-- [Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file](hdinsight-use-hive.md)
-- [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
-- [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md)
-- [Run a Hadoop job using DocumentDB and HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
+- [Использование Hive и HiveQL с Hadoop в HDInsight для анализа примера файла log4j Apache ](hdinsight-use-hive.md)
+- [Анализ данных о задержке рейсов с помощью Hadoop в HDInsight](hdinsight-analyze-flight-delay-data.md)
+- [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data.md)
+- [Запуск задания Hadoop с помощью DocumentDB и HDInsight](../documentdb/documentdb-run-hadoop-with-hdinsight.md)
 
 [hdinsight-python]: hdinsight-python.md
 
@@ -262,8 +260,4 @@ For other related articles, see
 [image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

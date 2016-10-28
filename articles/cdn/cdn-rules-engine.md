@@ -1,74 +1,69 @@
 <properties
-    pageTitle="Overriding default HTTP behavior in Azure CDN using the rules engine | Microsoft Azure"
-    description="The rules engine allows you to customize how HTTP requests are handled by Azure CDN, such as blocking the delivery of certain types of content, define a caching policy, and modify HTTP headers."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Переопределение стандартного поведения HTTP в Azure CDN с помощью обработчика правил | Microsoft Azure"
+	description="Обработчик правил помогает настраивать способ обработки HTTP-запросов в Azure CDN, включая блокировку доставки определенных типов содержимого, определение политики кэширования и изменение заголовков HTTP."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
 
-
-# <a name="override-default-http-behavior-using-the-rules-engine"></a>Override default HTTP behavior using the rules engine
+# Переопределение стандартного поведения HTTP с помощью обработчика правил
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Overview
+## Обзор
 
-The rules engine allows you to customize how HTTP requests are handled, such as blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers.  This tutorial will demonstrate creating a rule that will change the caching behavior of CDN assets.  There's also video content available in the "[See also](#see-also)" section.
+Обработчик правил позволяет настроить способ обработки HTTP-запросов, например блокировку доставки определенных типов содержимого, определение политики кэширования и изменение заголовков HTTP. В этом руководстве описано, как создать правило, которое изменит схему кэширования ресурсов CDN. В разделе [См. также](#see-also) находятся соответствующие видеоматериалы.
 
-## <a name="tutorial"></a>Tutorial
+## Учебник
 
-1. From the CDN profile blade, click the **Manage** button.
+1. В колонке профиля сети CDN нажмите кнопку **Управление**.
 
-    ![CDN profile blade manage button](./media/cdn-rules-engine/cdn-manage-btn.png)
+	![Кнопка управления в колонке профиля CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
 
-    The CDN management portal opens.
+	Откроется портал управления CDN.
 
-2. Click on the **HTTP Large** tab, followed by **Rules Engine**.
+2. Щелкните вкладку **Большая HTTP-платформа**, затем вкладку **Обработчик правил**.
 
-    Options for a new rule are displayed.
+	Появятся параметры для нового правила.
 
-    ![CDN new rule options](./media/cdn-rules-engine/cdn-new-rule.png)
+	![Параметры нового правила CDN](./media/cdn-rules-engine/cdn-new-rule.png)
 
-    >[AZURE.IMPORTANT] The order in which multiple rules are listed affects how they are handled. A subsequent rule may override the actions specified by a previous rule.
-    
-3. Enter a name in the **Name / Description** textbox.
+	>[AZURE.IMPORTANT] Порядок перечисления правил влияет на способ их обработки. Последующее правило может переопределить действия, заданные предыдущим правилом.
+	
+3. В поле **Имя и описание** введите имя.
 
-4. Identify the type of requests the rule will apply to.  By default, the **Always** match condition is selected.  You'll use **Always** for this tutorial, so leave that selected.
+4. Укажите тип запросов, к которым будет применяться правило. По умолчанию выбрано условие соответствия **Всегда**. В этом учебнике будет использоваться условие **Всегда**, поэтому не изменяйте его.
 
-    ![CDN match condition](./media/cdn-rules-engine/cdn-request-type.png)
+	![Условие соответствия CDN](./media/cdn-rules-engine/cdn-request-type.png)
 
-    >[AZURE.TIP] There are many types of match conditions available in the dropdown.  Clicking on the blue informational icon to the left of the match condition will explain the currently selected condition in detail.
-    >
-    >For the full list of match conditions in detail, see [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_0).
+	>[AZURE.TIP] В раскрывающемся списке доступно много типов условий соответствия. Щелкнув синий информационный значок слева от условия соответствия, вы сможете получить подробные сведения о выбранном условии.
+	>
+	>Полный список условий соответствия см. в статье [Подробные сведения о б условиях соответствия и функциях обработчика правил](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_0).
 
-5.  Click the **+** button next to **Features** to add a new feature.  In the dropdown on the left, select **Force Internal Max-Age**.  In the textbox that appears, enter **300**.  Leave the remaining default values.
+5.  Щелкните кнопку **+** рядом с пунктом **Функции**, чтобы добавить новую функцию. В раскрывающемся списке в левой части выберите **Принудительно извлечь внутренний максимальный возраст**. В появившемся текстовом поле введите **300**. Оставьте остальные значения по умолчанию.
 
-    ![CDN feature](./media/cdn-rules-engine/cdn-new-feature.png)
+	![Функция CDN](./media/cdn-rules-engine/cdn-new-feature.png)
 
-    >[AZURE.NOTE] As with match conditions, clicking the blue informational icon to the left of the new feature will display details about this feature.  In the case of **Force Internal Max-Age**, we are overriding the asset's **Cache-Control** and **Expires** headers to control when the CDN edge node will refresh the asset from the origin.  Our example of 300 seconds means the CDN edge node will cache the asset for 5 minutes before refreshing the asset from its origin.
-    >
-    >For the full list of features in detail, see [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1).
+	>[AZURE.NOTE] Как и в случае с условиями соответствия, при щелчке синего информационного значка слева от новой функции будут отображены подробные сведения об этой функции. При использовании параметра **Принудительно извлечь внутренний максимальный возраст** мы переопределяем заголовки ресурса **Cache-Control** и **Expires** для управления моментом обновления граничным узлом CDN ресурса из источника. В нашем примере 300 секунд означает, что граничный узел CDN будет кэшировать ресурс в течение 5 минут перед его обновлением из источника.
+	>
+	>Полный список функций см. в статье [Подробные сведения об условиях соответствия и функциях обработчика правил](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1).
 
-6.  Click the **Add** button to save the new rule.  The new rule is now awaiting approval. Once it has been approved, the status will change from **Pending XML** to **Active XML**.
+6.  Нажмите кнопку **Добавить**, чтобы сохранить новое правило. Теперь новое правило ожидает утверждения. После утверждения состояние правила изменится с **В ожидании XML** для **Активный XML**.
 
-    >[AZURE.IMPORTANT] Rules changes may take up to 90 minutes to propagate through the CDN.
+	>[AZURE.IMPORTANT] Распространение изменений правил по сети CDN может занять до 90 минут.
 
-## <a name="see-also"></a>See also
-* [Azure Fridays: Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)
-* [Rules Engine Match Condition and Feature Details](https://msdn.microsoft.com/library/mt757336.aspx)
+## См. также
+* [Пятничный видеоролик об Azure. Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (Новые возможности Azure CDN уровня "Премиум")
+* [Подробные сведения об условиях соответствия и функциях обработчика правил](https://msdn.microsoft.com/library/mt757336.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

@@ -1,10 +1,10 @@
 <properties
- pageTitle="Plans and Billing in Azure Scheduler"
- description="Plans and Billing in Azure Scheduler"
+ pageTitle="Планы и выставление счетов в планировщике Azure"
+ description="Планы и выставление счетов в планировщике Azure"
  services="scheduler"
  documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,88 +13,83 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/18/2016"
- ms.author="deli"/>
+ ms.author="krisragh"/>
 
+# Планы и выставление счетов в планировщике Azure
 
-# <a name="plans-and-billing-in-azure-scheduler"></a>Plans and Billing in Azure Scheduler
+## Тарифные планы коллекций заданий
 
-## <a name="job-collection-plans"></a>Job Collection Plans
+Коллекции заданий в планировщике Azure тарифицируются. Коллекции содержат определенное число заданий и могут иметь один из трех описанных ниже планов: бесплатный, стандартный или премиальный.
 
-Job collections are the billable entity in Azure Scheduler. Job collections contain a number of jobs and come in three plans – Free, Standard, and Premium – that are described below.
-
-|**Job Collection Plan**|**Max # of Jobs per Job Collection**|**Max Recurrence**|**Max Job Collections per Subscription**|**Limits**|
+|**Тарифный план коллекции заданий**|**Макс. число заданий в коллекции**|**Макс. повторяемость**|**Макс. число коллекции заданий на подписку**|**Ограничения**|
 |:---|:---|:---|:---|:---|
-|**Free**|5 jobs per job collection|Once per hour. Cannot execute jobs more often than once an hour|A subscription is allowed up to 1 free job collection|Cannot use [HTTP outbound authorization object](scheduler-outbound-authentication.md)
-|**Standard**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 100 standard job collections|Access to full feature set of Scheduler|
-|**P10 Premium**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 P10 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
-|**P20 Premium**|1000 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 P20 Premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
+|**Бесплатный**|5 заданий в коллекции|Один раз в час. Не позволяет выполнять задания чаще одного раза в час.|Подписка может включать только 1 бесплатную коллекцию заданий.|Нельзя использовать [объект исходящей проверки подлинности HTTP](scheduler-outbound-authentication.md).
+|**Стандартный**|50 заданий в коллекции|Один раз в минуту. Не позволяет выполнять задания чаще одного раза в минуту.|Подписка может включать до 100 стандартных коллекций заданий.|Доступен весь набор функций планировщика.|
+|**P10 Премиум**|50 заданий в коллекции|Один раз в минуту. Не позволяет выполнять задания чаще одного раза в минуту.|Подписка может включать до 10 000 коллекций заданий уровня "Премиум (P10)". <a href="mailto:wapteams@microsoft.com">Свяжитесь с нами</a> для получения дополнительных сведений.|Доступен весь набор функций планировщика.|
+|**P20 Премиум**|1000 заданий в коллекции|Один раз в минуту. Не позволяет выполнять задания чаще одного раза в минуту.|Подписка может включать до 10 000 коллекций заданий уровня "Премиум (P20)". <a href="mailto:wapteams@microsoft.com">Свяжитесь с нами</a> для получения дополнительных сведений.|Доступен весь набор функций планировщика.|
 
-## <a name="upgrades-and-downgrades-of-job-collection-plans"></a>Upgrades and Downgrades of Job Collection Plans
+## Повышение и понижение тарифного плана коллекции заданий
 
-You may upgrade or downgrade a job collection plan anytime among the Free, Standard, and Premium plans. However, when downgrading to a free job collection, the downgrade may fail for one of the following reasons:
+Тарифный план коллекции заданий (бесплатный, стандартный или премиальный) можно повысить или понизить в любое время. При этом переход на бесплатную коллекцию заданий может закончиться неудачей по одной из следующих причин.
 
-- A free job collection already exists in the subscription
-- A job in the job collection has a higher recurrence than allowed for jobs in free job collections. The maximum recurrence allowed in a free job collection is once per hour
-- There are more than 5 jobs in the job collection
-- A job in the job collection has an HTTP or HTTPS action that uses an [HTTP outbound authorization object](scheduler-outbound-authentication.md)
+- В подписке уже существует бесплатная коллекция заданий.
+- Повторяемость задания в коллекции превышает ограничение, установленное для заданий в бесплатной коллекции. Максимальная повторяемость заданий в бесплатной коллекции — один раз в час.
+- Коллекция содержит больше 5 заданий.
+- Задание в коллекции включает действие HTTP или HTTPS с использованием [объекта исходящей проверки подлинности HTTP](scheduler-outbound-authentication.md).
 
-## <a name="billing-and-azure-plans"></a>Billing and Azure Plans
+## Выставление счетов и тарифные планы Azure
 
-Subscriptions are not charged for free job collections. If you have more than 100 standard job collections (10 standard billing units), then it's a better deal to have all job collections in the premium plan.
+При использовании бесплатных коллекций заданий подписка не оплачивается. Если у вас больше 100 стандартных коллекций заданий (10 стандартных единиц тарификации), рекомендуем перевести все коллекции заданий на премиальный план.
 
-If you have one standard job collection and one premium job collection, you are billed one standard billing unit _and_ one premium billing unit. The Scheduler service bills based on the number of active job collections that are set to either standard or premium; this is explained further in the next two sections.
+Если у вас есть одна стандартная и одна премиальная коллекция заданий, с вас будет взиматься одна стандартная _и_ одна премиальная единица тарификации. Служба планировщика оплачивается по количеству активных коллекций заданий, обозначенных как стандартные или как премиальные (см. следующие два раздела данной статьи).
 
-## <a name="standard-billable-units"></a>Standard Billable Units
+## Стандартные единицы тарификации
 
-A standard billable unit can include up to 10 standard job collections. Since a standard job collection can have up to 50 jobs per job collection, one standard billing unit allows a subscription to have up to 500 jobs – up to almost 22 million job executions per month.
+Стандартная единица тарификации может включать до 10 стандартных коллекций заданий. Поскольку стандартная коллекция заданий может содержать до 50 заданий, одна стандартная единица тарификации позволяет включать в подписку до 500 заданий, что означает почти 22 миллиона выполненных заданий в месяц.
 
-If you have between 1 and 10 standard job collections, you'll be billed for 1 standard billing unit. If you have between 11 and 20 standard job collections, you'll be billed for 2 standard billing units. If you have between 21 and 30 standard job collections, you'll be billed for 3 standard billing units, and so on.
+При наличии от 1 до 10 стандартных коллекций заданий оплачивается 1 стандартная единица тарификации. При наличии от 11 до 20 стандартных коллекций заданий оплачиваются 2 стандартные единицы тарификации. При наличии от 21 до 30 стандартных коллекций заданий оплачиваются 3 стандартные единицы тарификации.
 
-## <a name="p10-premium-billable-units"></a>P10 Premium Billable Units
+## Оплачиваемые единицы уровня P10 "Премиум"
 
-A P10 premium billable unit can include up to 10,000 P10 premium job collections. Since a P10 premium job collection can have up to 50 jobs per job collection, one premium billing unit allows a subscription to have up to 500,000 jobs – up to almost 22 billion job executions per month.
+Оплачиваемая единица уровня P10 "Премиум" может включать в себя до 10 000 коллекций заданий уровня P10 "Премиум". Так как коллекция заданий уровня "Премиум (P10)" может содержать до 50 заданий, то одна оплачиваемая единица уровня "Премиум" позволяет включить в подписку до 500 000 заданий, что означает почти 22 миллиарда выполненных заданий в месяц.
 
-If you have between 1 and 10,000 premium job collections, you'll be billed for 1 P10 premium billing unit. If you have between 10,001 and 20,000 premium job collections, you'll be billed for 2 P10 premium billing units, and so on.
+При наличии от 1 до 10 000 коллекций заданий уровня "Премиум" оплачивается 1 оплачиваемая единица уровня P10 "Премиум". При наличии от 10 001 до 20 000 коллекций заданий уровня "Премиум" оплачивается 2 оплачиваемых единицы уровня P10 "Премиум" и так далее.
 
-Thus, P10 premium job collections have the same functionality as the standard job collections but provide a price break in case your application requires a lot of job collections.
+Таким образом, коллекции заданий уровня P10 "Премиум" работают точно так же, как и задания уровня "Стандартный", но позволяют экономить, если необходимое приложению количество коллекций заданий очень велико.
 
-## <a name="p20-premium-billable-units"></a>P20 Premium Billable Units
+## Оплачиваемые единицы уровня P20 "Премиум"
 
-A P20 premium billable unit can include up to 5,000 P20 premium job collections. Since a P20 premium job collection can have up to 1,000 jobs per job collection, one premium billing unit allows a subscription to have up to 5,000,000 jobs – up to almost 220 billion job executions per month.
+Оплачиваемая единица уровня P20 "Премиум" может включать в себя до 5 000 коллекций заданий уровня P20 "Премиум". Так как коллекция заданий уровня "Премиум (P20)" может содержать до 1000 заданий, то одна оплачиваемая единица уровня "Премиум" позволяет включить в подписку до 5 000 000 заданий, что означает почти 220 миллиардов выполненных заданий в месяц.
 
-P20 premium job collections provides the same capabilities as P10 premium job collections but also supports a greater number jobs per job collection and a greater total number of jobs overall than P10 premium allowing you to have more scalability.
+Коллекции заданий уровня P20 "Премиум" предоставляют те же возможности, что и коллекции заданий уровня P10 "Премиум", но также поддерживают большее число заданий в коллекции и большее общее число заданий, чем P10 "Премиум", что позволяет повысить масштабируемость.
 
-## <a name="billing-and-active-status"></a>Billing and Active Status
+## Выставление счетов и активный статус
 
-Job collections are always active unless your entire subscription has gone into some temporary disabled state due to billing issues. The only way to ensure that a job collection is not billed is to either set it to the _Free_ plan or to delete the job collection.
+Коллекции заданий всегда активны; исключение составляет только временное отключение всей подписки в связи с проблемами оплаты. Чтобы не оплачивать коллекцию заданий, либо переведите ее на _бесплатный_ тарифный план, либо удалите.
 
-Although you may disable all jobs within a job collection in a single operation, it does not change the billing status of the job collection – the job collection will _still_ be billed. Similarly, empty job collections are considered active and will be billed.
+Отключение всех заданий коллекции можно выполнить одной операцией, но тарификация этой коллекции при этом не изменится — счет на такую коллекцию заданий будет выставляться _по-прежнему_. Точно так же считаются активными и подлежат оплате пустые коллекции заданий.
 
-## <a name="pricing"></a>Pricing
+## Цены
 
-For pricing details, please see [Scheduler Pricing](https://azure.microsoft.com/pricing/details/scheduler/).
+Дополнительные сведения о ценах см. в разделе [Стоимость планировщика](https://azure.microsoft.com/pricing/details/scheduler/).
 
-## <a name="see-also"></a>See Also
-
-
- [What is Scheduler?](scheduler-intro.md)
-
- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
-
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
-
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
-
- [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
-
- [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
-
- [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
-
- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
+## См. также
 
 
+ [Что такое планировщик?](scheduler-intro.md)
 
-<!--HONumber=Oct16_HO2-->
+ [Основные понятия, терминология и иерархия сущностей планировщика Azure](scheduler-concepts-terms.md)
 
+ [Приступая к работе с планировщиком Azure на портале Azure](scheduler-get-started-portal.md)
 
+ [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/mt629143)
+
+ [Справочник по командлетам PowerShell планировщика Azure](scheduler-powershell-reference.md)
+
+ [Высокая доступность и надежность планировщика Azure](scheduler-high-availability-reliability.md)
+
+ [Ограничения, значения по умолчанию и коды ошибок планировщика Azure](scheduler-limits-defaults-errors.md)
+
+ [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
+
+<!---HONumber=AcomDC_0824_2016-->

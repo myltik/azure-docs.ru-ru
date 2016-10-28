@@ -1,40 +1,39 @@
 <properties 
-    pageTitle="Use Powershell to set alerts in Application Insights" 
-    description="Automate configuration of Application Insights to get emails about metric changes." 
-    services="application-insights" 
+	pageTitle="Настройка оповещений в Application Insights с помощью PowerShell" 
+	description="Автоматизация настройки Application Insights для получения сообщений электронной почты об изменениях метрик." 
+	services="application-insights" 
     documentationCenter=""
-    authors="alancameronwills" 
-    manager="douge"/>
+	authors="alancameronwills" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="02/19/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2016" 
+	ms.author="awills"/>
  
+# Настройка оповещений в Application Insights с помощью PowerShell
 
-# <a name="use-powershell-to-set-alerts-in-application-insights"></a>Use PowerShell to set alerts in Application Insights
+Вы можете автоматизировать настройку [оповещений](app-insights-alerts.md) в [Visual Studio Application Insights](app-insights-overview.md).
 
-You can automate the configuration of [alerts](app-insights-alerts.md) in [Visual Studio Application Insights](app-insights-overview.md). 
+Кроме того, вы можете [установить веб-перехватчики для автоматизации реагирования на оповещение](../azure-portal/insights-webhooks-alerts.md).
 
-In addition, you can [set webhooks to automate your response to an alert](../azure-portal/insights-webhooks-alerts.md).
+## Однократная настройка
 
-## <a name="one-time-setup"></a>One-time setup
+Если вы ранее не использовали PowerShell для подписки Azure:
 
-If you haven't used PowerShell with your Azure subscription before:
+Установите модуль Azure Powershell на компьютере, где требуется выполнять сценарии.
 
-Install the Azure Powershell module on the machine where you want to run the scripts. 
-
- * Install [Microsoft Web Platform Installer (v5 or higher)](http://www.microsoft.com/web/downloads/platform.aspx).
- * Use it to install Microsoft Azure Powershell
+ * Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
+ * Используйте его для установки Microsoft Azure PowerShell.
 
 
-## <a name="connect-to-azure"></a>Connect to Azure
+## Подключение к Azure
 
-Start Azure PowerShell and [connect to your subscription](../powershell-install-configure.md):
+Запустите Azure PowerShell и [подключитесь к вашей подписке](../powershell-install-configure.md).
 
 ```PowerShell
 
@@ -43,11 +42,11 @@ Start Azure PowerShell and [connect to your subscription](../powershell-install-
 ```
 
 
-## <a name="get-alerts"></a>Get alerts
+## Получение оповещений
 
     Get-AlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## <a name="add-alert"></a>Add alert
+## Добавление оповещения
 
 
     Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
@@ -64,11 +63,11 @@ Start Azure PowerShell and [connect to your subscription](../powershell-install-
 
 
 
-## <a name="example-1"></a>Example 1
+## Пример 1
 
-Email me if the server's response to HTTP requests, averaged over 5 minutes, is slower than 1 second. My Application Insights resource is called IceCreamWebApp, and it is in resource group Fabrikam. I am the owner of the Azure subscription.
+Я хочу получать электронные сообщения, если в среднем за 5 минут ответ сервера на HTTP-запросы выполняется дольше 1 секунды. Мой ресурс Application Insights называется IceCreamWebApp, и он находится в группе ресурсов Fabrikam. Я владелец подписки Azure.
 
-The GUID is the subscription ID (not the instrumentation key of the application).
+GUID — это идентификатор подписки (не ключ инструментирования приложения).
 
     Add-AlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
@@ -81,9 +80,9 @@ The GUID is the subscription ID (not the instrumentation key of the application)
      -SendEmailToServiceOwners `
      -Location "East US" -RuleType Metric
 
-## <a name="example-2"></a>Example 2
+## Пример 2
 
-I have an application in which I use [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) to report a metric named "salesPerHour." Send an email to my colleagues if "salesPerHour" drops below 100, averaged over 24 hours.
+У меня есть приложение, в котором используется [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) для предоставления метрики salesPerHour. Я хочу, чтобы моим коллегам отправлялось электронное сообщение, если в среднем за 24 часа salesPerHour станет меньше 100.
 
     Add-AlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -96,60 +95,57 @@ I have an application in which I use [TrackMetric()](app-insights-api-custom-eve
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-The same rule can be used for the metric reported by using the [measurement parameter](app-insights-api-custom-events-metrics.md#properties) of another tracking call such as TrackEvent or trackPageView.
+Это же правило можно использовать для метрики, передаваемой с помощью [параметра измерения](app-insights-api-custom-events-metrics.md#properties) другого вызова отслеживания, например TrackEvent или trackPageView.
 
-## <a name="metric-names"></a>Metric names
+## Имена метрик
 
-Metric name | Screen name | Description
+Имя метрики | Имя экрана | Описание
 ---|---|---
-`basicExceptionBrowser.count`|Browser exceptions|Count of uncaught exceptions thrown in the browser.
-`basicExceptionServer.count`|Server exceptions|Count of unhandled exceptions thrown by the app
-`clientPerformance.clientProcess.value`|Client processing time|Time between receiving the last byte of a document until the DOM is loaded. Async requests may still be processing.
-`clientPerformance.networkConnection.value`|Page load network connect time| Time the browser takes to connect to the network. Can be 0 if cached.
-`clientPerformance.receiveRequest.value`|Receiving response time| Time between browser sending request to starting to receive response.
-`clientPerformance.sendRequest.value`|Send request time| Time taken by browser to send request.
-`clientPerformance.total.value`|Browser page load time|Time from user request until DOM, stylesheets, scripts and images are loaded.
-`performanceCounter.available_bytes.value`|Available memory|Physical memory immediately available for a process or for system use.
-`performanceCounter.io_data_bytes_per_sec.value`|Process IO Rate|Total bytes per second read and written to files, network and devices.
-`performanceCounter.number_of_exceps_thrown_per_sec`|exception rate|Exceptions thrown per second.
-`performanceCounter.percentage_processor_time.value`|Process CPU|The percentage of elapsed time of all process threads used by the processor to execution instructions for the applications process.
-`performanceCounter.percentage_processor_total.value`|Processor time|The percentage of time that the processor spends in non-Idle threads.
-`performanceCounter.process_private_bytes.value`|Process private bytes|Memory exclusively assigned to the monitored application's processes.
-`performanceCounter.request_execution_time.value`|ASP.NET request execution time|Execution time of the most recent request.
-`performanceCounter.requests_in_application_queue.value`|ASP.NET requests in execution queue|Length of the application request queue.
-`performanceCounter.requests_per_sec`|ASP.NET request rate|Rate of all requests to the application per second from ASP.NET.
-`remoteDependencyFailed.durationMetric.count`|Dependency failures|Count of failed calls made by the server application to external resources.
-`request.duration`|Server response time|Time between receiving an HTTP request and finishing sending the response.
-`request.rate`|Request rate|Rate of all requests to the application per second.
-`requestFailed.count`|Failed requests|Count of HTTP requests that resulted in a response code >= 400 
-`view.count`|Page views|Count of client user requests for a web page. Synthetic traffic is filtered out.
-{your custom metric name}|{Your metric name}|Your metric value reported by [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) or in the [measurements parameter of a tracking call](app-insights-api-custom-events-metrics.md#properties).
+`basicExceptionBrowser.count`|Исключения браузера|Число необработанных исключений в браузере.
+`basicExceptionServer.count`|Исключения сервера|Число необработанных исключений приложения
+`clientPerformance.clientProcess.value`|Время обработки клиента|Время с момента получения последнего байта документа до загрузки модели DOM. Обработка асинхронных запросов может продолжаться.
+`clientPerformance.networkConnection.value`|Время подключения к сети при загрузке страницы| Время, необходимое браузеру для подключения к сети. Может быть 0, если страница в кэше.
+`clientPerformance.receiveRequest.value`|Время получения ответа| Время с момента отправки браузером запроса до начала получения ответа.
+`clientPerformance.sendRequest.value`|Время отправки запроса| Время, необходимое браузеру для отправки запроса.
+`clientPerformance.total.value`|Время загрузки страницы в браузере|Время с момента отправки запроса пользователя до загрузки DOM, таблиц стилей, сценариев и изображений.
+`performanceCounter.available_bytes.value`|Объем доступной памяти|Физическая память, доступная для использования процессами или системой.
+`performanceCounter.io_data_bytes_per_sec.value`|Скорость обработки операций ввода-вывода|Общее число байтов в секунду в операциях чтения и записи в файлы, сеть и устройства.
+`performanceCounter.number_of_exceps_thrown_per_sec`|Частота порождения исключений|Количество исключений, порождаемых в секунду.
+`performanceCounter.percentage_processor_time.value`|Обработка ЦП|Процент времени, затраченного всеми потоками процессов, используемых процессором для выполнения инструкций для процесса приложения.
+`performanceCounter.percentage_processor_total.value`|Процессорное время|Процент времени, затраченного процессором на непростаивающие потоки.
+`performanceCounter.process_private_bytes.value`|Количество байтов исключительного использования процессов|Память, выделенная исключительно для процессов наблюдаемого приложения.
+`performanceCounter.request_execution_time.value`|Время выполнения запроса ASP.NET|Время выполнения самого последнего запроса.
+`performanceCounter.requests_in_application_queue.value`|Число запросов ASP.NET в очереди выполнения|Длина очереди запросов приложений.
+`performanceCounter.requests_per_sec`|Частота запросов ASP.NET|Частота всех запросов из ASP.NET к приложению в секунду.
+`remoteDependencyFailed.durationMetric.count`|Ошибки зависимости|Количество неудачных вызовов внешних ресурсов серверным приложением.
+`request.duration`|Время ответа от сервера|Время с момента получения HTTP-запроса до завершения отправки ответа.
+`request.rate`|Частота запросов|Частота всех запросов к приложению в секунду.
+`requestFailed.count`|Failed requests (Неудачные запросы)|Число HTTP-запросов, приведших к отображению кода ответа >= 400. 
+`view.count`|Просмотры страниц|Количество клиентских запросов пользователя для веб-страницы. Искусственный трафик отфильтровывается.
+{имя пользовательской метрики}|{имя метрики}|Значение метрики, переданное [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) или в [параметре измерения вызова отслеживания](app-insights-api-custom-events-metrics.md#properties).
 
-The metrics are sent by different telemetry modules:
+Метрики отправляются различными модулями телеметрии:
 
-Metric group | Collector module
+Группа метрик | Модуль сборщика
 ---|---
 basicExceptionBrowser,<br/>clientPerformance,<br/>view | [Browser JavaScript](app-insights-javascript.md)
-performanceCounter | [Performance](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
+performanceCounter | [Производительность](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
 remoteDependencyFailed| [Dependency](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
 request,<br/>requestFailed|[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
-## <a name="webhooks"></a>Webhooks
+## Объекты Webhook
 
-You can [automate your response to an alert](../azure-portal/insights-webhooks-alerts.md). Azure will call a web address of your choice when an alert is raised. 
+Вы можете [автоматизировать свой ответ на оповещение](../azure-portal/insights-webhooks-alerts.md). При возникновении оповещения Azure будет вызывать выбранный вами веб-адрес.
 
-## <a name="see-also"></a>See also
+## См. также
 
 
-* [Script to configure Application Insights](app-insights-powershell-script-create-resource.md)
-* [Create Application Insights and web test resources from templates](app-insights-powershell.md)
-* [Automate coupling Microsoft Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Automate your response to an alert](../azure-portal/insights-webhooks-alerts.md)
+* [Сценарий настройки Application Insights](app-insights-powershell-script-create-resource.md)
+* [Создание ресурсов Application Insights и веб-тестов на основе шаблонов](app-insights-powershell.md)
+* [Автоматизация связывания системы диагностики Microsoft Azure с Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Автоматизация реагирования на оповещение](../azure-portal/insights-webhooks-alerts.md)
 
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0224_2016-->

@@ -1,35 +1,30 @@
 <properties
-    pageTitle="Deploy and manage VM with templates | Microsoft Azure"
-    description="Deploy and manage the most common configurations for Azure virtual machines using Resource Manager templates and Azure CLI."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="squillace"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Развертывание виртуальной машины и управление ей с помощью шаблонов | Microsoft Azure"
+	description="Развертывайте наиболее распространенные конфигурации для виртуальных машин Azure с помощью шаблонов диспетчера ресурсов и интерфейса командной строки Azure."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/23/2016"
-    ms.author="rasquill"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2016"
+	ms.author="rasquill"/>
 
+# Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure
 
-# <a name="deploy-and-manage-virtual-machines-by-using-azure-resource-manager-templates-and-the-azure-cli"></a>Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI
+> [AZURE.SELECTOR]		
+ - [PowerShell](virtual-machines-windows-ps-manage.md)
+ - [ИНТЕРФЕЙС КОМАНДНОЙ СТРОКИ](virtual-machines-windows-cli-deploy-templates.md)
 
-> [AZURE.SELECTOR]      
- - [PowerShell](virtual-machines-windows-ps-manage.md)      
- - [CLI](virtual-machines-windows-cli-deploy-templates.md)      
-
-</br> 
+</br>
 
 [AZURE.INCLUDE [virtual-machines-common-cli-deploy-templates](../../includes/virtual-machines-common-cli-deploy-templates.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

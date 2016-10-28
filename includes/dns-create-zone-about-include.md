@@ -1,16 +1,12 @@
-A DNS zone is used to host the DNS records for a particular domain. In order to start hosting your domain, you need to create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain. 
+Зона DNS используется для размещения DNS-записей определенного домена. Для размещения вашего домена сначала нужно создать зону DNS. Записи DNS, создаваемые для определенного домена, будут находиться в зоне DNS этого домена.
 
-For example, the domain "contoso.com" may contain a number of DNS records, such as "mail.contoso.com" (for a mail server) and "www.contoso.com" (for a web site). 
+Например, домен contoso.com может содержать несколько записей DNS, включая mail.contoso.com (для почтового сервера) и www.contoso.com (для веб-сайта).
 
 
-## <a name="<a-name="names"></a>about-dns-zone-names"></a><a name="names"></a>About DNS zone names
+## <a name="names"></a>Сведения об именах зон DNS
  
-- The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
+- Имя зоны должно быть уникальным в пределах группы ресурсов, а зона не должна существовать. В противном случае операция завершится ошибкой.
 
-- The same zone name can be re-used in a different resource group or a different Azure subscription. 
+- То же имя зоны можно использовать повторно в другой группе ресурсов или другой подписке Azure.
 
-- Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. For more information, see [Delegate a domain to Azure DNS](../articles/dns/dns-domain-delegation.md).
-
-<!--HONumber=Oct16_HO2-->
-
-
+- Если имеется несколько зон с одним именем, каждому экземпляру будут назначены разные адреса серверов имен, и только один экземпляр может быть делегирован из родительского домена. Дополнительные сведения см. в статье [Делегирование домена в Azure DNS](../articles/dns/dns-domain-delegation.md).

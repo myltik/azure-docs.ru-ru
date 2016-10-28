@@ -1,73 +1,72 @@
 <properties
-    pageTitle="Configure a custom domain name for a web app in Azure App Service that uses Traffic Manager for load balancing."
-    description="Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing."
-    services="app-service\web"
-    documentationCenter=""
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Настройте личное доменное имя для веб-приложения в службе приложений Azure, использующей диспетчер трафика для балансировки нагрузки."
+	description="Используйте личное доменное имя для веб-приложения в службе приложений Azure, которая включает в себя диспетчер трафика."
+	services="app-service\web"
+	documentationCenter=""
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/20/2016"
-    ms.author="robmcm"/>
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/20/2016"
+	ms.author="robmcm"/>
 
-
-# <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
+# Настройка личного доменного имени для веб-приложения в службе приложений Azure, использующей диспетчер трафика
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
-[AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
+[AZURE.INCLUDE [общие сведения](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-This article provides generic instructions for using a custom domain name with Azure App Service that use Traffic Manager for load balancing.
+В этой статье содержатся общие инструкции по использованию личного доменного имени со службой приложений Azure, которая использует диспетчер трафика для балансировки нагрузки.
 
 [AZURE.INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
-[AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
+[AZURE.INCLUDE [нижний колонтитул](../../includes/custom-dns-web-site-intro-notes.md)]
 
 <a name="understanding-records"></a>
-## <a name="understanding-dns-records"></a>Understanding DNS records
+## Общие сведения о записях DNS
 
 [AZURE.INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
 <a name="bkmk_configsharedmode"></a>
-## <a name="configure-your-web-apps-for-standard-mode"></a>Configure your web apps for standard mode
+## Настройка веб-приложений для режима Standard
 
-[AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-modes-traffic-manager.md)]
+[AZURE.INCLUDE [режимы](../../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
 <a name="bkmk_configurecname"></a>
-## <a name="add-a-dns-record-for-your-custom-domain"></a>Add a DNS record for your custom domain
+## Добавление записи DNS для пользовательского домена
 
-> [AZURE.NOTE] If you have purchased domain through Azure App Service Web Apps then skip following steps and refer to the final step of [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md) article.
+> [AZURE.NOTE] Если вы приобрели домен через веб-приложения службы приложений Azure, см. только последний шаг статьи [Покупка домена для веб-приложений](custom-dns-web-site-buydomains-web-app.md).
 
-To associate your custom domain with a web app in Azure App Service, you must add a new entry in the DNS table for your custom domain by using tools provided by the domain registrar that you purchased your domain name from. Use the following steps to locate and use the DNS tools.
+Для сопоставления личного домена с веб-приложением в службе приложений Azure необходимо добавить новую запись в таблицу DNS об этом домене с помощью инструментов регистратора, у которого вы приобрели доменное имя. Выполните следующие действия, чтобы найти и использовать средства DNS.
 
-1. Sign in to your account at your domain registrar, and look for a page for managing DNS records. Look for links or areas of the site labeled as **Domain Name**, **DNS**, or **Name Server Management**. Often a link to this page can be found be viewing your account information, and then looking for a link such as **My domains**.
+1. Выполните вход в систему регистратора доменных имен с использованием своей учетной записи и найдите страницу управления записями DNS. Найдите ссылки или области сайта, обозначенные как **Имя домена**, **DNS** или **Управление сервером доменных имен**. Часто ссылку на эту страницу можно найти, открыв сведения своей учетной записи и найдя такую ссылку, как **Мои домены**.
 
-1. Once you have found the management page for your domain name, look for a link that allows you to edit the DNS records. This might be listed as a **Zone file**, **DNS Records**, or as an **Advanced** configuration link.
+1. Когда найдена страница управления для вашего доменного имени, найдите ссылку, позволяющую изменять записи DNS. Она может иметь название **Файл зоны**, **Записи DNS** или **Дополнительно**.
 
-    * The page will most likely have a few records already created, such as an entry associating '**@**' or '\*' with a 'domain parking' page. It may also contain records for common sub-domains such as **www**.
-    * The page will mention **CNAME records**, or provide a drop-down to select a record type. It may also mention other records such as **A records** and **MX records**. In some cases, CNAME records will be called by other names such as an **Alias Record**.
-    * The page will also have fields that allow you to **map** from a **Host name** or **Domain name** to another domain name.
+	* Страница, скорее всего, уже будет содержать несколько созданных записей, например запись, сопоставляющую **@** или * со страницей «парковки домена». Она также может содержать записи для распространенных поддоменов, таких как **www**.
+	* На этой странице будут упоминаться **записи CNAME** или будет предоставлен раскрывающийся список для выбора типа записи. На ней также могут упоминаться другие записи, такие как **записи A** и **записи MX**. В некоторых случаях записи CNAME могут называться по-другому, например **записью псевдонима**.
+	* Страница также будет содержать поля, позволяющие **сопоставить** значения из поля **Имя узла** или **Доменное имя** с другим доменным именем.
 
-1. While the specifics of each registrar vary, in general you map *from* your custom domain name (such as **contoso.com**,) *to* the Traffic Manager domain name (**contoso.trafficmanager.net**) that is used for your web app.
+1. Несмотря на особенности каждого регистратора, как правило, вы сопоставляете *свое* доменное имя (например **contoso.com**) *с* доменным именем диспетчера трафика ((**contoso.trafficmanager.net**), которое используется в вашем веб-приложении.
 
-    > [AZURE.NOTE] Alternatively, if a record is already in use and you need to preemptively bind your apps to it, you can create an additional CNAME record. For example, to preemptively bind **www.contoso.com** to your web app, create a CNAME record from **awverify.www** to **contoso.trafficmanager.net**. You can then add "www.contoso.com" to your Web App without changing the "www" CNAME record. For more information, see [Create DNS records for a web app in a custom domain][CREATEDNS].
+    > [AZURE.NOTE] Кроме того, если запись уже используется и вам нужно заблаговременно привязать к ней свое приложение, создайте дополнительную запись CNAME. Например, чтобы заблаговременно привязать **www.contoso.com** к веб-приложению, создайте запись CNAME на основе **awverify.www** для **contoso.trafficmanager.net**. Затем можно добавить к веб-приложению фрагмент www.contoso.com, не изменяя запись CNAME www. Дополнительные сведения см. в статье [Создание записей DNS для веб-приложения в пользовательском домене][CREATEDNS].
 
-1. Once you have finished adding or modifying DNS records at your registrar, save the changes.
+1. По завершении добавления или изменения записей DNS у своего регистратора сохраните эти изменения.
 
 <a name="enabledomain"></a>
-## <a name="enable-traffic-manager"></a>Enable Traffic Manager
+## Включение диспетчера трафика
 
-[AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
+[AZURE.INCLUDE [режимы](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-For more information, see the [Node.js Developer Center](/develop/nodejs/).
+Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -77,8 +76,4 @@ For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
 [CREATEDNS]: ../dns/dns-web-sites-custom-domain.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,21 +1,18 @@
 
-## <a name="start-your-powershell-session"></a>Start your PowerShell session
+## Запуск сеанса PowerShell
 
-First, you need to have the latest [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) installed and running. For detailed information, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md).
-
-
->[AZURE.NOTE] Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../articles/resource-group-overview.md), so examples use the [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) for Resource Manager. The existing classic deployment model [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility, but we recommend you use the Resource Manager cmdlets.
+Сначала установите и запустите последнюю версию [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../articles/powershell-install-configure.md).
 
 
-Run the [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet, and you will be presented with a sign-in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
-
-    Add-AzureRmAccount
-
-If you have multiple subscriptions, use the [**Set-AzureRmContext**](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet to select which subscription your PowerShell session should use. To see what subscription the current PowerShell session is using, run [**Get-AzureRmContext**](https://msdn.microsoft.com/library/mt619265.aspx). To see all your subscriptions, run [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/mt619284.aspx).
-
-    Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+>[AZURE.NOTE] Многие новые функции базы данных SQL поддерживаются только при использовании [модели развертывания с помощью Azure Resource Manager](../articles/resource-group-overview.md), поэтому в примерах используются соответствующие [командлеты Azure PowerShell для базы данных SQL](https://msdn.microsoft.com/library/azure/mt574084.aspx). Существующие [классические командлеты для базы данных SQL Azure](https://msdn.microsoft.com/library/azure/dn546723.aspx) в классическом развертывании поддерживаются для обеспечения обратной совместимости. Мы рекомендуем использовать командлеты для Resource Manager.
 
 
-<!--HONumber=Oct16_HO2-->
+Выполните командлет [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx). Откроется окно входа, в котором необходимо ввести свои учетные данные. Используйте для входа те же учетные данные, что и для входа на портал Azure.
 
+	Add-AzureRmAccount
 
+Если у вас несколько подписок, используйте командлет [**Set-AzureRmContext**](https://msdn.microsoft.com/library/mt619263.aspx), чтобы выбрать подписку, которую будет использовать сеанс PowerShell. Чтобы узнать, какие подписки использует текущий сеанс PowerShell, запустите командлет [**Get-AzureRmContext**](https://msdn.microsoft.com/library/mt619265.aspx). Чтобы просмотреть все подписки, запустите командлет [**Get AzureRmSubscription**](https://msdn.microsoft.com/library/mt619284.aspx).
+
+	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+
+<!---HONumber=AcomDC_0803_2016-->

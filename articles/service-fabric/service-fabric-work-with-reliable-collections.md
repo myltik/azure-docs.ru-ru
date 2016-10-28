@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Working with Reliable Collections | Microsoft Azure"
-    description="Learn the best practices for working with Reliable Collections."
+    pageTitle="Работа с Reliable Collections | Microsoft Azure"
+    description="Рекомендации по работе с API-интерфейсами Reliable Collections."
     services="service-fabric"
     documentationCenter=".net"
     authors="JeffreyRichter"
@@ -16,10 +16,9 @@
     ms.date="03/28/2016"
     ms.author="jeffreyr" />
 
+# Работа с Reliable Collections
 
-# <a name="working-with-reliable-collections"></a>Working with Reliable Collections
-
-Service Fabric offers a stateful programming model available to .NET developers via Reliable Collections. Specifically, Service Fabric provides reliable dictionary and reliable queue classes. When you use these classes, your state is partitioned (for scalability), replicated (for availability), and transacted within a partition (for ACID semantics). Let’s look at a typical usage of a reliable dictionary object and see what its actually doing.
+Платформа Service Fabric предлагает модель программирования с отслеживанием состояния, которая доступна разработчикам .NET через API-интерфейсы Reliable Collections. В частности, Service Fabric предоставляет такие классы, как Reliable Dictionaries (далее — надежные словари) и Reliable Queues (далее — надежные очереди). При использовании этих классов состояние секционируется (для масштабируемости), реплицируется (для доступности) и обрабатывается в ходе транзакции в секции (для семантики ACID). Рассмотрим типичное использование объекта надежного словаря, чтобы узнать, какие функции этот объект выполняет.
 
 ~~~
 retry:
@@ -44,20 +43,20 @@ catch (TimeoutException) {
 }
 ~~~
 
-All operations on reliable dictionary objects (except for ClearAsync which is not undoable), require an ITransaction object. This object has associated with it any and all changes you’re attempting to make to any reliable dictionary and/or reliable queue objects within a single partition. You acquire an ITransaction object by calling the partition’s StateManager’s CreateTransaction method.
+Для всех операций с объектами надежных словарей (за исключением операции ClearAsync, которая является обратимой) требуется объект ITransaction. С этим объектом связываются все изменения, которые вы пытаетесь внести в любые объекты надежных словарей или очередей в одной секции. Чтобы получить объект ITransaction, вызовите метод CreateTransaction секции StateManager.
  
-In the code above, the ITransaction object is passed to a reliable dictionary’s AddAsync method. Internally, dictionary methods that accepts a key take a reader/writer lock associated with the key. If the method modifies the key’s value, the method takes a write lock on the key and if the method only reads from the key’s value, then a read lock is taken on the key. Since AddAsync modifies the key’s value to the new, passed-in value, the key’s write lock is taken. So, if 2 (or more) threads attempt to add values with the same key at the same time, one thread will acquire the write lock and the other threads will block. By default, methods block for up to 4 seconds to acquire the lock; after 4 seconds, the methods throw a TimeoutException. Method overloads exist allowing you to pass an explicit timeout value if you’d prefer.
+В приведенном выше коде объект ITransaction передается в метод AddAsync надежного словаря. Внутри методы словаря, которые принимают ключ, устанавливают блокировки на чтение или запись, связанные с ключом. Если метод изменяет значение ключа, метод устанавливает блокировку на запись в ключе. Если этот метод только считывает данные из значения ключа, к ключу применяется блокировка чтения. Так как метод AddAsync изменяет значение ключа на новое значение, которое было передано, к ключу применяется блокировка на запись. Таким образом, если два (или более) потока пытаются одновременно добавить значения с тем же ключом, один поток получит блокировку записи, а остальные потоки заблокируются. По умолчанию методы блокируются до четырех секунд для получения блокировки. Через четыре секунды методы создают исключение TimeoutException. Используя перегрузки методов, вы можете при желании указать значение времени ожидания.
  
-Usually, you write your code to react to a TimeoutException by catching it and retrying the entire operation (as shown in the code above). In my simple code, I’m just calling Task.Delay passing 100 milliseconds each time. But, in reality, you might be better off using some kind of exponential back-off delay instead.
+Для этого нужно написать код, который будет реагировать на исключение TimeoutException, перехватывая его и повторяя всю операцию (как показано в приведенном выше коде). Мой простой код вызывает передачу Task.Delay через каждые 100 миллисекунд. Но на самом деле, возможно, будет лучше использовать экспоненциальную задержку.
  
-Once the lock is acquired, AddAsync adds the key and value object references to an internal temporary dictionary associated with the ITransaction object. This is done to provide you with read-your-own-writes semantics. That is, after you call AddAsync, a later call to TryGetValueAsync (using the same ITransaction object) will return the value even if you have not yet committed the transaction. Next, AddAsync serializes your key and value objects to byte arrays and appends these byte arrays to a log file on the local node. Finally, AddAsync sends the byte arrays to all the secondary replicas so they have the same key/value information. Even though the key/value information has been written to a log file, the information is not considered part of the dictionary until the transaction that they are associated with has been committed. 
+После получения блокировки метод AddAsync добавляет ссылки на объект ключа и значения для внутренних временных словарей, связанных с объектом ITransaction. Это делается для обеспечения семантики, которая позволяет владельцу считывать собственные записи. То есть, если после вызова AddAsync вызвать метод TryGetValueAsync (с использованием того же объекта ITransaction), значение будет возвращено, даже если транзакция еще не зафиксирована. Затем метод AddAsync сериализует объекты ключа и значения в массивы байтов, а также добавляет эти массивы байтов в файл журнала на локальном узле. Наконец, метод AddAsync отправляет массивы байтов во все вторичные реплики, чтобы реплики имели ту же информацию о ключе и значении. Хотя информация о ключе и значении записана в файл журнала, эти сведения не считаются частью словаря, пока не будет зафиксирована связанная с ними транзакция.
 
-In the code above, the call to CommitAsync commits all of the transaction’s operations. Specifically, it appends commit information to the log file on the local node and also sends the commit record to all the secondary replicas. Once a quorum (majority) of the replicas has replied, all data changes are considered permanent and any locks associated with keys that were manipulated via the ITransaction object are released so other threads/transactions can manipulate the same keys and their values.
+В приведенном выше коде вызов метода CommitAsync фиксирует все операции транзакции. В частности, этот вызов добавляет в файл журнала на локальном узле сведения о фиксации, а также отправляет запись о фиксации во все вторичные реплики. После получения ответа от большинства реплик все изменения данных считаются постоянными, и все блокировки, связанные с ключами, которые обрабатывались с помощью объекта ITransaction, отменяются. Теперь другие потоки или транзакции могут обрабатывать те же ключи и их значения.
 
-If CommitAsync is not called (usually due to an exception being thrown), then the ITransaction object gets disposed. When disposing an uncommitted ITransaction object, Service Fabric appends abort information to the local node’s log file and nothing needs to be sent to any of the secondary replicas. And then, any locks associated with keys that were manipulated via the transaction are released.
+Если метод CommitAsync не вызывается (обычно из-за исключения), объект ITransaction ликвидируется. Когда незафиксированный объект ITransaction удаляется, Service Fabric добавляет в файл журнала на локальном узле сведения о прерывании операции. Во вторичные реплики ничего не отправляется. Затем отменяются все блокировки, связанные с ключами, которые обрабатывались с помощью транзакции.
 
-## <a name="common-pitfalls-and-how-to-avoid-them"></a>Common pitfalls and how to avoid them
-Now that you understand how the reliable collections work internally, let’s take a look at some common misuses of them. See the code below:
+## Типичные проблемы и способы их решения
+Теперь, когда вы понимаете принцип работы API-интерфейсов Reliable Collections, рассмотрим некоторые распространенные случаи их неправильного использования. Взгляните на этот код.
 
 ~~~
 using (ITransaction tx = StateManager.CreateTransaction()) {
@@ -73,9 +72,9 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ~~~
 
-When working with a regular .NET dictionary, you can add a key/value to the dictionary and then change the value of a property (such as LastLogin). However, this code will not work correctly with a reliable dictionary. Remember from the earlier discussion, the call to AddAsync serializes the key/value objects to byte arrays and then saves the arrays to a local file and also sends them to the secondary replicas. If you later change a property, this changes the property’s value in memory only; it does not impact the local file or the data sent to the replicas. If the process crashes, what’s in memory is thrown away. When a new process starts or if another replica becomes primary, then the old property value is what is available. 
+Если вы работаете с обычным словарем .NET, вы можете добавить в словарь ключ и значение, а затем изменить значение свойства (например, LastLogin). Но этот код не будет правильно работать с надежным словарем. Как вы помните, вызов метода AddAsync сериализует объекты ключей и значений в массивы байтов, сохраняет эти массивы в локальный файл, а также отправляет их во вторичные реплики. Если впоследствии изменить свойство, изменится только значение свойства в памяти. Оно не повлияет на локальный файл или данные, отправленные в реплики. При сбое процесса все данные в памяти будут утеряны. Если запускается новый процесс или основной репликой становится другая реплика, доступным остается только старое значение свойства.
 
-I cannot stress enough how easy it is to make the kind of mistake shown above. And, you will only learn about the mistake if/when the process goes down. The correct way to write the code is simply to reverse the two lines:
+Допустить описанную выше ошибку очень просто. А узнаете вы о ней, только когда произойдет сбой. Чтобы получить правильный код, достаточно поменять местами две строки:
 
 ~~~
 using (ITransaction tx = StateManager.CreateTransaction()) {
@@ -85,7 +84,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ~~~
 
-Here is another example showing a common mistake:
+Вот другой пример, демонстрирующий распространенную ошибку.
 
 ~~~
 using (ITransaction tx = StateManager.CreateTransaction()) {
@@ -103,11 +102,11 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ~~~
 
-Again, with regular .NET dictionaries, the code above works fine and is a common pattern: the developer uses a key to look up a value. If the value exists, the developer changes a property’s value. However, with reliable collections, this code exhibits the same problem as already discussed: __you MUST not modify an object once you have given it to a reliable collection.__
+Опять же, если используются обычные словари .NET, приведенный выше код работает нормально. Это обычная ситуация — разработчик использует ключ для поиска значений. Если значение существует, разработчик меняет значение свойства. Но если используются API-интерфейсы Reliable Collections, в коде возникает та же проблема. __НЕЛЬЗЯ изменять объект, если он отправлен в Reliable Collections.__
  
-The correct way to update a value in a reliable collection, is to get a reference to the existing value and consider the object referred to by this reference immutable. Then, create a new object which is an exact copy of the original object. Now, you can modify the state of this new object and write the new object into the collection so that it gets serialized to byte arrays, appended to the local file and sent to the replicas. After committing the change(s), the in-memory objects, the local file, and all the replicas have the same exact state. All is good!
+Чтобы правильно обновить значение в API, нужно получить ссылку на существующее значение и считать объект, на который указывает эта ссылка, неизменяемым. Теперь создайте новый объект, который будет точной копией исходного объекта. Вы можете изменить состояние этого нового объекта и записать новый объект в коллекцию, чтобы он был сериализован в массив байтов, добавлен в локальный файл и отправлен в реплику. После фиксации изменений объекты в памяти, локальный файл и все реплики будут в одинаковом состоянии. Теперь все хорошо.
 
-The code below shows the correct way to update a value in a reliable collection:
+Следующий пример кода показывает, как правильно обновить значение в коллекции Reliable Collections.
 
 ~~~
 using (ITransaction tx = StateManager.CreateTransaction()) {
@@ -133,11 +132,11 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 }
 ~~~
 
-## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Define immutable data types to prevent programmer error
+## Определение неизменяемых типов данных для предотвращения ошибок разработчика
 
-Ideally, we’d like the compiler to report errors when you accidentally produce code that mutates state of an object that you are supposed to consider immutable. But, the C# compiler does not have the ability to do this. So, to avoid potential programmer bugs, we highly recommend that you define the types you use with reliable collections to be immutable types. Specifically, this means that you stick to core value types (such as numbers [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, and the like). And, of course, you can also use String. It is best to avoid collection properties as serializing and deserializing them can frequently can hurt performance. However, if you want to use collection properties, we highly recommend the use of .NET’s immutable collections library (System.Collections.Immutable). This library is available for download from http://nuget.org. We also recommend sealing your classes and making fields read-only whenever possible.
+В идеале хотелось бы, чтобы компилятор сообщал об ошибках при случайном создании кода, изменяющего состояние объекта, который должен быть неизменяемым. Но компилятор C# не может это сделать. Таким образом, чтобы избежать потенциальных ошибок, мы настоятельно рекомендуем определять типы, используемые в Reliable Collections, как неизменяемые. Это означает, что вы будете использовать основные типы значений (например, числа [Int32, UInt64 и т. д.], DateTime, Guid, TimeSpan и т. п). И, конечно, вы также можете использовать тип String. Свойства коллекции лучше не использовать, так как их частая сериализация и десериализация может снизить производительность. Но если вы все же хотите использовать свойства коллекции, мы настоятельно рекомендуем использовать библиотеку .NET неизменяемых коллекций (System.Collections.Immutable). Эту библиотеку можно скачать на сайте http://nuget.org. Также рекомендуется запечатывать классы и по возможности предоставлять к полям доступ только для чтения.
 
-The UserInfo type below demonstrates how to define an immutable type taking advantage of aforementioned recommendations.
+Тип UserInfo ниже демонстрирует, как определить неизменяемый тип, чтобы воспользоваться преимуществами упомянутых выше рекомендаций.
 
 ~~~
 [DataContract]
@@ -172,7 +171,7 @@ public sealed class UserInfo {
 }
 ~~~
 
-The ItemId type is also an immutable type as shown here:
+Тип ItemId также является неизменяемым, как показано ниже.
 
 ~~~
 [DataContract]
@@ -187,27 +186,23 @@ public struct ItemId {
 }
 ~~~
 
-## <a name="schema-versioning-(upgrades)"></a>Schema versioning (upgrades)
+## Управление версиями схемы (обновления)
 
-Internally, Reliable Collections serialize your objects using .NET’s DataContractSerializer. The serialized objects are persisted to the primary replica’s local disk and are also transmitted to the secondary replicas. As your service matures, it’s likely you’ll want to change the kind of data (schema) your service requires. You must approach versioning of your data with great care. First and foremost, you must always be able to deserialize old data. Specifically, this means your deserialization code must be infinitely backward compatible: Version 333 of your service code must be able to operate on data placed in a reliable collection by version 1 of your service code 5 years ago.
+На внутреннем уровне коллекции Reliable Collections сериализуют объекты с помощью DataContractSerializer .NET. Сериализованные объекты сохраняются на локальном диске основной реплики и передаются во вторичные реплики. По мере роста службы вы, вероятно, захотите изменить тип данных (схему), которые требуются службе. Управлять версиями данных необходимо предельно осторожно. Первое и самое главное: у вас должна быть возможность десериализовать старые данные. Это означает, что код десериализации должен быть неограниченно обратно совместимым: версия 333 кода службы должна поддерживать обработку данных, которые версия 1 кода службы разместила в надежной коллекции 5 лет назад.
 
-Furthermore, service code is upgraded one upgrade domain at a time. So, during an upgrade, you have two different versions of your service code running simultaneously. You must avoid having the new version of your service code use the new schema as old versions of your service code might not be able to handle the new schema. When possible, you should design each version of your service to be forward compatible by 1 version. Specifically, this means that V1 of your service code should be able to simply ignore any schema elements it does not explicitly handle. However, it must be able to save any data it doesn’t explicitly know about and simply write it back out when updating a dictionary key or value. 
+Кроме того, код службы обновляет один домен обновления одновременно. Таким образом, во время обновления одновременно работают две различные версии кода службы. Проследите, чтобы новая версия кода службы не использовала новую схему, так как старые версии кода службы могут не работать с новой схемой. По возможности следует разрабатывать каждую новую версию службы так, чтобы она была совместима с версией 1. Это означает, что версия 1 кода службы должна просто игнорировать все элементы схемы, которые она явно не обрабатывает. Но она также должна обеспечивать хранение всех данных, которые ей явно неизвестны, просто записывая их обратно при обновлении ключа или значения словаря.
 
->[AZURE.WARNING] While you can modify the schema of a key, you must ensure that your key’s hash code and equals algorithms are stable. If you change how either of these algorithms operate, you will not be able to look up the key within the reliable dictionary ever again.
+>[AZURE.WARNING] Во время изменения схемы ключа проследите, чтобы хэш-код и алгоритмы ключа оставались постоянными. Если вы измените работу одного из этих алгоритмов, вы никогда больше не сможете искать ключ в надежном словаре.
   
-Alternatively, you can perform what is typically referred to as a 2-phase upgrade. With a 2-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn’t execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a 2-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
+Кроме того, можно выполнить так называемое двухэтапное обновление. Используя двухэтапное обновление, вы обновите службу с версии 1 до версии 2. Версия 2 содержит код, который может обрабатывать изменения в новой схеме, но этот код не выполняется. Когда код версии 2 считывает данные версии 1, он работает с этими данными, а затем записывает их. Затем, когда обновление завершится на всех доменах обновления, вы можете сообщить запущенным экземплярам версии 2, что обновление завершено. Один из способов сообщить об этом — развернуть обновление конфигурации. Именно поэтому это обновление называется двухэтапным. Теперь экземпляры версии 2 могут читать данные версии 1, преобразовывать их в данные версии 2, работать с ними и записывать как данные версии 2. Когда другие экземпляры считывают данные версии 2, им не нужно преобразовывать их. Они могут работать с ними и записывать как данные версии 2.
 
-## <a name="next-steps"></a>Next Steps
-To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](https://msdn.microsoft.com/library/ms731083.aspx).
+## Дальнейшие действия
+Дополнительные сведения о создании контрактов данных с прямой совместимостью см. в статье [Контракты данных, совместимые с любыми будущими изменениями](https://msdn.microsoft.com/library/ms731083.aspx).
 
-To learn best practices on versioning data contracts, see [Data Contract Versioning](https://msdn.microsoft.com/library/ms731138.aspx). 
+Рекомендации по управлению версиями контрактов данных см. в статье [Управление версиями контракта данных](https://msdn.microsoft.com/library/ms731138.aspx).
 
-To learn how to implement version tolerant data contracts, see [Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/library/ms733734.aspx). 
+Инструкции по реализации контрактов данных, которые не зависят от версий, см. в статье [Обратные вызовы сериализации, независимые от версий](https://msdn.microsoft.com/library/ms733734.aspx).
 
-To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
+Инструкции по предоставлению структуры данных, которые могут взаимодействовать в нескольких версиях см. в статье [IExtensibleDataObject Interface](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx) (Интерфейс IExtensibleDataObject).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0406_2016-->

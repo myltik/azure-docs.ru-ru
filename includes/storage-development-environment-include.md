@@ -1,75 +1,71 @@
-## <a name="set-up-your-development-environment"></a>Set up your development environment
+## Настройка среды разработки
 
-Next, set up your development environment in Visual Studio so that you are ready to try the code examples provided in this guide.
+Теперь настройте среду разработки в Visual Studio, чтобы вы могли работать с примером кода из этого руководства.
 
-### <a name="create-a-windows-console-application-project"></a>Create a Windows console application project
+### Создание нового проекта консольного приложения Windows
 
-In Visual Studio, create a new Windows console application, as shown:
+В Visual Studio создайте новое консольное приложение Windows:
 
-![Create Windows console application](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Создание консольного приложения Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-All of the code examples in this tutorial can be added to the **Main()** method in `program.cs` in your console application.
+Все примеры кода из этого руководства можно добавить в метод **Main()** в консольном приложении `program.cs`.
 
-Note that you can use the Azure Storage Client Library from any type of .NET application, including an Azure cloud service, an Azure web app, a desktop application, or a mobile application. In this guide, we use a console application for simplicity.
+Обратите внимание, что вы можете использовать клиентскую библиотеку службы хранилища Azure из любого приложения .NET, в том числе из облачной службы Azure, веб-приложения Azure, классического приложения или мобильного приложения. Для упрощения в этом руководстве мы будем использовать консольное приложение.
 
-### <a name="use-nuget-to-install-the-required-packages"></a>Use NuGet to install the required packages
+### Установка необходимых пакетов с помощью NuGet
 
-There are two packages that you'll need to install to your project to complete this tutorial:
+Для работы с этим руководством вам нужно установить в проект два пакета.
 
-- [Microsoft Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): This package provides programmatic access to data resources in your storage account.
-- [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): This package provides a class for parsing a connection string from a configuration file, regardless of where your application is running.
+- [Клиентская библиотека службы хранилища Microsoft Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) — этот пакет предоставляет программный доступ к ресурсам данных в вашей учетной записи хранения.
+- [Библиотека Microsoft Azure Configuration Manager для .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) — этот пакет предоставляет класс для анализа строки подключения из файла конфигурации независимо от среды выполнения приложения.
 
-You can use NuGet to obtain both packages. Follow these steps:
+Вы можете использовать NuGet для установки обоих пакетов. Выполните следующие действия.
 
-1. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.
-2. Search online for "WindowsAzure.Storage" and click **Install** to install the Storage Client Library and its dependencies.
-3. Search online for "ConfigurationManager" and click **Install** to install the Azure Configuration Manager.
+1. Щелкните правой кнопкой мыши проект в **Обозревателе решений** и выберите **Управление пакетами NuGet**.
+2. Выполните в Интернете поиск по запросу "WindowsAzure.Storage" и нажмите кнопку **Установить**, чтобы установить клиентскую библиотеку службы хранилища и зависимые компоненты.
+3. Выполните поиск в Интернете по запросу "ConfigurationManager" и нажмите кнопку **Установить**, чтобы установить Azure Configuration Manager.
 
->[AZURE.NOTE] The Storage Client Library package is also included in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/). However, we recommend that you also install the Storage Client Library from NuGet to ensure that you always have the latest version of the client library.
+>[AZURE.NOTE] Клиентская библиотека службы хранилища также доступна в [пакете Azure SDK для .NET](https://azure.microsoft.com/downloads/). Но мы рекомендуем также установить клиентскую библиотеку службы хранилища из NuGet, чтобы всегда иметь ее последнюю версию.
 >
->The ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2 and greater) packages available through NuGet, and not through WCF Data Services. The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage Client Library are [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2), and [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage Client Library.
+>Зависимости ODataLib в клиентской библиотеке хранилища для .NET разрешаются через пакеты ODataLib (версии 5.0.2 и выше), доступные через NuGet, а не через службы данных WCF. Библиотеки ODataLib можно загрузить напрямую или указать на них ссылку в проекте через NuGet. К специальным пакетам ODataLib, используемым клиентскими библиотеками хранения, относятся [OData](http://nuget.org/packages/Microsoft.Data.OData/5.0.2), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/5.0.2) и [Spatial](http://nuget.org/packages/System.Spatial/5.0.2). Хотя эти библиотеки используются классами хранилища таблиц Azure, они являются обязательными зависимостями для программирования с использованием клиентской библиотеки хранения.
 
 
-### <a name="determine-your-target-environment"></a>Determine your target environment
+### Определение целевой среды
 
-You have two environment options for running the examples in this guide:
+Примеры из этого руководства можно выполнять в двух средах.
 
-- You can run your code against an Azure Storage account in the cloud. 
-- You can run your code against the Azure storage emulator. The storage emulator is a local environment that emulates an Azure Storage account in the cloud. The emulator is a free option for testing and debugging your code while your application is under development. The emulator uses a well-known account and key. For more details, see [Use the Azure Storage Emulator for Development and Testing](../articles/storage/storage-use-emulator.md)
+- Вы можете выполнить код в учетной записи хранения Azure в облаке. 
+- Вы можете выполнить код в эмуляторе хранения Azure. Эмулятор хранения — это локальная среда, эмулирующая учетную запись хранения Azure в облаке. Эмулятор можно использовать как бесплатный вариант для тестирования и отладки кода, пока приложение находится на стадии разработки. Эмулятор использует известную учетную запись и ключ. Дополнительные сведения см. в статье [Использование эмулятора хранения Azure для разработки и тестирования](../articles/storage/storage-use-emulator.md).
 
-If you are targeting a storage account in the cloud, copy the primary access key for your storage account from the Azure Portal. For more information, see [View and copy storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Выбрав учетную запись хранения в облаке, скопируйте первичный ключ доступа к этой учетной записи хранения с портала Azure. Дополнительные сведения см. в разделе [Просмотр и копирование ключей доступа к хранилищу](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-> [AZURE.NOTE] You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
+> [AZURE.NOTE] Вы можете указать эмулятор хранения, чтобы избежать затрат, связанных с хранилищем Azure. Однако если вы выберете учетную запись хранения Azure в облаке, затраты на выполнение заданий в учебнике будут незначительны.
 
-### <a name="configure-your-storage-connection-string"></a>Configure your storage connection string
+### Настройка строки подключения хранилища
 
-The Azure Storage Client Library for .NET supports using a storage connection string to configure endpoints and credentials for accessing storage services. The best way to maintain your storage connection string is in a configuration file. 
+Библиотека клиента хранилища Azure для .NET поддерживает использование строки подключения для настройки конечных точек и учетных данных для доступа к службам хранилища. Строку подключения хранилища рекомендуется хранить в файле конфигурации.
 
-For more information about connection strings, see [Configure a Connection String to Azure Storage](../articles/storage/storage-configure-connection-string.md).
+Дополнительные сведения о строках подключения см. в статье [Настройка строк подключения службы хранилища Azure](../articles/storage/storage-configure-connection-string.md).
 
-> [AZURE.NOTE] Your storage account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key using the Azure Portal if you believe it may have been compromised.
+> [AZURE.NOTE] Ключ учетной записи хранения похож на корневой пароль для вашей учетной записи хранения. Не забудьте защитить ключ учетной записи хранения. Не сообщайте его другим пользователям, не определяйте его в коде и не храните его в текстовом файле, доступном другим пользователям. Повторно создайте ключ с помощью портала Azure, если вы считаете, что он мог быть взломан.
 
-To configure your connection string, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `account-name` with the name of your storage account, and `account-key` with your account access key:
+Чтобы настроить строку подключения, откройте файл `app.config` в обозревателе решений Visual Studio. Добавьте содержимое элемента `<appSettings>`, показанное ниже. Замените `account-name` именем своей учетной записи хранения, а `account-key` — ключом доступа своей учетной записи:
 
-    <configuration>
-        <startup> 
-            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-        </startup>
-        <appSettings>
-            <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
-        </appSettings>
-    </configuration>
+	<configuration>
+	    <startup> 
+	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+	    </startup>
+  		<appSettings>
+    		<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
+  		</appSettings>
+	</configuration>
 
-For example, your configuration setting will be similar to:
+Например, параметр конфигурации будет приблизительно таким:
 
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
+	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
 
-To target the storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting will be:
+Чтобы указать эмулятор хранения, можно использовать ярлык, который сопоставляется с хорошо известным именем и ключом. В этом случае параметр строки подключения будет таким:
 
-    <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
+	<add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

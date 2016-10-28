@@ -1,56 +1,51 @@
 <properties
-    pageTitle="Set up billing alerts for your Microsoft Azure subscriptions | Microsoft Azure"
-    description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises."
-    services=""
-    documentationCenter=""
-    authors="vikdesai"
-    manager="mbaldwin"
-    editor=""
-    tags="billing"
-    />
+	pageTitle="Настройка оповещений о выставлении счетов за подписки Microsoft Azure | Microsoft Azure"
+	description="Описывает процесс настройки предупреждений на счете Azure, помогая избежать непредвиденных счетов."
+	services=""
+	documentationCenter=""
+	authors="vikdesai"
+	manager="msmbaldwin"
+	editor=""
+	tags="billing"
+	/>
 
 <tags
-    ms.service="billing"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/18/2016"
-    ms.author="vikdesai"/>
+	ms.service="billing"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/18/2016"
+	ms.author="vikdesai"/>
 
+# Настройка оповещений о выставлении счетов за подписки Microsoft Azure
 
-# <a name="set-up-billing-alerts-for-your-microsoft-azure-subscriptions"></a>Set up billing alerts for your Microsoft Azure subscriptions
+Вас заботит, сколько денег уходит ежемесячно на подписку Azure? Если вы являетесь администратором учетной записи для подписки Azure, с помощью службы оповещений о выставлении счетов Azure можно создать пользовательские предупреждения, которые помогут отслеживать и контролировать действия по выставлению счетов для учетных записей Azure.
 
-Are you concerned about how much you're spending each month for your Azure subscription? If you’re the account administrator for an Azure subscription, you can use the Azure Billing Alert Service to create customized billing alerts that help you monitor and manage billing activity for your Azure accounts.
+Эта служба доступна в предварительной версии, поэтому первое, что нужно сделать, — зарегистрироваться в ней. Чтобы включить эту функцию, откройте [страницу предварительных версий функций](https://account.windowsazure.com/PreviewFeatures) на портале управления учетными записями Azure.
 
-This service is a preview service, so the first thing you have to do is sign up for it. Visit [the Preview Features page](https://account.windowsazure.com/PreviewFeatures) in the Azure account management portal to do enable this feature.
+## Укажите адресатов электронной почты и пороговое значение для отправки предупреждений
 
-## <a name="set-the-alert-threshold-and-email-recipients"></a>Set the alert threshold and email recipients
-
-After you receive the email confirmation that the billing service is turned on for your subscription, visit [the Subscriptions page](https://account.windowsazure.com/Subscriptions) in the account portal. Click the subscription you want to monitor, and then click **Alerts**.
+Получив по электронной почте подтверждение о том, что для вашей подписки включена служба выставления счетов, откройте страницу [Подписки](https://account.windowsazure.com/Subscriptions) на портале учетных записей. Выберите интересующую вас подписку и щелкните **Оповещения**.
 
 ![][Image1]
 
-Next, click **Add Alert** to create your first one - you can set up a total of five billing alerts per subscription, with a different threshold and up to two email recipients for each alert.
+Затем щелкните **Добавить оповещение**, чтобы создать первое из них. Всего для каждой подписки можно настроить до пяти оповещений с различными пороговыми значениями и до двух адресатов электронной почты.
 
 ![][Image2]
 
-When you add an alert, you give it a unique name, choose a spending threshold, and choose the email addresses where alerts will be sent. When setting up the threshold, you can choose either a **Billing Total** or a **Monetary Credit** from the **Alert For** list. For a billing total, an alert is sent when subscription spending exceeds the threshold. For a monetary credit, an alert is sent when monetary credits drop below the limit. Monetary credits usually apply to free trials and subscriptions associated with MSDN accounts.
+При добавлении предупреждения присвойте ему уникальное имя, укажите пороговое значение расхода и выберите адреса электронной почты, куда будет отправляться сообщение. При настройке порогового значения можно выбрать либо **Общий счет**, либо **Денежный кредит** из списка **Оповещение для**. Для общего счета предупреждение отправляется, когда затраты по подписке превышают пороговое значение. Для денежного кредита предупреждение отправляется тогда, когда сумма денежного кредита стала ниже заданного предела. Денежные кредиты обычно применяются для бесплатных пробных версий и подписок, связанных с учетными записями MSDN.
 
 ![][Image3]
 
-Azure supports any email address but doesn’t verify that the email address works, so double-check for typos.
+Azure поддерживает любой адрес электронной почты, но не проверяет их работоспособность, поэтому дважды перепроверьте правильность адреса.
 
-## <a name="check-on-your-alerts"></a>Check on your alerts
+## Проверка настроенных предупреждений
 
-After you set up alerts, the Account Center lists them and shows how many more you can set up. For each alert, you see the date and time it was sent, whether it’s an alert for Billing Total or Monetary Credit, and the limit you set up. The date and time format is 24-hour Universal Time Coordinate (UTC) and the date is yyyy-mm-dd format. Click the plus sign for an alert in the list to edit it, or click the trash-can to delete it.
+После настройки предупреждения они появятся в центре учетных записей. Кроме того, там будет показано, сколько предупреждений еще можно добавить. Показывается дата и время отправки каждого предупреждения, его тип (по общему счету или по денежному кредиту) и настроенное предельное значение. Время показывается в 24-часовом формате (UTC), дата в формате "гггг-мм-дд". Щелкните значок "плюс" рядом с оповещением в списке, чтобы изменить его. Чтобы удалить, щелкните значок корзины.
 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

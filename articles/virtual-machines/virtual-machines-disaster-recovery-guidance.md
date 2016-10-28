@@ -1,70 +1,65 @@
 <properties
-    pageTitle="What to do in the event that an Azure service disruption impacts Azure virtual machines | Microsoft Azure"
-    description="Learn what to do in the event that an Azure service disruption impacts Azure virtual machines."
-    services="virtual-machines"
-    documentationCenter=""
-    authors="kmouss"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure | Microsoft Azure"
+	description="Узнайте, что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kmouss"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="virtual-machines"
-    ms.workload="virtual-machines"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="05/16/2016"
-    ms.author="kmouss;aglick"/>
+	ms.service="virtual-machines"
+	ms.workload="virtual-machines"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/16/2016"
+	ms.author="kmouss;aglick"/>
 
+#Что делать, если прерывание работы службы Azure влияет на виртуальные машины Azure
 
-#<a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-virtual-machines"></a>What to do in the event that an Azure service disruption impacts Azure virtual machines
+Корпорация Майкрософт прилагает все усилия для того, чтобы наши службы всегда были доступны. Иногда по независящим от нас обстоятельствам происходят незапланированные нарушения работы служб.
 
-At Microsoft, we work hard to make sure that our services are always available to you when you need them. Forces beyond our control sometimes impact us in ways that cause unplanned service disruptions.
+Корпорация Майкрософт предоставляет соглашения об уровне обслуживания (SLA) для своих служб, в которых гарантируется их время бесперебойной работы и доступность. Соглашения об уровне обслуживания для отдельных служб Azure можно найти в разделе [Соглашения об уровне обслуживания Azure](https://azure.microsoft.com/support/legal/sla/).
 
-Microsoft provides a Service Level Agreement (SLA) for its services as a commitment for uptime and connectivity. The SLA for individual Azure services can be found at [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+В платформе Azure уже имеется множество встроенных возможностей для поддержки высокодоступных приложений. Дополнительные сведения об этих службах см. в статье [Аварийное восстановление и высокая доступность для приложений на платформе Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-Azure already has many built-in platform features that support highly available applications. For more about these services, read [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+В этой статье описывается действительный сценарий аварийного восстановления, при котором из-за масштабного стихийного бедствия или обширного прерывания работы службы весь регион оказывается подвержен сбою. Такие события происходят нечасто, но необходимо быть готовыми к тому, что сбой всего региона возможен. Если весь регион испытывает перебои в работе службы, то локально избыточные копии ваших данных становятся временно недоступными. Если включена георепликация, то в другом регионе будут храниться три дополнительные копии больших двоичных объектов и таблиц службы хранилища Azure. В случае сбоя всего региона или аварии, при которой основной регион не может быть восстановлен, Azure перераспределяет все DNS-записи в геореплицированный регион.
 
-This article covers a true disaster recovery scenario, when a whole region experiences an outage due to major natural disaster or widespread service interruption. These are rare occurrences, but you must prepare for the possibility that there is an outage of an entire region. If an entire region experiences a service disruption, the locally redundant copies of your data would temporarily be unavailable. If you have enabled geo-replication, three additional copies of your Azure Storage blobs and tables are stored in a different region. In the event of a complete regional outage or a disaster in which the primary region is not recoverable, Azure remaps all of the DNS entries to the geo-replicated region.
+>[AZURE.NOTE]Учтите, что этот процесс нельзя контролировать и он выполняется только при нарушении работы службы на уровне региона. Поэтому для обеспечения самого высокого уровня доступности необходимо также использовать и другие стратегии архивации приложения. Дополнительные сведения см. в разделе [Стратегии аварийного восстановления для данных](../resiliency/resiliency-disaster-recovery-azure-applications.md#data-strategies-for-disaster-recovery).
 
->[AZURE.NOTE]Be aware that you do not have any control over this process, and it will only occur for region-wide service disruptions. Because of this, you must also rely on other application-specific backup strategies to achieve the highest level of availability. For more information, see the section on [Data strategies for disaster recovery](../resiliency/resiliency-disaster-recovery-azure-applications.md#data-strategies-for-disaster-recovery).
+Чтобы помочь вам в таких ситуациях, мы предлагаем следующие рекомендации для виртуальных машин Azure. Эти рекомендации нужно применять в случае сбоя службы во всем регионе, в котором развернуто приложение виртуальной машины Azure.
 
-To help you handle these rare occurrences, we provide the following guidance for Azure virtual machines in the case of a service disruption of the entire region where your Azure virtual machine application is deployed.
+##Вариант 1. ожидание восстановления
+В этом случае вам не нужно предпринимать какие-либо действия. Знайте, что мы активно работаем над восстановлением доступности службы. Текущее состояние службы можно просмотреть на [панели мониторинга работоспособности служб Azure](https://azure.microsoft.com/status/).
 
-##<a name="option-1:-wait-for-recovery"></a>Option 1: Wait for recovery
-In this case, no action on your part is required. Know that we are working diligently to restore service availability. You can see the current service status on our [Azure Service Health Dashboard](https://azure.microsoft.com/status/).
+>[AZURE.NOTE]Это наилучший вариант, если вы не настроили Azure Site Recovery, архивацию виртуальных машин, геоизбыточное хранилище с доступом для чтения или геоизбыточное хранилище до прерывания работы службы. Если вы настроили хранилище или геоизбыточное хранилище с доступом для чтения для учетной записи хранения, в которой размещаются виртуальные жесткие диски вашей виртуальной машины, то вы можете восстановить виртуальный жесткий диск базового образа и попробовать подготовить новую виртуальную машину на его основе. Этот вариант не является предпочтительным, так как он не гарантирует синхронизацию данных, если не используются служба архивации Azure или Azure Site Recovery. Следовательно, не гарантируется, что этот вариант будет работать.
 
->[AZURE.NOTE]This is the best option if you have not set up Azure Site Recovery, virtual machine backup, read-access geo-redundant storage, or geo-redundant storage prior to the disruption. If you have set up geo-redundant storage or read-access geo-redundant storage for the storage account where your VM virtual hard drives (VHDs) are stored, you can look to recover the base image VHD and try to provision a new VM from it. This is not a preferred option because there are no guarantees of synchronization of data unless Azure VM backup or Azure Site Recovery are used. Consequently, this option is not guaranteed to work.
+Для клиентов, которым требуется немедленный доступ к виртуальным машинам, доступны два следующих варианта.
 
-For customers who want immediate access to virtual machines, the following two options are available.  
+>[AZURE.NOTE]Учтите, что при использовании обоих приведенных вариантов возможна частичная потеря данных.
 
->[AZURE.NOTE]Be aware that both of the following options have the possibility of some data loss.     
+##Вариант 2. Восстановление виртуальной машины из резервной копии
+Клиенты, у которых настроена архивация виртуальных машин, могут восстановить виртуальную машину с помощью ее резервной копии и точки восстановления.
 
-##<a name="option-2:-restore-a-vm-from-a-backup"></a>Option 2: Restore a VM from a backup
-For customers who have configured a VM backup, you can restore the VM from its backup and recovery point.
+Сведения о восстановлении новой виртуальной машины с помощью службы архивации Azure см. в статье [Восстановление виртуальных машин в Azure](../backup/backup-azure-restore-vms.md).
 
-To restore a new VM from Azure Backup, see [Restore virtual machines in Azure](../backup/backup-azure-restore-vms.md).
+Чтобы спланировать инфраструктуру архивации виртуальных машин Azure, обратитесь к статье [Планирование инфраструктуры резервного копирования виртуальных машин в Azure](../backup/backup-azure-vms-introduction.md).
 
-To help you plan for your Azure virtual machines backup infrastructure, see [Plan your VM backup infrastructure in Azure](../backup/backup-azure-vms-introduction.md).
+##Вариант 3. Инициация отработки отказа с помощью Azure Site Recovery
+Если вы настроили Azure Site Recovery для работы с затронутыми виртуальными машинами Azure, то можно восстановить виртуальные машины из их реплик. Эти реплики могут размещаться в Azure или локально. В этом случае можно создать новую виртуальную машину из ее существующей реплики. Сведения о восстановлении виртуальных машин из реплики Azure Site Recovery см. в статье [Перенос виртуальных машин IaaS Azure между регионами Azure с помощью Azure Site Recovery](../site-recovery/site-recovery-migrate-azure-to-azure.md).
 
-##<a name="option-3:-initiate-a-failover-by-using-azure-site-recovery"></a>Option 3: Initiate a failover by using Azure Site Recovery
-If you have configured Azure Site Recovery to work with your impacted Azure virtual machines, you can restore your VMs from their replicas. These replicas can reside either on Azure or on premises. In this case, you can create a new VM from its existing replica. To restore your VMs from an Azure Site Recovery replica, see [Migrate Azure IaaS virtual machines between Azure regions with Azure Site Recovery](../site-recovery/site-recovery-migrate-azure-to-azure.md).
+>[AZURE.NOTE]Хотя операционная система и диски данных виртуальной машины Azure будут реплицированы на дополнительный виртуальный жесткий диск, если они находятся в учетной записи геоизбыточного хранилища или геоизбыточного хранилища с доступом для чтения, то каждый виртуальный жесткий диск реплицируются независимо друг от друга. Такой уровень репликации не гарантирует согласованность между реплицированными виртуальными жесткими дисками. Если приложение и (или) базы данных, использующие эти диски данных, имеют зависимости друг от друга, то репликация всех виртуальных жестких дисков одним моментальным снимком не гарантируется. Кроме того, не гарантируется, что реплика виртуального жесткого диска из геоизбыточного хранилища или геоизбыточного хранилища с доступом для чтения позволит получить согласованный на уровне приложения моментальный снимок для загрузки виртуальной машины.
 
->[AZURE.NOTE]Although Azure virtual machine operating system and data disks will be replicated to a secondary VHD, if they are in a geo-redundant storage or read-access geo-redundant storage account, each VHD is replicated independently. This level of replication doesn’t guarantee consistency across the replicated VHDs. If your application and/or databases that use these data disks have dependencies on each other, it is not guaranteed that all VHDs are replicated as one snapshot. It is also not guaranteed that the VHD replica from geo-redundant storage or read-access geo-redundant storage will result in an application consistent snapshot to boot the VM.
+##Дальнейшие действия
+Чтобы больше узнать о том, как реализовать стратегию обеспечения аварийного восстановления и высокого уровня доступности, ознакомьтесь с разделом [Аварийное восстановление и высокий уровень доступности для приложений на платформе Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
-##<a name="next-steps"></a>Next steps
-To learn more about how to implement a disaster recovery and high availability strategy, see [Disaster recovery and high availability for Azure applications](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+Возможности облачной платформы подробно описаны в [техническом руководстве по обеспечению непрерывности бизнес-процессов Azure](../resiliency/resiliency-technical-guidance.md).
 
-To develop a detailed technical understanding of a cloud platform’s capabilities, see [Azure resiliency technical guidance](../resiliency/resiliency-technical-guidance.md).
+Чтобы узнать, как выполнять архивацию виртуальных машин, ознакомьтесь с разделом [Резервное копирование виртуальных машин Azure](../backup/backup-azure-vms.md).
 
-To learn how to back up VMs, see [Back up Azure virtual machines](../backup/backup-azure-vms.md).
+Узнайте, как использовать Azure Site Recovery для организации и автоматизации защиты физических компьютеров и виртуальных машин под управлением Windows и Linux, работающих на платформе Hyper-V и VMWare, ознакомившись с разделом [Azure Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/).
 
-Learn how to use Azure Site Recovery to orchestrate and automate protection of your physical (and virtual) Windows and Linux machines that run on VMWare and Hyper-V VMs, see [Azure Site Recovery](https://azure.microsoft.com/documentation/learning-paths/site-recovery/).
+Если инструкции не ясны или вы хотите, чтобы корпорация Майкрософт выполнила эти действия от вашего имени, свяжитесь со [службой поддержки клиентов](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-If the instructions are not clear, or if you would like Microsoft to do the operations on your behalf, contact [Customer Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

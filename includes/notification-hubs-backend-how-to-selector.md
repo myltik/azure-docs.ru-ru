@@ -4,7 +4,4 @@
 - [PHP](../articles/notification-hubs/notification-hubs-php-push-notification-tutorial.md)
 - [Python](../articles/notification-hubs/notification-hubs-python-push-notification-tutorial.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

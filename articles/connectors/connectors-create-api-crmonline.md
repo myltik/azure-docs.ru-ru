@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add the Dynamics CRM Online connector to your Logic Apps | Microsoft Azure"
-    description="Create Logic apps with Azure App service. The Dynamics CRM Online Connection Provider provides an API to work with entities on Dynamics CRM Online."
-    services="logic-apps"    
-    documentationCenter=""     
-    authors="MandiOhlinger"    
-    manager="erikre"    
-    editor="" 
-    tags="connectors" />
+	pageTitle="Добавление соединителя Dynamics CRM Online в приложения логики | Microsoft Azure"
+	description="Создание приложений логики с помощью службы приложений Azure. Поставщик подключений Dynamics CRM Online предоставляет API для работы с сущностями в Dynamics CRM Online."
+	services="logic-apps"    
+	documentationCenter=""     
+	authors="MandiOhlinger"    
+	manager="erikre"    
+	editor="" 
+	tags="connectors" />
 
 <tags
 ms.service="logic-apps"
@@ -17,268 +17,262 @@ ms.workload="integration"
 ms.date="08/15/2016"
 ms.author="mandia"/>
 
+# Приступая к работе с соединителем Dynamics CRM Online
+Подключение к Dynamics CRM Online позволяет создавать записи, обновлять элементы и выполнять многие другие действия. С помощью CRM Online можно:
 
-# <a name="get-started-with-the-dynamics-crm-online-connector"></a>Get started with the Dynamics CRM Online connector
-Connect to Dynamics CRM Online to create a new record, update an item, and more. With CRM Online, you can:
+- формировать бизнес-процессы на основе данных, получаемых из CRM Online;
+- использовать действия, которые удаляют запись, получают сущности и т. д. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, при обновлении элемента в CRM можно отправлять сообщение электронной почты с помощью Office 365.
 
-- Build your business flow based on the data you get from CRM Online. 
-- Use actions that delete a record, get entities, and more. These actions get a response, and then make the output available for other actions. For example, when an item is updated in CRM, you can send an email using Office 365.
+В этой статье содержатся сведения об использовании соединителя Dynamics CRM Online в приложении логики, а также перечислены предоставляемые им триггеры и действия.
 
-This topic shows you how to use the Dynamics CRM Online connector in a logic app, and also lists the triggers and actions.
+>[AZURE.NOTE] Эта версия статьи предназначена для общедоступного выпуска приложений логики.
 
->[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA).
+Дополнительные сведения о приложениях логики см. в статье, посвященной [приложениям логики](../app-service-logic/app-service-logic-what-are-logic-apps.md), и [руководстве по созданию приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Подключение к Dynamics CRM Online
 
-## <a name="connect-to-dynamics-crm-online"></a>Connect to Dynamics CRM Online
-
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Dynamics, you first need a Dynamics CRM Online *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So with Dynamics, enter the credentials to your Dynamics CRM Online account to create the connection.
-
-
-### <a name="create-the-connection"></a>Create the connection
-
->[AZURE.INCLUDE [Steps to create a connection to Dynamics CRM Online Connection Provider](../../includes/connectors-create-api-crmonline.md)]
-
-## <a name="use-a-trigger"></a>Use a trigger
-
-A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
-
-1. In the logic app, type "dynamics" to get a list of the triggers:  
-
-    ![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
-
-2. Select **Dynamics CRM Online - When a record is created**. If a connection already exists, then select an organization and entity from the drop-down list.
-
-    ![](./media/connectors-create-api-crmonline/select-organization.png)
-
-    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-crmonline.md#create-the-connection) in this topic lists the steps. 
-
-    > [AZURE.NOTE] In this example, the logic app runs when a record is created. To see the results of this trigger, add another action that sends you an email. For example, add the Office 365 *Send an email* action that emails you when the new record is added. 
-
-3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
-
-    ![](./media/connectors-create-api-crmonline/edit-properties.png)
-
-4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите соединение между приложением логики и другой службой. Например, чтобы подключиться к Dynamics, необходимо сначала создать *подключение* к Dynamics CRM Online. Чтобы создать подключение, введите учетные данные, которые используются для доступа к определенной службе. Для создания подключения к Dynamics необходимо использовать учетные данные учетной записи Dynamics CRM Online.
 
 
-## <a name="use-an-action"></a>Use an action
+### Создание подключения
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+>[AZURE.INCLUDE [Шаги по созданию подключения к поставщику подключений Dynamics CRM Online](../../includes/connectors-create-api-crmonline.md)]
 
-1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+## Использование триггера
 
-    ![](./media/connectors-create-api-crmonline/add-action.png)
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Триггеры опрашивают службу с определенным интервалом и частотой. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-2. Choose **Add an action**.
+1. Чтобы открыть список триггеров, в текстовом поле приложения логики введите "dynamics".
 
-3. In the text box, type “dynamics” to get a list of all the available actions.
+	![](./media/connectors-create-api-crmonline/dynamics-triggers.png)
 
-    ![](./media/connectors-create-api-crmonline/dynamics-actions.png)
+2. Выберите **Dynamics CRM Online - When a record is created** (Dynamics CRM Online — при создании записи). Если подключение уже существует, выберите организацию и сущность в раскрывающемся списке.
 
-4. In our example, choose **Dynamics CRM Online - Update a record**. If a connection already exists, then choose the **Organization Name**, **Entity Name**, and other properties:  
+	![](./media/connectors-create-api-crmonline/select-organization.png)
 
-    ![](./media/connectors-create-api-crmonline/sample-action.png)
+	Если появится запрос на вход, введите учетные данные для входа, чтобы создать подключение. Дополнительные сведения о создании подключения см. в [разделе выше](connectors-create-api-crmonline.md#create-the-connection).
 
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-crmonline.md#create-the-connection) in this topic describes these properties. 
+	> [AZURE.NOTE] В этом примере приложение логики выполняется при создании записи. Чтобы увидеть результаты триггера, добавьте другое действие, которое отправляет сообщение электронной почты. Например, добавьте действие Office 365 *Отправить сообщение электронной почты* для отправки вам сообщения электронной почты после создания новой записи.
 
-    > [AZURE.NOTE] In this example, we update an existing record in CRM Online. You can use output from another trigger to update the record. For example, add the SharePoint *When an existing item is modified* trigger. Then add the CRM Online *Update a record* action that uses the SharePoint fields to update the existing record in CRM Online. 
+3. Нажмите кнопку **Изменить** и задайте **частоту** и **интервал**. Например, если требуется, чтобы триггер выполнял опрос каждые 15 минут, задайте для параметра **Частота** значение **Минута**, а для параметра **Интервал** — **15**.
 
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+	![](./media/connectors-create-api-crmonline/edit-properties.png)
+
+4. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
 
 
-## <a name="technical-details"></a>Technical Details
+## Использование действий
 
-## <a name="triggers"></a>Triggers
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-|Trigger | Description|
+1. Щелкните знак "плюс". Отобразятся следующие параметры: **Добавить действие**, **Добавить условие** или **Еще**.
+
+	![](./media/connectors-create-api-crmonline/add-action.png)
+
+2. Выберите **Добавить действие**.
+
+3. Чтобы открыть список всех доступных действий, в текстовом поле введите "dynamics".
+
+	![](./media/connectors-create-api-crmonline/dynamics-actions.png)
+
+4. В нашем примере мы выберем действие **Dynamics CRM Online - Update a record** (Dynamics CRM Online — обновить запись). Если подключение уже существует, задайте **Название организации**, **Имя сущности** и другие свойства:
+
+	![](./media/connectors-create-api-crmonline/sample-action.png)
+
+	Если появится запрос на предоставление сведений о подключении, введите их, чтобы создать подключение. Эти свойства описаны в разделе [Создание подключения](connectors-create-api-crmonline.md#create-the-connection) этой статьи.
+
+	> [AZURE.NOTE] В нашем примере мы обновляем существующую запись в CRM Online. Для обновления записи можно использовать выходные данные другого триггера. Например, добавьте триггер SharePoint *When an existing item is modified* (При изменении имеющегося элемента). Затем добавьте действие CRM Online *Update a record* (Обновить запись), которое использует поля SharePoint, чтобы обновить существующую запись в CRM Online.
+
+5. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
+
+
+## Технические сведения
+
+## триггеры;
+
+|Триггер | Description (Описание)|
 |--- | ---|
-|[When a record is created](connectors-create-api-crmonline.md#when-a-record-is-created)|Triggers a flow when an object is created in CRM.|
-|[When a record is updated](connectors-create-api-crmonline.md#when-a-record-is-updated)|Triggers a flow when an object is modified in CRM.|
-|[When a record is deleted](connectors-create-api-crmonline.md#when-a-record-is-deleted)|Triggers a flow when an object is deleted in CRM.|
+|[When a record is created](connectors-create-api-crmonline.md#when-a-record-is-created) (При создании записи)|Активирует поток при создании объекта в CRM.|
+|[When a record is updated](connectors-create-api-crmonline.md#when-a-record-is-updated) (При обновлении записи)|Активирует поток при изменении объекта в CRM.|
+|[When a record is deleted](connectors-create-api-crmonline.md#when-a-record-is-deleted) (При удалении записи)|Активирует поток при удалении объекта в CRM.|
 
 
-## <a name="actions"></a>Actions
+## Действия
 
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[List records](connectors-create-api-crmonline.md#list-records)|This operation gets the records for an entity.|
-|[Create a new record](connectors-create-api-crmonline.md#create-a-new-record)|This operation creates a new record of an entity.|
-|[Get record](connectors-create-api-crmonline.md#get-record)|This operation gets the specified record for an entity.|
-|[Delete a record](connectors-create-api-crmonline.md#delete-a-record)|This operation deletes a record from an entity collection.|
-|[Update a record](connectors-create-api-crmonline.md#update-a-record)|This operation updates an existing record for an entity.|
+|[List records](connectors-create-api-crmonline.md#list-records) (Отобразить список записей)|Эта операция получает сведения о записях сущности.|
+|[Создание записи](connectors-create-api-crmonline.md#create-a-new-record)|Эта операция создает новую запись сущности.|
+|[Get record](connectors-create-api-crmonline.md#get-record) (Получить запись)|Эта операция получает сведения об указанной записи сущности.|
+|[Delete a record](connectors-create-api-crmonline.md#delete-a-record) (Удалить запись)|Эта операция удаляет запись из коллекции сущностей.|
+|[Изменение записи](connectors-create-api-crmonline.md#update-a-record)|Эта операция обновляет существующую запись сущности.|
 
-### <a name="trigger-and-action-details"></a>Trigger and Action details
+### Сведения о триггерах и действиях
 
-In this section, see the specific details about each trigger and action, including any required or optional input properties, and any corresponding output associated with the connector.
+В этом разделе приведены сведения о каждом триггере и действии, включая обязательные и необязательные входные свойства, а также соответствующие выходные данные, связанные с соединителем.
 
-#### <a name="when-a-record-is-created"></a>When a record is created
-Triggers a flow when an object is created in CRM. 
+#### When a record is created (При создании записи)
+Активирует поток при создании объекта в CRM.
 
-|Property name| Display name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Organization Name|Name of the CRM organization like Contoso|
-|table*|Entity Name|Name of the entity|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to get (default = 256)|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|dataset*|Название организации|Название организации CRM, например Contoso|
+|table*|Имя сущности|Имя сущности|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество получаемых записей (значение по умолчанию — 256)|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 ItemsList
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
-#### <a name="when-a-record-is-updated"></a>When a record is updated
-Triggers a flow when an object is modified in CRM. 
+#### When a record is updated (При обновлении записи)
+Активирует поток при изменении объекта в CRM.
 
-|Property name| Display name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Organization Name|Name of the CRM organization like Contoso|
-|table*|Entity Name|Name of the entity|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to get (default = 256)|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|dataset*|Название организации|Название организации CRM, например Contoso|
+|table*|Имя сущности|Имя сущности|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество получаемых записей (значение по умолчанию — 256)|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 ItemsList
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
-#### <a name="when-a-record-is-deleted"></a>When a record is deleted
-Triggers a flow when an object is deleted in CRM. 
+#### When a record is deleted (При удалении записи)
+Активирует поток при удалении объекта в CRM.
 
-|Property name| Display name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Organization Name|Name of the CRM organization like Contoso|
-|table*|Entity Name|Name of the entity|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to get (default = 256)|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|dataset*|Название организации|Название организации CRM, например Contoso|
+|table*|Имя сущности|Имя сущности|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество получаемых записей (значение по умолчанию — 256)|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 ItemsList
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
-#### <a name="list-records"></a>List records
-This operation gets the records for an entity. 
+#### List records (Отобразить список записей)
+Эта операция получает сведения о записях сущности.
 
-|Property name| Display name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Organization Name|Name of the CRM organization like Contoso|
-|table*|Entity Name|Name of the entity|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to get (default = 256)|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|dataset*|Название организации|Название организации CRM, например Contoso|
+|table*|Имя сущности|Имя сущности|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество получаемых записей (значение по умолчанию — 256)|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 ItemsList
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
-#### <a name="create-a-new-record"></a>Create a new record
-This operation creates a new record of an entity. 
+#### Создание записи
+Эта операция создает новую запись сущности.
 
-|Property name| Display name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Organization Name|Name of the CRM organization like Contoso|
-|table*|Entity Name|Name of the entity|
+|dataset*|Название организации|Название организации CRM, например Contoso|
+|table*|Имя сущности|Имя сущности|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Отсутствует.
 
 
-#### <a name="get-record"></a>Get record
-This operation gets the specified record for an entity. 
+#### Get record (Получить запись)
+Эта операция получает сведения об указанной записи сущности.
 
-|Property name| Display name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Organization Name|Name of the CRM organization like Contoso|
-|table*|Entity Name|Name of the entity|
-|id*|Item identifier|Specify the Identifier for the record|
+|dataset*|Название организации|Название организации CRM, например Contoso|
+|table*|Имя сущности|Имя сущности|
+|id*|Идентификатор элемента|Укажите идентификатор записи|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Отсутствует.
 
 
-#### <a name="delete-a-record"></a>Delete a record
-This operation deletes a record from an entity collection. 
+#### Delete a record (Удалить запись)
+Эта операция удаляет запись из коллекции сущностей.
 
-|Property name| Display name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Organization Name|Name of the CRM organization like Contoso|
-|table*|Entity Name|Name of the entity|
-|id*|Item identifier|Specify the identifier for the record|
+|dataset*|Название организации|Название организации CRM, например Contoso|
+|table*|Имя сущности|Имя сущности|
+|id*|Идентификатор элемента|Укажите идентификатор записи|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
 
-#### <a name="update-a-record"></a>Update a record
-This operation updates an existing record for an entity. 
+#### Изменение записи
+Эта операция обновляет существующую запись сущности.
 
-|Property name| Display name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|dataset*|Organization Name|Name of the CRM organization like Contoso|
-|table*|Entity Name|Name of the entity|
-|id*|Record identifier|Specify the identifier for the record|
+|dataset*|Название организации|Название организации CRM, например Contoso|
+|table*|Имя сущности|Имя сущности|
+|id*|Идентификатор записи|Укажите идентификатор записи|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Отсутствует.
 
 
-## <a name="http-responses"></a>HTTP responses
+## Ответы HTTP
 
-The actions and triggers can return one or more of the following HTTP status codes: 
+Действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже.
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred.|
-|default|Operation Failed.|
+|200|ОК|
+|202|Принято|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка.|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, см. [список интерфейсов API](apis-list.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

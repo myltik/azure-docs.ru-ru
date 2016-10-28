@@ -1,15 +1,9 @@
-| **Deployment Model/Method** | **Azure Portal** | **Classic Portal** | **PowerShell** |
+| **Модель и метод развертывания** | **Портал Azure** | **Классический портал** | **PowerShell** |
 |---|---|---|---|
-|**Classic** | Not Supported | [Article](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Supported |
-|**Resource Manager** | Not Supported |Supported+ | [Article](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)|
-|**Connections between different deployment models** | [Article*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) | [Article*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |[Article](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)|
+|**Классический** | Не поддерживается | [Статья](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Поддерживаются |
+|**Диспетчер ресурсов** | Не поддерживается |Поддерживается + | [Статья](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)|
+|**Подключения между разными моделями развертывания** | [Статья*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) | [Статья*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |[Статья](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)|
 
-(+) denotes this deployment method is available only for VNets in the same subscription.<br>
-(*) denotes that this deployment method also requires PowerShell.
+"+" означает, что этот метод развертывания доступен только для виртуальных сетей в одной подписке.<br> "*" означает, что для этого метода развертывания требуется использовать PowerShell.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

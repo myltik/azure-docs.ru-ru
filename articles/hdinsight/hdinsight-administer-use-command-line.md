@@ -1,101 +1,100 @@
 <properties
-    pageTitle="Manage Hadoop clusters using Azure CLI | Microsoft Azure"
-    description="How to use the Azure CLI to manage Hadoop clusters in HDIsight"
-    services="hdinsight"
-    editor="cgronlun"
-    manager="jhubbard"
-    authors="mumian"
-    tags="azure-portal"
-    documentationCenter=""/>
+	pageTitle="Управление кластерами Hadoop с помощью CLI Azure | Microsoft Azure"
+	description="Использование CLI Azure для управления кластерами Hadoop в HDInsight."
+	services="hdinsight"
+	editor="cgronlun"
+	manager="jhubbard"
+	authors="mumian"
+	tags="azure-portal"
+	documentationCenter=""/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/10/2016"
-    ms.author="jgao"/>
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2016"
+	ms.author="jgao"/>
 
-
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Manage Hadoop clusters in HDInsight using the Azure CLI
+# Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to use the [Azure Command-line Interface](../xplat-cli-install.md) to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
+Узнайте, как использовать [интерфейс командной строки Azure](../xplat-cli-install.md) для управления кластерами Hadoop в Azure HDInsight. Интерфейс командной строки (CLI) Azure реализован в Node.js. Его можно использовать на любой платформе, которая поддерживает Node.js, включая Windows, Mac и Linux.
 
-This article covers only using the Azure CLI with HDInsight. For a general guide on how to use Azure CLI, see [Install and configure Azure CLI][azure-command-line-tools].
+В этой статье описывается только использование CLI Azure с HDInsight. Общее руководство по использованию Azure CLI см. в статье [Установка и настройка Azure CLI][azure-command-line-tools].
 
 [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-##<a name="prerequisites"></a>Prerequisites
+##Предварительные требования
 
-Before you begin this article, you must have the following:
+Перед началом работы с этой статьей необходимо иметь следующее:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information.
-- **Connect to Azure**, using the following command:
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **CLI Azure** — Сведения об установке и настройке CLI Azure см. в разделе [Установка и настройка CLI Azure](../xplat-cli-install.md) .
+- **Подключитесь к Azure**, выполнив следующую команду.
 
-        azure login
+		azure login
 
-    For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
-    
-- **Switch to the Azure Resource Manager mode**, using the following command:
+	Дополнительную информацию об аутентификации с помощью рабочей или учебной учетной записи см. в разделе [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](xplat-cli-connect.md).
+	
+- **Переключитесь в режим диспетчера ресурсов Azure** с помощью следующей команды.
 
-        azure config mode arm
+		azure config mode arm
 
-To get help, use the **-h** switch.  For example:
+Чтобы получить справку, используйте параметр **-h**. Например:
 
-    azure hdinsight cluster create -h
-    
-##<a name="create-clusters"></a>Create clusters
+	azure hdinsight cluster create -h
+	
+##Создание кластеров
 
-See [Create Linux-based clusters in HDInsight using the Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+См. раздел [Создание кластеров под управлением Linux в HDInsight с помощью Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
-##<a name="list-and-show-cluster-details"></a>List and show cluster details
-Use the following commands to list and show cluster details:
+##Отображение сведений о кластере
+Используйте следующие команды для отображения сведений о кластере:
 
-    azure hdinsight cluster list
-    azure hdinsight cluster show <Cluster Name>
+	azure hdinsight cluster list
+	azure hdinsight cluster show <Cluster Name>
 
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
 
-##<a name="delete-clusters"></a>Delete clusters
+##Удаление кластеров
 
-Use the following command to delete a cluster:
+Используйте следующую команду для удаления кластера:
 
-    azure hdinsight cluster delete <Cluster Name>
+	azure hdinsight cluster delete <Cluster Name>
 
-You can also delete a cluster by deleting the resource group that contains the cluster. Please note, this will delete all the resources in the group including the default storage account.
+Можно также удалить кластер, удалив группу ресурсов, которая содержит этот кластер. Обратите внимание, это приведет к удалению всех ресурсов в группе, включая учетную запись хранения по умолчанию.
 
-    azure group delete <Resource Group Name>
+	azure group delete <Resource Group Name>
 
-##<a name="scale-clusters"></a>Scale clusters
+##Масштабирование кластеров
 
-To change the Hadoop cluster size:
+Изменение размера кластера Hadoop
 
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-
-
-## <a name="enable/disable-http-access-for-a-cluster"></a>Enable/disable HTTP access for a cluster
-
-    azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
-    azure hdinsight cluster disable-http-access [options] <Cluster Name>
-
-## <a name="enable/disable-rdp-access-for-a-cluster"></a>Enable/disable RDP access for a cluster
-
-    azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-    azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
+	azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 
 
-##<a name="next-steps"></a>Next steps
-In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
+## Включение или отключение доступа по протоколу HTTP для кластера
 
-* [Administer HDInsight by using the Azure Portal] [hdinsight-admin-portal]
-* [Administer HDInsight by using Azure PowerShell] [hdinsight-admin-powershell]
-* [Get started with Azure HDInsight] [hdinsight-get-started]
-* [How to use the Azure CLI] [azure-command-line-tools]
+	azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
+	azure hdinsight cluster disable-http-access [options] <Cluster Name>
+
+## Включение или отключение доступа по протоколу RDP для кластера
+
+  	azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+  	azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
+
+
+##Дальнейшие действия
+В этой статье вы узнали, как выполнять различные административные задачи в кластере HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
+
+* [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
+* [Администрирование HDInsight с помощью Azure PowerShell][hdinsight-admin-powershell]
+* [Приступая к работе с Azure HDInsight][hdinsight-get-started]
+* [Использование CLI Azure][azure-command-line-tools]
 
 
 [azure-command-line-tools]: ../xplat-cli-install.md
@@ -112,10 +111,6 @@ In this article, you have learned how to perform different HDInsight cluster adm
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "List and show clusters"
+[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Отображение кластеров"
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

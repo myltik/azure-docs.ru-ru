@@ -1,165 +1,163 @@
 <properties
-    pageTitle="Upgrade to Azure SQL Database V12 using the Azure portal | Microsoft Azure"
-    description="Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using the Azure portal."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Обновление базы данных SQL Azure до версии 12 с помощью портала Azure | Microsoft Azure"
+	description="Объясняется, как выполнить обновление базы данных SQL Azure до версии 12, включая способы обновления баз данных Web и Business, а также как выполнить обновление сервера версии 11 путем переноса баз данных непосредственно в пул эластичных баз данных с помощью портала Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="08/08/2016"
-    ms.author="sstein"/>
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="08/08/2016"
+	ms.author="sstein"/>
 
 
-
-# <a name="upgrade-to-azure-sql-database-v12-using-the-azure-portal"></a>Upgrade to Azure SQL Database V12 using the Azure portal
+# Обновление до базы данных SQL Azure версии 12 при помощи портала Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-upgrade-server-portal.md)
+- [Портал Azure](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-SQL Database V12 is the latest version so upgrading existing servers to SQL Database V12 is recommended.
-SQL Database V12 has many [advantages over the previous version](sql-database-v12-whats-new.md) including:
+Версия 12 базы данных SQL является последней, поэтому мы рекомендуем обновить до нее все серверы. У базы данных SQL версии 12 есть множество [преимуществ по сравнению с предыдущей версией](sql-database-v12-whats-new.md), включая следующие:
 
-- Increased compatibility with SQL Server.
-- Improved premium performance and new performance levels.
-- [Elastic database pools](sql-database-elastic-pool.md).
+- Улучшенная совместимость с сервером SQL Server.
+- Улучшенная производительность для категории «Премиум» и новые уровни производительности.
+- [Пулы эластичных баз данных](sql-database-elastic-pool.md).
 
-This article provides directions for upgrading existing SQL Database V11 servers and databases to SQL Database V12.
+Эта статья содержит инструкции для обновления серверов баз данных SQL версии 11 до версии 12.
 
-During the process of upgrading to V12 you will upgrade any Web and Business databases to a new service tier so directions for upgrading Web and Business databases are included.
+В процессе обновления до версии 12 выполняется обновление всех баз данных Web и Business до нового уровня служб, поэтому в статью также включены инструкции по обновлению баз данных Web и Business.
 
-In addition, migrating to an [elastic database pool](sql-database-elastic-pool.md) can be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool. You can easily [auto-migrate databases from V11 servers directly into elastic database pools using PowerShell](sql-database-upgrade-server-powershell.md). You can also use the portal to migrate V11 databases into a pool but in the portal you must already have a V12 server to create a pool. Directions are provided later in this article to create the pool after the server upgrade if you have [databases that can benefit from a pool](sql-database-elastic-pool-guidance.md).
+Кроме того, переход на [пул эластичных баз данных](sql-database-elastic-pool.md) может быть более экономически эффективным, чем обновление до индивидуальных уровней производительности (ценовых категорий) для отдельных баз данных. Пулы также упрощают управление базами данных, поскольку с ними необходимо управлять только параметрами производительности для пула, а не уровнями производительности отдельных баз данных. Если ваши базы данных расположены на нескольких серверах, подумайте об их переносе на один и тот же сервер и помещении в пул. Вы можете легко [выполнить автоматический перенос баз данных с серверов версии 11 напрямую в пулы эластичных баз данных с помощью PowerShell](sql-database-upgrade-server-powershell.md). С помощью портала также можно перенести базы данных версии 11 в пул, но в этом случае на портале уже должен быть сервер версии 12 для создания пула. Далее в этой статье приведены инструкции по созданию пула после обновления сервера при наличии [баз данных, которые могут использовать преимущества пула](sql-database-elastic-pool-guidance.md).
 
-Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connectivity-issues.md) then it is sufficient to protect against dropped connections at the end of the upgrade.
+Обратите внимание, что на протяжении всей операции обновления базы данных останутся в сети и будут продолжать работать. Во время фактического перехода на новый уровень производительности может произойти кратковременное отключение от базы данных. Обычно оно составляет порядка 90 секунд, но может длиться до 5 минут. Если в приложении предусмотрена [обработка временных отказов подключения](sql-database-connectivity-issues.md), то этого достаточно, чтобы обеспечить защиту от отключения на завершающем этапе обновления.
 
-Upgrading to SQL Database V12 cannot be undone. After an upgrade the server cannot be reverted to V11.
+Обновление базы данных SQL до версии 12 не может быть отменено. После обновления сервер нельзя вернуть к версии 11.
 
-After upgrading to V12, [service tier recommendations](sql-database-service-tier-advisor.md) and [elastic pool performance considerations](sql-database-elastic-pool-guidance.md) will not immediately be available until the service has time to evaluate your workloads on the new server. V11 server recommendation history does not apply to V12 servers so it is not retained.
+После обновления до версии 12 [рекомендации уровня служб](sql-database-service-tier-advisor.md) и [рекомендации по производительности пула эластичных баз данных](sql-database-elastic-pool-guidance.md) будут недоступны, пока служба не выполнит оценку рабочих нагрузок на новом сервере. Журнал рекомендаций сервера версии 11 не применяется к серверам версии 12, поэтому он не сохраняется.
 
-## <a name="prepare-to-upgrade"></a>Prepare to upgrade
+## Подготовка к обновлению
 
-- **Upgrade all Web and Business databases**: See [Upgrade all Web and Business databases](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) section below or see [Monitor and manage an elastic database pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
-- **Review and suspend Geo-Replication**: If your Azure SQL database is configured for Geo-Replication you should document its current configuration and [stop Geo-Replication](sql-database-geo-replication-portal.md#remove-secondary-database). After the upgrade completes reconfigure your database for Geo-Replication.
-- **Open these ports if you have clients on an Azure VM**: If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open port ranges 11000-11999 and 14000-14999 on the VM. For details, see [Ports for SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
-
+- **Обновление всех баз данных Web и Business**: см. раздел [Обновление всех баз данных Web и Business](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) ниже или статью [Мониторинг пула эластичных баз данных и управление им (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+- **Обзор и приостановка георепликации**: если ваша база данных SQL настроена для георепликации, то необходимо задокументировать ее текущую конфигурацию и [остановить георепликацию](sql-database-geo-replication-portal.md#remove-secondary-database). После завершения обновления потребуется перенастроить базу данных для георепликации.
+- **Откройте следующие порты, если у вас есть клиенты на виртуальной машине Azure**: если клиентская программа подключается к базе данных SQL версии 12, а клиент работает на виртуальной машине Azure, необходимо открыть на ней диапазоны портов 11 000–11 999 и 14 000–14 999. Дополнительные сведения см. в разделе [Порты для базы данных SQL версии 12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-## <a name="start-the-upgrade"></a>Start the upgrade
 
-1. In the [Azure portal](https://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE** > **SQL servers**, and selecting the v2.0 server you want to upgrade.
-2. Select **Latest SQL Database Update**, then select **Upgrade this server**.
+## Начало обновления
 
-      ![upgrade server][1]
+1. На [портале Azure](https://portal.azure.com/) перейдите к серверу, который требуется обновить, щелкнув **Обзор** > **Серверы SQL** и выбрав нужный сервер версии 2.0.
+2. Последовательно щелкните **Последнее обновление базы данных SQL** и **Обновить сервер**.
 
-3. Upgrading a server to the latest SQL Database Update is permanent and irreversible. To confirm the upgrade, type the name of your server and click **OK**.
+      .![обновление сервера][1]
 
-## <a name="upgrade-all-web-and-business-databases"></a>Upgrade all Web and Business databases
+3. Последнее обновление базы данных SQL невозможно будет откатить. Чтобы подтвердить обновление, введите имя сервера и нажмите кнопку **ОК**.
 
-If your server has any Web or Business databases you must upgrade them. During the process of upgrading to SQL Database V12 you will update all Web and Business databases to a new service tier.    
+## Обновите все базы данных Web и Business.
 
-To assist you with upgrading, the SQL Database service recommends an appropriate service tier and performance level (pricing tier) for each database. The service recommends the best tier for running your existing database’s workload by analyzing the historical usage for your database.
+Если на сервере имеются базы данных Web или Business, их необходимо обновить. В ходе обновления базы данных SQL до версии V12 также будет произведено обновление всех баз данных Web и Business до нового уровня служб.
 
-3. In the **Upgrade this server** blade select each database to review and select the recommended pricing tier to upgrade to. You can always browse the available pricing tiers and select the one that suits your environment best.
+В целях упрощения процедуры обновления служба Базы данных SQL рекомендует подходящий уровень службы и уровень производительности (ценовую категорию) для каждой базы данных. Путем анализа журнала использования вашей базы данных служба предложит оптимальный уровень для выполнения рабочей нагрузки базы данных.
 
-
-     ![databases][2]
+3. В колонке **Обновить этот сервер** выберите каждую базу данных, которую хотите проанализировать, и рекомендуемую ценовую категорию, на которую следует перейти. Вы в любое время можете просмотреть доступные ценовые категории и выбрать ту из них, которая лучше всего соответствует вашей среде.
 
 
-7. After clicking the suggested tier you will be presented with the **Choose your pricing tier** blade where you can select a tier and then click the **Select** button to change to that tier. Select a new tier for each Web or Business database.
-
-    What is important to note is that your SQL database is not locked into any specific service tier or performance level, so as the requirements of your database change you can easily change between the available service tiers and performance levels. In fact, Basic, Standard, and Premium SQL Databases are billed by the hour, and you have the ability to scale each database up or down 4 times within a 24 hour period.
-
-    ![recommendations][6]
+     .![databases][2]
 
 
-After all databases on the server are eligible you are ready to start the upgrade
+7. После выбора предлагаемого уровня отображается колонка **Выберите ценовую категорию**, в которой можно выбрать одну из категорий. Затем нажмите кнопку **Выбрать**, чтобы изменить категорию на выбранную. Выберите новый уровень для каждой базы данных Web или Business.
 
-## <a name="confirm-the-upgrade"></a>Confirm the upgrade
+    Следует отметить, что база данных SQL не привязана к конкретному уровню служб или уровню производительности. По мере изменения требований к базе данных вы можете с легкостью переходить с одних доступных уровней служб и уровней производительности на другие. Для Баз данных SQL уровней «Базовый», «Стандартный» и «Премиум» выставляются счета за почасовое использование. Каждую базу данных можно масштабировать вверх или вниз 4 раза в течение 24 часов.
 
-3. When all the databases on the server are eligible for upgrade you need to **TYPE THE SERVER NAME** to verify that you want to perform the upgrade, and then click **OK**.
-
-    ![verify upgrade][3]
+    .![к просмотру фильмов][6]
 
 
-4. The upgrade starts and displays the in progress notification. The upgrade process is initiated. Depending on the details of your specific databases upgrading to V12 can take some time. During this time all databases on the server will remain online but server and database management actions will be restricted.
+После того как все базы данных на сервере будут приведены в соответствующее состояние, можно начать обновление.
 
-    ![upgrade in progress][4]
+## Подтверждение обновления
 
-    At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration (typically measured in seconds). If an application has transient fault handling (retry logic) for connection terminations then it is sufficient to protect against dropped connections at the end of the upgrade.
+3. Когда все базы данных на сервере готовы к обновлению, необходимо **ВВЕСТИ ИМЯ СЕРВЕРА**, чтобы подтвердить выполнение обновления, а затем нажать кнопку **ОК**.
 
-5. After the upgrade operation completes the **Latest Update** blade will display **Enabled**.
-
-    ![V12 enabled][5]  
-
-## <a name="move-your-databases-into-an-elastic-database-pool"></a>Move your databases into an elastic database pool
-
-In the [Azure portal](https://portal.azure.com/) browse to the V12 server and click **Add pool**.
-
--or-
-
-If you see a message saying **Click here to view the recommended elastic database pools for this server**, click it to easily create a pool that is optimized for your server's databases. For details, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
-
-![Add pool to a server][7]
-
-Follow the directions in the [Create an elastic database pool](sql-database-elastic-pool.md) article to finish creating your pool.
-
-## <a name="monitor-databases-after-upgrading-to-sql-database-v12"></a>Monitor databases after upgrading to SQL Database V12
-
->[AZURE.IMPORTANT] Upgrade to the latest version of SQL Server Management Studio (SSMS) to take advantage of the new v12 capabilities. [Download SQL Server Management Studio] (https://msdn.microsoft.com/library/mt238290.aspx).
-
-After upgrading, actively monitor the database to ensure applications are running at the desired performance, and then optimize settings as required.
-
-In addition to monitoring individual databases, you can monitor elastic database pools [Monitor, manage, and size an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md) or with [PowerShell](sql-database-elastic-pool-manage-powershell.md).
+    .![проверка обновления][3]
 
 
-**Resource consumption data:** For Basic, Standard, and Premium databases resource consumption data is available through the [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO and log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
+4. Начинается обновление, и отображается уведомление о ходе выполнения. Будет запущен процесс обновления. В зависимости от конкретных особенностей баз данных, обновляемых до версии V12, процедура обновления может занять некоторое время. В течение этого времени все базы данных на сервере остаются доступными, однако на операции управления сервером и базами данных накладываются определенные ограничения.
+
+    .![выполняется обновление][4]
+
+    Во время фактического перехода на новый уровень производительности может произойти кратковременное (как правило порядка нескольких секунд) отключение от базы данных. Если в приложении предусмотрена обработка (логика повторных попыток) временных отказов подключения, то этого достаточно, чтобы обеспечить защиту от разъединений соединения на завершающем этапе обновления.
+
+5. После завершения операции обновления в колонке **Последнее обновление** будет отображаться **Включено**.
+
+    .![функции V12 включены][5]
+
+## Перемещение баз данных в пул эластичных баз данных
+
+На [портале Azure](https://portal.azure.com/) перейдите к серверу версии 12 и щелкните **Добавить пул**.
+
+-или-
+
+Если появится сообщение **Щелкните здесь, чтобы просмотреть рекомендуемые пулы эластичных баз данных для этого сервера**, щелкните его, чтобы с легкостью создать пул, оптимизированный для баз данных вашего сервера. Подробные сведения см. в статье [Когда следует использовать пул эластичных баз данных](sql-database-elastic-pool-guidance.md).
+
+.![Добавление пула на сервер][7]
+
+Следуйте инструкциям в статье [Создание пула эластичных баз данных](sql-database-elastic-pool.md), чтобы завершить создание пула.
+
+## Мониторинг баз данных после обновления базы данных SQL до версии 12
+
+>[AZURE.IMPORTANT] Установите последнюю версию SQL Server Management Studio (SSMS), чтобы воспользоваться всеми преимуществами новой версии 12. [Скачайте SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+
+После обновления активно отслеживайте состояние базы данных, чтобы обеспечить надлежащую производительность приложений и оптимизировать параметры.
+
+Кроме отслеживания отдельных баз данных, вы также можете отслеживать пулы эластичных баз данных. Это можно делать с помощью [портала Azure](sql-database-elastic-pool-manage-portal.md) или [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools).
+
+
+**Данные о потреблении ресурсов**. Для баз данных уровней "Базовый", "Стандартный" и "Премиум" более точные данные о потреблении ресурсов доступны в динамическом административном представлении [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) в базе данных пользователя. Это динамическое административное представление предоставляет данные о потреблении практически в реальном времени с 15-секундной детализацией за предыдущий час работы. Процентное потребление DTU за интервал вычисляется как максимальное относительное потребление показателей ЦП, операций ввода-вывода и журнала. Ниже приведен запрос, который вычисляет среднее относительное потребление DTU за последний час:
 
     SELECT end_time
-         , (SELECT Max(v)
+    	 , (SELECT Max(v)
              FROM (VALUES (avg_cpu_percent)
                          , (avg_data_io_percent)
                          , (avg_log_write_percent)
-           ) AS value(v)) AS [avg_DTU_percent]
+    	   ) AS value(v)) AS [avg_DTU_percent]
     FROM sys.dm_db_resource_stats
     ORDER BY end_time DESC;
 
-Additional monitoring information:
+Дополнительная информация о мониторинге:
 
-- [Azure SQL Database performance guidance for single databases](http://msdn.microsoft.com/library/azure/dn369873.aspx).
-- [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
-- [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
-
-
-
-
-**Alerts:** Set up 'Alerts' in the Azure portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure portal for various performance metrics like DTU, CPU, IO, and Log. Browse to your database and select **Alert rules** in the **Settings** blade.
-
-For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
+- [Руководство по производительности базы данных SQL Azure для отдельных баз данных](http://msdn.microsoft.com/library/azure/dn369873.aspx).
+- [Вопросы цены и производительности для пула эластичных баз данных](sql-database-elastic-pool-guidance.md).
+- [Мониторинг базы данных SQL Azure с помощью динамических представлений управления](sql-database-monitoring-with-dmvs.md)
 
 
 
 
+**Оповещения:** настройте оповещения на портале Azure, чтобы получать уведомления о приближении показателя потребления DTU для обновленной базы данных к заданному максимальному уровню. На портале Azure можно настроить оповещения базы данных для различных метрик производительности, например DTU, ЦП, ввода-вывода и журнала. Перейдите к своей базе данных и выберите **Правила оповещения** в колонке **Параметры**.
 
-## <a name="next-steps"></a>Next steps
-
-- [Check for pool recommendations and create a pool](sql-database-elastic-pool-create-portal.md).
-- [Change the service tier and performance level of your database](sql-database-scale-up.md).
+Например, можно настроить оповещение в сообщении электронной почты об относительном потреблении DTU, если среднее относительное потребление DTU превышает 75 % за последние 5 минут. См. статью [Получение уведомлений об оповещениях](../azure-portal/insights-receive-alert-notifications.md), чтобы больше узнать о настройке уведомлений об оповещениях.
 
 
 
-## <a name="related-links"></a>Related Links
 
-- [What's new in SQL Database V12](sql-database-v12-whats-new.md)
-- [Plan and prepare to upgrade to SQL Database V12](sql-database-v12-plan-prepare-upgrade.md)
+
+## Дальнейшие действия
+
+- [Ознакомьтесь с рекомендациями для пула и создайте пул](sql-database-elastic-pool-create-portal.md).
+- [Измените уровень служб и уровень производительности вашей базы данных](sql-database-scale-up.md).
+
+
+
+## Связанные ссылки
+
+- [Новые возможности Базы данных SQL версии 12](sql-database-v12-whats-new.md)
+- [Планирование и подготовка к обновлению Базы данных SQL до версии 12](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->
@@ -171,8 +169,4 @@ For example, you can set up an email alert on “DTU Percentage” if the averag
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

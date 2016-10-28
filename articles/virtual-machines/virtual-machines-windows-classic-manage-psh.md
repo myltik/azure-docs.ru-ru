@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Manage your virtual machines by using Azure PowerShell | Microsoft Azure"
-   description="Learn commands that you can use to automate tasks in managing your virtual machines."
+   pageTitle="Управление виртуальными машинами с помощью Azure PowerShell | Microsoft Azure"
+   description="Узнайте о командах, которые можно использовать для автоматизации задач управления виртуальными машинами."
    services="virtual-machines-windows"
    documentationCenter="windows"
    authors="singhkays"
@@ -14,90 +14,85 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2016"
+   ms.date="07/01/2016"
    ms.author="kasing"/>
 
-
-# <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>Manage your virtual machines by using Azure PowerShell
+# Управление виртуальными машинами с помощью Azure PowerShell
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-Many tasks you do each day to manage your VMs can be automated by using Azure PowerShell cmdlets. This article gives you example commands for simpler tasks, and links to articles that show the commands for more complex tasks.
+Многие повседневные задачи управления виртуальными машинами можно автоматизировать с помощью командлетов Azure PowerShell. В этой статье приводятся примеры команд для простых задач, а также ссылки на статьи о командах для более сложных задач.
 
->[AZURE.NOTE] If you haven't installed and configured Azure PowerShell yet, you can get instructions in the article [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+>[AZURE.NOTE] Если вы еще не установили и не настроили Azure PowerShell, соответствующие указания см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
-## <a name="how-to-use-the-example-commands"></a>How to use the example commands
-You'll need to replace some of the text in the commands with text that's appropriate for your environment. The < and > symbols indicate text you need to replace. When you replace the text, remove the symbols but leave the quote marks in place.
+## Как использовать примеры команд
+Вам понадобится заменить определенный текст в командах в соответствии с вашей средой. Знаки < и > обозначают текст, который необходимо заменить. При замене текста удалите символы, но оставьте на месте кавычки.
 
-## <a name="get-a-vm"></a>Get a VM
-This is a basic task you'll use often. Use it to get information about a VM, perform tasks on a VM, or get output to store in a variable.
+## Получение виртуальной машины
+Вы будете выполнять эту основную задачу очень часто. Используйте ее, чтобы получить информацию о виртуальной машине, выполнить задачи в виртуальной машине или получить выходные данные, которые необходимо сохранить в переменной.
 
-To get information about the VM, run this command, replacing everything in the quotes, including the < and > characters:
+Чтобы получить информацию о виртуальной машине, выполните эту команду и замените все, что заключено в кавычки, в том числе знаки < и >.
 
      Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-To store the output in a $vm variable, run:
+Чтобы сохранить выходные данные в переменной $vm, выполните:
 
     $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## <a name="log-on-to-a-windows-based-vm"></a>Log on to a Windows-based VM
+## Вход в виртуальную машину под управлением Windows
 
-Run these commands:
+Выполните следующие команды:
 
->[AZURE.NOTE] You can get the virtual machine and cloud service name from the display of the **Get-AzureVM** command.
+>[AZURE.NOTE] Имя виртуальной машины и облачной службы можно получить из вывода команды **Get-AzureVM**.
 >
-    $svcName = "<cloud service name>"
-    $vmName = "<virtual machine name>"
-    $localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-    $localFile = $localPath + "\" + $vmname + ".rdp"
-    Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+	$svcName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile = $localPath + "" + $vmname + ".rdp"
+	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
-## <a name="stop-a-vm"></a>Stop a VM
+## Остановка виртуальной машины
 
-Run this command:
+Выполните следующую команду:
 
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
->[AZURE.IMPORTANT] Use this parameter to keep the virtual IP (VIP) of the cloud service in case it's the last VM in that cloud service. <br><br> If you use the StayProvisioned parameter, you'll still be billed for the VM.
+>[AZURE.IMPORTANT] Используйте этот параметр, чтобы сохранить виртуальный IP-адрес (VIP) облачной службы, если эта виртуальная машина является последней в этой службе. <br><br> При использовании параметра StayProvisioned вам по-прежнему будут выставлять счета за использование виртуальной машины.
 
-## <a name="start-a-vm"></a>Start a VM
+## Запуск виртуальной машины
 
-Run this command:
+Выполните следующую команду:
 
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## <a name="attach-a-data-disk"></a>Attach a data disk
-This task requires a few steps. First, you use the ****Add-AzureDataDisk**** cmdlet to add the disk to the $vm object. Then, you use **Update-AzureVM** cmdlet to update the configuration of the VM.
+## Присоединение диска данных
+Для этой задачи требуется несколько шагов. Сначала используйте командлет ****Add-AzureDataDisk****, чтобы добавить диск в объект $vm. Затем используйте командлет **Update-AzureVM**, чтобы обновить конфигурацию виртуальной машины.
 
-You'll also need to decide whether to attach a new disk or one that contains data. For a new disk, the command creates the .vhd file and attaches it.
+Вам необходимо решить, какой диск подключать — новый диск или диск с данными. При подключении нового диска команда создает и присоединяет VHD-файл.
 
-To attach a new disk, run this command:
+Чтобы подключить новый диск, выполните следующую команду:
 
     Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM $vm | Update-AzureVM
 
-To attach an existing data disk, run this command:
+Чтобы подключить существующий диск, выполните следующую команду:
 
     Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> | Update-AzureVM
 
-To attach data disks from an existing .vhd file in blob storage, run this command:
+Чтобы подключить диски данных из существующего VHD-файла в хранилище больших двоичных объектов, выполните следующую команду:
 
     Add-AzureDataDisk -ImportFrom -MediaLocation `
               "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
               -DiskLabel "<main>" -LUN <0> |
               Update-AzureVM
 
-## <a name="create-a-windows-based-vm"></a>Create a Windows-based VM
+## Создание виртуальной машины под управлением Windows
 
-To create a new Windows-based virtual machine in Azure, use the instructions in [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md). This topic steps you through the creation of an Azure PowerShell command set that creates a Windows-based VM that can be preconfigured:
+Чтобы создать виртуальную машину под управлением Windows в Azure, используйте указания в разделе [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-windows-classic-create-powershell.md). В этом разделе последовательно описано создание набора команд Azure PowerShell, создающего виртуальную машину под управлением Windows, для которой можно предварительно настроить:
 
-- With Active Directory domain membership.
-- With additional disks.
-- As a member of an existing load-balanced set.
-- With a static IP address.
+- членство в домене Active Directory;
+- дополнительные диски;
+- членство в существующем наборе балансировки нагрузки;
+- статический IP-адрес.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

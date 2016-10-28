@@ -1,9 +1,9 @@
 
 <properties
-    pageTitle="List of Ports and URLs to whitelist for Azure RemoteApp Deployed in customer virtual network | Microsoft Azure"
-    description="Learn which ports and URLs you'll need to configure for communication through Azure RemoteApp."
+    pageTitle="Список портов и URL-адресов для разрешения доступа к развернутым Azure RemoteApp в виртуальной сети клиента | Microsoft Azure"
+    description="Узнайте, какие порты и URL-адреса необходимо настроить для связи через Azure RemoteApp."
     services="remoteapp"
-    documentationCenter=""
+	documentationCenter=""
     authors="mghosh1616"
     manager="mbaldwin" />
 
@@ -13,43 +13,39 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/16/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
-
-# <a name="list-of-ports-and-urls-to-permit-access-for-azure-remoteapp-deployed-in-customer-virtual-network"></a>List of Ports and URLs to permit access for Azure RemoteApp Deployed in customer Virtual Network 
+# Список портов и URL-адресов для обеспечения доступа к развернутым Azure RemoteApp в виртуальной сети клиента 
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
-The following applies to Azure RemoteApp a cloud or hybrid collection if you are deploying it in a virtual network (VNET). For more information on virtual networks, please read [Virtual Network Overview](../virtual-network/virtual-networks-overview.md). If you have created a network security group (NSG) restricting traffic to your virtual network resources which you have chosen for Azure RemoteApp, please make sure the following are accessible and allowed through the security policies on the virtual network. For more information on network security groups, please read [What is a Network Security Group? (NSG)](../virtual-network/virtual-networks-nsg.md).
+Следующее применимо к Azure RemoteApp, облачной или гибридной коллекции при развертывании в виртуальной сети (VNET). Дополнительные сведения о виртуальных сетях см. в статье [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md). Если вы создали группу безопасности сети (NSG), ограничивающую трафик к ресурсам вашей виртуальной сети, которые вы выбрали для Azure RemoteApp, убедитесь, что следующее доступно и разрешено посредством политик безопасности в виртуальной сети. Дополнительные сведения о группах безопасности сети см. в разделе ["Что такое группа безопасности сети?". (NSG)](../virtual-network/virtual-networks-nsg.md).
 
-##  <a name="azure-remoteapp-subnet-needs-access-to-these-endpoints-and-urls:"></a>Azure RemoteApp subnet needs access to these endpoints and URLs: 
-*   *.servicebus.windows.net
-*    *.servicebus.net
-*    https://*.remoteapp.windwsazure.com  
-*    https://www.remoteapp.windowsazure.com 
-*    https://*remoteapp.windowsazure.com  
-*    https://*.core.windows.net  
-*    Outbound: TCP: 443, TCP: 10101-10175 
-*    Optional – UDP: 10201-10275  
+##  Подсети Azure RemoteApp требуется доступ к этим конечным точкам и URL-адресам: 
+*	*.servicebus.windows.net
+*	 *.servicebus.net
+*	 .https://*.remoteapp.windwsazure.com
+*	 .https://www.remoteapp.windowsazure.com
+*	 .https://*remoteapp.windowsazure.com
+*	 .https://*.core.windows.net
+*	 Исходящие: TCP: 443, TCP: 10101-10175
+*	 Необязательно — UDP: 10201-10275
  
-## <a name="azure-remoteapp-clients-need-access-to-these-endpoints-and-urls:"></a>Azure RemoteApp clients need access to these endpoints and URLs: 
+## Клиентам Azure RemoteApp требуется доступ к этим конечным точкам и URL-адресам: 
 
-By clients I mean the desktops, devices etc. that people use to connect to the apps deployed in the Azure RemoteApp collection.
+Под клиентами подразумеваются настольные системы, устройства и т. д., которые люди используют для подключения к приложениям, развернутым в коллекции Azure RemoteApp.
 
--  https://telemetry.remoteapp.windowsazure.com  
--  https://*.remoteapp.windowsazure.com (the optional UDP ports are for this address) 
--  https://login.windows.net  
--  https://login.microsoftonline.com  
--  https://www.remoteapp.windowsazure.com 
--  https://*.core.windows.net  
--  Outbound: TCP: 443  
--  Optional - UDP: 3391 
+-  https://telemetry.remoteapp.windowsazure.com
+-  https://*.remoteapp.windowsazure.com (необязательные UDP-порты для этого адреса)
+-  .https://login.windows.net
+-  .https://login.microsoftonline.com
+-  .https://www.remoteapp.windowsazure.com
+-  https://*.core.windows.net
+-  Исходящие: TCP: 443
+-  (Необязательно) UDP: 3391
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

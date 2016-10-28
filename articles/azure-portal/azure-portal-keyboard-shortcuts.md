@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure portal keyboard shortcuts | Microsoft Azure"
-   description="This article will always be an up-to-date listing of the keyboard shortcuts that work throughout the Azure portal. Individual services might have their own specialized keyboard shortcuts."
+   pageTitle="Сочетания клавиш портала Azure | Microsoft Azure"
+   description="В этой статье всегда будет актуальный список сочетаний клавиш, которые работают на портале Azure. У индивидуальных служб могут свои специальные сочетания клавиш."
    services="azure-portal"
    documentationCenter=""
    authors="flanakin"
@@ -16,39 +16,33 @@
    ms.date="02/07/2016"
    ms.author="micflan"/>
 
+# Сочетания клавиш портала Azure
 
-# <a name="azure-portal-keyboard-shortcuts"></a>Azure portal keyboard shortcuts
+## Открыть центры
 
-## <a name="open-hubs"></a>Open hubs
-
-| Shortcut | Action |
+| Клавиша | Действие |
 |--------|----------|
-| N | Notifications |
-| / | Browse services |
-| A | Active sessions |
-| B | Billing |
-| C | Create |
+| Нет | Уведомления |
+| / | Обзор служб |
+| A | Активные сеансы |
+| B | Выставление счетов |
+| C | Создание |
 
-## <a name="navigation"></a>Navigation
+## Навигация
 
-| Shortcut | Action |
+| Клавиша | Действие |
 |--------|----------|
-| H | Azure Start dashboard |
-| F | First open blade |
-| J | Previous open blade |
-| K | Next open blade |
-| L | Last open blade |
-| - | Minimize blade or restore from maximized |
-| + | Maximize blade or restore from minimized |
-| # | Close current blade |
-| ¦ | Close all blades |
-| , | Move focus to command bar |
-| . | Move focus to navigation bar |
-| ? | View keyboard shortcuts |
+| H | Начальная панель мониторинга Azure |
+| F | Первая открытая колонка |
+| J | Ранее открытая колонка |
+| K | Следующая открытая колонка |
+| L | Последняя открытая колонка |
+| - | Свернуть или восстановить колонку|
+| + | Развернуть колонку |
+| # | Закрыть текущую колонку |
+| ¦ | Закрыть все колонки |
+| , | Переместить фокус на панель команд |
+| . | Переместить фокус на панель навигации |
+| ? | Показать сочетания клавиш |
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

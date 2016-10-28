@@ -1,115 +1,114 @@
 <properties
-    pageTitle="Create an Azure Batch account | Microsoft Azure"
-    description="Learn how to create an Azure Batch account in the Azure portal to run large-scale parallel workloads in the cloud"
-    services="batch"
-    documentationCenter=""
-    authors="mmacy"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Создание учетной записи Azure пакетной службы | Microsoft Azure"
+	description="Узнайте, как создать учетную запись пакетной службы Azure на портале Azure для обработки крупных параллельных рабочих нагрузок в облаке."
+	services="batch"
+	documentationCenter=""
+	authors="mmacy"
+	manager="timlt"
+	editor=""/>
 
 <tags
-    ms.service="batch"
-    ms.workload="big-compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/21/2016"
-    ms.author="marsma"/>
+	ms.service="batch"
+	ms.workload="big-compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/21/2016"
+	ms.author="marsma"/>
 
-
-# <a name="create-an-azure-batch-account-using-the-azure-portal"></a>Create an Azure Batch account using the Azure portal
+# Создание учетной записи пакетной службы Azure на портале Azure
 
 > [AZURE.SELECTOR]
-- [Azure portal](batch-account-create-portal.md)
-- [Batch Management .NET](batch-management-dotnet.md)
+- [Портал Azure](batch-account-create-portal.md)
+- [Библиотека .NET для управления пакетной службой](batch-management-dotnet.md)
 
-Learn how to create an Azure Batch account in the [Azure portal][azure_portal], and where to find important account properties like access keys and account URLs. We also discuss Batch pricing, and linking an Azure Storage account to your Batch account so that you can use [application packages](batch-application-packages.md) and [persist job and task output](batch-task-output.md).
+Узнайте, как создать учетную запись пакетной службы Azure на [портале Azure][azure_portal] и где найти такие важные свойства учетной записи, как ключи доступа и URL-адреса учетной записи. Здесь также приведены сведения о стоимости пакетной службы и связывании учетной записи хранения Azure с учетной записью пакетной службы, что позволит вам использовать [пакеты приложений](batch-application-packages.md) и [сохранять выходные данные заданий и задач](batch-task-output.md).
 
-## <a name="create-a-batch-account"></a>Create a Batch account
+## Создание учетной записи Пакетной службы
 
-1. Sign in to the [Azure portal][azure_portal].
+1. Выполните вход на [портал Azure][azure_portal].
 
-2. Click **New** > **Compute** > **Batch Service**.
+2. Щелкните **Создать** > **Среда выполнения приложений** > **Пакетная служба**.
 
-    ![Batch in the Marketplace][marketplace_portal]
+	![Пакетная служба в Marketplace][marketplace_portal]
 
-3. The **New Batch Account** blade is displayed. See items *a* through *e* below for descriptions of each blade element.
+3. Отобразится колонка **Создать учетную запись пакетной службы**. Описания каждого элемента колонки приведены ниже в пунктах *а* – *е*.
 
-    ![Create a Batch account][account_portal]
+    ![Создание учетной записи Пакетной службы][account_portal]
 
-    a. **Account Name**: A unique name for your Batch account. This name must be unique within the Azure region the account is created (see *Location* below). It may contain only lowercase characters, numbers, and must be 3-24 characters in length.
+	а. **Имя учетной записи** — уникальное имя учетной записи пакетной службы. Это имя должно быть уникальным в пределах региона Azure, в котором создана учетная запись (см. пункт *Расположение* ниже). Оно может содержать только строчные буквы и цифры и не должно быть больше 3–24 символов в длину.
 
-    b. **Subscription**: A subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
+	b. **Подписка** — подписка, в которой необходимо создать учетную запись пакетной службы. Если у вас только одна подписка, она будет выбрана по умолчанию.
 
-    c. **Resource group**: An existing resource group for your new Batch account, or optionally create a new one.
+	c. **Группа ресурсов** — существующая группа ресурсов для новой учетной записи пакетной службы (при необходимости можно создать новую группу ресурсов).
 
-    d. **Location**: An Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
+	г) **Расположение** — регион Azure, в котором будет создана учетная запись пакетной службы. Будут отображаться только те регионы, которые поддерживаются для вашей подписки и группы ресурсов.
 
-    e. **Storage Account** (optional): A **General purpose** storage account you associate (link) to your new Batch account. See [Linked Azure Storage account](#linked-azure-storage-account) below for more details.
+    д. **Учетная запись хранения** (необязательно) — учетная запись хранения **общего назначения**, которую вы связываете с новой учетной записью пакетной службы. Дополнительные сведения см. в разделе [Связанная учетная запись хранения Azure](#linked-azure-storage-account) ниже.
 
-4. Click **Create** to create the account.
+4. Щелкните **Создать**, чтобы создать учетную запись.
 
-  The portal indicates that it is **Deploying** the account, and upon completion, a **Deployments succeeded** notification appears in *Notifications*.
+  На портале будет указано, что выполняется **развертывание** учетной записи, по завершении которого в области *уведомлений* появится сообщение об **успешном развертывании**.
 
-## <a name="view-batch-account-properties"></a>View Batch account properties
+## Просмотр свойств учетной записи пакетной службы
 
-Once the account has been created, you can open the **Batch account blade** to access its settings and properties. You can access all account settings and properties by using the left menu of the Batch account blade.
+После создания учетной записи можно открыть колонку **Учетная запись пакетной службы** для доступа к параметрам и свойствам учетной записи. Все параметры и свойства учетной записи можно просмотреть с помощью меню слева в колонке учетной записи пакетной службы.
 
-![Batch account blade in Azure portal][account_blade]
+![Колонка учетной записи пакетной службы на портале Azure][account_blade]
 
-* **Batch account URL**: Applications you create with the [Batch development APIs](batch-technical-overview.md#batch-development-apis) need an account URL to manage resources and run jobs in the account. A Batch account URL has the following format:
+* **URL-адрес учетной записи пакетной службы** — приложениям, создаваемым с помощью [API-интерфейсов среды разработки пакетной службы](batch-technical-overview.md#batch-development-apis), требуется URL-адрес учетной записи для управления ресурсами и выполнения заданий в учетной записи. Вот формат URL-адреса учетной записи пакетной службы:
 
     `https://<account_name>.<region>.batch.azure.com`
 
-![Batch account URL in portal][account_url]
+![URL-адрес учетной записи пакетной службы на портале][account_url]
 
-* **Access keys**: Your applications also need an access key when working with resources in your Batch account. To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
+* **Ключи доступа** — при работе с ресурсами в учетной записи пакетной службы приложениям также требуется ключ доступа. Чтобы просмотреть или повторно создать ключи доступа к учетной записи пакетной службы, введите `keys` в меню **поиска** слева в колонке учетной записи пакетной службы, а затем выберите **Ключи**.
 
-    ![Batch account keys in Azure portal][account_keys]
+    ![Ключи учетной записи пакетной службы на портале Azure][account_keys]
 
-## <a name="pricing"></a>Pricing
+## Цены
 
-Batch accounts are offered only in a "Free Tier," which means you aren't charged for the Batch account itself. You are charged for the underlying Azure compute resources that your Batch solutions consume, and for the resources consumed by other services when your workloads run. For example, you are charged for the compute nodes in your pools and for the data you store in Azure Storage as input or output for your tasks. Similarly, if you use the [application packages](batch-application-packages.md) feature of Batch, you are charged for the Azure Storage resources used for storing your application packages. See [Batch pricing][batch_pricing] for more information.
+Учетные записи пакетной службы предлагаются только на уровне "Бесплатный". Это означает, что за саму учетную запись пакетной службы плата не взимается. Плата взимается за использование базовых вычислительных ресурсов Azure, которые потребляются решениями пакетной службы, а также за ресурсы, потребляемые другими службами при выполнении рабочих нагрузок. Например, плата взимается за вычислительные узлы в пулах и данные, которые хранятся в хранилище Azure как входные или выходные данные задач. Аналогичным образом при использовании [пакетов приложений](batch-application-packages.md) в пакетной службе плата взимается за ресурсы службы хранилища Azure, с помощью которых хранятся пакеты приложений. Дополнительные сведения см. на странице с [ценами на пакетную службу][batch_pricing].
 
-## <a name="linked-azure-storage-account"></a>Linked Azure Storage account
+## Связанная учетная запись хранения Azure
 
-As mentioned earlier, you can (optionally) link a **General purpose** Storage account to your Batch account. The [application packages](batch-application-packages.md) feature of Batch uses blob storage in a linked General purpose Storage account, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications your Batch tasks run, and persisting the data they produce.
+Как уже упоминалось, при необходимости вы можете связать учетную запись хранения **общего назначения** с учетной записью пакетной службы. Функция [пакетов приложений](batch-application-packages.md) в пакетной службе, а также библиотека [Batch File Conventions для .NET](batch-task-output.md) используют хранилище BLOB-объектов в связанной учетной записи хранения общего назначения. Эти дополнительные функции помогут вам развертывать приложения, которые запускаются с помощью задач пакетной службы, и сохранять данные, которые они создают.
 
-Batch currently supports *only* the **General purpose** storage account type as described in step 5, [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md). When you link an Azure Storage account to your Batch account, be sure link *only* a **General purpose** storage account.
+Сейчас пакетная служба поддерживает *только* тип учетной записи хранения **общего назначения**, как описано в шаге 5 раздела [Создайте учетную запись хранения](../storage/storage-create-storage-account.md#create-a-storage-account) статьи [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md). При связывании учетной записи хранения Azure с учетной записью пакетной службы используйте *только* учетные записи хранения **общего назначения**.
 
-![Creating a "General purpose" storage account][storage_account]
+![Создание учетной записи хранения общего назначения][storage_account]
 
-We recommend that you create a Storage account for exclusive use by your Batch account.
+Рекомендуем создать учетную запись хранения, которая будет использоваться исключительно с учетной записью пакетной службы.
 
->[AZURE.WARNING] Take care when regenerating the access keys of a linked Storage account. Regenerate only one Storage account key and click **Sync Keys** on the linked Storage account blade. Wait five minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the Storage account.
+>[AZURE.WARNING] Будьте внимательны при повторном создании ключей доступа к связанной учетной записи хранения. Вам нужно повторно создать только один ключ учетной записи хранения. Затем щелкните **Синхронизировать ключи** в колонке связанной учетной записи хранения. Подождите пять минут, чтобы ключи распространились на вычислительные узлы в пулах, а затем при необходимости повторно создайте и синхронизируйте другие ключи. При попытке повторного создания двух ключей одновременно вычислительные узлы не смогут синхронизировать ни один из ключей, и в результате будет утерян доступ к учетной записи хранения.
 
-  ![Regenerating storage account keys][4]
+  ![Повторное создание ключей учетной записи хранения][4]
 
-## <a name="batch-service-quotas-and-limits"></a>Batch service quotas and limits
+## Квоты и ограничения пакетной службы
 
-Please be aware that as with your Azure subscription and other Azure services, certain [quotas and limits](batch-quota-limit.md) apply to Batch accounts. Current quotas for a Batch account appear in the portal in the account **Properties**.
+Учтите, что, как и в случае с подпиской Azure и другими службами Azure, к учетным записями пакетной службы применяются определенные [квоты и ограничения](batch-quota-limit.md). Текущие квоты для учетной записи пакетной службы отображаются на портале в **свойствах** учетной записи.
 
-![Batch account quotas in Azure portal][quotas]
+![Квоты учетной записи пакетной службы на портале Azure][quotas]
 
-Keep these quotas in mind as you are designing and scaling up your Batch workloads. For example, if your pool isn't reaching the target number of compute nodes you've specified, you might have reached the core quota limit for your Batch account.
+Помните об этих квотах при разработке и масштабировании рабочих нагрузок пакетной службы. Например, если в пуле не удается достичь указанного целевого числа вычислительных узлов, возможно, вы достигли основной квоты для учетной записи пакетной службы.
 
-Also note that you are not restricted to a single Batch account for your Azure subscription. You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts in the same subscription, but in different Azure regions.
+Также обратите внимание, что вы не ограничены одной учетной записью пакетной службы для подписки Azure. Можно запустить несколько рабочих нагрузок пакетной службы в одной учетной записи пакетной службы или распределить рабочие нагрузки между учетными записями пакетной службы в рамках одной подписки, но в разных регионах Azure.
 
-Many of these quotas can be increased simply with a free product support request submitted in the Azure portal. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details on requesting quota increases.
+Многие из этих квот можно увеличить, просто отправив запрос на поддержку бесплатного продукта на портале Azure. Дополнительные сведения о запросах на увеличение квот см. в статье [Квоты и ограничения пакетной службы Azure](batch-quota-limit.md).
 
-## <a name="other-batch-account-management-options"></a>Other Batch account management options
+## Другие параметры управления учетной записью пакетной службы
 
-In addition to using the Azure portal, you can also create and manage Batch accounts with the following:
+Помимо портала Azure, создавать учетные записи пакетной службы и управлять ими можно с помощью следующих средств:
 
-* [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-* [Azure CLI](../xplat-cli-install.md)
-* [Batch Management .NET](batch-management-dotnet.md)
+* [командлеты PowerShell для пакетной службы;](batch-powershell-cmdlets-get-started.md)
+* [Интерфейс командной строки Azure](../xplat-cli-install.md)
+* [Библиотека .NET для управления пакетной службой](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-* See the [Azure Batch feature overview](batch-api-basics.md) to learn more about Batch service concepts and features. The article discusses the primary Batch resources such as pools, compute nodes, jobs, and tasks, and provides an overview of the service's features that enable large-scale compute workload execution.
+* Дополнительные сведения об основных понятиях и функциях пакетной службы см. в статье [Обзор функций пакетной службы Azure](batch-api-basics.md). В этой статье рассматриваются основные ресурсы пакетной службы, такие как пулы, вычислительные узлы, задания и задачи, а также приведены общие сведения о функциях этой службы, которые позволяют выполнять объемные вычислительные рабочие нагрузки.
 
-* Learn the basics of developing a Batch-enabled application using the [Batch .NET client library](batch-dotnet-get-started.md). The [introductory article](batch-dotnet-get-started.md) guides you through a working application that uses the Batch service to execute a workload on multiple compute nodes, and includes using Azure Storage for workload file staging and retrieval.
+* Здесь приведены основные сведения о разработке приложений с поддержкой пакетной службы с помощью [клиентской библиотеки .NET для пакетной службы](batch-dotnet-get-started.md). В этой [вводной статье](batch-dotnet-get-started.md) рассматривается рабочее приложение, которое использует пакетную службу для выполнения рабочей нагрузки на нескольких вычислительных узлах и службу хранилища Azure для промежуточного хранения и извлечения файла рабочей нагрузки.
 
 [api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -117,7 +116,7 @@ In addition to using the Azure portal, you can also create and manage Batch acco
 [azure_portal]: https://portal.azure.com
 [batch_pricing]: https://azure.microsoft.com/pricing/details/batch/
 
-[4]: ./media/batch-account-create-portal/batch_acct_04.png "Regenerating storage account keys"
+[4]: ./media/batch-account-create-portal/batch_acct_04.png "Повторное создание ключей учетной записи хранения"
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace_batch.PNG
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
@@ -126,8 +125,4 @@ In addition to using the Azure portal, you can also create and manage Batch acco
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [quotas]: ./media/batch-account-create-portal/quotas.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,223 +1,222 @@
 <properties
-    pageTitle="What is application access and single sign-on with Azure Active Directory? | Microsoft Azure"
-    description="Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business."
-    services="active-directory"
-    documentationCenter=""
-    authors="asmalser-msft"
-    manager="femila"
-    editor=""/>
+	pageTitle="Что такое доступ к приложениям и единый вход с помощью Azure Active Directory? | Microsoft Azure"
+	description="Используйте Azure Active Directory для включения единого входа для всех приложений SaaS и веб-приложений, необходимых для бизнеса."
+	services="active-directory"
+	documentationCenter=""
+	authors="asmalser-msft"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="asmalser-msft"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/15/2016"
+	ms.author="asmalser-msft"/>
 
+#Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?
 
-#<a name="what-is-application-access-and-single-sign-on-with-azure-active-directory?"></a>What is application access and single sign-on with Azure Active Directory?
+Благодаря единому входу пользователи получают доступ ко всем приложениям и ресурсам, необходимым для работы, выполнив только один вход с использованием одной учетной записи. После входа пользователю доступны все необходимые приложения без повторной проверки подлинности (например, ввода пароля).
 
-Single sign-on means being able to access all of the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all of the applications you need without being required to authenticate (e.g. type a password) a second time.
+Во многих организациях для эффективной работы пользователя используются такие приложения SaaS, как Office 365, Box и Salesforce. Обычно ИТ-специалистам необходимо создавать и обновлять отдельные учетные записи пользователей в каждом приложении SaaS, а пользователи должны запоминать пароль для каждого такого приложения.
 
-Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box and Salesforce for end user productivity. Historically, IT staff needs to individually create and update user accounts in each SaaS application, and users have to remember a password for each SaaS application.
+Azure Active Directory переносит локальную службу Active Directory в облако. Поэтому с помощью основной учетной записи в организации пользователи могут входить не только на присоединенные к домену устройства и корпоративные ресурсы, но и во все необходимые для работы веб-приложения и приложения SaaS.
 
-Azure Active Directory extends on-premises Active Directory into the cloud, enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all of the web and SaaS applications needed for their job.
+Таким образом, пользователям не нужно управлять несколькими наборами учетных данных. Доступ к приложениям предоставляется им или отменяется автоматически на основе членства в группах организации и статуса конкретного сотрудника. Azure Active Directory предоставляет элементы управления безопасностью и доступом, которые позволяют централизованно управлять доступом пользователей к приложениям SaaS.
 
-So not only do users not have to manage multiple sets of usernames and passwords, their applications access can be automatically provisioned or de-provisioned based on their organization group members, and also their status as an employees. Azure Active Directory introduces security and access governance controls that enable you to centrally manage users' access across SaaS applications.
+Azure Active Directory обеспечивает простую интеграцию со многими современными популярными приложениями SaaS. Эта служба позволяет управлять удостоверениями и доступом, а также дает пользователям возможность выполнять единый вход непосредственно в приложения или находить их и запускать с портала, например из Office 365 или из панели доступа Azure AD.
 
-Azure AD enables easy integration to many of today’s popular SaaS applications; it provides identity and access management, and enables users to single sign-on to applications directly, or discover and launch them from a portal such as Office 365 or the Azure AD access panel.
+Архитектура интеграции состоит из следующих четырех основных компонентов.
 
-The architecture of the integration consists of the following four main building blocks:
+* Единый вход позволяет пользователям получать доступ к приложениям SaaS в соответствии с учетной записью организации в Azure AD. Именно единый вход дает пользователям возможность проходить проверку подлинности для входа в приложение с помощью одной учетной записи в организации.
 
-* Single sign-on enables users to access their SaaS applications based on their organizational account in Azure AD. Single sign-on is what enables users to authenticate to an application using their single organizational account.
+* Подготовка пользователей позволяет выполнять подготовку пользователей и ее отмену в целевом приложении SaaS с учетом изменений, внесенных в Windows Server Active Directory и Azure AD. Подготовленная учетная запись дает возможность авторизоваться для использования приложения после проверки подлинности посредством единого входа.
 
-* User provisioning enables user provisioning and de-provisioning into target SaaS based on changes made in Windows Server Active Directory and/or Azure AD. A provisioned account is what enables a user to be authorized to use an application, after they have authenticated through single sign-on.
+* Централизованное управление доступом к приложениям на портале управления Azure предоставляет единую точку для доступа к приложениям SaaS и управления ими, а также дает возможность делегировать другим пользователям в организации принятие и утверждение решений о предоставлении доступа к приложениям.
 
-* Centralized application access management in the Azure Management Portal enables single point of SaaS application access and management, with the ability to delegate application access decision making and approvals to anyone in the organization
+* Единые средства создания отчетов о действиях пользователей в Azure AD и их мониторинга.
 
-* Unified reporting and monitoring of user activity in Azure AD
+##Принцип работы единого входа с Azure Active Directory
 
-##<a name="how-does-single-sign-on-with-azure-active-directory-work?"></a>How does single sign-on with Azure Active Directory work?
+Когда пользователь входит в приложение, он проходит проверку подлинности, в процессе которой необходимо доказать, что он является тем, за кого себя выдает. Без использования единого входа обычно это делается путем ввода пароля, который хранится в приложении. Пользователь должен знать этот пароль.
 
-When a user “signs in” to an application, they go through an authentication process where they are required to prove that they are who they say they are. Without single sign-on, this is typically done by entering a password that is stored at the application, and the user is required to know this password.
+Azure AD поддерживает три разных способа входа в приложение.
 
-Azure AD supports three different ways to sign in to applications:
+*	**Федеративный единый вход** позволяет приложениям выполнить перенаправление в Azure AD для проверки подлинности пользователя вместо запроса пароля. Этот способ поддерживается приложениями, совместимыми с такими протоколами, как SAML 2.0, WS-Federation или OpenID Connect, и является режимом единого входа с самыми широкими возможностями.
 
-*   **Federated Single Sign-On** enables applications to redirect to Azure AD for user authentication instead of prompting for its own password. This is supported for applications that support protocols such as SAML 2.0, WS-Federation, or OpenID Connect, and is the richest mode of single sign-on.
+*	**Единый вход на основе пароля** позволяет безопасно хранить пароль приложений и воспроизводить его с помощью расширения веб-браузера или мобильного приложения. Этот способ использует существующий процесс входа, предоставляемый приложением, однако позволяет администраторам управлять паролями, поэтому пользователю не нужно знать пароль.
 
-*   **Password-based Single Sign-On** enables secure application password storage and replay using a web browser extension or mobile app. This leverages the existing sign-in process provided by the application, but enables an administrator to manage the passwords and does not require the user to know the password.
+*	**Существующий единый вход** позволяет службе Azure AD использовать любой существующий способ единого входа, настроенный в приложении, и позволяет такому приложению связываться с Office 365 или панелью доступа Azure AD, а также позволяет использовать дополнительные функции по созданию отчетов в Azure AD, если приложения запускаются там.
 
-*   **Existing Single Sign-On** enables Azure AD to leverage any existing single sign-on that has been set up for the application, but enables these applications to be linked to the Office 365 or Azure AD access panel portals, and also enables additional reporting in Azure AD when the applications are launched there.
+После проверки подлинности пользователя в приложении необходимо также подготовить учетную запись в приложении, которая указывает, где в приложении находятся разрешения и уровень доступа. Подготовка этой учетной записи может выполняться автоматически или администратор проводит ее вручную перед предоставлением пользователю единого доступа.
 
-Once a user have authenticated with an application, they also need to have an account record provisioned at the application that tells the application where there permissions and level of access are inside the application. The provisioning of this account record can either occur automatically, or it can occur manually by an administrator before the user is provided single sign-on access.
+ Дополнительные сведения об этих режимах единого входа и подготовки см. ниже.
 
- More details on these single sign-on modes and provisioning below.
+###Федеративный единый вход
 
-###<a name="federated-single-sign-on"></a>Federated Single Sign-On
+Федеративный единый вход позволяет пользователям вашей организации автоматически входить в сторонние приложения SaaS с помощью Azure AD, используя сведения учетной записи пользователя из Azure AD.
 
-Federated Single Sign-On enables sign-on enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from Azure AD.
+В этом случае, когда уже выполнен вход в Azure AD и требуется получить доступ к ресурсам, которые управляются сторонним приложением SaaS, федерация позволяет пользователю не проходить повторную проверку подлинности.
 
-In this scenario, when you have already been logged into Azure AD, and you want to access resources that are controlled by a third-party SaaS application, federation eliminates the need for a user to be re-authenticated.
+Azure AD поддерживает федеративный единый вход в приложения с поддержкой протоколов SAML 2.0, WS-Federation или OpenID Connect.
 
-Azure AD can support federated single sign-on with applications that support the SAML 2.0, WS-Federation, or OpenID connect protocols.
+См. также статью [Управление сертификатами для федеративного единого входа](active-directory-sso-certs.md).
 
-See also: [Managing Certificates for Federated Single Sign-On](active-directory-sso-certs.md)
+###Единый вход на основе пароля
 
-###<a name="password-based-single-sign-on"></a>Password-based Single Sign-On
+Настройка единого входа на основе пароля позволяет пользователям вашей организации автоматически входить в сторонние приложения SaaS при помощи Azure AD, используя данные учетной записи пользователя из стороннего приложения SaaS. При включении данной функции служба Azure AD собирает и безопасно хранит данные учетной записи пользователя и связанный с ней пароль.
 
-Configuring password-based single sign-on enables the users in your organization to be automatically signed in to a third-party SaaS application by Azure AD using the user account information from the third-party SaaS application. When you enable this feature, Azure AD collects and securely stores the user account information and the related password.
+Azure AD поддерживает единый вход на основе пароля для любого облачного приложения со страницей входа на базе HTML. Используя настраиваемый подключаемый модуль браузера, служба Azure AD автоматизирует вход пользователя в систему. Для этого она безопасно получает учетные данные приложений (имя пользователя и пароль) из каталога и вводит их на странице входа в приложение от имени пользователя. Существует два варианта использования.
 
-Azure AD can support password-based single sign on for any cloud-based app that has an HTML-based sign-in page. By using a custom browser plugin, AAD automates the user’s sign in process via securely retrieving application credentials such as the username and the password from the directory, and enters these credentials into the application’s sign in page on behalf of the user. There are two use cases:
+1.	**Администратор управляет учетными данными.** Администраторы могут создавать учетные данные приложений и управлять ими и назначать эти учетные данные пользователям или группам, которым необходим доступ к приложению. В этих случаях пользователям не нужно знать учетные данные, а доступ к приложению они получают с помощью единого входа: они просто выбирают его на панели доступа или переходят по предоставленной ссылке. Это позволяет администраторам управлять жизненным циклом учетных данных, а конечным пользователям не нужно запоминать пароли конкретного приложения или управлять ими. При автоматическом входе учетные данные скрыты от пользователя. Однако технически их можно открыть с помощью средств веб-отладки. Пользователи и администраторы должны использовать те же политики безопасности, что и в случае, когда учетные данные вводятся непосредственно пользователем. Учетные данные, предоставляемые администратором, очень удобно использовать, когда доступ к учетной записи предоставляется многим пользователям, например для социальных сетей или для приложений с общим доступом к документам.
 
-1.  **Administrator manages credentials** – Administrators can create and manage application credentials, and assign those credentials to users or groups who need access to the application. In these cases, the end user does not need to know the credentials, but still gains single sign-on access to the application simply by clicking on it in their access panel or via a provided link. This enables both, lifecycle management of the credentials by the administrator, as well as convenience for end users whereby they do not need to remember or manage app-specific passwords. The credentials are obfuscated from the end user during the automated sign in process; however they are technically discoverable by the user using web-debugging tools, and users and administrators should follow the same security policies as if the credentials were presented directly by the user. Administrator-provided credentials are very useful when providing account access that is shared among many users, such as social media or document sharing applications.
+2.	**Пользователь управляет учетными данными.** Администраторы могут назначать приложения конечным пользователям или группам и разрешать пользователям вводить свои учетные данные непосредственно во время доступа к приложению в первый раз на панели доступа. Это удобно для конечных пользователей, т. к. им не требуется постоянно вводить пароли для конкретных приложений во время каждого доступа к ним. Этот вариант можно также использовать как средство для административного управления учетными данными, когда администратор может в будущем настроить новые учетные данные для приложения, не изменяя параметры доступа к нему для конечного пользователя.
 
-2.  **User manages credentials** – Administrators can assign applications to end users or groups, and allow the end users to enter their own credentials directly upon accessing the application for the first time in their access panel. This creates a convenience for end users whereby they do not need to continually enter the app-specific passwords each time they access the application. This use case can also be used as a stepping stone to administrative management of the credentials, whereby the administrator can set new credentials for the application at a future date without changing the app access experience of the end user.
+В обоих случаях учетные данные хранятся в зашифрованном виде в каталоге и передаются только по протоколу HTTPS во время автоматического входа. С помощью единого входа на основе пароля служба Azure AD предлагает удобное решение по управлению доступом к удостоверениям для приложений, которые не поддерживают протоколы федерации.
 
-In both cases, credentials are stored in an encrypted state in the directory, and are only passed over HTTPS during the automated sign-in process. Using password-based single sign on, Azure AD offers a convenient identity access management solution for apps that are not capable of supporting federation protocols.
+Единый вход на основе пароля использует расширение браузера для безопасного получения данных о приложениях и пользователях из службы Azure AD и применения их к службе. Большинство сторонних приложений SaaS, поддерживаемых Azure AD, поддерживает эту возможность.
 
-Password-based SSO relies on a browser extension to securely retrieve the application and user specific information from Azure AD and apply it to the service. Most third-party SaaS applications that are supported by Azure AD support this feature.
+Единый вход с использованием пароля работает в таких браузерах:
 
-For password-based SSO, the end user’s browsers can be:
+- Internet Explorer 8, 9, 10, 11 — в Windows 7 или более поздней версии (см. также [руководство по развертыванию расширения Internet Explorer](active-directory-saas-ie-group-policy.md))
+- Chrome (начиная с Windows 7 и Mac OS X);
+- Firefox 26.0 и более поздние версии (начиная с Windows XP с пакетом обновления 2 (SP2) и Mac OS X 10.6).
 
-- Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later (See also [IE Extension Deployment Guide](active-directory-saas-ie-group-policy.md))
-- Chrome -- on Windows 7 or later, and on MacOS X or later
-- Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+**Примечание**. Расширение для единого входа с использованием пароля будет доступно для браузера Edge в Windows 10 после того, как в него будет добавлена поддержка расширений.
 
-**Note:** The password-based SSO extension will become available for Edge in Windows 10 when browser extensions become supported for Edge.
+###Существующий единый вход
 
-###<a name="existing-single-sign-on"></a>Existing Single Sign-On
+При настройке единого входа для приложения на портале управления Azure доступен третий параметр: «Существующий единый вход». Этот параметр позволяет администраторам создавать ссылку на приложение и помещать ее на панель доступа для выбранных пользователей.
 
-When configuring single sign-on for an application, the Azure management portal provides a third option of “Existing Single Sign-On”. This option simply allows the administrator to create a link to an application, and place it on the access panel for selected users.
+Например, если существует приложение, которое выполняет проверку подлинности пользователей с помощью служб федерации Active Directory 2.0, администратор может использовать параметр «Существующий единый вход» для создания ссылки на него на панели доступа. Когда пользователи переходят по ссылке, проверка подлинности выполняется с помощью служб федерации Active Directory 2.0 или другого решения существующего единого входа, предоставляемого приложением.
 
-For example, if there is an application that is configured to authenticate users using Active Directory Federation Services 2.0, an administrator can use the “Existing Single Sign-On” option to create a link to it on the access panel. When users access the link, they are authenticated using Active Directory Federation Services 2.0, or whatever existing single sign-on solution is provided by the application.
+###Подготовка пользователей
 
-###<a name="user-provisioning"></a>User Provisioning
+Для определенных приложений служба Azure AD обеспечивает автоматическую подготовку пользователей и отмену подготовки учетных записей в сторонних приложениях SaaS на портале управления Azure, используя сведения удостоверений Windows Server Active Directory или Azure AD. Когда пользователь получает разрешения в Azure AD для одного из этих приложений, учетная запись может быть создана (подготовлена) автоматически в целевом приложении SaaS.
 
-For select applications, Azure AD enables automated user provisioning and de-provisioning of accounts in third-party SaaS applications from within the Azure Management Portal, using your Windows Server Active Directory or Azure AD identity information. When a user is given permissions in Azure AD for one of these applications, an account can be automatically created (provisioned) in the target SaaS application.
+Если пользователь удален или его данные изменены в Azure AD, эти изменения также отражаются в приложении SaaS. Это означает, что настройка автоматического управления жизненным циклом удостоверений позволяет администраторам выполнять автоматическую подготовку (и отмену подготовки) из приложений SaaS и управлять ею. В Azure AD такая автоматизация управления жизненным циклом удостоверений обеспечивается с помощью подготовки пользователей.
 
-When a user is deleted or their information changes in Azure AD, these changes are also reflected in the SaaS application. This means, configuring automated identity lifecycle management enables administrators to control and provide automated provisioning and de-provisioning from SaaS applications. In Azure AD, this automation of identity lifecycle management is enabled by user provisioning.
+Дополнительные сведения см. в статье [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS](active-directory-saas-app-provisioning.md).
 
-To learn more, see [Automated User Provisioning and Deprovisioning to SaaS Applications](active-directory-saas-app-provisioning.md)
+##Начало работы с коллекцией приложений Azure AD
 
-##<a name="get-started-with-the-azure-ad-application-gallery"></a>Get started with the Azure AD application gallery
+Готовы начать работу? Для развертывания единого входа между приложениями Azure AD и SaaS, используемых в вашей организации, следуйте приведенным ниже рекомендациям.
 
-Ready to get started? To deploy single sign-on between Azure AD and SaaS applications that your organization uses, follow these guidelines.
+###Использование коллекции приложений Azure AD
 
-###<a name="using-the-azure-ad-application-gallery"></a>Using the Azure AD application gallery
-
-The [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/) provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.
+[Коллекция приложений Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/) содержит список приложений, которые поддерживают единый вход с помощью Azure Active Directory.
 
 ![][1]
 
-Here are some tips for finding apps by what capabilities they support:
+Ниже приведены советы для поиска приложений в соответствии с поддерживаемыми функциями.
 
-*   Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/).
+*	Azure AD поддерживает автоматическую подготовку и ее отзыв для всех приложений категории «Основные» в [коллекции приложений Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/).
 
-*   A list of federated applications that specifically support federated single sign-on using a protocol such as SAML, WS-Federation, or OpenID Connect can be found [here](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+*	Список федеративных приложений, поддерживающих федеративный единый вход с помощью таких протоколов, как SAML, WS-Federation или OpenID Connect, см. [здесь](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
-Once you’ve found your application, you can get started by follow the step-by-step instructions presented in the app gallery and in the Azure management portal to enable single sign-on.
+Найдите необходимое приложение и следуйте пошаговым инструкциям, указанным в коллекции приложений и на портале управления Azure, чтобы включить единый вход.
 
-###<a name="application-not-in-the-gallery?"></a>Application not in the gallery?
+###Приложение отсутствует в коллекции?
 
-If your application is not found in the Azure AD application gallery, then you have these options:
+Если необходимое приложение не найдено в коллекции приложений Azure AD, доступны следующие варианты.
 
-*   **Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](active-directory-saas-custom-apps.md).
+*	**Добавление отсутствующего приложения**. С помощью категории "Пользовательские" в коллекции приложений на портале управления Azure можно подключить отсутствующее в списке приложение, которое использует ваша организация. Можно добавить любое приложение, поддерживающее протокол SAML 2.0 в качестве федеративного приложения, или любое приложения со страницей для входа на базе HTML в качестве приложения с паролем для единого входа. Дополнительные сведения см. в статье о [добавлении собственных приложений](active-directory-saas-custom-apps.md).
 
 
-*   **Add your own app you are developing** - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API. For more information, see these resources:
-  * [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)
+*	**Добавление самостоятельно разработанного приложения**. Если вы самостоятельно разработали приложение, то с помощью рекомендаций в документации разработчика для Azure AD можно реализовать федеративный единый вход или выполнить подготовку с использованием API Graph Azure AD. Для получения дополнительных сведений см. следующие ресурсы.
+  * [Сценарии аутентификации в Azure Active Directory](active-directory-authentication-scenarios.md)
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*   **Request an app integration** - Request support for the application you need using the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+*	**Запросить интеграцию приложения**. Вы можете запросить поддержку для необходимого приложения на [форуме отзывов Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-###<a name="using-the-azure-management-portal"></a>Using the Azure management portal
+###С помощью портала управления Azure
 
-You can use the Active Directory extension in the Azure Management Portal to configure the application single sign-on. As a first step, you need to select a directory from the Active Directory section in the portal:
+Для настройки единого входа в приложение можно использовать расширение Active Directory на портале управления Azure. Для начала необходимо выбрать каталог из раздела Active Directory на портале:
 
 ![][2]
 
-To manage your third-party SaaS applications, you can switch into the Applications tab of the selected directory. This view enables administrators to:
+Для управления сторонними приложениями SaaS перейдите на вкладку «Приложения» выбранного каталога. В этом представлении администраторы могут выполнять следующие действия:
 
-* Add new applications from the Azure AD gallery, as well as apps you are developing
-* Delete integrated applications
-* Manage the applications they have already integrated
+* добавлять новые приложения из коллекции Azure AD и самостоятельно разработанные приложения;
+* удалять интегрированные приложения;
+* управлять уже интегрированными приложениями.
 
-Typical administrative tasks for a third-party SaaS application are:
+К стандартным задачам администрирования для стороннего приложения SaaS относятся следующие:
 
-* Enabling single sign-on with Azure AD, using password SSO or, if available for the target SaaS, federated SSO
-* Optionally, enabling user provisioning for user provisioning and de-provisioning (identity lifecycle management)
-* For applications where user provisioning is enabled, selecting which users have access to that application
+* включение единого входа с помощью Azure AD, используя пароль единого входа или федеративный единый вход (если это доступно для целевого приложения SaaS);
+* подготовка пользователей и ее отмена (при необходимо);
+* выбор пользователей для предоставления им доступа к приложениям с включенной подготовкой пользователей.
 
-For gallery apps that support federated single sign-on, configuration typically requires you to provide additional configuration settings such as certificates and metadata to create a federated trust between the third-party app and Azure AD. The configuration wizard walks you through the details and provides you with easy access to the SaaS application specific data and instructions.
+Для конфигурации приложений из коллекции, поддерживающих федеративный единый вход, обычно необходимо указать дополнительные параметры конфигурации, такие как сертификаты и метаданные для создания федеративных отношений доверия между сторонним приложением и Azure AD. Мастер настройки поможет выполнить все настройки и обеспечит простой доступ к данным и инструкциям приложения SaaS.
 
-For gallery apps that support automatic user provisioning, this requires you to give Azure AD permissions to manage your accounts in the SaaS application. At a minimum, you need to provide credentials Azure AD should use when authenticating over to the target application. Whether additional configuration settings need to be provided depends on the requirements of the application.
+Для приложений из коллекции, поддерживающих автоматическую подготовку пользователей, необходимо предоставить службе Azure AD разрешения для управления учетными записями в приложении SaaS. Как минимум, необходимо указать учетные данные, которые службе Azure AD следует использовать для проверки подлинности в целевом приложении. Необходимость указывать дополнительные параметры конфигурации зависит от требований приложения.
 
-##<a name="deploying-azure-ad-integrated-applications-to-users"></a>Deploying Azure AD integrated applications to users
+##Развертывание интегрированных приложений Azure AD для пользователей
 
-Azure AD provides several customizable ways to deploy applications to end-users in your organization:
+Azure AD предоставляет несколько настраиваемых способов развертывания приложений для конечных пользователей в организации:
 
-* Azure AD access panel
-* Office 365 application launcher
-* Direct sign-on to federated apps
-* Deep links to federated, password-based, or existing apps
+* панель доступа Azure AD;
+* средство запуска приложений Office 365;
+* прямой вход в федеративные приложения;
+* прямые ссылки на федеративные приложения, приложения на основе пароля или существующие приложения;
 
-Which method(s) you choose to deploy in your organization is your discretion.
+Вы сами выбираете метод (или методы) развертывания в своей организации.
 
-###<a name="azure-ad-access-panel"></a>Azure AD access panel
+###Панель доступа Azure AD
 
-The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end-user with [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), you can also utilize self-service group management capabilities through the Access Panel.
+Панель доступа на сайте https://myapps.microsoft.com представляет собой веб-портал, который позволяет конечным пользователям с учетной записью организации в Azure Active Directory просматривать и запускать облачные приложения, к которым им предоставил доступ администратор Azure AD. Если вы являетесь конечным пользователем [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), вы также можете использовать возможности панели для самостоятельного управления группами.
 
 ![][3]
 
-The Access Panel is separate from the Azure Management Portal and does not require users to have an Azure subscription or Office 365 subscription.
+Панель доступа отделена от портала управления Azure, для нее не требуется подписка Azure или Office 365.
 
-For more information on the Azure AD access panel, see the [introduction to the access panel](active-directory-saas-access-panel-introduction.md).
+Дополнительные сведения о панели доступа Azure AD см. в статье с [общими сведениями о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-###<a name="office-365-application-launcher"></a>Office 365 application launcher
+###Средство запуска приложений Office 365
 
-For organizations that have deployed Office 365, applications assigned to users through Azure AD will also appear in the Office 365 portal at https://portal.office.com/myapps. This makes it easy and convenient for users in an organization to launch their apps without having to use a second portal, and is the recommended app launching solution for organizations using Office 365.
+В организациях, в которых выполнено развертывание Office 365, приложения, назначенные пользователям через Azure AD, также отображаются на портале Office 365 по адресу https://portal.office.com/myapps. Благодаря этому пользователи в организации могут легко запускать приложения без входа на второй портал. Это решение рекомендуется для запуска приложений в организациях, использующих Office 365.
 
 ![][4]
 
-For more information about the Office 365 application launcher, see [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Дополнительные сведения о средстве запуска приложений Office 365 см. в статье [Добавление приложений в средство запуска приложений Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
-###<a name="direct-sign-on-to-federated-apps"></a>Direct sign-on to federated apps
+###Прямой вход в федеративные приложения
 
-Most federated applications that support SAML 2.0, WS-Federation, or OpenID connect also support the ability for users to start at the application, and then get signed in through Azure AD either by automatic redirection or by clicking on a link to sign in. This is known as service provider -initiated sign-on, and most federated applications in the Azure AD application gallery support this (see the documentation linked from the app’s single sign-on configuration wizard in the Azure management portal for details).
+Большинство федеративных приложений, поддерживающих SAML 2.0, WS-Federation или OpenID Connect, также дают пользователям возможность запустить приложение, а затем выполнить вход через Azure AD с помощью автоматического перенаправления или ссылки для входа. Это называется входом, инициированным поставщиком услуг. Большинство федеративных приложений в коллекции приложений Azure AD поддерживает его (дополнительные сведения см. в документах, доступных по ссылкам в мастере настройки единого входа в приложении на портале управления Azure).
 
 ![][5]
 
-###<a name="direct-sign-on-links-for-federated,-password-based,-or-existing-apps"></a>Direct sign-on links for federated, password-based, or existing apps
+###Ссылки для прямого входа в федеративные приложения, приложения с паролем или существующие приложения
 
-Azure AD also supports direct single sign-on links to individual applications that support password-based single sign-on, existing single sign-on, and any form of federated single sign-on.
+Azure AD также поддерживает ссылки для прямого единого входа в отдельные приложения, которые поддерживают единый вход на основе пароля, существующий единый вход или любой вид федеративного единого входа.
 
-These links are specifically-crafted URLs that send a user through the Azure AD sign in process for a specific application without requiring the user launch them from the Azure AD access panel or Office 365. These Single Sign-On URLs can be found under the Dashboard tab of any pre-integrated application in the Active Directory section of the Azure management portal, as shown in the screenshot below.
+Эти ссылки представляют собой специально созданные URL-адреса, позволяющие пользователю войти в конкретное приложение с помощью Azure AD, не запуская его из панели доступа Azure AD или Office 365. Эти URL-адреса единого входа можно найти на вкладке «Панель мониторинга» любого предварительно интегрированного приложения в разделе Active Directory на портале управления Azure, как показано на следующем снимке экрана.
 
 ![][6]
 
-These links can be copied and pasted anywhere you want to provide a sign-in link to the selected application. This could be in an email, or in any custom web-based portal that you have set up for user application access. Here's an example of an Azure AD direct single sign-on URL for Twitter:
+Такие ссылки можно скопировать и вставить везде, где нужно указать ссылку для входа в выбранное приложение. Это может быть сообщение электронной почты или веб-портал, настроенный для доступа пользователей к приложениям. Вот пример URL-адреса для прямого единого входа Azure AD для Twitter:
 
 `https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
-Similar to organization-specific URLs for the access panel, you can further customize this URL by adding one of the active or verified domains for your directory after the myapps.microsoft.com domain. This ensures any organizational branding is loaded immediately on the sign-in page without the user needing to enter their user ID first:
+Как и в случае с URL-адресами для панели доступа конкретной организации, этот URL-адрес можно изменить, добавив один из активных или проверенных доменов для каталога после имени домена myapps.microsoft.com. Это позволяет загрузить фирменную символику организации непосредственно на странице входа до того, как пользователь введет свой идентификатор. Например:
 
 `https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
-When an authorized user clicks on one of these application-specific links, they first see their organizational sign-in page (assuming they are not already signed in), and after sign-in are redirected to their app without stopping at the access panel first. If the user is missing pre-requisites to access the application, such as the password-based single sign browser extension, then the link will prompt the user to install the missing extension. The link URL also remains constant if the single sign-on configuration for the application changes.
+Когда авторизованный пользователь щелкнет одну из этих ссылок для конкретного приложения, сначала отобразится страница входа организации (если он еще не выполнил вход), а после входа в систему произойдет перенаправление в приложение без отображения панели доступа. Если пользователь не выполнил необходимые условия для доступа к приложению, например отсутствует расширение браузера для единого входа на основе пароля, отобразится запрос на установку отсутствующего расширения. URL-адрес ссылки также остается неизменным при изменении конфигурации единого входа для приложения.
 
-These links use the same access control mechanisms as the access panel and Office 365, and only those users or groups who have been assigned to the application in the Azure management portal will be able to successfully authenticate. However, any user who is unauthorized will see a message explaining that they have not been granted access, and are given a link to load the access panel to view available applications for which they do have access.
+Эти ссылки используют тот же механизм управления доступом, что и панель доступа и Office 365, и только пользователи или группы, которым назначено приложение на портале управления Azure, смогут пройти проверку подлинности. Неавторизированный пользователь увидит сообщение о том, что ему не предоставлен доступ. Кроме того, отобразится ссылка для загрузки панели доступа, на которой пользователь может увидеть приложения, к которым у него есть доступ.
 
-##<a name="related-articles"></a>Related Articles
+##Связанные статьи
 
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-- [Finding unsanctioned cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
-- [Introduction to Managing Access to Apps](active-directory-managing-access-to-apps.md)
-- [Comparing Capabilities for Managing External Identities in Azure AD](active-directory-b2b-compare-external-identities.md)
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+- [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+- [Поиск несанкционированных облачных приложений с Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+- [Введение в управление доступом к приложениям](active-directory-managing-access-to-apps.md)
+- [Сравнение возможностей управления внешними удостоверениями в Azure AD](active-directory-b2b-compare-external-identities.md)
 
 
 <!--Image references-->
@@ -228,8 +227,4 @@ These links use the same access control mechanisms as the access panel and Offic
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

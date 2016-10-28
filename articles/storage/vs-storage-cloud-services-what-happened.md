@@ -1,28 +1,26 @@
 <properties
-    pageTitle="What happened to my cloud service project? | Microsoft Azure | Visual Studio connected services"
-    description="Describes what happens in a cloud services project after connecting to an Azure storage account using Visual Studio connected services"
+    pageTitle="Что произошло с моим проектом облачных служб? | Microsoft Azure | Подключенные службы Visual Studio"
+	description="Сведения о том, что происходит в проекте облачных служб после подключения к учетной записи хранения Azure с помощью подключенных служб Visual Studio"
     services="storage"
-    documentationCenter=""
-    authors="TomArcher"
-    manager="douge"
-    editor=""/>
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="storage"
-    ms.workload="web"
-    ms.tgt_pltfrm="vs-what-happened"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="tarcher"/>
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/15/2016"
+	ms.author="tarcher"/>
 
+# Что произошло с моим проектом облачных служб (подключенными к службе хранилища Azure службами Visual Studio)?
 
-# <a name="what-happened-to-my-cloud-services-project-(visual-studio-azure-storage-connected-service)?"></a>What happened to my cloud services project (Visual Studio Azure Storage connected service)?
+## Добавлены ссылки
 
-## <a name="references-added"></a>References added
-
-The Azure Storage NuGet package was added to your Visual Studio project.  
-This package adds the following .NET references:
+Пакет NuGet хранилища Azure был добавлен в проект Visual Studio. Этот пакет добавляет следующие ссылки .NET:
 
 - **Microsoft.Data.Edm**
 - **Microsoft.Data.OData**
@@ -33,15 +31,11 @@ This package adds the following .NET references:
 - **System.Data**
 - **System.Spatial**
 
-## <a name="connection-string-for-azure-storage-added"></a>Connection string for Azure Storage added
-Elements were created with the selected storage account's connection string and key. Modifications were made to the following files:
+## Добавлена строка подключения к хранилищу Azure
+Созданы элементы с ключом и строкой подключения выбранной учетной записи хранилища. Внесены изменения в следующие файлы:
 
 - **ServiceDefinition.csdef**
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="What is StorSimple Snapshot Manager? | Microsoft Azure"
-   description="Describes the StorSimple Snapshot Manager, its architecture, and its features."
+   pageTitle="Что такое диспетчер моментальных снимков StorSimple? | Microsoft Azure"
+   description="Описание диспетчера моментальных снимков StorSimple, его архитектуры и функций."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,150 +15,145 @@
    ms.date="05/24/2016"
    ms.author="v-sharos" />
 
+# Что такое диспетчер моментальных снимков StorSimple?
 
-# <a name="what-is-storsimple-snapshot-manager?"></a>What is StorSimple Snapshot Manager?
+## Обзор
 
-## <a name="overview"></a>Overview
+Диспетчер моментальных снимков StorSimple — это оснастка консоли управления (MMC), упрощающая защиту данных и управление архивацией в среде Microsoft Azure StorSimple. Используя диспетчер моментальных снимков StorSimple, вы можете управлять данными Microsoft Azure StorSimple в центре обработки данных и облаке как единым интегрированным решением для хранения. Это в свою очередь позволяет упростить процессы архивации и сократить затраты.
 
-StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in that simplifies data protection and backup management in a Microsoft Azure StorSimple environment. With StorSimple Snapshot Manager, you can manage Microsoft Azure StorSimple data in the data center and in the cloud as a single integrated storage solution, thus simplifying backup processes and reducing costs.
+В этом обзоре представлен диспетчер моментальных снимков StorSimple, описываются его компоненты и объясняется его роль в Microsoft Azure StorSimple.
 
-This overview introduces the StorSimple Snapshot Manager, describes its features, and explains its role in Microsoft Azure StorSimple. 
-
-For an overview of the entire Microsoft Azure StorSimple system, including the StorSimple device, StorSimple Manager service, StorSimple Snapshot Manager, and StorSimple Adapter for SharePoint, see [StorSimple 8000 series: a hybrid cloud storage solution](storsimple-overview.md). 
+Общие сведения о всей системе Microsoft Azure StorSimple, включая устройство StorSimple, службу диспетчера StorSimple, диспетчер моментальных снимков StorSimple и адаптер StorSimple для SharePoint, см. в статье [Серия StorSimple 8000: решение гибридного облачного хранилища](storsimple-overview.md).
  
 >[AZURE.NOTE] 
 >
->- You cannot use StorSimple Snapshot Manager to manage Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices).
+>- Диспетчер моментальных снимков StorSimple нельзя использовать виртуальными массивами Microsoft Azure StorSimple (также известными как локальные виртуальные устройства StorSimple).
 >
->- If you plan to install StorSimple Update 2 on your StorSimple device, be sure to download the latest version of StorSimple Snapshot Manager and install it **before you install StorSimple Update 2**. The latest version of StorSimple Snapshot Manager is backward compatible and works with all released versions of Microsoft Azure StorSimple. If you are using the previous version of StorSimple Snapshot Manager, you will need to update it (you do not need to uninstall the previous version before you install the new version).
+>- Если вы планируете установить обновление 2 для StorSimple на устройстве StorSimple, необходимо загрузить последнюю версию диспетчера моментальных снимков StorSimple и установить его **перед установкой обновления 2 для StorSimple**. Последняя версия диспетчера моментальных снимков StorSimple поддерживает обратную совместимость и работает со всеми выпущенными версиями Microsoft Azure StorSimple. Если вы используете предыдущую версию диспетчера моментальных снимков StorSimple, ее необходимо обновить (предыдущую версию не нужно удалять перед установкой новой версии).
 
-## <a name="storsimple-snapshot-manager-purpose-and-architecture"></a>StorSimple Snapshot Manager purpose and architecture
+## Назначение и архитектура диспетчера моментальных снимков StorSimple
 
-StorSimple Snapshot Manager provides a central management console that you can use to create consistent, point-in-time backup copies of local and cloud data. For example, you can use the console to:
+Диспетчер моментальных снимков StorSimple — это центральная консоль управления, которую можно использовать для создания согласованных резервных копий на момент времени для локальных и облачных данных. Например, консоль позволяет выполнять такие задачи:
 
-- Configure, back up, and delete volumes.
-- Configure volume groups to ensure that backed up data is application-consistent.
-- Manage backup policies so that data is backed up on a predetermined schedule.
-- Create local and cloud snapshots, which can be stored in the cloud and used for disaster recovery.
+- Настройка, архивация и удаление томов.
+- Настройка групп томов для обеспечения согласованности архивированных данных с приложением.
+- Управление политиками архивации для резервного копирования данных по заранее определенному расписанию.
+- Создание локальных и облачных моментальных снимков, которые можно хранить в облаке и использовать для аварийного восстановления.
 
-The StorSimple Snapshot Manager fetches the list of applications registered with the VSS provider on the host. Then, to create application-consistent backups, it checks the volumes used by an application and suggests volume groups to configure. StorSimple Snapshot Manager uses these volume groups to generate backup copies that are application-consistent. (Application consistency exists when all related files and databases are synchronized and represent the true state of the application at a specific point in time.) 
+Диспетчер моментальных снимков StorSimple извлекает список приложений, зарегистрированных с помощью поставщика VSS на узле. Затем для создания резервных копий, согласованных с приложениями, он проверяет используемые приложением тома и предлагает группы томов для настройки. Диспетчер моментальных снимков StorSimple использует эти группы томов для создания резервных копий, согласованных между приложениями (согласованность приложений имеет место, когда все связанные файлы и базы данных синхронизированы и представляют фактическое состояние приложения в определенный момент времени).
 
-StorSimple Snapshot Manager backups take the form of incremental snapshots, which capture only the changes since the last backup. As a result, backups require less storage and can be created and restored quickly. StorSimple Snapshot Manager uses the Windows Volume Shadow Copy Service (VSS) to ensure that snapshots capture application-consistent data. (For more information, go to the Integration with Windows Volume Shadow Copy Service section.) With StorSimple Snapshot Manager, you can create backup schedules or take immediate backups as needed. If you need to restore data from a backup, StorSimple Snapshot Manager lets you select from a catalog of local or cloud snapshots. Azure StorSimple restores only the data that is needed as it is needed, which prevents delays in data availability during restore operations.)
+Резервные копии диспетчера моментальных снимков StorSimple представляют собой добавочные моментальные снимки, которые включают только изменения с момента последнего резервного копирования. Такие резервные копии занимают меньше места, и их можно быстро создавать и восстанавливать. Диспетчер моментальных снимков StorSimple использует службу теневого копирования томов Windows (VSS), гарантируя, что моментальные снимки содержат согласованные между приложениями данные (дополнительные сведения см. в разделе "Интеграция со службой теневого копирования томов Windows"). С помощью диспетчера моментальных снимков StorSimple можно создавать расписания резервного копирования или мгновенно создавать резервные копии по мере необходимости. Если вам потребуется восстановить данные из резервной копии, в диспетчере моментальных снимков StorSimple можно будет выбрать снимок из каталога локальных или облачных снимков. Azure StorSimple восстанавливает данные только по мере их необходимости, что предотвращает задержки доступности данных в ходе операций восстановления.
 
-![StorSimple Snapshot Manager architecture](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
+![Архитектура диспетчера моментальных снимков StorSimple](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
-**StorSimple Snapshot Manager architecture** 
+**Архитектура диспетчера моментальных снимков StorSimple**
 
-## <a name="support-for-multiple-volume-types"></a>Support for multiple volume types
+## Поддержка нескольких типов томов
 
-You can use the StorSimple Snapshot Manager to configure and back up the following types of volumes: 
+С помощью диспетчера моментальных снимков StorSimple можно выполнять настройку и создавать резервные копии томов следующих типов:
 
-- **Basic volumes** – A basic volume is a single partition on a basic disk. 
+- **Основные тома** — отдельные разделы на основном диске. 
 
-- **Simple volumes** – A simple volume is a dynamic volume that contains disk space from a single dynamic disk. A simple volume consists of a single region on a disk or multiple regions that are linked together on the same disk. (You can create simple volumes only on dynamic disks.) Simple volumes are not fault tolerant.
+- **Простые тома** — динамические тома, содержащие дисковое пространство отдельных динамических дисков. Простой том состоит из одной области на диске или нескольких областей, связанных между собой на одном и том же диске. (Простые тома можно создавать только на динамических дисках.) Простые тома не отказоустойчивые.
 
-- **Dynamic volumes** – A dynamic volume is a volume created on a dynamic disk. Dynamic disks use a database to track information about volumes that are contained on dynamic disks in a computer. 
+- **Динамические тома** — тома, созданные на динамическом диске. Динамические диски используют базу данных для отслеживания сведений о томах, содержащихся на динамических дисках в компьютере.
 
-- **Dynamic volumes with mirroring** – Dynamic volumes with mirroring are built on the RAID 1 architecture. With RAID 1, identical data is written on two or more disk, producing a mirrored set. A read request can then be handled by any disk that contains the requested data.
+- **Динамические тома с зеркальным отображением** (на основе архитектуры RAID 1). С помощью RAID 1 идентичные данные записываются на несколько дисков, образуя зеркальный набор. Затем любой диск, содержащий запрашиваемые данные, сможет обработать запрос на чтение.
 
-- **Cluster-shared volumes** – With cluster-shared volumes (CSVs), multiple nodes in a failover cluster can simultaneously read or write to the same disk. Failover from one node to another node can occur quickly, without requiring a change in drive ownership or mounting, dismounting, and removing a volume. 
+- **Общие тома кластера**. Общие тома кластера (CSV) позволяют на одном и том же диске одновременно считывать и записывать данные нескольких узлов отказоустойчивого кластера. Отработка отказа с перемещением данных с одного узла на другой может происходить быстро, не требуя изменения владельца диска или монтирования, демонтирования и удаления тома.
 
->[AZURE.IMPORTANT] Do not mix CSVs and non-CSVs in the same snapshot. Mixing CSVs and non-CSVs in a snapshot is not supported. 
+>[AZURE.IMPORTANT] В одном моментальном снимке не должны сочетаться CSV и другие типы томов. Совмещение CSV с томами других типов не поддерживается.
  
-You can use StorSimple Snapshot Manager to restore entire volume groups or clone individual volumes and recover individual files.
+С помощью диспетчера моментальных снимков StorSimple можно восстанавливать целые группы томов или клонировать отдельные тома и восстанавливать отдельные файлы.
 
-- [Volumes and volume groups](#volumes-and-volume-groups) 
-- [Backup types and backup policies](#backup-types-and-backup-policies) 
+- [Тома и группы томов](#volumes-and-volume-groups) 
+- [Типы резервных копий и политики резервного копирования](#backup-types-and-backup-policies) 
 
-For more information about StorSimple Snapshot Manager features and how to use them, see [StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md).
+Дополнительные сведения о компонентах диспетчера моментальных снимков StorSimple и их использовании см. в статье [Пользовательский интерфейс диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md).
 
-## <a name="volumes-and-volume-groups"></a>Volumes and volume groups
+## Тома и группы томов
 
-With StorSimple Snapshot Manager, you create volumes and then configure them into volume groups. 
+С помощью диспетчера моментальных снимков StorSimple можно создавать тома и объединять их в группы.
 
-StorSimple Snapshot Manager uses volume groups to create backup copies that are application-consistent. Application consistency exists when all related files and databases are synchronized and represent the true state of an application at a specific point in time. Volume groups (which are also known as *consistency groups*) form the basis of a backup or restore job.
+Диспетчер моментальных снимков StorSimple использует группы томов для создания резервных копий, согласованных с приложениями (согласованность с приложением имеет место, когда все связанные файлы и базы данных синхронизированы и представляют фактическое состояние приложения в определенный момент времени). Группы томов (также называемые *группами согласованности*) формируют основу резервного копирования и восстановления.
 
-Volume groups are not the same as volume containers. A volume container contains one or more volumes that share a cloud storage account and other attributes, such as encryption and bandwidth consumption. A single volume container can contain up to 256 thinly provisioned StorSimple volumes. For more information about volume containers, go to [Manage your volume containers](storsimple-manage-volume-containers.md). Volume groups are collections of volumes that you configure to facilitate backup operations. If you select two volumes that belong to different volume containers, place them in a single volume group, and then create a backup policy for that volume group, each volume will be backed up in the appropriate volume container, using the appropriate storage account.
+Группы томов не идентичны контейнерам томов. Контейнер томов содержит один или несколько томов, использующих одну облачную учетную запись хранилища и другие атрибуты, например шифрование и потребление полосы пропускания. Один контейнер томов может содержать до 256 томов StorSimple с тонкой подготовкой. Дополнительные сведения о контейнерах томов см. в статье [Управление контейнерами томов](storsimple-manage-volume-containers.md). Группы томов — это наборы томов, настроенных для выполнения операций резервного копирования. Если выбрать два тома, принадлежащих к разным контейнерам, поместить их в одну группу томов, а затем создать политику резервного копирования для этой группы, то резервная копия каждого тома будет создана в соответствующем контейнере томов с использованием подходящей учетной записи.
 
->[AZURE.NOTE] All volumes in a volume group must come from a single cloud service provider.
+>[AZURE.NOTE] У всех томов в группе томов должен быть один поставщик облачной службы.
 
-## <a name="integration-with-windows-volume-shadow-copy-service"></a>Integration with Windows Volume Shadow Copy Service
+## Интеграция со службой теневого копирования томов Windows
 
-StorSimple Snapshot Manager uses the Windows Volume Shadow Copy Service (VSS) to capture application-consistent data. VSS facilitates application consistency by communicating with VSS-aware applications to coordinate the creation of incremental snapshots. VSS ensures that the applications are temporarily inactive, or quiescent, when snapshots are taken. 
+Диспетчер моментальных снимков StorSimple использует службу теневого копирования томов Windows (VSS) для сбора данных, согласованных с приложением. VSS повышает согласованность с приложениями путем взаимодействия с приложениями, поддерживающими VSS, для координации создания добавочных моментальных снимков. VSS обеспечивает временное отключение приложений во время создания моментальных снимков.
 
-The StorSimple Snapshot Manager implementation of VSS works with SQL Server and generic NTFS volumes. The process is as follows: 
+Реализация VSS диспетчера моментальных снимков StorSimple работает с SQL Server и универсальными томами NTFS. Процесс таков:
 
-1. A requestor, which is typically a data management and protection solution (such as StorSimple Snapshot Manager) or a backup application, invokes VSS and asks it to gather information from the writer software in the target application.
+1. Запрашивающая сторона, которой обычно является решение для управления данными и защиты (например, диспетчер моментальных снимков StorSimple), или приложение резервного копирования вызывает VSS и запрашивает сбор сведений из программ записи в целевом приложении.
 
-2. VSS contacts the writer component to retrieve a description of the data. The writer returns the description of the data to be backed up. 
+2. VSS обращается к компоненту записи, чтобы получить описание данных. Модуль записи возвращает описание данных для резервного копирования.
 
-3. VSS signals the writer to prepare the application for backup. The writer prepares the data for backup by completing open transactions, updating transaction logs, and so on, and then notifies VSS.
+3. VSS указывает модулю записи подготовить приложение для резервного копирования. Модуль записи подготавливает данные к резервному копированию, завершая открытые операции, обновляя журналы операций и т. д, а затем уведомляет VSS.
 
-4. VSS instructs the writer to temporarily stop the application's data stores and make sure that no data is written to the volume while the shadow copy is created. This step ensures data consistency, and takes no more than 60 seconds.
+4. VSS указывает модулю записи временно остановить хранение данных приложением и гарантировать, что во время создания теневой копии на том не записываются данные. Это позволяет обеспечить согласованность данных и занимает не более 60 секунд.
 
-5. VSS instructs the provider to create the shadow copy. Providers, which can be software- or hardware-based, manage the volumes that are currently running and create shadow copies of them on demand. The provider creates the shadow copy, and notifies VSS when it is completed.
+5. VSS указывает поставщику создать теневую копию. Поставщики, которые могут быть аппаратными или программными, управляют запущенными в данный момент томами и по требованию создают их теневые копии. Поставщик создает теневую копию и сообщает VSS, когда она готова.
 
-6. VSS contacts the writer to notify the application that I/O can resume and also to confirm that I/O was paused successfully during shadow copy creation. 
+6. VSS обращается к модулю записи, чтобы уведомить приложение о том, что можно возобновить операции ввода-вывода, и убедиться, что операции ввода-вывода были успешно приостановлены во время создания теневой копии.
 
-7. If the copy was successful, VSS returns the copy's location to the requestor. 
+7. Если копирование прошло успешно, VSS возвращает запрашивающей стороне расположение копии.
 
-8. If data was written while the shadow copy was created, then the backup will be inconsistent. VSS deletes the shadow copy and notifies the requestor. The requestor can either repeat the backup process automatically or notify the administrator to retry it at a later time.
+8. Если данные были записаны во время создания теневой копии, то резервная копия не будет согласована. VSS удаляет теневую копию и уведомляет запрашивающую сторону. Запрашивающая сторона может автоматически повторить процесс резервного копирования или сообщить администратору, что необходимо повторить попытку позже.
 
-See the following illustration.
+См. указанный ниже рисунок.
 
-![VSS process](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
+![Процесс VSS](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
 
-**Windows Volume Shadow Copy Service process** 
+**Процесс службы теневого копирования томов Windows**
 
-## <a name="backup-types-and-backup-policies"></a>Backup types and backup policies
+## Типы резервных копий и политики резервного копирования
 
-With StorSimple Snapshot Manager, you can back up data and store it locally and in the cloud. You can use StorSimple Snapshot Manager to back up data immediately, or you can use a backup policy to create a schedule for taking backups automatically. Backup policies also enable you to specify how many snapshots will be retained. 
+С помощью диспетчера моментальных снимков StorSimple можно создать резервную копию данных и сохранить ее локально или в облаке. С помощью диспетчера моментальных снимков StorSimple можно мгновенно выполнять резервное копирование данных или использовать политику для создания расписания автоматического резервного копирования. Политики резервного копирования также позволяют указать, сколько моментальных снимков будет сохранено.
 
-### <a name="backup-types"></a>Backup types
+### Типы резервных копий
 
-You can use StorSimple Snapshot Manager to create the following types of backups:
+Диспетчер моментальных снимков StorSimple позволяет создавать резервные копии следующих типов:
 
-- **Local snapshots** – Local snapshots are point-in-time copies of volume data that are stored on the StorSimple device. Typically, this type of backup can be created and restored quickly. You can use a local snapshot as you would a local backup copy.
+- **Локальные моментальные снимки** — копии данных томов на определенный момент времени, которые хранятся в устройстве StorSimple. Как правило, резервную копию этого типа можно быстро создать и восстановить. Локальный моментальный снимок используется так же, как и локальная резервная копия.
 
-- **Cloud snapshots** – Cloud snapshots are point-in-time copies of volume data that are stored in the cloud. A cloud snapshot is equivalent to a snapshot replicated on a different, off-site storage system. Cloud snapshots are particularly useful in disaster recovery scenarios.
+- **Облачные моментальные снимки** — копии данных тома на определенный момент времени, которые хранятся в облаке. Облачный моментальный снимок аналогичен снимку, реплицированному в другой, внешней системе хранения. Облачные моментальные снимки особенно удобно использовать в сценариях аварийного восстановления.
 
-### <a name="on-demand-and-scheduled-backups"></a>On-demand and scheduled backups
+### Резервное копирование по требованию и по расписанию
 
-With StorSimple Snapshot Manager, you can initiate a one-time backup to be created immediately, or you can use a backup policy to schedule recurring backup operations.
+С помощью диспетчера моментальных снимков StorSimple можно выполнять немедленное одноразовое резервное копирование или запланировать повторяющиеся операции резервного копирования с помощью политики.
 
-A backup policy is a set of automated rules that you can use to schedule regular backups. A backup policy allows you to define the frequency and parameters for taking snapshots of a specific volume group. You can use policies to specify start and expiration dates, times, frequencies, and retention requirements, for both local and cloud snapshots. A policy is applied immediately after you define it. 
+Политика резервного копирования — это набор автоматических правил, которые можно использовать для планирования регулярного резервного копирования. Политика резервного копирования позволяет задать частоту и параметры создания моментальных снимков определенной группы томов. С помощью политик можно задать даты начала и окончания сока, время, частоты и требования к хранению как для локальных, так и для облачных моментальных снимков. Политика применяется сразу после ее определения.
 
-You can use StorSimple Snapshot Manager to configure or reconfigure backup policies whenever necessary. 
+Диспетчер моментальных снимков StorSimple позволяет настраивать политики резервного копирования в любой момент.
 
-You configure the following information for each backup policy that you create:
+При создании политики резервного копирования указываются следующие сведения:
 
-- **Name** – The unique name of the selected backup policy.
+- **Имя** — уникальное имя выбранной политики резервного копирования.
 
-- **Type** – The type of backup policy; either local snapshot or cloud snapshot.
+- **Тип** — тип политики резервного копирования: локальный или облачный моментальный снимок.
 
-- **Volume group** – The volume group to which the selected backup policy is assigned.
+- **Группа томов** — группа томов, которым назначена выбранная политика резервного копирования.
 
-- **Retention** – The number of backup copies to retain. If you check the **All** box, all backup copies are retained until the maximum number of backup copies per volume is reached, at which point the policy will fail and generate an error message. Alternatively, you can specify a number of backups to retain (between 1 and 64).
+- **Хранение** — количество сохраняемых резервных копий. Если установить флажок **Все**, то все резервные копии хранятся, пока не будет достигнуто максимальное число резервных копий на том, после чего произойдет сбой политики и появится сообщение об ошибке. Вы также можете указать число сохраняемых резервных копий (от 1 до 64).
 
-- **Date** – The date when the backup policy was created.
+- **Дата** — дата создания политики резервного копирования.
 
-For information about configuring backup policies, go to [Use StorSimple Snapshot Manager to create and manage backup policies](storsimple-snapshot-manager-manage-backup-policies.md).
+Сведения о настройке политик резервного копирования см. в статье [Создание политик архивации и управление ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-policies.md).
 
-### <a name="backup-job-monitoring-and-management"></a>Backup job monitoring and management
+### Отслеживание заданий резервного копирования и управление ими
 
-You can use the StorSimple Snapshot Manager to monitor and manage upcoming, scheduled, and completed backup jobs. Additionally, StorSimple Snapshot Manager provides a catalog of up to 64 completed backups. You can use the catalog to find and restore volumes or individual files. 
+Диспетчер моментальных снимков StorSimple можно использовать для отслеживания запланированных, предстоящих и выполненных заданий архивации, а также управления ими. Кроме того, диспетчер моментальных снимков StorSimple предоставляет каталог, содержащий до 64 созданных резервных копий. Вы можете использовать этот каталог для поиска и восстановления томов или отдельных файлов.
 
-For information about monitoring backup jobs, go to [Use StorSimple Snapshot Manager to view and manage backup jobs](storsimple-snapshot-manager-manage-backup-jobs.md).
-
-
-## <a name="next-steps"></a>Next steps
-
-- Learn more about [using StorSimple Snapshot Manager to administer your StorSimple solution](storsimple-snapshot-manager-admin.md).
-
-- Download [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+Сведения об отслеживании заданий резервного копирования см. в статье [Просмотр заданий архивации и управление ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-jobs.md).
 
 
+## Дальнейшие действия
 
-<!--HONumber=Oct16_HO2-->
+- Узнайте больше об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
 
+- Скачайте [диспетчер моментальных снимков StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
+<!---HONumber=AcomDC_0525_2016-->

@@ -1,6 +1,6 @@
 <properties
- pageTitle="Azure solutions for Internet of Things | Microsoft Azure"
- description="A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Hub, device SDKs, and preconfigured solutions"
+ pageTitle="Решения Azure для «Интернета вещей» | Microsoft Azure"
+ description="Общие сведения об IoT в Azure, включая пример архитектуры решения, а также его связь с центром IoT Azure, пакеты SDK для устройств и предварительно настроенные решения."
  services="iot-hub"
  documentationCenter=""
  authors="dominicbetts"
@@ -16,27 +16,26 @@
  ms.date="10/05/2016"
  ms.author="dobett"/>
 
-
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Azure IoT Hub is an Azure service that enables secure and reliable bi-directional communications between your application back end and millions of devices. It enables the application back end to:
+Центр IoT Azure — это полностью управляемая служба Azure, которая обеспечивает надежный и защищенный двунаправленный обмен данными между серверной частью вашего приложения и миллионами устройств. В результате серверная часть приложения может:
 
-- Receive telemetry at scale from your devices.
-- Route data from your devices to a stream event processor.
-- Receive file uploads from devices.
-- Send cloud-to-device commands to specific devices.
+- получать данные телеметрии с ваших устройств;
+- перенаправлять эти данные в обработчик потоковых событий;
+- получать отправляемые с устройств файлы;
+- отправлять команды из облака на определенные устройства.
 
-You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes a device identity registry used to provision devices, their security credentials, and their rights to connect to the hub. To learn more about IoT Hub, see [What is IoT Hub?][lnk-iot-hub].
+Вы можете использовать центр IoT для реализации собственной серверной части решения. Кроме того, центр IoT включает реестр удостоверений устройств, который используется для подготовки устройств, а также настройки их учетных данных и доступа к этому центру. Дополнительные сведения о Центре Интернета вещей см. в статье [Что такое Центр Интернета вещей в Azure?][lnk-iot-hub]
 
-To learn how Azure IoT Hub enables standards-based IoT device management for you to remotely manage, configure, and update your devices, see [Overview of Azure IoT Hub device management][lnk-device-management].
+Сведения о стандартизированном управлении устройствами IoT для удаленного администрирования, настройки и обновления устройств в центре IoT Azure см. в статье [Общие сведения об управлении устройствами с помощью центра IoT Azure (предварительная версия)][lnk-device-management].
 
-To implement client applications on a wide variety of device hardware platforms and operating systems, you can use the IoT device SDKs. The IoT device SDKs include libraries that facilitate sending telemetry to an IoT hub and receiving cloud-to-device commands. When you use the SDKs, you can choose from several network protocols to communicate with IoT Hub. To learn more, see the [information about device SDKs][lnk-device-sdks].
+Вы можете внедрить клиентские приложения на широком спектре аппаратных платформ и операционных систем с помощью пакетов SDK для устройств IoT. Пакеты SDK для устройств IoT включают библиотеки, упрощающие отправку телеметрии в центр IoT и получение команд "из облака на устройство". При использовании этих пакетов SDK для взаимодействия с Центром Интернета вещей можно выбрать один из нескольких сетевых протоколов. Дополнительные сведения см. в разделе [Сведения о пакетах SDK для устройств][lnk-device-sdks].
 
-To get started writing some code and running some samples, see the [Get started with IoT Hub][lnk-getstarted] tutorial.
+Чтобы приступить к работе, написав код и выполнив несколько примеров, см. руководство [Приступая к работе с центром Azure IoT с использованием .NET][lnk-getstarted].
 
-You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a collection of preconfigured solutions. IoT Suite enables you to get started quickly and scale IoT projects to address common IoT scenarios--such as remote monitoring, asset management, and predictive maintenance.
+Кроме того, вам может быть интересен набор [Azure IoT Suite][lnk-iot-suite] — коллекция предварительно настроенных решений, позволяющих быстро начать работу и масштабировать проекты IoT для решения распространенных сценариев IoT, например удаленного мониторинга, управления ресурсами-контейнерами и прогнозного обслуживания.
 
 [lnk-getstarted]: iot-hub-csharp-csharp-getstarted.md
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
@@ -45,7 +44,4 @@ You may also be interested in [Azure IoT Suite][lnk-iot-suite], which is a colle
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-overview.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

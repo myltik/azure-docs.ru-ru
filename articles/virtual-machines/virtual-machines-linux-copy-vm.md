@@ -1,104 +1,103 @@
 <properties
-    pageTitle="Create a copy of your Azure Linux VM | Microsoft Azure"
-    description="Learn how to create a copy of your Azure Linux virtual machine in the Resource Manager deployment model"
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    tags="azure-resource-manager"/>
+	pageTitle="Создание копии виртуальной машины Linux в Azure | Microsoft Azure"
+	description="Узнайте, как создать копию виртуальной машины Linux в Azure, используя модель развертывания с помощью Resource Manager."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="cynthn"/>
+
+# Создание копии виртуальной машины Linux, работающей в Azure
 
 
-# <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure"></a>Create a copy of a Linux virtual machine running on Azure
+В этой статье показано, как создать копию виртуальной машины Azure под управлением Linux, используя модель развертывания с помощью Resource Manager. Сначала следует скопировать операционную систему и диски данных в новый контейнер, а затем настроить сетевые ресурсы и создать новую виртуальную машину.
+
+Кроме того, можно [передать пользовательский образ диска и создать виртуальную машину на его основе](virtual-machines-linux-upload-vhd.md).
 
 
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux using the Resource Manager deployment model. First you copy over the operating system and data disks to a new container, then set up the network resources and create the new virtual machine.
+## Перед началом работы
 
-You can also [upload and create a VM from custom disk image](virtual-machines-linux-upload-vhd.md).
+Перед началом описанной ниже процедуры необходимо выполнить следующие условия.
 
+- Необходимо скачать [интерфейс командной строки Azure (Azure CLI)](../xplat-cli-install.md) и установить его на компьютере.
 
-## <a name="before-you-begin"></a>Before you begin
+- Необходимы также некоторые сведения о существующей виртуальной машине Linux в Azure.
 
-Ensure that you meet the following prerequisites before you start the steps:
-
-- You have the [Azure CLI] (../xplat-cli-install.md) downloaded and installed on your machine. 
-
-- You also need some information about your existing Azure Linux VM:
-
-| Source VM information | Where to get it |
+| Сведения об исходной виртуальной машине | Как получить |
 |------------|-----------------|
-| VM name | `azure vm list` |
-| Resource Group name | `azure vm list` |
-| Location | `azure vm list` |
-| Storage Account name | `azure storage account list -g <resourceGroup>` |
-| Container name | `azure storage container list -a <sourcestorageaccountname>` |
-| Source VM VHD file name | `azure storage blob list --container <containerName>` |
+| Имя виртуальной машины | `azure vm list` |
+| Имя группы ресурсов | `azure vm list` |
+| Расположение | `azure vm list` |
+| Имя учетной записи хранения | `azure storage account list -g <resourceGroup>` |
+| Имя контейнера | `azure storage container list -a <sourcestorageaccountname>` |
+| Имя исходного VHD-файла виртуальной машины | `azure storage blob list --container <containerName>` |
 
 
 
-- You will need to make some choices about your new VM:    <br> -Container name    <br> -VM name    <br> -VM size    <br> -vNet name    <br> -SubNet name    <br> -IP Name    <br> -NIC name
-    
+- Необходимо будет выбрать параметры новой виртуальной машины: <br> -имя контейнера; <br> имя виртуальной машины; <br> - размер виртуальной машины; <br> имя виртуальной сети; <br> - имя подсети; <br> - имя IP-адреса; <br> - имя сетевой карты.
+	
 
-## <a name="login-and-set-your-subscription"></a>Login and set your subscription
+## Вход и задание подписки
 
-1. Login to the CLI.
-        
-        azure login
+1. Войдите в интерфейс командной строки.
+		
+		azure login
 
-2. Make sure you are in Resource Manager mode.
-    
-        azure config mode arm
+2. Убедитесь, что режим Resource Manager включен.
+	
+		azure config mode arm
 
-3. Set the correct subscription. You can use 'azure account list' to see all of your subscriptions.
+3. Задайте соответствующую подписку. Для просмотра всех подписок можно использовать команду azure account list.
 
-        azure account set <SubscriptionId>
-
-
-
-## <a name="stop-the-vm"></a>Stop the VM 
-
-Stop and deallocate the source VM. You can use 'azure vm list' to get a list of all of the VMs in your subscription and their resource group names.
-    
-        azure vm stop <ResourceGroup> <VmName>
-        azure vm deallocate <ResourceGroup> <VmName>
+		azure account set <SubscriptionId>
 
 
 
+## Остановка виртуальной машины 
 
-## <a name="copy-the-vhd"></a>Copy the VHD
-
-
-You can copy the VHD from the source storage to the destination using the `azure storage blob copy start`. In this example, we are going to copy the VHD to the same storage account, but a different container.
-
-To copy the VHD to another container in the same storage account, type:
-
-        azure storage blob copy start https://<sourceStorageAccountName>.blob.core.windows.net:8080/<sourceContainerName>/<SourceVHDFileName.vhd> <newcontainerName>
-        
-
-## <a name="set-up-the-virtual-network-for-your-new-vm"></a>Set up the virtual network for your new VM
-
-Set up a virtual network and NIC for your new VM. 
-
-    azure network vnet create <ResourceGroupName> <VnetName> -l <Location>
-
-    azure network vnet subnet create -a <address.prefix.in.CIDR/format> <ResourceGroupName> <VnetName> <SubnetName>
-
-    azure network public-ip create <ResourceGroupName> <IpName> -l <yourLocation>
-
-    azure network nic create <ResourceGroupName> <NicName> -k <SubnetName> -m <VnetName> -p <IpName> -l <Location>
+Остановите исходную виртуальную машину и отмените ее распределение. Для получения списка всех виртуальных машин в подписке и имен их групп ресурсов можно использовать команду azure vm list.
+	
+		azure vm stop <ResourceGroup> <VmName>
+		azure vm deallocate <ResourceGroup> <VmName>
 
 
-## <a name="create-the-new-vm"></a>Create the new VM 
 
-You can now create a VM from your uploaded virtual disk [using a resource manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) or through the CLI by specifying the URI to your copied disk by typing:
+
+## Копирование виртуального жесткого диска
+
+
+Скопировать виртуальный жесткий диск из исходного хранилища в место назначения можно с помощью команды `azure storage blob copy start`. В этом примере мы скопируем виртуальный жесткий диск в ту же учетную запись хранения, но в другой контейнер.
+
+Чтобы скопировать виртуальный жесткий диск в другой контейнер в той же учетной записи хранения, введите следующую команду.
+
+		azure storage blob copy start https://<sourceStorageAccountName>.blob.core.windows.net:8080/<sourceContainerName>/<SourceVHDFileName.vhd> <newcontainerName>
+		
+
+## Настройка виртуальной сети для новой виртуальной машины
+
+Настройте виртуальную сеть и сетевую карту для новой виртуальной машины.
+
+	azure network vnet create <ResourceGroupName> <VnetName> -l <Location>
+
+	azure network vnet subnet create -a <address.prefix.in.CIDR/format> <ResourceGroupName> <VnetName> <SubnetName>
+
+	azure network public-ip create <ResourceGroupName> <IpName> -l <yourLocation>
+
+	azure network nic create <ResourceGroupName> <NicName> -k <SubnetName> -m <VnetName> -p <IpName> -l <Location>
+
+
+## Создание виртуальной машины 
+
+Теперь можно создать виртуальную машину из переданного виртуального диска, [используя шаблон Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) или интерфейс командной строки, указав универсальный код ресурса (URI) скопированного диска. Для этого введите следующую команду.
 
 ```bash
 azure vm create -n <newVMName> -l "<location>" -g <resourceGroup> -f <newNicName> -z "<vmSize>" -d https://<storageAccountName>.blob.core.windows.net/<containerName/<fileName.vhd> -y Linux
@@ -106,12 +105,8 @@ azure vm create -n <newVMName> -l "<location>" -g <resourceGroup> -f <newNicName
 
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-To learn how to use Azure CLI to manage your new virtual machine, see [Azure CLI commands for the Azure Resource Manager](azure-cli-arm-commands.md).
+Чтобы узнать, как использовать интерфейс командной строки Azure для управления новой виртуальной машиной, ознакомьтесь со статьей [Команды Azure CLI в режиме Resource Manager](azure-cli-arm-commands.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

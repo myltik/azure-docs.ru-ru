@@ -1,46 +1,40 @@
 <a name="tellmevm"></a>
-## <a name="tell-me-about-virtual-machines"></a>Tell me about virtual machines
+## Информация о виртуальных машинах в Azure
 
-Azure Virtual Machines lets you create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, virtual machine technology can be used in variety of ways. Some examples are:
+Виртуальные машины Azure позволяют создавать и использовать виртуальные машины в облаке. Используемый в технологии для виртуальных машин подход *IaaS (инфраструктура как служба)*, позволяет применять ее различными способами. Ниже приведены некоторые примеры.
 
-- **Virtual machines (VMs) for development and test.** Development groups commonly use VMs because they offer a quick, easy way to create a computer with specific configurations required to code and test an application. Azure Virtual Machines provides a straightforward and economical way to create these VMs, use them, then delete them when they're no longer needed.
-- **Running applications in the cloud.** It makes economic sense to run some applications in the public cloud. One example is an application that has large spikes in demand. Although you could equip your own data center with enough hardware to handle peak demand, that hardware might be underutilized much of the time. Running this application on Azure lets you pay for extra VMs only when you need them and shut them down when you don't. Or, suppose you're a start-up that needs on-demand computing resources quickly and with no commitment. Once again, Azure can be the right choice.
-- **Extending your own datacenter into the public cloud.** When you use Azure Virtual Network, your organization can create a virtual network (VNET) that's an extension of your own on-premises network and add VMs to that VNET. This allows running applications such as [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) and others on an Azure VM. This approach might be easier to deploy or less expensive than running them in VMs your own datacenter.   
-- **Disaster recovery.** Rather than paying continuously for a backup datacenter that's rarely used, IaaS-based disaster recovery lets you pay for the computing resources you need only when you really need them.  For example, if your primary datacenter goes down, you can create VMs running on Azure to run essential applications, then shut them down when they're no longer needed.
+- **Виртуальные машины для разработки и тестирования.** Группы разработчиков часто используют виртуальные машины, так как они обеспечивают быстрый и простой способ создания компьютера с определенными конфигурациями, необходимыми для написания кода и тестирования приложения. Виртуальные машины Azure предлагают рациональный и экономичный способ создания виртуальных машин с последующим удалением тех из них, которые больше не требуются.
+- **Выполнение приложений в облаке.** Некоторые приложения выгодно выполнять в общедоступном облаке по экономическим соображениям. Одним из примеров является приложение со значительными пиками нагрузки из-за большого числа запросов. Всегда можно оборудовать свой центр обработки данных с количеством оборудования, достаточным для обработки этих пиков, но большинство из этого оборудования, скорее всего, будет простаивать. Выполнение этого приложения в Azure позволяет вам оплачивать дополнительные виртуальные машины только в случае необходимости и завершать их работу после использования. Или предположим, что вы недавно открыли компанию, которой требуется быстро получить вычислительные ресурсы по запросу без каких-либо обязательств. И в этом случае правильным выбором станет Azure.
+- **Расширение своего центра обработки данных в общедоступное облако.** С помощью виртуальной сети Azure ваша организация может создать виртуальную сеть (VNET), представляющую собой часть вашей локальной сети, и добавлять виртуальные машины в нее. Это позволяет выполнять на виртуальной машине Azure такие приложения, как [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) и т. д. Этот подход более легкий в реализации и экономически выгодней, чем выполнение приложений на виртуальных машинах в вашем центре обработки данных.   
+- **Аварийное восстановление.** При использовании аварийного восстановления, основанного на IaaS, вместо непрерывной оплаты редко используемого резервного центра обработки данных вы можете оплачивать нужные вычислительные ресурсы только в случае действительной необходимости. Например, если на вашем основном центре обработки данных возникает сбой, вы можете создать в Azure виртуальные машины для выполнения наиболее важных приложений, а затем, когда необходимость в них отпадет, завершить их работу.
 
-Like other virtual machines, a VM in Azure has an operating system, storage and networking capabilities and can run a wide variety of applications. You can use an image provided by Azure or one of it's partners, or use your own. Examples include various versions, editions and configurations of:
+Как и у других виртуальных машин, у виртуальной машины в Azure есть операционная система, возможности для хранения и работы в сети, а также поддержка выполнения самых разнообразных приложений. Вы можете использовать образ, предоставленный компанией Azure или одним из ее партнеров, или использовать свой образ. Примеры различных версий, сборок и конфигураций:
  
-- Linux servers such as Suse, Ubuntu and CentOS
+- Серверы Linux Suse, Ubuntu и CentOS
 - Windows Server 
 - SQL Server
 - BizTalk Server 
 - SharePoint Server
 
-Virtual machines use virtual hard disks (VHDs) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. The following figure shows this, as well as two of the tools for creating and managing your VMs.
+Для хранения операционной системы и данных виртуальные машины используют виртуальные жесткие диски (VHD). Они также используются для образов, которые доступны для установки операционной системы. На следующем рисунке показаны виртуальные жесткие диски, а также два инструмента для создания виртуальных машин и управления ими.
 
-<a name="fig_createvms"></a>
-![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
+<a name="fig_createvms"></a> ![vm\_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
-**Figure: Azure Virtual Machines provides Infrastructure as a Service.**
+**Рисунок. Виртуальные машины Azure предоставляют инфраструктуру как услугу**
 
-VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through the REST API. Microsoft partners such as RightScale and ScaleXtreme also provide management services that rely on the REST API. 
+Управление виртуальными машинами осуществляется с помощью браузерного портала, программ командной строки с поддержкой создания сценариев или напрямую с помощью REST API. Партнеры корпорации Майкрософт, такие как RightScale и ScaleXtreme, также предлагают службы управления, основанные на API REST.
 
-Along with the OS, other configuration choices you have with VMs include:
+Кроме ОС, в виртуальных машинах можно настроить следующие параметры.
 
-- The size, which determines factors such as how many disks you can attach and the processing power. Azure offers a wide variety of sizes to support many types of uses. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
-- The Azure region where your new VM will be hosted, such as in the US, Europe, or Asia. 
-- VM extensions, which give your virtual machine additional capabilities, such as running anti-virus or using the Desired State Configuration feature of Windows PowerShell.
+- Размер, который определяет такие факторы, как количество присоединяемых дисков и вычислительную мощность. Azure предлагает широкий спектр размеров для поддержки разных вариантов использования. Дополнительную информацию см. в статье [Размеры виртуальных машин](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
+- Регион Azure, в котором будет размещаться новая виртуальная машина, например США, Европа или Азия. 
+- Расширения виртуальных машин, которые предоставляют дополнительные возможности вашей виртуальной машине, например запуск антивирусной программы или использование функции настройки требуемого состояния Windows PowerShell.
 
-Other benefits to consider for VMs include:
+Другие преимущества для виртуальных машин.
 
-**Pay-as-you-go** -- Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. Storage is priced and charged separately. For details, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+**Оплата по мере использования**. Azure взимает почасовую оплату на основе размера и операционной системы виртуальной машины. При частичном использовании Azure взимает плату только за минуты использования. Плата за использование хранилища взимается отдельно. Дополнительную информацию см. в разделе [Цены на виртуальные машины](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-**Resiliency** -- Azure monitors the physical hardware that hosts each running VM. If a physical server running a VM fails, Azure notices this, moves the VM to new hardware and restarts the VM. This process is sometimes called service healing. Azure also protects a virtual machine's data, by keeping redundant copies of the VHDs in blob storage. 
+**Устойчивость**. Azure выполняет мониторинг физического оборудования, на котором размещена каждая выполняемая виртуальная машина. В случае сбоя физического сервера, на котором выполняется виртуальная машина, Azure обнаруживает его, перемещает виртуальной машину на новое оборудование и перезапускает ее. Этот процесс иногда называется восстановлением службы. Кроме того, Azure защищает данные виртуальной машины, сохраняя резервные копии виртуальных жестких дисков в хранилище больших двоичных объектов.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
 
 

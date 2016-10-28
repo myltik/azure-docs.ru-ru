@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL | Microsoft Azure" 
-    description="Initiate a planned or unplanned failover for Azure SQL Database using Transact-SQL" 
+    pageTitle="Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью Transact-SQL | Microsoft Azure" 
+    description="Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью Transact-SQL" 
     services="sql-database" 
     documentationCenter="" 
     authors="CarlRabeler" 
@@ -16,96 +16,91 @@
     ms.date="08/29/2016"
     ms.author="carlrab"/>
 
-
-# <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Initiate a planned or unplanned failover for Azure SQL Database with Transact-SQL
+# Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью Transact-SQL
 
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-geo-replication-failover-portal.md)
+- [Портал Azure](sql-database-geo-replication-failover-portal.md)
 - [PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-This article shows you how to initiate failover to a secondary SQL Database using Transact-SQL. To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-transact-sql.md).
+В этой статье объясняется, как запустить отработку отказа в базе данных-получателе SQL Azure с помощью Transact-SQL. Информацию о настройке георепликации для баз данных SQL Azure см. в [этой статье](sql-database-geo-replication-transact-sql.md).
 
 
 
-To initiate failover, you need the following:
+Чтобы инициировать отработку отказа, необходимо следующее:
 
-- A login that is DBManager on the primary, have db_ownership of the local database that you will geo-replicate, and be DBManager on the partner server(s) to which you will configure Geo-Replication.
-- SQL Server Management Studio (SSMS)
-
-
-> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+- Имя для входа с ролью DBManager в базе данных-источнике, привилегиями db\_ownership для локальной базы данных, которая будет геореплицирована. Кроме того, это имя для входа будет выступать в роли DBManager на серверах-партнерах, для которых вы настроите георепликацию.
+- SQL Server Management Studio (SSMS);
 
 
+> [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
-## <a name="initiate-a-planned-failover-promoting-a-secondary-database-to-become-the-new-primary"></a>Initiate a planned failover promoting a secondary database to become the new primary
-
-You can use the **ALTER DATABASE** statement to promote a secondary database to become the new primary database in a planned fashion, demoting the existing primary to become a secondary. This statement is executed on the master database on the Azure SQL Database logical server in which the geo-replicated secondary database that is being promoted resides. This functionality is designed for planned failover, such as during the DR drills, and requires that the primary database be available.
-
-The command performs the following workflow:
-
-1. Temporarily switches replication to synchronous mode, causing all outstanding transactions to be flushed to the secondary and blocking all new transactions;
-
-2. Switches the roles of the two databases in the Geo-Replication partnership.  
-
-This sequence guarantees that the two databases are synchronized before the roles switch and therefore no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command will automatically reconfigure the other secondaries to connect to the new primary.  The entire operation should take less than a minute to complete under normal circumstances. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
 
 
-Use the following steps to initiate a planned failover.
+## Запуск плановой отработки отказа для превращения базы данных-получателя в базу данных-источник
 
-1. In Management Studio, connect to the Azure SQL Database logical server in which a geo-replicated secondary database resides.
+С помощью инструкции **ALTER DATABASE** можно в запланированном порядке сделать базу данных-получателя источником. При этом текущая база данных-источник станет получателем. Эта инструкция выполняется в базе данных master на логическом сервере базы данных SQL Azure, на котором находится геореплицированная база данных-получатель, статус которой повышается. Эта функция предназначена для плановой отработки отказа (как во время отработки аварийного восстановления). Чтобы ее использовать, нужно, чтобы база данных-источник была доступна.
 
-2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+Эта команда выполняет следующий рабочий процесс:
 
-3. Use the following **ALTER DATABASE** statement to switch the secondary database to the primary role.
+1. Временно переводит репликацию в синхронный режим. В результате все транзакции, ожидающие обработки, переносятся в базу данных-получателя, а новые транзакции блокируются.
+
+2. Две базы данных, связанные георепликацией, обмениваются ролями.
+
+Эта последовательность гарантирует, что базы данных будут синхронизированы до переключения ролей, а значит потери данных не возникнут. В течение короткого периода (от 0 до 25 секунд), пока переключаются роли, обе базы данных будут недоступны. Если база данных-источник имеет несколько баз данных-получателей, команда автоматически перенастроится на другие базы данных-получатели для подключения к новой базе данных-источнику. Обычно вся операция занимает меньше минуты. Дополнительные сведения см. в статьях [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) и [Уровни служб](sql-database-service-tiers.md).
+
+
+Чтобы запустить плановую отработку отказа, выполните следующие действия.
+
+1. В Management Studio подключитесь к логическому серверу базы данных SQL Azure, на котором находится геореплицированная база данных-получатель.
+
+2. Откройте папку «Базы данных», разверните папку **Системные базы данных**, щелкните правой кнопкой мыши базу данных **master** и щелкните **Создать запрос**.
+
+3. Чтобы базу данных-получатель сделать базой данных-источником, используйте следующую операцию **ALTER DATABASE**.
 
         ALTER DATABASE <MyDB> FAILOVER;
 
-4. Click **Execute** to run the query.
+4. Нажмите кнопку **Выполнить** для выполнения запроса.
 
->[AZURE.NOTE] In rare cases, it is possible that the operation cannot complete and may appear stuck. In this case, the user can execute the force failover command and accept data loss.
+>[AZURE.NOTE] В редких случаях бывает, что операцию нельзя завершить и что она зависла. Тогда вы можете выполнить команду принудительной отработки отказа (при этом будут потеряны данные).
 
 
-## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>Initiate an unplanned failover from the primary database to the secondary database
+## Запуск внеплановой отработки отказа для превращения базы данных-источника в базу данных-получателя
 
-You can use the **ALTER DATABASE** statement to promote a secondary database to become the new primary database in an unplanned fashion, forcing the demotion of the existing primary to become a secondary at a time when the primary databse is no longer available. This statement is executed on the master database on the Azure SQL Database logical server in which the geo-replicated secondary database that is being promoted resides.
+С помощью инструкции **ALTER DATABASE** можно во внеплановом порядке сделать базу данных-получателя источником. При этом текущая база данных-источник станет получателем, когда база данных-источник перестанет быть доступной. Эта инструкция выполняется в базе данных master на логическом сервере базы данных SQL Azure, на котором находится геореплицированная база данных-получатель, статус которой повышается.
 
-This functionality is designed for disaster recovery when restoring availability of the database is critical and some data loss is acceptable. When forced failover is invoked, the specified secondary database immediately becomes the primary database and begins accepting write transactions. As soon as the original primary database is able to reconnect with this new primary database, an incremental backup is taken on the original primary database and the old primary database is made into a secondary database for the new primary database; subsequently, it is merely a synchronizing replica of the new primary.
+Эта функция предназначена для аварийного восстановления в случаях, когда восстановить доступность базы данных крайне необходимо, а потеря некоторого объема данных является приемлемой. Когда вызывается принудительная отработка отказа, указанная база данных-получатель сразу становится источником и начинает принимать транзакции записи. Когда становится возможным повторно подключить первоначальную базу данных-источник к новой базе данных-источнику, сразу выполняется добавочная архивация первоначальной базы данных-источника, которая при этом становится получателем по отношению к новому источнику, то есть его репликой, выполняющей функцию синхронизации.
 
-However, because Point In Time Restore is not supported on the secondary databases, if the user wishes to recover data committed to the old primary database that had not been replicated to the new primary database before the forced failover occurred, the user will need to engage support to recover this lost data.
+При этом функция «Восстановление до точки во времени» не поддерживается в базах данных-получателях. Поэтому следует обращаться в службу поддержки, если нужно восстановить потерянные данные, которые были записаны в прошлую базу данных-источник и которые перед принудительной отработкой отказа не удалось реплицировать в новый источник.
 
-If the primary database has multiple secondary databases, the command will automatically reconfigure the other secondaries to connect to the new primary.
+Если база данных-источник имеет несколько баз данных-получателей, команда автоматически перенастроится на другие базы данных-получатели для подключения к новой базе данных-источнику.
 
-Use the following steps to initiate an unplanned failover.
+Чтобы запустить плановую отработку отказа, выполните следующие действия.
 
-1. In Management Studio, connect to the Azure SQL Database logical server in which a geo-replicated secondary database resides.
+1. В Management Studio подключитесь к логическому серверу базы данных SQL Azure, на котором находится геореплицированная база данных-получатель.
 
-2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+2. Откройте папку «Базы данных», разверните папку **Системные базы данных**, щелкните правой кнопкой мыши базу данных **master** и щелкните **Создать запрос**.
 
-3. Use the following **ALTER DATABASE** statement to switch the secondary database to the primary role.
+3. Чтобы базу данных-получатель сделать базой данных-источником, используйте следующую операцию **ALTER DATABASE**.
 
         ALTER DATABASE <MyDB>   FORCE_FAILOVER_ALLOW_DATA_LOSS;
 
-4. Click **Execute** to run the query.
+4. Нажмите кнопку **Выполнить** для выполнения запроса.
 
->[AZURE.NOTE] If the command is issued when the both primary and secondary are online the old primary will become the new secondary immediately without data synchronization. If the primary is committing transactions when the command is issued some data loss may occur.
-
-
-
-## <a name="next-steps"></a>Next steps   
-
-- After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
-- To learn recovering after a disaster using Active Geo-Replication, including pre and post recovery steps and performing a disaster recovery drill, see [Disaster Recovery](sql-database-disaster-recovery.md)
-- For a Sasha Nosov blog post about Active Geo-Replication, see [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- For information about designing cloud applications to use Active Geo-Replication, see [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-- For information about using Active Geo-Replication with elastic database pools, see [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
-- For an overview of business continurity, see [Business Continuity Overview](sql-database-business-continuity.md)
+>[AZURE.NOTE] Если команда выполняется, когда одновременно доступны база данных-источник и база данных-получатель, старый источник становится новым получателем мгновенно и без синхронизации данных. Если при отправке команды источник выполняет транзакции, некоторые данные могут быть утеряны.
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Дальнейшие действия   
 
+- После отработки отказа убедитесь, что для новой базы данных-источника настроены требования аутентификации ваших сервера и базы данных. Дополнительные сведения см. в разделе [Как управлять безопасностью базы данных SQL после аварийного восстановления](sql-database-geo-replication-security-config.md).
+- Чтобы изучить восстановление после сбоя с помощью активной георепликации, включая предварительные и последующие действия и отработку аварийного восстановления, ознакомьтесь с разделом [Аварийное восстановление](sql-database-disaster-recovery.md).
+- Прочитайте запись блога Александра Носова об активной георепликации: [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/) (Новые возможности георепликации).
+- Сведения о проектировании облачных приложений для использования активной георепликации см. в разделе [Создание приложения для аварийного восстановления облака с использованием активной георепликации в базе данных SQL](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+- Сведения об использовании активной георепликации с пулами эластичных баз данных см. в разделе [Стратегии аварийного восстановления для приложений с использованием пула эластичных баз данных SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+- Общие сведения об обеспечении непрерывности бизнес-процессов можно узнать в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
 
+<!---HONumber=AcomDC_0831_2016-->

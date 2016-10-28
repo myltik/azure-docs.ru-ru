@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Safety for your StorSimple device | Microsoft Azure"
-   description="Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your StorSimple device."
+   pageTitle="Обновление устройства StorSimple | Microsoft Azure"
+   description="Описание соглашений, правил и рекомендаций в области безопасности, а также безопасная установка и эксплуатация устройства StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,175 +15,168 @@
    ms.date="08/18/2016"
    ms.author="alkohli" />
 
+# Безопасная установка и эксплуатация устройства StorSimple
 
-# <a name="safely-install-and-operate-your-storsimple-device"></a>Safely install and operate your StorSimple device
+![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) ![Значок "Рекомендации по безопасности"](./media/storsimple-safety/IC740885.png) **ОЗНАКОМЬТЕСЬ С ИНФОРМАЦИЕЙ О МЕРАХ ПРЕДОСТОРОЖНОСТИ**
 
-![Warning Icon](./media/storsimple-safety/IC740879.png)
-![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png) **READ SAFETY AND HEALTH INFORMATION**
+Прочтите всю информацию о мерах предосторожности в этой статье, относящуюся к вашему устройству Microsoft Azure StorSimple. Сохраните все печатные руководства, идущие в комплекте с устройством StorSimple, для дальнейшего использования. Несоблюдение инструкций и неправильная настройка, использование и обслуживание этого продукта могут привести к серьезным травмам или смерти, а также повреждению устройства. Также доступна [загружаемая версия этого руководства](http://www.microsoft.com/download/details.aspx?id=44233).
 
-Read all the safety and health information in this article that applies to your Microsoft Azure StorSimple device. Keep all the printed guides shipped with your StorSimple device for future reference. Failure to follow instructions and properly set up, use, and care for this product can increase the risk of serious injury or death, or damage to the device or devices. A [downloadable version of this guide](http://www.microsoft.com/download/details.aspx?id=44233) is also available.
+## Условные обозначения сведений о безопасности
 
-## <a name="safety-icon-conventions"></a>Safety icon conventions
+Ниже приведены условные обозначения, встречающиеся в описаниях мер предосторожности, которые необходимо соблюдать при настройке и эксплуатации устройства Microsoft Azure StorSimple.
 
-Here are the icons that you will find when you review the safety precautions to be observed when setting up and running your Microsoft Azure StorSimple device.
-
-| Icon  | Description  |
+| Значок | Описание |
 |:------|:-------------| 
-|![Danger Icon](./media/storsimple-safety/IC740879.png) **DANGER!**|Indicates a hazardous situation that, if not avoided, will result in death or serious injury. This signal word is to be limited to the most extreme situations.| 
-|![Warning Icon](./media/storsimple-safety/IC740879.png) **WARNING!**|Indicates a hazardous situation that, if not avoided, could result in death or serious injury.|
-|![Warning Icon](./media/storsimple-safety/IC740879.png) **CAUTION!**|Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury.|
-|![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**|Indicates information considered important, but not hazard-related.|
-|![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **Electrical Shock Hazard** |High voltage|
-|![Heavy Weight Icon](./media/storsimple-safety/IC740883.png) **Heavy Weight**| |
-|![No User Serviceable Parts Icon](./media/storsimple-safety/IC740879.png) **No User Serviceable Parts**|Do not access unless properly trained.|
-|![Read Safety Notice Icon](./media/storsimple-safety/IC740885.png)**Read All Instructions First**| |
-|![Tip Hazard Icon](./media/storsimple-safety/IC740886.png) **Tip Hazard**| |
+|![Значок "Опасность"](./media/storsimple-safety/IC740879.png) **ОПАСНОСТЬ!**|Указывает на опасную ситуацию, которая наверняка приведет к смерти или серьезной травме. Это условное обозначение применяется только к самым крайним случаям.| 
+|![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) **ВНИМАНИЕ!**|Указывает на опасную ситуацию, которая может привести к смерти или серьезной травме.|
+|![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) **ОСТОРОЖНО!**|Указывает на опасную ситуацию, которая может привести к травме легкой или средней тяжести.|
+|![Значок "Примечание"](./media/storsimple-safety/IC740881.png) **ПРИМЕЧАНИЕ.**|Указывает на важные сведения, не связанные с угрозой здоровью и жизни человека.|
+|![Значок "Опасность поражения электрическим током"](./media/storsimple-safety/IC740882.png) **Опасность поражения электрическим током** |Высокое напряжение|
+|![Значок "Большой вес"](./media/storsimple-safety/IC740883.png) **Большой вес**| |
+|![Значок "Компоненты не подлежат обслуживанию пользователем"](./media/storsimple-safety/IC740879.png) **Компоненты не подлежат обслуживанию пользователем**|Не проводите техническое обслуживание устройства без должной подготовки.|
+|![Значок "Рекомендации по безопасности"](./media/storsimple-safety/IC740885.png)**Сначала ознакомьтесь со всеми инструкциями**| |
+|![Значок "Опасность опрокидывания"](./media/storsimple-safety/IC740886.png) **Опасность опрокидывания**| |
 
 
-## <a name="handling-precautions"></a>Handling precautions
+## Меры предосторожности при перемещении
 
-![Warning Icon](./media/storsimple-safety/IC740879.png) ![Heavy Weight Icon](./media/storsimple-safety/IC740883.png) **WARNING!** 
+![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) ![Значок "Большой вес"](./media/storsimple-safety/IC740883.png) **ВНИМАНИЕ!**
 
 
-To reduce the risk of injury:
+Меры предотвращения травм.
 
-- A fully configured enclosure can weigh up to 32 kg (70 lbs); do not try to lift it by yourself.
-- Before moving the enclosure, always ensure that two people are available to handle the weight. Be aware that one person attempting to lift this weight can sustain injuries.
-- Do not lift the enclosure by the handles on the Power and Cooling Modules (PCMs) located at the rear of the unit. These are not designed to take the weight.
+- Полностью настроенное устройство может весить до 32 кг (70 фунтов). Не поднимайте его в одиночку.
+- При перемещении устройства воспользуйтесь посторонней помощью для равномерного распределения веса. Обратите внимание, что попытка поднять такой вес в одиночку может привести к травме.
+- Не поднимайте устройство за ручки на модулях питания и охлаждения (PCM), расположенные на задней стороне корпуса. Они не рассчитаны на большой вес.
 
-## <a name="connection-precautions"></a>Connection precautions
+## Меры предосторожности при подключении
 
-![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **WARNING!**
+![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) ![Значок "Опасность поражения электрическим током"](./media/storsimple-safety/IC740882.png) **ВНИМАНИЕ!**
 
-To reduce the likelihood of injury, electrical shock, or death:
+Меры предотвращения травм, удара электрическим током или смерти.
 
-- When powered by multiple AC sources, disconnect all supply power for complete isolation.
+- При использовании нескольких источников электропитания отключите их все для обеспечения полной изоляции.
 
-- Permanently unplug the unit before you move it or if you think it has become damaged in any way.
+- Перед перемещением устройства, или если вам кажется, что оно неисправно, полностью отключите его от электросети.
 
-- Provide a safe electrical earth connection to the power supply cords. Verify that the grounding of the enclosure meets the national and local requirements before applying power.
+- Обеспечьте безопасное соединение с землей для кабелей электропитания. Перед включением электропитания убедитесь, что заземление корпуса соответствует национальным и местным требованиям.
 
-- Ensure that the power connection is always disconnected prior to the removal of a PCM from the enclosure.
+- Перед удалением модуля питания и охлаждения из корпуса убедитесь в полном отсутствии электропитания устройства.
 
-- Given that the plug on the power supply cord is the main disconnect device, ensure that the socket outlets are located near the equipment and are easily accessible.
+- Поскольку штекер кабеля электропитания является основным средством отключения, убедитесь, что розетки расположены вблизи оборудования и в удобном для вас месте.
 
-![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **WARNING!**
+![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) ![Значок "Опасность поражения электрическим током"](./media/storsimple-safety/IC740882.png) **ВНИМАНИЕ!**
 
-To reduce the likelihood of overheating or fire from the electrical connections:
+Меры предотвращения перегрева или возгорания электрических соединений.
 
-- Provide a suitable power source with electrical overload protection to meet the requirements detailed in the technical specification.
+- Используйте подходящий источник питания с защитой от электрической перегрузки, чтобы обеспечить соответствие требованиям, указанным в технической документации.
 
-- Do not use bifurcated power cords (“Y” leads).
+- Не используйте раздвоенные кабели электропитания (Y-образные провода).
 
-- To comply with applicable safety, emission, and thermal requirements, no covers should be removed and all bays must be populated with plug-in modules or drive blanks.
+- Чтобы обеспечить соответствие применимым требованиям к безопасности, уровню выбросов загрязняющих веществ и температуре, все крышки должны быть на месте, а в разъемах должны быть установлены подключаемые модули или заглушки.
 
-- Ensure that the equipment is used in a manner specified by the manufacturer. If this equipment is used in a manner not specified by the manufacturer, the protection provided by the equipment may be impaired.
+- Убедитесь, что оборудование используется согласно инструкциям производителя. В противном случае степень защиты оборудования может быть ослаблена.
 
-![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
+![Значок "Примечание"](./media/storsimple-safety/IC740881.png) **ПРИМЕЧАНИЕ.**
 
-For the proper operation of your equipment and to prevent product damage:
+Меры обеспечения корректной работы оборудования и предотвращения его повреждения.
 
-- The RJ45 ports at the back of the device are for an Ethernet connection only. These must not be connected to a telecommunications network.
+- Порты RJ45 на задней стороне устройства предназначены только для Ethernet-соединения. Запрещается подключать их к телекоммуникационной сети.
 
-- Be sure to install the device in a rack that can accommodate a front-to-back cooling design.
+- Установите устройство в стойку с возможностью охлаждения потоком воздуха от лицевой панели к задней.
 
-- All plug-in modules and blank plates are part of the system enclosure. These must only be removed when a replacement can be immediately added. The system must not be run without all modules or blanks in place.
+- Все подключаемые модули и панели-заглушки являются частью корпуса системы. Удаляйте их только при возможности немедленной установки на их место заменяющего оборудования. Используйте систему только после установки всех модулей и заглушек.
 
-## <a name="rack-system-precautions"></a>Rack system precautions
+## Меры предосторожности при установке системы в стойку
 
-The following safety requirements must be considered when you mount the device in a rack cabinet.
+Указанные ниже меры предосторожности необходимо соблюдать при монтировании устройства в стойку.
 
-![Warning Icon](./media/storsimple-safety/IC740879.png) ![Tip Hazard Icon](./media/storsimple-safety/IC740886.png) **WARNING!**
+![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) ![Значок "Опасность опрокидывания"](./media/storsimple-safety/IC740886.png) **ВНИМАНИЕ!**
  
-To reduce the likelihood of injury from a tip over:
+Меры предотвращения травм в результате падения оборудования.
 
-- The rack design should support the total weight of the installed enclosures and should incorporate stabilizing features suitable to prevent the rack from tipping or being pushed over during installation or normal use.
+- Конструкция стойки должна выдерживать общий вес установленного оборудования, а также должна быть оснащена средствами обеспечения устойчивости для предотвращения падения или опрокидывания стойки по время установки или обычной эксплуатации.
 
-- When loading a rack, fill the rack from the bottom up and empty from the top down.
+- Установку оборудования начинайте с нижней части стойки, а разгрузку — с верхней.
 
-- Do not slide more than one enclosure out of the rack at a time to avoid the danger of the rack toppling over.
+- Вынимайте устройства из стойки по одному во избежание ее опрокидывания.
 
-![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **WARNING!**
+![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) ![Значок "Опасность поражения электрическим током"](./media/storsimple-safety/IC740882.png) **ВНИМАНИЕ!**
 
-To reduce the likelihood of injury, electrical shock, or death:
+Меры предотвращения травм, удара электрическим током или смерти.
 
-- The rack should have a safe electrical distribution system. It must provide over-current protection for the enclosure and must not be overloaded by the total number of enclosures installed. The electrical power consumption rating shown on the nameplate should be observed.
+- Стойка должна быть оснащена безопасной системой распределения электроэнергии. Она должна обеспечивать достаточную защиту от избыточной силы тока для всех установленных устройств. Необходимо соблюдать норму энергопотребления, указанную на табличке с маркировкой.
 
-- The electrical distribution system must provide a reliable ground for each enclosure in the rack.
+- Система распределения электроэнергии должна обеспечивать надежное заземление для каждого устройства в стойке.
 
-- The design of the electrical distribution system must take into consideration the total ground leakage current from all power supplies in all enclosures. Note that each power supply in each enclosure has a ground leakage current of 1.0 mA maximum at 60 Hz, 264 volts. The rack may require labeling with “HIGH LEAKAGE CURRENT. Ground (earth) connection is essential before connecting a supply.”
+- При проектировании системы распределения электроэнергии необходимо учесть общий ток утечки на землю от всех источников питания во всех устройствах. Обратите внимание, что каждый источник питания в каждом устройстве обладает максимальным током утечки на землю в 1 мА при частоте 60 Гц и напряжении 264 В. Может потребоваться нанести на стойку метку "ВЫСОКИЙ ТОК УТЕЧКИ. Перед подключением источника питания обеспечьте заземляющее соединение".
 
-- The rack, when configured with the enclosures, must meet the safety requirements of UL 60950-1 and IEC 60950-1/EN 60950-1.
+- Стойка с установленным в нее оборудованием должна соответствовать требованиям безопасности стандартов UL 60950-1 и МЭК 60950-1/EN 60950-1.
 
-![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
+![Значок "Примечание"](./media/storsimple-safety/IC740881.png) **ПРИМЕЧАНИЕ.**
 
-For the proper cooling of your rack system:
+Меры обеспечения надлежащего охлаждения стоечной системы.
 
-- Ensure that the rack design takes into consideration the maximum enclosure operating ambient temperature of 35 degrees Celsius (95 degrees Fahrenheit).
+- Убедитесь, что при проектировании стойки учитывается максимальная рабочая температура окружающей среды в 35 градусов Цельсия (95 градусов Фаренгейта).
 
-- The system is operated with low-pressure, rear-exhaust installation (back pressure created by rack doors and obstacles not to exceed 5 Pascal [0.5 mm water gauge]).
+- Для корректной работы систему необходимо установить так, чтобы обеспечить выход воздуха через заднюю панель с низким давлением (противодавление, создаваемое дверцами стойки и другими препятствиями, не должно превышать 5 Па, т. е. 0,5 мм вод. ст.).
 
-## <a name="power-cooling-module-(pcm)-precautions"></a>Power Cooling Module (PCM) precautions
+## Меры предосторожности при использовании модулей питания и охлаждения (PCM)
 
-The device is designed to operate with two PCMs. Each of the PCMs has a power supply and a dual-axis fan. During a critical condition, the system allows for a failure of one power supply while continuing normal operations. Two PCMs (and hence power supplies) must always be installed. A single PCM does not provide redundant power. Therefore, the failure of even one PCM can result in downtime or possible data loss.
+Устройство рассчитано на работу с двумя модулями PCM. Каждый такой модуль оснащен источником питания и двухосным вентилятором. При возникновении критической неполадки и выходе из строя одного из источников питания система продолжит функционировать в нормальном режиме. В системе всегда должны быть установлены оба модуля PCM и, соответственно, источника питания. Один модуль PCM не обеспечивает резервного электропитания. Поэтому выход из строя даже одного модуля PCM может привести к простою и потере данных.
 
-![Warning Icon](./media/storsimple-safety/IC740879.png) ![Electrical Shock Icon](./media/storsimple-safety/IC740882.png) **WARNING!**
+![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) ![Значок "Опасность поражения электрическим током"](./media/storsimple-safety/IC740882.png) **ВНИМАНИЕ!**
 
-To reduce the likelihood of injury, electrical shock, or death:
+Меры предотвращения травм, удара электрическим током или смерти.
 
-- Do not remove the covers from the PCM. There is a danger of electric shock inside. To return the PCM and obtain a replacement, [contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+- Не снимайте крышки с модулей PCM. Они находятся под высоким напряжением. Чтобы обменять модуль PCM на новый, [обратитесь в службу технической поддержки Майкрософт](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
+![Значок "Примечание"](./media/storsimple-safety/IC740881.png) **ПРИМЕЧАНИЕ.**
 
-For the proper operation of your equipment and to prevent product damage:
+Меры обеспечения корректной работы оборудования и предотвращения его повреждения.
 
-- You must replace the failed PCM within 24 hours. After a PCM is removed for replacement, the replacement must be completed within 10 minutes after removal.
+- Неисправный модуль PCM необходимо заменить в течение суток. После удаления неисправного модуля PCM новый модуль необходимо установить в течение 10 минут.
 
-- Do not remove a PCM unless a replacement can be installed immediately. The enclosure must not be operated without all modules in place.
+- Не удаляйте модуль PCM при отсутствии возможности немедленно установить новый модуль. Не используйте устройство, если установлены не все модули.
 
-## <a name="electrostatic-discharge-(esd)-precautions"></a>Electrostatic discharge (ESD) precautions
+## Меры защиты от электростатического разряда (ESD)
 
-![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
+![Значок "Примечание"](./media/storsimple-safety/IC740881.png) **ПРИМЕЧАНИЕ.**
 
-Observe the following ESD-related precautions.
+Соблюдайте указанные ниже меры предосторожности, связанные с защитой от электростатического разряда.
 
-- Ensure that you have installed and checked a suitable antistatic wrist or ankle strap.
+- Обязательно установите и проверьте подходящий антистатический браслет или ножной ремешок.
 
-- Observe all conventional ESD precautions when handling modules and components.
+- Соблюдайте все общепринятые меры по защите от электростатического разряда при работе с модулями и компонентами.
 
-- Avoid contact with backplane components and module connectors.
+- Избегайте контакта с компонентами и разъемами модулей на задней панели.
 
-- ESD damage is not covered by warranty.
+- Гарантия не распространяется на повреждения, вызванные электростатическим разрядом.
 
-## <a name="battery-disposal-precautions"></a>Battery disposal precautions
+## Меры предосторожности при утилизации батарей
 
-The power supply uses a special battery to protect the contents of memory during temporary, short-term power outages. The battery is seated in the PCM. Keep the following information in mind about the battery.
+Источник питания использует специальную батарею для защиты содержимого памяти во время кратковременных перебоев электропитания. Батарея расположена в модуле PCM. Примите во внимание указанные ниже сведения о батарее.
 
-![Warning Icon](./media/storsimple-safety/IC740879.png) **WARNING!**
+![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) **ВНИМАНИЕ!**
 
-To reduce the risk of shorts, fire, explosion, injury, or death:
+Меры предотвращения короткого замыкания, возгорания, взрыва, травм и смерти.
 
-- Dispose of used batteries in accordance with national/regional regulations.
+- Утилизируйте использованные батареи согласно национальным и региональным требованиям.
 
-- Do not disassemble, crush, or heat above 60 degrees Celsius (140 degrees Fahrenheit) or incinerate. Replace the PCM battery with a supplied battery only. Use of another battery may present a risk of fire or explosion.
+- Запрещается разбирать, разбивать, нагревать выше 60 градусов Цельсия (140 градусов Фаренгейта) или поджигать батарею. Заменяйте батарею в модуле PCM только на батарею, предоставленную производителем. Использование другой батареи может привести к возгоранию или взрыву.
 
-- Use protective end caps on the batteries if these are removed from the power supply.
+- При удалении батарей из источника питания надевайте на них защитные крышки.
 
-![Notice Icon](./media/storsimple-safety/IC740881.png) **NOTICE:**
+![Значок "Примечание"](./media/storsimple-safety/IC740881.png) **ПРИМЕЧАНИЕ.**
 
-When shipping or otherwise transporting the batteries by air, follow the IATA Lithium Battery Guidance document available at [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+При транспортировке батарей по воздуху соблюдайте требования, указанные в документе ИАТА "Рекомендации по литиевым батареям" на странице [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
-After you have reviewed these safety notices, the next steps are to unpack, rack and cable your device.
+Ознакомившись с этими рекомендациями по безопасности, распакуйте устройство, установите его в стойку и подключите все необходимые кабели.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- For an 8100 device, go to [Install your StorSimple 8100 device](storsimple-8100-hardware-installation.md).
+- Для устройства 8100 перейдите к разделу [Установите ваше устройство StorSimple 8100](storsimple-8100-hardware-installation.md).
 
-- For an 8600 device, go to [Install your StorSimple 8600 device](storsimple-8600-hardware-installation.md).
+- Для устройства 8600 перейдите к разделу [Установите ваше устройство StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,105 +1,100 @@
 <properties
-     pageTitle="Using Azure CDN | Microsoft Azure"
-     description="This topic shows how to enable the Content Delivery Network (CDN) for Azure. The tutorial walks through the creation of a new CDN profile and endpoint."
-     services="cdn"
-     documentationCenter=""
-     authors="camsoper"
-     manager="erikre"
-     editor=""/>
+	 pageTitle="Использование Azure CDN | Microsoft Azure"
+	 description="В этом разделе показано, как включить сеть доставки содержимого (CDN) для Azure. В этом руководстве описано, как создать профиль CDN и конечную точку."
+	 services="cdn"
+	 documentationCenter=""
+	 authors="camsoper"
+	 manager="erikre"
+	 editor=""/>
 <tags
-     ms.service="cdn"
-     ms.workload="media"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="07/28/2016" 
-     ms.author="casoper"/>
+	 ms.service="cdn"
+	 ms.workload="media"
+	 ms.tgt_pltfrm="na"
+	 ms.devlang="na"
+	 ms.topic="get-started-article"
+	 ms.date="07/28/2016" 
+	 ms.author="casoper"/>
 
+# Использование Azure CDN  
 
-# <a name="using-azure-cdn"></a>Using Azure CDN  
+В этой статье объясняется, как включить Azure CDN, создав новый профиль и конечную точку CDN.
 
-This topic walks through enabling Azure CDN by creating a new CDN profile and endpoint.
+>[AZURE.IMPORTANT] Общие сведения о работе CDN, включая список функций, см. в [обзорной статье о сети CDN](./cdn-overview.md).
 
->[AZURE.IMPORTANT] For an introduction to how CDN works, as well as a list of features, see the [CDN Overview](./cdn-overview.md).
+## Создание нового профиля сети CDN
 
-## <a name="create-a-new-cdn-profile"></a>Create a new CDN profile
+Профиль сети CDN представляет собой коллекцию конечных точек сети CDN. Каждый профиль содержит одну или несколько конечных точек сети CDN. Вы можете использовать несколько профилей для упорядочения конечных точек сети CDN по домену Интернета, веб-приложению или согласно другим условиям.
 
-A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
-
-> [AZURE.NOTE] By default, a single Azure subscription is limited to eight CDN profiles. Each CDN profile is limited to ten CDN endpoints.
+> [AZURE.NOTE] По умолчанию в одной подписке Azure можно создать не более восьми профилей CDN. Каждый профиль CDN может содержать не более десяти конечных точек CDN.
 >
-> CDN pricing is applied at the CDN profile level. If you wish to use a mix of Azure CDN pricing tiers, you will need multiple CDN profiles.
+> Стоимость использования CDN определяется уровнем профиля CDN. Если вы хотите использовать ценовые категории Azure CDN, вам потребуется несколько профилей CDN.
 
 [AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## <a name="create-a-new-cdn-endpoint"></a>Create a new CDN endpoint
+## Создание новой конечной точки сети CDN
 
-**To create a new CDN endpoint**
+**Создание новой конечной точки сети CDN**
 
-1. In the [Azure Portal](https://portal.azure.com), navigate to your CDN profile.  You may have pinned it to the dashboard in the previous step.  If you not, you can find it by clicking **Browse**, then **CDN profiles**, and clicking on the profile you plan to add your endpoint to.
+1. На [портале Azure](https://portal.azure.com) перейдите к профилю CDN. На предыдущем шаге вы могли прикрепить его к панели мониторинга. Если профиль не прикреплен, найдите его, нажав кнопку **Обзор**, выбрав **Профили CDN** и щелкнув профиль, к которому нужно добавить конечную точку.
 
-    The CDN profile blade appears.
+    Появится колонка профиля сети CDN.
 
-    ![CDN profile][cdn-profile-settings]
+    ![Профиль сети CDN][cdn-profile-settings]
 
-2. Click the **Add Endpoint** button.
+2. Нажмите кнопку **Добавить конечную точку**.
 
-    ![Add endpoint button][cdn-new-endpoint-button]
+    ![Кнопка "Добавить конечную точку"][cdn-new-endpoint-button]
 
-    The **Add an endpoint** blade appears.
+    Появится колонка **Добавление конечной точки**.
 
-    ![Add endpoint blade][cdn-add-endpoint]
+    ![Колонка "Добавление конечной точки"][cdn-add-endpoint]
 
-3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<endpointname>.azureedge.net`.
+3. Введите **имя** конечной точки сети CDN. Это имя будет использоваться для доступа к кэшированным ресурсам в домене `<endpointname>.azureedge.net`.
 
-4. In the **Origin type** dropdown, select your origin type.  Select **Storage** for an Azure Storage account, **Cloud service** for an Azure Cloud Service, **Web App** for an Azure Web App, or **Custom origin** for any other publicly accessible web server origin (hosted in Azure or elsewhere).
+4. В раскрывающемся списке **Тип источника** выберите тип источника. Выберите **Служба хранилища** для учетной записи хранения Azure, **Облачная служба** для облачной службы Azure, **Веб-приложение** для веб-приложения Azure или **Настраиваемый источник** для любого другого общедоступного источника на веб-сервере (размещенного в Azure или в другом месте).
 
-    ![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
-        
-5. In the **Origin hostname** dropdown, select or type your origin domain.  The dropdown will list all available origins of the type you specified in step 4.  If you selected *Custom origin* as your **Origin type**, you will type in the domain of your custom origin.
+	![Тип источника CDN](./media/cdn-create-new-endpoint/cdn-origin-type.png)
+		
+5. В раскрывающемся списке **Имя узла источника** выберите или введите исходный домен. В раскрывающемся списке будут перечислены все доступные источники типа, указанного на шаге 4. Если в качестве значения параметра **Тип источника** вы выбрали *Настраиваемый источник*, потребуется ввести домен вашего настраиваемого источника.
 
-6. In the **Origin path** text box, enter the path to the resources you want to cache, or leave blank to allow cache any resource at the domain you specified in step 5.
+6. В поле **Путь к источнику** введите путь к ресурсам, которые нужно кэшировать, или оставьте поле пустым, чтобы разрешить кэшировать любые ресурсы в домене, указанном на шаге 5.
 
-7. In the **Origin host header**, enter the host header you want the CDN to send with each request, or leave the default.
+7. В поле **Заголовок узла источника** введите заголовок узла, который сеть CDN будет отправлять с каждым запросом, или оставьте значение по умолчанию.
 
-    > [AZURE.WARNING] Some types of origins, such as Azure Storage and Web Apps, require the host header to match the domain of the origin. Unless you have an origin that requires a host header different from its domain, you should leave the default value.
+	> [AZURE.WARNING] Для некоторых типов источников, таких как служба хранилища Azure и веб-приложения, нужно, чтобы заголовок узла соответствовал домену источника. Если для вашего источника не требуется, чтобы заголовок узла отличался от домена, оставьте значение по умолчанию.
 
-8. For **Protocol** and **Origin port**, specify the protocols and ports used to access your resources at the origin.  At least one protocol (HTTP or HTTPS) must be selected.
-    
-    > [AZURE.NOTE] The **Origin port** only affects what port the endpoint uses to retrieve information from the origin.  The endpoint itself will only be available to end clients on the default HTTP and HTTPS ports (80 and 443), regardless of the **Origin port**.  
-    >
-    > **Azure CDN from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
-    >
-    > Accessing CDN content using HTTPS has the following constraints:
-    > 
-    > - You must use the SSL certificate provided by the CDN. Third party certificates are not supported.
-    > - You must use the CDN-provided domain (`<endpointname>.azureedge.net`) to access HTTPS content. HTTPS support is not available for custom domain names (CNAMEs) since the CDN does not support custom certificates at this time.
+8. Для параметров **Протокол** и **Порт источника** укажите протоколы и порты, используемые для доступа к ресурсам в источнике. Необходимо указать хотя бы один протокол (HTTP или HTTPS).
+	
+	> [AZURE.NOTE] **Порт источника** влияет только на то, какой порт будет использовать конечная точка для получения данных из источника. Сама конечная точка будет доступна конечным клиентам только на портах HTTP и HTTPS по умолчанию (80 и 443) вне зависимости от **порта источника**.
+	>
+	> В конечных точках **Azure CDN от Akamai** запрещено указывать полный диапазон портов TCP для источников. Список запрещенных портов источников см. в статье [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx) (Разрешенные порты источников Azure CDN от Akamai).
+	>
+	> Доступ к содержимому CDN с использованием HTTPS имеет следующие ограничения.
+	> 
+	> - Необходимо использовать сертификат SSL, предоставленный сетью CDN. Сертификаты третьих сторон не поддерживаются.
+	> - Для доступа к HTTPS-содержимому необходимо использовать домен, предоставленный сетью CDN (`<endpointname>.azureedge.net`). Поддержка HTTPS для имен личных доменов (CNAME) недоступна, поскольку в данный момент CDN не поддерживает пользовательские сертификаты.
 
-9. Click the **Add** button to create the new endpoint.
+9. Нажмите кнопку **Добавить**, чтобы создать новую конечную точку.
 
-10. Once the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the URL to use to access cached content, as well as the origin domain.
+10. Созданная конечная точка отображается в списке конечных точек для профиля. В режиме списка отображается URL-адрес для доступа к кэшированному содержимому, а также исходному домену.
 
-    ![CDN endpoint][cdn-endpoint-success]
+    ![Конечная точка сети CDN][cdn-endpoint-success]
 
-    > [AZURE.IMPORTANT] The endpoint will not immediately be available for use, as it takes time for the registration to propagate through the CDN.  For <b>Azure CDN from Akamai</b> profiles, propagation will usually complete within one minute.  For <b>Azure CDN from Verizon</b> profiles, propagation will usually complete within 90 minutes, but in some cases can take longer.
-    >    
-    > Users who try to use the CDN domain name before the endpoint configuration has propagated to the POPs will receive HTTP 404 response codes.  If it's been several hours since you created your endpoint and you're still receiving 404 responses, please see [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md).
+    > [AZURE.IMPORTANT] Конечная точка не будет доступна сразу. Распространение регистрационных сведений по сети CDN может занять некоторое время. Для профилей <b>Azure CDN от Akamai</b> распространение обычно занимает не более минуты. Для профилей <b>Azure CDN от Verizon</b> распространение обычно длится в течение 90 минут, но в некоторых случаях может занимать больше времени.
+	>	 
+	> При попытке использовать имя домена CDN до того, как конфигурация конечной точки распространится на POP, будет возвращен код ответа HTTP 404. Если прошло несколько часов с момента создания конечной точки и вы по-прежнему получаете ответы 404, см. статью [Устранение неполадок конечных точек CDN, возвращающих состояние 404](cdn-troubleshoot-endpoint.md).
 
 
-##<a name="see-also"></a>See Also
-- [Controlling caching behavior of requests with query strings](cdn-query-string.md)
-- [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
-- [Pre-load assets on an Azure CDN endpoint](cdn-preload-endpoint.md)
-- [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
-- [Troubleshooting CDN endpoints returning 404 statuses](cdn-troubleshoot-endpoint.md)
+##См. также
+- [Управление режимом кэширования запросов CDN с использованием строк запроса](cdn-query-string.md)
+- [Сопоставление содержимого CDN с пользовательским доменом](cdn-map-content-to-custom-domain.md)
+- [Предварительная загрузка ресурсов на конечной точке CDN Azure](cdn-preload-endpoint.md)
+- [Очистка конечной точки сети CDN Azure](cdn-purge-endpoint.md)
+- [Troubleshooting CDN endpoints returning 404 statuses (Устранение неполадок конечных точек CDN, возвращающих состояние 404)](cdn-troubleshoot-endpoint.md)
 
 [cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

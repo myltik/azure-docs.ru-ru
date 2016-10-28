@@ -1,43 +1,38 @@
 <properties
-    pageTitle="Azure Functions triggers and bindings | Microsoft Azure"
-    description="Understand how to use triggers and bindings in Azure Functions."
-    services="functions"
-    documentationCenter="na"
-    authors="christopheranderson"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+	pageTitle="Триггеры и привязки в Функциях Azure | Microsoft Azure"
+	description="Узнайте, как использовать триггеры и привязки в Функциях Azure."
+	services="functions"
+	documentationCenter="na"
+	authors="christopheranderson"
+	manager="erikre"
+	editor=""
+	tags=""
+	keywords="функции azure, функции, обработка событий, веб-перехватчики, динамические вычисления, независимая архитектура"/>
 
 <tags
-    ms.service="functions"
-    ms.devlang="multiple"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="08/27/2016"
-    ms.author="chrande"/>
+	ms.service="functions"
+	ms.devlang="multiple"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/27/2016"
+	ms.author="chrande"/>
 
+# Справочник разработчика по триггерам и привязкам в Функциях Azure
 
-# <a name="azure-functions-triggers-and-bindings-developer-reference"></a>Azure Functions triggers and bindings developer reference
+В следующих статьях описывается настройка триггеров и привязок в Функциях Azure и их программирование. В этих статьях предполагается, что вы уже прочли [справочник разработчика по функциям Azure](functions-reference.md), а также справочники разработчика для [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) и [Node.js](functions-reference-node.md).
 
-The following articles explain how to configure and code triggers and bindings in Azure Functions. The articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md), or [Node.js](functions-reference-node.md) developer reference articles.
+## Статьи о триггерах и привязках
 
-## <a name="triggers-and-bindings-articles"></a>Triggers and bindings articles
-
-Click on a trigger or binding listed below to learn more:
+Щелкните триггер или привязку ниже, чтобы получить дополнительные сведения:
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-For more information, see the following resources:
+Для получения дополнительных сведений см. следующие ресурсы:
 
-* [Testing a function](functions-test-a-function.md)
-* [Scale a function](functions-scale.md)
+* [Тестирование функции](functions-test-a-function.md)
+* [Масштабирование функции](functions-scale.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

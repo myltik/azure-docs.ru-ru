@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown | Microsoft Azure"
-   description="This article demonstrates how to use JSON strings on tags to automate the scheduling of VM startup and shutdown."
+   pageTitle="Создание расписания запуска и завершения работы виртуальной машины Azure с помощью тегов в формате JSON | Microsoft Azure"
+   description="В этой статье демонстрируется использование строк JSON в тегах для автоматизации планирования запуска и завершения работы виртуальной машины."
    services="automation"
    documentationCenter=""
    authors="MGoedtel"
@@ -15,72 +15,71 @@
    ms.date="07/18/2016"
    ms.author="magoedte;paulomarquesc" />
 
+# Сценарий службы автоматизации Azure: создание расписания запуска и завершения работы виртуальной машины Azure с помощью тегов в формате JSON
 
-# <a name="azure-automation-scenario:-using-json-formatted-tags-to-create-a-schedule-for-azure-vm-startup-and-shutdown"></a>Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown
+Часто клиентам необходимо планировать запуск и завершение работы виртуальных машин, чтобы уменьшить затраты на подписку или соблюсти деловые и технические требования.
 
-Customers often want to schedule the startup and shutdown of virtual machines to help reduce subscription costs or support business and technical requirements.  
+Приведенный ниже сценарий позволяет настроить автоматические запуск и завершение работы виртуальных машин, используя тег Schedule на уровне группы ресурсов или виртуальной машины в Azure. Это расписание можно настроить с воскресенья по субботу с указанием времени запуска и времени завершения работы.
 
-The following scenario enables you to set up automated startup and shutdown of your VMs by using a tag called Schedule at a resource group level or virtual machine level in Azure. This schedule can be configured from Sunday to Saturday with a startup time and shutdown time.  
+Для реализации этой возможности используются некоторые готовые функции. К ним относятся:
+-  [наборы масштабирования виртуальных машин](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) с параметрами автомасштабирования, которые позволяют увеличивать или уменьшать масштаб;
+- служба [DevTest Labs](../devtest-lab/devtest-lab-overview.md) со встроенными возможностями планирования операций запуска и завершения работы.
 
-We do have some out-of-the-box options. These include:
--  [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) with autoscale settings that enable you to scale in or out.
-- [DevTest Labs](../devtest-lab/devtest-lab-overview.md) service, which has the built-in capability of scheduling startup and shutdown operations.
+Эти функции подходят только для определенных сценариев и не могут использоваться для виртуальных машин IaaS.
 
-However, these options only support specific scenarios and cannot be applied to infrastructure-as-a-service (IaaS) VMs.   
+Если тег Schedule применяется к группе ресурсов, то он также будет применен ко всем виртуальным машинам в ней. Если же непосредственно к виртуальной машине применяется другое расписание, то приоритетность расписаний устанавливается в следующем порядке:
 
-When the Schedule tag is applied to a resource group, it's also applied to all virtual machines inside that resource group. If a schedule is also directly applied to a VM, the last schedule takes precedence in the following order:
+1.  расписание, примененное к группе ресурсов;
+2.  расписание, примененное к группе ресурсов и виртуальной машине в этой группе ресурсов;
+3.  расписание, примененное к виртуальной машине.
 
-1.  Schedule applied to a resource group
-2.  Schedule applied to a resource group and virtual machine in the resource group
-3.  Schedule applied to a virtual machine
+Этот сценарий фактически принимает строку JSON в указанном формате и добавляет ее в качестве значения для тега Schedule. Затем модуль Runbook получает список всех групп ресурсов и виртуальных машин и определяет расписание для каждой виртуальной машины на основе указанных выше сценариев. После этого он перебирает виртуальные машины по заданным расписаниям и оценивает действие, которое должно быть выполнено: остановка, завершение работы либо пропуск действия.
 
-This scenario essentially takes a JSON string with a specified format and adds it as the value for a tag called Schedule. Then a runbook lists all resource groups and virtual machines and identifies the schedules for each VM based on the scenarios listed earlier. Next it loops through the VMs that have schedules attached and evaluates what action should be taken. For example, it determines which VMs need to be stopped, shut down, or ignored.
+Эти модули Runbook выполняют проверку подлинности с помощью [учетной записи запуска от имени Azure](../automation/automation-sec-configure-azure-runas-account.md).
 
-These runbooks authenticate by using the [Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md).
+## Скачивание модулей Runbook для сценария
 
-## <a name="download-the-runbooks-for-the-scenario"></a>Download the runbooks for the scenario
+Сценарий состоит из четырех модулей Runbook рабочего процесса PowerShell, которые можно скачать из [коллекции TechNet](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) или репозитория [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) для этого проекта.
 
-This scenario consists of four PowerShell Workflow runbooks that you can download from the [TechNet Gallery](https://gallery.technet.microsoft.com/Azure-Automation-Runbooks-84f0efc7) or the [GitHub](https://github.com/paulomarquesdacosta/azure-automation-scheduled-shutdown-and-startup) repository for this project.
-
-Runbook | Description
+Модуль Runbook | Описание
 ----------|----------
-Test-ResourceSchedule | Checks each virtual machine schedule and performs shutdown or startup depending on the schedule.
-Add-ResourceSchedule | Adds the Schedule tag to a VM or resource group.
-Update-ResourceSchedule | Modifies the existing Schedule tag by replacing it with a new one.
-Remove-ResourceSchedule | Removes the Schedule tag from a VM or resource group.
+Test-ResourceSchedule | Проверяет расписание каждой виртуальной машины и выполняет завершение работы или запуск в зависимости от расписания
+Add-ResourceSchedule | Добавляет тег Schedule для виртуальной машины или группы ресурсов
+Update-ResourceSchedule | Изменяет имеющийся тег Schedule, заменяя его новым
+Remove-ResourceSchedule | Удаляет тег Schedule виртуальной машины или группы ресурсов
 
 
-## <a name="install-and-configure-this-scenario"></a>Install and configure this scenario
+## Установка и настройка сценария
 
-### <a name="install-and-publish-the-runbooks"></a>Install and publish the runbooks
+### Установка и публикация модулей Runbook
 
-After downloading the runbooks, you can import them by using the procedure in [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation).  Publish each runbook after it has been successfully imported into your Automation account.
-
-
-### <a name="add-a-schedule-to-the-test-resourceschedule-runbook"></a>Add a schedule to the Test-ResourceSchedule runbook
-
-Follow these steps to enable the schedule for the Test-ResourceSchedule runbook. This is the runbook that verifies which virtual machines should be started, shut down, or left as is.
-
-1. From the Azure portal, open your Automation account, and then click the **Runbooks** tile.
-2. On the **Test-ResourceSchedule** blade, click the **Schedules** tile.
-3. On the **Schedules** blade, click **Add a schedule**.
-4. On the **Schedules** blade, select **Link a schedule to your runbook**. Then select **Create a new schedule**.
-5.  On the **New schedule** blade, type in the name of this schedule, for example: *HourlyExecution*.
-6. For the schedule **Start**, set the start time to an hour increment.
-7. Select **Recurrence**, and then for **Recur every interval**, select **1 hour**.
-8. Verify that **Set expiration** is set to **No**, and then click **Create** to save your new schedule.
-9. On the **Schedule Runbook** options blade, select **Parameters and run settings**. In the Test-ResourceSchedule **Parameters** blade, enter the name of your subscription in the **SubscriptionName** field.  This is the only parameter that's required for the runbook.  When you're finished, click **OK**.  
+Загрузив модули Runbook, импортируйте их, как описано в статье [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation). Опубликуйте каждый модуль Runbook после импорта в учетную запись автоматизации.
 
 
-The runbook schedule should look like the following when it's completed:
+### Добавление расписания в модуль Runbook Test-ResourceSchedule
 
-![Configured Test-ResourceSchedule runbook](./media/automation-scenario-start-stop-vm-wjson-tags/automation-schedule-config.png)<br>
+Выполните следующие действия, чтобы включить расписание в модуль Runbook Test-ResourceSchedule. Это модуль Runbook, который проверяет, какую виртуальную машину следует запустить, отключить или оставить как есть.
 
-## <a name="format-the-json-string"></a>Format the JSON string
+1. На портале Azure откройте свою учетную запись службы автоматизации и щелкните элемент **Модули Runbook**.
+2. В колонке **Test-ResourceSchedule** щелкните элемент **Расписания**.
+3. В колонке **Расписания** щелкните **Добавить расписание**.
+4. В колонке **Расписания** выберите **Связать расписание с модулем Runbook**, а затем — **Создать новое расписание**.
+5.  В колонке **Новое расписание** введите имя расписания, например *HourlyExecution*.
+6. В поле **Запуск** расписания задайте время запуска, округленное до часов.
+7. Выберите **Повторение** и для интервала **Reoccur every** (Повторяется каждые) выберите значение **1 час**.
+8. Для параметра **Задать срок действия** задайте значение **Нет** и щелкните **Создать**, чтобы сохранить новое расписание.
+9. В колонке параметров **Включить модуль Runbook в расписание** выберите **Параметры и настройки запуска**. В колонке **Параметры** модуля Test-ResourceSchedule в поле **SubscriptionName** введите имя подписки. Это единственный параметр, необходимый для модуля Runbook. Закончив, нажмите кнопку **ОК**.
 
-This solution basically takes a JSON string with a specified format and adds it as the value for a tag called Schedule. Then a runbook lists all resource groups and virtual machines and identifies the schedules for each virtual machine.
 
-The runbook loops over the virtual machines that have schedules attached and checks what actions should be taken. The following is an example of how the solutions should be formatted:
+После этого расписание Runbook должно выглядеть следующим образом.
+
+![Настроенный модуль Runbook Test-ResourceSchedule](./media/automation-scenario-start-stop-vm-wjson-tags/automation-schedule-config.png)<br>
+
+## Форматирование строки JSON
+
+Это решение фактически принимает строку JSON в указанном формате и добавляет ее в качестве значения для тега Schedule. Затем модуль Runbook получает список всех групп ресурсов и виртуальных машин и определяет расписания для каждой виртуальной машины.
+
+Он перебирает эти виртуальные машины по заданным расписаниям и проверяет, какое действие следует выполнить. Ниже приведен пример соответствующего форматирования.
 
     {
        "TzId": "Eastern Standard Time",
@@ -98,21 +97,21 @@ The runbook loops over the virtual machines that have schedules attached and che
         },
     }
 
-Here is some detailed information about this structure:
+Вот подробные сведения об этой структуре:
 
-1. The format of this JSON structure is optimized to work around the 256-character limitation of a single tag value in Azure.
+1. Формат этой структуры JSON оптимизирован для обхода ограничения в 256 знаков на значение тега в Azure.
 
-2. *TzId* represents the time zone of the virtual machine. This ID can be obtained by using the TimeZoneInfo .NET class in a PowerShell session--**[System.TimeZoneInfo]::GetSystemTimeZones()**.
+2. *TzId* представляет часовой пояс виртуальной машины. Этот идентификатор можно получить с помощью класса TimeZoneInfo .NET в сеансе PowerShell: **[System.TimeZoneInfo]::GetSystemTimeZones()**.
 
-    ![GetSystemTimeZones in PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
+    ![GetSystemTimeZones в PowerShell](./media/automation-scenario-start-stop-vm-wjson-tags/automation-get-timzone-powershell.png)
 
-    - Weekdays are represented with a numeric value of zero to six. The value zero equals Sunday.
-    - The start time is represented with the **S** attribute, and its value is in a 24-hour format.
-    - The end or shutdown time is represented with the **E** attribute, and its value is in a 24-hour format.
+    - Дни недели представлены числом от нуля до шести. Значение 0 соответствует воскресенью.
+    - Время запуска представлено атрибутом **S** и его значением в 24-часовом формате.
+    - Время окончания или завершения работы представлено атрибутом **E** и его значением в 24-часовом формате.
 
-    If the **S** and **E** attributes each have a value of zero (0), the virtual machine will be left in its present state at the time of evaluation.   
+    Если атрибуты **S** и **E** имеют значение 0 (ноль), то во время проверки виртуальная машина останется в своем текущем состоянии.
 
-3. If you want to skip evaluation for a specific day of the week, don’t add a section for that day of the week. In the following example, only Monday is evaluated, and the other days of the week are ignored:
+3. Если вы хотите пропустить проверку в определенный день недели, то не добавляйте раздел этого дня недели. В следующем примере проверка выполняется только в понедельник, а в остальные дни недели она пропускается.
 
         {
           "TzId": "Eastern Standard Time",
@@ -122,115 +121,111 @@ Here is some detailed information about this structure:
            }
         }
 
-## <a name="tag-resource-groups-or-vms"></a>Tag resource groups or VMs
+## Добавление тегов для групп ресурсов или виртуальных машин
 
-To shut down VMs, you need to tag either the VMs or the resource groups in which they're located. Virtual machines that don't have a Schedule tag are not evaluated. Therefore, they aren't started or shut down.
+Для завершения работы виртуальных машин необходимо отметить тегом их или группы ресурсов, в которых они находятся. Виртуальные машины, у которых нет тега Schedule, не проверяются. По этой причине их запуск или завершение их работы не выполняется.
 
-There are two ways to tag resource groups or VMs with this solution. You can do it directly from the portal. Or you can use the Add-ResourceSchedule, Update-ResourceSchedule, and Remove-ResourceSchedule runbooks.
+Существует два способа маркировки виртуальных машин или групп ресурсов при использовании этого решения. Это можно сделать непосредственно на портале или с помощью модулей Runbook Add-ResourceSchedule, Update-ResourceSchedule и Remove-ResourceSchedule.
 
-### <a name="tag-through-the-portal"></a>Tag through the portal
+### Добавление тегов с помощью портала
 
-Follow these steps to tag a virtual machine or resource group in the portal:
+Выполните следующие действия, чтобы добавить тег для виртуальной машины или группы ресурсов на портале.
 
-1. Flatten the JSON string and verify that there aren't any spaces.  Your JSON string should look like this:
+1. Преобразуйте строку JSON в плоскую структуру и убедитесь, что в ней нет пробелов. Строка JSON должна выглядеть следующим образом.
 
         {"TzId":"Eastern Standard Time","0":{"S":"11","E":"17"},"1":{"S":"9","E":"19"},"2": {"S":"9","E":"19"},"3":{"S":"9","E":"19"},"4":{"S":"9","E":"19"},"5":{"S":"9","E":"19"},"6":{"S":"11","E":"17"}}
 
 
-2. Select the **Tag** icon for a VM or resource group to apply this schedule.
+2. Щелкните значок **Тег** для виртуальной машины или группы ресурсов, чтобы применить это расписание.
 
-![VM tag option](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)    
-3. Tags are defined following a key/value pair. Type **Schedule** in the **Key** field, and then paste the JSON string into the **Value** field. Click **Save**. Your new tag should now appear in the list of tags for your resource.
+![Параметр тега виртуальной машины](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-tag-option.png)
+3. Теги определяются следующей парой "ключ — значение". Введите **Schedule** в поле **Ключ** и вставьте строку JSON в поле **Значение**. Щелкните **Сохранить**. Новый тег должен появиться в списке тегов для ресурса.
 
-![VM schedule tag](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
+![Тег Schedule виртуальной машины](./media/automation-scenario-start-stop-vm-wjson-tags/automation-vm-schedule-tag.png)
 
 
-### <a name="tag-from-powershell"></a>Tag from PowerShell
+### Добавление тега из PowerShell
 
-All imported runbooks contain help information at the beginning of the script that describes how to execute the runbooks directly from PowerShell. You can call the Add-ScheduleResource and Update-ScheduleResource runbooks from PowerShell. You do this by passing required parameters that enable you to create or update the Schedule tag on a VM or resource group outside of the portal.  
+Все импортированные модули Runbook содержат справочные сведения в начале скрипта, в которых описывается выполнение Runbook непосредственно из PowerShell. Модули Runbook Add-ScheduleResource и Update-ScheduleResource можно вызывать из PowerShell. Для этого нужно передать необходимые параметры, позволяющие создать или обновить тег Schedule для виртуальной машины или группы ресурсов за пределами портала.
 
-To create, add, and delete tags through PowerShell, you first need to [set up your PowerShell environment for Azure](../powershell-install-configure.md). After you complete the setup, you can proceed with the following steps.
+Чтобы создавать, добавлять и удалять теги с помощью PowerShell, необходимо сначала настроить [среду PowerShell для Azure](../powershell-install-configure.md). После завершения настройки можно перейти к следующим действиям.
 
-### <a name="create-a-schedule-tag-with-powershell"></a>Create a schedule tag with PowerShell
+### Создание тега Schedule с помощью PowerShell
 
-1. Open a PowerShell session. Then use the following example to authenticate with your Run As account and to specify a subscription:   
+1. Откройте сеанс PowerShell. Затем выполните следующую команду, чтобы пройти аутентификацию с помощью учетной записи запуска от имени и указать подписку.
 
         Conn = Get-AutomationConnection -Name AzureRunAsConnection
         Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
         -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
         Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
-2. Define a schedule hash table. Here is an example of how it should be constructed:
+2. Определите хэш-таблицу расписания. Ниже приведен пример ее структуры.
 
         $schedule= @{ "TzId"="Eastern Standard Time"; "0"= @{"S"="11";"E"="17"};"1"= @{"S"="9";"E"="19"};"2"= @{"S"="9";"E"="19"};"3"= @{"S"="9";"E"="19"};"4"= @{"S"="9";"E"="19"};"5"= @{"S"="9";"E"="19"};"6"= @{"S"="11";"E"="17"}}
 
-3. Define the parameters that are required by the runbook. In the following example, we are targeting a VM:
+3. Определите параметры, необходимые для Runbook. В следующем примере в качестве цели используется виртуальная машина.
 
         $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
         "VmName"="VM01";"Schedule"=$schedule}
 
-    If you’re tagging a resource group, remove the *VMName* parameter from the $params hash table as follows:
+    Если вы отмечаете тегами группу ресурсов, удалите параметр *VMName* из хэш-таблицы $params следующим образом.
 
         $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"; `
         "Schedule"=$schedule}
 
-4. Run the Add-ResourceSchedule runbook with the following parameters to create the Schedule tag:
+4. Выполните модуль Runbook Add-ResourceSchedule со следующими параметрами, чтобы создать тег Schedule.
 
         Start-AzureRmAutomationRunbook -Name "Add-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
 
-5. To update a resource group or virtual machine tag, execute the **Update-ResourceSchedule** runbook with the following parameters:
+5. Чтобы обновить тег группы ресурсов или виртуальной машины, выполните модуль Runbook **Update-ResourceSchedule** со следующими параметрами.
 
         Start-AzureRmAutomationRunbook -Name "Update-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
 
-### <a name="remove-a-schedule-tag-with-powershell"></a>Remove a schedule tag with PowerShell
+### Удаление тега Schedule с помощью PowerShell
 
-1. Open a PowerShell session and run the following to authenticate with your Run As account and to select and specify a subscription:
+1. Откройте сеанс PowerShell и выполните следующую команду, чтобы пройти аутентификацию с помощью учетной записи запуска от имени, а также выбрать и указать подписку.
 
         Conn = Get-AutomationConnection -Name AzureRunAsConnection
         Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
         -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
         Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
-2. Define the parameters that are required by the runbook. In the following example, we are targeting a VM:
+2. Определите параметры, необходимые для Runbook. В следующем примере в качестве цели используется виртуальная машина.
 
         $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01" `
         ;"VmName"="VM01"}
 
-    If you’re removing a tag from a resource group, remove the *VMName* parameter from the $params hash table as follows:
+    Если вы удаляете тег группы ресурсов, удалите параметр *VMName* из хэш-таблицы $params следующим образом.
 
         $params = @{"SubscriptionName"="MySubscription";"ResourceGroupName"="ResourceGroup01"}
 
-3. Execute the Remove-ResourceSchedule runbook to remove the Schedule tag:
+3. Выполните модуль Runbook Remove-ResourceSchedule, чтобы удалить тег Schedule.
 
         Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
 
-4. To update a resource group or virtual machine tag, execute the Remove-ResourceSchedule runbook with the following parameters:
+4. Чтобы обновить тег группы ресурсов или виртуальной машины, выполните модуль Runbook Remove-ResourceSchedule со следующими параметрами.
 
         Start-AzureRmAutomationRunbook -Name "Remove-ResourceSchedule" -Parameters $params `
         -AutomationAccountName "AutomationAccount" -ResourceGroupName "ResourceGroup01"
 
 
->[AZURE.NOTE] We recommend that you proactively monitor these runbooks (and the virtual machine states) to verify that your virtual machines are being shut down and started accordingly.  
+>[AZURE.NOTE] Рекомендуется применять упреждающий мониторинг этих модулей Runbook (и состояния виртуальной машины), чтобы проверять, соответствующим ли образом выполняется запуск и завершение работы виртуальных машин.
 
-To view the details of the Test-ResourceSchedule runbook job in the Azure portal, select the **Jobs** tile of the runbook. The job summary displays the input parameters and the output stream, in addition to general information about the job and any exceptions if they occurred.  
+Сведения о задании Runbook Test-ResourceSchedule можно просмотреть на портале Azure, выбрав элемент **Задания** этого модуля Runbook. Помимо общей информации о задании, сводка задания будет содержать входные параметры и поток вывода, а также все возникшие исключения.
 
-The **Job Summary** includes messages from the output, warning, and error streams. Select the **Output** tile to view detailed results from the runbook execution.
+**Сводка по заданию** содержит сообщения из потоков вывода, предупреждений и ошибок. Выберите элемент **Вывод**, чтобы просмотреть подробные сведения о результатах выполнения модуля Runbook.
 
-![Test-ResourceSchedule Output](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)  
+![Выходные данные Test-ResourceSchedule](./media/automation-scenario-start-stop-vm-wjson-tags/automation-job-output.png)
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
--  To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md).
--  To learn more about runbook types, and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
--  For more information about PowerShell script support features, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
--  To learn more about runbook logging and output, see [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md).
--  To learn more about an Azure Run As account and how to authenticate your runbooks by using it, see [Authenticate runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md).
+-  Сведения о том, как начать работу с модулями Runbook рабочих процессов PowerShell, см. в статье [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md).
+-  Дополнительные сведения о типах модулей Runbook, их преимуществах и ограничениях см. в статье [Типы модулей Runbook в службе автоматизации Azure](automation-runbook-types.md).
+-  Дополнительные сведения о функции поддержки сценариев PowerShell см. в статье [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Поддержка собственных скриптов PowerShell в службе автоматизации Azure).
+-  Чтобы узнать больше о ведении журнала и выходных данных Runbook, ознакомьтесь со статьей [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md).
+-  Дополнительные сведения об учетной записи запуска от имени Azure и о том, как с ее помощью проверить подлинность модулей Runbook, см. в статье [Проверка подлинности модулей Runbook в Azure с помощью учетной записи запуска от имени](../automation/automation-sec-configure-azure-runas-account.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

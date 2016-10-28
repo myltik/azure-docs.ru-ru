@@ -1,49 +1,44 @@
 <properties
-    pageTitle="Azure Active Directory B2C: Self-service password reset | Microsoft Azure"
-    description="A topic demonstrating how to set up self-service password reset for your consumers in Azure Active Directory B2C"
-    services="active-directory-b2c"
-    documentationCenter=""
-    authors="swkrish"
-    manager="mbaldwin"
-    editor="curtand"/>
+	pageTitle="Azure Active Directory B2C: самостоятельный сброс пароля | Microsoft Azure"
+	description="Статья о том, как настроить самостоятельный сброс пароля для потребителей в Azure Active Directory B2C."
+	services="active-directory-b2c"
+	documentationCenter=""
+	authors="swkrish"
+	manager="msmbaldwin"
+	editor="curtand"/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/24/2016"
-    ms.author="swkrish"/>
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/24/2016"
+	ms.author="swkrish"/>
 
 
+# Azure Active Directory B2C: настройка самостоятельного сброса пароля для потребителей
 
-# <a name="azure-active-directory-b2c:-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: Set up self-service password reset for your consumers
-
-With the self-service password reset feature, your consumers (who have signed up for local accounts) can reset their passwords on their own. This significantly reduces the burden on your support staff, especially if your application has millions of consumers using it on a regular basis. Currently, we only support using a verified email address as a recovery method. We will add additional recovery methods (verified phone number, security questions, etc.) in the future.
-
-> [AZURE.NOTE]
-This article applies to self-service password reset used in the context of a sign-in policy. If you need fully customizable password reset policies invoked from your app, see [this article](./active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
-
-By default, your directory will not have self-service password reset turned on. Use the following steps to turn it on:
-
-1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to create your directory.
-2. Navigate to the Active Directory extension on the navigation bar on the left side.
-3. Find your directory under the **Directory** tab and click it.
-4. Click the **Configure** tab.
-5. Scroll down to the **User password reset policy** section and toggle the **Users enabled for password reset** option to **YES**. Notice that the **Alternate Email Address** option is checked; leave it as it is.
-
-    ![Self-service password reset](./media/active-directory-b2c-reference-sspr/sspr.png)
-
-6. Click **Save** at the bottom of the page. You're done!
-
-To test, use the "Run now" feature on any sign-in policy that has local accounts as an identity provider. On the local account sign-in page (where you enter an email address and password, or a username and password), click **Can't access your account?** to verify the consumer experience.
+С помощью функции самостоятельного сброса пароля ваши потребители (которые зарегистрировали локальные учетные записи) могут самостоятельно сбрасывать пароли. Это значительно упрощает работу службы поддержки, особенно если вашим приложением регулярно пользуются миллионы клиентов. В настоящее время поддерживается только восстановление с помощью подтвержденного адреса электронной почты. В будущем мы добавим другие способы восстановления (подтвержденный номер телефона, секретные вопросы и т. д.).
 
 > [AZURE.NOTE]
-The self-service password reset pages can be customized by using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
+Эта статья относится к самостоятельному сбросу пароля, используемому в контексте политики входа в систему. Если вам нужны полностью настраиваемые политики сброса пароля, вызываемые из вашего приложения, см. [эту статью](./active-directory-b2c-reference-policies.md#create-a-password-reset-policy).
 
+По умолчанию в каталоге самостоятельный сброс пароля отключен. Чтобы включить его, выполните следующие действия:
 
+1. Войдите на [классический портал Azure](https://manage.windowsazure.com/) под именем администратора подписки. Это рабочая или учебная учетная запись либо учетная запись Майкрософт, которая использовалась для создания каталога.
+2. Перейдите к расширению Active Directory в области навигации слева.
+3. Найдите свой каталог на вкладке **Каталог** и щелкните его.
+4. Выберите вкладку **Настройка**.
+5. Прокрутите вниз до раздела **Политика сброса пароля пользователя** и выберите для параметра **Пользователям разрешен сброс пароля** значение **ДА**. Обратите внимание, что включен параметр **Запасной адрес электронной почты**. Оставьте его без изменений.
 
-<!--HONumber=Oct16_HO2-->
+    ![Самостоятельный сброс пароля](./media/active-directory-b2c-reference-sspr/sspr.png)
 
+6. В нижней части страницы нажмите кнопку **Сохранить**. Готово!
 
+Проверьте любую политику входа (где в качестве поставщика удостоверений используются локальные учетные записи) с помощью функции "Запустить сейчас". На странице входа локальной учетной записи (где вы вводите электронный адрес и пароль или имя пользователя и пароль) щелкните **Не удается получить доступ к своей учетной записи?**, чтобы проверить взаимодействие с потребителем.
+
+> [AZURE.NOTE]
+Страницы самостоятельного сброса пароля можно настраивать с помощью [функции фирменной символики](../active-directory/active-directory-add-company-branding.md).
+
+<!---HONumber=AcomDC_0727_2016-->

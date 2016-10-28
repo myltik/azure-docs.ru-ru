@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors reentrancy | Microsoft Azure"
-   description="Introduction to reentrancy for Service Fabric Reliable Actors"
+   pageTitle="Повторный вход надежных субъектов | Microsoft Azure"
+   description="Общие сведения о повторном входе для надежных субъектов Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,19 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/19/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 
+# Повторный вход надежных субъектов
+Среда выполнения Reliable Actors по умолчанию разрешает повторный вход на основе логического контекста вызова. Это позволяет субъектам выполнять повторный вход, если они находятся в той же цепочке контекста вызова. Например, субъект A отправляет сообщение субъекту B, который отправляет сообщение субъекту C. В ходе обработки сообщения, если субъект C осуществит вызов субъекта A, сообщение будет означать повторный вход, поэтому будет разрешено. Любые другие сообщения, являющиеся частью другого контекста вызова, будут заблокированы на субъекте A до тех пор, пока он не завершит обработку.
 
-# <a name="reliable-actors-reentrancy"></a>Reliable Actors reentrancy
-The Reliable Actors runtime, by default, allows logical call context-based reentrancy. This allows for actors to be reentrant if they are in the same call context chain. For example, Actor A sends a message to Actor B, who sends a message to Actor C. As part of the message processing, if Actor C calls Actor A, the message is reentrant, so it will be allowed. Any other messages that are part of a different call context will be blocked on Actor A until it finishes processing.
 
+Для реализации повторного входа субъектов доступно два варианта (определено в перечислении `ActorReentrancyMode`):
 
-There are two options available for actor reentrancy defined in the `ActorReentrancyMode` enum:
-
- - `LogicalCallContext` (default behavior)
- - `Disallowed` - disables reentrancy
+ - `LogicalCallContext` (поведение по умолчанию);
+ - `Disallowed` — отключает повторный вход.
 
 ```csharp
 public enum ActorReentrancyMode
@@ -35,9 +34,9 @@ public enum ActorReentrancyMode
 }
 ```
 
-Reentrancy can be configured in an `ActorService`'s settings during registration. The setting applies to all actor instances created in the actor service.
+Повторный вход можно настроить в параметрах `ActorService` во время регистрации. Параметр применяется ко всем экземплярам субъекта, созданным в службе субъектов.
 
-The following example shows an actor service that sets the reentrancy mode to `ActorReentrancyMode.Disallowed`. In this case, if an actor sends a reentrant message to another actor, an exception of type `FabricException` will be thrown.
+В следующем примере показана служба субъекта, которая задает `ActorReentrancyMode.Disallowed` в качестве режима повторного входа. Следовательно, если субъект отправляет сообщение повторного входа другому субъекту, будет выдано исключение типа `FabricException`.
 
 ```csharp
 static class Program
@@ -70,13 +69,9 @@ static class Program
 }
 ```
 
-## <a name="next-steps"></a>Next steps
- - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
- - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Sample code](https://github.com/Azure/servicefabric-samples)
+## Дальнейшие действия
+ - [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+ - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Пример кода](https://github.com/Azure/servicefabric-samples)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

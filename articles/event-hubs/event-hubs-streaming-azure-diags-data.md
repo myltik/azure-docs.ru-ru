@@ -1,54 +1,53 @@
 <properties
-    pageTitle="Streaming Azure Diagnostics data in the hot path using Event Hubs | Microsoft Azure"
-    description="Illustrates how to configure Azure Diagnostics with Event Hubs from end to end, including guidance for common scenarios."
-    services="event-hubs"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
+	pageTitle="Потоковая передача данных системы диагностики Azure по критическому пути с помощью концентраторов событий | Microsoft Azure"
+	description="Эта статья содержит полное описание настройки системы диагностики Azure для использования концентраторов событий. Она также содержит указания для распространенных сценариев."
+	services="event-hubs"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor="" />
 <tags
-    ms.service="event-hubs"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="07/14/2016"
-    ms.author="sethm" />
+	ms.service="event-hubs"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="07/14/2016"
+	ms.author="sethm" />
 
+# Потоковая передача данных системы диагностики Azure по критическому пути с помощью концентраторов событий
 
-# <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming Azure Diagnostics data in the hot path by using Event Hubs
+Система диагностики Azure позволяет удобно собирать данные метрик и журналов от виртуальных машин облачных служб и передавать результаты в службу хранилища Azure. Начиная с марта 2016 года (пакет SDK версии 2.9) систему диагностики Azure можно использовать для приема информации из полностью пользовательских источников данных и передачи данных по критическому пути за несколько секунд с помощью [концентраторов событий Azure](https://azure.microsoft.com/services/event-hubs/).
 
-Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can sink Diagnostics to completely custom data sources and transfer hot path data in seconds by using [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
+Поддерживаемые типы данных включают:
 
-Supported data types include:
+- Трассировка событий Windows (ETW)
+- Счетчики производительности
+- Журналы событий Windows
+- Журналы приложений
+- Журналы инфраструктуры системы диагностики Azure
 
-- Event Tracing for Windows (ETW) events
-- Performance counters
-- Windows event logs
-- Application logs
-- Azure Diagnostics infrastructure logs
+В этой статье полностью описан процесс настройки системы диагностики Azure с использованием концентраторов событий. В ней также описаны наиболее распространенные сценарии:
 
-This article shows you how to configure Azure Diagnostics with Event Hubs from end to end. Guidance is also provided for the following common scenarios:
+- Как настроить журналы и метрики, данные которых передаются в концентраторы событий.
+- Как изменить конфигурации в каждой среде.
+- Как просмотреть данные потока концентраторов событий.
+- Как устранить неполадки подключения.
 
-- How to customize the logs and metrics that get sinked to Event Hubs
-- How to change configurations in each environment
-- How to view Event Hubs stream data
-- How to troubleshoot the connection  
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+Прием данных с помощью концентраторов событий в системе диагностики Azure поддерживается для облачных служб, виртуальных машин, наборов масштабирования виртуальных машин и Service Fabric, начиная с выпуска пакета SDK для Azure 2.9 и соответствующих инструментов Azure для Visual Studio.
 
-Event Hubs sinking in Azure Diagnostics is supported in Cloud Services, VMs, Virtual Machine Scale Sets, and Service Fabric starting in the Azure SDK 2.9 and the corresponding Azure Tools for Visual Studio.
+- Расширение системы диагностики Azure версии 1.6 (в [пакете SDK для Azure для .NET 2.9 или более поздней версии](https://azure.microsoft.com/downloads/) оно используется по умолчанию).
+- [Visual Studio 2013 или более поздней версии](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
+- Наличие конфигураций системы диагностики Azure в приложении, использующих *WADCFGX* -файл и один из следующих методов:
+	- Visual Studio: [настройка системы диагностики для облачных служб и виртуальных машин Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+	- Windows PowerShell: [включение диагностики в облачных службах Azure с помощью PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md).
+- Пространство имен концентраторов событий, подготовленное в соответствии с инструкциями в статье [Приступая к работе с концентраторами событий](./event-hubs-csharp-ephcs-getstarted.md).
 
-- Azure Diagnostics extension 1.6 ([Azure SDK for .NET 2.9 or later](https://azure.microsoft.com/downloads/) targets this by default)
-- [Visual Studio 2013 or later](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-- Existing configurations of Azure Diagnostics in an application by using a *.wadcfgx* file and one of the following methods:
-    - Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-    - Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-- Event Hubs namespace provisioned per the article, [Get started with Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)
+## Подключение системы диагностики Azure к приемнику концентраторов событий
 
-## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Connect Azure Diagnostics to Event Hubs sink
-
-Azure Diagnostics always sinks logs and metrics, by default, to an Azure Storage account. An application may additionally sink to Event Hubs by adding a new **Sinks** section to the **WadCfg** element in the **PublicConfig** section of the *.wadcfgx* file. In Visual Studio, the *.wadcfgx* file is stored in the following path: **Cloud Service Project** > **Roles** >  **(RoleName)** > **diagnostics.wadcfgx** file.
+Система диагностики Azure по умолчанию всегда принимает журналы и метрики в учетную запись хранения Azure. Приложение может также передавать данные в концентраторы событий. Для этого необходимо добавить новый раздел **Sinks** в элемент **WadCfg** раздела **PublicConfig** в *WADCFGX* -файле. В Visual Studio *WADCFGX* -файл доступен по следующему пути: **Проект облачной службы** > **Роли** > **(имя роли)** > **diagnostics.wadcfgx**.
 
 ```
 <SinksConfig>
@@ -58,15 +57,15 @@ Azure Diagnostics always sinks logs and metrics, by default, to an Azure Storage
 </SinksConfig>
 ```
 
-In this example, the Event Hub URL is set to the fully qualified namespace of the Event Hub: Event Hubs namespace  + "/" + Event Hub name.  
+В этом примере в качестве URL-адреса концентратора событий устанавливается полное имя пространства имен для концентратора событий (пространство имен концентраторов событий + "/" + имя концентратора событий).
 
-The Event Hub URL is displayed in the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
+URL-адрес концентратора событий отображается на [портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885) на панели мониторинга концентраторов событий.
 
-The **Sink** name can be set to any valid string as long as the same value is used consistently throughout the config file.
+Значение строки **Приемник** может быть любым, достаточно использовать одну и ту же строку во всем файле конфигурации.
 
-> [AZURE.NOTE]  There may be additional sinks, such as *applicationInsights* configured in this section. Azure Diagnostics allows one or more sinks to be defined if each sink is also declared in the **PrivateConfig** section.  
+> [AZURE.NOTE]  В этом разделе могут быть настроены дополнительные приемники, например *applicationInsights*. В системе диагностики Azure можно определить один или несколько приемников, при условии, что каждый приемник также объявляется в разделе **PrivateConfig**.
 
-The Event Hubs sink must also be declared and defined in the **PrivateConfig** section of the *.wadcfgx* config file.
+Приемник концентраторов событий необходимо также объявить и определить в разделе **PrivateConfig** *WADCFGX* -файла конфигурации.
 
 ```
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -75,17 +74,17 @@ The Event Hubs sink must also be declared and defined in the **PrivateConfig** s
 </PrivateConfig>
 ```
 
-The `SharedAccessKeyName` value must match a Shared Access Signature (SAS) key and policy that has been defined in the **Event Hubs** namespace. Browse to the Event Hubs dashboard in the [Azure portal](https://manage.windowsazure.com), click the **Configure** tab, and set up a named policy (for example, "SendRule") that has *Send* permissions. The **StorageAccount** is also declared in **PrivateConfig**. There is no need to change values here if they are working. In this example, we leave the values empty, which is a sign that a downstream asset will set the values. For example, the *ServiceConfiguration.Cloud.cscfg* environment configuration file sets the environment-appropriate names and keys.  
+Значение `SharedAccessKeyName` должно соответствовать ключу подписанного URL-адреса (SAS) и политике, которая была определена в пространстве имен **концентраторов событий**. Перейдите к панели мониторинга концентраторов событий на [портале Azure](https://manage.windowsazure.com), выберите вкладку **Настройка** и настройте именованную политику (например, SendRule) с разрешениями *Отправка*. Параметр **StorageAccount** также объявляется в разделе **PrivateConfig**. Указанные значения изменять не нужно, если они работают. В этом примере мы оставили значения пустым. Это значит, что их задаст подчиненный ресурс-контейнер. Например, файл конфигурации среды *ServiceConfiguration.Cloud.cscfg* задает соответствующие имена и ключи среды.
 
-> [AZURE.WARNING] The Event Hubs SAS key is stored in plain text in the *.wadcfgx* file. Often, this key is checked in to source code control or is available as an asset in your build server, so you should protect it as appropriate. We recommend that you use a SAS key here with *Send only* permissions so that a malicious user can write to the Event Hub, but not listen to it or manage it.
+> [AZURE.WARNING] Ключ SAS концентраторов событий хранится в виде обычного текста в *WADCFGX* -файле. Этот ключ часто возвращается в систему управления версиями или доступен как ресурс-контейнер на сервере сборки, поэтому следует защитить его надлежащим образом. Рекомендуется использовать ключ SAS с разрешениями *Только отправка*, чтобы злоумышленник мог только записывать данные в концентратор событий, но не мог прослушивать концентратор событий или управлять им.
 
-## <a name="configure-azure-diagnostics-logs-and-metrics-to-sink-with-event-hubs"></a>Configure Azure Diagnostics logs and metrics to sink with Event Hubs
+## Настройка журналов и метрик системы диагностики Azure для приема данных с помощью концентраторов событий
 
-As discussed earlier, all default and custom diagnostics data, that is, metrics and logs, is automatically sinked to Azure Storage in the configured intervals. With Event Hubs and any additional sink, you can specify any root or leaf node in the hierarchy to be sinked with the Event Hub. This includes ETW events, performance counters, Windows event logs, and application logs.   
+Как обсуждалось ранее, все пользовательские данные диагностики и данные диагностики по умолчанию (т. е. метрики и журналы) автоматически передаются в службу хранилища Azure с заданными интервалами. Используя концентраторы событий (и любые дополнительные приемники), можно указать любой корневой или листовой узел в иерархии, в который будет передавать данные концентратор событий. К этим данным относятся события трассировки Windows, счетчики производительности, журналы событий Windows и журналы приложений.
 
-It is important to consider how many data points should actually be transferred to Event Hubs. Typically, developers transfer low-latency hot-path data that must be consumed and interpreted quickly. Systems that monitor alerts or autoscale rules are examples. A developer might also configure an alternate analysis store or search store -- for example, Azure Stream Analytics, Elasticsearch, a custom monitoring system, or a favorite monitoring system from others.
+Важно учитывать фактическое количество точек данных, которые должны быть переданы в концентраторы событий. Обычно разработчики передают по критическому пути с низкой задержкой данные, которые должны быть быстро использованы и интерпретированы. Примерами являются системы, отслеживающие предупреждения, или правила автомасштабирования. Разработчик также может настроить альтернативное хранилище данных анализа или поиска, например, Stream Analytics, ElasticSearch, пользовательской системы мониторинга или сторонней системы мониторинга, которую вы предпочитаете.
 
-The following are some example configurations.
+Ниже приведены некоторые примеры конфигурации.
 
 ```
 <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
@@ -100,7 +99,7 @@ The following are some example configurations.
 </PerformanceCounters>
 ```
 
-In the following example, the sink is applied to the parent **PerformanceCounters** node in the hierarchy, which means all child **PerformanceCounters** will be sent to Event Hubs.  
+В следующем примере приемник применяется к родительскому узлу **PerformanceCounters** в иерархии, что означает, что все дочерние счетчики производительности **PerformanceCounters** будут отправляться в концентраторы событий.
 
 ```
 <PerformanceCounters scheduledTransferPeriod="PT1M">
@@ -115,39 +114,39 @@ In the following example, the sink is applied to the parent **PerformanceCounter
 </PerformanceCounters>
 ```
 
-In the previous example, the sink is applied to only three counters: **Requests Queued**, **Requests Rejected**, and **% Processor time**.  
+В предыдущем примере приемник применяется только к трем счетчикам: **Запросов в очереди**, **Отклонено запросов** и **% загруженности процессора**.
 
-The following example shows how a developer can limit the amount of sent data to be the critical metrics that are used for this service’s health.  
+В следующем примере показано, как разработчик может ограничить объем данных, отправляемых в качестве важных метрик, которые используются для оценки работоспособности службы.
 
 ```
 <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
 ```
 
-In this example, the sink is applied to logs and is filtered only to error level trace.
+В этом примере приемник применяется к журналам и принимает только события трассировки уровня "Ошибка".
 
-## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Deploy and update a Cloud Services application and diagnostics config
+## Развертывание и обновление приложения облачной службы и конфигурации системы диагностики
 
-Visual Studio provides the easiest path to deploy the application and Event Hubs sink configuration. To view and edit the file, open the *.wadcfgx* file in Visual Studio, edit it, and save it. The path is **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx**.  
+Простейший способ развертывания приложения и конфигурации приемника концентраторов событий — воспользоваться Visual Studio. Чтобы просмотреть и изменить *WADCFGX* -файл, откройте его в Visual Studio, после чего измените его и сохраните. Следует выбрать **Проект облачной службы** > **Роли** > **(имя роли)** > **diagnostics.wadcfgx**.
 
-At this point, all deployment and deployment update actions in Visual Studio, Visual Studio Team System, and all commands or scripts that are based on MSBuild and use the **/t:publish** target include the *.wadcfgx* in the packaging process. In addition, deployments and updates deploy the file to Azure by using the appropriate Azure Diagnostics agent extension on your VMs.
+На этом этапе все действия развертывания и обновления в Visual Studio и Visual Studio Team System, а также все команды или сценарии, которые основаны на MSBuild и используют **/t:publish** в качестве цели, включают этот *WADCFGX* -файл в процессе упаковки. Кроме того, при операциях развертывания и обновления этот файл развертывается в Azure с помощью соответствующего расширения агента системы диагностики Azure на ваших виртуальных машинах.
 
-After you deploy the application and Azure Diagnostics configuration, you will immediately see activity in the dashboard of the Event Hub. This indicates that you're ready to move on to viewing the hot-path data in the listener client or analysis tool of your choice.  
+После развертывания приложения и конфигурации системы диагностики Azure вы увидите активность на панели мониторинга концентратора событий. Это означает, что вы можете просмотреть данные, передаваемые по критическому пути, в выбранном клиенте прослушивателя или инструменте анализа.
 
-In the following figure, the Event Hubs dashboard shows healthy sending of diagnostics data to the Event Hub starting sometime after 11 PM. That's when the application was deployed with an updated *.wadcfgx* file, and the sink was configured properly.
+На следующем рисунке панель мониторинга концентратора событий отображает функционирующую отправку данных диагностики в концентратор событий, которая начинается после 23:00. Это время, когда приложение было развернуто с обновленным *WADCFGX* -файлом и приемник был настроен должным образом.
 
-![][0]  
+![][0]
 
-> [AZURE.NOTE] When you make updates to the Azure Diagnostics config file (.wadcfgx), it's recommended that you push the updates to the entire application as well as the configuration by using either Visual Studio publishing, or a Windows PowerShell script.  
+> [AZURE.NOTE] При обновлении файла конфигурации системы диагностики Azure (WADCFGX-файла) рекомендуется распространять обновления, а также конфигурацию, на все приложение с помощью функции публикации в Visual Studio или сценария Windows PowerShell.
 
-## <a name="view-hot-path-data"></a>View hot-path data
+## Просмотр данных, передаваемых по критическому пути
 
-As discussed previously, there are many use cases for listening to and processing Event Hubs data.
+Как уже говорилось, существует множество сценариев для прослушивания и обработки данных концентраторов событий.
 
-One simple approach is to create a small test console application to listen to the Event Hub and print the output stream. You can place the following code, which is explained in more detail in [Get started with Event Hubs](./event-hubs-csharp-ephcs-getstarted.md)), in a console application.  
+Один из простых подходов заключается в создании небольшого тестового консольного приложения, которое будет прослушивать концентратор событий и выводить данные в поток вывода. В консольное приложение можно добавить приведенный ниже код. Пояснения к нему приведены в разделе [Приступая к работе с концентраторами событий](./event-hubs-csharp-ephcs-getstarted.md).
 
-Note that the console application must include the [Event Processor Host Nuget package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
+Обратите внимание, что консольное приложение должно включать в себя [пакет Nuget узла обработчика событий](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).
 
-Remember to replace the values in angle brackets in the **Main** function with values for your resources.   
+Не забудьте заменить значения в угловых скобках в функции **Main** соответствующими значениями для своих ресурсов.
 
 ```
 //Console application code for EventHub test client
@@ -187,8 +186,8 @@ namespace EventHubListener
             foreach (EventData eventData in messages)
             {
                 string data = Encoding.UTF8.GetString(eventData.GetBytes());
-                    Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-                        context.Lease.PartitionId, data));
+	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
+	                    context.Lease.PartitionId, data));
 
                 foreach (var x in eventData.Properties)
                 {
@@ -230,25 +229,25 @@ namespace EventHubListener
 }
 ```
 
-## <a name="troubleshoot-event-hubs-sink"></a>Troubleshoot Event Hubs sink
+## Устранение неполадок приемника концентраторов событий
 
-- The Event Hub does not show incoming or outgoing event activity as expected.
+- В концентраторе событий не отображаются входящие или исходящие события, которые должны отображаться.
 
-    Check that your Event Hub is successfully provisioned. All connection info in the **PrivateConfig** section of *.wadcfgx* must match the values of your resource as seen in the portal. Make sure that you have a SAS policy defined ("SendRule" in the example) in the portal and that *Send* permission is granted.  
+	Убедитесь, что концентратор событий успешно подготовлен. Все сведения о подключении в разделе **PrivateConfig** *WADCFGX* файла должны соответствовать сведениям, указанным на портале для вашего ресурса. Убедитесь, что на портале задана политика SAS (в данном примере это SendRule) и предоставлено разрешение *Отправка*.
 
-- After an update, the Event Hub no longer shows incoming or outgoing event activity.
+- После обновления в концентраторе событий не отображаются входящие или исходящие события.
 
-    First, make sure that the Event Hub and configuration info is correct as explained previously. Sometimes the **PrivateConfig** is reset in a deployment update. The recommended fix is to make all changes to *.wadcfgx* in the project and then push a complete application update. If this is not possible, make sure that the diagnostics update pushes a complete **PrivateConfig** that includes the SAS key.  
+	Сначала убедитесь в том, что параметры концентратора событий и конфигурации настроены правильно, как описано выше. Иногда **PrivateConfig** сбрасывается при обновлении развертывания. Для устранения проблемы рекомендуется внести все изменения в *WADCFGX* -файл в проекте, а затем полностью обновить приложение. Если это невозможно, убедитесь, что при обновлении системы диагностики распространяется полный раздел **PrivateConfig** с ключом SAS.
 
-- I tried the suggestions, and the Event Hub is still not working.
+- Все предложенные действия выполнены, но концентратор событий все равно не работает.
 
-    Try looking in the Azure Storage table that contains logs and errors for Azure Diagnostics itself: **WADDiagnosticInfrastructureLogsTable**. One option is to use a tool such as [Azure Storage Explorer](http://www.storageexplorer.com) to connect to this storage account, view this table, and add a query for TimeStamp in the last 24 hours. You can use the tool to export a .csv file and open it in an application such as Microsoft Excel. Excel makes it easy to search for calling-card strings, such as **EventHubs**, to see what error is reported.  
+	Попробуйте найти в службе хранилища Azure таблицу, которая содержит журналы и ошибки для самой системы диагностики Azure: **WADDiagnosticInfrastructureLogsTable**. Для этого можно использовать, например, [обозреватель хранилищ Azure](http://www.storageexplorer.com). Подключитесь к соответствующей учетной записи хранения, просмотрите эту таблицу и выполните запрос по метке времени за последние 24 часа. С помощью этого инструмента можно экспортировать информацию в CSV-файл и открыть его в таком приложении, как Microsoft Excel. Excel упрощает поиск строк карточек, таких как **EventHubs**, чтобы узнать, какая обнаружена ошибка.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-•   [Learn more about Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+• [Дополнительные сведения о концентраторах событий](https://azure.microsoft.com/services/event-hubs/)
 
-## <a name="appendix:-complete-azure-diagnostics-configuration-file-(.wadcfgx)-example"></a>Appendix: Complete Azure Diagnostics configuration file (.wadcfgx) example
+## Приложение. Полный пример файла конфигурации системы диагностики Azure (WADCFGX-файл)
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -303,7 +302,7 @@ namespace EventHubListener
 </DiagnosticsConfiguration>
 ```
 
-The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like the following.
+Дополнительный файл *ServiceConfiguration.Cloud.cscfg* для этого примера выглядит следующим образом.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -320,8 +319,5 @@ The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
+<!---HONumber=AcomDC_0817_2016-->
 

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager template for linking resources | Microsoft Azure"
-   description="Shows the Resource Manager schema for deploying links between related resources through a template."
+   pageTitle="Шаблон диспетчера ресурсов для связывания ресурсов | Microsoft Azure"
+   description="Демонстрирует схему диспетчера ресурсов для развертывания связей между связанными ресурсами с помощью шаблона."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,14 +16,13 @@
    ms.date="04/05/2016"
    ms.author="tomfitz"/>
 
+# Связи ресурсов — схема шаблона
 
-# <a name="resource-links-template-schema"></a>Resource links template schema
+Создание связи между двумя ресурсами Связь применяется к ресурсу, известному как исходный ресурс. Второй ресурс в связи называется целевым ресурсом.
 
-Creates a link between two resources. The link is applied to a resource known as the source resource. The second resource in the link is known as the target resource.
+## Формат схемы
 
-## <a name="schema-format"></a>Schema format
-
-To create a link, add the following schema to the resources section of your template.
+Чтобы создать связь, добавьте следующую схему в раздел ресурсов шаблона.
     
     {
         "type": enum,
@@ -39,42 +38,41 @@ To create a link, add the following schema to the resources section of your temp
 
 
 
-## <a name="values"></a>Values
+## Значения
 
-The following tables describe the values you need to set in the schema.
+В следующих таблицах описаны значения, которые следует указать в этой схеме.
 
-| Name | Value |
+| Имя | Значение |
 | ---- | ---- |
-| type | Enum<br />Required<br />**{namespace}/{type}/providers/links**<br /><br />The resource type to create. The {namespace} and {type} values refer to the provider namespace and resource type of the source resource. |
-| apiVersion | Enum<br />Required<br />**2015-01-01**<br /><br />The API version to use for creating the resource. |  
-| name | String<br />Required<br />**{resouce}/Microsoft.Resources/{linkname}**<br /> up to 64 characters, and cannot contain <, > %, &, ?, or any control characters.<br /><br />A value that specifes both the name of source resource and a name for the link. |
-| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the resources you are linking are deployed in the same template, include those resource names in this element to ensure they are deployed first. | 
-| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that identifies the resource to link to, and notes about the link. |  
+| type | Перечисление.<br />Обязательное значение.<br />**{пространство\_имен}/{тип}/providers/links**<br /><br />Тип создаваемого ресурса. Значения {namespace} и {type} ссылаются на пространство имен поставщика и тип ресурса исходного ресурса. |
+| версия\_API | Перечисление.<br />Обязательное значение.<br />**2015-01-01**<br /><br />Версия API, которая будет использована для создания ресурса. |  
+| name | Строка.<br />Обязательное значение.<br />**{ресурс}/Microsoft.Resources/{имя\_связи}**<br />До 64 знаков. Запрещается использовать <, >, %, &, ? и любые управляющие символы. <br /><br />Значение, указывающее одновременно имя ресурса и имя связи. | 
+| dependsOn | Массив<br />Необязательное значение.<br />Разделенный запятыми список имен или уникальных идентификаторов ресурсов.<br /><br />Коллекция ресурсов, от которых зависит эта связь. Если связываемые ресурсы развернуты в одном и том же шаблоне, включите имена этих ресурсов в данный элемент, чтобы гарантировать, что они будут развернуты первыми. | 
+| properties | Объект.<br />Обязательное значение.<br />[Объект свойств.](#properties)<br /><br />Объект, идентифицирующий связываемый ресурс, и примечания о связи. | 
 
 <a id="properties" />
-### <a name="properties-object"></a>properties object
+### объект properties
 
-| Name | Value |
+| Имя | Значение |
 | ------- | ---- |
-| targetId | String<br />Required<br />**{resource id}**<br /><br />The identifier of the target resource to link to. |
-| notes | String<br />Optional<br />up to 512 characters<br /><br />Description of the lock. |
+| targetId | Строка.<br />Обязательное значение.<br />**{идентификатор ресурса}**<br /><br />Идентификатор целевого ресурса для связывания. || notes | Строка.<br />Необязательное значение.<br />До 512 знаков.<br /><br />Описание блокировки. |
 
 
-## <a name="how-to-use-the-link-resource"></a>How to use the link resource
+## Использование ресурса связи
 
-You apply a link between two resources when the resources have a dependency that continues after deployment. For example, an app may connect to a database in a different resource group. You can define that dependency by creating a link from the app to the database. Links enable you to document the relationship between two resources. Later, you or someone else in your organization can query a resource for links to discover how the resource works with other resources.
+Связь между двумя ресурсами устанавливается, когда ресурсы имеют зависимость, продолжающуюся после развертывания. Например, приложение может подключаться к базе данных в другой группе ресурсов. Эту зависимость можно определить, создав связь из приложения к базе данных. Связи позволяют документировать отношение между двумя ресурсами. Позже вы или кто-то другой в вашей организации может запросить ресурс на получение связей, чтобы узнать, как ресурс работает с другими ресурсами.
 
-All linked resources must belong to the same subscription. Each resource can be linked to 50 other resources. If any of the linked resources are deleted or moved, the link owner must clean up the remaining link.
+Все связанные ресурсы должны принадлежать к одной подписке. Каждый ресурс может быть связан с 50 другими ресурсами. При удалении или перемещении каких-либо связанных ресурсов владельцу связи нужно удалить оставшуюся связь.
 
-To work with links through REST, see [Linked Resources](https://msdn.microsoft.com/library/azure/mt238499.aspx).
+Сведения о работе со связями с помощью REST см. в статье [Связанные ресурсы](https://msdn.microsoft.com/library/azure/mt238499.aspx).
 
-Use the following Azure PowerShell command to see all of the links in your subscription. You can provide other parameters to limit the results.
+Чтобы просмотреть все связи в подписке, используйте следующую команду Azure PowerShell. Можно указать другие параметры, чтобы ограничить результаты.
 
     Get-AzureRmResource -ResourceType Microsoft.Resources/links -isCollection -ResourceGroupName <YourResourceGroupName>
 
-## <a name="examples"></a>Examples
+## Примеры
 
-The following example applies a read-only lock to a web app.
+В следующем примере к веб-приложению применяется блокировка «только чтение».
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -121,29 +119,25 @@ The following example applies a read-only lock to a web app.
                     "targetId": "[resourceId('Microsoft.Storage/storageAccounts','storagecontoso')]",
                     "notes": "This web site uses the storage account to store user information."
                 }
-            }
+    	    }
         ],
         "outputs": {}
     }
 
-## <a name="quickstart-templates"></a>Quickstart templates
+## Шаблоны быстрого запуска
 
-The following quickstart templates deploy resources with a link.
+Следующие шаблоны быстрого запуска служат для развертывания ресурсов с помощью связей.
 
-- [Alert to queue with Logic app](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
-- [Alert to Slack with Logic app](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
-- [Provision an API app with an existing gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
-- [Provision an API app with a new gateway](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
-- [Create a Logic App plus API app using a template](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
-- [Logic app that sends a text message when an alert fires](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
-
-
-## <a name="next-steps"></a>Next steps
-
-- For information about the template structure, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+- [Оповещение для очереди с помощью приложения логики](https://azure.microsoft.com/documentation/templates/201-alert-to-queue-with-logic-app)
+- [Оповещение для Slack с помощью приложения логики](https://azure.microsoft.com/documentation/templates/201-alert-to-slack-with-logic-app)
+- [Подготовка приложения API с помощью существующего шлюза](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-existing)
+- [Подготовка приложения API с помощью нового шлюза](https://azure.microsoft.com/documentation/templates/201-api-app-gateway-new)
+- [Создание приложения логики и приложения API с помощью шаблона](https://azure.microsoft.com/documentation/templates/201-logic-app-api-app-create)
+- [Приложение логики, которое отправляет текстовое сообщение при возникновении предупреждения](https://azure.microsoft.com/documentation/templates/201-alert-to-text-message-with-logic-app)
 
 
+## Дальнейшие действия
 
-<!--HONumber=Oct16_HO2-->
+- Сведения о структуре шаблона см. в разделе [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 
-
+<!---HONumber=AcomDC_0406_2016-->

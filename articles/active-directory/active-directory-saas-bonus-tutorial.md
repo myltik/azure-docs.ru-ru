@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory Integration with Bonus.ly | Microsoft Azure" 
-    description="Learn how to use Bonus.ly with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Руководство. Интеграция Azure Active Directory с Bonus.ly | Microsoft Azure" 
+    description="Узнайте, как использовать Bonus.ly вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,160 +11,152 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
+#Руководство. Интеграция Azure Active Directory с Bonus.ly
 
-#<a name="tutorial:-azure-active-directory-integration-with-bonus.ly"></a>Tutorial: Azure Active Directory Integration with Bonus.ly
+Цель данного руководства — показать интеграцию Azure и Bonus.ly. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-The objective of this tutorial is to show the integration of Azure and Bonus.ly. The scenario outlined in this tutorial assumes that you already have the following items:
+-   Действующая подписка на Azure
+-   Тестовый клиент в Bonus.ly
 
--   A valid Azure subscription
--   A test tenant in Bonus.ly
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-The scenario outlined in this tutorial consists of the following building blocks:
+1.  Включение интеграции приложений для Bonus.ly
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-1.  Enabling the application integration for Bonus.ly
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+![Сценарий](./media/active-directory-saas-bonus-tutorial/IC773679.png "Сценарий")
+##Включение интеграции приложений для Bonus.ly
 
-![Scenario](./media/active-directory-saas-bonus-tutorial/IC773679.png "Scenario")
-##<a name="enabling-the-application-integration-for-bonus.ly"></a>Enabling the application integration for Bonus.ly
+В этом разделе показано, как включить интеграцию приложений для Bonus.ly.
 
-The objective of this section is to outline how to enable the application integration for Bonus.ly.
+###Чтобы включить интеграцию приложений для Bonus.ly, выполните следующие действия.
 
-###<a name="to-enable-the-application-integration-for-bonus.ly,-perform-the-following-steps:"></a>To enable the application integration for Bonus.ly, perform the following steps:
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+    ![Включить единый вход](./media/active-directory-saas-bonus-tutorial/IC773680.png "Включить единый вход")
 
-    ![Enable single sign-on](./media/active-directory-saas-bonus-tutorial/IC773680.png "Enable single sign-on")
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+    ![Приложения](./media/active-directory-saas-bonus-tutorial/IC700994.png "Приложения")
 
-    ![Applications](./media/active-directory-saas-bonus-tutorial/IC700994.png "Applications")
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-4.  Click **Add** at the bottom of the page.
+    ![Добавление приложения](./media/active-directory-saas-bonus-tutorial/IC749321.png "Добавление приложения")
 
-    ![Add application](./media/active-directory-saas-bonus-tutorial/IC749321.png "Add application")
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+    ![Добавить приложение из коллекции](./media/active-directory-saas-bonus-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-    ![Add an application from gallerry](./media/active-directory-saas-bonus-tutorial/IC749322.png "Add an application from gallerry")
+6.  В **поле поиска** введите **Bonus.ly**.
 
-6.  In the **search box**, type **Bonus.ly**.
+    ![Коллекция приложений](./media/active-directory-saas-bonus-tutorial/IC773681.png "Коллекция приложений")
 
-    ![Application gallery](./media/active-directory-saas-bonus-tutorial/IC773681.png "Application gallery")
-
-7.  In the results pane, select **Bonus.ly**, and then click **Complete** to add the application.
+7.  В области результатов выберите **Bonus.ly** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773682.png "Bonusly")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
 
-The objective of this section is to outline how to enable users to authenticate to Bonus.ly with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for Bonus.ly requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Bonus.ly со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. Чтобы настроить единый вход для Bonus.ly, необходимо извлечь значение отпечатка из сертификата. Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **Bonus.ly** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  На классическом портале Azure на странице интеграции с приложением **Bonus.ly** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-bonus-tutorial/IC749323.png "Настройка единого входа")
 
-2.  On the **How would you like users to sign on to Bonus.ly** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  На странице **Как пользователи должны входить в Bonus.ly?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773683.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-bonus-tutorial/IC773683.png "Настройка единого входа")
 
-3.  On the **Configure App URL** page, in the **Bonus.ly Tenant URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Bonus.ly*", and then click **Next**: 
+3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в Bonus.ly** введите свой URL-адрес, используя следующий шаблон *https://\<имя-клиента>.Bonus.ly*, — **Далее**.
 
-    ![Configure app URL](./media/active-directory-saas-bonus-tutorial/IC773684.png "Configure app URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-bonus-tutorial/IC773684.png "Настройка URL-адреса приложения")
 
-4.  On the **Configure single sign-on at Bonus.ly** page, click **download Certificate**, and then save the certificate file locally as **c:\\Bonusly.cer**.
+4.  На странице **Настройка единого входа в Bonus.ly** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата с именем **c:\\Bonusly.ser** на локальный компьютер.
 
-    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773685.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-bonus-tutorial/IC773685.png "Настройка единого входа")
 
-5.  In a different browser window, log in to your **Bonus.ly** tenant.
+5.  В другом окне браузера войдите в клиент **Bonus.ly**.
 
-6.  In the toolbar on the top, click **Settings**, and then select **Integrations and apps**.
+6.  На панели инструментов в верхней части экрана щелкните **Settings** (Параметры) и выберите **Integrations and apps** (Интеграции и приложения).
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773686.png "Bonusly")
 
-7.  Under **Single Sign-On**, select **SAML**.
+7.  В разделе **Single Sign-On** (Единый вход) выберите **SAML**.
 
-8.  On the **SAML** dialog page, perform the following steps:
+8.  На диалоговой странице **SAML** выполните следующие действия.
 
     ![Bonusly](./media/active-directory-saas-bonus-tutorial/IC773687.png "Bonusly")
 
-    1.  In the Azure classic portal, on the **Configure single sign-on at Bonus.ly** dialog page, copy the **Remote Login URL** value, and then paste it into the **IdP SSO target URL** textbox.
-    2.  In the Azure classic portal, on the **Configure single sign-on at Bonus.ly** dialog page, copy the **Issuer ID** value, and then paste it into the **IdP Issuer** textbox.
-    3.  In the Azure classic portal, on the **Configure single sign-on at Bonus.ly** dialog page, copy the **Remote Login URL** value, and then paste it into the **IdP Login URL** textbox.
-    4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Cert Fingerprint** textbox.
+    1.  На классическом портале Azure на диалоговой странице **Настройка единого входа в Bonus.ly** скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **IdP SSO target URL** (Целевой URL-адрес единого входа для IdP).
+    2.  На классическом портале Azure на диалоговой странице **Настройка единого входа в Bonus.ly** скопируйте значение поля **Issuer ID** (Идентификатор издателя) и вставьте его в текстовое поле **IdP Issuer** (Издатель IdP).
+    3.  На классическом портале Azure на диалоговой странице **Настройка единого входа в Bonus.ly** скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **IdP Login URL** (URL-адрес входа для IdP).
+    4.  Скопируйте значение поля **Отпечаток** из экспортированного сертификата и вставьте его в текстовое поле **Отпечаток сертификата**.
 
-        >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Дополнительные сведения можно найти в видео [Как получить значение отпечатка сертификата](http://youtu.be/YKQF266SAxI).
 
-9.  Click **save**.
+9.  Щелкните **Сохранить**.
 
-10. On the Microsoft Azure classic portal, select the configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. На классическом портале Microsoft Azure выберите подтверждение конфигурации, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure single sign-on](./media/active-directory-saas-bonus-tutorial/IC773689.png "Configure single sign-on")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Настройка единого входа](./media/active-directory-saas-bonus-tutorial/IC773689.png "Настройка единого входа")
+##Настройка подготовки учетных записей пользователей
 
-In order to enable Azure AD users to log into Bonus.ly, they must be provisioned into Bonus.ly.  
-In the case of Bonus.ly, provisioning is a manual task.
+Чтобы пользователи Azure AD могли выполнять вход в Bonus.ly, они должны быть подготовлены для Bonus.ly. В случае с Bonus.ly подготовка выполняется вручную.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
 
-1.  In a web browser window, log into your Bonus.ly tenant.
+1.  В окне браузера войдите в клиент Bonus.ly.
 
-2.  Click **Settings**
+2.  Щелкните **Settings** (Параметры).
 
-    ![Settings](./media/active-directory-saas-bonus-tutorial/IC781041.png "Settings")
+    ![данных](./media/active-directory-saas-bonus-tutorial/IC781041.png "данных")
 
-3.  Click the **Users and bonuses** tab.
+3.  Откройте вкладку **Users and bonuses** (Пользователи и бонусы).
 
-    ![Users and bonuses](./media/active-directory-saas-bonus-tutorial/IC781042.png "Users and bonuses")
+    ![Пользователи и бонусы](./media/active-directory-saas-bonus-tutorial/IC781042.png "Пользователи и бонусы")
 
-4.  Click **Manage Users**.
+4.  Выберите **Manage Users** (Управление пользователями).
 
-    ![Manage Users](./media/active-directory-saas-bonus-tutorial/IC781043.png "Manage Users")
+    ![Управление пользователями](./media/active-directory-saas-bonus-tutorial/IC781043.png "Управление пользователями")
 
-5.  Click **Add User**.
+5.  Нажмите кнопку **Add User** (Добавить пользователя).
 
-    ![Add User](./media/active-directory-saas-bonus-tutorial/IC781044.png "Add User")
+    ![Добавить пользователя](./media/active-directory-saas-bonus-tutorial/IC781044.png "Добавить пользователя")
 
-6.  On the **Add User** dialog, perform the following steps:
+6.  На диалоговой странице **Add User** (Добавление пользователя) выполните следующие действия.
 
-    ![Add User](./media/active-directory-saas-bonus-tutorial/IC781045.png "Add User")
+    ![Добавить пользователя](./media/active-directory-saas-bonus-tutorial/IC781045.png "Добавить пользователя")
 
-    1.  Type the “**Email**, **First name**, **Last name**” of a valid AAD account you want to provision into the related textboxes.
-    2.  Click **Save**.
+    1.  Заполните текстовые поля **Адрес электронной почты**, **Имя** и **Фамилия** данными действующей учетной записи AAD, которую вы хотите подготовить.
+    2.  Щелкните **Сохранить**.
 
-    >[AZURE.NOTE] The AAD account holder will receive an email that includes a link to confirm the account before it becomes active.
+    >[AZURE.NOTE] Владелец учетной записи Azure AD получит по электронной почте сообщение со ссылкой для активации учетной записи.
 
->[AZURE.NOTE] You can use any other Bonus.ly user account creation tools or APIs provided by Bonus.ly to provision AAD user accounts.
+>[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя Bonus.ly или API, предоставляемые Bonus.ly для подготовки учетных записей пользователя AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
 
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-bonus.ly,-perform-the-following-steps:"></a>To assign users to Bonus.ly, perform the following steps:
+###Чтобы назначить пользователей Bonus.ly, выполните следующие действия.
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the Bonus.ly application integration page, click **Assign users**.
+2.  На странице интеграции с приложением Bonus.ly щелкните **Назначить пользователей**.
 
-    ![Assign users](./media/active-directory-saas-bonus-tutorial/IC773690.png "Assign users")
+    ![Назначить пользователей](./media/active-directory-saas-bonus-tutorial/IC773690.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-bonus-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-bonus-tutorial/IC767830.png "Да")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

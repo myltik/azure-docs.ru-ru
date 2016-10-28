@@ -1,59 +1,59 @@
-## <a name="overview"></a>Overview
-When you create a new virtual machine (VM) in a Resource Group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is 127 GB. Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
+## Обзор
+При создании новой виртуальной машины в группе ресурсов путем развертывания образа из [Azure Marketplace](https://azure.microsoft.com/marketplace/) диск операционной системы по умолчанию имеет размер 127 ГБ. Хотя существует возможность добавлять диски данных к виртуальной машине (их число зависит от выбора номеров SKU), при этом даже рекомендуется устанавливать приложения и интенсивные по ЦП рабочие нагрузки на этих дополнительных дисках, зачастую пользователям требуется расширить диск операционной системы для поддержки некоторых сценариев, например следующих:
 
-1.  Support legacy applications that install components on OS drive.
-2.  Migrate a physical PC or virtual machine from on-premises with a larger OS drive.
+1.  Поддержка старых приложений, устанавливающих свои компоненты на диске с ОС.
+2.  Перенос локального физического компьютера или виртуальной машины с диском операционной системы большого размера.
 
->[AZURE.IMPORTANT]Azure has two different deployment models for creating and working with resources: Resource Manager and Classic. This article covers using the Resource Manager model. Microsoft recommends that most new deployments use the Resource Manager model.
+>[AZURE.IMPORTANT]В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: модель Resource Manager и классическая модель. В этой статье описана модель развертывания на основе Resource Manager. Для большинства новых развертываний Майкрософт рекомендует использовать модель диспетчера ресурсов.
 
-## <a name="resize-the-os-drive"></a>Resize the OS drive
-In this article we’ll accomplish the task of resizing the OS drive using resource manager modules of [Azure Powershell](../articles/powershell-install-configure.md). Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:
+## Изменение размера диска операционной системы
+В этой статье мы займемся задачей изменения размера для диска операционной системы с помощью модулей Resource Manager из [Azure Powershell](../articles/powershell-install-configure.md). Откройте интегрированную среду сценариев Powershell или окно Powershell в режиме администратора и выполните следующие действия.
 
-1.  Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
+1.  Войдите в учетную запись Microsoft Azure в режиме управления ресурсами и выберите подписку следующим образом:
 
     ```Powershell
     Login-AzureRmAccount
     Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
     ```
 
-2.  Set your resource group name and VM name as follows:
+2.  Задайте имя группы ресурсов и имя виртуальной машины следующим образом:
 
     ```Powershell
     $rgName = 'my-resource-group-name'
     $vmName = 'my-vm-name'
     ```
 
-3.  Obtain a reference to your VM as follows:
+3.  Получите ссылку на виртуальную машину следующим образом:
 
     ```Powershell
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-4. Stop the VM before resizing the disk as follows:
+4. Остановите виртуальную машину перед изменением размера диска следующим образом:
 
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-5.  And here comes the moment we’ve been waiting for! Set the size of the OS disk to the desired value and update the VM as follows:
+5.  И вот теперь долгожданный момент. Задайте нужное значение для размера диска операционной системы и обновите виртуальную машину следующим образом:
 
     ```Powershell
     $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
     ```
 
-    >[AZURE.WARNING]The new size should be greater than the existing disk size. The maximum allowed is 1023 GB.
+    >[AZURE.WARNING]Новый размер должен быть больше, чем размер существующего диска. Допустимо не более 1023 ГБ.
 
-6.  Updating the VM may take a few seconds. Once the command finishes executing, restart the VM as follows:
+6.  Обновление виртуальной машины может занять несколько секунд. После завершения команды перезапустите виртуальную машину, как показано ниже:
 
     ```Powershell
     Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-And that’s it! Now RDP into the VM, open Computer Management (or Disk Management) and expand the drive using the newly allocated space.
+Вот и все! Теперь подключитесь по RDP к виртуальной машине, откройте раздел "Управление компьютером" (или "Управление дисками") и увеличьте диск, используя только что выделенное для этого место.
 
-## <a name="summary"></a>Summary
-In this article, we used Azure Resource Manager modules of Powershell to expand the OS drive of an IaaS virtual machine. Reproduced below is the complete script for your reference:
+## Сводка
+В этой статье мы использовали модули Resource Manager в Azure Powershell для увеличения диска операционной системы виртуальной машины IaaS. Ниже приведен полный код сценария для справки:
 
 ```Powershell
 Login-AzureRmAccount
@@ -67,21 +67,18 @@ Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>Next Steps
-Though in this article, we focused primarily on expanding the OS disk of the VM, the developed script may also be used for expanding the data disks attached to the VM by changing a single line of code. For example, to expand the first data disk attached to the VM, replace the ```OSDisk``` object of ```StorageProfile``` with ```DataDisks``` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
+## Дальнейшие действия
+Хотя в этой статье основное внимание уделено увеличению диска операционной системы виртуальной машины, разработанный сценарий можно также использовать для увеличения дисков с данными, подключенных к виртуальной машине, изменив одну строку кода. Например, чтобы увеличить первый диск с данными, подключенный к виртуальной машине, замените объект ```OSDisk``` в ```StorageProfile``` на массив ```DataDisks``` и используйте числовой индекс для получения ссылки на первый подключенный диск с данными, как показано ниже:
 
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-Similarly you may reference other data disks attached to the VM, either by using an index as shown above or the ```Name``` property of the disk as illustrated below:
+Аналогичным образом можно ссылаться на другие диски с данными, подключенные к виртуальной машине, либо с помощью индекса, как показано выше, либо с помощью свойства ```Name``` диска, как показано ниже:
 
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-If you want to find out how to attach disks to an Azure Resource Manager VM, check this [article](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md).
+Дополнительные сведения о подключении дисков к виртуальной машине через Azure Resource Manager см. в этой [статье](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

@@ -1,68 +1,61 @@
 <properties
-    pageTitle="Log on to a classic Azure VM | Microsoft Azure"
-    description="Use the Azure classic portal to log on to a Windows virtual machine created with the classic deployment model."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management"/>
+	pageTitle="Вход на классическую виртуальную машину Azure | Microsoft Azure"
+	description="Использование классического портала Azure для входа в виртуальную машину Windows, созданную с использованием классической модели развертывания."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="cynthn"/>
 
 
+# Вход в виртуальную машину под управлением Windows с помощью классического портала Azure
 
-# <a name="log-on-to-a-windows-virtual-machine-using-the-azure-classic-portal"></a>Log on to a Windows virtual machine using the Azure classic portal
+На классическом портале Azure для запуска сеанса удаленного рабочего стола и входа в виртуальную машину Windows используйте кнопку **Подключиться**.
 
-In the Azure classic portal, you use the **Connect** button to start a Remote Desktop session and log on to a Windows VM.
+Хотите подключиться к виртуальной машине Linux? См. статью [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-mac-create-ssh-keys.md).
 
-Do you want to connect to a Linux VM? See [How to log on to a virtual machine running Linux](virtual-machines-linux-mac-create-ssh-keys.md).
+Узнайте, как [выполнить эти действия с помощью нового портала Azure](virtual-machines-windows-connect-logon.md).
 
-Learn how to [perform these steps using new Azure portal](virtual-machines-windows-connect-logon.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+## Видеоруководство
 
-## <a name="video-walkthrough"></a>Video walkthrough
-
-Here's a video walkthrough of the steps in this tutorial. It also covers endpoints and public and private ports used for connecting to a Windows VM in Azure.
+Ниже приведено пошаговое описание действий в этом руководстве в формате видеоролика. В нем также описаны конечные точки, а также общие и частные порты, используемые для подключения к виртуальной машине Windows в Azure.
 
 [AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
 
 
-## <a name="connect-to-the-virtual-machine"></a>Connect to the virtual machine
+## Подключение к виртуальной машине
 
-1. Sign in to the Azure classic portal.
+1. Войдите на классический портал Azure.
 
-2. Click **Virtual Machines**, and then select the virtual machine.
+2. Щелкните **Виртуальные машины** и выберите виртуальную машину.
 
-3. On the command bar at the bottom of the page, click **Connect**.
+3. На панели команд в нижней части страницы щелкните **Подключиться**.
 
-    ![Log on to the virtual machine](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
-    
-> [AZURE.TIP] If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
+	![Вход на виртуальную машину](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
+	
+> [AZURE.TIP] Если кнопка **Подключиться** недоступна, ознакомьтесь с советами по устранению неполадок в конце этой статьи.
 
-## <a name="log-on-to-the-virtual-machine"></a>Log on to the virtual machine
+## Вход на виртуальную машину
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
--   If the **Connect** button is inactive or you are having other problems with the Remote Desktop connection, try resetting the configuration. From the virtual machine dashboard, under **Quick Glance**, click **Reset remote configuration**.
--   For problems with your password, try resetting it. From the virtual machine dashboard, under **Quick Glance**, click **Reset password**.
+-	Если кнопка **Подключиться** неактивна или возникли другие проблемы с подключением к удаленному рабочему столу, попробуйте переустановить конфигурацию. На панели мониторинга виртуальной машины в разделе **Сводка** щелкните **Сброс удаленной конфигурации**.
+-	Если возникли проблемы с паролем, попробуйте сбросить его. На панели мониторинга виртуальной машины в разделе **Сводка** щелкните **Сбросить пароль**.
 
-If those tips don't work or aren't what you need, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md). This article walks you through diagnosing and resolving common problems.
+Если эти рекомендации не помогли устранить проблему или они вам не подходят, см. статью [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). В ней описывается процесс диагностики и решения распространенных проблем.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,24 +1,21 @@
 <!--author=alkohli last changed: 01/28/16-->
 
-#### <a name="to-add-a-new-storage-account"></a>To add a new storage account 
+#### Добавление новой учетной записи хранения 
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. На стартовой странице службы "Диспетчер StorSimple" выберите службу и дважды щелкните ее. После этого вы перейдете на страницу **Быстрый запуск**. Выберите страницу **Настройка**.
 
-2. Click **Add/edit storage account**.
+2. Щелкните элемент **Добавить/изменить учетную запись хранения**.
 
-3. In the **Add/Edit Storage Account** dialog box, do the following:
+3. В диалоговом окне **Добавление или изменение учетной записи хранения** выполните следующие действия.
 
-  1. Click **Add new**.
-  2. Provide the name of your Azure storage account.
-  3. Supply the primary **Access Key** for your Azure storage account. To get this key, go to the Storage service, select your storage account and click **Manage account keys**. You can now copy the **primary access key**.
-  4. Select **Enable SSL Mode** to create a secure channel for network communication between your StorSimple device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
-  5. Click the check icon ![check icon](./media/storsimple-ova-configure-new-storage-account/checkicon-include.png). You will be notified after the storage account is successfully created.
+  1. Щелкните **Добавить новую**.
+  2. Укажите имя вашей учетной записи хранения.
+  3. Введите первичный **ключ доступа** для учетной записи хранения Azure. Чтобы получить этот ключ, перейдите в службу хранилища, выберите свою учетную запись хранения и щелкните **Управление ключами учетной записи**. Скопируйте **первичный ключ доступа**.
+  4. Установите флажок **Включить режим SSL**, чтобы создать безопасный канал для обмена данными между вашим устройством StorSimple и облаком. Снимайте флажок **Включить режим SSL** только в том случае, если вы работаете в частном облаке.
+  5. Щелкните значок галочки ![значок галочки](./media/storsimple-ova-configure-new-storage-account/checkicon-include.png). После успешного создания учетной записи хранения вы получите уведомление.
 
-        ![Add storage account](./media/storsimple-ova-configure-new-storage-account/addnewstorageaccount-include.png)
+		![Add storage account](./media/storsimple-ova-configure-new-storage-account/addnewstorageaccount-include.png)
 
-4. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. 
+4. Только что созданная учетная запись хранения будет отображаться на странице **Настройка** в разделе **Учетные записи хранения**.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0204_2016-->

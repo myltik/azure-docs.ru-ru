@@ -1,54 +1,50 @@
 <properties
-    pageTitle="Security for Notification Hubs"
-    description="This topic explains security for Azure notification hubs."
-    services="notification-hubs"
-    documentationCenter=".net"
-    authors="wesmc7777"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Безопасность Центров уведомлений"
+	description="В этом разделе рассказывается об обеспечении безопасности Центров уведомлений Azure."
+	services="notification-hubs"
+	documentationCenter=".net"
+	authors="wesmc7777"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-multiple"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.date="06/29/2016"
-    ms.author="wesmc"/>
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/29/2016"
+	ms.author="wesmc"/>
 
+#Безопасность
 
-#<a name="security"></a>Security
+##Обзор
 
-##<a name="overview"></a>Overview
+В этом разделе описывается модель безопасности Центров уведомлений Azure. Поскольку Центр уведомлений — это сущность служебной шины, в нем реализуется та же модель безопасности, что и для служебной шины. Дополнительные сведения см. в статье [Проверка подлинности в служебной шине](https://msdn.microsoft.com/library/azure/dn155925.aspx).
 
-This topic describes the security model of Azure Notification Hubs. Because Notification Hubs are a Service Bus entity, they implement the same security model as Service Bus. For more information, see the [Service Bus Authentication](https://msdn.microsoft.com/library/azure/dn155925.aspx) topics.
+##Безопасность на базе подписанного URL-адреса (SAS) 
 
-##<a name="shared-access-signature-security-(sas)"></a>Shared Access Signature Security (SAS) 
+Центры уведомлений реализуют схему безопасности на уровне сущностей под названием SAS (подписанный URL-адрес). Эта схема позволяет сущности обмена сообщениями объявлять до 12 правил авторизации в своем описании, которое предоставляет права на эту сущность.
 
-Notification Hubs implements an entity-level security scheme called SAS (Shared Access Signature). This scheme enables messaging entities to declare up to 12 authorization rules in their description that grant rights on that entity.
+Каждое правило содержит имя, значение ключа (общий секрет) и набор прав, как описано в разделе "Утверждения безопасности". При создании Центра уведомлений автоматически создаются два правила: одно с правами прослушивания (используемое клиентским приложением) и другое со всеми правами (используемое серверной частью приложения).
 
-Each rule contains a name, a key value (shared secret), and a set of rights, as explained in the section “Security Claims.” When creating a Notification Hub, two rules are automatically created: one with Listen rights (that the client app uses) and one with all rights (that the app backend uses).
+При управлении регистрациями из клиентских приложений, если данные, отправляемые посредством уведомлений, не являются конфиденциальными (например, новости погоды), то обычный способ доступа к Центру уведомлений состоит в передаче значения ключа для правила "Доступ только для прослушивания" в клиентское приложение, а также передаче значения ключа для правила "Полный доступ" в серверную часть приложения.
 
-When performing registration management from client apps, if the information sent via notifications is not sensitive (for example, weather updates), a common way to access a Notification Hub is to give the key value of the rule Listen-only access to the client app, and to give the key value of the rule full access to the app backend.
+Не рекомендуется включать значение ключа в клиентские приложения Магазина Windows. Чтобы избежать этого, можно в клиентском приложении задать извлечение ключа из серверной части во время запуска.
 
-It is not recommended that you embed the key value in Windows Store client apps. A way to avoid embedding the key value is to have the client app retrieve it from the app backend at startup.
+Важно понимать, что ключ с доступом на прослушивание позволяет клиентскому приложению регистрироваться на любой тег. Если в приложении регистрации должны ограничиваться конкретными тегами для конкретных клиентов (например, когда теги отражают идентификаторы пользователей), то регистрацию должна проводить серверная часть. Дополнительные сведения см. в статье "Управление регистрациями" Обратите внимание, что в этом случае клиентское приложение не имеет прямого доступа к Центрам уведомлений.
 
-It is important to understand that the key with Listen access allows a client app to register for any tag. If your app must restrict registrations to specific tags to specific clients (for example, when tags represent user IDs), then your app backend must perform the registrations. For more information, see Registration Management. Note that in this way, the client app will not have direct access to Notification Hubs.
+##Утверждения безопасности
 
-##<a name="security-claims"></a>Security claims
+Аналогично другим сущностям для операций Центра уведомлений разрешены три типа утверждений безопасности: прослушивание, отправка и управление.
 
-Similar to other entities, Notification Hub operations are allowed for three security claims: Listen, Send, and Manage.
-
-| Claim | Description | Operations allowed |
+| Утверждение | Описание | Разрешенные операции |
 |-------|-------------|--------------------|
-| Listen | Create/Update, Read, and Delete single registrations | Create/Update registration<br><br>Read registration<br><br>Read all registrations for a handle<br><br>Delete registration |
-| Send | Send messages to the notification hub | Send message |
-| Manage | CRUDs on Notification Hubs (including updating PNS credentials, and security keys), and read registrations based on tags | Create/Update/Read/Delete notification hubs<br><br>Read registrations by tag |
+| Прослушивание | Создание, обновление, чтение и удаление отдельных регистраций | Создание и обновление регистрации<br><br>Чтение регистрации<br><br>Чтение всех регистраций для маркера<br><br>Удаление регистрации |
+| Отправка | Отправка сообщений в Центр уведомлений | Отправить сообщение |
+| Управление | Операции CRUD в Центрах уведомлений (включая обновление учетных данных PNS и ключей безопасности) и чтение регистраций на основе тегов | Создание, обновление, чтение, удаление Центров уведомлений<br><br>Чтение регистраций по тегу |
 
 
-Notification Hubs accept claims granted by Microsoft Azure Access Control tokens, and by signature tokens generated with shared keys configured directly on the Notification Hub.
+Центры уведомлений принимают утверждения, предоставленные маркерами контроля доступа Microsoft Azure и маркерами подписей, которые создаются с использованием общих ключей, заданных непосредственно в Центре уведомлений.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

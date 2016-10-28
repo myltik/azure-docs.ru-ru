@@ -8,33 +8,33 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtain the connection string from the Azure portal
+### Получение строки подключения на портале Azure
 
 
-Use the [Azure portal](https://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database: 
+Для получения строки подключения, необходимой для взаимодействия клиентской программы с Базой данных SQL Azure, используйте [портал Azure](https://portal.azure.com/).
 
 
-1. Click **BROWSE** > **SQL databases**.
+1. Последовательно выберите **ПРОСМОТРЕТЬ** > **Базы данных SQL**.
 
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
+2. Введите имя базы данных в текстовое поле фильтра рядом с верхней левой частью колонки **Базы данных SQL**.
 
-3. Click the row for your database.
+3. Щелкните строку с вашей базой данных.
 
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering. 
+4. Для наглядности после появления колонки для базы данных можно щелкнуть кнопки "Свернуть", чтобы свернуть колонки, используемые для просмотра и фильтрации базы данных.
  
-    ![Filter to isolate your database][10-FilterDatabase]
+	![Фильтр для определения базы данных][10-FilterDatabase]
 
-5. On the blade for your database, click **Show database connection strings**.
+5. На колонке для базы данных нажмите **Показать строки подключения к базе данных**.
 
-6. If you intend to use the ADO.NET connection library, copy the string labeled **ADO**. 
+6. Если вы планируете использовать библиотеку подключений ADO.NET, скопируйте строку с меткой **ADO**.
  
-    ![Copy the ADO connection string for your database][20-CopyAdoConnectionString]
+	![Копирование строки подключения ADO для базы данных][20-CopyAdoConnectionString]
  
-7. In one format or another, paste the connection string information into your client program code.
+7. Вставьте строку подключения в код клиентской программы в одном или другом формате.
 
 
 
-For more information, see:<br/>[Connection Strings and Configuration Files](http://msdn.microsoft.com/library/ms254494.aspx).
+Дополнительные сведения можно найти в разделе <br/>[Строки подключения и файлы конфигурации](http://msdn.microsoft.com/library/ms254494.aspx).
 
 
 
@@ -53,7 +53,4 @@ includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0406_2016-->

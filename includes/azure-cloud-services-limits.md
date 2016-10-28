@@ -1,13 +1,10 @@
-Resource|Default Limit|Maximum Limit
+Ресурс|Ограничение по умолчанию|Максимальное ограничение
 ---|---|---
-[Web/worker roles per deployment](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup>|25|25
-[Instance Input Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) per deployment|25|25
-[Input Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) per deployment|25|25
-[Internal Endpoints](http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) per deployment|25|25
+[Количество веб- или рабочих ролей на одно развертывание](../articles/cloud-services/cloud-services-choose-me.md)<sup>1</sup>|25|25
+[Входные конечные точки экземпляра](http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint) на развертывание|25|25
+[Входные конечные точки](http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) на развертывание|25|25
+[Внутренние конечные точки](http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) на развертывание|25|25
 
-<sup>1</sup>Each Cloud Service with Web/Worker roles can have two deployments, one for production and one for staging. Also note that this limit refers to the number of distinct roles (configuration) and not the number of instances per role (scaling).
+<sup>1</sup>Каждая облачная служба с рабочими и веб-ролями может иметь два развертывания: одно для производственной среды и одно для промежуточной. Необходимо также иметь в виду, что данное ограничение относится к количеству отдельных ролей (настройка), а не к количеству экземпляров для роли (масштабирование).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0420_2016-->

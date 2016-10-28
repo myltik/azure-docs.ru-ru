@@ -1,7 +1,7 @@
 <properties
-    pageTitle="Create an new elastic database pool with PowerShell | Microsoft Azure"
-    description="Learn how to use PowerShell to scale-out Azure SQL Database resources by creating a scalable elastic database pool to manage multiple databases."
-    services="sql-database"
+    pageTitle="Создание пула эластичных баз данных с помощью PowerShell | Microsoft Azure"
+    description="Узнайте, как создать масштабируемый пул эластичных баз данных с помощью PowerShell для горизонтального масштабирования ресурсов и управления несколькими базами данных SQL Azure."
+	services="sql-database"
     documentationCenter=""
     authors="srinia"
     manager="jhubbard"
@@ -16,44 +16,43 @@
     ms.date="05/27/2016"
     ms.author="srinia"/>
 
-
-# <a name="create-a-new-elastic-database-pool-with-powershell"></a>Create a new elastic database pool with PowerShell
+# Создание пула эластичных баз данных с помощью PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-create-portal.md)
+- [Портал Azure](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-Learn how to create an [elastic database pool](sql-database-elastic-pool.md) using PowerShell cmdlets. 
+Узнайте, как создавать [пулы эластичных баз данных](sql-database-elastic-pool.md) и управлять ими с помощью командлетов PowerShell.
 
-For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
+Стандартные коды ошибок см. в статье [Коды ошибок SQL для клиентских приложений базы данных SQL: ошибки подключения к базе данных и другие проблемы](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US and West India where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible. Also, elastic pools do not currently support databases using [in-memory OLTP or in-memory analytics](sql-database-in-memory.md).
-
-
-You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
-## <a name="create-a-new-pool"></a>Create a new pool
-
-The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cmdlet creates a new pool. The values for eDTU per pool, min, and max Dtus are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
-
-    New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+> [AZURE.NOTE] Пулы эластичных БД общедоступны во всех регионах Azure, кроме северо-центрального региона США и западной Индии, в которых сейчас доступна только предварительная версия. Общедоступная версия появится в этих регионах в ближайшее время. Кроме того, в настоящее время пулы эластичных БД не поддерживают базы данных, использующие [выполняющуюся в памяти OLTP или аналитику](sql-database-in-memory.md).
 
 
-## <a name="create-a-new-elastic-database-in-a-pool"></a>Create a new elastic database in a pool
+Для работы вам понадобится Azure PowerShell 1.0 или более поздняя версия. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
-Use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet and set the **ElasticPoolName** parameter to the target pool. To move an existing database into a pool, see [Move a database into an elastic pool](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
+## Создание пула
 
-    New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+Командлет [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) создает новый пул. Значения eDTU на пул, а также минимальные и максимальные значения DTU ограничены значением уровня службы ("Базовый", "Стандартный" или "Премиум"). См. раздел [eDTU и размеры хранилища для эластичных баз данных и пулов эластичных баз данных](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-## <a name="create-a-pool-and-populate-it-with-multiple-new-databases"></a>Create a pool and populate it with multiple new databases 
+	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
-Creation of a large number of databases in a pool can take time when done using the portal or PowerShell cmdlets that create only a single database at a time. To automate creation into a new pool, see [CreateOrUpdateElasticPoolAndPopulate ](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).   
 
-## <a name="example:-create-a-pool-using-powershell"></a>Example: create a pool using PowerShell 
+## Создание эластичной базы данных в пуле
 
-This script creates a new Azure resource group and a new server. When prompted, supply an administrator username and password for the new server (not your Azure credentials).
+Используйте командлет [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) и укажите целевой пул в качестве параметра **ElasticPoolName**. Сведения о перемещении существующей базы данных в пул см. в разделе [Перемещение базы данных в пул эластичных БД](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
+
+	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+
+## Создание пула и его заполнение несколькими новыми базами данных 
+
+Создание большого количества баз данных в пуле может занять некоторое время, если эта операция выполняется с помощью портала или командлетов PowerShell, которые создают базы данных поочередно. Сведения об автоматизации создания баз данных в новом пуле см. в документации [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
+
+## Пример. Создание пула с помощью PowerShell 
+
+Этот скрипт создает группу ресурсов Azure и сервер. При появлении запроса укажите имя и пароль пользователя-администратора для нового сервера (не свои учетные данные Azure).
 
     $subscriptionId = '<your Azure subscription id>'
     $resourceGroupName = '<resource group name>'
@@ -75,15 +74,10 @@ This script creates a new Azure resource group and a new server. When prompted, 
 
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- [Manage your pool](sql-database-elastic-pool-manage-powershell.md)
-- [Create elastic jobs](sql-database-elastic-jobs-overview.md) Elastic jobs let you run T-SQL scripts against any number of databases in the pool.
-- [Scale out with Azure SQL Database](sql-database-elastic-scale-introduction.md): Use elastic database tools to scale-out.
+- [Управление пулом.](sql-database-elastic-pool-manage-powershell.md)
+- [Обзор заданий обработки эластичных баз данных](sql-database-elastic-jobs-overview.md). Эти задания упрощают выполнение сценариев T-SQL для любого количества эластичных баз данных в пуле.
+- [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md). Использование средств эластичных баз данных для масштабирования.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

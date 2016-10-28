@@ -1,391 +1,384 @@
 <properties
-    pageTitle="Replicate Hyper-V virtual machines in VMM clouds to Azure | Microsoft Azure"
-    description="This article describes how to replicate Hyper-V virtual machines on Hyper-V hosts located in System Center VMM clouds to Azure."
-    services="site-recovery"
-    documentationCenter=""
-    authors="rayne-wiselman"
-    manager="jwhit"
-    editor=""/>
+	pageTitle="Репликация виртуальных машин Hyper-V из облачных сред VMM в Azure | Microsoft Azure"
+	description="В этой статье описывается, как выполнять репликацию виртуальных машин Hyper-V на узлах Hyper-V, расположенных в облаках System Center VMM, в Azure."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
+	editor=""/>
 
 <tags
-    ms.service="site-recovery"
-    ms.workload="backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="05/06/2016"
-    ms.author="raynew"/>
+	ms.service="site-recovery"
+	ms.workload="backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="05/06/2016"
+	ms.author="raynew"/>
 
-
-#  <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>Replicate Hyper-V virtual machines in VMM clouds to Azure
+#  Репликация виртуальных машин Hyper-V из облачных сред VMM в Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](site-recovery-vmm-to-azure.md)
-- [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
-- [Classic Portal](site-recovery-vmm-to-azure-classic.md)
-- [PowerShell - Classic](site-recovery-deploy-with-powershell.md)
+- [Портал Azure](site-recovery-vmm-to-azure.md)
+- [PowerShell в режиме ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+- [Классический портал](site-recovery-vmm-to-azure-classic.md)
+- [PowerShell — классическая модель](site-recovery-deploy-with-powershell.md)
 
 
 
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md).
+Служба Azure Site Recovery помогает реализовать стратегии непрерывности бизнес-процессов и аварийного восстановления, управляя процессами репликации, отработки отказа и восстановления виртуальных машин и физических серверов. Виртуальные машины можно реплицировать в Azure или во вторичный локальный центр обработки данных. Краткий обзор см. в статье [Что такое Site Recovery?](site-recovery-overview.md)
 
-## <a name="overview"></a>Overview
+## Обзор
 
-This article describes how to deploy Site Recovery to replicate Hyper-V virtual machines on Hyper-V host servers that are located in VMM private clouds to Azure.
+В этой статье описывается развертывание службы Site Recovery для репликации виртуальных машин Hyper-V на серверах узла Hyper-V, расположенных в частных облаках VMM, в среду Azure.
 
-The article includes prerequisites for the scenario and shows you how to set up a Site Recovery vault, get the Azure Site Recovery Provider installed on the source VMM server, register the server in the vault, add an Azure storage account, install the Azure Recovery Services agent on Hyper-V host servers, configure protection settings for VMM clouds that will be applied to all protected virtual machines, and then enable protection for those virtual machines. Finish up by testing the failover to make sure everything's working as expected.
+Руководство включает перечень необходимых для реализации этого сценария компонентов, а также инструкции по настройке хранилища Site Recovery, установке поставщика Azure Site Recovery на исходном сервере VMM, регистрации сервера в хранилище, добавлению учетной записи хранения Azure, установке агента Azure Recovery Services на серверах узлов Hyper-V, настройке параметров защиты для облаков VMM, которые будут применяться ко всем защищенным виртуальным машинам, и включению защиты для этих виртуальных машин. В качестве завершения выполните отработку отказа, чтобы убедиться в том, что все работает правильно.
 
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Комментарии или вопросы можно добавить в конце этой статьи или на [форуме по службам восстановления Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="architecture"></a>Architecture
+## Архитектура
 
-![Architecture](./media/site-recovery-vmm-to-azure-classic/topology.png)
+![Архитектура](./media/site-recovery-vmm-to-azure-classic/topology.png)
 
-- The Azure Site Recovery Provider is installed on the VMM during Site Recovery deployment and the VMM server is registered in the Site Recovery vault. The Provider communicates with Site Recovery to handle replication orchestration.
-- The Azure Recovery Services agent is installed on Hyper-V host servers during Site Recovery deployment. It handles data replication to Azure storage.
+- Поставщик Azure Site Recovery устанавливается на сервере VMM во время развертывания службы Site Recovery, а сервер VMM регистрируется в хранилище Site Recovery. Поставщик обменивается данными с Site Recovery для оркестрации репликации.
+- Агент служб восстановления Azure устанавливается на серверах узла Hyper-V во время развертывания службы Site Recovery. Он выполняет репликацию данных в хранилище Azure.
 
 
-## <a name="azure-prerequisites"></a>Azure prerequisites
+## Предварительные требования Azure
 
-Here's what you'll need in Azure.
+Вам потребуется следующее (среда Azure).
 
-**Prerequisite** | **Details**
+**Предварительные требования** | **Дополнительные сведения**
 --- | ---
-**Azure account**| You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing.
-**Azure storage** | You'll need an Azure storage account to store replicated data. Replicated data is stored in Azure storage and Azure VMs are spun up when failover occurs. <br/><br/>You need a [standard geo-redundant storage account](../storage/storage-redundancy.md#geo-redundant-storage). The account must in the same region as the Site Recovery service, and be associated with the same subscription. Note that replication to premium storage accounts isn't currently supported and shouldn't be used.<br/><br/>[Read about](../storage/storage-introduction.md) Azure storage.
-**Azure network** | You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Site Recovery vault.
+**Учетная запись Azure**| Вам потребуется учетная запись [Microsoft Azure](https://azure.microsoft.com/). Начните с [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial/). Ознакомьтесь с [дополнительными сведениями](https://azure.microsoft.com/pricing/details/site-recovery/) о ценах на использование Site Recovery.
+**Служба хранилища Azure** | Для хранения реплицируемых данных потребуется учетная запись хранения Azure. Реплицированные данные хранятся в службе хранилища Azure, а виртуальные машины Azure развертываются при отработке отказа. <br/><br/>Необходима [учетная запись хранения для геоизбыточного хранилища класса Standard](../storage/storage-redundancy.md#geo-redundant-storage). Она должна находиться в том же регионе, что и служба Site Recovery, и быть связана с той же подпиской. Обратите внимание, что сейчас репликация в учетные записи хранения класса Premium не поддерживается и ее не следует использовать.<br/><br/>См. [дополнительные сведения](../storage/storage-introduction.md) о службе хранилища Azure.
+**Сеть Azure** | Потребуется виртуальная сеть Azure, к которой будут подключаться виртуальные машины Azure при отработке отказа. Виртуальная сеть Azure должна располагаться в том же регионе, что и хранилище Site Recovery.
 
-## <a name="on-premises-prerequisites"></a>On-premises prerequisites
+## Предварительные требования для локальной среды
 
-Here's what you'll need on-premises.
+Вам потребуется следующее (локальная среда).
 
-**Prerequisite** | **Details**
+**Предварительные требования** | **Дополнительные сведения**
 --- | ---
-**VMM** | You'll need at least one VMM server deployed as a physical or virtual standalone server, or as a virtual cluster. <br/><br/>The VMM server should be running System Center 2012 R2 with the latest cumulative updates.<br/><br/>You'll need at least one cloud configured on the VMM server.<br/><br/>The source cloud that you want to protect must contain one or more VMM host groups.<br/><br/>Learn more about setting up VMM clouds in [Walkthrough: Creating private clouds with System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) on Keith Mayer's blog.
-**Hyper-V** | You'll need one or more Hyper-V host servers or clusters in the VMM cloud. The host server should have and one or more VMs. <br/><br/>The Hyper-V server must be running on at least Windows Server 2012 R2 with the Hyper-V role and have the latest updates installed.<br/><br/>Any Hyper-V server containing VMs you want to protect must be located in a VMM cloud.<br/><br/>If you're running Hyper-V in a cluster note that cluster broker isn't created automatically if you have a static IP address-based cluster. You'll need to configure the cluster broker manually. [Learn more](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) in Aidan Finn's blog entry.
-**Protected machines** | VMs you want to protect should comply with [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+**VMM** | Вам понадобится по крайней мере один сервер VMM, развернутый как отдельный физический или виртуальный сервер либо как виртуальный кластер. <br/><br/>Сервер VMM должен работать под управлением System Center 2012 R2 с последними накопительными пакетами обновления.<br/><br/>На сервере VMM должно быть настроено хотя бы одно облако.<br/><br/>Исходное облако, которое требуется защитить, должно содержать одну или несколько групп узлов VMM.<br/><br/>Чтобы получить дополнительные сведения о настройке облака VMM, см. [пошаговое руководство по созданию частных облаков с помощью VMM в System Center 2012 с пакетом обновления 1 (SP1)](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) в блоге Кита Мейера (Keith Mayer).
+**Hyper-V** | Один или несколько серверов узлов или кластеров Hyper-V в облаке VMM. Сервер узла должен содержать одну или несколько виртуальных машин. <br/><br/>Серверы Hyper-V должны работать под управлением Windows Server 2012 R2 (или более поздней версии) с ролью Hyper-V, и на них должны быть установлены последние пакеты обновлений.<br/><br/>Все серверы Hyper-V, содержащие виртуальные машины, которые необходимо защитить, должны быть расположены в облаке VMM.<br/><br/>Если Hyper-V работает в кластере, учтите, что брокер кластера не создается автоматически для кластера со статическим IP-адресом. Вам потребуется настроить брокер кластера вручную. См. [дополнительные сведения](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters) в записи блога Эйдана Финна (Aidan Finn).
+**Защищенные компьютеры** | Виртуальные машины, которые требуется защитить, должны соответствовать [требованиям среды Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
 
-## <a name="network-mapping-prerequisites"></a>Network mapping prerequisites
-When you protect virtual machines in Azure network mapping maps between VM networks on the source VMM server and target Azure networks to enable the following:
+## Предварительные требования сетевого сопоставления
+В рамках защиты виртуальных машин в Azure с помощью сопоставления сетей осуществляется сопоставление сетей виртуальных машин на исходном сервере VMM и целевых сетей Azure, что обеспечивает следующие преимущества.
 
-- All machines which failover on the same network can connect to each other, irrespective of which recovery plan they are in.
-- If a network gateway is setup on the target Azure network, virtual machines can connect to other on-premises virtual machines.
-- If you don’t configure network mapping only virtual machines that fail over in the same recovery plan will be able to connect to each other after failover to Azure.
+- Отработка отказа всех виртуальных машин выполняется в одной сети, что позволяет им подключаться друг к другу, независимо от назначенного им плана восстановления.
+- При наличии сетевого шлюза в целевой сети Azure виртуальные машины могут подключиться к другим локальным виртуальным машинам.
+- Если сопоставление не включено, то после отработки отказа в Azure могут подключаться друг к другу только виртуальные машины, переключающиеся на другой ресурс в рамках одного плана восстановления.
 
-If you want to deploy network mapping you'll need the following:
+Для развертывания сетевого сопоставления требуется следующее.
 
-- The virtual machines you want to protect on the source VMM server should be connected to a VM network. That network should be linked to a logical network that is associated with the cloud.
-- An Azure network to which replicated virtual machines can connect after failover. You'll select this network at the time of failover. The network should be in the same region as your Azure Site Recovery subscription.
+- Защищаемые виртуальные машины на исходном сервере VMM должны быть подключены к сети виртуальных машин. Эта сеть должна быть подключена к логической сети, которая связана с облаком.
+- Сеть Azure, к которой могут подключаться реплицированные виртуальные машины после отработки отказа. Эту сеть вы выбираете во время отработки отказа. Сеть должна располагаться в том же регионе, что и ваша подписка Azure Site Recovery.
 
-Prepare for network mapping as follows:
+Подготовка к сопоставлению сетей:
 
-1. [Read about](site-recovery-network-mapping.md) network mapping requirements.
-2. Prepare VM networks in VMM:
+1. [Прочтите эту статью](site-recovery-network-mapping.md) о требованиях к сетевому сопоставлению.
+2. Подготовьте сети виртуальных машин в VMM:
 
-    - [Set up logical networks](https://technet.microsoft.com/library/jj721568.aspx).
-    - [Set up VM networks](https://technet.microsoft.com/library/jj721575.aspx).
+	- [Настройте логические сети](https://technet.microsoft.com/library/jj721568.aspx).
+	- [Настройте сети виртуальных машин](https://technet.microsoft.com/library/jj721575.aspx).
 
 
-## <a name="step-1:-create-a-site-recovery-vault"></a>Step 1: Create a Site Recovery vault
+## Шаг 1. Создание хранилища Site Recovery
 
-1. Sign in to the [Management Portal](https://portal.azure.com) from the VMM server you want to register.
-2. Click **Data Services** > **Recovery Services** > **Site Recovery Vault**.
-3. Click **Create New** > **Quick Create**.
-4. In **Name**, enter a friendly name to identify the vault.
-5. In **Region**, select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. Click **Create vault**.
+1. Войдите на [Портал управления](https://portal.azure.com) с сервера VMM, который хотите зарегистрировать.
+2. Щелкните **Службы данных** > **Службы восстановления** > **Хранилище Site Recovery**.
+3. Выберите **Создать** > **Быстрое создание**.
+4. В поле **Имя** введите понятное имя для идентификации хранилища.
+5. В поле **Область** выберите географический регион для хранилища архивации. Сведения о поддерживаемых регионах см. в разделе "Регионы" страницы [Расценки на службу Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+6. Щелкните элемент **Создать хранилище**.
 
-    ![New Vault](./media/site-recovery-vmm-to-azure-classic/create-vault.png)
+	![Новое хранилище](./media/site-recovery-vmm-to-azure-classic/create-vault.png)
 
-Check the status bar to confirm that the vault was successfully created. The vault will be listed as **Active** on the main Recovery Services page.
+Проверьте строку состояния, чтобы убедиться, что хранилище успешно создано. На главной странице служб восстановления это хранилище будет указано с состоянием **Активно**.
 
-## <a name="step-2:-generate-a-vault-registration-key"></a>Step 2: Generate a vault registration key
+## Шаг 2. Создание ключа регистрации хранилища
 
-Generate a registration key in the vault. After you download the Azure Site Recovery Provider and install it on the VMM server, you'll use this key to register the VMM server in the vault.
+Создайте ключ регистрации в хранилище. После загрузки поставщика Azure Site Recovery и установки его на сервер VMM этот ключ используется для регистрации сервера VMM в хранилище.
 
-1. In the **Recovery Services** page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
+1. На странице **Службы восстановления** щелкните хранилище, чтобы открыть страницу быстрого запуска. Страницу быстрого запуска можно открыть и в любой другой момент, щелкнув этот значок.
 
-    ![Quick Start Icon](./media/site-recovery-vmm-to-azure-classic/qs-icon.png)
+	![Значок быстрого запуска](./media/site-recovery-vmm-to-azure-classic/qs-icon.png)
 
-2. In the dropdown list, select **Between an on-premises VMM site and Microsoft Azure**.
-3. In **Prepare VMM Servers**, click **Generate registration key** file. The key file is generated automatically and is valid for 5 days after it's generated. If you're not accessing the Azure portal from the VMM server you'll need to copy this file to the server.
+2. В раскрывающемся списке выберите элемент **Between an on-premises VMM site and Microsoft Azure (Между локальным сайтом VMM и Microsoft Azure)**.
+3. В разделе **Prepare VMM Servers** (Подготовка серверов VMM) выберите пункт **Generate registration key** (Создать регистрационный ключ). Файл ключа создается автоматически. Срок действия ключа — пять дней с момента создания. Если вы получаете доступ к порталу Azure не с сервера VMM, вам потребуется скопировать этот файл на сервер.
 
-    ![Registration key](./media/site-recovery-vmm-to-azure-classic/register-key.png)
+	![Регистрационный ключ](./media/site-recovery-vmm-to-azure-classic/register-key.png)
 
-## <a name="step-3:-install-the-azure-site-recovery-provider"></a>Step 3: Install the Azure Site Recovery Provider
+## Шаг 3. Установка поставщика Azure Site Recovery
 
-1. In **Quick Start** > **Prepare VMM servers**, click **Download Microsoft Azure Site Recovery Provider for installation on VMM servers** to obtain the latest version of the Provider installation file.
-2. Run this file on the source VMM server.
+1. Последовательно выберите **Быстрый запуск** > **Подготовка серверов VMM** и щелкните **Скачайте поставщик Microsoft Azure Site Recovery для установки на серверы VMM**, чтобы получить последнюю версию установочного файла поставщика.
+2. Запустите этот файл на исходном сервере VM.
 
-    >[AZURE.NOTE] If VMM is deployed in a cluster and you're installing the Provider for the first time install it on an active node and finish the installation to register the VMM server in the vault. Then install the Provider on the other nodes. Note that if you're upgrading the Provider you'll need to upgrade on all nodes because they should all be running the same Provider version.
-    
-3. The Installer does a prerequirements check and requests permission to stop the VMM service to begin Provider setup. The VMM Service will be restarted automatically when setup finishes. If you're installing on a VMM cluster you'll be prompted to stop the Cluster role.
+	>[AZURE.NOTE] Если развертывание VMM выполняется в кластере и вы устанавливаете поставщик впервые, установите его на активном узле и завершите установку, чтобы зарегистрировать сервер VMM в хранилище. Затем установите поставщик на других узлах. Учтите, что при обновлении поставщика потребуется обновить его на всех узлах, так как все они должны работать под управлением одной версии.
+	
+3. Установщик выполняет проверку предварительных требований и запрашивает разрешение на остановку службы VMM, чтобы начать установку поставщика. Служба VMM автоматически перезапустится после завершения установки. При установке в кластере VMM будет выдан запрос на остановку роли Cluster.
 
-4. In **Microsoft Update** you can opt in for updates. With this setting enabled Provider updates will be installed according to your Microsoft Update policy.
+4. В **Центре обновления Майкрософт** вы можете настроить обновления. Если этот параметр включен, то обновления поставщика будут устанавливаться в соответствии с вашей политикой Центра обновления Майкрософт.
 
-    ![Microsoft Updates](./media/site-recovery-vmm-to-azure-classic/updates.png)
+	![Центр обновления Майкрософт](./media/site-recovery-vmm-to-azure-classic/updates.png)
 
 
-5.  The install location for the Provider is set to **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin**. Click **Install**.
+5.  Для поставщика указано такое расположение установки: **<системный\_диск>\\Program Files\\Microsoft System Center 2012 R2\\Virtual Machine Manager\\bin**. Щелкните **Install** (Установить).
 
-    ![InstallLocation](./media/site-recovery-vmm-to-azure-classic/install-location.png)
+	![InstallLocation](./media/site-recovery-vmm-to-azure-classic/install-location.png)
 
-6. After the Provider is installed click **Register** to register the server in the vault.
+6. После установки поставщика нажмите кнопку **Зарегистрировать**, чтобы зарегистрировать сервер в хранилище.
 
-    ![InstallComplete](./media/site-recovery-vmm-to-azure-classic/install-complete.png)
+	![InstallComplete](./media/site-recovery-vmm-to-azure-classic/install-complete.png)
 
-9. In **Vault name**, verify the name of the vault in which the server will be registered. Click *Next*.
+9. В поле **Имя хранилища** проверьте имя хранилища, в котором будет зарегистрирован сервер. Нажмите кнопку *Далее*.
 
-    ![Server registration](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
+	![Регистрация сервера](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
 
-7. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select **Connect with existing proxy settings** to use the default Internet connection settings configured on the server.
+7. На странице **Подключение к Интернету** укажите, как запущенный на сервере VMM поставщик подключается к Интернету. Щелкните **Connect with existing proxy settings** (Подключение с параметрами существующего прокси-сервера), чтобы использовать параметры подключения к Интернету, настроенные на сервере по умолчанию.
 
-    ![Internet Settings](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
+	![Параметры Интернета](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
 
-    - If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
-    - If you do use a custom proxy, or your default proxy requires authentication you'll need to enter the proxy details, including the proxy address and port.
-    - Following urls should be accessible from the VMM Server and the Hyper-v hosts
-        - *.hypervrecoverymanager.windowsazure.com
-        - *.accesscontrol.windows.net
-        - *.backup.windowsazure.com
-        - *.blob.core.windows.net
-        - *.store.core.windows.net
-    - Allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
-    - If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. To do this, open the **Settings** workspace, expand **Security**, click **Run As Accounts**, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
+	- Если вы хотите использовать настраиваемый прокси-сервер, его следует настроить перед установкой поставщика. При настройке параметров прокси-сервера выполняется проверка подключения к прокси-серверу.
+	- Если вы используете настраиваемый прокси-сервер или прокси-сервер по умолчанию требует выполнения проверки подлинности, вам потребуется указать сведения о прокси-сервере, включая его адрес и порт.
+	- C сервера VMM должны быть доступны следующие URL-адреса и узлы Hyper-V:
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
+	- Разрешите IP-адреса, перечисленные в статье [Диапазоны IP-адресов центров обработки данных Azure ](https://www.microsoft.com/download/confirmation.aspx?id=41653) и протоколы HTTPS (443). Необходимо разрешить диапазоны IP-адресов региона Azure, который вы планируете использовать, и Запада США.
+	- При использовании настраиваемого прокси-сервера автоматически создается учетная запись запуска от имени VMM (DRAProxyAccount), использующая указанные учетные данные прокси-сервера. Настройте прокси-сервер так, чтобы эта учетная запись могла успешно проходить проверку подлинности. Параметры учетной записи запуска от имени VMM можно изменить в консоли VMM. Для этого откройте рабочую область **Параметры**, разверните раздел **Безопасность**, щелкните **Учетные записи запуска от имени**, а затем измените пароль для учетной записи DRAProxyAccount. Чтобы параметры вступили в силу, потребуется перезапустить службу VMM.
 
 
-8. In **Registration Key**, select the key that you downloaded from Azure Site Recovery and copied to the VMM server.
+8. В поле **Регистрационный ключ** введите ключ, который вы скачали из Azure Site Recovery и скопировали на сервер VMM.
 
 
-10.  The encryption setting is only used when you're replicating Hyper-V VMs in VMM clouds to Azure. If you're replicating to a secondary site it's not used.
+10.  Параметр шифрования используется только при репликации виртуальных машин Hyper-V в облаках VMM в Azure. При репликации на дополнительный сайт он не используется.
 
-11.  In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
-12.  In **Synchronize cloud metadata** select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console.
+11.  В поле **Имя сервера** укажите понятное имя, описывающее сервер VMM в хранилище. В конфигурации кластера укажите имя роли кластера VMM.
+12.  В поле **Синхронизация метаданных в облаке** укажите, нужно ли синхронизировать с хранилищем метаданные для всех облаков на сервере VMM. На каждом сервере это действие требуется выполнять только один раз. Если не требуется синхронизировать все облака, можно оставить этот флажок снятым и синхронизировать каждое облако индивидуально в свойствах облака в консоли VMM.
 
-13.  Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  **VMM Servers** tab on the **Servers** page in the vault.
-    
-    ![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
+13.  Для завершения процесса нажмите кнопку **Далее**. После регистрации метаданные с сервера VMM извлекаются службой Azure Site Recovery. Сервер отображается на вкладке **Серверы VMM** на странице **Серверы** в хранилище.
+ 	
+	![Последняя страница](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
-After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the **VMM Servers** tab on the **Servers** page in the vault.
+После регистрации метаданные с сервера VMM извлекаются службой Azure Site Recovery. Сервер отображается на вкладке **Серверы VMM** на странице **Серверы** в хранилище.
 
-### <a name="command-line-installation"></a>Command line installation
+### Установка из командной строки
 
-The Azure Site Recovery Provider can also be installed using the following command line. This method can be used to install the provider on a Server Core for Windows Server 2012 R2.
+Поставщик Azure Site Recovery также можно установить с помощью приведенной ниже командной строки. Этот метод можно использовать для установки поставщика на основные серверные компоненты Windows Server 2012 R2.
 
-1. Download the Provider installation file and registration key to a folder. For example: C:\ASR.
-2. Stop the System Center Virtual Machine Manager service
-3. From an elevated command prompt, extract the Provider installer with these commands:
+1. Скачайте файл установки поставщика и ключ регистрации в папку. Например, C:\\ASR.
+2. Остановите службу System Center Virtual Machine Manager.
+3. В командной строке запустите с повышенными правами следующие команды, чтобы извлечь установщик поставщика:
 
-        C:\Windows\System32> CD C:\ASR
-        C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
+    	C:\Windows\System32> CD C:\ASR
+    	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
 
-4. Install the provider as follows:
+4. Установите поставщик:
 
-        C:\ASR> setupdr.exe /i
+		C:\ASR> setupdr.exe /i
 
-5. Register the Provider as follows:
+5. Зарегистрируйте поставщик:
 
-        CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
+    	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
 
-Where parameters are as follows:
+Используйте следующие параметры.
 
- - **/Credentials** : Mandatory parameter that specifies the location in which the registration key file is located  
- - **/FriendlyName** : Mandatory parameter for the name of the Hyper-V host server that appears in the Azure Site Recovery portal.
- - **/EncryptionEnabled** : Optional parameter to specify if you want to encryption your virtual machines in Azure (at rest encryption). The file name should have a **.pfx** extension.
- - **/proxyAddress** : Optional parameter that specifies the address of the proxy server.
- - **/proxyport** : Optional parameter that specifies the port of the proxy server.
- - **/proxyUsername** : Optional parameter that specifies the proxy user name.
- - **/proxyPassword** :Optional parameter that specifies the proxy password.  
+ - **/Credentials**: обязательный параметр, который задает расположение ключа регистрации.
+ - **/FriendlyName**: обязательный параметр для имени сервера узла Hyper-V, который отображается на портале Azure Site Recovery.
+ - **/EncryptionEnabled**: необязательный параметр для настройки шифрования виртуальных машин в Azure (шифрование неактивных данных). Имя файла должно иметь расширение **PFX**.
+ - **/proxyAddress**: необязательный параметр, указывающий адрес прокси-сервера.
+ - **/proxyport**: необязательный параметр, указывающий порт прокси-сервера.
+ - **/proxyUsername**: необязательный параметр, указывающий имя пользователя прокси-сервера.
+ - **/proxyPassword**: необязательный параметр, указывающий пароль прокси-сервера.
 
 
-## <a name="step-4:-create-an-azure-storage-account"></a>Step 4: Create an Azure storage account
+## Шаг 4. Создание учетной записи хранения Azure
 
-1. If you don't have an Azure storage account click **Add an Azure Storage Account** to create an account.
-2. Create an account with geo-replication enabled. It must in the same region as the Azure Site Recovery service, and be associated with the same subscription.
+1. Если у вас нет учетной записи хранения Azure, создайте ее, щелкнув **Добавление учетной записи хранения Azure**.
+2. Создайте учетную запись со включенной георепликацией. Она должна находиться в том же регионе, что и служба Azure Site Recovery, и быть связана с той же подпиской.
 
-    ![Storage account](./media/site-recovery-vmm-to-azure-classic/storage.png)
+	![Учетная запись хранения](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
-> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) между группами ресурсов в рамках одной или нескольких подписок не поддерживается для учетных записей хранения, используемых для развертывания Site Recovery.
 
-## <a name="step-5:-install-the-azure-recovery-services-agent"></a>Step 5: Install the Azure Recovery Services Agent
+## Шаг 5. Установка агента служб восстановления Azure
 
-Install the Azure Recovery Services agent on each Hyper-V host server in the VMM cloud.
+Установите агент служб восстановления Azure на всех серверах узлов Hyper-V в облаках VMM.
 
-1. Click **Quick Start** > **Download Azure Site Recovery Services Agent and install on hosts** to obtain the latest version of the agent installation file.
+1. Последовательно выберите **Быстрый запуск** > **Download Azure Site Recovery Services Agent and install on hosts** (Скачать агент служб Azure Site Recovery и установить его на узлах), чтобы получить последнюю версию файла установки агента.
 
-    ![Install Recovery Services Agent](./media/site-recovery-vmm-to-azure-classic/install-agent.png)
+	![Установка агента служб восстановления Azure](./media/site-recovery-vmm-to-azure-classic/install-agent.png)
 
-2. Run the installation file on each Hyper-V host server.
-3. On the **Prerequisites Check** page click **Next**. Any missing prerequisites will be automatically installed.
+2. Запустите файл установки на каждом сервере узла Hyper-V.
+3. На странице **Проверка предварительных требований** нажмите кнопку **Далее**. Все отсутствующие предварительные требования будут установлены автоматически.
 
-    ![Prerequisites Recovery Services Agent](./media/site-recovery-vmm-to-azure-classic/agent-prereqs.png)
+	![Предварительные требования для агента служб восстановления](./media/site-recovery-vmm-to-azure-classic/agent-prereqs.png)
 
-4. On the **Installation Settings** page, specify where you want to install the agent and select the cache location in which backup metadata will be installed. Then click **Install**.
-5. After installation finishes click **Close** to complete the wizard.
+4. На странице **Параметры установки** укажите расположение для установки агента, а также расположение кэша для установки метаданных резервной копии. Нажмите **Install** (Установить).
+5. По завершении установки нажмите кнопку **Закрыть**, чтобы завершить работу мастера.
 
-    ![Register MARS Agent](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
+	![Регистрация агента служб восстановления Microsoft Azure](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
-### <a name="command-line-installation"></a>Command line installation
+### Установка из командной строки
 
-You can also install the Microsoft Azure Recovery Services Agent from the command line using this command:
+Агент служб восстановления Microsoft Azure можно также установить из командной строки с помощью следующей команды:
 
     marsagentinstaller.exe /q /nu
 
-## <a name="step-6:-configure-cloud-protection-settings"></a>Step 6: Configure cloud protection settings
+## Шаг 6. Настройка параметров защиты облачных систем
 
-After the VMM server is registered, you can configure cloud protection settings. You enabled the option **Synchronize cloud data with the vault** when you installed the Provider so all clouds on the VMM server will appear in the <b>Protected Items</b> tab in the vault.
+После регистрации сервера VMM можно настроить параметры защиты облака. Параметр **Синхронизировать облачные данные с хранилищем** был включен при установке поставщика, поэтому все облака на сервере VMM появятся на вкладке <b>Защищенные элементы</b> в хранилище.
 
-![Published Cloud](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)
+![Опубликованное облако](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)
 
-1. On the Quick Start page, click **Set up protection for VMM clouds**.
-2. On the **Protected Items** tab, click on the cloud you want to configure and go to the **Configuration** tab.
-3. In **Target** select **Azure**.
-4. In **Storage Account** select the Azure storage account you use for replication.
-5. Set **Encrypt stored data** to **Off**. This setting specifies that data should be encrypted replicated between the on-premises site and Azure.
-6. In **Copy frequency** leave the default setting. This value specifies how frequently data should be synchronized between source and target locations.
-7. In **Retain recovery points for**, leave the default setting. With a default value of zero, only the latest recovery point for a primary virtual machine is stored on a replica host server.
-8. In **Frequency of application-consistent snapshots**, leave the default setting. This value specifies how often to create snapshots. Snapshots use Volume Shadow Copy Service (VSS) to ensure that applications are in a consistent state when the snapshot is taken.  If you do set a value, make sure it's less than the number of additional recovery points you configure.
-9. In **Replication start time**, specify when initial replication of data to Azure should start. The timezone on the Hyper-V host server will be used. We recommend that you schedule the initial replication during off-peak hours.
+1. На странице быстрого запуска щелкните **Set up protection for VMM clouds** (Установить защиту для облаков VMM).
+2. На вкладке **Защищенные элементы** выберите облако, которое нужно настроить, и перейдите на вкладку **Конфигурация**.
+3. Для параметра **Цель** выберите значение **Azure**.
+4. Для параметра **Учетная запись хранения** выберите учетную запись хранения Azure, используемую для репликации.
+5. Задайте параметру **Encrypt stored data** (Шифрование сохраненных данных) значение **Off** (выкл.). Этот параметр определяет, что данные должны шифроваться при репликации между локальным сайтом и Azure.
+6. В поле **Периодичность копирования** оставьте значение по умолчанию. Это значение указывает, как часто следует синхронизировать данные между исходным и конечным расположениями.
+7. В поле **Сохранения точек восстановления для** оставьте значение по умолчанию. При использовании нулевого значения по умолчанию на сервере узла реплики хранится только последняя точка восстановления для основной виртуальной машины.
+8. В поле **Периодичность создания соответствующих приложению моментальных снимков** оставьте значение по умолчанию. Это значение указывает, как часто создаются моментальные снимки. Снимки используют службу теневого копирования томов (VSS), чтобы обеспечить согласованное состояние приложение при создании моментального снимка. Если это значение задается, оно должно быть меньше количества дополнительных точек восстановления, которое было настроено.
+9. В поле **Время запуска репликации** укажите, когда должна запускаться начальная репликация данных на Azure. Используется часовой пояс сервера узла Hyper-V. Рекомендуется запланировать начальную репликацию на часы наименьшей нагрузки.
 
-    ![Cloud replication settings](./media/site-recovery-vmm-to-azure-classic/cloud-settings.png)
+	![Параметры репликации облака](./media/site-recovery-vmm-to-azure-classic/cloud-settings.png)
 
-After you save the settings a job will be created and can be monitored on the **Jobs** tab. All Hyper-V host servers in the VMM source cloud will be configured for replication.
+После сохранения параметров создается задание, которое можно отслеживать на вкладке **Задания**. Все серверы узлов Hyper-V в исходном облаке VMM будут настроены для репликации.
 
-After saving, cloud settings can be modified on the **Configure** tab. To modify the target location or target storage account you'll need to remove the cloud configuration, and then reconfigure the cloud. Note that if you change the storage account the change is only applied for virtual machines that are enabled for protection after the storage account has been modified. Existing virtual machines are not migrated to the new storage account.
+После сохранения параметры облака можно изменить на вкладке **Настройка**. Чтобы изменить целевое расположение или целевое хранилище, необходимо удалить конфигурацию облака, а затем повторно его настроить. Обратите внимание, что при изменении учетной записи хранения изменение применяется только к виртуальным машинам, которые включены для защиты после изменения учетной записи хранения. Существующие виртуальные машины в новую учетную запись хранения не переносятся.
 
-## <a name="step-7:-configure-network-mapping"></a>Step 7: Configure network mapping
-Before you begin network mapping verify that virtual machines on the source VMM server are connected to a VM network. In addition create one or more Azure virtual networks. Note that multiple VM networks can be mapped to a single Azure network.
+## Шаг 7. Настройка сетевого сопоставления
+Прежде чем приступать к настройке сетевого сопоставления, убедитесь, что виртуальные машины на исходном сервере VMM подключены к сети виртуальных машин. Кроме того, создайте одну или несколько виртуальных сетей Azure. Учтите, что несколько сетей виртуальных машин можно сопоставить с одной сетью Azure.
 
-1. On the Quick Start page, click **Map networks**.
-2. On the **Networks** tab, in **Source location**, select the source VMM server. In **Target location** select Azure.
-3. In **Source** networks a list of VM networks associated with the VMM server are displayed. In **Target** networks the Azure networks associated with the subscription are displayed.
-4. Select the source VM network and click **Map**.
-5. On the **Select a Target Network** page, select the target Azure network you want to use.
-6. Click the check mark to complete the mapping process.
+1. На странице быстрого запуска щелкните **Сопоставить сети**.
+2. На вкладке **Сети** в поле **Исходное расположение** выберите исходный сервер VMM. В поле **Целевое расположение** выберите Azure.
+3. В списке **исходных сетей** отображаются сети виртуальных машин, связанные с сервером VMM. В списке **целевых** сетей отображаются сети Azure, связанные с подпиской.
+4. Выберите исходную сеть виртуальных машин и нажмите кнопку **Сопоставить**.
+5. На странице **Выберите целевую сеть** выберите целевую сеть Azure, которую вы хотите использовать.
+6. Установите флажок для завершения процесса сопоставления.
 
-    ![Cloud replication settings](./media/site-recovery-vmm-to-azure-classic/map-networks.png)
+	![Параметры репликации облака](./media/site-recovery-vmm-to-azure-classic/map-networks.png)
 
-After you save the settings a job starts to track the mapping progress and it can be monitored on the Jobs tab. Any existing replica virtual machines that correspond to the source VM network will be connected to the target Azure networks. New virtual machines that are connected to the source VM network will be connected to the mapped Azure network after replication. If you modify an existing mapping with a new network, replica virtual machines will be connected using the new settings.
+После сохранения параметров запускается задание отслеживания хода выполнения сопоставления, за которым можно наблюдать на вкладке "Задания". Все существующие реплики виртуальных машин, соответствующие исходной сети виртуальных машин, будут подключены к целевым сетям Azure. Новые виртуальные машины, подключенные к исходной сети виртуальных машин, будут подключены к сопоставленной сети Azure после репликации. Если изменить существующее сопоставление, указав новую сеть, реплики виртуальных машин будут подключаться с новыми параметрами.
 
-Note that if the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
+Учтите, что, если целевая сеть включает несколько подсетей и одна из этих подсетей имеет то же имя, что и подсеть, в которой размещается исходная виртуальная машина, реплика виртуальной машины будет подключена к этой целевой подсети после отработки отказа. Если нет подсетей с таким же именем, виртуальная машина будет подключена к первой подсети в сети.
 
-> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) между группами ресурсов в рамках одной или нескольких подписок не поддерживается для сетей, используемых для развертывания Site Recovery.
 
-## <a name="step-8:-enable-protection-for-virtual-machines"></a>Step 8: Enable protection for virtual machines
+## Шаг 8. Включение защиты для виртуальных машин
 
-After servers, clouds, and networks are configured correctly, you can enable protection for virtual machines in the cloud. Note the following:
+После успешной настройки серверов, облаков и сетей можно включить защиту для виртуальных машин в облаке. Обратите внимание на следующее.
 
-- Virtual machines must meet [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
-- To enable protection the operating system and operating system disk properties must be set for the virtual machine. When you create a virtual machine in VMM using a virtual machine template you can set the property. You can also set these properties for existing virtual machines on the **General** and **Hardware Configuration** tabs of the virtual machine properties. If you don't set these properties in VMM you'll be able to configure them in the Azure Site Recovery portal.
+- Виртуальные машины должны отвечать соответствующим [требованиям Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements).
+- Для обеспечения защиты должны быть заданы соответствующие свойства операционной системы и диска с операционной системой. Данные свойства можно установить при создании виртуальной машины в VMM с помощью шаблона виртуальной машины. Эти свойства также можно задать для существующих виртуальных машин на вкладках **Общие** и **Конфигурация оборудования** свойств виртуальной машины. Если установка этих свойств в VMM не была выполнена, сделать это можно на портале Azure Site Recovery.
 
-    ![Create virtual machine](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
+	![Создание виртуальной машины](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
 
-    ![Modify virtual machine properties](./media/site-recovery-vmm-to-azure-classic/enable-existing.png)
+	![Изменение свойств виртуальной машины](./media/site-recovery-vmm-to-azure-classic/enable-existing.png)
 
 
-1. To enable protection, on the **Virtual Machines** tab in the cloud in which the virtual machine is located, click **Enable protection** > **Add virtual machines**.
-2. From the list of virtual machines in the cloud, select the one you want to protect.
+1. Чтобы включить защиту, в облаке, на котором расположена виртуальная машина, на вкладке **Виртуальные машины** щелкните **Включить защиту** > **Добавить виртуальные машины**.
+2. Из списка виртуальных машин в облаке выберите те, которые хотите защитить.
 
-    ![Enable virtual machine protection](./media/site-recovery-vmm-to-azure-classic/select-vm.png)
+	![Включение защиты виртуальной машины](./media/site-recovery-vmm-to-azure-classic/select-vm.png)
 
-    Track progress of the **Enable Protection** action in the **Jobs** tab, including the initial replication. After the **Finalize Protection** job runs the virtual machine is ready for failover. After protection is enabled and virtual machines are replicated, you’ll be able to view them in Azure.
+	За ходом **включения защиты**, в том числе и за первоначальной репликацией, можно наблюдать на вкладке **Задания**. После запуска задания **Завершение подготовки защиты** виртуальная машина готова к отработке отказа. После включения защиты и репликации виртуальных машин вы сможете просматривать их в Azure.
 
 
-    ![Virtual machine protection job](./media/site-recovery-vmm-to-azure-classic/vm-jobs.png)
+	![Задание защиты виртуальной машины](./media/site-recovery-vmm-to-azure-classic/vm-jobs.png)
 
-3. Verify the virtual machine properties and modify as required.
+3. Проверьте свойства виртуальной машины и внесите в них необходимые изменения.
 
-    ![Verify virtual machines](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
+	![Проверка виртуальных машин](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
 
 
-4. On the **Configure** tab of the virtual machine properties following network properties can be modified.
+4. В свойствах виртуальной машины на вкладке **Настройка** можно изменить следующие свойства сети:
 
 
 
 
 
-- **Number of network adapters on the target virtual machine** - The number of network adapters is dictated by the size you specify for the target virtual machine. Check [virtual machine size specs](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) for the number of adapters supported by the virtual machine size. When you modify the size for a virtual machine and save the settings, the number of network adapter will change when you open **Configure** page the next time. The number of network adapters of target virtual machines is the minimum number of network adapters on source virtual machine and the maximum number of network adapters supported by the size of the virtual machine chosen, as follows:
+- **Число сетевых адаптеров на целевой виртуальной машине**. Число сетевых адаптеров зависит от размера, указанного для целевой виртуальной машины. Ознакомьтесь со [спецификациями размеров виртуальных машин](../virtual-machines/virtual-machines-linux-sizes.md#size-tables), чтобы узнать, какое число сетевых адаптеров поддерживается для нужного вам размера виртуальной машины. После изменения размера виртуальной машины и сохранения параметров при следующем открытии страницы **Настройка** количество сетевых адаптеров изменится. Количество сетевых адаптеров целевых виртуальных машин — это минимальное количество сетевых адаптеров исходной виртуальной машины, а также максимальное количество сетевых адаптеров, поддерживаемое размером выбранной виртуальной машины:
 
-    - If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
-    - If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
-    - For example, if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.    
+	- Если число сетевых адаптеров на исходной машине меньше или равно числу адаптеров, разрешенному для целевой машины, то количество адаптеров на целевой машине будет таким же.
+	- Если число адаптеров на исходной виртуальной машине превышает допустимое для целевого размера, то будет использовать максимальный размер целевой машины.
+	- Например, если на исходной машине есть два сетевых адаптера, а размер целевой машины поддерживает четыре, на целевой машине будет два адаптера. Если на исходной машине два адаптера, но целевой размер поддерживает только один, то на целевой машине будет только один адаптер.
 
-- **Network of the target virtual machine** - The network to which the virtual machine connects to is determined by network mapping of the network of source virtual machine. If the source virtual machine has more than one network adapter and source networks are mapped to different networks on target, then you'll need to choose between one of the target networks.
-- **Subnet of each network adapter** - For each network adapter you can select the subnet to which the failed over virtual machine would connect to.
-- **Target IP address** - If the network adapter of source virtual machine is configured to use a static IP address then you can provide the IP address for the target virtual machine. Use this feature retain the IP address of a source virtual machine after a failover. If no IP address is provided then any available IP address is given to the network adapter at the time of failover. If the target IP address is specified but is already used by another virtual machine running in Azure then failover will fail.  
+- **Сеть целевой виртуальной машины**. Сеть, к которой подключается виртуальная машина, определяется при сопоставлении сети исходной виртуальной машины. Если у исходной виртуальной машины есть несколько сетевых адаптеров, а исходные сети сопоставлены с разными сетями на целевом узле, вам нужно выбрать одну из целевых сетей.
+- **Подсеть для каждого из сетевых адаптеров**. Для каждого сетевого адаптера можно выбрать подсеть, к которой будет подключаться виртуальная машина при отработке отказа.
+- **Целевой IP-адрес**. Если сетевой адаптер исходной виртуальной машины использует статический IP-адрес, вы можете указать IP-адрес целевой виртуальной машины. Используйте эту возможность, чтобы сохранить IP-адрес исходной виртуальной машины после отработки отказа. Если IP-адрес не указан, при отработке отказа сетевому адаптеру будет присвоен любой доступный IP-адрес. Если целевой IP-адрес указан, но он уже используется другой виртуальной машиной в Azure, произойдет сбой отработки отказа.
 
-    ![Modify network properties](./media/site-recovery-vmm-to-azure-classic/multi-nic.png)
+	![Изменение свойств сети](./media/site-recovery-vmm-to-azure-classic/multi-nic.png)
 
->[AZURE.NOTE] Linux virtual machines with static IP address aren't supported.
+>[AZURE.NOTE] Виртуальные машины Linux со статическим IP-адресом не поддерживаются.
 
-## <a name="test-the-deployment"></a>Test the deployment
+## тестирование развертывания
 
-To test your deployment you can run a test failover for a single virtual machine, or create a recovery plan consisting of multiple virtual machines, and run a test failover for the plan.  
+Чтобы протестировать развертывание, можно запустить тестовую отработку отказа для отдельной виртуальной машины. Также можно создать план восстановления, состоящий из нескольких виртуальных машин, и запустить тестовую отработку отказа плана.
 
-Test failover simulates your failover and recovery mechanism in an isolated network. Note that:
+Тестовая обработка отказа имитирует механизм отработки отказа и восстановления в изолированной сети. Обратите внимание на следующее.
 
-- If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.
-- After failover you'll use a public IP address to connect to the virtual machine in Azure using Remote Desktop. If you want to do this, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
+- При необходимости подключиться к виртуальной машине в Azure с использованием удаленного рабочего стола после отработки отказа, включите подключение удаленного рабочего стола на виртуальной машине до запуска тестирования отработки отказа.
+- После отработки отказа будет использоваться общедоступный IP-адрес, чтобы подключиться к виртуальной машине в Azure с использованием удаленного рабочего стола. Если необходимо это сделать, убедитесь в отсутствии политик домена, которые не допустили бы подключение к виртуальной машине с использованием общедоступного адреса.
 
->[AZURE.NOTE] To get the best performance when you do a failover to Azure, ensure that you have installed the Azure Agent in the protected machine. This helps in booting faster and also helps in diagnosis in case of issues. Linux agent can be found [here](https://github.com/Azure/WALinuxAgent) - and Windows agent can be found [here](http://go.microsoft.com/fwlink/?LinkID=394789)
+>[AZURE.NOTE] Для оптимальной производительности при отработке отказа в Azure необходимо, чтобы агент Azure был установлен на защищенном компьютере. Это ускоряет загрузку и помогает диагностировать неполадки. Агент Linux можно скачать [отсюда](https://github.com/Azure/WALinuxAgent), а агент Windows — [отсюда](http://go.microsoft.com/fwlink/?LinkID=394789).
 
-### <a name="create-a-recovery-plan"></a>Create a recovery plan
+### Создайте план восстановления
 
-1. On the **Recovery Plans** tab, add a new plan. Specify a name, **VMM** in **Source type**, and the source VMM server in **Source**, The target will be Azure.
+1. На вкладке **Планы восстановления** добавьте новый план. Укажите имя и **VMM** в поле **Тип источника** и исходный сервер VMM в поле **Источник**. В качестве целевого расположения выберите Azure.
 
-    ![Create recovery plan](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
+	![Создать план восстановления](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. In the **Select Virtual Machines** page, select virtual machines to add to the recovery plan. These virtual machines are added to the recovery plan default group—Group 1. A maximum of 100 virtual machines in a single recovery plan have been tested.
+2. На странице **Выбор виртуальных машин** выберите виртуальные машины, которые нужно добавить в план восстановления. Эти виртуальные машины добавляются в группу плана восстановления по умолчанию (группа 1). Проводилось тестирование сценария с максимум 100 виртуальными машинами в одном плане восстановления.
 
-- If you want to verify the virtual machine properties before adding them to the plan, click the virtual machine on the properties page of the cloud in which it’s located. You can also configure the virtual machine properties in the VMM console.
-- All of the virtual machines that are displayed have been enabled for protection. The list includes both virtual machines that are enabled for protection and initial replication has completed, and those that are enabled for protection with initial replication pending. Only virtual machines with initial replication completed can fail over as part of a recovery plan.
+- Если вы хотите проверить свойства виртуальной машины до добавления ее в план, щелкните виртуальную машину на странице свойств облака, в котором она размещается. Также можно настроить свойства виртуальной машины в консоли VMM.
+- Защита включена для всех отображаемых виртуальных машин. В списке содержатся виртуальные машины, для которых включена защита и выполнена начальная репликация, и виртуальные машины, для которых включена защита и начальная репликация не завершена. Отработка отказа в рамках плана восстановления может выполняться только для виртуальных машин с выполненной начальной репликацией.
 
-    ![Create recovery plan](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
+	![Создать план восстановления](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
-After a recovery plan has been created it appears in the **Recovery Plans** tab. You can also add [Azure automation runbooks](site-recovery-runbook-automation.md) to the recovery plan to automate actions during failover.
+Созданный план восстановления появится на вкладке **Планы восстановления**. Кроме того, чтобы автоматизировать отработку отказа, в план восстановления можно включить [модули Runbook службы автоматизации Azure](site-recovery-runbook-automation.md).
 
-### <a name="run-a-test-failover"></a>Run a test failover
+### Запуск тестовой отработки отказа
 
-There are two ways to run a test failover to Azure.
+Существует два способа запуска тестовой отработки отказа в Azure.
 
-- **Test failover without an Azure network**—This type of test failover checks that the virtual machine comes up correctly in Azure. The virtual machine won’t be connected to any Azure network after failover.
-- **Test failover with an Azure network**—This type of failover checks that the entire replication environment comes up as expected and that failed over the virtual machines will be connected to the specified target Azure network. For subnet handling, for test failover the subnet of the test virtual machine will be figured out based on the subnet of the replica virtual machine. This is different to regular replication when the subnet of a replica virtual machine is based on the subnet of the source virtual machine.
+- **Тестовая отработка отказа без использования сети Azure**. Этот тип тестовой отработки отказа проверяет, правильно ли работает виртуальная машина в Azure. Виртуальная машина не подключается к сети Azure после отработки отказа.
+- **Тестовая отработка отказа с использованием сети Azure**. Этот тип отработки отказа проверяет, работает ли вся среда репликации должным образом и подключаются ли виртуальные машины, для которых выполнена отработка отказа, к указанной целевой сети Azure. Что касается подсетей, для тестовой отработки отказа подсеть тестовой виртуальной машины будет определяться в зависимости от подсети реплики виртуальной машины. Этот режим отличается от обычной репликации, когда подсеть реплики виртуальной машины основывается на подсети исходной виртуальной машины.
 
-If you want to run a test failover for a virtual machine enabled for protection to Azure without specifying an Azure target network you don’t need to prepare anything. To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure). Look at how to [run a test failover](site-recovery-failover.md#run-a-test-failover) for more details.
+Если вы хотите выполнить тестовую отработку отказа для виртуальной машины с включенной защитой в Azure без указания целевой сети Azure, никакой подготовки не требуется. Для запуска тестовой отработки отказа с целевой сетью Azure потребуется создать новую сеть Azure, изолированную от рабочей среды Azure (обычная практика при создании новой сети в Azure). Дополнительные сведения см. в разделе [Запуск тестовой отработки отказа](site-recovery-failover.md#run-a-test-failover).
 
 
-You'll also need to set up the infrastructure for the replicated virtual machine to work as expected. For example, a virtual machine with Domain Controller and DNS can be replicated to Azure using Azure Site Recovery and can be created in the test network using Test Failover. Look at [test failover considerations for active directory](site-recovery-active-directory.md#considerations-for-test-failover) section for more details.
+Также необходимо настроить инфраструктуру так, чтобы реплицируемая виртуальная машина работала должным образом. Допустим, виртуальная машина с контроллером домена и DNS может быть реплицирована в Azure с помощью Azure Site Recovery и создана в тестовой сети с помощью тестовой отработки отказа. Дополнительные сведения см. в разделе [Рекомендации по отработке отказа для Active Directory](site-recovery-active-directory.md#considerations-for-test-failover).
 
-To run a test failover do the following:
+Для запуска тестовой отработки отказа выполните следующие действия.
 
-1. On the **Recovery Plans** tab, select the plan and click **Test Failover**.
-2. On the **Confirm Test Failover** page select **None** or a specific Azure network.  Note that if you select None the test failover will check that the virtual machine replicated correctly to Azure but doesn't check your replication network configuration.
+1. На вкладке **Планы восстановления** выберите план и щелкните **Тестовая отработка отказа**.
+2. На **странице подтверждения тестовой отработки отказа** выберите **Нет** или конкретную сеть Azure. Учтите, что при выборе варианта "Нет" в ходе тестовой отработки отказа будет проверяться правильность репликации виртуальной машины в Azure, но не конфигурация сети репликации.
 
-    ![No network](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
+	![Нет сети](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
 
-3. If data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued during installation of the Provider on the VMM server, when you turned on the option to enable data encryption for a cloud.
-4. On the **Jobs** tab you can track failover progress. You should also be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.
-5. When the failover reaches the **Complete testing** phase , click **Complete Test** to finish up the test failover. You can drill down to the **Job** tab to track failover progress and status, and to perform any actions that are needed.
-6. After  failover you'll be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine. Do the following:
+3. Если для облака включено шифрование данных, выберите в поле **Ключ шифрования** сертификат, который был выдан в ходе установки поставщика на сервере VMM при включении шифрования данных для облака.
+4. На вкладке **Задания** можно отследить ход выполнения отработки отказа. Кроме того, вы можете просмотреть тестовую реплику виртуальной машины на портале Azure. Если настройки предусматривают доступ к виртуальным машинам из локальной сети, можно инициировать подключение протокола удаленного рабочего стола к виртуальной машине.
+5. После того как отработка отказа достигнет фазы **Полное тестирование**, нажмите **Завершить тестирование**, чтобы закончить действие. Вы можете перейти на вкладку **Задания**, чтобы отслеживать ход выполнения отработки отказа и изменение ее состояния, а также выполнять прочие необходимые действия.
+6. После отработки отказа тестовая реплика виртуальной машины будет отображаться на портале Azure. Если настройки предусматривают доступ к виртуальным машинам из локальной сети, можно инициировать подключение протокола удаленного рабочего стола к виртуальной машине. Выполните следующее:
 
-    1. Verify that the virtual machines start successfully.
-    2. If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover. You'll  also need to add an RDP endpoint on the virtual machine. You can leverage an [Azure Automation Runbooks](site-recovery-runbook-automation.md) to do that.
-    3. After failover if you use a public IP address to connect to the virtual machine in Azure using Remote Desktop, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
+    1. Проверьте, успешно ли выполнен запуск виртуальных машин.
+    2. При необходимости подключиться к виртуальной машине в Azure с использованием удаленного рабочего стола после отработки отказа, включите подключение удаленного рабочего стола на виртуальной машине до запуска тестирования отработки отказа. Кроме того, на виртуальной машине нужно добавить конечную точку RDP. Для этого можно использовать модули [Runbook службы автоматизации Azure](site-recovery-runbook-automation.md).
+    3. После отработки отказа, если вы используете общедоступный IP-адрес для подключения к виртуальной машине в Azure с помощью удаленного рабочего стола, убедитесь, что у вас нет политик доменов, которые препятствуют подключению к виртуальной машине с помощью общедоступного адреса.
 
-7.  After the testing is complete do the following:
-    - Click **The test failover is complete**. Clean up the test environment to automatically power off and delete the test virtual machines.
-    - Click **Notes** to record and save any observations associated with the test failover.
+7.  После завершения тестирования выполните следующие действия:
+	- Щелкните пункт **Тестовая отработка отказа завершена**. Проведите очистку тестовой среды, чтобы автоматически отключить питание и удалить тестовые виртуальные машины.
+	- Щелкните элемент **Примечания** для регистрации и сохранения любых наблюдений, связанных с тестовой отработкой отказа.
 
->
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+См. дополнительные сведения о [настройке планов восстановления](site-recovery-create-recovery-plans.md) и [отработке отказа](site-recovery-failover.md).
 
-Learn about [setting up recovery plans](site-recovery-create-recovery-plans.md) and [failover](site-recovery-failover.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

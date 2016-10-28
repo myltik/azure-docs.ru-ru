@@ -1,69 +1,68 @@
 <properties 
-    pageTitle="How To Create an ILB ASE Using Azure Resource Manager Templates | Microsoft Azure" 
-    description="Learn how to create an internal load balancer ASE using Azure Resource Manager templates." 
-    services="app-service" 
-    documentationCenter="" 
-    authors="stefsch" 
-    manager="nirma" 
-    editor=""/>
+	pageTitle="Создание среды службы приложений с внутренним балансировщиком нагрузки с помощью шаблонов Azure Resource Manager | Microsoft Azure" 
+	description="Узнайте, как создать ASE с внутренним балансировщиком нагрузки с помощью шаблонов Azure Resource Manager." 
+	services="app-service" 
+	documentationCenter="" 
+	authors="stefsch" 
+	manager="nirma" 
+	editor=""/>
 
 <tags 
-    ms.service="app-service" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/21/2016" 
-    ms.author="stefsch"/>   
+	ms.service="app-service" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/21/2016" 
+	ms.author="stefsch"/>
+
+# Создание среды службы приложений с внутренним балансировщиком нагрузки с помощью шаблонов Azure Resource Manager
+
+## Обзор ##
+Вместо общедоступного виртуального IP-адреса для создания среды службы приложений (ASE) можно использовать внутренний адрес виртуальной сети. Этот внутренний адрес принадлежит компоненту Azure, который называется внутренним балансировщиком нагрузки. Среду ASE с внутренним балансировщиком нагрузки можно создать на портале Azure. Ее также можно создать автоматически с помощью шаблонов Azure Resource Manager. В этой статье описаны действия и синтаксис, необходимые для создания ASE с внутренним балансировщиком нагрузки с помощью шаблонов Azure Resource Manager.
+
+Автоматическое создание среды ASE с внутренним балансировщиком нагрузки предусматривает три шага:
+1. Сначала в виртуальной сети создается базовая среда ASE, для чего вместо общедоступного виртуального IP-адреса используется адрес внутреннего балансировщика нагрузки. Кроме того, на этом шаге ASE с внутренним балансировщиком нагрузки присваивается имя корневого домена.
+2. После создания ASE с внутренним балансировщиком нагрузки загружается SSL-сертификат.
+3. Переданный SSL-сертификат явным образом назначается ASE с внутренним балансировщиком нагрузки в качестве SSL-сертификата по умолчанию. Этот сертификат будет использоваться для передачи SSL-трафика на приложения в ASE с внутренним балансировщиком нагрузки, если при обращении к ним используется общий корневой домен, назначенный этой среде ASE (например, https://someapp.mycustomrootcomain.com).
+
+## Создание базовой среды ASE с внутренним балансировщиком нагрузки ##
+Пример шаблона Azure Resource Manager и соответствующий файл параметров доступны [на сайте GitHub][quickstartilbasecreate].
+
+Большинство параметров в файле *azuredeploy.parameters.json* используются при создании как ASE с внутренним балансировщиком нагрузки, так и ASE с привязкой к общедоступному виртуальному IP-адресу. Ниже приведены параметры с особыми примечаниями и уникальные параметры, используемые при создании ASE с внутренним балансировщиком нагрузки.
 
 
-# <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>How To Create an ILB ASE Using Azure Resource Manager Templates
+- *interalLoadBalancingMode*. В большинстве случаев для этого параметра нужно задать значение 3. В таком случае HTTP- и HTTPS-трафик на портах 80 и 443 и порты канала данных и канала управления, прослушиваемые FTP-службой в ASE, будут привязаны к внутреннему адресу виртуальной сети, выделенному внутренним балансировщиком нагрузки. Если задать для этого свойства значение 2, к адресу внутреннего балансировщика нагрузки будут привязаны только порты, связанные со службой FTP (канала данных и канала управления), а HTTP- и HTTP-трафик останется привязанным к общедоступному виртуальному IP-адресу.
+-  *dnsSuffix*. Этот параметр определяет корневой домен по умолчанию, который будет назначен ASE. В общедоступной версии службы приложений Azure корневой домен по умолчанию для всех веб-приложений — *azurewebsites.net*. Однако так как ASE с внутренним балансировщиком нагрузки является внутренней для виртуальной сети пользователя, бессмысленно использовать корневой домен по умолчанию общедоступной службы. Вместо этого ASE с внутренним балансировщиком нагрузки необходимо назначить корневой домен по умолчанию, который целесообразно использовать в пределах внутренней виртуальной сети компании. Например, гипотетическая компания Contoso может использовать корневой домен по умолчанию *internal-contoso.com* для приложений, которые должны быть разрешаемыми и доступными только в виртуальной сети компании Contoso.
+-  *ipSslAddressCount*. Для этого параметра в файле *azuredeploy.json* автоматически задается значение 0, так как ASE с внутренним балансировщиком нагрузки назначен только адрес внутреннего балансировщика нагрузки. Для ASE с внутренним балансировщиком нагрузки нет явно заданных адресов SSL на основе IP, поэтому для пула этих адресов необходимо задать значение 0. В противном случае произойдет ошибка подготовки.
 
-## <a name="overview"></a>Overview ##
-App Service Environments can be created with a virtual network internal address instead of a public VIP.  This internal address is provided by an Azure component called the internal load balancer (ILB).  An ILB ASE can be created using the Azure portal.  It can also be created using automation by way of Azure Resource Manager templates.  This article walks through the steps and syntax needed to create an ILB ASE with Azure Resource Manager templates.
-
-There are three steps involved in automating creation of an ILB ASE:
-1. First the base ASE is created in a virtual network using an internal load balancer address instead of a public VIP.  As part of this step, a root domain name is assigned to the ILB ASE.
-2. Once the ILB ASE is created, an SSL certificate is uploaded.  
-3. The uploaded SSL certificate is explicitly assigned to the ILB ASE as its "default" SSL certificate.  This SSL certificate will be used for SSL traffic to apps on the ILB ASE when the apps are addressed using the common root domain assigned to the ASE (e.g. https://someapp.mycustomrootcomain.com)
-
-## <a name="creating-the-base-ilb-ase"></a>Creating the Base ILB ASE ##
-An example Azure Resource Manager template, and its associated parameters file, are available on GitHub [here][quickstartilbasecreate].
-
-Most of the parameters in the *azuredeploy.parameters.json* file are common to creating both ILB ASEs, as well as ASEs bound to a public VIP.  The list below calls out parameters of special note, or that are unique, when creating an ILB ASE:
-
-
-- *interalLoadBalancingMode*:  In most cases set this to 3, which means both HTTP/HTTPS traffic on ports 80/443, and the control/data channel ports listened to by the FTP service on the ASE, will be bound to an ILB allocated virtual network internal address.  If this property is instead set to 2, then only the FTP service related ports (both control and data channels) will be bound to an ILB address, while the HTTP/HTTPS traffic will remain on the public VIP.
--  *dnsSuffix*:  This parameter defines the default root domain that will be assigned to the ASE.  In the public variation of Azure App Service, the default root domain for all web apps is *azurewebsites.net*.  However since an ILB ASE is internal to a customer's virtual network, it doesn't make sense to use the public service's default root domain.  Instead, an ILB ASE should have a default root domain that makes sense for use within a company's internal virtual network.  For example, a hypothetical Contoso Corporation might use a default root domain of *internal-contoso.com* for apps that are intended to only be resolvable and accessible within Contoso's virtual network. 
--  *ipSslAddressCount*:  This parameter is automatically defaulted to a value of 0 in the *azuredeploy.json* file because ILB ASEs only have a single ILB address.  There are no explicit IP-SSL addresses for an ILB ASE, and hence the IP-SSL address pool for an ILB ASE must be set to zero, otherwise a provisioning error will occur. 
-
-Once the *azuredeploy.parameters.json* file has been filled in for an ILB ASE, the ILB ASE can then be created using the following Powershell code snippet.  Change the file PATHs to match where the Azure Resource Manager template files are located on your machine.  Also remember to supply your own values for the Azure Resource Manager deployment name, and resource group name.
+Когда файл *azuredeploy.parameters.json* для ASE с внутренним балансировщиком нагрузки будет заполнен, можно приступить к созданию соответствующей среды с помощью приведенного ниже фрагмента кода Powershell. Измените пути к файлам в соответствии с расположением файлов шаблонов Azure Resource Manager на вашем компьютере. Кроме того, введите собственные значения для имени развертывания Azure Resource Manager и группы ресурсов.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
     
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-After the Azure Resource Manager template is submitted it will take a few hours for the ILB ASE to be created.  Once the creation completes, the ILB ASE will show up in the portal UX in the list of App Service Environments for the subscription that triggered the deployment.
+После отправки шаблона Azure Resource Manager для создания ASE с внутренним балансировщиком нагрузки потребуется несколько часов. Созданная ASE с внутренним балансировщиком нагрузки появится на портале в списке сред службы приложений для подписки, использованной для развертывания.
 
-## <a name="uploading-and-configuring-the-"default"-ssl-certificate"></a>Uploading and Configuring the "Default" SSL Certificate ##
+## Загрузка и настройка SSL-сертификата по умолчанию ##
 
-Once the ILB ASE is created, an SSL certificate should be associated with the ASE as the "default" SSL certificate use for establishing SSL connections to apps.  Continuing with the hypothetical Contoso Corporation example, if the ASE's default DNS suffix is *internal-contoso.com*, then a connection to *https://some-random-app.internal-contoso.com* requires an SSL certificate that is valid for **.internal-contoso.com*. 
+После создания среды ASE с внутренним балансировщиком нагрузки ей необходимо назначить SSL-сертификат по умолчанию, который будет использоваться для установки SSL-подключений к приложениям. Если DNS-суффикс по умолчанию среды ASE все той же гипотетической компании Contoso — *internal-contoso.com*, то для подключения к *https://some-random-app.internal-contoso.com* требуется SSL-сертификат, действительный для домена **.internal contoso.com*.
 
-There are a variety of ways to obtain a valid SSL certificate including internal CAs, purchasing a certificate from an external issuer, and using a self-signed certificate.  Regardless of the source of the SSL certificate, the following certificate attributes need to be configured properly:
+Есть множество способов получить действительный SSL-сертификат, в частности можно получить сертификат от внутреннего центра сертификации, приобрести его у внешнего поставщика и использовать самозаверяющий сертификат. Независимо от источника SSL-сертификата для него необходимо соответствующим образом настроить следующие атрибуты:
 
-- *Subject*:  This attribute must be set to **.your-root-domain-here.com*
-- *Subject Alternative Name*:  This attribute must include both **.your-root-domain-here.com*, and **.scm.your-root-domain-here.com*.  The reason for the second entry is that SSL connections to the SCM/Kudu site associated with each app will be made using an address of the form *your-app-name.scm.your-root-domain-here.com*.
+- *Субъект* — для этого атрибута необходимо задать значение **.имя\_корневого\_домена.com*.
+- *Альтернативное имя субъекта* — этот атрибут должен содержать два значения: **.имя\_корневого\_домена.com* и **.scm.имя\_корневого\_домена.com*. Вторая запись требуется, так как для SSL-подключений к сайту SCM или Kudu, связанному с каждым приложением, будет использоваться адрес в формате *имя\_приложения.scm.имя\_корневого\_домена.com*.
 
-With a valid SSL certificate in hand, two additional preparatory steps are needed.  The SSL certificate needs to be converted/saved as a .pfx file.  Remember that the .pfx file needs to include all intermediate and root certificates, and also needs to be secured with a password.
+После получения действительного SSL-сертификата требуется выполнить еще два дополнительных подготовительных действия. SSL-сертификат необходимо преобразовать в PFX-файл и сохранить в таком формате. PFX-файл должен содержать все промежуточные и корневые сертификаты, а также быть защищен паролем.
 
-Then the resultant .pfx file needs to be converted into a base64 string because the SSL certificate will be uploaded using an Azure Resource Manager template.  Since Azure Resource Manager templates are text files, the .pfx file needs to be converted into a base64 string so it can be included as a parameter of the template.
+Затем PFX-файл необходимо преобразовать в строку Base64, так как SSL-сертификат будет загружен с использованием шаблона Azure Resource Manager. Эти шаблоны представлены в виде текстовых файлов. Такое преобразование требуется, чтобы добавить PFX-файл в качестве параметра шаблона.
 
-The Powershell code snippet below shows an example of generating a self-signed certificate, exporting the certificate as a .pfx file, converting the .pfx file into a base64 encoded string, and then saving the base64 encoded string to a separate file.  The Powershell code for base64 encoding was adapted from the [Powershell Scripts Blog][examplebase64encoding].
+В приведенном ниже фрагменте кода Powershell показано, как создать самозаверяющий сертификат, экспортировать его в формате PFX-файла, преобразовать PFX-файл в строку в кодировке Base64 и сохранить эту строку в отдельном файле. Код Powershell для преобразования в строку в кодировке Base64 взят из [блога сценариев Powershell][examplebase64encoding].
 
     $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-    $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+    $certThumbprint = "cert:\localMachine\my" + $certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
     $fileName = "exportedcert.pfx"
@@ -73,19 +72,19 @@ The Powershell code snippet below shows an example of generating a self-signed c
     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
     $fileContentEncoded | set-content ($fileName + ".b64")
     
-Once the SSL certificate has been successfully generated and converted to a base64 encoded string, the example Azure Resource Manager template on GitHub for [configuring the default SSL certificate][configuringDefaultSSLCertificate] can be used.
+Когда SSL-сертификат будет создан и преобразован в строку в кодировке Base64, можно приступить к [настройке SSL-сертификата по умолчанию][configuringDefaultSSLCertificate] с использованием шаблона Azure Resource Manager, размещенного на сайте GitHub.
 
-The parameters in the *azuredeploy.parameters.json* file are listed below:
+Ниже перечислены параметры, содержащиеся в файле *azuredeploy.parameters.json*.
 
-- *appServiceEnvironmentName*:  The name of the ILB ASE being configured.
-- *existingAseLocation*:  Text string containing the Azure region where the ILB ASE was deployed.  For example:  "South Central US".
-- *pfxBlobString*:  The based64 encoded string representation of the .pfx file.  Using the code snippet shown earlier, you would copy the string contained in "exportedcert.pfx.b64" and paste it in as the value of the *pfxBlobString* attribute.
-- *password*:  The password used to secure the .pfx file.
-- *certificateThumbprint*:  The certificate's thumbprint.  If you retrieve this value from Powershell (e.g. *$certificate.Thumbprint* from the earlier code snippet), you can use the value as-is.  However if you copy the value from the Windows certificate dialog, remember to strip out the extraneous spaces.  The *certificateThumbprint* should look something like:  AF3143EB61D43F6727842115BB7F17BBCECAECAE
-- *certificateName*:  A friendly string identifier of your own choosing used to identity the certificate.  The name is used as part of the unique Azure Resource Manager identifier for the *Microsoft.Web/certificates* entity representing the SSL certificate.  The name **must** end with the following suffix:  \_yourASENameHere_InternalLoadBalancingASE.  This suffix is used by the portal as an indicator that the certificate is used for securing an ILB-enabled ASE.
+- *appServiceEnvironmentName* — имя настраиваемой ASE с внутренним балансировщиком нагрузки.
+- *existingAseLocation* — текстовая строка, содержащая регион Azure, где развернута ASE с внутренним балансировщиком нагрузки. Например, South Central US.
+- *pfxBlobString* — представление PFX-файла в виде строки в кодировке Base64. Нужно скопировать строку, содержащуюся в файле exportedcert.pfx.b64, и вставить ее в качестве значения атрибута *pfxBlobString* в фрагменте кода выше.
+- *password* — пароль, используемый для защиты PFX-файла.
+- *certificateThumbprint* — отпечаток сертификата. Если вы получите это значение из Powershell (например, значение *$certificate.Thumbprint* в приведенном выше фрагменте кода), его можно использовать без каких-либо изменений. Однако если вы скопируете это значение в диалоговом окне сертификатов Windows, в нем нужно удалить лишние пробелы. Значение атрибута *certificateThumbprint* должно выглядеть следующим образом: AF3143EB61D43F6727842115BB7F17BBCECAECAE.
+- *certificateName* — понятный идентификатор строки для идентификации сертификата, который пользователь может выбрать по своему усмотрению. Это имя используется как часть уникального идентификатора Azure Resource Manager для сущности *Microsoft.Web/certificates*, представляющей SSL-сертификат. Имя **должно** заканчиваться таким суффиксом: \_имя\_ASE\_InternalLoadBalancingASE. Этот суффикс сообщает порталу о том, что для обеспечения безопасности ASE с поддержкой ILB используется сертификат.
 
 
-An abbreviated example of *azuredeploy.parameters.json* is shown below:
+Ниже приведен сокращенный пример файла *azuredeploy.parameters.json*.
 
 
     {
@@ -113,25 +112,25 @@ An abbreviated example of *azuredeploy.parameters.json* is shown below:
          }
     }
 
-Once the *azuredeploy.parameters.json* file has been filled in, the default SSL certificate can be configured using the following Powershell code snippet.  Change the file PATHs to match where the Azure Resource Manager template files are located on your machine.  Also remember to supply your own values for the Azure Resource Manager deployment name, and resource group name.
+Когда файл *azuredeploy.parameters.json* будет заполнен, переходите к настройке SSL-сертификата по умолчанию, используя приведенный ниже фрагмент кода Powershell. Измените пути к файлам в соответствии с расположением файлов шаблонов Azure Resource Manager на вашем компьютере. Кроме того, введите собственные значения для имени развертывания Azure Resource Manager и группы ресурсов.
 
     $templatePath="PATH\azuredeploy.json"
     $parameterPath="PATH\azuredeploy.parameters.json"
     
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-After the Azure Resource Manager template is submitted it will take roughly forty minutes minutes per ASE front-end to apply the change.  For example, with a default sized ASE using two front-ends, the template will take around one hour and twenty minutes to complete.  While the template is running the ASE will not be able to scaled.  
+После отправки шаблона Azure Resource Manager применение изменений для одного внешнего интерфейса ASE займет примерно сорок минут. Например, для среды ASE с размером по умолчанию, содержащей два внешних интерфейса, реализация шаблона займет примерно один час и двадцать минут. Во время выполнения шаблона нельзя масштабировать среду ASE.
 
-Once the template completes, apps on the ILB ASE can be accessed over HTTPS and the connections will be secured using the default SSL certificate.  The default SSL certificate will be used when apps on the ILB ASE are addressed using a combination of the application name plus the default hostname.  For example *https://mycustomapp.internal-contoso.com* would use the default SSL certificate for **.internal-contoso.com*.
+Когда шаблон будет реализован, к приложениям в среде ASE с внутренним балансировщиком нагрузки можно будет получать доступ по протоколу HTTPS, а подключения будут защищены с помощью SSL-сертификата по умолчанию. SSL-сертификат по умолчанию будет использоваться, если обращение к приложениям в ASE с внутренним балансировщиком нагрузки осуществляется с помощью сочетания имени приложения и имени узла по умолчанию. Например, в *https://mycustomapp.internal-contoso.com* будет использоваться SSL-сертификат по умолчанию для **.internal contoso.com*.
 
-However, just like apps running on the public multi-tenant service, developers can also configure custom host names for individual apps, and then configure unique SNI SSL certificate bindings for individual apps.  
+Так же как и для приложений в общедоступной мультитенантной службе, разработчики могут настроить для отдельных приложений пользовательские имена узлов и уникальные привязки сертификатов SNI SSL.
 
 
-## <a name="getting-started"></a>Getting started
+## Приступая к работе
 
-To get started with App Service Environments, see [Introduction to App Service Environment](app-service-app-service-environment-intro.md)
+Чтобы начать работу со средами службы приложений, см. статью [Введение в среду службы приложений](app-service-app-service-environment-intro.md)
 
-All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
+Все статьи и практические руководства, посвященные средам службы приложений, доступны в [файле сведений для сред службы приложений](../app-service/app-service-app-service-environments-readme.md).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -139,12 +138,8 @@ All articles and How-To's for App Service Environments are available in the [REA
 
 <!-- LINKS -->
 [quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
-[examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
-[configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/ 
+[examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html
+[configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,236 +1,235 @@
 <properties
-    pageTitle="How to use Fiddler to evaluate and test Azure Search REST APIs | Microsoft Azure | Hosted cloud search service"
-    description="Use Fiddler for a code-free approach to verifying Azure Search availability and trying out the REST APIs."
-    services="search"
-    documentationCenter=""
-    authors="HeidiSteen"
-    manager="mblythe"
-    editor=""/>
+	pageTitle="Использование приложения Fiddler для оценки и тестирования интерфейсов REST API службы поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
+	description="Приложение Fiddler позволяет проверить доступность службы ";Поиск Azure"; и опробовать интерфейсы API REST, не используя код."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
 <tags
-    ms.service="search"
-    ms.devlang="rest-api"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="10/17/2016"
-    ms.author="heidist"/>
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.date="08/08/2016"
+	ms.author="heidist"/>
 
-
-# <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Use Fiddler to evaluate and test Azure Search REST APIs
+# Использование приложения Fiddler для оценки и тестирования интерфейсов API REST "Поиск Azure"
 > [AZURE.SELECTOR]
-- [Overview](search-query-overview.md)
-- [Search Explorer](search-explorer.md)
+- [Обзор](search-query-overview.md)
+- [Обозреватель поиска](search-explorer.md)
 - [Fiddler](search-fiddler.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-This article explains how to use Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests to and view responses using the Azure Search REST API, without having to write any code. Azure Search is fully-managed, hosted cloud search service on Microsoft Azure, easily programmable through .NET and REST APIs. The Azure Search service REST APIs are documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+В этой статье рассказывается, как использовать приложение Fiddler, которое можно [бесплатно скачать с сайта компании Telerik](http://www.telerik.com/fiddler). Оно позволяет формировать HTTP-запросы и просматривать ответы с помощью REST API службы поиска Azure без необходимости написания кода. Поиск Azure — это полностью управляемая облачная служба поиска в Microsoft Azure с простым программным управлением через API-интерфейсы REST и .NET. На сайте [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx) доступна документация, посвященная интерфейсам REST API службы поиска Azure.
 
-In the following steps, you'll create an index, upload documents, query the index, and then query the system for service information.
+Выполнив указанные ниже действия, вы создадите индекс, загрузите документы, выполните запрос к индексу, а затем запросите у системы служебную информацию.
 
-To complete these steps, you will need an Azure Search service and `api-key`. See [Create an Azure Search service in the portal](search-create-service-portal.md) for instructions on how to get started.
+Для выполнения этих действий вам потребуется подписка на службу "Поиск Azure" и `api-key`. Инструкции о том, как приступить к работе, приведены в [статье, посвященной созданию службы "Поиск Azure" на портале](search-create-service-portal.md) .
 
-## <a name="create-an-index"></a>Create an index
+## Создание индекса
 
-1. Start Fiddler. On the **File** menu, turn off **Capture Traffic** to hide extraneous HTTP activity that is unrelated to the current task.
+1. Запустите Fiddler. В меню **File** (Файл) отключите параметр **Capture Traffic** (Захватывать трафик), чтобы не отображать постороннюю активность HTTP, не связанную с текущей задачей.
 
-3. On the **Composer** tab, you'll formulate a request that looks like the following screen shot.
+3. На вкладке **Composer** (Компоновщик) сформулируйте запрос, аналогичный приведенному ниже.
 
-    ![][1]
+  	![][1]
 
-2. Select **PUT**.
+2. Выберите **PUT**.
 
-3. Enter a URL that specifies the service URL, request attributes, and the api-version. A few pointers to keep in mind:
-   + Use HTTPS as the prefix.
-   + Request attribute is "/indexes/hotels". This tells Search to create an index named 'hotels'.
-   + Api-version is lowercase, specified as "?api-version=2015-02-28". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may introduce a breaking change to the API. For this reason, Azure Search requires an api-version on each request so that you are in full control over which one is used.
+3. Введите URL-адрес, который задает URL-адрес службы, атрибуты запроса и версию API. Не забывайте:
+   + Используйте префикс HTTPS.
+   + Атрибут запроса: "/indexes/hotels". В этом случае Поиск создает индекс с именем hotels.
+   + Версия API вводится строчными буквами, в виде "?api-version=2015-02-28". Версии API имеют важное значение, так как обновления Поиска Azure разворачиваются на регулярной основе. В редких случаях обновление службы может привести к нарушению функционирования API. Поэтому службе поиска Azure требуется версия API каждого запроса, чтобы вы могли полностью контролировать используемый запрос.
 
-    The full URL should look similar to the following example.
+    Полный URL-адрес должен выглядеть аналогично тому, как показано ниже.
 
-            https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+         	https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
-4.  Specify the request header, replacing the host and api-key with values that are valid for your service.
+4.	Укажите заголовок запроса, заменив адрес узла и ключ API значениями, соответствующими вашей службе.
 
-            User-Agent: Fiddler
-            host: my-app.search.windows.net
-            content-type: application/json
-            api-key: 1111222233334444
+	        User-Agent: Fiddler
+	        host: my-app.search.windows.net
+	        content-type: application/json
+	        api-key: 1111222233334444
 
-5.  In Request Body, paste in the fields that make up the index definition.
-            
-             {
-            "name": "hotels",  
-            "fields": [
-              {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
-              {"name": "baseRate", "type": "Edm.Double"},
-              {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-              {"name": "hotelName", "type": "Edm.String"},
-              {"name": "category", "type": "Edm.String"},
-              {"name": "tags", "type": "Collection(Edm.String)"},
-              {"name": "parkingIncluded", "type": "Edm.Boolean"},
-              {"name": "smokingAllowed", "type": "Edm.Boolean"},
-              {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-              {"name": "rating", "type": "Edm.Int32"},
-              {"name": "location", "type": "Edm.GeographyPoint"}
-             ]
-            }
+5.	В теле запроса скопируйте их в поля, формирующие определение индекса.
+		    
+		     {
+		    "name": "hotels",  
+		    "fields": [
+		      {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
+		      {"name": "baseRate", "type": "Edm.Double"},
+		      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+		      {"name": "hotelName", "type": "Edm.String"},
+		      {"name": "category", "type": "Edm.String"},
+		      {"name": "tags", "type": "Collection(Edm.String)"},
+		      {"name": "parkingIncluded", "type": "Edm.Boolean"},
+		      {"name": "smokingAllowed", "type": "Edm.Boolean"},
+		      {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
+		      {"name": "rating", "type": "Edm.Int32"},
+		      {"name": "location", "type": "Edm.GeographyPoint"}
+		     ]
+		    }
 
-6.  Click **Execute**.
+6.	Нажмите **Execute (Выполнить)**.
 
-In a few seconds, you should see an HTTP 201 response in the session list, indicating the index was created successfully.
+Через несколько секунд появится ответ HTTP 201. Это значит, что индекс успешно создан.
 
-If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404, check the request body to verify there were no copy-paste errors. An HTTP 403 typically indicates a problem with the api-key (either an invalid key or a syntax problem with how the api-key is specified).
+Если вы получите код HTTP 504, проверьте, что в URL указан протокол HTTPS. Если возникают сообщения об ответных кодах 400 или 404 протокола HTTP, следует удостовериться в отсутствии ошибок при копировании. Код HTTP 403, как правило, означает, что возникла ошибка с ключом API (либо он недействительный, либо имеется ошибка синтаксиса при указании ключа).
 
-## <a name="load-documents"></a>Load documents
+## Загрузка документов
 
-On the **Composer** tab, your request to post documents will look like the following. The body of the request contains the search data for 4 hotels.
+На вкладке **Composer** (Компоновщик) запрос на публикацию документов будет выглядеть примерно так: Тело запроса содержит данные поиска для четырех отелей.
 
    ![][2]
 
-1. Select **POST**.
+1. Выберите **POST**.
 
-2.  Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". The full URL should look similar to the following example.
+2.	Введите URL-адрес, начинающийся с HTTPS, далее URL-адрес вашей службы, а затем "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". Полный URL-адрес должен выглядеть аналогично тому, как показано ниже.
 
-            https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+        	https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
-3.  Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
+3.	Заголовок запроса должен остаться таким же, как прежде. Не забывайте, что вы заменили адрес узла и ключ API (строчные буквы) значениями, соответствующими вашей службе.
 
-            User-Agent: Fiddler
-            host: my-app.search.windows.net
-            content-type: application/json
-            api-key: 1111222233334444
+	        User-Agent: Fiddler
+	        host: my-app.search.windows.net
+	        content-type: application/json
+	        api-key: 1111222233334444
 
-4.  The Request Body contains four documents to be added to the hotels index.
+4.	Тело запроса содержит четыре документа, которые нужно добавить в индекс отелей.
 
-            {
-            "value": [
-            {
-                "@search.action": "upload",
-                "hotelId": "1",
-                "baseRate": 199.0,
-                "description": "Best hotel in town",
-                "hotelName": "Fancy Stay",
-                "category": "Luxury",
-                "tags": ["pool", "view", "wifi", "concierge"],
-                "parkingIncluded": false,
-                "smokingAllowed": false,
-                "lastRenovationDate": "2010-06-27T00:00:00Z",
-                "rating": 5,
-                "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
-              },
-              {
-                "@search.action": "upload",
-                "hotelId": "2",
-                "baseRate": 79.99,
-                "description": "Cheapest hotel in town",
-                "hotelName": "Roach Motel",
-                "category": "Budget",
-                "tags": ["motel", "budget"],
-                "parkingIncluded": true,
-                "smokingAllowed": true,
-                "lastRenovationDate": "1982-04-28T00:00:00Z",
-                "rating": 1,
-                "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
-              },
-              {
-                "@search.action": "upload",
-                "hotelId": "3",
-                "baseRate": 279.99,
-                "description": "Surprisingly expensive",
-                "hotelName": "Dew Drop Inn",
-                "category": "Bed and Breakfast",
-                "tags": ["charming", "quaint"],
-                "parkingIncluded": true,
-                "smokingAllowed": false,
-                "lastRenovationDate": null,
-                "rating": 4,
-                "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
-              },
-              {
-                "@search.action": "upload",
-                "hotelId": "4",
-                "baseRate": 220.00,
-                "description": "This could be the one",
-                "hotelName": "A Hotel for Everyone",
-                "category": "Basic hotel",
-                "tags": ["pool", "wifi"],
-                "parkingIncluded": true,
-                "smokingAllowed": false,
-                "lastRenovationDate": null,
-                "rating": 4,
-                "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
-              }
-             ]
-            }
+	        {
+	        "value": [
+	        {
+	        	"@search.action": "upload",
+	        	"hotelId": "1",
+	        	"baseRate": 199.0,
+	        	"description": "Best hotel in town",
+	        	"hotelName": "Fancy Stay",
+	        	"category": "Luxury",
+	        	"tags": ["pool", "view", "wifi", "concierge"],
+	        	"parkingIncluded": false,
+	        	"smokingAllowed": false,
+	        	"lastRenovationDate": "2010-06-27T00:00:00Z",
+	        	"rating": 5,
+	        	"location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+	          },
+	          {
+	        	"@search.action": "upload",
+	        	"hotelId": "2",
+	        	"baseRate": 79.99,
+	        	"description": "Cheapest hotel in town",
+	        	"hotelName": "Roach Motel",
+	        	"category": "Budget",
+	        	"tags": ["motel", "budget"],
+	        	"parkingIncluded": true,
+	        	"smokingAllowed": true,
+	        	"lastRenovationDate": "1982-04-28T00:00:00Z",
+	        	"rating": 1,
+	        	"location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+	          },
+	          {
+	        	"@search.action": "upload",
+	        	"hotelId": "3",
+	        	"baseRate": 279.99,
+	        	"description": "Surprisingly expensive",
+	        	"hotelName": "Dew Drop Inn",
+	        	"category": "Bed and Breakfast",
+	        	"tags": ["charming", "quaint"],
+	        	"parkingIncluded": true,
+	        	"smokingAllowed": false,
+	        	"lastRenovationDate": null,
+	        	"rating": 4,
+	        	"location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
+	          },
+	          {
+	        	"@search.action": "upload",
+	        	"hotelId": "4",
+	        	"baseRate": 220.00,
+	        	"description": "This could be the one",
+	        	"hotelName": "A Hotel for Everyone",
+	        	"category": "Basic hotel",
+	        	"tags": ["pool", "wifi"],
+	        	"parkingIncluded": true,
+	        	"smokingAllowed": false,
+	        	"lastRenovationDate": null,
+	        	"rating": 4,
+	        	"location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
+	          }
+	         ]
+	        }
 
-8.  Click **Execute**.
+8.	Нажмите **Execute (Выполнить)**.
 
-In a few seconds, you should see an HTTP 200 response in the session list. This indicates the documents were created successfully. If you get a 207, at least one document failed to upload. If you get a 404, you have a syntax error in either the header or body of the request.
+Через несколько секунд в списке сеансов появится ответ HTTP 200. Это означает, что документы были успешно созданы. Код 207 говорит об ошибке загрузки хотя бы одного из документов. Код 404 говорит о синтаксической ошибке в заголовке или в теле запроса.
 
-## <a name="query-the-index"></a>Query the index
+## Запрос индекса
 
-Now that an index and documents are loaded, you can issue queries against them.  On the **Composer** tab, a **GET** command that queries your service will look similar to the following screen shot.
+После загрузки индекса и документов можно формировать запросы к ним. На вкладке **Composer** (Компоновщик) команда **GET**, которая отправляет запросы в вашу службу, будет выглядеть примерно так, как показано на следующем снимке экрана.
 
    ![][3]
 
-1.  Select **GET**.
+1.	Выберите **GET**.
 
-2.  Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs?", followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
-    
-            https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
+2.	Введите URL, начинающийся с HTTPS, далее URL вашей службы, далее "/indexes/<'indexname'>/docs?", далее параметры запроса. В качестве примера используйте этот URL, заменив имя узла на имя, соответствующее вашей службе.
+	
+	        https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
-    This query searches on the term “motel” and retrieves facet categories for ratings.
+    Запрос ищет термин "мотель" и возвращает плоский список категорий для рейтинга.
 
-3.  Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
+3.	Заголовок запроса должен остаться таким же, как прежде. Не забывайте, что вы заменили адрес узла и ключ API (строчные буквы) значениями, соответствующими вашей службе.
 
-            User-Agent: Fiddler
-            host: my-app.search.windows.net
-            content-type: application/json
-            api-key: 1111222233334444
+	        User-Agent: Fiddler
+	        host: my-app.search.windows.net
+	        content-type: application/json
+	        api-key: 1111222233334444
 
-The response code should be 200, and the response output should look similar to the following screen shot.
+Код ответа должен быть 200 и сам ответ должен выглядеть аналогично тому, как показано на снимке экрана ниже.
 
    ![][4]
 
-The following example query is from the [Search Index operation (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) on MSDN. Many of the example queries in this topic include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler.
+Ниже приведен пример запроса из [Работа с поисковым индексом (API Поиска Azure)](http://msdn.microsoft.com/library/dn798927.aspx) на MSDN. Многие примеры запросов в данном разделе включают пробелы, что является недопустимым в Fiddler. Замените все пробелы символом "+" перед вставкой в строку запроса и его выполнением в Fiddler:
 
-**Before spaces are replaced:**
+**До замены пробелов:**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
 
-**After spaces are replaced with +:**
+**После замены пробелов символом +:**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
 
-## <a name="query-the-system"></a>Query the system
+## Запрос к системе
 
-You can also query the system to get document counts and storage consumption. On the **Composer** tab, your request will look similar to the following, and the response will return a count for the number of documents and space used.
+Также можно формировать запросы к системе для получения количества документов и занятого объема хранилища. На вкладке **Composer** (Компоновщик) ваш запрос будет выглядеть примерно так, как показано ниже. В ответе будет указано количество документов и объем занятого пространства.
 
  ![][5]
 
-1.  Select **GET**.
+1.	Выберите **GET**.
 
-2.  Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2015-02-28":
+2.	Введите URL, включающий URL-адрес вашей службы, а затем "/indexes/hotels/stats?api-version=2015-02-28":
 
-            https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+        	https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
-3.  Specify the request header, replacing the host and api-key with values that are valid for your service.
+3.	Укажите заголовок запроса, заменив адрес узла и ключ API значениями, соответствующими вашей службе.
 
-            User-Agent: Fiddler
-            host: my-app.search.windows.net
-            content-type: application/json
-            api-key: 1111222233334444
+	        User-Agent: Fiddler
+	        host: my-app.search.windows.net
+	        content-type: application/json
+	        api-key: 1111222233334444
 
-4.  Leave the request body empty.
+4.	Не заполняйте тело запроса.
 
-5.  Click **Execute**. You should see an HTTP 200 status code in the session list. Select the entry posted for your command.
+5.	Нажмите **Execute (Выполнить)**. Через несколько секунд в списке сеансов появится ответ HTTP 200. Выберите запись, которая сопровождается вашей командой.
 
-6.  Click the **Inspectors** tab, click the **Headers** tab, and then select the JSON format. You should see the document count and storage size (in KB).
+6.	Щелкните вкладку **Inspectors** (Инспекторы), затем вкладку **Headers** (Заголовки) и выберите формат JSON. Вы увидите количество документов и занятый ими размер (в килобайтах).
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-See [Manage your Search service on Azure](search-manage.md) for a no-code approach to managing and using Azure Search.
+Сведения об управлении службой поиска Azure и ее использовании без написания кода см. в статье [Управление службой поиска в Microsoft Azure](search-manage.md).
 
 
 <!--Image References-->
@@ -240,8 +239,4 @@ See [Manage your Search service on Azure](search-manage.md) for a no-code approa
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of BGP with Azure VPN Gateways | Microsoft Azure"
-   description="This article provides an overview of BGP with Azure VPN Gateways."
+   pageTitle="Особенности использования BGP с VPN-шлюзами Azure | Microsoft Azure"
+   description="В статье описывается использование BGP с VPN-шлюзами Azure."
    services="vpn-gateway"
    documentationCenter="na"
    authors="yushwang"
@@ -11,66 +11,60 @@
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/16/2016"
    ms.author="yushwang"/>
 
+# Обзор использования BGP с VPN-шлюзами Azure
 
-# <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Overview of BGP with Azure VPN Gateways
+В этой статье описываются особенности использования протокола BGP для VPN-шлюзов Azure.
 
-This article provides an overview of BGP (Border Gateway Protocol) support in Azure VPN Gateways.
+## О протоколе BGP
 
-## <a name="about-bgp"></a>About BGP
-
-BGP is the standard routing protocol commonly used in the Internet to exchange routing and reachability information between two or more networks. When used in the context of Azure Virtual Networks, BGP enables the Azure VPN Gateways and your on-premises VPN devices, called BGP peers or neighbors, to exchange "routes" that will inform both gateways on the availability and reachability for those prefixes to go through the gateways or routers involved. BGP can also enable transit routing among multiple networks by propagating routes a BGP gateway learns from one BGP peer to all other BGP peers.
+Стандартный протокол маршрутизации BGP обычно используется в Интернете для обмена данными о маршрутизации и доступности между двумя или несколькими сетями. В контексте виртуальных сетей Azure протокол BGP используется VPN-шлюзами Azure и локальными VPN-устройствами (так называемые узлы BGP) для обмена данными о маршрутах. Это позволяет информировать участников обмена о доступности и возможности передавать префиксы через шлюзы или маршрутизаторы. Также BGP позволяет передавать трафик транзитом через несколько сетей. Для этого шлюз BGP распространяет на все известные ему узлы BGP информацию о маршрутах, полученную от остальных узлов BGP.
  
-### <a name="why-use-bgp?"></a>Why use BGP?
+### Почему именно BGP?
 
-BGP is an optional feature you can use with Azure Route-Based VPN gateways. You should also make sure your on-premises VPN devices support BGP before you enable the feature. You can continue to use Azure VPN gateways and your on-premises VPN devices without BGP. It is the equivalent of using static routes (without BGP) *vs.* using dynamic routing with BGP between your networks and Azure.
+BGP не является обязательным протоколом для VPN-шлюзов Azure с использованием маршрутов. Также до включения протокола BGP следует убедиться, что ваши локальные VPN-устройства поддерживают его. Вы можете продолжать использовать VPN-шлюзы Azure и локальные VPN-устройства без протокола BGP. Для обмена данными между сетями и Azure можно использовать статические маршруты (без BGP) *или* динамическую маршрутизацию по протоколу BGP.
 
-There are several advantages and new capabilities with BGP:
+Преимущества и возможности протокола BGP:
 
-#### <a name="support-automatic-and-flexible-prefix-updates"></a>Support automatic and flexible prefix updates
+#### Поддержка автоматического и гибкого обновления префиксов
 
-With BGP, you only need to declare a minimum prefix to a specific BGP peer over the IPsec S2S VPN tunnel. It can be as small as a host prefix (/32) of the BGP peer IP address of your on-premises VPN device. You can control which on-premises network prefixes you want to advertise to Azure to allow your Azure Virtual Network to access.
-    
-You can also advertise a larger prefixes that may include some of your VNet address prefixes, such as a large private IP address space (e.g., 10.0.0.0/8). Please note though the prefixes cannot be identical with any one of your VNet prefixes. Those routes identical to your VNet prefixes will be rejected.
+Если используется протокол BGP, достаточно объявить минимальный префикс для определенного узла BGP через VPN-туннель IPsec S2S. Это может быть даже небольшой префикс узла (/32) для IP-адреса узла BGP на локальном VPN-устройстве. Вы можете выбирать, какие из локальных префиксов будут объявлены в Azure, чтобы виртуальная сеть Azure получила к ним доступ.
+	
+Также можно объявлять более крупные префиксы, в том числе некоторые префиксы адресов виртуальной сети, например большое пространство частных IP-адресов (10.0.0.0/8 и т. п.). Обратите внимание, что эти префиксы не должны совпадать с префиксами виртуальной сети. Маршруты, идентичные префиксам виртуальной сети, будут отклонены.
 
->[AZURE.IMPORTANT] Currently, advertising the default route (0.0.0.0/0) to Azure VPN gateways will be blocked. Further update will be provided once this capability is enabled.
+>[AZURE.IMPORTANT] В настоящее время объявления маршрута по умолчанию (0.0.0.0/0) к VPN-шлюзам Azure блокируются. Мы дополнительно сообщим о включении этой функции.
 
-#### <a name="support-multiple-tunnels-between-a-vnet-and-an-on-premises-site-with-automatic-failover-based-on-bgp"></a>Support multiple tunnels between a VNet and an on-premises site with automatic failover based on BGP
+#### Поддержка нескольких туннелей между виртуальной сетью и локальным сайтом с автоматической отработкой отказа на основе BGP
 
-You can establish multiple connections between your Azure VNet and your on-premises VPN devices in the same location. This capability provides multiple tunnels (paths) between the two networks in an active-active configuration. If one of the tunnels is disconnected, the corresponding routes will be withdrawn via BGP and the traffic will automatically shift to the remaining tunnels.
-    
-The following diagram shows a simple example of this highly available setup:
-    
-![Multiple active paths](./media/vpn-gateway-bgp-overview/multiple-active-tunnels.png)
+Вы можете создавать несколько подключений между виртуальной сетью Azure и локальными VPN-устройствами в одном расположении. Это позволяет использовать между двумя сетями несколько туннелей (путей) в режиме "активный — активный". Если один из туннелей отключится, BGP отзовет соответствующие маршруты и трафик автоматически переместится в действующие туннели.
+	
+Следующая схема содержит простой пример настройки с высокой доступностью.
+	
+![Несколько активных путей](./media/vpn-gateway-bgp-overview/multiple-active-tunnels.png)
 
-#### <a name="support-transit-routing-between-your-on-premises-networks-and-multiple-azure-vnets"></a>Support transit routing between your on-premises networks and multiple Azure VNets
+#### Поддержка транзитной маршрутизации между локальными сетями и несколькими виртуальными сетями Azure
 
-BGP enables multiple gateways to learn and propagate prefixes from different networks, whether they are directly or indirectly connected. This can enable transit routing with Azure VPN gateways between your on-premises sites or across multiple Azure Virtual Networks.
-    
-The following diagram shows an example of a multi-hop topology with multiple paths that can transit traffic between the two on-premises networks through Azure VPN gateways within the Microsoft Networks:
+BGP позволяет нескольким шлюзам получать и распространять префиксы из разных сетей, подключенных к ним напрямую или опосредованно. Благодаря этому возможна транзитная маршрутизация через VPN-шлюзы Azure между локальными сайтами или несколькими виртуальными сетями Azure.
+	
+Следующая схема содержит пример многоскачковой топологии с несколькими путями, по которым трафик может проходить между двумя локальными сетями через VPN-шлюзы Azure в сети Microsoft.
 
-![Multi-hop transit](./media/vpn-gateway-bgp-overview/full-mesh-transit.png)
+![Многоскачковый транзит](./media/vpn-gateway-bgp-overview/full-mesh-transit.png)
 
-## <a name="bgp-faqs"></a>BGP FAQs
-
-
-[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
+## Часто задаваемые вопросы о протоколе BGP
 
 
-
-
-## <a name="next-steps"></a>Next steps
-
-See [Getting started with BGP on Azure VPN gateways](./vpn-gateway-bgp-resource-manager-ps.md) for steps to configure BGP for your cross-premises and VNet-to-VNet connections.
+[AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Дальнейшие действия
 
+Действия по настройке BGP для межсистемных подключений и подключений между виртуальными сетями описаны в разделе [Настройка BGP на VPN-шлюзах Azure с помощью Azure Resource Manager и PowerShell](./vpn-gateway-bgp-resource-manager-ps.md).
 
+<!---HONumber=AcomDC_0622_2016-->

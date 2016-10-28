@@ -1,93 +1,92 @@
 <properties 
-    pageTitle="Get started with elastic database tools" 
-    description="Basic explanation of elastic database tools feature of Azure SQL Database, including easy to run sample app." 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor="CarlRabeler"/>
+	pageTitle="Приступая к работе с инструментами эластичной базы данных" 
+	description="Объяснение основных принципов инструментов эластичной базы данных SQL Azure, включая пример простого для запуска приложения." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="ddove" 
+	editor="CarlRabeler"/>
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="ddove"/>
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
+# Приступая к работе с инструментами эластичных баз данных
 
-# <a name="get-started-with-elastic-database-tools"></a>Get started with Elastic Database tools
+Настоящий документ выступает в качестве введения в процесс запуска примера приложения. В данном примере выполняется создание простого сегментированного приложения и исследуются основные возможности инструментов эластичной базы данных. В примере показаны функции [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md)
 
-This document introduces you to the developer experience by running the sample app. The sample creates a simple sharded application and explores key capabilities of elastic database tools. The sample demonstrates functions of the [elastic database client library](sql-database-elastic-database-client-library.md)
+Чтобы установить библиотеку, перейдите по ссылке [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Обратите внимание, что библиотека устанавливается с примером приложения, описанным ниже.
 
-To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Note that the library is installed with the sample app described below.
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+1. Требуется Visual Studio 2012 или выше с пакетом C#. Загрузите бесплатную версию на странице [Загрузок Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
+2. Maven 2,7 или выше Для получения самой новой версии см. раздел [Установка NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
 
-1. Visual Studio 2012 or higher with C# is required. Download a free version at [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-2. Nuget 2.7 or higher. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
+## Загрузка и запуск примера приложения
 
-## <a name="download-and-run-the-sample-app"></a>Download and run the sample app
+Пример приложения из раздела **Эластичные базы данных SQL Azure — приступая к работе** позволяет познакомиться с наиболее важными аспектами процесса разработки сегментированных приложений с использованием инструментов эластичных баз данных SQL Azure. В нем описаны основные случаи использования для [управления картами сегментов](sql-database-elastic-scale-shard-map-management.md), [маршрутизации, управляемой данными](sql-database-elastic-scale-data-dependent-routing.md), и [многосегментного формирования запросов](sql-database-elastic-scale-multishard-querying.md). Чтобы загрузить и запустить демонстрационное приложение, выполните следующие действия.
 
-The **Elastic Database with Azure SQL— Getting Started** sample application illustrates the most important aspects of the development experience for sharded applications using Azure SQL elastic database tools. It focuses on key use cases for [shard map management](sql-database-elastic-scale-shard-map-management.md), [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and [multi-shard querying](sql-database-elastic-scale-multishard-querying.md). To download and run the sample, follow these steps: 
+1. Откройте Visual Studio и выберите **Файл -> Создать -> Проект**.
+2. В открывшемся диалоговом окне нажмите на пункт **В сети**.
 
-1. Open Visual Studio and select **File -> New -> Project**.
-2. In the dialog, click **Online**.
+    ![Новый проект>В сети][2]
+3. Затем щелкните пункт **Visual C#** в разделе **Примеры**.
 
-    ![New Project>Online][2]
-3. Then click **Visual C#** under **Samples**.
+    ![Щелкните Visual C#][3]
+4. В поле поиска введите **elastic db**, чтобы найти пример приложения. После этого должен отобразиться заголовок **Инструменты эластичной базы данных SQL Azure — приступая к работе**.
 
-    ![Click Visual C#][3]
-4. In the search box, type **elastic db** to search for the sample.The title **Elastic DB Tools for Azure SQL - Getting Started** appears.
-
-    ![Search Box][1]
+    ![Поле поиска][1]
  
-5. Select the sample, choose a name and a location for the new project and press **OK** to create the project.
-6. Open the **app.config** file in the solution for the sample project and follow the instructions in the file to add your Azure SQL database server name and your login information (user name and password).
-7. Build and run the application. When asked, please allow Visual Studio to restore the NuGet packages of the solution. This will download the latest version of the elastic database client library from NuGet.
-8. Play with the different options to learn more about the client library capabilities. Note the steps the application takes in the console output and feel free to explore the code behind the scenes.
+5. Выберите необходимый пример, укажите название и месторасположение для нового проекта, а затем нажмите кнопку **OK**, чтобы создать этот проект.
+6. Откройте файл **app.config** в решении для данного демонстрационного проекта и следуйте приведенным в нем указаниям, чтобы добавить имя сервера базы данных SQL Azure и учетные данные (имя пользователя и пароль).
+7. Создайте и запустите приложение. После соответствующего запроса разрешите Visual Studio восстановить пакеты NuGet из данного решения. В результате этого будет выполнена скачивание самых новых версий клиентских библиотек эластичной базы данных из NuGet.
+8. Попробуйте устанавливать различные значения параметров, чтобы более подробно исследовать возможности клиентской библиотеки. Обратите внимание на то, какие действия выполняет приложение, отслеживая выводимые им в консоль сообщения, и ознакомьтесь с отвечающим за эти действия программным кодом.
 
-    ![progress][4]
+    ![ход выполнения][4]
 
-Congratulations – you have successfully built and run your first sharded application using elastic database tools on Azure SQL Database. Take a quick look at the shards that the sample created by connecting with Visual Studio or SQL Server Management Studio to your Azure DB Server. You will notice new sample shard databases and a shard map manager database that the sample has created.
+Поздравляем! Вы успешно создали и запустили свое первое сегментированное приложение с помощью инструментов эластичной базы данных SQL Azure. Ознакомьтесь с сегментами, созданными примером приложения, подключившись с помощью Visual Studio или SQL Server Management Studio к серверу базы данных Azure. Таким образом можно увидеть новые сегментированные базы данных и базу данных диспетчера сопоставлений сегментов, созданные демонстрационным приложением.
 
-> [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-
-
-### <a name="key-pieces-of-the-code-sample"></a>Key pieces of the code sample
-
-1. **Managing Shards and Shard Maps**: The code illustrates how to work with shards, ranges, and mappings in file **ShardMapManagerSample.cs**. You can find more information about this topic here: [Shard Map Management](http://go.microsoft.com/?linkid=9862595).  
-2. **Data Dependent Routing**: Routing of transactions to the right shard is shown in **DataDependentRoutingSample.cs**. For more details, see [Data Dependent Routing](http://go.microsoft.com/?linkid=9862596). 
-3. **Querying over Multiple Shards**: Querying across shards is illustrated in the file **MultiShardQuerySample.cs**. For more details, see [Multi-Shard Querying](http://go.microsoft.com/?linkid=9862597).
-4. **Adding empty shards**: The iterative adding of new empty shards is performed by the code in file **AddNewShardsSample.cs**. Details of this topic are covered here: [Shard Map Management](http://go.microsoft.com/?linkid=9862595).
-
-### <a name="other-elastic-scale-operations"></a>Other elastic scale operations
-
-1. **Splitting an existing shard**: The capability to split shards is provided through the **split-merge tool**. You can find more information on this tool here: [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Merging existing shards**: Shard merges are also performed using the **split-merge tool**. For more information, refer to: [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge.md).   
+> [AZURE.IMPORTANT] Чтобы обеспечить синхронизацию с обновлениями Microsoft Azure и Базой данных SQL, рекомендуется всегда использовать последнюю версию Management Studio. [Обновите среду SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 
-## <a name="cost"></a>Cost
+### Ключевые фрагменты программного кода демонстрационного приложения
 
-The elastic database tools are free of charge. Elastic database tools does not impose additional charges on top of the cost for your Azure usage. 
+1. **Управление сегментами и сопоставлениями сегментов**. Данный программный код, демонстрирующий, каким образом следует работать с сегментами, диапазонами и сопоставлениями, взят из файла **ShardMapManagerSample.cs**. Дополнительную информацию по данной теме можно найти здесь: [Управление картой сегментов](http://go.microsoft.com/?linkid=9862595).
+2. **Маршрутизация, зависящая от данных**. Маршрутизация транзакций к необходимому сегменту демонстрируется в файле **DataDependentRoutingSample.cs**. Более подробная информация приводится в разделе [Маршрутизация, зависящая от данных](http://go.microsoft.com/?linkid=9862596).
+3. **Формирование запросов по нескольким сегментам**. Формирование запросов по сегментам демонстрируется в файле **MultiShardQuerySample.cs**. Более подробная информация приводится в разделе [Многосегментное формирование запросов](http://go.microsoft.com/?linkid=9862597).
+4. **Добавление пустых сегментов**. Итеративное добавление новых пустых сегментов выполняется программным кодом, который приводится в файле **AddNewShardsSample.cs**. С подробностями по данному вопросу можно ознакомиться здесь: [Управление картой сегментов](http://go.microsoft.com/?linkid=9862595).
 
-For example, the sample application creates new databases. The cost depends on the Azure SQL DB database edition you choose and the Azure usage of your application.
+### Другие операции, относящиеся к эластичному масштабированию
 
-For pricing information see [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
+1. **Разбиение существующего сегмента**. Возможность разбиения сегментов реализована с помощью **инструмента разбиения и объединения**. Дополнительную информацию об этом инструменте можно найти здесь: [Обзор инструмента разбиения и объединения](sql-database-elastic-scale-overview-split-and-merge.md).
+2. **Объединение существующих сегментов**. Объединение сегментов также выполняется с помощью **инструмента разбиения и объединения**. Дополнительную информацию см. в следующей статье: [Обзор инструмента разбиения и объединения](sql-database-elastic-scale-overview-split-and-merge.md).
 
-## <a name="next-steps"></a>Next steps
-For more information about the elastic database tools, see:
 
-* [Elastic database tools documentation map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/) 
--    Code Samples: 
-    -    [Elastic DB with Azure SQL - Getting Started](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
-    -    [Elastic DB with Azure SQL - Integrating with Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
-    -    [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
--    Blog: [Elastic Scale Announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
--    Channel 9: [Elastic Scale Overview Video](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
--    Discussion Forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
--    To measure performance: [Performance counters for shard map manager](sql-database-elastic-database-client-library.md)
+## Стоимость
+
+Инструменты эластичной базы данных предоставляются бесплатно. Использование инструментов эластичной базы данных не предполагает взимания каких-либо дополнительных платежей помимо оплаты за использование платформы Azure.
+
+Например, демонстрационное приложение создает новую базу данных. Оплачиваемая стоимость зависит от выбранной версии базы данных SQL Azure и от использования данным приложением платформы Azure.
+
+Сведения о ценах см. в разделе [Информация о ценах на базу данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+
+## Дальнейшие действия
+Дополнительную информацию об инструментах эластичной базы данных см. в следующих разделах:
+
+* [Карта документации по инструментах эластичной базы данных](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/)
+-    Примеры программного кода:
+    -    [Эластичная база данных SQL Azure — приступая к работе](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
+    -    [Эластичная база данных SQL Azure — интеграция с Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
+    -    [Эластичность сегментов в Центре сценариев](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
+-    Блог: [Объявления, касающиеся эластичного масштабирования](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+-    Channel 9: [Видеообзор технологии эластичного масштабирования](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+-    Форум для обсуждений: [Форум по базам данных SQL Azure](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+-    Измерение производительности: [Счетчики производительности для диспетчера карты сегментов](sql-database-elastic-database-client-library.md)
 
 
 <!--Anchors-->
@@ -103,8 +102,4 @@ For more information about the elastic database tools, see:
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

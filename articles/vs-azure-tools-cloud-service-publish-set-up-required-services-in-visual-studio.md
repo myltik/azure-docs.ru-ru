@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Prepare to publish or deploy an Azure application from Visual Studio | Microsoft Azure"
-   description="Learn the procedures to set up cloud and storage account services and configure your Azure application."
+   pageTitle="Подготовка к публикации или развертыванию приложения Azure из Visual Studio | Microsoft Azure"
+   description="Узнайте, как создавать облачные службы и учетные записи хранения, а также настраивать приложения Azure."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,148 +15,142 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Подготовка к публикации или развертыванию приложения Azure из Visual Studio
 
-# <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>Prepare to Publish or Deploy an Azure Application from Visual Studio
+## Обзор
 
-## <a name="overview"></a>Overview
+Чтобы опубликовать проект облачной службы, сначала вам необходимо кое-что создать.
 
-Before you can publish a cloud service project, you must set up the following services:
+- **Облачная служба**. Отвечает за работу ролей в среде Azure.
 
-- A **cloud service** to run your roles in the Azure environment
+- **Учетная запись хранения**. Предоставляет доступ к службам BLOB-объектов, очередей и таблиц.
 
-- A **storage account** that provides access to the Blob, Queue, and Table services.
+В этой статье мы расскажем о том, как создать нужные службы и настроить ваше приложение.
 
-Use the following procedures to set up these services and configure your application
 
+## Создание облачной службы
 
-## <a name="create-a-cloud-service"></a>Create a cloud service
+Чтобы опубликовать облачную службу в Azure, сначала необходимо создать облачную службу, которая выполняет роли в среде Azure. Облачную службу можно создать на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Соответствующие инструкции см. в разделе **Создание облачной службы на классическом портале Azure**. Ее также можно создать в Visual Studio с помощью мастера публикации.
 
-To publish a cloud service to Azure, you must first create a cloud service, which runs your roles in the Azure environment. You can create a cloud service in the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), as described in the section **To create a cloud service by using the Azure classic portal**, later in this topic. You can also create a cloud service in Visual Studio by using the publishing wizard.
+### Создание облачной службы в Visual Studio
 
-### <a name="to-create-a-cloud-service-by-using-visual-studio"></a>To create a cloud service by using Visual Studio
+1. Откройте контекстное меню проекта Azure и выберите пункт **Опубликовать**.
 
-1. Open the shortcut menu for the Azure project, and choose **Publish**.
+    ![VST\_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
 
-    ![VST_PublishMenu](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/vst-publish-menu.png)
+1. Войдите в свою учетную запись Майкрософт или учетную запись своей организации, которая связана с вашей подпиской Azure.
 
-1. If you haven't signed in, sign in with your username and password for the Microsoft account or organizational account that's associated with your Azure subscription.
+1. Нажмите кнопку **Далее**, чтобы перейти на страницу **Параметры**.
 
-1. Choose the **Next** button to advance to the **Settings** page.
+    ![Общие параметры в мастере публикации](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
 
-    ![Publishing Wizard Common Settings](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/publish-settings-page.png)
+1. В списке **Облачные службы** выберите **Создать**. Откроется диалоговое окно **Создание служб Azure**.
 
-1. In the **Cloud Services** list, choose **Create New**. The **Create Azure Services** dialog appears.
+1. Введите имя своей облачной службы. Имя будет частью URL-адреса службы, поэтому оно должно быть глобально уникальным. Регистр в имени не учитывается.
 
-1. Enter the name of your cloud service. The name forms part of the URL for your service and therefore must be globally unique. The name is not case-sensitive.
+### Создание облачной службы на классическом портале Azure
 
-### <a name="to-create-a-cloud-service-by-using-the-azure-classic-portal"></a>To create a cloud service by using the Azure classic portal
+1. Войдите на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkId=253103) на веб-сайте Майкрософт.
 
-1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
+1. Чтобы просмотреть список облачных служб, которые вы уже создали, в левой части страницы выберите ссылку «Облачные службы». Этот шаг можно пропустить.
 
-1. (optional) To display a list of cloud services that you've already created, choose the Cloud Services link on the left side of the page.
+1. В левом нижнем углу щелкните значок **+**, а затем в появившемся меню выберите пункт **Облачная служба**. Откроется новое окно с двумя вариантами: **Быстрое создание** и **Настраиваемое создание**. Выбрав вариант **Быстрое создание**, вы можете создать облачную службу, просто указав ее URL-адрес и регион, в котором она будет физически размещаться. Если выбрать **Настраиваемое создание**, вы сможете сразу опубликовать облачную службу, указав пакет (CSPKG-файл), файл конфигурации (.cscfg) и сертификат. Вариант настраиваемого создания можно не использовать, если вы планируете опубликовать облачную службу с помощью команды **Опубликовать** в проекте Azure. Команда **Опубликовать** доступна в контекстном меню проекта Azure.
 
-1. Choose the **+** icon in the lower-left corner, and then choose **Cloud Service** on the menu that appears. Another screen with two options, **Quick Create** and **Custom Create**, appears. If you choose **Quick Create**, you can create a cloud service just by specifying its URL and the region where it will be physically hosted. If you choose **Custom Create**, you can immediately publish a cloud service by specifying a package (.cspkg file), a configuration (.cscfg) file, and a certificate. Custom Create isn’t required if you intend to publish your cloud service by using the **Publish** command in an Azure project. The **Publish** command is available on the shortcut menu for an Azure project.
+1. Выберите вариант **Быстрое создание**. Позже вы сможете опубликовать облачную службу с помощью Visual Studio.
 
-1. Choose **Quick Create** to later publish your cloud service by using Visual Studio.
+1. Укажите имя для облачной службы. Рядом с именем отобразится полный URL-адрес.
 
-1. Specify a name for your cloud service.The complete URL appears next to the name.
+1. В списке выберите регион, в котором находится большинство ваших пользователей.
 
-1. In the list, choose the region where most of your users are located.
+1. В нижней части окна выберите ссылку **Создать облачную службу**.
 
-1. At the bottom of the window, choose the **Create Cloud Service** link.
+## Создайте учетную запись хранения.
 
-## <a name="create-a-storage-account"></a>Create a storage account
+Учетная запись хранения предоставляет доступ к службам BLOB-объектов, очередей и таблиц. Учетную запись хранения можно создать с помощью Visual Studio или [классического портала Azure](http://go.microsoft.com/fwlink/?LinkId=253103).
 
-A storage account provides access to the Blob, Queue, and Table services. You can create a storage account by using Visual Studio or the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103).
+### Создание учетной записи хранения в Visual Studio
 
-### <a name="to-create-a-storage-account-by-using-visual-studio"></a>To create a storage account by using Visual Studio
+1. В **обозревателе решений** откройте контекстное меню узла **Хранилище** и выберите пункт **Создание учетной записи хранилища**.
 
-1. In **Solution Explorer**, open the shortcut menu for the **Storage** node, and then choose **Create Storage Account**.
+    ![Создание новой учетной записи хранения Azure](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
 
-    ![Create a new Azure storage account](./media/vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio/IC744166.png)
+1. В диалоговом окне **Создание учетной записи хранилища** укажите для новой учетной записи следующие сведения.
+    - Подписка Azure, в которую следует добавить учетную запись хранения.
+    - Имя, которое вы хотите использовать для новой учетной записи хранения.
+    - Регион или территориальная группа (например, Запад США или Восточная Азия).
+    - Тип репликации учетной записи хранения (например, геоизбыточная).
 
-1. Select or enter the following information for the new storage account in the **Create Storage Account** dialog box.
-    - The Azure subscription to which you want to add the storage account.
-    - The name you want to use for the new storage account.
-    - The region or affinity group (such as West US or East Asia).
-    - The type of replication you want to use for the storage account, such as Geo-Redundant.
+1. Когда все будет готово, выберите **Создать**. Учетная запись хранения появится в **обозревателе сервера** в списке **Хранилище**.
 
-1. When you’re done, choose **Create**.The new storage account appears in the **Storage** list in **Server Explorer**.
+### Создание учетной записи хранения на классическом портале Azure
 
-### <a name="to-create-a-storage-account-by-using-the-azure-classic-portal"></a>To create a storage account by using the Azure classic portal
+1. Войдите на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkId=253103) на веб-сайте Майкрософт.
 
-1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkId=253103) on the Microsoft website.
+1. Чтобы просмотреть свои учетные записи хранения, выберите в левой части страницы ссылку **Хранилище**. Этот шаг можно пропустить.
 
-1. (Optional) To view your storage accounts, choose the **Storage** link in the panel on the left side of the page.
+1. В левом нижнем углу страницы щелкните значок **+**.
 
-1. In the lower-left corner of the page, choose the **+** icon.
+1. В появившемся меню последовательно выберите **Хранилище** и **Быстрое создание**.
 
-1. In the menu that appears, choose **Storage**, and then choose **Quick Create**.
+1. Введите имя для учетной записи, которое сформирует уникальный URL-адрес.
 
-1. Give the storage account a name that will result in a unique url.
+1. Введите имя для облачной службы. Рядом с именем отобразится полный URL-адрес.
 
-1. Give your cloud service a name. The complete URL appears next to the name.
+1. В списке регионов выберите тот, в котором находится большинство ваших пользователей.
 
-1. In the list of regions, choose a region where most of your users are located.
+1. Укажите, следует ли активировать георепликацию. Когда георепликация активирована, данные хранятся в нескольких местах, что снижает вероятность их потери. Эта функция увеличивает стоимость хранения данных. Чтобы сократить расходы, георепликацию лучше активировать во время создания учетной записи хранения, а не после. Дополнительные сведения см. в статье [Георепликация](http://go.microsoft.com/fwlink/?LinkId=253108).
 
-1. Specify whether you want to enable geo-replication. If you enable geo-replication, your data will be saved in multiple physical locations to reduce the chance of loss. This feature makes storage more expensive, but you can reduce the cost by enabling geo-location when you create the storage account instead of adding the feature later. For more information, see [Geo-replication](http://go.microsoft.com/fwlink/?LinkId=253108).
+1. В нижней части окна выберите ссылку **Создать учетную запись хранения**.
 
-1. At the bottom of the window, choose the **Create Storage Account** link.
+После создания учетной записи вы увидите URL-адреса, которые можно использовать для работы с ресурсами в каждой из служб хранилища Azure, а также первичный и вторичный ключи доступа для вашей учетной записи. Эти ключи используются для проверки подлинности запросов к службам хранилища.
 
-After you create your storage account, you will see the URLs that you can use to access resources in each of the Azure storage services, and also the primary and secondary access keys for your account. You use these keys to authenticate requests made against the storage services.
+>[AZURE.NOTE] Вторичный ключ доступа выполняет те же функции, что и первичный. Он создается как запасной на случай, если первичный ключ будет скомпрометирован. Мы рекомендуем регулярно создавать новые ключи доступа. На момент повторного создания первичного ключа в строке подключения укажите вторичный ключ. Когда будет получен новый первичный ключ, укажите его в строке подключения и создайте новый вторичный ключ.
 
->[AZURE.NOTE] The secondary access key provides the same access to your storage account as the primary access key and is generated as a backup should your primary access key be compromised. Additionally, it is recommended that you regenerate your access keys on a regular basis. You can modify a connection string setting to use the secondary key while you regenerate the primary key, then you can modify it to use the regenerated primary key while you regenerate the secondary key.
+## Настройка в приложении служб из учетной записи хранения
 
-## <a name="configure-your-app-to-use-services-provided-by-the-storage-account"></a>Configure your app to use services provided by the storage account
+Все роли, которые обращаются к службам хранилища, необходимо настроить так, чтобы они использовали созданные вами службы хранилища Azure. Это можно сделать с помощью нескольких конфигураций служб для вашего проекта Azure. По умолчанию две конфигурации создаются в вашем проекте Azure. Имея несколько конфигураций служб, в коде можно использовать одну строку подключения, а в каждой конфигурации — разное значение этой строки. Например, одну конфигурацию службы можно использовать для локального запуска и отладки приложения с помощью эмулятора хранения Azure, а другую — для публикации приложения в Azure. Дополнительные сведения о конфигурациях служб см. в разделе [Настройка проекта Azure с помощью несколько конфигураций службы](vs-azure-tools-multiple-services-project-configurations.md).
 
-You must configure any role that accesses storage services to use the Azure storage services that you have created. To do this, you can use multiple service configurations for your Azure project. By default, two are created in your Azure project. By using multiple service configurations, you can use the same connection string in your code, but have a different value for a connection string in each service configuration. For example, you can use one service configuration to run and debug your application locally using the Azure storage emulator and a different service configuration to publish your application to Azure. For more information about service configurations, see [Configuring Your Azure Project Using Multiple Service Configurations](vs-azure-tools-multiple-services-project-configurations.md).
+### Настройка в приложении служб, предоставляемых учетной записью хранения
 
-### <a name="to-configure-your-application-to-use-services-that-the-storage-account-provides"></a>To configure your application to use services that the storage account provides
+1. Откройте в Visual Studio свое решение Azure. В обозревателе решений откройте контекстное меню для каждой роли в проекте Azure, которая обращается к службам хранилища, и выберите пункт **Свойства**. В редакторе Visual Studio отобразится страница с именем роли. На странице будут представлены поля для вкладки **Конфигурация**.
 
-1. In Visual Studio open your Azure solution. In Solution Explorer, open the shortcut menu for each role in your Azure project that accesses the storage services and choose **Properties**. A page with the name of the role is displayed in the Visual Studio editor. The page displays the fields for the **Configuration** tab.
+1. На странице свойств роли щелкните **Параметры**.
 
-1. In the property pages for the role, choose **Settings**.
+1. В списке **Конфигурация службы** выберите имя конфигурации службы, которую нужно изменить. Если нужно изменить все конфигурации службы для этой роли, выберите пункт **Все конфигурации**. Дополнительные сведения об обновлении конфигураций служб см. в разделе **Управление строками подключения для учетных записей хранения** статьи [Настройка ролей для облачной службы Azure в среде Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-1. In the **Service Configuration** list, choose the name of the service configuration that you want to edit. If you want to make changes to all of the service configurations for this role, you can choose **All Configurations**.  For more information about how to update service configurations, see the section **Manage Connection Strings for Storage Accounts** in the topic [Configure the Roles for an Azure Cloud Service with Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
+1. Чтобы изменить какой-либо параметр строки подключения, щелкните рядом с ним кнопку с многоточием (**...**). Откроется диалоговое окно **Создание строки подключения к хранилищу**.
 
-1. To modify any connection string settings, choose the **…** button next to the setting. The **Create Storage Connection String** dialog box appears.
+1. В разделе **Подключиться с помощью** выберите вариант **Подписка**.
 
-1. Under **Connect using**, choose the **Your subscription** option.
+1. В списке **Подписка** выберите свою подписку. Если в списке нет нужной вам подписки, выберите ссылку **Скачать параметры публикации**.
 
-1. In the **Subscription** list, choose your subscription. If the list of subscriptions doesn't include the one that you want, choose the **Download Publish Settings** link.
+1. В списке **Имя учетной записи** выберите имя своей учетной записи хранения. Инструменты Azure автоматически получат учетные данные хранилища (используется файл PUBLISHSETTINGS). Чтобы указать учетную запись хранения вручную, выберите параметр **Учетные данные, введенные вручную** и перейдите к следующему шагу. Имя учетной записи хранения и первичный ключ можно получить на [классическом портале Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885). Если вы не хотите указывать параметры учетной записи хранения вручную, нажмите кнопку **ОК**, чтобы закрыть диалоговое окно.
 
-1. In the **Account name** list, choose your storage account name. Azure Tools obtains storage account credentials automatically by using the .publishsettings file. To specify your storage account credentials manually, choose the **Manually entered credentials** option, and then continue with this procedure. You can get your storage account name and primary key from the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885). If you don’t want to specify your storage account settings manually, choose the **OK** button to close the dialog box.
+1. Выберите ссылку **Ввод учетной записи хранения**.
 
-1. Choose the **Enter storage account** credentials link.
+1. В поле **Имя учетной записи** введите имя своей учетной записи хранения.
 
-1. In the **Account name** box, enter the name of your storage account.
+    >[AZURE.NOTE] Войдите на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885) и нажмите кнопку **Хранилище**. На портале отобразится список учетных записей хранения. Выбрав учетную запись, вы попадете на ее страницу, где можно скопировать имя записи. В предыдущей версии классического портала имя учетной записи хранения можно найти в представлении **Учетные записи хранения**. Чтобы скопировать это имя, выделите его в окне **Свойства** и нажмите клавиши CTRL + C. Чтобы вставить скопированное имя в Visual Studio, щелкните в текстовом поле **Имя учетной записи** и нажмите клавиши CTRL + V.
 
-    >[AZURE.NOTE] Log into the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885), and then choose the **Storage** button. The portal shows a list of storage accounts. If you choose an account, a page for it opens. You can copy the name of the storage account from this page. If you are using a previous version of the classic portal, the name of your storage account appears in the **Storage Accounts** view. To copy this name, highlight it in the **Properties** window of this view, and then choose the Ctrl-C keys. To paste the name into Visual Studio, choose the **Account name** text box, and then choose the Ctrl+V keys.
+1. В поле **Ключ учетной записи** укажите свой первичный ключ. Его можно ввести вручную или скопировать и вставить с [классического портала Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Инструкции по копированию ключа приведены ниже.
 
-1. In the **Account key** box, enter your primary key, or copy and paste it from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
-    To copy this key:
+    1. В нижней части страницы соответствующей учетной записи хранения нажмите кнопку **Управление ключами**.
 
-    1. At the bottom of the page for the appropriate storage account, choose the **Manage Keys** button.
+    1. На странице **Управление ключами доступа** выделите текст первичного ключа и нажмите клавиши CTRL + C.
 
-    1. On the **Manage Keys Access** page, select the text of the primary access key, and then choose the Ctrl+C keys.
+    1. В инструментах Azure вставьте ключ в поле **Ключ учетной записи**.
 
-    1. In Azure Tools, paste the key into the **Account key** box.
+    1. Чтобы определить, как служба будет обращаться к учетной записи хранения, необходимо выбрать один из следующих параметров.
+        - **Использовать HTTP**. Это вариант по умолчанию. Например, `http://<account name>.blob.core.windows.net`.
+        - **Использовать HTTPS**. Вариант для безопасного подключения. Например, `https://<accountname>.blob.core.windows.net`.
+        - **Указать пользовательские конечные точки**. Вариант для каждой из трех служб. Выбрав его, нужно указать конечные точки в поле для конкретной службы.
 
-    1. You must select one of the following options to determine how the service will access the storage account:
-        - **Use HTTP**. This is the standard option. For example, `http://<account name>.blob.core.windows.net`.
-        - **Use HTTPS** for a secure connection. For example, `https://<accountname>.blob.core.windows.net`.
-        - **Specify custom endpoints** for each of the three services. You can then type these endpoints into the field for the specific service.
+        >[AZURE.NOTE] Пользовательские конечные точки позволяют создать более сложную строку подключения. Используя такой формат строки, вы можете указать конечные точки службы хранилища с именем личного домена, которое вы зарегистрировали для своей учетной записи хранения в службе BLOB-объектов. Кроме того, используя подписанный URL-адрес, вы сможете предоставить доступ только к ресурсам BLOB-объектов из одного контейнера. Дополнительные сведения о создании пользовательских конечных точек см. в статье [Настройка строк подключения службы хранилища Azure](storage-configure-connection-string.md).
 
-        >[AZURE.NOTE] If you create custom endpoints, you can create a more complex connection string. When you use this string format, you can specify storage service endpoints that include a custom domain name that you have registered for your storage account with the Blob service. Also you can grant access only to blob resources in a single container through a shared access signature. For more information about how to create custom endpoints, see [Configure Azure Storage Connection Strings](storage-configure-connection-string.md).
+1. Чтобы сохранить изменения в строках подключения, щелкните **ОК**, а затем на панели инструментов нажмите кнопку **Сохранить**. Чтобы получить сохраненное значение строки подключения в коде, используйте метод [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). Публикуя приложения в Azure, выберите для строки подключения ту конфигурацию службы, которая содержит учетную запись хранения Azure. После публикации приложения убедитесь, что оно работает со службами хранилища Azure так, как и ожидалось.
 
-1. To save these connection string changes, choose the **OK** button and then choose the **Save** button on the toolbar. After you save these changes, you can get the value of this connection string in your code by using [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx). When you publish your application to Azure, choose the service configuration that contains the Azure storage account for the connection string. After your application is published, verify that the application works as expected against the Azure storage services
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+Дополнительные сведения о публикации приложений в Azure из Visual Studio см. в статье [Публикация облачной службы с помощью средств Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-To learn more about publishing apps to Azure from Visual Studio, see [Publishing a Cloud Service using the Azure Tools](vs-azure-tools-publishing-a-cloud-service.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
-pageTitle="Customize your sign-in page in the Azure Active Directory preview | Microsoft Azure"
-description="Learn how to add a company branding to the Azure sign-in page"
+pageTitle="Настройка страницы входа в предварительной версии Azure Active Directory | Microsoft Azure"
+description="Узнайте, как добавить фирменную символику организации на страницу входа в Azure."
 services="active-directory"
 documentationCenter=""
 authors="curtand"
@@ -13,83 +13,61 @@ ms.workload="identity"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="09/30/2016"
+ms.date="09/12/2016"
 ms.author="curtand"/>
 
+# Добавление фирменной символики организации на страницу входа в предварительной версии Azure Active Directory
 
-# <a name="add-company-branding-to-your-sign-in-page-in-the-azure-active-directory-preview"></a>Add company branding to your sign-in page in the Azure Active Directory preview
+Чтобы избежать путаницы, многие компании используют единый стиль оформления всех веб-сайтов и служб, которыми они управляют. Предварительная версия Azure Active Directory предоставляет такую возможность, позволяя настроить внешний вид страницы входа, добавив на нее логотип организации и цветовые схемы. [Что есть в предварительной версии?](active-directory-preview-explainer.md) Страница входа: эта страница отображается при входе в Office 365 или другие веб-приложения, использующие Azure AD в качестве поставщика удостоверений. На этой странице вводятся учетные данные.
 
-To avoid confusion, many companies want to apply a consistent look and feel across all the websites and services they manage. Azure Active Directory preview provides this capability by allowing you to customize the appearance of the sign-in page with your company logo and custom color schemes. [What's in the preview?](active-directory-preview-explainer.md) The sign-in page is the page that appears when you sign in to Office 365 or other web-based applications that are using Azure AD as your identity provider. You interact with this page to enter your credentials.
+Если вы хотите показать фирменную символику, цвета и другие настраиваемые элементы на этой странице, изучите следующие изображения, чтобы понять разницу между двумя интерфейсами.
 
-If you want to show your company brand, colors and other customizable elements on this page, see the following images to understand the difference between the two experiences.
+На следующем снимке экрана приведен пример страницы входа в Office 365 на настольном компьютере **перед** настройкой.
 
-The following screenshot shows and example for the Office 365 sign-in page on a desktop computer **before** a customization:
+![Страница входа в службу Office 365 перед настройкой](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-before-customization.png)
 
-![Office 365 sign-in page before customization](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-before-customization.png)
+На следующем снимке экрана приведен пример страницы входа в Office 365 на настольном компьютере **после** настройки.
 
-The following screenshot shows and example for the Office 365 sign-in page on a desktop computer **after** a customization:
-
-![Office 365 sign-in page after customization](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-after-customization.png)
+![Страница входа в службу Office 365 после настройки](./media/active-directory-branding-custom-signon-azure-portal/sign-in-page-after-customization.png)
 
 
-## <a name="customizing-the-sign-in-page"></a>Customizing the sign-in page
+## Настройка страницы входа
 
-Typically, if you need browser-based access to your cloud apps and services that your organization subscribes to, you use the sign-in page.
+Как правило, страница входа используется для доступа через веб-браузер к облачным приложениям и службам, на которые у вашей организации есть подписка.
 
-If you have applied changes to your sign-in page, it can take up to an hour for the changes to appear.
+Когда вы что-то меняете на странице входа, может потребоваться до одного часа, чтобы эти изменения вступили в силу.
 
-A branded sign-in page only appears when you visit a service with a tenant-specific URL such as https://outlook.com/**contoso**.com, or https://mail.**contoso**.com.
+Страница входа с фирменной символикой отображается только при посещении службы с помощью URL-адреса конкретного клиента, например https://outlook.com/**contoso**.com или https://mail.**contoso**.com.
 
-When you visit a service with non-tenant specific URLs (e.g.: https://mail.office365.com), a non-branded sign-in page appears. in this case, your branding appears once you have entered your user ID or you have selected a user tile.
+При посещении службы без URL-адреса клиента (например, https://mail.office365.com) страница входа отображается без фирменной символики. Символика появится, когда вы введете идентификатор пользователя или выберете элемент пользователя.
 
 > [AZURE.NOTE]
 >
-- Your domain name must appear as “Active" in the **Domains** portion of the Azure portal in which you have configured branding. For more information, see [Add custom domain names](active-directory-domains-add-azure-portal.md).
-- Sign-in page branding doesn’t carry over to the consumer sign in page of Microsoft. If you sign in with a Microsoft account, you may see a branded list of user tiles rendered by Azure AD, but the branding of your organization does not apply to the Microsoft account sign-in page.
+- Для доменного имени в части портала Azure **Домены**, в которой была настроена фирменная символика, должно отображаться состояние "Активно". Дополнительные сведения см. в статье о [добавлении имен личных доменов](active-directory-domains-add-azure-portal.md).
+- Фирменная символика страницы входа не применяется к странице входа пользователя корпорации Майкрософт. Если вы входите с использованием учетной записи Майкрософт, то вы можете увидеть список элементов пользователей с фирменной символикой, отображаемый в Azure AD. Но к странице входа в учетную запись Майкрософт это оформление применяться не будет.
 
-On your sign-in page, the **Keep me signed in** checkbox allows a user to remain signed in when they close and re-open their browser. 
+**Добавление фирменной символики компании в ваш каталог:**
 
-   ![Keep me signed-in](./media/active-directory-branding-custom-signon-azure-portal/01.png)
+1.  Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
 
-It does not effect session lifetime. You can hide the checkbox on the Azure Active Directory sign-in page.
-Whether the checkbox is displayed depends on the setting of **Keep me signed in disabled**.
+2.  Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
 
-   ![Keep me signed-in](./media/active-directory-branding-custom-signon-azure-portal/02.png)
+    ![Открытие страницы "Управление пользователями"](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
 
+3. В колонке **Пользователи и группы** выберите **Company branding** (Фирменная символика компании).
 
-To hide the checkbox, configure this setting to **Yes**. 
+4. В колонке **Company branding** (Фирменная символика компании) щелкните **Изменить**.
 
-> [AZURE.NOTE] Some features of SharePoint Online and Office 2010 depend on users being able to check this box. If you configure this setting to hidden, your users may see additional and unexpected prompts to sign-in.
+    ![Изменение пользовательской фирменной символики](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
 
+5. Измените элементы, которые нужно настроить. Все элементы необязательные.
 
+6. Щелкните **Сохранить**.
 
+Применение каких-либо изменений фирменной символики страницы входа может занять до одного часа.
 
-**To add company branding to your directory:**
+## Дальнейшие действия
 
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
+[Добавление фирменной символики компании для конкретного языка](active-directory-branding-localize-azure-portal.md)
 
-2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
-
-    ![Opening user management](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
-
-3. On the **Users and groups** blade, select **Company branding**.
-
-4. On the **Users and groups - Company branding** blade, select the **Edit** command.
-
-    ![Edit custom branding](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
-
-5. Modify the elements you want to customize. All elements are optional.
-
-6. Click **Save**.
-
-It can take up to an hour for any changes you made to the sign-in page branding to appear.
-
-## <a name="next-steps"></a>Next steps
-
-[Add language-specific company branding](active-directory-branding-localize-azure-portal.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

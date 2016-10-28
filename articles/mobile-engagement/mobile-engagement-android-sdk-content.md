@@ -1,49 +1,44 @@
 <properties 
-    pageTitle="Azure Mobile Engagement Android SDK Integration" 
-    description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="dwrede" 
-    editor="" />
+	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
+	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-android" 
-    ms.devlang="Java" 
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
 
+#Содержимое пакета SDK
 
-#<a name="sdk-content"></a>SDK Content
-
-This document lists and describes the content of the SDK archive.
+В этом документе указано и описано содержимое архива SDK.
 
 `mobile-engagement-VERSION.jar`
 
-> Engagement SDK class files.
+> Файлы классов пакета Engagement SDK.
 
-`res` folder
+Папка `res`
 
-> Engagement Reach SDK resources (drawable and layout files to include in your applications).
+> Ресурсы Engagement Reach SDK (графические файлы и файлы разметки для включения в ваши приложения).
 
-`src` folder
+Папка `src`
 
-> Engagement SDK source code.
+> Исходный код пакета SDK.
 >
-> Note that the sources of the service are not included (`com.microsoft.azure.engagement.service.EngagementService` and its related source files).
+> Обратите внимание, что исходный код службы не входит в пакет (`com.microsoft.azure.engagement.service.EngagementService` и связанные файлы исходного кода).
 
 `documentation.html`
 
-> A shortcut to the documentation site corresponding to the downloaded version of the SDK.
+> Ярлык на сайт с документацией, соответствующей загруженной версии SDK.
 
-Other files are a copy of the software licenses.
+Другие файлы являются копиями лицензий на программное обеспечение.
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

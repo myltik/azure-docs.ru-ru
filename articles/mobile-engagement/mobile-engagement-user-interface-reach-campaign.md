@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement User Interface - Reach Campaign" 
-   description="Laern how to create and manage push notification campaigns using Azure Mobile Engagement" 
+   pageTitle="Пользовательский интерфейс Azure Mobile Engagement — Рекламная кампания" 
+   description="Узнайте, как создавать кампании push-уведомлений с помощью службы Azure Mobile Engagement, а также управлять ими" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -17,158 +17,156 @@
    ms.author="piyushjo"/>
 
 
+# Создание кампаний по рассылке push-уведомлений и управление ими
+В разделе «Охват» можно создать новую кампанию push-уведомлений по сложной формуле, предоставив всю информацию, необходимую для отправки push-уведомлений. Параметры кампании по рассылке push-уведомлений немного отличаются в зависимости от типа кампании. Этих типов всего четыре: объявления, опросы, отправленные данные и плитки (только для Windows Phone).
 
-# <a name="how-to-create-and-manage-push-notification-campaigns"></a>How to create and manage push notification campaigns
-You can use the Reach section of the UI to create a new Push campaign with a complex formula by providing all the information you need to send a push notification. The options of a Push campaign vary slightly depending on the four campaign types: Announcements, Polls, Data Pushes, and Tiles (Windows Phone only).
-
-### <a name="option-applies-to:"></a>Option Applies to:
-- Languages:    All (Announcements, Polls, Data Pushes, Tiles)
-- Campaign:    All (Announcements, Polls, Data Pushes, Tiles)
-- Notification:     Announcements, Polls
-- Content:    Unique for each campaign type
-- Audience:     All (Announcements, Polls, Data Pushes, Tiles)
-- Time frame:     Announcements, Polls, Tiles
-- Test:    All (Announcements, Polls, Data Pushes, Tiles)
+### Параметр применяется к таким разделам:
+- Языки: все типы кампаний (объявления, опросы, отправленные данные и плитки)
+- Кампания: все типы кампаний (объявления, опросы, отправленные данные и плитки)
+- Уведомление: объявления, опросы
+- Содержимое: уникально для каждого типа кампании
+- Аудитория: все типы кампаний (объявления, опросы, отправленные данные и плитки)
+- Интервал времени: объявления, опросы и плитки
+- Тест: все типы кампаний (объявления, опросы, отправленные данные и плитки)
  
-![Reach-Campaign1][20]
+![Кампания — охват1][20]
 
-## <a name="languages"></a>Languages
-You can use the Languages drop-down menu to send a different version of your Push to devices that are set to use different languages. By default, all devices will receive the same Push regardless of what language they are set to use. Users with their device set to a different language will receive the Default Language version of the Push. Many of the push campaign options allow you to specify alternate content for each of the additional languages you select. 
+## Языки
+С помощью раскрывающегося меню «Языки» можно отправлять разные версии push-уведомления на устройства, в которых настроено использование разных языков. По умолчанию все устройства будут получать одинаковые push-уведомления независимо от настроенного в них языка. Если в устройстве настроен другой язык, пользователь получит push-уведомление на языке по умолчанию. В кампании push-уведомлений есть множество параметров, позволяющих указать альтернативное содержимое для каждого из дополнительных выбираемых языков.
  
-![Reach-Campaign2][21]
+![Кампания — охват2][21]
 
-### <a name="language-differences-apply-to:"></a>Language differences apply to:
-- Languages:    Unique languages may be selected in addition to the default language
-- Campaign:    Same for all languages
-- Notification:    Unique for each language in addition to the default language
-- Content:    Unique for each language in addition to the default language
-- Audience:     May be filtered by a separate language criterion
-- Time frame:     Same for all languages
-- Test:    May be sent to each language at a time
+### Различия в языке применяются к таким разделам:
+- Языки: возможность выбора других дополнительных языков
+- Кампания: одинаково для всех языков
+- Уведомление: уникально для каждого дополнительно выбранного языка
+- Содержимое: уникально для каждого дополнительно выбранного языка
+- Аудитория: возможность фильтрации отдельно по языковому критерию
+- Интервал времени: одинаково для всех языков
+- Тест: возможность одновременной отправки для каждого языка
  
-### <a name="supported-languages:"></a>Supported Languages:
-- Arabic (ar) 
-- Bulgarian (bg) 
-- Catalan (ca) 
-- Chinese (zh) 
-- Croatian (hr) 
-- Czech (cs) 
-- Danish (da) 
-- Dutch (nl) 
-- English (en) 
-- Finnish (fi) 
-- French (fr) 
-- German (de) 
-- Greek (el) 
-- Hebrew (he) 
-- Hindi (hi) 
-- Hungarian (hu) 
-- Indonesian (id) 
-- Italian (it) 
-- Japanese (ja) 
-- Korean (ko) 
-- Latvian (lv) 
-- Lithuanian (lt) 
-- Malay (macrolanguage) (ms) 
-- Norwegian Bokmål (nb) 
-- Polish (pl) 
-- Portuguese (pt) 
-- Romanian (ro) 
-- Russian (ru) 
-- Serbian (sr) 
-- Slovak (sk) 
-- Slovenian (sl) 
-- Spanish (es) 
-- Swedish (sv) 
-- Tagalog (tl) 
-- Thai (th) 
-- Turkish (tr) 
-- Ukrainian (uk) 
-- Vietnamese (vi) 
+### Поддерживаемые языки:
+- Арабский (ar)
+- Болгарский (bg)
+- Каталонский (ca)
+- Китайский (zh)
+- Хорватский (hr)
+- Чешский (cs)
+- Датский (da)
+- Нидерландский (nl)
+- Английский (en)
+- Финский (fi)
+- Французский (fr)
+- Немецкий (de)
+- Греческий (el)
+- Иврит (he)
+- Хинди (hi)
+- Венгерский (hu)
+- Индонезийский (id)
+- Итальянский (it)
+- Японский (ja)
+- Корейский (ko)
+- Латышский (lv)
+- Литовский (lt)
+- Малайский (макроязык) (ms)
+- Норвежский (букмол) (nb)
+- Польский (pl)
+- Португальский (pt)
+- Румынский (ro)
+- Русский (ru)
+- Сербский (sr)
+- Словацкий (sk)
+- Словенский (sl)
+- Испанский (es)
+- Шведский (sv)
+- Тагальский (tl)
+- Тайский (th)
+- Турецкий (tr)
+- Украинский (uk)
+- Вьетнамский (vi)
  
-## <a name="campaign"></a>Campaign
-You can use the Campaign section to set the name and category of your campaign as well as if you plan to ignore the audience section of a Push campaign and send this campaign via the Reach API (and some elements with the low level Push API) instead. Categories can be used with a custom notification template to control in-app notifications based on predefined settings. You can get a list of your existing “Categories” via the Reach API.
+## Кампания
+Раздел «Охват» можно использовать, чтобы задать имя и категорию для кампании, а также, если вы не планируете использовать раздел «Аудитория» кампании push-уведомлений и хотите отправить ее через Reach API (и с помощью некоторых элементов API push-уведомлений низкого уровня). Категории можно использовать с пользовательским шаблоном уведомлений, чтобы управлять уведомлениями в приложении на основе предопределенных параметров. Список существующих категорий можно получить через API охвата.
 
-> Warning: If you use the "Ignore Audience, push will be sent to users via the API" option in the "Campaign" section of a Reach campaign, the campaign will NOT automatically send, you will need to send it manually via the Reach API.
+> Предупреждение. Если в разделе «Кампания» рекламной кампании используется параметр «Игнорировать аудиторию, push-уведомления будут отправляться пользователям через API», кампания НЕ будет отправляться автоматически. Ее необходимо отправлять вручную через API рекламных кампаний.
  
-![Reach-Campaign3][22]
+![Кампания — охват3][22]
  
-### <a name="option-applies-to:"></a>Option Applies to:
-- Name:    All
-- Category:    Announcements, Polls
-- Ignore Audience, push will be sent to users via the API:    All
+### Параметр применяется к таким разделам:
+- Имя: все кампании
+- Категория: объявления, опросы
+- Игнорировать аудиторию, push-уведомление будет отправлено пользователям через API: все кампании
  
-## <a name="notification"></a>Notification
-You can use the Notification section to set basic settings for your push including: The title of the Push, the message, an in-app image, or if it is dismissible. Many notification settings are specific to the platform of your device. You can select whether your push will be sent "in app" or "out of app" or both. (Remember that users can "opt-in" or "opt-out" of "out of app" Pushes at the Operating System level on their devices, and Azure Mobile Engagement will not be able to override this setting. Also remember that the Reach API handles "in app" and "out of app" Pushes. The Push API can be used to handle "out of app" pushes too.) Pushes can be customized with pictures or HTML content, including deep links for linking outside of your App or to another location in your App (Android SDK 2.1.0 or later intent categories required). You can change the icon or iOS badge, and send either text or web content (a popup with html content, URL link to another location either inside or outside of the app). You can also make Android devices ring or vibrate with the Push. (Remember that you will need the correct SDK permissions in your Android manifest file to ring or vibrate a device.) There is currently no industry standard for Android "Big Picture" sizes, since screen sizes are different on every device, but 400x100 pictures work on almost any screen size.
+## Уведомление
+В разделе «Уведомление» можно задать основные параметры для push-уведомлений. Эти параметры включают название push-уведомления, сообщение, изображения в приложении, а также возможность закрыть это уведомление. Многие параметры уведомлений зависят от платформы устройства. Вы можете выбрать способ отправки push-уведомлений: в приложении, за пределами приложения или оба варианта. (Помните, что пользователи могут согласиться или отказаться получать push-уведомления вне приложения на уровне операционной системы в устройствах. Azure Mobile Engagement не сможет переопределить этот параметр. Также следует помнить, что API охвата обрабатывает push-уведомления в приложении и вне приложения. Для обработки push-уведомлений вне приложения также используется API push-уведомлений). Для push-уведомлений можно настроить изображения или HTML-содержимое, включая прямые ссылки для перехода вне приложения или перехода в другое расположение в приложении (требуются категории намерений пакета SDK для Android версии 2.1.0 или более поздней). Вы можете изменить значок или индикатор iOS и отправлять текст или веб-содержимое (всплывающее окно с HTML-содержимым, ссылка с URL-адресом на другое расположение в или вне приложения). Кроме того, можно настроить устройство с ОС Android таким образом, чтобы оно издавало сигнал или вибрировало при получении push-уведомления. (Помните, чтобы устройство издавало сигнал или вибрировало, требуются правильные разрешения пакета SDK в файле манифеста в устройстве с ОС Android). Сейчас отраслевой стандарт для размера больших изображений устройств с ОС Android отсутствует, так как размеры экрана в каждом устройстве отличаются. Однако изображения размером 400x100 отображаются на экранах практически любого размера.
 
-### <a name="delivery-types:"></a>Delivery Types:
--    Out of app only: the notification will be delivered when the user does not use the application.
-- The out of app only notification requires a certificate from Apple or Google (APNS or GCM certificate).
-- In-app only: The notification appears only when the application is running.
-- The notification uses the Capptain delivery system to reach the user. You can fully customize the visual layout/display of your push.
-- Anytime: This option ensures that you send a notification either the application is running or not.
+### Типы доставки
+-    Только вне приложения: уведомление будет доставлено, когда пользователь не использует приложение.
+- Для доставки уведомления только вне приложения требуется сертификат Apple или Google (сертификат APNS или GCM).
+- Только в приложении: уведомление отображается, только если запущено приложение.
+- Для доставки уведомления пользователю используется система доставки Capptain. Вы можете полностью настроить визуальный макет и отображение своего push-уведомления.
+- В любое время: этот параметр отвечает за отправку уведомления независимо от того, работает приложение или нет.
 
  
-![Reach-Campaign4][23]
+![Кампания — охват4][23]
 
-### <a name="option-applies-to:"></a>Option Applies to:
-- Notification:     Announcements, Polls
+### Параметр применяется к таким разделам:
+- Уведомление: объявления, опросы
  
-## <a name="content"></a>Content
-You can use the Content section to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The Content setting of Push campaigns is specific to the type of campaign. 
+## Содержимое
+В разделе «Содержимое» можно изменить содержимое объявлений, опросов, отправленных данных и плиток (только для Windows Phone). Параметр, управляющий типом содержимого кампаний рush-уведомлений, зависит от типа кампании.
 
-### <a name="see-also"></a>See also
-- [UI Documentation - Reach - Push Content][Link 29]
+### Дополнительные материалы
+- [Документация по пользовательскому интерфейсу — Рекламные кампании — Содержимое рush-уведомления][Link 29]
  
-![Reach-Campaign5][24]
+![Кампания — охват5][24]
 
-## <a name="audience"></a>Audience
-You can use the Audience section to define a standard list of items to limit your campaign or limits your campaign based on customized criteria. The standard set of options to Limit your Audience allows you to push to either new or old users or native push users only. You can also set a quota to limit the number of users who receive the push. You can manually Edit the expression for how your campaign is filtered to include one or more criterion to target users. You can manually type an audience expression. Such an expression must explicitly define the relation between criteria. A criterion is described by an identifier that must start with a capital letter and cannot contain spaces. The relation between the criteria can be described using 'and', 'or', 'not' operators as well as '(', ')'. Example: "Criterion1 or (Criterion1 and not Criterion2)".
+## Аудитория
+С помощью раздела «Аудитория» можно определить стандартный список элементов, ограничивающих кампании, или ограничить кампании на основе настраиваемых критериев. Стандартный набор параметров для ограничения аудитории позволяет отправлять push-уведомления старым и новым пользователям, а также отправлять пользователям только системные push-уведомления. Кроме того, можно задать квоту, чтобы ограничить число пользователей, которые получают push-уведомление. Вы можете вручную изменить выражение для фильтрации кампании, чтобы добавить один или несколько критериев для отслеживания пользователей. Выражение, определяющее связь между критериями, определяющими целевую аудиторию, можно вводить вручную. Такое выражение должно явно определять связь между критериями. Критерий описывается идентификатором, который должен начинаться с заглавной буквы и не должен содержать пробелы. Отношение между критериями можно описать с помощью операторов «and», «or», «not», а также символов «(",")». Пример: «критерий1 or (критерий1 and not критерий2)».
 
-> Note: With a large audience included in campaigns, the server side targeting scan can be slow, especially if you attempt to start multiple campaigns at the same time.
+> Примечание. Если кампания содержит большую аудиторию, серверное сканирование таргетинга может выполняться медленно, особенно при попытке запуска нескольких кампаний одновременно.
 
-- If possible, only start one campaign at a time.
-- At the most, only start four campaigns at a time.
-- Push only to your active users (checkbox "Engage only users who can be reached using Native Push" and "Engage only active users") so that only your users who still have the app installed and use it will need to be scanned.
-Once your audience is defined, you can use the simulate button to find out how many users will receive this Push. This will compute the number of known users potentially targeted by this audience (this is an estimate based on a random sample of users). Be aware that users who have uninstalled the application are also part of this audience, but cannot be reached.
+- По возможности запускайте только одну кампанию за раз.
+- Запускайте не больше четырех кампаний одновременно.
+- Отправляйте push-уведомления только активным пользователям (флажок «Использовать только пользователей, которым можно отправить системное push-уведомление» и «Использовать только активных пользователей»), чтобы сканировались только пользователи с установленным приложением, использующие его. После определения аудитории можно нажать кнопку «Моделировать», чтобы узнать количество пользователей, которые получат это push-уведомление. Таким образом будет рассчитано количество известных пользователей, потенциально включенных в эту аудиторию (оценка основана на случайной выборке пользователей). Учтите, что пользователи, удалившие приложение, также являются частью этой аудитории, но им невозможно отправить уведомление.
 
-### <a name="see-also"></a>See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+### Дополнительные материалы
+- [Документация по пользовательскому интерфейсу — Охват — Создание нового условия для push-уведомлений][Link 28]
 
-![Reach-Campaign6][25]
+![Кампания — охват6][25]
 
-### <a name="edit-expression"></a>Edit expression
-![Reach-Campaign7][26]
+### Выражение для изменения
+![Кампания — охват7][26]
  
-### <a name="limit-your-audience-option-applies-to:"></a>Limit your audience option applies to:
-- Engage only a subset of users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only old users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only new users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only idle users:    Announcements, Polls, Tiles
-- Engage only active users:    All (Announcements, Polls, Data Pushes, Tiles)
-- Engage only users who can be reached using Native Push:     Announcements, Polls
+### Параметр «Ограничить аудиторию» применяется к таким параметрам:
+- Включать только подмножество пользователей: все типы кампании (объявления, опросы, отправленные данные, плитки)
+- Включать только старых пользователей: все типы кампании (объявления, опросы, отправленные данные, плитки)
+- Включать только новых пользователей: все типы кампании (объявления, опросы, отправленные данные, плитки)
+- Включать только неактивных пользователей: объявления, опросы, плитки
+- Включать только активных пользователей: все типы кампании (объявления, опросы, отправленные данные, плитки)
+- Включать только пользователей, которым можно отправить системное push-уведомление: объявления, опросы
  
-## <a name="time-frame"></a>Time Frame
-You can use the Time Frame section to set when the push will be sent or you can leave the time frame blank to start the campaign immediately. Remember that using the end-users' time zone may start the campaign a day earlier than you expect for your end-users in Asia and send small batches of pushes at a time until all time zones in the world match the time frame set for your campaign. Using the end users' time zone can also cause delays in campaigns since it has to request the time from the phone before starting the push.
+## Интервал времени
+В разделе «Интервал времени» можно задать время отправки push-уведомления. Если оставить этот раздел пустым, кампания будет запущена немедленно. Помните, что при использовании часового пояса конечных пользователей кампания может запуститься на день раньше от ожидаемого времени запуска для конечных пользователей в Азии. При этом push-уведомления будут отправляться небольшими пакетами за раз, пока интервал времени во всех часовых поясах в мире не будет соответствовать интервалу времени, заданному для кампании. Кроме того, при использовании часового пояса конечных пользователей кампании также могут запускаться с задержкой, так как перед началом отправки push-уведомления кампании требуется запрашивать время с телефона.
 
-> Note: Campaigns without an end date can cache pushes locally and still display them after you manually complete campaigns. To avoid this behavior, specific an end time for campaigns.
+> Примечание. Кампании без даты окончания могут кэшировать push-уведомления локально, отображая их даже после завершения кампании вручную. Чтобы избежать этого, указывайте время окончания для кампаний.
 
-### <a name="see-also"></a>See also
-- [Reach - How Tos – Scheduling][Link 3] 
+### Дополнительные материалы
+- [Охват — Практические руководства — Планирование][Link 3]
  
-![Reach-Campaign8][27]
+![Кампания — охват8][27]
 
-### <a name="settings-apply-to:"></a>Settings Apply to:
-- Time frame:     Announcements, Polls, Tiles
+### Возможности применения параметров
+- Интервал времени: объявления, опросы и плитки
  
-## <a name="test"></a>Test
-You can use the Test section to send this push to your own test device before saving the campaign. If you have configured any custom languages for this campaign, you can test the push in each language. You can setup a test device from “My Account”.
-> Note: No server side data is logged when you use the button to "test" pushes, data is only logged for real push campaigns.
+## Тест
+С помощью раздела «Тест» перед сохранением кампании можно отправить push-уведомление на тестовое устройство. Если вы настроили какие-либо пользовательские языки для кампании, push-уведомление можно проверить для каждого из них. Тестовое устройство можно настроить в разделе «Моя учетная запись».
+> Примечание. Если вы используете кнопку для тестирования push-уведомлений, данные на стороне сервера не записываются. Они записываются только для реальных кампаний push-уведомлений.
 
-### <a name="see-also"></a>See also
-- [UI Documentation - My Account][Link 14]
+### Дополнительные материалы
+- [Документация по пользовательскому интерфейсу — Моя учетная запись][Link 14]
  
-![Reach-Campaign9][28]
+![Кампания — охват9][28]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -262,8 +260,4 @@ You can use the Test section to send this push to your own test device before sa
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,44 +1,36 @@
 <properties
-    pageTitle="Connect Linux VMs in a cloud service | Microsoft Azure"
-    description="Connect Linux virtual machines created with the classic deployment model to an Azure cloud service or virtual network."
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-service-management"/>
+	pageTitle="Подключение виртуальных машин Linux в облачной службе | Microsoft Azure"
+	description="Подключение виртуальных машин Linux, созданных с помощью классической модели развертывания, к облачной службе Azure или виртуальной сети."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/06/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2016"
+	ms.author="cynthn"/>
 
-
-# <a name="connect-linux-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>Connect Linux virtual machines created with the classic deployment model with a virtual network or cloud service
+# Подключение виртуальных машин Linux, созданных с помощью классической модели развертывания, к виртуальной сети или облачной службе.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Linux virtual machines created with the classic deployment model are always placed in a cloud service. The cloud service acts as a container and provides a unique public DNS name, a public IP address, and a set of endpoints to access the virtual machine over the Internet. The cloud service can be in a virtual network, but that's not a requirement. You can also [connect Windows virtual machines with a virtual network or cloud service](virtual-machines-windows-classic-connect-vms.md).
+Виртуальные машины Linux, созданные по классической модели развертывания, всегда размещаются в облачной службе. Облачная служба выступает в качестве контейнера и предоставляет уникальное общедоступное DNS-имя, общедоступный IP-адрес и набор конечных точек для доступа к виртуальной машине через Интернет. Облачная служба может находиться в виртуальной сети, но это не обязательно. Вы также можете [подключить виртуальные машины Windows к виртуальной сети или облачной службе](virtual-machines-windows-classic-connect-vms.md).
 
-If a cloud service isn't in a virtual network, it's called a *standalone* cloud service. The virtual machines in a standalone cloud service can only communicate with other virtual machines by using the other virtual machines’ public DNS names, and the traffic travels over the Internet. If a cloud service is in a virtual network, the virtual machines in that cloud service can communicate with all other virtual machines in the virtual network without sending any traffic over the Internet.
+Если облачная служба не находится в виртуальной сети, она называется *автономной*. Виртуальные машины в изолированной облачной службе могут взаимодействовать с другими виртуальными машинами только с помощью общедоступных DNS-имен других виртуальных машин, при этом трафик проходит через Интернет. Если облачная служба находится в виртуальной сети, виртуальные машины в этой облачной службе могут взаимодействовать со всеми остальными виртуальными машинами в виртуальной сети без отправки трафика через Интернет.
 
-If you place your virtual machines in the same standalone cloud service, you can still use load balancing and availability sets. For details, see [Load balancing virtual machines](virtual-machines-linux-load-balance.md) and [Manage the availability of virtual machines](virtual-machines-linux-manage-availability.md). However, you can't organize the virtual machines on subnets or connect a standalone cloud service to your on-premises network. Here's an example:
+Если разместить виртуальные машины в одной автономной облачной службе, можно использовать балансировку нагрузки и группы доступности. Дополнительные сведения см. в разделах [Балансировка нагрузки виртуальных машин](virtual-machines-linux-load-balance.md) и[ Управление доступностью виртуальных машин](virtual-machines-linux-manage-availability.md). Тем не менее, невозможно упорядочить виртуальные машины в подсетях или подключить автономную облачную службу к локальной сети. Ниже приведен пример:
 
 [AZURE.INCLUDE [virtual-machines-common-classic-connect-vms](../../includes/virtual-machines-common-classic-connect-vms.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-After you create a virtual machine, it's a good idea to [add a data disk](virtual-machines-linux-classic-attach-disk.md) so your services and workloads have a location to store data. 
+После создания виртуальной машины рекомендуется [добавить диск данных](virtual-machines-linux-classic-attach-disk.md), чтобы ваши службы и рабочие нагрузки имели расположение для хранения данных.
 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0706_2016-->

@@ -1,195 +1,190 @@
 <properties 
-    pageTitle="Deploying the user portal for the Azure Multi-Factor Authentication Server"
-    description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA and the user portal."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtand"/>
+	pageTitle="Развертывание пользовательского портала для сервера Azure Multi-Factor Authentication"
+	description="Эта страница посвящена службе Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure Multi-Factor Authentication и пользовательским порталом."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtand"/>
 
 <tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="kgremban"/>
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
+# Развертывание пользовательского портала для сервера Azure Multi-Factor Authentication
 
-# <a name="deploying-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Deploying the user portal for the Azure Multi-Factor Authentication Server
+С помощью пользовательского портала администратор может установить и настроить пользовательский портал Azure Multi-Factor Authentication. Пользовательский портал — это веб-сайт IIS, с помощью которого пользователи могут зарегистрироваться в службе Azure Multi-Factor Authentication и управлять своими учетными записями. Пользователь может изменить свой номер телефона, ПИН-код или обойти проверку Azure Multi-Factor Authentication при следующем входе в систему.
 
-The User Portal allows the administrator to install and configure the Azure Multi-Factor Authentication User Portal. The User Portal is an IIS web site which allows users to enroll in Azure Multi-Factor Authentication and maintain their accounts. A user may change their phone number, change their PIN, or bypass Azure Multi-Factor Authentication during their next sign on.
+Пользователям предстоит входить на пользовательский портал с помощью привычного имени пользователя и пароля, а затем либо отвечать на телефонный вызов службы Azure Multi-Factor Authentication, либо отвечать на вопросы безопасности, чтобы пройти проверку подлинности. Если регистрация пользователей разрешена, пользователям предстоит настраивать свой номер телефона и ПИН-код при первом входе на пользовательский портал.
 
-Users will log in to the User Portal using their normal username and password and will either complete a Azure Multi-Factor Authentication call or answer security questions to complete their authentication. If user enrollment is allowed, a user will configure their phone number and PIN the first time they log in to the User Portal.
-
-User Portal Administrators may be set up and granted permission to add new users and update existing users.
+Для администраторов пользовательского портала можно настроить и предоставить разрешение на добавление новых и обновление существующих пользователей.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
-## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Deploying the user portal on the same server as the Azure Multi-Factor Authentication Server
+## Развертывание пользовательского портала на сервере, на котором расположен сервер Azure Multi-Factor Authentication
 
-The following pre-requisites are required for installing the Users Portal on the same server as the Azure Multi-Factor Authentication Server:
+Чтобы установить пользовательский портал на тот же сервер, на котором установлен сервер Azure Multi-Factor Authentication, нужно выполнить такие условия:
 
-- IIS needs to be installed including asp.net and IIS 6 meta base compatibility (for IIS 7 or higher)
-- Logged in user must have admin rights for the computer and Domain if applicable.  This is because the account needs permissions to create Active Directory security groups.
+- Необходимо установить службы IIS, включая ASP.NET и роль совместимости метабазы IIS 6 (для IIS 7 или более поздней версии).
+- Вошедший в систему пользователь должен иметь права администратора для компьютера и домена, если это применимо. Это обусловлено тем, что, чтобы создать группы безопасности Active Directory, учетной записи требуются разрешения.
 
-### <a name="to-deploy-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>To deploy the user portal for the Azure Multi-Factor Authentication Server
+### Развертывание пользовательского портала на сервере Azure Multi-Factor Authentication
 
-1. Within the Azure Multi-Factor Authentication Server: click User Portal icon in the left menu, click Install User Portal button.
-1. Click Next.
-1. Click Next.
-1. If the computer is joined to a domain and the Active Directory configuration for securing communication between the User Portal and the Azure Multi-Factor Authentication service is incomplete, the Active Directory step will be displayed. Click the Next button to automatically complete this configuration.
-1. Click Next.
-1. Click Next.
-1. Click Close.
-1. Open a web browser from any computer and navigate to the URL where User Portal was installed (e.g. https://www.publicwebsite.com/MultiFactorAuth ). Ensure that no certificate warnings or errors are displayed.
+1. На сервере Azure Multi-Factor Authentication: щелкните значок пользовательского портала в меню слева, затем нажмите кнопку «Установить пользовательский портал».
+1. Нажмите кнопку Далее.
+1. Нажмите кнопку Далее.
+1. Если компьютер присоединен к домену, но в Active Directory не закончена настройка защиты подключений между пользовательским порталом и службой Azure Multi-Factor Authentication, появится окно настройки Active Directory. Чтобы выполнить настройку автоматически, нажмите кнопку «Далее».
+1. Нажмите кнопку Далее.
+1. Нажмите кнопку Далее.
+1. Нажмите кнопку Закрыть.
+1. Откройте веб-браузер с любого компьютера и перейдите по URL-адресу установки пользовательского портала (например, https://www.publicwebsite.com/MultiFactorAuth). Убедитесь, что не отображаются предупреждения или ошибки сертификата.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## <a name="deploying-the-azure-multi-factor-authentication-server-user-portal-on-a-separate-server"></a>Deploying the Azure Multi-Factor Authentication Server User Portal on a Separate Server
+## Развертывание пользовательского портала Azure Multi-Factor Authentication на отдельном сервере
 
-In order to use the Azure Multi-Factor Authentication App, the following are required so that the app can successfully communicate with User Portal:
+Для использования приложения Azure Multi-Factor Authentication и его успешного взаимодействия с пользовательским порталом должны выполняться приведенные ниже условия.
 
-Please see Hardware and Software Requirements for hardware and software requirements:
+Требования к оборудованию и программному обеспечению см. в разделе «Требования к оборудованию и программному обеспечению».
 
-- You must be using v6.0 or higher of the Azure Multi-Factor Authentication Server.
-- User Portal must be installed on an Internet-facing web server running Microsoft® Internet Information Services (IIS) 6.x, IIS 7.x or higher.
-- When using IIS 6.x, ensure ASP.NET v2.0.50727 is installed, registered and set to Allowed.
-- Required role services when using IIS 7.x or higher include ASP.NET and IIS 6 Metabase Compatibility.
-- User Portal should be secured with an SSL certificate.
-- The Azure Multi-Factor Authentication Web Service SDK must be installed in IIS 6.x, IIS 7.x or higher on the server that the Azure Multi-Factor Authentication Server is installed on.
-- The Azure Multi-Factor Authentication Web Service SDK must be secured with an SSL certificate.
-- User Portal must be able to connect to the Azure Multi-Factor Authentication Web Service SDK over SSL.
-- User Portal must be able to authenticate to the Azure Multi-Factor Authentication Web Service SDK using the credentials of a service account that is a member of a security group called “PhoneFactor Admins”. This service account and group exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure Multi-Factor Authentication Server if it is not joined to a domain.
+- Необходимо использовать версию 6.0 или более позднюю версию сервера Azure Multi-Factor Authentication.
+- Необходимо установить пользовательский портал на веб-сервере с выходом в Интернет под управлением Microsoft® Internet Information Services (IIS), начиная с версии 6.x или IIS 7.x.
+- В случае использования IIS 6.x убедитесь, что версия ASP.NET 2.0.50727 установлена и зарегистрирована и для нее установлено значение «Разрешено».
+- В случае использования IIS 7.x или более поздней версии требуются службы роли ASP.NET и совместимость с метабазой IIS 6.
+- Пользовательский портал должен быть защищен сертификатом SSL.
+- Для IIS 6.x, IIS 7.x или более поздней версии требуется установить пакет SDK веб-службы Azure Multi-Factor Authentication на сервере, на котором установлен сервер Azure Multi-Factor Authentication.
+- Безопасность пакета SDK веб-службы Azure Multi-Factor Authentication должен обеспечивать сертификат SSL.
+- Пользовательский портал должен иметь возможность подключения к пакету SDK веб-службы Azure Multi-Factor Authentication по протоколу SSL.
+- Пользовательский портал должен иметь возможность выполнить проверку подлинности для пакета SDK веб-службы Azure Multi-Factor Authentication с использованием учетных данных учетной записи службы, которая входит в группу безопасности PhoneFactor Admins. Эта учетная запись службы и группа существуют в Active Directory, если сервер Azure Multi-Factor Authentication установлен на сервере, присоединенном к домену. Эта учетная запись службы и группа существуют локально на сервере Azure Multi-Factor Authentication, если он не присоединен к домену.
 
-Installing the user portal on a server other than the Azure Multi-Factor Authentication Server requires the following three steps:
+Чтобы установить пользовательский портал на сервере, отличном от сервера Azure Multi-Factor Authentication, нужно выполнить такие три действия:
 
-1. Install the web service SDK
-2. Install the user portal
-3. Configure the User Portal Settings in the Azure Multi-Factor Authentication Server
+1. Установить пакет SDK веб-службы.
+2. Установить пользовательский портал.
+3. Настроить параметры пользовательского портала на сервере Azure Multi-Factor Authentication.
 
 
-### <a name="install-the-web-service-sdk"></a>Install the web service SDK
+### Установка пакета SDK веб-службы
 
-If the Azure Multi-Factor Authentication Web Service SDK is not already installed on the Azure Multi-Factor Authentication Server, go to that server and open the Azure Multi-Factor Authentication Server. Click the Web Service SDK icon, click the Install Web Service SDK… button and follow the instructions presented. The Web Service SDK must be secured with an SSL certificate. A self-signed certificate is okay for this purpose, but it has to be imported into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it will trust that certificate when initiating the SSL connection.
+Если пакет SDK веб-службы Azure Multi-Factor Authentication еще не установлен на сервере Azure Multi-Factor Authentication, перейдите на этот сервер и откройте сервер Azure Multi-Factor Authentication. Щелкните значок пакета SDK веб-службы, затем нажмите кнопку «Установить SDK веб-службы…» и следуйте указанным инструкциям. Пакет SDK веб-службы должен быть защищен сертификатом SSL. Для этой цели подходит самозаверяющий сертификат, но он должен быть импортирован в хранилище «Доверенные корневые центры сертификации» учетной записи локального компьютера на веб-сервере пользовательского портала, чтобы этот сертификат был доверенным при запуске SSL-подключения.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
 
-### <a name="install-the-user-portal"></a>Install the user portal
+### Установка пользовательского портала
 
-Before installing the user portal on a seperate server, be aware of the following:
+Перед установкой пользовательского портала на отдельный сервер необходимо такие факторы:
 
-- It is helpful to open a web browser on the Internet-facing web server and navigate to the URL of the Web Service SDK that was entered into the web.config file. If the browser can get to the web service successfully, it should prompt you for credentials. Enter the username and password that were entered into the web.config file exactly as it appears in the file. Ensure that no certificate warnings or errors are displayed.
-- If a reverse proxy or firewall is sitting in front of the User Portal web server and performing SSL offloading, you can edit the User Portal web.config file and add the following key to the <appSettings> section so that the User Portal can use http instead of https. <add key="SSL_REQUIRED" value="false"/>
+- Рекомендуется открыть веб-браузер на веб-сервере с выходом в Интернет и перейти по URL-адресу пакета SDK веб-службы, указанному в файле web.config. Если веб-служба успешно откроется в браузере, у вас будут запрошены учетные данные для входа. Введите имя пользователя и пароль, которые были введены в файл web.config, в точности так, как они отображены в файле. Убедитесь, что не отображаются предупреждения или ошибки сертификата.
+- Если обратный прокси-сервер или брандмауэр размещен перед веб-сервером пользовательского портала и выполняет разгрузку SSL, вы можете изменить файл web.config пользовательского портала, добавив в раздел <appSettings> ключ <add key="SSL\_REQUIRED" value="false"/>. Это позволит пользовательскому порталу использовать протокол http вместо https.
 
-#### <a name="to-install-the-user-portal"></a>To install the user portal
+#### Установка пользовательского портала
 
-1. Open Windows Explorer on the Azure Multi-Factor Authentication Server server and navigate to the folder where the Azure Multi-Factor Authentication Server is installed (e.g. C:\Program Files\Multi-Factor Authentication Server). Choose the 32-bit or 64-bit version of the MultiFactorAuthenticationUserPortalSetup installation file as appropriate for the server that User Portal will be installed on. Copy the installation file to the Internet-facing server.
-2. On the Internet-facing web server, the setup file must be run with administrator rights. The easiest way to do this is to open a command prompt as an administrator and navigate to the location where the installation file was copied.
-3. Run the MultiFactorAuthenticationUserPortalSetup64 install file, change the Site and Virtual Directory name if desired.
-4. After finishing the install of the User Portal, browse to C:\inetpub\wwwroot\MultiFactorAuth (or appropriate directory based on the virtual directory name) and edit the web.config file.
-5. Locate the USE_WEB_SERVICE_SDK key and change the value from false to true. Locate the WEB_SERVICE_SDK_AUTHENTICATION_USERNAME and WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD keys and set the values to the username and password of the service account that is a member of the PhoneFactor Admins security group (see the Requirements section above). Be sure to enter the Username and Password in between the quotation marks at the end of the line, (value=””/>). It is recommended to use a qualified username (e.g. domain\username or machine\username)
-6. Locate the pfup_pfwssdk_PfWsSdk setting and change the value from “http://localhost:4898/PfWsSdk.asmx” to the URL of the Web Service SDK that is running on the Azure Multi-Factor Authentication Server (e.g. https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Since SSL is used for this connection, you must reference the Web Service SDK by server name and not IP address since the SSL certificate will have been issued for the server name and the URL used must match the name on the certificate. If the server name does not resolve to an IP address from the Internet-facing server, add an entry to the hosts file on that server to map the name of the Azure Multi-Factor Authentication Server to its IP address. Save the web.config file after changes have been made.
-7. If the website that User Portal was installed under (e.g. Default Web Site) has not already been binded with a publicly-signed certificate, install the certificate on the server if not already installed, open IIS Manager and bind the certificate to the website.
-8. Open a web browser from any computer and navigate to the URL where User Portal was installed (e.g. https://www.publicwebsite.com/MultiFactorAuth ). Ensure that no certificate warnings or errors are displayed.
+1. Откройте проводник на сервере, на котором установлен сервер Azure Multi-Factor Authentication, и перейдите в папку установки сервера Azure Multi-Factor Authentication (например, C:\\Program Files\\Multi-Factor Authentication Server). Выберите соответствующий файл установки MultiFactorAuthenticationUserPortalSetup для 32- или 64-разрядной версии сервера, на который будет установлен пользовательский портал. Скопируйте файл установки на сервер с выходом в Интернет.
+2. На веб-сервере с выходом в Интернет файл установки необходимо запускать с правами администратора. Самый простой способ сделать это — открыть командную строку от имени администратора и перейти в расположение, в которое был скопирован файл установки.
+3. Запустите файл установки MultiFactorAuthenticationUserPortalSetup64 и при необходимости измените имя сайта и виртуального каталога.
+4. По завершении установки пользовательского портала перейдите в расположение C:\\inetpub\\wwwroot\\MultiFactorAuth (или в соответствующий каталог на основе имени виртуального каталога) и измените файл web.config.
+5. Найдите ключ USE\_WEB\_SERVICE\_SDK и измените значение с false на true. Найдите ключи WEB\_SERVICE\_SDK\_AUTHENTICATION\_USERNAME и WEB\_SERVICE\_SDK\_AUTHENTICATION\_PASSWORD и задайте значения имени пользователя и пароля для учетной записи службы, которая входит в группу безопасности PhoneFactor Admins (см. раздел требований выше). Обязательно поместите имя пользователя и пароль в кавычки в конце строки (значение = "" / >). Рекомендуется использовать полное имя пользователя (например, домен\\имя\_пользователя или компьютер\\имя\_пользователя).
+6. Найдите параметр pfup\_pfwssdk\_PfWsSdk и измените его значение с http://localhost:4898/PfWsSdk.asmx на URL-адрес пакета SDK веб-службы, которая работает на сервере Azure Multi-Factor Authentication (например, https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx). Так как для этого подключения используется протокол SSL, необходимо ссылаться на пакет SDK веб-службы по имени сервера, а не по IP-адресу, потому что SSL-сертификат выдан для имени сервера и URL-адрес должен соответствовать имени в сертификате. Если имя сервера не связано с IP-адресом на сервере с выходом в Интернет, добавьте запись в файл hosts на этом сервере, чтобы сопоставить имя сервера Azure Multi-Factor Authentication и его IP-адрес. Сохраните файл web.config после внесения изменений.
+7. Если веб-сайт, с которого выполнялась установка пользовательского портала (например, «веб-сайт по умолчанию»), еще не связан с публично подписанным сертификатом, установите сертификат на сервере, если он на нем еще не установлен, затем откройте диспетчер IIS и привяжите сертификат к веб-сайту.
+8. Откройте веб-браузер с любого компьютера и перейдите по URL-адресу установки пользовательского портала (например, https://www.publicwebsite.com/MultiFactorAuth). Убедитесь, что не отображаются предупреждения или ошибки сертификата.
 
 
 
-## <a name="configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Configure the user portal settings in the Azure Multi-Factor Authentication Server
-Now that the portal is installed, you need to configure the Azure Multi-Factor Authentication Server to work with the portal.
+## Настройка параметров пользовательского портала на сервере Azure Multi-Factor Authentication
+Теперь, когда портал установлен, необходимо настроить сервер Azure Multi-Factor Authentication для работы с порталом.
 
-Azure Multi-Factor Authentication server provides several options for the user portal.  The following table provides a list of these options and an explaination of what they are used for.
+Сервер Azure Multi-Factor Authentication предоставляет несколько параметров для пользовательского портала. Следующая таблица содержит список этих параметров и объяснение их использования.
 
-User Portal Settings|Description|
+Параметры пользовательского портала|Описание|
 :------------- | :------------- |
-User Portal URL| Allows you to enter the URL of where the portal is being hosted.
-Primary authentication| Allows you to specify the type of authentication to use when signing in to the portal.  Either Windows, Radius, or LDAP authentication.
-Allow users to log in|Allows users to enter a username and password on the sign in page for the User portal.  If this is not selected, the boxes will be greyed out.
-Allow user enrollment|Allows user to enroll in multi-factor authentication by taking them to a setup screen that prompts them for additional information such as telephone number.  Prompt for backup phone allows users to specify a secondary phone number.  Prompt for third-party OATH token allows users to specify a 3rd party OATH token.
-Allow users to initiate One-Time Bypass| This allows users to initiate a one-time bypass.  If a user sets this up it will take affect the next time the user signs in.  Prompt for bypass seconds provides the user with a box so they can change the default of 300 seconds.  Otherwise, the one-time bypass is only good for 300 seconds.
-Allow users to select method| Allows users to specify their primary contact method.  This can be phone call, text message, mobile app, or OATH token.
-Allow users to select language|  Allows the user to change the language that is used for the phone call, text message, mobile app, or OATH token.
-Allow users to activate mobile app| Allows the users to generate an activation code to complete the mobile app activation process that is used with the server.  You can also set the number of devices they can activate this on.  Between 1 and 10.
-Use security questions for fallback|Allows you to use security questions in case multi-factor authentication fails.  You can specify the number of security questions that must be successfully answered.
-Allow users to associate third-party OATH token| Allows users to specify a third-party OATH token.
-Use OATH token for fallback|Allows for the use of an OATH token in the event that multi-factor authentication is not successful.  You can also specify the session timeout in minutes.
-Enable logging|Enables logging on the user portal.  The log files are located at: C:\Program Files\Multi-Factor Authentication Server\Logs.
+URL-адрес пользовательского портала| Позволяет ввести URL-адрес размещения портала.
+Основная проверка подлинности| Позволяет указать тип проверки подлинности при входе в систему на портале. Проверка подлинности Windows, Radius или LDAP.
+Разрешить пользователям входить в систему|Позволяет пользователю ввести имя пользователя и пароль на странице входа для пользовательского портала. Если этот параметр не выбран, поля будут недоступны.
+Разрешить регистрацию пользователей|Позволяет пользователю зарегистрироваться в многофакторной проверке подлинности, открывая окно настройки, которое запрашивает у него дополнительную информацию, например номер телефона. Запрос дополнительного номера телефона позволяет пользователям указать второй номер телефона. Запрос OATH-токена сторонних производителей позволяет пользователям указать OATH-токен сторонних производителей.
+Разрешить пользователям инициировать одноразовый обход проверки| Позволяет пользователям инициировать одноразовый обход проверки. При выборе этого параметра он вступит в силу при следующем входе пользователя в систему. Запрос времени действия обхода проверки позволяет пользователю изменить время действия обхода проверки по умолчанию в 300 секунд. Если пользователь не изменил время действия, обход проверки действителен только в течение 300 секунд.
+Разрешить пользователям выбирать способ связи| Позволяет пользователю выбрать свой основной способ связи. Это может быть телефонный звонок, текстовое сообщение, мобильное приложение или OATH-токен.
+Разрешить пользователям выбирать язык| Пользователь может изменить язык, используемый для телефонного звонка, текстового сообщения, мобильного приложения или OATH-токена.
+Разрешить пользователям активировать мобильное приложение| Позволяет пользователям создать код активации для завершения процесса активации мобильного приложения, используемого с сервером. Также можно задать количество устройств, на которых можно активировать приложение. От 1 до 10.
+Использовать секретные вопросы для резервного входа|Позволяет использовать секретные вопросы, если многофакторная проверка подлинности завершилась неудачно. Можно указать количество секретных вопросов, на которые нужно дать верные ответы.
+Разрешить пользователям привязывать OATH-токены сторонних производителей| Позволяет пользователю указать OATH-токен сторонних производителей.
+Использовать OATH-токен для резервного входа|Позволяет использовать OATH-токен, если многофакторная проверка подлинности завершилась неудачно. Также можно указать время ожидания сеанса в минутах.
+Включение ведения журналов|Включает ведение журнала на пользовательском портале. Файлы журнала расположены в папке: C:\\Program Files\\Multi-Factor Authentication Server\\Logs.
 
-The majority of these settings are visible to the user once they are enabled and the user signs into the user portal.
+Большинство из этих параметров доступны пользователю, если они активны и пользователь вошел в пользовательский портал.
 
-![User portal settings](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
-
-
-
-### <a name="to-configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>To configure the user portal settings in the Azure Multi-Factor Authentication Server
+![Параметры пользовательского портала](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
 
 
+### Настройка параметров пользовательского портала на сервере Azure Multi-Factor Authentication Server
 
-1. In the Azure Multi-Factor Authentication Server, click on the User Portal icon. On the Settings tab, enter the URL to the User Portal in the User Portal URL textbox. This URL will be inserted into emails that are sent to users when they are imported into the Azure Multi-Factor Authentication Server if the email functionality has been enabled.
-2. Choose the settings that you want to use in the User Portal. For example, if users are allowed to control their authentication methods, ensure that Allow users to select method is checked along with the methods they can choose from.
-3. Click the Help link in the top right corner for help understanding any of the settings displayed.
+
+
+
+1. На сервере Azure Multi-Factor Authentication щелкните значок пользовательского портала. На вкладке «Параметры» в текстовом поле «URL-адрес пользовательского портала» введите URL-адрес пользовательского портала. Если включена функция электронной почты, этот URL-адрес будет вставляться в сообщения электронной почты, отправляемые пользователям в процессе их импорта на сервер Azure Multi-Factor Authentication.
+2. Выберите параметры, которые необходимо использовать на пользовательском портале. Например, если пользователям разрешено управлять своими методами проверки подлинности, убедитесь, что установлен флажок «Разрешить пользователям выбирать метод» и что указаны методы, из которых пользователи могут выбирать.
+3. Щелкните ссылку «Справка» в верхнем правом углу — это поможет вам разобраться во всех отображаемых параметрах.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-portal/config.png)</center>
 
 
-## <a name="administrators-tab"></a>Administrators tab
-This tab simply allows you to add users who will have administrative privileges.  When adding an administrator, you can fine tune the permissions that they receive.  This way, you can be sure to only grant the needed permissions to the administrator.  Simply click the Add button and then select and user and their permissions and then click Add.
+## Вкладка «Администраторы»
+Эта вкладка позволяет добавить пользователей, обладающих правами администратора. При добавлении администратора можно настроить права, которые он получает. Таким образом можно быть уверенным в том, что администратор получит только необходимые права доступа. Нажмите кнопку «Добавить», выберите пользователя и его права доступа и нажмите кнопку «Добавить».
 
-![User portal administrators](./media/multi-factor-authentication-get-started-portal/admin.png)
-
-
-## <a name="security-questions"></a>Security Questions
-This tab allows you to specify the security questions that users will need to provide answers to if the Use security questions for fallback option is selected.  Azure Multi-Factor Authenticaton Server comes with default questions that you can use.  You can also change the order or add your own questions.  When adding your own questions, you can specify the language you would like those question to appear in as well.
-
-![User portal security questions](./media/multi-factor-authentication-get-started-portal/secquestion.png)
+![Администраторы пользовательского портала](./media/multi-factor-authentication-get-started-portal/admin.png)
 
 
-## <a name="passed-sessions"></a>Passed Sessions
+## Секретные вопросы
+На этой вкладке можно указать секретные вопросы, на которые пользователи должны будут ответить, если выбран параметр «Использовать секретные вопросы для резервного входа». На сервере Azure Multi-Factor Authenticaton есть секретные вопросы по умолчанию, которые можно использовать. Также можно изменить их порядок или добавить собственные вопросы. При добавлении собственных вопросов также можно указать язык, на котором должны отображаться эти вопросы.
 
-## <a name="saml"></a>SAML
-Allows you to setup the user portal to accept claims from an identity provider using SAML.  You can specify the timeout session, specify the verification certificate and the Log out redirect URL.
+![Секретные вопросы пользовательского портала](./media/multi-factor-authentication-get-started-portal/secquestion.png)
+
+
+## Передаваемые сеансы
+
+## SAML
+Позволяет настроить пользовательский портал для приема утверждений от поставщика удостоверений с помощью SAML. Можно указать время ожидания сеанса, сертификат проверки и выход URL-адрес перенаправления при выходе из системы.
 
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
-## <a name="trusted-ips"></a>Trusted IPs
-This tab allows you to specify either single IP addresses or IP address ranges that can be added so that if a user is signing in from one of these IP addresses, then multi-factor authentication is bypassed.
+## Надежные IP-адреса
+На этой вкладке можно указать один IP-адрес или диапазоны IP-адресов, при входе с которых многофакторная проверка подлинности для пользователя не выполняется.
 
-![User portal trusted IPs](./media/multi-factor-authentication-get-started-portal/trusted.png)
+![Доверенные IP-адреса пользовательского портала](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
-## <a name="self-service-user-enrollment"></a>Self-Service User Enrollment
-If you want your users to sign in and enroll you must select the Allow users to login in and Allow user enrollment options. Remember that the settings you select will affect the user sign-in experience.
+## Самостоятельная регистрация пользователей
+Если вы хотите, чтобы пользователи входили в систему и регистрировались, необходимо выбрать параметры «Разрешить пользователям вход в систему» и «Разрешить регистрацию пользователей». Помните, что выбранные параметры повлияют на процесс входа пользователя в систему.
 
-For example, when a user logs in to the User Portal and clicks the Log In button, they are then taken to the Azure Multi-Factor Authentication User Setup page.  Depending on how you have configured Azure Multi-Factor Authentication, the user may be able to select their authentication method.  
+Например, когда пользователь открывает пользовательский портал и нажимает кнопку «Вход», он перенаправляется на страницу настройки многофакторной проверки подлинности Azure. В зависимости от того, как вы настроили многофакторную проверку подлинности Azure, пользователь сможет выбрать свой способ проверки подлинности.
 
-If they select the Voice Call authentication method or have been pre-configured to use that method, the page will prompt the user to enter their primary phone number and extension if applicable.  They may also be allowed to enter a backup phone number.  
+Если в качестве метода проверки подлинности был выбран или предварительно настроен голосовой звонок, пользователю будет предложено ввести свой основной номер телефона и, при необходимости, добавочный номер. Пользователю также можно разрешить ввести дополнительный номер телефона.
 
-![User portal trusted IPs](./media/multi-factor-authentication-get-started-portal/backupphone.png)
+![Доверенные IP-адреса пользовательского портала](./media/multi-factor-authentication-get-started-portal/backupphone.png)
 
-If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  After entering their phone number(s) and PIN (if applicable), the user clicks the Call Me Now to Authenticate button.  Azure Multi-Factor Authentication will perform a phone call authentication to the user’s primary phone number.  The user must answer the phone call and enter their PIN (if applicable) and press # to move on to the next step of the self-enrollment process.   
+Если пользователь должен использовать ПИН-код при проверке подлинности, ему также будет предложено ввести ПИН-код. После ввода номера телефона или номеров телефонов и ПИН-кода (если используется) пользователь нажимает кнопку «Позвонить мне сейчас для проверки подлинности». После этого для проверки подлинности будет выполнен телефонный звонок на основной телефонный номер пользователя. Пользователь должен ответить на звонок, ввести свой ПИН-код (если используется) и нажать кнопку # для перехода к следующему этапу процесса самостоятельной регистрации.
 
-If the user selects the SMS Text authentication method or has been pre-configured to use that method, the page will prompt the user for their mobile phone number.  If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  After entering their phone number and PIN (if applicable), the user clicks the Text Me Now to Authenticate button.  Azure Multi-Factor Authentication will perform an SMS authentication to the user’s mobile phone.  The user must receive the SMS which contains a one- time-passcode (OTP) and reply to the message with that OTP plus their PIN if applicable) to move on to the next step of the self-enrollment process.
+Если в качестве метода проверки подлинности была выбрана или предварительно настроена проверка подлинности с помощью текстовых сообщений, пользователю будет предложено ввести номер мобильного телефона. Если пользователь должен использовать ПИН-код при проверке подлинности, ему также будет предложено ввести ПИН-код. После ввода номера телефона и ПИН-кода (если используется) пользователь нажимает кнопку «Отправить мне текстовое сообщение сейчас для проверки подлинности». После этого для проверки подлинности на основной телефонный номер пользователя будет отправлено текстовое сообщение. Пользователь должен получить текстовое сообщение с одноразовым паролем и ответить на него, указав этот одноразовый пароль и ПИН-код (если используется), для перехода к следующему этапу процесса самостоятельной регистрации.
 
-![User portal SMS](./media/multi-factor-authentication-get-started-portal/text.png)   
+![Текстовые сообщения пользовательского портала](./media/multi-factor-authentication-get-started-portal/text.png)
 
-If the user selects the Mobile app authentication method or has been pre-configured to use that method, the page will prompt the user to install the Azure Multi-Factor Authentication app on their device and generate an activation code.  After installing the Azure Multi-Factor Authentication app, the user clicks the Generate Activation Code button.    
+Если в качестве метода проверки подлинности была выбрана или предварительно настроена проверка подлинности с помощью мобильного приложения, пользователю будет предложено установить приложение многофакторной проверки подлинности Azure на мобильное устройство и создать код активации. После установки приложения Azure Multi-Factor Authentication пользователь нажимает кнопку «Создать код активации».
 
->[AZURE.NOTE]In order to use the Azure Multi-Factor Authentication app, the user must enable push notifications for their device.
+>[AZURE.NOTE]Для использования приложения Azure Multi-Factor Authentication пользователь должен включить push-уведомления для своего устройства.
 
-The page then displays an activation code and a URL along with a barcode picture.  If the user is required to use a PIN when they authenticate, the page will also prompt them to enter a PIN.  The user enters the activation code and URL into the Azure Multi-Factor Authentication app or uses the barcode scanner to scan the barcode picture and clicks the Activate button.    
+На странице будут отображены код активации и URL-адрес, а также картинка со штрихкодом. Если пользователь должен использовать ПИН-код при проверке подлинности, ему также будет предложено ввести ПИН-код. Пользователь вводит код активации и URL-адрес в приложение Azure Multi-Factor Authentication или сканирует штрихкод с помощью сканера штрихкодов и нажимает кнопку «Активировать».
 
-After the activation is complete, the user clicks the Authenticate Me Now button.  Azure Multi-Factor Authentication will perform an authentication to the user’s mobile app.  The user must enter their PIN (if applicable) and press the Authenticate button in their mobile app to move on to the next step of the self-enrollment process.  
-
-
-If the administrators have configured the Azure Multi-Factor Authentication Server to collect security questions and answers, the user is then taken to the Security Questions page.  The user must select four security questions and provide answers to their selected questions.    
-
-![User portal security questions](./media/multi-factor-authentication-get-started-portal/secq.png)  
-
-The user self-enrollment is now complete and the user is logged in to the User Portal.  Users can log back in to the User Portal at any time in the future to change their phone numbers, PINs, authentication methods and security questions if allowed by their administrators.
+После завершения активации пользователь нажимает кнопку «Выполнить проверку подлинности сейчас». После этого будет выполнена многофакторная проверка подлинности с помощью мобильного приложения. Пользователь должен ввести свой ПИН-код (если используется) и нажать кнопку «Выполнить проверку подлинности» в своем мобильном приложении для перехода к следующему этапу процесса самостоятельной регистрации.
 
 
+Если администраторы настроили использование секретных вопросов и ответов на сервере Azure Multi-Factor Authentication, пользователь будет перенаправлен на страницу «Секретные вопросы». Пользователю необходимо выбрать секретные вопросы и указать ответы на выбранные вопросы.
 
-<!--HONumber=Oct16_HO2-->
+![Секретные вопросы пользовательского портала](./media/multi-factor-authentication-get-started-portal/secq.png)
 
+На этом самостоятельная регистрация пользователя завершена. Пользователь вошел в пользовательский портал. В будущем пользователи могут войти на портал в любой момент для изменения своих номеров телефонов, ПИН-кодов, методов проверки подлинности и секретных вопросов, если это разрешено администраторами.
 
+<!---HONumber=AcomDC_0921_2016-->

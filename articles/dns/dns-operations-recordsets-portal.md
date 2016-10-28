@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Manage DNS record sets and records using the Azure portal | Microsoft Azure"
-   description="Managing DNS record sets and records when hosting your domain on Azure DNS."
+   pageTitle="Управление наборами записей и записями DNS с помощью портала Azure | Microsoft Azure"
+   description="Управление наборами записей и записями DNS при размещении домена в Azure DNS."
    services="dns"
    documentationCenter="na"
-   authors="sdwheeler"
+   authors="cherylmc"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,128 +15,123 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="sewhee"/>
+   ms.author="cherylmc"/>
 
-
-# <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Manage DNS records and record sets by using the Azure portal
+# Управление записями и наборами записей DNS с помощью портала Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](dns-operations-recordsets-portal.md)
-- [Azure CLI](dns-operations-recordsets-cli.md)
+- [Портал Azure](dns-operations-recordsets-portal.md)
+- [Интерфейс командной строки Azure](dns-operations-recordsets-cli.md)
 - [PowerShell](dns-operations-recordsets.md)
 
 
-This article shows you how to manage record sets and records for your DNS zone by using the Azure portal.
+В этой статье описывается, как управлять наборами записей и записями для зоны DNS с помощью портала Azure.
 
-It's important to understand the difference between DNS record sets and individual DNS records. A record set is a collection of records in a zone that have the same name and are the same type. For more information, see [Create DNS record sets and records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
+Важно понимать различие между наборами записей DNS и отдельными записями DNS. Набор записей — это коллекция записей в зоне, которые имеют одно имя и один тип. Дополнительные сведения см. в статье [Создание наборов записей и записей DNS с помощью портала Azure](dns-getstarted-create-recordset-portal.md).
 
-## <a name="create-a-new-record-set-and-record"></a>Create a new record set and record
+## Создание нового набора записей и записи
 
-To create a record set in the Azure portal, see [Create DNS records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
-
-
-## <a name="view-a-record-set"></a>View a record set
-
-1. In the Azure portal, go to the **DNS zone** blade.
-
-2. Search for the record set and select it. This opens the record set properties.
-
-    ![Search for a record set](./media/dns-operations-recordsets-portal/searchset500.png)
+Чтобы создать набор записей на портале Azure, см. статью [Создание записей DNS с помощью портала Azure](dns-getstarted-create-recordset-portal.md).
 
 
-## <a name="add-a-new-record-to-a-record-set"></a>Add a new record to a record set
+## Просмотр набора записей
 
-You can add up to 20 records to any record set. A record set cannot contain two identical records. Empty record sets (with zero records) can be created, but do not appear on the Azure DNS name servers. Record sets of type CNAME can contain one record at most.
+1. На портале Azure перейдите к колонке **Зона DNS**.
 
+2. Найдите набор записей и выберите его. Откроется страница его свойств.
 
-1. On the **Record set properties** blade for your DNS zone, click the record set that you want to add a record to.
-
-    ![Select a record set](./media/dns-operations-recordsets-portal/selectset500.png)
-
-2. Specify the record set properties by filling in the fields.
-
-    ![Add a record](./media/dns-operations-recordsets-portal/addrecord500.png)
-
-2. Click **Save** at the top of the blade to save your settings. Then close the blade.
-
-3. In the corner, you will see that the record is saving.
-
-    ![Saving record set](./media/dns-operations-recordsets-portal/saving150.png)
-
-After the record has been saved, the values on the **DNS zone** blade will reflect the new record.
+	![Поиск набора записей](./media/dns-operations-recordsets-portal/searchset500.png)
 
 
-## <a name="update-a-record"></a>Update a record
+## Добавление новой записи в набор записей
 
-When you update a record in an existing record set, the fields you can update depend on the type of record you're working with.
-
-1. On the **Record set properties** blade for your record set, search for the record.
-
-2. Modify the record. When you modify a record, you can change the available settings for the record. In the following example, the **IP address** field is selected, and the IP address is in the process of being modified.
-
-    ![Modify a record](./media/dns-operations-recordsets-portal/modifyrecord500.png)
-
-3. Click **Save** at the top of the blade to save your settings. In the upper right corner, you'll see the notification that the record has been saved.
-
-    ![Saved record set](./media/dns-operations-recordsets-portal/saved150.png)
+В любой набор записей можно добавить до 20 записей. Набор записей не может содержать две одинаковые записи. Можно создавать пустые наборы записей (с нулевым числом записей), но они не отображаются на DNS-серверах Azure. Наборы записей типа CNAME могут содержать не более одной записи.
 
 
-After the record has been saved, the values for the record set on the **DNS zone** blade will reflect the updated record.
+1. В колонке **Свойства набора записей** для зоны DNS щелкните набор, куда требуется добавить запись.
+
+	![Выбор набора записей](./media/dns-operations-recordsets-portal/selectset500.png)
+
+2. Укажите свойства набора записей, заполнив поля.
+
+	![Добавление записи](./media/dns-operations-recordsets-portal/addrecord500.png)
+
+2. Щелкните **Сохранить** в верхней части колонки, чтобы сохранить параметры. После этого закройте колонку.
+
+3. В углу отображается уведомление о сохранении записи.
+
+	![Сохранение набора записей](./media/dns-operations-recordsets-portal/saving150.png)
+
+После сохранения записи значения в колонке **Зона DNS** будут соответствовать новой записи.
 
 
-## <a name="remove-a-record-from-a-record-set"></a>Remove a record from a record set
+## Изменение записи
 
-You can use the Azure portal to remove records from a record set. Note that removing the last record from a record set does not delete the record set.
+При обновлении записи в существующем наборе записей доступные для изменения поля зависят от типа используемой записи.
 
-1. On the **Record set properties** blade for your record set, search for the record.
+1. Выполните поиск записи в колонке **Свойства набора записей** для своего набора записей.
 
-2. Click the record that you want to remove. Then select **Remove**.
+2. Измените запись. При изменении записи можно также изменить доступные для нее параметры. В приведенном ниже примере выбрано поле **IP-адрес** и изменяется его значение.
 
-    ![Remove a record](./media/dns-operations-recordsets-portal/removerecord500.png)
+	![Изменение набора записей](./media/dns-operations-recordsets-portal/modifyrecord500.png)
 
-3. Click **Save** at the top of the blade to save your settings.
+3. Щелкните **Сохранить** в верхней части колонки, чтобы сохранить параметры. В правом верхнем углу появляется уведомление о сохранении записи.
 
-3. After the record has been removed, the values for the record on the **DNS zone** blade will reflect the removal.
-
-
-## <a name="<a-name="delete"></a>delete-a-record-set"></a><a name="delete"></a>Delete a record set
-
-1. On the **Record set properties** blade for your record set, click **Delete**.
-
-    ![Delete a record set](./media/dns-operations-recordsets-portal/deleterecordset500.png)
-
-2. A message appears asking if you want to delete the record set.
-
-3. Verify that the name matches the record set that you want to delete, and then click **Yes**.
-
-4. On the **DNS zone** blade, verify that the record set is no longer visible.
+	![Сохраненный набор записей](./media/dns-operations-recordsets-portal/saved150.png)
 
 
-## <a name="work-with-ns-and-soa-records"></a>Work with NS and SOA records
-
-NS and SOA records that are automatically created are managed differently from other record types.
-
-### <a name="modify-soa-records"></a>Modify SOA records
-
-You cannot add or remove records from the automatically created SOA record set at the zone apex (name = "@"). However, you can modify any of the parameters within the SOA record (except "Host") and the record set TTL.
-
-### <a name="modify-ns-records-at-the-zone-apex"></a>Modify NS records at the zone apex
-
-You cannot add to, remove, or modify the records in the automatically created NS record set at the zone apex (name = "@"). The only change that's permitted is to modify the record set TTL.
-
-### <a name="delete-soa-or-ns-record-sets"></a>Delete SOA or NS record sets
-
-You cannot delete the SOA and NS record sets at the zone apex (name = "@") that are created automatically when the zone is created. They are deleted automatically when you delete the zone.
-
-## <a name="next-steps"></a>Next steps
-
--   For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
--   For more information about automating DNS, see [Creating DNS zones and record sets using the .NET SDK](dns-sdk.md).
--   For more information about reverse DNS records, see [How to manage reverse DNS records for your services using PowerShell](dns-reverse-dns-record-operations-ps.md).
+После сохранения записи значения для набора записей в колонке **Зона DNS** будут соответствовать обновленной записи.
 
 
+## Удаление записи из набора записей
 
-<!--HONumber=Oct16_HO2-->
+Для удаления записей из набора можно использовать портал Azure. При удалении последней записи из набора сам набор не удаляется.
+
+1. Выполните поиск записи в колонке **Свойства набора записей** для своего набора записей.
+
+2. Щелкните удаляемую запись. Затем щелкните **Удалить**.
+
+	![Удаление набора записей](./media/dns-operations-recordsets-portal/removerecord500.png)
+
+3. Щелкните **Сохранить** в верхней части колонки, чтобы сохранить параметры.
+
+3. Удаление записи соответствующим образом отразится на ее значениях в колонке **Зона DNS**.
 
 
+## <a name="delete"></a>Удаление набора записей
+
+1. Щелкните **Удалить** в колонке **Свойства набора записей** для набора записей.
+
+	![Удаление набора записей](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+
+2. Появится запрос подтверждения на удаление набора записей.
+
+3. Убедитесь, что имя соответствует удаляемому набору записей, а затем нажмите кнопку **Да**.
+
+4. Проверьте в колонке **Зона DNS**, что набор записей больше не отображается.
+
+
+## Работа с записями типа NS и SOA
+
+Управление автоматически создаваемыми записями NS и SOA осуществляется иначе, чем другими типами записей.
+
+### Изменение записей типа SOA
+
+Невозможно добавить или удалить записи в автоматически созданном наборе записей типа SOA в вершине зоны (имя = "@"). Однако вы можете изменить любые параметры в записи типа SOA (за исключением параметра "Узел") и срок жизни набора записей.
+
+### Изменение записей NS типа в вершине зоны
+
+Невозможно добавить, удалить или изменить записи в автоматически созданном наборе записей NS в вершине зоны (имя = "@"). Разрешено только изменение срока жизни набора записей.
+
+### Удаление наборов записей типа SOA или NS
+
+Невозможно удалить наборы записей типа SOA и NS в вершине зоны (имя = "@"), которые создаются автоматически вместе с зоной. Они удаляются автоматически при удалении зоны.
+
+## Дальнейшие действия
+
+-   Дополнительные сведения об Azure DNS см. в статье [Обзор Azure DNS](dns-overview.md).
+-   Дополнительные сведения об автоматизации DNS см. в статье [Создание зон и наборов записей DNS с помощью пакета SDK для .NET](dns-sdk.md).
+-   Дополнительные сведения об обратных записях DNS см. в разделе [Как управлять обратными записями DNS для служб с помощью PowerShell](dns-reverse-dns-record-operations-ps.md).
+
+<!---HONumber=AcomDC_0824_2016-->

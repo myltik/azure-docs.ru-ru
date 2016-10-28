@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Active Directory Reporting: Getting started | Microsoft Azure"
-   description="Lists the various available reports in Azure Active Directory reporting"
+   pageTitle="Отчетность Azure Active Directory: начало работы | Microsoft Azure"
+   description="Перечислены различные отчеты, доступные в Azure Active Directory Reporting."
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
@@ -16,149 +16,144 @@
    ms.date="03/07/2016"
    ms.author="dhanyahk"/>
 
+# Приступая к работе со средством создания отчетов Azure Active Directory
 
-# <a name="getting-started-with-azure-active-directory-reporting"></a>Getting started with Azure Active Directory Reporting
+## Что это
 
-## <a name="what-it-is"></a>What it is
+Azure Active Directory (Azure AD) формирует отчеты о безопасности, активности и аудите каталога. Ниже приведен список включенных отчетов.
 
-Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. Here's a list of the reports included:
+### Отчеты о безопасности
 
-### <a name="security-reports"></a>Security reports
+- Попытки входа из неизвестных источников
+- "Операции входа после нескольких неудачных попыток";
+- "Операции входа из нескольких географических регионов".
+- Попытки входа с IP-адресов с подозрительными действиями
+- Нестандартные действия при входе
+- Попытки входа с возможно инфицированных устройств
+- Пользователи с аномальными событиями при входе
 
-- Sign-ins from unknown sources
-- Sign-ins after multiple failures
-- Sign-ins from multiple geographies
-- Sign-ins from IP addresses with suspicious activity
-- Irregular sign-in activity
-- Sign-ins from possibly infected devices
-- Users with anomalous sign-in activity
+### Отчеты об активности
 
-### <a name="activity-reports"></a>Activity reports
+- Использование приложения: сводка
+- Использование приложения: подробности
+- Панель мониторинга приложений
+- Ошибки подготовки учетной записи
+- Устройства отдельного пользователя
+- Активность отдельного пользователя
+- Отчет о действиях групп
+- Отчет о событиях регистрации для сброса пароля
+- Действие сброса пароля
 
-- Application usage: summary
-- Application usage: detailed
-- Application dashboard
-- Account provisioning errors
-- Individual user devices
-- Individual user Activity
-- Groups activity report
-- Password Reset Registration Activity Report
-- Password reset activity
+### Отчеты об аудите
 
-### <a name="audit-reports"></a>Audit reports
+- Отчет об аудите каталога
 
-- Directory audit report
+> [AZURE.TIP] Дополнительную документацию по Azure AD Reporting см. в статье [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 
-> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
+## Принцип работы
 
-## <a name="how-it-works"></a>How it works
 
+### Конвейер отчетов
 
-### <a name="reporting-pipeline"></a>Reporting pipeline
+Конвейер отчетов состоит из трех основных этапов. Каждый раз при входе пользователя в систему или при проверке подлинности, происходит следующее.
 
-The reporting pipeline consists of three main steps. Every time a user signs in, or an authentication is made, the following happens:
+- Во-первых, пользователь проходит проверку подлинности (успешно или неуспешно) и результат сохраняется в базах данных службы Azure Active Directory.
+- Все недавние попытки пользователей войти в систему регулярно обрабатываются с определенными интервалами. На этом этапе наши алгоритмы безопасности и поиска аномальных событий проверяют все недавние входы в систему на предмет подозрительных действий.
+- После обработки отчеты записываются, сохраняются в кэше и становятся доступны на классическом портале Azure.
 
-- First, the user is authenticated (successfully or unsuccessfully), and the result is stored in the Azure Active Directory service databases.
-- At regular intervals, all recent sign ins are processed. At this point, our security and anomalous activity algorithms are searching all recent sign ins for suspicious activity.
-- After processing, the reports are written, cached, and served in the Azure classic portal.
+### Время создания отчета
 
-### <a name="report-generation-times"></a>Report generation times
+Из-за большого объема проверок подлинности и входов, обрабатываемых платформой Azure AD, новые данные о входе пользователей в систему поступают в среднем с задержкой в один час. В редких случаях обработка последней попытки входа может занимать до 8 часов.
 
-Due to the large volume of authentications and sign ins processed by the Azure AD platform, the most recent sign-ins processed are, on average, one hour old. In rare cases, it may take up to 8 hours to process the most recent sign-ins.
+Изучив текст справки в верхней части каждого отчета, можно найти самый последний обработанный отчет о входе в систему.
 
-You can find the most recent processed sign-in by examining the help text at the top of each report.
+![Текст справки в верхней части каждого отчета](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
 
-![Help text at the top of each report](./media/active-directory-reporting-getting-started/reportingWatermark.PNG)
+> [AZURE.TIP] Дополнительную документацию по Azure AD Reporting см. в статье [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 
-> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
+## Приступая к работе
 
-## <a name="getting-started"></a>Getting started
 
+### Перейдите на классический портал Azure.
 
-### <a name="sign-into-the-azure-classic-portal"></a>Sign into the Azure classic portal
+Сначала необходимо войти на [классической портал Azure](https://manage.windowsazure.com) с правами глобального администратора или администратора соответствия требованиям. Кроме того, вы должны иметь права администратора или соадминистратора службы подписки Azure или использовать подписку "Доступ к Azure AD".
 
-First, you'll need to sign into the [Azure classic portal](https://manage.windowsazure.com)  as a global or compliance administrator. You must also be an Azure subscription service administrator or co-administrator, or be using the "Access to Azure AD" Azure subscription.
+### Переход к отчетам
 
-### <a name="navigate-to-reports"></a>Navigate to Reports
+Для просмотра отчетов перейдите на вкладку «Отчеты» в верхней части вашего каталога.
 
-To view Reports, navigate to the Reports tab at the top of your directory.
+Если вы впервые просматриваете отчеты, необходимо принять условия в диалоговом окне, прежде чем начать просмотр. Этим вы подтверждаете, что администраторы вашей организации имеют право на просмотр данной информации, которая в некоторых странах может считаться конфиденциальной.
 
-If this is your first time viewing the reports, you'll need to agree to a dialog box before you can view the reports. This is to ensure that it's acceptable for admins in your organization to view this data, which may be considered private information in some countries.
+![Диалоговое окно](./media/active-directory-reporting-getting-started/dialogBox.png)
 
-![Dialog box](./media/active-directory-reporting-getting-started/dialogBox.png)
+### Изучение каждого отчета
 
-### <a name="explore-each-report"></a>Explore each report
+Просмотрите каждый отчет, чтобы понять механизм сбора данных и обработки сведений о входе в систему. Список всех отчетов вы можете найти[ здесь](active-directory-reporting-guide.md).
 
-Navigate into each report to see the data being collected and the sign-ins processed. You can find a [list of all the reports here](active-directory-reporting-guide.md).
+![Все отчеты](./media/active-directory-reporting-getting-started/reportsMain.png)
 
-![All reports](./media/active-directory-reporting-getting-started/reportsMain.png)
+### Загрузка отчетов в формате CSV
 
-### <a name="download-the-reports-as-csv"></a>Download the reports as CSV
+Каждый отчет можно загрузить как CSV-файл (с разделителями-запятыми). Вы можете использовать эти файлы в Excel, PowerBI или сторонних программах для дальнейшего анализа данных.
 
-Each report can be downloaded as a CSV (comma-separated value) file. You can use these files in Excel, PowerBI or third-party analysis programs to further analyze your data.
+Чтобы загрузить любой отчет в виде CSV-файла, перейдите к отчету и нажмите кнопку «Загрузить» в нижней части страницы.
 
-To download any report as a CSV, navigate to the report and click "Download" at the bottom.
+![Кнопка загрузки](./media/active-directory-reporting-getting-started/downloadButton.png)
 
-![Download button](./media/active-directory-reporting-getting-started/downloadButton.png)
+> [AZURE.TIP] Дополнительную документацию по Azure AD Reporting см. в статье [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 
-> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
 
 
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+### Настройка оповещений в случае аномальных действий при входе в систему
 
-### <a name="customize-alerts-for-anomalous-sign-in-activity"></a>Customize alerts for anomalous sign in activity
+Перейдите на вкладку «Настройка» каталога.
 
-Navigate to the "Configure" tab of your directory.
+Прокрутите страницу вниз до раздела «Уведомления».
 
-Scroll to the "Notifications" section.
+Включите или отключите параметр "Уведомления по электронной почте при аномальных попытках входа".
 
-Enable or disable the "Email Notifications of Anomalous sign-ins" section.
+![Раздел уведомлений](./media/active-directory-reporting-getting-started/notificationsSection.png)
 
-![The Notifications section](./media/active-directory-reporting-getting-started/notificationsSection.png)
+### Интеграция с API службы Azure AD Reporting
 
-### <a name="integrate-with-the-azure-ad-reporting-api"></a>Integrate with the Azure AD Reporting API
+См. статью [Приступая к работе с Reporting API](active-directory-reporting-api-getting-started.md).
 
-See [Getting started with the Reporting API](active-directory-reporting-api-getting-started.md).
+### Включение службы Multi-Factor Authentication для пользователей
 
-### <a name="engage-multi-factor-authentication-on-users"></a>Engage Multi-Factor Authentication on users
+Выберите пользователя в отчете.
 
-Select a user in a report.
+Нажмите кнопку «Включить MFA» в нижней части экрана.
 
-Click the "Enable MFA" button at the bottom of the screen.
+![Кнопка Multi-Factor Authentication, расположенная в нижней части экрана](./media/active-directory-reporting-getting-started/mfaButton.png)
 
-![The Multi-Factor Authentication button at the bottom of the screen](./media/active-directory-reporting-getting-started/mfaButton.png)
+> [AZURE.TIP] Дополнительную документацию по Azure AD Reporting см. в статье [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 
-> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
 
 
+## Подробнее
 
-## <a name="learn-more"></a>Learn more
 
+### Аудит событий
 
-### <a name="audit-events"></a>Audit events
+Узнайте о том, какие события аудита учитываются в каталоге[События аудита Azure Active Directory Reporting](active-directory-reporting-audit-events.md).
 
-Learn about what events are audited in the directory in [Azure Active Directory Reporting Audit Events](active-directory-reporting-audit-events.md).
+### Интеграция API
 
-### <a name="api-integration"></a>API Integration
+См. раздел [Приступая к работе с Reporting API](active-directory-reporting-api-getting-started.md) и [Справочная документация по API](https://msdn.microsoft.com/library/azure/mt126081.aspx).
 
-See [Getting started with the Reporting API](active-directory-reporting-api-getting-started.md) and the [API reference documentation](https://msdn.microsoft.com/library/azure/mt126081.aspx).
+### Будьте на связи
 
-### <a name="get-in-touch"></a>Get in touch
+Чтобы отправить отзыв, получить справку или задать вопросы, напишите электронное письмо по адресу [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com).
 
-Email [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) for feedback, help, or any questions you might have.
+> [AZURE.TIP] Дополнительную документацию по Azure AD Reporting см. в статье [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 
-> [AZURE.TIP] For more documentation on Azure AD Reporting, check out [View your access and usage reports](active-directory-view-access-usage-reports.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

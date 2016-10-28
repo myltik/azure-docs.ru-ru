@@ -1,140 +1,133 @@
 <properties 
-    pageTitle="Create custom artifacts for your DevTest Labs VM | Microsoft Azure"
-    description="Learn how to author your own artifacts for use with DevTest Labs"
-    services="devtest-lab,virtual-machines"
-    documentationCenter="na"
-    authors="tomarcher"
-    manager="douge"
-    editor=""/>
+	pageTitle="Создание пользовательских артефактов для виртуальной машины DevTest Labs | Microsoft Azure"
+	description="Узнайте, как создавать собственные артефакты, которые можно использовать с помощью решения DevTest Lab."
+	services="devtest-lab,virtual-machines"
+	documentationCenter="na"
+	authors="tomarcher"
+	manager="douge"
+	editor=""/>
 
 <tags
-    ms.service="devtest-lab"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="tarcher"/>
+	ms.service="devtest-lab"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2016"
+	ms.author="tarcher"/>
 
-
-#<a name="create-custom-artifacts-for-your-devtest-labs-vm"></a>Create custom artifacts for your DevTest Labs VM
+#Создание пользовательских артефактов для виртуальной машины DevTest Labs
 
 > [AZURE.VIDEO how-to-author-custom-artifacts] 
 
-## <a name="overview"></a>Overview
-**Artifacts** are used to deploy and configure your application after a VM is provisioned. An artifact consists of an artifact definition file and other script files that are stored in a folder in a git repository. Artifact definition files consist of JSON and expressions that you can use to specify what you want to install on a VM. For example, you can define the name of artifact, command to run, and parameters that are made available when the command is run. You can refer to other script files within the artifact definition file by name.
+## Обзор
+**Артефакты** используются для развертывания и настройки приложения после подготовки виртуальной машины. Артефакт состоит из файла определения артефакта и других файлов скриптов, которые хранятся в папке в репозитории Git. Файлы определения артефактов состоят из JSON и выражений, позволяющих указать, какие компоненты должны быть установлены на виртуальной машине. Например, можно определить имя артефакта, выполняемую команду и параметры, которые станут доступны после запуска команды. В файле определения артефакта можно ссылаться на другие файлы скриптов, используя их имена.
 
-##<a name="artifact-definition-file-format"></a>Artifact definition file format
-The following example shows the sections that make up the basic structure of a definition file.
+##Формат файла определения артефакта
+В следующем примере показаны разделы, составляющие базовую структуру файла определения.
 
-    {
-      "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2015-01-01/dtlArtifacts.json",
-      "title": "",
-      "description": "",
-      "iconUri": "",
-      "targetOsType": "",
-      "parameters": {
-        "<parameterName>": {
-          "type": "",
-          "displayName": "",
-          "description": ""
-        }
-      },
-      "runCommand": {
-        "commandToExecute": ""
-      }
-    }
+	{
+	  "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2015-01-01/dtlArtifacts.json",
+	  "title": "",
+	  "description": "",
+	  "iconUri": "",
+	  "targetOsType": "",
+	  "parameters": {
+	    "<parameterName>": {
+	      "type": "",
+	      "displayName": "",
+	      "description": ""
+	    }
+	  },
+	  "runCommand": {
+	    "commandToExecute": ""
+	  }
+	}
 
-| Element name | Required? | Description
+| Имя элемента | Обязательный? | Описание
 | ------------ | --------- | -----------
-| $schema      | No        | Location of the JSON schema file that helps in testing the validity of the definition file.
-| title        | Yes       | Name of the artifact displayed in the lab.
-| description  | Yes       | Description of the artifact displayed in the lab.
-| iconUri      | No        | Uri of the icon displayed in the lab.
-| targetOsType | Yes       | Operating system of the VM where artifact will be installed. Supported options are: Windows and Linux.
-| parameters   | No        | Values that are provided when artifact install command is run on a machine. This helps in customizing your artifact.
-| runCommand   | Yes       | Artifact install command that is executed on a VM.
+| $schema | Нет | Расположение файла схемы JSON, позволяющего проверять подлинность файла определения.
+| title | Да | Имя артефакта отображается в лаборатории.
+| description | Да | Описание артефакта отображается в лаборатории.
+| iconUri | Нет | URI значка отображается в лаборатории.
+| targetOsType | Да | Операционная система виртуальной машины, на которую будет установлен артефакт. Поддерживаемые параметры: Windows и Linux.
+| parameters | Нет | Значения, предоставляемые, когда на компьютере выполняется команда установки артефакта. Помогает при настройке артефакта.
+| runCommand | Да | Команда установки артефакта, выполняемая на виртуальной машине.
 
-###<a name="artifact-parameters"></a>Artifact parameters
+###Параметры артефакта
 
-In the parameters section of the definition file, you specify which values a user can input when installing an artifact. You can refer to these values in the artifact install command.
+В разделе параметров файла определения указываются значения, которые пользователь может вводить при установке артефакта. Это значения можно использовать в команде установки артефакта.
 
-You define parameters will the following structure.
+Параметры определяются с помощью следующей структуры:
 
-    "parameters": {
-        "<parameterName>": {
-          "type": "<type-of-parameter-value>",
-          "displayName": "<display-name-of-parameter>",
-          "description": "<description-of-parameter>"
-        }
-      }
+	"parameters": {
+	    "<parameterName>": {
+	      "type": "<type-of-parameter-value>",
+	      "displayName": "<display-name-of-parameter>",
+	      "description": "<description-of-parameter>"
+	    }
+	  }
 
-| Element name | Required? | Description
+| Имя элемента | Обязательный? | Описание
 | ------------ | --------- | -----------
-| type         | Yes       | Type of parameter value. See the list below for the allowed types:
-| displayName    Yes       | Name of the parameter that is displayed to a user in the lab.
-| description  | Yes       | Description of the parameter that is displayed in the lab.
+| type | Да | Тип значения параметра. Ниже приведен список допустимых типов.
+| displayName Yes | Имя параметра, отображаемое для пользователя в лаборатории.
+| description | Да | Описание параметра, отображаемого в лаборатории.
 
-The allowed types are:
+Допустимые типы:
 
-- string – any valid JSON string
-- int – any valid JSON integer
-- bool – any valid JSON Boolean
-- array – any valid JSON array
+- string — любая допустимая строка JSON;
+- int — любое допустимое целое число JSON;
+- bool — любое допустимое логическое значение JSON;
+- array — любой допустимый массив JSON.
 
-##<a name="artifact-expressions-and-functions"></a>Artifact expressions and functions
+##Выражения и функции артефактов
 
-You can use expression and functions to construct the artifact install command.
-Expressions are enclosed with brackets ([ and ]), and are evaluated when the artifact is installed. Expressions can appear anywhere in a JSON string value and always return another JSON value. If you need to use a literal string that starts with a bracket [, you must use two brackets [[.
-Typically, you use expressions with functions to construct a value. Just like in JavaScript, function calls are formatted as functionName(arg1,arg2,arg3)
+Для ограничения команды установки артефактов можно использовать выражения и функции. Выражения заключаются в квадратные скобки ([ и ]) и вычисляются при установке артефакта. Выражения могут встречаться в любом месте строкового значения JSON и всегда возвращают другое значение JSON. Если нужно использовать строковый литерал, который начинается с квадратной скобки ([), необходимо указать две квадратные скобки ([[). Как правило, для составления значения используются выражения с функциями. Как и в языке JavaScript, вызовы функций форматируются в виде functionName(arg1,arg2,arg3).
 
-The following list shows common functions.
+Вот список распространенных функции.
 
-- parameters(parameterName) - Returns a parameter value that is provided when the artifact command is run.
-- concat(arg1,arg2,arg3, …..) -     Combines multiple string values. This function can take any number of arguments.
+- parameters(parameterName) — возвращает значение параметра, предоставляемого при выполнении команды артефакта.
+- concat(arg1,arg2,arg3, …..) — объединяет несколько строковых значений. Эта функция может принимать любое количество аргументов.
 
-The following example shows how to use expression and functions to construct a value.
+В следующем примере показано, как составить значение, используя выражение и функции.
 
-    runCommand": {
-         "commandToExecute": "[concat('powershell.exe -File startChocolatey.ps1'
-    , ' -RawPackagesList ', parameters('packages')
-    , ' -Username ', parameters('installUsername')
-    , ' -Password ', parameters('installPassword'))]"
-    }
+	runCommand": {
+	     "commandToExecute": "[concat('powershell.exe -File startChocolatey.ps1'
+	, ' -RawPackagesList ', parameters('packages')
+	, ' -Username ', parameters('installUsername')
+	, ' -Password ', parameters('installPassword'))]"
+	}
 
-##<a name="create-a-custom-artifact"></a>Create a custom artifact
+##Создание пользовательского артефакта
 
-Create your custom artifact by following steps below:
+Для создания пользовательского артефакта выполните описанные ниже действия.
 
-1. Install a JSON editor - You will need a JSON editor to work with artifact definition files. We recommend using [Visual Studio Code](https://code.visualstudio.com/), which is available for Windows, Linux and OS X.
+1. Установите редактор JSON — он потребуется для работы с файлами определения артефакта. Рекомендуем использовать [код Visual Studio](https://code.visualstudio.com/), доступный для Windows, Linux и OS X.
 
-1. Get a sample artifactfile.json - Check out the artifacts created by Azure DevTest Labs team at our [GitHub repository](https://github.com/Azure/azure-devtestlab) where we have created a rich library of artifacts that will help you create your own artifacts. Download an artifact definition file and make changes to it to create your own artifacts.
+1. Получите пример файла artifactfile.json — изучите артефакты, созданные командой Azure DevTest Labs, в [репозитории GitHub](https://github.com/Azure/azure-devtestlab). Он содержит богатую библиотеку артефактов, которая поможет вам создавать собственные артефакты. Загрузите файл определения артефакта и внесите в него изменения, чтобы создать свои собственные артефакты.
 
-1. Make use of IntelliSense - Leverage IntelliSense to see valid elements that can be used to construct an artifact definition file. You can also see the different options for values of an element. For example, IntelliSense show you the two choices of Windows or Linux when editing the **targetOsType** element.
+1. Используйте IntelliSense — он позволяет просматривать элементы, которые можно использовать для создания файла определения артефакта. Здесь же можно увидеть различные варианты значений каждого элемента. Например, при редактировании элемента **targetOsType** IntelliSense предлагает два варианта — Windows и Linux.
 
-1. Store the artifact in a git repository
-    1. Create a separate directory for each artifact where the directory name is the same as the artifact name.
-    1. Store the artifact definition file (artifactfile.json) in the directory you created.
-    1. Store the scripts that are referenced from the artifact install command.
+1. Сохраните артефакт в репозитории Git:
+	1. Создайте для каждого артефакта отдельный каталог, имя которого совпадает с именем артефакта.
+	1. Сохраните файл определения артефакта (artifactfile.json) в созданный каталог.
+	1. Сохранить скрипты, на которые ссылается команда установки артефакта.
 
-    Here is an example of how an artifact folder might look:
+	Вот как может выглядеть папка артефакта:
 
-    ![Artifact git repo example](./media/devtest-lab-artifact-author/git-repo.png)
+	![Пример репозитория артефактов Git](./media/devtest-lab-artifact-author/git-repo.png)
 
-1. Add the artifacts repository to the lab - Refer to the article, [Add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
+1. Добавьте репозиторий артефактов в лабораторию: см. статью [Добавление репозитория артефактов Git в лабораторию](devtest-lab-add-artifact-repo.md).
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="related-blog-posts"></a>Related blog posts
-- [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
-- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+## Связанные записи в блогах
+- [How to troubleshoot failing Artifacts in AzureDevTestLabs (Способы устранения сбоя артефактов в лабораториях для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
+- [Join a VM to existing AD Domain using ARM template in Azure Dev Test Lab (Присоединение виртуальной машины к существующему домену AD с помощью шаблона ARM в лаборатории для разработки и тестирования Azure)](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- Learn how to [add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
+- Узнайте, как [добавить репозиторий артефактов Git в лабораторию](devtest-lab-add-artifact-repo.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

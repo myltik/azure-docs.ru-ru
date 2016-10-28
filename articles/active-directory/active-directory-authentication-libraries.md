@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Active Directory Authentication Libraries | Microsoft Azure"
-   description="The Azure AD Authentication Library (ADAL) allows client application developers to easily authenticate users to cloud or on-premises Active Directory (AD) and then obtain access tokens for securing API calls."
+   pageTitle="Библиотеки проверки подлинности Azure Active Directory | Microsoft Azure"
+   description="Библиотека проверки подлинности Azure AD (ADAL) позволяет разработчикам клиентских приложений легко проверять подлинность пользователей в облачной или локальной Active Directory (AD) и получать маркеры доступа для защиты вызовов API."
    services="active-directory"
    documentationCenter=""
    authors="msmbaldwin"
@@ -12,61 +12,55 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/11/2016"
+   ms.date="09/16/2016"
    ms.author="mbaldwin" />
 
+# Библиотеки проверки подлинности Azure Active Directory
 
-# <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory Authentication Libraries
+Библиотека проверки подлинности Azure AD (ADAL) позволяет разработчикам клиентских приложений легко проверять подлинность пользователей в облачной или локальной Active Directory (AD) и получать маркеры доступа для защиты вызовов API. ADAL имеет множество функций, которые упрощают проверку подлинности для разработчиков. К ним относятся поддержка асинхронных операций, настраиваемый кэш маркеров, в котором хранятся маркеры доступа и маркеры обновления, автоматическое обновление маркера, когда срок действия маркера доступа истекает и маркер обновления доступен, и многие другие функции. ADAL берет на себя большую часть сложных операций и позволяет разработчику сосредоточиться на бизнес-логике своего приложения и легко защитить ресурсы, не будучи экспертом в области безопасности.
 
-The Azure AD authentication Library (ADAL) enables client application developers to easily authenticate users to cloud or on-premises Active Directory (AD), and then obtain access tokens for securing API calls. ADAL has many features that make authentication easier for developers, such as asynchronous support, a configurable token cache that stores access tokens and refresh tokens, automatic token refresh when an access token expires and a refresh token is available, and more. By handling most of the complexity, ADAL can help a developer focus on business logic in their application and easily secure resources without being an expert on security.
+ADAL доступна на различных платформах.
 
-ADAL is available on a variety of platforms.
-
-|Platform|Package Name|Client/Server|Download|Source Code|Documentation & Samples|
+|Платформа|Имя пакета|Клиентская/серверная библиотека|Загрузить|Исходный код|Документация и примеры|
 |---|---|---|---|---|---|
-|.NET Client, Windows Store, UWP, Xamarin iOS and Android|Active Directory  Authentication Library (ADAL) for .NET v3 |Client|[Microsoft.IdentityModel.Clients.ActiveDirectory (NuGet)](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory)|[ADAL for .NET (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet)|[Documentation](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)|
-|.NET Client, Windows Store, Windows Phone 8.1 |Active Directory  Authentication Library (ADAL) for .NET v2 |Client|[Microsoft.IdentityModel.Clients.ActiveDirectory (NuGet)](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.2)|[ADAL for .NET (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.2)|[Documentation](https://docs.microsoft.com/active-directory/adal/v2/microsoft.identitymodel.clients.activedirectory)|
-|JavaScript|Active Directory Authentication Library (ADAL) for JavaScript|Client|[ADAL for JavaScript (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-js)|[ADAL for JavaScript (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-js)|Sample: [SinglePageApp-DotNet (Github)](https://github.com/AzureADSamples/SinglePageApp-DotNet)|
-|OS X, iOS|Active Directory Authentication Library (ADAL) for Objective-C|Client|[ADAL for Objective-C (CocoaPods)](https://cocoapods.org/?q=adal%20io)|[ADAL for Objective-C (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-objc)|Sample: [NativeClient-iOS (Github)](https://github.com/AzureADSamples/NativeClient-iOS)|
-|Android|Active Directory Authentication Library (ADAL) for Android|Client|[ADAL for Android (The Central Repository)](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/)|[ADAL for Android (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-android)|Sample: [NativeClient-Android (Github)](https://github.com/AzureADSamples/NativeClient-Android)|
-|Node.js|Active Directory Authentication Library (ADAL) for Node.js|Client|[ADAL for Node.js (npm)](https://www.npmjs.com/package/adal-node)|[ADAL for Node.js (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs)|Sample: [WebAPI-Nodejs (Github)](https://github.com/AzureADSamples/WebAPI-Nodejs)|
-|Node.js|Microsoft Azure Active Directory Passport authentication middleware for Node|Client|[Azure Active Directory Passport for Node.js (npm)](https://www.npmjs.com/package/passport-azure-ad)|[Azure Active Directory for Node.js (Github)](https://github.com/AzureAD/passport-azure-ad)||
-|Java|Active Directory Authentication Library (ADAL) for Java|Client|[ADAL for Java (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)|[ADAL for Java (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)||
-|.NET|Identity Protocol Extensions for the Microsoft .NET Framework 4.5|Server|[Microsoft.IdentityModel.Protocol.Extensions (NuGet)](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions)|[Azure AD identity model extensions for .NET (Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
-|.NET|JSON Web Token Handler For the Microsoft .Net Framework 4.5|Server|[System.IdentityModel.Tokens.Jwt (NuGet)](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt)|[Azure AD identity model extensions for .NET (Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
-|.NET|OWIN middleware that enables an application to use Microsoft's technology for authentication.|Server|[Microsoft.Owin.Security.ActiveDirectory (NuGet)](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/)|[OWIN (CodePlex)](http://katanaproject.codeplex.com)||
-|.NET|OWIN middleware that enables an application to use OpenIDConnect for authentication.|Server|[Microsoft.Owin.Security.OpenIdConnect (NuGet)](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect)|[OWIN (CodePlex)](http://katanaproject.codeplex.com)|Sample: [WebApp-OpenIDConnecty-DotNet (Github)](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet)|
-|.NET|OWIN middleware that enables an application to use WS-Federation for authentication.|Server|[Microsoft.Owin.Security.WsFederation (NuGet)](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation)|[OWIN (CodePlex)](http://katanaproject.codeplex.com)|Sample: [WebApp-WSFederation-DotNet (Github)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet)|
+|Клиент .NET, магазин Windows, Windows Phone (8.1)|Библиотека проверки подлинности Active Directory (ADAL) для .NET|Клиент|[Microsoft.IdentityModel.Clients.ActiveDirectory (NuGet)](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory)|[ADAL для .NET (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet)|[Документация](https://msdn.microsoft.com/library/azure/mt417579.aspx)|
+|JavaScript|Библиотека проверки подлинности Active Directory (ADAL) для JavaScript|Клиент|[ADAL для JavaScript (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-js)|[ADAL для JavaScript (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-js)|Пример: [SinglePageApp-DotNet (Github)](https://github.com/AzureADSamples/SinglePageApp-DotNet)|
+|OS X, iOS|Библиотека проверки подлинности Active Directory (ADAL) для Objective-C|Клиент|[ADAL для Objective-C (CocoaPods)](https://cocoapods.org/?q=adal%20io)|[ADAL для Objective-C (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-objc)|Пример: [NativeClient-iOS (Github)](https://github.com/AzureADSamples/NativeClient-iOS)|
+|Android|Библиотека проверки подлинности Active Directory (ADAL) для Android|Клиент|[ADAL для Android (центральный репозиторий)](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/)|[ADAL для Android (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-android)|Пример: [NativeClient-Android (Github)](https://github.com/AzureADSamples/NativeClient-Android)|
+|Node.js|Библиотека проверки подлинности Active Directory (ADAL) для Node.js|Клиент|[ADAL для Node.js (npm)](https://www.npmjs.com/package/adal-node)|[ADAL для Node.js (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs)|Пример: [WebAPI-Nodejs (Github)](https://github.com/AzureADSamples/WebAPI-Nodejs)|
+|Node.js|Промежуточный слой проверки подлинности Microsoft Azure Active Directory Passport для Node.js|Клиент|[Azure Active Directory Passport для Node.js (npm)](https://www.npmjs.com/package/passport-azure-ad)|[Azure Active Directory для Node.js (Github)](https://github.com/AzureAD/passport-azure-ad)||
+|Java|Библиотека проверки подлинности Active Directory (ADAL) для Java|Клиент|[ADAL для Java (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)|[ADAL для Java (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)||
+|.NET|Расширения протокола удостоверения для платформы Microsoft .NET Framework 4.5|сервер;|[Microsoft.IdentityModel.Protocol.Extensions (NuGet)](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions)|[расширения модели удостоверения Azure AD для .NET (Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
+|.NET|Обработчик веб-маркеров JSON для платформы Microsoft .NET Framework 4.5|сервер;|[System.IdentityModel.Tokens.Jwt (NuGet)](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt)|[расширения модели удостоверения Azure AD для .NET (Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
+|.NET|Промежуточный слой OWIN, который позволяет приложению использовать технологии корпорации Майкрософт для проверки подлинности.|сервер;|[Microsoft.Owin.Security.ActiveDirectory (NuGet)](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/)|[OWIN (CodePlex)](http://katanaproject.codeplex.com)||
+|.NET|Промежуточный слой OWIN, который позволяет приложению использовать OpenIDConnect для проверки подлинности.|сервер;|[Microsoft.Owin.Security.OpenIdConnect (NuGet)](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect)|[OWIN (CodePlex)](http://katanaproject.codeplex.com)|Пример: [WebApp-OpenIDConnecty-DotNet (Github)](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet)|
+|.NET|Промежуточный слой OWIN, который позволяет приложению использовать WS-Federation для проверки подлинности.|сервер;|[Microsoft.Owin.Security.WsFederation (NuGet)](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation)|[OWIN (CodePlex)](http://katanaproject.codeplex.com)|Пример: [WebApp-WSFederation-DotNet (Github)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet)|
 
-## <a name="scenarios"></a>Scenarios
+## Сценарии
 
-Here are three common scenarios in which ADAL can be used for authentication.  
+Ниже приведены три типичных сценария, в которых для проверки подлинности может использоваться ADAL.
 
-### <a name="authenticating-users-of-a-client-application-to-a-remote-resource"></a>Authenticating Users of a Client Application to a Remote Resource
+### Проверка подлинности пользователей клиентского приложения на удаленном ресурсе
 
-In this scenario, a developer has a client, such as a WPF application, that needs to access a remote resource secured by Azure AD, such as a web API. He has an Azure subscription, knows how to invoke the downstream web API, and knows the Azure AD tenant that the web API uses. As a result, he can use ADAL to facilitate authentication with Azure AD, either by fully delegating the authentication experience to ADAL or by explicitly handling user credentials. ADAL makes it easy to authenticate the user, obtain an access token and refresh token from Azure AD, and then use the access token to make requests to the web API.
+В этом сценарии у разработчика есть клиент, например приложение WPF, которому требуется доступ к удаленному ресурсу, защищенному Azure AD, например к веб-интерфейсу API. У разработчика есть подписка Azure, он знает, как вызвать нижестоящий веб-интерфейс API и какой клиент Azure AD используется этим веб-интерфейсом. В результате он может упростить проверку подлинности в Azure AD, полностью делегируя процесс проверки подлинности службе ADAL или явно обрабатывая учетные данные пользователя. ADAL упрощает проверку подлинности пользователя, получение маркера доступа и маркера обновления от Azure AD и использование маркера доступа для выполнения запросов к веб-интерфейсу API.
 
-For a code sample that demonstrates this scenario using authentication to Azure AD, see [Native Client WPF Application to Web API](https://github.com/azureadsamples/nativeclient-dotnet).
+Пример кода, который демонстрирует этот сценарий с использованием проверки подлинности Azure AD, см. в разделе [Собственное клиентское приложение WPF для веб-интерфейса API](https://github.com/azureadsamples/nativeclient-dotnet).
 
-### <a name="authenticating-a-server-application-to-a-remote-resource"></a>Authenticating a Server Application to a Remote Resource
+### Проверка подлинности серверного приложения на удаленном ресурсе
 
-In this scenario, a developer has an application running on a server that needs to access a remote resource secured by Azure AD, such as a web API. He has an Azure subscription, knows how to invoke the downstream service, and knows the Azure AD tenant the web API uses. As a result, he can use ADAL to facilitate authentication with Azure AD by explicitly handling the application’s credentials. ADAL makes it easy to retrieve a token from Azure AD by using the application’s client credential and then use that token to make requests to the web API. ADAL also handles managing the lifetime of the access token by caching it and renewing it as necessary. For a code sample that demonstrates this scenario, see [Console Application to Web API](https://github.com/AzureADSamples/Daemon-DotNet).
+В этом сценарии у разработчика есть приложение, запущенное на сервере, которому требуется доступ к удаленному ресурсу, защищенному Azure AD, например к веб-интерфейсу API. У разработчика есть подписка Azure, он знает, как вызвать нижестоящую службу и какой клиент Azure AD используется веб-интерфейсом API. В результате он может использовать ADAL для упрощения проверки подлинности в Azure AD, явно обрабатывая учетные данные приложения. ADAL упрощает получение маркера из Azure AD с помощью учетных данных клиента приложения и последующее использование этого маркера для выполнения запросов к веб-интерфейсу API. ADAL также управляет жизненным циклом маркера доступа, кэшируя его и возобновляя его действие при необходимости. Пример кода, демонстрирующий этот сценарий, см. в разделе [Консольное приложение для веб-интерфейса API](https://github.com/AzureADSamples/Daemon-DotNet).
 
-### <a name="authenticating-a-server-application-on-behalf-of-a-user-to-access-a-remote-resource"></a>Authenticating a Server Application on Behalf of a User to Access a Remote Resource
+### Проверка подлинности серверного приложения от имени пользователя для доступа к удаленному ресурсу
 
-In this scenario, a developer has an application running on a server that needs to access a remote resource secured by Azure AD, such as a web API. The request also needs to be made on behalf of a user in Azure AD. He has an Azure subscription, knows how to invoke the downstream web API, and knows the Azure AD tenant the service uses. Once the user is authenticated to the web application, the application can get an authorization code for the user from Azure AD. The web application can then use ADAL to obtain an access token and refresh token on behalf of a user using the authorization code and client credentials associated with the application from Azure AD. Once the web application is in possession of the access token, it can call the web API until the token expires. When the token expires, the web application can use ADAL to get a new access token by using the refresh token that was previously received.
-
-
-## <a name="see-also"></a>See Also
-
-[The Azure Active Directory developer's guide](active-directory-developers-guide.md)
-
-[Authentication scenarios for Azure Active directory](active-directory-authentication-scenarios.md)
-
-[Azure Active Directory code samples](active-directory-code-samples.md)
+В этом сценарии у разработчика есть приложение, запущенное на сервере, которому требуется доступ к удаленному ресурсу, защищенному Azure AD, например к веб-интерфейсу API. Запрос должен выполняться от имени пользователя в Azure AD. У разработчика есть подписка Azure, он знает, как вызвать нижестоящий веб-интерфейс API и какой клиент Azure AD используется службой. После проверки подлинности пользователя для веб-приложения оно может получить код проверки подлинности пользователя из Azure AD. Затем веб-приложение может использовать ADAL для получения маркера доступа и обновления маркера от имени пользователя с помощью кода проверки подлинности и учетных данных клиента, связанных с приложением в Azure AD. После получения маркера доступа приложение может обращаться к веб-интерфейсу API до истечения срока действия маркера. После истечения срока действия маркера веб-приложение может использовать ADAL для получения нового маркера доступа с помощью обновления маркера, полученного ранее.
 
 
+## См. также
 
-<!--HONumber=Oct16_HO2-->
+[Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 
+[Сценарии проверки подлинности в Azure Active Directory](active-directory-authentication-scenarios.md)
 
+[Примеры кода Azure Active Directory](active-directory-code-samples.md)
+
+<!---HONumber=AcomDC_0921_2016-->

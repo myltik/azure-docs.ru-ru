@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Visualize SQL Data Warehouse data with Power BI Microsoft Azure"
-   description="Visualize SQL Data Warehouse data with Power BI"
+   pageTitle="Визуализация данных хранилища данных SQL с помощью Power BI | Microsoft Azure"
+   description="Визуализация данных хранилища данных SQL с помощью Power BI"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -16,85 +16,84 @@
    ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
-
-# <a name="visualize-data-with-power-bi"></a>Visualize data with Power BI
+# Визуализация данных с помощью Power BI
 
 > [AZURE.SELECTOR]
 - [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Машинное обучение Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
+В этом руководстве показано, как использовать Power BI для подключения к хранилищу данных SQL и создания нескольких базовых визуализаций.
 
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
-## <a name="prerequisites"></a>Prerequisites
+## Предварительные требования
 
-To step through this tutorial, you need:
+Для выполнения этих действий необходимо иметь следующее:
 
-- A SQL Data Warehouse pre-loaded with the AdventureWorksDW database. To provision this, see [Create a SQL Data Warehouse][] and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually][].
-
-
-## <a name="1.-connect-to-your-database"></a>1. Connect to your database
-
-To open Power BI and connect to your AdventureWorksDW database:
-
-1. Sign into the [Azure portal][].
-2. Click **SQL databases** and choose your AdventureWorks SQL Data Warehouse database.
-
-    ![Find your database][1]
-
-3. Click the 'Open in Power BI' button.
-
-    ![Power BI button][2]
-
-4. You should now see the SQL Data Warehouse connection page displaying your database web address. Click next.
-
-    ![Power BI connection][3]
-
-6. Enter your Azure SQL server username and password and you will be fully connected to your SQL Data Warehouse database.
-
-    ![Power BI sign in][4]
-
-7. Once you have signed into Power BI, click the AdventureWorksDW dataset on the left blade. This will open the database.
-
-    ![Power BI open AdventureWorksDW][5]
+- Хранилище данных SQL, в которое предварительно загружена база данных AdventureWorksDW. Чтобы сделать это, ознакомьтесь со статьей [Создание хранилища данных SQL Azure][] и выберите загрузку демонстрационных данных. Если хранилище данных уже существует, но не содержит демонстрационные данные, вы можете [загрузить их вручную][].
 
 
+## 1\. Подключение к базе данных
 
-## <a name="2.-create-a-report"></a>2. Create a report
+Чтобы открыть Power BI и подключиться к базе данных AdventureWorksDW, выполните следующие действия.
 
-You are now ready to use Power BI to analyze your AdventureWorksDW sample data. To perform the analysis, AdventureWorksDW has a view called AggregateSales. This view contains a few of the key metrics for analyzing the sales of the company.
+1. Войдите на [портал Azure][].
+2. Щелкните **Базы данных SQL** и выберите базу данных хранилища данных SQL AdventureWorks.
 
-1. To create a map of sales amount according to postal code, in the right-hand fields pane, click the AggregateSales view to expand it. Click the PostalCode and SalesAmount columns to select them.
+    ![Поиск базы данных][1]
 
-    ![Power BI select AggregateSales][6]
+3. Нажмите кнопку «Открыть в Power BI».
 
-    Power BI automatically recognizes this is geographic data and put it in a map for you.
+    ![Кнопка Power BI][2]
 
-    ![Power BI map][7]
+4. Должна появиться страница подключения к хранилищу данных SQL с веб-адресом вашей базы данных. Нажмите кнопку «Далее».
 
-2. This step creates a bar graph that shows amount of sales per customer income. To create this go to the expanded AggregateSales view. Click the SalesAmount field. Drag the Customer Income field to the left and drop it into Axis.
+    ![Power BI: подключение][3]
 
-    ![Power BI select axis][8]
+6. Введите имя пользователя и пароль сервера Azure SQL Server, чтобы полностью подключиться к базе данных хранилища данных SQL.
 
-    We moved the bar chart over the left.
+    ![Power BI: вход][4]
 
-    ![Power BI bar][9]
+7. Войдя в службу Power BI и щелкните набор данных AdventureWorksDW в колонке слева. Откроется база данных.
 
-3. This step creates a line chart that shows sales amount per order date. To create this go to the expanded AggregateSales view. Click SalesAmount and OrderDate. In the Visualizations column click the Line Chart icon; this is the first icon in the second line under visualizations.
+    ![Power BI: открытие AdventureWorksDW][5]
 
-    ![Power BI select line chart][10]
 
-    You now have a report that shows three different visualizations of the data.
 
-    ![Power BI line][11]
+## 2\. Создание отчета
 
-You can save your progress at any time by clicking **File** and selecting **Save**.
+Теперь вы готовы к использованию Power BI для анализа демонстрационных данных AdventureWorksDW. Для выполнения анализа в AdventureWorksDW предусмотрено представление с именем AggregateSales. Это представление содержит несколько основных метрик для анализа продаж компании.
 
-## <a name="next-steps"></a>Next steps
-Now that we've given you some time to warm up with the sample data, see how to [develop][], [load][], or [migrate][]. Or take a look at the [Power BI website][].
+1. Чтобы создать карту суммы продаж по почтовому индексу, разверните представление AggregateSales, щелкнув его в области полей справа. Выберите столбцы PostalCode и SalesAmount.
+
+    ![Power BI: выбор AggregateSales][6]
+
+    Power BI в автоматическом режиме распознает географические данные и наносит их на карту.
+
+    ![Карта Power BI][7]
+
+2. На этом этапе создается линейчатая диаграмма, на которой отображается сумма продаж в зависимости от доходов клиентов. Чтобы создать эту диаграмму, перейдите к развернутому представлению AggregateSales. Щелкните поле SalesAmount. Перетащите поле «Доход клиентов» влево и поместите его на оси.
+
+    ![Power BI: выбор оси][8]
+
+    Мы переместили линейчатую диаграмму влево.
+
+    ![Гистограмма Power BI][9]
+
+3. На этом этапе создается график, на котором отображены продажи по дате заказа. Чтобы создать этот график, перейдите к развернутому представлению AggregateSales. Щелкните SalesAmount и OrderDate. В столбце «Визуализации» щелкните значок «График» (это первый значок во второй строке под заголовком «Визуализации»).
+
+	![Power BI: выбор графика][10]
+
+    Теперь у вас есть отчет, на котором отображены три разные визуализации.
+
+    ![График Power BI][11]
+
+Ход выполнения можно сохранить в любой момент, выбрав в меню **Файл** пункт **Сохранить**.
+
+## Дальнейшие действия
+Теперь, когда вы разобрались с образцом данных, узнайте, как [разрабатывать хранилища данных][], [загружать данные][] и [переносить готовые решения][]. Вы также можете ознакомиться с [веб-сайтом Power BI][].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -111,19 +110,15 @@ Now that we've given you some time to warm up with the sample data, see how to [
 [12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[migrate]: sql-data-warehouse-overview-migrate.md
-[develop]: sql-data-warehouse-overview-develop.md
-[load]: sql-data-warehouse-overview-load.md
-[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[переносить готовые решения]: sql-data-warehouse-overview-migrate.md
+[разрабатывать хранилища данных]: sql-data-warehouse-overview-develop.md
+[загружать данные]: sql-data-warehouse-overview-load.md
+[загрузить их вручную]: sql-data-warehouse-load-sample-databases.md
 [connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Создание хранилища данных SQL Azure]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[Azure portal]: https://portal.azure.com/
-[Power BI website]: http://www.powerbi.com/
+[портал Azure]: https://portal.azure.com/
+[веб-сайтом Power BI]: http://www.powerbi.com/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

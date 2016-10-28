@@ -1,10 +1,10 @@
 <properties
 pageTitle="MailChimp | Microsoft Azure"
-description="Create Logic apps with Azure App service. MailChimp is a SaaS service that allows businesses to manage and automate email marketing activities, including sending marketing emails, automated messages and targeted campaigns."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+description="Создание приложений логики с помощью службы приложений Azure. MailChimp — это служба SaaS, которая позволяет компаниям управлять маркетинговыми мероприятиями по электронной почте, включая отправку маркетинговых сообщений электронной почты, автоматических сообщений и целевых кампаний, и автоматизировать их."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,730 +17,726 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Начало работы с соединителем MailChimp
 
-# <a name="get-started-with-the-mailchimp-connector"></a>Get started with the MailChimp connector
-
-MailChimp is a SaaS service that allows businesses to manage and automate email marketing activities, including sending marketing emails, automated messages and targeted campaigns.
+MailChimp — это служба SaaS, которая позволяет компаниям управлять маркетинговыми мероприятиями по электронной почте, включая отправку маркетинговых сообщений электронной почты, автоматических сообщений и целевых кампаний, и автоматизировать их.
 
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Для начала можно создать приложение логики, как указано в соответствующей [статье](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+## Триггеры и действия
 
-The MailChimp connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+Соединитель MailChimp можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
 
- The MailChimp connector has the following action(s) and/or trigger(s) available:
+ Соединитель MailChimp предоставляет следующие триггеры и действия:
 
-### <a name="mailchimp-actions"></a>MailChimp actions
-You can take these action(s):
+### Действия MailChimp
+Вы можете выполнять перечисленные ниже действия:
 
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[newcampaign](connectors-create-api-mailchimp.md#newcampaign)|Create a new campaign based on a Campaign Type, Recipients list and Campaign Settings (subject line, title, from_name and reply_to)|
-|[newlist](connectors-create-api-mailchimp.md#newlist)|Create a new list in your MailChimp account|
-|[addmember](connectors-create-api-mailchimp.md#addmember)|Add or update a list member|
-|[removemember](connectors-create-api-mailchimp.md#removemember)|Delete a member from a list.|
-|[updatemember](connectors-create-api-mailchimp.md#updatemember)|Update information for a specific list member|
-### <a name="mailchimp-triggers"></a>MailChimp triggers
-You can listen for these event(s):
+|[newcampaign](connectors-create-api-mailchimp.md#newcampaign)|Создание кампании на основе типа кампании, списка получателей и параметров кампании (тема, название, отправитель, получатель)|
+|[newlist](connectors-create-api-mailchimp.md#newlist)|Создание списка в учетной записи MailChimp|
+|[addmember](connectors-create-api-mailchimp.md#addmember)|Добавление или изменение элемента списка|
+|[removemember](connectors-create-api-mailchimp.md#removemember)|Удаление элемента из списка|
+|[updatemember](connectors-create-api-mailchimp.md#updatemember)|Изменение сведений для определенного элемента списка|
+### Триггеры MailChimp
+Можно прослушивать указанные ниже события:
 
-|Trigger | Description|
+|Триггер | Описание|
 |--- | ---|
-|When a Member has been added to a list|Triggers a workflow when a new member has been added to a list|
-|When a new list is created|Triggers a workflow when a new list is created|
+|При добавлении элемента в список|Запускает рабочий процесс при добавлении нового элемента в список|
+|При создании списка|Запускает рабочий процесс при создании списка|
 
 
-## <a name="create-a-connection-to-mailchimp"></a>Create a connection to MailChimp
-To create Logic apps with MailChimp, you must first create a **connection** then provide the details for the following properties: 
+## Создание подключения к MailChimp
+Для создания приложений логики с помощью MailChimp необходимо создать **подключение**, а затем указать данные для следующих свойств.
 
-|Property| Required|Description|
+|Свойство| Обязательно|Описание|
 | ---|---|---|
-|Token|Yes|Provide MailChimp Credentials|
+|Маркер|Да|Укажите учетные данные MailChimp|
 
->[AZURE.INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
+>[AZURE.INCLUDE [Шаги по созданию подключения к MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 
->[AZURE.TIP] You can use this connection in other logic apps.
+>[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
 
-## <a name="reference-for-mailchimp"></a>Reference for MailChimp
-Applies to version: 1.0
+## Справочник по MailChimp
+Относится к версии 1.0.
 
-## <a name="newcampaign"></a>newcampaign
-New Campaign: Create a new campaign based on a Campaign Type, Recipients list and Campaign Settings (subject line, title, from_name and reply_to) 
+## newcampaign
+Новая кампания: создание кампании на основе типа кампании, списка получателей и параметров кампании (тема, название, отправитель, получатель)
 
-```POST: /campaigns``` 
+```POST: /campaigns```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|newCampaignRequest| |yes|body|none|Json object to send in the body with the new campaign request parameters|
+|newCampaignRequest| |Да|текст|Нет|Объект JSON, отправляемый в тексте с параметрами запроса новой кампании|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="newlist"></a>newlist
-New List: Create a new list in your MailChimp account 
+## newlist
+Новый список: создание списка в учетной записи MailChimp
 
-```POST: /lists``` 
+```POST: /lists```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|newListRequest| |yes|body|none|Json object to send in the body with the new campaign request parameters|
+|newListRequest| |Да|текст|Нет|Объект JSON, отправляемый в тексте с параметрами запроса новой кампании|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="addmember"></a>addmember
-Add member to list: Add or update a list member 
+## addmember
+Добавление элемента в список: добавление или изменение элемента списка
 
-```POST: /lists/{list_id}/members``` 
+```POST: /lists/{list_id}/members```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|list_id|string|yes|path|none|The unique id for the list|
-|newMemberInList| |yes|body|none|Json object to send in the body with the new member information|
+|list\_id|string|Да|path|Нет|Уникальный идентификатор для списка|
+|newMemberInList| |Да|текст|Нет|Объект JSON, отправляемый в тексте со сведениями о новом элементе|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="removemember"></a>removemember
-Remove Member from list: Delete a member from a list. 
+## removemember
+Удаление элемента из списка: удаление элемента из списка
 
-```DELETE: /lists/replacemailwithhash/{list_id}/members/{member_email}``` 
+```DELETE: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|list_id|string|yes|path|none|The unique id for the list|
-|member_email|string|yes|path|none|The email address of the member to delete|
+|list\_id|string|Да|path|Нет|Уникальный идентификатор для списка|
+|member\_email|string|Да|path|Нет|Адрес электронной почты удаляемого элемента|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="updatemember"></a>updatemember
-Update member information: Update information for a specific list member 
+## updatemember
+Изменение сведений об элементе: изменение сведений для определенного элемента списка
 
-```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}``` 
+```PATCH: /lists/replacemailwithhash/{list_id}/members/{member_email}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|list_id|string|yes|path|none|The unique id for the list|
-|member_email|string|yes|path|none|The unique email address of the member to update|
-|updateMemberInListRequest| |yes|body|none|Json object to send in the body with the updated member information|
+|list\_id|string|Да|path|Нет|Уникальный идентификатор для списка|
+|member\_email|string|Да|path|Нет|Уникальный адрес электронной почты изменяемого элемента|
+|updateMemberInListRequest| |Да|текст|Нет|Объект JSON, отправляемый в тексте со сведениями об изменяемом элементе|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="onmembersubscribed"></a>OnMemberSubscribed
-When a Member has been added to a list: Triggers a workflow when a new member has been added to a list 
+## OnMemberSubscribed
+При добавлении элемента в список: запускает рабочий процесс при добавлении нового элемента в список
 
-```GET: /trigger/lists/{list_id}/members``` 
+```GET: /trigger/lists/{list_id}/members```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|list_id|string|yes|path|none|The unique id for the list|
+|list\_id|string|Да|path|Нет|Уникальный идентификатор для списка|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|202|Принято|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="oncreatelist"></a>OnCreateList
-When a new list is created: Triggers a workflow when a new list is created 
+## OnCreateList
+При создании списка: запускает рабочий процесс при создании списка
 
-```GET: /trigger/lists``` 
+```GET: /trigger/lists```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+Для этого вызова параметры отсутствуют
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occured|
-|default|Operation Failed.|
+|200|ОК|
+|202|Принято|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="object-definitions"></a>Object definitions 
+## Определения объектов 
 
-### <a name="newcampaignrequest"></a>NewCampaignRequest
+### NewCampaignRequest
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|type|string|Yes |
-|recipients|not defined|Yes |
-|settings|not defined|Yes |
-|variate_settings|not defined|No |
-|tracking|not defined|No |
-|rss_opts|not defined|No |
-|social_card|not defined|No |
+|type|string|Да |
+|recipients|не определено|Да |
+|Параметры|не определено|Да |
+|variate\_settings|не определено|Нет |
+|tracking|не определено|Нет |
+|rss\_opts|не определено|Нет |
+|social\_card|не определено|Нет |
 
 
 
-### <a name="recipient"></a>Recipient
+### Recipient
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|list_id|string|Yes |
-|segment_opts|not defined|No |
+|list\_id|string|Да |
+|segment\_opts|не определено|Нет |
 
 
 
-### <a name="settings"></a>Settings
+### Параметры
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|subject_line|string|Yes |
-|title|string|No |
-|from_name|string|Yes |
-|reply_to|string|Yes |
-|use_conversation|boolean|No |
-|to_name|string|No |
-|folder_id|integer|No |
-|authenticate|boolean|No |
-|auto_footer|boolean|No |
-|inline_css|boolean|No |
-|auto_tweet|boolean|No |
-|auto_fb_post|array|No |
-|fb_comments|boolean|No |
+|subject\_line|string|Да |
+|title|string|Нет |
+|from\_name|string|Да |
+|reply\_to|string|Да |
+|use\_conversation|Логическое|Нет |
+|to\_name|string|Нет |
+|folder\_id|целое число|Нет |
+|authenticate|Логическое|Нет |
+|auto\_footer|Логическое|Нет |
+|inline\_css|Логическое|Нет |
+|auto\_tweet|Логическое|Нет |
+|auto\_fb\_post|array|Нет |
+|fb\_comments|Логическое|Нет |
 
 
 
-### <a name="variate_settings"></a>Variate_Settings
+### Variate\_Settings
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|winner_criteria|string|No |
-|wait_time|integer|No |
-|test_size|integer|No |
-|subject_lines|array|No |
-|send_times|array|No |
-|from_names|array|No |
-|reply_to_addresses|array|No |
+|winner\_criteria|string|Нет |
+|wait\_time|целое число|Нет |
+|test\_size|целое число|Нет |
+|subject\_lines|array|Нет |
+|send\_times|array|Нет |
+|from\_names|array|Нет |
+|reply\_to\_addresses|array|Нет |
 
 
 
-### <a name="tracking"></a>Tracking
+### Отслеживание
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|opens|boolean|No |
-|html_clicks|boolean|No |
-|text_clicks|boolean|No |
-|goal_tracking|boolean|No |
-|ecomm360|boolean|No |
-|google_analytics|string|No |
-|clicktale|string|No |
-|salesforce|not defined|No |
-|highrise|not defined|No |
-|capsule|not defined|No |
+|opens|Логическое|Нет |
+|html\_clicks|Логическое|Нет |
+|text\_clicks|Логическое|Нет |
+|goal\_tracking|Логическое|Нет |
+|ecomm360|Логическое|Нет |
+|google\_analytics|string|Нет |
+|clicktale|string|Нет |
+|salesforce|не определено|Нет |
+|highrise|не определено|Нет |
+|capsule|не определено|Нет |
 
 
 
-### <a name="rss_opts"></a>RSS_Opts
+### RSS\_Opts
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|feed_url|string|No |
-|frequency|string|No |
-|constrain_rss_img|string|No |
-|schedule|not defined|No |
+|feed\_url|string|Нет |
+|frequency|string|Нет |
+|constrain\_rss\_img|string|Нет |
+|schedule|не определено|Нет |
 
 
 
-### <a name="social_card"></a>Social_Card
+### Social\_Card
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|image_url|string|No |
-|description|string|No |
-|title|string|No |
+|image\_url|string|Нет |
+|description|string|Нет |
+|title|string|Нет |
 
 
 
-### <a name="segment_opts"></a>Segment_Opts
+### Segment\_Opts
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|saved_segment_id|integer|No |
-|match|string|No |
+|saved\_segment\_id|целое число|Нет |
+|match|string|Нет |
 
 
 
-### <a name="salesforce"></a>Salesforce
+### Salesforce
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательное |
 |---|---|---|
-|campaign|boolean|No |
-|notes|boolean|No |
+|campaign|Логическое|Нет |
+|HDInsight|Логическое|Нет |
 
 
 
-### <a name="highrise"></a>Highrise
+### Highrise
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательное |
 |---|---|---|
-|campaign|boolean|No |
-|notes|boolean|No |
+|campaign|Логическое|Нет |
+|HDInsight|Логическое|Нет |
 
 
 
-### <a name="capsule"></a>Capsule
+### Capsule
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|notes|boolean|No |
+|HDInsight|Логическое|Нет |
 
 
 
-### <a name="schedule"></a>Schedule
+### Расписание
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|hour|integer|No |
-|daily_send|not defined|No |
-|weekly_send_day|string|No |
-|monthly_send_date|number|No |
+|hour|целое число|Нет |
+|daily\_send|не определено|Нет |
+|weekly\_send\_day|string|Нет |
+|monthly\_send\_date|number|Нет |
 
 
 
-### <a name="daily_send"></a>Daily_Send
+### Daily\_Send
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|sunday|boolean|No |
-|monday|boolean|No |
-|tuesday|boolean|No |
-|wednesday|boolean|No |
-|thursday|boolean|No |
-|friday|boolean|No |
-|saturday|boolean|No |
+|sunday|Логическое|Нет |
+|monday|Логическое|Нет |
+|tuesday|Логическое|Нет |
+|wednesday|Логическое|Нет |
+|thursday|Логическое|Нет |
+|friday|Логическое|Нет |
+|saturday|Логическое|Нет |
 
 
 
-### <a name="campaignresponsemodel"></a>CampaignResponseModel
+### CampaignResponseModel
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|id|string|No |
-|type|string|No |
-|create_time|string|No |
-|archive_url|string|No |
-|status|string|No |
-|emails_sent|integer|No |
-|send_time|string|No |
-|content_type|string|No |
-|recipient|array|No |
-|settings|not defined|No |
-|variate_settings|not defined|No |
-|tracking|not defined|No |
-|rss_opts|not defined|No |
-|ab_split_opts|not defined|No |
-|social_card|not defined|No |
-|report_summary|not defined|No |
-|delivery_status|not defined|No |
-|_links|array|No |
+|id|string|Нет |
+|type|string|Нет |
+|create\_time|string|Нет |
+|archive\_url|string|Нет |
+|status|string|Нет |
+|emails\_sent|целое число|Нет |
+|send\_time|string|Нет |
+|content\_type|string|Нет |
+|recipient|array|Нет |
+|Параметры|не определено|Нет |
+|variate\_settings|не определено|Нет |
+|tracking|не определено|Нет |
+|rss\_opts|не определено|Нет |
+|ab\_split\_opts|не определено|Нет |
+|social\_card|не определено|Нет |
+|report\_summary|не определено|Нет |
+|delivery\_status|не определено|Нет |
+|\_links|array|Нет |
 
 
 
-### <a name="ab_split_opts"></a>AB_Split_Opts
+### AB\_Split\_Opts
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|split_test|string|No |
-|pick_winner|string|No |
-|wait_units|string|No |
-|wait_time|integer|No |
-|split_size|integer|No |
-|from_name_a|string|No |
-|from_name_b|string|No |
-|reply_email_a|string|No |
-|reply_email_b|string|No |
-|subject_a|string|No |
-|subject_b|string|No |
-|send_time_a|string|No |
-|send_time_b|string|No |
-|send_time_winner|string|No |
+|split\_test|string|Нет |
+|pick\_winner|string|Нет |
+|wait\_units|string|Нет |
+|wait\_time|целое число|Нет |
+|split\_size|целое число|Нет |
+|from\_name\_a|string|Нет |
+|from\_name\_b|string|Нет |
+|reply\_email\_a|string|Нет |
+|reply\_email\_b|string|Нет |
+|subject\_a|string|Нет |
+|subject\_b|string|Нет |
+|send\_time\_a|string|Нет |
+|send\_time\_b|string|Нет |
+|send\_time\_winner|string|Нет |
 
 
 
-### <a name="report_summary"></a>Report_Summary
+### Report\_Summary
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|opens|integer|No |
-|unique_opens|integer|No |
-|open_rate|number|No |
-|clicks|integer|No |
-|subscriber_clicks|number|No |
-|click_rate|number|No |
+|opens|целое число|Нет |
+|unique\_opens|целое число|Нет |
+|open\_rate|number|Нет |
+|clicks|целое число|Нет |
+|subscriber\_clicks|number|Нет |
+|click\_rate|number|Нет |
 
 
 
-### <a name="delivery_status"></a>Delivery_Status
+### Delivery\_Status
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|enabled|boolean|No |
-|can_cancel|boolean|No |
-|status|string|No |
-|emails_sent|integer|No |
-|emails_canceled|integer|No |
+|включено|Логическое|Нет |
+|can\_cancel|Логическое|Нет |
+|status|string|Нет |
+|emails\_sent|целое число|Нет |
+|emails\_canceled|целое число|Нет |
 
 
 
-### <a name="link"></a>Link
+### Ссылка
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|rel|string|No |
-|href|string|No |
-|method|string|No |
-|targetSchema|string|No |
-|schema|string|No |
+|rel|string|Нет |
+|href|string|Нет |
+|метод|string|Нет |
+|targetSchema|string|Нет |
+|schema|string|Нет |
 
 
 
-### <a name="newlistrequest"></a>NewListRequest
+### NewListRequest
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|name|string|Yes |
-|contact|not defined|Yes |
-|permission_reminder|string|Yes |
-|use_archive_bar|boolean|No |
-|campaign_defaults|not defined|Yes |
-|notify_on_subscribe|string|No |
-|notify_on_unsubscribe|string|No |
-|email_type_option|boolean|Yes |
-|visibility|string|No |
+|name|string|Да |
+|contact|не определено|Да |
+|permission\_reminder|string|Да |
+|use\_archive\_bar|Логическое|Нет |
+|campaign\_defaults|не определено|Да |
+|notify\_on\_subscribe|string|Нет |
+|notify\_on\_unsubscribe|string|Нет |
+|email\_type\_option|Логическое|Да |
+|visibility|string|Нет |
 
 
 
-### <a name="contact"></a>Contact
+### Контакт
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|company|string|Yes |
-|address1|string|Yes |
-|address2|string|No |
-|city|string|Yes |
-|state|string|Yes |
-|zip|string|Yes |
-|country|string|Yes |
-|phone|string|Yes |
+|company|string|Да |
+|address1|string|Да |
+|address2|string|Нет |
+|city|string|Да |
+|state|string|Да |
+|zip|string|Да |
+|country|string|Да |
+|phone|string|Да |
 
 
 
-### <a name="campaign_defaults"></a>Campaign_Defaults
+### Campaign\_Defaults
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|from_name|string|Yes |
-|from_email|string|Yes |
-|subject|string|No |
-|language|string|Yes |
+|from\_name|string|Да |
+|from\_email|string|Да |
+|subject|string|Нет |
+|язык|string|Да |
 
 
 
-### <a name="createnewlistresponsemodel"></a>CreateNewListResponseModel
+### CreateNewListResponseModel
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|id|string|Yes |
-|name|string|Yes |
-|contact|not defined|Yes |
-|permission_reminder|string|Yes |
-|use_archive_bar|boolean|No |
-|campaign_defaults|not defined|Yes |
-|notify_on_subscribe|string|No |
-|notify_on_unsubscribe|string|No |
-|date_created|string|No |
-|list_rating|integer|No |
-|email_type_option|boolean|Yes |
-|subscribe_url_short|string|No |
-|subscribe_url_long|string|No |
-|beamer_address|string|No |
-|visibility|string|No |
-|modules|array|No |
-|stats|not defined|No |
-|_links|array|No |
+|id|string|Да |
+|name|string|Да |
+|contact|не определено|Да |
+|permission\_reminder|string|Да |
+|use\_archive\_bar|Логическое|Нет |
+|campaign\_defaults|не определено|Да |
+|notify\_on\_subscribe|string|Нет |
+|notify\_on\_unsubscribe|string|Нет |
+|date\_created|string|Нет |
+|list\_rating|целое число|Нет |
+|email\_type\_option|Логическое|Да |
+|subscribe\_url\_short|string|Нет |
+|subscribe\_url\_long|string|Нет |
+|beamer\_address|string|Нет |
+|visibility|string|Нет |
+|modules|array|Нет |
+|stats|не определено|Нет |
+|\_links|array|Нет |
 
 
 
-### <a name="stats"></a>Stats
+### Статистика
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|member_count|integer|No |
-|unsubscribe_count|integer|No |
-|cleaned_count|integer|No |
-|member_count_since_send|integer|No |
-|unsubscribe_count_since_send|integer|No |
-|cleaned_count_since_send|integer|No |
-|campaign_count|integer|No |
-|campaign_last_sent|integer|No |
-|merge_field_count|integer|No |
-|avg_sub_rate|number|No |
-|avg_unsub_rate|number|No |
-|target_sub_rate|number|No |
-|open_rate|number|No |
-|click_rate|number|No |
-|last_sub_date|string|No |
-|last_unsub_date|string|No |
+|member\_count|целое число|Нет |
+|unsubscribe\_count|целое число|Нет |
+|cleaned\_count|целое число|Нет |
+|member\_count\_since\_send|целое число|Нет |
+|unsubscribe\_count\_since\_send|целое число|Нет |
+|cleaned\_count\_since\_send|целое число|Нет |
+|campaign\_count|целое число|Нет |
+|campaign\_last\_sent|целое число|Нет |
+|merge\_field\_count|целое число|Нет |
+|avg\_sub\_rate|number|Нет |
+|avg\_unsub\_rate|number|Нет |
+|target\_sub\_rate|number|Нет |
+|open\_rate|number|Нет |
+|click\_rate|number|Нет |
+|last\_sub\_date|string|Нет |
+|last\_unsub\_date|string|Нет |
 
 
 
-### <a name="getlistsresponsemodel"></a>GetListsResponseModel
+### GetListsResponseModel
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|lists|array|No |
-|total_items|integer|No |
+|lists|array|Нет |
+|total\_items|целое число|Нет |
 
 
 
-### <a name="newmemberinlistrequest"></a>NewMemberInListRequest
+### NewMemberInListRequest
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|email_type|string|No |
-|status|string|Yes |
-|merge_fields|not defined|No |
-|interests|string|No |
-|language|string|No |
-|vip|boolean|No |
-|location|not defined|No |
-|email_address|string|Yes |
+|email\_type|string|Нет |
+|status|string|Да |
+|merge\_fields|не определено|Нет |
+|interests|string|Нет |
+|язык|string|Нет |
+|виртуальный IP-адрес|Логическое|Нет |
+|location|не определено|Нет |
+|email\_address|string|Да |
 
 
 
-### <a name="firstandlastname"></a>FirstAndLastName
+### FirstAndLastName
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|FNAME|string|No |
-|LNAME|string|No |
+|FNAME|string|Нет |
+|LNAME|string|Нет |
 
 
 
-### <a name="location"></a>Location
+### Расположение
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|latitude|number|No |
-|longitude|number|No |
+|latitude|number|Нет |
+|longitude|number|Нет |
 
 
 
-### <a name="memberresponsemodel"></a>MemberResponseModel
+### MemberResponseModel
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|id|string|No |
-|email_address|string|No |
-|unique_email_id|string|No |
-|email_type|string|No |
-|status|string|No |
-|merge_fields|not defined|No |
-|interests|string|No |
-|stats|not defined|No |
-|ip_signup|string|No |
-|timestamp_signup|string|No |
-|ip_opt|string|No |
-|timestamp_opt|string|No |
-|member_rating|integer|No |
-|last_changed|string|No |
-|language|string|No |
-|vip|boolean|No |
-|email_client|string|No |
-|location|not defined|No |
-|last_note|not defined|No |
-|list_id|string|No |
-|_links|array|No |
+|id|string|Нет |
+|email\_address|string|Нет |
+|unique\_email\_id|string|Нет |
+|email\_type|string|Нет |
+|status|string|Нет |
+|merge\_fields|не определено|Нет |
+|interests|string|Нет |
+|stats|не определено|Нет |
+|ip\_signup|string|Нет |
+|timestamp\_signup|string|Нет |
+|ip\_opt|string|Нет |
+|timestamp\_opt|string|Нет |
+|member\_rating|целое число|Нет |
+|last\_changed|string|Нет |
+|язык|string|Нет |
+|виртуальный IP-адрес|Логическое|Нет |
+|email\_client|string|Нет |
+|location|не определено|Нет |
+|last\_note|не определено|Нет |
+|list\_id|string|Нет |
+|\_links|array|Нет |
 
 
 
-### <a name="last_note"></a>Last_Note
+### Last\_Note
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|note_id|integer|No |
-|created_at|string|No |
-|created_by|string|No |
-|note|string|No |
+|note\_id|целое число|Нет |
+|created\_at|string|Нет |
+|created\_by|string|Нет |
+|note|string|Нет |
 
 
 
-### <a name="getallmembersresponsemodel"></a>GetAllMembersResponseModel
+### GetAllMembersResponseModel
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|members|array|No |
-|list_id|string|No |
-|total_items|integer|No |
+|members|array|Нет |
+|list\_id|string|Нет |
+|total\_items|целое число|Нет |
 
 
 
-### <a name="object"></a>Object
+### Объект
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 
 
 
-### <a name="updatememberinlistrequest"></a>UpdateMemberInListRequest
+### UpdateMemberInListRequest
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|email_address|string|No |
-|email_type|string|No |
-|status|string|Yes |
-|merge_fields|not defined|No |
-|interests|string|No |
-|language|string|No |
-|vip|boolean|No |
-|location|not defined|No |
+|email\_address|string|Нет |
+|email\_type|string|Нет |
+|status|string|Да |
+|merge\_fields|не определено|Нет |
+|interests|string|Нет |
+|язык|string|Нет |
+|виртуальный IP-адрес|Логическое|Нет |
+|location|не определено|Нет |
 
 
 
-### <a name="getmembersresponsemodel"></a>GetMembersResponseModel
+### GetMembersResponseModel
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|members|array|No |
-|list_id|string|No |
-|total_items|integer|No |
+|members|array|Нет |
+|list\_id|string|Нет |
+|total\_items|целое число|Нет |
 
 
 
-### <a name="adduserresponsemodel"></a>AddUserResponseModel
+### AddUserResponseModel
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|id|string|Yes |
-|email_address|string|Yes |
-|unique_email_id|string|No |
-|email_type|string|No |
-|status|string|No |
-|merge_fields|not defined|Yes |
-|interests|string|No |
-|stats|not defined|No |
-|ip_signup|string|No |
-|timestamp_signup|string|No |
-|ip_opt|string|No |
-|timestamp_opt|string|No |
-|member_rating|integer|No |
-|last_changed|string|No |
-|language|string|No |
-|vip|boolean|No |
-|email_client|string|No |
-|location|not defined|No |
-|last_note|not defined|No |
-|list_id|string|No |
-|_links|array|No |
+|id|string|Да |
+|email\_address|string|Да |
+|unique\_email\_id|string|Нет |
+|email\_type|string|Нет |
+|status|string|Нет |
+|merge\_fields|не определено|Да |
+|interests|string|Нет |
+|stats|не определено|Нет |
+|ip\_signup|string|Нет |
+|timestamp\_signup|string|Нет |
+|ip\_opt|string|Нет |
+|timestamp\_opt|string|Нет |
+|member\_rating|целое число|Нет |
+|last\_changed|string|Нет |
+|язык|string|Нет |
+|виртуальный IP-адрес|Логическое|Нет |
+|email\_client|string|Нет |
+|location|не определено|Нет |
+|last\_note|не определено|Нет |
+|list\_id|string|Нет |
+|\_links|array|Нет |
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Дальнейшие действия
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,162 +1,152 @@
-## <a name="column-mapping-with-translator-rules"></a>Column mapping with translator rules
-Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
+## Сопоставление столбцов с помощью правил переводчика
+Сопоставление столбцов можно использовать, чтобы указать, как столбцы, указанные в «structure» исходной схемы таблицы, сопоставляются со столбцами, указанными в «structure» таблицы-приемника. Свойство **ColumnMapping** доступно в разделе **typeProperties** действия копирования.
 
-Column mapping supports the following scenarios:
+Сопоставление столбцов применимо в следующих сценариях:
 
-- All columns in the source table “structure” are mapped to all columns in the sink table “structure”.
-- A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.
+- Все столбцы в «structure» исходной таблицы сопоставляется со всеми столбцами в «structure» таблицы-приемника.
+- Подмножество столбцов в «structure» исходной таблицы сопоставляется со всеми столбцами в «structure» таблицы-приемника.
 
-The following are error conditions and will result in an exception:
+Ниже приведены неправильные условия, которые приведут к порождению исключения.
 
-- Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.
-- Duplicate mapping.
-- SQL query result does not have a column name that is specified in the mapping.
+- Меньше или больше столбцов в «structure» таблицы-приемника, чем указано в сопоставлении.
+- Повторяющееся сопоставление.
+- В результате запроса SQL нет имени столбца, который указан в сопоставлении.
 
-## <a name="column-mapping-samples"></a>Column mapping samples
-> [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable to any data store that supports rectangular datasets. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source. 
+## Примеры сопоставления столбцов
+> [AZURE.NOTE] Приведенные ниже примеры предназначены для SQL Azure и большого двоичного объекта Azure, но подходят для любого хранилища данных, поддерживающего прямоугольные наборы данных. В этих примерах необходимо будет настроить набор данных и определения связанной службы, чтобы указать данные в соответствующем источнике данных.
 
-### <a name="sample-1-–-column-mapping-from-azure-sql-to-azure-blob"></a>Sample 1 – column mapping from Azure SQL to Azure blob
-In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.
+### Пример 1. Сопоставление столбцов из SQL Azure с большим двоичным объектом Azure
+В этом примере входная таблица имеет структуру, и она указывает на таблицу SQL в базе данных SQL Azure.
 
-    {
-        "name": "AzureSQLInput",
-        "properties": {
-            "structure": 
-             [
-               { "name": "userid"},
-               { "name": "name"},
-               { "name": "group"}
-             ],
-            "type": "AzureSqlTable",
-            "linkedServiceName": "AzureSqlLinkedService",
-            "typeProperties": {
-                "tableName": "MyTable"
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
-            }
-        }
-    }
+	{
+	    "name": "AzureSQLInput",
+	    "properties": {
+	        "structure": 
+	         [
+	           { "name": "userid"},
+	           { "name": "name"},
+	           { "name": "group"}
+	         ],
+	        "type": "AzureSqlTable",
+	        "linkedServiceName": "AzureSqlLinkedService",
+	        "typeProperties": {
+	            "tableName": "MyTable"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        },
+			"external": true,
+			"policy": {
+	            "externalData": {
+	                "retryInterval": "00:01:00",
+	                "retryTimeout": "00:10:00",
+	                "maximumRetry": 3
+	            }
+			}
+	    }
+	}
 
-In this sample, the output table has a structure and it points to a blob in an Azure blob storage.
+Выходная таблица имеет структуру, и она указывает на большой двоичный объект в хранилище больших двоичных объектов Azure.
 
-    {
-        "name": "AzureBlobOutput",
-        "properties":
-        {
-             "structure": 
-              [
-                    { "name": "myuserid"},
-                    { "name": "myname" },
-                    { "name": "mygroup"}
-              ],
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/myfolder",
-                "fileName":"myfile.csv",
-                "format":
-                {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability":
-            {
-                "frequency": "Hour",
-                "interval": 1
-            }
-        }
-    }
+	{
+	    "name": "AzureBlobOutput",
+	    "properties":
+	    {
+	         "structure": 
+	          [
+	                { "name": "myuserid"},
+	                { "name": "myname" },
+	                { "name": "mygroup"}
+	          ],
+	        "type": "AzureBlob",
+	        "linkedServiceName": "StorageLinkedService",
+	        "typeProperties": {
+	            "folderPath": "mycontainer/myfolder",
+	            "fileName":"myfile.csv",
+	            "format":
+	            {
+	                "type": "TextFormat",
+	                "columnDelimiter": ","
+	            }
+	        },
+	        "availability":
+	        {
+	            "frequency": "Hour",
+	            "interval": 1
+	        }
+	    }
+	}
 
-The JSON for the activity is shown below. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
+Ниже приведен JSON для действия. Столбцы из источника сопоставляются со столбцами в приемнике (**columnMappings**) с помощью свойства **Translator**.
 
-    {
-        "name": "CopyActivity",
-        "description": "description", 
-        "type": "Copy",
-        "inputs":  [ { "name": "AzureSQLInput"  } ],
-        "outputs":  [ { "name": "AzureBlobOutput" } ],
-        "typeProperties":    {
-            "source":
-            {
-                "type": "SqlSource"
-            },
-            "sink":
-            {
-                "type": "BlobSink"
-            },
-            "translator": 
-            {
-                "type": "TabularTranslator",
-                "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
-            }
-        },
-       "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            }
-    }
+	{
+	    "name": "CopyActivity",
+	    "description": "description", 
+	    "type": "Copy",
+	    "inputs":  [ { "name": "AzureSQLInput"  } ],
+	    "outputs":  [ { "name": "AzureBlobOutput" } ],
+	    "typeProperties":    {
+	        "source":
+	        {
+	            "type": "SqlSource"
+	        },
+	        "sink":
+	        {
+	            "type": "BlobSink"
+	        },
+	        "translator": 
+	        {
+	            "type": "TabularTranslator",
+	            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+	        }
+	    },
+	   "scheduler": {
+	          "frequency": "Hour",
+	          "interval": 1
+	        }
+	}
 
-**Column mapping flow:**
+**Процесс сопоставления столбцов:**
 
-![Column mapping flow](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
+![Процесс сопоставления столбцов](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
-### <a name="sample-2-–-column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
-In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section. 
+### Пример 2. Сопоставление столбцов из Azure SQL с большим двоичным объектом Azure с помощью SQL-запроса
+В этом примере используется SQL-запрос для извлечения данных из SQL Azure, а не просто указывается имя таблицы и имена столбцов в разделе «structure».
 
-    {
-        "name": "CopyActivity",
-        "description": "description", 
-        "type": "CopyActivity",
-        "inputs":  [ { "name": " AzureSQLInput"  } ],
-        "outputs":  [ { "name": " AzureBlobOutput" } ],
-        "typeProperties":
-        {
-            "source":
-            {
-                "type": "SqlSource",
-                "SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
-            },
-            "sink":
-            {
-                "type": "BlobSink"
-            },
-            "Translator": 
-            {
-                "type": "TabularTranslator",
-                "ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
-            }
-        },
-        "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            }
-    }
+	{
+	    "name": "CopyActivity",
+	    "description": "description", 
+	    "type": "CopyActivity",
+	    "inputs":  [ { "name": " AzureSQLInput"  } ],
+	    "outputs":  [ { "name": " AzureBlobOutput" } ],
+	    "typeProperties":
+	    {
+	        "source":
+	        {
+	            "type": "SqlSource",
+	            "SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
+	        },
+	        "sink":
+	        {
+	            "type": "BlobSink"
+	        },
+	        "Translator": 
+	        {
+	            "type": "TabularTranslator",
+	            "ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
+	        }
+	    },
+	    "scheduler": {
+	          "frequency": "Hour",
+	          "interval": 1
+	        }
+	}
 
-In this case, the query results are first mapped to columns specified in “structure” of source. Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.  Suppose the query returns 5 columns, two additional columns then those specified in the “structure” of source.
+В этом случае сначала результаты запроса сопоставляются со столбцами, указанными в «structure» источника. Затем столбцы из «structure» источника сопоставляются со столбцами в «structure» приемника посредством правил, определенных в columnMappings. Предположим, что запрос возвращает 5 столбцов, на два столбца больше, чем указано в подразделе «structure» источника.
 
-**Column mapping flow**
+**Процесс сопоставления столбцов**
 
-![Column mapping flow-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
+![Процесс сопоставления столбцов 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,145 +1,140 @@
 <properties
-    pageTitle="Microsoft Authenticator app for mobile phones | Microsoft Azure"
-    description="Learn how to upgrade to the latest version of Azure Authenticator."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtland"/>
+	pageTitle="Приложение Microsoft Authenticator для мобильных телефонов | Microsoft Azure"
+	description="Узнайте, как выполнить обновление до последней версии Azure Authenticatior."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
+	editor="curtland"/>
 
 <tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="kgremban"/>
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
+# Microsoft Authenticator
 
-# <a name="microsoft-authenticator"></a>Microsoft Authenticator
+Приложение Microsoft Authenticator обеспечивает дополнительный уровень безопасности для учетной записи Azure (например, bsimon@contoso.onmicrosoft.com), для локальной рабочей учетной записи (например, bsimon@contoso.com) или для учетной записи Майкрософт (например, bsimon@outlook.com).
 
-The Microsoft Authenticator app provides an additional level of security in your Azure account (for example, bsimon@contoso.onmicrosoft.com), your on-premises work account (for example, bsimon@contoso.com), or your Microsoft account (for example, bsimon@outlook.com).
+В приложении используется один из следующих методов:
 
-The app works in one of two ways:
+- **Уведомление**. Приложение помогает предотвратить несанкционированный доступ к учетным записям и остановить мошеннические транзакции, отправив уведомление на смартфон или планшетный ПК. Просто просмотрите уведомление и, если оно подлинное, нажмите кнопку **Проверить**. В противном случае нажмите кнопку **Отклонить**. Сведения о том, как отклонить уведомление, см. в статье об использовании функции запрета и уведомления о мошенничестве для Многофакторной идентификации.
 
-- **Notification**. The app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Simply view the notification, and if it's legitimate, select **Verify**. Otherwise, you can select **Deny**. For information about denying notifications, see How to use the Deny and Report Fraud Feature for Multi-Factor Authentication.
+- **Пароль и код проверки**. Приложение можно использовать в качестве программного токена для создания кода проверки OATH. Код, предоставленный приложением, нужно ввести на экране входа в ответ на запрос вместе с именем пользователя и паролем. Код проверки выступает вторым методом проверки подлинности.
 
-- **Password with verification code**. The app can be used as a software token to generate an OAuth verification code. You enter the code provided by the app into the sign-in screen, along with the user name and password, when prompted. The verification code provides a second form of authentication.
+С выпуском приложения Microsoft Authenticator старое приложение Azure Authenticator выводится из эксплуатации. Вы можете продолжать использовать приложение Azure Authenticator. Сведения в этой статье пригодятся вам, когда вы решите перейти к новому приложению Microsoft Authenticator.
 
-With the release of the Microsoft Authenticator app, the old Azure Authenticator app is being replaced.  The Azure Authenticator app will continue to work, but if you decide to move to the new Microsoft Authenticator app, this article can assist you.  
+## Установка приложения
 
-## <a name="install-the-app"></a>Install the app
+Приложение Microsoft Authenticator доступно для платформ [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) и [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+## Добавление учетной записи в приложение
 
-## <a name="add-accounts-to-the-app"></a>Add accounts to the app
+Чтобы добавить учетную запись в приложение Microsoft Authenticator, следуйте одной из приведенных ниже процедур.
 
-For each account that you want to add to the Microsoft Authenticator app, use one of the following procedures.
+### Добавление учетной записи в приложение с использованием сканера QR-кода
 
-### <a name="add-an-account-to-the-app-by-using-the-qr-code-scanner"></a>Add an account to the app by using the QR code scanner
+1. Перейдите на страницу параметров проверки безопасности. Инструкции по переходу на эту страницу см. в статье [Проблемы с Многофакторной идентификацией Microsoft Azure](multi-factor-authentication-end-user-manage-settings.md).
 
-1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md).
+2. Нажмите кнопку **Настроить**.
 
-2. Select **Configure**.
+	![Кнопка "Настроить" на странице параметров проверки безопасности](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
 
-    ![The Configure button on the security verification settings screen](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
+	Откроется страница с QR-кодом.
 
-    This brings up a screen with a QR code on it.
+	![Окно с QR-кодом](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-    ![Screen that provides the QR code](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
+3. Откройте приложение Microsoft Authenticator. В окне с **учетными записями** щелкните значок **+**, а затем выберите вариант "Рабочая или учебная учетная запись".
 
-3. Open the Microsoft Authenticator app. On the **accounts** screen, select **+**, and then specify that you want to add a work or school account.
+	![Окно учетных записей со знаком "плюс"](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-    ![The accounts screen with plus sign](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
+	![Окно, где можно выбрать вариант "Рабочая или учебная учетная запись"](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
-    ![Screen for specifying a work or school account](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
+4. Отсканируйте QR-код с помощью камеры, а затем нажмите кнопку **Готово**, чтобы закрыть окно с кодом.
 
-4. Use the camera to scan the QR code, and then select **Done** to close the QR code screen.
+	![Окно для сканирования QR-кода](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
 
-    ![Screen for scanning a QR code](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
+	Если камера не работает должным образом, можно ввести QR-код и URL-адрес вручную. Дополнительные сведения см. в разделе [Добавление учетной записи в приложение вручную](#add-an-account-to-the-app-manually).
 
-    If your camera is not working properly, you can enter the QR code and URL manually. For more information, see [Add an account to the app manually](#add-an-account-to-the-app-manually).
+5. Дождитесь активации учетной записи. После активации нажмите кнопку **Связаться со мной**. После этого на телефон будет отправлено уведомление или код проверки. Нажмите кнопку **Проверить**.
 
-5. Wait while the account is activated. When activation finishes, select **Contact me**.  This sends either a notification or a verification code to your phone.  Select **Verify**.
+	![Окно с кнопкой "Проверить" для входа](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
 
-    ![Screen where you select Verify to sign in](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
+6. Если в вашей компании для утверждения входа требуется ПИН-код, введите его.
 
-6. If your company requires a PIN for approving sign-in verification, enter it.
+	![Поле для ввода ПИН-кода](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
-    ![Box for entering a PIN](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
+7. После ввода ПИН-кода нажмите кнопку **Закрыть**. На этом этапе проверка будет считаться выполненной.
+8. Мы советуем указать номер своего мобильного телефона на случай утери доступа к приложению. Выберите соответствующую страну в раскрывающемся списке и введите номер в соседнее поле. Щелкните **Далее**.
+9. Вы уже настроили способ связи. Теперь необходимо задать пароли для приложений, не использующих браузер, таких как Outlook 2010 или более ранних версий. Если вы не используете такие приложения, нажмите кнопку **Готово**. В противном случае перейдите к следующему шагу.
 
-7. After PIN entry is complete, select **Close**. At this point, your verification should be successful.
-8. We recommend that you enter your mobile phone number in case you lose access to your app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
-9. At this point, you have set up your contact method. Now it's time to set up app passwords for non-browser apps, such as Outlook 2010 or older. If you don't use these apps, select **Done**. Otherwise, continue to the next step.
+	![Окно создания пароля приложения](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
 
-    ![Screen for creating an app password](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
+10. Если вы работаете с приложениями, не использующими браузер, скопируйте предоставленный пароль и вставьте его в свое приложение. Действия для конкретных приложений, включая Outlook и Lync, см. в разделах "Как сменить пароль электронной почты на пароль приложения" и "Как изменить пароль в приложении на пароль приложения".
+11. Нажмите кнопку **Готово**.
 
-10. If you're using non-browser apps, copy the provided app password and paste the password into your apps. For steps on individual apps such as Outlook and Lync, see How to change the password in your email to the app password and How to change the password in your application to the app password.
-11. Select **Done**.
+Новая учетная запись должна появиться в окне **учетных записей**.
 
-You should now see the new account on the **accounts** screen.
+![Окно с учетными записями](./media/multi-factor-authentication-azure-authenticator/accounts.png)
 
-![Accounts screen](./media/multi-factor-authentication-azure-authenticator/accounts.png)
+### Добавление учетной записи в приложение вручную
 
-### <a name="add-an-account-to-the-app-manually"></a>Add an account to the app manually
+1. Перейдите на страницу параметров проверки безопасности. Инструкции по переходу на эту страницу см. в статье [Проблемы с Многофакторной идентификацией Microsoft Azure](multi-factor-authentication-end-user-manage-settings.md).
 
-1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md).
+2. Нажмите кнопку **Настроить**.
 
-2. Select **Configure**.
+	![Кнопка "Настроить" на странице параметров проверки безопасности](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
 
-    ![The Configure button on the security verification settings screen](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
+	Откроется страница с QR-кодом. Запишите код и URL-адрес.
 
-    This brings up a screen with a QR code on it.  Note the code and URL.
+	![Окно с QR-кодом и URL-адресом](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 
-    ![Screen that provides the QR code and URL](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
+3. Откройте приложение Microsoft Authenticator. В окне с **учетными записями** щелкните значок **+**, а затем выберите вариант "Рабочая или учебная учетная запись".
 
-3. Open the Microsoft Authenticator app. On the **accounts** screen, select **+**, and then specify that you want to add a work or school account.
+	![Окно учетных записей со знаком "плюс"](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-    ![The accounts screen with plus sign](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
+	![Окно, где можно выбрать вариант "Рабочая или учебная учетная запись"](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
-    ![Screen for specifying a work or school account](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
+4. В сканере щелкните **Или введите код вручную**.
 
-4. In the scanner, select **enter code manually**.
+	![Окно для сканирования QR-кода](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
 
-    ![Screen for scanning a QR code](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
+5. Введите код и URL-адрес в соответствующие поля приложения.
 
-5. Enter the code and the URL in the appropriate boxes in the app.
+	![Окно ввода кода и URL-адреса](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
-    ![Screen for entering code and URL](./media/multi-factor-authentication-azure-authenticator/manual.png)
+	![Окно ввода кода и URL-адреса](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount2.png)
 
-    ![Screen for entering code and URL](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount2.png)
+6. Дождитесь активации учетной записи. После активации нажмите кнопку **Связаться со мной**. После этого на телефон будет отправлено уведомление или код проверки. Нажмите кнопку **Проверить**.
 
-6. Wait while the account is activated. When the activation finishes, select **Contact me**. This sends either a notification or a verification code to your phone. Select **Verify**.
+Новая учетная запись должна появиться в окне **учетных записей**.
 
-You should now see the new account on the **accounts** screen.
+![Окно с учетными записями](./media/multi-factor-authentication-azure-authenticator/accounts.png)
 
-![Accounts screen](./media/multi-factor-authentication-azure-authenticator/accounts.png)
+### Добавление учетной записи в приложение с использованием Touch ID
 
-### <a name="add-an-account-to-the-app-by-using-touch-id"></a>Add an account to the app by using Touch ID
+Приложение Microsoft Authenticator на iOS поддерживает Touch ID. Многофакторная идентификация Azure позволяет организациям запрашивать ПИН-код для устройств. При использовании Touch ID пользователям iOS не нужно вводить ПИН-код. Вместо этого можно просканировать отпечатки пальцев и нажать кнопку **Утвердить**.
 
-The Microsoft Authenticator app on iOS supports Touch ID.  Azure Multi-Factor Authentication allows organizations to require a PIN for devices. With Touch ID, iOS users don’t need to enter a PIN. Instead, they can scan their fingerprint and select **Approve**.
+Настройка Touch ID в приложении Microsoft Authenticator выполняется очень просто. Обычная проверка заканчивается вводом ПИН-кода. Если устройство поддерживает Touch ID, Microsoft Authenticator автоматически настроит его для учетной записи.
 
-Setting up Touch ID with Microsoft Authenticator is simple. You complete a normal verification challenge with a PIN. If your device supports Touch ID, Microsoft Authenticator will set it up automatically for that account.
+![Проверка настройки Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
 
-![Verification of Touch ID setup](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
+С этого момента для подтверждения входа вместо ввода ПИН-кода вам нужно будет только коснуться полученного push-уведомления и просканировать отпечаток пальца.
 
-From that point forward, when you're required to verify your sign-in, you select the received push notification and scan your fingerprint instead of entering your PIN.
+![push-уведомление](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-![Push notification](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
+## Удаление старого приложения Azure Authentication
 
-## <a name="uninstall-the-old-azure-authentication-app"></a>Uninstall the old Azure Authentication app
+После добавления всех учетных записей в новое приложение можно удалить старое приложение с телефона.
 
-After you have added all the accounts to the new app, you can uninstall the old app from your phone.
+## Удаление учетной записи
 
-## <a name="delete-an-account"></a>Delete an account
+Чтобы удалить учетную запись из приложения Microsoft Authenticator, выберите учетную запись и нажмите кнопку **Удалить**.
 
-To remove an account from the Microsoft Authenticator app, select the account, and then select **Delete**.
+![Кнопка "Удалить"](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-![Delete button](./media/multi-factor-authentication-azure-authenticator/remove.png)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

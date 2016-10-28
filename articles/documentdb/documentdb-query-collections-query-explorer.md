@@ -1,86 +1,80 @@
 <properties
-    pageTitle="DocumentDB Query Explorer: A SQL query editor | Microsoft Azure"
-    description="Learn about the DocumentDB Query Explorer, a SQL query editor in the Azure portal for writing SQL queries and running them against a NoSQL DocumentDB collection."
-    keywords="writing sql queries, sql query editor"
-    services="documentdb"
-    authors="kirillg"
-    manager="jhubbard"
-    editor="monicar"
-    documentationCenter=""/>
+	pageTitle="Обозреватель запросов DocumentDB: редактор SQL-запросов | Microsoft Azure"
+	description="Сведения об обозревателе запросов DocumentDB — редакторе SQL-запросов портала Azure, предназначенном для написания SQL-запросов и их выполнения в коллекции DocumentDB NoSQL."
+	keywords="написание sql-запросов, редактор sql-запросов"
+	services="documentdb"
+	authors="AndrewHoh"
+	manager="jhubbard"
+	editor="monicar"
+	documentationCenter=""/>
 
 <tags
-    ms.service="documentdb"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/30/2016"
-    ms.author="kirillg"/>
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="anhoh"/>
 
+# Создание, изменение и выполнение SQL-запросов для DocumentDB с помощью обозревателя запросов 
 
-# <a name="write,-edit,-and-run-sql-queries-for-documentdb-using-query-explorer"></a>Write, edit, and run SQL queries for DocumentDB using Query Explorer 
+В этой статье приведены общие сведения об обозревателе запросов [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/), который представляет собой инструмент портала Azure, предназначенный для создания, изменения и выполнения SQL-запросов к [коллекции DocumentDB](documentdb-create-collection.md).
 
-This article provides an overview of the [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) Query Explorer, an Azure portal tool that enables you to write, edit, and run SQL queries against a [DocumentDB collection](documentdb-create-collection.md).
+1. На навигационной панели портала Azure щелкните **DocumentDB (NoSQL)**. Если пункт **DocumentDB (NoSQL)** не отображается, то нажмите кнопку **Другие службы** и выберите **DocumentDB (NoSQL)**.
 
-1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
+2. В меню ресурсов выберите **Обозреватель запросов**.
 
-2. In the resource menu, click **Query Explorer**. 
+	![Снимок экрана: портал Azure с выделенным элементом "Обозреватель запросов"](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
 
-    ![Screenshot of the Azure portal with Query Explorer highlighted](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
+3. В колонке **Обозреватель запросов** выберите раскрывающиеся списки **Базы данных** и **Коллекции**, чтобы выполнить запрос из них, и введите запрос для выполнения.
 
-3. In the **Query Explorer** blade, select the **Databases** and **Collections** to query from the drop down lists, and type the query to run. 
+    Раскрывающиеся списки **Базы данных** и **Коллекции** предварительно заполняются в зависимости от контекста, в котором запускается обозреватель запросов.
 
-    The **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launch Query Explorer. 
+    По умолчанию указан запрос `SELECT TOP 100 * FROM c`. Вы можете принять запрос по умолчанию или создать собственный запрос с помощью языка SQL-запросов, описанного в [памятке по DocumentDB SQL](documentdb-sql-query-cheat-sheet.md) или в статье [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md).
 
-    A default query of `SELECT TOP 100 * FROM c` is provided.  You can accept the default query or construct your own query using the SQL query language described in the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md) or the [SQL query and SQL syntax](documentdb-sql-query.md) article.
+    Нажмите кнопку **Выполнить запрос**, чтобы просмотреть результаты.
 
-    Click **Run query** to view the results.
+	![Снимок экрана: написание SQL-запросов в обозревателе запросов (редакторе SQL-запросов)](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
 
-    ![Screenshot of writing SQL queries in Query Explorer, a SQL query editor](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
+4. В колонке **Результаты** отобразятся результаты запроса.
 
-4. The **Results** blade displays the output of the query. 
+	![Снимок экрана: результаты написания SQL-запросов в обозревателе запросов](./media/documentdb-query-collections-query-explorer/queryresults1.png)
 
-    ![Screenshot of results of writing SQL queries in Query Explorer](./media/documentdb-query-collections-query-explorer/queryresults1.png)
+## Работа с результатами
 
-## <a name="work-with-results"></a>Work with results
+По умолчанию обозреватель запросов возвращает результаты наборами по 100. Если запрос выдает больше 100 результатов, воспользуйтесь командами **Следующая страница** и **Предыдущая страница** для перемещения по списку результатов.
 
-By default, Query Explorer returns results in sets of 100.  If your query produces more than 100 results, simply use the **Next page** and **Previous page** commands to navigate through the result set.
+![Снимок экрана: поддержка страниц в обозревателе запросов](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
 
-![Screenshot of Query Explorer pagination support](./media/documentdb-query-collections-query-explorer/queryresultspagination.png)
+В области **Сведения** отображаются метрики успешно выполненных запросов, например плата за запрос, количество выполненных круговых путей запроса, текущие отображаемые результаты и наличие дополнительных результатов, к которым можно перейти с помощью команды **Следующая страница**, как описано выше.
 
-For successful queries, the **Information** pane contains metrics such as the request charge,  the number of round trips the query made, the set of results currently being shown, and whether there are more results, which can then be accessed via the **Next page** command, as mentioned previously.
+![Снимок экрана: сведения о запросе в обозревателе запросов](./media/documentdb-query-collections-query-explorer/queryinformation.png)
 
-![Screenshot of Query Explorer query information](./media/documentdb-query-collections-query-explorer/queryinformation.png)
+## Использование нескольких запросов
 
-## <a name="use-multiple-queries"></a>Use multiple queries
+Если вы используете несколько запросов и хотите быстро переключаться между ними, все запросы можно ввести в текстовое поле запроса в колонке **Обозреватель запросов**, а затем выделить запрос для выполнения и нажать кнопку **Выполнить запрос**, чтобы просмотреть результаты.
 
-If you're using multiple queries and want to quickly switch between them, you can enter all the queries in the query text box of the **Query Explorer** blade, then highlight the one you want to run, and then click **Run query** to view the results.
+![Снимок экрана: написание нескольких SQL-запросов SQL в обозревателе запросов (редакторе SQL-запросов), выделение и выполнение отдельных запросов](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
 
-![Screenshot of writing multiple SQL queries in Query Explorer (a SQL query editor) and highlighting and running individual queries](./media/documentdb-query-collections-query-explorer/queryexplorerhighlightandrun.png)
+## Добавление запросов из файла в редактор SQL-запросов
 
-## <a name="add-queries-from-a-file-into-the-sql-query-editor"></a>Add queries from a file into the SQL query editor
+Загрузить содержимое существующего файла можно с помощью команды **Загрузить файл**.
 
-You can load the contents of an existing file using the **Load File** command.
+![Снимок экрана: загрузка SQL-запросов из файла в обозревателе запросов с помощью загрузки файлов](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
 
-![Screenshot showing how to load SQL queries from a file into Query Explorer using Load File](./media/documentdb-query-collections-query-explorer/loadqueryfile.png)
+## Устранение неполадок
 
-## <a name="troubleshoot"></a>Troubleshoot
+Если запрос завершается ошибками, обозреватель запросов выводит список ошибок, который может быть полезен при устранении неполадок.
 
-If a query completes with errors, Query Explorer displays a list of errors that can help with troubleshooting efforts.
+![Снимок экрана: ошибки запроса в обозревателе запросов](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
-![Screenshot of Query Explorer query errors](./media/documentdb-query-collections-query-explorer/queryerror.png)
+## Выполнение SQL-запросов к DocumentDB за пределами портала
 
-## <a name="run-documentdb-sql-queries-outside-the-portal"></a>Run DocumentDB SQL queries outside the portal
+Использование обозревателя запросов на портале Azure — это один из способов выполнения SQL-запросов к DocumentDB. Вы можете также выполнять SQL-запросы с помощью [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или [клиентских пакетов SDK](documentdb-sdk-dotnet.md). Дополнительные сведения об использовании других способов см. в статье [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md#executing-sql-queries).
 
-The Query Explorer in the Azure portal is just one way to run SQL queries against DocumentDB. You can also run SQL queries using the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) or the [client SDKs](documentdb-sdk-dotnet.md). For more information about using these other methods, see [Executing SQL queries](documentdb-sql-query.md#executing-sql-queries)
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+Узнайте больше о грамматике SQL в DocumentDB, которую поддерживает обозреватель запросов, прочитав статью [SQL-запросы и синтаксис SQL в DocumentDB](documentdb-sql-query.md), или распечатайте копию [памятки по DocumentDB SQL](documentdb-sql-query-cheat-sheet.md). Вы также можете поэкспериментировать на [площадке для запросов](https://www.documentdb.com/sql/demo), где запросы можно тестировать через Интернет с помощью примера набора данных.
 
-To learn more about the DocumentDB SQL grammar supported in Query Explorer, see the [SQL query and SQL syntax](documentdb-sql-query.md) article or print out the [SQL query cheat sheet](documentdb-sql-query-cheat-sheet.md).
-You may also enjoy experimenting with the [Query Playground](https://www.documentdb.com/sql/demo) where you can test out queries online using a sample dataset.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

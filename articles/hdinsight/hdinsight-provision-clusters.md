@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create Windows-based Hadoop clusters in HDInsight | Microsoft Azure"
-    description="Learn how to create clusters for Azure HDInsight."
+   pageTitle="Создание кластеров Hadoop под управлением Windows в HDInsight | Microsoft Azure"
+   	description="Сведения о создании кластеров для Azure HDInsight."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -17,233 +17,228 @@
    ms.date="07/08/2016"
    ms.author="jgao"/>
 
-
-# <a name="create-windows-based-hadoop-clusters-in-hdinsight"></a>Create Windows-based Hadoop clusters in HDInsight
+# Создание кластеров Hadoop под управлением Windows в HDInsight
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks on the cluster. Azure abstracts the implementation details of installation and configuration of individual nodes, so you have to provide general configuration information. In this article, you will learn these configuration settings.
+Кластер Hadoop включает в себя несколько виртуальных машин (узлов), которые используются для распределенной обработки задач в кластере. Azure абстрагирует сведения об установке и конфигурации отдельных узлов, поэтому вам нужно указать общие сведения о настройке. В этой статье вы изучите эти параметры конфигурации.
 
->[AZURE.NOTE] The information in this document is specific to Windows-based Azure HDInsight clusters. For information about Linux-based clusters, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+>[AZURE.NOTE] Информация, приведенная в этом документе, относится только к кластерам Azure HDInsight под управлением Windows. Сведения о кластерах под управлением Linux см. в статье [Создание кластеров Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="access-control-requirements"></a>Access control requirements
+## Типы кластеров##
 
-[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+Сейчас HDInsight предоставляет четыре различных типа кластера, каждый из которых имеет набор компонентов для предоставления определенных функциональных возможностей.
 
-## <a name="cluster-types##"></a>Cluster types##
-
-Currently, HDInsight provides four different types of clusters, each with a set of components to provide certain functionalities.
-
-| Cluster type | Functionality |
+| Тип кластера | Функции |
 | ------------ | ----------------------------- |
-| Hadoop       | Query and analysis (batch jobs)     |
-| HBase        | NoSQL data storage            |
-| Storm        | Real-time event processing |
-| Spark (Preview) | In-memory processing, interactive queries, micro-batch stream processing |
+| Hadoop | Запросы и анализ (пакетные задания) |
+| HBase | Хранилище данных NoSQL |
+| Storm | Обработка событий в режиме реального времени |
+| Spark (Предварительная версия) | Обработка в памяти, интерактивные запросы, обработка потоков микро-пакетов |
 
-Each cluster type has its own number of nodes, terminology for nodes within the cluster, and default VM size for each node type. In the following table, the number of nodes for each node type is in parentheses.
+Для каждого типа кластера используется своя терминология (узлы кластера называются по-разному). Кроме того, типы отличаются количеством узлов и стандартными размерами виртуальных машин. В следующей таблице число узлов каждого типа указано в скобках.
 
-| Type| Nodes (number of nodes)| Diagram|
+| Тип| Узлы (число узлов)| Схема|
 |-----|------|--------|
-|Hadoop| Head node (2), data node (1+)|![HDInsight Hadoop cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
-|HBase|Head server (2), region server (1+), master/ZooKeeper node (3)|![HDInsight HBase cluster nodes](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
-|Storm|Nimbus node (2), supervisor server (1+), ZooKeeper node (3)|![HDInsight Storm cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
-|Spark|Head node (2), worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size)|![HDInsight Spark cluster nodes](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
+|Hadoop| Головной узел (2), узел данных (от 1)|![Узлы кластера HDInsight Hadoop](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)|
+|HBase|Головной сервер (2), региональный сервер (от 1), основной узел или узел Zookeeper (3)|![Узлы кластера HDInsight HBase](./media/hdinsight-provision-clusters/HDInsight.HBase.roles.png)|
+|Storm|Узел Nimbus (2), сервер супервизора (от 1), узел Zookeeper (3)|![Узлы кластера HDInsight Storm](./media/hdinsight-provision-clusters/HDInsight.Storm.roles.png)|
+|Spark|Головной узел (2), рабочий узел (от 1), узел Zookeeper (3) (кат. "Бесплатный" для размера виртуальной машины Zookeeper A1)|![Узлы кластера HDInsight Spark](./media/hdinsight-provision-clusters/HDInsight.Spark.roles.png)|
 
-> [AZURE.IMPORTANT] If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
+> [AZURE.IMPORTANT] Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
 
-You can add other components such as Hue or R to these basic types by using [Script Actions](#customize-clusters-using-script-action).
+С помощью [действий сценария](#customize-clusters-using-script-action) вы можете добавлять к этим базовым типам другие компоненты, например Hue или R.
 
-## <a name="basic-configuration-options"></a>Basic configuration options
+## Базовые параметры конфигурации
 
-The following are the basic configuration options required for creating an HDInsight cluster.
+Ниже приведены базовые параметры конфигурации, необходимые для создания кластера HDInsight.
 
-### <a name="cluster-name###"></a>Cluster name###
+### Имя кластера###
 
-Cluster name is used to identify a cluster. Cluster name must be globally unique, and it must follow these naming guidelines:
+Имя кластера используется для его идентификации. Имя кластера должно быть глобально уникальным и соответствовать этим правилам именования:
 
-- The field must be a string that contains between 3 and 63 characters
-- The field can contain only letters, numbers, and hyphens.
+- поле должно представлять собой строку длиной от 3 до 63 символов;
+- поле может содержать только буквы, цифры и дефисы.
 
-### <a name="cluster-type"></a>Cluster type ###
+### Тип кластера ###
 
-See [Cluster types](#cluster-types).
+См. раздел [Типы кластеров](#cluster-types).
 
-### <a name="operating-system"></a>Operating system ###
+### операционная система ###
 
-You can create HDInsight clusters on one of the following two operating systems:
+Кластеры HDInsight можно создавать на основе одной из двух операционных систем:
 
-- HDInsight on Linux. HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, are migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
+- HDInsight на платформе Linux. HDInsight предоставляет возможность настроить кластеры Linux в Azure. Настройте кластер Linux, если вы знакомы с Linux или Unix, выполняете миграцию из существующего решения Hadoop на платформе Linux или хотите с легкостью выполнить интеграцию с компонентами экосистемы Hadoop, созданными для Linux. Дополнительную информацию см. в разделе [Приступая к работе с Hadoop в Linux на платформе HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-- HDInsight on Windows (Windows Server 2012 R2 Datacenter).
+- HDInsight на платформе Windows (центр обработки данных Windows Server 2012 R2).
 
-### <a name="hdinsight-version###"></a>HDInsight version###
+### Версия HDInsight###
 
-HDInsight version is used to determine the version of HDInsight to use for this cluster. For more information, see [Hadoop cluster versions and components in HDInsight](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409).
+Версия HDInsight используется для определения версии HDInsight, которую следует использовать для этого кластера. Дополнительные сведения см. в статье [Что представляют собой различные компоненты Hadoop, доступные в HDInsight?](https://go.microsoft.com/fwLink/?LinkID=320896&clcid=0x409)
 
-### <a name="subscription-name###"></a>Subscription name###
+### Имя подписки###
 
-Each HDInsight cluster is tied to one Azure subscription.
+Каждый кластер HDInsight привязывается к одной подписке Azure.
 
-### <a name="resource-group-name###"></a>Resource group name###
+### Имя группы ресурсов###
 
-With [Azure Resource Manager](../resource-group-overview.md), you can deploy, update, monitor, or delete the resources for your application.
+С помощью [Azure Resource Manager](../resource-group-overview.md) можно развертывать, обновлять, отслеживать или удалять ресурсы для приложения.
 
-### <a name="credentials"></a>Credentials
+### Учетные данные
 
-With the HDInsight clusters, you can configure three user accounts during cluster creation.
+Во время создания кластера HDInsight можно настроить три учетные записи пользователя.
 
-- [Azure Resource Manager](../resource-group-overview.md) helps you work with the resources in your application as a group, referred to as an Azure resource group. You can deploy, update, monitor, or delete all of the resources for your application in a single, coordinated operation.
+- [Azure Resource Manager](../resource-group-overview.md) позволяет работать с ресурсами в приложении в виде группы, которая называется группой ресурсов Azure. Вы можете развертывать, обновлять, отслеживать или удалять все ресурсы для приложения в рамках одной скоординированной операции.
 
-- HTTP user. The default user name is *admin* in the basic configuration on the Azure portal. Sometimes the default is called "Cluster user."
-- RDP user (Windows clusters). Connect to the cluster by using RDP. When you create the account, you must set an expiration date within 90 days of the day you create the account.
-- SSH user (Linux clusters). Connect to the cluster by using SSH. You can create additional SSH user accounts after the cluster is created by following the steps in [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
+- Пользователь HTTP. По умолчанию используется имя пользователя *admin* в базовой конфигурации на портале Azure. Иногда его называют "пользователем кластера".
+- Пользователь RDP (кластеры Windows). Подключитесь к кластеру с помощью протокола удаленного рабочего стола (RDP). При создании учетной записи необходимо задать дату окончания срока действия не позднее 90 дней от даты создания учетной записи.
+- Пользователь SSH (кластеры Linux). Подключитесь к кластеру с помощью SSH. Дополнительные учетные записи пользователей SSH можно создать после создания кластера, следуя инструкциям в статье [Использование SSH с Hadoop в HDInsight на платформе Linux в Linux, Unix или OS X (предварительная версия)](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-### <a name="data-source"></a>Data source ###
+### Источник данных ###
 
-The original Hadoop distributed file system (HDFS) uses many local disks on the cluster. HDInsight uses Azure Blob storage for data storage. Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data in Blob storage. If you store data in Blob storage, you can safely delete the HDInsight clusters that are used for computation without losing user data.
+Исходная распределенная файловая система Hadoop использует несколько локальных дисков в кластере. HDInsight использует для хранения данных хранилище BLOB-объектов Azure. Хранилище BLOB-объектов Azure — это надежное, универсальное решение, которое полностью интегрируется с HDInsight. С помощью интерфейса HDFS все компоненты HDInsight могут напрямую взаимодействовать со структурированными или неструктурированными данными в хранилище BLOB-объектов. Хранение данных в хранилище BLOB-объектов позволяет безопасно и без потери пользовательских данных удалять используемые для расчетов кластеры HDInsight.
 
-During configuration, you must specify an Azure storage account and an Azure Blob storage container on the Azure storage account. Some creation processes require the Azure storage account and the Blob storage container to be created beforehand. The Blob storage container is used as the default storage location by the cluster. Optionally, you can specify additional Azure storage accounts (linked storage) that will be accessible by the cluster. The cluster can also access any Blob storage containers that are configured with full public read access, or public read access for blobs only.  For more information, see [Manage Access to Azure Storage Resources](../storage/storage-manage-access-to-resources.md).
+В процессе настройки необходимо задать учетную запись хранения Azure и контейнер для хранения BLOB-объектов. В некоторых сценариях создания учетную запись и контейнер потребуется подготовить заранее. Кластер будет использовать этот контейнер в качестве хранилища по умолчанию. Вы также можете указать дополнительные учетные записи хранения Azure (связанные хранилища), к которым кластер получит доступ. Кластер также сможет получать доступ к любым контейнерам хранилища BLOB-объектов, настроенным с полным общим доступом для чтения или общим доступом для чтения только на уровне больших двоичных объектов. Подробнее см. в разделе [Управление доступом к ресурсам службы хранилища Azure](../storage/storage-manage-access-to-resources.md).
 
-![HDInsight storage](./media/hdinsight-provision-clusters/HDInsight.storage.png)
+![Хранилище HDInsight](./media/hdinsight-provision-clusters/HDInsight.storage.png)
 
->[AZURE.NOTE] A Blob storage container provides a grouping of a set of blobs as shown in the following image.
+>[AZURE.NOTE] Большие двоичные объекты группируются в контейнерах хранилища BLOB-объектов следующим образом.
 
-During configuration, you must specify an Azure storage account and an Azure Blob storage container on the Azure storage account. Some creation processes require the Azure storage account and the Blob storage container to be created beforehand. The Blob storage container is used as the default storage location by the cluster. Optionally, you can specify additional Azure storage accounts (linked storage) that the cluster can access. The cluster can also access any Blob containers that are configured with full public read access or public read access for blobs only. For more information, see [Manage Access to Azure Storage Resources](../storage/storage-manage-access-to-resources.md).
+В процессе настройки необходимо задать учетную запись хранения Azure и контейнер для хранения BLOB-объектов. В некоторых сценариях создания учетную запись и контейнер потребуется подготовить заранее. Кластер будет использовать этот контейнер в качестве хранилища по умолчанию. Вы также можете указать дополнительные учетные записи хранения Azure (связанные хранилища), к которым кластер может получать доступ. Кластер также сможет получать доступ к любым контейнерам больших двоичных объектов, настроенным с полным общим доступом для чтения или общим доступом для чтения только на уровне больших двоичных объектов. Подробнее см. в разделе [Управление доступом к ресурсам службы хранилища Azure](../storage/storage-manage-access-to-resources.md).
 
 
-![Azure Blob Storage](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
+![Хранилище больших двоичных объектов Azure](./media/hdinsight-provision-clusters/Azure.blob.storage.jpg)
 
-We do not recommend the default Blob storage container for storing business data. Deleting the default Blob storage container after each use to reduce storage cost is a good practice. The default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
+Контейнер хранилища BLOB-объектов по умолчанию не рекомендуется использовать для хранения бизнес-данных. Чтобы сократить затраты на хранение, контейнер хранилища BLOB-объектов по умолчанию рекомендуется удалять после каждого использования. Контейнер по умолчанию содержит журналы приложений и системный журнал. Обязательно извлеките эти журналы перед удалением контейнера.
 
->[AZURE.WARNING] HDInsight does not support sharing one Blob storage container for multiple clusters.
+>[AZURE.WARNING] HDInsight не поддерживает совместное использование одного контейнера хранилища BLOB-объектов для нескольких кластеров.
 
-For more information about secondary Blob storage, see [HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md).
+Подробнее о дополнительных хранилищах BLOB-объектов см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-In addition to Azure Blob storage, you can also use [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) as a default storage account for an HBase cluster in HDInsight and as linked storage for all four HDInsight cluster types. For more information, see [Create an HDInsight cluster with Data Lake Store using Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Наряду с хранилищем BLOB-объектов Azure в качестве учетной записи хранения по умолчанию для кластера HBase в HDInsight, а также в качестве связанного хранилища для всех четырех типов кластера HDInsight можно использовать [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). Дополнительные сведения см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-### <a name="location-(region)###"></a>Location (region)###
+### Расположение (регион)###
 
-The HDInsight cluster and its default storage account must be located at the same Azure location.
+Кластер HDInsight должен находиться в том же расположении Azure, что и его учетная запись хранения, используемая по умолчанию.
 
-![Azure regions](./media/hdinsight-provision-clusters/Azure.regions.png)
+![Регионы Azure](./media/hdinsight-provision-clusters/Azure.regions.png)
 
-For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Просмотреть поддерживаемые регионы можно в раскрывающемся списке **Регион** на странице [Цены на HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
-### <a name="node-pricing-tiers###"></a>Node pricing tiers###
+### Ценовые категории узлов###
 
-Customers are billed for the usage of those nodes for the duration of the cluster’s life. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
+Клиенты оплачивают использование этих узлов на протяжении всего срока существования кластера. Начисление оплаты начинается после создания кластера и прекращается только после его удаления. Перевести кластер в режим ожидания или отменить его выделение невозможно.
 
-Different cluster types have different node types, numbers of nodes, and node sizes. For example, a Hadoop cluster type has two _head nodes_ and a default of four _data nodes_, while a Storm cluster type has two _nimbus nodes_, three _ZooKeeper nodes_, and a default of four _supervisor nodes_. The cost of HDInsight clusters is determined by the number of nodes and the virtual machine sizes for the nodes. For example, if you know that you will be performing operations that need a lot of memory, you may want to select a compute resource with more memory. For learning purposes, we recommend working with one data node. For more information about HDInsight pricing, see [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
+Кластеры разных типов отличаются типами, количеством и размерами узлов. Например, кластер Hadoop имеет два _головных узла_ и четыре _узла данных_ (по умолчанию), а кластер Storm — два _узла Nimbus_, три _узла Zookeeper_ и четыре _узла супервизора_ (по умолчанию). Затраты на кластеры HDInsight определяются числом узлов и размерами виртуальных машин на узлах. Например, если вы знаете, что будете выполнять операции, требующие большого объема памяти, вам, возможно, следует выбрать вычислительный ресурс с большим объемом памяти. Для учебных целей рекомендуется использовать один узел данных. Дополнительные сведения о ценах на HDInsight см. в статье [Цены на HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
->[AZURE.NOTE] The cluster size limit varies among Azure subscriptions. Contact billing support to increase the limit.
+>[AZURE.NOTE] Максимальный размер кластера зависит от подписки Azure. Чтобы увеличить лимит, обратитесь в службу поддержки по вопросам выставления счетов.
 
->The nodes used by your cluster do not count as virtual machines because the virtual machine images used for the nodes are an implementation detail of the HDInsight service. However, the compute cores used by the nodes do count against the total number of compute cores available to your subscription. You can see the available cores and the number of cores the cluster will use in the summary section of the Node Pricing Tiers blade when creating an HDInsight cluster.
+>Узлы, используемые кластером, не учитываются в общем количестве виртуальных машин, так как образы виртуальных машин, используемые для узлов, реализуются службой HDInsight. Однако вычислительные ядра, используемые узлами, учитываются в общем количестве вычислительных ядер, доступных для вашей подписки. В разделе сводки в колонке "Ценовые категории узлов" при создании кластера HDInsight можно просмотреть доступные ядра и количество ядер, которые будут использоваться кластером.
 
-When you configure the cluster with the Azure portal, the node size is available through the __Node Pricing Tier__ blade. You can also see the cost associated with the different node sizes. The following screenshot shows the choices for a Linux-based Hadoop cluster.
+При настройке кластера на портале Azure размер узла можно выбрать в колонке __Ценовая категория для узлов__. Здесь также отображаются расценки на узлы разных размеров. На следующем снимке экрана показаны варианты для кластера Hadoop под управлением Linux.
 
-![HDInsight vm node sizes](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
+![Размеры узла виртуальной машины HDInsight](./media/hdinsight-provision-clusters/hdinsight.node.sizes.png)
 
-The following tables show the sizes supported by HDInsight clusters and the capacities they provide.
+В таблицах ниже перечислены все размеры, поддерживаемые кластерами HDInsight, и предоставляемые ими возможности.
 
-### <a name="standard-tier:-a-series###"></a>Standard tier: A-series###
+### Уровень Standard: серия A###
 
-In the classic deployment model, some VM sizes are slightly different in PowerShell and CLI.
+В классической модели развертывания некоторые размеры виртуальных машин немного отличаются в PowerShell и интерфейсе командной строки.
 
-* Standard_A3 is Large
-* Standard_A4 is ExtraLarge
+* Standard\_A3 — "Крупный".
+* Standard\_A4 — "Очень крупный".
 
-|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Размер |Ядра ЦП|Память|Сетевые адаптеры (макс.)|Максимальный размер диска|Макс. количество дисков данных (по 1023 ГБ)|Макс. количество операций ввода-вывода в секунду (500 на диск)|
 |---|---|---|---|---|---|---|
-|Standard_A3\Large|4|7 GB|2|Temporary = 285 GB |8|8x500|
-|Standard_A4\ExtraLarge|8|14 GB|4|Temporary = 605 GB |16|16x500|
-|Standard_A6|4|28 GB|2|Temporary = 285 GB |8|8x500|
-|Standard_A7|8|56 GB|4|Temporary = 605 GB |16|16x500|
+|Standard\_A3\"Крупный"|4|7 ГБ|2|Временный: 285 ГБ |8|8x500|
+|Standard\_A4\"Очень крупный"|8|14 ГБ|4|Временный: 605 ГБ |16|16x500|
+|Standard\_A6|4|28 ГБ|2|Временный: 285 ГБ |8|8x500|
+|Standard\_A7|8|56 ГБ|4|Временный: 605 ГБ |16|16x500|
 
 
-### <a name="standard-tier:-d-series###"></a>Standard tier: D-series###
+### Уровень Standard: серия D###
 
-|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Размер |Ядра ЦП|Память|Сетевые адаптеры (макс.)|Максимальный размер диска|Макс. количество дисков данных (по 1023 ГБ)|Макс. количество операций ввода-вывода в секунду (500 на диск)|
 |---|---|---|---|---|---|---|
-|Standard_D3 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D4 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D12 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D13 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D14 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|
+|Standard\_D3 |4\.|14 ГБ|4|Временный (SSD): 200 ГБ |8|8x500|
+|Standard\_D4 |8|28 ГБ|8|Временный (SSD): 400 ГБ |16|16x500|
+|Standard\_D12 |4\.|28 ГБ|4|Временный (SSD): 200 ГБ |8|8x500|
+|Standard\_D13 |8|56 ГБ|8|Временный (SSD): 400 ГБ |16|16x500|
+|Standard\_D14 |16|112 ГБ|8|Временный (SSD): 800 ГБ |32|32x500|
 
 
-### <a name="standard-tier:-dv2-series###"></a>Standard tier: Dv2-series###
+### Уровень Standard: серия Dv2###
 
-|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Размер |Ядра ЦП|Память|Сетевые адаптеры (макс.)|Максимальный размер диска|Макс. количество дисков данных (по 1023 ГБ)|Макс. количество операций ввода-вывода в секунду (500 на диск)|
 |---|---|---|---|---|---|---|
-|Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|     
+|Standard\_D3\_v2 |4\.|14 ГБ|4|Временный (SSD): 200 ГБ |8|8x500|
+|Standard\_D4\_v2 |8|28 ГБ|8|Временный (SSD): 400 ГБ |16|16x500|
+|Standard\_D12\_v2 |4\.|28 ГБ|4|Временный (SSD): 200 ГБ |8|8x500|
+|Standard\_D13\_v2 |8|56 ГБ|8|Временный (SSD): 400 ГБ |16|16x500|
+|Standard\_D14\_v2 |16|112 ГБ|8|Временный (SSD): 800 ГБ |32|32x500|     
 
-For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md). For information about pricing of various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight).   
+Рекомендации по развертыванию, которые нужно учитывать, если вы планируете использовать эти ресурсы, приведены в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md). Сведения о расценках на разные размеры см. [здесь](https://azure.microsoft.com/pricing/details/hdinsight).
 
-> [AZURE.IMPORTANT] If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, you must select a head node size with at least 8 cores and 14 GB of RAM.
+> [AZURE.IMPORTANT] Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), то для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
 
-Billing starts when a cluster is created and stops when the cluster is deleted. For more information about pricing, see [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
+Начисление оплаты начинается после создания кластера и прекращается только после его удаления. Дополнительные сведения о ценах см. [здесь](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 
-|Size |CPU cores|Memory|NICs (max.)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|Размер |Ядра ЦП|Память|Сетевые адаптеры (макс.)|Максимальный размер диска|Макс. количество дисков данных (по 1023 ГБ)|Макс. количество операций ввода-вывода в секунду (500 на диск)|
 |---|---|---|---|---|---|---|
-|Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500|
-|Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500|
-|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500|    
+|Standard\_D3\_v2 |4\.|14 ГБ|4|Временный (SSD): 200 ГБ |8|8x500|
+|Standard\_D4\_v2 |8|28 ГБ|8|Временный (SSD): 400 ГБ |16|16x500|
+|Standard\_D12\_v2 |4\.|28 ГБ|4|Временный (SSD): 200 ГБ |8|8x500|
+|Standard\_D13\_v2 |8|56 ГБ|8|Временный (SSD): 400 ГБ |16|16x500|
+|Standard\_D14\_v2 |16|112 ГБ|8|Временный (SSD): 800 ГБ |32|32x500|    
 
-For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md). For information about pricing of the various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight).  
+Рекомендации по развертыванию, которые нужно учитывать, если вы планируете использовать эти ресурсы, приведены в статье [Размеры виртуальных машин в Azure](../virtual-machines/virtual-machines-windows-sizes.md). Сведения о расценках на разные размеры см. [здесь](https://azure.microsoft.com/pricing/details/hdinsight).
 
-> [AZURE.IMPORTANT] If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
+> [AZURE.IMPORTANT] Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
 
- Billing starts when a cluster is created and stops when the cluster is deleted. For more information on pricing, see [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
-
-
-## <a name="add-more-storage"></a>Add more storage
-
-In some cases, you may want to add more storage to the cluster. For example, you might have multiple Azure storage accounts for different geographical regions or for different services, but you want to analyze them all with HDInsight.
-
-For more information about secondary Blob storage, see [Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight](hdinsight-hadoop-use-blob-storage.md). For more information about secondary Data Lake stores, see [Create HDInsight clusters with Data Lake Store using the Azure portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+ Начисление оплаты начинается после создания кластера и прекращается только после его удаления. Дополнительные сведения о ценах см. в статье [Цены на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 
-## <a name="use-a-hive/oozie-metastore"></a>Use a Hive/Oozie metastore
+## Добавление объема хранилища
 
-We strongly recommend that you use a custom metastore if you want to keep your Hive tables after you delete your HDInsight cluster for purposes of attaching that metastore to another HDInsight cluster in the future.
+В некоторых случаях вам может понадобиться добавить дополнительный объем хранилища в кластер. Например, у вас есть несколько учетных записей хранения Azure для разных географических регионов или разных служб и вам нужно проанализировать их с помощью HDInsight.
 
-> [AZURE.IMPORTANT] HDInsight metastore is not backward compatible. For example, you cannot use a metastore of an HDInsight 3.3 cluster to create an HDInsight 3.2 cluster.
+Подробнее о дополнительных хранилищах BLOB-объектов см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](hdinsight-hadoop-use-blob-storage.md). Подробнее о дополнительных хранилищах Data Lake Store см. в статье [Создание кластера HDInsight с хранилищем озера данных с помощью портала Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-The metastore contains Hive and Oozie metadata, such as Hive tables, partitions, schemas, and columns. The metastore helps you to retain your Hive and Oozie metadata. You don't need to re-create Hive tables or Oozie jobs when you create a new cluster. By default, Hive uses an embedded Azure SQL database to store this information. The embedded database can't preserve the metadata when the cluster is deleted. For example, if you create Hive tables in a cluster created with a Hive metastore, you can see those tables if you delete and re-create the cluster with the same Hive metastore.
 
-Metastore configuration is not available for HBase cluster types.
+## Использование хранилища метаданных Hive/Oozie
 
-> [AZURE.IMPORTANT] When you're creating a custom metastore, do not use a database name that contains dashes or hyphens because this can cause the cluster creation process to fail.
+Если вы хотите сохранить таблицы Hive после удаления кластера HDInsight, то мы настоятельно рекомендуем использовать пользовательское хранилище метаданных, чтобы в будущем подключить это хранилище к другому кластеру HDInsight.
 
-## <a name="use-azure-virtual-network"></a>Use Azure Virtual Network
+> [AZURE.IMPORTANT] Метахранилище HDInsight не обладает обратной совместимостью. Например, вы не сможете использовать метахранилище кластера HDInsight 3.3 для создания кластера HDInsight 3.2.
 
-[Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) helps you create a secure, persistent network that contains the resources you need for your solution. With a virtual network, you can:
+Метахранилище содержит метаданные Hive и Oozie, такие как таблицы, секции, схемы и столбцы Hive. Использование хранилища метаданных помогает сохранять метаданные Hive и Oozie. Таким образом вам не придется создавать повторно таблицы Hive или задания Oozie при создании нового кластера. Для хранения подобной информации Hive по умолчанию использует встроенную базу данных SQL Azure. Встроенная база данных не сохраняет метаданные при удалении кластера. Например, если создать таблицы Hive в кластере, созданном с хранилищем метаданных Hive, то в случае удаления и повторного создания кластера с использованием того же хранилища метаданных Hive вы увидите эти же таблицы.
 
-* Connect cloud resources together in a private network (cloud-only).
+Возможность настройки метахранилища не поддерживается для кластеров типа HBase.
 
-    ![diagram of cloud-only configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
+> [AZURE.IMPORTANT] Создавая пользовательское хранилище метаданных, не используйте для базы данных имя, которое содержит тире или дефисы. Это может привести к сбою при создании кластера.
 
-* Connect your cloud resources to your local datacenter network (site-to-site or point-to-site) by using a virtual private network (VPN).
+## Использование виртуальной сети Azure
 
-| Site-to-site configuration | Point-to-site configuration |
+[Виртуальная сеть Azure](https://azure.microsoft.com/documentation/services/virtual-network/) помогает создать безопасную, стабильную сеть, в которой будут находиться все ресурсы, необходимые для успешного функционирования вашего решения. Виртуальная сеть позволяет:
+
+* Соединить облачные ресурсы с частной сетью (только для облачных решений).
+
+	![Диаграмма конфигурации только для облачных решений](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-cloud-only.png)
+
+* Соединить ваши облачные ресурсы с сетью локального центра обработки данных (типа «сеть — сеть» или «точка — сеть») при помощи виртуальной частной сети (VPN).
+
+| Конфигурации «сеть — сеть» | Конфигурации «точка — сеть» |
 | -------------------------- | --------------------------- |
-| With site-to-site configuration, you can connect to multiple resources from your datacenter to Azure Virtual Network by using a hardware VPN or the Routing and Remote Access Service.<br />![diagram of site-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | With point-to-site configuration, you can connect a specific resource to Azure Virtual Network by using a software VPN.<br />![diagram of point-to-site configuration](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
+| Конфигурация типа "сеть-сеть" позволяет соединить несколько ресурсов вашего центра обработки данных с виртуальной сетью Azure при помощи аппаратного обеспечения VPN или службы маршрутизации и удаленного доступа.<br />![Диаграмма конфигурации соединения "сервер-сервер"](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-site-to-site.png) | Конфигурация типа "точка-сеть" позволяет подключить конкретный ресурс к виртуальной сети Azure с использованием программного обеспечения VPN.<br />![Диаграмма конфигурации соединения "клиент-сервер"](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-vnet-point-to-site.png) |
 
-Windows-based clusters require a classic virtual network, while Linux-based clusters require an Azure Resource Manager virtual network. If you do not have the correct type of network, it will not be usable when you create the cluster.
+Для кластеров на базе Windows требуется классическая виртуальная сеть, а для кластеров на базе Linux — виртуальная сеть Azure Resource Manager. Если у вас несоответствующий тип сети, она будет бесполезна при создании кластера.
 
-For more information about how HDInsight works with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+Дополнительные сведения об использовании HDInsight в виртуальной сети, включая требования к конфигурации виртуальной сети, см. в статье [Расширение возможностей HDInsight с помощью виртуальной сети Azure](hdinsight-extend-hadoop-virtual-network.md).
 
-## <a name="customize-clusters-by-using-hdinsight-cluster-customization-(bootstrap)"></a>Customize clusters by using HDInsight cluster customization (bootstrap)
+## Настройка кластеров HDInsight (служба начальной загрузки)
 
-Sometimes, you want to configure the following configuration files:
+В некоторых случаях требуется изменить следующие файлы конфигурации:
 
 - clusterIdentity.xml
 - core-site.xml
@@ -261,31 +256,27 @@ Sometimes, you want to configure the following configuration files:
 - webhcat-site.xml
 - yarn-site.xml
 
-To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process. You can also use Ambari in Linux-based clusters. For more information, see [Customize HDInsight clusters by using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+Чтобы они сохранялись в течение всего времени существования кластера, можно в процессе создания изменить файлы конфигурации кластера HDInsight. Также в кластерах под управлением Linux можно использовать Ambari. Дополнительные сведения см. в статье [Настройка кластеров HDInsight с помощью начальной загрузки](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
->[AZURE.NOTE] The Windows-based clusters can't retain the changes due to reimage. For more information, see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). To keep the changes throughout the lifetime of a cluster, you must use HDInsight cluster customization during the creation process.
+>[AZURE.NOTE] При пересоздании образа в кластерах под управлением Windows изменения не сохраняются. Дополнительные сведения см. в разделе [Перезапуск экземпляра роли из-за обновлений ОС](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). Чтобы изменения сохранялись в течение всего времени существования кластера, необходимо изменить настройки кластера HDInsight во время его создания.
 
-## <a name="customize-clusters-by-using-script-action"></a>Customize clusters by using Script Action
+## Настройка кластеров с помощью действия сценария
 
-You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize a HDInsight cluster by using Script Action](hdinsight-hadoop-customize-cluster.md).
+Можно установить дополнительные компоненты или настроить конфигурацию кластера с помощью сценариев во время создания. Такие сценарии вызываются с помощью **действия сценария**, которое является параметром конфигурации и может использоваться посредством портала Azure, командлетов HDInsight PowerShell или пакета SDK для HDInsight .NET. Дополнительные сведения см. в статье [Настройка кластеров HDInsight под управлением Windows с помощью действия сценария](hdinsight-hadoop-customize-cluster.md).
 
 
 
-## <a name="cluster-creation-methods"></a>Cluster creation methods
+## Способы создания кластера
 
-In this article, you have learned basic information about creating a Windows-based HDInsight cluster. Use the following table to find specific information about how to create a cluster by using a method that best suits your needs.
+В этой статье мы рассмотрели основные сведения о создании кластера HDInsight под управлением Windows. Приведенная ниже таблица поможет вам получить дополнительные сведения о создании кластера с помощью метода, который наилучшим образом соответствует вашим потребностям.
 
-| Clusters created with | Web browser | Command line | REST API | SDK | Linux, Mac OS X, or Unix | Windows |
+| Метод создания кластеров | браузер | Команда | Интерфейс REST API | SDK | ОС Linux, Mac OS X и Unix | Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
-| [The Azure portal](hdinsight-hadoop-create-windows-clusters-portal.md) | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔      | ✔ |
-| [Azure CLI](hdinsight-hadoop-create-windows-clusters-cli.md)         | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔      | ✔ |
-| [Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md) | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔ | ✔ |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) | &nbsp; | ✔     | ✔ | &nbsp; | ✔      | ✔ |
-| [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔      | ✔ |
-| [Azure Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔      | ✔ |
+| [Портал Azure](hdinsight-hadoop-create-windows-clusters-portal.md) | ✔ | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ |
+| [Интерфейс командной строки Azure](hdinsight-hadoop-create-windows-clusters-cli.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
+| [Azure PowerShell](hdinsight-hadoop-create-windows-clusters-powershell.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) | &nbsp; | ✔ | ✔ | &nbsp; | ✔ | ✔ |
+| [Пакет SDK для .NET](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔ | ✔ |
+| [Шаблоны диспетчера ресурсов Azure](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔ | &nbsp; | &nbsp; | ✔ | ✔ |
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

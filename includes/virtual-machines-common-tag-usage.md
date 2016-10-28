@@ -1,27 +1,22 @@
 
 
 
-## <a name="viewing-your-tags-in-the-usage-details"></a>Viewing your tags in the usage details
+## Просмотр тегов в сведениях об использовании
 
-Tags placed on Compute, Network, and Storage resources in the Resource Manager deployment model will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
+Теги, добавленные к ресурсам вычисления, сети и хранения с помощью модели развертывания Resource Manage, будут указаны в сведениях о использовании на [портале выставления счетов](https://account.windowsazure.com/).
 
-Click on **Download usage details** to view the usage details in your subscription.
+Нажмите **Скачать сведения об использовании**, чтобы просмотреть сведения о применении подписки.
 
-![Usage details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Сведения об использовании на портале Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Select your billing statement and the **Version 2** usage details:
+Выберите платежный документ и **версию 2** сведений об использовании:
 
-![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Сведения об использовании предварительной версии 2 на портале Azure](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-From the usage details, you can see all of the tags in the **Tags** column:
+В сведениях об использовании все теги отображаются в столбце **Теги**:
 
-![Tags column in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![Столбец "Теги" на портале Azure](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
-
-
-
-
-<!--HONumber=Oct16_HO2-->
+Проанализировав эти теги и сведения об использовании, организации смогут узнать больше из данных о потреблении.
 
 

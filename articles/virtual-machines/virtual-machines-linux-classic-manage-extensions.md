@@ -1,6 +1,6 @@
 <properties
- pageTitle="Manage virtual machine extensions | Microsoft Azure"
- description="Describes how to add, find, update, and remove extensions for Azure virtual machines, in the classic deployment model."
+ pageTitle="Управление расширениями виртуальной машины | Microsoft Azure"
+ description="Описывает, как добавить, найти, обновить и удалить расширения для виртуальных машин Azure в классической модели развертывания."
  services="virtual-machines-linux"
  documentationCenter=""
  authors="squillace"
@@ -16,17 +16,12 @@
  ms.date="08/29/2016"
  ms.author="rasquill"/>
 
+#Управление расширениями виртуальной машины
 
-#<a name="manage-virtual-machine-extensions"></a>Manage virtual machine extensions
-
-Describes how to find, add, modify, or remove VM Extensions with either Windows or Linux Virtual Machines on Azure.
+Эта статья описывает методы поиска, добавления, изменения и удаления расширений ВМ на виртуальных машинах Azure Windows или Linux.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,92 +1,87 @@
 <properties
-    pageTitle="Access Hadoop YARN application logs programmatically | Microsoft Azure"
-    description="Access application logs programmatically on a Hadoop cluster in HDInsight."
-    services="hdinsight"
-    documentationCenter=""
-    tags="azure-portal"
-    authors="mumian" 
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Программный доступ к журналам приложений Hadoop YARN в HDInsight | Microsoft Azure"
+	description="Программный доступ к журналам приложений в кластере Hadoop в HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian" 
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/19/2016"
-    ms.author="jgao"/>
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/25/2016"
+	ms.author="jgao"/>
+
+# Доступ к журналам приложений YARN в HDInsight под управлением Windows
+
+В данном документе рассказывается, как получить доступ к журналам приложений YARN (Yet Another Resource Negotiator), завершивших работу в кластере Hadoop в Azure HDInsight.
+
+> [AZURE.NOTE] Информация, содержащаяся в данном документе, относится только к кластерам HDInsight под управлением Windows. Сведения о доступе к журналам YARN в кластерах HDInsight под управлением Linux см. в статье [Доступ к журналам приложений YARN в Hadoop под управлением Linux в HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md).
+
+### Предварительные требования
+
+- Кластер HDInsight на платформе Windows См. статью [Создание кластеров Hadoop под управлением Windows в HDInsight](hdinsight-provision-clusters.md).
 
 
-# <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Access YARN application logs on Windows-based HDInsight
+## Сервер временной шкалы YARN
 
-This topic explains how to access the logs for YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight
+<a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> предоставляет общую информацию о завершенных приложениях, а также данные о приложениях для конкретной платформы в двух различных интерфейсах. В частности:
 
-> [AZURE.NOTE] The information in this document applies only to Windows-based HDInsight clusters. For information on accessing YARN logs on Linux-based HDInsight clusters, see [Access YARN application logs on Linux-based Hadoop on HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-
-### <a name="prerequisites"></a>Prerequisites
-
-- A Windows-based HDInsight cluster.  See [Create Windows-based Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
+* Возможность хранения и извлечения общей информации о приложениях в кластерах HDInsight появилась, начиная с версии 3.1.1.374.
+* В настоящее время компонент сервера временной шкалы, предоставляющий сведения о приложениях для конкретной платформы, недоступен в кластерах HDInsight.
 
 
-## <a name="yarn-timeline-server"></a>YARN Timeline Server
+К общим сведениям о приложениях относятся следующие типы данных:
 
-The <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a> provides generic information on completed applications as well as framework-specific application information through two different interfaces. Specifically:
+* уникальный идентификатор приложения;
+* имя пользователя, запустившего приложение;
+* информация о попытках завершить приложение;
+* информация о контейнерах, которые использовались во время каждой из попыток.
 
-* Storage and retrieval of generic application information on HDInsight clusters has been enabled with version 3.1.1.374 or higher.
-* The framework-specific application information component of the Timeline Server is not currently available on HDInsight clusters.
-
-
-Generic information on applications includes the following sorts of data:
-
-* The application ID, a unique identifier of an application
-* The user who started the application
-* Information on attempts made to complete the application
-* The containers used by any given application attempt
-
-On your HDInsight clusters, this information will be stored by Azure Resource Manager to a history store in the default container of your default Azure Storage account. This generic data on completed applications can be retrieved through a REST API:
+В кластерах HDInsight эта информация сохраняется диспетчером ресурсов Azure в хранилище журналов в контейнере учетной записи хранения по умолчанию. Эти общие данные о завершенных приложениях можно извлечь с помощью REST API:
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
 
-## <a name="yarn-applications-and-logs"></a>YARN applications and logs
+## Приложения и журналы YARN
 
-YARN supports multiple programming models (MapReduce being one of them) by decoupling resource management from application scheduling/monitoring. This is done through a global *ResourceManager* (RM), per-worker-node *NodeManagers* (NMs), and per-application *ApplicationMasters* (AMs). The per-application AM negotiates resources (CPU, memory, disk, network) for running your application with the RM. The RM works with NMs to grant these resources, which are granted as *containers*. The AM is responsible for tracking the progress of the containers assigned to it by the RM. An application may require many containers depending on the nature of the application.
+YARN поддерживает несколько моделей программирования (в том числе MapReduce), отделяя управление ресурсами от планирования и мониторинга приложений. Это осуществляется с помощью глобального *диспетчера ресурсов*, *диспетчеров узлов* на каждый рабочий узел и *диспетчеров приложений* на каждое приложение. Диспетчер приложений согласовывает ресурсы (ЦП, память, диск, сеть), необходимые для работы приложения, с диспетчером ресурсов. Диспетчер ресурсов совместно с диспетчером узлов предоставляют эти ресурсы в виде *контейнеров*. Диспетчер приложений отвечает за отслеживание хода выполнения контейнеров, назначаемых ему диспетчером ресурсов. Приложению может потребоваться много контейнеров в зависимости от характера приложения.
 
-Furthermore, each application may consist of multiple *application attempts* in order to finish in the presence of crashes or due to the loss of communication between an AM and an RM. Hence, containers are granted to a specific attempt of an application. In a sense, a container provides the context for basic unit of work performed by a YARN application, and all work that is done within the context of a container is performed on the single worker node on which the container was allocated. See [YARN Concepts][YARN-concepts] for further reference.
+Кроме того, для выполнения приложения при наличии сбоев или из-за потери связи между диспетчером приложений и диспетчером ресурсов может потребоваться несколько *попыток*. Таким образом, контейнеры предоставляются определенной попытке. В некотором смысле контейнер обеспечивает контекст основной единице работы, выполняемой приложением YARN, и вся работа, выполняемая в контексте контейнера, выполняется на одном рабочем узле, где был выделен контейнер. Дополнительную информацию см. в статье об [основных понятиях YARN][YARN-concepts].
 
-Application logs (and the associated container logs) are critical in debugging problematic Hadoop applications. YARN provides a nice framework for collecting, aggregating, and storing application logs with the [Log Aggregation][log-aggregation] feature. The Log Aggregation feature makes accessing application logs more deterministic, as it aggregates logs across all containers on a worker node and stores them as one aggregated log file per worker node on the default file system after an application finishes. Your application may use hundreds or thousands of containers, but logs for all containers run on a single worker node will always be aggregated to a single file, resulting in one log file per worker node used by your application. Log Aggregation is enabled by default on HDInsight clusters (version 3.0 and above), and aggregated logs can be found in the default container of your cluster at the following location:
+Журналы приложений (и соответствующие журналы контейнеров) крайне важны для отладки проблемных приложений Hadoop. YARN предоставляет хорошую платформу для сбора, объединения и хранения журналов приложений с функцией [объединения журналов][log-aggregation]. Функция объединения журналов делает доступ к журналам приложений более детерминированным, так как она объединяет журналы со всех контейнеров на рабочем узле и хранит их как один сводный файл журнала в файловой системе по умолчанию после завершения приложения. Ваше приложение может использовать сотни или тысячи контейнеров, но журналы для всех контейнеров, выполненных на одном рабочем узле, всегда будут объединены в один файл. В результате на каждый рабочий узел, используемый приложением, приходится один файл журнала. Объединение журналов включено по умолчанию в кластерах HDInsight (3.0 и более поздних версий), а сводные журналы можно найти в контейнере кластера по умолчанию по следующему адресу:
 
-    wasbs:///app-logs/<user>/logs/<applicationId>
+	wasbs:///app-logs/<user>/logs/<applicationId>
 
-In that location, *user* is the name of the user who started the application, and *applicationId* is the unique identifier of an application as assigned by the YARN RM.
+где *user* — имя пользователя, запустившего приложение, а *applicationId* — уникальный идентификатор приложения, назначенный диспетчером ресурсов YARN.
 
-The aggregated logs are not directly readable, as they are written in a [TFile][T-file], [binary format][binary-format] indexed by container. YARN provides CLI tools to dump these logs as plain text for applications or containers of interest. You can view these logs as plain text by running one of the following YARN commands directly on the cluster nodes (after connecting to it through RDP):
+Сводные журналы не могут считываться напрямую, так как они записаны в [TFile][T-file], [, двоичном формате][binary-format], индексированном контейнером. YARN предоставляет средства CLI для разгрузки этих журналов в виде обычного текста в нужные приложения или контейнеры. Вы можете просмотреть эти журналы в виде обычного текста, выполнив одну из следующих команд YARN непосредственно в узлах кластера (после подключения к нему через протокол RDP):
 
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
-
-
-## <a name="yarn-resourcemanager-ui"></a>YARN ResourceManager UI
-
-The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Azure portal dashboard: 
-
-1. Sign in to [Azure portal](https://portal.azure.com/). 
-2. On the left menu, click **Browse**, click **HDInsight Clusters**, click a Windows-based cluster that you want to access the YARN application logs.
-3. On the top menu, click **Dashboard**. You will see a page opened on a new browser tab called **HDInsight Query Console**.
-4. From **HDInsight Query Console**, click **Yarn UI**.
+	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
+	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
 
+## Пользовательский интерфейс YARN ResourceManager
 
+Пользовательский интерфейс YARN ResourceManager работает на головном узле кластера. Для доступа к нему можно использовать панель мониторинга портала Azure.
 
-[YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
-[log-aggregation]:http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
-[T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
-[binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
-[YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+1. Войдите на [портал Azure](https://portal.azure.com/).
+2. В меню слева щелкните **Обзор**, выберите **Кластеры HDInsight**, щелкните кластер под управлением Windows, который нужен для доступа к журналам приложений YARN.
+3. В меню вверху щелкните **Панель мониторинга**. В новой вкладке браузера откроется страница **Консоль запросов HDInsight**.
+4. В **консоли запросов HDInsight** щелкните **Пользовательский интерфейс Yarn**.
 
 
 
-<!--HONumber=Oct16_HO2-->
 
+[YARN-timeline-server]: http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
+[log-aggregation]: http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
+[T-file]: https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
+[binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
+[YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
+<!---HONumber=AcomDC_0914_2016-->

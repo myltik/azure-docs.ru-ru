@@ -1,69 +1,62 @@
 <properties
-    pageTitle="Encode an asset using Media Encoder Standard with the Azure portal | Microsoft Azure"
-    description="This tutorial walks you through the steps of encoding an asset using Media Encoder Standard with the Azure portal."
-    services="media-services"
-    documentationCenter=""
-    authors="Juliako"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Кодирование ресурса-контейнера с помощью Media Encoder Standard на портале Azure | Microsoft Azure"
+	description="Этот учебник поможет закодировать ресурс-контейнер с помощью Media Encoder Standard на портале Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/29/2016"
-    ms.author="juliako"/>
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/29/2016"
+	ms.author="juliako"/>
 
 
+# Кодирование ресурса-контейнера с помощью Media Encoder Standard на портале Azure
 
-# <a name="encode-an-asset-using-media-encoder-standard-with-the-azure-portal"></a>Encode an asset using Media Encoder Standard with the Azure portal
+> [AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+При работе со службами мультимедиа Azure один из самых частых сценариев — доставка потоковой передачи с адаптивным битрейтом клиентам. Службы мультимедиа поддерживают следующие технологии потоковой передачи с адаптивной скоростью: потоковая трансляция HTTP (HLS), Smooth Streaming, MPEG DASH и HDS (только для владельцев лицензий Adobe PrimeTime/Access). Чтобы подготовить видео к потоковой передаче с переменной скоростью, необходимо закодировать исходное видео в файлы с поддержкой разных скоростей. Для кодирования этого видео следует использовать **Media Encoder Standard**.
 
-When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). To prepare your videos for adaptive bitrate streaming, you need to encode your source video into multi-bitrate files. You should use the **Media Encoder Standard** encoder to encode your videos.  
+Службы мультимедиа обеспечивают динамическую упаковку, которая позволяет доставлять MP4-файлы с поддержкой нескольких скоростей в форматах потоковой передачи (MPEG DASH, HLS, Smooth Streaming, HDS) без необходимости повторной упаковки в эти форматы потоковой передачи. С динамической упаковкой потребуется хранить и оплачивать файлы только в одном формате хранения, а службы мультимедиа выполнят сборку и будут обслуживать соответствующий ответ на основе запросов клиента.
 
-Media Services also provides dynamic packaging which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to re-package into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
+Чтобы воспользоваться преимуществом динамической упаковки, необходимо выполнить следующие действия:
 
-To take advantage of dynamic packaging, you need to do the following:
+- закодировать исходный файл в набор MP4-файлов с поддержкой нескольких скоростей (шаги кодирования показаны далее в этом руководстве);
+- получить по крайней мере одну единицу потоковой передачи для конечной точки потоковой передачи, из которой вы планируете доставлять содержимое. Дополнительные сведения см. в разделе [Настройка конечных точек потоковой передачи данных](media-services-portal-vod-get-started.md#configure-streaming-endpoints).
 
-- Encode your source file into a set of multi-bitrate MP4 files (the encoding steps are demonstrated later in this section).
-- Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [configuring streaming endpoints](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+Масштабирование обработки мультимедиа описано в [этом](media-services-portal-scale-media-processing.md) разделе.
 
-To scale media processing, see [this](media-services-portal-scale-media-processing.md) topic.
+## Кодирование с помощью портала Azure
 
-## <a name="encode-with-the-azure-portal"></a>Encode with the Azure portal
+В этом разделе описаны шаги, которые можно предпринять для кодирования содержимого с помощью стандартного кодировщика служб мультимедиа.
 
-This section describes the steps you can take to encode your content with Media Encoder Standard.
-
-1.  In the **Settings** window, select **Assets**.  
-2.  In the **Assets** window, select the asset that you would like to encode.
-3.  Press the **Encode** button.
-4.  In the **Encode an asset** window, select the "Media Encoder Standard" processor and a preset. For example, if you know your input video has a resolution of 1920x1080 pixels, then you could use the "H264 Multiple Bitrate 1080p" preset. For more information about presets, see [this](https://msdn.microsoft.com/library/azure/mt269960.aspx) article – it is important to select the preset that is most appropriate for your input video. If you have a low resolution (640x360) video, then you should not be using the default "H264 Multiple Bitrate 1080p" preset.
-    
-    For easier management, you have an option of editing the name of the output asset, and the name of the job.
-        
-    ![Encode assets](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Press **Create**.
+1.  В окне **Параметры** выберите пункт **Ресурсы-контейнеры**.
+2.  В окне **Ресурсы-контейнеры** выберите ресурс, который требуется закодировать.
+3.  Нажмите кнопку **Кодировать**.
+4.  В окне **кодирования ресурса** выберите Media Encoder Standard с предустановкой. Например, если известно, что исходное видео имеет разрешение 1920 x 1080 пикселей, можно использовать предустановку "H264 Multiple Bitrate 1080p". Дополнительные сведения о предустановках см. [здесь](https://msdn.microsoft.com/library/azure/mt269960.aspx). Важно выбрать предустановку в соответствии с параметрами исходного видео. Если у вас есть видео с низким разрешением (640 x 360), не следует использовать предустановку по умолчанию ("H264 Multiple Bitrate 1080p").
+	
+	Для упрощения управления предусмотрена возможность изменения имени выходного ресурса и задания.
+		
+	![Кодирование ресурсов](./media/media-services-portal-vod-get-started/media-services-encode1.png)
+5. Нажмите кнопку **Создать**.
 
 
-##<a name="next-step"></a>Next step
+##Дальнейшие действия
 
-You can monitor encoding job progress with the Azure portal, as described in [this](media-services-portal-check-job-progress.md) article.  
+Можно отслеживать выполнение задания кодирования с помощью портала Azure, как описано в [этой](media-services-portal-check-job-progress.md) статье.
 
-##<a name="media-services-learning-paths"></a>Media Services learning paths
+##Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

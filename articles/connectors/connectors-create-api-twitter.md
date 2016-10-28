@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Learn how to use the Twitter connector in logic apps | Microsoft Azure"
-    description="Overview of Twitter connector with REST API parameters"
-    services=""
-    documentationCenter="" 
-    authors="msftman"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Использование соединителя Twitter в приложениях логики | Microsoft Azure"
+	description="Обзор соединителя Twitter с параметрами REST API"
+	services=""
+	documentationCenter="" 
+	authors="msftman"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -18,449 +18,446 @@
    ms.author="deonhe"/>
 
 
+# Приступая к работе с соединителем Twitter
 
-# <a name="get-started-with-the-twitter-connector"></a>Get started with the Twitter connector
+С помощью соединителя Twitter вы можете:
 
-With the Twitter connector you can:
+- публиковать и получать твиты;
+- получать доступ к временным шкалам, просматривать друзей и подписчиков;
+- выполнять все действия и триггеры, описанные ниже.
 
-- Post tweets and get tweets
-- Access timelines, friends and followers
-- Perform any of the other actions and triggers described below  
+Чтобы использовать [соединитель](./apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).  
+## Подключение к Twitter
 
-## <a name="connect-to-twitter"></a>Connect to Twitter
+Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [подключение](./connectors-overview.md) между приложением логики и другой службой.
 
-Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
+### Создание подключения к Twitter
 
-### <a name="create-a-connection-to-twitter"></a>Create a connection to Twitter
+>[AZURE.INCLUDE [Шаги по созданию подключения к Twitter](../../includes/connectors-create-api-twitter.md)]
 
->[AZURE.INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
+## Использование триггера Twitter
 
-## <a name="use-a-twitter-trigger"></a>Use a Twitter trigger
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+В этом примере продемонстрировано, как с помощью триггера **When a new tweet is posted** (При публикации нового твита) выполнить поиск по хэш-тегу #Seattle, а затем заменить содержимое файла в Dropbox текстом из твита, отвечающего критериям поиска. В качестве примера для компаний можно выполнить поиск по имени компании и заменить содержимое базы данных SQL текстом из твита.
 
-In this example, I will show you how to use the **When a new tweet is posted**  trigger to search for #Seattle and, if #Seattle is found, update a file in Dropbox with the text from the tweet. In an enterprise example, you could search for the name of your company and update a SQL database with the text from the tweet.
+1. В конструкторе приложений логики в поле поиска введите *twitter*, а затем выберите триггер Twitter **When a new tweet is posted** (При публикации нового твита).  
+![Триггер Twitter, изображение 1](./media/connectors-create-api-twitter/trigger-1.png)  
+- В **текстовом поле** введите *#Seattle*.  
+![Изображение 2: триггер Twitter](./media/connectors-create-api-twitter/trigger-2.png)  
 
-1. Enter *twitter* in the search box on the logic apps designer then select the **Twitter - When a new tweet is posted**  trigger   
-![Twitter trigger image 1](./media/connectors-create-api-twitter/trigger-1.png)  
-- Enter *#Seattle* in the **Search Text** control  
-![Twitter trigger image 2](./media/connectors-create-api-twitter/trigger-2.png) 
+На этом этапе для приложения логики настроен триггер, который будет запускать другие триггеры и действия в рабочем процессе.
 
-At this point, your logic app has been configured with a trigger that will begin a run of the other triggers and actions in the workflow. 
+>[AZURE.NOTE]Чтобы приложение логики функционировало, оно должно содержать по крайней мере один триггер и одно действие. Шаги по добавлению действия описаны в следующем разделе.
 
->[AZURE.NOTE]For a logic app to be functional, it must contain at least one trigger and one action. Follow the steps in the next section to add an action.  
+## Добавление условия
+Так как нас интересуют только твиты от пользователей, у которых более 50 подписчиков, условие, проверяющее число подписчиков, необходимо первым добавить в приложение логики.
 
-## <a name="add-a-condition"></a>Add a condition
-Since we are only interested in tweets from users with more than 50 users, a condition that confirms the number of followers must first be added to the logic app.  
+1. Нажмите кнопку **+ Новый шаг**, чтобы добавить действие, которое будет выполняться при обнаружении нового твита с хэш-тегом #Seattle.  
+![Действие Twitter, изображение 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
+- Щелкните ссылку **Добавить условие**.  
+![Условие Twitter, изображение 1](../../includes/media/connectors-create-api-twitter/condition-1.png)  
+Откроется элемент управления **Условие**, где можно выбрать необходимое условие, например *равно*, *меньше*, *больше*, *содержит* и т. д.  
+![Изображение 2: условие Twitter](../../includes/media/connectors-create-api-twitter/condition-2.png)  
+- Выберите элемент управления **Выберите значение**. В этом элементе управления можно выбрать одно или несколько свойств из предыдущих действий или триггеров в качестве значения, которое будет проверяться на соответствие условию (true или false).  
+![Изображение 3: условие Twitter](../../includes/media/connectors-create-api-twitter/condition-3.png)  
+- Щелкните значок **...**, чтобы развернуть список всех доступных свойств.  
+![Изображение 4: условие Twitter](../../includes/media/connectors-create-api-twitter/condition-4.png)  
+- Выберите свойство **Followers count** (Число подписчиков).  
+![Изображение 5: условие Twitter](../../includes/media/connectors-create-api-twitter/condition-5.png)  
+- Обратите внимание, что теперь свойство Followers count (Число подписчиков) отображается в поле выбора значения.  
+![Изображение 6: условие Twitter](../../includes/media/connectors-create-api-twitter/condition-6.png)  
+- В списке операторов выберите значение **больше**.  
+![Изображение 7: условие Twitter](../../includes/media/connectors-create-api-twitter/condition-7.png)  
+- Введите 50 в качестве операнда для оператора *больше*. Условие добавлено. Чтобы сохранить изменения, щелкните ссылку **Сохранить** в меню вверху.  
+![Изображение 8: условие Twitter](../../includes/media/connectors-create-api-twitter/condition-8.png)  
 
-1. Select **+ New step** to add the action you would like to take when #Seattle is found in a new tweet  
-![Twitter action image 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
-- Select the **Add a condition** link.  
-![Twitter condition image 1](../../includes/media/connectors-create-api-twitter/condition-1.png)   
-This opens the **Condition** control where you can check conditions such as *is equal to*, *is less than*, *is greater than*, *contains*, etc.  
-![Twitter condition image 2](../../includes/media/connectors-create-api-twitter/condition-2.png)   
-- Select the **Choose a value** control.  
-In this control, you can select one or more of the properties from any previous actions or triggers as the value whose condition will be evaluated to true or false.
-![Twitter condition image 3](../../includes/media/connectors-create-api-twitter/condition-3.png)   
-- Select the **...** to expand the list of properties so you can see all the properties that are available.        
-![Twitter condition image 4](../../includes/media/connectors-create-api-twitter/condition-4.png)   
-- Select the **Followers count** property.    
-![Twitter condition image 5](../../includes/media/connectors-create-api-twitter/condition-5.png)   
-- Notice the Followers count property is now in the value control.    
-![Twitter condition image 6](../../includes/media/connectors-create-api-twitter/condition-6.png)   
-- Select **is greater than** from the operators list.    
-![Twitter condition image 7](../../includes/media/connectors-create-api-twitter/condition-7.png)   
-- Enter 50 as the operand for the *is greater than* operator.  
-The condition is now added. Save your work using the **Save** link on the menu above.    
-![Twitter condition image 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
+## Использование действия Twitter
 
-## <a name="use-a-twitter-action"></a>Use a Twitter action
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Добавив триггер, выполните следующие шаги, чтобы добавить действие для публикации нового твита с содержимым твитов, найденных с помощью триггера. Для целей этого пошагового руководства будут публиковаться только твиты пользователей, у которых более 50 подписчиков.
 
-Now that you have added a trigger, follow these steps to add an action that will post a new tweet with the contents of the tweets found by the trigger. For the purposes of this walk-through only tweets from users with more than 50 followers will be posted.  
+На следующем этапе необходимо добавить действие Twitter для публикации твита с использованием некоторых свойств каждого твита, опубликованного пользователями, у которых более 50 подписчиков.
 
-In the next step, you will add a Twitter action that will post a tweet using some of the properties of each tweet that has been posted by a user who has more than 50 followers.  
+1. Выберите **Добавить действие**. Откроется элемент управления "Поиск", с помощью которого можно найти другие действия и триггеры.  
+![Изображение 9: условие Twitter](../../includes/media/connectors-create-api-twitter/condition-9.png)  
+- В поле поиска введите *twitter*, а затем выберите действие Twitter **Post a tweet** (Опубликовать твит). Откроется элемент управления **Post a tweet** (Опубликовать твит), где необходимо добавить все сведения о твите, который публикуется.  
+![Действие Twitter, изображения 1–5](../../includes/media/connectors-create-api-twitter/action-1-5.png)  
+- Выберите элемент управления **Tweet text** (Текст твита). Отобразятся все выходные данные из предыдущих действий и триггеров в приложении логики. Эти данные можно использовать в качестве текста нового твита.  
+![Изображение 2: действие Twitter](../../includes/media/connectors-create-api-twitter/action-2.png)  
+- Выберите **имя пользователя**.
+- В текстовом поле элемента управления Tweet text (Текст твита) введите *says:* (содержит:). Это фразу нужно ввести сразу после имени пользователя.
+- Выберите *Tweet text* (Текст твита).  
+![Изображение 3: действие Twitter](../../includes/media/connectors-create-api-twitter/action-3.png)  
+- Сохраните изменения и активируйте рабочий процесс путем отправки твита с хэш-тегом #Seattle.
 
-1. Select **Add an action**. This opens the search control where you can search for other actions and triggers.  
-![Twitter condition image 9](../../includes/media/connectors-create-api-twitter/condition-9.png)   
-- Enter *twitter* into the search box then select the **Twitter - Post a tweet** action. This opens the **Post a tweet** control where you will enter all details for the tweet being posted.      
-![Twitter action image 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
-- Select the **Tweet text** control. All outputs from previous actions and triggers in the logic app are now visible. You can select any of these and use them as part of the tweet text of the new tweet.     
-![Twitter action image 2](../../includes/media/connectors-create-api-twitter/action-2.png)   
-- Select **User name**   
-- Enter *says:* in the tweet text control. Do this just after User name.  
-- Select *Tweet text*.       
-![Twitter action image 3](../../includes/media/connectors-create-api-twitter/action-3.png)   
-- Save your work and send a tweet with the #Seattle hashtag to activate your workflow.  
+## Технические сведения
 
-## <a name="technical-details"></a>Technical Details
+Ниже приведены сведения о триггерах, действиях и ответах, которые поддерживает это подключение.
 
-Here are the details about the triggers, actions and responses that this connection supports:
+## Триггеры Twitter
 
-## <a name="twitter-triggers"></a>Twitter triggers
+Соединитель Twitter предоставляет следующие триггеры.
 
-The Twitter connector has the following trigger(s):  
-
-|Trigger | Description|
+|Триггер | Описание|
 |--- | ---|
-|[When a new tweet is posted](connectors-create-api-twitter.md#when-a-new-tweet-is-posted)|This operation triggers a flow when a new tweet that matches a given search query is posted.|
+|[When a new tweet is posted](connectors-create-api-twitter.md#when-a-new-tweet-is-posted) (При публикации нового твита)|Активирует поток при публикации нового твита, удовлетворяющего заданному поисковому запросу.|
 
 
-## <a name="twitter-actions"></a>Twitter actions
+## Действия Twitter
 
-The Twitter connector has the following actions:
+Соединитель Twitter предоставляет следующие действия.
 
 
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[Get user timeline](connectors-create-api-twitter.md#get-user-timeline)|This operation gets a list of the most recent tweets posted by a given user.|
-|[Get home timeline](connectors-create-api-twitter.md#get-home-timeline)|This operation gets the most recent tweets and re-tweets posted by me and my followers.|
-|[Search tweets](connectors-create-api-twitter.md#search-tweets)|This operation gets a list of relevant tweets matching the search query.|
-|[Get followers](connectors-create-api-twitter.md#get-followers)|This operation gets the list of users that follow a given user.|
-|[Get my followers](connectors-create-api-twitter.md#get-my-followers)|This operation gets the list of users who are following me.|
-|[Get following](connectors-create-api-twitter.md#get-following)|The operation gets the list of people the given user follows.|
-|[Get my following](connectors-create-api-twitter.md#get-my-following)|This operation gets the list of users that I am following.|
-|[Get user](connectors-create-api-twitter.md#get-user)|This operation gets the profile details for a given user, such as user name, description, followers count, and more.|
-|[Post a tweet](connectors-create-api-twitter.md#post-a-tweet)|This operation posts a new tweet.|
-## <a name="action-details"></a>Action details
+|[Получение временной шкалы пользователя](connectors-create-api-twitter.md#get-user-timeline)|Получает набор последних твитов, опубликованных указанным пользователем.|
+|[Получение домашней временной шкалы](connectors-create-api-twitter.md#get-home-timeline)|Получает последние твиты и повторно опубликованные твиты пользователя и его подписчиков.|
+|[Искать твиты](connectors-create-api-twitter.md#search-tweets)|Получает набор похожих твитов, соответствующих поисковому запросу.|
+|[Получение подписчиков](connectors-create-api-twitter.md#get-followers)|Получает список пользователей, являющихся подписчиками указанного пользователя.|
+|[Получение моих подписчиков](connectors-create-api-twitter.md#get-my-followers)|Получает список пользователей, являющихся подписчиками указанного пользователя.|
+|[Получение пользователей, на которых подписан пользователь](connectors-create-api-twitter.md#get-following)|Получает список пользователей, подписчиком которых является указанный пользователь|
+|[Получение пользователей, на которых я подписан](connectors-create-api-twitter.md#get-my-following)|Получает список пользователей, подписчиком которых являюсь я.|
+|[Получение пользователя](connectors-create-api-twitter.md#get-user)|Получает данные профиля указанного пользователя (например, имя пользователя, описание, число подписчиков и т. д.).|
+|[Post a tweet](connectors-create-api-twitter.md#post-a-tweet) (Публикация твита)|Публикует новый твит.|
+## Сведения о действиях
 
-Here are the details for the actions and triggers for this connector, along with their responses:
-
-
-
-### <a name="get-user-timeline"></a>Get user timeline
-This operation gets a list of the most recent tweets posted by a given user. 
+Ниже приведены подробные сведения о действиях и триггерах этого соединителя, а также ответы на них.
 
 
-|Property Name| Display Name|Description|
+
+### Получение временной шкалы пользователя
+Получает набор последних твитов, опубликованных указанным пользователем.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|userName*|User name|Twitter handle for the user|
-|maxResults|Maximum results|Maximum number of tweets to return|
+|userName*|Имя пользователя|Имя пользователя в Twitter|
+|maxResults|Максимальное количество результатов|Максимальное количество возвращаемых твитов|
 
-An * indicates that a property is required
-
-
-
-#### <a name="output-details"></a>Output Details
-
-TweetModel: Representation of Tweet Object
+Звездочка (*) означает, что свойство является обязательным.
 
 
-| Property Name | Data Type | Description |
+
+#### Сведения о выходных данных
+
+TweetModel: представление объекта твита
+
+
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|TweetText|string|Text content of the tweet|
-|TweetId|string|Id of the tweet|
-|CreatedAt|string|Time at which the tweet was posted|
-|RetweetCount|integer|Total number of re-tweets for the tweet|
-|TweetedBy|string|Name of the user who has posted the tweet|
-|MediaUrls|array|Url of the media posted along with the tweet|
-|TweetLanguageCode|string|Language code of the tweet|
-|TweetInReplyToUserId|string|User Id of the author of the tweet that the current tweet is a reply to|
-|Favorited|boolean|Indicates whether the tweet is marked as favorited or not|
-|UserMentions|array|List of users mentioned in the tweet|
-|OriginalTweet|not defined|Original tweet from which the current tweet is re-tweeted|
-|UserDetails|not defined|Details of the user who tweeted|
+|TweetText|string|Текстовое содержимое твита|
+|TweetId|строка|Идентификатор твита|
+|CreatedAt|string|Время публикации твита|
+|RetweetCount|целое число|Общее число повторно опубликованных твитов|
+|TweetedBy|строка|Имя пользователя, опубликовавшего твит|
+|MediaUrls|array|URL-адрес мультимедийного содержимого, опубликованного вместе с твитом|
+|TweetLanguageCode|string|Код языка твита|
+|TweetInReplyToUserId|string|Идентификатор автора твита, на который текущий твит является ответом|
+|Favorited|Логическое|Указывает, добавлен ли твит в избранное|
+|UserMentions|array|Пользователи, указанные в твите|
+|OriginalTweet|не определено|Исходный твит, на основе которого повторно опубликован текущий твит|
+|UserDetails|не определено|Сведения о пользователе, опубликовавшем твит|
 
 
 
 
-### <a name="get-home-timeline"></a>Get home timeline
-This operation gets the most recent tweets and re-tweets posted by me and my followers. 
+### Получение домашней временной шкалы
+Получает последние твиты и повторно опубликованные твиты пользователя и его подписчиков.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|maxResults|Maximum results|Maximum number of tweets to return|
+|maxResults|Максимальное количество результатов|Максимальное количество возвращаемых твитов|
 
-An * indicates that a property is required
-
-
-
-#### <a name="output-details"></a>Output Details
-
-TweetModel: Representation of Tweet Object
+Звездочка (*) означает, что свойство является обязательным.
 
 
-| Property Name | Data Type | Description |
+
+#### Сведения о выходных данных
+
+TweetModel: представление объекта твита
+
+
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|TweetText|string|Text content of the tweet|
-|TweetId|string|Id of the tweet|
-|CreatedAt|string|Time at which the tweet was posted|
-|RetweetCount|integer|Total number of re-tweets for the tweet|
-|TweetedBy|string|Name of the user who has posted the tweet|
-|MediaUrls|array|Url of the media posted along with the tweet|
-|TweetLanguageCode|string|Language code of the tweet|
-|TweetInReplyToUserId|string|User Id of the author of the tweet that the current tweet is a reply to|
-|Favorited|boolean|Indicates whether the tweet is marked as favorited or not|
-|UserMentions|array|List of users mentioned in the tweet|
-|OriginalTweet|not defined|Original tweet from which the current tweet is re-tweeted|
-|UserDetails|not defined|Details of the user who tweeted|
+|TweetText|строка|Текстовое содержимое твита|
+|TweetId|string|Идентификатор твита|
+|CreatedAt|string|Время публикации твита|
+|RetweetCount|целое число|Общее число повторно опубликованных твитов|
+|TweetedBy|string|Имя пользователя, опубликовавшего твит|
+|MediaUrls|array|URL-адрес мультимедийного содержимого, опубликованного вместе с твитом|
+|TweetLanguageCode|строка|Код языка твита|
+|TweetInReplyToUserId|строка|Идентификатор автора твита, на который текущий твит является ответом|
+|Favorited|Логическое|Указывает, добавлен ли твит в избранное|
+|UserMentions|array|Пользователи, указанные в твите|
+|OriginalTweet|не определено|Исходный твит, на основе которого повторно опубликован текущий твит|
+|UserDetails|не определено|Сведения о пользователе, опубликовавшем твит|
 
 
 
 
-### <a name="search-tweets"></a>Search tweets
-This operation gets a list of relevant tweets matching the search query. 
+### Искать твиты
+Получает набор похожих твитов, соответствующих поисковому запросу.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|searchQuery*|Search text|Search term like "happy hour", #haiku, love OR hate|
-|maxResults|Maximum results|Maximum number of tweets to return|
+|searchQuery*|Текст запроса|Например, "счастливое время", #haiku, "люблю" или "ненавижу"|
+|maxResults|Максимальное количество результатов|Максимальное количество возвращаемых твитов|
 
-An * indicates that a property is required
-
-
-
-#### <a name="output-details"></a>Output Details
-
-TweetModel: Representation of Tweet Object
+Звездочка (*) означает, что свойство является обязательным.
 
 
-| Property Name | Data Type | Description |
+
+#### Сведения о выходных данных
+
+TweetModel: представление объекта твита
+
+
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|TweetText|string|Text content of the tweet|
-|TweetId|string|Id of the tweet|
-|CreatedAt|string|Time at which the tweet was posted|
-|RetweetCount|integer|Total number of re-tweets for the tweet|
-|TweetedBy|string|Name of the user who has posted the tweet|
-|MediaUrls|array|Url of the media posted along with the tweet|
-|TweetLanguageCode|string|Language code of the tweet|
-|TweetInReplyToUserId|string|User Id of the author of the tweet that the current tweet is a reply to|
-|Favorited|boolean|Indicates whether the tweet is marked as favorited or not|
-|UserMentions|array|List of users mentioned in the tweet|
-|OriginalTweet|not defined|Original tweet from which the current tweet is re-tweeted|
-|UserDetails|not defined|Details of the user who tweeted|
+|TweetText|string|Текстовое содержимое твита|
+|TweetId|string|Идентификатор твита|
+|CreatedAt|string|Время публикации твита|
+|RetweetCount|целое число|Общее число повторно опубликованных твитов|
+|TweetedBy|строка|Имя пользователя, опубликовавшего твит|
+|MediaUrls|array|URL-адрес мультимедийного содержимого, опубликованного вместе с твитом|
+|TweetLanguageCode|string|Код языка твита|
+|TweetInReplyToUserId|строка|Идентификатор автора твита, на который текущий твит является ответом|
+|Favorited|Логическое|Указывает, добавлен ли твит в избранное|
+|UserMentions|array|Пользователи, указанные в твите|
+|OriginalTweet|не определено|Исходный твит, на основе которого повторно опубликован текущий твит|
+|UserDetails|не определено|Сведения о пользователе, опубликовавшем твит|
 
 
 
 
-### <a name="get-followers"></a>Get followers
-This operation gets the list of users that follow a given user. 
+### Получение подписчиков
+Получает список пользователей, являющихся подписчиками указанного пользователя.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|userName*|User name|Twitter handle for the user|
-|maxResults|Maximum results|Maximum number of users to return|
+|userName*|Имя пользователя|Имя пользователя в Twitter|
+|maxResults|Максимальное количество результатов|Максимальное количество возвращаемых пользователей|
 
-An * indicates that a property is required
-
-
-
-#### <a name="output-details"></a>Output Details
-
-UserDetailsModel: Twitter user details
+Звездочка (*) означает, что свойство является обязательным.
 
 
-| Property Name | Data Type | Description |
+
+#### Сведения о выходных данных
+
+UserDetailsModel: сведения о пользователе Twitter
+
+
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|FullName|string|Name of the user|
-|Location|string|Location of the user|
-|Id|integer|Twitter Id of the user|
-|UserName|string|Screen name of the user|
-|FollowersCount|integer|Number of followers|
-|Description|string|User description|
-|StatusesCount|integer|User status count|
-|FriendsCount|integer|Number of friends|
-|FavouritesCount|integer|Number of tweets that the user has favorited|
-|ProfileImageUrl|string|Url of the profile image|
+|FullName|строка|Имя пользователя|
+|Расположение|строка|Расположение пользователя|
+|Идентификатор|целое число|Идентификатор пользователя в Twitter|
+|UserName|string|Отображаемое имя пользователя|
+|FollowersCount|целое число|Количество подписчиков|
+|Описание|string|Описание пользователя|
+|StatusesCount|целое число|Количество состояний пользователя|
+|FriendsCount|целое число|Количество друзей|
+|FavouritesCount|целое число|Количество твитов пользователя, добавленных в избранное|
+|ProfileImageUrl|строка|URL-адрес изображения профиля|
 
 
 
 
-### <a name="get-my-followers"></a>Get my followers
-This operation gets the list of users who are following me. 
+### Получение моих подписчиков
+Получает список пользователей, являющихся подписчиками указанного пользователя.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|maxResults|Maximum results|Maximum number of users to get|
+|maxResults|Максимальное количество результатов|Максимальное количество получаемых пользователей|
 
-An * indicates that a property is required
-
-
-
-#### <a name="output-details"></a>Output Details
-
-UserDetailsModel: Twitter user details
+Звездочка (*) означает, что свойство является обязательным.
 
 
-| Property Name | Data Type | Description |
+
+#### Сведения о выходных данных
+
+UserDetailsModel: сведения о пользователе Twitter
+
+
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|FullName|string|Name of the user|
-|Location|string|Location of the user|
-|Id|integer|Twitter Id of the user|
-|UserName|string|Screen name of the user|
-|FollowersCount|integer|Number of followers|
-|Description|string|User description|
-|StatusesCount|integer|User status count|
-|FriendsCount|integer|Number of friends|
-|FavouritesCount|integer|Number of tweets that the user has favorited|
-|ProfileImageUrl|string|Url of the profile image|
+|FullName|строка|Имя пользователя|
+|Расположение|string|Расположение пользователя|
+|Идентификатор|целое число|Идентификатор пользователя в Twitter|
+|UserName|строка|Отображаемое имя пользователя|
+|FollowersCount|целое число|Количество подписчиков|
+|Описание|string|Описание пользователя|
+|StatusesCount|целое число|Количество состояний пользователя|
+|FriendsCount|целое число|Количество друзей|
+|FavouritesCount|целое число|Количество твитов пользователя, добавленных в избранное|
+|ProfileImageUrl|string|URL-адрес изображения профиля|
 
 
 
 
-### <a name="get-following"></a>Get following
-The operation gets the list of people the given user follows. 
+### Получение пользователей, на которых подписан пользователь
+Получает список пользователей, подписчиком которых является указанный пользователь
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|userName*|User name|Twitter handle for the user|
-|maxResults|Maximum results|Maximum number of users to return|
+|userName*|Имя пользователя|Имя пользователя в Twitter|
+|maxResults|Максимальное количество результатов|Максимальное количество возвращаемых пользователей|
 
-An * indicates that a property is required
-
-
-
-#### <a name="output-details"></a>Output Details
-
-UserDetailsModel: Twitter user details
+Звездочка (*) означает, что свойство является обязательным.
 
 
-| Property Name | Data Type | Description |
+
+#### Сведения о выходных данных
+
+UserDetailsModel: сведения о пользователе Twitter
+
+
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|FullName|string|Name of the user|
-|Location|string|Location of the user|
-|Id|integer|Twitter Id of the user|
-|UserName|string|Screen name of the user|
-|FollowersCount|integer|Number of followers|
-|Description|string|User description|
-|StatusesCount|integer|User status count|
-|FriendsCount|integer|Number of friends|
-|FavouritesCount|integer|Number of tweets that the user has favorited|
-|ProfileImageUrl|string|Url of the profile image|
+|FullName|строка|Имя пользователя|
+|Расположение|строка|Расположение пользователя|
+|Идентификатор|целое число|Идентификатор пользователя в Twitter|
+|UserName|string|Отображаемое имя пользователя|
+|FollowersCount|целое число|Количество подписчиков|
+|Описание|string|Описание пользователя|
+|StatusesCount|целое число|Количество состояний пользователя|
+|FriendsCount|целое число|Количество друзей|
+|FavouritesCount|целое число|Количество твитов пользователя, добавленных в избранное|
+|ProfileImageUrl|string|URL-адрес изображения профиля|
 
 
 
 
-### <a name="get-my-following"></a>Get my following
-This operation gets the list of users that I am following. 
+### Получение пользователей, на которых я подписан
+Получает список пользователей, подписчиком которых являюсь я.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|maxResults|Maximum results|Maximum number of users to return|
+|maxResults|Максимальное количество результатов|Максимальное количество возвращаемых пользователей|
 
-An * indicates that a property is required
-
-
-
-#### <a name="output-details"></a>Output Details
-
-UserDetailsModel: Twitter user details
+Звездочка (*) означает, что свойство является обязательным.
 
 
-| Property Name | Data Type | Description |
+
+#### Сведения о выходных данных
+
+UserDetailsModel: сведения о пользователе Twitter
+
+
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|FullName|string|Name of the user|
-|Location|string|Location of the user|
-|Id|integer|Twitter Id of the user|
-|UserName|string|Screen name of the user|
-|FollowersCount|integer|Number of followers|
-|Description|string|User description|
-|StatusesCount|integer|User status count|
-|FriendsCount|integer|Number of friends|
-|FavouritesCount|integer|Number of tweets that the user has favorited|
-|ProfileImageUrl|string|Url of the profile image|
+|FullName|строка|Имя пользователя|
+|Расположение|string|Расположение пользователя|
+|Идентификатор|целое число|Идентификатор пользователя в Twitter|
+|UserName|string|Отображаемое имя пользователя|
+|FollowersCount|целое число|Количество подписчиков|
+|Описание|string|Описание пользователя|
+|StatusesCount|целое число|Количество состояний пользователя|
+|FriendsCount|целое число|Количество друзей|
+|FavouritesCount|целое число|Количество твитов пользователя, добавленных в избранное|
+|ProfileImageUrl|string|URL-адрес изображения профиля|
 
 
 
 
-### <a name="get-user"></a>Get user
-This operation gets the profile details for a given user, such as user name, description, followers count, and more. 
+### Получение пользователя
+Получает данные профиля указанного пользователя (например, имя пользователя, описание, число подписчиков и т. д.).
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|userName*|User name|Twitter handle for the user|
+|userName*|Имя пользователя|Имя пользователя в Twitter|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
-UserDetailsModel: Twitter user details
+UserDetailsModel: сведения о пользователе Twitter
 
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|FullName|string|Name of the user|
-|Location|string|Location of the user|
-|Id|integer|Twitter Id of the user|
-|UserName|string|Screen name of the user|
-|FollowersCount|integer|Number of followers|
-|Description|string|User description|
-|StatusesCount|integer|User status count|
-|FriendsCount|integer|Number of friends|
-|FavouritesCount|integer|Number of tweets that the user has favorited|
-|ProfileImageUrl|string|Url of the profile image|
+|FullName|строка|Имя пользователя|
+|Расположение|string|Расположение пользователя|
+|Идентификатор|целое число|Идентификатор пользователя в Twitter|
+|UserName|string|Отображаемое имя пользователя|
+|FollowersCount|целое число|Количество подписчиков|
+|Описание|string|Описание пользователя|
+|StatusesCount|целое число|Количество состояний пользователя|
+|FriendsCount|целое число|Количество друзей|
+|FavouritesCount|целое число|Количество твитов пользователя, добавленных в избранное|
+|ProfileImageUrl|string|URL-адрес изображения профиля|
 
 
 
 
-### <a name="post-a-tweet"></a>Post a tweet
-This operation posts a new tweet. 
+### Post a tweet (Публикация твита)
+Публикует новый твит.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|tweetText|Tweet text|Text to be posted|
-|body|Media|Media to be posted|
+|tweetText|Текст твита|Публикуемый текст|
+|текст|Служба мультимедиа|СМИ для публикации|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
-TweetResponseModel: Model representing Posted Tweet
+TweetResponseModel: модель, представляющая опубликованный твит
 
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|TweetId|string|ID of the retrieved tweet|
+|TweetId|string|Идентификатор полученного твита|
 
 
 
 
-### <a name="when-a-new-tweet-is-posted"></a>When a new tweet is posted
-This operation triggers a flow when a new tweet that matches a given search query is posted. 
+### When a new tweet is posted (При публикации нового твита)
+Активирует поток при публикации нового твита, удовлетворяющего заданному поисковому запросу.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|searchQuery*|Search text|Search term like "happy hour", #haiku, love OR hate|
+|searchQuery*|Текст запроса|Например, "счастливое время", #haiku, "люблю" или "ненавижу"|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 TriggerBatchResponse[TweetModel]
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
 
-## <a name="http-responses"></a>HTTP responses
+## Ответы HTTP
 
-The actions and triggers above can return one or more of the following HTTP status codes: 
+Описанные выше действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже.
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred.|
-|default|Operation Failed.|
+|200|ОК|
+|202|Принято|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка.|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
 
@@ -470,10 +467,7 @@ The actions and triggers above can return one or more of the following HTTP stat
 
 
 
-## <a name="next-steps"></a>Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Дальнейшие действия
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,68 +1,60 @@
 <properties
-    pageTitle="Azure AD Connect sync: Synchronization Service Manager UI | Microsoft Azure"
-    description="Understand the Operations tab in the Synchronization Service Manager for Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+	pageTitle="Синхронизация Azure AD Connect: пользовательский интерфейс Synchronization Service Manager | Microsoft Azure"
+	description="Общие сведения о вкладке ";Operations"; (Операции) в Synchronization Service Manager для Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="andkjell"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/07/2016"
-    ms.author="billmath"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2016"
+	ms.author="andkjell"/>
 
 
+# Синхронизация Azure AD Connect: Synchronization Service Manager
 
-# <a name="azure-ad-connect-sync:-synchronization-service-manager"></a>Azure AD Connect sync: Synchronization Service Manager
-
-[Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+[Операции](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Соединители](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Конструктор метавселенной](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Поиск в метавселенной](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
 --- | --- | --- | ---
 
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
+![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
-The operations tab shows the results from the most recent operations. This tab is key to understand and troubleshoot issues.
+На вкладке "Operations" (Операции) отображаются результаты последних операций. Эта вкладка крайне важна для понимания и устранения неполадок.
 
-## <a name="understand-the-information-visible-in-the-operations-tab"></a>Understand the information visible in the operations tab
-The top half shows all runs in chronic order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](active-directory-aadconnectsync-feature-scheduler.md). You want to look for any run that does not show a success status. You can change the sorting by clicking the headers.
+## Пояснение информации, отображаемой на вкладке "Operations" (Операции)
+В верхней части отображены все операции выполнения в хронологическом порядке. По умолчанию журнал операций содержит сведения за последние семь дней, но эту цифру можно изменить с помощью [планировщика](active-directory-aadconnectsync-feature-scheduler.md). Вы можете найти любую операцию выполнения, которая не была завершена успешно. Вы также можете изменить порядок сортировки, щелкая заголовки.
 
-The **Status** column is the most important information and shows the most severe problem for a run. Here is a quick summary of the most common statuses in order of priority to investigate (where * indicate several possible error strings).
+Столбец **Status** (Состояние) является самым важным, он показывает наиболее серьезную проблему при выполнении. Ниже приводится краткая сводка наиболее распространенных состояний в порядке приоритета для анализа (где * означает, что возможно несколько строк ошибки).
 
-Status | Comment
+Состояние | Комментарий
 --- | ---
-stopped-* | The run could not complete. For example, if the remote system is down and cannot be contacted.
-stopped-error-limit | There are more than 5,000 errors. The run was automatically stopped due to the large number of errors.
-completed-\*-errors | The run completed, but there are errors (fewer than 5,000) that should be investigated.
-completed-\*-warnings | The run completed, but some data is not in the expected state. If you have errors, then this message is usually only a symptom. Until you have addressed errors, you should not investigate warnings.
-success | No issues.
+stopped-* | Не удалось завершить выполнение. Например, если удаленная система не работает и с ней не удается связаться.
+stopped-error-limit | Обнаружено более 5000 ошибок. Выполнение было автоматически остановлено из-за большого количества ошибок.
+completed-*-errors | Выполнение завершено, но есть ошибки (меньше 5000), которые необходимо изучить.
+completed-*-warnings | Запуск завершен, но некоторые данные не находятся в ожидаемом состоянии. Если обнаружены ошибки, такое сообщение обычно является указателем. Пока вы не исправили ошибки, не следует рассматривать предупреждения.
+Успешное завершение | Проблемы отсутствуют.
 
-When you select a row, the bottom updates to show the details of that run. To the far left of the bottom, you might have a list saying **Step #**. This list only appears if you have multiple domains in your forest where each domain is represented by a step. The domain name can be found under the heading **Partition**. Under **Synchronization Statistics**, you can find more information about the number of changes that were processed. You can click the links to get a list of the changed objects. If you have objects with errors, those errors show up under **Synchronization Errors**.
+При выборе строки в нижней части отображаются сведения об этой операции выполнения. Слева внизу может отображаться список **Step #** (Шаг №). Он отображается, только если у вас в лесу несколько доменов, где каждый домен представлен шагом. Имя домена можно найти в разделе **Partition** (Секция). В разделе **Synchronization Statistics** (Статистика синхронизации) можно найти дополнительные сведения о числе обработанных изменений. Щелкая ссылки, можно получить список измененных объектов. Если у вас есть объекты с ошибкой, они отображаются в разделе **Synchronization Errors** (Ошибки синхронизации).
 
-## <a name="troubleshoot-errors-in-operations-tab"></a>Troubleshoot errors in operations tab
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorsync.png)  
-When you have errors, both the object in error and the error itself are links that provides more information.
+## Устранение ошибок на вкладке "Operations" (Операции)
+![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorsync.png) Если есть ошибки, отображаемый в них объект и сама ошибка представлены ссылками, перейдя по которым можно получить дополнительные сведения.
 
-Start by clicking the error string (**sync-rule-error-function-triggered** in the picture). You are first presented with an overview of the object. To see the actual error, click the button **Stack Trace**. This trace provides debug level information for the error.
+Для начала щелкните строку ошибки (**sync-rule-error-function-triggered** на рисунке выше). Сначала отображается обзор объекта. Чтобы просмотреть фактическую ошибку, нажмите кнопку **Stack Trace** (Трассировка стека). Эта трассировка отображает информацию уровня отладки об ошибке.
 
-**TIP:** You can right-click in the **call stack information** box, choose **select all**, and **copy**. You can then copy the stack and look at the error in your favorite editor, such as Notepad.
+**Совет.** Вы можете щелкнуть правой кнопкой поле **call stack information** (Сведения о стеке вызовов), выбрать пункт **select all** (Выбрать все) и щелкнуть **copy** (Копировать). Затем можно скопировать стек и просмотреть ошибку в любом редакторе на ваше усмотрение, например в Блокноте.
 
-- If the error is from **SyncRulesEngine**, then the call stack information first has a list of all attributes on the object. Scroll down until you see the heading **InnerException =>**.  
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png)  
-The line after shows the error. In the picture above, the error is from a custom Sync Rule Fabrikam created.
+- Если получена ошибка из **SyncRulesEngine**, в начале сведений стека вызовов можно просмотреть список всех атрибутов объекта. Прокрутите вниз до заголовка **InnerException =>**. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png) В строке ниже отображается ошибка. На рисунке выше ошибка получена из-за создания пользовательского правила синхронизации Fabrikam.
 
-If the error itself does not give enough information, then it is time to look at the data itself. You can click the link with the object identifier and [Follow an object and its data through the system](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system).
+Если сама ошибка не содержит достаточно сведений, значит, пора взглянуть на данные. Можно щелкнуть ссылку с идентификатором объекта и [следовать за объектом и его данными в системе](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system).
 
-## <a name="next-steps"></a>Next steps
-Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
+## Дальнейшие действия
+Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

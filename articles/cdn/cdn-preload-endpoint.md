@@ -1,68 +1,63 @@
 <properties
-    pageTitle="Pre-load assets on an Azure CDN endpoint | Microsoft Azure"
-    description="Learn how to pre-load cached content on a CDN endpoint."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Предварительная загрузка ресурсов на конечной точке CDN Azure | Microsoft Azure"
+	description="Узнайте, как предварительно загружать кэшированное содержимое в конечной точке CDN."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
 
-
-# <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Pre-load assets on an Azure CDN endpoint
+# Предварительная загрузка ресурсов на конечной точке CDN Azure
 
 [AZURE.INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-By default, assets are first cached as they are requested. This means that the first request from each region may take longer, since the edge servers will not have the content cached and will need to forward the request to the origin server. Pre-loading content avoids this first hit latency.
+По умолчанию первое кэширование ресурсов происходит во время их запроса. Это означает, что выполнение первого запроса в каждом регионе может занять больше времени, так как на пограничных серверах не будет кэшированного содержимого, а запрос потребуется пересылать на сервер-источник. Предварительная загрузка содержимого позволяет избежать этой задержки первого вхождения.
 
-In addition to providing a better customer experience, pre-loading your cached assets can also reduce network traffic on the origin server.
+Помимо повышения удобства работы клиентов предварительная загрузка кэшированных ресурсов также может снизить объем сетевого трафика на сервере-источнике.
 
-> [AZURE.NOTE] Pre-loading assets is useful for  large events or content that becomes simultaneously available to a large number of users, such as a new movie release or a software update.
+> [AZURE.NOTE] Предварительная загрузка ресурсов полезна для крупномасштабных событий или содержимого, которое становится доступным одновременно большому числу пользователей, например выход нового фильма или выпуск обновления программного обеспечения.
 
-This tutorial walks you through pre-loading cached content on all Azure CDN edge nodes.
+В этом учебнике рассматривается предварительная загрузка кэшированного содержимого на все пограничные узлы Azure CDN.
 
-## <a name="walkthrough"></a>Walkthrough
+## Пошаговое руководство
 
-1. In the [Azure Portal](https://portal.azure.com), browse to the CDN profile containing the endpoint you wish to pre-load.  The profile blade opens.
+1. На [портале Azure](https://portal.azure.com) перейдите к профилю сети CDN, содержащему конечную точку, которую необходимо предварительно загрузить. Откроется колонка профиля.
 
-2. Click the endpoint in the list.  The endpoint blade opens.
+2. Щелкните конечную точку в списке. Откроется колонка конечной точки.
 
-3. From the CDN endpoint blade, click the load button.
+3. В колонке конечной точки CDN нажмите кнопку загрузки.
 
-    ![CDN endpoint blade](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
+	![Колонка конечной точки CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
 
-    The Load blade opens.
+	Откроется колонка загрузки.
 
-    ![CDN load blade](./media/cdn-preload-endpoint/cdn-load-blade.png)
+	![Колонка нагрузки CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
 
-4. Enter the full path of each asset you wish to load (e.g., `/pictures/kitten.png`) in the **Path** textbox.
+4. Введите полный путь к каждому ресурсу-контейнеру, который нужно загрузить (например, `/pictures/kitten.png`) в текстовом поле **Путь**.
 
-    > [AZURE.TIP] More **Path** textboxes will appear after you enter text to allow you to build a list of multiple assets.  You can delete assets from the list by clicking the ellipsis (...) button.
-    >
-    > Paths must be a relative URL that fits the following [regular expression](https://msdn.microsoft.com/library/az24scfc.aspx):  `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`.  Each asset must have its own path.  There is no wildcard functionality for pre-loading assets.
+	> [AZURE.TIP] После ввода текста появятся дополнительные поля **Путь** для формирования списка из нескольких ресурсов. Ресурсы можно удалить из списка, нажав кнопку с многоточием (...).
+	>
+	> Пути должны быть относительными URL-адресами, которые соответствуют следующему [регулярному выражению](https://msdn.microsoft.com/library/az24scfc.aspx): `^(?:\/[a-zA-Z0-9-_.\u0020]+)+$`. У каждого ресурса-контейнера должен быть собственный путь. Для предварительной загрузки ресурсов-контейнеров не предусмотрено применение подстановочных знаков.
 
-    ![Load button](./media/cdn-preload-endpoint/cdn-load-paths.png)
+    ![Кнопка загрузки](./media/cdn-preload-endpoint/cdn-load-paths.png)
 
-5. Click the **Load** button.
+5. Нажмите кнопку **Загрузить**.
 
-    ![Load button](./media/cdn-preload-endpoint/cdn-load-button.png)
+	![Кнопка загрузки](./media/cdn-preload-endpoint/cdn-load-button.png)
 
-> [AZURE.NOTE] There is a limitation of 10 load requests per minute per CDN profile.
+> [AZURE.NOTE] Существует ограничение: 10 запросов на загрузку в минуту на профиль CDN.
 
-## <a name="see-also"></a>See also
-- [Purge an Azure CDN endpoint](cdn-purge-endpoint.md)
-- [Azure CDN REST API reference - Purge or Pre-Load an Endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
+## См. также
+- [Очистка конечной точки сети CDN Azure](cdn-purge-endpoint.md)
+- [Справочник по API REST CDN. Очистка и предварительная загрузка конечной точки](https://msdn.microsoft.com/library/mt634451.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

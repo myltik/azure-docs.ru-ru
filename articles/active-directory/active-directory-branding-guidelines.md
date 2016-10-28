@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Branding Guidelines for Applications | Microsoft Azure"
-   description="A comprehensive guide to developer-oriented resources for Azure Active Directory"
+   pageTitle="Рекомендации по фирменной символике для приложений | Microsoft Azure"
+   description="Полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -17,85 +17,80 @@
    ms.author="mbaldwin"/>
 
 
-
-# <a name="branding-guidelines-for-applications"></a>Branding Guidelines for Applications
-
-
-This topic discusses the branding guidelines you should use when developing applications with Azure Active Directory (Azure AD). These guidelines will help direct your customers when they want to use their work or school account, managed in Azure AD, or their personal account for sign-up and sign-in to your application.
-
-## <a name="personal-accounts-vs.-work-or-school-accounts-from-microsoft"></a>Personal accounts vs. work or school accounts from Microsoft
-
-Microsoft manages two kinds of user accounts:
-
-- **Personal accounts** (formerly known as Windows Live ID). These accounts represent the relationship between *individual* users and Microsoft, and are used to access consumer devices and services from Microsoft. These accounts are intended for personal use.
-
-- **Work or school accounts.** These accounts are managed by Microsoft on behalf of organizations that use Azure Active Directory. These accounts are used to sign in to Office 365 and other business services from Microsoft.
-
-Microsoft work or school accounts are typically assigned to end users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts are either mastered directly in the cloud, in the Azure AD platform, or synced to Azure AD from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
-
-## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Referring to Azure AD accounts in your application
-
-Microsoft doesn’t expose end-users to the Azure or the Active Directory brand names, and neither should you.
-
-- Once users are signed in, you should use the organization’s name and logo as much as possible. This is better than using generic terms like “your organization”.
-
-- When users are not signed in, you should refer to their accounts as “Work or school accounts” and use the Microsoft logo to convey that these accounts are managed by Microsoft. Don’t use terms like “enterprise account”, “business account” or “corporate account” which create user confusion.
-
-## <a name="user-account-pictogram"></a>User account pictogram
-In an earlier version of these guidelines, we recommended using a “blue badge” pictogram. Based on user and developer feedback, we now recommend the use of the Microsoft logo instead. This will help users understand that they can reuse the account they use with Office 365 or other Microsoft business services to sign in to your app.
-
-## <a name="signing-up-and-signing-in-with-azure-ad"></a>Signing up and signing in with Azure AD
-
-Your app may present separate paths for sign-up and sign-in and the following sections provide visual guidance for both scenarios.
-
-**If your app supports end user sign up (e.g. free to trial or freemium model)**: You can show a **sign-in** button that allows users to access your app with their work account or their personal account. Azure AD will show a consent prompt the first time they access your app.
-
-**If your app requires permissions that only admins can consent to, or if your app requires organizational licensing**: You should separate admin acquisition from user sign in. The **“get this app” button** will redirect admins to sign in then ask them to grant consent on behalf of users in their organization. This has the added benefit of suppressing end users consent prompts to your app.
-
-## <a name="visual-guidance-for-app-acquisition"></a>Visual guidance for app acquisition
-
-Your “get the app” link must redirect the user to the Azure AD grant access (authorize) page, to allow an organization’s administrator to authorize your app to have access to their organization’s data that is hosted by Microsoft. Details on how to request access are discussed in the [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md) article.
-
-After admins consent to your app, they can choose to add it to their users’ Office 365 app launcher experience (accessible from the waffle and from [https://portal.office.com/myapps](https://portal.office.com/myapps)). If you want to advertise this capability, you can use terms like “Add this app to your organization” and show a button like this:
-
-![Application Types and scenarios](./media/active-directory-branding-guidelines/add-to-my-org.png)
-
-However, we recommend that you write explanatory text instead of relying on buttons. For example:
-> *If you already use Office 365 or other business service from Microsoft, you can simply grant <your_app_name> access to your organization’s data. This will allow your users to access <your_app_name> with their existing work accounts.*
+# Рекомендации по фирменной символике для приложений
 
 
-## <a name="visual-guidance-for-sign-in"></a>Visual guidance for sign-in
-Your app should display a sign in button that redirects users to the sign-in endpoint that corresponds to the protocol you use to integrate with Azure AD. The following section provides details on what that button should look like.
+В этом разделе рассматриваются рекомендации по фирменной символике, которыми следует пользоваться при разработке приложений в среде Azure Active Directory (Azure AD). Эти рекомендации позволят управлять пользователями, работающими со своей рабочей или учебной учетной записью, управляемой в Azure AD, или личной учетной записью для регистрации или входа в ваше приложение.
 
-### <a name="pictogram-and-“sign-in-with-microsoft”"></a>Pictogram and “Sign in with Microsoft”
-It’s the association of the Microsoft logo and the “Sign in with Microsoft” terms that uniquely represents Azure AD amongst other identity providers your app may support. If you don’t have enough space for “Sign in with Microsoft,” it’s ok to shorten it to “Sign in”.
+## Личные учетные записи и рабочие учетные записи Майкрософт
 
-![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
+Корпорация Майкрософт управляет двумя платформами идентификации:
 
-![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-light.png)
+- **Личные учетные записи** (ранее известные как Windows Live ID) Эти учетные записи представляют взаимоотношения между *отдельными* пользователями и корпорацией Майкрософт и используются для доступа к службам и устройствам Майкрософт. Они предназначены для личного пользования.
 
-You can also use a dark color scheme for the buttons.
+- **Рабочие учетные записи** Управление этими учетными записями осуществляется корпорацией Майкрософт от имени организаций, использующих Azure Active Directory. Эти учетные записи используются для входа в Office 365 и другие бизнес-службы, предоставляемые корпорацией Майкрософт.
 
-![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
+Рабочие учетные записи Майкрософт обычно присваиваются конечным пользователям (сотрудникам, студентам, федеральным служащим) их организациями (компанией, школой, государственным учреждением). Эти учетные записи можно создавать напрямую в облаке, Azure AD или синхронизировать из локального каталога, например Windows Server Active Directory. Корпорация Майкрософт является *хранителем* учетных записей, размещенных в Azure AD, но право владения и управления принадлежит организации.
 
-![Application Types and scenarios](./media/active-directory-branding-guidelines/sign-in-dark.png)
+## Ссылки на учетные записи Azure AD в приложении
 
-## <a name="branding-do’s-and-don’ts"></a>Branding Do’s and Don’ts
+Майкрософт не показывает конечным пользователям торговое наименование Active Directory, и вам тоже не следует этого делать.
 
-**DO** use “work or school account” in combination with the "Sign in with Microsoft" button to provide additional explanation to help end-users recognize whether they can use it. **DON’T** use other terms such as “enterprise account”, “business account” or “corporate account.”
+- После входа пользователя следует как можно больше использовать наименование и логотип организации. Это предпочтительнее, чем использовать такие общие термины, как «ваша организация».
 
-**DON’T** use “Office 365 ID” or “Azure ID”. Office 365 is also the name of a consumer offering from Microsoft which doesn’t use Azure AD for authentication.
+- Пока вход не выполнен, следует обозначить учетные записи пользователей как «рабочие учетные записи» и использовать логотип Майкрософт, чтобы указать на то, что эти учетные записи управляются корпорацией Майкрософт. Не используйте такие фразы, как “учетная запись предприятия”, “деловая учетная запись” или “корпоративная учетная запись”, так как возможна путаница.
 
-**DON’T** alter the Microsoft logo.
+## Пиктограмма учетной записи пользователя
+В более ранней версии данного руководства рекомендуется использование пиктограммы «синего значка». На основании отзывов пользователей и разработчиков теперь вместо него рекомендуется использовать логотип Майкрософт. Таким образом пользователи поймут, что можно использовать имеющуюся учетную запись Office 365 или других бизнес-служб Майкрософт.
 
-**DON’T** expose end-users to the Azure or Active Directory brands. It’s ok however to use these terms with developers, IT pros and admins.
+## Регистрация и вход в Azure AD
 
-## <a name="navigation-do’s-and-don’ts"></a>Navigation Do’s and Don’ts
+Приложение может предлагать отдельные способы регистрации и входа, и в следующем разделе наглядно показаны оба сценария.
 
-**DO** provide a way for users to sign out and switch to another user account. While most people have a single personal account from Microsoft/Facebook/Google/Twitter, people are often associated with more than one organization. Support for multiple signed-in users is coming soon.
+**Если в приложении поддерживается регистрация пользователей (например, бесплатная пробная или условно-бесплатная версия)**: можно отобразить кнопку **Вход**. С ее помощью пользователи смогут получить доступ к приложению, используя свою рабочую или личную учетную запись. Azure AD отобразит запрос на продолжение при первом доступе к приложению.
+
+**Если приложению требуются разрешения, которые может предоставить только администратор или необходимо лицензирование организацией**: следует разделять получение администраторских прав и вход пользователя в систему. Кнопка **«получить приложение»** будет перенаправлять администратора на вход, а затем потребуется предоставить разрешение от имени пользователя организации. Дополнительное преимущество такого подхода — это препятствие выводу запросов на продолжение со стороны конечных пользователей приложения.
+
+## Визуальная подсказка для регистрации
+
+Ссылка «получить приложение» должна перенаправлять пользователя страницу предоставления доступа (авторизации) Azure AD, чтобы администратор организации мог авторизовать приложение для получения доступа к данным организации, размещенным у Майкрософт. Сведения о том, как запросить доступ см. в статье [Интеграция приложений с Azure Active Directory](active-directory-integrating-applications.md).
+
+После получения в приложении разрешения от администраторов его могут добавить в средство запуска приложений Office 365 (доступно из средства запуска приложений и [https://portal.office.com/myapps](https://portal.office.com/myapps)). Если требуется привлечь внимание к этой возможности, можно использовать описание наподобие «Добавить приложение для моей организации» и отобразить кнопку следующим образом:
+
+![Типы приложений и сценарии](./media/active-directory-branding-guidelines/add-to-my-org.png)
+
+Тем не менее рекомендуется написать пояснение, а не полагаться на кнопки. Например:
+> *Если вы уже используете Office 365 или другие бизнес-службы Майкрософт, можно просто предоставить для <имя\_вашего\_приложения> доступ к корпоративным данным. Это позволит пользователям получить доступ к <имя\_вашего\_приложения> с помощью существующих рабочих учетных записей.*
 
 
+## Визуальная подсказка для входа
+В приложении должна отображаться кнопка входа, которая перенаправляет пользователей на конченную точку входа, соответствующую протоколу, который можно использовать для интеграции с Azure AD. Следующий раздел содержит сведения о том, как эта кнопка должна выглядеть.
 
-<!--HONumber=Oct16_HO2-->
+### Пиктограмма и элемент управления "Войти в Майкрософт"
+Именно комбинация логотипа Майкрософт и текста "Войти в Майкрософт" отличает Azure AD от других поставщиков удостоверений, которые могут поддерживаться в вашем приложении. Если недостаточно места для фразы "Войти в Майкрософт", можно сократить текст до одного слова "Войти".
 
+![Типы приложений и сценарии](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
 
+![Типы приложений и сценарии](./media/active-directory-branding-guidelines/sign-in-light.png)
+
+Также для кнопок можно использовать темную цветовую схему.
+
+![Типы приложений и сценарии](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
+
+![Типы приложений и сценарии](./media/active-directory-branding-guidelines/sign-in-dark.png)
+
+## Что следует и что не следует делать с фирменно символикой
+
+**Следует** использовать фразу "рабочая или учебная учетная запись" в комбинации с кнопкой "Войти в Майкрософт", чтобы помочь пользователям понять, смогут ли они воспользоваться этим элементом управления. **Не следует** использовать такие фразы, как "учетная запись предприятия", "деловая учетная запись" или "корпоративная учетная запись".
+
+**Не** используйте фразы «Идентификатор Office 365» или «Идентификатор Azure». Office 365 также является наименованием предложения для клиентов от корпорации Майкрософт, которое не использует Azure AD для проверки подлинности.
+
+**Не** изменяйте логотип Майкрософт.
+
+**Не** отображайте для конечных пользователей торговые наименования Azure или Active Directory. Однако допускается использование этого термина в общении с разработчикам, ИТ-специалистами и администраторами.
+
+## Что следует и что не следует делать с навигацией
+
+**Следует** предоставить пользователям способ выйти из системы и переключиться на другую учетную запись. Хотя многие имеют только одну личную учетную запись в Майкрософт/Facebook/Google/Twitter, зачастую пользователи связаны с несколькими организациями. Поддержка одновременного входа нескольких пользователей скоро появится.
+
+<!---HONumber=AcomDC_0629_2016-->

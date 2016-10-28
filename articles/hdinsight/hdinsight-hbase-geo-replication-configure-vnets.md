@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure VPN connection between two virtual networks | Microsoft Azure" 
-   description="Learn how to configure VPN connections and domain name resolution between two Azure virtual networks, and how to configure HBase geo-replication." 
+   pageTitle="Настройка VPN-подключения между двумя виртуальными сетями Azure | Microsoft Azure" 
+   description="Узнайте, как настроить VPN-подключения между двумя виртуальными сетями Azure, как настроить разрешения доменных имен между двумя виртуальными сетями, а также о настройке географической репликации HBase." 
    services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,111 +16,108 @@
    ms.date="06/28/2016"
    ms.author="jgao"/>
 
-
-# <a name="configure-a-vpn-connection-between-two-azure-virtual-networks"></a>Configure a VPN connection between two Azure virtual networks  
+# Настройка VPN-подключения между двумя виртуальными сетями Azure  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](hdinsight-hbase-geo-replication-configure-vnets.md)
-- [Configure DNS](hdinsight-hbase-geo-replication-configure-dns.md)
-- [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
+- [Настройка подключения VPN](hdinsight-hbase-geo-replication-configure-VNETs.md)
+- [Настройка DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
+- [Настройка репликации HBase](hdinsight-hbase-geo-replication.md)
 
-Azure virtual network site-to-site connectivity uses a VPN gateway to provide a secure tunnel using Ipsec/IKE. The VNets can be in different subscriptions and different regions. You can even combine VNet to VNet communication with multi-site configurations. There are several reasons for VNet to VNet connectivity:
+При подключении между сайтами в виртуальной сети Azure используется VPN-шлюз для предоставления защищенного туннеля с использованием IPsec/IKE. Подключаемые виртуальные сети могут быть из разных подписок в разных регионах. Можно даже комбинировать подключение виртуальных сетей с многосайтовыми конфигурациями. Существует несколько причин для подключения одной виртуальной сети к другой.
 
-- Cross region geo-redundancy and geo-presence 
-- Regional multi-tier applications with strong isolation boundary 
-- Cross subscription, inter-organization communication in Azure
+- Межрегиональная географическая избыточность и географическое присутствие
+- Региональные многоуровневые приложения с четкой границей изоляции
+- Обмен данными между подписками и организациями в Azure
 
-For more information, see [Configure a VNet to VNet connection](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). 
+Дополнительные сведения см. в разделе [Настройка подключения между двумя виртуальными сетями](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-To see it on video:
+Для просмотра его на видео:
 
 > [AZURE.VIDEO configure-the-vpn-connectivity-between-two-azure-virtual-networks]
 
-This tutorial is a part of the [series][hdinsight-hbase-replication] on creating HBase geo-replication. 
+Этот учебник является частью [серии][hdinsight-hbase-replication] по созданию географической репликации HBase.
 
-- Configure a VPN connectivity between two virtual networks (this tutorial)
-- [Configure DNS for the virtual networks][hdinsight-hbase-geo-replication-dns]
-- [Configure HBase geo replication][hdinsight-hbase-geo-replication]
+- Настройка VPN-подключения между двумя виртуальными сетями (данный учебник)
+- [Настройка DNS для виртуальных сетей][hdinsight-hbase-geo-replication-dns]
+- [Настройка георепликации HBase][hdinsight-hbase-geo-replication]
 
-The following diagram illustrates the two virtual networks you will create in this tutorial:
+На следующей схеме показаны две виртуальные сети, которые вы создадите в этом учебнике:
 
-![HDInsight HBase replication virtual network diagram][img-vnet-diagram]
+![Схема виртуальной сети репликации HBase в HDInsight][img-vnet-diagram]
  
 
-##<a name="prerequisites"></a>Prerequisites
-Before you begin this tutorial, you must have the following:
+##Предварительные требования
+Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **A workstation with Azure PowerShell**.
+- **Рабочая станция с Azure PowerShell.**.
 
-    Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
+	Перед выполнением сценариев PowerShell убедитесь, что вы подключены к подписке Azure, с помощью следующего командлета.
 
-        Add-AzureAccount
+		Add-AzureAccount
 
-    If you have multiple Azure subscriptions, use the following cmdlet to set the current subscription:
+	При наличии нескольких подписок Azure используется следующий командлет для установки текущей подписки:
 
-        Select-AzureSubscription <AzureSubscriptionName>
-        
-    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+		Select-AzureSubscription <AzureSubscriptionName>
+		
+	[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
->[AZURE.NOTE] Azure service names and virtual machine names must be unique. The name used in this tutorial is Contoso-[Azure Service/VM name]-[EU/US]. For example, Contoso-VNet-EU is the Azure virtual network in the North Europe data center; Contoso-DNS-US is the DNS server VM in the East U.S. datacenter. You must come up with your own names.
+>[AZURE.NOTE] Имена служб Azure и имена виртуальных машин должны быть уникальными. В этом учебнике используется имя Contoso-[имя службы или виртуальной машины Azure]-[EU/US]. Например, Contoso-VNet-EU — это виртуальная сеть Azure в центре обработки данных, расположенном в Северной Европе; Contoso-DNS-US — виртуальная машина DNS-сервера в центре обработки данных, расположенном на востоке США. Вам необходимо создать собственные имена.
  
 
-##<a name="create-two-azure-vnets"></a>Create two Azure VNets
+##Создание двух виртуальных сетей Azure
 
 
 
-**To create a virtual network called Contoso-VNet-EU in North-Europe**
+**Создание виртуальной сети с именем Contoso-VNet-EU в Северной Европе**
 
-1.  Sign in to the [Azure Classic Portal][azure-portal].
-2.  Click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, **CUSTOM CREATE**.
-3.  Enter:
+1.	Перейдите на [классический портал Azure][azure-portal].
+2.	Щелкните **СОЗДАТЬ**, **СЕТЕВЫЕ СЛУЖБЫ**, **ВИРТУАЛЬНАЯ СЕТЬ**, **НАСТРАИВАЕМОЕ СОЗДАНИЕ**.
+3.	Введите:
 
-    - **NAME**: Contoso-VNet-EU
-    - **LOCATION**: North Europe
+	- **ИМЯ**: Contoso-VNet-EU
+	- **РАСПОЛОЖЕНИЕ**: North Europe
 
-        This tutorial uses North Europe and East US datacenters. You can choose your own datacenters.
-4.  Enter:
+		В этом учебнике используется ЦОД Северная Европа и Восток США. Вы можете выбрать собственные центры обработки данных.
+4.	Введите:
 
-    - **DNS SERVER**: (Leave it blank) 
-    
-        You will need your own DNS server for name resolution within virtual networks. For more information on when to use Azure-provided name resolution and when to use your own DNS server, see [Name Resolution (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). For instructions to configure name resolution between VNets, see [Configure DNS between two Azure virtual networks][hdinsight-hbase-dns].
+	- **DNS-СЕРВЕР**: (оставьте пустым)
+	
+		Вам потребуется DNS-сервер для разрешения имен в виртуальных сетях. Дополнительные сведения об использовании разрешения имен Azure и когда следует использовать собственный DNS-сервер смотрите в разделе [Разрешение имен (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Инструкции по настройке разрешений имен между виртуальными сетями вы можете найти в разделе [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-dns].
   
-    - **Configure a point-to-site VPN**: (unchecked)
+	- **Настроить VPN между точкой и сайтом**: (флажок не установлен)
 
-        Point-to-site doesn't apply to this scenario.
+		Соединение "точка-сеть" не применяется для этого сценария.
 
-    - **Configure a site-to-site VPN**: (unchecked)
-    
-        You will configure the site-to-site VPN connection to the Azure virtual network in the East U.S. datacenter.
-5.  Enter:
+ 	- **Настроить VPN между сайтами**: (флажок не установлен)
+ 	
+		VPN-подключение "сеть-сеть" к виртуальной сети Azure настраивается в центре обработки данных Восток США.
+5.	Введите:
 
-    -   **ADDRESS SPACE STARTING IP**: 10.1.0.0
-    -   **ADDRESS SPACE CIDR**: /16
-    -   **Subnet-1 STARTING IP**: 10.1.0.0
-    -   **Subnet-1 CIDR**: /24
+	- 	**НАЧАЛЬНЫЙ IP АДРЕСНОГО ПРОСТРАНСТВА**: 10.1.0.0
+	- 	**CIDR АДРЕСНОГО ПРОСТРАНСТВА**: /16
+	- 	**НАЧАЛЬНЫЙ IP Subnet-1**: 10.1.0.0
+	- 	**CIDR Subnet-1 **: /24
 
-    The address space can not overlap with the U.S. virtual network.  
+	Адресное пространство не может перекрывать виртуальную сеть США.
 
-**To create a virtual network called Contoso-VNet-EU in West-Europe**
+**Создание виртуальной сети с именем Contoso-VNet-EU в Западной Европе**
 
-- Repeat the last procedure with the following values:
+- Повторите последнюю процедуру со следующими значениями:
 
-    - **NAME**: Contoso-VNet-US
-    - **LOCATION**: East US
-     
-    - **DNS SERVER**: (leave it blank)
-    - **Configure a point-to-site VPN**: (unchecked)
-    - **Configure a site-to-site VPN**: (unchecked)
-     
-    - **ADDRESS SPACE STARTING IP**: 10.2.0.0
-    - **ADDRESS SPACE CIDR**: /16
-    - **Subnet-1 STARTING IP**: 10.2.0.0
-    - **Subnet-1 CIDR**: /24
-
-
+	- **ИМЯ**: Contoso-VNet-US
+	- **РАСПОЛОЖЕНИЕ**: Восток США
+	 
+	- **DNS-СЕРВЕР**: (оставьте пустым)
+	- **Настроить VPN между точкой и сайтом**: (флажок не установлен)
+	- **Настроить VPN между сайтами**: (флажок не установлен)
+	 
+	- **НАЧАЛЬНЫЙ IP АДРЕСНОГО ПРОСТРАНСТВА**: 10.2.0.0
+	- **CIDR АДРЕСНОГО ПРОСТРАНСТВА**: /16
+	- **НАЧАЛЬНЫЙ IP Subnet-1**: 10.2.0.0
+	- **CIDR Subnet-1 **: /24
 
 
 
@@ -136,119 +133,121 @@ Before you begin this tutorial, you must have the following:
 
 
 
-##<a name="configure-a-vpn-connection-between-the-two-vnets"></a>Configure a VPN connection between the two VNets
-
-###<a name="create-local-networks"></a>Create local networks
-
-When you create a VNet to VNet configuration, you need to configure each VNet to identify each other as a local network site. In this section, you’ll configure each VNet as a local network. The local networks share the same IP address spaces with the corresponding VNet.
-
-![Configure Azure VPN site-to-site configuration - azure local networks][img-vnet-lnet-diagram]
 
 
-**To create a local network called Contoso-LNet-EU matching the Contoso-VNet-EU network address space**
+##Настройка VPN-подключения между двумя виртуальными сетями
 
-1. From the Azure Classic Portal, click **NEW**, **NETWORK SERVICES**, **VIRTUAL NETWORK**, **ADD LOCAL NETWORK**.
-3. Enter:
+###Создание локальных сетей
 
-    - **NAME**: Contoso-LNet-EU
-    - **VPN DEVICE IP ADDRESS**: 192.168.0.1 (this address will be updated later)
+При создании конфигурации между двумя виртуальными сетями необходимо настроить каждую из сетей так, чтобы они идентифицировали друг друга в качестве сайта локальной сети. В этом разделе вы настроите каждую виртуальную сеть в качестве локальной. Локальные сети используют общие пространства IP-адресов с соответствующей виртуальной сетью.
 
-        Typically, you’d use the actual external IP address for a VPN device. For VNet to VNet configurations, you will use the VPN gateway IP address. Given that you have not created the VPN gateways for the two VNets yet, you enter an arbitary IP address and come back to fix it.
-4.  Enter:
-
-    - **ADDRESS SPACE STARTING IP:** 10.1.0.0
-    - **ADDRESS SPACE CIDR:** /16
-    
-    This must correspond exactly to the range that you specified earlier for Contoso-VNet-EU.
-
-**To create a local network called Contoso-LNet-US matching the Contoso-VNet-US network address space**
-
-- Repeat the last procedure with the following parameters:
-
-    - **NAME**: Contoso-LNet-US
-    - **VPN DEVICE IP ADDRESS**: 192.168.0.1 (this address will be updated later)
-     
-    - **ADDRESS SPACE STARTING IP**: 10.2.0.0
-    - **ADDRESS SPACE CIDR**: /16
+![Настройка конфигурации VPN Azure «сайт-сайт» — локальные сети Azure][img-vnet-lnet-diagram]
 
 
-###<a name="create-vpn-gateways"></a>Create VPN gateways
+**Создание локальной сети с именем Contoso-LNet-EU, соответствующей адресному пространству сети Contoso-VNet-EU**
 
-There are two parts in this configuration. First you configure a VNet site-to-site connection to a local network, and then you create a dynamic routing VPN. VNet to VNet requires Azure VPN gateways with dynamic routing VPNs. Azure static routing VPNs are not supported.
+1. На классическом портале Azure щелкните **СОЗДАТЬ**, **СЕТЕВЫЕ СЛУЖБЫ**, **ВИРТУАЛЬНАЯ СЕТЬ**, **ДОБАВИТЬ ЛОКАЛЬНУЮ СЕТЬ**.
+3. Введите:
 
-**To configure the Contoso-VNet-EU site-to-site connection to Contoso-LNet-US**
+	- **ИМЯ**: Contoso-LNet-EU
+	- **IP-АДРЕС УСТРОЙСТВА VPN**: 192.168.0.1 (этот адрес будет обновлен позднее)
 
-1.  From the Azure Classic Portal, click **NETWORKS** on the left pane,
-2.  Click **Contoso-VNet-EU**.
-3.  Click the **CONFIGUE** tab.
-4.  Check **Connect to local network**.
-5.  In **LOCAL NETWORK**, select **Contoso-LNet-US**.
-6.  Click **Add gateway subnet** in the virtual network address spaces section.
-7.  Click **SAVE**.
-8.  Click **OK** to confirm.
+		Как правило, для VPN-устройства используется фактический внешний IP-адрес. Для конфигураций подключений между виртуальными сетями вы воспользуетесь IP-адресом шлюза. Учитывая, что VPN-шлюзы для двух виртуальных сетей еще не созданы, вы можете ввести любой IP-адрес, а затем вернуться к этому шагу и исправить это значение.
+4.	Введите:
 
+	- **НАЧАЛЬНЫЙ IP АДРЕСНОГО ПРОСТРАНСТВА**: 10.1.0.0
+	- **CIDR АДРЕСНОГО ПРОСТРАНСТВА**: /16
+	
+	Он должен точно соответствовать диапазону, который был ранее указан для Contoso-VNet-EU.
 
-**To create a VPN gateway for Contoso-VNet-EU**
+**Создание локальной сети с именем Contoso-LNet-US, соответствующей адресному пространству сети Contoso-VNet-US**
 
-1.  From the Azure Classic Portal, click the **DASHBOARD** tab.
-4.  Click **CREATE GATEWAY** on the bottom of the page, and then click **Dynamic Routing**.
-5.  Click **Yes** to confirm. Notice the gateway graphic on the page changes to yellow and says Creating Gateway. It typically takes about 15 minutes for the gateway to create.
+- Повторите последнюю процедуру со следующими параметрами:
 
-    When the gateway status changes to Connecting, the IP address for each Gateway will be visible in the Dashboard. Write down the IP address that corresponds to each VNet, taking care not to mix them up. These are the IP addresses that will be used when you edit your placeholder IP addresses for the VPN Device in Local Networks.
-
-6.  Make a copy of the **GATEWAY IP ADDRESS**. You will use it to configure the VPN gateway IP address for Contoso-VNet-EU in the next section.
-
-**To create a VPN gateway for Contoso-VNet-EU**
-
-- Repeat the last two procedure to configure the Contoso-VNet-US site-to-site connectivity to Contoso-LNet-EU, and the creat a VPN gateway for Contoso-Vnet-US. When you are done, you will have the VPN gateway IP address for Contoso-VNet-US.
+	- **ИМЯ**: Contoso-LNet-US
+	- **IP-АДРЕС УСТРОЙСТВА VPN**: 192.168.0.1 (этот адрес будет обновлен позднее)
+	 
+	- **НАЧАЛЬНЫЙ IP АДРЕСНОГО ПРОСТРАНСТВА**: 10.2.0.0
+	- **CIDR АДРЕСНОГО ПРОСТРАНСТВА**: /16
 
 
-### <a name="set-the-vpn-device-ip-addresses-for-local-networks"></a>Set the VPN device IP addresses for local networks
-In the last section, you create a VPN gateway for each of the VNets. You have got the IP addresses of the VPN gateways. Now you can go back to configure local network VPN device IP addresses.
+###Создание VPN-шлюзов
 
-**To configure the VPN device IP address for Contoso-LNet-EU** 
+В этой конфигурации имеются две части. Сначала настраивается подключение виртуальной сети «сайт-сайт» к локальной сети, а затем создается VPN с динамической маршрутизацией. Для подключения виртуальной сети к виртуальной сети требуются VPN-шлюзы Azure с сетями VPN динамической маршрутизации. Сети VPN Azure со статической маршрутизацией не поддерживаются.
 
-1.  From the Azure Classic Portal, click **NETWORKS** on the left pane.
-2.  Click **LOCAL NETWORKS** from the top.
-3.  Click **Contoso-LNet-EU**, and then click **EDIT** on the bottom.
-4.  Update **VPN DEVICE IP ADDRESS**.  This is the address you get from the DASHBOARD tab of Contoso-VNET-EU.
-5.  Click the right button.
-6.  Click the check button.
+**Настройка подключения «сайт-сайт» Contoso-VNet-EU к Contoso-LNet-US**
 
-**To configure the VPN device IP address for Contoso-LNet-US** 
-
-- Repeat the last procedure to configure the VPN device IP address for Contoso-LNet-US.
-
-###<a name="set-vnet-gateway-keys"></a>Set VNet gateway keys
-
-The Vnet gateways use a shared key to authenticate connections between the virtual networks. The key can't be configured from the Azure Classic Portal. You must use PowerShell or .NET SDK.
-
-**To set the keys**
-
-1. From your workstation, open **Windows PowerShell ISE** or the Windows PowerShell console.
-2. Update the parameters in this follow script and run it:
-
-        Add-AuzreAccount
-        Select-AzureSubscription -[AzureSubscriptionName]
-        Set-AzureVNetGatewayKey -VNetName ContosoVNet-EU -LocalNetworkSiteName Contoso-LNet-US -SharedKey A1b2C3D4
-        Set-AzureVNetGatewayKey -VNetName ContosoVNet-US -LocalNetworkSiteName Contoso-LNet-EU -SharedKey A1b2C3D4 
+1.	В левой части классического портала Azure щелкните **СЕТИ**.
+2.	Щелкните **Contoso-VNet-EU**.
+3.	Выберите вкладку **НАСТРОЙКА**.
+4.	Установите флажок **Подключиться к локальной сети**.
+5.	В разделе **ЛОКАЛЬНАЯ СЕТЬ** выберите **Contoso-LNet-US**.
+6.	Щелкните **Добавить подсеть шлюза** в разделе пространств адресов виртуальной сети.
+7.	Щелкните **СОХРАНИТЬ**.
+8.	Нажмите кнопку **ОК** для подтверждения.
 
 
-##<a name="check-the-vpn-connection"></a>Check the VPN connection 
+**Создание VPN-шлюза для Contoso-VNet-EU**
 
-Without any VMs deployed to the VNets, you can use the virtual network visual diagram the VNet Dashboard page on the Azure Classic Portal to check the connection status:
+1.	На классическом портале Azure выберите вкладку **ПАНЕЛЬ МОНИТОРИНГА**.
+4.	Щелкните **СОЗДАТЬ ШЛЮЗ** внизу страницы, а затем щелкните **Динамическая маршрутизация**.
+5.	Нажмите кнопку **Да** для подтверждения. Обратите внимание, что графическое представление шлюза на странице меняет цвет на желтый с надписью «Создание шлюза». Обычно создание шлюза занимает около 15 минут.
 
-![HDInsight HBase replication virtual network VPN connection status][img-vpn-status]
+	Когда состояние шлюза изменится на «Подключение», IP-адрес для каждого шлюза будет отображаться на панели мониторинга. Запишите IP-адрес, соответствующий каждой виртуальной сети, стараясь не перепутать их. Это IP-адреса, которые будут использоваться при редактировании заполнителей IP-адресов для VPN-устройства в разделе «Локальные сети».
+
+6.	Скопируйте **IP-АДРЕС ШЛЮЗА**. Он будет использоваться для настройки IP-адреса VPN-шлюза для Contoso-VNet-EU в следующем разделе.
+
+**Создание VPN-шлюза для Contoso-VNet-EU**
+
+- Повторите последние две процедуры для настройки подключения типа «сайт — сайт» между Contoso-VNet-US и Contoso-LNet-EU и последующего создания VPN-шлюза для Contoso-Vnet-US. После завершения вы получите IP-адрес VPN-шлюза для Contoso-VNet-US.
+
+
+### Установка IP-адресов VPN-устройств для локальных сетей
+В последнем разделе создается VPN-шлюз для каждой из виртуальных сетей. Вы получили IP-адреса VPN-шлюзов. Теперь можно вернуться к настройке IP-адресов VPN-устройств локальной сети.
+
+**Настройка IP-адреса VPN-устройства для Contoso-LNet-EU**
+
+1.	В левой части классического портала Azure щелкните **СЕТИ**.
+2.	Щелкните **ЛОКАЛЬНЫЕ СЕТИ** вверху.
+3.	Щелкните **Contoso-LNet-EU**, а затем щелкните **ИЗМЕНИТЬ** внизу.
+4.	Обновите **IP-АДРЕС УСТРОЙСТВА VPN**. Это адрес, получаемый с вкладки «ПАНЕЛЬ МОНИТОРИНГА» Contoso-VNET-EU.
+5.	Щелкните стрелку вправо.
+6.	Нажмите кнопку «Проверить».
+
+**Настройка IP-адреса VPN-устройства для Contoso-LNet-US**
+
+- Повторите последнюю процедуру, чтобы настроить IP-адрес VPN-устройства для Contoso-LNet-US.
+
+###Установка ключей шлюза виртуальной сети
+
+Шлюзы виртуальной сети используют общий ключ для проверки подлинности соединений между виртуальными сетями. Ключ нельзя настроить на классическом портале Azure. Необходимо использовать PowerShell или пакет SDK для .NET.
+
+**Установка ключей**
+
+1. На рабочей станции откройте **Windows PowerShell ISE** или консоль Windows PowerShell.
+2. Обновите параметры в следующем сценарии и запустите его:
+
+		Add-AuzreAccount
+		Select-AzureSubscription -[AzureSubscriptionName]
+		Set-AzureVNetGatewayKey -VNetName ContosoVNet-EU -LocalNetworkSiteName Contoso-LNet-US -SharedKey A1b2C3D4
+		Set-AzureVNetGatewayKey -VNetName ContosoVNet-US -LocalNetworkSiteName Contoso-LNet-EU -SharedKey A1b2C3D4 
+
+
+##Проверка подключения VPN 
+
+Без виртуальных машин, развернутых в виртуальных сетях, можно использовать визуальную схему виртуальной сети на странице панели мониторинга виртуальной сети на классическом портале Azure для проверки состояния соединения:
+
+![Состояние VPN-подключения виртуальной сети репликации HBase в HDInsight][img-vpn-status]
   
 
 
 
-##<a name="next-steps"></a>Next Steps
+##Дальнейшие действия
 
-In this tutorial you have learned how to configure a VPN connection between two Azure virtual networks. The other two articles in the series cover:
+В этом учебнике вы узнали, как настроить VPN-подключение между двумя виртуальными сетями Azure. Две оставшиеся статьи в серии описывают следующие темы:
 
-- [Configure DNS between two Azure virtual networks][hdinsight-hbase-geo-replication-dns]
-- [Configure HBase geo replication][hdinsight-hbase-geo-replication]
+- [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-geo-replication-dns]
+- [Настройка георепликации HBase][hdinsight-hbase-geo-replication]
 
 
 
@@ -266,15 +265,11 @@ In this tutorial you have learned how to configure a VPN connection between two 
 
 
 [hdinsight-hbase-replication]: hdinsight-hbase-geo-replication.md
-[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-dns.md
+[hdinsight-hbase-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
 
 
-[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-diagram.png
-[img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-lnet-diagram.png
-[img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-vnets/hdinsight-hbase-vpn-status.png 
+[img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.diagram.png
+[img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
+[img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

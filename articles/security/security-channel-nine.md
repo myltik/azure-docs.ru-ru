@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure security videos on Channel 9 | Microsoft Azure"
-   description="The article provides a curated list of Azure security presentations on Channel 9. Channel 9 is a community that connects the people who use our products with the people behind our products."
+   pageTitle="Видеоматериалы по безопасности в Azure на Channel 9 | Microsoft Azure"
+   description="Эта статья содержит проверенный список презентаций по безопасности Azure в Channel 9. Channel 9 — это сообщество, помогающее разработчикам взаимодействовать с пользователями их продуктов."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,69 +16,64 @@
    ms.date="08/09/2016"
    ms.author="terrylan"/>
 
+# Видеоматериалы по безопасности в Azure на Channel 9
 
-# <a name="azure-security-videos-on-channel-9"></a>Azure security videos on Channel 9
+[Channel 9](https://channel9.msdn.com/) — это сообщество, которое позволяет создателям наших продуктов знакомиться и общаться с клиентами.
 
-[Channel 9](https://channel9.msdn.com/) is a community that brings forward the people behind our products and connects them with customers.
+Они видят безоблачное будущее программного обеспечения очень этому рады. Channel 9 — это сообщество, где общение не затухает ни на минуту.
 
-They think there is a great future in software and they’re excited about it. Channel 9 is a community to participate in the ongoing conversation.
+Ниже приведен проверенный список презентаций по безопасности Azure в Channel 9. Не забывайте возвращаться сюда — ежемесячно на этой странице выкладываются новые видеоролики.
 
-The following is a curated list of Azure security presentations on Channel 9. Make sure to check this page monthly for new videos.
+[Повышение потребления в Azure с помощью Barracuda Security](https://channel9.msdn.com/events/Microsoft-Azure-Marketplace-ISV-Solutions-Webinar-Series/Webinar-1-Accelerating-Azure-Consumption-with-Barracuda-Security/Webinar-1-Accelerating-Azure-Consumption-with-Barracuda-Security)
 
-[Accelerating Azure Consumption with Barracuda Security](https://channel9.msdn.com/events/Microsoft-Azure-Marketplace-ISV-Solutions-Webinar-Series/Webinar-1-Accelerating-Azure-Consumption-with-Barracuda-Security/Webinar-1-Accelerating-Azure-Consumption-with-Barracuda-Security)
+Вы можете узнать, как Barracuda Security помогает защитить ваши развертывания Azure.
 
-See how you can use Barracuda security to secure your Azure deployments.
+[Центр безопасности Azure — обнаружение угроз](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Security-Center-Threat-Detection)
 
-[Azure Security Center - Threat Detection](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Security-Center-Threat-Detection)
+Благодаря центру безопасности Azure вы получаете полное представление о состоянии безопасности всех своих ресурсов в Azure. Вы можете быстро убедиться, что все необходимые настройки заданы правильно. Скотт общается с Сарой Фендер (Sara Fender), объясняющей процесс интеграции функций обнаружения угроз с центром безопасности.
 
-With Azure Security Center, you get a central view of the security state of all your Azure resources. At a glance, verify that the appropriate security controls are in place and configured correctly. Scott talks to Sarah Fender who explains how Security Center integrates Threat Detection.
+[Обзор центра безопасности Azure](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Security-Center-Overview)
 
-[Azure Security Center Overview](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Security-Center-Overview)
+Благодаря центру безопасности Azure вы получаете полное представление о состоянии безопасности всех своих ресурсов в Azure. Вы можете быстро убедиться, что все необходимые настройки заданы правильно. Скотт общается с Сарой Фендер (Sara Fender), которая все это объясняет.
 
-With Azure Security Center, you get a central view of the security state of all your Azure resources. At a glance, verify that the appropriate security controls are in place and configured correctly. Scott talks to Sara Fender who explains it all!
+[Практическая демонстрация: защита от угроз, их обнаружение и реагирование на них](https://channel9.msdn.com/events/Virtual-Security-Summit/Virtual-Security-Summit-2016/Live-Demo-Protecting-against-Detecting-and-Responding-to-Threats)
 
-[Live Demo: Protecting against, Detecting and Responding to Threats](https://channel9.msdn.com/events/Virtual-Security-Summit/Virtual-Security-Summit-2016/Live-Demo-Protecting-against-Detecting-and-Responding-to-Threats)
+Присоединяйтесь к этому семинару, чтобы увидеть платформу безопасности Майкрософт в действии. Юлия Уайт (Julia White), генеральный менеджер группы Cloud & Enterprise, демонстрирует средства обеспечения безопасности Windows 10, Azure и Office 365, которые помогут вам защитить свою организацию.
 
-Join this session to see the Microsoft security platform in action. General Manager for Cloud & Enterprise, Julia White, demonstrates the security features of Windows 10, Azure, and Office 365 that can help you keep your organization secure.
+[Шифрование внутри виртуальных машин Server SQL в Azure для повышения безопасности](https://channel9.msdn.com/Shows/Azure-Friday/Encryption-in-SQL-Azure-for-better-security)
 
-[Encryption in SQL Server Virtual Machines in Azure for better security](https://channel9.msdn.com/Shows/Azure-Friday/Encryption-in-SQL-Azure-for-better-security)
+Джек Райчинс (Jack Richins) рассказывает [Скотту](https://channel9.msdn.com/Niners/Glucose), как зашифровать базы данных SQL Server на экземплярах виртуальных машин Azure. Оказывается, это проще, чем вы думаете!
 
-Jack Richins teaches [Scott](https://channel9.msdn.com/Niners/Glucose) how to easily encrypt his SQL Server databases on Virtual Machine Azure instances. It's easier than you'd think!
+В видеоролике затронуты следующие аспекты.
 
-Areas covered in this video:
+- Общие сведения о шифровании и SQL Server
+- Общие сведения о API защиты данных, главных ключах и сертификатах
+- Использование команд SQL для создания главного ключа и сертификатов, а также шифрования базы данных
 
-- Understanding encryption and SQL Server
-- Understanding the Data Protection API, master keys, and certificates
-- Using SQL commands to create the master key and certificates, and encrypt the database
+[Настройка безопасности в DevTest Labs](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
 
-[How to set security in DevTest Labs](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
+Являясь владельцем лаборатории, вы можете защитить доступ к ней с помощью двух ролей: владельца и пользователя DevTest Labs. Лицо с ролью владельца имеет полный доступ к лабораторной среде, тогда как лицо с ролью пользователя DevTest Labs —лишь ограниченный. В этом видео мы покажем, как добавить в лабораторию пользователя с любой из этих ролей.
 
-As an owner of your lab, you can secure lab access by via two lab roles: Owner and DevTest Labs User. A person in the Owner role has complete access in the lab whereas a person in the DevTest Labs User role has limited access. In this video, we show you how to add a person in either of these roles to a lab.
+[Управление секретами приложения Azure](https://channel9.msdn.com/events/Build/2016/P456)
 
-[Managing Secrets for Azure Apps](https://channel9.msdn.com/events/Build/2016/P456)
+Каждое серьезное приложение, развертываемое в Azure, содержит важные секреты — строки подключения, сертификаты и ключи. Глупые ошибки при управлении этими секретными данными могут привести к роковым последствиям, таким как утечка информации, сбои, нарушения соответствия. Как показали несколько последних опросов, глупые ошибки становятся причиной утечек данных в четыре раза чаще, чем злоумышленники. На этом занятии мы дадим рекомендации по управлению важными секретными данными вашего приложения. Эти рекомендации могут показаться вполне очевидными, однако разработчики ими часто пренебрегают. Кроме того, мы объясним, как использовать хранилище ключей Azure для реализации этих рекомендаций. Дополнительным преимуществом является и то, что эти рекомендации способствуют соблюдению стандартов, таких как SOC. Первые десять минут занятия относятся к уровню 100. Сведения, содержащиеся в этой части, применимы к любым облачным приложениям, разрабатываемым на любой платформе. Остальная часть относится у уровню 200–300 и посвящена приложениям на платформе Azure.
 
-Every serious app you deploy on Azure has critical secrets – connection strings, certificates, keys. Silly mistakes in managing these secrets leads to fatal consequences – leaks, outages, compliance violations. As multiple recent surveys point out, silly mistakes cause four times more data breaches than adversaries. In this session, we go over some best practices to manage your important app secrets. These best practices may seem like common sense, yet many developers neglect them. We also go over how to use Azure Key Vault to implement those best practices. As an added benefit, following these practices helps you demonstrate compliance with standards such as SOC. The first 10 minutes of the session are level 100 and they apply to any cloud app you develop on any platform. The remainder is level 200-300 and focuses on apps you build on the Azure platform.
+[Защита виртуальной сети Azure с помощью групп безопасности сети (Нараян Аннамалай)](https://channel9.msdn.com/Shows/Azure-Friday/Sucruing-your-Azure-Virtual-Network-using-Network-ACLs-with-Narayan-Annamalai)
 
-[Securing your Azure Virtual Network using Network Security Groups with Narayan Annamalai](https://channel9.msdn.com/Shows/Azure-Friday/Sucruing-your-Azure-Virtual-Network-using-Network-ACLs-with-Narayan-Annamalai)
+Старший руководитель программы Нараян Аннамалай (Narayan Annamalai) рассказывает Скотту, как использовать группы безопасности сети в виртуальной сети Azure. Контроль доступа к объектам в Azure можно реализовать с учетом подсети и сети. Вы можете узнать, как управлять доступом и создавать группы в Azure с помощью PowerShell.
 
-Senior Program Manager Narayan Annamalai teaches Scott how to use Network Security Groups within an Azure Virtual Network. You can create control access to objects within Azure by subnet and network! You learn how to control access and create groups within Azure using PowerShell.
+[Управление привилегированными пользователями Azure AD: мастер защиты, оповещения, обзоры](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Privileged-Identity-Management-Security-Wizard-Alerts-Reviews)
 
-[Azure AD Privileged Identity Management: Security Wizard, Alerts, Reviews](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Privileged-Identity-Management-Security-Wizard-Alerts-Reviews)
+Управление привилегированными пользователями Azure Active Directory (AD) — это функциональная возможность уровня "Премиум", которая позволяет обнаруживать, ограничивать и отслеживать привилегированных пользователей, а также их доступ к ресурсам. Она также обеспечивает своевременный административный доступ при необходимости. Кроме того, вы узнаете о таких возможностях, как:
 
-Azure Active Directory (AD) Privileged Identity Management is a premium functionality that allows you to discover, restrict, and monitor privileged identities and their access to resources. It also enforces on-demand, just in time administrative access when needed. Learn about:
+- управление защитой для зависящих от рабочей нагрузки административных ролей в Office 365;
+- настройка Azure Multi-Factor Authentication (MFA) для активации привилегированных ролей;
+- измерение и улучшение показателей системы безопасности клиента;
+- мониторинг и устранение проблем безопасности;
+- пересмотр сохранения привилегированных ролей за пользователями при периодической переаттестации.
 
-- Managing protection for Office 365 workload-specific administrative roles
-- Configuring Azure Multi-Factor Authentication(MFA) for privileged role activations
-- Measuring and improving your tenant security posture
-- Monitoring and fixing security findings
-- Reviewing who needs to remain in privileged roles for periodic recertification workflows
+[Хранилище ключей Azure (Амит Бапат)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
-[Azure Key Vault with Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
+Амит Бапат (Amit Bapat) знакомит Скотта с хранилищем ключей Azure. С помощью хранилища ключей Azure можно хранить ключи в аппаратных модулях безопасности (HSM), а также шифровать ключи и небольшие секретные данные, например пароли. Это облачное и аппаратное управление секретами для Microsoft Azure.
 
-Amit Bapat introduces Scott to Azure Key Vault. With Azure Key Vault, you can encrypt keys and small secrets like passwords using keys stored in hardware security modules (HSMs). It's cloud-based, hardware-based secret management for Microsoft Azure!
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

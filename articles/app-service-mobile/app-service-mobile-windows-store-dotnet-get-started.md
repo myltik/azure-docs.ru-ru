@@ -1,94 +1,89 @@
 <properties
-    pageTitle="Create a Universal Windows Platform (UWP) that uses on Mobile Apps | Microsoft Azure"
-    description="Follow this tutorial to get started with using Azure mobile app backends for Universal Windows Platform (UWP) app development in C#, Visual Basic, or JavaScript."
-    services="app-service\mobile"
-    documentationCenter="windows"
-    authors="adrianhall"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Создание приложения универсальной платформы Windows (UWP) для использования в мобильных приложениях | Microsoft Azure"
+	description="Следуйте указаниям этого руководства, чтобы начать работу с серверной частью мобильных приложений Azure для разработки приложений универсальной платформы Windows (UWP) на C#, Visual Basic или JavaScript."
+	services="app-service\mobile"
+	documentationCenter="windows"
+	authors="adrianhall"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-windows"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="10/01/2016"
+	ms.author="adrianha"/>
 
-
-#<a name="create-a-windows-app"></a>Create a Windows app
+#Создание приложения Windows
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##<a name="overview"></a>Overview
+##Обзор
 
-This tutorial shows you how to add a cloud-based backend service to a Universal Windows Platform (UWP) app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md). The following are screen captures from the completed app:
+В этом руководстве показано, как добавить облачную серверную службу в универсальную платформу Windows (UWP). Дополнительные сведения см. в статье [Что такое мобильные приложения?](app-service-mobile-value-prop.md) Ниже приведены снимки экрана готового приложения.
 
-![Completed desktop app](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
-Running on a desktop. 
+![Готовое классическое приложение](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png) Выполняется на настольном компьютере.
 
-![Completed phone app](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)  
-Running on a phone
+![Готовое приложение для телефона](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png) Выполняется на телефоне.
 
-Completing this tutorial is a prerequisite for all other Mobile App tutorials for UWP apps. 
+Изучение этого руководства является необходимым условием для работы со всеми остальными руководствами, посвященными мобильным приложениям UWP.
 
-##<a name="prerequisites"></a>Prerequisites
+##Предварительные требования
 
-To complete this tutorial, you need the following:
+Для работы с этим учебником требуется:
 
-* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+* Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* [Visual Studio Community 2015] or a later version.
+* [Visual Studio Community 2015] или более поздней версии.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile). There, you can immediately create a short-lived starter mobile app in App Service—no credit card required, and no commitments.
+>[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [Пробное использование службы приложений](https://tryappservice.azure.com/?appServiceName=mobile). Там вы сможете немедленно создать кратковременное начальное мобильное приложение в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
 
-##<a name="create-a-new-azure-mobile-app-backend"></a>Create a new Azure Mobile App backend
+##Создание серверной части мобильного приложения Azure
 
-Follow these steps to create a new Mobile App backend.
+Чтобы создать серверную часть мобильного приложения, выполните указанные ниже действия.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server project for a simple "todo list" backend and publish it to Azure.
+Итак, вы подготовили серверную часть мобильного Azure, которая может использоваться мобильными клиентскими приложениями. Теперь скачайте серверный проект со списком простых задач и опубликуйте его в Azure.
 
-## <a name="configure-the-server-project"></a>Configure the server project
+## Настройка серверного проекта
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-##<a name="download-and-run-the-client-project"></a>Download and run the client project
+##Скачивание и выполнение клиентского проекта
 
-Once you have configured your Mobile App backend, you can either create a new client app or modify an existing app to connect to Azure. In this section, you download a UWP app template project that is customized to connect to your Mobile App backend.
+Настроив серверную часть мобильного приложения, можно создать новое клиентское приложение или изменить существующее приложение, чтобы подключиться к Azure. В этом разделе вы загрузите проект шаблона UWP, который настроен для подключения к серверной части мобильного приложения.
 
-1. Back in the **Quick start** blade for your Mobile App backend, click **Create a new app** > **Download**, then extract the compressed project files to your local computer.
+1. Вернитесь в колонку **Быстрый запуск** серверной части мобильного приложения и последовательно выберите элементы **Создать новое приложение** > **Загрузить**. Затем извлеките сжатые файлы проекта на локальный компьютер.
 
-    ![Download Windows quickstart project](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
+	![Загрузка проекта быстрого запуска Windows](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
 
-3. (Optional) Add the UWP app project to the same solution as the server project. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution, if you choose to do so. To add a UWP app project to the solution, you must be using Visual Studio 2015 or a later version.
+3. (Необязательно) Добавьте в то же решение проект приложения UWP в качестве серверного проекта. Это упрощает отладку и тестирование приложения и серверной части в одном решении Visual Studio, если вам это потребуется. Чтобы добавить в решение проект приложения UWP, необходимо использовать Visual Studio 2015 или более поздней версии.
 
-4. With the UWP app as the startup project, press the F5 key to deploy and run the app.
+4. Задав приложение UWP как запускаемый проект, нажмите клавишу F5, чтобы развернуть и запустить приложение.
 
-5. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** text box, and then click **Save**.
+5. В приложении в поле **Вставить TodoItem** введите содержательный текст, например *Работа с руководством*, и нажмите кнопку **Сохранить**.
 
-    ![Windows quickstart complete desktop](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
+	![Полный быстрый запуск Windows — классическая версия](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
-    This sends a POST request to the new mobile app backend that's hosted in Azure.
+	В результате будет отправлен запрос POST к серверной части нового мобильного приложения, размещенного в Azure.
 
-6. (Optional) Stop the app and restart it on a different device or mobile emulator.
+6. (Необязательно) Остановите приложение и перезапустите его на другом устройстве или эмуляторе мобильных устройств.
 
-    ![Windows quickstart complete phone](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
+	![Полный быстрый запуск Windows — мобильная версия](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
 
-    Notice that data saved from the previous step is loaded from Azure after the UWP app starts. 
+	Обратите внимание, что данные, сохраненные на предыдущем этапе, загружаются из Azure после запуска приложения UWP.
 
-##<a name="next-steps"></a>Next steps
+##Дальнейшие действия
 
-* [Add authentication to your app](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-  Learn how to authenticate users of your app with an identity provider.
+* [Добавление аутентификации в приложение](app-service-mobile-windows-store-dotnet-get-started-users.md)
+Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
-* [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-  Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
+* [Добавление push-уведомлений в приложение](app-service-mobile-windows-store-dotnet-get-started-push.md). Узнайте, как добавить поддержку push-уведомлений в приложение и настроить в серверной части мобильного приложения использование центров уведомлений Azure для отправки push-уведомлений.
 
-* [Enable offline sync for your app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+* [Включение автономной синхронизации для приложения](app-service-mobile-windows-store-dotnet-get-started-offline-data.md). Узнайте, как добавить в приложение поддержку автономной работы с помощью серверной части мобильного приложения. Автономная синхронизация позволяет конечным пользователям взаимодействовать с мобильным приложением (просматривать, добавлять или изменять данные) даже при отсутствии подключения к сети.
 
 <!-- Anchors. -->
 <!-- Images. -->
@@ -97,8 +92,4 @@ Once you have configured your Mobile App backend, you can either create a new cl
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

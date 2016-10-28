@@ -1,506 +1,494 @@
 <properties
-    pageTitle="Azure Active Directory Identity Protection | Microsoft Azure"
-    description="Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised."
-    services="active-directory"
-    keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
-    documentationCenter=""
-    authors="markusvi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Защита идентификации Azure Active Directory | Microsoft Azure"
+	description="Узнайте, как защита идентификации Azure AD позволяет помешать злоумышленникам воспользоваться скомпрометированными удостоверениями и устройствами, а также защитить удостоверение или устройство, которое ранее предположительно или фактически скомпрометировано."
+	services="active-directory"
+	keywords="защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/12/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/20/2016"
+	ms.author="markvi"/>
+
+#Защита идентификации Azure Active Directory 
+
+Защита идентификации Azure Active Directory — это функция Azure AD выпуска Premium P2, обеспечивающая единое представление обо всех событиях риска и возможных уязвимостях, которые могут влиять на удостоверения организации. Корпорация Майкрософт более десяти лет обеспечивает безопасность облачной идентификации, а теперь благодаря защите идентификации Azure AD аналогичные системы защиты стали доступны корпоративным клиентам. Защита идентификации предусматривает возможности обнаружения аномалий Azure AD (они доступны в отчетах Azure AD об аномальных действиях) и новые типы событий риска, которые позволяют обнаруживать аномалии в реальном времени.
 
 
-#<a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 
 
-Azure Active Directory Identity Protection is a feature of the Azure AD Premium P2 edition that provides you with a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
+##Приступая к работе
 
+Подавляющее большинство нарушений безопасности — это случаи, когда злоумышленники получают доступ к среде за счет кражи удостоверения пользователя. Злоумышленники стали еще эффективнее использовать бреши в сторонних системах, а фишинговые атаки стали еще изощреннее. Как только злоумышленник получит доступ к учетной записи пользователя с привилегиями даже низкого уровня, ему не составит особого труда получить доступ и к важным ресурсам компании. Поэтому важно защитить все удостоверения, а в случае компрометации предотвратить злонамеренное использование скомпрометированных удостоверений.
 
-
-##<a name="getting-started"></a>Getting Started
-
-The vast majority of security breaches take place when attackers gain access to an environment by stealing a user’s identity. Attackers have become increasingly effective at leveraging third party breaches, and using sophisticated phishing attacks. Once an attacker gains access to even a low privileged user account, it is relatively straightforward for them to gain access to important company resources through lateral movement. It is therefore essential to protect all identities and, when an identity is compromised, proactively prevent the compromised identity from being abused. 
-
-Discovering compromised identities is no easy task. Fortunately, Identity Protection can help: Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised.
+Обнаружение скомпрометированных удостоверений — непростая задача. К счастью, ее можно выполнить с помощью службы защиты идентификации. Она использует адаптивные алгоритмы машинного обучения и эвристические методы, чтобы обнаруживать аномалии и события риска, которые могут указывать на компрометацию удостоверения.
  
-Using this data, Identity Protection generates reports and alerts that enables you to investigate these risk events and take appropriate remediation or mitigation action.
+На основе этих данных служба защиты идентификации создает отчеты и оповещения, с помощью которых можно исследовать события риска, чтобы предпринять действия по исправлению и устранению рисков.
  
-But Azure Active Directory Identity Protection is more than a monitoring and reporting tool. Based on risk events, Identity Protection calculates a user risk level for each user, enabling you to configure risk-based policies to automatically protect the identities of your organization.  These risk-based policies, in addition to other conditional access controls provided by Azure Active Directory and EMS, can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.  
+Тем не менее защита идентификации Azure Active Directory — больше, чем просто инструмент для мониторинга и создания отчетности. Она позволяет рассчитать уровень риска для каждого пользователя на основе соответствующих событий и настроить политики рисков, чтобы обеспечить автоматическую защиту удостоверений в организации. Эти политики рисков, помимо других элементов управления доступом Azure Active Directory и EMS, позволяют обеспечить автоматическую блокировку или предусмотреть адаптивные действия по исправлению, в том числе сброс пароля и принудительную многофакторную проверку подлинности.
 
-####<a name="explore-identity-protection's-capabilities"></a>Explore Identity Protection's capabilities 
+####Возможности защиты идентификации 
 
-**Detecting risk events and risky accounts:**  
+**Обнаружение событий риска и учетных записей, подверженных риску:**
 
-- Detecting 6 risk event types using machine learning and heuristic rules 
+- обнаружение событий риска 6 типов с помощью правил машинного обучения и эвристических правил;
 
-- Calculating user risk levels
+- расчет уровня риска для пользователя;
 
-- Providing custom recommendations to improve overall security posture by highlighting vulnerabilities
-
-
-
-**Investigating risk events:**
-
-- Sending notifications for risk events
-
-- Investigating risk events using relevant and contextual information
-
-- Providing basic workflows to track investigations
-
-- Providing easy access to remediation actions such as password reset
+- предоставление пользовательских рекомендаций для повышения общего уровня безопасности путем информирования об уязвимостях.
 
 
 
-**Risk-based conditional access policies:**
+**Исследование событий риска:**
 
-- Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
+- отправка уведомлений о событиях риска;
 
-- Policy to block or secure risky user accounts
+- исследование событий риска на основе соответствующей и контекстной информации;
 
-- Policy to require users to register for multi-factor authentication
+- базовые рабочие процессы для отслеживания исследований;
 
-
-## <a name="detection-and-risk"></a>Detection and Risk
-
-### <a name="risk-events"></a>Risk events
-
-Risk events are events that were flagged as suspicious by Identity Protection, and indicate that an identity may have been compromised. For a complete list of risk events, see [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md). 
-
-Some of these risk events have been available through the Azure AD Anomalous Activity reports in the Azure portal. The table below lists the various risk event types and the corresponding **Azure AD Anomalous Activity** report. Microsoft is continuing to invest in this space, and plans to continuously improve the detection accuracy of existing risk events and add new risk event types on an ongoing basis. 
+- легкий доступ к действиям по исправлению, таким как сброс пароля.
 
 
 
-| Identity Protection Risk Event Type | Corresponding Azure AD Anomalous Activity Report |
+**Политики условного доступа на основе рисков:**
+
+- политика уменьшения рисков при сомнительных входах путем блокировки входа или запроса многофакторной проверки подлинности;
+
+- политика блокировки или защиты учетных записей с возможным риском;
+
+- политика обязательной регистрации пользователей для многофакторной проверки подлинности.
+
+
+## Обнаружение и риск
+
+### События риска
+
+События риска — это события, которые отмечаются в службе защиты идентификации как подозрительные и указывают на возможную компрометацию удостоверения. Полный список событий риска см. в статье [Типы событий риска, обнаруживаемые защитой идентификации Azure Active Directory](active-directory-identityprotection-risk-events-types.md).
+
+Некоторые из этих событий можно просмотреть на портале Azure в отчетах Azure AD об аномальных действиях. В следующей таблице перечислены различные типы событий риска и соответствующие отчеты **Azure AD об аномальных действиях**. Корпорация Майкрософт продолжает инвестировать в эту сферу и планирует постоянно увеличивать точность обнаружения событий риска, а также добавлять новые типы таких событий.
+
+
+
+| Тип события риска в службе защиты идентификации | Соответствующий отчет Azure AD об аномальных действиях |
 | :-- | :-- |
-| Leaked credentials    | Users with leaked credentials |
-| Impossible travel to atypical locations | Irregular sign-in activity |
-| Sign-ins from infected devices    | Sign-ins from possibly infected devices |
-| Sign-ins from anonymous IP addresses  | Sign-ins from unknown sources |
-| Sign-ins from IP addresses with suspicious activity | Sign-ins from IP addresses with suspicious activity |
-| Signs in from unfamiliar locations    | - |
-| Lockout events    | - |
+| Утерянные учетные данные | Пользователи с утерянными учетными данными |
+| Невозможно переместиться в нетипичные расположения |	Нестандартные действия при входе |
+| Попытки входа с инфицированных устройств | Попытки входа с возможно инфицированных устройств |
+| Попытки входа с анонимных IP-адресов | Попытки входа из неизвестных источников |
+| Попытки входа с IP-адресов с подозрительными действиями |	Попытки входа с IP-адресов с подозрительными действиями |
+| Попытки входа из неизвестных расположений | — |
+| События блокировки | — |
 
-The following Azure AD Anomalous Activity reports are not included as risk events in Azure AD Identity Protection, and will therefore not be available through Identity Protection. These reports are still available in the Azure portal however they will be deprecated at some time in the future as they are being superseded by risk events in Identity Protection.
+У следующих отчетов Azure AD об аномальных действиях нет соответствующих событий риска в службе защиты идентификации Azure AD, и, следовательно, они не будут доступны в этой службе. Эти отчеты по-прежнему будут доступны на портале Azure, но в скором будущем они станут устаревшими, так как их заменяют события риска в рамках защиты идентификации:
 
-- Sign-ins after multiple failures
-- Sign-ins from multiple geographies
+- "Операции входа после нескольких неудачных попыток";
+- "Операции входа из нескольких географических регионов".
 
-### <a name="risk-level"></a>Risk level
+### Уровень риска
 
-The Risk level for a risk event is an indication (High, Medium, or Low) of the severity of the risk event. The risk level helps Identity Protection users prioritize the actions they must take to reduce the risk to their organization. The severity of the risk event represents the strength of the signal as a predictor of identity compromise, combined with the amount of noise that it typically introduces. 
+Уровень риска события обозначает его серьезность (высокую, среднюю или низкую). В службе защиты идентификации уровень риска можно использовать для расстановки приоритета действий, которые необходимо предпринимать, чтобы уменьшить риск для организации. Серьезность события риска — это интенсивность сигнала, характеризующего прогноз компрометации удостоверения, в сочетании с объемом ненужных сведений, которые обычно создает событие.
 
-- **High**: High confidence and high severity risk event. These events are strong indicators that the user’s identity has been compromised, and any user accounts impacted should be remediated immediately.
+- **Высокий уровень** — у события риска высокая вероятность и высокая серьезность. Эти события являются достоверным показателем того, что удостоверение пользователя скомпрометировано, и для каждой такой учетной записи следует безотлагательно принять меры по исправлению.
 
-- **Medium**: High severity, but lower confidence risk event, or vice versa. These events are potentially risky, and any user accounts impacted should be remediated.
+- **Средний уровень** — у события высокая серьезность, но более низкая вероятность риска, или наоборот. Эти события потенциально опасны, и для каждой затронутой учетной записи пользователя следует принять меры по исправлению.
 
-- **Low**: Low confidence and low severity risk event. This event may not require an immediate action, but when combined with other risk events, may provide a strong indication that the identity is compromised. 
+- **Низкий уровень** — у события риска низкая вероятность и низкая серьезность. Это событие может не требовать срочных действий, но в сочетании с другими событиями оно может служить достоверным показателем компрометации удостоверения.
 
 
-![Risk Level](./media/active-directory-identityprotection/01.png "Risk Level")
+![Уровень риска](./media/active-directory-identityprotection/01.png "Уровень риска")
 
  
 
-Risk events are either identified in **real-time**, or in post-processing after the risk event has already taken place (offline). Currently most risk events in Identity Protection are computed offline, and show up in Identity Protection within 2-4 hours. While evaluated in real-time, the real-time risk events will show up in the Identity Protection Console within 5-10 minutes.
+События риска определяются в **реальном времени** или на этапе последующей обработки, когда событие уже состоялось (вне сети). Сейчас большинство событий риска в рамках защиты идентификации вычисляются в автономном режиме и отображаются в службе в течение 2–4 часов. При оценке в режиме реального времени события риска отображаются в консоли защиты идентификации в течение 5–10 минут.
 
-Several legacy clients do not currently support real-time risk event detection and prevention. As a result, sign-ins from these clients cannot be detected or prevented in real-time.
+Для некоторых устаревших клиентов не поддерживается обнаружение и предотвращение событий риска в реальном времени. Поэтому попытки входа из этих клиентов нельзя обнаружить или предотвратить в реальном времени.
 
 
-## <a name="investigation"></a>Investigation
-Your journey through Identity Protection typically starts with the Identity Protection dashboard. 
+## Исследование
+Обычно исследование защиты идентификации начинают с панели мониторинга соответствующей службы.
 
-![Remediation](./media/active-directory-identityprotection/1000.png "Remediation")
+![Исправление](./media/active-directory-identityprotection/1000.png "Исправление")
 
-The dashboard gives you access to:
+Панель мониторинга позволяет использовать:
  
-- Reports such as **Users flagged for risk**, **Risk events** and **Vulnerabilities**
-- Settings such as the configuration of your **Security Policies**, **Notifications** and **multi-factor authentication registration**
+- отчеты, такие как **Пользователи, находящиеся в группе риска**, **События риска** и **Уязвимости**;
+- параметры, такие как **Политики безопасности**, **Уведомления** и **Регистрация в многофакторной проверке подлинности**.
  
 
-It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
+Обычно исследование начинают с проверки действий, журналов и других связанных сведений, относящихся к событию риска, для принятия решения о необходимости выполнения действий по исправлению или устранению рисков, получения представления о способе компрометации удостоверения и вариантах использования скомпрометированного удостоверения.
 
-You can tie your investigation activities to the [notifications](active-directory-identityprotection-notifications.md) Azure Active Directory Protection sends per email.
+Действия по исследованию можно привязать к [уведомлениям](active-directory-identityprotection-notifications.md), которые отправляет служба защиты идентификации Azure Active Directory по электронной почте.
 
-The following sections provide you with more details and the steps that are related to an investigation.  
+Следующие разделы содержат дополнительные сведения и шаги, связанные с исследованием.
 
 
 
-## <a name="what-is-a-user-risk-level?"></a>What is a user risk level?
+## Что такое уровень риска для пользователя?
 
-A user risk level is an indication (High, Medium, or Low) of the likelihood that the user’s identity has been compromised. It is calculated based on the user risk events that are associated with the user's identity. 
+Уровень риска для пользователя ("Высокий", "Средний" или "Низкий") означает степень вероятности, что его удостоверение скомпрометировано. Он рассчитывается на основе событий риска для пользователя, связанных с его удостоверением.
 
-The status of a risk event is either **Active** or **Closed**. Only risk events that are **Active** contribute to the user risk calculation. 
+У события риска может быть состояние **Активно** или **Закрыто**. При расчете риска для пользователя учитываются только события с состоянием **Активно**.
 
-The user risk level is calculated using the following inputs:
+При расчете риска для пользователя также используются следующие входные данные:
 
-- Active risk events impacting the user
-- Risk level of these events 
-- Whether any remediation actions have been taken 
+- активные события риска, влияющие на пользователя;
+- уровень риска этих событий;
+- факт выполнения или невыполнения действий по исправлению.
 
-![User risks](./media/active-directory-identityprotection/1001.png "User risks")
+![Риск для пользователя](./media/active-directory-identityprotection/1001.png "Риск для пользователя")
 
 
 
-You can use the user risk levels to create conditional access policies to block risky users from signing in, or force them to securely change their password. 
+Уровни риска для пользователя можно использовать, чтобы создать политики условного доступа для блокировки входа пользователей, представляющих риск, или принудительного изменения пароля.
 
 
-## <a name="closing-risk-events-manually"></a>Closing risk events manually
+## Закрытие событий риска вручную
 
-In most cases, you will take remediation actions such as a secure password reset to automatically close risk events. However, this might not always be possible.  
-This is, for example, the case, when:
+В большинстве случаев, чтобы события риска закрывались автоматически, вы будете использовать такое действие по исправлению, как безопасный сброс пароля. Однако это действие не всегда можно выполнить. Например, это происходит, если:
 
-- A user with Active risk events has been deleted
-- An investigation reveals that a reported risk event has been perform by the legitimate user
+- был удален пользователь с активными событиями риска;
+- исследование показывает, что выявленные события риска произошли в результате действий полномочного пользователя.
 
-Because risk events that are **Active** contribute to the user risk calculation, you may have to manually lower a risk level by closing risk events manually.  
-During the course of investigation, you can choose to take any of these actions to change the status of a risk event:
+Так как при расчете риска для пользователя учитываются события с состоянием **Активно**, может потребоваться уменьшить уровень риска, вручную закрыв эти события. В ходе исследования вы можете использовать любое из этих действий, чтобы изменить состояние события риска.
 
-![Actions](./media/active-directory-identityprotection/34.png "Actions")
+![Действия](./media/active-directory-identityprotection/34.png "Действия")
 
-- **Resolve** - If after investigating a risk event, you took an appropriate remediation action outside Identity Protection, and you believe that the risk event should be considered closed, mark the event as Resolved. Resolved events will set the risk event’s status to Closed and the risk event will no longer contribute to user risk.
+- **Разрешить** — если после исследования события риска вы выполнили соответствующее действие по исправлению вне службы защиты идентификации и считаете, что событие следует закрыть, пометьте его как разрешенное. Разрешенным событиям риска будет присвоено состояние "Закрыто", и они больше не будут учитываться при расчете риска для пользователя.
 
-- **Mark as false-positive** - In some cases, you may investigate a risk event and discover that it was incorrectly flagged as a risky. You can help reduce the number of such occurrences by marking the risk event as False-positive. This will help the machine learning algorithms to improve the classification of similar events in the future. The status of false-positive events is to **Closed** and they will no longer contribute to user risk.
+- **Пометить как ложное срабатывание** — иногда в результате исследования событий риска может обнаружиться, что событие помечено по ошибке. Количество таких вхождений можно уменьшить, пометив события риска как "Ложное срабатывание". Это позволит усовершенствовать классификацию таких событий при использовании алгоритмов машинного обучения. Состояние событий с ложным срабатыванием изменяется на **Закрыто**, и они больше не учитываются при расчете риска для пользователя.
 
-- **Ignore** - If you have not taken any remediation action, but want the risk event to be removed from the active list, you can mark a risk event Ignore and the event status will be Closed. Ignored events do not contribute to user risk. This option should only be used under unusual circumstances. 
+- **Пропустить** — если вы не предпринимали действий по исправлению, но хотите удалить события риска из списка активных, можно пометить их, щелкнув "Пропустить", чтобы изменить состояние на "Закрыто". Пропущенные события не влияют на риск для пользователя. Эту возможность следует использовать только при чрезвычайных обстоятельствах.
 
-- **Reactivate** - Risk events that were manually closed (by choosing **Resolve**, **False positive**, or **Ignore**) can be reactivated, setting the event status back to **Active**. Reactivated risk events contribute to the user risk level calculation. Risk events closed through remediation (such as a secure password reset) cannot be reactivated. 
+- **Повторно активировать** — события риска, закрытые вручную (если вы щелкнули **Разрешить**, **Ложное срабатывание** или **Пропустить**), можно активировать снова, установив для них состояние **Активно**. Повторно активированные события рисков учитываются при расчете уровня риска для пользователя. События рисков, закрытые вследствие исправления (например, безопасного сброса пароля), нельзя повторно активировать.
 
 
 
 
-**To open the related configuration dialog**:
+**Вот как можно открыть диалоговое окно настройки**.
 
-1. On the **Azure AD Identity Protection** blade, under **Investigate**, click **Risk events**.
+1. В колонке **Azure AD Identity Protection** (Защита идентификации Azure AD) в разделе **Сведения** щелкните **Risk events** (События риска).
 
-    ![Manual password reset](./media/active-directory-identityprotection/1002.png "Manual password reset")
+	![Сброс паролей вручную](./media/active-directory-identityprotection/1002.png "Сброс паролей вручную")
 
-2. In the **Risk events** list, click a risk.
+2. В списке **Risk events** (События риска) выберите риск.
 
-    ![Manual password reset](./media/active-directory-identityprotection/1003.png "Manual password reset")
+	![Сброс паролей вручную](./media/active-directory-identityprotection/1003.png "Сброс паролей вручную")
 
-2. On the risk blade, right-click a user.
+2. В колонке риска щелкните правой кнопкой мыши пользователя.
 
-    ![Manual password reset](./media/active-directory-identityprotection/1004.png "Manual password reset")
+	![Сброс паролей вручную](./media/active-directory-identityprotection/1004.png "Сброс паролей вручную")
 
 
 
-### <a name="closing-all-risk-events-for-a-user-manually"></a>Closing all risk events for a user manually
+### Закрытие всех событий риска для пользователя вручную
 
-Instead of manually closing risk events for a user individually, Azure Active Directory Identity Protection also provides you with a method to close all events for a user with one click.
+Вместо закрытия событий риска для пользователя по отдельности защита идентификации Azure Active Directory предоставляет метод, позволяющий закрыть все события для пользователя одним щелчком.
 
 
-![Actions](./media/active-directory-identityprotection/2222.png "Actions")
+![Действия](./media/active-directory-identityprotection/2222.png "Действия")
 
-When you click **Dismiss all events**, all events are closed and the affected user is no longer at risk.
+При нажатии кнопки **Dismiss all events** (Закрыть все события) закрываются все события и соответствующий пользователь больше не находится под угрозой.
 
 
 
-## <a name="remediating-user-risk-events"></a>Remediating user risk events
+## Исправление событий риска для пользователей
 
-A remediation is an action to secure an identity or a device that was previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk events associated with the identity or device.
+Исправление — это действие для защиты удостоверения или устройства, которое ранее предположительно или фактически скомпрометировано. Действие исправления восстанавливает безопасное состояние удостоверения или устройства и разрешает предыдущие события риска, связанные с таким удостоверением или устройством.
 
-To remediate user risk events, you can:
+Чтобы устранить события риска для пользователя, можно сделать следующее:
 
-- Perform a secure password reset to remediate user risk events manually 
+- безопасно сбросить пароль, чтобы устранить событие вручную;
 
-- Configure a user risk security policy to mitigate or remediate user risk events automatically
+- настроить политику безопасности в отношении риска для пользователей, чтобы автоматически устранять события или уменьшать их риск;
 
-- Re-image the infected device  
+- переустановить систему инфицированного устройства из образа.
 
 
-### <a name="manual-secure-password-reset"></a>Manual secure password reset
+### Безопасный сброс паролей вручную
 
-A secure password reset is an effective remediation for many risk events, and when performed, automatically closes these risk events and recalculates the user risk level. You can use the Identity Protection dashboard to initiate a password reset for a risky user. 
+Безопасный сброс паролей —это эффективный способ исправления многих событий риска. При таком сбросе события автоматически закрываются и происходит перерасчет уровня риска для пользователя. Чтобы инициировать сброс пароля для пользователя с риском, можно использовать панель мониторинга службы защиты идентификации.
 
-The related dialog provides two different methods to reset a password:
+Соответствующее диалоговое окно предлагает два метода для сброса пароля:
 
-**Reset password** - Select **Require user to reset password** to allow the user to self-recover if the user has registered for multi-factor authentication. During the user's next sign-in, the user will be required to solve a multi-factor authentication challenge successfully and then, forced to change the password. This option isn't available if the user account is not already registered multi-factor authentication.
+**Сброс пароля**. Установите флажок **Потребовать сброс пароля для пользователя**, чтобы разрешить самостоятельное восстановление, если пользователь зарегистрировался для многофакторной проверки подлинности. При следующем входе пользователю будет необходимо пройти многофакторную проверку подлинности по запросу и только потом произойдет принудительное изменения пароля. Этот параметр будет недоступен, если учетная запись пользователя еще не зарегистрирована для многофакторной проверки подлинности.
 
-**Temporary password** - Select **Generate a temporary password** to immediately invalidate the existing password, and create a new temporary password for the user. Send the new temporary password to an alternate email address for the user or to the user's manager. Because the password is temporary, the user will be prompted to change the password upon sign-in.
+**Временный пароль**. Выберите **Создать временный пароль**, чтобы сразу же аннулировать существующий пароль пользователя и создать для него новый временный пароль. Отправьте новый временный пароль по альтернативному адресу электронной почты пользователя или руководителя пользователя. Так как пароль временный, после входа пользователю будет предложено изменить его.
 
 
-![Policy](./media/active-directory-identityprotection/1005.png "Policy")
+![Политика](./media/active-directory-identityprotection/1005.png "Политика")
 
 
-**To open the related configuration dialog**:
+**Вот как можно открыть диалоговое окно настройки**.
 
-1. On the **Azure AD Identity Protection** blade, click **Users flagged for risk**.
+1. В колонке **Azure AD Identity Protection** (Защита идентификации Azure AD) щелкните **Users flagged for risk** (Пользователи, находящиеся в группе риска).
 
-    ![Manual password reset](./media/active-directory-identityprotection/1006.png "Manual password reset")
+	![Сброс паролей вручную](./media/active-directory-identityprotection/1006.png "Сброс паролей вручную")
 
 
-2. From the list of users, select a user with at least one risk events.
+2. В списке пользователей выберите пользователя по крайней мере с одним событием риска.
 
-    ![Manual password reset](./media/active-directory-identityprotection/1007.png "Manual password reset")
+	![Сброс паролей вручную](./media/active-directory-identityprotection/1007.png "Сброс паролей вручную")
 
 
-2. On the user blade, click **Reset password**.
+2. В колонке пользователя щелкните **Сбросить пароль**.
 
-    ![Manual password reset](./media/active-directory-identityprotection/1008.png "Manual password reset")
+	![Сброс паролей вручную](./media/active-directory-identityprotection/1008.png "Сброс паролей вручную")
 
 
 
 
 
-## <a name="user-risk-security-policy"></a>User risk security policy
+## Политика безопасности в отношении риска для пользователя
 
-A user risk security policy is a conditional access policy that evaluates the risk level to a specific user and applies remediation and mitigation actions based on predefined conditions and rules.
+Политика безопасности в отношении риска для пользователя — это политика условного доступа, согласно которой вычисляется уровень риска для конкретного пользователя, а на основе ее предопределенных условий и правил предпринимаются действия по исправлению и устранению.
 
 
-![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
+![Политика риска пользователей](./media/active-directory-identityprotection/1009.png "Политика риска пользователей")
 
 
-Azure AD Identity Protection helps you manage the mitigation and remediation of users flagged for risk by enabling you to:
+Служба защиты идентификации Azure AD облегчает управление исправлением и устранением рисков для пользователей, помеченных для событий риска, и позволяет:
 
-- Set the users and groups the policy applies to: 
+- задать пользователей и группы, к которым следует применять политику;
 
-    ![User ridk policy](./media/active-directory-identityprotection/1010.png "User ridk policy")
+	![Политика риска пользователей](./media/active-directory-identityprotection/1010.png "Политика риска пользователей")
 
 
-- Set the user risk level threshold (low, medium, or high) that triggers the policy: 
+- задать пороговое значение уровня риска для пользователей (низкий, средний или высокий уровень), при достижении которого активируется политика;
 
-    ![User ridk policy](./media/active-directory-identityprotection/1011.png "User ridk policy")
+	![Политика риска пользователей](./media/active-directory-identityprotection/1011.png "Политика риска пользователей")
 
 
-- Set the controls to be enforced when the policy triggers:
+- задать элементы управления, которые будут применяться при активации политики;
 
-    ![User ridk policy](./media/active-directory-identityprotection/1012.png "User ridk policy")
+	![Политика риска пользователей](./media/active-directory-identityprotection/1012.png "Политика риска пользователей")
 
 
-- Switch the state of your policy:
+- переключить состояние политики;
 
-    ![User ridk policy](./media/active-directory-identityprotection/403.png "MFA Registration")
+	![Политика риска пользователей](./media/active-directory-identityprotection/403.png "Регистрация в MFA")
 
 
-- Review and evaluate the impact of a change before activating it:
+- проверить и оценить влияние изменений до их активации.
 
-    ![User ridk policy](./media/active-directory-identityprotection/1013.png "User ridk policy")
+	![Политика риска пользователей](./media/active-directory-identityprotection/1013.png "Политика риска пользователей")
 
 
-Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.
-However, it excludes **Low** and **Medium** users flagged for risk from the policy, which may not secure identities or devices that were previously suspected or known to be compromised.
+Если выбрать пороговое значение уровня **Высокий**, уменьшится количество случаев активации политики и степень влияния на пользователей. Однако это исключит из политики пользователей, находящихся в группе риска, с уровнем **Низкий** и **Средний**, оставив незащищенными удостоверения и устройства, которые были ранее предположительно или фактически скомпрометированы.
 
-When setting the policy,
+При настройке политики:
 
-- Exclude users who are likely to generate a lot of false-positives (developers, security analysts)
+- исключите пользователей, из-за которых, скорее всего, создается большое количество ложных срабатываний (разработчиков, аналитиков системы безопасности);
 
-- Exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
+- исключите пользователей, для языкового стандарта которых нецелесообразно включать политику (например, при его использовании недоступна техническая поддержка);
 
-- Use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
+- Используйте пороговое значение уровня **Высокий** при начальном развертывании политики, а также если требуется уменьшить количество запросов защиты для конечного пользователя.
 
-- Use a **Low** threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
+- Используйте пороговое значение уровня **Низкий**, если нужно повысить уровень безопасности для организации. Если вы выберете пороговое значение уровня **Низкий**, при входе для пользователей будет отображаться больше запросов защиты, но уровень безопасности будет выше.
 
-The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
+Большинству организаций мы рекомендуем настроить для правил пороговое значение уровня **Средний**, чтобы обеспечить оптимальное соотношение удобства использования и безопасности.
 
-For an overview of the related user experience, see:
+Общие сведения о соответствующем взаимодействии с пользователями см. в статьях:
 
-- [Compromised account recovery flow](active-directory-identityprotection-flows.md#compromised-account-recovery).  
+- [Восстановление скомпрометированной учетной записи](active-directory-identityprotection-flows.md#compromised-account-recovery).
 
-- [Compromised account blocked flow](active-directory-identityprotection-flows.md#compromised-account-blocked).  
+- [Скомпрометированная учетная запись заблокирована](active-directory-identityprotection-flows.md#compromised-account-blocked).
 
 
-**To open the related configuration dialog**:
+**Вот как можно открыть диалоговое окно настройки**.
 
-1. On the **Azure AD Identity Protection** blade, in the **Configure** section, click **User risk policy**.
+1. В колонке **Azure AD Identity Protection** (Защита идентификации Azure AD) в разделе **Настройка** щелкните **User risk policy** (Политика риска пользователя).
 
-    ![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
+	![Политика риска пользователей](./media/active-directory-identityprotection/1009.png "Политика риска пользователей")
 
 
 
 
 
 
-## <a name="mitigating-user-risk-events"></a>Mitigating user risk events
-Administrators can set a user risk security policy to block users upon sign-in depending on the risk level. 
+## Устранение рисков событий для пользователей
+При наличии прав администратора в политике безопасности в отношении риска пользователей можно установить блокировку входа на основе уровня риска.
 
-Blocking a sign-in:
+Блокировка входа:
  
-- Prevents the generation of new user risk events for the affected user
+- предотвращает создание новых событий риска для каждого затронутого пользователя;
 
-- Enables administrators to manually remediate the risk events affecting the user's identity and restore it to a secure state
-
-
-
-## <a name="what-is-a-sign-in-risk-level?"></a>What is a sign-in risk level?
-
-A sign-in risk level is an indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to authenticate with the user’s identity. The sign-in risk level is evaluated at the time of a sign-in and considers risk events and indicators detected in real-time for that specific sign-in. 
-
-## <a name="mitigating-sign-in-risk-events"></a>Mitigating sign-in risk events 
-A mitigation is an action to limit the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous sign-in risk events associated with the identity or device.
-
-You can use conditional access in Azure AD Identity Protection to automatically mitigate sign-in risk events. Using these policies, you consider the risk level of the user or the sign-in to block risky sign-ins or require the user to perform multi-factor authentication. These actions may prevent an attacker from exploiting a stolen identity to cause damage, and may give you some time to secure the identity. 
+- позволяет администраторам вручную устранить события риска, которые распространяются на удостоверение пользователя, и восстанавливать безопасное состояние.
 
 
-## <a name="sign-in-risk-security-policy"></a>Sign-in risk security policy
 
-A sign-in risk policy is a conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
+## Что такое уровень риска при входе?
 
-![Sign-in risk policy](./media/active-directory-identityprotection/1014.png "Sign-in risk policy")
+Уровень риска при входе ("Высокий", "Средний" или "Низкий") обозначает вероятность того, что при конкретной попытке входа другое лицо попытается пройти проверку подлинности с помощью удостоверения пользователя. Уровень риска при входе оценивается во время входа и учитывает события риска и индикаторы, обнаруженные для этого входа в режиме реального времени.
 
+## Устранение событий риска при входе 
+Устранение рисков — это действие, позволяющее ограничить возможность использования злоумышленником скомпрометированного удостоверения или устройства без восстановления их безопасного состояния. Устранение рисков не разрешает предыдущие события риска при входе, связанные с удостоверением или устройством.
 
-Azure AD Identity Protection helps you manage the mitigation of risky sign-ins by enabling you to:
-
-- Set the users and groups the policy applies to: 
-
-    ![Sign-in risk policy](./media/active-directory-identityprotection/1015.png "Sign-in risk policy")
+Чтобы автоматически устранять события риска при входе, в рамках защиты идентификации Azure AD можно использовать условный доступ. С помощью политик можно настроить уровень риска или условия входа, при которых будет блокироваться вход, если он представляет риск, или обязательную многофакторную проверку подлинности. Эти действия могут помешать злоумышленникам использовать украденное удостоверение в преступных целях и позволят выиграть время для защиты удостоверения.
 
 
-- Set the sign-in risk level threshold (low, medium, or high) that triggers the policy: 
+## Политика безопасности в отношении риска входа
 
-    ![Sign-in risk policy](./media/active-directory-identityprotection/1016.png "Sign-in risk policy")
+Политика риска входа — это политика условного доступа, согласно которой вычисляется уровень риска конкретной попытки входа, а на основе ее предопределенных условий и правил предпринимаются действия для устранения рисков.
+
+![Политика риска входа](./media/active-directory-identityprotection/1014.png "Политика риска входа")
 
 
-- Set the controls to be enforced when the policy triggers:  
+Защита идентификации Azure AD облегчает управление устранением рисков при попытке входа и позволяет:
 
-    ![Sign-in risk policy](./media/active-directory-identityprotection/1017.png "Sign-in risk policy")
-    
-    Multi-factor authentication can only be required for users that haven already been registered for multi-factor authentication. If the condition to require multi-factor authentication is satisfied for a user who is not yet registered for multi-factor authentication, the user is blocked. 
+- задать пользователей и группы, к которым следует применять политику;
 
-- Switch the state of your policy:
+	![Политика риска входа](./media/active-directory-identityprotection/1015.png "Политика риска входа")
 
-    ![MFA Registration](./media/active-directory-identityprotection/403.png "MFA Registration")
 
-- Review and evaluate the impact of a change before activating it: 
+- задать пороговое значение уровня риска входа (низкий, средний или высокий уровень), при достижении которого активируется политика;
 
-    ![Sign-in risk policy](./media/active-directory-identityprotection/1018.png "Sign-in risk policy")
+	![Политика риска входа](./media/active-directory-identityprotection/1016.png "Политика риска входа")
+
+
+- задать элементы управления, которые будут применяться при активации политики;
+
+	![Политика риска входа](./media/active-directory-identityprotection/1017.png "Политика риска входа")
+
+
+- переключить состояние политики;
+
+	![Регистрация в MFA](./media/active-directory-identityprotection/403.png "Регистрация в MFA")
+
+- проверить и оценить влияние изменений до их активации.
+
+	![Политика риска входа](./media/active-directory-identityprotection/1018.png "Политика риска входа")
 
  
-Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.  
+Если выбрать пороговое значение уровня **Высокий**, уменьшится количество случаев активации политики и степень влияния на пользователей.
  
-However, it excludes **Low** and **Medium** sign-ins flagged for risk from the policy, which may not block an attacker from exploiting a compromised identity. 
+Тем не менее это исключит из политики пользователей, помеченных для события риска с уровнем **Низкий** и **Средний**, что может предотвратить блокировку скомпрометированного удостоверения для злоумышленников.
 
-When setting the policy, 
+При настройке политики:
 
-- Exclude users who do not/cannot have multi-factor authentication
+- исключите пользователей, которые не используют или не могут использовать многофакторную проверку подлинности;
 
-- Exclude users in locales where enabling the policy is not practical (for example no access to helpdesk)
+- исключите пользователей, для языкового стандарта которых нецелесообразно включать политику (например, при его использовании недоступна техническая поддержка);
 
-- Exclude users who are likely to generate a lot of false-positives (developers, security analysts)
+- исключите пользователей, из-за которых, скорее всего, создается большое количество ложных срабатываний (разработчиков, аналитиков системы безопасности);
 
-- Use a **High** threshold during initial policy roll out, or if you must minimize challenges seen by end users.
+- Используйте пороговое значение уровня **Высокий** при начальном развертывании политики, а также если требуется уменьшить количество запросов защиты для конечного пользователя.
 
-- Use a **Low**  threshold if your organization requires greater security. Selecting a **Low** threshold introduces additional user sign-in challenges, but increased security.
+- Используйте пороговое значение уровня **Низкий**, если нужно повысить уровень безопасности для организации. Если вы выберете пороговое значение уровня **Низкий**, при входе для пользователей будет отображаться больше запросов защиты, но уровень безопасности будет выше.
 
-The recommended default for most organizations is to configure a rule for a **Medium** threshold to strike a balance between usability and security.
+Большинству организаций мы рекомендуем настроить для правил пороговое значение уровня **Средний**, чтобы обеспечить оптимальное соотношение удобства использования и безопасности.
 
  
-The sign-in risk policy is:
+Политика риска входа:
 
-- Applied to all browser traffic and sign-ins using modern authentication.
-- Not applied to applications using older security protocols by disabling the WS-Trust endpoint at the federated IDP, such as ADFS.
+- применяется ко всему трафику в браузере и при каждом входе с использованием современных способов проверки подлинности;
+- не применяется к приложениям, которые используют протоколы безопасности старых версий, отключая конечную точку WS-Trust в федеративном IdP, таком как ADFS.
 
-The **Risk Events** page in the Identity Protection console lists all events:
+В консоли защиты данных на странице **События риска** содержится список всех событий:
 
-- This policy was applied to
-- You can review the activity and determine whether the action was appropriate or not 
+- к которым применена эта политика;
+- что позволяет просмотреть действие и определить, выполнено ли оно соответствующим образом.
 
-For an overview of the related user experience, see:
+Общие сведения о соответствующем взаимодействии с пользователями см. в статьях:
 
-- [Risky sign-in recovery](active-directory-identityprotection-flows.md#risky-sign-in-recovery) 
+- [Восстановление входа, представлявшего риск](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
-- [Risky sign-in blocked](active-directory-identityprotection-flows.md#risky-sign-in-blocked)  
+- [Блокировка входа, представляющего риск](active-directory-identityprotection-flows.md#risky-sign-in-blocked)
 
-- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in)  
+- [Регистрация с многофакторной проверкой подлинности во время входа, представляющего риск](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in)
 
 
 
 
 
-**To open the related configuration dialog**:
+**Вот как можно открыть диалоговое окно настройки**.
 
-1. On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Sign-in risk policy**.
+1. В колонке **Azure AD Identity Protection** (Защита идентификации Azure AD) в разделе **Настройка** щелкните **Sign-in risk policy** (Политика риска входа).
 
-    ![User ridk policy](./media/active-directory-identityprotection/1014.png "User ridk policy")
+	![Политика риска пользователей](./media/active-directory-identityprotection/1014.png "Политика риска пользователей")
 
 
 
 
 
-## <a name="multi-factor-authentication-registration-policy"></a>Multi-factor authentication registration policy
+## Политика регистрации с многофакторной проверкой подлинности
 
-Azure multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions.  
-We recommend that you require Azure multi-factor authentication for user sign-ins because it:
+Многофакторная идентификация Azure — это метод проверки идентичности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Это второй уровень безопасности, который применяется для входа пользователя в систему и выполнения транзакций. Мы советуем настроить обязательную Многофакторную идентификацию Azure при входе пользователей, так как она:
 
-- Delivers strong authentication with a range of easy verification options
+- обеспечивает строгую аутентификацию с помощью ряда простых параметров проверки;
 
-- Plays a key role in preparing your organization to protect and recover from account compromises
+- играет ключевую роль при подготовке защиты от компрометации, а также восстановления скомпрометированных учетных записей в организации.
 
-![User ridk policy](./media/active-directory-identityprotection/1019.png "User ridk policy")
+![Политика риска пользователей](./media/active-directory-identityprotection/1019.png "Политика риска пользователей")
 
 
 
-For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Дополнительную информацию см. в статье [Что такое многофакторная проверка подлинности Azure?](../multi-factor-authentication/multi-factor-authentication.md).
 
 
-Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication registration by configuring a policy that enables you to: 
+Защита идентификации Azure AD облегчает управление развертыванием регистрации с многофакторной проверкой подлинности за счет настройки политики, которая позволяет:
 
 
 
-- Set the users and groups the policy applies to: 
+- задать пользователей и группы, к которым следует применять политику;
 
-    ![MFA policy](./media/active-directory-identityprotection/1020.png "MFA policy")
+	![Политика MFA](./media/active-directory-identityprotection/1020.png "Политика MFA")
 
 
 
-- Set the controls to be enforced when the policy triggers::  
+- задать элементы управления, которые будут применяться при активации политики;
 
-    ![MFA policy](./media/active-directory-identityprotection/1021.png "MFA policy")
+	![Политика MFA](./media/active-directory-identityprotection/1021.png "Политика MFA")
 
 
-- Switch the state of your policy:
+- переключить состояние политики;
 
-    ![MFA policy](./media/active-directory-identityprotection/403.png "MFA policy")
+	![Политика MFA](./media/active-directory-identityprotection/403.png "Политика MFA")
 
-- View the current registration status: 
+- просматривать текущее состояние регистрации.
 
-    ![MFA policy](./media/active-directory-identityprotection/1022.png "MFA policy")
+	![Политика MFA](./media/active-directory-identityprotection/1022.png "Политика MFA")
 
 
-For an overview of the related user experience, see:
+Общие сведения о соответствующем взаимодействии с пользователями см. в статьях:
 
-- [Multi-factor authentication registration flow](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).  
+- [Регистрация с многофакторной проверкой подлинности](active-directory-identityprotection-flows.md#multi-factor-authentication-registration).
 
-- [Multi-factor authentication registration during a risky sign-in](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).  
+- [Регистрация с многофакторной проверкой подлинности во время входа, представляющего риск](active-directory-identityprotection-flows.md#multi-factor-authentication-registration-during-a-risky-sign-in).
 
 
 
 
 
-**To open the related configuration dialog**:
+**Вот как можно открыть диалоговое окно настройки**.
 
-1. On the **Azure AD Identity Protection** blade, in the **Configure** section, click **Multi-factor authentication registration**.
+1. В колонке **Azure AD Identity Protection** (Защита идентификации Azure AD) в разделе **Настройка** щелкните **Multi-factor authentication registration** (Регистрация Многофакторной идентификации).
 
-    ![MFA policy](./media/active-directory-identityprotection/1019.png "MFA policy")
+	![Политика MFA](./media/active-directory-identityprotection/1019.png "Политика MFA")
 
 
 
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
- - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
- - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
- - [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
- - [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
- - [Azure Active Directory Identity Protection flows](active-directory-identityprotection-flows.md)
- - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
- - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
+ - [Channel 9: Azure AD and Identity Show: Identity Protection Preview (Канал 9. Azure Active Directory и идентификация. Предварительная версия защиты идентификации)](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+ - [Типы событий риска, обнаруживаемые защитой идентификации Azure Active Directory](active-directory-identityprotection-risk-events-types.md)
+ - [Уязвимости, обнаруживаемые защитой идентификации Azure Active Directory](active-directory-identityprotection-vulnerabilities.md)
+ - [Уведомления защиты идентификации Azure Active Directory](active-directory-identityprotection-notifications.md)
+ - [Процессы защиты идентификации Azure Active Directory](active-directory-identityprotection-flows.md)
+ - [Тренировочное задание по защите идентификации Azure Active Directory](active-directory-identityprotection-playbook.md)
+ - [Глоссарий по защите идентификации Azure Active Directory](active-directory-identityprotection-glossary.md)
 
- - [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
- - [Azure Active Directory Identity Protection - How to unblock users](active-directory-identityprotection-unblock-howto.md)
+ - [Включение защиты идентификации Azure Active Directory](active-directory-identityprotection-enable.md)
+ - [Защита идентификации Azure Active Directory. Разблокирование пользователей](active-directory-identityprotection-unblock-howto.md)
 
- - [Get started with Azure Active Directory Identity Protection and Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
+ - [Начало работы с защитой идентификации Azure Active Directory и Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Clone your StorSimple volume | Microsoft Azure"
-   description="Describes the different clone types and when to use them, and explains how you can use a backup set to clone an individual volume."
+   pageTitle="Клонирование тома StorSimple | Microsoft Azure"
+   description="В разделе рассматриваются разные типы клонов, ситуации их использования и клонирование отдельного тома с помощью резервного набора данных."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,90 +15,85 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
-
-# <a name="use-the-storsimple-manager-service-to-clone-a-volume"></a>Use the StorSimple Manager service to clone a volume
+# Клонирование тома с помощью службы диспетчера StorSimple
 
 [AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
-## <a name="overview"></a>Overview
+## Обзор
 
-The StorSimple Manager service **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
+На странице **Каталог резервного копирования** службы StorSimple Manager находятся все наборы резервных копий, созданных во время автоматической или ручной архивации. Эта страница позволяет просмотреть все резервные копии для определенной политики резервного копирования или определенного тома, выбрать или удалить резервные копии или использовать резервную копию для восстановления или клонирования тома.
 
-![Backup catalog page](./media/storsimple-clone-volume/HCS_BackupCatalog.png)  
+![Страница каталога резервного копирования](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
-This tutorial describes how you can use a backup set to clone an individual volume. It also explains the difference between *transient* and *permanent* clones. 
+В этом учебнике рассматривается, как можно использовать резервный набор данных для клонирования отдельного тома. Также объясняется разница между *временным* и *постоянным* клонированием.
 
-## <a name="create-a-clone-of-a-volume"></a>Create a clone of a volume
+## Создание клона тома
 
-You can create a clone on the same device, another device, or even a virtual machine by using a local or a cloud snapshot.
+С помощью локального или облачного моментального снимка можно создать клон на том же устройстве, другом устройстве или даже на виртуальной машине.
 
-#### <a name="to-clone-a-volume"></a>To clone a volume
+#### Клонирование тома
 
-1. On the StorSimple Manager service page, click the **Backup catalog** tab and select a backup set.
+1. На странице службы StorSimple Manager щелкните вкладку **Каталог резервных копий** и выберите резервный набор данных.
 
-2. Expand the backup set to view the associated volumes. Click and select a volume from the backup set.
+2. Разверните резервный набор данных для просмотра связанных томов. Выберите том из резервного набора данных.
 
-     ![Clone a volume](./media/storsimple-clone-volume/HCS_Clone.png) 
+     ![Клонировать том.](./media/storsimple-clone-volume/HCS_Clone.png)
 
-3. Click **Clone** to begin cloning the selected volume.
+3. Щелкните **клон** для начала клонирования выбранного тома.
 
-4. In the Clone Volume wizard, under **Specify name and location**:
+4. В мастере клонирования тома на вкладке **Имя и расположение**:
 
-  1. Identify a target device. This is the location where the clone will be created. You can choose the same device or specify another device. If you choose a volume associated with other cloud service providers (not Azure), the drop-down list for the target device will only show physical devices. You cannot clone a volume associated with other cloud service providers on a virtual device.
+  1. Укажите целевое устройство. Это расположение, где будет создана копия. Можно выбрать одно устройство или указать другое устройство. При выборе тома, связанного с другими поставщиками облачных служб (не Azure), в раскрывающемся списке целевого устройства будут отображаться только физические устройства. Нельзя клонировать на виртуальное устройство том, связанный с другими поставщиками облачной службы.
 
-        >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
-  2. Specify a unique volume name for your clone. The name must contain between 3 and 127 characters.
-  3. Click the arrow icon ![arrow-icon](./media/storsimple-clone-volume/HCS_ArrowIcon.png) to proceed to the next page.
+        >  [AZURE.NOTE] Убедитесь, что на целевом устройстве достаточно места для клонирования.
+  2. Укажите уникальное имя для клона. Имя должно содержать от 3 до 127 символов.
+  3. Нажмите кнопку со стрелкой ![значок стрелки](./media/storsimple-clone-volume/HCS_ArrowIcon.png), чтобы перейти к следующей странице.
 
-5. Under **Specify hosts that can use this volume**:
+5. В разделе **Узлы, которые могут использовать этот том**:
 
-  1. Specify an access control record (ACR) for the clone. You can add a new ACR or choose from the existing list.
-  2. Click the check icon ![check-icon](./media/storsimple-clone-volume/HCS_CheckIcon.png)to complete the operation.
+  1. Укажите запись управления доступом (ACR) для клона. Можно добавить новую запись ACR или выбрать из существующего списка.
+  2. Щелкните значок флага, ![значок с изображением флажка](./media/storsimple-clone-volume/HCS_CheckIcon.png)чтобы выполнить операцию.
 
-6. A clone job will be initiated and you will be notified when the clone is successfully created. Click **View Job** to monitor the clone job on the **Jobs** page.
+6. Инициируется задание клонирования, после успешного создания клона появится уведомление. Щелкните **Просмотр задания** для наблюдения за заданием клонирования на странице **Задания**.
 
-7. After the clone job is completed:
+7. После завершения задания клона:
 
-  1. Go to the **Devices** page, and select the **Volume Containers** tab. 
-  2. Select the volume container that is associated with the source volume that you cloned. In the list of volumes, you should see the clone that was just created.
+  1. На странице **Устройства** выберите вкладку **Контейнеры томов**.
+  2. Выберите контейнер тома, связанный с исходным томом, который необходимо клонировать. Клон, созданный недавно, должен быть в списке томов.
 
->[AZURE.NOTE] Monitoring and default backup are automatically disabled on a cloned volume.
+>[AZURE.NOTE] Мониторинг и резервное копирование отключены по умолчанию для клонированного тома.
 
-A clone that is created this way is a transient clone. For more information about clone types, see [Transient vs. permanent clones](#transient-vs.-permanent-clones).
+Клон, созданный таким способом, является временным. Дополнительные сведения о типах клона см. в разделе [Сравнение временных и постоянных клонов](#transient-vs.-permanent-clones).
 
-This clone is now a regular volume, and any operation that is possible on a volume will be available for the clone. You will need to configure this volume for any backups.
+Клон становится обычным томом, с которым можно выполнять любые действия, доступные для клонов. Необходимо настроить созданный том для всех резервных копий.
 
-## <a name="transient-vs.-permanent-clones"></a>Transient vs. permanent clones
+## Сравнение временных и постоянных клонов
 
-Transient and permanent clones are created only when you are cloning on to a different device. You can clone a specific volume from a backup set to a different device. A clone created in this way is a *transient* clone. The transient clone will have references to the original volume and will use that volume to read while writing locally. 
+Временные и постоянные клоны создаются только в том случае, если выполняется клонирование на другое устройство. Можно клонировать определенный том из резервного набора данных на другое устройство. Клон, создаваемый таким образом, является *временным*. Временный клон содержит ссылки на исходный том и использует этот том для чтения при записи локально.
 
-After you take a cloud snapshot of a transient clone, the resulting clone will be a *permanent* clone. The permanent clone is independent and doesn’t have any references to the original volume that it was cloned from.  
+После создания облачного моментального снимка временного клона полученная копия становится *постоянным* клоном. Постоянный клон является независимым и не имеет ссылок на исходный том, с которого он был клонирован.
 
-## <a name="scenarios-for-transient-and-permanent-clones"></a>Scenarios for transient and permanent clones
+## Сценарии для временных и постоянных клонов
 
-The following sections describe example situations in which transient and permanent clones can be used.
+В следующих разделах рассматриваются ситуации использования временных и постоянных клонов.
 
-### <a name="item-level-recovery-with-a-transient-clone"></a>Item-level recovery with a transient clone
+### Восстановление на уровне элементов с помощью временного клона
 
-You need to recover a one-year-old Microsoft PowerPoint presentation file. Your IT administrator identifies the specific backup from that time frame, and then filters the volume. The administrator then clones the volume, locates the file that you are looking for, and provides it to you. In this scenario, a transient clone is used. 
+Необходимо восстановить файл презентации Microsoft PowerPoint, созданный один год назад. ИТ-администратор определяет резервную копию из этого интервала времени и выбирает том. Затем администратор создает точную копию тома, находит нужный файл и предоставляет его вам. В этом сценарии используется временный клон.
  
-![Video available](./media/storsimple-clone-volume/Video_icon.png) **Video available**
+![Доступно видео](./media/storsimple-clone-volume/Video_icon.png) **Доступно видео**
 
-To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Чтобы посмотреть видео о том, как использовать функции клонирования и восстановления в StorSimple для восстановления удаленных файлов, щелкните [здесь](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
-### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Testing in the production environment with a permanent clone
+### Тестирование в рабочей среде с помощью постоянного клона
 
-You need to verify a testing bug in the production environment. You create a clone of the volume in the production environment by taking a cloud snapshot of this clone. The cloned volume is now independent. In this scenario, a permanent clone is used.
+Необходимо проверить ошибки в рабочей среде. Сначала необходимо создать клон тома в рабочей среде, создав облачный моментальный снимок этого клона. Клонированный том теперь независим. В этом сценарии используется постоянный клон.
 
-## <a name="next-steps"></a>Next steps
-- Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).
+## Дальнейшие действия
+- Узнайте, как [восстановить том StorSimple из резервного набора данных](storsimple-restore-from-backup-set.md).
 
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Узнайте об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

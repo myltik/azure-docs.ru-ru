@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Security Center Troubleshooting Guide | Microsoft Azure"
-   description="This document helps to troubleshoot issues in Azure Security Center."
+   pageTitle="Руководство по устранению неполадок в центре безопасности Azure | Microsoft Azure"
+   description="В этом документе описаны способы устранения неполадок в центре безопасности Azure."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -13,76 +13,71 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/18/2016"
+   ms.date="07/21/2016"
    ms.author="yurid"/>
 
+# Руководство по устранению неполадок в центре безопасности Azure
+Это руководство предназначено для ИТ-специалистов, аналитиков в сфере информационной безопасности и администраторов облака, организации которых используют центр безопасности Azure и которым нужно устранять связанные с ним неполадки.
 
-# <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center Troubleshooting Guide
-This guide is for information technology (IT) professionals, information security analysts and cloud administrators whose organizations are using Azure Security Center and need to troubleshoot Security Center related issues.
+## Руководство по устранению неполадок
+В этом руководстве описывается устранение неполадок, связанных с центром безопасности Azure. Большая часть работы по устранению неполадок в центре безопасности Azure выполняется при первом просмотре записей [журнала аудита](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) для неисправных компонентов. С помощью журналов аудита можно определить:
 
-## <a name="troubleshooting-guide"></a>Troubleshooting guide
-This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center will take place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
+- какие операции были выполнены;
+- кто инициировал операцию;
+- когда операция была выполнена;
+- состояние операции;
+- значения других свойств, которые могут помочь в анализе операции.
 
-- Which operations were taken place
-- Who initiated the operation
-- When the operation occurred
-- The status of the operation
-- The values of other properties that might help you research the operation
+Журнал аудита содержит все операции записи (PUT, POST, DELETE), выполняемые с ресурсами, но не содержит операции чтения (GET).
 
-The audit log contains all write operations (PUT, POST, DELETE) performed on your resources, however it does not include read operations (GET).
+## Устранение неполадок с установкой агента мониторинга в Windows
 
-## <a name="troubleshooting-monitoring-agent-installation-in-windows"></a>Troubleshooting monitoring agent installation in Windows
+Агент мониторинга центра безопасности используется для сбора данных. После включения сбора данных и правильной установки агента на целевом компьютере будут запущены следующие процессы:
 
-The Security Center monitoring agent is used to perform data collection. After data collection is enabled and the agent is correctly installed in the target machine, these processes should be in execution:
+- ASMAgentLauncher.exe — агент мониторинга Azure;
+- ASMMonitoringAgent.exe — расширение мониторинга безопасности Azure;
+- ASMSoftwareScanner.exe — диспетчер сканирования Azure.
 
-- ASMAgentLauncher.exe - Azure Monitoring Agent 
-- ASMMonitoringAgent.exe - Azure Security Monitoring extension
-- ASMSoftwareScanner.exe – Azure Scan Manager
+Расширение "Мониторинг безопасности Azure" сканирует систему на наличие конфигураций, связанных с безопасностью, и собирает журналы данных безопасности на виртуальных машинах. Диспетчер сканирования будет использоваться как сканер исправлений.
 
-The Azure Security Monitoring extension scans for various security relevant configuration and collects security logs from the virtual machine. The scan manager will be used as a patch scanner.
+Если установка выполнена успешно, в журналах аудита для целевой виртуальной машины вы увидите запись, похожую на следующую:
 
-If the installation is successfully performed you should see an entry similar to the one below in the Audit Logs for the target VM:
+![Журналы аудита](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
 
-![Audit Logs](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
+Вы также можете получить дополнительные сведения о процессе установки, ознакомившись с журналами агента в расположении *%systemdrive%\\windowsazure\\logs* (например, C:\\WindowsAzure\\Logs).
 
-You can also obtain more information about the installation process by reading the agent logs, located at *%systemdrive%\windowsazure\logs* (example: C:\WindowsAzure\Logs).
+> [AZURE.NOTE] Если агент центра безопасности Azure работает неправильно, перезапустите целевую виртуальную машину, так как специальной команды для остановки и запуска агента нет.
 
-> [AZURE.NOTE] If the Azure Security Center Agent is misbehaving, you will need to restart the target VM since there is no command to stop and start the agent.
+## Устранение неполадок с установкой агента мониторинга в Linux
+При устранении неполадок, связанных с установкой агента виртуальной машины в Linux, проследите, чтобы модуль был загружен в папку /var/lib/waagent/. Это можно сделать с помощью следующей команды:
 
-## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Troubleshooting monitoring agent installation in Linux
-When troubleshooting VM Agent installation in a Linux system you should ensure that the extension was downloaded to /var/lib/waagent/. You can run the command below to verify if it was installed:
+`cat /var/log/waagent.log`
 
-`cat /var/log/waagent.log` 
-
-The other log files that you can review for troubleshooting purpose are: 
+Ниже перечислены другие файлы журналов, которые можно просматривать при устранении неполадок:
 
 - /var/log/mdsd.err
 - /var/log/azure/
 
-In a working system you should see a connection to the mdsd process on TCP 29130. This is the syslog communicating with the mdsd process. You can validate this behavior by running the command below:
+В рабочей системе вы увидите подключение к процессу mdsd по TCP-порту 29130. Этот системный журнал взаимодействует с процессом mdsd. Это поведение можно проверить, выполнив следующую команду:
 
 `netstat -plantu | grep 29130`
 
-## <a name="contacting-microsoft-support"></a>Contacting Microsoft Support
+## Обращение в службу технической поддержки Майкрософт
 
-Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). However if you need further troubleshooting, you can open a new support request using Azure Portal as shown below: 
+Некоторые проблемы можно определить с помощью этого руководства. Другие доступны в материалах общедоступного [форума](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureSecurityCenter), посвященного центру безопасности. Если требуется дальнейшее устранение неполадок, вы можете обратиться в службу поддержки на портале Azure, как показано ниже:
 
-![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
-
-
-## <a name="see-also"></a>See also
-
-In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
-
-- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan and understand the design considerations to adopt Azure Security Center.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance
+![Служба технической поддержки Майкрософт](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
+## См. также
 
-<!--HONumber=Oct16_HO2-->
+В этом документе вы ознакомились с подробными сведениями о настройке политик безопасности в Центре безопасности Azure. Дополнительные сведения о Центре безопасности Azure см. в следующих статьях:
 
+- [Руководство по планированию использования центра безопасности Azure и работе в нем](security-center-planning-and-operations-guide.md) — узнайте, как спланировать работу с центром безопасности Azure, и получите рекомендации по переходу к его использованию.
+- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md) — узнайте, как отслеживать работоспособность ресурсов Azure.
+- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
+- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md) — узнайте, как отслеживать состояние работоспособности решений партнеров.
+- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
+- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
 
+<!---HONumber=AcomDC_0803_2016-->

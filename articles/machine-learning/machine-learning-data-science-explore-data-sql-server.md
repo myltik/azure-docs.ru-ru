@@ -1,83 +1,78 @@
 <properties 
-    pageTitle="Explore data in SQL Server Virtual Machine on Azure | Microsoft Azure" 
-    description="How to explore data that is stored in a SQL Server VM on Azure." 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="bradsev" 
-    manager="jhubbard" 
-    editor="cgronlun" />
+	pageTitle="Просмотр данных в виртуальной машине SQL Server на платформе Azure | Microsoft Azure" 
+	description="Описание того, как просматривать данные, хранящиеся в виртуальной машине SQL Server на платформе Azure." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="jhubbard" 
+	editor="cgronlun" />
 
 <tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/13/2016" 
-    ms.author="bradsev" /> 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/13/2016" 
+	ms.author="bradsev" />
+
+#Просмотр данных в виртуальной машине SQL Server на платформе Azure
 
 
-#<a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Explore data in SQL Server Virtual Machine on Azure
+В этом документе описано, как просматривать данные, хранящиеся в виртуальной машине SQL Server на платформе Azure. Это можно сделать путем структурирования данных с помощью SQL или с использованием языка программирования, например Python.
 
-
-This document covers how to explore data that is stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
-
-The following **menu** links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
+Следующее **меню** содержит ссылки на статьи, описывающие использование средств для просмотра данных из различных сред хранения. Эта задача является одним из этапов процесса аналитики Кортаны (CAP).
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 
-> [AZURE.NOTE] The sample SQL statements in this document assume that data is in SQL Server. If it isn't, refer to the cloud data science process map to learn how to move your data to SQL Server.
+> [AZURE.NOTE] В образцах инструкций SQL, содержащихся в данном документе, предполагается, что данные находятся на сервере SQL Server. Если это не так, обратитесь к карте обработки облачных данных, чтобы узнать, как переместить данные в SQL Server.
 
 
 
-## <a name="<a-name="sql-dataexploration"></a>explore-sql-data-with-sql-scripts"></a><a name="sql-dataexploration"></a>Explore SQL data with SQL scripts
+## <a name="sql-dataexploration"></a>Просмотр данных SQL с помощью сценариев SQL
 
-Here are a few sample SQL scripts that can be used to explore data stores in SQL Server.
+Вот несколько примеров сценариев SQL, которые можно использовать для изучения хранилищ данных в SQL Server.
 
-1. Get the count of observations per day
+1. Получение количества наблюдений за день
 
-    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
+	`SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)`
 
-2. Get the levels in a categorical column
+2. Получение уровней в столбце категорий
 
-    `select  distinct <column_name> from <databasename>`
+	`select  distinct <column_name> from <databasename>`
 
-3. Get the number of levels in combination of two categorical columns 
+3. Получение числа уровней в сочетании двух столбцов категорий
 
-    `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
+	`select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
 
-4. Get the distribution for numerical columns
+4. Получение распределения для числовых столбцов
 
-    `select <column_name>, count(*) from <tablename> group by <column_name>`
+	`select <column_name>, count(*) from <tablename> group by <column_name>`
 
-> [AZURE.NOTE] For a practical example, you can use the [NYC Taxi dataset](http://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
+> [AZURE.NOTE] Для практического примера можно использовать [Набор данных о такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/) и статью IPNB под названием [Структурирование данных Нью-Йорка с помощью IPython Notebook и SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), содержащую полное пошаговое руководство.
 
-##<a name="<a-name="python"></a>explore-sql-data-with-python"></a><a name="python"></a>Explore SQL data with Python
+##<a name="python"></a>Просмотр данных SQL с помощью Python
 
-Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python, as documented in [Process Azure Blob data in your data science environment](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas DataFrame and then can be processed further. We document the process of connecting to the database and loading the data into the DataFrame in this section.
+Использование языка Python для просмотра данных и создания характеристик, когда данные находятся в SQL Server, подобно обработке данных в большом двоичном объекте Azure с использованием Python, как описано в статье [Обработка больших двоичных данных Azure с применением методов расширенного анализа](machine-learning-data-science-process-data-blob.md). Данные необходимо загрузить из базы данных в кадр данных Pandas для последующей обработки. В этом разделе задокументирован процесс подключения к базе данных и загрузки данных в кадр данных.
 
-The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username, and password with your specific values):
+Для подключения к базе данных SQL Server из языка Python с использованием pyodbc можно применить следующий формат строки подключения (замените servername, dbname, username и password соответствующими значениями имени сервера, имени БД, имени пользователя и пароля):
 
-    #Set up the SQL Azure connection
-    import pyodbc   
-    conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
+	#Set up the SQL Azure connection
+	import pyodbc	
+	conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The following code reads the results returned from a SQL Server database into a Pandas data frame:
+[Библиотека Pandas](http://pandas.pydata.org/) в языке Python предлагает большой выбор структур данных и средств анализа данных для манипуляций со значениями с помощью языке Python. Следующий код считывает результаты, возвращенные из базы данных SQL Server, в кадр данных Pandas:
 
-    # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+	# Query database and load the returned results in pandas data frame
+	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Now you can work with the Pandas DataFrame as covered in the topic [Process Azure Blob data in your data science environment](machine-learning-data-science-process-data-blob.md).
+Теперь можно работать с кадром данных Pandas, как описано в статье [Обработка больших двоичных данных Azure с применением методов расширенного анализа](machine-learning-data-science-process-data-blob.md).
 
-## <a name="cortana-analytics-process-in-action-example"></a>Cortana Analytics Process in Action Example
+## Практический пример применения процесса аналитики Кортаны
 
-For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Team Data Science Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Полноценный пошаговый пример применения процесса аналитики Кортаны с использованием общедоступного набора данных см. в разделе [Процесс обработки и анализа данных группы на практике: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

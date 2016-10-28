@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="SQL Database Disaster Recovery Drills | Microsoft Azure" 
-   description="Learn guidance and best practices for using Azure SQL Database to perform disaster recovery drills that will help keep your mission critical business applications resilient to failures and outages." 
+   pageTitle="Отработки аварийного восстановления базы данных SQL | Microsoft Azure" 
+   description="Руководство и рекомендации по использованию базы данных SQL Azure для отработки аварийного восстановления, которая обеспечивает устойчивость критически важных бизнес-приложений против сбоев и простоев." 
    services="sql-database" 
    documentationCenter="" 
    authors="mihaelablendea" 
@@ -16,63 +16,59 @@
    ms.date="07/31/2016"
    ms.author="mihaelab"/>
 
+#Отработка аварийного восстановления
 
-#<a name="performing-disaster-recovery-drill"></a>Performing Disaster Recovery Drill
+Рекомендуется периодически проверять готовность приложений к рабочему процессу восстановления. Проверка поведения приложения и возможных последствий потери данных и нарушений работы, которая включает отработку отказа, предусмотрена стандартами разработки. Эта процедура также является обязательной для большинства отраслевых стандартов в рамках сертификации непрерывности бизнес-процессов.
 
-It is recommended that validation of application readiness for recovery workflow is performed periodically. Verifying the application behavior and implications of data loss and/or the disruption that failover involves is a good engineering practice. It is also a requirement by most industry standards as part of business continuity certification.
+Этапы отработки аварийного восстановления:
 
-Performing a disaster recovery drill consists of:
+- моделирование сбоя уровня данных;
+- восстановление;
+- проверка целостности приложения после восстановления.
 
-- Simulating data tier outage
-- Recovering 
-- Validate application integrity post recovery
+Рабочий процесс отработки зависит от того, как вы [спроектировали приложение для обеспечения непрерывности бизнес-процессов](sql-database-business-continuity.md). Ниже приведены рекомендации по отработке аварийного восстановления с использованием базы данных SQL Azure.
 
-Depending on how you [designed your application for business continuity](sql-database-business-continuity.md), the workflow to execute the drill can vary. Below we describe the best practices conducting a disaster recovery drill in the context of Azure SQL Database. 
+##Геовосстановление
 
-##<a name="geo-restore"></a>Geo-Restore
-
-To prevent the potential data loss when conducting a disaster recovery drill, we recommend performing the drill using a test environment by creating a copy of the production environment and using it to verify the application’s failover workflow.
+Чтобы избежать потери данных при проведении отработки аварийного восстановления, рекомендуется выполнять отработку в тестовой среде. Для этого создайте копию рабочей среды и используйте ее для проверки рабочего процесса отработки отказа приложения.
  
-####<a name="outage-simulation"></a>Outage simulation
+####Моделирование сбоя
 
-To simulate the outage you can delete or rename the source database. This will cause application connectivity failure. 
+Для имитации сбоя можно удалить или переименовать базу данных-источник. Это вызовет сбой подключения приложения.
 
-####<a name="recovery"></a>Recovery
+####Восстановление
 
-- Perform the Geo-Restore of the database into a different server as described [here](sql-database-disaster-recovery.md). 
-- Change the application configuration to connect to the recovered database(s) and follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
+- Выполните геовосстановление базы данных на другой сервер, следуя инструкциям [здесь](sql-database-disaster-recovery.md).
+- Измените конфигурацию приложения, чтобы подключиться к восстановленной базе данных (или базам данных), и следуйте инструкциям в руководстве [по настройке базы данных после восстановления](sql-database-disaster-recovery.md), чтобы завершить восстановление.
 
-####<a name="validation"></a>Validation
+####Проверка
 
-- Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
+- Выполните отработку, проверив целостность приложения после восстановления (строки подключения, учетные данные, тестирование основных функций или другие проверки стандартной процедуры утверждения приложений).
 
-##<a name="geo-replication"></a>Geo-Replication
+##Георепликация
 
-For a database that is protected using Geo-Replication the drill exercise will involve planned failover to the secondary database. The planned failover ensures that the primary and the secondary databases remains in sync when the roles are switched. Unlike the unplanned failover, this operation will not result in data loss, so the drill can be performed in the production environment. 
+Для базы данных, защищенной с помощью георепликации, в тренировочном упражнении предусмотрена плановая отработка отказа на базу данных-получатель. Плановая отработка отказа гарантирует, что база данных-источник и база данных-приемник останутся синхронизированы после переключения ролей. В отличие от незапланированной отработки отказа, эта операция не приведет к потере данных, поэтому отработку можно выполнить в рабочей среде.
 
-####<a name="outage-simulation"></a>Outage simulation
+####Моделирование сбоя
 
-To simulate the outage you can disable the web application or virtual machine connected to the database. This will result in the connectivity failures for the web clients.
+Для имитации сбоя можно отключить веб-приложение или виртуальную машину, подключение к базе данных. Это приведет сбоям подключения веб-клиентов.
 
-####<a name="recovery"></a>Recovery
+####Восстановление
 
-- Make sure the the application configuration in the DR region points to the former secondary which will become fully accessible new primary. 
-- Perform [planned failover](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) to make the secondary database a new primary
-- Follow the [Configure a database after recovery](sql-database-disaster-recovery.md) guide to complete the recovery.
+- Убедитесь, что конфигурация приложения в регионе аварийного восстановления указывает на бывшую базу данных-получатель, которая станет полностью доступной новой базой данных-источником.
+- Выполните [плановую отработку отказа](sql-database-geo-replication-powershell.md#initiate-a-planned-failover), чтобы база данных-получатель стала новой базой данных-источником.
+- Следуйте инструкциям в руководстве [по настройке базы данных после восстановления](sql-database-disaster-recovery.md), чтобы завершить восстановление.
 
-####<a name="validation"></a>Validation
+####Проверка
 
-- Complete the drill by verifying the application integrity post recovery (i.e. connection strings, logins, basic functionality testing or other validations part of standard application signoffs procedures).
-
-
-## <a name="next-steps"></a>Next steps
-
-- To learn about business continuity scenarios, see [Continuity scenarios](sql-database-business-continuity.md)
-- To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
-- To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
+- Выполните отработку, проверив целостность приложения после восстановления (строки подключения, учетные данные, тестирование основных функций или другие проверки стандартной процедуры утверждения приложений).
 
 
-<!--HONumber=Oct16_HO2-->
+## Дальнейшие действия
 
+- Чтобы изучить сценарии обеспечения непрерывности бизнес-процессов, ознакомьтесь со [сценариями обеспечения непрерывности](sql-database-business-continuity.md).
+- Чтобы узнать об автоматически создаваемых резервных копиях базы данных SQL Azure, ознакомьтесь с разделом [Общие сведения об автоматическом резервном копировании базы данных SQL](sql-database-automated-backups.md).
+- Чтобы узнать об использовании создаваемых автоматически резервных копий для восстановления, ознакомьтесь с [восстановлением базы данных из резервных копий, инициируемых службой](sql-database-recovery-using-backups.md).
+- Чтобы узнать о более быстрых вариантах восстановления, ознакомьтесь с [активной георепликацией](sql-database-geo-replication-overview.md).
 
+<!---HONumber=AcomDC_0803_2016-->

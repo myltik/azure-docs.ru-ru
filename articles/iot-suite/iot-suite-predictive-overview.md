@@ -1,6 +1,6 @@
 <properties
- pageTitle="Predictive maintenance preconfigured solution | Microsoft Azure"
- description="A description of the Azure IoT predictive maintenance preconfigured solution."
+ pageTitle="Предварительно настроенное решение прогнозируемого обслуживания | Microsoft Azure"
+ description="Описание предварительно настроенного решения прогнозируемого обслуживания IoT Azure | Microsoft Azure"
  services=""
  suite="iot-suite"
  documentationCenter=""
@@ -17,39 +17,38 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+# Обзор предварительно настроенного решения прогнозируемого обслуживания
 
-# <a name="predictive-maintenance-preconfigured-solution-overview"></a>Predictive maintenance preconfigured solution overview
-
-The *predictive maintenance* preconfigured solution is one of the [preconfigured solutions][lnk_preconfigured_solutions] released as part of [Microsoft Azure IoT Suite][lnk_iot_suite]. This solution integrates real-time device telemetry collection with a predictive model created using [Azure Machine Learning][lnk_machine_learning].
+Предварительно настроенное решение *прогнозируемого обслуживания* является одним из [предварительно настроенных решений][lnk_preconfigured_solutions], выпущенных как часть [пакета IoT Microsoft Azure][lnk_iot_suite]. Это решение интегрирует сбор данных телеметрии устройства в режиме реального времени и прогнозируемую модель, созданные с помощью [машинного обучения Azure][lnk_machine_learning].
 
 
-With Azure IoT Suite, enterprises can quickly and easily connect to and monitor assets, and analyze data in real time. The predictive maintenance preconfigured solution takes that data and uses rich dashboards and visualizations to provide businesses with new intelligence that can drive efficiencies and enhance revenue streams.
+С Azure IoT Suite организации могут быстро и легко подключаться к ресурсам и отслеживать их, а также анализировать данные в режиме реального времени. Предварительно настроенное решение прогнозируемого обслуживания принимает данные и использует многофункциональные панели мониторинга и визуализации для предоставления компаниям новой аналитики, которая может повысить эффективность и увеличить доход.
 
-## <a name="the-scenario"></a>The Scenario
+## Сценарий
 
-Fabrikam is a regional airline that focuses on great customer experience at competitive prices. One cause of flight delays is maintenance issues and aircraft engine maintenance is particularly challenging. Engine failure during flight must be avoided at all costs, so Fabrikam inspects its engines regularly and adheres to a scheduled maintenance program. However, aircraft engines don’t always wear the same. Some unnecessary maintenance is performed on engines. More importantly, issues arise which can ground an aircraft until maintenance is performed. This causes costly delays, especially if an aircraft is at a location where the right technicians or spare parts are not available.
+Компания Fabrikam является региональной авиалинией, которая концентрируется на хорошем впечатлении клиентов по приемлемым ценам. Одной из причин задержки рейсов являются проблемы обслуживания, в частности, особенно сложной задачей является обслуживание двигателей самолетов. Сбоя двигателя во время полета следует избегать любой ценой, поэтому Fabrikam регулярно проверяет двигатели и придерживается программы запланированного обслуживания. Однако износ двигателей самолетов не всегда одинаков. В некоторых случаях выполняется ненужное обслуживание двигателей. Что более важно, возникают проблемы, которые могут задержать самолет на земле до проведения обслуживания. Это приводит к дорогостоящим задержкам, особенно в том случае, когда самолет находится в месте, где недоступны нужные специалисты или запасные части.
 
-The engines of Fabrikam’s aircraft are instrumented with sensors which monitor engine conditions during flight. Fabrikam use Azure IoT Suite to collect the sensor data collected during the flight. After accumulating years of engine operational and failure data, Fabrikam’s data scientists have modeled a way to predict the Remaining Useful Life (RUL) of an aircraft engine. What they have identified is a correlation between the data from four of the engine sensors with the engine wear that leads to eventual failure. While Fabrikam continues to perform regular inspections to ensure safety, it can now use the models to compute the RUL for each engine after every flight using the telemetry collected from the engines during the flight. Fabrikam can now predict future points of failure and plan for maintenance and repair in advance.
+Самолеты компании Fabrikam снабжены датчиками, которые отслеживают состояние двигателей во время полета. Fabrikam использует пакет Azure IoT для сбора данных датчиков, собранных во время полета. После нескольких лет накопления данных о работе и сбоях двигателей специалисты по анализу данных Fabrikam смоделировали способ прогнозирования оставшегося полезного срока службы (RUL) двигателя самолета. Они обнаружили корреляцию между данными четырех датчиков двигателя и износом двигателя, который в конечном счете приводит к сбою. Хотя компания Fabrikam продолжает выполнение регулярных проверок, чтобы обеспечить безопасность, она теперь может использовать модели для вычисления RUL каждого двигателя после каждого рейса, используя данные телеметрии, собранные на двигателях во время полета. Fabrikam теперь может прогнозировать будущие точки сбоя и планировать обслуживание и ремонт заранее.
 
-> [AZURE.NOTE] The solution model uses actual engine wear data.
+> [AZURE.NOTE] Модель решений использует данные о фактическом износе двигателя.
 
-By predicting the point when maintenance is required, Fabrikam can optimize its operations to reduce costs. Maintenance coordinators work with schedulers to plan maintenance coinciding with an aircraft stopping at a particular location and ensuring sufficient time for the aircraft to be out of service without causing schedule disruption. Fabrikam can schedule technicians accordingly; ensuring aircraft are serviced efficiently without wait time. Inventory control managers receive maintenance plans, so they can optimize their ordering process and spare parts inventory. All of this enables Fabrikam to minimize aircraft ground time and to reduce operating costs while ensuring the safety of passengers and crew.
+Получив возможность прогнозировать момент, когда понадобится обслуживание, Fabrikam может оптимизировать операции для снижения затрат. Координаторы обслуживания работают с планировщиками, чтобы запланировать обслуживание, совпадающее с остановкой самолета в определенном месте, и обеспечить достаточное время для обслуживания самолета, не вызывая перебоев в расписании. Fabrikam может запланировать работу специалистов соответствующим образом — таким образом самолеты обслуживаются эффективно и без времени ожидания. Менеджеры снабжения получают планы обслуживания, чтобы оптимизировать процесс размещения заказов и хранение запасных частей. Все это позволяет Fabrikam свести к минимуму время, проведенное самолетом на земле, и снизить эксплуатационные расходы, одновременно обеспечивая безопасность пассажиров и сотрудников.
 
-To understand how [Azure IoT Suite][lnk_iot_suite] provides the capabilities customers need to realize the potential of predictive maintenance, please review this [infographic][lnk_infographic].
+Чтобы понять, как [пакет Azure IoT][lnk_iot_suite] предоставляет возможности, необходимые клиентам для реализации потенциала прогнозируемого обслуживания, просмотрите эту [инфографику][lnk_infographic].
 
-## <a name="how-the-predictive-maintenance-solution-is-built"></a>How the predictive maintenance solution is built
+## Принцип построения решения прогнозируемого обслуживания
 
-The solution leverages an existing Azure Machine Learning model available as a template to show these capabilities working from device telemetry collected through IoT Suite services. Microsoft has built a [regression model][lnk_regression_model] of an aircraft engine and published the complete template, data<sup>\[1\]</sup>, and step-by-step guidance on how to use the model.
+Чтобы продемонстрировать эти возможности на основе данных телеметрии устройства, собранных с помощью служб пакета IoT, решение использует существующую модель машинного обучения Azure, доступную в виде шаблона. Корпорация Майкрософт разработала [модель регрессии][lnk_regression_model] двигателя самолета и опубликовала полный шаблон <sup>[1]</sup>, данные и пошаговое руководство по использованию модели.
 
-The Azure IoT predictive maintenance preconfigured solution uses the regression model created from this template; it is deployed into your Azure subscription and exposed through an automatically generated API. The solution includes a subset of the testing data representing 4 (of 100 total) engines and the 4 (of 21 total) sensor data streams which provide an accurate result from the trained model.
+Предварительно настроенное решение прогнозного обслуживания Azure IoT использует модель регрессии, созданную на основе этого шаблона. Это решение развертывается в подписке Azure и предоставляется с помощью автоматически созданного интерфейса API. Решение включает набор проверочных данных, представляющий 4 (из 100) двигателя и 4 (из 21) потока данных датчиков, который обеспечивает точный результат из обученной модели.
 
-*\[1\] A. Saxena and K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
+*[1] А. Саксена (A. Saxena) и К. Гебель (K. Goebel) (2008). "Набор данных для симуляции деградации турбореактивного двигателя" ("Turbofan Engine Degradation Simulation Data Set"), Хранилище данных Центра прогнозирования Эймса (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/, Исследовательский центр Эймса, Моффетт-филд, Калифорния*
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-To learn more about how Azure IoT enables predictive maintenance scenarios, read [Capture value from the Internet of Things][lnk_capture_value].
+Дополнительные сведения о том, как Azure IoT реализует сценарии прогнозирования обслуживания, см. в разделе [Захват значения из Интернета вещей][lnk_capture_value].
 
-Take a [walkthrough][lnk-predictive-walkthrough] of the predictive maintenance preconfigured solution.
+Воспользуйтесь [пошаговым руководством][lnk-predictive-walkthrough] по работе с предварительно настроенным решением прогнозируемого обслуживания.
 
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -59,16 +58,12 @@ Take a [walkthrough][lnk-predictive-walkthrough] of the predictive maintenance p
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+Вы можете также ознакомиться с другими функциями и возможностями предварительно настроенных решений IoT Suite.
 
-- [Frequently asked questions for IoT Suite][lnk-faq]
-- [IoT security from the ground up][lnk-security-groundup]
+- [Часто задаваемые вопросы об IoT Suite][lnk-faq]
+- [Все аспекты безопасности IoT][lnk-security-groundup]
 
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

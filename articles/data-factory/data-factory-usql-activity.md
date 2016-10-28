@@ -1,85 +1,74 @@
 <properties 
-    pageTitle="Run U-SQL script on Azure Data Lake Analytics from Azure Data Factory" 
-    description="Learn how to process data by running U-SQL scripts on Azure Data Lake Analytics compute service." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="spelluru" 
-    manager="jhubbard" 
-    editor="monicar"/>
+	pageTitle="Запуск скрипта U-SQL в аналитике озера данных Azure из фабрики данных Azure" 
+	description="Узнайте, как обрабатывать данные с помощью скриптов U-SQL в службе вычислений аналитики озера данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/12/2016" 
-    ms.author="spelluru"/>
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/12/2016" 
+	ms.author="spelluru"/>
 
-
-# <a name="run-u-sql-script-on-azure-data-lake-analytics-from-azure-data-factory"></a>Run U-SQL script on Azure Data Lake Analytics from Azure Data Factory
-> [AZURE.SELECTOR]
-[Hive](data-factory-hive-activity.md)  
-[Pig](data-factory-pig-activity.md)  
-[MapReduce](data-factory-map-reduce.md)  
-[Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-[Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-[Stored Procedure](data-factory-stored-proc-activity.md)
-[Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-[.NET custom](data-factory-use-custom-activities.md)
- 
-A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes the **Data Lake Analytics U-SQL Activity** that runs a **U-SQL** script on an **Azure Data Lake Analytics** compute linked service. 
+# Запуск скрипта U-SQL в аналитике озера данных Azure из фабрики данных Azure 
+Конвейер в фабрике данных Azure обрабатывает данные в связанной службе хранилища с помощью связанных вычислительных служб. В нем содержится последовательность действий, каждое из которых выполняет определенную операцию обработки. В этой статье описывается **действие U-SQL в аналитике озера данных**, которое запускает скрипт **U-SQL** в связанной службе вычислений **аналитики озера данных Azure**.
 
 > [AZURE.NOTE] 
-> Create an Azure Data Lake Analytics account before creating a pipeline with a Data Lake Analytics U-SQL Activity. To learn about Azure Data Lake Analytics, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Перед созданием конвейера с действием U-SQL в Data Lake Analytics следует создать учетную запись Data Lake Analytics. Дополнительные сведения об Azure Data Lake Analytics см. в статье [Начало работы с аналитикой озера данных Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 >  
-> Review the [Build your first pipeline tutorial](data-factory-build-your-first-pipeline.md) for detailed steps to create a data factory, linked services, datasets, and a pipeline. Use JSON snippets with Data Factory Editor or Visual Studio or Azure PowerShell to create Data Factory entities.
+> В руководстве по [созданию первого конвейера](data-factory-build-your-first-pipeline.md) подробно описаны процедуры создания фабрики данных, связанных служб, наборов данных и конвейера. Для создания сущностей фабрики данных запустите предложенные фрагменты кода JSON в редакторе фабрики данных, Visual Studio или Azure PowerShell.
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics Linked Service
-You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
+## Связанная служба аналитики озера данных Azure
+Можно создать связанную службу **Azure Data Lake Analytics**, чтобы связать службу вычислений Azure Data Lake Analytics с фабрикой данных Azure. Действие U-SQL Data Lake Analytics в конвейере ссылается на эту связанную службу.
 
-The following example provides JSON definition for an Azure Data Lake Analytics linked service. 
+В следующем примере представлено определение JSON для связанной службы аналитики озера данных Azure.
 
-    {
-        "name": "AzureDataLakeAnalyticsLinkedService",
-        "properties": {
-            "type": "AzureDataLakeAnalytics",
-            "typeProperties": {
-                "accountName": "adftestaccount",
-                "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
-                "authorization": "<authcode>",
-                "sessionId": "<session ID>", 
-                "subscriptionId": "<subscription id>",
-                "resourceGroupName": "<resource group name>"
-            }
-        }
-    }
+	{
+	    "name": "AzureDataLakeAnalyticsLinkedService",
+	    "properties": {
+	        "type": "AzureDataLakeAnalytics",
+	        "typeProperties": {
+	            "accountName": "adftestaccount",
+	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+	            "authorization": "<authcode>",
+				"sessionId": "<session ID>", 
+	            "subscriptionId": "<subscription id>",
+	            "resourceGroupName": "<resource group name>"
+	        }
+	    }
+	}
 
 
-The following table provides descriptions for the properties used in the JSON definition. 
+В следующей таблице приведены описания свойств из определения JSON.
 
-Property | Description | Required
+Свойство | Описание | Обязательно
 -------- | ----------- | --------
-Type | The type property should be set to: **AzureDataLakeAnalytics**. | Yes
-accountName | Azure Data Lake Analytics Account Name. | Yes
-dataLakeAnalyticsUri | Azure Data Lake Analytics URI. |  No 
-authorization | Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login.  | Yes 
-subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used). 
-resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
-sessionId | session id from the OAuth authorization session. Each session id is unique and may only be used once. The session Id is auto-generated in the Data Factory Editor. | Yes
+Тип | Свойству type необходимо присвоить значение **AzureDataLakeAnalytics**. | Да
+accountName | Имя учетной записи аналитики озера данных Azure. | Да
+dataLakeAnalyticsUri | Универсальный код ресурса (URI) аналитики озера данных Azure. | Нет 
+authorization | Код авторизации извлекается автоматически после нажатия кнопки **Авторизовать** в редакторе фабрики данных и выполнения входа с авторизацией OAuth. | Да 
+subscriptionId | Идентификатор подписки Azure | Нет (если не указан, используется подписка фабрики данных). 
+имя\_группы\_ресурсов | Имя группы ресурсов Azure | Нет (если не указано, используется группа ресурсов фабрики данных).
+sessionid | Идентификатор сеанса из сеанса авторизации OAuth. Каждый идентификатор сеанса является уникальным и используется только один раз. Идентификатор сеанса создается автоматически в редакторе фабрики данных. | Да
 
-The authorization code you generated by using the **Authorize** button expires after sometime. See the following table for the expiration times for different types of user accounts. You may see the following error message when the authentication **token expires**: Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
+Срок действия кода авторизации, созданного с помощью кнопки **Авторизовать**, через некоторое время истекает. Сроки действия для различных типов учетных записей пользователей см. в следующей таблице. При истечении **срока действия маркера** проверки подлинности может появиться следующее сообщение об ошибке: "Ошибка операции с учетными данными: invalid\_grant - AADSTS70002: ошибка при проверке учетных данных. AADSTS70008: срок действия предоставленных прав доступа истек или они были отозваны. Идентификатор отслеживания: d18629e8-af88-43c5-88e3-d8419eb1fca1 Идентификатор корреляции: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Временная отметка: 2015-12-15 21:09:31Z".
 
  
-| User type | Expires after |
+| Тип пользователя | Срок действия |
 | :-------- | :----------- | 
-| User accounts NOT managed by Azure Active Directory (@hotmail.com, @live.com, etc.) | 12 hours |
-| Users accounts managed by Azure Active Directory (AAD) | 14 days after the last slice run. <br/><br/>90 days, if a slice based on OAuth-based linked service runs at least once every 14 days. |
+| Учетные записи пользователей, которые НЕ управляются Azure Active Directory (@hotmail.com, @live.com и т. д.) | 12 часов |
+| Учетные записи пользователей, которые управляются Azure Active Directory (AAD) | 14 дней после последнего запуска среза. <br/><br/>90 дней, если срез, основанный на связанной службе на основе OAuth, выполняется по крайней мере раз в 14 дней. |
 
-To avoid/resolve this error, reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for **sessionId** and **authorization** properties programmatically using code in the following section. 
+Чтобы избежать этой ошибки или исправить ее, вам потребуется повторно авторизоваться с помощью кнопки **Авторизовать** и повторно развернуть связанную службу, когда **срок действия маркера истечет**. Значения свойств **sessionId** и **authorization** также можно задавать программно с помощью кода, приведенного в следующем разделе.
 
   
-### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>To programmatically generate sessionId and authorization values 
+### Программное создание значений свойств sessionId и authorization 
 
     if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
         linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
@@ -104,188 +93,185 @@ To avoid/resolve this error, reauthorize using the **Authorize** button when the
         }
     }
 
-See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. Add a reference to: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll for the WindowsFormsWebAuthenticationDialog class. 
+Подробные сведения о классах фабрики данных, используемых в коде, см. в статьях [AzureDataLakeStoreLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) и [AuthorizationSessionGetResponse — класс](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Для использования класса WindowsFormsWebAuthenticationDialog следует добавить ссылку на Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll.
  
  
-## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL Activity 
+## Действие U-SQL в аналитике озера данных 
 
-The following JSON snippet defines a pipeline with a Data Lake Analytics U-SQL Activity. The activity definition has a reference to the Azure Data Lake Analytics linked service you created earlier.   
+В следующем фрагменте кода JSON определяется конвейер с действием U-SQL в аналитике озера данных. Определение действия содержит ссылку на созданную ранее связанную службу аналитики озера данных Azure.
   
 
-    {
-        "name": "ComputeEventsByRegionPipeline",
-        "properties": {
-            "description": "This is a pipeline to compute events for en-gb locale and date less than 2012/02/19.",
-            "activities": 
-            [
-                {
-                    "type": "DataLakeAnalyticsU-SQL",
-                    "typeProperties": {
-                        "scriptPath": "scripts\\kona\\SearchLogProcessing.txt",
-                        "scriptLinkedService": "StorageLinkedService",
-                        "degreeOfParallelism": 3,
-                        "priority": 100,
-                        "parameters": {
-                            "in": "/datalake/input/SearchLog.tsv",
-                            "out": "/datalake/output/Result.tsv"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "DataLakeTable"
-                        }
-                    ],
-                    "outputs": 
-                    [
-                        {
-                            "name": "EventsByRegionTable"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "06:00:00",
-                        "concurrency": 1,
-                        "executionPriorityOrder": "NewestFirst",
-                        "retry": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Day",
-                        "interval": 1
-                    },
-                    "name": "EventsByRegion",
-                    "linkedServiceName": "AzureDataLakeAnalyticsLinkedService"
-                }
-            ],
-            "start": "2015-08-08T00:00:00Z",
-            "end": "2015-08-08T01:00:00Z",
-            "isPaused": false
-        }
-    }
+	{
+    	"name": "ComputeEventsByRegionPipeline",
+    	"properties": {
+        	"description": "This is a pipeline to compute events for en-gb locale and date less than 2012/02/19.",
+        	"activities": 
+			[
+            	{
+            	    "type": "DataLakeAnalyticsU-SQL",
+                	"typeProperties": {
+                    	"scriptPath": "scripts\\kona\\SearchLogProcessing.txt",
+	                    "scriptLinkedService": "StorageLinkedService",
+    	                "degreeOfParallelism": 3,
+    	                "priority": 100,
+    	                "parameters": {
+    	                    "in": "/datalake/input/SearchLog.tsv",
+    	                    "out": "/datalake/output/Result.tsv"
+    	                }
+    	            },
+    	            "inputs": [
+	    				{
+	                        "name": "DataLakeTable"
+	                    }
+	                ],
+	                "outputs": 
+					[
+	                    {
+                    	    "name": "EventsByRegionTable"
+                    	}
+                	],
+                	"policy": {
+                    	"timeout": "06:00:00",
+	                    "concurrency": 1,
+    	                "executionPriorityOrder": "NewestFirst",
+    	                "retry": 1
+    	            },
+    	            "scheduler": {
+    	                "frequency": "Day",
+    	                "interval": 1
+    	            },
+    	            "name": "EventsByRegion",
+    	            "linkedServiceName": "AzureDataLakeAnalyticsLinkedService"
+    	        }
+    	    ],
+    	    "start": "2015-08-08T00:00:00Z",
+    	    "end": "2015-08-08T01:00:00Z",
+    	    "isPaused": false
+    	}
+	}
 
 
-The following table describes names and descriptions of properties that are specific to this activity. 
+В следующей таблице описаны имена и описания свойств, относящихся к этому действию.
 
-Property | Description | Required
+Свойство | Описание | Обязательно
 :-------- | :----------- | :--------
-type | The type property must be set to **DataLakeAnalyticsU-SQL**. | Yes
-scriptPath | Path to folder that contains the U-SQL script. Name of the file is case-sensitive. | No (if you use script)
-scriptLinkedService | Linked service that links the storage that contains the script to the data factory | No (if you use script)
-script | Specify inline script instead of specifying scriptPath and scriptLinkedService. For example: "script": "CREATE DATABASE test". | No (if you use scriptPath and scriptLinkedService)
-degreeOfParallelism | The maximum number of nodes simultaneously used to run the job. | No
-priority | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. | No 
-parameters | Parameters for the U-SQL script | No 
+type | Для свойства type нужно задать значение **DataLakeAnalyticsU-SQL**. | Да
+scriptPath | Путь к папке, содержащей скрипт U-SQL В имени файла учитывается регистр. | Нет (если используется скрипт)
+scriptLinkedService | Связанная служба, которая связывает хранилище, содержащее скрипт, с фабрикой данных | Нет (если используется скрипт)
+script | Указание сценария непосредственно в строке вместо использования scriptPath и scriptLinkedService. Например: "script" : "CREATE DATABASE test". | Нет (при использовании scriptPath и scriptLinkedService)
+degreeOfParallelism | Максимальное количество узлов, используемых одновременно для выполнения задания. | Нет
+priority | Определяет, какие задания из всех в очереди должны запускаться в первую очередь. Чем меньше число, тем выше приоритет. | Нет 
+parameters | Параметры скрипта U-SQL | Нет 
 
-See [SearchLogProcessing.txt Script Definition](#script-definition) for the script definition. 
+Определение сценария см. в разделе [Определение сценария SearchLogProcessing.txt](#script-definition).
 
-## <a name="sample-input-and-output-datasets"></a>Sample input and output datasets
+## Примеры входных и выходных наборов данных
 
-### <a name="input-dataset"></a>Input dataset
-In this example, the input data resides in an Azure Data Lake Store (SearchLog.tsv file in the datalake/input folder). 
+### Входной набор данных
+В этом примере входной набор данных находится в хранилище озера данных Azure (файл SearchLog.tsv в папке datalake/input).
 
-    {
-        "name": "DataLakeTable",
-        "properties": {
-            "type": "AzureDataLakeStore",
-            "linkedServiceName": "AzureDataLakeStoreLinkedService",
-            "typeProperties": {
-                "folderPath": "datalake/input/",
-                "fileName": "SearchLog.tsv",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                }
-            },
-            "availability": {
-                "frequency": "Day",
-                "interval": 1
-            }
-        }
-    }   
+	{
+    	"name": "DataLakeTable",
+	    "properties": {
+	        "type": "AzureDataLakeStore",
+    	    "linkedServiceName": "AzureDataLakeStoreLinkedService",
+    	    "typeProperties": {
+    	        "folderPath": "datalake/input/",
+    	        "fileName": "SearchLog.tsv",
+    	        "format": {
+    	            "type": "TextFormat",
+    	            "rowDelimiter": "\n",
+    	            "columnDelimiter": "\t"
+    	        }
+    	    },
+    	    "availability": {
+    	        "frequency": "Day",
+    	        "interval": 1
+    	    }
+    	}
+	}	
 
-### <a name="output-dataset"></a>Output dataset
-In this example, the output data produced by the U-SQL script is stored in an Azure Data Lake Store (datalake/output folder). 
+### Выходной набор данных
+В этом примере выходные данные, порождаемые скриптом U-SQL, сохраняются в хранилище озера данных Azure (папка datalake/output).
 
-    {
-        "name": "EventsByRegionTable",
-        "properties": {
-            "type": "AzureDataLakeStore",
-            "linkedServiceName": "AzureDataLakeStoreLinkedService",
-            "typeProperties": {
-                "folderPath": "datalake/output/"
-            },
-            "availability": {
-                "frequency": "Day",
-                "interval": 1
-            }
-        }
-    }
+	{
+	    "name": "EventsByRegionTable",
+	    "properties": {
+	        "type": "AzureDataLakeStore",
+	        "linkedServiceName": "AzureDataLakeStoreLinkedService",
+	        "typeProperties": {
+	            "folderPath": "datalake/output/"
+	        },
+	        "availability": {
+	            "frequency": "Day",
+	            "interval": 1
+	        }
+	    }
+	}
 
-### <a name="sample-data-lake-store-linked-service"></a>Sample Data Lake Store Linked Service
-Here is the definition of the sample Azure Data Lake Store linked service used by the input/output datasets. 
+### Пример связанной службы Data Lake Store
+Вот определение примера связанной службы Azure Data Lake Store, используемой наборами входных и выходных данных.
 
-    {
-        "name": "AzureDataLakeStoreLinkedService",
-        "properties": {
-            "type": "AzureDataLakeStore",
-            "typeProperties": {
-                "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-                "sessionId": "<session ID>",
-                "authorization": "<authorization URL>"
-            }
-        }
-    }
+	{
+	    "name": "AzureDataLakeStoreLinkedService",
+	    "properties": {
+	        "type": "AzureDataLakeStore",
+	        "typeProperties": {
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
+				"sessionId": "<session ID>",
+	            "authorization": "<authorization URL>"
+	        }
+	    }
+	}
 
-See [Move data to and from Azure Data Lake Store](data-factory-azure-datalake-connector.md) article for descriptions of JSON properties. 
+Описания свойств JSON см. в статье [Перемещение данных в озеро данных Azure и обратно с помощью фабрики данных Azure](data-factory-azure-datalake-connector.md).
 
-## <a name="sample-u-sql-script"></a>Sample U-SQL Script 
+## Пример сценария U-SQL 
 
-    @searchlog =
-        EXTRACT UserId          int,
-                Start           DateTime,
-                Region          string,
-                Query           string,
-                Duration        int?,
-                Urls            string,
-                ClickedUrls     string
-        FROM @in
-        USING Extractors.Tsv(nullEscape:"#NULL#");
-    
-    @rs1 =
-        SELECT Start, Region, Duration
-        FROM @searchlog
-    WHERE Region == "en-gb";
-    
-    @rs1 =
-        SELECT Start, Region, Duration
-        FROM @rs1
-        WHERE Start <= DateTime.Parse("2012/02/19");
-    
-    OUTPUT @rs1   
-        TO @out
-          USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
+	@searchlog =
+	    EXTRACT UserId          int,
+	            Start           DateTime,
+	            Region          string,
+	            Query           string,
+	            Duration        int?,
+	            Urls            string,
+	            ClickedUrls     string
+	    FROM @in
+	    USING Extractors.Tsv(nullEscape:"#NULL#");
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @searchlog
+	WHERE Region == "en-gb";
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @rs1
+	    WHERE Start <= DateTime.Parse("2012/02/19");
+	
+	OUTPUT @rs1   
+	    TO @out
+	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 
-The values for **@in** and **@out** parameters in the U-SQL script are passed dynamically by ADF using the ‘parameters’ section. See the ‘parameters’ section in the pipeline definition.
+Значения параметров **@in** и **@out** в сценарии U-SQL передаются динамически с помощью ADF, с использованием раздела parameters. См. раздел parameters в определении конвейера.
 
-You can specify other properties such as degreeOfParallelism and priority as well in your pipeline definition for the jobs that run on the Azure Data Lake Analytics service.
+В определении конвейера для заданий, которые выполняются в службе Azure Data Lake Analytics, можно определить другие свойства, например degreeOfParallelism и priority.
 
-## <a name="dynamic-parameters"></a>Dynamic parameters
-In the sample pipeline definition, in and out parameters are assigned with hard-coded values. 
+## Динамические параметры
+В примере определения конвейера параметрам in и out присвоено жестко заданные значения.
 
     "parameters": {
         "in": "/datalake/input/SearchLog.tsv",
         "out": "/datalake/output/Result.tsv"
     }
 
-It is possible to use dynamic parameters instead. For example: 
+Вместо этого можно использовать динамические параметры. Например:
 
     "parameters": {
         "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
         "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
     }
 
-In this case, input files are still picked up from the /datalake/input folder and output files are generated in the /datalake/output folder. The file names are dynamic based on the slice start time.  
+В этом случае входные файлы по-прежнему берутся из папки /datalake/input, а выходные файлы создаются в папке /datalake/output. Имена файлов присваиваются динамически, на основе времени начала среза.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

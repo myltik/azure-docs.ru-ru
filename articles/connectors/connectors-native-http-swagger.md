@@ -1,13 +1,13 @@
 
 <properties
-    pageTitle="Add the HTTP + Swagger action in Logic apps | Microsoft Azure"
-    description="Overview of the HTTP + Swagger action and operations"
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Добавление действия ";HTTP + Swagger"; в приложения логики | Microsoft Azure"
+	description="Обзор действия ";HTTP + Swagger"; и операций"
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -18,121 +18,115 @@
    ms.date="07/18/2016"
    ms.author="jehollan"/>
 
+# Приступая к работе с действием "HTTP + Swagger"
 
-# <a name="get-started-with-the-http-+-swagger-action"></a>Get started with the HTTP + Swagger action
+С помощью действия "HTTP + Swagger" можно создать первоклассный соединитель для любой конечной точки REST посредством [документа Swagger](https://swagger.io). Первоклассный конструктор приложений логики позволяет расширить функциональность приложения логики, обеспечив возможность вызова любой конечной точки REST.
 
-With the HTTP + Swagger action, you can create a first-class connector to any REST endpoint through a [Swagger document](https://swagger.io). You can also extend a logic app to call any REST endpoint with a first-class Logic App Designer experience.
-
-To get started with the HTTP + Swagger action in a logic app, see [Create a new logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
----
-
-## <a name="use-http-+-swagger-as-a-trigger-or-an-action"></a>Use HTTP + Swagger as a trigger or an action
-
-The HTTP + Swagger trigger and action function the same as the [HTTP action](connectors-native-http.md) but provide a better design experience by showing the shape of the API and outputs in the designer from the [Swagger metadata](https://swagger.io). In addition, you can use HTTP + Swagger as a trigger. If you want to implement a polling trigger, it should follow the polling pattern that's described in [Creating a custom API to use with logic apps](../app-service-logic/app-service-logic-create-api-app.md#polling-triggers).
-
-[Learn more about logic app triggers and actions.](connectors-overview.md)
-
-Here's an example of how to use the HTTP + Swagger operation as an action in a workflow in a logic app.
-
-1. Select the **New Step** button.
-2. Select **Add an action**.
-3. In the action search box, type **swagger** to list the HTTP + Swagger action.
-
-    ![Select HTTP + Swagger action](./media/connectors-native-http-swagger/using-action-1.png)
-
-4. Type the URL for a Swagger document:
-    - To work from the Logic App Designer, the URL must be an HTTPS endpoint and have CORS enabled.
-    - If the Swagger document doesn't meet this requirement, you can use [Azure Storage with CORS enabled](#hosting-swagger-from-storage) to store the document.
-5. Click **Next** to read and render from the Swagger document.
-6. Add in any parameters that are required for the HTTP call.
-
-    ![Complete HTTP action](./media/connectors-native-http-swagger/using-action-2.png)
-
-1. Click **Save** on the upper-left corner of the toolbar, and your logic app will both save and publish (activate).
-
-### <a name="host-swagger-from-azure-storage"></a>Host Swagger from Azure Storage
-
-You might want to reference a Swagger document that's not hosted, or that doesn't meet the security and cross-origin requirements for the designer. To resolve this issue, you can store the Swagger document in Azure Storage and enable CORS to reference the document.  
-
-Here are the steps to create, configure, and store Swagger documents in Azure Storage:
-
-1. [Create an Azure storage account with Azure Blob storage](../storage/storage-create-storage-account.md). (To do this, set permissions to **Public Access**.)
-2. Enable CORS on the blob. You can use [this PowerShell script](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1) to configure that setting automatically.
-3. Upload the Swagger file into the blob. You can do this from the [Azure portal](https://portal.azure.com) or from a tool like [Azure Storage Explorer](http://storageexplorer.com/).
-1. Reference an HTTPS link to the document in Azure Blob storage. (The link follows the format `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`.)
-
-
-
-## <a name="technical-details"></a>Technical details
-
-Following are the details for the triggers and actions that this HTTP + Swagger connector supports.
-
-## <a name="http-+-swagger-triggers"></a>HTTP + Swagger triggers
-
-A trigger is an event that can be used to start the workflow that's defined in a logic app. [Learn more about triggers.](connectors-overview.md) The HTTP + Swagger connector has one trigger.
-
-|Trigger|Description|
-|---|---|
-|HTTP + Swagger|Make an HTTP call and return the response content|
-
-## <a name="http-+-swagger-actions"></a>HTTP + Swagger actions
-
-An action is an operation that's carried out by the workflow that's defined in a logic app. [Learn more about actions.](connectors-overview.md) The HTTP + Swagger connector has one possible action.
-
-|Action|Description|
-|---|---|
-|HTTP + Swagger|Make an HTTP call and return the response content|
-
-### <a name="action-details"></a>Action details
-
-The HTTP + Swagger connector comes with one possible action. Following is information about each of the actions, their required and optional input fields, and the corresponding output details that are associated with their usage.
-
-#### <a name="http-+-swagger"></a>HTTP + Swagger
-
-Make an HTTP outbound request with assistance of Swagger metadata.
-An asterisk (*) means a required field.
-
-|Display name|Property name|Description|
-|---|---|---|
-|Method*|method|HTTP verb to use.|
-|URI*|uri|URI for the HTTP request.|
-|Headers|headers|A JSON object of HTTP headers to include.|
-|Body|body|The HTTP request body.|
-|Authentication|authentication|Authentication to use for request. [For more details, see HTTP](./connectors-native-http.md#authentication).|
-
-**Output details**
-
-HTTP response
-
-|Property Name|Data type|Description|
-|---|---|---|
-|Headers|object|Response headers|
-|Body|object|Response object|
-|Status Code|int|HTTP status code|
-
-### <a name="http-responses"></a>HTTP responses
-
-When making calls to various actions, you might get certain responses. Following is a table that outlines corresponding responses and descriptions.
-
-|Name|Description|
-|---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal server error. Unknown error occurred.|
+Сведения о начале работы с действием "HTTP + Swagger" в приложении логики см. в статье, посвященной [созданию нового приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ---
 
-## <a name="next-steps"></a>Next steps
+## Использование "HTTP + Swagger" в качестве триггера или действия
 
-Try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md) now. You can explore the other available connectors in logic apps by looking at our [list of APIs](apis-list.md).
+Триггер и действие "HTTP + Swagger" функционируют таким же образом, как и [действие HTTP](connectors-native-http.md), но обеспечивают лучшие условия проектирования, отображая форму API и выходные данные в конструкторе на основе [метаданных Swagger](https://swagger.io). Кроме того, можно использовать "HTTP + Swagger" в качестве триггера. Если вы хотите реализовать опрашивающий триггер, то необходимо следовать шаблону опроса, описанному в статье [Создание пользовательского API для приложений логики](../app-service-logic/app-service-logic-create-api-app.md#polling-triggers).
+
+[Дополнительные сведения о триггерах и действиях приложения логики.](connectors-overview.md)
+
+Ниже приведен пример использования операции "HTTP + Swagger" в качестве действия в рабочем процессе приложения логики.
+
+1. Нажмите кнопку **Новый шаг**.
+2. Выберите **Добавить действие**.
+3. В поле поиска действий введите **swagger**, чтобы в списке отобразилось действие "HTTP + Swagger".
+
+	.![Выбор действия "HTTP + Swagger"](./media/connectors-native-http-swagger/using-action-1.png)
+
+4. Введите URL-адрес документа Swagger.
+	- При использовании конструктора приложений логики URL-адресом должна быть конечная точка HTTPS с включенной поддержкой CORS.
+	- Если для документа Swagger не выполняется данное требование, то для его хранения можно воспользоваться [службой хранилища Azure с включенной поддержкой CORS](#hosting-swagger-from-storage).
+5. Для чтения и обработки из документа Swagger нажмите кнопку **Далее**.
+6. Добавьте параметры, необходимые для вызова HTTP.
+
+	.![Выполнение действия HTTP](./media/connectors-native-http-swagger/using-action-2.png)
+
+1. Щелкните **Сохранить** в левом верхнем углу панели инструментов. После этого приложение логики будет сохранено и опубликовано (активировано).
+
+### Размещение Swagger из службы хранилища Azure
+
+Вам может потребоваться задать ссылку на документ Swagger, который еще не размещен или не соответствует требованиям безопасности и CORS, из-за чего он не может использоваться в конструкторе. Для решения этой проблемы можно сохранить документ Swagger в службе хранилища Azure и включить поддержку CORS, что позволит задать ссылку на документ.
+
+Выполните приведенные ниже шаги, чтобы создать, настроить и сохранить документы Swagger в службе хранилища Azure.
+
+1. [Создайте учетную запись Azure с хранилищем BLOB-объектов Azure](../storage/storage-create-storage-account.md). (Для этого присвойте разрешениям значение **Открытый доступ**).
+2. Включите поддержку CORS для большого двоичного объекта. Для автоматической настройки данного параметра можно использовать [этот сценарий PowerShell](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
+3. Передайте файл Swagger в большой двоичный объект. Это можно сделать на [портале Azure](https://portal.azure.com) или с помощью инструмента, такого как [Azure Storage Explorer](http://storageexplorer.com/).
+1. Задайте ссылку HTTPS на документ в хранилище BLOB-объектов Azure. (Ссылка указывается в формате `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`).
 
 
 
-<!--HONumber=Oct16_HO2-->
+## Технические сведения
 
+Ниже приведены подробные сведения о триггерах и действиях, поддерживаемых соединителем "HTTP + Swagger".
 
+## Триггеры "HTTP + Swagger"
+
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах см. здесь.](connectors-overview.md) У соединителя "HTTP + Swagger" один триггер.
+
+|Триггер|Описание|
+|---|---|
+|HTTP + Swagger|Вызов HTTP и возврат содержимого ответа|
+
+## Действия "HTTP + Swagger"
+
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях см. здесь.](connectors-overview.md) У соединителя "HTTP + Swagger" одно возможное действие.
+
+|Действие|Описание|
+|---|---|
+|HTTP + Swagger|Вызов HTTP и возврат содержимого ответа|
+
+### Сведения о действиях
+
+У соединителя "HTTP + Swagger" одно возможное действие. Ниже приведены сведения о всех действиях, их обязательных и необязательных полях ввода, а также соответствующие выходные данные, связанные с их использованием.
+
+#### HTTP + Swagger
+
+Выполните исходящий HTTP-запрос, используя метаданные Swagger. Звездочка (*) означает, что поле является обязательным.
+
+|Отображаемое имя|Имя свойства|Описание|
+|---|---|---|
+|Метод*|метод|HTTP-команда для использования.|
+|URI*|uri|URI HTTP-запроса.|
+|Заголовки|headers|Объект JSON заголовков HTTP, который необходимо включить.|
+|Текст|текст|Текст HTTP-запроса.|
+|Аутентификация|authentication|Аутентификация, используемая для запроса. [Дополнительные сведения см. в статье о действии HTTP](./connectors-native-http.md#authentication).|
+
+**Сведения о выходных данных**
+
+Ответ HTTP
+
+|Имя свойства|Тип данных|Описание|
+|---|---|---|
+|Заголовки|object|Заголовки ответов|
+|Текст|object|Объект ответа|
+|Код состояния|int|HTTP status code (Код состояния HTTP)|
+
+### Ответы HTTP
+
+В результате вызова различных действий могут возвращаться определенные ответы. В таблице ниже приведены соответствующие ответы и описания.
+
+|Name (Имя)|Описание|
+|---|---|
+|200|ОК|
+|202|Принято|
+|400|Недопустимый запрос|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка.|
+
+---
+
+## Дальнейшие действия
+
+Теперь опробуйте платформу и [создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
+
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,67 +1,66 @@
 <properties
-    pageTitle="The Azure AD v2.0 endpoint | Microsoft Azure"
-    description="An comparison between the original Azure AD and the v2.0 endpoints."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Конечная точка Azure AD версии 2.0 | Microsoft Azure"
+	description="Сравнение первоначальной версии Azure AD и конечных точек версии 2.0."
+	services="active-directory"
+	documentationCenter=""
+	authors="dstrockis"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="dastrock"/>
 
+# В чем отличия конечной точки версии 2.0?
 
-# <a name="what's-different-about-the-v2.0-endpoint?"></a>What's different about the v2.0 endpoint?
-
-If you're familiar with Azure Active Directory or have integrated apps with Azure AD in the past, there may be some differences in the v2.0 endpoint that you would not expect.  This document calls out those differences for your understanding.
+Если вы знакомы с Azure Active Directory или интегрировали приложения с Azure AD в прошлом, то можете столкнуться с некоторыми неожиданными отличиями в конечной точке версии 2.0. Они описаны в этом документе.
 
 > [AZURE.NOTE]
-    Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	Не все сценарии и компоненты Azure Active Directory поддерживаются конечной точкой версии 2.0. Чтобы определить, следует ли вам использовать конечную точку 2.0, ознакомьтесь с [ограничениями версии 2.0](active-directory-v2-limitations.md).
 
 
-## <a name="microsoft-accounts-and-azure-ad-accounts"></a>Microsoft accounts and Azure AD accounts
-the v2.0 endpoint allow developers to write apps that accept sign-in from both Microsoft Accounts and Azure AD accounts, using a single auth endpoint.  This gives you the ability to write your app completely account-agnostic; it can be ignorant of the type of account that the user signs in with.  Of course, you *can* make your app aware of the type of account being used in a particular session, but you don't have to.
+## Учетные записи Майкрософт и Azure AD
+Конечная точка версии 2.0 позволяет разработчикам создавать приложения, поддерживающие вход с учетными записями Майкрософт и Azure AD с использованием одной конечной точки проверки подлинности. Это дает возможность разрабатывать приложения, которые полностью не зависят от учетных записей. Конечно, *можно* сообщить приложению, какая учетная запись используется в сеансе, но это необязательно.
 
-For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to enterprise users, such as their SharePoint sites or Directory data.  But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the code can be written exactly the same for both Microsoft Accounts and Azure AD accounts.  
+Например, если приложение вызывает [Microsoft Graph](https://graph.microsoft.io), корпоративным пользователям будут доступны некоторые дополнительные функции и данные, такие как сайты SharePoint или данные каталога. Но многие действия, такие как [чтение почты пользователя](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), можно выполнять с помощью одного кода для учетных записей Майкрософт и Azure AD.
 
-Integrating your app with Microsoft Accounts and Azure AD accounts is now one simple process.  You can use a single set of endpoints, a single library, and a single app registration to gain access to both the consumer and enterprise worlds.  To learn more about the v2.0 endpoint, check out [the overview](active-directory-appmodel-v2-overview.md).
-
-
-## <a name="new-app-registration-portal"></a>New app registration portal
-the v2.0 endpoint can only be registered in a new location: [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is the portal where you can obtain an Application Id, customize the appearance of your app's sign-in page, and more.  All you need to access the portal is a Microsoft powered account - either personal or work/school account.  
-
-We will continue to add more and more functionality to this App Registration Portal over time.  The intent is that this portal will be the new location where you can go to manage anything and everything having to do with your Microsoft apps.
+Теперь интеграция приложения с учетными записями Майкрософт и Azure AD — один простой процесс. Вы можете использовать один набор конечных точек, одну библиотеку и один процесс регистрации приложения для получения доступа как к потребительскому, так и корпоративному миру. Дополнительные сведения о конечной точке версии 2.0 см. в этом [обзоре](active-directory-appmodel-v2-overview.md).
 
 
-## <a name="one-app-id-for-all-platforms"></a>One app Id for all platforms
-In the original Azure Active Directory service, you may have registered several different apps for a single project.  You were forced to use separate app registrations for your native clients and web apps:
+## Новый портал регистрации приложений
+Конечную точку версии 2.0 можно зарегистрировать только в новом расположении: [apps.dev.microsoft.com](https://apps.dev.microsoft.com). Это портал, где вы можете получить идентификатор приложения, настроить внешний вид страницы входа и т. д. Для доступа к порталу нужна только учетная запись Майкрософт — личная, рабочая или учебная.
 
-![Old Application Registration UI](../media/active-directory-v2-flows/old_app_registration.PNG)
+Мы продолжим расширять возможности этого портала регистрации приложений. Наша цель — сделать этот портал новым ресурсом, где вы сможете управлять всем, что связано с вашими приложениями Майкрософт.
 
-For example, if you built both a website and an iOS app, you had to register them separately, using two different Application Ids.  If you had a website and a backend web api, you might have registered each as a separate app in Azure AD.  If you had an iOS app and an Android app, you also might have registered two different apps.  
+
+## Один идентификатор приложения для всех платформ
+В первоначальной версии службы Azure Active Directory можно было зарегистрировать несколько различных приложений для одного проекта. Вам приходилось использовать отдельные регистрации для собственных клиентов и веб-приложений:
+
+![Старый пользовательский интерфейс регистрации приложения](../media/active-directory-v2-flows/old_app_registration.PNG)
+
+Например, если вы создали и веб-сайт, и приложение для iOS, вам было необходимо зарегистрировать их отдельно с использованием двух различных идентификаторов приложений. Если у вас был веб-сайт и серверный веб-API, вы могли зарегистрировать их как отдельные приложения в Azure AD. Если у вас было приложение для iOS и Android, вы также могли зарегистрировать два различных приложения.
 
 <!-- You may have even registered different apps for each of your build environments - one for dev, one for test, and one for production. -->
 
-Now, all you need is a single app registration and a single Application Id for each of your projects.  You can add several "platforms" to a each project, and provide the appropriate data for each platform you add.  Of course, you can create as many apps as you like depending on your requirements, but for the majority of cases only one Application Id should be necessary.
+Теперь же вам необходима всего лишь одна регистрация и один идентификатор приложения для каждого проекта. Можно добавить несколько "платформ" для каждого проекта и предоставить соответствующие данные для каждой добавляемой платформы. Конечно, вы можете создавать столько приложений, сколько хотите, в зависимости от требований, но в большинстве случаев потребуется только один идентификатор приложения.
 
 <!-- You can also label a particular platform as "production-ready" when it is ready to be published to the outside world, and use that same Application Id safely in your development environments. -->
 
-Our aim is that this will lead to a more simplified app management and development experience, and create a more consolidated view of a single project that you might be working on.
+Мы стремимся к тому, чтобы упростить управление приложениями и их разработку, а также создать консолидированное представление проекта, с которым вы можете работать.
 
 
-## <a name="scopes,-not-resources"></a>Scopes, not resources
-In the original Azure AD service, an app can behave as a **resource**, or a recipient of tokens.  A resource can define a number of **scopes** or **oAuth2Permissions** that it understands, allowing client apps to request tokens to that resource for a certain set of scopes.  Consider the Azure AD Graph API as an example of a resource:
+## Области, а не ресурсы
+В первоначальной версии службы Azure AD приложение могло вести себя как **ресурс** или получатель маркеров. Ресурс можно определить несколько **областей** или **разрешений oAuth2**, которые он распознает, позволяя клиентским приложениям запрашивать маркеры к этому ресурсу для определенного набора областей. Рассмотрим API Azure AD Graph в качестве примера ресурса.
 
-- Resource Identifier, or `AppID URI`: `https://graph.windows.net/`
-- Scopes, or `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  
+- Идентификатор ресурса или `AppID URI`: `https://graph.windows.net/`
+- Области или `OAuth2Permissions`: `Directory.Read`, `Directory.Write` и т. п.
 
-All of this holds true for the the v2.0 endpoint.  An app can still behave as resource, define scopes, and be identified by a URI.  Client apps can still request access to those scopes.  However, the way in which a client requests those permissions has changed.  In the past, an OAuth 2.0 authorize request to Azure AD might have looked like:
+Все это справедливо и для конечной точки версии 2.0. Приложение по-прежнему может вести себя как ресурс, определять области и идентифицироваться по URI. Клиентские приложения по-прежнему могут запрашивать доступ к этим областям. Однако способ запроса клиентами этих разрешений изменился. В прошлом запрос авторизации OAuth 2.0 в Azure AD выглядел так:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?
@@ -70,7 +69,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-where the **resource** parameter indicated which resource the client app is requesting authorization for.  Azure AD computed the permissions required by the app based on static configuration in the Azure Portal, and issued tokens accordingly.  Now, the same OAuth 2.0 authorize request looks like:
+где параметр **resource** указывает, к какому ресурсу клиентское приложение запрашивает авторизацию. Служба Azure AD определяла разрешения, необходимые приложению, на основе статической конфигурации на портале Azure и выдавала маркеры соответствующим образом. Теперь же запрос авторизации OAuth 2.0 выглядит так:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -79,20 +78,20 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-where the **scope** parameter indicates which resource and permissions the app is requesting authorization for. The desired resource is still very present in the request - it is simply encompassed in each of the values of the scope parameter.  Using the scope parameter in this manner allows the v2.0 endpoint to be more compliant with the OAuth 2.0 specification, and aligns more closely with common industry practices.  It also enables apps to perform [incremental consent](#incremental-and-dynamic-consent), which is described in the next section.
+где параметр **scope** указывает, для каких ресурсов и разрешений приложение запрашивает авторизацию. Нужный ресурс по-прежнему присутствует в запросе — просто он состоит из каждого значения параметра области. Используя параметр области таким образом, конечная точка версии 2.0 обладает улучшенной совместимостью со спецификацией OAuth 2.0 и улучшенной поддержкой отраслевых стандартов. Это также позволяет приложениям реализовать [добавочное согласие](#incremental-and-dynamic-consent), описанное в следующем разделе.
 
-## <a name="incremental-and-dynamic-consent"></a>Incremental and dynamic consent
-Apps registered in the generally available Azure AD service needed to specify their required OAuth 2.0 permissions in the Azure Portal, at app creation time:
+## Добавочное и динамическое согласие
+Приложения, зарегистрированные в общедоступной службе Azure AD, должны были указывать необходимые разрешения OAuth 2.0 на портале Azure во время создания приложения:
 
-![Permissions Registration UI](../media/active-directory-v2-flows/app_reg_permissions.PNG)
+![Пользовательский интерфейс регистрации разрешений](../media/active-directory-v2-flows/app_reg_permissions.PNG)
 
-The permissions an app required were configured **statically**.  While this allowed configuration of the app to exist in the Azure Portal and kept the code nice and simple, it presents a few issues for developers:
+Разрешения, необходимые приложению, настраивались **статически**. Хотя это позволяло хранить конфигурацию приложения на портале и упрощало код, для разработчиков появлялись определенные сложности.
 
-- An app had to know all of the permissions it would ever need at app creation time.  Adding permissions over time was a difficult process.
-- An app had to know all of the resources it would ever access ahead of time.  It was difficult to create apps that could access an arbitrary number of resources.
-- An app had to request all the permissions it would ever need upon the user's first sign-in.  In some cases this led to a very long list of permissions, which discouraged end-users from approving the app's access on initial sign-in.
+- Приложению должны были быть известны все разрешения, которые могли понадобиться во время создания приложения. Добавить разрешения в дальнейшем было не так просто.
+- Приложению заранее должны были быть известны все ресурсы, к которым оно будет обращаться. Было трудно создавать приложения, использующие произвольное количество ресурсов.
+- Приложение должно было запрашивать все разрешения, которые могли потребоваться при первом входе пользователя в систему. В некоторых случаях это приводило к получению большого списка разрешений, из-за чего пользователи не разрешали приложению доступ при первоначальном входе.
 
-With the v2.0 endpoint, you can specify the permissions your app needs **dynamically**, at runtime, during regular usage of your app.  To do so, you can specify the scopes your app needs at any given point in time by including them in the `scope` parameter of an authorization request:
+В конечной точке версии 2.0 можно указывать разрешения, необходимые приложению, **динамически** во время обычного использования приложения. Для этого можно указать области, требуемые приложению в любой момент времени, включив их в параметр `scope` авторизации запроса:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -101,40 +100,36 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-The above requests permission for the app to read an Azure AD user's directory data, as well as write data to their directory.  If the user has consented to those permissions in the past for this particular app, they will simply enter their credentials and be signed into the app.  If the user has not consented to any of these permissions, the v2.0 endpoint will ask the user for consent to those permissions.  To learn more, you can read up on [permissions, consent, and scopes](active-directory-v2-scopes.md).
+Пример выше запрашивает разрешение на чтение данных каталога пользователя Azure AD, а также на запись данных в каталог. Если пользователи предоставили эти разрешения в прошлом для этого конкретного приложения, они просто введут свои учетные данные и войдут в приложение. Если пользователи не предоставили какие-либо из этих разрешений, конечная точка версии 2.0 запросит у пользователя эти разрешения. Подробнее см. в разделе о [разрешениях, согласии и областях](active-directory-v2-scopes.md).
 
-Allowing an app to request permissions dynamically via the `scope` parameter gives you full control over your user's experience.  If you wish, you can choose to frontload your consent experience and ask for all permissions in one initial authorization request.  Or if your app requires a large number of permissions, you can choose to gather those permissions from the user incrementally, as they attempt to use certain features of your app over time.
+Возможность приложения динамически запрашивать разрешения с помощью параметра `scope` дает вам полный контроль над взаимодействием с пользователями. При желании можно запросить все разрешения в первоначальном запросе авторизации. Или же, если приложению требуется множество разрешений, вы можете запрашивать их у пользователей постепенно, когда они попытаются применять некоторые функции приложения с течением времени.
 
-## <a name="well-known-scopes"></a>Well-known scopes
+## Хорошо известные области
 
-#### <a name="offline-access"></a>Offline access
-the v2.0 endpoint may require the use of a new well-known permission for apps - the `offline_access` scope.  All apps will need to request this permission if they need to access resources on the behalf of a user for a prolonged period of time, even when the user may not be actively using the app.  The `offline_access` scope will appear to the user in consent dialogs as "Access your data offline", which the user must agree to.  Requesting the `offline_access` permission will enable your web app to receive OAuth 2.0 refresh_tokens from the v2.0 endpoint.  Refresh_tokens are long-lived, and can be exchanged for new OAuth 2.0 access_tokens for extended periods of access.  
+#### Автономный доступ
+Конечной точке версии 2.0 могут потребоваться новые хорошо известные разрешения для приложений — область `offline_access`. Всем приложения требуется запросить это разрешение, если им необходимо доступ к ресурсам от имени пользователя в течение длительного времени, даже если пользователь не работает с приложением активно. Область `offline_access` отображается в диалоговых окнах запроса согласия как разрешение "Доступ к данным в автономном режиме", которое пользователь должен принять. Запрос разрешения `offline_access` позволит веб-приложению получать маркеры обновления OAuth 2.0 от конечной точки версии 2.0. У маркеров обновления длительный срок действия, и их можно заменить на новые маркеры доступа OAuth 2.0 на значительные периоды доступа.
 
-If your app does not request the `offline_access` scope, it will not receive refresh_tokens.  This means that when you redeem an authorization_code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md#oauth2-authorization-code-flow), you will only receive back an access_token from the `/token` endpoint.  That access_token will remain valid for a short period of time (typically one hour), but will eventually expire.  At that point in time, your app will need to redirect the user back to the `/authorize` endpoint to retrieve a new authorization_code.  During this redirect, the user may or may not need to enter their credentials again or re-consent to permissions, depending on the the type of app.
+Если приложение не запрашивает область `offline_access`, оно не получит маркеры обновления. Это значит, что при использовании кода авторизации в [потоке кода авторизации OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) вы получите только маркер доступа из конечной точки `/token`. Маркер доступа будет действительным короткое время (обычно один час), но в конечном итоге срок его действия истечет. В этот момент приложение будет необходимо перенаправить пользователя обратно в конечную точку `/authorize`, чтобы получить новый код авторизации. При этом пользователю может потребоваться повторно ввести учетные данные или повторно предоставить разрешения в зависимости от типа приложения.
 
-To learn more about OAuth 2.0, refresh_tokens, and access_tokens, check out the [v2.0 protocol reference](active-directory-v2-protocols.md).
+Подробнее о протоколе OAuth 2.0, маркерах обновления и доступа см. в [справочнике по протоколу версии 2.0](active-directory-v2-protocols.md).
 
-#### <a name="openid,-profile,-&-email"></a>OpenID, profile, & email
+#### OpenID, профиль и электронная почта
 
-In the original Azure Active Directory service, the most basic OpenID Connect sign-in flow would provide a wealth of information about the user in the resulting id_token.  The claims in an id_token can include the user's name, preferred username, email address, object ID, and more.
+В исходной службе Azure Active Directory самый простой поток входа OpenID Connect содержит массу информации о пользователе в результирующем маркере идентификации (id\_token). Утверждения в id\_token могут содержать имя пользователя, предпочтительное имя пользователя, адрес электронной почты, идентификатор объекта и другие сведения.
 
-We are now restricting the information that the `openid` scope affords your app access to.  The ‘openid’ scope will only allow your app to sign the user in, and receive an app-specific identifier for the user.  If you want to obtain personally identifiable information (PII) about the user in your app, your app will need to request additional permissions from the user.  We are introducing two new scopes – the `email` and `profile` scopes – which allow you to do so.
+Сейчас мы ограничиваем сведения, доступные вашему приложению с помощью области `openid`. Теперь область "openid" позволит пользователю только войти в приложение и получить соответствующий идентификатор. Чтобы получить личные сведения о пользователе в приложении, приложение должно запросить дополнительные разрешения у пользователя. Мы представляем две новые области — `email` и `profile`, которые позволяют сделать это.
 
-The `email` scope is very straightforward – it allows your app access to the user’s primary email address via the `email` claim in the id_token.  The `profile` scope affords your app access to all other basic information about the user – their name, preferred username, object ID, and so on.
+Область `email` довольно проста. С ее помощью приложение получает доступ к основному адресу электронной почты пользователя через утверждение `email` в маркере id\_token. С помощью области `profile` приложение может получить другие основные сведения о пользователе: имя, предпочтительное имя пользователя, идентификатор объекта и т. д.
 
-This allows you to code your app in a minimal-disclosure  fashion – you can only ask the user for the set of information that your app requires to do its job.  For more information on these scopes, refer to [the v2.0 scope reference](active-directory-v2-scopes.md). 
+Это позволяет создать код приложения с минимальным разглашением сведений. Вы можете запросить у пользователя только те сведения, которые необходимы приложению для выполнения задания. Дополнительные сведения об этих областях см. в [справочной статье об области версии 2.0](active-directory-v2-scopes.md).
 
-## <a name="token-claims"></a>Token Claims
+## Утверждения маркера
 
-The claims in tokens issued by the v2.0 endpoint will not be identical to tokens issued by the generally available Azure AD endpoints - apps migrating to the new service should not assume a particular claim will exist in id_tokens or access_tokens.   Tokens issued by the v2.0 endpoint are compliant with the OAuth 2.0 and OpenID Connect specifications, but may follow different semantics than the generally available Azure AD service.
+Утверждения в маркерах, выданных конечной точкой версии 2.0, не совпадают с маркерами, выданными конечными точками общедоступной службы Azure AD — приложения, переходящие на новую службу, не должны предполагать, что конкретное утверждение будет существовать в маркерах удостоверения или доступа. Маркеры, выданные конечной точкой версии 2.0, соответствуют спецификациям OAuth 2.0 и OpenID Connect, но могут использовать отличную от общедоступной службы Azure AD семантику.
 
-To learn about the specific claims emitted in v2.0 tokens, see the [v2.0 token reference](active-directory-v2-tokens.md).
+Подробнее об утверждениях, выдаваемых в маркерах версии 2.0, см. в [справочнике по маркерам версии 2.0](active-directory-v2-tokens.md).
 
-## <a name="limitations"></a>Limitations
-There are a few restrictions to be aware of when using the v2.0 point.  Please refer to the [v2.0 limitations doc](active-directory-v2-limitations.md) to see if any of these restrictions apply to your particular scenario.
+## Ограничения
+Существует несколько ограничений, которые следует учитывать при использовании точки версии 2.0. Изучите [документ об ограничениях версии 2.0](active-directory-v2-limitations.md), чтобы узнать, применимы ли эти ограничения к вашему сценарию.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

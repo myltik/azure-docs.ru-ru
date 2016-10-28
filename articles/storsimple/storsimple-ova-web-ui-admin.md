@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Virtual Array web UI administration | Microsoft Azure"
-   description="Describes how to perform basic device administration tasks through the StorSimple Virtual Array web UI."
+   pageTitle="Администрирование пользовательского веб-интерфейса виртуального массива StorSimple | Microsoft Azure"
+   description="Здесь описывается, как выполнять базовые задачи администрирования устройств с помощью пользовательского веб-интерфейса виртуального массива StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,125 +15,120 @@
    ms.date="04/07/2016"
    ms.author="alkohli" />
 
+# Использование пользовательского веб-интерфейса для администрирования виртуального массива StorSimple
 
-# <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Use the Web UI to administer your StorSimple Virtual Array
+![последовательность операций процесса настройки](./media/storsimple-ova-web-ui-admin/manage4.png)
 
-![setup process flow](./media/storsimple-ova-web-ui-admin/manage4.png)
+## Обзор
 
-## <a name="overview"></a>Overview
+Учебники, приведенные в этой статье, относятся только к виртуальному массиву Microsoft Azure StorSimple \(также известному как локальное виртуальное устройство StorSimple и виртуальное устройство StorSimple\) общедоступной версии, выпущенной в марте 2016 года. Здесь описываются некоторые сложные рабочие процессы и задачи управления, которые можно выполнять с виртуальным массивом StorSimple. Для управления виртуальным массивом StorSimple можно использовать пользовательский интерфейс службы диспетчера StorSimple \(это пользовательский интерфейс портала\) или локальный пользовательский веб-интерфейс устройства. В этой статье речь идет о задачах, выполняемых с использованием пользовательского веб-интерфейса.
 
-The tutorials in this article apply to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) running March 2016 general availability (GA) release. This article describes some of the complex workflows and management tasks that can be performed on the StorSimple Virtual Array. You can manage the StorSimple Virtual Array using the StorSimple Manager service UI (referred to as the portal UI) and the local web UI for the device. This article focuses on the tasks that you can perform using the web UI.
+В этой статье содержатся руководства, позволяющие выполнить следующие задачи:
 
-This article includes the following tutorials:
+- получение ключа шифрования данных службы;
+- устранение ошибок настройки пользовательского веб-интерфейса;
+- создание пакета журналов;
+- завершение работы или перезапуск устройства.
 
-- Get the service data encryption key
-- Troubleshoot web UI setup errors
-- Generate a log package
-- Shut down or restart your device
+## Получение ключа шифрования данных службы
 
-## <a name="get-the-service-data-encryption-key"></a>Get the service data encryption key
+Ключ шифрования данных службы создается при регистрации первого устройства в службе диспетчера StorSimple. Этот ключ вместе с ключом регистрации службы требуется в дальнейшем для регистрации дополнительных устройств в службе диспетчера StorSimple.
 
-A service data encryption key is generated when you register your first device with the StorSimple Manager service. This key is then required with the service registration key to register additional devices with the StorSimple Manager service.
+Если вы потеряли ключ шифрования данных службы и его нужно получить, выполните следующие действия в локальном пользовательском веб-интерфейсе устройства, зарегистрированного в службе.
 
-If you have misplaced your service data encryption key and need to retrieve it, perform the following steps in the local web UI of the device registered with your service.
+#### Получение ключа шифрования данных службы
 
-#### <a name="to-get-the-service-data-encryption-key"></a>To get the service data encryption key
-
-1. Connect to the local web UI. Go to **Configuration** > **Cloud Settings**.
+1. Подключитесь к локальному пользовательскому веб-интерфейсу. Последовательно выберите **Конфигурация** \> **Параметры облака**.
   
 
-2. At the bottom of the page, click **Get service data encryption key**. A key will appear. Copy and save this key.
-    
-    ![get service data encryption key 1](./media/storsimple-ova-web-ui-admin/image27.png)
+2. В нижней части страницы щелкните **Получить ключ шифрования данных службы**. После этого отобразится ключ. Скопируйте и сохраните его.
+  	
+	![получение ключа шифрования данных службы 1](./media/storsimple-ova-web-ui-admin/image27.png)
    
 
 
-## <a name="troubleshoot-web-ui-setup-errors"></a>Troubleshoot web UI setup errors
+## Устранение ошибок настройки пользовательского веб-интерфейса
 
-In some instances when you configure the device through the local web UI, you might run into errors. To diagnose and troubleshoot such errors, you can run the diagnostics tests.
+В некоторых случаях при настройке устройства с помощью локального пользовательского веб-интерфейса могут возникать ошибки. Чтобы диагностировать и устранить такие ошибки, вы можете выполнять диагностические тесты.
 
-#### <a name="to-run-the-diagnostic-tests"></a>To run the diagnostic tests
+#### Запуск диагностических тестов
 
-1. In the local web UI, go to **Troubleshooting** > **Diagnostic tests**.
+1. В локальном пользовательском веб-интерфейсе последовательно выберите **Устранение неполадок** \> **Диагностические тесты**.
 
-    ![run diagnostics 1](./media/storsimple-ova-web-ui-admin/image29.png)
+    ![запуск диагностики 1](./media/storsimple-ova-web-ui-admin/image29.png)
 
-2. At the bottom of the page, click **Run Diagnostic Tests**. This will initiate tests to diagnose any possible issues with your network, device, web proxy, time, or cloud settings. You will be notified that the device is running tests.
+2. В нижней части страницы щелкните **Выполнить диагностические тесты**. Это действие запустит тестирование для выявления возможных проблем с настройками сети, устройства, веб-прокси, времени или облака. Вы получите уведомление о том, что устройство тестируется.
 
-3. After the tests have completed, the results will be displayed. The following example shows the results of diagnostic tests. Note that the web proxy settings were not configured on this device, and therefore, the web proxy test was not run. All the other tests for network settings, DNS server, and time settings were successful.
+3. По завершении тестов отобразятся результаты. На снимке экрана ниже показаны результаты диагностических тестов. Обратите внимание, что на этом устройстве не настроены параметры веб-прокси, поэтому тест веб-прокси не выполнялся. Остальные тесты параметров сети, DNS-сервера и времени выполнены успешно.
 
-    ![run diagnostics 2](./media/storsimple-ova-web-ui-admin/image30.png)
+    ![запуск диагностики 2](./media/storsimple-ova-web-ui-admin/image30.png)
 
-## <a name="generate-a-log-package"></a>Generate a log package
+## Создание пакета журналов
 
-A log package is comprised of all the relevant logs that can assist Microsoft Support with troubleshooting any device issues. In this release, a log package can be generated via the local web UI.
+Пакет журналов содержит все журналы, которые могут помочь сотрудникам технической поддержки Майкрософт в устранении неполадок на любом устройстве. В этом выпуске пакет журналов можно создать, используя локальный пользовательский веб-интерфейс.
 
-#### <a name="to-generate-the-log-package"></a>To generate the log package
+#### Создание пакета журналов
 
-1. In the local web UI, go to **Troubleshooting** > **System logs**.
+1. В локальном пользовательском веб-интерфейсе последовательно выберите **Устранение неполадок** \> **Системные журналы**.
 
-    ![generate log package 1](./media/storsimple-ova-web-ui-admin/image31.png)
+    ![создание пакета журналов 1](./media/storsimple-ova-web-ui-admin/image31.png)
 
-2. At the bottom of the page, click **Create log package**. A package of the system logs will be created. This will take a couple of minutes.
+2. В нижней части страницы щелкните **Создать пакет журналов**. Затем будет создан пакет системных журналов. Это займет несколько минут.
 
-    ![generate log package 2](./media/storsimple-ova-web-ui-admin/image32.png)
+    ![создание пакета журналов 2](./media/storsimple-ova-web-ui-admin/image32.png)
 
-    You will be notified after the package is successfully created, and the page will be updated to indicate the time and date when the package was created.
+    После успешного создания пакета вы получите уведомление и страница обновится. На ней будет указаны время и дата создания пакета.
 
-    ![generate log package 3](./media/storsimple-ova-web-ui-admin/image33.png)
+    ![создание пакета журналов 3](./media/storsimple-ova-web-ui-admin/image33.png)
 
-3. Click **Download log package**. A zipped package will be downloaded on your system.
+3. Щелкните **Скачать пакет журналов**. В систему будет скачан сжатый ZIP-пакет.
 
-    ![generate log package 4](./media/storsimple-ova-web-ui-admin/image34.png)
+    ![создание пакета журналов 4](./media/storsimple-ova-web-ui-admin/image34.png)
 
-4. You can unzip the downloaded log package and view the system log files.
+4. Скачанный пакет журналов можно распаковать и просмотреть файлы системных журналов.
 
-## <a name="shut-down-and-restart-your-device"></a>Shut down and restart your device
+## Завершение работы и перезапуск устройства
 
-You can shut down or restart your virtual device using the local web UI. We recommend that before you restart, take the volumes or shares offline on the host and then the device. This will minimize any possibility of data corruption. 
+Чтобы завершить работу виртуального устройства или перезапустить его, можно использовать локальный пользовательский веб-интерфейс. Рекомендуется перед перезагрузкой перевести в автономный режим тома или общие папки на хосте, а затем перевести в автономный режим устройства. Это уменьшит возможность повреждения данных.
 
-#### <a name="to-shut-down-your-virtual-device"></a>To shut down your virtual device
+#### Завершение работы виртуального устройства
 
-1. In the local web UI, go to **Maintenance** > **Power settings**.
+1. В локальном пользовательском веб-интерфейсе последовательно выберите **Обслуживание** \> **Настройки питания**.
 
-2. At the bottom of the page, click **Shutdown**.
+2. В нижней части страницы щелкните **Завершение работы**.
 
-    ![device shutdown 1](./media/storsimple-ova-web-ui-admin/image36.png)
+    ![завершение работы устройства 1](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. A warning will appear stating that a shutdown of the device will interrupt any IO that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Появится предупреждение о том, что завершение работы устройства приведет к прерыванию всех выполняемых операций ввода-вывода и это повлечет простой. Щелкните значок галочки ![значок галочки](./media/storsimple-ova-web-ui-admin/image3.png).
 
-    ![device shutdown warning](./media/storsimple-ova-web-ui-admin/image37.png)
+    ![предупреждение о завершении работы устройства](./media/storsimple-ova-web-ui-admin/image37.png)
 
-    You will be notified that the shutdown has been initiated.
+    Вы получите уведомление о том, что инициировано завершение работы.
 
-    ![device shutdown started](./media/storsimple-ova-web-ui-admin/image38.png)
+    ![завершение работы устройства запущено](./media/storsimple-ova-web-ui-admin/image38.png)
 
-    The device will now shut down. If you want to start your device, you will need to do that through the Hyper-V Manager.
+    Теперь работа устройства будет завершена. Если вы хотите запустить устройство, это необходимо будет сделать с помощью диспетчера Hyper-V.
 
-#### <a name="to-restart-your-virtual-device"></a>To restart your virtual device
+#### Перезапуск виртуального устройства
 
-1. In the local web UI, go to **Maintenance** > **Power settings**.
+1. В локальном пользовательском веб-интерфейсе последовательно выберите **Обслуживание** \> **Настройки питания**.
 
-2. At the bottom of the page, click **Restart**.
+2. В нижней части страницы щелкните **Перезапустить**.
 
-    ![device restart](./media/storsimple-ova-web-ui-admin/image36.png)
+    ![перезапуск устройства](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. A warning will appear stating that restarting the device will interrupt any IOs that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
+3. Появится предупреждение о том, что перезапуск устройства приведет к прерыванию всех выполняемых операций ввода-вывода и это повлечет простой. Щелкните значок галочки ![значок галочки](./media/storsimple-ova-web-ui-admin/image3.png).
 
-    ![restart warning](./media/storsimple-ova-web-ui-admin/image37.png)
+    ![предупреждение о перезапуске](./media/storsimple-ova-web-ui-admin/image37.png)
 
-    You will be notified that the restart has been initiated.
+    Вы получите уведомление о том, что инициирован перезапуск.
 
-    ![restart initiated](./media/storsimple-ova-web-ui-admin/image39.png)
+    ![перезапуск инициирован](./media/storsimple-ova-web-ui-admin/image39.png)
 
-    While the restart is in progress, you will lose the connection to the UI. You can monitor the restart by refreshing the UI periodically. Alternatively, you can monitor the device restart status through the Hyper-V Manager.
+    Во время перезапуска будет потеряно подключение к пользовательскому интерфейсу. Перезапуск можно контролировать. Для этого периодически обновляйте пользовательский интерфейс. Кроме того, можно выполнять мониторинг состояния перезапуска устройства с помощью диспетчера Hyper-V.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Learn how to [use the StorSimple Manager service to manage your device](storsimple-manager-service-administration.md).
+Узнайте, как [использовать службу диспетчера StorSimple для управления вашим устройством](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0413_2016-->

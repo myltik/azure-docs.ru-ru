@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement Troubleshooting Guide - Push/Reach" 
-   description="Troubleshooting user interaction and notification issues in Azure Mobile Engagement" 
+   pageTitle="Руководство по устранению неполадок Azure Mobile Engagement — push-уведомления и рекламные кампании" 
+   description="Устранение неполадок взаимодействия с пользователем и проблемы с уведомлениями в Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,103 +16,98 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
+# Руководство по устранению неисправностей функций push-уведомлений и рекламных кампаний
 
-# <a name="troubleshooting-guide-for-push-and-reach-issues"></a>Troubleshooting guide for Push and Reach issues
-
-The following are possible issues you may encounter with how Azure Mobile Engagement sends information to your users.
+Ниже представлены проблемы, которые могут возникнуть в связи со способом отправки информации пользователям, реализованным в Azure Mobile Engagement.
  
-## <a name="push-failures"></a>Push failures
+## Сбои push-уведомлений
 
-### <a name="issue"></a>Issue
-- Pushes don't work (in app, out of app, or both).
+### Проблема
+- Push-уведомления не работают (в приложении, вне приложения или и там и там).
 
-### <a name="causes"></a>Causes
-- Many times a push failure is an indication that Azure Mobile Engagement, Reach, or another advanced feature of Azure Mobile Engagement is not correctly integrated or that an upgrade is required in the SDK to fix a known issue with a new OS or Device platform.
-- Test just an In App push and just an Out of App push to determine if something is an In App or Out of App issue.
-- Test from both the UI and the API as a troubleshooting step to see what additional error information is available both places.
-- Out of App pushes won't work unless both Azure Mobile Engagement and Reach are integrated in the SDK.
-- Pushes won't work if certificates aren't valid, or are using PROD vs. DEV correctly (iOS only). (**Note:** "Out of app" push notifications may not be delivered to iOS, if you have both the development (DEV) and production (PROD) versions of your application installed on the same device since the security token associated with your certificate may be invalidated by Apple. To resolve this issue, uninstall both the DEV and PROD versions of your application and re-install only the one version on your device.)
-- Out of App push counts are handled differently in different platforms (iOS shows less information than Android if native pushes are disabled on a device, the API can provide more information than the UI on push stats).
-- Out of App pushes can be blocked by customers at OS level (iOS and Android).
-- Out of App pushes will be shown as disabled in the Azure Mobile Engagement UI if they aren't integrated correctly, but may fail silently from the API.
-- In App pushes won't work unless both Azure Mobile Engagement and Reach are integrated in the SDK.
-- GCM and ADM pushes won't work unless Azure Mobile Engagement and the specific server are integrated in the SDK (Android only).
-- In App and Out of App pushes should be tested separately to determine if it is a Push or Reach issue.
-- In App pushes require that the app be open to be received.
-- In App pushes are often setup to be filtered by an opt-in or opt-out app info tag.
-- If you use a custom category in Reach to display in-app notifications, you need to follow the correct life-cycle of the notification, or else the notification may not be cleared when the user dismiss it.
-- If you start a campaign with no end date and a device receives the in app notification but does not display it yet, the user will still receive the notification the next time they log into the app, even if you manually end the campaign.
-- For issues with the Push API, confirm that you really do want to use the Push API instead of the Reach API (since the Reach API is used more often) and that you are not confusing the "payload" and "notifier" parameters.
-- Test your push campaign with both a device connected via WIFI and 3G to eliminate the network connection as a possible source of problems.
+### Причины
+- Многократный сбой push-уведомлений свидетельствует о том, что служба Azure Mobile Engagement, функция рекламных кампаний или другая дополнительная функция этой службы интегрирована неправильно или что требуется обновить пакет SDK, чтобы устранить известную проблему новой ОС или платформы устройства.
+- Протестируйте push-уведомление в приложении и вне приложения, чтобы определить, связана ли проблема с приложением или нет.
+- В качестве шага по устранению неполадки протестируйте push-уведомление в пользовательском интерфейсе и интерфейсе API, чтобы просмотреть дополнительную информацию об ошибке в обоих интерфейсах.
+- Push-уведомления вне приложения не будут работать, если в пакет SDK не интегрированы служба Azure Mobile Engagement и функция рекламных кампаний.
+- Push-уведомления не будут работать, если сертификаты недействительны или неправильно используются рабочий сертификат и сертификат разработки (только в iOS). (**Примечание.** Push-уведомления вне приложения могут не доставляться в iOS, если у вас одновременно установлены как версия для разработки (DEV), так и рабочая версия (PROD) вашего приложения на одном и том же устройстве, поскольку маркер безопасности, связанный с вашим сертификатом, может быть сочтен недействительным компанией Apple. Чтобы устранить эту проблему, удалите обе версии приложения DEV и PROD и переустановите на ваше устройство только одну из версий.)
+- Счетчики push-уведомлений вне приложения обрабатываются по-разному в зависимости от платформы (в iOS отображается меньше информации, чем в Android, если системные push-уведомления отключены на устройстве, а API может предоставлять больше информации о статистике push-уведомлений, чем пользовательский интерфейс).
+- Клиенты могут заблокировать push-уведомления вне приложения на уровне операционной системы (в iOS и Android).
+- При неправильной интеграции push-уведомления вне приложения будут отображаться в отключенном состоянии в пользовательском интерфейсе Azure Mobile Engagement и могут незаметно завершиться ошибкой в интерфейсе API.
+- Push-уведомления в приложении не будут работать, если в пакет SDK не интегрирована служба Azure Mobile Engagement и функция рекламных кампаний.
+- Push-уведомления GCM и ADM не будут работать, если служба Azure Mobile Engagement и определенный сервер не интегрированы в пакет SDK (только в Android).
+- Push-уведомления в приложении и вне приложения необходимо тестировать отдельно, чтобы определить, с чем связана проблема: с функцией push-уведомлений или рекламной кампании.
+- Для принятия push-уведомлений в приложении требуется, чтобы приложение было открыто.
+- Для push-уведомлений в приложении часто настроена фильтрация по тегу информации о приложении, определяющему принятие или отклонение.
+- При использовании настраиваемой категории для отображения уведомлений в приложении в разделе "Рекламные кампании" необходимо обеспечить правильный жизненный цикл уведомления, иначе уведомление не будет удалено, когда пользователь его закроет.
+- Если вы запустите кампанию без даты окончания и устройство получит уведомление в приложении, но не успеет его отобразить, пользователь все равно получит уведомление при следующем входе в приложение, даже если вы завершите кампанию вручную.
+- В случае возникновения проблем с API push-уведомлений необходимо убедиться, что вам действительно нужно использовать API push-уведомлений, а не Reach API (так как последний используется чаще) и что вы не перепутали параметры полезных данных и средства уведомлений.
+- Протестируйте кампанию push-уведомлений на устройстве, когда оно подключено через Wi-Fi и 3G, чтобы исключить сетевое подключение как возможный источник проблем.
 
-## <a name="push-testing"></a>Push testing
+## Тестирование push-уведомлений
 
-### <a name="issue"></a>Issue
-- Pushes can be sent to a specific device based on a Device ID.
+### Проблема
+- Push-уведомления можно отправлять на определенное устройство, используя его идентификатор.
 
-### <a name="causes"></a>Causes
+### Причины
 
-- Test devices are setup differently for each platform, but causing an event in your app on a test device and looking for your Device ID in the portal should work to find your device ID for all platforms.
-- Test devices work differently with IDFA vs. IDFV (iOS only).
-
-
-## <a name="push-customization"></a>Push customization
-
-### <a name="issue"></a>Issue
-- Advanced push content item won't work (badge, ring, vibrate, picture, etc.).
-- Links from pushes don't work (out of app, in app, to a website, to a location in app).
-- Push statistics show that a push was not sent to as many people as expected (too many or not enough).
-- Push duplicated and received twice.
-- Can't register test device for Azure Mobile Engagement Pushes (with your own Prod or DEV app).
-
-### <a name="causes"></a>Causes
-
-- To link to a specific location in app requires “categories” (Android only).
-- Deep linking schemes to redirect users to an alternate location after clicking a push notification need to be created in and managed by your application and the device OS not by Mobile Engagement directly. (**Note:** Out of app notifications can't link directly to in app locations with iOS as they can with Android.)
-- External image servers need to be able to use HTTP "GET" and "HEAD" for big picture pushes to work (Android only).
-- In your code, you can disable the Azure Mobile Engagement agent when the keyboard is opened, and have your code re-activate the Azure Mobile Engagement agent once the keyboard is closed so that the keyboard won't affect the appearance of your notification (iOS only).
-- Some items don't work in test simulations, but only real campaigns (badge, ring, vibrate, picture, etc.).
-- No server side data is logged when you use the button to "test" pushes. Data is only logged for real push campaigns.
-- To help isolate your issue, troubleshoot with: test, simulate, and a real campaign since they each work slightly differently.
-- The length of time your "in app" and "any time" campaigns are scheduled to run can effect delivery numbers since a campaign will only be delivered to users who are "in app" while the campaign runs (and users who have their device settings set to receive notifications "out of app").
-- The differences between how Android and iOS handle out of app notifications makes it difficult to directly compare push statistics between the Android and iOS version of your application. Android provides more OS level notification information than iOS does. Android reports when a native notification is received, clicked, or deleted in the notification center, but iOS does not report this information unless the notification is clicked. 
-- The main reason that "pushed" numbers are different than different than "delivered" numbers for reach campaigns is that "in app" and "out of app" notifications are counted differently. "In app" notifications are handled by Mobile Engagement, but "Out of app" notifications are handled by the notification center in the OS of your device.
-
-## <a name="push-targeting"></a>Push targeting
-
-### <a name="issue"></a>Issue
-- Built in targeting doesn't work as expected.
-- App Info Tag targeting doesn't work as expected.
-- Geo-Location targeting doesn't work as expected.
-- Language options don't work as expected.
-
-### <a name="causes"></a>Causes
-
-- Make sure that you have uploaded app info tags via the Azure Mobile Engagement UI or API.
-- Throttling the push speed or push quota at the application level, or limiting the audience at the campaign level can prevent a person from receiving a specific push even if they meet your other targeting criteria. 
-- Setting a “Language” is different than targeting based on country or locale, which is also different than targeting based on Geo-location based on a phone location or GPS location.
-- The message in the “default language” is sent to any customer who doesn't have their device set to one of the alternate languages you specify.
+- Тестовые устройства настраиваются для каждой платформы по-разному, однако вы можете найти идентификатор своего устройства для всех платформ одним способом — инициируйте событие в приложении на тестовом устройстве, а затем найдите идентификатор своего устройства на портале.
+- Тестовые устройства работают по-разному с IDFA и с IDFV (только iOS).
 
 
-## <a name="push-scheduling"></a>Push scheduling
+## Пользовательская настройка push-уведомлений
 
-### <a name="issue"></a>Issue
-- Push scheduling doesn't work as expected (sent too early or delayed).
+### Проблема
+- Дополнительный элемент содержимого push-уведомления не работает (индикатор событий, сигнал, вибровызов, изображение и т. д.).
+- Ссылки в push-уведомлениях не работают (вне приложения, в приложении, ссылка на веб-сайт или на расположение в приложении).
+- В статистике push-уведомлений указано, что push-уведомление не было отправлено ожидаемому количеству пользователей (слишком много или недостаточно).
+- Push-уведомление было продублировано и получено два раза.
+- Не удается зарегистрировать тестовое устройство для приема push-уведомлений Azure Mobile Engagement (в собственном рабочем приложении или приложении разработки).
 
-### <a name="causes"></a>Causes
+### Причины
 
-- Time zones can issues with scheduling, especially when using the end users' time zone.
-- Advanced push features can delay pushes.
-- Targeting based on phone settings (instead of App Info Tags) can delay pushes since Azure Mobile Engagement may have to request data from the phone real time before sending a push.
-- Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.
-- Starting more than one campaign at the same time can take a longer time to scan your user base (try to only start one campaign at a time with a maximum of four, also target only to your active users so that old users don't have to be scanned).
-- If you use the "Ignore Audience, push will be sent to users via the API" option in the "Campaign" section of a Reach campaign, the campaign will NOT automatically send, you will need to send it manually via the Reach API.
-- If you use a custom category in Reach to display in-app notifications, you need to follow the correct life-cycle of a notification, or else the notification may not be cleared when the user dismiss it.
+- Чтобы перейти по ссылке в конкретное расположение в приложении, требуются категории (только в Android).
+- Схемы глубоких связей перенаправления пользователей в другие местоположения после щелчка push-уведомления должны создаваться и управляться вашим приложением и ОС устройства, а не напрямую Mobile Engagement. (**Примечание.** Уведомления вне приложений не могут напрямую подключаться к местоположениям в приложении в iOS подобно тому, как это происходит в Android.)
+- Чтобы push-уведомления с большими изображениями работали, требуется, чтобы внешние серверы изображений поддерживали использование операций HTTP GET и HEAD (только для Android).
+- Код можно настроить таким образом, чтобы агент Azure Mobile Engagement отключался при открытой клавиатуре и повторно активировался после закрытия клавиатуры, чтобы ее работа не влияла на отображение уведомлений (только для iOS).
+- Некоторые элементы не работают при моделировании тестирования, а работают только в реальных кампаниях (индикатор событий, сигнал, вибровызов, изображение и т. д.).
+- Если вы используете кнопку для тестирования push-уведомлений, данные на стороне сервера не записываются. Они записываются только для реальных кампаний push-уведомлений.
+- Чтобы обнаружить проблему, выполните шаги по устранению неполадок с помощью тестирования, моделирования и реальной кампании, так как все эти режимы работают немного по-разному.
+- Запланированные сроки проведения кампаний "в приложении" и "в любое время" могут отражаться на показателях доставки, поскольку кампания будет доставляться пользователям, которые находятся "в приложении", в то время, пока кампания запущена (а также пользователям, настроившим свои устройства на получение уведомлений "вне приложений").
+- Различия между способом обработки уведомлений вне приложений iOS и Android усложняют прямое сравнение статистики push-операций в версиях вашего приложения для Android и iOS. Android предоставляет больше уведомлений на уровне ОС в отличие от iOS. Android сообщает о получении специализированного уведомления, о щелчке по нему или о его удалении из центра уведомлений, а iOS не предоставляет этих данных до тех пор, пока пользователь не щелкнет уведомление.
+- Главная причина того, что количество переданных push-уведомлений отличается от количества доставленных уведомлений для рекламных кампаний, состоит в том, что уведомления "в приложении" и "вне приложения" считаются по-разному. Уведомления "в приложении" обрабатываются Mobile Engagement, однако уведомления "вне приложения" обрабатываются центром уведомлений ОС вашего устройства.
+
+## Отслеживание push-уведомлений
+
+### Проблема
+- Встроенное отслеживание не работает должным образом.
+- Отслеживание по тегам информации о приложении не работает должным образом.
+- Отслеживание по GPS-расположению не работает должным образом.
+- Языковые параметры не работают должным образом.
+
+### Причины
+
+- Убедитесь, что вы загрузили теги информации о приложении через пользовательский интерфейс или API Azure Mobile Engagement.
+- Регулирование скорости отправки push-уведомлений или квоты на push-уведомления на уровне приложения или ограничение аудитории на уровне кампании может предотвратить получение пользователем определенного push-уведомления, даже если оно удовлетворяет другим условиям отслеживания.
+- Отслеживание на основе параметра "Язык" отличается от отслеживания на основе страны или языкового стандарта, что также отличается от отслеживания на основе географического расположения по расположению телефона или GPS-расположению.
+- Сообщение на "языке по умолчанию" отправляется любому клиенту, на устройстве которого не настроен ни один из дополнительно заданных языков.
+
+
+## Планирование отправки push-уведомлений
+
+### Проблема
+- Планирование отправки push-уведомлений не работает должным образом (уведомления отправляются слишком рано или с задержкой).
+
+### Причины
+
+- Часовые пояса могут приводить к проблемам с планированием, особенно при использовании часового пояса конечных пользователей.
+- Дополнительные функции push-уведомлений могут вызывать задержку при отправке push-уведомлений.
+- Отслеживание на основе параметров телефона (вместо тегов информации о приложении) может привести к задержке отправки push-уведомлений, так как перед отправкой push-уведомления служба Azure Mobile Engagement может запросить данные с телефона в реальном времени.
+- Кампании, созданные без даты окончания, хранят push-уведомления на устройстве локально и отображают их при следующем входе в приложение, даже если кампания завершена вручную.
+- Если запустить более чем одну кампанию одновременно, сканирование базы пользователей может занять больше времени (попробуйте запустить только одну кампанию за раз при максимальном количестве четырех, взяв за цель только активных пользователей, чтобы не нужно было сканировать старых пользователей).
+- При использовании параметра "Не учитывать аудиторию, push-уведомления будут отправляться пользователям через API" в разделе кампаний рекламной кампании кампания НЕ будет отправляться автоматически. Ее необходимо отправлять вручную через Reach API.
+- При использовании настраиваемой категории для отображения уведомлений в приложении в разделе "Рекламные кампании" необходимо обеспечить правильный жизненный цикл уведомления, иначе уведомление не будет удалено, когда пользователь его закроет.
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

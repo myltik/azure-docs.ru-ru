@@ -1,216 +1,214 @@
 <properties 
-    pageTitle="Azure Notification Hubs - Diagnosis Guidelines" 
-    description="Guidelines on how to diagnose common issues with Azure Notification Hubs." 
-    services="notification-hubs" 
-    documentationCenter="Mobile" 
-    authors="wesmc7777" 
-    manager="dwrede" 
-    editor=""/>
+	pageTitle="Центры уведомлений Azure — рекомендации по диагностике" 
+	description="Рекомендации по диагностике распространенных проблем с центрами уведомлений Azure." 
+	services="notification-hubs" 
+	documentationCenter="Mobile" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
-    ms.service="notification-hubs" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="NA" 
-    ms.devlang="multiple" 
-    ms.topic="article" 
-    ms.date="10/03/2016" 
-    ms.author="wesmc"/>
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="wesmc"/>
 
+#Центры уведомлений Azure — рекомендации по диагностике
 
-#<a name="azure-notification-hubs---diagnosis-guidelines"></a>Azure Notification Hubs - Diagnosis guidelines
+##Обзор
 
-##<a name="overview"></a>Overview
+Один из наиболее распространенных вопросов, которые мы получаем от клиентов центров уведомлений Azure, — как выяснить, почему уведомление, отправленное из серверной части приложения, не отображается на клиентском устройстве, где и почему уведомление было удалено и как это исправить. В этой статье рассматриваются различные причины, по которым уведомления удаляются и не доходят до устройств. Мы также рассмотрим способы, которые позволят проанализировать и выявить основную причину.
 
-One of the most common questions we hear from Azure Notification Hubs customers is how to figure out why they don’t see a notification sent from their application backend appear on the client device - where and why notifications were dropped and how to fix this. In this article we will go through the various reasons why notifications may get dropped or do not end up on the devices. We will also look through ways in which you can analyze and figure out the root cause. 
+Во-первых, важно понимать, как центры уведомлений Azure отправляют уведомления на устройства. ![][0]
 
-First of all, it is critical to understand how Azure Notification Hubs pushes out notifications to the devices.
-![][0]
+В типичном потоке отправленных уведомлений сообщение отправляется из **серверной части приложения** в **центр уведомлений Azure (NH)**, которой в свою очередь обрабатывает все операции регистрации с учетом настроенных тегов и выражений тегов для определения "целей", т. е. всех операций регистрации, которые должны получить push-уведомление. Эти операции регистрации могут распространяться на любые из поддерживаемых нами платформ - iOS, Google, Windows, Windows Phone, Kindle и Baidu для China Android. После установки целей центр уведомлений отправляет push-уведомления, разделенные по нескольким пакетам регистраций, **службе push-уведомлений (PNS)** конкретной платформы, например APNS для Apple, GCM для Google и т. д. Центр уведомлений выполняет проверку подлинности по соответствующей службе PNS исходя из учетных данных, установленных на странице настройки центра уведомлений классического портала Azure. Затем служба PNS пересылает уведомления на соответствующие **клиентские устройства**. Это рекомендуемый способ доставки push-уведомлений для конкретных платформ. Обратите внимание, что последним звеном доставки уведомлений является доставка между PNS платформы и устройством. Таким образом, у нас есть четыре основных компонента: *клиент*, *серверная часть приложения*, *центры уведомлений Azure (NH)* и *службы push-уведомлений (PNS)*, и любой из этих компонентов может стать причиной удаления уведомлений. Дополнительную информацию об этой архитектуре см. в статье [Обзор центров уведомлений].
 
-In a typical send notification flow, the message is sent from the **application backend** to **Azure Notification Hub (NH)** which in turn does some processing on all the registrations taking into account the configured tags & tag expressions to determine "targets" i.e. all the registrations that need to receive the push notification. These registrations can span across any or all of our supported platforms - iOS, Google, Windows, Windows Phone, Kindle and Baidu for China Android. Once the targets are established, NH then pushes out notifications, split across multiple batch of registrations, to the device platform specific **Push Notification Service (PNS)** - e.g. APNS for Apple, GCM for Google etc. NH authenticates with the respective PNS based on the credentials you set in the Azure Classic Portal on the Configure Notification Hub page. The PNS then forwards the notifications to the respective **client devices**. This is the platform recommended way to deliver push notifications and note that the final leg of notification delivery takes place between the platform PNS and the device. Therefore we have four major components - *client*, *application backend*, *Azure Notification Hubs (NH)* and *Push Notification Services (PNS)* and any of these may cause notifications getting dropped. More details on this architecture is available on [Notification Hubs Overview].
+Сбой доставки уведомлений может произойти во время начального этапа тестирования или работы в промежуточной среде, что может указывать на проблему конфигурации, или во время работы в рабочей среде, где все или некоторые уведомления могут быть удалены, что указывает на некоторые более серьезные проблемы с приложением или шаблоном обмена сообщениями. В разделе ниже будут рассмотрены различные сценарии удаления уведомлений, начиная с распространенных и заканчивая более редкими. Некоторые из них покажутся очевидным, а другие — не совсем.
 
-Failure to deliver notifications may happen during the initial test/staging phase which may indicate a configuration issue or it may happen in production where either all or some of the notifications may be getting dropped indicating some deeper application or messaging pattern issue. In the section, below we will look at various dropped notifications scenarios ranging from common to the rarer kind, some of which you may find obvious and some others not so much. 
+##Неправильная настройка центров уведомлений Azure 
 
-##<a name="azure-notifications-hub-mis-configuration"></a>Azure Notifications Hub mis-configuration 
+Центры уведомлений Azure должны проходить аутентификацию в контексте приложения разработчика, чтобы успешно отправлять уведомления в соответствующую службу PNS. Для этого разработчику необходимо создать учетную запись разработчика с соответствующей платформой (Google, Apple, Windows и т. д.) и затем зарегистрировать свое приложение, где он получает учетные данные, которые необходимо настроить на портале в разделе настройки центров уведомлений. Если уведомления не доходят, сначала следует убедиться, что в центре уведомлений настроены правильные учетные данные, сопоставив их с данными приложения, созданного в учетной записи разработчика для конкретной платформы. [Учебники по началу работы] помогут вам шаг за шагом пройти этот процесс. Ниже приведены некоторые распространенные сценарии неправильной настройки.
 
-Azure Notification Hubs needs to authenticate itself in the context of the developer's application to be able to successfully send notifications to the respective PNS. This is made possible by the developer creating a developer account with the respective platform (Google, Apple, Windows etc) and then registering their application where they get credentials which need to be configured in the portal under Notification Hubs configuration section. If no notifications are making through, first step should be to ensure that the correct credentials are configured in the Notification Hub matching them with the application created under their platform specific developer account. You will find our [Getting Started Tutorials] useful to go over this process in a step by step manner. Here are some common mis-configurations:
-
-1. **General**
+1. **Общие сведения**
  
-    a) Make sure that your notification hub name (without typos) is the same:
+	а. Убедитесь, что имя центра уведомлений (без опечаток) соответствует:
 
-    - Where you are registering from the client, 
-    - Where you are sending notifications from the backend,  
-    - Where you have configured the PNS credentials and 
-    - Whose SAS credentials you have configured on the client and the backend. 
-        
-    b) Make sure that you are using the correct SAS configuration strings on the client and the application backend. As a rule of thumb, you must be using the **DefaultListenSharedAccessSignature** on the client and **DefaultFullSharedAccessSignature** on the application backend (which gives permission to be able to send notification to the NH)
+	- имени в месте регистрации из клиентского устройства;
+	- имени в месте отправки уведомлений из серверной части;
+	- имени в месте настройки учетных данных PNS;
+	- имени центра уведомлений, учетные данные SAS которого настроены на клиентском устройстве и в серверной части.
+		
+	б. Убедитесь, что вы используете правильные строки конфигурации SAS на клиентском устройстве и в серверной части приложения. Как правило, необходимо использовать **DefaultListenSharedAccessSignature** на клиентском устройстве и **DefaultFullSharedAccessSignature** в серверной части приложения (что предоставляет разрешение для отправки уведомлений в центр уведомлений).
 
-2. **Apple Push Notification Service (APNS) configuration**
+2. **Конфигурация службы push-уведомлений Apple (APNS)**
  
-    You must maintain two different hubs - one for production and another for testing purpose. This means uploading the certificate you are going to use in sandbox environment to a separate hub and the certificate you are going to use in production to a separate hub. Do not try to upload different types of certificates to the same hub as it may cause notification failures down the line. If you do find yourself in a position where you have inadvertently uploaded different types of certificate to the same hub, it is recommended to delete the hub and start fresh. If for some reason, you are not able to delete the hub then at the very least, you must delete all the existing registrations from the hub. 
+	Необходимо использовать два разных центра - один для рабочей среды и другой для тестирования. Это означает, что следует отправлять сертификат, который будет использоваться в изолированной среде, и сертификат, который будет использоваться в рабочей среде, в отдельные центры. Не отправляйте сертификаты разных типов в один и тот же центр, так как это может вызвать сбои уведомлений при их отправке. Если вы случайно отправили сертификаты разных типов в один и тот же центр, мы советуем удалить этот центр и начать все заново. Если по какой-либо причине вам не удается удалить центр, по крайней мере, удалите из него все существующие регистрации.
 
-3. **Google Cloud Messaging (GCM) configuration** 
+3. **Конфигурация Google Cloud Messaging (GCM)**
 
-    a) Make sure that you are enabling "Google Cloud Messaging for Android" under your cloud project. 
-    
-    ![][2]
-    
-    b) Make sure that you create a "Server Key" while obtaining the credentials which NH will use to authenticate with GCM. 
-    
-    ![][3]
-    
-    c) Make sure that you have configured "Project ID" on the client which is an entirely numerical entity that you can obtain from the dashboard:
-    
-    ![][1]
+	а. Убедитесь, что в облачном проекте включен параметр "Google Cloud Messaging для Android".
+	
+	![][2]
+	
+	б. Убедитесь, что вы выбрали для создания вариант "Ключ сервера" при получении учетных данных, которые центр уведомлений использует для аутентификации в GCM.
+	
+	![][3]
+	
+	в. Убедитесь, что вы настроили "Идентификатор проекта" для клиентского устройства. Он является полностью числовой сущностью, которую можно получить на панели мониторинга:
+	
+	![][1]
 
-##<a name="application-issues"></a>Application issues
+##Проблемы с приложением
 
-1) **Tags/ Tag expressions**
+1) **Теги и выражения тегов**
 
-If you are using tags or tag expressions to segment your audience, it is always possible that when you are sending the notification, there is no target being found based on the tags/tag expressions you are specifying in your send call. It is best to review your registrations to ensure that there are tags which match when you send notification and then verify the notification receipt only from the clients with those registrations. E.g. if all your registrations with NH were done with say tag "Politics" and you are sending a notification with tag "Sports", it will not be sent to any device. A complex case could involve tag expressions where you only registered with "Tag A" OR "Tag B" but while sending notifications, you are targeting "Tag A && Tag B". In the self-diagnose tips section below, there are ways in which you can review your registrations along with the tags they have. 
+При использовании тегов или выражений тегов для сегментирования аудитории возможна ситуация, когда при отправке уведомления не удается найти цель на основе тегов и выражений тегов, указанных в вызове отправки. В таком случае при отправке уведомлений мы советуем просмотреть регистрации, чтобы убедиться в наличии совпадающих тегов, и убедиться, что уведомления отправляются только от клиентов с этими регистрациями. Например, если все ваши регистрации с помощью центра уведомлений выполнены с использованием тега «Политика», в случае отправки уведомления с тегом «Спорт», оно не отправится ни на одно устройство. В более сложном случае могут использоваться выражения тегов. Например, вы выполнили регистрацию, указав «Тег A» или «Тег Б», но во время отправки уведомлений используете «Тег А && тег Б». В приведенном ниже разделе советов по самостоятельной диагностике приведены способы, которые вы можете использовать, чтобы просмотреть регистрации и использованные в них теги.
 
-2) **Template issues**
+2) **Проблемы с шаблонами**
 
-If you are using templates then ensure that you are following the guidelines described at [Template guidance]. 
+В случае использования шаблонов убедитесь, что вы следуете рекомендациям, описанным в [Руководстве по использованию шаблонов].
 
-3) **Invalid registrations**
+3) **Недопустимые регистрации**
 
-Assuming the Notification Hub was configured correctly and any tags/tag expressions were used correctly resulting in the find of valid targets to which the notifications need to be sent, NH fires off several processing batches in parallel - each batch sending messages to a set of registrations. 
+Предполагается, что центр уведомлений настроен правильно, а также, что все теги и выражения тегов использованы правильно, в результате чего найдены допустимые цели, которым необходимо отправить уведомления. В таком случае центр уведомлений параллельно запускает несколько пакетов обработки — каждый пакет отправляет сообщения набору регистраций.
 
-> [AZURE.NOTE] Since we do the processing in parallel, we don’t guarantee the order in which the notifications will be delivered. 
+> [AZURE.NOTE] Так как обработка выполняется параллельно, мы не гарантируем, что уведомления будут доставлены по порядку.
 
-Now Azure Notifications Hub is optimized for an "at-most once" message delivery model. This means that we attempt a de-duplication so that no notifications are delivered more than once to a device. To ensure this we look through the registrations and make sure that only one message is sent per device identifier before actually sending the message to the PNS. As each batch is sent to the PNS, which in turn is accepting and validating the registrations, it is possible that the PNS detects an error with one or more of the registrations in a batch, returns an error to Azure NH and stops processing thereby dropping that batch completely. This is especially true with APNS which uses a TCP stream protocol. Although we are optimized for at-most once delivery, in this case we remove the faulting registration from our database and then retry notification delivery for the rest of the devices in that batch.
+Теперь центр уведомлений Azure оптимизирован для модели доставки сообщений «не более одного». Это значит, что мы пытаемся выполнить дедупликацию так, чтобы уведомления доставлялись на устройство по одному разу. Для этого прежде чем отправить сообщение непосредственно в службу PNS, мы просматриваем регистрации, чтобы убедиться, что на каждый идентификатор устройства отправлено только одно сообщение. Каждый пакет отправляется в PNS, которая, в свою очередь, принимает и проверяет регистрации. PNS может обнаружить ошибку одной или нескольких регистраций в пакете. Тогда она возвращает ошибку в центр уведомлений Azure и прекращает обработку, тем самым полностью удаляя такой пакет. Это касается в особенности APNS, которая использует протокол потока TCP. Так как мы оптимизировали доставку с помощью модели "не более одного", в данном случае мы удаляем проблемную регистрацию из базы данных и повторяем попытку доставки оповещений для остальных устройств в этом пакете.
 
-You can get error information for the failed delivery attempt against a registration using the Azure Notification Hubs REST APIs: [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx) and [PNS Feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). See the [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample) for example code.
+Вы можете получить ложные сведения о неудачной попытке доставки при регистрации с использованием API REST центров уведомления Azure: [Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx) (Телеметрия в расчете на сообщение: получение телеметрии оповещения) и [PNS Feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx) (Отзыв PNS). См. пример кода [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
-##<a name="pns-issues"></a>PNS issues
+##Проблемы со службой PNS
 
-Once the notification message has been received by the respective PNS then it is its responsibility to deliver the notification to the device. Azure Notification Hubs is out of the picture here and has no control on when or if the notification is going to be delivered to the device. Since the platform notification services are pretty robust, notifications do tend to reach the devices in a few seconds from the PNS. If the PNS however is throttling then Azure Notification Hubs does apply an exponential back off strategy and if the PNS remains unreachable for 30 min then we have a policy in place to expire and drop those messages permanently. 
+После получения уведомления соответствующая служба PNS отвечает за его доставку на устройство. На этом этапе от центров уведомлений Azure больше ничего не зависит, и они не могут контролировать время доставки и то, будет ли уведомление доставлено на устройство. Так как службы уведомлений платформы довольно надежны, как правило, уведомления доходят из PNS до устройства за несколько секунд. Однако если PNS регулирует доставку, центры уведомлений Azure применяют стратегию экспоненциальной задержки, и если PNS недоступна в течение 30 минут, применяется политика, управляющая истечением срока действия и окончательным удалением этих сообщений.
 
-If a PNS attempts to deliver a notification but the device is offline, the notification is stored by the PNS for a limited period of time, and delivered to the device when it becomes available. Only one recent notification for a particular app is stored. If multiple notifications are sent while the device is offline, each new notification causes the prior notification to be discarded. This behavior of keeping only the newest notification is referred to as coalescing notifications in APNS and collapsing in GCM (which uses a collapsing key). If the device remains offline for a long time, any notifications that were being stored for it are discarded. Source - [APNS guidance] & [GCM guidance]
+Если PNS пытается доставить уведомление на устройство, находящееся в автономном режиме, она хранит уведомление ограниченный период времени и доставляет его на устройство, когда оно становится доступным. Хранится только одно последнее уведомление для конкретного приложения. Если при пребывании устройства в автономном режиме отправляется несколько уведомлений, отправка каждого нового уведомления приводит к предварительному удалению предыдущего. Такое поведение, при котором сохраняются только последние уведомления, называется объединением уведомлений в APNS и разъединением в GCM (с использованием ключа разъединения). Если устройство находится в автономном режиме в течение длительного времени, уведомления, сохраненные для него, удаляются. Источник — [руководство по APNS] и [руководство по GCM].
 
-With Azure Notification Hubs - you can pass a coalescing key via an HTTP header using the generic `SendNotification` API (e.g. for .NET SDK – `SendNotificationAsync`) which also takes HTTP headers which are passed as is to the respective PNS. 
+С помощью центров уведомлений Azure вы можете передать ключ объединения через заголовок HTTP, используя универсальный интерфейс API `SendNotification` (например, для пакета SDK для.NET — `SendNotificationAsync`), также принимающий заголовки HTTP, которые передаются как есть в соответствующую службу PNS.
 
-##<a name="self-diagnose-tips"></a>Self-diagnose tips
+##Советы по самостоятельной диагностике
 
-Here we will examine the various avenues to diagnose and root cause any Notification Hub issues:
+Здесь будут рассмотрены различные способы диагностики и определения главной причины проблем центра уведомлений.
 
-###<a name="verify-credentials"></a>Verify credentials
+###Проверка учетных данных
 
-1. **PNS developer portal**
+1. **Портал разработчиков PNS**
 
-    Verify them at the respective PNS developer portal (APNS, GCM, WNS etc) using our [Getting Started Tutorials].
+	Проверьте их на соответствующем портале разработчиков PNS (APNS, GCM, WNS и т. д), используя наши [учебники по началу работы].
 
-2. **Azure Classic portal**
+2. **Классический портал Azure**
 
-    Go to the Configure tab to review and match the credentials with those obtained from the PNS developer portal. 
+	Перейдите на вкладку «Настройка», чтобы просмотреть и сопоставить учетные данные с данными, полученными на портале разработчиков PNS.
 
-    ![][4]
+	![][4]
 
-###<a name="verify-registrations"></a>Verify registrations
+###Проверка регистраций
 
 1. **Visual Studio**
 
-    If you use Visual Studio for development then you can connect to Microsoft Azure and view and manage a bunch of Azure services including Notifications Hub from "Server Explorer". This is primarily useful for your dev/test environment. 
+	При использовании Visual Studio для разработки вы можете подключиться к Microsoft Azure и просматривать множество различных служб Azure, включая центры уведомлений, а также управлять ими из обозревателя серверов. Это особенно удобно при работе в среде разработки или тестирования.
 
-    ![][9]
+	![][9]
 
-    You can view and manage all the registrations in your hub which are nicely categorized for platform, native or template registration, any tags, PNS identifier, registration id and the expiration date. You can also edit a registration on the fly - which is useful say if you want to edit any tags. 
+	В центре можно просматривать все регистрации, а также управлять ими. Они удобно классифицированы по таким категориям, как платформы, собственная или шаблонная регистрация, теги, PNS-идентификаторы, идентификаторы регистрации и сроки действия. Вы также можете изменять регистрации в режиме реального времени, что очень удобно, например, если нужно изменить теги.
 
-    ![][8]
+	![][8]
  
-    > [AZURE.NOTE] Visual Studio functionality to edit registrations should only be used during dev/test with limited number of registrations. If there arises a need to fix your registrations in bulk, consider using the Export/Import registration functionality described here - [Export/Import Registrations] (https://msdn.microsoft.com/library/dn790624.aspx)
+	> [AZURE.NOTE] Функцию изменения регистраций Visual Studio следует использовать только при разработке или тестировании для ограниченного числа регистраций. Если возникает необходимость массовой правки регистраций, можно воспользоваться функцией экспорта и импорта регистраций, описанной здесь: [Экспорт и импорт регистраций](https://msdn.microsoft.com/library/dn790624.aspx).
 
-2. **Service Bus explorer**
+2. **Обозреватель служебной шины**
 
-    Many customers use ServiceBus explorer described here - [ServiceBus Explorer] for viewing and managing their notification hub. It is an open source project available from code.microsoft.com - [ServiceBus Explorer code]
+	Многие клиенты используют обозреватель ServiceBus, описанный в разделе [Обозреватель ServiceBus], для просмотра центра уведомлений и управления им. Это проект с открытым исходным кодом, который доступен на странице code.microsoft.com — [Код обозревателя ServiceBus]
 
-###<a name="verify-message-notifications"></a>Verify message notifications
+###Проверка уведомлений о сообщениях
 
-1. **Azure Classic Portal**
+1. **Классический портал Azure**
 
-    You can go to the "Debug" tab to send test notifications to your clients without needing any service backend up and running. 
+	Вы можете перейти на вкладку «Отладка», чтобы отправить клиентам тестовые уведомления без необходимости запуска серверной части службы.
 
-    ![][7]
+	![][7]
 
 2. **Visual Studio**
 
-    You can also send test notifications from the comforts of Visual Studio:
+	Тестовые уведомления также можно отправлять с помощью Visual Studio.
 
-    ![][10]
+	![][10]
 
-    You can read more on the Visual Studio Notification Hub Azure explorer functionality here - 
-    
-    - [VS Server Explorer Overview]
-    - [VS Server Explorer Blog post - 1]
-    - [VS Server Explorer Blog post - 2]
+	Дополнительную информацию о функциях обозревателя Azure центра уведомлений Visual Studio см. здесь:
+	
+	- [Обзор обозревателя сервера VS]
+	- [Запись блога об обозревателе сервера VS — 1]
+	- [Запись блога об обозревателе сервера VS — 2]
 
-###<a name="debug-failed-notifications/-review-notification-outcome"></a>Debug failed notifications/ Review notification outcome
+###Уведомления о сбоях отладки и просмотр результатов уведомлений
 
-**EnableTestSend property**
+**Свойство EnableTestSend**
 
-When you send a notification via Notification Hubs, initially it just gets queued up for NH to do processing to figure out all its targets and then eventually NH sends it to the PNS. This means that when you are using REST API or any of the client SDK, the successful return of your send call only means that the message has been successfully queued up with Notification Hub. It doesn’t give an insight into what happened when NH eventually got to send the message to PNS. If your notification is not arriving at the client device, there is a possibility that when NH tried to deliver the message to PNS, there was an error e.g. the payload size exceeded the maximum allowed by the PNS or the credentials configured in NH are invalid etc. To get an insight into the PNS errors, we have introduced a property called [EnableTestSend feature]. This property is automatically enabled when you send test messages from the portal or Visual Studio client and therefore allows you to see detailed debugging information. You can use this via APIs taking the example of the .NET SDK where it is available now and will be added to all client SDKs eventually. To use this with the REST call, simply append a querystring parameter called "test" at the end of your send call e.g. 
+При отправке уведомления с помощью центра уведомлений сначала оно ставится в очередь, чтобы центр уведомлений выполнил обработку для определения всех его целей, а затем отправляется в PNS. При использовании REST API или любого клиентского пакета SDK удачное возвращение вызова отправки означает только то, что центр уведомлений успешно поставил сообщение в очередь. Из этого не понятно, что происходит после отправки сообщения из центра уведомлений в PNS. Если ваше уведомление не дошло до клиентского устройства, возможно, во время попытки центра уведомлений доставить сообщение в PNS произошла ошибка (например, размер полезных данных превысил максимально допустимый размер таких данных в PNS, настроенные в центре уведомлений учетные данные являются недопустимыми и т. д.). Мы ввели свойство с именем [функция EnableTestSend], которое позволяет просмотреть информацию об ошибках PNS. Оно автоматически включается при отправке тестового сообщения с портала или клиентского приложения Visual Studio и таким образом позволяет просматривать подробную отладочную информацию. Это свойство можно использовать с помощью интерфейса API, например, в пакете SDK для .NET, где оно сейчас доступно. Со временем это свойство будет добавлено во все клиентские пакеты SDK. Чтобы использовать это свойство с вызовом REST, просто добавьте параметр строки запроса с именем test в конце вызова отправки, например:
 
-    https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
+	https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 
-*Example (.NET SDK)*
+*Пример (пакет SDK для .NET)*
  
-Suppose you are using .NET SDK to send a native toast notification:
+Предположим, что вы используете пакет SDK для .NET для отправки собственного всплывающего уведомления:
 
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
     var result = await hub.SendWindowsNativeNotificationAsync(toast);
     Console.WriteLine(result.State);
  
-`result.State` will simply state `Enqueued` at the end of the execution without any insight into what happened to your push. Now you can use the `EnableTestSend` boolean property while initializing the `NotificationHubClient` and can get detailed status about the PNS errors encountered while sending the notification. The send call here will take additional time to return because it is only returning after NH has delivered the notification to PNS to determine the outcome. 
+В конце выполнения для параметра `result.State` будет просто установлено значение `Enqueued` без предоставления информации о вашем push-уведомлении. Теперь можно использовать логическое свойство `EnableTestSend` при инициализации `NotificationHubClient`, а также получать подробную информацию об ошибках PNS, возникших при отправке уведомлений. Для возврата вызова отправки потребуется дополнительное время, так как он выполняется только после доставки уведомления из концентратора уведомлений в PNS для определения результата.
  
-    bool enableTestSend = true;
-    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
-    
-    var outcome = await hub.SendWindowsNativeNotificationAsync(toast);
-    Console.WriteLine(outcome.State);
-    
-    foreach (RegistrationResult result in outcome.Results)
-    {
-        Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
-    }
+	bool enableTestSend = true;
+	NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
+	
+	var outcome = await hub.SendWindowsNativeNotificationAsync(toast);
+	Console.WriteLine(outcome.State);
+	
+	foreach (RegistrationResult result in outcome.Results)
+	{
+	    Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
+	}
 
-*Sample Output*
+*Пример выходных данных*
 
     DetailedStateAvailable
     windows
     7619785862101227384-7840974832647865618-3
     The Token obtained from the Token Provider is wrong
  
-This message indicates either invalid credentials are configured in the notification hub or an issue with the registrations on the hub and the recommended course would be to delete this registration and let the client recreate it before sending the message. 
+Это сообщение указывает на то, что в центре уведомлений настроены недопустимые учетные данные или возникла проблема с регистрацией. В таком случае прежде чем отправлять сообщение, рекомендуется удалить эту регистрацию и дать клиенту создать ее заново.
  
-> [AZURE.NOTE] Note that the use of this property is heavily throttled and so you must only use this in dev/test environment with limited set of registrations. We only send debug notifications to 10 devices. We also have a limit of processing debug sends to be 10 per minute. 
+> [AZURE.NOTE] Обратите внимание, что использование этого свойства строго регулируется, и поэтому его необходимо использовать только в среде разработки или тестирования с ограниченным набором регистраций. Мы отправляем уведомления об отладке только на 10 устройств. Кроме этого, у нас есть ограничения на количество обрабатываемых уведомлений об отладке — 10 в минуту.
 
-###<a name="review-telemetry"></a>Review telemetry 
+###Просмотр телеметрии 
 
-1. **Use Azure Classic Portal**
+1. **Использование классического портала Azure**
 
-    The portal enables you to get a quick overview of all the activity on your Notification Hub. 
-    
-    a) From the "dashboard" tab you can view an aggregated view of the registrations, notifications as well as errors per platform. 
-    
-    ![][5]
-    
-    b) You can also add many other platform specific metrics from the "Monitor" tab to take a deeper look particularly at any PNS specific errors returned when NH tries to send the notification to the PNS. 
-    
-    ![][6]
-    
-    c) You should start with reviewing the **Incoming Messages**, **Registration Operations**, **Successful Notifications** and then go to per platform tab to review the PNS specific errors. 
-    
-    d) If you have the notification hub misconfigured with the authentication settings then you will see PNS Authentication Error. This is a good indication to check the PNS credentials. 
+	Портал предоставляет краткий обзор всех операций, выполняемых в центре уведомлений.
+	
+	а. На вкладке "панель мониторинга" можно просмотреть общее представление операций регистрации, уведомлений и ошибок на каждую платформу.
+	
+	![][5]
+	
+	б. Вы также можете добавить множество других метрик для конкретных платформ на вкладке "Монитор", чтобы более подробно рассмотреть ошибки, в частности ошибки, касающиеся PNS, которые возвращаются, когда центр уведомлений предпринимает попытку отправить уведомление PNS.
+	
+	![][6]
+	
+	в. Следует начать с просмотра **входящих сообщений**, **операций регистрации** и **доставленных уведомлений**, а затем перейти на вкладку с данными для каждой платформы, чтобы просмотреть ошибки, касающиеся PNS.
+	
+	г. Если для центра уведомлений настроены неправильные параметры аутентификации, будет получена ошибка аутентификации PNS. Это сигнализирует о том, что следует проверить учетные данные PNS.
 
-2) **Programmatic access**
+2\. **Программный доступ**
 
-More details here - 
+Дополнительную информацию см. здесь:
 
-- [Programmatic Telemetry Access]
-- [Telemetry Access via APIs sample] 
+- [Программный доступ к телеметрии]
+- [Доступ к телеметрии с помощью образца API]
 
-> [AZURE.NOTE] Several telemetry related features like **Export/Import Registrations**, **Telemetry Access via APIs** etc are only available in Standard tier. If you attempt to use these features if you are in Free or Basic tier then you will get exception message to this effect while using the SDK and an HTTP 403 (Forbidden) when using them directly from the REST APIs. Make sure that you have moved up to Standard tier via Azure Classic Portal.  
+> [AZURE.NOTE] Несколько функций, связанных с телеметрией, например **экспорт и импорт регистраций**, **доступ к телеметрии с помощью API** и т. д., доступны только для уровня Standard. При попытке использовать эти функции для уровня Free или Basic, используя пакет SDK, отобразится сообщение об исключении, касающееся этого нарушения, а в случае их использования непосредственно из интерфейсов REST API — ошибка «HTTP 403 (запрещено)». Убедитесь, что вы достигли уровня Standard на классическом портале Azure.
 
 <!-- IMAGES -->
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
@@ -226,24 +224,22 @@ More details here -
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
  
 <!-- LINKS -->
-[Notification Hubs Overview]: notification-hubs-push-notification-overview.md
-[Getting Started Tutorials]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Template guidance]: https://msdn.microsoft.com/library/dn530748.aspx 
-[APNS guidance]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
-[GCM guidance]: http://developer.android.com/google/gcm/adv.html
+[Обзор центров уведомлений]: notification-hubs-push-notification-overview.md
+[Учебники по началу работы]: notification-hubs-windows-store-dotnet-get-started.md
+[учебники по началу работы]: notification-hubs-windows-store-dotnet-get-started.md
+[Руководстве по использованию шаблонов]: https://msdn.microsoft.com/library/dn530748.aspx
+[руководство по APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
+[руководство по GCM]: http://developer.android.com/google/gcm/adv.html
 [Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
-[ServiceBus Explorer]: http://msdn.microsoft.com/library/dn530751.aspx
-[ServiceBus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[VS Server Explorer Overview]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
-[VS Server Explorer Blog post - 1]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs 
-[VS Server Explorer Blog post - 2]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ 
-[EnableTestSend feature]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
-[Programmatic Telemetry Access]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[Telemetry Access via APIs sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Обозреватель ServiceBus]: http://msdn.microsoft.com/library/dn530751.aspx
+[Код обозревателя ServiceBus]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
+[Обзор обозревателя сервера VS]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[Запись блога об обозревателе сервера VS — 1]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[Запись блога об обозревателе сервера VS — 2]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[функция EnableTestSend]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
+[Программный доступ к телеметрии]: http://msdn.microsoft.com/library/azure/dn458823.aspx
+[Доступ к телеметрии с помощью образца API]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,27 +1,24 @@
-|Primary            |Secondary          |
+|Первичная |Вторичная |
 |:-----------------:|:-----------------:|
-|North Central US   |South Central US   |
-|South Central US   |North Central US   |
-|East US            |West US            |
-|West US            |East US            |
-|US East 2          |Central US         |
-|Central US         |US East 2          |
-|North Europe       |West Europe        |
-|West Europe        |North Europe       |
-|South East Asia    |East Asia          |
-|East Asia          |South East Asia    |
-|East China         |North China        |
-|North China        |East China         |
-|Japan East         |Japan West         |
-|Japan West         |Japan East         |
-|Brazil South       |South Central US   |
-|Australia East     |Australia Southeast|
-|Australia Southeast|Australia East     |
-|Canada East        |Canada Central     |
-|Canada Central     |Canada East        |
-|West US 2          |West Central US    |
+|Северо-центральный регион США |Южно-центральный регион США |
+|Южно-центральный регион США |Северо-центральный регион США |
+|Восток США |Запад США |
+|Запад США |Восток США |
+|Восточная часть США 2 |Центральный регион США |
+|Центральный регион США |Восточная часть США 2 |
+|Северная Европа |Западная Европа |
+|Западная Европа |Северная Европа |
+|Юго-Восточная Азия |Восточная Азия |
+|Восточная Азия |Юго-Восточная Азия |
+|Восточный Китай |Северный Китай |
+|Северный Китай |Восточный Китай |
+|Восточная часть Японии |Западная часть Японии |
+|Западная часть Японии |Восточная часть Японии |
+|Южная часть Бразилии |Южно-центральный регион США |
+|Восточная часть Австралии |Юго-Восточная часть Австралии|
+|Юго-Восточная часть Австралии|Восточная часть Австралии |
+|Восточная Канада |Центральная Канада |
+|Центральная Канада |Восточная Канада |
+|Западный регион США 2 |Западно-центральная часть США |
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

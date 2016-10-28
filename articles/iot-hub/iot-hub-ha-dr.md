@@ -1,6 +1,6 @@
 <properties
- pageTitle="IoT Hub HA and DR | Microsoft Azure"
- description="Describes features that help to build highly available IoT solutions with disaster recovery capabilities."
+ pageTitle="Высокий уровень доступности и аварийное восстановление центра IoT | Microsoft Azure"
+ description="В статье описывается ряд возможностей для создания высокодоступных решений IoT с функциями аварийного восстановления."
  services="iot-hub"
  documentationCenter=""
  authors="fsautomata"
@@ -16,52 +16,48 @@
  ms.date="02/03/2016"
  ms.author="elioda"/>
 
+# Высокая доступность и аварийное восстановление центра IoT
 
-# <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub high availability and disaster recovery
+Будучи службой Azure, центр IoT отличается высоким уровнем доступности, который достигается за счет использования избыточности в одном регионе Azure. При этом к решению не выдвигаются никакие дополнительные требования. Кроме того, Azure предоставляет ряд возможностей для создания решений с функциями аварийного восстановления или межрегиональной доступностью. Используйте эти функции при разработке и подготовке решений, чтобы обеспечивать глобальную, межрегиональную высокую доступность для устройств или пользователей. В [техническом руководстве по непрерывности бизнес-процессов для Azure](../resiliency/resiliency-technical-guidance.md) описаны встроенные функции Azure, которые позволяют обеспечить непрерывность бизнес-процессов и возможности аварийного восстановления. В статье [Аварийное восстановление и высокая доступность для приложений на платформе Azure][] содержатся требования к архитектуре, которая позволяет обеспечить высокий уровень доступности приложений Azure и реализовать для них возможности аварийного восстановления.
 
-As an Azure service, IoT Hub provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. In addition, Azure offers a number of features that help to build solutions with disaster recovery (DR) capabilities or cross-region availability if required. You must design and prepare your solutions to take advantage of these DR features if you want to provide global, cross-region high availability for devices or users. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications][] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
+## Аварийное восстановление центра IoT Azure
+В дополнение к обеспечению высокой доступности внутри регионов центр IoT реализует механизмы отказоустойчивости для аварийного восстановления, которые не требуют вмешательства пользователя. Аварийное восстановление центра IoT является самоинициируемым, целевое время восстановления (RTO) составляет от 2 до 26 часов, и доступны следующие целевые точки восстановления (RPO).
 
-## <a name="azure-iot-hub-dr"></a>Azure IoT Hub DR
-In addition to intra-region HA, IoT Hub implements failover mechanisms for disaster recovery that require no intervention from the user. IoT Hub DR is self-initiated and has a recovery time objective (RTO) of 2-26 hours, and the following recovery point objectives (RPOs).
-
-| Functionality | RPO |
+| Функции | RPO |
 | ------------- | --- |
-| Service availability for registry and communication operations | Possible CName loss |
-| Identity data in device identity registry | 0-5 mins data loss |
-| Device-to-cloud messages | All unread messages are lost |
-| Operations monitoring messages | All unread messages are lost |
-| Cloud-to-device messages | 0-5 mins data loss |
-| Cloud-to-device feedback queue | All unread messages are lost |
+| Доступность службы для операций с реестром и операций взаимодействия | Возможна потеря записи CName |
+| Данные удостоверений в реестре удостоверений устройства | Потеря 0–5 мин данных |
+| Отправка сообщений с устройства в облако | Теряются все непрочитанные сообщения |
+| Отправка сообщений о мониторинге операций | Теряются все непрочитанные сообщения |
+| Получение сообщений из облака на устройство | Потеря 0–5 мин данных |
+| Очередь отзывов из облака на устройство | Теряются все непрочитанные сообщения |
 
-## <a name="regional-failover-with-iot-hub"></a>Regional failover with IoT Hub
+## Отработка отказа между регионами с помощью центра IoT
 
-A complete treatment of deployment topologies in IoT solutions is outside the scope of this article, but for the purpose of high availability and disaster recovery we will consider the *regional failover* deployment model.
+Полное освещение топологий развертывания в решениях IoT выходит за рамки этой статьи, но чтобы раскрыть тему высокого уровня доступности и аварийного восстановления, мы рассмотрим модель развертывания с *отработкой отказа между регионами*.
 
-In a regional failover model, the solution back end is running primarily in one datacenter location, but an additional IoT hub and back end are deployed in another datacenter location for failover purposes, in case the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is somehow interrupted. Devices use a secondary service endpoint whenever the primary gateway cannot be reached. With a cross-region failover capability, the solution availability can be improved beyond the high availability of a single region.
+В модели с отработкой отказа между регионами серверная часть решения работает преимущественно в одном центре обработки данных. Чтобы реализовать возможности отработки отказа, еще один центр IoT и еще одна серверная часть развертываются в другом ЦОД в другом регионе. Если в основном ЦОД произойдет сбой или подключение устройства к основному ЦОД по какой-то причине будет нарушено, будут задействованы резервные ресурсы. Устройства используют дополнительную конечную точку службы всякий раз, когда основной шлюз недоступен. Использование дополнительного региона при отработках отказов позволяет еще больше повысить уровень доступности решения.
 
-At a high level, to implement a regional failover model with IoT Hub, you will need the following.
+Если говорить в общем, то чтобы реализовать модель с отработкой отказа между регионами, вам потребуется следующее.
 
-* **A secondary IoT hub and device routing logic**: In the case of a service disruption in your primary region, devices must start connecting to your secondary region. Given the state-aware nature of most services involved, it is common for solution administrators to trigger the inter-region failover process. The best way to communicate the new endpoint to devices, while maintaining control of the process, is have them regularly check a *concierge* service for the current active endpoint. The concierge service can be a simple web application that is replicated and kept reachable using DNS-redirection techniques (for example, using [Azure Traffic Manager][]).
-* **Identity registry replication** - In order to be usable, the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is very useful in this context. For more information, see [IoT Hub Developer Guide - identity registry][].
-* **Merging logic** - When the primary region becomes available again, all the state and data that have been created in the secondary site must be migrated back to the primary region. This mostly relates to device identities and application meta-data, which must be merged with the primary IoT hub and any other application-specific stores in the primary region. To simplify this step, it is usually recommended that you use idempotent operations. This minimizes side-effects not only from eventual consistent distribution of events, but also from duplicates or out-of-order delivery of events. In addition, the application logic should be designed to tolerate potential inconsistencies or "slightly" out of date-state. This is due to the additional time it takes for the system to "heal" based on recovery point objectives (RPO).
+* **Дополнительный центр IoT и логика маршрутизации устройств**. В случае нарушения работы службы в основном регионе устройства должны подключаться к дополнительному региону. Учитывая, что состояние большинства задействованных служб отслеживается, чаще всего процесс отработки отказа между регионами активируют администраторы решений. Лучший способ сообщить устройствам новую конечную точку и сохранить контроль над процессом — заставить устройства регулярно получать из *дежурной* службы текущую активную конечную точку. Дежурной службой может быть простое реплицируемое веб-приложение, доступность которого обеспечивается посредством перенаправления DNS-трафика (например, с помощью [диспетчера трафика Azure][]).
+* **Репликация реестра удостоверений**. Дополнительный центр IoT будет работоспособен только в том случае, если в нем будут все удостоверения устройств и эти удостоверения смогут подключаться к решению. Решение должно хранить геореплицированные резервные копии удостоверений устройств и передавать их в дополнительный центр IoT до перевода устройств на другую конечную точку. В этом случае вам очень пригодится функция центра IoT для экспорта удостоверений. Дополнительные сведения см. в [руководстве для разработчиков центра IoT в разделе «Реестр удостоверений устройств»][].
+* **Логика объединения**. Когда основной регион снова станет доступным, все состояния и данные, которые были созданы в дополнительном регионе, необходимо перенести обратно в основной. Это главным образом относится к удостоверениям устройств и метаданным приложений, которые необходимо добавить в основной центр IoT и, вероятно, другие хранилища приложений в основном регионе. Чтобы упростить эту процедуру, обычно рекомендуется использовать идемпотентные операции. Это сводит к минимуму количество побочных эффектов не только от итогового согласованного распределения событий, но и от дублирования данных или беспорядочной доставки событий. Кроме того, логику приложения необходимо спроектировать таким образом, чтобы потенциальные несоответствия или незначительно устаревшие состояния считались допустимыми. Это связано как с целевыми точками восстановления (RPO), так и с тем, что восстановление системы требует времени.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Follow these links to learn more about Azure IoT Hub:
+Дополнительные сведения о центре IoT в Azure см. по следующим ссылкам:
 
-- [Get started with IoT Hubs (Tutorial)][lnk-get-started]
-- [What is Azure IoT Hub?][]
+- [Приступая к работе с центрами IoT (руководство)][lnk-get-started]
+- [Что такое центр IoT в Azure?][]
 
-[Disaster recovery and high availability for Azure applications]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
-[Azure Business Continuity Technical Guidance]: https://azure.microsoft.com/documentation/articles/resiliency-technical-guidance/
-[Azure Traffic Manager]: https://azure.microsoft.com/documentation/services/traffic-manager/
-[IoT Hub Developer Guide - identity registry]: iot-hub-devguide-identity-registry.md
+[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
+[Аварийное восстановление и высокая доступность для приложений на платформе Azure]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
+[Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
+[диспетчера трафика Azure]: https://azure.microsoft.com/documentation/services/traffic-manager/
+[руководстве для разработчиков центра IoT в разделе «Реестр удостоверений устройств»]: iot-hub-devguide.md#identityregistry
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
+[Что такое центр IoT в Azure?]: iot-hub-what-is-iot-hub.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

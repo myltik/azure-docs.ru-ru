@@ -1,316 +1,313 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Optimizely | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Optimizely."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Учебник. Интеграция Azure Active Directory с Optimizely | Microsoft Azure"
+	description="Узнайте, как настроить единый вход между Azure Active Directory и Optimizely."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/11/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/11/2016"
+	ms.author="jeedes"/>
 
 
+# Учебник. Интеграция Azure Active Directory с Optimizely
 
-# <a name="tutorial:-azure-active-directory-integration-with-optimizely"></a>Tutorial: Azure Active Directory integration with Optimizely
+В этом учебнике описано, как интегрировать Optimizely с Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to integrate Optimizely with Azure Active Directory (Azure AD).
+Интеграция Azure AD с приложением Optimizely обеспечивает следующие преимущества.
 
-Integrating Optimizely with Azure AD provides you with the following benefits:
+- С помощью Azure AD вы можете контролировать доступ к Optimizely.
+- Вы можете включить автоматический вход пользователей в Optimizely (единый вход) с использованием их учетных записей Azure AD.
+- Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-- You can control in Azure AD who has access to Optimizely
-- You can enable your users to automatically get signed-on to Optimizely (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+Чтобы настроить интеграцию Azure AD с Optimizely, вам потребуется:
 
-To configure Azure AD integration with Optimizely, you need the following items:
-
-- An Azure AD subscription
-- A **Optimizely** single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- подписка Azure AD;
+- подписка **Optimizely** с поддержкой единого входа.
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
 
-## <a name="scenario-description"></a>Scenario Description
-In this tutorial, you test Azure AD single sign-on in a test environment. The scenario outlined in this tutorial consists of two main building blocks:
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-1. Adding Optimizely from the gallery
-2. Configuring and testing Azure AD single sign-on
-
-
-## <a name="adding-optimizely-from-the-gallery"></a>Adding Optimizely from the gallery
-To configure the integration of Optimizely into Azure AD, you need to add Optimizely from the gallery to your list of managed SaaS apps.
-
-**To add Optimizely from the gallery, perform the following steps:**
-
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
-
-    ![Active Directory][1]
-
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Optimizely**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_01.png)
-
-7. In the results pane, select **Optimizely**, and then click **Complete** to add the application.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_02.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Optimizely based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Optimizely is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Optimizely needs to be established.
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Optimizely.
-
-To configure and test Azure AD single sign-on with Optimizely, you need to complete the following building blocks:
-
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating an Optimizely test user](#creating-an-optimizely-test-user)** - to have a counterpart of Britta Simon in Optimizely that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
-
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
-
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Optimizely application.
-
-Optimizely application expects the SAML assertions to contain an attribute named "email". The value of "email" should be an Optimizely recognized email that can get authenticated by Azure AD. Please configure the "email" claim for this application. You can manage the values of these attributes from the **"Atrributes"** tab of the application. The following screenshot shows an example for this. 
+- Не следует использовать рабочую среду при отсутствии необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 
-![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_03.png) 
+## Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
+
+1. Добавление Optimizely из коллекции
+2. Настройка и проверка единого входа в Azure AD
 
 
-**To configure Azure AD single sign-on with Optimizely, perform the following steps:**
+## Добавление Optimizely из коллекции
+Чтобы настроить интеграцию Optimizely с Azure AD, необходимо добавить Optimizely из коллекции в список управляемых приложений SaaS.
 
-1. In the Azure classic portal, on the **Optimizely** application integration page, in the menu on the top, click **Attributes**.
+**Чтобы добавить Optimizely из коллекции, выполните следующие действия**.
+
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+
+	![Active Directory][1]
+
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+
+3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+
+	![Приложения][2]
+
+4. В нижней части страницы нажмите кнопку **Добавить**.
+
+	![Приложения][3]
+
+5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+
+	![Приложения][4]
+
+6. В поле поиска введите **Optimizely**.
+
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_01.png)
+
+7. В области результатов выберите **Optimizely** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_02.png)
+
+##  Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в Optimizely с использованием тестового пользователя Britta Simon.
+
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в Optimizely соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем Optimizely. Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Optimizely.
+
+Чтобы настроить и проверить единый вход Azure AD в Optimizely, вам потребуется выполнить действия в следующих стандартных блоках.
+
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+4. **[Создание тестового пользователя Optimizely](#creating-an-optimizely-test-user)** требуется для создания в Optimizely пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
+5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+
+### Настройка единого входа в Azure AD
+
+Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложении Optimizely.
+
+Приложение Optimizely ожидает, что утверждения SAML должны содержать атрибут email. Значением email должен быть электронный адрес, распознаваемый Optimizely, который может быть использован для аутентификации в Azure AD. Настройте утверждение email для этого приложения. Управлять значениями этих атрибутов можно на вкладке**Atrributes** (Атрибуты) приложения. На следующем снимке экрана приведен пример.
+
+
+![Настройка единого входа](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_03.png)
+
+
+**Чтобы настроить единый вход Azure AD в Optimizely, выполните следующие действия**.
+
+1. На странице интеграции с приложением **Optimizely** классического портала Azure в верхнем меню щелкните **Атрибуты**.
      
-    ![Configure Single Sign-On][5]
+    ![Настройка единого входа][5]
 
-2. On the SAML token attributes dialog, add the "email" attribute.
+2. В диалоговом окне "Атрибуты токена SAML" добавьте атрибут email.
 
-    a. Click **add user attribute** to open the **Add User Attribute** dialog. 
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_05.png)
+	а. Щелкните **Добавить атрибут пользователя**, чтобы открыть диалоговое окно **Добавить атрибут пользователя**.
+	
+	![Настройка единого входа](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_05.png)
 
-    b. In the **Attribute Name** textbox, type the attribute name "email".
+	b. В текстовом поле **Имя атрибута** введите email.
 
-    c. From the **Attribute Value** list, select the attribute value "userprincipalname" or any value that contains an email recognized by Azure AD and Optimizely.
+	c. Из списка **Значение атрибута** выберите значение атрибута userprincipalname или любое значение, которое содержит электронный адрес, распознаваемый Azure AD и Optimizely.
 
-    d. Click **Complete**.
-3. In the menu on the top, click **Quick Start**.
+	г) Нажмите **Завершено**.
+3. В меню вверху щелкните **Быстрый запуск**.
 
-    ![Configure Single Sign-On][6]
-4. In the classic portal, on the **Optimizely** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+	![Настройка единого входа][6]
+4. На классическом портале Azure на странице интеграции с приложением **Optimizely** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On][7] 
+	![Настройка единого входа][7]
 
-5. On the **How would you like users to sign on to Optimizely** page, select **Azure AD Single Sign-On**, and then click **Next**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_06.png)
+5. На странице **Как пользователи должны входить в Optimizely** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+ 	
+	![Настройка единого входа](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_06.png)
 
-6. On the **Configure App Settings** dialog page, perform the following steps: 
+6. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png)
-
-
-    a. In the **Sign On URL** textbox, type: `https://app.optimizely.net/contoso`
-
-    b. In the **Identifier** textbox, type: `urn:auth0:optimizely:contoso`
-
-    c. Click **Next**. 
+	![Настройка единого входа](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png)
 
 
-    > [AZURE.NOTE] The values for the **Sign On URL** and **Identifier** are only placeholders for the actual values. You can find instructions for aquiring the actual values from Optimizely later in this tutorial.
+    а. В текстовом поле **URL-адрес входа** введите `https://app.optimizely.net/contoso`.
 
-7. On the **Configure single sign-on at Optimizely** page, perform the following steps:
+	b. В текстовом поле **Идентификатор** введите `urn:auth0:optimizely:contoso`.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_08.png)
+	c. Нажмите кнопку **Далее**.
 
-    a. Click **Download certificate**, and then save the file on your computer.
 
-    b. Copy the **Single Sign-On Service URL**.
+	> [AZURE.NOTE] Значения параметров **URL-адрес входа** и **Идентификатор** — это только заполнители для фактических значений. Инструкции по получению фактических значений из Optimizely приведены далее в этом учебнике.
 
-8. To get SSO configured for your application, contact your Optimizely Account Manager and provide the following information:
+7. На странице **Настройка единого входа в Optimizely** выполните следующие действия.
 
-    - Your downloaded certificate 
-    - The Single Sign-On Service URL
+	![Настройка единого входа](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_08.png)
+
+    а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
+
+    b. Скопируйте **URL-адрес службы единого входа**.
+
+8. Для настройки единого входа для своего приложения обратитесь к менеджеру по работе с клиентами Optimizely и предоставьте следующие сведения:
+
+    - скачанный сертификат;
+    - URL-адрес службы единого входа.
  
-    In response to your email, Optimizely provides you with the Sign On URL (SP-initiated SSO) and the Identifier (Service Provider Entity ID) values.
+    В ответ на ваше электронное сообщение Optimizely предоставит URL-адрес входа (для единого входа, инициируемого поставщиком услуг) и идентификатор (идентификатор сущности поставщика службы).
 
-9. Go back to **Configure App Settings** dialog page, and then perform the following steps:
+9. Вернитесь на диалоговую страницу **Настройка параметров приложения** и выполните действия, указанные ниже.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png)
+	![Настройка единого входа](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_07.png)
 
-    a. In the **Sign On URL** textbox, type the **SP-initiated SSO URL** provided by Optimizely.
+	а. В текстовом поле **URL-адрес входа** введите **URL-адрес единого входа, инициируемого поставщиком услуг**, предоставленный Optimizely.
 
-    b. In the **Identifier** textbox, type the **Service Provider Entity ID** provided by Optimizely.
+	b. В текстовом поле **Идентификатор** введите **идентификатор сущности поставщика службы**, предоставленный Optimizely.
 
-    c. Click **Next**.
+    c. Нажмите кнопку **Далее**.
 
-10. On the **Configure single sign-on at Optimizely** page, perform the following steps:
-    
-    ![Azure AD Single Sign-On][10]
+10. На странице **Настройка единого входа в Optimizely** выполните следующие действия.
+	
+	![Единый вход в Azure AD][10]
 
-    a. Select the single sign-on configuration confirmation.
+    а. Выберите подтверждение конфигурации единого входа.
 
-    b. Click **Next**.
+    b. Нажмите кнопку **Далее**.
 
-11. On the **Single sign-on confirmation** page, click **Complete**.  
-    
-    ![Azure AD Single Sign-On][11]
+11. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+  	
+	![Единый вход в Azure AD][11]
 
-12. In a different browser window, sign-on to your Optimizely application.
-13. Click you account name in the top right corner and then **Account Settings**.
+12. В отдельном окне браузера войдите в приложение Optimizely.
+13. Щелкните имя своей учетной записи в верхнем правом углу, затем щелкните **Account Settings** (Параметры учетной записи).
 
-    ![Azure AD Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_09.png)
+	![Единый вход в Azure AD](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_09.png)
 
-14. In the Account tab, check the box **Enable SSO** under Single Sign On in the **Overview** section.
+14. На вкладке "Account" (Учетная запись) установите флажок **Enable SSO** (Включить единый вход) в области "Single Sign On" (Единый вход) раздела **Overview** (Общие сведения).
 
-    ![Azure AD Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_10.png)
+	![Единый вход в Azure AD](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_10.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
-In the Users list, select **Britta Simon**.
+### Создание тестового пользователя Azure AD
+В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon. В списке пользователей выберите **Britta Simon**.
 
-![Create Azure AD User][20]
+![Создание пользователя Azure AD][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-    
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/create_aaduser_09.png) 
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+	
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3. To display the list of users, in the menu on the top, click **Users**.
-    
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/create_aaduser_03.png) 
+3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
+	
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/create_aaduser_04.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
  
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/create_aaduser_05.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Нажмите кнопку **Далее**.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/create_aaduser_06.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. В текстовое поле **Фамилия** введите **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    г) В списке **Роль** выберите **Пользователь**.
 
-    e. Click **Next**.
+    д. Нажмите кнопку **Далее**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/create_aaduser_07.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/create_aaduser_08.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    а. Запишите значение поля **Новый пароль**.
 
-    b. Click **Complete**.   
-
-
-
-### <a name="creating-an-optimizely-test-user"></a>Creating an Optimizely test user
-
-In this section, you create a user called Britta Simon in Optimizely.
-
-1. On the home page, select **Collaborators** tab
-2. Click **New Collaborator** to add a new collaborator to the project.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/create_aaduser_10.png)
-
-3.  Fill in the email address and assign them a role. Click **Invite**.
+    b. Нажмите **Завершено**.
 
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-optimizely-tutorial/create_aaduser_11.png)
 
-4. They will receive an email invite. Using the email address. they will have to log into Optimizely.
+### Создание тестового пользователя Optimizely
 
+В этом разделе описано, как создать пользователя Britta Simon в приложении Optimizely.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+1. На домашней странице выберите вкладку **Collaborators** (Сотрудники).
+2. Щелкните **New Collaborator** (Создать сотрудника), чтобы добавить нового сотрудника в проект.
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Optimizely.
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_10.png)
 
-![Assign User][200] 
-
-**To assign Britta Simon to Optimizely, perform the following steps:**
-
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **Optimizely**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_50.png) 
-
-1. In the menu on the top, click **Users**.
-
-    ![Assign User][203] 
-
-1. In the All Users list, select **Britta Simon**.
-
-2. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+3.  Введите электронный адрес и назначьте роль. Нажмите кнопку **Пригласить**.
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-optimizely-tutorial/create_aaduser_11.png)
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+4. Он получит приглашение по электронной почте. Электронный адрес будет использоваться для входа в Optimizely.
 
-When you click the Optimizely tile in the Access Panel, you should get automatically signed-on to your Optimizely application.
 
-## <a name="additional-resources"></a>Additional Resources
+### Назначение тестового пользователя Azure AD
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+В этом разделе описано, как позволить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к Optimizely.
+
+![Назначение пользователя][200]
+
+**Чтобы назначить пользователя Britta Simon в Optimizely, выполните следующие действия**.
+
+1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в меню вверху.
+
+	![Назначение пользователя][201]
+
+2. Из списка приложений выберите **Optimizely**.
+
+	![Настройка единого входа](./media/active-directory-saas-optimizely-tutorial/tutorial_optimizely_50.png)
+
+1. В меню в верхней части страницы щелкните **Пользователи**.
+
+	![Назначение пользователя][203]
+
+1. В списке "Все пользователи" выберите **Britta Simon**.
+
+2. На панели инструментов внизу щелкните **Назначить**.
+
+	![Назначение пользователя][205]
+
+
+### Проверка единого входа
+
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув элемент "Optimizely" на панели доступа, вы автоматически войдете в приложение Optimizely.
+
+## дополнительные ресурсы.
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 
@@ -324,7 +321,7 @@ When you click the Optimizely tile in the Access Panel, you should get automatic
 
 [5]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_05.png
 [6]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_06.png
-[7]:  ./media/active-directory-saas-optimizely-tutorial/tutorial_general_050.png
+[7]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_050.png
 [10]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_060.png
 [11]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_070.png
 [20]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_100.png
@@ -335,8 +332,4 @@ When you click the Optimizely tile in the Access Panel, you should get automatic
 [204]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-optimizely-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

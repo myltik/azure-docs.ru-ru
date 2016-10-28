@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Create a complete Linux environment using the Azure CLI | Microsoft Azure"
-   description="Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI."
+   pageTitle="Создание полной среды Linux с помощью интерфейса командной строки Azure | Microsoft Azure"
+   description="Узнайте, как с помощью Azure CLI создать ";с нуля"; хранилище, виртуальную машину Linux, виртуальную сеть и подсеть, балансировщик нагрузки, сетевую карту, общедоступный IP-адрес и группу безопасности сети."
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="iainfoulds"
@@ -18,120 +18,119 @@
    ms.date="08/23/2016"
    ms.author="iainfou"/>
 
+# Создание полной среды Linux с помощью интерфейса командной строки Azure
 
-# <a name="create-a-complete-linux-environment-by-using-the-azure-cli"></a>Create a complete Linux environment by using the Azure CLI
+В этой статье мы создаем простую сеть с балансировщиком нагрузки и парой виртуальных машин, подходящих для разработки и простых вычислений. Мы поэтапно выполняем полное развертывание, от первой до последней команды, в результате чего создаем две защищенные рабочие виртуальные машины Linux, к которым можно подключиться откуда угодно через Интернет. Затем вы сможете работать с более сложными сетями и средами.
 
-In this article, we build a simple network with a load balancer and a pair of VMs that are useful for development and simple computing. We walk through the process command by command, until you have two working, secure Linux VMs to which you can connect from anywhere on the Internet. Then you can move on to more complex networks and environments.
+Попутно вы ознакомитесь с иерархией зависимостей модели развертывания с помощью Resource Manager и узнаете, какие возможности она дает. Узнав, как устроена система, вы сможете воссоздать ее гораздо быстрее с помощью [шаблонов Azure Resource Manager](../resource-group-authoring-templates.md). Кроме того, когда вы узнаете, как взаимодействуют части среды, создавать шаблоны для их автоматизации станет проще.
 
-Along the way, you learn about the dependency hierarchy that the Resource Manager deployment model gives you, and about how much power it provides. After you see how the system is built, you can rebuild it much more quickly by using [Azure Resource Manager templates](../resource-group-authoring-templates.md). Also, after you learn how the parts of your environment fit together, creating templates to automate them becomes easier.
+Наша среда содержит:
 
-The environment contains:
+- две виртуальные машины в группе доступности;
+- балансировщик нагрузки с правилом балансировки нагрузки для порта 80;
+- правила группы безопасности сети для защиты виртуальных машин от нежелательного трафика.
 
-- Two VMs inside an availability set.
-- A load balancer with a load-balancing rule on port 80.
-- Network security group (NSG) rules to protect your VM from unwanted traffic.
+![Обзор базовой среды](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-![Basic environment overview](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
+Для создания этой настраиваемой среды потребуется последняя версия [Azure CLI](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`). Кроме того, потребуется инструмент анализа JSON. В этом примере используются [jq](https://stedolan.github.io/jq/).
 
-To create this custom environment, you need the latest [Azure CLI](../xplat-cli-install.md) in Resource Manager mode (`azure config mode arm`). You also need a JSON parsing tool. This example uses [jq](https://stedolan.github.io/jq/).
+## Быстрые команды
+Для создания пользовательской среды можно использовать следующие быстрые команды. Чтобы узнать больше о том, какие действия при создании среды выполняет каждая команда, ознакомьтесь с [приведенным ниже подробным пошаговым руководством](#detailed-walkthrough).
 
-## <a name="quick-commands"></a>Quick commands
-You can use the following quick commands to build out your custom environment. For more information about what each command is doing as you build out the environment, read the [following detailed walkthrough steps](#detailed-walkthrough).
-
-Create the resource group:
+Создайте группу ресурсов:
 
 ```bash
 azure group create TestRG -l westeurope
 ```
 
-Verify the resource group by using the JSON parser:
+Проверьте группу ресурсов с помощью средства синтаксического анализа JSON.
 
 ```bash
 azure group show TestRG --json | jq '.'
 ```
 
-Create the storage account:
+Создайте учетную запись хранения.
 
 ```bash
 azure storage account create -g TestRG -l westeurope --kind Storage --sku-name GRS computeteststore
 ```
 
-Verify the storage account by using the JSON parser:
+Проверьте ее с помощью средства синтаксического анализа JSON.
 
 ```bash
 azure storage account show -g TestRG computeteststore --json | jq '.'
 ```
 
-Create the virtual network:
+Создайте виртуальную сеть:
 
 ```bash
 azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
 ```
 
-Create the subnet:
+Создайте подсеть.
 
 ```bash
 azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 ```
 
-Verify the virtual network and subnet by using the JSON parser:
+Проверьте виртуальную сеть и подсеть с помощью средства синтаксического анализа JSON.
 
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
 ```
 
-Create a public IP:
+Создайте общедоступный IP-адрес.
 
 ```bash
 azure network public-ip create -g TestRG -n TestLBPIP -l westeurope -d testlb -a static -i 4
 ```
 
-Create the load balancer:
+Создайте балансировщик нагрузки.
 
 ```bash
 azure network lb create -g TestRG -n TestLB -l westeurope
 ```
 
-Create a front-end IP pool for the load balancer, and associate the public IP:
+Создайте интерфейсный пул IP-адресов для балансировщика нагрузки и привяжите к нему общедоступный IP-адрес.
 
 ```bash
 azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
 ```
 
-Create the back-end IP pool for the load balancer:
+Создайте внутренний пул IP-адресов для балансировщика нагрузки.
 
 ```bash
 azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
 ```
 
-Create SSH inbound NAT rules for the load balancer:
+Создайте правила NAT для входящего трафика SSH для балансировщика нагрузки.
 
 ```bash
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-Create the web inbound NAT rules for the load balancer:
+Создайте правила NAT для входящего трафика Интернета для балансировщика нагрузки.
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
      -t TestFrontEndPool -o TestBackEndPool
 ```
 
-Create the load balancer health probe:
+Создайте пробу работоспособности балансировщика нагрузки.
 
 ```bash
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
 ```
 
-Verify the load balancer, IP pools, and NAT rules by using the JSON parser:
+Проверьте балансировщик нагрузки, пулы IP-адресов и правила NAT с помощью средства синтаксического анализа JSON.
 
 ```bash
 azure network lb show -g TestRG -n TestLB --json | jq '.'
 ```
 
-Create the first network interface card (NIC):
+Создайте первую сетевую карту.
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -139,7 +138,7 @@ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name T
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
 ```
 
-Create the second NIC:
+Создайте вторую сетевую карту.
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -147,20 +146,20 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
     -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
 ```
 
-Verify the NICs by using the JSON parser:
+Проверьте эти сетевые карты с помощью средства синтаксического анализа JSON.
 
 ```bash
 azure network nic show TestRG LB-NIC1 --json | jq '.'
 azure network nic show TestRG LB-NIC2 --json | jq '.'
 ```
 
-Create the NSG:
+Создайте группу безопасности сети.
 
 ```bash
 azure network nsg create -g TestRG -n TestNSG -l westeurope
 ```
 
-Add the inbound rules for the NSG:
+Добавьте правила входящего трафика для этой группы безопасности сети.
 
 ```bash
 azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
@@ -169,26 +168,26 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-Verify the NSG and inbound rules by using the JSON parser:
+Проверьте группу безопасности сети и правила входящего трафика с помощью средства синтаксического анализа JSON.
 
 ```bash
 azure network nsg show -g TestRG -n TestNSG --json | jq '.'
 ```
 
-Bind the NSG to the NICs:
+Привяжите группу безопасности сети к сетевым картам.
 
 ```bash
 azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
 azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
 ```
 
-Create the availability set:
+Создайте группу доступности.
 
 ```bash
 azure availset create -g TestRG -n TestAvailSet -l westeurope
 ```
 
-Create the first Linux VM:
+Создайте первую виртуальную машину Linux.
 
 ```bash
 azure vm create \
@@ -206,7 +205,7 @@ azure vm create \
     --admin-username ops
 ```
 
-Create the second Linux VM:
+Создайте вторую виртуальную машину Linux.
 
 ```bash
 azure vm create \
@@ -224,31 +223,31 @@ azure vm create \
     --admin-username ops
 ```
 
-Use the JSON parser to verify that everything that was built:
+С помощью средства синтаксического анализа JSON проверьте все созданные компоненты.
 
 ```bash
 azure vm show -g TestRG -n TestVM1 --json | jq '.'
 azure vm show -g TestRG -n TestVM2 --json | jq '.'
 ```
 
-Export the environment that you built to a template to quickly re-create new instances:
+Экспортируйте созданную среду в шаблон, чтобы можно было быстро воссоздавать новые экземпляры.
 
 ```bash
-azure group export TestRG
+azure resource export TestRG
 ```
 
-## <a name="detailed-walkthrough"></a>Detailed walkthrough
-The detailed steps that follow explain what each command is doing as you build out your environment. These concepts are helpful when you build your own custom environments for development or production.
+## Подробное пошаговое руководство
+Подробные инструкции, приведенные ниже, поясняют действия каждой команды при создании вашей среды. Эти понятия помогут вам при создании пользовательских сред для разработки или эксплуатации.
 
-## <a name="create-resource-groups-and-choose-deployment-locations"></a>Create resource groups and choose deployment locations
+## Создание групп ресурсов и выбор расположений развертывания
 
-Azure resource groups are logical deployment entities that contain configuration information and metadata to enable the logical management of resource deployments.
+Группы ресурсов Azure — это логические сущности развертывания, содержащие данные конфигурации и другие метаданные, которые делают возможным логическое управление развертыванием ресурсов.
 
 ```bash
 azure group create TestRG westeurope
 ```
 
-Output:
+Выходные данные:
 
 ```bash                        
 info:    Executing command group create
@@ -264,11 +263,11 @@ data:
 info:    group create command OK
 ```
 
-## <a name="create-a-storage-account"></a>Create a storage account
+## Создайте учетную запись хранения.
 
-You need storage accounts for your VM disks and for any additional data disks that you want to add. You create storage accounts almost immediately after you create resource groups.
+Необходимы учетные записи хранения для дисков виртуальной машины и других дисков данных, которые вы захотите добавить. Учетные записи хранения создаются практически сразу после создания групп ресурсов.
 
-Here we use the `azure storage account create` command, passing the location of the account, the resource group that controls it, and the type of storage support you want.
+В этом случае мы используем команду `azure storage account create` и с ее помощью передаем расположение учетной записи, имя группы ресурсов, которая ее контролирует, и нужный вам тип поддержки хранилища.
 
 ```bash
 azure storage account create \  
@@ -278,7 +277,7 @@ azure storage account create \
 computeteststore
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command storage account create
@@ -308,14 +307,14 @@ data:
 info:    group show command OK
 ```
 
-To examine our resource group by using the `azure group show` command, let's use the [jq](https://stedolan.github.io/jq/) tool along with the `--json` Azure CLI option. (You can use **jsawk** or any language library you prefer to parse the JSON.)
+Чтобы проверить нашу группу ресурсов с помощью команды `azure group show`, воспользуемся инструментом [jq](https://stedolan.github.io/jq/) с параметром `--json` интерфейса командной строки Azure (Azure CLI). (Можно использовать **jsawk** или любую предпочитаемую библиотеку языка для анализа JSON.)
 
 ```bash
 azure group show TestRG --json | jq                                                                                      
 ```
 
 
-Output:
+Выходные данные:
 
 ```bash
 {
@@ -347,19 +346,19 @@ Output:
 }
 ```
 
-To investigate the storage account by using the CLI, you first need to set the account names and keys by using a variation of the following command. Replace the name of the storage account in the following example with a name that you choose:
+Чтобы исследовать учетную запись хранения с помощью интерфейса командной строки, нужно сначала задать имена и ключи учетных записей с помощью варианта следующей команды. Замените имя учетной записи хранения в следующем примере выбранным вами именем.
 
 ```
 AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show computeteststore --resource-group testrg --json | jq -r '.string')"
 ```
 
-Then you can view your storage information easily:
+Это позволит с легкостью просматривать сведения о хранилище.
 
 ```bash
 azure storage container list
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command storage container list
@@ -370,15 +369,15 @@ data:    vhds  Off            Sun, 27 Sep 2015 19:03:54 GMT
 info:    storage container list command OK
 ```
 
-## <a name="create-a-virtual-network-and-subnet"></a>Create a virtual network and subnet
+## Создание виртуальной сети и подсети
 
-Next you're going to need to create a virtual network running in Azure and a subnet in which you can install your VMs.
+Далее вам понадобится создать виртуальную сеть в Azure и подсеть, в которой можно установить виртуальные машины.
 
 ```bash
 azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command network vnet create
@@ -395,13 +394,13 @@ data:      192.168.0.0/16
 info:    network vnet create command OK
 ```
 
-Again, let's use the --json option of `azure group show` and **jq** to see how we're building our resources. We now have a `storageAccounts` resource and a `virtualNetworks` resource.  
+Опять же, давайте посмотрим, как создаются ресурсы с помощью параметра --json команды `azure group show` и инструмента **jq**. Теперь у нас есть ресурс `storageAccounts` и ресурс `virtualNetworks`.
 
 ```bash
 azure group show TestRG --json | jq '.'
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 {
@@ -440,13 +439,13 @@ Output:
 }
 ```
 
-Now let's create a subnet in the `TestVnet` virtual network into which the VMs are deployed. We use the `azure network vnet subnet create` command, along with the resources we've already created: the `TestRG` resource group and the `TestVNet` virtual network. We add the subnet name `FrontEnd` and the subnet address prefix `192.168.1.0/24`, as follows:
+Теперь давайте создадим подсеть в виртуальной сети `TestVnet`, в которой выполняется развертывание виртуальных машин. Мы используем команду `azure network vnet subnet create` с уже созданными ресурсами: группой ресурсов `TestRG` и виртуальной сетью `TestVNet`. Мы добавляем имя подсети `FrontEnd` и префикс ее адреса `192.168.1.0/24`, как показано ниже.
 
 ```bash
 azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command network vnet subnet create
@@ -462,13 +461,13 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-Because the subnet is logically inside the virtual network, we look for the subnet information with a slightly different command. The command we use is `azure network vnet show`, but we continue to examine the JSON output by using **jq**.
+Так как логически подсеть находится внутри виртуальной сети, информацию о подсети мы ищем с помощью немного другой команды. Мы используем команду `azure network vnet show`, но проверяем выходные данные JSON по-прежнему с помощью **jq**.
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 {
@@ -478,7 +477,7 @@ Output:
       "addressPrefix": "192.168.1.0/24",
       "provisioningState": "Succeeded",
       "name": "FrontEnd",
-      "etag": "W/\"974f3e2c-028e-4b35-832b-a4b16ad25eb6\"",
+      "etag": "W/"974f3e2c-028e-4b35-832b-a4b16ad25eb6"",
       "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
     }
   ],
@@ -492,22 +491,22 @@ Output:
     "dnsServers": []
   },
   "provisioningState": "Succeeded",
-  "etag": "W/\"974f3e2c-028e-4b35-832b-a4b16ad25eb6\"",
+  "etag": "W/"974f3e2c-028e-4b35-832b-a4b16ad25eb6"",
   "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet",
   "name": "TestVNet",
   "location": "westeurope"
 }
 ```
 
-## <a name="create-a-public-ip-address-(pip)"></a>Create a public IP address (PIP)
+## Создание общедоступного IP-адреса (PIP)
 
-Now let's create the public IP address (PIP) that we assign to your load balancer. It enables you to connect to your VMs from the Internet by using the `azure network public-ip create` command. Because the default address is dynamic, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `-d testsubdomain` option.
+Теперь давайте создадим общедоступный IP-адрес (PIP), который назначается балансировщику нагрузки. Он позволит подключаться к виртуальным машинам из Интернета с помощью команды `azure network public-ip create`. Так как по умолчанию используется динамический адрес, мы создаем именованную запись DNS в домене **cloudapp.azure.com** при помощи параметра `-d testsubdomain`.
 
 ```bash
 azure network public-ip create -d testsubdomain TestRG TestPIP westeurope
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command network public-ip create
@@ -526,13 +525,13 @@ data:    FQDN                            : testsubdomain.westeurope.cloudapp.azu
 info:    network public-ip create command OK
 ```
 
-The public IP address is also a top-level resource, so you can see it with `azure group show`.
+Кроме того, IP-адрес — это ресурс верхнего уровня, поэтому его можно отобразить с помощью команды `azure group show`.
 
 ```bash
 azure group show TestRG --json | jq '.'
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 {
@@ -585,13 +584,13 @@ Output:
 }
 ```
 
-You can investigate more resource details, including the fully qualified domain name (FQDN) of the subdomain, by using the complete `azure network public-ip show` command. The public IP address resource has been allocated logically, but a specific address has not yet been assigned. To obtain an IP address, you're going to need a load balancer, which we have not yet created.
+Вы можете изучить дополнительные сведения о ресурсе, в том числе полное доменное имя (FQDN) поддомена, используя полную команду `azure network public-ip show`. Ресурс общедоступного IP-адреса выделен логически, но при этом конкретный адрес еще не назначен. Для получения IP-адреса вам потребуется балансировщик нагрузки, но он еще не создан.
 
 ```bash
 azure network public-ip show TestRG TestPIP --json | jq '.'
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 {
@@ -603,27 +602,27 @@ Output:
 },
 "idleTimeoutInMinutes": 4,
 "provisioningState": "Succeeded",
-"etag": "W/\"c63154b3-1130-49b9-a887-877d74d5ebc5\"",
+"etag": "W/"c63154b3-1130-49b9-a887-877d74d5ebc5"",
 "id": "/subscriptions/guid/resourceGroups/testrg/providers/Microsoft.Network/publicIPAddresses/testpip",
 "name": "testpip",
 "location": "westeurope"
 }
 ```
 
-## <a name="create-a-load-balancer-and-ip-pools"></a>Create a load balancer and IP pools
-When you create a load balancer, it enables you to distribute traffic across multiple VMs. It also provides redundancy to your application by running multiple VMs that respond to user requests in the event of maintenance or heavy loads.
+## Создание балансировщика нагрузки и пулов IP-адресов
+Создание балансировщика нагрузки дает возможность распределять трафик между несколькими виртуальными машинами. Это также обеспечивает избыточность для приложения, так как работает несколько виртуальных машин, которые отвечают на запросы пользователей в случае проведения обслуживания или высокой нагрузки.
 
-We create our load balancer with:
-
-```bash
-azure network lb create -g TestRG -n TestLB -l westeurope
-```
+Мы создадим балансировщик нагрузки следующим образом.
 
 ```bash
 azure network lb create -g TestRG -n TestLB -l westeurope
 ```
 
-Output:
+```bash
+azure network lb create -g TestRG -n TestLB -l westeurope
+```
+
+Выходные данные:
 
 ```bash
 info:    Executing command network lb create
@@ -636,15 +635,15 @@ data:    Location                        : westeurope
 data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
-Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer--one for the front end and one for the back end. The front-end IP pool is publicly visible. It's also the location to which we assign the PIP that we created earlier. Then we use the back-end pool as a location for our VMs to connect to. That way, the traffic can flow through the load balancer to the VMs.
+Наш балансировщик нагрузки выглядит пустым, поэтому давайте создадим несколько пулов IP-адресов. Необходимо создать два пула IP-адресов для балансировщика нагрузки — один интерфейсный, а второй внутренний. Интерфейсный пул IP-адресов является публично видимым. Это также расположение, которому присваивается общедоступный IP-адрес, созданный ранее. Затем мы используем внутренний пул как расположение для подключения наших виртуальных машин. Таким образом трафик сможет проходить через балансировщик нагрузки к виртуальным машинам.
 
-First, let's create our front-end IP pool:
+Сначала давайте создадим интерфейсный пул IP-адресов.
 
 ```bash
 azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command network lb frontend-ip create
@@ -658,15 +657,15 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/Te
 info:    network lb frontend-ip create command OK
 ```
 
-Note how we used the `--public-ip-name` switch to pass in the TestLBPIP that we created earlier. Assigning the public IP address to the load balancer allows you to reach your VMs across the Internet.
+Обратите внимание на то, как мы использовали параметр `--public-ip-name` для передачи созданного ранее TestLBPIP. Присвоение общедоступного IP-адреса балансировщику нагрузки позволяет получить доступ к нашим виртуальным машинам через Интернет.
 
-Next, let's create our second IP pool, this time for our back-end traffic:
+Теперь давайте создадим второй пул IP-адресов, на этот раз для внутреннего трафика.
 
 ```bash
 azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command network lb address-pool create
@@ -677,17 +676,17 @@ data:    Provisioning state              : Succeeded
 info:    network lb address-pool create command OK
 ```
 
-We can see how our load balancer is doing by looking with `azure network lb show` and examining the JSON output:
+Можно узнать, как выглядит балансировщик нагрузки, введя команду `azure network lb show`, и проверить выходные данные JSON.
 
 ```bash
 azure network lb show TestRG TestLB --json | jq '.'
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 {
-  "etag": "W/\"29c38649-77d6-43ff-ab8f-977536b0047c\"",
+  "etag": "W/"29c38649-77d6-43ff-ab8f-977536b0047c"",
   "provisioningState": "Succeeded",
   "resourceGuid": "f1446acb-09ba-44d9-b8b6-849d9983dc09",
   "outboundNatRules": [],
@@ -699,7 +698,7 @@ Output:
   "location": "westeurope",
   "frontendIPConfigurations": [
     {
-      "etag": "W/\"29c38649-77d6-43ff-ab8f-977536b0047c\"",
+      "etag": "W/"29c38649-77d6-43ff-ab8f-977536b0047c"",
       "name": "TestFrontEndPool",
       "provisioningState": "Succeeded",
       "publicIPAddress": {
@@ -711,7 +710,7 @@ Output:
   ],
   "backendAddressPools": [
     {
-      "etag": "W/\"29c38649-77d6-43ff-ab8f-977536b0047c\"",
+      "etag": "W/"29c38649-77d6-43ff-ab8f-977536b0047c"",
       "name": "TestBackEndPool",
       "provisioningState": "Succeeded",
       "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
@@ -722,14 +721,14 @@ Output:
 }
 ```
 
-## <a name="create-load-balancer-nat-rules"></a>Create load balancer NAT rules
-To get traffic flowing through our load balancer, we need to create NAT rules that specify either inbound or outbound actions. You can specify the protocol to use, then map external ports to internal ports as desired. For our environment, let's create some rules that allow SSH through our load balancer to our VMs. We set up TCP ports 4222 and 4223 to direct to TCP port 22 on our VMs (which we create later):
+## Создание правил NAT балансировщика нагрузки
+Чтобы трафик проходил через наш балансировщик нагрузки, необходимо создать правила NAT, которые задают действия для входящего или исходящего трафика. Можно указать используемый протокол, а затем сопоставить внешние порты с внутренними, если это необходимо. Давайте создадим в нашей среде несколько правил, которые пропускают трафик SSH через балансировщик нагрузки к виртуальным машинам. Мы настраиваем перенаправление TCP-портов 4222 и 4223 на TCP-порт 22 на наших виртуальных машинах (которые мы создадим позже).
 
 ```bash
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command network lb inbound-nat-rule create
@@ -749,20 +748,20 @@ data:    Frontend IP configuration id    : /subscriptions/guid/resourceGroups/Te
 info:    network lb inbound-nat-rule create command OK
 ```
 
-Repeat the procedure for your second NAT rule for SSH:
+Повторите эту процедуру для второго правила NAT для трафика SSH.
 
 ```bash
 azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
 ```
 
-Let's also go ahead and create a NAT rule for TCP port 80, hooking the rule up to our IP pools. If we hook up the rule to IP pool, instead of hooking up the rule to our VMs individually, we can simply add or remove VMs from the IP pool. Then the load balancer automatically adjusts the flow of traffic:
+Давайте продолжим и создадим правило NAT для TCP-порта 80, которое привязывает правило к нашим пулам IP-адресов. Если привязать правило к пулу IP-адресов, а не к виртуальным машинам по отдельности, то мы сможем просто добавлять виртуальные машины в пул IP-адресов или удалять их из него. После этого балансировщик нагрузки будет автоматически регулировать поток трафика.
 
 ```bash
 azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
      -t TestFrontEndPool -o TestBackEndPool
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command network lb rule create
@@ -784,15 +783,15 @@ data:    Backend address pool id         : /subscriptions/guid/resourceGroups/Te
 info:    network lb rule create command OK
 ```
 
-## <a name="create-a-load-balancer-health-probe"></a>Create a load balancer health probe
+## Создание пробы работоспособности балансировщика нагрузки
 
-A health probe periodically checks on the VMs that are behind our load balancer to make sure they're operating and responding to requests as defined. If not, they're removed from operation to ensure that users aren't being directed to them. You can define custom checks for the health probe, along with intervals and timeout values. For more information about health probes, see [Load Balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
+Проба работоспособности периодически проверяет, соответствующим ли образом работают и отвечают на запросы виртуальные машины, которые расположены за балансировщиком нагрузки. Если это не так, они выводятся из эксплуатации, чтобы пользователи не могли их использовать. Можно определить пользовательские проверки для пробы работоспособности, указав интервалы и значения времени ожидания. Дополнительную информацию о пробах работоспособности см. в статье [Проверки балансировщика нагрузки](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
 azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command network lb probe create
@@ -808,35 +807,35 @@ data:    Number of probes                : 4
 info:    network lb probe create command OK
 ```
 
-Here, we specified an interval of 15 seconds for our health checks. We can miss a maximum of four probes (one minute) before the load balancer considers that the host is no longer functioning.
+Здесь мы указали интервал в 15 секунд для проверок работоспособности. Допускается пропуск до 4 проб (одна минута), прежде чем балансировщик нагрузки начнет считать, что узел перестал функционировать.
 
-## <a name="verify-the-load-balancer"></a>Verify the load balancer
-Now the load balancer configuration is done. Here are the steps you took:
+## Проверка балансировщика нагрузки
+Настройка балансировщика нагрузки завершена. Вот какие действия были выполнены.
 
-1. First you created a load balancer.
-2. Then you created a front-end IP pool and assigned a public IP to it.
-3. Next you created a back-end IP pool that VMs can connect to.
-4. After that, you created NAT rules that allow SSH to the VMs for management, along with a rule that allows TCP port 80 for our web app.
-5. Finally you added a health probe to periodically check the VMs. This health probe ensures that users don't try to access a VM that is no longer functioning or serving content.
+1. Сначала вы создали балансировщик нагрузки.
+2. Затем вы создали интерфейсный пул IP-адресов и назначили ему общедоступный IP-адрес.
+3. Далее вы создали внутренний пула IP-адресов, к которому могут подключаться виртуальные машины.
+4. После чего вы создали правила NAT, которые разрешают передачу трафика SSH на виртуальные машины для управления, а также правило, открывающее TCP-порт 80 для нашего веб-приложения.
+5. Наконец, вы добавили пробу работоспособности для периодической проверки виртуальных машин. Эта проба работоспособности гарантирует, что пользователи не попытаются обратиться к виртуальной машине, которая больше не работает или не обрабатывает содержимое.
 
-Let's review what your load balancer looks like now:
+Давайте посмотрим, как теперь выглядит балансировщик нагрузки.
 
 ```bash
 azure network lb show -g TestRG -n TestLB --json | jq '.'
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 {
-  "etag": "W/\"62a7c8e7-859c-48d3-8e76-5e078c5e4a02\"",
+  "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
   "provisioningState": "Succeeded",
   "resourceGuid": "f1446acb-09ba-44d9-b8b6-849d9983dc09",
   "outboundNatRules": [],
   "inboundNatPools": [],
   "inboundNatRules": [
     {
-      "etag": "W/\"62a7c8e7-859c-48d3-8e76-5e078c5e4a02\"",
+      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
       "name": "VM1-SSH",
       "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH",
       "frontendIPConfiguration": {
@@ -850,7 +849,7 @@ Output:
       "provisioningState": "Succeeded"
     },
     {
-      "etag": "W/\"62a7c8e7-859c-48d3-8e76-5e078c5e4a02\"",
+      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
       "name": "VM2-SSH",
       "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH",
       "frontendIPConfiguration": {
@@ -870,7 +869,7 @@ Output:
   "location": "westeurope",
   "frontendIPConfigurations": [
     {
-      "etag": "W/\"62a7c8e7-859c-48d3-8e76-5e078c5e4a02\"",
+      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
       "name": "TestFrontEndPool",
       "provisioningState": "Succeeded",
       "publicIPAddress": {
@@ -895,7 +894,7 @@ Output:
   ],
   "backendAddressPools": [
     {
-      "etag": "W/\"62a7c8e7-859c-48d3-8e76-5e078c5e4a02\"",
+      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
       "name": "TestBackEndPool",
       "provisioningState": "Succeeded",
       "loadBalancingRules": [
@@ -908,7 +907,7 @@ Output:
   ],
   "loadBalancingRules": [
     {
-      "etag": "W/\"62a7c8e7-859c-48d3-8e76-5e078c5e4a02\"",
+      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
       "name": "WebRule",
       "provisioningState": "Succeeded",
       "enableFloatingIP": false,
@@ -928,7 +927,7 @@ Output:
   ],
   "probes": [
     {
-      "etag": "W/\"62a7c8e7-859c-48d3-8e76-5e078c5e4a02\"",
+      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
       "name": "HealthProbe",
       "provisioningState": "Succeeded",
       "numberOfProbes": 4,
@@ -941,9 +940,9 @@ Output:
 }
 ```
 
-## <a name="create-an-nic-to-use-with-the-linux-vm"></a>Create an NIC to use with the Linux VM
+## Создание сетевой карты для виртуальной машины Linux
 
- NICs are programmatically available because you can apply rules to their use. You can also have more than one. In the following `azure network nic create` command, you hook up the NIC to the load back-end IP pool and associate it with the NAT rule to permit SSH traffic. To do this, you need to specify the subscription ID of your Azure subscription in place of `<GUID>`:
+ Работой сетевых карт можно управлять программно, так как к ним можно применить правила. Кроме того, можно использовать несколько сетевых карт. В приведенной ниже команде `azure network nic create` вы привязываете сетевую карту к внутреннему пулу IP-адресов загрузки и связанному правилу NAT, которое разрешает трафик SSH. Для этого вместо `<GUID>` необходимо указать идентификатор подписки Azure.
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -951,7 +950,7 @@ azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name T
      -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command network nic create
@@ -978,17 +977,17 @@ data:
 info:    network nic create command OK
 ```
 
-You can see the details by examining the resource directly. You examine the resource by using the `azure network nic show` command:
+Чтобы отобразить сведения, необходимо просмотреть ресурс напрямую. Проверить ресурс можно с помощью команды `azure network nic show`:
 
 ```bash
 azure network nic show TestRG LB-NIC1 --json | jq '.'
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 {
-  "etag": "W/\"fc1eaaa1-ee55-45bd-b847-5a08c7f4264a\"",
+  "etag": "W/"fc1eaaa1-ee55-45bd-b847-5a08c7f4264a"",
   "provisioningState": "Succeeded",
   "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/LB-NIC1",
   "name": "LB-NIC1",
@@ -996,7 +995,7 @@ Output:
   "location": "westeurope",
   "ipConfigurations": [
     {
-      "etag": "W/\"fc1eaaa1-ee55-45bd-b847-5a08c7f4264a\"",
+      "etag": "W/"fc1eaaa1-ee55-45bd-b847-5a08c7f4264a"",
       "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/LB-NIC1/ipConfigurations/Nic-IP-config",
       "loadBalancerBackendAddressPools": [
         {
@@ -1026,7 +1025,7 @@ Output:
 }
 ```
 
-Now we create the second NIC, hooking in to our back-end IP pool again. This time the second NAT rule permits SSH traffic:
+Теперь мы создаем вторую сетевую карту и также привязываем ее к внутреннему пулу IP-адресов. В этот раз второе правило NAT разрешает трафик SSH.
 
 ```bash
 azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
@@ -1034,15 +1033,15 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
     -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
 ```
 
-## <a name="create-a-network-security-group-and-rules"></a>Create a network security group and rules
+## Создание группы безопасности сети и правил
 
-Now we create your NSG and the inbound rules that govern access to the NIC.
+Теперь создадим группу безопасности сети и правила входящего трафика, управляющие доступом к сетевой карте.
 
 ```bash
 azure network nsg create TestRG TestNSG westeurope
 ```
 
-Let's add the inbound rule for the NSG to allow inbound connections on port 22 (to support SSH):
+Давайте добавим для этой группы безопасности сети правило для входящего трафика, чтобы разрешить входящие подключения через порт 22 (для поддержки SSH).
 
 ```bash
 azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
@@ -1054,11 +1053,11 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] The inbound rule is a filter for inbound network connections. In this example, we bind the NSG to the VMs virtual NIC, which means that any request to port 22 is passed through to the NIC on our VM. This inbound rule is about a network connection, and not about an endpoint, which is what it would be about in classic deployments. To open a port, you must leave the `--source-port-range` set to '\*' (the default value) to accept inbound requests from **any** requesting port. Ports are typically dynamic.
+> [AZURE.NOTE] Правило для входящего трафика является фильтром входящих сетевых подключений. В этом примере мы привяжем группу безопасности сети к виртуальной сетевой карте виртуальной машины. Это значит, что любой запрос к порту 22 передается в сетевую карту виртуальной машины. Это правило для входящего сетевого подключения, а не конечной точки, как это было бы в классическом развертывании. Для открытия порта необходимо оставить для `--source-port-range` значение "*" (значение по умолчанию), чтобы разрешить прием входящих запросов от **любого** запрашивающего порта. Обычно порты являются динамическими.
 
-## <a name="bind-to-the-nic"></a>Bind to the NIC
+## Привязка к сетевой карте
 
-Bind the NSG to the NICs:
+Привяжите группу безопасности сети к сетевым картам.
 
 ```bash
 azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
@@ -1068,33 +1067,33 @@ azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
 azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
 ```
 
-## <a name="create-an-availability-set"></a>Create an availability set
-Availability sets help spread your VMs across fault domains and upgrade domains. Let's create an availability set for your VMs:
+## "Создать группу доступности"
+Группы доступности помогают распределить виртуальные машины между доменами сбоя и доменами обновления. Создадим группу доступности для виртуальных машин.
 
 ```bash
 azure availset create -g TestRG -n TestAvailSet -l westeurope
 ```
 
-Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines that are configured within your availability set are separated across up to three fault domains. The idea is that a hardware issue in one of these fault domains does not affect every VM that is running your app. Azure automatically distributes VMs across the fault domains when placing them in an availability set.
+Домены сбоя определяют группу виртуальных машин, совместно использующих общий источник питания и сетевой коммутатор. По умолчанию виртуальные машины, настроенные в группе доступности, разделяются между несколькими доменами сбоя, которых может быть не больше трех. Суть в том, что сбой оборудования в одном из этих доменов сбоя не влияет на все виртуальные машины, на которых выполняется ваше приложение. Azure автоматически распределяет виртуальные машины между доменами сбоя при помещении их в группу доступности.
 
-Upgrade domains indicate groups of virtual machines and underlying physical hardware that can be rebooted at the same time. The order in which upgrade domains are rebooted might not be sequential during planned maintenance, but only one upgrade is rebooted at a time. Again, Azure automatically distributes your VMs across upgrade domains when placing them in an availability site.
+Домены обновления — это группы виртуальных машин и базовое физическое оборудование, которое может быть перезагружено одновременно. Перезагрузка доменов обновления при запланированном обслуживании может выполняться не по порядку, но одновременно перезагружается только один домен обновления. Опять же, Azure автоматически распределяет виртуальные машины между доменами обновления при помещении их в группу доступности.
 
-Read more about [managing the availability of VMs](./virtual-machines-linux-manage-availability.md).
+Узнайте больше об [управлении доступностью виртуальных машин](./virtual-machines-linux-manage-availability.md).
 
-## <a name="create-the-linux-vms"></a>Create the Linux VMs
+## Создание виртуальной машины Linux
 
-You've created the storage and network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md).
+Вы создали ресурсы сети и хранилища для доступных через Интернет виртуальных машин. Теперь давайте создадим эти виртуальные машины и защитим их ключом SSH без пароля. В этом случае мы создадим виртуальную машину Ubuntu на базе последней версии LTS. Информацию об этом образе мы находим с помощью команды `azure vm image list`, как описано в статье о [поиске образов виртуальных машин Azure](virtual-machines-linux-cli-ps-findimage.md).
 
-We selected an image by using the command `azure vm image list westeurope canonical | grep LTS`. In this case, we use `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. For the last field, we pass `latest` so that in the future we always get the most recent build. (The string we use is `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
+Мы выбрали образ с помощью команды `azure vm image list westeurope canonical | grep LTS`. В этом случае мы используем `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Для последнего поля мы передаем `latest`, чтобы в будущем всегда получать последнюю сборку. (Используемая строка: `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
 
-This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac by using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can create them:
+Следующий этап знаком каждому, кто уже хоть раз создал пару ключей SSH RSA (открытый и закрытый) в Linux или Mac с помощью команды **ssh-keygen -t rsa -b 2048**. Если в вашем каталоге `~/.ssh` нет пар ключей сертификата, то их можно создать:
 
-- Automatically, by using the `azure vm create --generate-ssh-keys` option.
-- Manually, by using [the instructions to create them yourself](virtual-machines-linux-mac-create-ssh-keys.md).
+- автоматически, с помощью параметра `azure vm create --generate-ssh-keys`;
+- вручную, следуя [инструкциям по самостоятельному созданию](virtual-machines-linux-mac-create-ssh-keys.md).
 
-Alternatively, you can use the --admin-password method to authenticate your SSH connections after the VM is created. This method is typically less secure.
+Кроме того, можно использовать метод --admin-password для аутентификации подключений по протоколу SSH после создания виртуальной машины. Обычно этот метод менее безопасен.
 
-We create the VM by bringing all our resources and information together with the `azure vm create` command:
+Мы создаем виртуальную машину, собирая вместе все наши ресурсы и информацию командой `azure vm create`.
 
 ```bash
 azure vm create \            
@@ -1112,7 +1111,7 @@ azure vm create \
     --admin-username ops
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command vm create
@@ -1131,13 +1130,13 @@ info:    The storage URI 'https://computeteststore.blob.core.windows.net/' will 
 info:    vm create command OK
 ```
 
-You can connect to your VM immediately by using your default SSH keys. Make sure that you specify the appropriate port since we're passing through the load balancer. (For our first VM, we set up the NAT rule to forward port 4222 to our VM):
+К созданной виртуальной машине можно сразу же подключиться с помощью используемых по умолчанию ключей SSH. Обязательно укажите соответствующий порт, так как подключение проходит через балансировщик нагрузки. (Для первой виртуальной машины мы устанавливаем правило NAT для перенаправления порта 4222 к ней.)
 
 ```bash
  ssh ops@testlb.westeurope.cloudapp.azure.com -p 4222
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 The authenticity of host '[testlb.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
@@ -1170,7 +1169,7 @@ See "man sudo_root" for details.
 ops@TestVM1:~$
 ```
 
-Go ahead and create your second VM in the same manner:
+Точно так же создадим вторую виртуальную машину.
 
 ```bash
 azure vm create \            
@@ -1188,13 +1187,13 @@ azure vm create \
     --admin-username ops
 ```
 
-And you can now use the `azure vm show testrg testvm` command to examine what you've created. At this point, you're running your Ubuntu VMs behind a load balancer in Azure that you can sign into only with your SSH key pair (because passwords are disabled). You can install nginx or httpd, deploy a web app, and see the traffic flow through the load balancer to both of the VMs.
+Теперь, чтобы проверить то, что вы создали, можно использовать команду `azure vm show testrg testvm`. На данном этапе имеются работающие виртуальные машины Ubuntu, расположенные за балансировщиком нагрузки в Azure, входить на которые можно только с помощью пары ключей SSH (так как пароли отключены). Можно установить nginx или httpd, развернуть веб-приложение и посмотреть, как трафик проходит через балансировщик нагрузки на обе виртуальные машины.
 
 ```bash
 azure vm show TestRG TestVM1
 ```
 
-Output:
+Выходные данные:
 
 ```bash
 info:    Executing command vm show
@@ -1252,29 +1251,25 @@ info:    vm show command OK
 ```
 
 
-## <a name="export-the-environment-as-a-template"></a>Export the environment as a template
-Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md) or simply export an existing environment to create the JSON template for you:
+## Экспорт среды как шаблона
+Теперь, когда вы создали эту среду, предположим, что вам требуется создать дополнительную среду разработки с теми же параметрами или соответствующую рабочую среду. Resource Manager использует шаблоны JSON, которые определяют все параметры среды. Можно полностью создавать среды, ссылаясь на этот шаблон JSON. Вы можете [создавать шаблоны JSON вручную](../resource-group-authoring-templates.md) или просто экспортировать существующую среду для создания шаблона JSON.
 
 ```bash
 azure group export TestRG
 ```
 
-This command creates the `TestRG.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names, including the names for the load balancer, network interfaces, or VMs. You can populate these names in your template file by adding the `-p` or `--includeParameterDefaultValue` parameter to the `azure group export` command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../resource-group-authoring-templates.md#parameters) that specifies the resource names.
+С помощью этой команды в текущем рабочем каталоге создается файл `TestRG.json`. При создании среды на основе этого шаблона запрашиваются все имена ресурсов, включая балансировщик нагрузки, сетевые интерфейсы или виртуальные машины. Эти имена можно указать в файле шаблона, добавив параметр `-p` или `--includeParameterDefaultValue` в команду `azure group export`, которая была показана ранее. Измените шаблон JSON, чтобы указать имена ресурсов, или [создайте файл parameters.json](../resource-group-authoring-templates.md#parameters), задающий их.
 
-To create an environment from your template:
+Чтобы создать среду из шаблона, выполните следующие действия.
 
 ```bash
 azure group deployment create -f TestRG.json -g NewRGFromTemplate
 ```
 
-You might want to read [more about how to deploy from templates](../resource-group-template-deploy-cli.md). Learn about how to incrementally update environments, use the parameters file, and access templates from a single storage location.
+Вы можете прочитать [дополнительные сведения о развертывании из шаблонов](../resource-group-template-deploy-cli.md). Узнайте, как поэтапно обновлять среды, использовать файл параметров и обращаться к шаблонам из единого места хранения.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Now you're ready to begin working with multiple networking components and VMs. You can use this sample environment to build out your application by using the core components introduced here.
+Теперь вы готовы приступить к работе с несколькими сетевыми компонентами и виртуальными машинами. Используя этот пример среды, можно создать приложение на основе представленных здесь основных компонентов.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

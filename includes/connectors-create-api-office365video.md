@@ -1,21 +1,14 @@
-### <a name="prerequisites"></a>Prerequisites
+### Предварительные требования
 
-- A [Office 365 Video](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6) account  
-
-
-Before you can use your Office 365 Video account in a Logic app, you must authorize the Logic app to connect to your Office 365 Video account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
-
-Here are the steps to authorize your Logic app to connect to your Office 365 Video account:  
-1. To create a connection to Office 365 Video, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *Office 365 Video* in the search box. Select the trigger or action you'll like to use:  
-![Office 365 Video connection creation step](./media/connectors-create-api-office365video/office365video-1.png)  
-2. If you haven't created any connections to Office 365 Video before, you'll get prompted to provide your Office 365 Video credentials. These credentials will be used to authorize your Logic app to connect to, and access your Office 365 Video account's data:  
-![Office 365 Video connection creation step](./media/connectors-create-api-office365video/office365video-2.png)  
-3. Provide your credentials to connect to Office 365 Video:  
- ![Office 365 Video connection creation step](./media/connectors-create-api-office365video/office365video-3.png)  
-4. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-![Office 365 Video connection creation step](./media/connectors-create-api-office365video/office365video-4.png)  
+- Учетная запись [Office 365 Видео](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6)  
 
 
-<!--HONumber=Oct16_HO2-->
+Перед использованием учетной записи Office 365 Видео в приложении логики необходимо авторизовать приложение логики для подключения к учетной записи Office 365 Видео. Это легко сделать в приложении логики на портале Azure.
 
+Ниже приведены указания по авторизации приложения логики для подключения к учетной записи Office 365 Видео.
+1. Чтобы создать подключение к Office 365 Видео, в конструкторе приложений логики в раскрывающемся списке выберите параметр **Показать управляемые API Microsoft**, а затем введите в поле поиска *Office 365 Видео*. Выберите триггер или действие, которые хотите использовать: ![Этап создания подключения Office 365 Видео](./media/connectors-create-api-office365video/office365video-1.png)  
+2. Если вы ранее не создавали подключение к Office 365 Видео, вам будет предложено ввести учетные данные Office 365 Видео. Эти учетные данные будут использоваться для авторизации приложения логики, чтобы оно могло подключиться и получить доступ к данным вашей учетной записи Office 365 Видео. ![Этап создания подключения Office 365 Видео](./media/connectors-create-api-office365video/office365video-2.png)  
+3. Укажите учетные данные для подключения к Office 365 Видео: ![Этап создания подключения Office 365 Видео](./media/connectors-create-api-office365video/office365video-3.png)  
+4. Подключение создано, и теперь вы можете перейти к другим действиям в приложении логики: ![Этап создания подключения Office 365 Видео](./media/connectors-create-api-office365video/office365video-4.png)  
 
+<!---HONumber=AcomDC_0525_2016-->

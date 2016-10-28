@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with FM: Systems | Microsoft Azure" 
-    description="Learn how to use FM: Systems with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Учебник. Интеграция Azure Active Directory с FM:Systems | Microsoft Azure" 
+    description="Узнайте, как использовать FM:Systems вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,140 +11,133 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-fm:-systems"></a>Tutorial: Azure Active Directory integration with FM: Systems
+#Руководство. Интеграция Azure Active Directory с FM:Systems
   
-The objective of this tutorial is to show the integration of Azure and FM:Systems.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+Цель данного учебника — показать интеграцию Azure и FM:Systems. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
--   A valid Azure subscription
--   A FM:Systems single sign-on enabled subscription
+-   Действующая подписка на Azure
+-   Подписка с поддержкой единого входа FM:Systems.
   
-After completing this tutorial, the Azure AD users you have assigned to FM:Systems will be able to single sign into the application at your FM:Systems company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+После завершения этого руководства пользователи Azure AD, назначенные FM:Systems, будут иметь возможность единого входа в приложение на веб-сайте компании FM:Systems (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1.  Enabling the application integration for FM:Systems
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Включение интеграции приложений для FM:Systems
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-![Scenario](./media/active-directory-saas-fm-systems-tutorial/IC795899.png "Scenario")
-##<a name="enabling-the-application-integration-for-fm:systems"></a>Enabling the application integration for FM:Systems
+![Сценарий](./media/active-directory-saas-fm-systems-tutorial/IC795899.png "Сценарий")
+##Включение интеграции приложений для FM:Systems
   
-The objective of this section is to outline how to enable the application integration for FM:Systems.
+В этом разделе показано, как включить интеграцию приложений для FM:Systems.
 
-###<a name="to-enable-the-application-integration-for-fm:systems,-perform-the-following-steps:"></a>To enable the application integration for FM:Systems, perform the following steps:
+###Чтобы включить интеграцию приложений для FM:Systems, выполните следующие действия.
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-fm-systems-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-fm-systems-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-fm-systems-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-fm-systems-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-fm-systems-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-fm-systems-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-fm-systems-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **FM:Systems**.
+6.  В **поле поиска** введите **FM:Systems**.
 
-    ![Application Gallery](./media/active-directory-saas-fm-systems-tutorial/IC795900.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-fm-systems-tutorial/IC795900.png "Коллекция приложений")
 
-7.  In the results pane, select **FM:Systems**, and then click **Complete** to add the application.
+7.  В области результатов выберите **FM:Systems** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![FM: Systems](./media/active-directory-saas-fm-systems-tutorial/IC800213.png "FM: Systems")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
   
-The objective of this section is to outline how to enable users to authenticate to FM:Systems with their account in Azure AD using federation based on the SAML protocol.
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в FM:Systems со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **FM:Systems** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  На странице интеграции с приложением **FM:Systems** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-fm-systems-tutorial/IC790810.png "Настройка единого входа")
 
-2.  On the **How would you like users to sign on to FM:Systems** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  На странице **Как пользователи должны входить в FM:Systems?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795901.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-fm-systems-tutorial/IC795901.png "Настройка единого входа")
 
-3.  On the **Configure App URL** page, perform the following steps:
+3.  На странице **Настройка URL-адреса приложения** выполните следующие действия.
 
-    ![Configure App URL](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-fm-systems-tutorial/IC795902.png "Настройка URL-адреса приложения")
 
-    1.  In the **FM:Systems Sign On URL** textbox, type your FM:Systems **Reply URL** (e.g.: *https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).  
+    1.  В текстовом поле **URL-адрес входа в FM:Systems** введите свой **URL-адрес ответа** FM:Systems (например, *https://dpr.fmshosted.com/fminteract/ConsumerService2.aspx*).
 
-        >[AZURE.WARNING] You can get this value from your FM: Systems support team.
+        >[AZURE.WARNING] Это значение можно получить в службе поддержки FM: Systems.
 
-    2.  Click **Next**
+    2.  Нажмите кнопку **Далее**.
 
-4.  On the **Configure single sign-on at FM:Systems** page, to download your metadata, click **Download metadata**, and then save the metadata on your computer.
+4.  На странице **Настройка единого входа в FM: Systems** нажмите кнопку **Загрузить метаданные**, чтобы скачать их, а затем сохраните файл метаданных на свой компьютер.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795903.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-fm-systems-tutorial/IC795903.png "Настройка единого входа")
 
-5.  Submit the downloaded metadata file to your FM: Systems support team.
+5.  Отправьте скачанный файл метаданных в службу поддержки FM: Systems.
 
-    >[AZURE.NOTE] Your FM: Systems support team has to do the actual SSO configuration.
-You will get a notification when SSO has been enabled for your subscription.
+    >[AZURE.NOTE] Настройка единого входа должна выполняться службой поддержки FM: Systems. Как только единый вход для вашей подписки будет включен, вы получите уведомление.
 
-6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-fm-systems-tutorial/IC795904.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Настройка единого входа](./media/active-directory-saas-fm-systems-tutorial/IC795904.png "Настройка единого входа")
+##Настройка подготовки учетных записей пользователей
   
-In order to enable Azure AD users to log into FM:Systems, they must be provisioned into FM:Systems.  
-In the case of FM:Systems, provisioning is a manual task.
+Чтобы пользователи Azure AD могли выполнять вход в FM: Systems, они должны быть подготовлены для FM: Systems. В случае с FM: Systems подготовка выполняется вручную.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
 
-1.  In a web browser window, log into your FM:Systems company site as an administrator.
+1.  В другом окне веб-браузера войдите на ваш корпоративный веб-сайт FM: Systems в качестве администратора.
 
-2.  Go to **System Administration \> Manage Security \> Users \> User list**.
+2.  Последовательно выберите **Системное администрирование > Управление безопасностью > Пользователи > Список пользователей**.
 
-    ![System Administration](./media/active-directory-saas-fm-systems-tutorial/IC795905.png "System Administration")
+    ![Системное администрирование](./media/active-directory-saas-fm-systems-tutorial/IC795905.png "Системное администрирование")
 
-3.  Click **Create new user**.
+3.  Нажмите **Создать нового пользователя**.
 
-    ![Create New User](./media/active-directory-saas-fm-systems-tutorial/IC795906.png "Create New User")
+    ![Создать нового пользователя](./media/active-directory-saas-fm-systems-tutorial/IC795906.png "Создать нового пользователя")
 
-4.  In the **Create User** section, perform the following steps:
+4.  В разделе **Создание пользователя** выполните следующие действия.
 
-    ![Create User](./media/active-directory-saas-fm-systems-tutorial/IC795907.png "Create User")
+    ![Создать пользователя](./media/active-directory-saas-fm-systems-tutorial/IC795907.png "Создать пользователя")
 
-    1.  Type the user name, the password and its confirmation, the email address and the employee ID of a valid Azure Active Directory account you want to provision into the related textboxes.
-    2.  Click **Next**.
+    1.  Введите имя пользователя, пароль, подтверждение пароля, адрес электронной почты и идентификатор сотрудника действующей учетной записи Azure Active Directory, которую вы хотите подготовить, в соответствующих текстовых полях.
+    2.  Нажмите кнопку **Далее**.
 
->[AZURE.NOTE] You can use any other FM:Systems user account creation tools or APIs provided by FM:Systems to provision AAD user accounts.
+>[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя FM:Systems или API, предоставляемые FM:Systems, для подготовки учетных записей пользователей AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-fm:systems,-perform-the-following-steps:"></a>To assign users to FM:Systems, perform the following steps:
+###Чтобы назначить пользователей FM:Systems, выполните следующие действия.
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **FM:Systems **application integration page, click **Assign users**.
+2.  На странице интеграции с приложением **FM:Systems** нажмите кнопку **Назначить пользователей**.
 
-    ![Assign Users](./media/active-directory-saas-fm-systems-tutorial/IC795908.png "Assign Users")
+    ![Назначить пользователей](./media/active-directory-saas-fm-systems-tutorial/IC795908.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-fm-systems-tutorial/IC767830.png "Да")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

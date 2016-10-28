@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Sample configuration for Windows VM extensions | Microsoft Azure"
-   description="Sample configuration for authoring templates with extensions"
+   pageTitle="Пример конфигурации для расширений виртуальной машины Windows | Microsoft Azure"
+   description="Пример конфигурации для разработки шаблонов с расширениями."
    services="virtual-machines-windows"
    documentationCenter=""
    authors="kundanap"
@@ -17,25 +17,24 @@
    ms.date="03/29/2016"
    ms.author="kundanap"/>
 
-
-# <a name="azure-windows-vm-extension-configuration-samples"></a>Azure Windows VM Extension Configuration Samples
+# Примеры конфигурации расширения виртуальной машины Microsoft Azure.
 
 > [AZURE.SELECTOR]
-- [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md)
-- [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md)
+- [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md)
+- [CLI — шаблон](virtual-machines-linux-extensions-configuration-samples.md)
 
 <br>
 
-This article provides sample configuration for configuring Azure VM Extensions for Windows VMs.
+В этой статье представлен пример конфигурации для настройки расширений виртуальной машины Azure для виртуальных машин Windows.
 
-To learn more about these extensions, see [Azure VM Extensions Overview.](virtual-machines-windows-extensions-features.md)
+Чтобы узнать больше об этих расширениях, см. статью [Обзор расширений виртуальных машин Azure](virtual-machines-windows-extensions-features.md).
 
-To learn more about authoring extension templates, see [Authoring Extension Templates.](virtual-machines-windows-extensions-authoring-templates.md)
+Чтобы узнать больше о разработке шаблонов расширения, см. статью [Разработка шаблонов расширения](virtual-machines-windows-extensions-authoring-templates.md).
 
-This article lists expected configuration values for some of the Windows Extensions.
+В данной статье содержатся предполагаемые значения конфигурации для некоторых расширений Windows.
 
-## <a name="sample-template-snippet-for-vm-extensions-with-iaas-vms."></a>Sample template snippet for VM Extensions with IaaS VMs.
-The template snippet for Deploying extensions looks as following:
+## Пример фрагмента примера для расширений виртуальной машины с виртуальными машинами IaaS.
+Фрагмент шаблона для развертывания расширений выглядит следующим образом:
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -55,7 +54,7 @@ The template snippet for Deploying extensions looks as following:
       }
       }
 
-## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Sample template snippet for VM Extensions with VM Scale Sets.
+## Пример фрагмента шаблона для расширений виртуальной машины с наборами масштабирования виртуальных машин.
 
     {
      "type":"Microsoft.Compute/virtualMachineScaleSets",
@@ -77,13 +76,13 @@ The template snippet for Deploying extensions looks as following:
             }
           }
 
-Before deploying the extension please check the latest extension version and replace the "typeHandlerVersion" with the current latest version.
+Перед развертыванием расширения проверьте последнюю версию расширения и замените "typeHandlerVersion" текущей актуальной версией.
 
-Rest of the article provides sample configurations for Windows VM Extensions.
+В остальной части статьи содержатся образцы конфигурации для расширений виртуальных машин Windows.
 
-Before deploying the extension please check the latest extension version and replace the "typeHandlerVersion" with the current latest version.
+Перед развертыванием расширения проверьте последнюю версию расширения и замените "typeHandlerVersion" текущей актуальной версией.
 
-### <a name="customscript-extension-1.4."></a>CustomScript Extension 1.4.
+### Расширение CustomScript 1.4
       {
           "publisher": "Microsoft.Compute",
           "type": "CustomScriptExtension",
@@ -100,16 +99,16 @@ Before deploying the extension please check the latest extension version and rep
           }
       }
 
-#### <a name="parameter-description:"></a>Parameter description:
+#### Описание параметров
 
-- fileUris : Comma seperated list of urls of the files that will be downloaded on the VM by the Extension. No files are downloaded if nothing is specified. If the files are in Azure Storage, the fileURLs can be marked private and the correspoding storageAccountName and storageAccountKey can be passed as private parameters to access these files.
-- commandToExecute : [Mandatory Parameter] : This is the command that will be executed by the Extension.
-- storageAccountName : [Optional Parameter] : Storage Account Name for accessing the fileURLs, if they are marked as private.
-- storageAccountKey : [Optional Parameter] : Storage Account Key for accessing the fileURLs, if they are marked as private.
+- fileUris — список разделенных запятой URL-адресов файлов, которые будут загружаться на виртуальную машину расширением. Загрузка файлов не выполняется, если никакие значения не указаны. Если файлы находятся в хранилище Azure, URL-адреса файлов можно пометить как частные, тогда и соответствующие параметры storageAccountName и storageAccountKey могут передаваться как частные параметры для доступа к этим файлам.
+- commandToExecute [обязательный параметр] — команда, которая будет выполняться расширением.
+- storageAccountName: [необязательный параметр] — имя учетной записи хранения для доступа к URL-адресам файлов, если они помечены как частные.
+- storageAccountKey: [необязательный параметр] — ключ учетной записи хранения для доступа к URL-адресам файлов, если они помечены как частные.
 
-### <a name="customscript-extension-1.7."></a>CustomScript Extension 1.7.
+### Расширение CustomScript 1.7
 
-Please refer to CustomScript version 1.4 for parameter description. Version 1.7 introduces support for sending script parameters(commandToExecute) as protectedSettings, in which case they will be encrypted before sending. 'commandToExecute' parameter can be specified either in settings or protectedSettings but not in both.
+Описание параметров см. в разделе, посвященном CustomScript 1.4. В версии 1.7 представлена поддержка отправки параметров сценария (commandToExecute) как protectedSettings (в этом случае они будут зашифрованы перед отправкой). Параметр commandToExecute можно указать в параметрах или protectedSettings, но не в обоих типах.
 
         {
             "publisher": "Microsoft.Compute",
@@ -128,7 +127,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
             }
         }
 
-### <a name="vmaccess-extension."></a>VMAccess Extension.
+### Расширение VMAccess.
 
       {
           "publisher": "Microsoft.Compute",
@@ -142,7 +141,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
           }
       }
 
-### <a name="dsc-extension."></a>DSC Extension.
+### Расширение DSC.
       {
           "publisher": "Microsoft.Powershell",
           "type": "DSC",
@@ -174,7 +173,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
       }
 
 
-### <a name="symantec-endpoint-protection."></a>Symantec Endpoint Protection.
+### Symantec Endpoint Protection.
       {
         "publisher": "SymantecEndpointProtection",
         "type": "Symantec",
@@ -182,13 +181,13 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
         "settings": {}
       }
 
-### <a name="trend-micro-deep-security-agent."></a>Trend Micro Deep Security Agent.
+### Агент Trend Micro Deep Security.
       {
         "publisher": "TrendMicro.DeepSecurity",
         "type": "TrendMicroDSA",
         "typeHandlerVersion": "9.6",
         "settings": {
-          "ManagerAddress" : "Enter the externally accessible DNS name or IP address of the Deep Security Manager. Please enter \"agents.deepsecurity.trendmicro.com\" if using Deep Security as a Service",
+          "ManagerAddress" : "Enter the externally accessible DNS name or IP address of the Deep Security Manager. Please enter "agents.deepsecurity.trendmicro.com" if using Deep Security as a Service",
 
           "ActivationPort" : "Enter the port number of the Deep Security Manager, default value - 443",
 
@@ -200,7 +199,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
         }
       }
 
-### <a name="vormertric-transparent-encryption-agent."></a>Vormertric Transparent Encryption Agent.
+### Агент Vormertric Transparent Encryption.
             {
               "publisher": "Vormetric",
               "type": "VormetricTransparentEncryptionAgent",
@@ -209,7 +208,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
               }
             }
 
-### <a name="puppet-enterprise-agent."></a>Puppet Enterprise Agent.
+### Агент Puppet Enterprise.
             {
               "publisher": "PuppetLabs",
               "type": "PuppetEnterpriseAgent",
@@ -219,7 +218,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
               }
             }  
 
-### <a name="microsoft-monitoring-agent-for-azure-operational-insights"></a>Microsoft Monitoring Agent for Azure Operational Insights
+### Агент Microsoft Monitoring для Azure Operational Insights
             {
               "publisher": "Microsoft.EnterpriseCloud.Monitoring",
               "type": "MicrosoftMonitoringAgent",
@@ -233,7 +232,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
               }
             }
 
-### <a name="mcafee-endpointsecurity"></a>McAfee EndpointSecurity
+### McAfee EndpointSecurity
             {
               "publisher": "McAfee.EndpointSecurity",
               "type": "McAfeeEndpointSecurity",
@@ -247,7 +246,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
               }
             }
 
-### <a name="azure-iaas-antimalware"></a>Azure IaaS Antimalware
+### Защита от вредоносных программ Azure IaaS
           {
             "publisher": "Microsoft.Azure.Security",
             "type": "IaaSAntimalware",
@@ -265,7 +264,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
             }
           }
 
-### <a name="eset-file-security"></a>ESET File Security
+### ESET File Security
           {
             "publisher": "ESET",
             "type": "FileSecurity",
@@ -274,7 +273,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
             }
           }
 
-### <a name="datadog-agent"></a>Datadog Agent
+### Агент Datadog
           {
             "publisher": "Datadog.Agent",
             "type": "DatadogWindowsAgent",
@@ -284,7 +283,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
             }
           }
 
-### <a name="confer-advanced-threat-prevention-and-incident-response-for-azure"></a>Confer Advanced Threat Prevention and Incident Response for Azure
+### Confer Advanced Threat Prevention and Incident Response для Azure
           {
             "publisher": "Confer",
             "type": "ConferForAzure",
@@ -295,7 +294,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
             }
           }
 
-### <a name="cloudlink-securevm-agent"></a>CloudLink SecureVM Agent
+### Агент CloudLink SecureVM
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMWindowsAgent",
@@ -305,7 +304,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
             }
           }
 
-### <a name="barracuda-vpn-connectivity-agent-for-microsoft-azure"></a>Barracuda VPN Connectivity Agent for Microsoft Azure
+### Агент VPN-подключения Barracuda для Microsoft Azure
           {
             "publisher": "Barracuda.Azure.ConnectivityAgent",
             "type": "BarracudaConnectivityAgent",
@@ -318,7 +317,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
             }
           }
 
-### <a name="alert-logic-log-manager"></a>Alert Logic Log Manager
+### Диспетчер журнала логики предупреждений
           {
             "publisher": "AlertLogic.Extension",
             "type": "AlertLogicLM",
@@ -328,7 +327,7 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
             }
           }
 
-### <a name="chef-agent"></a>Chef Agent
+### Агент Chef
           {
             "publisher": "Chef.Bootstrap.WindowsAzure",
             "type": "ChefClient",
@@ -340,15 +339,15 @@ Please refer to CustomScript version 1.4 for parameter description. Version 1.7 
             }
           }
 
-### <a name="azure-diagnostics"></a>Azure Diagnostics
+### Диагностика Azure
 
-For more details about how to configure diagnostics, see [Azure Diagnostics Extension](virtual-machines-windows-extensions-diagnostics-template.md)
+Дополнительные сведения о том, как настроить диагностику, см. в разделе [Расширение диагностики Azure](virtual-machines-windows-extensions-diagnostics-template.md).
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
             "typeHandlerVersion": "1.5",
-            "autoUpgradeMinorVersion": true,
+			"autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"
@@ -360,14 +359,10 @@ For more details about how to configure diagnostics, see [Azure Diagnostics Exte
           }
           }
 
-In the examples above, replace the version number with the latest version number.
+В приведенных выше примерах замените номер версии на номер актуальной версии.
 
-Here is an example of a full VM template with Custom Script Extension.
+Здесь приведен пример полного шаблона виртуальной машины с помощью расширения Custom Script.
 
-[Custom Script Extension on a Windows VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+[Расширение Custom Script на виртуальной машине Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

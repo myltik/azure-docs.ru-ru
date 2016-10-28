@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Service Fabric cluster security: client roles | Microsoft Azure"
-   description="This article describes the two client roles and the permissions provided to the roles."
+   pageTitle="Защита кластера Service Fabric: роли клиента | Microsoft Azure"
+   description="В данной статье описываются две роли клиента и разрешения, предоставленные этим ролям."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -19,105 +19,100 @@
 
 
 
+# Контроль доступа на основе ролей для клиентов Service Fabric
 
-# <a name="role-based-access-control-for-service-fabric-clients"></a>Role-based access control for Service Fabric clients
+Платформа Azure Service Fabric поддерживает два разных типа контроля доступа для клиентов, подключенных к кластеру Service Fabric: администраторский и пользовательский. Благодаря контролю доступа администратор кластера может ограничить доступ разных групп пользователей на выполнение определенных операций в кластере, повысив тем самым уровень безопасности кластера.
 
-Azure Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control allows the cluster administrator to limit access to certain cluster operations for different groups of users, making the cluster more secure.  
+**Администраторы** имеют полный доступ к возможностям управления (включая возможности чтения и записи). По умолчанию **пользователи** имеют доступ только на чтение к функциям управления (например, при работе с запросами) и возможность разрешения приложений и служб.
 
-**Administrators** have full access to management capabilities (including read/write capabilities). By default, **users** only have read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
-
-You specify the two client roles (administrator and client) at the time of cluster creation by providing separate certificates for each. See [Service Fabric cluster security](service-fabric-cluster-security.md) for details on setting up a secure Service Fabric cluster.
-
-
-## <a name="default-access-control-settings"></a>Default access control settings
+Во время создания кластера задаются две клиентские роли (администратора или клиента) путем предоставления отдельных сертификатов для каждой из них. Сведения о настройке защищенного кластера Service Fabric см. в статье [Защита кластера Service Fabric](service-fabric-cluster-security.md).
 
 
-The administrator access control type has full access to all the FabricClient APIs. It can perform any reads and writes on the Service Fabric cluster, including the following operations:
+## Параметры контроля доступа по умолчанию
 
 
-### <a name="application-and-service-operations"></a>Application and service operations
-* **CreateService**: service creation                           
-* **CreateServiceFromTemplate**: service creation from template                             
-* **UpdateService**: service updates                            
-* **DeleteService**: service deletion                           
-* **ProvisionApplicationType**: application type provisioning                           
-* **CreateApplication**: application creation                               
-* **DeleteApplication**: application deletion                           
-* **UpgradeApplication**: starting or interrupting application upgrades                             
-* **UnprovisionApplicationType**: application type unprovisioning                           
-* **MoveNextUpgradeDomain**: resuming application upgrades with an explicit update domain                           
-* **ReportUpgradeHealth**: resuming application upgrades with the current upgrade progress                          
-* **ReportHealth**: reporting health                            
-* **PredeployPackageToNode**: predeployment API                         
-* **CodePackageControl**: restarting code packages                          
-* **RecoverPartition**: recovering a partition                          
-* **RecoverPartitions**: recovering partitions                          
-* **RecoverServicePartitions**: recovering service partitions                           
-* **RecoverSystemPartitions**: recovering system service partitions                             
+Тип контроля доступа администратора предусматривает полный доступ ко всем API-интерфейсам FabricClient. Вы можете выполнять любые операции чтения и записи в кластере Service Fabric, включая следующие.
 
 
-### <a name="cluster-operations"></a>Cluster operations
-* **ProvisionFabric**: MSI and/or cluster manifest provisioning                             
-* **UpgradeFabric**: starting cluster upgrades                          
-* **UnprovisionFabric**: MSI and/or cluster manifest unprovisioning                         
-* **MoveNextFabricUpgradeDomain**: resuming cluster upgrades with an explicit update domain                             
-* **ReportFabricUpgradeHealth**: resuming cluster upgrades with the current upgrade progress                            
-* **StartInfrastructureTask**: starting infrastructure tasks                            
-* **FinishInfrastructureTask**: finishing infrastructure tasks                          
-* **InvokeInfrastructureCommand**: infrastructure task management commands                              
-* **ActivateNode**: activating a node                           
-* **DeactivateNode**: deactivating a node                           
-* **DeactivateNodesBatch**: deactivating multiple nodes                             
-* **RemoveNodeDeactivations**: reverting deactivation on multiple nodes                             
-* **GetNodeDeactivationStatus**: checking deactivation status                           
-* **NodeStateRemoved**: reporting node state removed                            
-* **ReportFault**: reporting fault                          
-* **FileContent**: image store client file transfer (external to cluster)                           
-* **FileDownload**: image store client file download initiation (external to cluster)                           
-* **InternalList**: image store client file list operation (internal)                           
-* **Delete**: image store client delete operation                           
-* **Upload**: image store client upload operation                           
-* **NodeControl**: starting, stopping, and restarting nodes                             
-* **MoveReplicaControl**: moving replicas from one node to another                          
-
-### <a name="miscellaneous-operations"></a>Miscellaneous operations
-* **Ping**: client pings                            
-* **Query**: all queries allowed
-* **NameExists**: naming URI existence checks                           
+### Операции с приложением и службой
+* **CreateService**: создание службы.
+* **CreateServiceFromTemplate**: создание службы из шаблона.
+* **UpdateService**: обновления службы.
+* **DeleteService**: удаление службы.
+* **ProvisionApplicationType**: подготовка типа приложения.
+* **CreateApplication**: создание приложения.
+* **DeleteApplication**: удаление приложения.
+* **UpgradeApplication**: запуск или прерывание обновлений приложения.
+* **UnprovisionApplicationType**: отмена подготовки типа приложения.
+* **MoveNextUpgradeDomain**: возобновление обновлений приложения с помощью явно указанного домена обновления.
+* **ReportUpgradeHealth**: возобновление обновлений приложения с помощью текущего процесса обновления.
+* **ReportHealth**: сообщение о работоспособности.
+* **PredeployPackageToNode**: API предварительного развертывания.
+* **CodePackageControl**: перезапуск пакетов кода.
+* **RecoverPartition**: восстановление секции.
+* **RecoverPartitions**: восстановление секций.
+* **RecoverServicePartitions**: восстановление секций службы.
+* **RecoverSystemPartitions**: восстановление секций системной службы.
 
 
+### Операции с кластером
+* **ProvisionFabric**: подготовка MSI и (или) манифеста кластера.
+* **UpgradeFabric**: запуск обновлений кластера.
+* **UnprovisionFabric**: отмена подготовки MSI и (или) манифеста кластера.
+* **MoveNextFabricUpgradeDomain**: возобновление обновлений кластера с помощью явно указанного домена обновления.
+* **ReportFabricUpgradeHealth**: возобновление обновлений кластера с помощью текущего процесса обновления.
+* **StartInfrastructureTask**: запуск задач инфраструктуры.
+* **FinishInfrastructureTask**: завершение задач инфраструктуры.
+* **InvokeInfrastructureCommand**: команды управления задачами инфраструктуры.
+* **ActivateNode**: активация узла.
+* **DeactivateNode**: деактивация узла.
+* **DeactivateNodesBatch**: деактивация нескольких узлов.
+* **RemoveNodeDeactivations**: отмена деактивации нескольких узлов.
+* **GetNodeDeactivationStatus**: проверка состояния деактивации.
+* **NodeStateRemoved**: сообщение об удалении узла.
+* **ReportFault**: сообщение об ошибке.
+* **FileContent**: передача клиентского файла хранилища образов (вне кластера).
+* **FileDownload**: инициация скачивания клиентского файла хранилища образов (вне кластера).
+* **InternalList**: операция вывода списка клиентских файлов хранилища образов (внутренняя).
+* **Delete**: операция удаления клиента хранилища образов.
+* **Upload**: операция передачи клиента хранилища образов.
+* **NodeControl**: запуск, остановка и перезапуск узлов.
+* **MoveReplicaControl**: перемещение реплик с одного узла на другой.
 
-The user access control type is, by default, limited to the following operations: 
-
-* **EnumerateSubnames**: naming URI enumeration                             
-* **EnumerateProperties**: naming property enumeration                          
-* **PropertyReadBatch**: naming property read operations                            
-* **GetServiceDescription**: long-poll service notifications and reading service descriptions                           
-* **ResolveService**: complaint-based service resolution                            
-* **ResolveNameOwner**: resolving naming URI owner                          
-* **ResolvePartition**: resolving system services                           
-* **ServiceNotifications**: event-based service notifications                           
-* **GetUpgradeStatus**: polling application upgrade status                          
-* **GetFabricUpgradeStatus**: polling cluster upgrade status                            
-* **InvokeInfrastructureQuery**: querying infrastructure tasks                          
-* **List**: image store client file list operation                          
-* **ResetPartitionLoad**: resetting load for a failover unit                            
-* **ToggleVerboseServicePlacementHealthReporting**: toggling verbose service placement health reporting                             
-
-The admin access control also has access to the preceding operations.
-
-## <a name="changing-default-settings-for-client-roles"></a>Changing default settings for client roles
-
-In the cluster manifest file, you can provide admin capabilities to the client if needed. You can change the defaults by going to the **Fabric Settings** option during [cluster creation](service-fabric-cluster-creation-via-portal.md), and providing the preceding settings in the **name**, **admin**, **user**, and **value** fields.
-
-## <a name="next-steps"></a>Next steps
-
-[Service Fabric cluster security](service-fabric-cluster-security.md)
-
-[Service Fabric cluster creation](service-fabric-cluster-creation-via-portal.md)
+### Прочие операции
+* **Ping**: проверка связи клиента.
+* **Query**: разрешены все запросы.
+* **NameExists**: проверки существования универсальных кодов ресурса (URI) именования.
 
 
 
-<!--HONumber=Oct16_HO2-->
+Тип контроля доступа от имени пользователя по умолчанию ограничивается следующими операциями.
 
+* **EnumerateSubnames**: перечисление универсального кода ресурса (URI) именования.
+* **EnumerateProperties**: перечисления свойств именования.
+* **PropertyReadBatch**: операции чтения свойств именования.
+* **GetServiceDescription**: уведомления о службах с длительным временем опроса и чтение описаний служб.
+* **ResolveService**: разрешение служб на основе жалоб.
+* **ResolveNameOwner**: разрешение владельца универсального кода ресурса (URI) именования.
+* **ResolvePartition**: разрешение системных служб.
+* **ServiceNotifications**: уведомления служб на основе событий.
+* **GetUpgradeStatus**: опрос состояния обновления приложения.
+* **GetFabricUpgradeStatus**: опрос состояния обновления кластера.
+* **InvokeInfrastructureQuery**: запрос задач инфраструктуры.
+* **List**: операция вывода списка клиентских файлов хранилища образов.
+* **ResetPartitionLoad**: сброс нагрузки для единицы отработки отказа.
+* **ToggleVerboseServicePlacementHealthReporting**: включение и выключение подробных отчетов о работоспособности размещения службы.
 
+Контроль доступа от имени администратора также предусматривает доступ к приведенным выше операциям.
+
+## Изменение параметров по умолчанию для ролей клиента
+
+При необходимости в файле манифеста кластера клиенту можно предоставить возможность администрирования. Чтобы изменить значения по умолчанию, во время [создания кластера](service-fabric-cluster-creation-via-portal.md) перейдите к настройкам **Fabric Settings** (Параметры структуры), а затем укажите параметры, приведенные выше, в полях **Имя**, **Администратор**, **Пользователь** и **Значение**.
+
+## Дальнейшие действия
+
+[Защита кластера Service Fabric](service-fabric-cluster-security.md)
+
+[Настройка кластера Service Fabric на портале Azure](service-fabric-cluster-creation-via-portal.md)
+
+<!---HONumber=AcomDC_0921_2016-->

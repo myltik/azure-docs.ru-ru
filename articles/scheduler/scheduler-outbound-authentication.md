@@ -1,10 +1,10 @@
 <properties
- pageTitle="Scheduler Outbound Authentication"
- description="Scheduler Outbound Authentication"
+ pageTitle="Исходящая проверка подлинности планировщика"
+ description="Исходящая проверка подлинности планировщика"
  services="scheduler"
  documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,46 +13,45 @@
  ms.devlang="dotnet"
  ms.topic="article"
  ms.date="08/15/2016"
- ms.author="deli"/>
+ ms.author="krisragh"/>
 
+# Исходящая проверка подлинности планировщика
 
-# <a name="scheduler-outbound-authentication"></a>Scheduler Outbound Authentication
+Задания планировщика могут вызывать службы, требующие проверки подлинности. В этом случае вызванная служба определяет, может ли задание планировщика получить доступ к ее ресурсам. В число таких служб входят другие службы Azure, Salesforce.com, Facebook и защищенные пользовательские веб-сайты.
 
-Scheduler jobs may need to call out to services that require authentication. This way, a called service can determine if the Scheduler job can access its resources. Some of these services include other Azure services, Salesforce.com, Facebook, and secure custom websites.
+## Добавление и удаление проверки подлинности
 
-## <a name="adding-and-removing-authentication"></a>Adding and Removing Authentication
+Добавить в задание планировщика проверку подлинности очень просто: при создании или обновлении задания добавьте в элемент `request` дочерний элемент JSON `authentication`. Секретные данные, передаваемые службе планировщика запросами PUT, POST или PATCH в составе объекта `authentication`, в ответах не отображаются. В ответах секретная информация обнуляется или получает открытый маркер, который представляет сущность, прошедшую проверку подлинности.
 
-Adding authentication to a Scheduler job is simple – add a JSON child element `authentication` to the `request` element when creating or updating a job. Secrets passed to the Scheduler service in a PUT, PATCH, or POST request – as part of the `authentication` object – are never returned in responses. In responses, secret information is set to null or may have a public token that represents the authenticated entity.
+Чтобы удалить проверку подлинности, примените непосредственно к заданию запрос PUT или PATCH, установив для объекта `authentication` нулевое значение. Никакие свойства проверки подлинности в ответе показаны не будут.
 
-To remove authentication, PUT or PATCH the job explicitly, setting the `authentication` object to null. You will not see any authentication properties back in response.
+В настоящее время поддерживаются только следующие типы проверки подлинности: модель `ClientCertificate` (для использования клиентских SSL/TLS-сертификатов), модель `Basic` (для обычной проверки подлинности) и модель `ActiveDirectoryOAuth` (для проверки подлинности Active Directory OAuth.)
 
-Currently, the only supported authentication types are the `ClientCertificate` model (for using the SSL/TLS client certificates), the `Basic` model (for Basic authentication), and the `ActiveDirectoryOAuth` model (for Active Directory OAuth authentication.)
+## Текст запроса для проверки подлинности ClientCertificate
 
-## <a name="request-body-for-clientcertificate-authentication"></a>Request Body for ClientCertificate Authentication
+При добавлении проверки подлинности с использованием модели `ClientCertificate` укажите в тексте запроса следующие дополнительные элементы.
 
-When adding authentication using the `ClientCertificate` model, specify the following additional elements in the request body.  
-
-|Element|Description|
+|Элемент|Описание|
 |:---|:---|
-|_authentication (parent element)_|Authentication object for using an SSL client certificate.|
-|_type_|Required. Type of authentication.For SSL client certificates, the value must be `ClientCertificate`.|
-|_pfx_|Required. Base64-encoded contents of the PFX file.|
-|_password_|Required. Password to access the PFX file.|
+|_authentication (родительский элемент)_|Объект проверки подлинности для использования клиентского SSL-сертификата.|
+|_type_|обязательный параметр. Тип проверки подлинности. Для клиентских SSL-сертификатов используйте значение `ClientCertificate`.|
+|_pfx_|обязательный параметр. Содержимое PFX-файла с кодировкой Base64.|
+|_password_|обязательный параметр. Пароль для доступа к PFX-файлу.|
 
 
-## <a name="response-body-for-clientcertificate-authentication"></a>Response Body for ClientCertificate Authentication
+## Текст ответа при проверке подлинности ClientCertificate
 
-When a request is sent with authentication info, the response contains the following authentication-related elements.
+При отправке запроса со сведениями о проверке подлинности в ответ включаются следующие элементы.
 
-|Element |Description |
+|Элемент |Описание |
 |:--|:--|
-|_authentication (parent element)_ |Authentication object for using an SSL client certificate.|
-|_type_ |Type of authentication. For SSL client certificates, the value is `ClientCertificate`.|
-|_certificateThumbprint_ |The thumbprint of the certificate.|
-|_certificateSubjectName_ |The subject distinguished name of the certificate.|
-|_certificateExpiration_ |The expiration date of the certificate.|
+|_authentication (родительский элемент)_ |Объект проверки подлинности для использования клиентского SSL-сертификата.|
+|_type_ |Тип проверки подлинности. Для клиентских SSL-сертификатов это значение равно `ClientCertificate`.|
+|_certificateThumbprint_ |Отпечаток сертификата.|
+|_certificateSubjectName_ |Различающееся имя субъекта сертификата.|
+|_certificateExpiration_ |Срок действия сертификата.|
 
-## <a name="sample-rest-request-for-clientcertificate-authentication"></a>Sample REST Request for ClientCertificate Authentication
+## Пример запроса REST для аутентификации ClientCertificate
 
 ```
 PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -68,10 +67,10 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-        "headers": {
+		"headers": {
           "x-ms-version": "2013-03-01"
         },
-        "authentication": {
+		"authentication": {
           "type": "clientcertificate",
           "password": "password",
           "pfx": "pfx key"
@@ -89,7 +88,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## <a name="sample-rest-response-for-clientcertificate-authentication"></a>Sample REST Response for ClientCertificate Authentication
+## Пример ответа REST для аутентификации ClientCertificate
 
 ```
 HTTP/1.1 200 OK
@@ -146,28 +145,28 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="request-body-for-basic-authentication"></a>Request Body for Basic Authentication
+## Текст запроса для обычной проверки подлинности
 
-When adding authentication using the `Basic` model, specify the following additional elements in the request body.
+При добавлении проверки подлинности с использованием модели `Basic` укажите в тексте запроса следующие дополнительные элементы.
 
-|Element|Description|
+|Элемент|Описание|
 |:--|:--|
-|_authentication (parent element)_ |Authentication object for using Basic authentication.|
-|_type_ |Required. Type of authentication. For Basic authentication, the value must be `Basic`.|
-|_username_ |Required. Username to authenticate.|
-|_password_ |Required. Password to authenticate.|
+|_authentication (родительский элемент)_ |Объект проверки подлинности для использования обычной проверки подлинности.|
+|_type_ |обязательный параметр. Тип проверки подлинности. Для обычной проверки подлинности используйте значение `Basic`.|
+|_username_ |обязательный параметр. Имя пользователя для проверки подлинности.|
+|_password_ |обязательный параметр. Пароль для проверки подлинности.|
 
-## <a name="response-body-for-basic-authentication"></a>Response Body for Basic Authentication
+## Текст ответа при обычной проверке подлинности
 
-When a request is sent with authentication info, the response contains the following authentication-related elements.
+При отправке запроса со сведениями о проверке подлинности в ответ включаются следующие элементы.
 
-|Element|Description|
+|Элемент|Description (Описание)|
 |:--|:--|
-|_authentication (parent element)_ |Authentication object for using Basic authentication.|
-|_type_ |Type of authentication. For Basic authentication, the value is `Basic`.|
-|_username_ |The authenticated username.|
+|_authentication (родительский элемент)_ |Объект проверки подлинности для использования обычной проверки подлинности.|
+|_type_ |Тип проверки подлинности. Для обычной проверки подлинности это значение равно `Basic`.|
+|_username_ |Имя пользователя, прошедшего проверку подлинности.|
 
-## <a name="sample-rest-request-for-basic-authentication"></a>Sample REST Request for Basic Authentication
+## Пример запроса REST для обычной проверки подлинности
 
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -184,12 +183,12 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-        "headers": {
+		"headers": {
           "x-ms-version": "2013-03-01"
         },
-        "authentication": {
+		"authentication": {
           "type": "basic",
-          "username": "user",
+		  "username": "user",
           "password": "password"
         }
       },
@@ -205,7 +204,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## <a name="sample-rest-response-for-basic-authentication"></a>Sample REST Response for Basic Authentication
+## Пример ответа REST для обычной проверки подлинности
 
 ```
 HTTP/1.1 200 OK
@@ -260,36 +259,36 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## <a name="request-body-for-activedirectoryoauth-authentication"></a>Request Body for ActiveDirectoryOAuth Authentication
+## Текст запроса для проверки подлинности ActiveDirectoryOAuth
 
-When adding authentication using the `ActiveDirectoryOAuth` model, specify the following additional elements in the request body.
+При добавлении проверки подлинности с использованием модели `ActiveDirectoryOAuth` укажите в тексте запроса следующие дополнительные элементы.
 
-|Element |Description |
+|Элемент |Description (Описание) |
 |:--|:--|
-|_authentication (parent element)_ |Authentication object for using ActiveDirectoryOAuth authentication.|
-|_type_ |Required. Type of authentication. For ActiveDirectoryOAuth authentication, the value must be `ActiveDirectoryOAuth`.|
-|_tenant_ |Required. The tenant identifier for the Azure AD tenant.|
-|_audience_ |Required. This is set to https://management.core.windows.net/.|
-|_clientId_ |Required. Provide the client identifier for the Azure AD application.|
-|_secret_ |Required. Secret of the client that is requesting the token.|
+|_authentication (родительский элемент)_ |Объект проверки подлинности для использования проверки подлинности ActiveDirectoryOAuth.|
+|_type_ |обязательный параметр. Тип проверки подлинности. Для проверки подлинности ActiveDirectoryOAuth используйте значение `ActiveDirectoryOAuth`.|
+|_tenant_ |обязательный параметр. Идентификатор клиента Azure AD.|
+|_audience_ |обязательный параметр. Это свойство имеет значение https://management.core.windows.net/.|.
+|_clientid_ |обязательный параметр. Укажите идентификатор клиента для приложения Azure AD.|
+|_secret_ |обязательный параметр. Секретные данные клиента, запрашивающего маркер.|
 
-### <a name="determining-your-tenant-identifier"></a>Determining your Tenant Identifier
+### Определение идентификатора клиента
 
-You can find the tenant identifier for the Azure AD tenant by running `Get-AzureAccount` in Azure PowerShell.
+Идентификатор клиента Azure AD можно узнать, выполнив команду `Get-AzureAccount` в Azure PowerShell.
 
-## <a name="response-body-for-activedirectoryoauth-authentication"></a>Response Body for ActiveDirectoryOAuth Authentication
+## Текст ответа при проверке подлинности ActiveDirectoryOAuth
 
-When a request is sent with authentication info, the response contains the following authentication-related elements.
+При отправке запроса со сведениями о проверке подлинности в ответ включаются следующие элементы.
 
-|Element |Description |
+|Элемент |Описание |
 |:--|:--|
-|_authentication (parent element)_ |Authentication object for using ActiveDirectoryOAuth authentication.|
-|_type_ |Type of authentication. For ActiveDirectoryOAuth authentication, the value is `ActiveDirectoryOAuth`.|
-|_tenant_ |The tenant identifier for the Azure AD tenant. |
-|_audience_ |This is set to https://management.core.windows.net/.|
-|_clientId_ |The client identifier for the Azure AD application.|
+|_authentication (родительский элемент)_ |Объект проверки подлинности для использования проверки подлинности ActiveDirectoryOAuth.|
+|_type_ |Тип проверки подлинности. Для аутентификации ActiveDirectoryOAuth это значение равно `ActiveDirectoryOAuth`.|
+|_tenant_ |Идентификатор клиента Azure AD. |
+|_audience_ |Имеет значение https://management.core.windows.net/.|.
+|_clientid_ |Идентификатор клиента для приложения Azure AD.|
 
-## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>Sample REST Request for ActiveDirectoryOAuth Authentication
+## Пример запроса REST для аутентификации ActiveDirectoryOAuth
 
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
@@ -306,10 +305,10 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-        "headers": {
+		"headers": {
           "x-ms-version": "2013-03-01"
         },
-        "authentication": {
+		"authentication": {
           "tenant":"microsoft.onmicrosoft.com",
           "audience":"https://management.core.windows.net/",
           "clientId":"dc23e764-9be6-4a33-9b9a-c46e36f0c137",
@@ -329,7 +328,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## <a name="sample-rest-response-for-activedirectoryoauth-authentication"></a>Sample REST Response for ActiveDirectoryOAuth Authentication
+## Пример ответа REST для аутентификации ActiveDirectoryOAuth
 
 ```
 HTTP/1.1 200 OK
@@ -387,27 +386,23 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>See Also
+## См. также
 
 
- [What is Scheduler?](scheduler-intro.md)
+ [Что такое планировщик?](scheduler-intro.md)
 
- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+ [Основные понятия, терминология и иерархия сущностей планировщика Azure](scheduler-concepts-terms.md)
 
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+ [Приступая к работе с планировщиком Azure на портале Azure](scheduler-get-started-portal.md)
 
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+ [Планы и выставление счетов в планировщике Azure](scheduler-plans-billing.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+ [Справочник по API REST планировщика Azure](https://msdn.microsoft.com/library/mt629143)
 
- [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+ [Справочник по командлетам PowerShell планировщика Azure](scheduler-powershell-reference.md)
 
- [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+ [Высокая доступность и надежность планировщика Azure](scheduler-high-availability-reliability.md)
 
- [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+ [Ограничения, значения по умолчанию и коды ошибок планировщика Azure](scheduler-limits-defaults-errors.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

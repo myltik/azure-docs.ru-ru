@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Public and private IP addressing (classic) in Azure | Microsoft Azure"
-   description="Learn about public and private IP addressing in Azure"
+   pageTitle="Общедоступные и частные IP-адреса в Azure (классическая модель развертывания) | Microsoft Azure"
+   description="В этой статье вы найдете информацию об использовании частных и общедоступных IP-адресов в Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -16,159 +16,154 @@
    ms.date="02/11/2016"
    ms.author="jdial" />
 
+# IP-адреса в Azure (классическая модель развертывания)
+Вы можете назначать IP-адреса ресурсам Azure, чтобы они могли взаимодействовать с другими ресурсами Azure, а также подключаться к вашей локальной сети и Интернету. В Azure можно использовать два типа IP-адресов: общедоступные и частные.
 
-# <a name="ip-addresses-(classic)-in-azure"></a>IP addresses (classic) in Azure
-You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure: public and private.
+Общедоступные IP-адреса используются для доступа к Интернету, в том числе к общедоступным службам Azure.
 
-Public IP addresses are used for communication with the Internet, including Azure public-facing services.
+Частные IP-адреса используются для обмена данными в виртуальной сети Azure (VNet), облачной службе или вашей локальной сети (если для расширения сети за счет Azure используется VPN-шлюз или канал ExpressRoute).
 
-Private IP addresses are used for communication within an Azure virtual network (VNet), a cloud service, and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Узнайте, как [выполнить эти действия для модели развертывания с помощью Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager deployment model](virtual-network-ip-addresses-overview-arm.md).
+## Общедоступные IP-адреса
+Общедоступные IP-адреса позволяют ресурсам Azure подключаться к Интернету и другим общедоступным службам Azure, таким как [кэш Redis для Azure](https://azure.microsoft.com/services/cache/), [концентраторы событий Azure](https://azure.microsoft.com/services/event-hubs/), [базы данных SQL](../sql-database/sql-database-technical-overview.md) и [служба хранилища Azure](../storage/storage-introduction.md).
 
-## <a name="public-ip-addresses"></a>Public IP addresses
-Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL databases](../sql-database/sql-database-technical-overview.md), and [Azure storage](../storage/storage-introduction.md).
+Общедоступный IP-адрес связывается со следующими типами ресурсов:
 
-A public IP address is associated with the following resource types:
+- облачные службы;
+- виртуальные машины IaaS;
+- экземпляры роли PaaS;
+- VPN-шлюзы
+- Шлюзы приложений
 
-- Cloud services
-- IaaS Virtual Machines (VMs)
-- PaaS role instances
-- VPN gateways
-- Application gateways
+### Способ выделения
+Когда ресурсу Azure нужно назначить общедоступный IP-адрес, он *динамически* выделяется из пула имеющихся в наличии общедоступных IP-адресов в том расположении, где создан ресурс. При остановке ресурса этот IP-адрес освобождается. В случае облачной службы это происходит, когда останавливаются все экземпляры роли. Этого можно избежать, используя *статический* (зарезервированный) IP-адрес (см. раздел [Облачные службы](#Cloud-services)).
 
-### <a name="allocation-method"></a>Allocation method
-When a public IP address needs to be assigned to an Azure resource, it is *dynamically* allocated from a pool of available public IP address within the location the resource is created. This IP address is released when the resource is stopped. In case of a cloud service, this happens when all the role instances are stopped, which can be avoided by using a *static* (reserved) IP address (see [Cloud Services](#Cloud-services)).
+>[AZURE.NOTE] Список диапазонов IP-адресов, из которых общедоступные IP-адреса назначаются ресурсам Azure, опубликован в файле с [диапазонами IP-адресов центров обработки данных Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
->[AZURE.NOTE] The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
+### Разрешение DNS-имен узлов
+При создании облачной службы или виртуальной машины IaaS вам нужно указать DNS-имя облачной службы, которое является уникальным для всех ресурсов в Azure. Таким образом вы сопоставляете *DNS-имя*.cloudapp.net и общедоступный IP-адрес ресурса на DNS-серверах, которыми управляет Azure. Например, если вы создаете облачную службу с DNS-именем **contoso**, полное доменное имя (FQDN) **contoso.cloudapp.net** будет соответствовать общедоступному IP-адресу (виртуальному IP-адресу) облачной службы. С помощью FQDN вы можете создать запись CNAME личного домена, указывающую на общедоступный IP-адрес в Azure.
 
-### <a name="dns-hostname-resolution"></a>DNS hostname resolution
-When you create a cloud service or an IaaS VM, you need to provide a cloud service DNS name which is unique across all resources in Azure. This creates a mapping in the Azure-managed DNS servers for *dnsname*.cloudapp.net to the public IP address of the resource. For instance, when you create a cloud service with a cloud service DNS name of **contoso**, the fully-qualified domain name (FQDN) **contoso.cloudapp.net** will resolve to a public IP address (VIP) of the cloud service. You can use this FQDN to create a custom domain CNAME record pointing to the public IP address in Azure.
+### Облачные службы
+У облачной службы всегда есть общедоступный IP-адрес, который называют виртуальным IP-адресом. Вы можете связать различные порты виртуального IP-адреса с внутренними портами виртуальных машин и экземплярами роли в облачной службе, создав конечные точки в облачной службе.
 
-### <a name="cloud-services"></a>Cloud services
-A cloud service always has a public IP address referred to as a virtual IP address (VIP). You can create endpoints in a cloud service to associate different ports in the VIP to internal ports on VMs and role instances within the cloud service. 
+Облачная служба может содержать несколько виртуальных машин IaaS или экземпляров роли PaaS. Все они доступны по одному виртуальному IP-адресу облачной службы. Назначив [облачной службе несколько виртуальных IP-адресов](../load-balancer/load-balancer-multivip.md), вы сможете создать мультитенантную среду с веб-сайтами, поддерживающими доступ по протоколу SSL.
 
-A cloud service can contain multiple IaaS VMs, or PaaS role instances, all exposed through the same cloud service VIP. You can also assign [multiple VIPs to a cloud service](../load-balancer/load-balancer-multivip.md), which enables multi-VIP scenarios like multi-tenant environment with SSL-based websites.
+Чтобы общедоступный IP-адрес облачной службы не изменялся даже тогда, когда останавливаются все экземпляры роли, используйте *статический* общедоступный IP-адрес. Его еще называют [зарезервированным IP-адресом](virtual-networks-reserved-public-ip.md). Вы можете создать статический (зарезервированный) IP-ресурс в определенном расположении и назначить этот ресурс любой облачной службе в этом расположении. В качестве зарезервированного IP-адреса невозможно указать фактический IP-адрес, так как зарезервированный адрес выделяется из пула доступных IP-адресов в том расположении, где он создан. Этот IP-адрес не освобождается, пока не будет явно удален.
 
-You can ensure the public IP address of a cloud service remains the same, even when all the role instances are stopped, by using a *static* public IP address, referred to as [Reserved IP](virtual-networks-reserved-public-ip.md). You can create a static (reserved) IP resource in a specific location and assign it to any cloud service in that location. You cannot specify the actual IP address for the reserved IP, it is allocated from pool of available IP addresses in the location it is created. This IP address is not released until you explicitly delete it.
+Статические (зарезервированные) общедоступные IP-адреса обычно используются в таких случаях:
 
-Static (reserved) public IP addresses are commonly used in the scenarios where a cloud service:
+- для работы с облачной службой конечным пользователям нужно настроить правила брандмауэра;
+- облачная служба зависит от разрешения внешних DNS-имен, и для динамического IP-адреса нужно обновить записи A;
+- облачная служба использует внешние веб-службы, в которых применяется модель безопасности на основе IP-адресов;
+- облачная служба использует SSL-сертификаты, связанные с IP-адресом.
 
-- requires firewall rules to be setup by end-users.
-- depends on external DNS name resolution, and a dynamic IP would require updating A records.
-- consumes external web services which use IP based security model.
-- uses SSL certificates linked to an IP address.
+>[AZURE.NOTE] При создании классической виртуальной машины в Azure создается *облачная служба*-контейнер с виртуальным IP-адресом. Если виртуальная машина создается с помощью портала, на портале также настраивается *конечная точка* RDP или SSH по умолчанию, чтобы можно было подключаться к виртуальной машине по виртуальному IP-адресу облачной службы. Этот виртуальный IP-адрес облачной службы можно зарезервировать, предоставив таким образом зарезервированный IP-адрес для подключения к виртуальной машине. Настраивая дополнительные конечные точки, вы можете открыть дополнительные порты.
 
->[AZURE.NOTE] When you create a classic VM, a container *cloud service* is created by Azure, which has a virtual IP address (VIP). When the creation is done through portal, a default RDP or SSH *endpoint* is configured by the portal so you can connect to the VM through the cloud service VIP. This cloud service VIP can be reserved, which effectively provides a reserved IP address to connect to the VM. You can open additional ports by configuring more endpoints.
+### Виртуальные машины IaaS и экземпляры роли PaaS
+Общедоступный IP-адрес можно назначить [виртуальной машине](../virtual-machines/virtual-machines-linux-about.md) IaaS или экземпляру роли PaaS в облачной службе. Такой адрес будет называться общедоступным IP-адресом уровня экземпляра ([ILPIP](virtual-networks-instance-level-public-ip.md)), и он может быть только динамическим.
 
-### <a name="iaas-vms-and-paas-role-instances"></a>IaaS VMs and PaaS role instances
-You can assign a public IP address directly to an IaaS [VM](../virtual-machines/virtual-machines-linux-about.md) or PaaS role instance within a cloud service. This is referred to as an instance-level public IP address ([ILPIP](virtual-networks-instance-level-public-ip.md)). This public IP address can be dynamic only.
+>[AZURE.NOTE] Он отличается от виртуального IP-адреса облачной службы, которая является контейнером для виртуальных машин IaaS или экземпляров роли PaaS, так как облачная служба может содержать несколько виртуальных машин IaaS или экземпляров роли PaaS, доступ к которым можно получить через один и тот же виртуальный IP-адрес облачной службы.
 
->[AZURE.NOTE] This is different from the VIP of the cloud service, which is a container for IaaS VMs or PaaS role instances, since a cloud service can contain multiple IaaS VMs, or PaaS role instances, all exposed through the same cloud service VIP.
+### VPN-шлюзы
+[VPN-шлюз](../vpn-gateway/vpn-gateway-about-vpngateways.md) может использоваться для подключения виртуальной сети Azure к локальным сетям или другим виртуальным сетям Azure. Общедоступный IP-адрес назначается VPN-шлюзу *динамически* и обеспечивает взаимодействие с удаленной сетью.
 
-### <a name="vpn-gateways"></a>VPN gateways
-A [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) can be used to connect an Azure VNet to other Azure VNets or on-premises networks. A VPN gateway is assigned a public IP address *dynamically*, which enables communication with the remote network.
+### Шлюзы приложений
+[Шлюз приложений](../application-gateway/application-gateway-introduction.md) Azure может использоваться для балансировки нагрузки на седьмом уровне и маршрутизации сетевого HTTP-трафика. Общедоступный IP-адрес назначается шлюзу приложений *динамически* и выступает в роли виртуального IP-адреса с балансировкой нагрузки.
 
-### <a name="application-gateways"></a>Application gateways
-An Azure [Application gateway](../application-gateway/application-gateway-introduction.md) can be used for Layer7 load-balancing to route network traffic based on HTTP. Application gateway is assigned a public IP address *dynamically*, which serves as the load-balanced VIP.
+### Вкратце
+В приведенной ниже таблице представлены все типы ресурсов. Для каждого из них указан возможный способ выделения (динамический или статический), а также то, поддерживает ли ресурс назначение нескольких общедоступных IP-адресов.
 
-### <a name="at-a-glance"></a>At a glance
-The table below shows each resource type with the possible allocation methods (dynamic/static), and ability to assign multiple public IP addresses.
-
-|Resource|Dynamic|Static|Multiple IP addresses|
+|Ресурс|Динамический|Статическое|Несколько IP-адресов|
 |---|---|---|---|
-|Cloud service|Yes|Yes|Yes|
-|IaaS VM or PaaS role instance|Yes|No|No|
-|VPN gateway|Yes|No|No|
-|Application gateway|Yes|No|No|
+|Облачная служба|Да|Да|Да|
+|Виртуальная машина IaaS или экземпляр роли PaaS|Да|Нет|Нет|
+|VPN-шлюз|Да|Нет|Нет|
+|шлюзу приложений.|Да|Нет|Нет|
 
-## <a name="private-ip-addresses"></a>Private IP addresses
-Private IP addresses allow Azure resources to communicate with other resources in a cloud service or a [virtual network](virtual-networks-overview.md)(VNet), or to on-premises network (through a VPN gateway or ExpressRoute circuit), without using an Internet-reachable IP address.
+## Частные IP-адреса
+С помощью частных IP-адресов ресурсы Azure взаимодействуют с другими ресурсами в облачной службе, а также в [виртуальной](virtual-networks-overview.md) и локальной сетях (через VPN-шлюз или канал ExpressRoute), не используя для этого IP-адрес, доступный из Интернета.
 
-In Azure classic deployment model, a private IP address can be assigned to the following Azure resources:
+В классической модели развертывания Azure частный IP-адрес можно назначить следующим ресурсам Azure:
 
-- IaaS VMs and PaaS role instances
-- Internal load balancer
-- Application gateway
+- Виртуальные машины IaaS и экземпляры роли PaaS
+- внутреннему балансировщику нагрузки;
+- шлюзу приложений.
 
-### <a name="iaas-vms-and-paas-role-instances"></a>IaaS VMs and PaaS role instances
-Virtual machines (VMs) created with the classic deployment model are always placed in a cloud service, similar to PaaS role instances. The behavior of private IP addresses are thus similar for these resources.
+### Виртуальные машины IaaS и экземпляры роли PaaS
+Виртуальные машины, созданные по классической модели развертывания, всегда размещаются в облачной службе, равно как и экземпляры роли PaaS. В связи с этим частные IP-адреса работают с этими ресурсами одинаково.
 
-It is important to note that a cloud service can be deployed in two ways:
+Следует отметить, что для облачной службы возможны два варианта развертывания:
 
-- As a *standalone* cloud service, where it is not within a virtual network.
-- As part of a virtual network.
+- служба не входит в виртуальную сеть и является *автономной*;
+- служба является частью виртуальной сети.
 
-#### <a name="allocation-method"></a>Allocation method
-In case of a *standalone* cloud service, resources get a private IP address allocated *dynamically* from the Azure datacenter private IP address range. It can be used only for communication with other VMs within the same cloud service. This IP address can change when the resource is stopped and started.
+#### Способ выделения
+Когда облачная служба работает *автономно*, ресурсам *динамически* назначается частный IP-адрес, полученный из диапазона адресов соответствующего центра обработки данных Azure. Этот адрес может использоваться только для взаимодействия с другими виртуальными машинами в той же облачной службе. После перезапуска ресурса частный IP-адрес может измениться.
 
-In case of a cloud service deployed within a virtual network, resources get private IP address(es) allocated from the address range of the associated subnet(s) (as specified in its network configuration). This private IP address(es) can be used for communication between all VMs within the VNet.
+Если облачная служба развернута в виртуальной сети, ресурсы получают частные IP-адреса, выделенные из диапазона адресов связанных подсетей (как указано в конфигурации сети). Эти частные IP-адреса используются для обмена данными между всеми виртуальными машинами в виртуальной сети.
 
-Additionally, in case of cloud services within a VNet, a private IP address is allocated *dynamically* (using DHCP) by default. It can change when the resource is stopped and started. To ensure the IP address remains the same, you need to set the allocation method to *static*, and provide a valid IP address within the corresponding address range.
+Кроме того, если облачная служба развернута в виртуальной сети, частный IP-адрес выделяется *динамически* по умолчанию (с помощью DHCP). После перезапуска ресурса IP-адрес может измениться. Чтобы IP-адрес не изменялся, настройте выделение *статического* адреса и укажите допустимый IP-адрес из соответствующего диапазона.
 
-Static private IP addresses are commonly used for:
+Вот для чего обычно используются статические частные IP-адреса:
 
- - VMs that act as domain controllers or DNS servers.
- - VMs that require firewall rules using IP addresses.
- - VMs running services accessed by other apps through an IP address.
+ - для виртуальных машин, работающих в качестве контроллеров домена или DNS-серверов;
+ - для виртуальных машин, на которых в правилах брандмауэра нужно использовать IP-адреса;
+ - для виртуальных машин со службами, к которым другие приложения обращаются по IP-адресу.
 
-#### <a name="internal-dns-hostname-resolution"></a>Internal DNS hostname resolution
-All Azure VMs and PaaS role instances are configured with [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default, unless you explicitly configure custom DNS servers. These DNS servers provide internal name resolution for VMs and role instances that reside within the same VNet or cloud service.
+#### Разрешение внутренних DNS-имен узлов
+По умолчанию все виртуальные машины Azure и экземпляры роли PaaS используют [DNS-серверы, которыми управляет система Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) (кроме случаев, когда вы настроили другие DNS-серверы). Эти DNS-серверы отвечают за разрешение внутренних имен для виртуальных машин и экземпляров роли, которые находятся в той же виртуальной сети или облачной службе.
 
-When you create a VM, a mapping for the hostname to its private IP address is added to the Azure-managed DNS servers. In case of a multi-NIC VM, the hostname is mapped to the private IP address of the primary NIC. However, this mapping information is restricted to resources within the same cloud service or VNet.
+Когда вы создаете виртуальную машину, в DNS-серверы, находящиеся под управлением Azure, добавляется сопоставление имени узла с частным IP-адресом. Если используется виртуальная машина с несколькими сетевыми адаптерами, имя узла сопоставляется с частным IP-адресом главного сетевого адаптера. Сведения о сопоставлении содержат данные только о ресурсах, которые находятся в той же облачной службе или виртуальной сети.
 
-In case of a *standalone* cloud service, you will be able to resolve hostnames of all VMs/role instances within the same cloud service only. In case of a cloud service within a VNet, you will be able to resolve hostnames of all the VMs/role instances within the VNet.
+В случае *автономной* облачной службы разрешаться будут имена узлов всех виртуальных машин или экземпляров роли в пределах одной облачной службы. Если облачная служба развернута в виртуальной сети, разрешаться будут имена узлов всех виртуальных машин или экземпляров роли в пределах одной виртуальной сети.
 
-### <a name="internal-load-balancers-(ilb)-&-application-gateways"></a>Internal load balancers (ILB) & Application gateways
-You can assign a private IP address to the **front end** configuration of an [Azure Internal Load Balancer](../load-balancer/load-balancer-internal-overview.md) (ILB) or an [Azure Application Gateway](../application-gateway/application-gateway-introduction.md). This private IP address serves as an internal endpoint, accessible only to the resources within its virtual network (VNet) and the remote networks connected to the VNet. You can assign either a dynamic or static private IP address to the front end configuration. You can also assign multiple private IP addresses to enable multi-vip scenarios.
+### Внутренние балансировщики нагрузки и шлюзы приложений
+Вы можете назначить частный IP-адрес конфигурации **внешнего интерфейса** [внутреннего балансировщика нагрузки Azure](../load-balancer/load-balancer-internal-overview.md) или [шлюза приложений Azure](../application-gateway/application-gateway-introduction.md). Этот IP-адрес является внутренней конечной точкой, доступной только для ресурсов виртуальной сети и подключенных к ней удаленных сетей. Конфигурации внешнего интерфейса можно назначить динамический или статический частный IP-адрес. Кроме того, чтобы можно было создавать сценарии с несколькими виртуальными IP-адресами, вы можете назначить несколько частных IP-адресов.
 
-### <a name="at-a-glance"></a>At a glance
-The table below shows each resource type with the possible allocation methods (dynamic/static), and ability to assign multiple private IP addresses.
+### Вкратце
+В приведенной ниже таблице представлены все типы ресурсов. Для каждого из них указан возможный способ выделения (динамический или статический), а также то, поддерживает ли ресурс назначение нескольких частных IP-адресов.
 
-|Resource|Dynamic|Static|Multiple IP addresses|
+|Ресурс|Динамический|Статическое|Несколько IP-адресов|
 |---|---|---|---|
-|VM (in a *standalone* cloud service)|Yes|Yes|Yes|
-|PaaS role instance (in a *standalone* cloud service)|Yes|No|Yes|
-|VM or PaaS role instance (in a VNet)|Yes|Yes|Yes|
-|Internal load balancer front end|Yes|Yes|Yes|
-|Application gateway front end|Yes|Yes|Yes|
+|Виртуальная машина (в *автономной* облачной службе)|Да|Да|Да|
+|Экземпляр роли PaaS (в *автономной* облачной службе)|Да|Нет|Да|
+|Виртуальная машина или экземпляр роли PaaS (в виртуальной сети)|Да|Да|Да|
+|Внешний интерфейс внутреннего балансировщика нагрузки|Да|Да|Да|
+|Интерфейсная часть шлюза приложений|Да|Да|Да|
 
-## <a name="limits"></a>Limits
+## Ограничения
 
-The table below shows the limits imposed on IP addressing in Azure per subscription. You can [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
+В следующей таблице показаны ограничения, накладываемые на IP-адресацию в Azure в зависимости от подписки. Для увеличения ограничений по умолчанию до максимальных ограничений в зависимости от потребностей своего бизнеса вы можете [обратиться в службу поддержки](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-||Default limit|Maximum limit|
+||Ограничение по умолчанию|Максимальное ограничение|
 |---|---|---|
-|Public IP addresses (dynamic)|5|contact support|
-|Reserved public IP addresses|20|contact support|
-|Public VIP per deployment (cloud service)|5|contact support|
-|Private VIP (ILB) per deployment (cloud service)|1|1|
+|Общедоступные IP-адреса (динамические)|5|обратитесь в службу поддержки|
+|Зарезервированные общедоступные IP-адреса|20|обратитесь в службу поддержки|
+|Общедоступный виртуальный IP-адрес на развертывание (облачная служба)|5|обратитесь в службу поддержки|
+|Частный виртуальный IP-адрес на развертывание (облачная служба)|1|1|
 
-Make sure you read the full set of [limits for Networking](azure-subscription-service-limits.md#networking-limits) in Azure.
+Ознакомьтесь с полным списком [сетевых ограничений](azure-subscription-service-limits.md#networking-limits) в Azure.
 
-## <a name="pricing"></a>Pricing
+## Цены
 
-In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).
+В большинстве случаев общедоступные IP-адреса бесплатны. Существует номинальная плата за использование дополнительных или статических общедоступных IP-адресов. Ознакомьтесь со [структурой ценообразования для общедоступных IP-адресов](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
-## <a name="differences-between-resource-manager-and-classic-deployments"></a>Differences between Resource Manager and classic deployments
-Below is a comparison of IP addressing features in Resource Manager and the classic deployment model.
+## Различие развертываний диспетчера ресурсов и классических развертываний
+Ниже приведено сравнение возможностей IP-адресации диспетчера ресурсов и классической модели развертывания.
 
-||Resource|Classic|Resource Manager|
+||Ресурс|Классический|Диспетчер ресурсов|
 |---|---|---|---|
-|**Public IP Address**|VM|Referred to as an ILPIP (dynamic only)|Referred to as a public IP (dynamic or static)|
-|||Assigned to an IaaS VM or a PaaS role instance|Associated to the VM's NIC|
-||Internet facing load balancer|Referred to as VIP (dynamic) or Reserved IP (static)|Referred to as a public IP (dynamic or static)|
-|||Assigned to a cloud service|Associated to the load balancer's front end config|
+|**Общедоступный IP-адрес**|ВМ|Называется ILPIP (только динамический)|Называется общедоступным IP-адресом (динамический или статический)|
+|||Назначается виртуальной машине IaaS или экземпляру роли PaaS|Назначается сетевому адаптеру виртуальной машины|
+||Балансировщик нагрузки для Интернета|Называется виртуальным IP-адресом (динамический) или зарезервированным IP-адресом (статический)|Называется общедоступным IP-адресом (динамический или статический)|
+|||Назначается облачной службе|Связывается с конфигурацией клиентской части балансировщика нагрузки|
 ||||
-|**Private IP Address**|VM|Referred to as a DIP|Referred to as a private IP address|
-|||Assigned to an IaaS VM or a PaaS role instance|Assigned to the VM's NIC|
-||Internal load balancer (ILB)|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end configuration (dynamic or static)|
+|**Частные IP-адреса**|ВМ|Называется динамическим IP-адресом|Называется частным IP-адресом|
+|||Назначается виртуальной машине IaaS или экземпляру роли PaaS|Назначается сетевому адаптеру виртуальной машины|
+||Внутренний балансировщик нагрузки (ILB)|Назначается ILB (динамический или статический)|Назначается конфигурации клиентской части ILB (динамический или статический)|
 
-## <a name="next-steps"></a>Next steps
-- [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the classic portal.
+## Дальнейшие действия
+- См. статью [Настройка статического частного (классического) IP-адреса в портале Azure](virtual-networks-static-private-ip-classic-pportal.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

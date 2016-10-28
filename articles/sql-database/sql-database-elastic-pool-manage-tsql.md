@@ -1,7 +1,7 @@
 <properties 
-    pageTitle="Create or move an Azure SQL database into an elastic pool using T-SQL | Microsoft Azure" 
-    description="Use T-SQL to create an Azure SQL database in an elastic pool. Or use T-SQL to move the datbase in and out of pools." 
-    services="sql-database" 
+    pageTitle="Создание базы данных Azure SQL или ее перемещение в пул эластичных БД с помощью T-SQL | Microsoft Azure" 
+    description="С помощью языка T-SQL можно создать базу данных SQL Azure в пуле эластичных БД либо переместить базу данных в пул или обратно." 
+	services="sql-database" 
     documentationCenter="" 
     authors="srinia" 
     manager="jhubbard" 
@@ -16,73 +16,70 @@
     ms.date="05/27/2016"
     ms.author="srinia"/>
 
-
-# <a name="monitor-and-manage-an-elastic-database-pool-with-transact-sql"></a>Monitor and manage an elastic database pool with Transact-SQL  
+# Мониторинг пула эластичных баз данных и управление им с помощью Transact-SQL  
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-manage-portal.md)
+- [Портал Azure](sql-database-elastic-pool-manage-portal.md)
 - [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 - [C#](sql-database-elastic-pool-manage-csharp.md)
 - [T-SQL](sql-database-elastic-pool-manage-tsql.md)
 
-Use the [Create Database (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) and [Alter Database(Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx) commands to create and move databases into and out of elastic pools. The elastic pool must exist before you can use these commands. These commands affect only databases. Creation of new pools and the setting of pool properties (such as min and max eDTUs) cannot be changed with T-SQL commands.
+Для создания и перемещения баз данных в эластичные пулы и обратно используйте команды [Create Database (база данных SQL Azure)](https://msdn.microsoft.com/library/dn268335.aspx) и [Alter Database (база данных SQL Azure)](https://msdn.microsoft.com/library/mt574871.aspx). Прежде чем использовать эти команды, следует создать пул эластичных БД. Эти команды влияют только на базы данных. С помощью команд T-SQL нельзя внести изменения при создании новых пулов и настройке свойств пула (таких как минимальное и максимальное количество eDTU).
 
-## <a name="create-a-new-database-in-an-elastic-pool"></a>Create a new database in an elastic pool
-Use the CREATE DATABASE command with the SERVICE_OBJECTIVE option.   
+> [AZURE.NOTE] Пулы эластичных БД общедоступны во всех регионах Azure, кроме северо-центрального региона США и западной Индии, в которых сейчас доступна только предварительная версия. Общедоступная версия появится в этих регионах в ближайшее время. Кроме того, в настоящее время пулы эластичных БД не поддерживают базы данных, использующие [выполняющуюся в памяти OLTP или аналитику](sql-database-in-memory.md).
 
-    CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
-    -- Create a database named db1 in a pool named S3M100.
+## Создание новой базы данных внутри пула эластичных БД
+Используйте команду CREATE DATABASE с параметром SERVICE\_OBJECTIVE.
 
-All databases in an elastic pool inherit the service tier of the elastic pool (Basic, Standard, Premium). 
+	CREATE DATABASE db1 ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3M100] ));
+	-- Create a database named db1 in a pool named S3M100.
 
-
-## <a name="move-a-database-between-elastic-pools"></a>Move a database between elastic pools
-Use the ALTER DATABASE command with the MODIFY and set SERVICE\_OBJECTIVE option as ELASTIC\_POOL; set the name to the name of the target pool.
-
-    ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [PM125] ));
-    -- Move the database named db1 to a pool named P1M125  
-
-## <a name="move-a-database-into-an-elastic-pool"></a>Move a database into an elastic pool 
-Use the ALTER DATABASE command with the MODIFY and set SERVICE\_OBJECTIVE option as ELASTIC_POOL; set the name to the name of the target pool.
-
-    ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
-    -- Move the database named db1 to a pool named S3100.
-
-## <a name="move-a-database-out-of-an-elastic-pool"></a>Move a database out of an elastic pool
-Use the ALTER DATABASE command and set the SERVICE_OBJECTIVE to one of the performance levels (S0, S1, etc).
-
-    ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
-    -- Changes the database into a stand-alone database with the service objective S1.
-
-## <a name="list-databases-in-an-elastic-pool"></a>List databases in an elastic pool
-Use the [sys.database\_service \_objectives view](https://msdn.microsoft.com/library/mt712619) to list all the databases in an elastic pool. Log in to the master database to query the view.
-
-    SELECT d.name, slo.*  
-    FROM sys.databases d 
-    JOIN sys.database_service_objectives slo  
-    ON d.database_id = slo.database_id
-    WHERE elastic_pool_name = 'MyElasticPool'; 
-
-## <a name="get-resource-usage-data-for-a-pool"></a>Get resource usage data for a pool
-
-Use the [sys.elastic\_pool \_resource \_stats view](https://msdn.microsoft.com/library/mt280062.aspx) to examine the resource usage statistics of an elastic pool on a logical server. Log in to the master database to query the view.
-
-    SELECT * FROM sys.elastic_pool_resource_stats 
-    WHERE elastic_pool_name = 'MyElasticPool'
-    ORDER BY end_time DESC;
-
-## <a name="get-resource-usage-for-an-elastic-database"></a>Get resource usage for an elastic database
-
-Use the [sys.dm\_ db\_ resource\_stats view](https://msdn.microsoft.com/library/dn800981.aspx) or [sys.resource \_stats view](https://msdn.microsoft.com/library/dn269979.aspx) to examine the resource usage statistics of a database in an elastic pool. This process is similar to querying resource usage for any single database.
-
-## <a name="next-steps"></a>Next steps
-
-After creating an elastic database pool, you can manage elastic databases in the pool by creating elastic jobs. Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md). 
-
-See [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): use elastic database tools to scale-out, move data, query, or create transactions.
+Все базы данных в пуле эластичных БД наследуют уровень служб пула эластичных БД ("Базовый", "Стандартный" или "Премиум").
 
 
+## Перемещение базы данных между пулами эластичных БД
+Используйте команду ALTER DATABASE с инструкцией MODIFY и параметром SERVICE\_OBJECTIVE, для которого задано значение ELASTIC\_POOL. Для параметра name задайте имя целевого пула.
 
-<!--HONumber=Oct16_HO2-->
+	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [PM125] ));
+	-- Move the database named db1 to a pool named P1M125  
 
+## Перемещение базы данных в пул эластичных БД 
+Используйте команду ALTER DATABASE с инструкцией MODIFY и параметром SERVICE\_OBJECTIVE, для которого задано значение ELASTIC\_POOL. Для параметра name задайте имя целевого пула.
 
+	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = ELASTIC_POOL (name = [S3100] ));
+	-- Move the database named db1 to a pool named S3100.
+
+## Перемещение базы данных из пула эластичных БД
+Используйте команду ALTER DATABASE и задайте для параметра SERVICE\_OBJECTIVE уровень производительности (S0, S1 и т. д.).
+
+	ALTER DATABASE db1 MODIFY ( SERVICE_OBJECTIVE = 'S1');
+	-- Changes the database into a stand-alone database with the service objective S1.
+
+## Получение списка баз данных в пуле эластичных БД
+Чтобы получить список всех баз данных в пуле эластичных БД, используйте [представление sys.database\_service \_objectives](https://msdn.microsoft.com/library/mt712619) Войдите в базу данных master, чтобы отправить запрос на представление.
+
+	SELECT d.name, slo.*  
+	FROM sys.databases d 
+	JOIN sys.database_service_objectives slo  
+	ON d.database_id = slo.database_id
+	WHERE elastic_pool_name = 'MyElasticPool'; 
+
+## Получение данных об использовании ресурсов в пуле
+
+Проанализировать статистику использования ресурсов в пуле эластичных БД на логическом сервере можно в [представлении sys.elastic\_pool \_resource \_stats](https://msdn.microsoft.com/library/mt280062.aspx). Войдите в базу данных master, чтобы отправить запрос на представление.
+
+	SELECT * FROM sys.elastic_pool_resource_stats 
+	WHERE elastic_pool_name = 'MyElasticPool'
+	ORDER BY end_time DESC;
+
+## Получение данных об использовании ресурсов в эластичной базе данных
+
+Проанализировать статистику использования ресурсов базы данных в эластичном пуле можно в представлении [sys.dm\_ db\_ resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) или [sys.resource \_stats](https://msdn.microsoft.com/library/dn269979.aspx). Этот процесс аналогичен отправке запроса на использование ресурсов для любой отдельной базы данных.
+
+## Дальнейшие действия
+
+После создания эластичного пула вы можете управлять эластичными базами данных в пуле путем создания заданий обработки эластичных БД. Эластичные задания позволяют легко и быстро выполнять сценарии T-SQL в любом количестве баз данных в пуле. Дополнительные сведения можно узнать в статье [Обзор службы заданий эластичной базы данных](sql-database-elastic-jobs-overview.md).
+
+См. статью [Общие сведения о возможностях эластичных баз данных](sql-database-elastic-scale-introduction.md). В ней описывается использование средств работы с эластичными базами данных для масштабирования, перемещения данных, выполнения запросов и создания транзакций.
+
+<!---HONumber=AcomDC_0907_2016-->

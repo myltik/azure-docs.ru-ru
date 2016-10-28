@@ -1,11 +1,11 @@
 <properties
-    pageTitle="Create an IoT Hub using an ARM template and C# | Microsoft Azure"
-    description="Follow this tutorial to get started using Resource Manager templates to create an IoT Hub with a C# program."
-    services="iot-hub"
-    documentationCenter=".net"
-    authors="dominicbetts"
-    manager="timlt"
-    editor=""/>
+	pageTitle="Создание центра IoT с помощью программы C# и шаблона диспетчера ресурсов Azure | Microsoft Azure"
+	description="Следуйте инструкциям этого учебника, чтобы приступить к работе с помощью шаблонов диспетчера ресурсов и создать центр IoT с помощью программы C#."
+	services="iot-hub"
+	documentationCenter=".net"
+	authors="dominicbetts"
+	manager="timlt"
+	editor=""/>
 
 <tags
      ms.service="iot-hub"
@@ -16,37 +16,36 @@
      ms.date="08/16/2016"
      ms.author="dobett"/>
 
-
-# <a name="create-an-iot-hub-using-a-c#-program-with-a-resource-manager-template"></a>Create an IoT hub using a C# program with a Resource Manager template
+# Создание центра IoT с помощью программы C# и шаблона Resource Manager
 
 [AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>Introduction
+## Введение
 
-You can use Azure Resource Manager to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use a Resource Manager template to create an IoT hub from a C# program.
+Диспетчер ресурсов Azure можно использовать для создания центров Azure IoT программным способом и управления ими. В этом учебнике показано, как использовать шаблон Resource Manager для создания центра IoT из программы на C#.
 
-> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model.
+> [AZURE.NOTE] В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md). В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
 
-To complete this tutorial, you need the following:
+Для работы с этим учебником требуется:
 
 - Microsoft Visual Studio 2015.
-- An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
-- An [Azure storage account][lnk-storage-account] where you can store your template files.
-- [Microsoft Azure PowerShell 1.0][lnk-powershell-install] or later.
+- Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][lnk-free-trial].
+- [Учетная запись хранения Azure][lnk-storage-account], в которой можно хранить файлы шаблона.
+- [Microsoft Azure PowerShell 1.0][lnk-powershell-install] или более поздней версии.
 
 [AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
-## <a name="prepare-your-visual-studio-project"></a>Prepare your Visual Studio project
+## Подготовка проекта Visual Studio
 
-1. In Visual Studio, create a Visual C# Windows project using the **Console Application** project template. Name the project **CreateIoTHub**.
+1. Создайте в Visual Studio проект Visual C# Windows с помощью шаблона проекта **Консольное приложение**. Дайте проекту имя **CreateIoTHub**.
 
-2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
+2. В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите **Управление пакетами NuGet**.
 
-3. In Nuget Package Manager, check **Include prerelease**, and search for **Microsoft.Azure.Management.ResourceManager**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
+3. В диспетчере пакетов NuGet выберите **Включить предварительные выпуски** и найдите **Microsoft.Azure.Management.ResourceManager**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензий.
 
-4. In Nuget Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
+4. В диспетчере пакетов NuGet найдите **Microsoft.IdentityModel.Clients.ActiveDirectory**. Щелкните **Установить**, на странице **Просмотр изменений** щелкните **ОК** и выберите **Я принимаю**, чтобы принять условия лицензии.
 
-5. In Program.cs, replace the existing **using** statements with the following:
+5. Откройте файл Program.cs и замените существующие инструкции **using** следующим кодом.
 
     ```
     using System;
@@ -56,7 +55,7 @@ To complete this tutorial, you need the following:
     using Microsoft.Rest;
     ```
     
-6. In Program.cs, add the following static variables replacing the placeholder values. You made a note of **ApplicationId**, **SubscriptionId**, **TenantId**, and **Password** earlier in this tutorial. **Your storage account name** is the name of the Azure storage account where you store your template files. **Resource group name** is the name of the resource group you use when you create the IoT Hub, it can be a pre-existing resource group or a new one. **Deployment name** is a name for the deployment, such as **Deployment_01**.
+6. В Program.cs добавьте следующие статические переменные, заменив значения заполнителей. Ранее в этом учебнике вы записали **ApplicationId**, **SubscriptionId**, **TenantId** и **Password**. **Your storage account name** — это имя учетной записи хранения Azure, в которой вы храните файлы шаблона. **Resource group name** — это имя группы ресурсов, используемых при создании центра IoT. Это может быть существующая группа ресурсов или новая. **Deployment name** — это имя развертывания, например **Deployment\_01**.
 
     ```
     static string applicationId = "{Your ApplicationId}";
@@ -70,13 +69,13 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
-## <a name="submit-a-template-to-create-an-iot-hub"></a>Submit a template to create an IoT hub
+## Отправка шаблона для создания центра IoT
 
-Use a JSON template and parameter file to create an IoT hub in your resource group. You can also use a template to make changes to an existing IoT hub.
+Для создания центра IoT в группе ресурсов используйте шаблон JSON и файл параметров. Можно также использовать шаблон для изменения существующего центра IoT.
 
-1. In Solution Explorer, right-click on your project, click **Add**, and then click **New Item**. Add a JSON file called **template.json** to your project.
+1. В обозревателе решений щелкните правой кнопкой мыши проект, выберите пункт **Добавить**, а затем щелкните **Новый элемент**. Добавьте файл JSON с именем **template.json** в проект.
 
-2. Replace the contents of **template.json** with the following resource definition to add a standard IoT hub to the **East US** region (for the current list of regions that support IoT Hub see [Azure Status][lnk-status]):
+2. Замените содержимое файла **template.json** следующим определением ресурса для добавления стандартного центра IoT в регион **Восток США** (текущий список регионов, поддерживающих центр IoT, см. на странице [Состояние Azure][lnk-status]).
 
     ```
     {
@@ -112,9 +111,9 @@ Use a JSON template and parameter file to create an IoT hub in your resource gro
     }
     ```
 
-3. In Solution Explorer, right-click on your project, click **Add**, and then click **New Item**. Add a JSON file called **parameters.json** to your project.
+3. В обозревателе решений щелкните правой кнопкой мыши проект, выберите пункт **Добавить**, а затем щелкните **Новый элемент**. Добавьте в проект файл JSON с именем **parameters.json**.
 
-4. Replace the contents of **parameters.json** with the following parameter information that sets a name for the new IoT hub such as **{your initials}mynewiothub**. Note that the IoT hub name must be globally unique so it should include your name or initials):
+4. Замените содержимое файла **parameters.json** следующим параметром, который задает имя нового центра IoT, например **{ваши\_инициалы}mynewiothub**. Обратите внимание, что имя центра IoT должно быть глобально уникальным, поэтому оно должно включать ваше имя или инициалы:
 
     ```
     {
@@ -126,16 +125,16 @@ Use a JSON template and parameter file to create an IoT hub in your resource gro
     }
     ```
 
-5. In **Server Explorer**, connect to your Azure subscription, and in your storage account create a container called **templates**. In the **Properties** panel, set the **Public Read Access** permissions for the **templates** container to **Blob**.
+5. В **обозревателе сервера** подключитесь к подписке Azure и в учетной записи хранения создайте контейнер с именем **templates**. На панели **Свойства** задайте разрешениям **Общий доступ на чтение** для контейнера **templates** значение **Большой двоичный объект**.
 
-6. In **Server Explorer**, right-click on the **templates** container and then click **View Blob Container**. Click the **Upload Blob** button, select the two files, **parameters.json** and **templates.json**, and then click **Open** to upload the JSON files to the **templates** container. The URLs of the blobs containing the JSON data are:
+6. В **обозревателе сервера** щелкните правой кнопкой мыши контейнер **templates**, а затем выберите **Просмотреть контейнер больших двоичных объектов**. Нажмите кнопку **Передать BLOB-объект**, выберите файлы **parameters.json** и **templates.json**, а затем нажмите кнопку **Открыть**, чтобы передать файлы JSON в контейнер **templates**. URL-адреса больших двоичных объектов, содержащих данные JSON, таковы:
 
     ```
     https://{Your storage account name}.blob.core.windows.net/templates/parameters.json
     https://{Your storage account name}.blob.core.windows.net/templates/template.json
     ```
 
-7. Add the following method to Program.cs:
+7. Добавьте в класс Program.cs следующий метод:
     
     ```
     static void CreateIoTHub(ResourceManagementClient client)
@@ -144,7 +143,7 @@ Use a JSON template and parameter file to create an IoT hub in your resource gro
     }
     ```
 
-5. Add the following code to the **CreateIoTHub** method to submit the template and parameter files to the Azure Resource Manager:
+5. Добавьте следующий код в метод **CreateIoTHub** для отправки файлов шаблонов и параметров в Azure Resource Manager:
 
     ```
     var createResponse = client.Deployments.CreateOrUpdate(
@@ -167,7 +166,7 @@ Use a JSON template and parameter file to create an IoT hub in your resource gro
         });
     ```
 
-6. Add the following code to the **CreateIoTHub** method that displays the status and the keys for the new IoT hub:
+6. Добавьте следующий код в метод **CreateIoTHub**, который отображает состояние и ключи для нового центра IoT:
 
     ```
     string state = createResponse.Properties.ProvisioningState;
@@ -180,40 +179,43 @@ Use a JSON template and parameter file to create an IoT hub in your resource gro
     Console.WriteLine(createResponse.Properties.Outputs);
     ```
 
-## <a name="complete-and-run-the-application"></a>Complete and run the application
+## Завершение и запуск приложения
 
-You can now complete the application by calling the **CreateIoTHub** method before you build and run it.
+Теперь можно завершить приложение, вызвав метод **CreateIoTHub**, а затем собрать и запустить приложение.
 
-1. Add the following code to the end of the **Main** method:
+1. Добавьте в конец метода **Main** следующий код:
 
     ```
     CreateIoTHub(client);
     Console.ReadLine();
     ```
     
-2. Click **Build** and then **Build Solution**. Correct any errors.
+2. Щелкните **Построить** и **Построить решение**. Исправьте все ошибки.
 
-3. Click **Debug** and then **Start Debugging** to run the application. It may take several minutes for the deployment to run.
+3. Щелкните **Отладка** и **Начать отладку** для запуска приложения. Для запуска развертывания может потребоваться несколько минут.
 
-4. You can verify that your application added the new IoT hub by visiting the [portal][lnk-azure-portal] and viewing your list of resources, or by using the **Get-AzureRmResource** PowerShell cmdlet.
+4. Убедитесь, что в приложение добавлен новый центр IoT, посетив [портал][lnk-azure-portal] и просмотрев список ресурсов, или с помощью командлета PowerShell **Get-AzureRmResource**.
 
-> [AZURE.NOTE] This example application adds an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub through the [portal][lnk-azure-portal] or by using the **Remove-AzureRmResource** PowerShell cmdlet when you are finished.
+> [AZURE.NOTE] В этом примере приложения добавляется стандартный центр IoT S1, который подлежит оплате. Когда закончите, центр IoT можно удалить через [портал][lnk-azure-portal] или с помощью командлета PowerShell **Remove-AzureRmResource**.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Now you have deployed an IoT hub using an Azure Resource Manager template with a C# program, you may want to explore further:
+После развертывания центра IoT с использованием шаблона Azure Resource Manager и программы на C# вас могут заинтересовать следующие статьи:
 
-- Read about the capabilities of the [IoT Hub Resource Provider REST API][lnk-rest-api].
-- Read [Azure Resource Manager overview][lnk-azure-rm-overview] to learn more about the capabilities of Azure Resource Manager.
+- Ознакомьтесь с возможностями [API REST поставщика ресурсов центра IoT][lnk-rest-api].
+- Сведения о дополнительных возможностях диспетчера ресурсов Azure см. в статье [Обзор диспетчера ресурсов Azure][lnk-azure-rm-overview].
 
-To learn more about developing for IoT Hub, see the following:
+Дополнительные сведения о разработке для центра IoT см. в следующих руководствах.
 
-- [Introduction to C SDK][lnk-c-sdk]
-- [IoT Hub SDKs][lnk-sdks]
+- [Знакомство с пакетом SDK для устройств Azure IoT для C][lnk-c-sdk]
+- [Пакеты SDK для центра IoT][lnk-sdks]
 
-To further explore the capabilities of IoT Hub, see:
+Для дальнейшего изучения возможностей центра IoT см. следующие статьи:
 
-- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Разработка решения][lnk-design]
+- [Обзор управления устройствами центра IoT с помощью примера пользовательского интерфейса][lnk-dmui]
+- [Пакет SDK для шлюза IoT (бета-версия): отправка сообщений с устройства в облако через виртуальное устройство с помощью Linux][lnk-gateway]
+- [Управление центрами IoT через портал Azure][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -225,12 +227,11 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-storage-account]: ../storage/storage-create-storage-account.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
+[lnk-sdks]: iot-hub-sdks-summary.md
 
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

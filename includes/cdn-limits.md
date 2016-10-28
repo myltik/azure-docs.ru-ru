@@ -1,13 +1,10 @@
 
-Resource | Soft limit
+Ресурс | Мягкое ограничение
 ---------|-----------
-CDN profiles | 8
-CDN endpoints per profile | 10
-Custom domains per endpoint | 10 
+Профили CDN | 8
+Конечные точки CDN на профиль | 10
+Количество личных доменов на конечную точку | 10 
 
-Request an update to your subscription's soft limits by opening a support ticket.
+Запросите обновление нестрогих ограничений для подписки. Для этого отправьте запрос в службу поддержки.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

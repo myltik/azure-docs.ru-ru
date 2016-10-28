@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Migrate: Data Warehouse Migration Utility | Microsoft Azure"
-   description="Migrate to SQL Data Warehouse."
+   pageTitle="Миграция: служебная программа для миграции в хранилище данных | Microsoft Azure"
+   description="Миграция в хранилище данных SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -17,57 +17,52 @@
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
-
-# <a name="data-warehouse-migration-utility-(preview)"></a>Data Warehouse Migration Utility (Preview)
+# Служебная программа для миграции в хранилище данных (предварительная версия)
 
 > [AZURE.SELECTOR]
-- [Download Migration Utility][]
+- [Скачивание служебной программы миграции][]
 
-The Data Warehouse Migration Utility is a tool designed to migrate schema and data from SQL Server and Azure SQL Database to Azure SQL Data Warehouse. During schema migration, the tool automatically maps the corresponding schema from source to destination. After the schema has been migrated, the tools provides the option to move data with automatically generated scripts.
+Служебная программа для миграции в хранилище данных — это средство, предназначенное для переноса схемы и данных с сервера SQL Server и из базы данных SQL Azure в хранилище данных SQL Azure. Во время переноса схемы средство автоматически сопоставляет соответствующую схему из источника с местом назначения. После переноса схемы средство предоставляет возможность переместить данные с помощью автоматически создаваемых сценариев.
 
-In addition to schema and data migration, this tool gives you the option to generate compatibility reports which summarize incompatibilities between the target and source instances which would prevent streamlined migration.
+С помощью этого средства можно не только переносить схемы и данные, но и создавать отчеты о совместимости. В этих отчетах содержится сводка проблем совместимости между целевым и исходным экземплярами, препятствующих оптимизированной миграции.
 
-## <a name="get-started"></a>Get started
-As a prerequisite for installation, you will need the BCP command-line utility to run migration scripts and Office to view the compatibility report. After launching the executable that is downloaded you will be prompted to accept a standard EULA before the tool will be installed.
+## Приступая к работе
+Перед началом установки потребуется служебная программа командной строки BCP для запуска сценариев миграции и система Office для просмотра отчета о совместимости. После запуска загруженного исполняемого файла вам будет предложено принять условия стандартного лицензионного соглашения, прежде чем начнется установка.
 
-In addition, to run the Migration Utiliy, you will need the one following permissions on the database that you are looking to migrate: CREATE DATABASE, ALTER ANY DATABASE or VIEW ANY DEFINITION.
+Кроме того, для запуска служебной программы миграции требуется одно из следующих разрешений для базы данных, которую необходимо перенести: CREATE DATABASE, ALTER ANY DATABASE или VIEW ANY DEFINITION.
 
-### <a name="launching-the-tool-and-connecting"></a>Launching the tool and connecting
-Launch the tool by clicking on the desktop icon which appears post install. Upon opening the tool, you will be prompted with an initial connection page where you can choose your source and destination for the migration tool. At this time, we support SQL Server and Azure SQL Database as sources and SQL Data Warehouse as a destination. After selecting this you will be asked to connect to your source server by filling in server name and authenticating and then clicking ‘Connect’.
+### Запуск инструмента и подключение
+Запустите инструмент, щелкнув значок на рабочем столе, который появляется после установки. При открытии средства отобразится начальная страница подключения, где можно выбрать источник и место назначения для миграции. В настоящее время в качестве источников поддерживаются сервер SQL Server и База данных SQL Azure, а в качестве места назначения — хранилище данных SQL. После выбора этих параметров появится запрос на подключение к исходному серверу. Для этого нужно ввести имя сервера, пройти проверку подлинности и нажать кнопку «Подключить».
 
-After authenticating, the tool will show a list of databases that are present in the server which you are connected to. You can begin the migration by selecting a database that you would like to migrate and then clicking on ‘Migrate selected’.
+После проверки подлинности откроется список баз данных на подключенном сервере. Чтобы начать миграцию, выберите базу данных, которую следует перенести, и нажмите кнопку "Перенести выбранные".
 
-## <a name="migration-report"></a>Migration report
-Selecting ‘Check Database Compatibility’ in the tool will generate a report summarizing all object incompatibilities in the database you requested to migrate. A broader list of some of the SQL Server functionality that is not present in SQL Data Warehouse can be found in our [migration documentation][]. After the report is generated you will be able to save and open the report in Excel.
+## Отчет о миграции
+Если выбрать в средстве миграции команду "Проверить совместимость базы данных", будет создан сводный отчет по всем проблемам совместимости в объектах базы данных, которую требуется перенести. Расширенный список функций сервера SQL Server, которые отсутствуют в хранилище данных SQL, можно найти в нашей [документации по миграции][]. Созданный отчет можно сохранить и открыть в программе Excel.
 
-Please note that when generating the migration schema, most issues identified as ‘Object’ will be adjusted in order to allow immediate migration of that data. Please review the changes to ensure you do not want to make additional adjustments before applying the schema.
+Обратите внимание, что при создании схемы миграции большинство проблем, определенных как «Объект», будут устранены, что позволит немедленно выполнить миграцию соответствующих данных. Просмотрите изменения, чтобы убедиться, что перед применением схемы не требуются дополнительные корректировки.
 
-## <a name="migrate-schema"></a>Migrate schema
+## Перенос схемы
 
-After connecting, selecting ‘Migrate Schema’ will generate a schema migration script for the selected tables. This script ports the structure of the table, maps incompatible data types to more compatible forms, and creates security credentials and schema if this is indicated by the user in the migration settings. This code can be run against the targeted SQL Data Warehouse instance, saved to a file, copied to your clipboard, or even edited in-line before taking further action.  
+После подключения выберите «Перенести схему», чтобы создать сценарий переноса схемы для выбранных таблиц. Этот сценарий переносит структуру таблицы, приводит несовместимые типы данных в более совместимые формы и создает учетные данные безопасности и схему, если это указано пользователем в настройках миграции. Этот код можно запустить для целевого экземпляра хранилища данных SQL, сохранить в файл, скопировать в буфер обмена или даже отредактировать на месте, прежде чем выполнять дальнейшие действия.
 
-As noted above, when migrating schema review the migration changes that the tool has made in order to ensure that that you fully understand them.  
+Как отмечалось выше, при переносе схемы следует просмотреть изменения, внесенные средством миграции, чтобы убедиться, что вы полностью понимаете их.
 
-## <a name="migrate-data"></a>Migrate data
+## Перенос данных
 
-By clicking the ‘Migrate Data’ option you can generate BCP scripts that will move your data first to flat files on your server, and then directly into your SQL Data Warehouse. We recommend this process for moving small amounts of data and, as retries are not built-in and failures may occur if there is a loss of the network connection. In order to run this, you will need to have the BCP command-line utility installed and the schema for the data must already have been created.
+Выбрав команду «Перенести данные», можно создать сценарии BCP, которые переместят ваши данные сначала в неструктурированные файлы на сервере, а затем непосредственно в хранилище данных SQL. Этот процесс рекомендуется использовать при перемещении небольших объемов данных. Поскольку повторные попытки не предусмотрены, необходимо учитывать возможность сбоев из-за нарушений работы сети. Для запуска этой процедуры необходимо установить служебную программу командной строки BCP. Схема для данных уже должна быть создана.
 
-After you have filled out the parameters above you simply need to click run migration and a set of two packages will be generated to your specified location. Run the export file in order to export data from your migration source into flat files, and run the import file in order to import your data into SQL Data Warehouse.
+После заполнения указанных выше параметров нужно просто нажать кнопку запуска миграции, и в указанном расположении будет создан набор из двух пакетов. Запустите файл экспорта, чтобы экспортировать данные из источника миграции в неструктурированные файлы. Затем запустите файл импорта, чтобы импортировать данные в хранилище данных SQL.
 
-## <a name="next-steps"></a>Next steps
-Now that you've migrated some data, check out how to [develop][].
+## Дальнейшие действия
+Теперь, когда вы перенесли данные, ознакомьтесь с процессом [разработки][].
 
 <!--Image references-->
 
 <!--Article references-->
-[migration documentation]: sql-data-warehouse-overview-migrate.md
-[develop]: sql-data-warehouse-overview-develop.md
+[документации по миграции]: sql-data-warehouse-overview-migrate.md
+[разработки]: sql-data-warehouse-overview-develop.md
 
 <!--Other Web references--> 
-[Download Migration Utility]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
+[Скачивание служебной программы миграции]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Collections | Microsoft Azure"
-   description="Service Fabric stateful services provide reliable collections that enable you to write highly available, scalable, and low-latency cloud applications."
+   pageTitle="Надежные коллекции | Microsoft Azure"
+   description="Службы с отслеживанием состояния Service Fabric предоставляют надежные коллекции, которые позволяют создавать высокодоступные и масштабируемые облачные приложения с низкой задержкой."
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -13,157 +13,115 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="10/18/2016"
+   ms.date="07/28/2016"
    ms.author="mcoskun"/>
 
+# Введение в надежные коллекции в службах с отслеживанием состояния Azure Service Fabric
 
-# <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduction to Reliable Collections in Azure Service Fabric stateful services
+Надежные коллекции позволяют создавать высокодоступные и масштабируемые облачные приложения с низкой задержкой точно так же, как приложения для одного компьютера. Классы в пространстве имен **Microsoft.ServiceFabric.Data.Collections** предоставляют набор готовых коллекций, автоматически обеспечивающих высокодоступное состояние. Разработчикам нужно только создать интерфейсы API для надежных коллекций и разрешить надежным коллекциям управлять реплицированным и локальным состояниями.
 
-Reliable Collections enable you to write highly available, scalable, and low-latency cloud applications as though you were writing single computer applications. The classes in the **Microsoft.ServiceFabric.Data.Collections** namespace provide a set of out-of-the-box collections that automatically make your state highly available. Developers need to program only to the Reliable Collection APIs and let Reliable Collections manage the replicated and local state.
+Основное различие между надежными коллекциями и другими технологиями обеспечения высокой доступности (например, Redis, службы таблиц и очередей Azure) заключается в том, что состояние хранится локально в экземпляре службы и одновременно делается высокодоступным. Это означает следующее:
 
-The key difference between Reliable Collections and other high-availability technologies (such as Redis, Azure Table service, and Azure Queue service) is that the state is kept locally in the service instance while also being made highly available. This means that:
+- Все операции чтения выполняются локально, что позволяет достичь низкой задержки и высокой пропускной способности при чтении.
+- Все операции записи создают минимальное количество сетевых операций ввода-вывода, что позволяет достичь низкой задержки и высокой пропускной способности при записи.
 
-- All reads are local, which results in low latency and high-throughput reads.
-- All writes incur the minimum number of network IOs, which results in low latency and high-throughput writes.
+![Изображение развития коллекций.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
-![Image of evolution of collections.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
+Надежные коллекции можно рассматривать как развитие классов **System.Collections**. Это новый набор удобных коллекций для разработчиков, предназначенных для облачных приложений и приложений для нескольких компьютеров. Таким образом, надежные коллекции являются:
 
-Reliable Collections can be thought of as the natural evolution of the **System.Collections** classes: a new set of collections that are designed for the cloud and multi-computer applications without increasing complexity for the developer. As such, Reliable Collections are:
+- реплицируемыми (изменения состояния реплицируются для обеспечения высокой доступности);
+- сохраняемыми (данные сохраняются на диск для защиты от крупномасштабных перебоев, например отключения питания в центре обработки данных);
+- асинхронными (интерфейсы API работают асинхронно, что позволяет избежать блокировки потоков при операциях ввода-вывода);
+- транзакционными (интерфейсы API используют абстракцию транзакций, что позволяет легко управлять несколькими надежными коллекциями в службе).
 
-- Replicated: State changes are replicated for high availability.
-- Persisted: Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).
-- Asynchronous: APIs are asynchronous to ensure that threads are not blocked when incurring IO.
-- Transactional: APIs utilize the abstraction of transactions so you can manage multiple Reliable Collections within a service easily.
+Надежные коллекции изначально гарантируют высокую целостность данных, благодаря чему вам будет легче анализировать состояние приложений. Высокая целостность достигается за счет того, что фиксация транзакции завершается только после регистрации всей транзакции в большинстве кворума реплик (включая первичные реплики). Для достижения более низкой целостности приложения могут отправить подтверждение клиенту (или инициатору запроса) до того, как вернется асинхронная фиксация.
 
-Reliable Collections provide strong consistency guarantees out of the box in order to make reasoning about application state easier.
-Strong consistency is achieved by ensuring transaction commits finish only after the entire transaction has been logged on a majority quorum of replicas, including the primary.
-To achieve weaker consistency, applications can acknowledge back to the client/requester before the asynchronous commit returns.
+API надежных коллекций являются развитием API параллельных коллекций (находятся в пространстве имен **System.Collections.Concurrent**):
 
-The Reliable Collections APIs are an evolution of concurrent collections APIs (found in the **System.Collections.Concurrent** namespace):
+- работают асинхронно (возвращают задачи, потому что, в отличие от параллельных коллекций, операции реплицируются и сохраняются);
+- нет выходных параметров (вместо параметров используется `ConditionalValue<T>` для возврата логического типа и значения; `ConditionalValue<T>` напоминает `Nullable<T>`, но может быть структурой без T);
+- являются транзакционными (используется объект транзакции, благодаря чему пользователь может группировать действия с несколькими надежными коллекциями в одну транзакцию).
 
-- Asynchronous: Returns a task since, unlike concurrent collections, the operations are replicated and persisted.
-- No out parameters: Uses `ConditionalValue<T>` to return a bool and a value instead of out parameters. `ConditionalValue<T>` is like `Nullable<T>` but does not require T to be a struct.
-- Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
+В настоящее время пространство имен **Microsoft.ServiceFabric.Data.Collections** содержит две коллекции:
 
-Today, **Microsoft.ServiceFabric.Data.Collections** contains two collections:
+- [надежный словарь](https://msdn.microsoft.com/library/azure/dn971511.aspx) (реплицируемая, транзакционная и асинхронная коллекция пар «ключ – значение»; как и в **ConcurrentDictionary**, ключ и значение могут быть любого типа);
+- [надежная очередь](https://msdn.microsoft.com/library/azure/dn971527.aspx) (реплицируемая, транзакционная и асинхронная очередь, функционирующая строго по методу FIFO; как и в **ConcurrentQueue**, значение может быть любого типа).
 
-- [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to **ConcurrentDictionary**, both the key and the value can be of any type.
-- [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
+## Уровни изоляции
+Уровень изоляции определяет степень, до которой транзакция должна быть изолирована от изменений, вносимых другими транзакциями. Надежные коллекции поддерживают два уровня изоляции:
 
-## <a name="isolation-levels"></a>Isolation levels
-Isolation level defines the degree to which the transaction must be isolated from modifications made by other transactions.
-There are two isolation levels that are supported in Reliable Collections:
+- **Повторяющееся чтение**. Указывает, какие операторы не могут считывать данные, которые были изменены, но еще не зафиксированы другими транзакциями, и что другие транзакции не могут изменять данные, считанные текущей транзакцией, до завершения текущей транзакции. Дополнительные сведения см. в статье по адресу: [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+- **Моментальный снимок**. Указывает, что данные, считанные любым оператором в транзакции, будут согласованы с версией данных, которые существовали в начале транзакции. Транзакция может распознать только те изменения данных, которые были зафиксированы до ее начала. Изменения данных, произведенные другими транзакциями после запуска текущей транзакции, будут невидны для инструкций, выполняемых в текущей транзакции. Это похоже на то, как если бы инструкции в транзакции получили снимок данных, зафиксированных на момент начала транзакции. Моментальные снимки согласованы между надежными коллекциями. Дополнительные сведения см. в статье [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
-- **Repeatable Read**: Specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction finishes. For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
-- **Snapshot**: Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction.
-The transaction can recognize only data modifications that were committed before the start of the transaction.
-Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction.
-The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction.
-Snapshots are consistent across Reliable Collections.
-For more details, see [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+Для операций чтения надежные коллекции автоматически выбирают уровень изоляции в зависимости от самой операции и роли реплики в момент создания транзакции. Ниже приведена таблица уровней изоляции по умолчанию для операций надежного словаря и очереди.
 
-Reliable Collections automatically choose the isolation level to use for a given read operation depending on the operation and the role of the replica at the time of transaction's creation.
-Following is the table that depicts isolation level defaults for Reliable Dictionary and Queue operations.
-
-| Operation \ Role      | Primary          | Secondary        |
+| Операция \\ Роль | Первичная | Вторичная |
 | --------------------- | :--------------- | :--------------- |
-| Single Entity Read    | Repeatable Read  | Snapshot         |
-| Enumeration \ Count   | Snapshot         | Snapshot         |
+| Операция чтения одной сущности | Повторяющаяся операция чтения | Снимок |
+| Перечисление или подсчет | Снимок | Снимок |
 
->[AZURE.NOTE] Common examples for Single Entity Operations are `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
+>[AZURE.NOTE] Распространенные примеры операций с одной сущностью: `IReliableDictionary.TryGetValueAsync`, `IReliableQueue.TryPeekAsync`.
 
-Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.
-In other words, any write within a transaction will be visible to a following read that belongs to the same transaction.
+Надежный словарь и надежная очередь поддерживают мгновенную целостность данных (Read Your Writes, RYW). Другими словами, каждая операция записи в рамках одной транзакции будет видна для последующей операции чтения, которая выполняется в рамках той же транзакции.
 
-## <a name="locking"></a>Locking
-In Reliable Collections, all transactions are two-phased: a transaction does not release the locks it has acquired until the transaction terminates with either an abort or a commit.
+## Блокировка
+В надежных коллекциях все транзакции являются двухэтапными: транзакция не снимает свои установленные блокировки, пока она не завершится прерыванием или фиксацией.
 
-Reliable Dictionary uses row level locking for all single entity operations.
-Reliable Queue trades off concurrency for strict transactional FIFO property.
-Reliable Queue uses operation level locks allowing one transaction with `TryPeekAsync` and/or `TryDequeueAsync` and one transaction with `EnqueueAsync` at a time.
-Note that to preserve FIFO, if a `TryPeekAsync` or `TryDequeueAsync` ever observes that the Reliable Queue is empty, they will also lock `EnqueueAsync`.
+Надежный словарь использует блокировку уровня строки для всех операций с одной сущностью. Надежная очередь поступается параллелизмом ради строгого соблюдения транзакционного свойства FIFO. Надежная очередь использует блокировки уровня операции, позволяя одновременно выполнять одну транзакцию с `TryPeekAsync` и (или) `TryDequeueAsync` и одну транзакцию с `EnqueueAsync`. Обратите внимание, что если `TryPeekAsync` или `TryDequeueAsync` когда-либо обнаружит, что надежная очередь пуста, то для сохранения логики FIFO также заблокирует `EnqueueAsync`.
 
-Write operations always take Exclusive locks.
-For read operations, the locking depends on a couple of factors.
-Any read operation done using Snapshot isolation is lock free.
-Any Repeatable Read operation by default takes Shared locks.
-However, for any read operation that supports Repeatable Read, the user can ask for an Update lock instead of the Shared lock.
-An Update lock is an asymmetric lock used to prevent a common form of deadlock that occurs when multiple transactions lock resources for potential updates at a later time.
+Операции записи всегда используют монопольные блокировки. Для операций чтения блокировка зависит от нескольких факторов. В операциях чтения, выполняемых с уровнем изоляции "Снимок", блокировки не используются. В повторяющихся операциях чтения используются совмещаемые блокировки (по умолчанию). Тем не менее, для любой операции чтения, поддерживающей повторяющееся чтение, вместо совмещаемой блокировки пользователь может запросить блокировку изменений. Блокировка изменений является асимметричной блокировкой, которая используется для предотвращения распространенной формы взаимоблокировки. Взаимоблокировка возникает, когда несколько транзакций блокируют ресурсы для возможного обновления в будущем.
 
-The lock compatibility matrix can be found below:
+Ниже приведена таблица совместимости блокировок.
 
-| Request \ Granted | None         | Shared       | Update      | Exclusive    |
+| Запрос \\ Предоставлено | Без блокировки | Совмещаемая блокировка | Блокировка изменений | Монопольная блокировка |
 | ----------------- | :----------- | :----------- | :---------- | :----------- |
-| Shared            | No conflict  | No conflict  | Conflict    | Conflict     |
-| Update            | No conflict  | No conflict  | Conflict    | Conflict     |
-| Exclusive         | No conflict  | Conflict     | Conflict    | Conflict     |
+| Совмещаемая блокировка | Нет конфликтов | Нет конфликтов | Конфликт | Конфликт |
+| Блокировка изменений | Нет конфликтов | Нет конфликтов | Конфликт | Конфликт |
+| Монопольная блокировка | Нет конфликтов | Конфликт | Конфликт | Конфликт |
 
-Note that a time-out argument in the Reliable Collections APIs is used for deadlock detection.
-For example, two transactions (T1 and T2) are trying to read and update K1.
-It is possible for them to deadlock, because they both end up having the Shared lock.
-In this case, one or both of the operations will time out.
+Обратите внимание, что в API надежных коллекций для обнаружения взаимоблокировок используется аргумент времени ожидания. Например, две транзакции (Т1 и Т2) пытаются считать и изменить К1. Существует вероятность возникновения взаимоблокировки, поскольку в обеих транзакциях используется совмещаемая блокировка. В этом случае время ожидания для одной или обеих операций будет превышено.
 
-Note that the above deadlock scenario is a great example of how an Update lock can prevent deadlocks.
+Описанная выше ситуация с взаимоблокировкой является хорошим примером того, как блокировка изменений может предотвратить возникновение взаимоблокировки.
 
-## <a name="persistence-model"></a>Persistence model
-The Reliable State Manager and Reliable Collections follow a persistence model that is called Log and Checkpoint.
-This is a model where each state change is logged on disk and applied only in memory.
-The complete state itself is persisted only occasionally (a.k.a. Checkpoint).
-The benefit is that deltas are turned into sequential append-only writes on disk for improved performance.
+## Модель сохраняемости
+Диспетчер надежных состояний и надежные коллекции используют модель сохраняемости под названием "Журнал и контрольная точка". В этой модели каждое изменение состояния записывается в журнал на диске и применяется только в памяти. Полное состояние сохраняется только время от времени (создается контрольная точка). Преимущество этого состоит в том, что изменения преобразуются в операции записи на диск, которые добавляют только недостающие данные, что позволяет повысить производительность.
 
-To better understand the Log and Checkpoint model, let’s first look at the infinite disk scenario.
-The Reliable State Manager logs every operation before it is replicated.
-This allows the Reliable Collection to apply only the operation in memory.
-Since logs are persisted, even when the replica fails and needs to be restarted, the Reliable State Manager has enough information in its logs to replay all the operations the replica has lost.
-As the disk is infinite, log records never need to be removed and the Reliable Collection needs to manage only the in-memory state.
+Чтобы лучше понять модель журнала и контрольной точки, давайте сначала рассмотрим гипотетическую ситуацию с диском неограниченного объема. Диспетчер надежных состояний заносит в журнал каждую операцию, прежде чем она реплицируется. Это позволяет надежной коллекции применять операцию только в памяти. Поскольку журналы сохраняются, даже если произошел сбой реплики и ее необходимо перезапустить, диспетчер надежных состояний имеет достаточно сведений в журналах, чтобы воспроизвести все операции, которые потеряла реплика. Так как место на диске бесконечно, записи журналов никогда не удаляются, а надежная коллекция управляет только состоянием в памяти.
 
-Now let’s look at the finite disk scenario.
-As log records accumulate, the Reliable State Manager will run out of disk space.
-Before that happens, the Reliable State Manager needs to truncate its log to make room for the newer records.
-It will request the Reliable Collections to checkpoint their in-memory state to disk.
-It is the Reliable Collections' responsibility to persist its state up to that point.
-Once the Reliable Collections complete their checkpoints, the Reliable State Manager can truncate the log to free up disk space.
-This way, when the replica needs to be restarted, Reliable Collections will recover their checkpointed state, and the Reliable State Manager will recover and play back all the state changes that occurred since the checkpoint.
+Теперь рассмотрим ситуацию, когда место на диске ограничено. Ввиду накопления записей журнала у диспетчера надежных состояний может закончиться доступное дисковое пространство. Но пока это не произошло, диспетчеру нужно удалить из журнала часть записей, чтобы освободить место для новых записей. Он попросит надежные коллекции создать контрольную точку для их состояния в памяти на диске. До этого момента за сохранение состояния надежной коллекции отвечает сама надежная коллекция. Когда надежная коллекция создаст контрольную точку, диспетчер надежных состояний сможет удалить из журнала часть записей и освободить место на диске. Таким образом, когда возникнет необходимость перезапустить реплику, надежные коллекции смогут восстановить свое состояние из контрольной точки, а диспетчер надежных состояний сможет восстановить и воспроизвести все изменения состояния, которые произошли после создания контрольной точки.
 
->[AZURE.NOTE] Another value add of checkpointing is that it improves recovery performance in common cases.
-This is because checkpoints contain only the latest versions.
+>[AZURE.NOTE] Еще одно преимущество создания контрольных точек состоит в том, что в общем случае они повышают производительность восстановления. Это обусловлено тем, что контрольные точки содержат только последние версии.
 
-## <a name="recommendations"></a>Recommendations
+## Рекомендации
 
-- Do not modify an object of custom type returned by read operations (e.g., `TryPeekAsync` or `TryGetValueAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
-- Do deep copy the returned object of a custom type before modifying it. Since structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
-- Do not use `TimeSpan.MaxValue` for time-outs. Time-outs should be used to detect deadlocks.
-- Do not use a transaction after it has been committed, aborted, or disposed.
-- Do not use an enumeration outside of the transaction scope it was created in.
-- Do not create a transaction within another transaction’s `using` statement because it can cause deadlocks.
-- Do ensure that your `IComparable<TKey>` implementation is correct. The system takes dependency on this for merging checkpoints.
-- Do use Update lock when reading an item with an intention to update it to prevent a certain class of deadlocks.
-- Consider using backup and restore functionality to have disaster recovery.
-- Avoid mixing single entity operations and multi-entity operations (e.g `GetCountAsync`, `CreateEnumerableAsync`) in the same transaction due to the different isolation levels.
+- Не изменяйте объекты пользовательского типа, возвращаемые операциями чтения (например, `TryPeekAsync` или `TryGetValueAsync`). Надежные коллекции, как и параллельные коллекции, возвращают ссылку на объект, а не его копию.
+- Обязательно создайте глубокую копию возвращенного объекта пользовательского типа, прежде чем изменять этот объект. Так как структуры и встроенные типы передают параметры по значению, создавать их глубокую копию не нужно.
+- Не используйте `TimeSpan.MaxValue` для времени ожидания. Время ожидания следует использовать для выявления взаимоблокировок.
+- Не используйте транзакцию после того, как она была зафиксирована, прервана или удалена.
+- Не используйте перечисление за пределами области транзакции, в которой оно было создано.
+- Не создавайте транзакцию в операторе `using` другой транзакции, так как это может привести к возникновению взаимоблокировки.
+- Убедитесь, что реализация `IComparable<TKey>` правильна. Система использует соответствующую зависимость для слияния контрольных точек.
+- Используете блокировку изменения при чтении элемента с целью обновить его, чтобы предотвратить взаимоблокировки определенного класса.
+- Возможно, вас заинтересует применение функций архивации и восстановления для аварийного восстановления.
+- Избегайте совместного использования операций с одной сущностью и операций с несколькими сущностями (например, `GetCountAsync`, `CreateEnumerableAsync`) в одной и той же транзакции ввиду различных уровней изоляции.
 
-Here are some things to keep in mind:
+При этом нужно помнить о следующем:
 
-- The default time-out is 4 seconds for all the Reliable Collection APIs. Most users should not override this.
-- The default cancellation token is `CancellationToken.None` in all Reliable Collections APIs.
-- The key type parameter (*TKey*) for a Reliable Dictionary must correctly implement `GetHashCode()` and `Equals()`. Keys must be immutable.
-- To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.
-- Read operations on the secondary may read versions that are not quorum committed.
-This means that a version of data that is read from a single secondary might be false progressed.
-Of course, reads from Primary are always stable: can never be false progressed.
+- Время ожидания по умолчанию составляет 4 секунды для всех API надежных коллекций. Большинству пользователей не следует переопределять это значение.
+- Во всех API надежных коллекций токеном отмены по умолчанию является `CancellationToken.None`.
+- Параметр типа ключа (*TKey*) для надежного словаря должен правильно реализовывать `GetHashCode()` и `Equals()`. Ключи должны быть неизменяемыми.
+- Чтобы обеспечить высокую доступность надежных коллекций, в каждой службе необходимый и минимальный размер набора реплик должен быть равен как минимум 3.
+- Операции чтения в базе данных-получателе могут считывать версии без кворума. Это означает, что версия данных, считываемая из отдельной базы данных-получателя, может быть ложно увеличена. Разумеется, чтение из базы данных-источника всегда стабильно и не может вызывать ложное увеличение номера версии.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
-- [Working with Reliable Collections](service-fabric-work-with-reliable-collections.md)
-- [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
-- [Reliable Services backup and restore (disaster recovery)](service-fabric-reliable-services-backup-restore.md)
-- [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
-- [Getting started with Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md)
-- [Advanced usage of the Reliable Services programming model](service-fabric-reliable-services-advanced-usage.md)
-- [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+- [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
+- [Работа с Reliable Collections](service-fabric-work-with-reliable-collections.md)
+- [Уведомления Reliable Services](service-fabric-reliable-services-notifications.md)
+- [Архивация и восстановление (аварийное восстановление) надежных служб](service-fabric-reliable-services-backup-restore.md)
+- [Конфигурация диспетчера надежных состояний](service-fabric-reliable-services-configuration.md)
+- [Приступая к работе со службами веб-API Service Fabric](service-fabric-reliable-services-communication-webapi.md)
+- [Дополнительные возможности использования модели программирования надежных служб](service-fabric-reliable-services-advanced-usage.md)
+- [Справочник разработчика по надежным коллекциям](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

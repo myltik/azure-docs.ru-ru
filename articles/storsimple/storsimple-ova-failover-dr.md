@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Disaster recovery and device failover for your StorSimple Virtual Array"
-   description="Learn more about how to failover your StorSimple Virtual Array."
+   pageTitle="Аварийное восстановление и отработка отказа устройства для виртуального массива StorSimple"
+   description="Дополнительные сведения об отработке отказа виртуального массива StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,169 +16,163 @@
    ms.date="06/07/2016"
    ms.author="alkohli"/>
 
+# Аварийное восстановление и отработка отказа устройства для виртуального массива StorSimple
 
-# <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array"></a>Disaster recovery and device failover for your StorSimple Virtual Array
 
+## Обзор
 
-## <a name="overview"></a>Overview
+В этой статье описывается аварийное восстановление виртуального массива Microsoft Azure StorSimple (который также называется локальным виртуальным устройством StorSimple) и приведены подробные инструкции по отработке отказа с переносом на другое виртуальное устройство при аварии. Отработка отказа позволяет перенести данные c *исходного* устройства в центре обработки данных на *целевое* устройство, которое находится в том же или другом географическом расположении. Отработка отказа выполняется для всего устройства. При отработке отказа изменяется владелец облачных данных. После переноса они будут принадлежать владельцу целевого устройства.
 
-This article describes the disaster recovery for your Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) including the detailed steps required to fail over to another virtual device in the event of a disaster. A failover allows you to migrate your data from a *source* device in the datacenter to another *target* device located in the same or a different geographical location. The device failover is for the entire device. During failover, the cloud data for the source device changes ownership to that of the target device.
-
-Device failover is orchestrated via the disaster recovery (DR) feature and is initiated from the **Devices** page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type, and model are displayed.
+Управление отработкой отказа устройства осуществляется с помощью функции аварийного восстановления и инициируется на странице **Устройства**. На этой странице показаны все устройства StorSimple, подключенные к службе диспетчера StorSimple. Для каждого устройства отображается понятное имя, состояние, выделенная и максимальная емкость, а также тип и модель.
 
 ![](./media/storsimple-ova-failover-dr/image15.png)
 
-This article is applicable to StorSimple Virtual Arrays only. To fail over an 8000 series device, go to [Failover and Disaster Recovery of your StorSimple device](storsimple-device-failover-disaster-recovery.md).
+Эта статья относится только к виртуальным массивам StorSimple. Чтобы выполнить отработку отказа для устройств серии 8000, см. сведения в статье [Отработка отказа и аварийное восстановление для устройства StorSimple](storsimple-device-failover-disaster-recovery.md).
 
 
-## <a name="what-is-disaster-recovery?"></a>What is disaster recovery?
+## Что такое аварийное восстановление?
 
-In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. This process is referred to as the *failover*. During failover, all the volumes or the shares from the source device change ownership and are transferred to the target device. No filtering of the data is allowed.
+В сценарии аварийного восстановления основное устройство прекращает функционировать. В этой ситуации можно переместить облачные данные, связанные с вышедшим из строя устройством, на другое устройство, используя основное устройство в качестве *источника* и указав другое устройство в качестве *целевого объекта*. Этот процесс называется *отработка отказа*. Во время отработки отказа меняется владелец томов или общих папок с исходного устройства, а сами они перемещаются на целевое устройство. Фильтрация данных запрещена.
 
-DR is modeled as a full device restore using the heat map–based tiering and tracking. A heat map is defined by assigning a heat value to the data based on read and write patterns. This heat map then tiers the lowest heat data chunks to the cloud first while keeping the high heat (most used) data chunks in the local tier. During a DR, the heat map is used to restore and rehydrate the data from the cloud. The device fetches all the volumes/shares in the last recent backup (as determined internally) and performs a restore from that backup. The entire DR process is orchestrated by the device.
-
-
-## <a name="prerequisites-for-device-failover"></a>Prerequisites for device failover
+Аварийное восстановление моделируется как полное восстановление устройства с распределением по уровням и отслеживанием на основе тепловой карты. Тепловая карта определяется путем присвоения данным значения уровня активности на основе шаблонов чтения и записи. Затем эта тепловая карта распределяет блоки данных нижнего уровня активности в облаке, сохраняя блоки данных высокого уровня активности (самые используемые) на локальном уровне. Во время аварийного восстановления тепловая карта используется для восстановления данных из облака и их повторного заполнения. Устройство извлекает все тома или общие папки из последней резервной копии (согласно внутреннему определению) и использует ее для восстановления. Управление всем процессом аварийного восстановления лежит на самом устройстве.
 
 
-### <a name="prerequisites"></a>Prerequisites
+## Предварительные требования для отработки отказа устройства
 
-For any device failover, the following prerequisites should be satisfied:
 
-- The source device needs to be in a **Deactivated** state.
+### Предварительные требования
 
-- The target device needs to show up as **Active** in the Azure classic portal. You will need to provision a target virtual device of the same or higher capacity. You should then use the local web UI to configure and successfully register the virtual device.
+При любой отработке отказа устройства должны быть выполнены следующие предварительные требования:
 
-    > [AZURE.IMPORTANT] Do not attempt to configure the registered virtual device through the service by clicking **complete device setup**. No device configuration should be performed through the service.
+- Исходное устройство должно находиться в состоянии **Отключено**.
 
-- The source and target device have to be the same type. You can only fail over a virtual device configured as a file server to another file server. The same is true for an iSCSI server.
+- На классическом портале Azure для целевого устройства должно отображаться состояние **Активное**. Понадобится подготовить целевое виртуальное устройство такой же или более высокой емкости. Затем следует использовать локальный пользовательский веб-интерфейс для настройки и успешной регистрации виртуального устройства.
 
-- For a file server DR, we recommend that you join the target device to the same domain as that of the source so that the share permissions are automatically resolved. Only the failover to a target device in the same domain is supported in this release.
+	> [AZURE.IMPORTANT] Не пытайтесь настроить зарегистрированное виртуальное устройство в службе, щелкнув **Завершить настройку устройства**. Не следует выполнять конфигурацию устройства в службе.
 
-### <a name="other-considerations"></a>Other considerations
+- Исходное и целевое устройство должны быть одного типа. Отработку отказа виртуального устройства, настроенного в качестве файлового сервера, можно выполнить только с переносом на другой файловый сервер. То же самое касается и сервера iSCSI.
 
-- We recommend that you take all the volumes or shares on the source device offline.
+- При аварийном восстановлении файлового сервера рекомендуется присоединить целевое устройство к тому же домену, на котором находится исходное устройство. Это предотвратит конфликт разрешений общих папок. В этом выпуске поддерживается отработка отказа с переносом только в целевое устройство в том же домене.
 
-- If it is a planned failover, we recommend that you take a backup of the device and then proceed with the failover to minimize data loss. If it is an unplanned failover, the most recent backup will be used to restore the device.
+### Дополнительные рекомендации
 
-- The available target devices for DR are devices that have the same or larger capacity compared to the source device. The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
+- Рекомендуется перевести все тома или общие папки на исходном устройстве в автономный режим.
 
-### <a name="dr-prechecks"></a>DR prechecks
+- При выполнении плановой отработки отказа рекомендуется выполнить резервное копирование устройства и продолжить отработку отказа. Это позволит свести потерю данных к минимуму. При выполнении внеплановой отработки отказа для восстановления устройства будет использована последняя резервная копия.
 
-Before the DR begins, prechecks are performed on the device. These checks help ensure that no errors will occur when DR commences. The prechecks include:
+- Целевыми устройствами, доступными для аварийного восстановления, считаются устройства с такой же емкостью как у исходного устройства или более высокой. подключенные к службе устройства, на которых недостаточно пространства, не будут доступны в качестве целевых устройств.
 
-- Validating the storage account
+### Предварительные проверки при аварийном восстановлении
 
-- Checking the cloud connectivity to Azure
+До начала аварийного восстановления на устройстве выполняются предварительные проверки. Они позволяют предотвратить ошибки после начала аварийного восстановления. Выполняются следующие предварительные проверки:
 
-- Checking available space on the target device
+- проверка учетной записи хранения;
 
-- Checking if an iSCSI server source device has valid ACR names, IQN (not exceeding 220 characters in length), and CHAP password (12 and 16 characters in length) associated with the volumes
+- проверка подключения облака к Azure;
 
-If any of the above prechecks fail, you cannot proceed with the DR. You need to resolve those issues and then retry DR.
+- проверка доступного места на целевом устройстве;
 
-After the DR is successfully completed, the ownership of the cloud data on the source device is transferred to the target device. The source device is then no longer available in the portal. Access to all the volumes/shares on the source device is blocked and the target device becomes active.
+- проверка наличия допустимых имен ACR, IQN (не более 220 символов в длину) и пароля CHAP (12–16 символов в длину), связанных с томами, на исходном устройстве сервера iSCSI.
 
-> [AZURE.IMPORTANT]
-> 
-> Though the device is no longer available, the virtual machine that you provisioned on the host system is still consuming resources. Once the DR is successfully complete, you can delete this virtual machine from your host system.
+Если одна из этих проверок завершится сбоем, продолжить аварийное восстановление нельзя. Необходимо устранить эти проблемы, а затем выполнить аварийное восстановление повторно.
 
-## <a name="fail-over-to-a-virtual-array"></a>Fail over to a virtual array
-
-We recommend that you have another StorSimple Virtual Array provisioned, configured via the local web UI, and registered with the StorSimple Manager service prior to running this procedure.
-
+После успешного завершения аварийного восстановления права владения облачными данными на исходном устройстве переходят к целевому устройству. С этого момента исходное устройство становится недоступным на портале. Доступ ко всем томам и общим папкам на исходном устройстве блокируется, а целевое устройство становится активным.
 
 > [AZURE.IMPORTANT]
 > 
-> - You are not allowed to fail over from a StorSimple 8000 series device to a 1200 virtual device.
-> - You can fail over from a Federal Information Processing Standard (FIPS) enabled virtual device deployed in Government portal to a virtual device in Azure classic portal. The reverse is also true.
+> Хотя устройство больше недоступно, виртуальная машина, подготовленная в главной системе, по-прежнему потребляет ресурсы. После успешного завершения аварийного восстановления ее можно удалить из главной системы.
 
-Perform the following steps to restore the device to a target StorSimple virtual device.
+## Отработка отказа на виртуальный массив
 
-1. Take volumes/shares offline on the host. Refer to the operating system–specific instructions on the host to take the volumes/shares offline. If not already offline, you will need to take all the volumes/shares offline on the device by going to **Devices > Shares** (or **Device > Volumes**). Select a share/volume and click **Take offline** on the bottom of the page. When prompted for confirmation, click **Yes**. Repeat this process for all the shares/volumes on the device.
-
-2. On the **Devices** page, select the source device for failover and click **Deactivate**. 
-    ![](./media/storsimple-ova-failover-dr/image16.png)
-
-3. You will be prompted for confirmation. Device deactivation is a permanent process that cannot be undone. You will also be reminded to take your shares/volumes offline on the host.
-
-    ![](./media/storsimple-ova-failover-dr/image18.png)
-
-3. Upon confirmation, the deactivation will start. After the deactivation is successfully completed, you will be notified.
-
-    ![](./media/storsimple-ova-failover-dr/image19.png)
-
-4. On the **Devices** page, the device state will now change to **Deactivated**.
-
-    ![](./media/storsimple-ova-failover-dr/image20.png)
-
-5. Select the deactivated device and at the bottom of the page, click **Failover**.
-
-6. In the Confirm failover wizard that opens up, do the following:
-
-    1. From the dropdown list of available devices, choose a **Target device.** Only the devices that have sufficient capacity are displayed in the dropdown list.
-
-    2. Review the details associated with the source device such as device name, total capacity, and the names of the shares that will be failed over.
-
-        ![](./media/storsimple-ova-failover-dr/image21.png)
-
-7. Check **I agree that failover is a permanent operation and once the failover is successfully completed, the source device will be deleted**.
-
-8. Click the check icon ![](./media/storsimple-ova-failover-dr/image1.png).
+Перед выполнением этой процедуры рекомендуется подготовить виртуальный массив StorSimple, настроить его с помощью локального пользовательского веб-интерфейса и зарегистрировать в службе диспетчера StorSimple.
 
 
-9. A failover job will be initiated and you will be notified. Click **View job** to monitor the failover.
+> [AZURE.IMPORTANT]
+> 
+> - Запрещено выполнять отработку отказа устройства серии StorSimple 8000 с переносом на виртуальное устройство серии 1200.
+> - Можно выполнить отработку отказа из виртуального устройства с поддержкой FIPS (федеральный стандарт обработки информации), развернутого на портале для государственных организаций, в виртуальное устройство на классическом портале Azure. Или наоборот.
 
-    ![](./media/storsimple-ova-failover-dr/image22.png)
+Вот как можно восстановить устройство на целевом виртуальном устройстве StorSimple.
 
-10. In the **Jobs** page, you will see a failover job created for the source device. This job performs the DR prechecks.
+1. Переведите тома и общие папки на узле в автономный режим. Для этого см. инструкции для конкретной операционной системы на узле. Если все тома и общие папки на устройстве не переведены в автономный режим, сделайте это, выбрав **Устройства > Общие папки** (или **Устройства > Тома**). Выберите общую папку или том и щелкните **Отключить** в нижней части страницы. При появлении запроса на подтверждение, нажмите кнопку **Да**. Повторите эту процедуру для всех общих папок или томов на устройстве.
 
-    ![](./media/storsimple-ova-failover-dr/image23.png)
+2. На странице **Устройства** выберите исходное устройство для отработки отказа и щелкните **Отключить**. ![](./media/storsimple-ova-failover-dr/image16.png)
 
-    After the DR prechecks are successful, the failover job will spawn restore jobs for each share/volume that exists on your source device.
+3. После этого введите подтверждение для применения этих исправлений. Операция отключения необратимая. Кроме того, отобразится напоминание о том, что нужно перевести общие папки или тома на узле в автономный режим.
 
-    ![](./media/storsimple-ova-failover-dr/image24.png)
+	![](./media/storsimple-ova-failover-dr/image18.png)
 
-11. After the failover is completed, go to the **Devices** page.
+3. После подтверждения начнется процесс отключения. После успешного отключения отобразится соответствующее уведомление.
 
-    a. Select the StorSimple virtual device that was used as the target device for the failover process.
+	![](./media/storsimple-ova-failover-dr/image19.png)
 
-    b. Go to **Shares** page (or **Volumes** if iSCSI server). All the shares (volumes) from the old device should now be listed.
-    
-    ![](./media/storsimple-ova-failover-dr/image25.png)
+4. На странице **Устройства** состояние устройства изменится на **Отключено**.
 
-![](./media/storsimple-ova-failover-dr/video_icon.png) **Video available**
+	![](./media/storsimple-ova-failover-dr/image20.png)
 
-This video demonstrates how you can fail over a StorSimple on-premises virtual device to another virtual device.
+5. Выберите отключенное устройство и в нижней части страницы щелкните **Отработка отказа**.
+
+6. В открывшемся мастере подтверждения отработки отказа выполните следующее:
+
+    1. В раскрывающемся списке доступных устройств выберите **Целевое устройство**. В этом списке отображаются только устройства с достаточной емкостью.
+
+    2. Просмотрите сведения, связанные с исходным устройством, такие как имя устройства, общая емкость и имена общих папок, для которых будет выполнена отработка отказа.
+
+		![](./media/storsimple-ova-failover-dr/image21.png)
+
+7. Установите флажок **Мне известно, что отработка отказа — это необратимая операция и после ее успешного выполнения исходное устройство будет удалено**.
+
+8. Щелкните значок галочки ![](./media/storsimple-ova-failover-dr/image1.png).
+
+
+9. Запустится задание отработки отказа и отобразится соответствующее уведомление. Щелкните **Просмотреть задание**, чтобы следить за ходом выполнения отработки отказа.
+
+	![](./media/storsimple-ova-failover-dr/image22.png)
+
+10. На странице **Задания** будет создано задание отработки отказа для исходного устройства. Это задание выполняет предварительные проверки при аварийном восстановлении.
+
+	![](./media/storsimple-ova-failover-dr/image23.png)
+
+ 	После успешного выполнения предварительных проверок при аварийном восстановлении задание отработки отказа запустит задания восстановления для каждой общей папки или каждого тома на исходном устройстве.
+
+	![](./media/storsimple-ova-failover-dr/image24.png)
+
+11. После завершения отработки отказа, перейдите на страницу **Устройства**.
+
+	а. Выберите виртуальное устройство StorSimple, используемое в качестве целевого устройства для отработки отказа.
+
+	b. Перейдите на страницу **Общие папки** (или **Тома** для сервера iSCSI). Теперь должны отображаться все общие папки (тома) старого устройства.
+ 	
+	![](./media/storsimple-ova-failover-dr/image25.png)
+
+![](./media/storsimple-ova-failover-dr/video_icon.png) **Доступно видео**
+
+В этом видео показано, как можно выполнить отработку отказа локального виртуального устройства StorSimple с переносом на другое виртуальное устройство.
 
 > [AZURE.VIDEO storsimple-virtual-array-disaster-recovery]
 
-## <a name="business-continuity-disaster-recovery-(bcdr)"></a>Business continuity disaster recovery (BCDR)
+## Аварийное восстановление непрерывности бизнеса (BCDR)
 
-A business continuity disaster recovery (BCDR) scenario occurs when the entire Azure datacenter stops functioning. This can affect your StorSimple Manager service and the associated StorSimple devices.
+Сценарий аварийного восстановления непрерывности бизнеса (BCDR) реализуется, когда весь центр обработки данных Azure прекращает работу. Это может повлиять на службу диспетчера StorSimple и связанные устройства StorSimple.
 
-If there are StorSimple devices that were registered just before a disaster occurred, then these StorSimple devices may need to be deleted. After the disaster, you can recreate and configure those devices.
+Если есть устройства StorSimple, зарегистрированные непосредственно перед сбоем, возможно, их потребуется удалить. После аварии можно повторно создать и настроить эти устройства.
 
-## <a name="errors-during-dr"></a>Errors during DR
+## Ошибки во время аварийного восстановления
 
-**Cloud connectivity outage during DR**
+**Сбой подключения к облаку во время аварийного восстановления**
 
-If the cloud connectivity is disrupted after DR has started and before the device restore is complete, the DR will fail and you will be notified. The target device that was used for DR is then marked as *unusable.* The same target device cannot be then used for future DRs.
+Если после запуска аварийного восстановления и до завершения восстановления устройства будет прервано подключение к облаку, произойдет сбой и отобразится соответствующее уведомление. После этого целевое устройство, использованное для аварийного восстановления, будет помечено как *Непригодное для использования*. Его нельзя будет использовать для аварийного восстановления в дальнейшем.
 
-**No compatible target devices**
+**Нет совместимых целевых устройств**
 
-If the available target devices do not have sufficient space, you will see an error to the effect that there are no compatible target devices.
+Если на доступных целевых устройствах недостаточно места, появится ошибка, указывающая на отсутствие совместимых целевых устройств.
 
-**Precheck failures**
+**Сбои предварительных проверок**
 
-If one of the prechecks is not satisfied, then you will see precheck failures.
+Если одна из предварительных проверок не выполнена, произойдет сбой предварительной проверки.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
+Узнайте, как осуществлять [администрирование виртуального массива StorSimple, используя локальный пользовательский веб-интерфейс](storsimple-ova-web-ui-admin.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Azure RemoteApp - testing your network bandwidth usage with some common scenarios | Microsoft Azure"
-    description="Learn how about common usage scenarios that can help you figure out your network bandwidth needs for Azure RemoteApp."
-    services="remoteapp"
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+    pageTitle="Azure RemoteApp — тест использования пропускной способности сети в рамках распространенных сценариев | Microsoft Azure"
+	description="Сведения о наиболее распространенных сценариях использования, помогающих выяснить потребности в пропускной способности сети для Azure RemoteApp."
+	services="remoteapp"
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
@@ -15,38 +15,37 @@
     ms.date="08/15/2016" 
     ms.author="elizapo" />
     
-
-# <a name="azure-remoteapp---testing-your-network-bandwidth-usage-with-some-common-scenarios"></a>Azure RemoteApp - testing your network bandwidth usage with some common scenarios
+# Azure RemoteApp — тест использования пропускной способности сети в рамках распространенных сценариев
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
-As we discussed in [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md), the best way to figure out what the impact of Azure RemoteApp to your network is to run some usage tests. Run these tests for a set time period and measure the bandwidth needed for each scenario. If you have the capability, you can also measure the network packet loss and network jitter to understand the network patterns that will be created in your specific environment.
+Как мы уже отмечали в статье [Оценка использования пропускной способности сети Azure RemoteApp](remoteapp-bandwidth.md), лучшим способом определить влияние удаленного приложения Azure RemoteApp на сеть является проведение тестов использования. Выполняйте тесты в течение заданного времени и замерьте пропускную способность, необходимую для каждого сценария. При наличии возможностей можно также измерить потерю сетевых пакетов и дрожание в сети, чтобы понять характерные для вашей среды особенности сети.
 
     
-When evaluating the bandwidth usage, remember that usage varies between different users within your company. For example, text readers and writers usually consume less bandwidth than users that work with video. For best results, study your own user needs and create a mix of the following scenarios that best represents the users in your company. Remember to [review the factors that impact bandwidth usage and user experience](remoteapp-bandwidthexperience.md) - that will help you identify the ideal tests.
+При оценке использования пропускной способности помните, что показатели использования у разных пользователей в организации различаются. Например, сотрудники, занимающиеся вычиткой и набором текста, обычно потребляют меньше пропускной способности, чем специалисты, работающие с видео. Для достижения наилучших результатов изучите потребности пользователей и составьте из описанных ниже сценариев такое сочетание, которое оптимально соответствует пользовательской базе организации. Обязательно [учтите факторы, влияющие на использование пропускной способности и взаимодействие с пользователем](remoteapp-bandwidthexperience.md), так как это поможет подобрать самые подходящие тесты.
 
-First read about the tests, pick your mix, and then run them. You can use the table below to help track performance.
+Изучите описание тестов, выберите необходимые, а затем выполните их. Для отслеживания производительности можно использовать следующую таблицу.
 
->[AZURE.NOTE] If you cannot do your own network testing, or you do not have the time to do so, check out our [basic network bandwidth estimates/recommendations](remoteapp-bandwidthguidelines.md). Your mileage may vary, however, so if you *can* run your own tests, you should.
+>[AZURE.NOTE] Если у вас нет возможностей или времени для собственного тестирования сети, ознакомьтесь с [основными оценками и рекомендациями для пропускной способности сети](remoteapp-bandwidthguidelines.md). Детализация проработки может различаться, однако если вы *можете* провести собственные тесты, это следует сделать.
 
 
-## <a name="the-usage-tests"></a>The usage tests
-Each of these tests run for different amounts of time and test different functions/features that consume network bandwidth. Remember to choose the mix of test that best matches your individual company users.
+## Тесты использования
+Каждый из этих тестов выполняется в течение разного периода времени и проверяет разные функции, потребляющие пропускную способность сети. Обязательно выберите такое сочетание тестов, которое наиболее полно соответствует пользователям в организации.
  
-### <a name="executive/complex-powerpoint---run-for-900-1000-seconds"></a>Executive/complex PowerPoint - Run for 900-1000 seconds
+### Высокоуровневый/сложный PowerPoint — выполнение в течение 900–1000 секунд
 
-A user presents between 45-50 high-fidelity slides by using Microsoft Office PowerPoint in full-screen mode. The slides should contain images, transitions (with animations), and backgrounds with color gradient that are typical for your company. The user should spend at least 20 seconds on each slide.
+Пользователь проводит презентацию из 45–50 высококачественных слайдов с помощью Microsoft Office PowerPoint в полноэкранном режиме. Слайды должны содержать изображения, переходы (с анимацией) и фон с цветовым градиентом, типичные для вашей организации. Пользователь должен потратить на каждый слайд не менее 20 секунд.
     
-This scenario creates bursty traffic, when a slide transitions to the next slide in the presentation.
+В этом сценарии при переходе на следующий слайд презентации возникает скачок трафика.
     
-### <a name="simple-powerpoint---run-for-~620-seconds"></a>Simple PowerPoint - Run for ~620 seconds
+### Простой PowerPoint — выполнение около 620 секунд
 
-A user presents a simple PowerPoint file with approximately 30 slides by using Microsoft Office PowerPoint in full-screen mode. The slides are more text-intensive than in the Executive/complex PowerPoint scenario and have simpler backgrounds and images (black diagrams). 
+Пользователь демонстрирует простой файл PowerPoint примерно из 30 слайдов с помощью Microsoft Office PowerPoint в полноэкранном режиме. Слайды содержат больше текста по сравнению с высокоуровневым/сложным сценарием PowerPoint и имеют упрощенные фоновые рисунки и изображения (черные схемы).
     
-### <a name="internet-explorer---run-for-~250-seconds"></a>Internet Explorer - Run for ~250 seconds
+### Internet Explorer — выполнение около 250 секунд
 
-A user browses the web by using Internet Explorer. The user browses and scrolls through a mix of text, natural images, and some schematic diagrams. The web pages stored on the local disk drive of the Remote Desktop Session Host (RD Session Host) server as an .MHT file. The user scrolls using Page Up, Page Down, Up, and Down keys, with varying intervals for each key/type of scroll:
+Пользователь просматривает веб-страницы в Internet Explorer. Пользователь просматривает и прокручивает сочетание текста, обычных изображений и схем. Веб-страницы хранятся на локальном диске сервера узла сеансов удаленных рабочих столов в виде MHT-файла. Пользователь выполняет прокрутку с помощью клавиш PAGE UP, PAGE DOWN, а также клавиш со стрелками вверх и вниз, нажимая их с разными интервалами:
     
     - Down - 250 keystrokes very 500 ms
     - Page Up - 36 keystrokes every 1000 ms
@@ -54,54 +53,51 @@ A user browses the web by using Internet Explorer. The user browses and scrolls 
     - Page Down - 20 keystrokes every 500 ms
     - Up - 120 keystrokes every 300 ms
     
-### <a name="pdf-document---simple---run-for-~610-seconds"></a>PDF document - simple - Run for ~610 seconds
-A user reads and searches a PDF document in various ways by using Adobe Acrobat Reader. The document should consist of tables, simple graphs, and multiple text fonts. The document is 35-40 pages long. The user scrolls through at two different rates, backwards and forwards, at four different zoom sizes (fit to page, fit to width, 100%, and another of your choosing). The zooming ensures that the text (font) renders in different sizes. Scrolling is down using the Page Up, Page Down, Up, and Down keys, with varying intervals for each scroll.
+### Простой документ PDF — выполнение около 610 секунд
+Пользователь просматривает документ PDF и выполняет поиск по нему различными способами с помощью Adobe Acrobat Reader. Документ должен состоять из таблиц, простых графиков и текста с несколькими разными шрифтами. Он должен содержать 35–40 страниц. Пользователь выполняет прокрутку с двумя разными скоростями в прямом и обратном направлении при четырех различных масштабах (по размеру страницы, по ширине, 100 % и еще один по вашему выбору). Изменение масштаба обеспечивает отображение текста (шрифта) с разными размерами. Прокрутка выполняется вниз с помощью клавиш PAGE UP, PAGE DOWN, а также клавиш со стрелками вверх и вниз, которые нажимаются с разными интервалами.
 
-### <a name="pdf-document---mixed---run-for-~320-seconds"></a>PDF document - mixed - Run for ~320 seconds
-A user reads and searches a PDF document in various ways by using Adobe Acrobat Reader. The document consists of high-quality images (including photographs), tables, simple graphs, and multiple text fonts. The user scrolls through at two different rates, backwards and forwards, at four different zoom sizes (fit to page, fit to width, 100%, and another of your choosing). The zooming ensures that the text (font) renders in different sizes. Scrolling is down using the Page Up, Page Down, Up, and Down keys, with varying intervals for each scroll.
+### Смешанный документ PDF — выполнение около 320 секунд
+Пользователь просматривает документ PDF и выполняет поиск по нему различными способами с помощью Adobe Acrobat Reader. Документ состоит из высококачественных изображений (включая фотографии), таблиц, простых графиков и текста с несколькими разными шрифтами. Пользователь выполняет прокрутку с двумя разными скоростями в прямом и обратном направлении при четырех различных масштабах (по размеру страницы, по ширине, 100 % и еще один по вашему выбору). Изменение масштаба обеспечивает отображение текста (шрифта) с разными размерами. Прокрутка выполняется вниз с помощью клавиш PAGE UP, PAGE DOWN, а также клавиш со стрелками вверх и вниз, которые нажимаются с разными интервалами.
 
-### <a name="flash-video-playback---run-for-~180-seconds"></a>Flash video playback - Run for ~180 seconds
-A user views an Adobe Flash-encoded video embedded in a web page. The web page is stored in the local hard drive of the RD Session Host server. The video is played within Internet Explorer by an embedded player plug-in.
+### Воспроизведение видео в формате Flash — выполнение около 180 секунд
+Пользователь просматривает внедренное в веб-страницу видео в формате Adobe Flash. Веб-страница хранится на локальном жестком диске сервера узла сеансов удаленных рабочих столов. Видео воспроизводится в Internet Explorer с помощью внедренного подключаемого модуля проигрывателя.
 
-This scenario emulates users viewing rich content web pages containing multimedia. Most of the data should bo through VOBR.
+Этот сценарий эмулирует ситуацию, когда пользователи просматривают веб-страницы с форматированным содержимым, содержащие мультимедиа. Основная часть данных должна поступать через VOBR.
 
-### <a name="word-remote-typing---run-for-~1800-seconds"></a>Word remote typing - Run for ~1800 seconds
-A user types a document over an RDP session. Keystrokes are sent from the client side through the RDP session to a document in Microsoft Word running in the remote session. The typing rate is one character every 250 ms (total 7050 characters). 
+### Удаленный ввод в Word — выполнение около 1800 секунд
+Пользователь вводит документ через сеанс удаленного рабочего стола. Нажатия клавиш отправляются со стороны клиента через сеанс RDP в документ Microsoft Word, открытый в удаленном сеансе. Скорость ввода составляет один символ в 250 мс (общее число символов — 7050).
 
-This is one of the most common scenarios for a knowledge worker. This scenario tests the responsiveness of a user typing into a modern work processor. This scenario is sensitive to even small changes in bandwidth usage.
+Это один из наиболее распространенных сценариев для информационного работника. В нем проверяется скорость реагирования на ввод данных пользователем в современном текстовом процессоре. Этот сценарий чувствителен к малейшим изменениям в использовании пропускной способности.
 
-## <a name="tracking-the-test-results"></a>Tracking the test results
+## Отслеживание результатов теста
 
-You can use the following table to evaluate the scenarios in your environment. The data provided below is just for illustration - it may be vastly different from what you observe. 
+Для оценки сценариев в вашей среде можно использовать следующую таблицу. Приведенные ниже данные служат только для справки и могут значительно отличаться от полученных вами показателей.
 
-For simplicity, we assume that all scenarios are tested using the same 1920x1080 pixels screen resolution and TCP transports on a network with latency (delay) below 200 ms and network jitter in the 120 ms+ mark of about 1%.
+Для простоты мы предполагаем, что все сценарии проверяются для одного разрешении экрана (1920x1080 пикселей) и одинаковых транспортов TCP в сети с задержкой менее 200 мс и дрожанием от 120 мс в пределах 1 %.
 
-About the table:
-- **Average experience** contains the network bandwidth where user productivity is not significantly impacted but does not exclude occasional video or audio glitches. The system is able to recover quickly by taking advantage of the dynamic logic. The network bandwidth estimates attempt to guarantee the quality of the user experience.
- - **Noticeable issues (break point)** contains the network bandwidth where users might notice significant issues in their experience, and their productivity is impacted for measurable time periods. At this point the RDP algorithms are struggling and cannot guarantee the user's quality of experience because of insufficient network bandwidth.
- - **Recommended** contains the network bandwidth recommended for good or excellent experience. It is usually one step higher than the value in the corresponding **Average experience** column.
- - **Notes** include observations and comments.
+Пояснения к таблице.
+- Столбец **Среднее качество взаимодействия** содержит пропускную способность, при которой отсутствует заметное снижение производительности труда пользователей, а также нет случайных ошибок при воспроизведении звука и видео. Система может быстро восстановить работу, используя динамическую логику. Такая пропускная способность позволяет гарантировать высокое качество взаимодействия с пользователем.
+ - Столбец **Заметные проблемы (критический момент)** содержит пропускную способность, при которой пользователи могут заметить серьезные нарушения при взаимодействии, а также наблюдаются периоды снижения производительности их труда. В таких условиях алгоритмы RDP перегружены и не гарантируют качество взаимодействия с пользователем из-за недостаточной пропускной способности.
+ - Столбец **Рекомендуемая пропускная способность** содержит значение, рекомендуемое для хорошего или отличного взаимодействия. Обычно оно в разы выше соответствующего значения в столбце **Среднее качество взаимодействия**.
+ - Столбец **Заметки** содержит наблюдения и комментарии.
  
-| Test                  | Average experience | Noticeable issues (break point) | Recommended network bandwidth | Notes                                                              |
+| Тест | Среднее качество взаимодействия | Заметные проблемы (критический момент) | Рекомендуемая пропускная способность | Примечания |
 |-----------------------|--------------------|---------------------------------|-------------------------------|--------------------------------------------------------------------|
-| Executive/complex PPT | 10 MB/s             | 1 MB/s                           | >10 MB/s, 100 MB/s preferred    | At 1 MB/s many animations are lost                                   |
-| Simple PPT            | 5 MB/s              | 256 KB/s                         | 10 MB/s                        | At 256 KB/s the slides load with noticeable delay                   |
-| Internet Explorer     | 10 MB/s             | 1 MB/s                           | >10 MB/s, 100 MB/s preferred    | At 1 MB/s web videos are blurry and choppy, fast scrolling has issues |
-| Simple PDF            | 1 MB/s              | 256 KB/s                         | 5 MB/s                         | At 256 KB/s it takes a while to load the page                       |
-| Mixed PDF             | 1 MB/s             | 256 KB/s                         | 5 MB/s                         | At 256 KB/s the page takes a considerable amount of time to load    |
-| Flash video playback  | 10 MB/s             | 1 MB/s                           | >10 MB/s, 100 MB/s preferred    | At 1 MB/s the video is grainy and some frames are dropped           |
-| Word remote typing    | 256 KB/s            | 128 KB/s                         | 1 MB/s                         | At 256 KB/s user may notice the time between keystrokes             |
+| Высокоуровневые/сложные PPT | 10 МБ/с | 1 МБ/с | Более 10 МБ/с, желательно 100 МБ/с | При 1 МБ/с теряются многие анимации |
+| Простые PPT | 5 МБ/с | 256 КБ/с | 10 МБ/с | При 256 КБ/с слайды загружаются с заметной задержкой |
+| Internet Explorer | 10 МБ/с | 1 МБ/с | Более 10 МБ/с, желательно 100 МБ/с | При 1 МБ/с веб-видео отображается рывками и размыто, а быстрая прокрутка затруднена |
+| Простые PDF | 1 МБ/с | 256 КБ/с | 5 МБ/с | При 256 КБ/с страница загружается довольно долго |
+| Смешанные PDF | 1 МБ/с | 256 КБ/с | 5 МБ/с | При 256 КБ/с страница загружается очень долго |
+| Воспроизведение видео в формате Flash | 10 МБ/с | 1 МБ/с | Более 10 МБ/с, желательно 100 МБ/с | При 1 МБ/с видео имеет повышенную зернистость и пропущенные кадры |
+| Удаленный ввод в Word | 256 КБ/с | 128 КБ/с | 1 МБ/с | При 256 КБ/с пользователь может замечать задержки между нажатиями клавиш |
 
-To evaluate the network bandwidth per user, create a mix of the above scenarios and the corresponding proportion of required network bandwidth. Pick the highest number needed for your scenarios. Since users almost never use the system alone, consider some reserve for users that work simultaneously on the same network.
+Чтобы оценить пропускную способность сети на пользователя, составьте сочетание из описанных выше сценариев и подходящих пропорций пропускной способности. Выберите наибольшие показатели для сценариев. Поскольку пользователи практически никогда не используют систему единолично, оставьте резерв для пользователей, которые одновременно работают в той же сети.
      
-## <a name="learn-more"></a>Learn more
-- [Estimate Azure RemoteApp network bandwidth usage](remoteapp-bandwidth.md)
+## Подробнее
+- [Оценка использования пропускной способности сети Azure RemoteApp](remoteapp-bandwidth.md)
 
-- [Azure RemoteApp - how do network bandwidth and quality of experience work together?](remoteapp-bandwidthexperience.md)
+- [Azure RemoteApp — как пропускная способность сети и качество взаимодействия связаны друг с другом?](remoteapp-bandwidthexperience.md)
 
-- [Azure RemoteApp network bandwidth - general guidelines (if you can't test your own)](remoteapp-bandwidthguidelines.md)
+- [Пропускная способность сети Azure RemoteApp — общие рекомендации (если невозможно провести свои тесты)](remoteapp-bandwidthguidelines.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

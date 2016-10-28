@@ -1,230 +1,225 @@
 
 <properties
-    pageTitle="Manage Resource Manager-deployed virtual machine backups | Microsoft Azure"
-    description="Learn how to manage and monitor Resource Manager-deployed virtual machine backups"
-    services="backup"
-    documentationCenter=""
-    authors="trinadhk"
-    manager="shreeshd"
-    editor=""/>
+	pageTitle="Управление резервным копированием виртуальных машин, развернутых с помощью Resource Manager | Microsoft Azure"
+	description="Узнайте, как управлять резервными копиями виртуальных машин, развернутых с помощью Resource Manager, и осуществлять их мониторинг"
+	services="backup"
+	documentationCenter=""
+	authors="trinadhk"
+	manager="shreeshd"
+	editor=""/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/11/2016"
-    ms.author="jimpark; markgal; trinadhk"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2016"
+	ms.author="jimpark; markgal; trinadhk"/>
 
-
-# <a name="manage-azure-virtual-machine-backups"></a>Manage Azure virtual machine backups
+# Управление резервным копированием виртуальных машин Azure
 
 > [AZURE.SELECTOR]
-- [Manage Azure VM backups](backup-azure-manage-vms.md)
-- [Manage Classic VM backups](backup-azure-manage-vms-classic.md)
+- [Управление архивацией виртуальных машин Azure](backup-azure-manage-vms.md)
+- [Управление архивацией классических виртуальных машин](backup-azure-manage-vms-classic.md)
 
-This article provides guidance on managing VM backups, and explains the backup alerts information available in the portal dashboard. The guidance in this article applies to using VMs with Recovery Services vaults. This article does not cover the creation of virtual machines, nor does it explain how to protect virtual machines. For a primer on protecting Azure Resource Manager-deployed VMs in Azure with a Recovery Services vault, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
+Эта статья содержит рекомендации по управлению резервным копированием виртуальных машин. Также здесь рассматриваются оповещения, связанные с резервным копированием данных, которые доступны на панели мониторинга портала. Приведенные здесь рекомендации применимы только к виртуальным машинам, для которых используются хранилища служб восстановления. В этой статье не рассматриваются вопросы создания и защиты виртуальных машин. Сведения о защите виртуальных машин в Azure, развернутых с помощью Azure Resource Manager, с использованием хранилища служб восстановления см. в статье [Общие сведения о резервном копировании виртуальных машин ARM в хранилище служб восстановления](backup-azure-vms-first-look-arm.md).
 
-## <a name="manage-vaults-and-protected-virtual-machines"></a>Manage vaults and protected virtual machines
+## Управление хранилищами и защищенными виртуальными машинами
 
-In the Azure portal, the Recovery Services vault dashboard provides access to information about the vault including:
+На панели мониторинга хранилища служб восстановления на портале Azure предоставляются следующие сведения:
 
-- the most recent backup snapshot, which is also the latest restore point <br\>
-- the backup policy <br\>
-- total size of all backup snapshots <br\>
-- number of virtual machines that are protected with the vault <br\>
+- сведения о последнем моментальном снимке резервной копии, который также является последней точкой восстановления; <br>
+- политика архивации; <br>
+- общий размер всех моментальных снимков резервной копии; <br>
+- количество виртуальных машин, защищенных с помощью хранилища. <br>
 
-Many management tasks with a virtual machine backup begin with opening the vault in the dashboard. However, because vaults can be used to protect multiple items (or multiple VMs), to view details about a particular VM, open the vault item dashboard. The following procedure shows you how to open the *vault dashboard* and then continue to the *vault item dashboard*. There are "tips" in both procedures that point out how to add the vault and vault item to the Azure dashboard by using the Pin to dashboard command. Pin to dashboard is a way of creating a shortcut to the vault or item. You can also execute common commands from the shortcut.
+Чтобы управлять резервным копированием виртуальной машины, в большинстве случаев нужно открыть хранилище на панели мониторинга. Так как хранилища можно использовать для защиты нескольких элементов (или нескольких виртуальных машин), для просмотра сведений о конкретной виртуальной машине следует открыть панель мониторинга для этого элемента хранилища. Ниже приведены сведения о том, как открыть *панель мониторинга хранилища* и перейти к *панели мониторинга элемента хранилища*, а также советы по добавлению хранилища и элемента хранилища на панель мониторинга Azure с помощью команды "Закрепить на панели мониторинга". В результате выполнения этой команды создается ярлык для хранилища или элемента. Затем ярлык можно использовать для выполнения общих команд.
 
->[AZURE.TIP] If you have multiple dashboards and blades open, use the dark-blue slider at the bottom of the window to slide the Azure dashboard back and forth.
+>[AZURE.TIP] Если открыто несколько панелей мониторинга или колонок, для переключения панелей мониторинга Azure можно использовать темно-синий ползунок в нижней части окна.
 
-![Full view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
+![Полное представление с ползунком](./media/backup-azure-manage-vms/bottom-slider.png)
 
-### <a name="open-a-recovery-services-vault-in-the-dashboard:"></a>Open a Recovery Services vault in the dashboard:
+### Открытие хранилища службы восстановления на панели мониторинга
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Выполните вход на [портал Azure](https://portal.azure.com/).
 
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**.
+2. В главном меню щелкните **Обзор**, а затем в списке ресурсов введите **Службы восстановления**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Щелкните **Хранилище служб восстановления**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![Создание хранилища служб восстановления — шаг 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults are displayed.
+    После этого отобразится список хранилищ служб восстановления.
 
-    ![List of Recovery Services vaults ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![Список хранилищ служб восстановления](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
 
-    >[AZURE.TIP] If you pin a vault to the Azure Dashboard, that vault is immediately accessible when you open the Azure portal. To pin a vault to the dashboard, in the vault list, right-click the vault, and select **Pin to dashboard**.
+    >[AZURE.TIP] Если закрепить хранилище на панели мониторинга Azure, доступ к нему можно получить непосредственно при открытии портала Azure. Чтобы закрепить хранилище на панели мониторинга, в списке хранилищ щелкните правой кнопкой мыши необходимое хранилище и выберите команду **Закрепить на панели мониторинга**.
 
-3. From the list of vaults, select the vault to open its dashboard. When you select the vault, the vault dashboard and the **Settings** blade open. In the following image, the **Contoso-vault** dashboard is highlighted.
+3. В списке выберите хранилище, чтобы открыть соответствующую панель мониторинга. Когда вы выберете хранилище, для него откроется панель мониторинга и колонка **Параметры**. На следующем рисунке панель мониторинга хранилища **Contoso-vault** выделена красным цветом.
 
-    ![Open vault dashboard and Settings blade](./media/backup-azure-manage-vms/full-view-rs-vault.png)
+    ![Открытые панели мониторинга хранилища и колонки "Параметры"](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-### <a name="open-a-vault-item-dashboard"></a>Open a vault item dashboard
+### Открытие панели мониторинга элемента хранилища
 
-In the previous procedure you opened the vault dashboard. To open the vault item dashboard:
+При выполнении предыдущей процедуры вы открыли панель мониторинга хранилища. Чтобы открыть панель мониторинга элемента хранилища, сделайте следующее:
 
-1. In the vault dashboard, on the **Backup Items** tile, click **Azure Virtual Machines**.
+1. На панели мониторинга хранилища на плитке **Архивируемые элементы** щелкните **Виртуальные машины Azure**.
 
-    ![Open backup items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
+    ![Открытие элемента "Архивируемые элементы"](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-    The **Backup Items** blade lists the last backup job for each item. In this example, there is one virtual machine, demovm-markgal, protected by this vault.  
+    В колонке **Архивируемые элементы** отображаются последние выполненные задания резервного копирования для каждого элемента. В этом примере приведена одна виртуальная машина (demovm-markgal), защищенная с помощью этого хранилища.
 
-    ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade.png)
+    ![Элемент "Архивируемые элементы"](./media/backup-azure-manage-vms/backup-items-blade.png)
 
-    >[AZURE.TIP] For ease of access, you can pin a vault item to the Azure Dashboard. To pin a vault item, in the vault item list, right-click the item and select **Pin to dashboard**.
+    >[AZURE.TIP] Для более удобного доступа элемент хранилища можно закрепить на панели мониторинга Azure. Для этого в списке элементов хранилища щелкните правой кнопкой мыши необходимый элемент и выберите команду **Закрепить на панели мониторинга**.
 
-2. In the **Backup Items** blade, click the item to open the vault item dashboard.
+2. В колонке **Архивируемые элементы** щелкните элемент, для которого необходимо открыть панель мониторинга.
 
-    ![Backup items tile](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
+    ![Элемент "Архивируемые элементы"](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-    The vault item dashboard and its **Settings** blade open.
+    Откроется панель мониторинга для элемента хранилища и соответствующая колонка **Параметры**.
 
-    ![Backup items dashboard with Settings blade](./media/backup-azure-manage-vms/item-dashboard-settings.png)
+    ![Панель мониторинга архивируемого элемента с колонкой "Параметры"](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    From the vault item dashboard, you can accomplish many key management tasks, such as:
+    На панели мониторинга элемента хранилища можно выполнять следующие основные задачи по управлению:
 
-    - change policies or create a new backup policy<br\>
-    - view restore points, and see their consistency state <br\>
-    - on-demand backup of a virtual machine <br\>
-    - stop protecting virtual machines <br\>
-    - resume protection of a virtual machine <br\>
-    - delete a backup data (or recovery point) <br\>
-    - [restore a backup (or recovery point)](./backup-azure-arm-restore-vms.md#restore-a-recovery-point)  <br\>
+    - изменять и создавать политики архивации; <br>
+	- просматривать точки восстановления и их состояние согласованности; <br>
+	- запускать резервное копирование виртуальной машины по запросу;<br>
+	- отключать защиту виртуальных машин; <br>
+	- возобновлять защиту виртуальных машин; <br>
+	- удалять данные резервного копирования (или точки восстановления); <br>
+	- [восстанавливать резервные копии (или точки восстановления)](./backup-azure-arm-restore-vms.md#restore-a-recovery-point). <br>
 
-For the following procedures, the starting point is the vault item dashboard.
+Приведенные ниже процедуры выполняются на панели мониторинга элемента хранилища.
 
-## <a name="manage-backup-policies"></a>Manage backup policies
+## Управление политиками резервного копирования
 
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **All Settings** to open the **Settings** blade.
+1. На [панели мониторинга элемента хранилища](backup-azure-manage-vms.md#open-a-vault-item-dashboard) щелкните **Все параметры**, чтобы открыть колонку **Параметры**.
 
-    ![Backup policy blade](./media/backup-azure-manage-vms/all-settings-button.png)
+    ![Колонка "Политика архивации"](./media/backup-azure-manage-vms/all-settings-button.png)
 
-2. On the **Settings** blade, click **Backup policy** to open that blade.
+2. В колонке **Параметры** щелкните **Политика архивации**, чтобы открыть соответствующую колонку.
 
-    On the blade, the backup frequency and retention range details are shown.
+    В ней отображаются сведения о частоте резервного копирования и диапазоне хранения.
 
-    ![Backup policy blade](./media/backup-azure-manage-vms/backup-policy-blade.png)
+    ![Колонка "Политика архивации"](./media/backup-azure-manage-vms/backup-policy-blade.png)
 
-3. From the **Choose backup policy** menu:
-    - To change policies, select a different policy and click **Save**. The new policy is immediately applied to the vault. <br\>
-    - To create a policy, select **Create New**.
+3. Используйте меню **Выбор политики архивации**, чтобы выполнить следующие действия.
+    - Чтобы изменить политику, выберите необходимую политику и нажмите кнопку **Сохранить**. Новая политика будет немедленно применена к хранилищу. <br>
+    - Чтобы создать политику, щелкните **Создать**.
 
-    ![Virtual machine backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
+    ![Резервное копирование виртуальной машины](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-    For instructions on creating a backup policy, see [Defining a backup policy](backup-azure-manage-vms.md#defining-a-backup-policy).
+    Указания по созданию политики архивации см. в разделе [Определение политики архивации](backup-azure-manage-vms.md#defining-a-backup-policy).
 
 [AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 
-## <a name="on-demand-backup-of-a-virtual-machine"></a>On-demand backup of a virtual machine
-You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending, on-demand backup creates a full copy of the virtual machine in the Recovery Services vault. If the initial backup is completed, an on-demand backup will only send changes from the previous snapshot, to the Recovery Services vault. That is, subsequent backups are always incremental.
+## Резервное копирование виртуальной машины по запросу
+Резервное копирование виртуальной машины по запросу можно выполнять, когда для нее настроена защита. Если начальное резервное копирование находится в состоянии ожидания, процесс резервного копирования по запросу создает полную копию виртуальной машины в хранилище служб восстановления. Если начальное резервное копирование уже завершено, процесс резервного копирования по запросу отправит в хранилище служб восстановления только те изменения, которые произошли со времени создания предыдущего моментального снимка. Таким образом, все последующие резервные копии являются добавочными.
 
->[AZURE.NOTE] The retention range for an on-demand backup is the retention value specified for the Daily backup point in the policy. If no Daily backup point is selected, then the weekly backup point is used.
+>[AZURE.NOTE] Для диапазона хранения резервных копий по запросу используется значение ежедневного сохранения, указанное в политике. Если значение ежедневного сохранения не выбрано, используется значение еженедельного сохранения.
 
-To trigger an on-demand backup of a virtual machine:
+Чтобы выполнить резервное копирование виртуальной машины по запросу, сделайте следующее:
 
-- On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Backup now**.
+- На [панели мониторинга элемента хранилища](backup-azure-manage-vms.md#open-a-vault-item-dashboard) щелкните **Создать резервную копию**.
 
-    ![Backup now button](./media/backup-azure-manage-vms/backup-now-button.png)
+    ![Кнопка "Создать резервную копию"](./media/backup-azure-manage-vms/backup-now-button.png)
 
-    The portal makes sure that you want to start an on-demand backup job. Click **Yes** to start the backup job.
+    После этого откроется окно с запросом на подтверждение выполнения этой операции. Чтобы запустить задание резервного копирования, нажмите кнопку **Да**.
 
-    ![Backup now button](./media/backup-azure-manage-vms/backup-now-check.png)
+    ![Кнопка "Создать резервную копию"](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    The backup job creates a recovery point. The retention range of the recovery point is the same as retention range specified in the policy associated with the virtual machine. To track the progress for the job, in the vault dashboard, click the **Backup Jobs** tile.  
-
-
-## <a name="stop-protecting-virtual-machines"></a>Stop protecting virtual machines
-If you choose to stop protecting a virtual machine, you are asked if you want to retain the recovery points. There are two ways to stop protecting virtual machines:
-- stop all future backup jobs and delete all recovery points, or
-- stop all future backup jobs but leave the recovery points <br/>
-
-There is a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the virtual machine later, if desired. For information about the cost of leaving the recovery points, see the  [pricing details](https://azure.microsoft.com/pricing/details/backup/). If you choose to delete all recovery points, you cannot restore the virtual machine.
-
-To stop protection for a virtual machine:
-
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Stop backup**.
-
-    ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button.png)
-
-    The Stop Backup blade opens.
-
-    ![Stop backup blade](./media/backup-azure-manage-vms/stop-backup-blade.png)
-
-2. On the **Stop Backup** blade, choose whether to retain or delete the backup data. The information box provides details about your choice.
-
-    ![Stop protection](./media/backup-azure-manage-vms/retain-or-delete-option.png)
-
-3. If you chose to retain the backup data, skip to step 4. If you chose to delete backup data, confirm that you want to stop the backup jobs and delete the recovery points - type the name of the item.
-
-    ![Stop verification](./media/backup-azure-manage-vms/item-verification-box.png)
-
-    If you aren't sure of the item name, hover over the exclamation mark to view the name. Also, the name of the item is under **Stop Backup** at the top of the blade.
-
-4. Optionally provide a **Reason** or **Comment**.
-
-5. To stop the backup job for the current item, click  ![Stop backup button](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
-
-    A notification message lets you know the backup jobs have been stopped.
-
-    ![Confirm stop protection](./media/backup-azure-manage-vms/stop-message.png)
+    Задание резервного копирования создает точку восстановления. Период хранения созданной точки восстановления указан в политике, связанной с этой виртуальной машиной. Чтобы отслеживать выполнение задания, на панели мониторинга хранилища щелкните плитку **Задания архивации**.
 
 
-## <a name="resume-protection-of-a-virtual-machine"></a>Resume protection of a virtual machine
-If the **Retain Backup Data** option was chosen when protection for the virtual machine was stopped, then it is possible to resume protection. If the **Delete Backup Data** option was chosen, then protection for the virtual machine cannot resume.
+## Отключение защиты виртуальных машин
+При остановке защиты виртуальной машины появится запрос на сохранение точек восстановления. Есть два способа остановить защиту виртуальных машин:
+- остановить все будущие операции резервного копирования и удалить все точки восстановления;
+- остановить все будущие операции резервного копирования, но сохранить точки восстановления <br/>.
 
-To resume protection for the virtual machine
+Сохранение точек восстановления в хранилище сопровождается определенными затратами. Однако позже с помощью этих точек при необходимости можно восстановить виртуальную машину. Дополнительные сведения о тарифах на хранение точек восстановления см. в [описании цен](https://azure.microsoft.com/pricing/details/backup/). Если вы удалите все точки восстановления, вы не сможете восстановить виртуальную машину.
 
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Resume backup**.
+Чтобы остановить защиту виртуальной машины, сделайте следующее:
 
-    ![Resume protection](./media/backup-azure-manage-vms/resume-backup-button.png)
+1. На [панели мониторинга элемента хранилища](backup-azure-manage-vms.md#open-a-vault-item-dashboard) щелкните **Остановить резервное копирование**.
 
-    The Backup Policy blade opens.
+    ![Кнопка "Прекратить резервное копирование"](./media/backup-azure-manage-vms/stop-backup-button.png)
 
-    >[AZURE.NOTE] When re-protecting the virtual machine, you can choose a different policy than the policy with which virtual machine was protected initially.
+    Откроется колонка "Прекратить резервное копирование".
 
-2. Follow the steps in [Change policies or Create a new backup policy](backup-azure-manage-vms.md#change-policies-or-create-a-new-backup-policy), to assign the policy for the virtual machine.
+    ![Колонка "Прекратить резервное копирование"](./media/backup-azure-manage-vms/stop-backup-blade.png)
 
-    Once the backup policy is applied to the virtual machine, you see the following message.
+2. В колонке **Остановка резервного копирования** укажите, будут ли данные резервного копирования сохранены или удалены. В поле сведений содержится информация о вариантах выбора и возможных последствиях.
 
-    ![Successfully protected VM](./media/backup-azure-manage-vms/success-message.png)
+    ![Остановить защиту](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
-## <a name="delete-backup-data"></a>Delete Backup data
-You can delete the backup data associated with a virtual machine during the **Stop backup** job, or anytime after the backup job has completed. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you cannot choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
+3. Если вы решили сохранить данные резервного копирования, перейдите к шагу 4. При удалении данных резервного копирования подтвердите остановку заданий резервного копирования и удалите точки восстановления (введите имя элемента).
 
-The following procedure assumes the Backup job for the virtual machine has been stopped or disabled. Once the Backup job is disabled, the **Resume backup** and **Delete backup** options are available in the vault item dashboard.
+    ![Остановить проверку](./media/backup-azure-manage-vms/item-verification-box.png)
 
-![Resume and delete buttons](./media/backup-azure-manage-vms/resume-delete-buttons.png)
+    Если вы не помните имя элемента, чтобы просмотреть его, наведите указатель мыши на восклицательный знак. Имя элемента также отображается в верхней части колонки **Остановка резервного копирования**.
 
-To delete backup data on a virtual machine with the *Backup disabled*:
+4. При желании можно указать **причину** или добавить **комментарий**.
 
-1. On the [vault item dashboard](backup-azure-manage-vms.md#open-a-vault-item-dashboard), click **Delete backup**.
+5. Чтобы остановить задание резервного копирования для текущего элемента, нажмите кнопку ![Кнопка "Прекратить резервное копирование"](./media/backup-azure-manage-vms/stop-backup-button-blue.png).
 
-    ![VM Type](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+    После остановки отобразится сообщение с соответствующим уведомлением.
 
-    The **Delete Backup Data** blade opens.
-
-    ![VM Type](./media/backup-azure-manage-vms/delete-backup-blade.png)
-
-2. Type the name of the item to confirm you want to delete the recovery points.
-
-    ![Stop verification](./media/backup-azure-manage-vms/item-verification-box.png)
-
-    If you aren't sure of the item name, hover over the exclamation mark to view the name. Also, the name of the item is under **Delete Backup Data** at the top of the blade.
-
-3. Optionally provide a **Reason** or **Comment**.
-
-4. To delete the backup data for the current item, click  ![Stop backup button](./media/backup-azure-manage-vms/delete-button.png)
-
-    A notification message lets you know the backup data has been deleted.
+    ![Подтверждение остановки защиты](./media/backup-azure-manage-vms/stop-message.png)
 
 
-## <a name="next-steps"></a>Next steps
+## Возобновление защиты виртуальной машины
+Если при остановке защиты **данные резервного копирования были сохранены**, их можно использовать для возобновления защиты виртуальной машины. Если **данные резервного копирования были удалены**, защиту виртуальной машины восстановить невозможно.
 
-For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). For information on monitoring events, see [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md).
+Чтобы восстановить защиту виртуальной машины, сделайте следующее:
+
+1. На [панели мониторинга элемента хранилища](backup-azure-manage-vms.md#open-a-vault-item-dashboard) щелкните **Возобновить резервное копирование**.
+
+    ![Возобновить защиту](./media/backup-azure-manage-vms/resume-backup-button.png)
+
+    После этого откроется колонка "Политика архивации".
+
+    >[AZURE.NOTE] При повторной защите виртуальной машины можно выбрать другую политику, отличную от политики, с помощью которой виртуальная машина была защищена изначально.
+
+2. Чтобы назначить политику для виртуальной машины, следуйте инструкциям в разделе [Изменение или создание политики архивации](backup-azure-manage-vms.md#change-policies-or-create-a-new-backup-policy).
+
+    После применения политики к виртуальной машине вы увидите следующее сообщение:
+
+    ![Защищенные виртуальные машины](./media/backup-azure-manage-vms/success-message.png)
+
+## Удаление данных резервных копий
+Данные резервного копирования, связанные с виртуальной машиной, можно удалить при **остановке резервного копирования** или в любое время после завершения этой операции. Возможно, стоит подождать несколько дней или недель, прежде чем удалять точки восстановления. В отличие от восстановления точек восстановления при удалении данных резервного копирования нельзя выбрать определенные точки для удаления. При удалении данных резервного копирования удаляются все точки восстановления, связанные с этим элементом.
+
+В следующей процедуре подразумевается, что задание резервного копирования для виртуальной машины остановлено или отключено. Только после остановки этого задания на панели мониторинга элемента хранилища станут доступными параметры **Возобновить резервное копирование** и **Delete backup** (Удалить резервную копию).
+
+![Кнопки возобновления и удаления](./media/backup-azure-manage-vms/resume-delete-buttons.png)
+
+Чтобы удалить данные резервного копирования на виртуальной машине с *отключенным заданием резервного копирования*, сделайте следующее.
+
+1. На [панели мониторинга элемента хранилища](backup-azure-manage-vms.md#open-a-vault-item-dashboard) щелкните **Delete backup** (Удалить резервную копию).
+
+    ![Тип виртуальной машины](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+    Откроется колонка **Удаление данных архивации**.
+
+    ![Тип виртуальной машины](./media/backup-azure-manage-vms/delete-backup-blade.png)
+
+2. Чтобы подтвердить удаление точек восстановления, введите имя элемента.
+
+    ![Остановить проверку](./media/backup-azure-manage-vms/item-verification-box.png)
+
+    Если вы не помните имя элемента, чтобы просмотреть его, наведите указатель мыши на восклицательный знак. Имя элемента также отображается в верхней части колонки **Удаление данных архивации**.
+
+3. При желании можно указать **причину** или добавить **комментарий**.
+
+4. Чтобы удалить данные резервных копий для текущего элемента, нажмите кнопку ![Кнопка "Прекратить резервное копирование"](./media/backup-azure-manage-vms/delete-button.png).
+
+    После удаления отобразится сообщение с соответствующим уведомлением.
 
 
+## Дальнейшие действия
 
-<!--HONumber=Oct16_HO2-->
+Сведения о восстановлении виртуальных машин из точки восстановления см. в статье [Восстановление виртуальных машин в Azure](backup-azure-restore-vms.md). Сведения о защите виртуальных машин см. в статье [Первое знакомство. Защита виртуальных машин Azure в хранилище служб восстановления](backup-azure-vms-first-look-arm.md). Сведения о мониторинге событий см. в статье, посвященной [отслеживанию оповещений во время резервного копирования виртуальных машин Azure](backup-azure-monitor-vms.md).
 
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Specifying Service Fabric service endpoints | Microsoft Azure"
-   description="How to describe endpoint resources in a service manifest, including how to set up HTTPS endpoints"
+   pageTitle="Настройка конечных точек службы Service Fabric | Microsoft Azure"
+   description="В этой статье поясняется, как описать ресурсы конечной точки в манифесте служб, включая настройку конечных точек HTTPS."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -16,16 +16,15 @@
    ms.date="09/14/2016"
    ms.author="subramar"/>
 
+# Указание ресурсов в манифесте службы
 
-# <a name="specify-resources-in-a-service-manifest"></a>Specify resources in a service manifest
+## Обзор
 
-## <a name="overview"></a>Overview
+Манифест служб позволяет объявлять и изменять ресурсы, используемые в службе, не меняя скомпилированный код. Azure Service Fabric поддерживает настройку ресурсов конечных точек для службы. Доступ к ресурсам, указанным в манифесте служб, можно контролировать в манифесте приложения с помощью элемента SecurityGroup. Объявление ресурсов позволяет изменять их при развертывании, т. е. службе не нужно внедрять новый механизм настройки. Определение схемы для файла ServiceManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
 
-The service manifest allows resources that are used by the service to be declared/changed without changing the compiled code. Azure Service Fabric supports configuration of endpoint resources for the service. The access to the resources that are specified in the service manifest can be controlled via the SecurityGroup in the application manifest. The declaration of resources allows these resources to be changed at deployment time, meaning the service doesn't need to introduce a new configuration mechanism. The schema definition for the ServiceManifest.xml file is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+## Endpoints
 
-## <a name="endpoints"></a>Endpoints
-
-When an endpoint resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. For example, look at the endpoint *ServiceEndpoint1* specified in the manifest snippet provided after this paragraph. Additionally, services can also request a specific port in a resource. Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of a service running on the same node share the port. The service replicas can then use these ports as needed for replication and listening for client requests.
+Если ресурс конечной точки определен в манифесте службы, Service Fabric назначает порты из диапазона зарезервированных портов приложений, если порт не указан явным образом. Например, рассмотрим конечную точку *ServiceEndpoint1*, которая указана во фрагменте кода манифеста, приведенном после абзаца. Кроме того, службы также могут запрашивать наличие в ресурсе конкретного порта. Репликам службы, которые выполняются на различных узлах кластера, можно назначить разные номера портов, а реплики службы, выполняющиеся на одном и том же узле, будут совместно используют один порт. Реплики службы при необходимости могут использовать эти порты для репликации и прослушивания клиентских запросов.
 
 ```xml
 <Resources>
@@ -37,13 +36,13 @@ When an endpoint resource is defined in the service manifest, Service Fabric ass
 </Resources>
 ```
 
-Refer to [Configuring stateful Reliable Services](service-fabric-reliable-services-configuration.md) to read more about referencing endpoints from the config package settings file (settings.xml).
+Дополнительные сведения о создании ссылок на конечные точки из файла параметров пакета конфигурации (settings.xml) см. в статье [Настройка надежных служб с отслеживанием состояния](service-fabric-reliable-services-configuration.md).
 
-## <a name="example:-specifying-an-http-endpoint-for-your-service"></a>Example: specifying an HTTP endpoint for your service
+## Пример. Указание конечной точки HTTP для службы
 
-The following service manifest defines one TCP endpoint resource and two HTTP endpoint resources in the &lt;Resources&gt; element.
+В следующем манифесте служб в элементе &lt;Resources&gt; определяется один ресурс конечной точки TCP и два ресурса конечной точки HTTP.
 
-HTTP endpoints are automatically ACL'd by Service Fabric.
+Service Fabric автоматически создает список управления доступом (ACL) для конечных точек HTTP.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -89,14 +88,14 @@ HTTP endpoints are automatically ACL'd by Service Fabric.
 </ServiceManifest>
 ```
 
-## <a name="example:-specifying-an-https-endpoint-for-your-service"></a>Example: specifying an HTTPS endpoint for your service
+## Пример. Указание конечной точки HTTPS для службы
 
-The HTTPS protocol provides server authentication and is also used for encrypting client-server communication. To enable HTTPS on your Service Fabric service, specify the protocol in the *Resources -> Endpoints -> Endpoint* section of the service manifest, as shown earlier for the endpoint *ServiceEndpoint3*.
+Протокол HTTPS обеспечивает аутентификацию сервера, а также используется для шифрования данных, передаваемых между клиентом сервером. Чтобы включить протокол HTTPS в службе Service Fabric, укажите его в разделе *Resources > Endpoints > Endpoint* манифеста служб, как было показано ранее для конечной точки *ServiceEndpoint3*.
 
->[AZURE.NOTE] A service’s protocol cannot be changed during application upgrade without it constituting a breaking change.
+>[AZURE.NOTE] Протокол службы невозможно изменить при обновлении приложения, не внося изменений, нарушающих работу.
 
 
-Here is an example ApplicationManifest that you need to set for HTTPS. The thumbprint for your certificate must be provided. The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one EndpointCertificate.  
+Ниже приведен пример ApplicationManifest, который необходимо задать для HTTPS. Требуется предоставить отпечаток для сертификата. EndpointRef является ссылкой на EndpointResource в ServiceManifest, для которого задается протокол HTTPS. Можно добавить несколько элементов Endpointcertificate.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -138,8 +137,4 @@ Here is an example ApplicationManifest that you need to set for HTTPS. The thumb
 </ApplicationManifest>
 ```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

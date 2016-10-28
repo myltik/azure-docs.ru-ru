@@ -1,15 +1,12 @@
-If you use an Azure subscription where you are not the administrator/owner, such as a company owned subscription, you must verify the following before using the steps in this document:
+Если вы используете подписку Azure без прав администратора или владельца, например подписку, принадлежащую компании, прежде чем приступать к выполнению действий в этой статье, необходимо обеспечить следующее:
 
-* Your Azure login must have at least __Contributor__ access to the Azure resource group that you use when creating HDInsight (and other Azure resources.)
+* Ваша учетная запись Azure должна иметь права доступа по крайней мере __участника__ к группе ресурсов Azure, которая будет использоваться при создании HDInsight (и к другим ресурсам Azure).
 
-* Someone with at least __Contributor__ access to the Azure subscription must have previously registered the provider for the resource you are using. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be accomplished without creating a resource by [registering a provider using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+* Другой пользователь, которому назначена по крайней мере роль __участника__ в рамках подписки Azure, должен заранее зарегистрировать используемого поставщика ресурсов. Поставщик регистрируется тогда, когда пользователь с правами участника подписки впервые создает ресурс в подписке. Регистрацию также можно выполнить без создания ресурса [с помощью REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
-For more information on working with access management, see the following documents:
+Дополнительные сведения о работе с управлением доступом см. в следующих документах:
 
-* [Get started with access management in the Azure portal](../articles/active-directory/role-based-access-control-what-is.md)
-* [Use role assignments to manage access to your Azure subscription resources](../articles/active-directory/role-based-access-control-configure.md)
+* [Начало работы с управлением доступом на портале Azure](../articles/active-directory/role-based-access-control-what-is.md)
+* [Использование назначений ролей для управления доступом к ресурсам в подписке Azure](../articles/active-directory/role-based-access-control-configure.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_1005_2016-->

@@ -1,86 +1,80 @@
 <properties
-    pageTitle="Back up Azure VMs to a Recovery Services vault | Microsoft Azure"
-    description="Discover, register, and back up Azure virtual machines to a recovery services vault with these procedures for Azure virtual machine backup."
-    services="backup"
-    documentationCenter=""
-    authors="markgalioto"
-    manager="cfreeman"
-    editor=""
-    keywords="virtual machine backup; back up virtual machine; backup and disaster recovery; arm vm backup"/>
+	pageTitle="Резервное копирование виртуальных машин Azure в хранилище служб восстановления | Microsoft Azure"
+	description="Поиск, регистрация и резервное копирование виртуальных машин Azure в хранилище служб восстановления."
+	services="backup"
+	documentationCenter=""
+	authors="markgalioto"
+	manager="cfreeman"
+	editor=""
+	keywords="резервная копия виртуальной машины; архивация виртуальной машины; архивация и аварийное восстановление; архивация виртуальных машин ARM"/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/29/2016"
-    ms.author="trinadhk; jimpark; markgal;"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-
-# <a name="back-up-azure-vms-to-a-recovery-services-vault"></a>Back up Azure VMs to a Recovery Services vault
+# Резервное копирование виртуальных машин Azure в хранилище служб восстановления
 
 > [AZURE.SELECTOR]
-- [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md)
-- [Back up VMs to Backup vault](backup-azure-vms.md)
+- [Резервное копирование виртуальных машин в хранилище служб восстановления](backup-azure-arm-vms.md)
+- [Резервное копирование виртуальных машин в хранилище архивации](backup-azure-vms.md)
 
-This article provides the procedure for backing up Azure VMs (both Resource Manager-deployed and Classic-deployed) to a Recovery Services vault. The majority of work for backing up VMs goes into the preparation. Before you can back up or protect a VM, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. Once you have completed the prerequisites, then you can initiate the back up operation to take snapshots of your VM.
+В этой статье описывается резервное копирование виртуальных машин Azure (развернутых с помощью классической модели и модели Resource Manager) в хранилище служб восстановления. В ходе резервного копирования большую часть времени занимает подготовка. Прежде чем начинать резервное копирование или защиту виртуальной машины, необходимо выполнить [предварительные требования](backup-azure-arm-vms-prepare.md), чтобы подготовить среду. После выполнения необходимых условий инициируйте операцию архивации для создания моментальных снимков виртуальной машины.
 
->[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). You can protect Resource Manager-deployed VMs and Classic VMs with Recovery Services vaults. See [Back up Azure virtual machines](backup-azure-vms.md) for details on working with Classic deployment model VMs.
+>[AZURE.NOTE] В Azure предусмотрены две модели развертывания, позволяющие создавать ресурсы и работать с ними: [модель Resource Manager и классическая модель](../resource-manager-deployment-model.md). Вы можете защитить виртуальные машины, развернутые с помощью классической модели и модели Resource Manager, используя хранилища служб восстановления. Дополнительные сведения о работе с виртуальными машинами, развернутыми с использованием классической модели, см. в статье [Резервное копирование виртуальных машин Azure](backup-azure-vms.md).
 
-For additional information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Дополнительные сведения см. в статьях [Планирование инфраструктуры резервного копирования виртуальных машин в Azure](backup-azure-vms-introduction.md) и [Виртуальные машины Azure – документация](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## <a name="triggering-the-back-up-job"></a>Triggering the back up job
+## Активация задания архивации
 
-The back up policy associated with the Recovery Services vault, defines how often and when the backup operation runs. By default, the first scheduled backup is the initial backup. Until the initial backup occurs, the Last Backup Status on the **Backup Jobs** blade shows as **Warning(initial backup pending)**.
+Политика архивации, связанная с хранилищем служб восстановления, определяет частоту и время выполнения операции архивации. По умолчанию начальным резервным копированием является первое запланированное резервное копирование. Пока начальная архивация не будет выполнена, для последнего задания архивации в колонке **Задания архивации** будет отображаться состояние **Предупреждение (ожидание начальной архивации)**.
 
-![Backup pending](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
+![Статус "В ожидании резервного копирования"](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-Unless your initial backup is due to begin very soon, it is recommended that you run **Back up Now**. The following procedure starts from the vault dashboard. This procedure serves for running the initial backup job after you have completed all prerequisites. If the initial backup job has already been run, this procedure is not available. The associated backup policy determines the next backup job.  
+Если плановая начальная архивация должна начаться не скоро, мы советуем выполнить **моментальную архивацию**. Чтобы приступить к архивации, перейдите на панель мониторинга хранилища. Эта процедура требуется, чтобы запустить начальную архивацию после выполнения предварительных требований. Если начальная архивация уже выполнена, эта процедура будет недоступна. Связанная политика архивации определяет следующее задание архивации.
 
-To run the initial backup job:
+Чтобы выполнить начальную архивацию, сделайте следующее:
 
-1. On the vault dashboard, on the **Backup** tile, click **Azure Virtual Machines**. <br/>
-    ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. На панели мониторинга хранилища на плитке **Резервное копирование** щелкните **Виртуальные машины Azure**. <br/> ![Значок "Параметры"](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
 
-    The **Backup Items** blade opens.
+    Откроется колонка **Архивируемые элементы**.
 
-2. On the **Backup Items** blade, right-click the vault you want to back up, and click **Backup now**.
+2. В колонке **Архивируемые элементы** щелкните правой кнопкой мыши хранилище, которое необходимо архивировать, и выберите пункт **Выполнить архивацию**.
 
-    ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-now.png)
+    ![Значок "Параметры"](./media/backup-azure-vms-first-look-arm/back-up-now.png)
 
-    The Backup job is triggered. <br/>
+    Будет запущено задание архивации. <br/>
 
-    ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
+    ![Задание резервного копирования активировано](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
 
-3. To view that your initial backup has completed, on the vault dashboard, on the **Backup Jobs** tile, click **Azure virtual machines**.
+3. Чтобы просмотреть, закончилась ли начальная архивация, на панели мониторинга хранилища под элементом **Задания архивации** щелкните **Виртуальные машины Azure**.
 
-    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
+    ![Элемент "Задания резервного копирования"](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
 
-    The Backup Jobs blade opens.
+    После этого откроется колонка "Задания резервного копирования".
 
-4. In the **Backup jobs** blade, you can see the status of all jobs.
+4. В колонке **Задания архивации** можно просмотреть состояние всех заданий.
 
-    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
+    ![Элемент "Задания резервного копирования"](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
 
-    >[AZURE.NOTE] As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machine to flush all writes and take a consistent snapshot.
+    >[AZURE.NOTE] В ходе резервного копирования служба архивации Azure дает команду расширению для резервного копирования на каждой виртуальной машине сохранять на диск все данные операций записи и делать согласованный моментальный снимок.
 
-    When the backup job is finished, the status is *Completed*.
-
-
-## <a name="troubleshooting-errors"></a>Troubleshooting errors
-If you run into issues while backing up your virtual machine, please see the [VM troubleshooting article](backup-azure-vms-troubleshoot.md) for help.
-
-## <a name="next-steps"></a>Next steps
-
-Now that you have protected your VM, check out the following articles for additional management tasks  you can do with your VMs, and how to restore VMs.
-
-- [Manage and monitor your virtual machines](backup-azure-manage-vms.md)
-- [Restore virtual machines](backup-azure-arm-restore-vms.md)
+    После завершения задания архивации состояние изменится на *Завершено*.
 
 
+## Устранение ошибок
+Если во время архивации виртуальной машины возникнут проблемы, см. [статью об устранении неполадок виртуальной машины](backup-azure-vms-troubleshoot.md).
 
-<!--HONumber=Oct16_HO2-->
+## Дальнейшие действия
 
+Теперь, когда виртуальная машина защищена, ознакомьтесь со следующими статьями для получения дополнительных сведений о задачах управления и процессе восстановления виртуальных машин.
 
+- [Мониторинг виртуальных машин и управление ими](backup-azure-manage-vms.md)
+- [Восстановление виртуальных машин](backup-azure-arm-restore-vms.md)
+
+<!---HONumber=AcomDC_0803_2016-->

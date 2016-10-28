@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure Project Properties"
-    description="Describes the Azure Project Properties settings in the Azure Toolkit for Eclipse."
+    pageTitle="Свойства проекта Azure"
+    description="Описываются параметры свойств проекта Azure в наборе средств Azure для Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,54 +16,49 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/jj835232.aspx -->
 
-# <a name="azure-project-properties"></a>Azure Project Properties #
+# Свойства проекта Azure #
 
-Various settings for your Azure project can be set within the Azure Toolkit for Eclipse.
+В наборе средств Azure для Eclipse можно задать различные параметры проекта Azure.
 
-## <a name="configuring-azure-project-properties"></a>Configuring Azure Project Properties ##
+## Настройка свойств проекта Azure ##
 
-Configuring your Azure Project Properties is accomplished through the property dialogs for your Azure project. Right-click the project in Eclipse's Project Explorer pane, click **Properties**, and then select the **Azure** sub-menu.
+Для настройки свойств проекта Azure используются диалоговые окна свойств проекта Azure. Щелкните правой кнопкой мыши проект в области обозревателя проектов Eclipse, затем щелкните **Свойства** и выберите подменю **Azure**.
 
 ![][ic719480]
 
-Within this property page, you can change the following items: 
+На этой странице свойств можно изменить следующие элементы:
 
-* **Service name:** The name for your Azure project.
-* **Build for:** Whether the project is set for building to the compute emulator or deployment to Azure.
-* **Target OS:** The operating system to use when your project is deployed to Azure.
+* **Имя службы:** имя проекта Azure.
+* **Сборка для:** проект настроен для выполнения сборки для эмулятора вычислений или развертывания в Azure.
+* **Целевая операционная система:** операционная система, используемая при развертывании проекта в Azure.
 
-## <a name="see-also"></a>See Also ##
+## См. также ##
 
-[Azure Toolkit for Eclipse][]
+[Набор средств Azure для Eclipse][]
 
-[Installing the Azure Toolkit for Eclipse][] 
+[Установка набора средств Azure для Eclipse][]
 
-[Creating a Hello World Application for Azure in Eclipse][]
+[Создание приложения Hello World для Azure в Eclipse][]
 
-[Azure Role Properties][]
+[Свойства роли Azure][]
 
-[Azure Storage Account List][]
+[Список учетных записей хранения Azure][]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center][].
+Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure Role Properties]: http://go.microsoft.com/fwlink/?LinkID=699525
-[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Свойства роли Azure]: http://go.microsoft.com/fwlink/?LinkID=699525
+[Список учетных записей хранения Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
+[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 
 <!-- IMG List -->
 
 [ic719480]: ./media/azure-toolkit-for-eclipse-azure-project-properties/ic719480.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

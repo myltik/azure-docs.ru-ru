@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Publishing a Cloud Service using the Azure Tools | Microsoft Azure"
-   description="Learn about how to publish Azure cloud service projects by using Visual Studio."
+   pageTitle="Публикация облачной службы с помощью инструментов Azure | Microsoft Azure"
+   description="Узнайте, как публиковать проекты облачных служб Azure с помощью Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,167 +15,162 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Публикация облачной службы с помощью инструментов Azure
 
-# <a name="publishing-a-cloud-service-using-the-azure-tools"></a>Publishing a Cloud Service using the Azure Tools
+С помощью инструментов Azure для Microsoft Visual Studio можно опубликовать приложение Azure прямо из Visual Studio. Visual Studio поддерживает интегрированную публикацию в промежуточную или рабочую среду облачной службы.
 
-By using the Azure Tools for Microsoft Visual Studio, you can publish your Azure application directly from Visual Studio. Visual Studio supports integrated publishing to either the Staging or the Production environment of a cloud service.
+Чтобы опубликовать приложение Azure, нужно иметь подписку Azure. Необходимо также настроить облачную службу и учетную запись хранения для использования в приложении. Их можно настроить на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-Before you can publish an Azure application, you must have an Azure subscription. You must also set up a cloud service and storage account to be used by your application. You can set these up at the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+>[AZURE.IMPORTANT] Среду развертывания для облачной службы можно выбрать во время публикации. Вы также должны выбрать учетную запись хранения, которая используется для хранения пакета приложения для развертывания. После развертывания пакет приложения удаляется из учетной записи хранения.
 
->[AZURE.IMPORTANT] When you publish, you can select the deployment environment for your cloud service. You must also select a storage account that is used to store the application package for deployment. After deployment, the application package is removed from the storage account.
+Во время разработки и тестирования приложения Azure можно постепенно публиковать изменения веб-ролей с помощью веб-развертывания. После публикации приложения в среду развертывания веб-развертывание позволяет развертывать изменения непосредственно в виртуальную машину, которая выполняет веб-роль. Не обязательно упаковывать и публиковать все приложение Azure каждый раз, когда вы хотите обновить вашу веб-роль, чтобы проверить изменения. При таком подходе изменения веб-роли будут доступны в облаке для тестирования без ожидания, пока приложение будет публиковаться в среде развертывания.
 
-When you are developing and testing an Azure application, you can use Web Deploy to publish changes incrementally for your web roles. After you publish your application to a deployment environment, Web Deploy lets you deploy changes directly to the virtual machine that is running the web role. You do not have to package and publish your entire Azure application each time you want to update your web role to test out the changes. With this approach you can have your web role changes available in the cloud for testing without waiting to have your application published to a deployment environment.
+Чтобы опубликовать приложение Azure и обновить веб-роль с помощью веб-развертывания, выполните следующие действия.
 
-Use the following procedures to publish your Azure application and to update a web role by using Web Deploy:
+- Опубликуйте и упакуйте приложение Azure из Visual Studio
 
-- Publish or Package an Azure application from Visual Studio
+- Обновите веб-роль в рамках цикла разработки и тестирования
 
-- Update a web role as part of the development and testing cycle
+## Публикация и упаковка приложения Azure из Visual Studio
 
-## <a name="publish-or-package-an-azure-application-from-visual-studio"></a>Publish or Package an Azure Application from Visual Studio
+При публикации приложения Azure можно выполнить одну из следующих задач.
 
-When you publish your Azure application, you can do one of the following tasks:
+- Создать пакет службы. Этот пакет и файл конфигурации службы можно использовать для публикации приложения в среде развертывания из [классического портала Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-- Create a service package: You can use this package and the service configuration file to publish your application to a deployment environment from the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+- Публикация проекта Azure из Visual Studio. Чтобы опубликовать приложение напрямую в Azure, воспользуйтесь мастером публикации. Дополнительную информацию см. в статье [Мастер публикации приложений Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-- Publish your Azure project from Visual Studio: To publish your application directly to Azure, you use the Publish Wizard. For information, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
+### Создание пакета службы из Visual Studio
 
-### <a name="to-create-a-service-package-from-visual-studio"></a>To create a service package from Visual Studio
+1. Когда приложение готово к публикации, откройте обозреватель решений, затем контекстное меню проекта Azure, который содержит роли, и выберите пункт "Опубликовать".
 
-1. When you are ready to publish your application, open Solution Explorer, open the shortcut menu for the Azure project that contains your roles, and choose Publish.
+1. Чтобы создать пакет службы, выполните следующие действия.
 
-1. To create a service package only, follow these steps:  
+  1. Откройте контекстное меню проекта Azure и выберите пункт **Пакет**.
 
-  1. On the shortcut menu for the Azure project, choose **Package**.
+  1. В диалоговом окне **Пакет приложения Azure** выберите конфигурацию службы, для которой требуется создать пакет, а затем конфигурацию построения.
 
-  1. In the **Package Azure Application** dialog box, choose the service configuration for which you want to create a package, and then choose the build configuration.
+  1. (Необязательно) Чтобы включить удаленный рабочий стол для облачной службы после ее публикации, установите флажок **Включить удаленный рабочий стол для всех ролей** и нажмите кнопку **Параметры**, чтобы настроить удаленный рабочий стол. Если вы хотите отладить облачную службу после ее публикации, включите удаленную отладку, установив флажок **Включить удаленный отладчик для всех ролей**.
 
-  1. (optional) To turn on Remote Desktop for the cloud service after you publish it, select the **Enable Remote Desktop for all Roles** check box, and then select **Settings** to configure Remote Desktop. If you want to debug your cloud service after you publish it, turn on remote debugging by selecting **Enable Remote Debugger for all Roles**.
+      Дополнительную информацию см. в статье [Использование удаленного рабочего стола с ролями Azure](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
 
-      For more information, see [Using Remote Desktop with Azure Roles](vs-azure-tools-using-remote-desktop-with-azure-roles.md).
+  1. Для создания пакета щелкните **Пакет**.
 
-  1. To create the package, choose the **Package** link.
+      Проводник показывает расположение файла только что созданного пакета. Скопируйте расположение на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885), чтобы его можно было использовать.
 
-      File Explorer shows the file location of the newly created package. You can copy this location so that you can use it from the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+  1. Чтобы опубликовать этот пакет в среде развертывания, необходимо использовать расположение в качестве расположения пакета при создании облачной службы, развертывая этот пакет в среде с помощью [классического портала Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-  1. To publish this package to a deployment environment, you must use this location as the Package location when you create a cloud service and deploy this package to an environment with the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. (Необязательно) Чтобы отменить процесс развертывания, в контекстном меню строки в журнале действий выберите пункт **Отменить и удалить**. Это позволит остановить процесс развертывания и удалить среду развертывания из Azure.
 
-1. (Optional) To cancel the deployment process, on the shortcut menu for the line item in the activity log, choose **Cancel and remove**. This stops the deployment process and deletes the deployment environment from Azure.
+    >[AZURE.NOTE] Чтобы удалить среду развертывания после развертывания, воспользуйтесь [классическим порталом Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-    >[AZURE.NOTE] To remove this deployment environment after it has been deployed, you must use the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. (Необязательно) После запуска экземпляров ролей Visual Studio автоматически отображает среду развертывания в узле **Облачные службы** в обозревателе серверов. Здесь можно просматривать состояние отдельных экземпляров ролей. См. статью [Управление ресурсами Azure с помощью обозревателя облака](vs-azure-tools-resources-managing-with-cloud-explorer.md). На следующей иллюстрации показаны экземпляры роли в состоянии "Инициализация".
 
-1. (Optional) After your role instances have started, Visual Studio automatically shows the deployment environment in the **Cloud Services** node in Server Explorer. From here you can see the status of the individual role instances. See [Managing Azure resources with Cloud Explorer](vs-azure-tools-resources-managing-with-cloud-explorer.md).The following illustration shows the role instances while they are still in the Initializing state:
+    ![VST\_DeployComputeNode](./media/vs-azure-tools-publishing-a-cloud-service/IC744134.png)
 
-    ![VST_DeployComputeNode](./media/vs-azure-tools-publishing-a-cloud-service/IC744134.png)
+## Обновление веб-роли в рамках цикла разработки и тестирования
 
-## <a name="update-a-web-role-as-part-of-the-development-and-testing-cycle"></a>Update a Web Role as Part of the Development and Testing Cycle
+Если серверная инфраструктура стабильна, но для веб-ролей требуется более частое обновление, можно использовать веб-развертывание, чтобы обновлять только веб-роль в проекте. Это удобно, если вы не хотите повторно создавать и развертывать серверные рабочие роли или если у вас несколько веб-ролей и вы хотите обновлять только одну из них.
 
-If your app’s backend infrastructure is stable, but the web roles need more frequent updating, you can use Web Deploy to update only a web role in your project. This is handy when you don’t want to rebuild and redeploy the backend worker roles, or if you have multiple web roles and you want to update only one of the web roles.
+### Требования
 
-### <a name="requirements"></a>Requirements
+Для обновления веб-роли с помощью функции веб-развертывания должны выполняться указанные ниже требования.
 
-Here are the requirements to use Web Deploy to update your web role:
+- **Только для разработки и тестирования.** Изменения вносятся непосредственно в виртуальную машину, в которой выполняется веб-роль. В случае рециркуляции виртуальной машины изменения будут потеряны, поскольку опубликованный исходный пакет используется для воссоздания виртуальной машины для роли. Чтобы последние обновления отразились в веб-роли, необходимо опубликовать приложение повторно.
 
-- **For development and testing purposes only:** The changes are made directly to the virtual machine where the web role is running. If this virtual machine has to be recycled, the changes are lost because the original package that you published is used to recreate the virtual machine for the role. You must republish your application to get the latest changes for the web role.
+- **Можно обновлять только веб-роли.** Рабочие роли не обновляются. Кроме того, нельзя обновлять параметр RoleEntryPoint в файле webrole.cs.
 
-- **Only web roles can be updated:** Worker roles can’t be updated. In addition, you can’t update the RoleEntryPoint in web role.cs.
+- **Возможна поддержка только одного экземпляра веб-роли.** Ни одна роль не может существовать в среде развертывания в нескольких экземплярах. При этом несколько веб-ролей с одним экземпляром поддерживаются.
 
-- **Can only support a single instance of a web role:** You can’t have multiple instances of any web role in your deployment environment. However, multiple web roles each with only one instance are supported.
+- **Необходимо разрешить подключения к удаленному рабочему столу.** Это нужно для того, чтобы функция веб-развертывания могла подключиться к виртуальной машине, используя имя пользователя и пароль, и развернуть изменения на сервере IIS. Возможно также, что вам придется подключиться к виртуальной машине и добавить доверенный сертификат в IIS на этой виртуальной машине. (Это обеспечивает защиту удаленного подключения к IIS, используемого веб-развертыванием.)
 
-- **You must enable remote desktop connections:** This is required so that Web Deploy can use the user and password to connect to the virtual machine to deploy the changes to the server that’s running Internet Information Services (IIS). In addition, you might need to connect to the virtual machine to add a trusted certificate to IIS on this virtual machine. (This ensures that the remote connection for IIS that is used by Web Deploy is secure.)
+В описанной ниже процедуре предполагается, что вы используете **мастер публикации приложения Azure**.
 
-The following procedure assumes that you are using the **Publish Azure Application** wizard.
+### Включение веб-развертывания при публикации приложения
 
-### <a name="to-enable-web-deploy-when-you-publish-your-application"></a>To Enable Web Deploy When You Publish Your Application
+1. Чтобы включить флажок **Разрешить веб-развертывание для всех веб-ролей**, необходимо сначала настроить подключения удаленного рабочего стола. Установите флажок **Включить удаленный рабочий стол для всех ролей** и предоставьте учетные данные, которые будут использоваться для удаленного подключения, в появившемся поле **Конфигурация удаленного рабочего стола**. Дополнительную информацию см. в статье [Использование удаленного рабочего стола с ролями Azure](vs-azure-tools-remote-desktop-roles.md).
 
-1. To enable the **Enable Web Deploy** for all web roles check box, you must first configure remote desktop connections. Select **Enable Remote Desktop** for all roles and then supply the credentials that will be used to connect remotely in the **Remote Desktop Configuration** box that appears. See [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md) for more information.
+1. Чтобы включить веб-развертывание для всех веб-ролей приложения, установите флажок **Разрешить веб-развертывание для всех веб-ролей**.
 
-1. To enable Web Deploy for all the web roles in your application, select **Enable Web Deploy for all web roles**.
+    Появится желтый предупредительный треугольник. Веб-развертывание использует недоверенный, самозаверяющий сертификат по умолчанию, который не рекомендуется для передачи конфиденциальных данных. Если вам нужно обеспечить этот процесс для конфиденциальных данных, можно добавить сертификат SSL, который будет использоваться для подключений веб-развертывания. Этот сертификат должен быть доверенным. Соответствующие инструкции см. ниже в разделе **Безопасное веб-развертывание**.
 
-    A yellow warning triangle appears. Web Deploy uses an untrusted, self-signed certificate by default, which is not recommended for uploading sensitive data. If you need to secure this process for sensitive data, you can add a SSL certificate to be used for Web Deploy connections. This certificate needs to be a trusted certificate. For information about how to do this, see the section **To Make Web Deploy Secure** later in this topic.
+1. Нажмите кнопку **Далее**, чтобы отобразить экран **Сводка**, а затем **Опубликовать**, чтобы развернуть облачную службу.
 
-1. Choose **Next** to show the **Summary** screen, and then choose **Publish** to deploy the cloud service.
+    Облачная служба будет опубликована. Удаленные подключения создаваемой виртуальной машины включены для IIS таким образом, чтобы можно было использовать веб-развертывание для обновления веб-ролей без повторной публикации.
 
-    The cloud service is published. The virtual machine that is created has remote connections enabled for IIS so that Web Deploy can be used to update your web roles without republishing them.
+    >[AZURE.NOTE] Если для веб-роли настроено больше одного экземпляра, выводится предупреждение о том, что каждая веб-роль будет ограничена одним экземпляром в пакете, созданном для публикации приложения. Чтобы продолжить, нажмите кнопку **ОК**. Как указано в разделе "Требования", веб-ролей может быть несколько, но у каждой роли может быть только один экземпляр.
 
-    >[AZURE.NOTE] If you have more than one instance configured for a web role, a warning message appears, stating that each web role will be limited to one instance only in the package that’s created to publish your application. Select **OK** to continue. As stated in the Requirements section, you can have more than one web role but only one instance of each role.
+### Обновление веб-роли с помощью веб-развертывания
 
-### <a name="to-update-your-web-role-by-using-web-deploy"></a>To Update Your Web Role by Using Web Deploy
+1. Чтобы использовать веб-развертывание, внесите изменения в код проекта для любой из веб-ролей в Visual Studio, которую требуется опубликовать, а затем щелкните узел этого проекта в решении правой кнопкой мыши и выберите пункт **Опубликовать**. Откроется диалоговое окно **Публикация веб-сайта**.
 
-1. To use Web Deploy, make code changes to the project for any of your web roles in Visual Studio that you want to publish, and then right-click this project node in your solution and point to **Publish**. The **Publish Web** dialog box appears.
+1. (Необязательно) Если добавлен доверенный SSL-сертификат для удаленных подключений служб IIS, можно снять флажок **Разрешить ненадежный сертификат**. Сведения о том, как добавить сертификат для обеспечения безопасности веб-развертывания, см. ниже в разделе **Безопасное веб-развертывание**.
 
-1. (Optional) If you added a trusted SSL certificate to use for remote connections for IIS, you can clear the **Allow untrusted certificate** check box. For information about how to add a certificate to make Web Deploy secure, see the section **To Make Web Deploy Secure** later in this topic.
+1. Чтобы использовать веб-развертывание, механизму публикации необходимо имя пользователя и пароль, которые создаются для подключения удаленного рабочего стола, когда вы впервые опубликовали пакет.
 
-1. To use Web Deploy, the publish mechanism needs the user name and password that you set up for your remote desktop connection when you first published the package.
+  1. В поле **Имя пользователя** введите имя пользователя.
 
-  1. In **User name**, enter the user name.
+  1. В поле **Пароль** введите пароль.
 
-  1. In **Password**, enter the password.
+  1. (Необязательно) Если вы хотите сохранить пароль в этом профиле, выберите **Сохранить пароль**.
 
-  1. (Optional) If you want to save this password in this profile, choose **Save password**.
+1. Чтобы опубликовать изменения в веб-роли, щелкните **Опубликовать**.
 
-1. To publish the changes to your web role, choose **Publish**.
+    В строке состояния отображается **Публикация начата**. После завершения публикации отображается **Публикация успешно завершена**. Эти изменения были развернуты для веб-роли на вашей виртуальной машине. Теперь можно запустить приложение Azure, чтобы проверить изменения в среде Azure.
 
-    The status line displays **Publish started**. When the publishing has completed, **Publish succeeded** appears. The changes have now been deployed to the web role on your virtual machine. Now you can start your Azure application in the Azure environment to test your changes.
+### Безопасность веб-развертывание
 
-### <a name="to-make-web-deploy-secure"></a>To Make Web Deploy Secure
+1. Веб-развертывание использует недоверенный, самозаверяющий сертификат по умолчанию, который не рекомендуется для передачи конфиденциальных данных. Если вам нужно обеспечить этот процесс для конфиденциальных данных, можно добавить сертификат SSL, который будет использоваться для подключений веб-развертывания. Это должен быть доверенный сертификат, который можно получить в центре сертификации.
 
-1. Web Deploy uses an untrusted, self-signed certificate by default, which is not recommended for uploading sensitive data. If you need to secure this process for sensitive data, you can add a SSL certificate to be used for Web Deploy connections. This certificate needs to be a trusted certificate, which you obtain from a certificate authority (CA).
+    Чтобы выполнить безопасное веб-развертывание для каждой виртуальной машины и каждой веб-роли, необходимо загрузить доверенный сертификат, который будет использоваться для веб-развертывания, на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885). В результате сертификат будет добавлен на виртуальную машину, которая создается для веб-роли при публикации приложения.
 
-    To make Web Deploy secure for each virtual machine for each of your web roles, you must upload the trusted certificate that you want to use for web deploy to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). This makes sure that the certificate is added to the virtual machine that is created for the web role when you publish your application.
+1. Чтобы добавить в IIS доверенный сертификат SSL, который будет использоваться для удаленных подключений, выполните указанные ниже действия.
 
-1. To add a trusted SSL certificate to IIS to use for remote connections, follow these steps:
+  1. Чтобы подключиться к виртуальной машине, на которой запущена веб-роль, выберите экземпляр веб-роли в **Cloud Explorer** или **обозревателе сервера**, а затем выберите команду **Подключиться с помощью удаленного рабочего стола**. Подробные инструкции о том, как подключиться к виртуальной машине, см. в разделе [Использование удаленного рабочего стола с ролями Azure](vs-azure-tools-remote-desktop-roles.md).
 
-  1. To connect to the virtual machine that is running the web role, select the instance of the web role in **Cloud Explorer** or **Server Explorer**, and then choose the **Connect using Remote Desktop** command. For detailed steps about how to connect to the virtual machine, see [Using Remote Desktop with Azure Roles](vs-azure-tools-remote-desktop-roles.md).
+      Ваш браузер предложит вам загрузить RDP-файл.
 
-      Your browser will prompt you to download an .RDP file.
+  1. Чтобы добавить сертификат SSL, откройте службу управления в диспетчере IIS. В диспетчере IIS включите использование SSL, щелкнув ссылку **Привязки** в области **Действие**. Откроется диалоговое окно **Добавление привязки сайта**. Выберите **Добавить**, а затем в раскрывающемся списке **Тип** выберите пункт HTTPS. В списке **SSL-сертификатов** выберите SSL-сертификат, назначенный вам центром сертификации и отправленный на [классический портал Azure](http://go.microsoft.com/fwlink/?LinkID=213885). Дополнительные сведения см. в разделе [Настройка параметров подключения для службы управления](http://go.microsoft.com/fwlink/?LinkId=215824).
 
-  1. To add an SSL certificate, open the management service in IIS Manager. In IIS Manager, enable SSL by opening the **Bindings** link in the **Action** pane. The **Add Site Binding** dialog box appears. Choose **Add**, and then choose HTTPS in the **Type** dropdown list. In the **SSL certificate** list, choose the SSL certificate that you had signed by a CA and that you uploaded to the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885). For more information, see [Configure Connection Settings for the Management Service](http://go.microsoft.com/fwlink/?LinkId=215824).
+      >[AZURE.NOTE] После добавления доверенного SSL-сертификата желтый треугольник предупреждения больше не будет отображаться в **мастере публикации**.
 
-      >[AZURE.NOTE] If you add a trusted SSL certificate, the yellow warning triangle no longer appears in the **Publish Wizard**.
+## Включение файлов в пакет службы
 
-## <a name="include-files-in-the-service-package"></a>Include Files in the Service Package
+Вам может понадобиться включить в пакет службы определенные файлы, чтобы они были доступны на виртуальной машине, созданной для роли. Например, возможно, что в пакет службы нужно будет добавить EXE- или MSI-файл, который используется скриптом запуска, или сборку, необходимую проекту рабочей или веб-роли. Включаемые файлы должны быть добавлены в решение для приложения Azure.
 
-You might need to include specific files in your service package so that they are available on the virtual machine that is created for a role. For example, you might want to add an .exe or an .msi file that is used by a startup script to your service package. Or you might need to add an assembly that a web role or worker role project requires. To include files they must be added to the solution for your Azure application.
+### Включение файлов в пакет службы
 
-### <a name="to-include-files-in-the-service-package"></a>To include files in the service package
+1. Чтобы добавить сборку в пакет службы, выполните следующие действия.
 
-1. To add an assembly to a service package, use the following steps:
+  1. В **обозревателе решений** откройте узел проекта, не содержащий сборку, на которую имеется ссылка.
 
-  1. In **Solution Explorer** open the project node for the project that is missing the referenced assembly.
+  1. Чтобы добавить сборку в проект, откройте контекстное меню папки **Ссылки** и выберите **Добавить ссылку**. Открывается диалоговое окно "Добавить ссылку".
 
-  1. To add the assembly to the project, open the shortcut menu for the **References** folder and then choose **Add Reference**. The Add Reference dialog appears.
+  1. Выберите ссылку, которую вы хотите добавить, а затем нажмите кнопку **ОК**.
 
-  1. Choose the reference that you want to add and then choose the **OK** button.
+      Ссылка будет добавлена в список в папке **Ссылки**.
 
-      The reference is added to the list under the **References** folder.
+  1. Откройте контекстное меню добавленной сборки и выберите **Свойства**. Откроется окно **Свойства**.
 
-  1. Open the shortcut menu for the assembly that you added and choose **Properties**. The **Properties** window appears.
+      Чтобы включить эту сборку в пакет службы, выберите в списке **Копировать локально** значение **True**.
 
-      To include this assembly in the service package, in the **Copy Local list** choose **True**.
+1. В **обозревателе решений** откройте узел проекта, не содержащий сборку, на которую имеется ссылка.
 
-1. In **Solution Explorer** open the project node for the project that is missing the referenced assembly.
+1. Чтобы добавить сборку в проект, откройте контекстное меню папки **Ссылки** и выберите **Добавить ссылку**. Откроется диалоговое окно **Добавить ссылку**.
 
-1. To add the assembly to the project, open the shortcut menu for the **References** folder and then choose **Add Reference**. The **Add Reference** dialog appears.
+1. Выберите ссылку, которую вы хотите добавить, а затем нажмите кнопку **ОК**.
 
-1. Choose the reference that you want to add and then choose the **OK** button.
+    Ссылка будет добавлена в список в папке **Ссылки**.
 
-    The reference is added to the list under the **References** folder.
+1. Откройте контекстное меню добавленной сборки и выберите **Свойства**. Откроется окно "Свойства".
 
-1. Open the shortcut menu for the assembly that you added and choose **Properties**. The Properties window appears.
+1. Чтобы включить эту сборку в пакет службы, выберите в списке **Копировать локально** значение **True**.
 
-1. To include this assembly in the service package, in the **Copy Local** list, choose **True**.
+1. Чтобы включить файлы, добавленные в проект веб-роли, в пакет службы, откройте контекстное меню файла и выберите пункт **Свойства**. Выберите в окне **Свойства** пункт **Содержимое** в списке **Действие при сборке**.
 
-1. To include files in the service package that have been added to your web role project, open the shortcut menu for the file, and then choose **Properties**. From the **Properties** window, choose **Content** from the **Build Action** list box.
+1. Чтобы включить файлы, добавленные в проект рабочей роли, в пакет службы, откройте контекстное меню файла и выберите пункт **Свойства**. В окне **Свойства** выберите пункт **Копировать, если новее** в списке **Копировать в выходной каталог**.
 
-1. To include files in the service package that have been added to your worker role project, open the shortcut menu for the file, and then choose **Properties**. From the **Properties** window, choose **Copy if newer** from the **Copy to output directory** list box.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+Дополнительные сведения о публикации в Azure из Visual Studio см. в статье [Мастер публикации приложения Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-To learn more about publishing to Azure from Visual Studio, see [Publish Azure Application Wizard](vs-azure-tools-publish-azure-application-wizard.md).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

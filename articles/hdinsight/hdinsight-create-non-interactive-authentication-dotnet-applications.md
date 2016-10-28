@@ -1,97 +1,95 @@
 <properties
-    pageTitle="Create non-interactive authentication .NET HDInsight applciations | Microsoft Azure"
-    description="Learn how to create non-interactive authentication .NET HDInsight applications."
-    editor="cgronlun"
-    manager="jhubbard"
-    services="hdinsight"
-    documentationCenter=""
-    tags="azure-portal"
-    authors="mumian"/>
+	pageTitle="Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности | Microsoft Azure"
+	description="Узнайте, как создавать приложения .NET HDInsight с неинтерактивной проверкой подлинности."
+	editor="cgronlun"
+	manager="jhubbard"
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"/>
 
 <tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/02/2016"
-    ms.author="jgao"/>
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2016"
+	ms.author="jgao"/>
+
+# Создание приложений .NET HDInsight с неинтерактивной проверкой подлинности
+
+Приложение .NET Azure HDInsight можно выполнить с помощью его собственного удостоверения (неинтерактивный режим) или удостоверения пользователя, вошедшего в приложение (интерактивный режим). Образец интерактивного приложения см. в статье [Отправка заданий Hive, Pig или Sqoop с использованием пакета SDK для HDInsight .NET](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). В этой статье описано, как создать приложение .NET HDInsight с неинтерактивной проверкой подлинности для подключения к Azure HDInsight и отправки задания Hive.
+
+Из приложения .NET вам потребуется следующее:
+
+- идентификатор клиента для подписки Azure;
+- идентификатор клиента для приложения Azure Directory;
+- секретный ключ приложения Azure Directory.
+
+Основная процедура включает в себя следующие шаги:
+
+2. Создание приложения Azure Active Directory.
+2. Назначение ролей для приложения AD.
+3. Разработка клиентского приложения.
 
 
-# <a name="create-non-interactive-authentication-.net-hdinsight-applications"></a>Create non-interactive authentication .NET HDInsight applications
+##Предварительные требования
 
-You can execute your .NET Azure HDInsight application either under application's own identity (non-interactive) or under the identity of the signed-in user of the application (interactive). For a sample of the interactive application, see [Submit Hive/Pig/Sqoop jobs using HDInsight .NET SDK](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). This article shows you how to create non-interactive authentication .NET application to connect to Azure HDInsight and submit a Hive job.
-
-From your .NET application, you will need:
-
-- your Azure subscription tenant ID
-- the Azure Directory application client ID
-- the Azure Directory application secret key.  
-
-The main process includes the following steps:
-
-2. Create an Azure Directory application.
-2. Assign roles to the AD application.
-3. Develop your client application.
-
-
-##<a name="prerequisites"></a>Prerequisites
-
-- HDInsight cluster. You can create one using the instructions found in the [getting started tutorial](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
+- Кластер HDInsight. Его можно создать, следуя инструкциям в [руководстве по началу работы](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 
 
 
-## <a name="create-azure-directory-application"></a>Create Azure Directory application 
-When you create an Active Directory application, it actually creates both the application and a service principal. You can execute the application under the application’s identity.
+## Создание приложения Azure Active Directory 
+При создании приложения Active Directory фактически создается приложение и субъект-служба. Приложения можно выполнять с помощью его удостоверения.
 
-Currently, you must use the Azure classic portal to create a new Active Directory application. This ability will be added to the Azure portal in a later release. You can also perform these steps through Azure PowerShell or Azure CLI. For more information about using PowerShell or CLI with the service principal, see [Authenticate service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md).
+Сейчас для создания приложения Active Directory необходимо использовать классический портал Azure. Эта возможность будет добавлена на портал Azure в одном из следующих выпусков. Это также можно выполнить с помощью Azure PowerShell или Azure CLI. Дополнительные сведения об использовании PowerShell или CLI с субъектом-службой см. в статье [Проверка подлинности субъекта-службы в Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
-**To create an Azure Directory application**
+**Порядок создания приложения Azure Active Directory**
 
-1.  Sign in to the [Azure classic portal]( https://manage.windowsazure.com/).
-2.  Select **Active Directory** from the left pane.
+1.	Войдите на [классический портал Azure](https://manage.windowsazure.com/).
+2.	Выберите **Active Directory** на левой панели.
 
-    ![Azure classic portal active directory](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\active-directory.png)
+    ![Active Directory на классическом портале Azure](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\active-directory.png)
     
-3.  Select the directory that you want to use for creating the new application. It shall be the existing one.
-4.  Click **Applications** from the top to list the existing applications.
-5.  Click **Add** from the bottom to add a new application.
-6.  Enter **Name**, select **Web application and/or Web API**, and then click **Next**.
+3.	Выберите каталог, который хотите использовать для создания нового приложения. Он должен существовать.
+4.	Щелкните **Приложения** в верхней части списка существующих приложений.
+5.	Нажмите расположенную внизу кнопку **Добавить**, чтобы добавить приложение.
+6.	Введите **Имя**, выберите **Веб-приложение и/или веб-API** и нажмите кнопку **Далее**.
 
-    ![new azure active directory application](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application.png)
+    ![новое приложение Azure Active Directory](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application.png)
 
-7.  Enter **Sign-on URL** and **App ID URI**. For **SIGN-ON URL**, provide the URI to a web-site that describes your application. The existence of the web-site is not validated. For APP ID URI, provide the URI that identifies your application. And then click **Complete**.
-It takes a few moments to create the application.  Once the application is created, the portal shows you the Quick Glace page of the new application. Don’t close the portal. 
+7.	Укажите **URL-адрес входа** и **URI кода приложения**. В поле **URL-АДРЕС ВХОДА** введите URI веб-сайта, который описывает ваше приложение. Существование этого сайта не проверяется. В поле "URI кода приложения" введите URI, который идентифицирует ваше приложение. Затем нажмите кнопку **Завершить**. Создание приложения занимает несколько секунд. После выполнения операции на портале отображается страница "Сводка". Не закрывайте портал.
 
-    ![new azure active directory application properties](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application-properties.png)
+    ![свойства нового приложения Azure Active Directory](.\media\hdinsight-create-non-interactive-authentication-dotnet-application\hdinsight-add-ad-application-properties.png)
 
-**To get the application client ID and the secret key**
+**Получение идентификатора клиента приложения и секретного ключа**
 
-1.  From the newly created AD application page, click **Configure** from the top menu.
-2.  Make a copy of **Client ID**. You will need it in your .NET application.
-3.  Under **Keys**, click **Select duration** dropdown, and select either **1 year** or **2 years**. The key value will not be displayed until you save the configuration.
-4.  Click **Save** on the bottom of the page. When the secret key appears, make a copy of the key. You will need it in your .NET application.
+1.	В верхнем меню на странице созданного приложения AD щелкните элемент **Настройка**.
+2.	Скопируйте значение **Идентификатор клиента**. Оно понадобится в приложении .NET.
+3.	В разделе **Ключи** щелкните раскрывающийся список **Выбрать длительность** и выберите **1 год** или **2 года**. Значение ключа отображается только после сохранения конфигурации.
+4.	В нижней части страницы щелкните **Сохранить**. При отображении секретного ключа скопируйте его значение. Оно понадобится в приложении .NET.
 
-##<a name="assign-ad-application-to-role"></a>Assign AD application to role
+##Назначение приложения AD роли
 
-You must assign the application to a [role](../active-directory/role-based-access-built-in-roles.md) to grant it permissions for performing actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means it can read the resource group and any resources it contains). In this tutorial, you will set the scope at the resource group level.  Because the Azure classic portal doesn’t support resource groups, this part has to be performed from the Azure portal. 
+Необходимо назначить приложение [роли](../active-directory/role-based-access-built-in-roles.md), чтобы предоставить ему разрешения для выполнения действий. Вы можете задать область действия на уровне подписки, группы ресурсов или ресурса. Разрешения наследуются на более низких уровнях области действия (например, добавление приложения в роль читателя для группы ресурсов означает, что оно может считывать группу ресурсов и все содержащиеся в ней ресурсы). В этом учебнике описано, как задать область действия на уровне группы ресурсов. Так как классический портал Azure не поддерживает группы ресурсов, эту процедуру следует выполнять на портале Azure.
 
-**To add the Owner role to the AD application**
+**Добавление роли владельца для приложения AD**
 
-1.  Sign in to the [Azure portal](https://portal.azure.com).
-2.  Click **Resource Group** from the left pane.
-3.  Click the resource group that contains the HDInsight cluster where you will run your Hive query later in this tutorial. If there are too many resource groups, you can use the filter.
-4.  Click **Access** from the cluster blade.
+1.	Войдите на [портал Azure](https://portal.azure.com).
+2.	Щелкните **Группа ресурсов** на левой панели.
+3.	Выберите группу ресурсов с кластером HDInsight, где позднее будет выполняться ваш запрос Hive. Если имеется слишком много групп ресурсов, можно использовать фильтр.
+4.	В колонке кластера щелкните **Доступ**.
 
-    ![cloud and thunderbolt icon = quickstart](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)
-5.  Click **Add** from the **Users** blade.
-6.  Follow the instruction to add the **Owner** role to the AD application you created in the last procedure. When you complete it successfully, you shall see the application listed in the Users blade with the Owner role.
+    ![значок облака и молнии = быстрый запуск](./media/hdinsight-hadoop-create-linux-cluster-portal/quickstart.png)
+5.	В колонке **Пользователи** щелкните **Добавить**.
+6.	Следуйте инструкциям, чтобы добавить роль **Владелец** в приложение AD, созданное в предыдущей процедуре. После успешного выполнения этой процедуры приложение должно появиться в колонке "Пользователи" с ролью "Владелец".
 
 
-##<a name="develop-hdinsight-client-application"></a>Develop HDInsight client application
+##Разработка клиентского приложения HDInsight
 
-Create a C# .net console application following the instructions found in [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Then replace the GetTokenCloudCredentials method with the following:
+Создайте консольное приложение C# .NET, следуя инструкциям в статье [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md#submit-hivepigsqoop-jobs-using-hdinsight-net-sdk). Затем замените метод GetTokenCloudCredentials на следующий код:
 
     public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
     {
@@ -108,24 +106,20 @@ Create a C# .net console application following the instructions found in [Submit
         return new TokenCloudCredentials(accessToken);
     }
 
-To retrieve the Tenant ID through PowerShell:
+Получите идентификатор клиента через PowerShell:
 
     Get-AzureRmSubscription
 
-Or, Azure CLI:
+Или с помощью Azure CLI.
 
     azure account show --json
 
       
-## <a name="see-also"></a>See also
+## Дополнительные материалы
 
-- [Submit Hadoop jobs in HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
-- [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md)
-- [Authenticate service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md)
-- [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
+- [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
+- [Создание приложения Active Directory и субъекта-службы с помощью портала](../resource-group-create-service-principal-portal.md)
+- [Проверка подлинности субъекта-службы в Azure Resource Manager](../resource-group-authenticate-service-principal.md)
+- [Управление доступом на основе ролей в Azure](../active-directory/role-based-access-control-configure.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

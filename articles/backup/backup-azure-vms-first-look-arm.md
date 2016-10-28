@@ -1,231 +1,225 @@
 <properties
-    pageTitle="First look: Protect Azure VMs with a recovery services vault | Microsoft Azure"
-    description="Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure."
-    services="backup"
-    documentationCenter=""
-    authors="markgalioto"
-    manager="cfreeman"
-    editor=""
-    keyword="backups; vm backup"/>
+	pageTitle="Первое знакомство. Защита виртуальных машин Azure в хранилище служб восстановления | Microsoft Azure"
+	description="Защита виртуальных машин Azure в хранилище служб восстановления. Используйте для защиты данных резервные копии виртуальных машин, развернутых с помощью Resource Manager или классической модели развертывания, а также виртуальных машин хранилища класса Premium. Создание и регистрация хранилища служб восстановления. Регистрация виртуальных машин, создание политики и защита виртуальных машин в Azure."
+	services="backup"
+	documentationCenter=""
+	authors="markgalioto"
+	manager="cfreeman"
+	editor=""
+	keyword="backups; vm backup"/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="09/15/2016"
-    ms.author="markgal; jimpark"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="09/15/2016"
+	ms.author="markgal; jimpark"/>
 
 
-
-# <a name="first-look:-protect-azure-vms-with-a-recovery-services-vault"></a>First look: Protect Azure VMs with a recovery services vault
+# Первое знакомство. Защита виртуальных машин Azure в хранилище служб восстановления
 
 > [AZURE.SELECTOR]
-- [Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
-- [Protect VMs with a backup vault](backup-azure-vms-first-look.md)
+- [Защита виртуальных машин в хранилище служб восстановления](backup-azure-vms-first-look-arm.md)
+- [Защита виртуальных машин в хранилище службы архивации](backup-azure-vms-first-look.md)
 
-This tutorial takes you through the steps for creating a recovery services vault and backing up an Azure virtual machine (VM). Recovery services vaults protect:
+В этом руководстве подробно описано, как создать хранилище служб восстановления и выполнить резервное копирование виртуальной машины (ВМ) Azure. Хранилища служб восстановления защищают следующие ресурсы:
 
-- Azure Resource Manager-deployed VMs
-- Classic VMs
-- Standard storage VMs
-- Premium storage VMs
-- VMs encrypted using Azure Disk Encryption, with BEK and KEK (supported using Powershell)
+- Виртуальные машины, развернутые с помощью Azure Resource Manager
+- классические виртуальные машины;
+- виртуальные машины стандартного хранилища;
+- виртуальные машины хранилища класса Premium.
+- виртуальные машины, зашифрованные при помощи шифрования дисков Azure с использованием BEK и KEK (поддерживаются с помощью PowerShell).
 
-For more information on protecting Premium storage VMs, see [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
+Дополнительные сведения о защите ВМ хранилища класса Premium см. в разделе [Резервное копирование и восстановление виртуальных машин хранилища класса Premium](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms).
 
->[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
+>[AZURE.NOTE] В этом руководстве предполагается, что в вашей подписке Azure уже есть виртуальная машина. Кроме того, вам нужно предоставить службе архивации доступ к виртуальной машине.
 
 [AZURE.INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
-At a high level, here are the steps that you'll complete.  
+Процесс будет включать следующие основные этапы.
 
-1. Create a recovery services vault for a VM.
-2. Use the Azure portal to select a Scenario, set Policy, and identify items to protect.
-3. Run the initial backup.
+1. Создание хранилища служб восстановления для виртуальной машины.
+2. Выбор сценария, установка политики и указание объектов, которые нужно защитить, на портале Azure.
+3. Выполнение начального резервного копирования.
 
 
 
-## <a name="create-a-recovery-services-vault-for-a-vm"></a>Create a recovery services vault for a VM
+## Создание хранилища служб восстановления для виртуальной машины
 
-A recovery services vault is an entity that stores all the backups and recovery points that have been created over time. The recovery services vault also contains the backup policy applied to the protected VMs.
+Хранилище служб восстановления — это сущность, в которой хранятся созданные резервные копии и точки восстановления. В нем также содержится политика резервного копирования, которая применяется к защищенным виртуальным машинам.
 
->[AZURE.NOTE] Backing up VMs is a local process. You cannot back up VMs from one location to a recovery services vault in another location. So, for every Azure location that has VMs to be backed up, at least one recovery services vault must exist in that location.
+>[AZURE.NOTE] Резервное копирование виртуальных машин выполняется локально. Нельзя создавать резервные копии виртуальных машин, которые находятся в одном расположении, в хранилище служб восстановления в другом расположении. Таким образом, в каждом расположении Azure, в котором находятся виртуальные машины, требующие резервного копирования, должно быть по крайней мере одно хранилище служб восстановления.
 
 
-To create a recovery services vault:
+Чтобы создать хранилище служб восстановления, сделайте следующее:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Выполните вход на [портал Azure](https://portal.azure.com/).
 
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vault**.
+2. В главном меню щелкните **Обзор**, а затем в списке ресурсов введите **Службы восстановления**. Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Щелкните **Хранилище служб восстановления**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Создание хранилища служб восстановления — шаг 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    The list of recovery services vaults are displayed.
+    Отобразится список хранилищ служб восстановления.
 
-3. On the **Recovery Services vaults** menu, click **Add**.
+3. В меню **Хранилища служб восстановления** щелкните **Добавить**.
 
-    ![Create Recovery Services Vault step 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
+    ![Создание хранилища служб восстановления — шаг 2](./media/backup-azure-vms-first-look-arm/rs-vault-menu.png)
 
-    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
+    Откроется колонка хранилища служб восстановления, в которой нужно указать **имя**, **подписку**, **группу ресурсов** и **расположение**.
 
-    ![Create Recovery Services vault step 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
+    ![Создание хранилища служб восстановления — шаг 5](./media/backup-azure-vms-first-look-arm/rs-vault-attributes.png)
 
-4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+4. В поле **Имя** введите понятное имя хранилища. Имя должно быть уникальным в пределах подписки Azure. Введите имя длиной от 2 до 50 знаков. Имя должно начинаться с буквы, оно может содержать только буквы, цифры и дефисы.
 
-5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There are multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+5. Щелкните **Подписка**, чтобы просмотреть список доступных подписок. Если неизвестно, какую подписку нужно использовать, оставьте подписку по умолчанию (или предлагаемую подписку). Вариантов будет несколько только в том случае, если учетная запись вашей организации связана с несколькими подписками Azure.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
+6. Щелкните **Группа ресурсов**, чтобы просмотреть список доступных групп ресурсов, или создайте группу ресурсов, щелкнув **Создать**. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения об Azure Resource Manager](../resource-group-overview.md).
 
-7. Click **Location** to select the geographic region for the vault. The vault **must** be in the same region as the virtual machines that you want to protect.
+7. В поле **Расположение** выберите географический регион, в котором будет находиться хранилище. Хранилище **должно** находиться в том же регионе, что и виртуальные машины, которые необходимо защитить.
 
-    >[AZURE.IMPORTANT] If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, create a recovery services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data--the recovery services vault and the Azure Backup service handle this automatically.
+    >[AZURE.IMPORTANT] Если вы не уверены, в каком расположении находится ваша виртуальная машина, закройте диалоговое окно создания хранилища и перейдите к списку виртуальных машин на портале. Если у вас есть виртуальные машины в нескольких регионах, создайте хранилище служб восстановления в каждом из них. Прежде чем переходить к следующему расположению, необходимо создать хранилище в первом расположении. Указывать учетные записи хранения для данных резервных копий не требуется: хранилище служб восстановления и служба архивации Azure сделают это автоматически.
 
-8. Click **Create**. It can take a while for the recovery services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it appears in the list of recovery services vaults.
+8. Щелкните **Создать**. Для создания хранилища служб восстановления может потребоваться некоторое время. Следите за уведомлениями о состоянии на портале в верхней правой области. После создания хранилище появится в списке хранилищ служб восстановления.
 
-    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
+    ![Список хранилищ службы архивации](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
-Now that you've created your vault, learn how to set the storage replication.
+Теперь, когда вы создали хранилище, можно приступить к настройке репликации.
 
-### <a name="set-storage-replication"></a>Set Storage Replication
+### Настройка репликации хранилища
 
-The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, your vault has geo-redundant storage. Leave the option set to geo-redundant storage if this is your primary backup. Choose locally redundant storage if you want a cheaper option that isn't as durable. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in the [Azure Storage replication overview](../storage/storage-redundancy.md).
+При настройке репликации хранилища можно выбирать между геоизбыточным хранилищем и локально избыточным хранилищем. По умолчанию это геоизбыточное хранилище. Если данная резервная копия является основной, оставьте установленный параметр. Если вам нужно более дешевое и не такое надежное решение, выберите локально избыточное хранилище. Дополнительные сведения о [геоизбыточном](../storage/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/storage-redundancy.md#locally-redundant-storage) хранилищах см. в статье [Репликация службы хранилища Azure](../storage/storage-redundancy.md).
 
-To edit the storage replication setting:
+Чтобы изменить параметр репликации хранилища:
 
-1. Select your vault to open the vault dashboard and the Settings blade. If the **Settings** blade doesn't open, click **All settings** in the vault dashboard.
+1. Выберите хранилище, чтобы открыть для него панель мониторинга и колонку "Параметры". Если колонка **Параметры** не открывается, щелкните **Все параметры** на панели мониторинга хранилища.
 
-2. On the **Settings** blade, click **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** blade. On the **Backup Configuration** blade, choose the storage replication option for your vault.
+2. В колонке **Параметры** последовательно выберите **Инфраструктура резервного копирования** > **Конфигурация архивации**, чтобы открыть колонку **Конфигурация архивации**. В колонке **Конфигурация архивации** выберите вариант репликации для своего хранилища.
 
-    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+    ![Список хранилищ службы архивации](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
-    After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
+    Выбрав параметры хранилища, вы можете приступать к связыванию виртуальной машины с хранилищем. Перед началом связывания нужно обнаружить и зарегистрировать виртуальные машины Azure.
 
-## <a name="select-a-backup-goal,-set-policy-and-define-items-to-protect"></a>Select a backup goal, set policy and define items to protect
+## Выбор цели архивации, настройка политики и определение объектов для защиты
 
-Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
+Прежде чем регистрировать виртуальную машину в хранилище, нужно запустить процесс обнаружения, чтобы определить все недавно добавленные в подписку виртуальные машины. В ходе этого процесса в Azure отправляется запрос о предоставлении списка виртуальных машин в подписке и дополнительных сведений, в том числе имени и региона облачной службы. На портале Azure под сценарием имеется в виду то, что вы собираетесь поместить в хранилище служб восстановления. Политика — это расписание, которое определяет частоту и время создания точек восстановления. Политика также включает диапазон хранения для точек восстановления.
 
-1. If you already have a recovery services vault open, proceed to step 2. If you do not have a recovery services vault open, but are in the Azure portal, on the Hub menu, click **Browse**.
+1. Если хранилище служб восстановления уже открыто, перейдите к шагу 2. Если хранилище служб восстановления не открыто, на портале Azure в главном меню щелкните **Обзор**.
 
-  - In the list of resources, type **Recovery Services**.
-  - As you begin typing, the list filters based on your input. When you see **Recovery Services vaults**, click it.
+  - В списке ресурсов введите **Службы восстановления**.
+  - Как только вы начнете вводить символы, список отфильтруется соответствующим образом. Когда появится пункт **Хранилища служб восстановления**, щелкните его.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
+    ![Создание хранилища служб восстановления — шаг 1](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    The list of recovery services vaults appears.
-  - From the list of recovery services vaults, select a vault.
+    После этого отобразится список хранилищ служб восстановления,
+  - в котором нужно выбрать хранилище.
 
-    The selected vault dashboard opens.
+    Затем откроется панель мониторинга выбранного хранилища.
 
-    ![Open vault blade](./media/backup-azure-vms-first-look-arm/vault-settings.png)
+    ![Открытие колонки хранилища](./media/backup-azure-vms-first-look-arm/vault-settings.png)
 
-2. From the vault dashboard menu, click **Backup** to open the Backup blade.
+2. В меню панели мониторинга хранилища щелкните **Резервное копирование**, чтобы открыть соответствующую колонку.
 
-    ![Open Backup blade](./media/backup-azure-vms-first-look-arm/backup-button.png)
+    ![Открытие колонки резервного копирования](./media/backup-azure-vms-first-look-arm/backup-button.png)
 
-    When the blade opens, the Backup service searches for any new VMs in the subscription.
+    Когда колонка откроется, служба архивации начнет поиск новых виртуальных машин в подписке.
 
-    ![Discover VMs](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
+    ![Обнаружение виртуальных машин](./media/backup-azure-vms-first-look-arm/discovering-new-vms.png)
 
-3. On the Backup blade, click **Backup goal** to open the Backup Goal blade.
+3. В колонке "Резервное копирование" щелкните **Цель резервного копирования**, чтобы открыть соответствующую колонку.
 
-    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
+    ![Открытие колонки сценария](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
 
-4. On the Backup Goal blade, set **Where is your workload running** to Azure and  **What do you want to backup** to Virtual machine, then click **OK**.
+4. В колонке "Цель резервного копирования" для параметра **Где выполняется рабочая нагрузка?** установите значение "Azure", а для параметра **Что вы хотите резервировать?** — значение "Виртуальная машина", а затем нажмите кнопку **ОК**.
 
-    The Backup Goal blade closes and the Backup policy blade opens.
+    После этого колонка Backup Goal (Цель резервного копирования) закроется, и откроется колонка "Политика архивации".
 
-    ![Open Scenario blade](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
+    ![Открытие колонки сценария](./media/backup-azure-vms-first-look-arm/select-backup-goal-two.png)
 
-5. On the Backup policy blade, select the backup policy you want to apply to the vault and click **OK**.
+5. В колонке "Политика резервного копирования" выберите политику резервного копирования для своего хранилища и нажмите кнопку **ОК**.
 
-    ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+    ![Выбор политики резервного копирования](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    The details of the default policy are listed in the details. If you want to create a policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken, to 7PM. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the vault.
+    Подробные сведения о политике по умолчанию указаны в области сведений. Если вы хотите создать политику, в раскрывающемся меню щелкните **Создать**. Здесь также можно изменить время создания моментального снимка на 19:00. Инструкции по определению политики резервного копирования см. в разделе [Определение политики резервного копирования](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Как только вы нажмете кнопку **ОК**, политика резервного копирования будет связана с хранилищем.
 
-    Next choose the VMs to associate with the vault.
+    Теперь нужно выбрать виртуальные машины, которые нужно связать с хранилищем.
 
-6. Choose the virtual machines to associate with the specified policy and click **Select**.
+6. Выберите виртуальные машины, чтобы связать их с указанной политикой, и нажмите кнопку **Выбрать**.
 
-    ![Select workload](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
+    ![Выбор рабочей нагрузки](./media/backup-azure-vms-first-look-arm/select-vms-to-backup-new.png)
 
-    If you do not see the desired VM, check that it exists in the same Azure location as the Recovery Services vault.
+    Если эта виртуальная машина не появится, проверьте, относится ли она к тому же расположению Azure, что и хранилище служб восстановления.
 
-7. Now that you have defined all settings for the vault, in the Backup blade click **Enable Backup** at the bottom of the page. This deploys the policy to the vault and the VMs.
+7. Теперь, когда все параметры для хранилища заданы, в колонке "Резервное копирование" в нижней части страницы нажмите кнопку **Включить резервное копирование**. В результате выполнения этой команды для хранилища и виртуальных машин будет развернута политика.
 
-    ![Enable Backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
+    ![Включение резервного копирования](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
 
 
-## <a name="initial-backup"></a>Initial backup
+## Начальное резервное копирование
 
-Once a backup policy has been deployed on the virtual machine, that does not mean the data has been backed up. By default, the first scheduled backup (as defined in the backup policy) is the initial backup. Until the initial backup occurs, the Last Backup Status on the **Backup Jobs** blade shows as **Warning(initial backup pending)**.
+Если политика резервного копирования развернута на виртуальной машине, это не означает, что резервное копирование данных уже выполнено. По умолчанию начальным резервным копированием является первое запланированное резервное копирование (заданное в политике резервного копирования). Пока начальное резервное копирование не будет выполнено, для последнего задания резервного копирования в колонке **Задания резервного копирования** будет отображаться состояние **Предупреждение (ожидание начальной архивации)**.
 
-![Backup pending](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
+![Статус "В ожидании резервного копирования"](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-Unless your initial backup is due to begin soon, it is recommended that you run **Back up Now**.
+Если начальное резервное копирование должно начаться не скоро, советуем воспользоваться командой **Выполнить моментальную архивацию**.
 
-To run **Back up Now**:
+Для этого сделайте вот что.
 
-1. On the vault dashboard, on the **Backup** tile, click **Azure Virtual Machines** <br/>
-    ![Settings icon](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
+1. На панели мониторинга хранилища на плитке **Резервное копирование** щелкните **Виртуальные машины Azure**. <br/> ![Значок "Параметры"](./media/backup-azure-vms-first-look-arm/rs-vault-in-dashboard-backup-vms.png)
 
-    The **Backup Items** blade opens.
+    Откроется колонка **Элементы архивации**.
 
-2. On the **Backup Items** blade, right-click the vault you want to back up, and click **Backup now**.
+2. В колонке **Элементы архивации** щелкните правой кнопкой мыши хранилище, для которого необходимо выполнить резервное копирование, и выберите пункт **Архивировать**.
 
-    ![Settings icon](./media/backup-azure-vms-first-look-arm/back-up-now.png)
+    ![Значок "Параметры"](./media/backup-azure-vms-first-look-arm/back-up-now.png)
 
-    The Backup job is triggered. <br/>
+    Будет запущено задание резервного копирования. <br/>
 
-    ![Backup job triggered](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
+    ![Задание резервного копирования активировано](./media/backup-azure-vms-first-look-arm/backup-triggered.png)
 
-3. To view that your initial backup has completed, on the vault dashboard, on the **Backup Jobs** tile, click **Azure virtual machines**.
+3. Чтобы проверить, закончилось ли начальное резервное копирование, на панели мониторинга хранилища под плиткой **Задания резервного копирования** щелкните **Виртуальные машины Azure**.
 
-    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
+    ![Элемент "Задания резервного копирования"](./media/backup-azure-vms-first-look-arm/open-backup-jobs.png)
 
-    The Backup Jobs blade opens.
+    После этого откроется колонка "Задания резервного копирования".
 
-4. In the Backup jobs blade, you can see the status of all jobs.
+4. В колонке "Задания резервного копирования" можно просмотреть состояние всех заданий.
 
-    ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
+    ![Элемент "Задания резервного копирования"](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view.png)
 
-    >[AZURE.NOTE] As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each VM to flush all writes and take a consistent snapshot.
+    >[AZURE.NOTE] В ходе резервного копирования служба архивации Azure дает команду расширению для резервного копирования на каждой виртуальной машине сохранять на диск все данные операций записи и делать согласованный моментальный снимок.
 
-    When the backup job is finished, the status is *Completed*.
+    Когда задание резервного копирования будет выполнено, состояние изменится на *Завершено*.
 
 [AZURE.INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
-## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Install the VM Agent on the virtual machine
+## Установка агента ВМ на виртуальной машине
 
-This information is provided in case it is needed. The Azure VM Agent must be installed on the Azure virtual machine for the Backup extension to work. However, if your VM was created from the Azure gallery, then the VM Agent is already present on the virtual machine. VMs that are migrated from on-premises datacenters would not have the VM Agent installed. In such a case, the VM Agent needs to be installed. If you have problems backing up the Azure VM, check that the Azure VM Agent is correctly installed on the virtual machine (see the table below). If you create a custom VM, [ensure the **Install the VM Agent** check box is selected](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) before the virtual machine is provisioned.
+Эта информация приведена на случай необходимости. Агент VM Azure необходимо установить на виртуальной машине Azure, чтобы обеспечить работоспособность модуля резервного копирования. Однако если виртуальная машина создана из коллекции Azure, в ней уже установлен агент. На виртуальных машинах, которые переносятся из локальных центров обработки данных, агент отсутствует. Для таких виртуальных машин агент необходимо установить. Если у вас возникли сложности с резервным копированием виртуальной машины Azure, убедитесь, что на ней правильно установлен агент ВМ Azure (см. таблицу ниже). После создания пользовательской виртуальной машины [обязательно установите флажок **Установить агент ВМ**, прежде чем начать подготовку виртуальной машины](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
 
-Learn about the [VM Agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+См. дополнительные сведения об [агенте виртуальной машины](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) и [ее установке](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
 
-The following table provides additional information about the VM Agent for Windows and Linux VMs.
+В таблице ниже приведены дополнительные сведения об агенте для виртуальных машин Windows и Linux.
 
-| **Operation** | **Windows** | **Linux** |
+| **Операция** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installing the VM Agent | <li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. | <li> Install the latest [Linux agent](https://github.com/Azure/WALinuxAgent) from GitHub. You need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
-| Updating the VM Agent | Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. | Follow the instructions on [updating the Linux VM Agent ](../virtual-machines-linux-update-agent.md). <br>Ensure that no backup operation is running while the VM Agent is being updated. |
-| Validating the VM Agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. | N/A |
+| Установка агента VM | <li>Скачайте и установите [MSI-файл агента](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Чтобы выполнить установку, необходимо иметь права администратора. <li>[Обновите свойство виртуальной машины](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), чтобы указать, что агент установлен. | <li> Установите последнюю версию [агента Linux](https://github.com/Azure/WALinuxAgent) с сайта GitHub. Чтобы выполнить установку, необходимо иметь права администратора. <li> [Обновите свойство виртуальной машины](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), чтобы указать, что агент установлен. |
+| Обновление агента виртуальной машины | Обновление агента виртуальной машины — это простая процедура, схожая с переустановкой [двоичных файлов агента виртуальной машины](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Необходимо убедиться, что во время обновления агента виртуальной машины не выполняются операции резервного копирования. | Следуйте указаниям по [обновлению агента виртуальной машины Linux](../virtual-machines-linux-update-agent.md). <br>Необходимо убедиться, что во время обновления агента виртуальной машины не выполняются операции резервного копирования. |
+| Проверка установки агента VM | <li>На виртуальной машине Azure перейдите в папку *C:\\WindowsAzure\\Packages*. <li>В ней должен находиться файл WaAppAgent.exe.<li> Щелкните этот файл правой кнопкой мыши, выберите пункт **Свойства** и перейдите на вкладку **Подробно**. В поле "Версия продукта" должно отображаться значение 2.6.1198.718 или выше. | Недоступно |
 
 
-### <a name="backup-extension"></a>Backup extension
+### Расширение резервного копирования
 
-Once the VM Agent is installed on the virtual machine, the Azure Backup service installs the backup extension to the VM Agent. The Azure Backup service seamlessly upgrades and patches the backup extension without additional user intervention.
+Когда агент будет установлен на виртуальной машине, служба архивации Azure установит для агента модуль резервного копирования. Служба резервного копирования Azure легко обновляет и применяет исправления к расширению резервного копирования без дополнительного вмешательства пользователя.
 
-The backup extension is installed by the Backup service whether the VM is running. A running VM provides the greatest chance of getting an application-consistent recovery point. However, the Azure Backup service continues to back up the VM even if it is turned off, and the extension could not be installed. This is known as Offline VM. In this case, the recovery point will be *crash consistent*.
+Модуль резервного копирования устанавливается службой архивации независимо от того, запущена ли виртуальная машина. На запущенной виртуальной машине проще получить точку восстановления, согласованную с приложениями. При этом служба архивации Azure продолжает архивацию виртуальной машины, даже если она выключена, и нельзя установить расширение. (автономная виртуальная машина). В этом случае точка восстановления будет *отказоустойчивой*.
 
-## <a name="troubleshooting-information"></a>Troubleshooting information
-If you have issues accomplishing some of the tasks in this article, consult the [Troubleshooting guidance](backup-azure-vms-troubleshoot.md).
-
-
-## <a name="questions?"></a>Questions?
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+## Сведения об устранении неполадок
+Если у вас возникли проблемы при выполнении задач, описанных в этой статье, изучите [руководство по устранению неполадок](backup-azure-vms-troubleshoot.md).
 
 
+## Вопросы?
+Если вы хотите задать вопрос или предложить добавить какие-либо функции, [отправьте нам свой отзыв](http://aka.ms/azurebackup_feedback).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

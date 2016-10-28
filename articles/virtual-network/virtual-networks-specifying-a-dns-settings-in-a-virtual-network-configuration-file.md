@@ -1,34 +1,33 @@
 <properties 
-   pageTitle="Specifying DNS Settings in a virtual network configuration file | Microsoft Azure"
-   description="How to change DNS server settings in a virtual network using a virtual network configuration file in the classic deployment model"
+   pageTitle="Задание параметров DNS в файле конфигурации виртуальной сети | Microsoft Azure"
+   description="Как изменить параметры DNS-сервера в виртуальной сети с помощью файла конфигурации виртуальной сети в классической модели развертывания."
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
    manager="carmonm"
    editor="tysonn" 
    tags="azure-service-management" />
-<tags 
+<tags  
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/23/2016"
-   ms.author="jdial" /> 
+   ms.author="jdial" />
 
 
+# Задание параметров DNS в файле конфигурации виртуальной сети
 
-# <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Specifying DNS settings in a virtual network configuration file
+Файл конфигурации сети содержит два элемента, позволяющих задавать параметры службы доменных имен (DNS): **DnsServers** и **DnsServerRef**. Список DNS-серверов можно добавить, задав их IP-адреса и ссылочные имена в элементе **DnsServers**. После этого в элементе **DnsServerRef** можно указать записи DNS-серверов из элемента DnsServers, которые будут применяться для различных сетевых сайтов в виртуальной сети.
 
-A network configuration file has two elements that you can use to specify Domain Name System (DNS) settings: **DnsServers** and **DnsServerRef**. You can add a list of DNS servers by specifying their IP addresses and reference names to the **DnsServers** element. You can then use a **DnsServerRef** element to specify which DNS server entries from the DnsServers element are used for different network sites within your virtual network.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье рассматривается классическая модель развертывания.
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the classic deployment model.
+Файл конфигурации сети может содержать следующие элементы. Заголовок каждого элемента связан со страницей, содержащей дополнительную информацию о параметрах значений элемента.
 
-The network configuration file may contain the following elements. The title of each element is linked to a page that provides additional information about the element value settings.
+>[AZURE.IMPORTANT] Дополнительную информацию о том, как настроить файл конфигурации сети, см. в разделе [Настройка виртуальной сети с помощью файлов конфигурации сети](virtual-networks-using-network-configuration-file.md). Информацию о каждом элементе, содержащемся в файле конфигурации сети, см. в разделе [Схема конфигурации виртуальной сети Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
->[AZURE.IMPORTANT] For information about how to configure the network configuration file, see [Configure a Virtual Network Using a Network Configuration File](virtual-networks-using-network-configuration-file.md). For information about each element contained in the network configuration file, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
-
-[Dns Element](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Элемент DNS](http://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -38,26 +37,22 @@ The network configuration file may contain the following elements. The title of 
       </DnsServers>
     </Dns>
 
->[AZURE.WARNING] The **name** attribute in the **DnsServer** element is used only as a reference for the **DnsServerRef** element. It does not represent the host name for the DNS server. Each **DnsServer** attribute value must be unique across the entire Microsoft Azure subscription
+>[AZURE.WARNING] Атрибут **name** в элементе **DnsServer** используется только в качестве ссылки для элемента **DnsServerRef**. Он не представляет имя узла для DNS-сервера. Каждое значение атрибута **DnsServer** должно быть уникальным во всей подписке Microsoft Azure.
 
-[Virtual Network Sites Element](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Элемент Virtual Network Sites](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-    <DnsServersRef>
-      <DnsServerRef name="ID1" />
-      <DnsServerRef name="ID2" />
-      <DnsServerRef name="ID3" />
-    </DnsServersRef>
+	<DnsServersRef>
+	  <DnsServerRef name="ID1" />
+	  <DnsServerRef name="ID2" />
+	  <DnsServerRef name="ID3" />
+	</DnsServersRef>
 
->[AZURE.NOTE] In order to specify this setting for the Virtual Network Sites element, it must be previously defined in the DNS element. The DnsServerRef *name* in the Virtual Network Sites element must refer to a name value specified in the DNS element for DnsServer *name*.
+>[AZURE.NOTE] Чтобы задать этот параметр для элемента Virtual Network Sites, его необходимо определить ранее в элементе DNS. *Имя* DnsServerRef в элементе Virtual Network Sites должно ссылаться на значение имени, указанное в элементе DNS для *имени* DnsServer.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- Understand the [Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093).
-- Understand the [Azure Service Configuration Schema](https://msdn.microsoft.com/library/windowsazure/ee758710).
-- [Configure a virtual network using Network configuration files](virtual-networks-using-network-configuration-file.md).
+- Ознакомьтесь со [схемой конфигурации виртуальной сети Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
+- Ознакомьтесь со [схемой конфигурации службы Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
+- [Настройка виртуальной сети с помощью файлов конфигурации сети](virtual-networks-using-network-configuration-file.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

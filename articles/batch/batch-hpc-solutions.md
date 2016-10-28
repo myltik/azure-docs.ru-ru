@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Batch and HPC solutions in the cloud | Microsoft Azure"
-   description="Learn about batch and high-performance computing (HPC and Big Compute) scenarios and solution options in Azure"
+   pageTitle="Пакетные решения и решения HPC в облаке | Microsoft Azure"
+   description="Сценарии и решения для пакетных и высокопроизводительных вычислений (вычисления HPC и большие вычисления) в Azure"
    services="batch, virtual-machines, cloud-services"
    documentationCenter=""
    authors="dlepow"
@@ -16,140 +16,139 @@
    ms.date="07/27/2016"
    ms.author="danlep"/>
 
+# Пакетные решения и решения HPC в облаке Azure
 
-# <a name="batch-and-hpc-solutions-in-the-azure-cloud"></a>Batch and HPC solutions in the Azure cloud
+Azure предлагает эффективные масштабируемые облачные решения для пакетной обработки и высокопроизводительных вычислений (HPC), которые также называют *большими вычислениями*. Узнайте, что представляют собой большие вычисления и какие службы Azure их поддерживают, или обратитесь непосредственно к [сценариям решений](#scenarios), которые приводятся ниже в этой статье. Эта статья предназначена главным образом для технических специалистов, ИТ-менеджеров и независимых поставщиков программного обеспечения, но поможет познакомиться с этими решениями и другим ИТ-специалистам и разработчикам.
 
-Azure offers efficient, scalable cloud solutions for batch and high-performance computing (HPC) - also called *Big Compute*. Learn here about Big Compute workloads and Azure’s services to support them, or jump directly to [solution scenarios](#scenarios) later in this article. This article is mainly for technical decision-makers, IT managers, and independent software vendors, but other IT professionals and developers can use it to familiarize themselves with these solutions.
+Сегодня перед организациями стоят сложные крупномасштабные вычислительные задачи, включающие техническое проектирование и анализ, отрисовку изображений, комплексное моделирование, моделирование методом Монте-Карло и вычисление финансовых рисков. Azure помогает организациям решать такие задачи, предоставляя необходимые ресурсы, а также возможность масштабирования и планирования. С помощью Azure организации могут:
 
-Organizations have large-scale computing problems: engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, financial risk calculations, and others. Azure helps organizations solve these problems with the resources, scale, and schedule they need. With Azure, organizations can:
+* создавать гибридные решения, расширяющие локальный вычислительный кластер HPC для передачи пиковых нагрузок в облако;
 
-* Create hybrid solutions, extending an on-premises HPC cluster to offload peak workloads to the cloud
+* запускать рабочие нагрузки вычислительного кластера HPC полностью в Azure;
 
-* Run HPC cluster tools and workloads entirely in Azure
+* использовать управляемые и масштабируемые службы Azure, такие как [пакетная служба Azure](https://azure.microsoft.com/documentation/services/batch/), для запуска ресурсоемких рабочих нагрузок без необходимости развертывания вычислительной инфраструктуры и управления ею.
 
-* Use managed and scalable Azure services such as [Batch](https://azure.microsoft.com/documentation/services/batch/) to run compute-intensive workloads without having to deploy and manage compute infrastructure
-
-Although beyond the scope of this article, Azure also provides developers and partners a full set of capabilities, architecture choices, and development tools to build large-scale, custom Big Compute workflows. And a growing partner ecosystem is ready to help you make your Big Compute workloads productive in the Azure cloud.
+Несмотря на то, что это выходит за рамки данной статьи, отметим, что Azure также предлагает разработчикам и партнерам полный набор возможностей, вариантов архитектуры и средств разработки для создания настраиваемых крупномасштабных рабочих процессов больших вычислений. Растущая экосистема партнеров готова помочь вам добиться продуктивности рабочих процессов больших вычислений в облаке Azure.
 
 
-## <a name="batch-and-hpc-applications"></a>Batch and HPC applications
+## Пакетные и HPC-вычисления
 
-Unlike web applications and many line-of-business applications, batch and HPC applications have a defined beginning and end, and they can run on a schedule or on demand, sometimes for hours or longer. Most fall into two main categories: *intrinsically parallel* (sometimes called “embarrassingly parallel”, because the problems they solve lend themselves to running in parallel on multiple computers or processors) and *tightly coupled*. See the following table for more about these application types. Some Azure solution approaches work better for one type or the other.
+В отличие от веб- и многих бизнес-приложений пакетные и HPC приложения имеют определенные моменты запуска и завершения и могут выполняться по расписанию или по требованию, иногда в течение нескольких часов или дольше. Большинство из них подразделяются на две основные категории: *параллельные по сути*(иногда они называются "неудобно параллельными", поскольку из-за специфики решаемых задач они обязаны выполняться параллельно на нескольких компьютерах или процессорах) и *тесно связанные*. В следующей таблице приведены дополнительные сведения об этих типах приложений. Некоторые решения Azure лучше подходят для одного или другого типа приложений.
 
->[AZURE.NOTE] In Batch and HPC solutions, a running instance of an application is typically called a *job*, and each job might get divided into *tasks*. And the clustered compute resources for the application are often called *compute nodes*.
+>[AZURE.NOTE] В пакетных и HPC решениях запущенный экземпляр приложения обычно называется *заданием* и каждое задание может подразделяться на *задачи*. А кластеризованные вычислительные ресурсы приложения часто называются *вычислительными узлами*.
 
-Type | Characteristics | Examples
+Тип | Характеристики | Примеры
 ------------- | ----------- | ---------------
-**Intrinsically parallel**<br/><br/>![Intrinsically parallel][parallel] |• Individual computers run application logic independently<br/><br/> • Adding computers allows the application to scale and decrease computation time<br/><br/>• Application consists of separate executables, or is divided into a group of services invoked by a client (a service-oriented architecture, or SOA, application) |• Financial risk modeling<br/><br/>• Image rendering and image processing<br/><br/>• Media encoding and transcoding<br/><br/>• Monte Carlo simulations<br/><br/>• Software testing
-**Tightly coupled**<br/><br/>![Tightly coupled][coupled] |• Application requires compute nodes to interact or exchange intermediate results<br/><br/>• Compute nodes may communicate using the Message Passing Interface (MPI), a common communications protocol for parallel computing<br/><br/>• The application is sensitive to network latency and bandwidth<br/><br/>• Application performance can be improved by using high-speed networking technologies such as InfiniBand and remote direct memory access (RDMA) |• Oil and gas reservoir modeling<br/><br/>• Engineering design and analysis, such as computational fluid dynamics<br/><br/>• Physical simulations such as car crashes and nuclear reactions<br/><br/>• Weather forecasting
+**Параллельные по сути**<br/><br/>![Параллельные по сути][parallel] |• Логика приложения выполняется на отдельных вычислительных узлах, которые работают независимо друг от друга<br/><br/>• При добавлении вычислительных узлов приложение можно масштабировать и сократить время вычисления<br/><br/>• Приложение состоит из отдельных исполняемых файлов или разделено на несколько служб, вызываемых клиентом (приложение сервис-ориентированной архитектуры) |• Моделирование финансовых рисков<br/><br/>• Отрисовка и обработка изображений<br/><br/>• Кодирование и перекодирование мультимедиа<br/><br/>• Симуляции методом Монте-Карло<br/><br/>• Тестирование программного обеспечения
+**Тесно связанные**<br/><br/>![Тесно связанные][coupled] |• Приложениям для взаимодействия и обмена промежуточными результатами необходимы вычислительные узлы<br/><br/>• Вычислительные узлы могут обмениваться данными с помощью интерфейса передачи сообщений (MPI), популярного коммуникационного протокола для параллельных вычислений<br/><br/>• Приложение чувствительно к сетевой задержке и пропускной способности сети<br/><br/>• Производительность приложения может быть улучшена с помощью технологий высокоскоростной сети, таких как InfiniBand и удаленный прямой доступ к памяти (RDMA) |• Моделирование нефтяных и газовых резервуаров<br/><br/>• Техническое проектирование и анализ, например вычислительная гидродинамика<br/><br/>• Физические симуляции, например симуляции автокатастроф и ядерных реакций<br/><br/>• Прогнозирование погоды
 
-### <a name="considerations-for-running-batch-and-hpc-applications-in-the-cloud"></a>Considerations for running batch and HPC applications in the cloud
+### Рекомендации по запуску пакетных и HPC приложений в облаке
 
-You can readily migrate many applications that are designed to run in on-premises HPC clusters to Azure, or to a hybrid (cross-premises) environment. However, there may be some limitations or considerations, including:
-
-
-* **Availability of cloud resources** - Depending on the type of cloud compute resources you use, you might not be able to rely on continuous machine availability while a job runs. State handling and progress check pointing are common techniques to handle possible transient failures, and more necessary when using cloud resources.
+В Azure или в гибридную среду (разделяемую несколькими организациями) можно легко перенести многие приложения, предназначенные для запуска на локальных вычислительных кластерах HPC. Однако при этом следует учитывать некоторые ограничения или соображения, включающие
 
 
-* **Data access** - Data access techniques commonly available in enterprise clusters, such as NFS, may require special configuration in the cloud. Or, you might need to adopt different data access practices and patterns for the cloud.
-
-* **Data movement** - For applications that process large amounts of data, strategies are needed to move the data into cloud storage and to compute resources. You might need high-speed cross-premises networking such as [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Also consider legal, regulatory, or policy limitations for storing or accessing that data.
+* **Доступность облачных ресурсов** — в зависимости от выбранного типа облачные вычислительные ресурсы могут быть недоступными в течение какого-то времени при выполнении задания. Для обработки возможных ошибок неустойчивых отказов обычно используются сохранение состояния и контроль выполнения. Эти операции критичны при использовании облачных ресурсов.
 
 
-* **Licensing** - Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need to plan for a licensing server in the cloud for your solution, or connect to an on-premises license server.
+* **Доступ к данным** — способы доступа к данным, применяемые в кластерах предприятия (например, NFS), могут потребовать выполнения специальной настройки в облаке. Вы также можете попробовать другие способы получения доступа к данным в облаке.
+
+* **Перемещение данных** — для приложений, обрабатывающих большие объемы данных, необходимы стратегии перемещения данных в хранилище облака и стратегии использования вычислительных ресурсов. Для решения этой задачи могут потребоваться такие высокоскоростные распределенные сети, как [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Также учитывать законодательные, юридические ограничения на хранение и доступ к этим данным, а также ограничения политик.
 
 
-### <a name="big-compute-or-big-data?"></a>Big Compute or Big Data?
-
-The dividing line between Big Compute and Big Data applications isn't always clear, and some applications may have characteristics of both. Both involve running large-scale computations, usually on clusters of computers. But the solution approaches and supporting tools can differ.
-
-• **Big Compute** tends to involve applications that rely on CPU power and memory, such as engineering simulations, financial risk modeling, and digital rendering. The infrastructure for a Big Compute solution might include computers with specialized multicore processors to perform raw computation, and specialized, high-speed networking hardware to connect the computers.
-
-• **Big Data** solves data analysis problems that involve large amounts of data that can’t be managed by a single computer or database management system. Examples include large volumes of web logs or other business intelligence data. Big Data tends to rely more on disk capacity and I/O performance than on CPU power. There are also specialized Big Data tools such as Apache Hadoop to manage the cluster and partition the data. (For information about Azure HDInsight and other Azure Hadoop solutions, see [Hadoop](https://azure.microsoft.com/solutions/hadoop/).)
-
-## <a name="compute-management-and-job-scheduling"></a>Compute management and job scheduling
-
-Running Batch and HPC applications often includes a *cluster manager* and a *job scheduler* to help manage clustered compute resources and allocate them to the applications that run the jobs. These functions might be accomplished by separate tools, or an integrated tool or service.
-
-* **Cluster manager** - Provisions, releases, and administers compute resources (or compute nodes). A cluster manager might automate installation of operating system images and applications on compute nodes, scale compute resources according to demands, and monitor the performance of the nodes.
-
-* **Job scheduler** - Specifies the resources (such as processors or memory) an application needs, and the conditions when it runs. A job scheduler maintains a queue of jobs and allocates resources to them based on an assigned priority or other characteristics.
-
-Clustering and job scheduling tools for Windows-based and Linux-based clusters can migrate well to Azure. For example, [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), Microsoft’s free compute cluster solution for Windows and Linux HPC workloads, offers several options for running in Azure. You can also build Linux clusters to run open-source tools such as Torque and SLURM. You can also bring commercial grid solutions to Azure, such as [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592), and [Univa Grid Engine](http://www.univa.com/products/grid-engine).
-
-As shown in the following sections, you can also take advantage of Azure services to manage compute resources and schedule jobs without (or in addition to) traditional cluster management tools.
+* **Лицензирование** — проконсультируйтесь с поставщиками всех коммерческих приложений о лицензировании или иных ограничениях на запуск приложений в облаке. Не все поставщики предлагают лицензирование с оплатой по мере использования. Для вашего решения может потребоваться сервер лицензий в облаке или локальный сервер лицензий.
 
 
-## <a name="scenarios"></a>Scenarios
+### Большие вычисления или Большие данные?
 
-Here are three common scenarios to run Big Compute workloads in Azure by using existing HPC cluster solutions, Azure services, or a combination of the two. Key considerations for choosing each scenario are listed but aren't exhaustive. More about the available Azure services you might use in your solution is later in the article.
+Линия раздела между приложениями больших вычислений и больших данных не всегда очевидна, и некоторые приложения могут иметь характеристики и того, и другого. В обоих случаях используются крупномасштабные вычисления, обычно на кластерах компьютеров. Но подходы к решениям и используемые средства могут различаться.
 
-  | Scenario | Why choose it?
+•**Большие вычисления**, как правило, включают приложения, использующие вычислительные ресурсы процессора и память. К ним относятся, например, техническое моделирование, моделирование финансовых рисков и цифровая отрисовка. Инфраструктура решения для больших вычислений может включать в себя компьютеры со специализированными многоядерными процессорами для выполнения "сырых" вычислений и специализированное высокоскоростное сетевое оборудование для подключения компьютеров.
+
+• **Большие данные** решают задачи анализа больших объемов данных, которые не под силу одному компьютеру или СУБД. Примеры включают большие объемы веб-журналов или других данных бизнес-аналитики. Большие данные зависят скорее от емкости диска и производительности операций ввода-вывода, чем от мощности процессора. Существуют также специализированные средства для работы с большими данными (например, Apache Hadoop), которые позволяют управлять кластером и секционировать данные. (Сведения об Azure HDInsight и других решениях Azure Hadoop приведены в статье [Hadoop](https://azure.microsoft.com/solutions/hadoop/).)
+
+## Управление вычислениями и планирование заданий
+
+Выполнение приложений пакетной службы и приложений HPC зачастую включает работу *диспетчера кластеров* и *планировщика заданий*, которые помогают управлять кластеризованными вычислительными ресурсами и выделять их приложениям, запускающим задания. Эти функции могут выполняться отдельными инструментами или одним общим инструментом или службой.
+
+* **Диспетчер кластеров** — развертывает, освобождает вычислительные ресурсы (или вычислительные узлы) и управляет ими. Диспетчер кластеров может автоматизировать установку образов операционных систем и приложений на вычислительных узлах, масштабировать вычислительные ресурсы по требованию и наблюдать за производительностью узлов.
+
+* **Планировщик заданий** — определяет ресурсы (например, ресурсы процессора или оперативной памяти), потребляемые приложением, а также условия запуска приложения. Планировщик заданий поддерживает очередь заданий и распределяет ресурсы на основании назначенных приоритетов и других характеристик.
+
+Средства кластеризации и планирования заданий для кластеров Windows и Linux хорошо мигрируют в Azure. Например, [пакет Microsoft HPC](https://technet.microsoft.com/library/cc514029), бесплатное решение вычислительного кластера для рабочей нагрузки HPC в Windows или Linux от корпорации Майкрософт, предусматривает несколько вариантов выполнения в Azure. Можно также создавать кластеры Linux для запуска таких средств с открытым исходным кодом, как Torque и SLURM. Кроме того, в Azure можно использовать и коммерческие решения, например [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) и [Univa Grid Engine](http://www.univa.com/products/grid-engine).
+
+Как показано в следующих разделах, службы Azure позволяют также управлять вычислительными ресурсами и планировать задания без использования традиционных средств управления кластером или вместе с ними.
+
+
+## Сценарии
+
+Рассмотрим три основных сценария для запуска рабочих нагрузок больших вычислений в Azure с использованием существующих кластерных решений HPC, служб Azure или их сочетания. Список доводов в пользу каждого сценария включен, но не является исчерпывающим. Дополнительные сведения о службах Azure, которые можно использовать в своем решении, см. далее в этой статье.
+
+ | Сценарий | Для чего нужен?
 ------------- | ----------- | ---------------
-**Burst an HPC cluster to Azure**<br/><br/>[![Cluster burst][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> Learn more:<br/>• [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Set up a hybrid compute cluster with HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>• [Burst to Azure Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)<br/><br/>|• Combine your [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) or other on-premises cluster with additional Azure resources in a hybrid solution.<br/><br/>• Extend your Big Compute workloads to run on Platform as a Service (PaaS) virtual machine instances (currently Windows Server only).<br/><br/>• Access an on-premises license server or data store by using an optional Azure virtual network|• You have an existing HPC cluster and need more resources <br/><br/>• You don’t want to purchase and manage additional HPC cluster infrastructure<br/><br/>• You have transient peak-demand periods or special projects
-**Create an HPC cluster entirely in Azure**<br/><br/>[![Cluster in IaaS][iaas_cluster]](./media/batch-hpc-solutions/iaas_cluster.png)<br/><br/>Learn more:<br/>• [HPC cluster solutions in Azure](./big-compute-resources.md)<br/><br/>|• Quickly and consistently deploy your applications and cluster tools on standard or custom Windows or Linux infrastructure as a service (IaaS) virtual machines.<br/><br/>• Run various Big Compute workloads by using the job scheduling solution of your choice.<br/><br/>• Use additional Azure services including networking and storage to create complete cloud-based solutions. |• You don’t want to purchase and manage additional Linux or Windows HPC cluster infrastructure<br/><br/>• You have transient peak-demand periods or special projects<br/><br/>• You need an additional cluster for a time but don't want to invest in computers and space to deploy it<br/><br/>• You want to offload your compute-intensive application so it runs as a service entirely in the cloud
-**Scale out a parallel application to Azure**<br/><br/>[![Azure Batch][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>Learn more:<br/>• [Basics of Azure Batch](./batch-technical-overview.md)<br/><br/>• [Get started with the Azure Batch library for .NET](./batch-dotnet-get-started.md)|• Develop with [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) to scale out various Big Compute workloads to run on pools of Windows or Linux virtual machines.<br/><br/>• Use an Azure platform service to manage deployment and autoscaling of virtual machines, job scheduling, disaster recovery, data movement, dependency management, and application deployment.|• You don’t want to manage compute resources or a job scheduler; instead, you want to focus on running your applications<br/><br/>• You want to offload your compute-intensive application so it runs as a service in the cloud<br/><br/>• You want to automatically scale your compute resources to match the compute workload
+**Ускорение кластера HPC в Azure**<br/><br/>[![Расширение кластера][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> Подробнее:<br/>• [Ускорение в рабочие экземпляры Azure с помощью пакета HPC](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Настройка гибридного вычислительного кластера с помощью пакета HPC](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>• [Ускорение в пакетную службу Azure с помощью пакета HPC](https://technet.microsoft.com/library/mt612877.aspx)<br/><br/>|• Объединение [пакета Microsoft HPC](https://technet.microsoft.com/library/cc514029) или другого локального кластера с дополнительными ресурсами Azure в гибридном решении.<br/><br/>• Перенос рабочей нагрузки больших вычислений на экземпляры виртуальной машины PaaS (платформа как услуга). На данный момент это может быть только Windows Server.<br/><br/>• Доступ к локальному серверу лицензий или хранилищу данных через вспомогательную виртуальную сеть Azure|• У вас уже есть кластер HPC, и вам нужны дополнительные ресурсы. <br/><br/>• Вы не хотите приобретать и администрировать дополнительную инфраструктуру кластера HPC.<br/><br/>• У вас бывают временные периоды высокой нагрузки или специальные проекты
+**Создание кластера HPC полностью в Azure**<br/><br/>[![Кластер в IaaS][iaas_cluster]](./media/batch-hpc-solutions/iaas_cluster.png)<br/><br/>Подробнее:<br/>• [Кластерные решения HPC в Azure](./big-compute-resources.md)<br/><br/>|• Быстрое и согласованное развертывание средств приложений и кластеров в стандартной и настраиваемой инфраструктуре Windows или Linux в качестве виртуальной машины IaaS (инфраструктура как услуга).<br/><br/>• Выполнение различных рабочих нагрузок больших вычислений с помощью решения для планирования заданий по вашему выбору.<br/><br/>• Использование дополнительных служб Azure, включая сети и хранилище, для создания полностью облачных решений. |• Вы не хотите покупать и администрировать дополнительную инфраструктуру кластера HPC.<br/><br/>• У вас бывают периоды высокой нагрузки или специальные проекты.<br/><br/>• Вам временно нужен дополнительный кластер, но вы не готовы инвестировать средства в компьютеры и пространство для его развертывания.<br/><br/>• Вы хотите уменьшить нагрузку на ресурсоемкое приложение, чтобы оно полностью работало в облаке как услуга.
+**Развертывание параллельного приложения в Azure**<br/><br/>[![Пакетная служба Azure][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>Подробнее:<br/>• [Основные сведения о пакетной службе Azure](./batch-technical-overview.md)<br/><br/>• [Начало работы с библиотекой пакетной службы Azure для .NET](./batch-dotnet-get-started.md)|• Использование [пакетной службы Azure](https://azure.microsoft.com/documentation/services/batch/) для горизонтального масштабирования различных рабочих нагрузок больших вычислений и обеспечения их выполнения в пулах виртуальных машин Windows или Linux.<br/><br/>• Использование службы платформы Azure для управления развертыванием и автоматического масштабирования виртуальных машин, планирования заданий, аварийного восстановления, перемещения данных, управления зависимостями и развертывания приложений.|• Вы хотите сосредоточиться на работе своих приложений, не отвлекаясь на управление вычислительными ресурсами или планировщиком заданий.<br/><br/>• Вы хотите уменьшить нагрузку на ресурсоемкое приложение, сделав так, чтобы оно работало в облаке как услуга.<br/><br/>• Вам требуется автоматическое масштабирование вычислительных ресурсов в соответствии с вычислительной нагрузкой
 
 
-## <a name="azure-services-for-big-compute"></a>Azure services for Big Compute
+## Службы Azure для Больших вычислений
 
-Here is more about the compute, data, networking, and related services you can combine for Big Compute solutions and workflows. For in-depth guidance on Azure services, see the Azure services [documentation](https://azure.microsoft.com/documentation/). The [scenarios](#scenarios) earlier in this article show just some ways of using these services.
+Ниже представлены подробные сведения о вычислительных службах, службах для обработки данных, сетевых и сопутствующих службах, которые можно использовать в рабочих процессах и решениях для больших вычислений. Более полные сведения см. в [документации](https://azure.microsoft.com/documentation/) по службам Azure. [Сценарии](#scenarios), описанные выше в этой статье, демонстрируют только некоторые способы управления этими службами.
 
->[AZURE.NOTE] Azure regularly introduces new services that could be useful for your scenario. If you have questions, contact an [Azure partner](https://pinpoint.microsoft.com/en-US/search?keyword=azure) or email *bigcompute@microsoft.com*.
+>[AZURE.NOTE] Azure регулярно вводит новые службы, которые могут пригодиться в вашем сценарии. Если у вас есть вопросы, свяжитесь с [партнером Azure](https://pinpoint.microsoft.com/ru-RU/search?keyword=azure) или отправьте свой вопрос по электронной почте *bigcompute@microsoft.com*.
 
-### <a name="compute-services"></a>Compute services
+### Службы вычислений
 
-Azure compute services are the core of a Big Compute solution, and the different compute services offer advantages for different scenarios. At a basic level, these services offer different modes for applications to run on virtual machine-based compute instances that Azure provides using Windows Server Hyper-V technology. These instances can run standard and custom Linux and Windows operating systems and tools. Azure gives you a choice of [instance sizes](../virtual-machines/virtual-machines-windows-sizes.md) with different configurations of CPU cores, memory, disk capacity, and other characteristics. Depending on your needs, you can scale the instances to thousands of cores and then scale down when you need fewer resources.
+Службы вычислений Azure составляют основу решения больших вычислений. Разные службы вычислений подходят для разных сценариев. На базовом уровне эти службы предлагают различные режимы запуска приложений на виртуальных вычислительных экземплярах Azure с использованием технологии Windows Server Hyper-V. Эти экземпляры могут запускать стандартные и пользовательские версии операционных систем и средств Linux и Windows. Azure позволяет выбрать [разные размеры экземпляров](../virtual-machines/virtual-machines-windows-sizes.md) с различными конфигурациями ядер ЦП, памяти, емкости диска и других характеристик. Вы можете изменять размеры системы (от нескольких экземпляров до нескольких тысяч ядер) в соответствии со своими нуждами.
 
->[AZURE.NOTE] Take advantage of the Azure compute-intensive instances to improve the performance and scalability of HPC workloads including parallel MPI applications that require a low latency and high throughput application network. See [About H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).  
+>[AZURE.NOTE] Для повышения производительности и масштабируемости рабочих нагрузок HPC, включая параллельные приложения MPI, которым требуются малая задержка и высокая пропускная способность сети, можно воспользоваться преимуществами экземпляров Azure с интенсивным использованием вычислительных ресурсов. Дополнительные сведения см. в статье [Сведения об экземплярах A8, A9, A10 и A11 с большим объемом вычислений](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-Service | Description
+служба | Описание
 ------------- | -----------
-**[Virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/)**<br/><br/> |• Provide compute infrastructure as a service (IaaS) using Microsoft Hyper-V technology<br/><br/>• Enable you to flexibly provision and manage persistent cloud computers from standard Windows Server or Linux images from the [Azure Marketplace](https://azure.microsoft.com/marketplace/), or images and data disks you supply<br/><br/>• Can be deployed and managed as [VM Scale Sets](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/) to build large-scale services from identical virtual machines, with autoscaling to increase or decrease capacity automatically<br/><br/>• Run on-premises compute cluster tools and applications entirely in the cloud<br/><br/>
-**[Cloud services](https://azure.microsoft.com/documentation/services/cloud-services/)**<br/><br/> |• Can run Big Compute applications in worker role instances, which are virtual machines running a version of Windows Server and are managed entirely by Azure<br/><br/>• Enable scalable, reliable applications with low administrative overhead, running in a platform as a service (PaaS) model<br/><br/>• May require additional tools or development to integrate with on-premises HPC cluster solutions
-**[Batch](https://azure.microsoft.com/documentation/services/batch/)**<br/><br/> |• Runs large-scale parallel and batch workloads in a fully managed service<br/><br/>• Provides job scheduling and autoscaling of a managed pool of virtual machines<br/><br/>• Allows developers to build and run applications as a service or cloud-enable existing applications<br/>
+**[Виртуальные машины](https://azure.microsoft.com/documentation/services/virtual-machines/)**<br/><br/> |• Предоставляют вычислительную инфраструктуру как услугу (IaaS) с использованием технологии Microsoft Hyper-V.<br/><br/>• Позволяют гибко развертывать в постоянном облаке компьютеры из стандартных образов Windows Server или Linux, приобретенных в [Azure Marketplace](https://azure.microsoft.com/marketplace/), либо образов и дисков данных, предоставленных вами, и управлять такими компьютерами.<br/><br/>• Могут развертываться и управляться в виде [наборов масштабирования виртуальных машин](https://azure.microsoft.com/documentation/services/virtual-machine-scale-sets/) для создания крупномасштабных служб из идентичных виртуальных машин с автомасштабированием для автоматического увеличения или уменьшения емкости.<br/><br/>• Запускают средства и приложения локального вычислительного кластера полностью в облаке<br/><br/>
+**[Облачные службы](https://azure.microsoft.com/documentation/services/cloud-services/)**<br/><br/> |• Могут запускать приложения больших вычислений в экземплярах рабочей роли, которые представляют собой виртуальные машины под управлением Windows Server и полностью управляются Azure.<br/><br/>• Позволяют запускать масштабируемые, надежные приложения с низкими административными издержками по модели «Платформа как услуга» (PaaS).<br/><br/>• Могут потребовать дополнительные средства или разработку для интеграции с локальными кластерами HPC.
+**[Пакетная служба](https://azure.microsoft.com/documentation/services/batch/)**<br/><br/> |• Запускает крупномасштабные параллельные и пакетные рабочие нагрузки в полностью управляемой службе.<br/><br/>• Предоставляет средства планирования заданий и автоматического масштабирования управляемого пула виртуальных машин.<br/><br/>• Позволяет разработчикам разрабатывать и запускать приложения как службы или адаптировать для облака имеющиеся приложения<br/>
 
-### <a name="storage-services"></a>Storage services
+### Службы хранилища
 
-A Big Compute solution typically operates on a set of input data, and generates data for its results. Some of the Azure storage services used in Big Compute solutions include:
+Решение Больших вычислений обычно получает набор входных данных и формирует набор результатов. Некоторые службы хранилища Azure, используемые в решениях больших вычислений, включают следующее:
 
-* [Blob, table, and queue storage](https://azure.microsoft.com/documentation/services/storage/) - Manage large amounts of unstructured data, NoSQL data, and messages for workflow and communication, respectively. For example, you might use blob storage for large technical data sets, or for the input images or media files your application processes. You might use queues for asynchronous communication in a solution. See [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
+* [Хранилище больших двоичных объектов, таблиц и очередей](https://azure.microsoft.com/documentation/services/storage/) — управление большими объемами неструктурированных данных, данных NoSQL и сообщений рабочих процессов и коммуникационных сообщений соответственно. Например, в хранилище BLOB-объектов можно хранить большие наборы технических данных либо входные изображения или файлы мультимедиа ваших процессов. Очереди можно использовать для асинхронного обмена данными в решении. См. статью [Знакомство со службой хранилища Microsoft Azure](../storage/storage-introduction.md).
 
-* [Azure File storage](https://azure.microsoft.com/services/storage/files/) - Shares common files and data in Azure using the standard SMB protocol, which is needed for some HPC cluster solutions.
+* [Хранилище файлов Azure](https://azure.microsoft.com/services/storage/files/) — организует общий доступ к файлам и данным в Azure с использованием стандартного протокола SMB, который необходим для некоторых кластерных решений HPC.
 
-* [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) - Provides a hyperscale Apache Hadoop Distributed File System for the cloud, useful for batch, real-time, and interactive analytics.
+* [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) — предоставляет гипермасштабируемую распределенную файловую систему Apache Hadoop для облака, используемую для пакетной и интерактивной аналитики в реальном времени.
 
-### <a name="data-and-analysis-services"></a>Data and analysis services
+### Анализ данных и служб
 
-Some Big Compute scenarios involve large-scale data flows, or generate data that needs further processing or analysis. Azure offers several data and analysis services, including:
+Некоторые сценарии Больших вычислений включают большие потоки данных или генерируют данные для последующей обработки или анализа. Azure предлагает несколько служб данных и аналитики. Эти службы перечислены ниже.
 
-* [Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) - Builds data-driven workflows (pipelines) that join, aggregate, and transform data from on-premises, cloud-based, and Internet data stores.
+* [Фабрика данных](https://azure.microsoft.com/documentation/services/data-factory/) — создает управляемые данными рабочие процессы (конвейеры), которые комбинируют, статистически обрабатывают и преобразуют данные, полученные из локальных, облачных и интернет-хранилищ.
 
-* [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/) - Provides the key features of a Microsoft SQL Server relational database management system in a managed service.
+* [База данных SQL](https://azure.microsoft.com/documentation/services/sql-database/) — обеспечивает ключевые возможности системы управления реляционной базой данных Microsoft SQL Server в управляемой службе.
 
-* [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/) - Deploys and provisions Windows Server or Linux-based Apache Hadoop clusters in the cloud to manage, analyze, and report on big data.
+* [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/) — развертывает и подготавливает кластеры Apache Hadoop под управлением Windows Server или Linux в облаке для управления, анализа и формирования отчетов о больших данных.
 
-* [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) - Helps you create, test, operate, and manage predictive analytic solutions in a fully managed service.
+* [Машинное обучение](https://azure.microsoft.com/documentation/services/machine-learning/) — помогает создавать и тестировать решения прогнозной аналитики, а также работать с ними и управлять ими в полностью управляемой службе.
 
-### <a name="additional-services"></a>Additional services
+### Дополнительные службы
 
-Your Big Compute solution might need other Azure services to connect to resources on-premises or in other environments. Examples include:
+Для подключения к ресурсам в локальной или в других средах вашему решению больших вычислений могут потребоваться другие службы Azure. Примеры приведены ниже.
 
-* [Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) - Creates a logically isolated section in Azure to connect Azure resources to each other or to your on-premises data center. With a cross-premises virtual network, Big Compute applications can access on-premises data, Active Directory services, and license servers
+* [Виртуальная сеть](https://azure.microsoft.com/documentation/services/virtual-network/) — создает логически изолированный раздел в Azure для подключения ресурсов Azure друг к другу или локальному центру обработки данных. С помощью распределенной виртуальной сети приложения для больших вычислений могут обращаться к локальным данным, службам Active Directory и серверам лицензирования.
 
-* [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) - Creates a private connection between Microsoft data centers and infrastructure that’s on-premises or in a co-location environment. ExpressRoute provides higher security, more reliability, faster speeds, and lower latencies than typical connections over the Internet.
+* [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) — создает частные подключения между центрами обработки данных Майкрософт и инфраструктурой в рамках локально или совместно расположенной среды. Подключения ExpressRoute обеспечивают более безопасный, надежный и быстрый обмен данными, а также меньшие задержки в сравнении с обычными интернет-подключениями.
 
-* [Service Bus](https://azure.microsoft.com/documentation/services/service-bus/) - Provides several mechanisms for applications to communicate or exchange data, whether they are located on Azure, on another cloud platform, or in a data center.
+* [Служебная шина](https://azure.microsoft.com/documentation/services/service-bus/) — предоставляет несколько механизмов коммуникации или обмена данными для приложений, независимо от того, расположены ли они в Azure, на другой облачной платформе или в центре обработки данных.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-* See [Technical Resources for Batch and HPC](big-compute-resources.md) to find technical guidance to build your solution.
+* Техническое руководство по созданию решений см. в статье [Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC)](big-compute-resources.md).
 
-* Discuss your Azure options with partners including Cycle Computing and UberCloud.
+* Обсудите параметры Azure с партнерами, включая Cycle Computing и UberCloud.
 
-* Read about Azure Big Compute solutions delivered by [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), [ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/), and [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088).
+* Узнайте о решениях Azure для больших вычислений, предлагаемых компаниями [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), [ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/) и [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088).
 
-* For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
+* Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
 <!--Image references-->
 [parallel]: ./media/batch-hpc-solutions/parallel.png
@@ -158,8 +157,4 @@ Your Big Compute solution might need other Azure services to connect to resource
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

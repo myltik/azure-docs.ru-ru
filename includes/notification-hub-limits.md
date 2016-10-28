@@ -1,15 +1,12 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| УРОВЕНЬ | БЕСПЛАТНЫЙ | BASIC | СТАНДАРТ |
 |----|----|----|----|
-| Included Pushes | 1 Million | 10 Million | 10 Million |
-| Active Devices | 500 | Unlimited | Unlimited |
-| Tag quota per installation/registration | 60 | 60 | 60 |
+| Включенные отправки | 1 млн | 10 млн | 10 млн |
+| Количество активных устройств | 500 | Без ограничений | Без ограничений |
+| Квота на теги на установку и регистрацию | 60 | 60 | 60 |
 
 
 
-For additional details on these limits and for information on pricing, see [Notification Hubs Pricing](https://azure.microsoft.com/pricing/details/notification-hubs/). 
+Дополнительные сведения об этих ограничениях и ценах см. в статье [Цены на использование центров уведомлений](https://azure.microsoft.com/pricing/details/notification-hubs/).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

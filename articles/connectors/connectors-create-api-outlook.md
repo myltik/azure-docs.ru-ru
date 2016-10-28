@@ -1,10 +1,10 @@
 <properties
 pageTitle="Outlook.com | Microsoft Azure"
-description="Create Logic apps with Azure App service. Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+description="Создание приложений логики с помощью службы приложений Azure. Соединитель Outlook.com позволяет управлять электронной почтой, календарями и контактами. С его помощью можно выполнять различные действия, такие как отправка сообщения электронной почты, планирование встреч, добавление контактов и т. д."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,899 +17,895 @@ ms.workload="integration"
 ms.date="08/18/2016"
 ms.author="deonhe"/>
 
+# Начало работы с соединителем Outlook.com
 
-# <a name="get-started-with-the-outlook.com-connector"></a>Get started with the Outlook.com connector
+Соединитель Outlook.com позволяет управлять электронной почтой, календарями и контактами. С его помощью можно выполнять различные действия, такие как отправка сообщения электронной почты, планирование встреч, добавление контактов и т. д.
 
-Outlook.com connector allows you to manage your mail, calendars, and contacts. You can perform various actions such as send mail, schedule meetings, add contacts, etc.
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2015-08-01-preview.
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. 
+Для начала можно создать приложение логики, как указано в соответствующей [статье](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-You can get started by creating a Logic app now, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Триггеры и действия
 
-## <a name="triggers-and-actions"></a>Triggers and actions
+Соединитель Outlook.com можно использовать как действие. Кроме того, он имеет триггеры. Все соединители поддерживают данные в форматах JSON и XML.
 
-The Outlook.com connector can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
+ Соединитель Outlook.com предоставляет следующие триггеры и действия:
 
- The Outlook.com connector has the following action(s) and/or trigger(s) available:
+### Действия Outlook.com
+Вы можете выполнять перечисленные ниже действия:
 
-### <a name="outlook.com-actions"></a>Outlook.com actions
-You can take these action(s):
-
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[GetEmails](connectors-create-api-outlook.md#GetEmails)|Retrieves emails from a folder|
-|[SendEmail](connectors-create-api-outlook.md#SendEmail)|Sends an email|
-|[DeleteEmail](connectors-create-api-outlook.md#DeleteEmail)|Deletes an email by id|
-|[MarkAsRead](connectors-create-api-outlook.md#MarkAsRead)|Marks an email as having been read|
-|[ReplyTo](connectors-create-api-outlook.md#ReplyTo)|Replies to an email|
-|[GetAttachment](connectors-create-api-outlook.md#GetAttachment)|Retrieves email attachment by id|
-|[SendMailWithOptions](connectors-create-api-outlook.md#SendMailWithOptions)|Send an email with multiple options and wait for the recipient to respond back with one of the options|
-|[SendApprovalMail](connectors-create-api-outlook.md#SendApprovalMail)|Send an approval email and wait for a response from the recipient|
-|[CalendarGetTables](connectors-create-api-outlook.md#CalendarGetTables)|Retrieves calendars|
-|[CalendarGetItems](connectors-create-api-outlook.md#CalendarGetItems)|Retrieves items from a calendar|
-|[CalendarPostItem](connectors-create-api-outlook.md#CalendarPostItem)|Creates a new event|
-|[CalendarGetItem](connectors-create-api-outlook.md#CalendarGetItem)|Retrieves a specific item from a calendar|
-|[CalendarDeleteItem](connectors-create-api-outlook.md#CalendarDeleteItem)|Deletes a calendar item|
-|[CalendarPatchItem](connectors-create-api-outlook.md#CalendarPatchItem)|Partially updates a calendar item|
-|[ContactGetTables](connectors-create-api-outlook.md#ContactGetTables)|Retrieves contacts folders|
-|[ContactGetItems](connectors-create-api-outlook.md#ContactGetItems)|Retrieves contacts from a contacts folder|
-|[ContactPostItem](connectors-create-api-outlook.md#ContactPostItem)|Creates a new contact|
-|[ContactGetItem](connectors-create-api-outlook.md#ContactGetItem)|Retrieves a specific contact from a contacts folder|
-|[ContactDeleteItem](connectors-create-api-outlook.md#ContactDeleteItem)|Deletes a contact|
-|[ContactPatchItem](connectors-create-api-outlook.md#ContactPatchItem)|Partially updates a contact|
-### <a name="outlook.com-triggers"></a>Outlook.com triggers
-You can listen for these event(s):
+|[GetEmails](connectors-create-api-outlook.md#GetEmails)|Извлекает сообщения электронной почты из папки|
+|[SendEmail](connectors-create-api-outlook.md#SendEmail)|Отправляет сообщение электронной почты|
+|[DeleteEmail](connectors-create-api-outlook.md#DeleteEmail)|Удаляет сообщение электронной почты по идентификатору|
+|[MarkAsRead](connectors-create-api-outlook.md#MarkAsRead)|Помечает сообщение электронной почты как прочитанное|
+|[ReplyTo](connectors-create-api-outlook.md#ReplyTo)|Отвечает на сообщение электронной почты|
+|[GetAttachment](connectors-create-api-outlook.md#GetAttachment)|Получает вложение сообщения электронной почты по идентификатору|
+|[SendMailWithOptions](connectors-create-api-outlook.md#SendMailWithOptions)|Отправка сообщения электронной почты с несколькими параметрами и ожидание ответа от получателя с одним из параметров|
+|[SendApprovalMail](connectors-create-api-outlook.md#SendApprovalMail)|Отправка сообщения электронной почты с утверждением и ожидание ответа от получателя|
+|[CalendarGetTables](connectors-create-api-outlook.md#CalendarGetTables)|Извлекает календари|
+|[CalendarGetItems](connectors-create-api-outlook.md#CalendarGetItems)|Извлекает элементы из календаря|
+|[CalendarPostItem](connectors-create-api-outlook.md#CalendarPostItem)|Создает событие|
+|[CalendarGetItem](connectors-create-api-outlook.md#CalendarGetItem)|Извлекает определенный элемент из календаря|
+|[CalendarDeleteItem](connectors-create-api-outlook.md#CalendarDeleteItem)|Удаляет элемент календаря|
+|[CalendarPatchItem](connectors-create-api-outlook.md#CalendarPatchItem)|Частично обновляет элемент календаря|
+|[ContactGetTables](connectors-create-api-outlook.md#ContactGetTables)|Извлекает папки контактов|
+|[ContactGetItems](connectors-create-api-outlook.md#ContactGetItems)|Извлекает контакты из папки контактов|
+|[ContactPostItem](connectors-create-api-outlook.md#ContactPostItem)|Создает контакт|
+|[ContactGetItem](connectors-create-api-outlook.md#ContactGetItem)|Извлекает определенный контакт из папки контактов|
+|[ContactDeleteItem](connectors-create-api-outlook.md#ContactDeleteItem)|Удаляет контакт|
+|[ContactPatchItem](connectors-create-api-outlook.md#ContactPatchItem)|Частично обновляет контакт|
+### Триггеры Outlook.com
+Можно прослушивать указанные ниже события:
 
-|Trigger | Description|
+|Триггер | Description (Описание)|
 |--- | ---|
-|On event starting soon|Triggers a flow when an upcoming calendar event is starting|
-|On new email|Triggers a flow when a new email arrives|
-|On new items|Triggered when a new calendar item is created|
-|On updated items|Triggered when a calendar item is modified|
+|При запуске предстоящего события|Запускает поток при наступлении предстоящего события календаря|
+|При получении нового сообщения электронной почты|Запускает поток при получении нового сообщения электронной почты|
+|При создании элементов|Запускается при создании элемента календаря|
+|При обновлении элементов|Запускается при изменении элемента календаря|
 
 
-## <a name="create-a-connection-to-outlook.com"></a>Create a connection to Outlook.com
-To create Logic apps with Outlook.com, you must first create a **connection** then provide the details for the following properties: 
+## Создание подключения к Outlook.com
+Для создания приложений логики с помощью Outlook.com необходимо создать **подключение**, а затем указать данные для следующих свойств.
 
-|Property| Required|Description|
+|Свойство| Обязательно|Описание|
 | ---|---|---|
-|Token|Yes|Provide Outlook.com Credentials|
-After you create the connection, you can use it to execute the actions and listen for the triggers described in this article.
+|Маркер|Да|Укажите учетные данные Outlook.com|
+Созданное подключение можно использовать для выполнения действий и прослушивания триггеров, описанных в этой статье.
 
->[AZURE.INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)] 
+>[AZURE.INCLUDE [Шаги по созданию подключения к Outlook.com](../../includes/connectors-create-api-outlook.md)]
 
->[AZURE.TIP] You can use this connection in other logic apps.  
+>[AZURE.TIP] Это подключение можно использовать в других приложениях логики.
 
-## <a name="reference-for-outlook.com"></a>Reference for Outlook.com
-Applies to version: 1.0
+## Справочник по Outlook.com
+Относится к версии 1.0.
 
-## <a name="onupcomingevents"></a>OnUpcomingEvents
-On event starting soon: Triggers a flow when an upcoming calendar event is starting 
+## OnUpcomingEvents
+При запуске предстоящего события: запускает поток при запуске предстоящего события календаря
 
-```GET: /Events/OnUpcomingEvents``` 
+```GET: /Events/OnUpcomingEvents```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|table|string|yes|query|none|Unique identifier of the calendar|
-|lookAheadTimeInMinutes|integer|no|query|15|Time (in minutes) to look ahead for upcoming events|
+|таблица|string|Да|запрос|Нет|Уникальный идентификатор календаря|
+|lookAheadTimeInMinutes|целое число|Нет|запрос|15|Время (в минутах), оставшееся до наступления предстоящих событий|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|Operation was successful|
-|202|Operation was successful|
+|200|Операция выполнена успешно|
+|202|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="getemails"></a>GetEmails
-Get emails: Retrieves emails from a folder 
+## GetEmails
+Получение сообщений электронной почты: получает сообщения из папки
 
-```GET: /Mail``` 
+```GET: /Mail```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|folderPath|string|no|query|Inbox|Path of the folder to retrieve emails (default: 'Inbox')|
-|top|integer|no|query|10|Number of emails to retrieve (default: 10)|
-|fetchOnlyUnread|boolean|no|query|true|Retrieve only unread emails?|
-|includeAttachments|boolean|no|query|false|If set to true, attachments will also be retrieved along with the email|
-|searchQuery|string|no|query|none|Search query to filter emails|
-|skip|integer|no|query|0|Number of emails to skip (default: 0)|
-|skipToken|string|no|query|none|Skip token to fetch new page|
+|folderPath|string|Нет|запрос|Папка "Входящие"|Путь к папке для извлечения сообщений (по умолчанию — "Входящие")|
+|top|целое число|Нет|запрос|10|Количество извлекаемых сообщений электронной почты (значение по умолчанию — 10)|
+|fetchOnlyUnread|Логическое|Нет|запрос|Да|Извлекать только непрочитанные сообщения?|
+|includeAttachments|Логическое|Нет|запрос|нет|Если задано значение true, вложения будут извлекаться вместе с сообщением электронной почты|
+|searchQuery|string|Нет|запрос|Нет|Запрос поиска для фильтрации сообщений электронной почты|
+|skip|целое число|Нет|запрос|0|Количество пропускаемых сообщений (значение по умолчанию — 0)|
+|skipToken|string|Нет|запрос|Нет|Токен пропуска для извлечения новой страницы|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|Operation was successful|
+|200|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="sendemail"></a>SendEmail
-Send email: Sends an email 
+## SendEmail
+Отправка сообщения электронной почты: отправляет сообщение электронной почты
 
-```POST: /Mail``` 
+```POST: /Mail```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|emailMessage| |yes|body|none|Email|
+|emailMessage| |Да|текст|Нет|Email|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|Operation was successful|
+|200|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="deleteemail"></a>DeleteEmail
-Delete email: Deletes an email by id 
+## DeleteEmail
+Удаление сообщения электронной почты: удаляет сообщение электронной почты по идентификатору
 
-```DELETE: /Mail/{messageId}``` 
+```DELETE: /Mail/{messageId}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|none|Id of the email to delete|
+|messageId|string|Да|path|Нет|Идентификатор удаляемого сообщения электронной почты|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|Operation was successful|
+|200|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="markasread"></a>MarkAsRead
-Mark as read: Marks an email as having been read 
+## MarkAsRead
+Пометить как прочитанное: помечает сообщение электронной почты как прочитанное
 
-```POST: /Mail/MarkAsRead/{messageId}``` 
+```POST: /Mail/MarkAsRead/{messageId}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|none|Id of the email to be marked as read|
+|messageId|string|Да|path|Нет|Идентификатор сообщения, помечаемого как прочитанное|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|Operation was successful|
+|200|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="replyto"></a>ReplyTo
-Reply to email: Replies to an email 
+## ReplyTo
+Ответ на сообщение электронной почты: отвечает на сообщение электронной почты
 
-```POST: /Mail/ReplyTo/{messageId}``` 
+```POST: /Mail/ReplyTo/{messageId}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|none|Id of the email to reply to|
-|comment|string|yes|query|none|Reply comment|
-|replyAll|boolean|no|query|false|Reply to all recipients|
+|messageId|string|Да|path|Нет|Идентификатор сообщения электронной почты для ответа|
+|comment|string|Да|запрос|Нет|Комментарий ответа|
+|replyAll|Логическое|Нет|запрос|нет|Ответ всем получателям|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|Operation was successful|
+|200|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="getattachment"></a>GetAttachment
-Get attachment: Retrieves email attachment by id 
+## GetAttachment
+Получение вложения: получает вложение сообщения электронной почты по идентификатору
 
-```GET: /Mail/{messageId}/Attachments/{attachmentId}``` 
+```GET: /Mail/{messageId}/Attachments/{attachmentId}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|messageId|string|yes|path|none|Id of the email|
-|attachmentId|string|yes|path|none|Id of the attachment to download|
+|messageId|string|Да|path|Нет|Идентификатор сообщения электронной почты|
+|attachmentId|string|Да|path|Нет|Идентификатор скачиваемого вложения|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|Operation was successful|
+|200|Операция выполнена успешно|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="onnewemail"></a>OnNewEmail
-On new email: Triggers a flow when a new email arrives 
+## OnNewEmail
+При получении нового сообщения электронной почты: запускает поток при получении нового сообщения
 
-```GET: /Mail/OnNewEmail``` 
+```GET: /Mail/OnNewEmail```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|folderPath|string|no|query|Inbox|Email folder to retrieve (default: Inbox)|
-|to|string|no|query|none|Recipient email addresses|
-|from|string|no|query|none|From address|
-|importance|string|no|query|Normal|Importance of the email (High, Normal, Low) (default: Normal)|
-|fetchOnlyWithAttachment|boolean|no|query|false|Retrieve only emails with an attachment|
-|includeAttachments|boolean|no|query|false|Include attachments|
-|subjectFilter|string|no|query|none|String to look for in the subject|
+|folderPath|string|Нет|запрос|Папка "Входящие"|Извлекаемая папка электронной почты (по умолчанию — "Входящие")|
+|значение|string|Нет|запрос|Нет|Адреса получателей электронной почты|
+|from|string|Нет|запрос|Нет|Адрес отправителя|
+|importance|string|Нет|запрос|В обычном режиме|Важность сообщения электронной почты ("Высокая", "Обычная", "Низкая") (значение по умолчанию — "Обычная")|
+|fetchOnlyWithAttachment|Логическое|Нет|запрос|нет|Извлечение только сообщений с вложением|
+|includeAttachments|Логическое|Нет|запрос|нет|Включение вложений|
+|subjectFilter|string|Нет|запрос|Нет|Строка для поиска в теме|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|Operation was successful|
-|202|Accepted|
+|200|Операция выполнена успешно|
+|202|Принято|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="sendmailwithoptions"></a>SendMailWithOptions
-Send email with options: Send an email with multiple options and wait for the recipient to respond back with one of the options 
+## SendMailWithOptions
+Отправка сообщения электронной почты с параметрами: отправка сообщения электронной почты с несколькими параметрами и ожидание ответа от получателя с одним из параметров
 
-```POST: /mailwithoptions/$subscriptions``` 
+```POST: /mailwithoptions/$subscriptions```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|optionsEmailSubscription| |yes|body|none|Subscription request for options email|
+|optionsEmailSubscription| |Да|текст|Нет|Запрос на подписку для сообщения электронной почты с параметрами|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|201|Subscription Created|
+|200|ОК|
+|201|Подписка создана|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="sendapprovalmail"></a>SendApprovalMail
-Send approval email: Send an approval email and wait for a response from the recipient 
+## SendApprovalMail
+Отправка сообщения электронной почты с утверждением: отправка сообщения электронной почты с утверждением и ожидание ответа от получателя
 
-```POST: /approvalmail/$subscriptions``` 
+```POST: /approvalmail/$subscriptions```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|approvalEmailSubscription| |yes|body|none|Subscription request for approval email|
+|approvalEmailSubscription| |Да|текст|Нет|Запрос на подписку для сообщения электронной почты с утверждением|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|201|Subscription Created|
+|200|ОК|
+|201|Подписка создана|
 |400|BadRequest|
-|401|Unauthorized|
-|403|Forbidden|
-|500|Internal Server Error|
-|default|Operation Failed.|
+|401|Не авторизовано|
+|403|Запрещено|
+|500|Внутренняя ошибка сервера|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="calendargettables"></a>CalendarGetTables
-Get calendars: Retrieves calendars 
+## CalendarGetTables
+Получение календарей: получает календари
 
-```GET: /datasets/calendars/tables``` 
+```GET: /datasets/calendars/tables```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+Для этого вызова параметры отсутствуют
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="calendargetitems"></a>CalendarGetItems
-Get events: Retrieves items from a calendar 
+## CalendarGetItems
+Получение событий: получает элементы из календаря
 
-```GET: /datasets/calendars/tables/{table}/items``` 
+```GET: /datasets/calendars/tables/{table}/items```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of the calendar to retrieve|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
+|таблица|string|Да|path|Нет|Уникальный идентификатор извлекаемого календаря|
+|$filter|string|Нет|запрос|Нет|Запрос фильтра ODATA для ограничения количества записей|
+|$orderby|string|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
+|$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="calendarpostitem"></a>CalendarPostItem
-Create event: Creates a new event 
+## CalendarPostItem
+Создание события: создает событие
 
-```POST: /datasets/calendars/tables/{table}/items``` 
+```POST: /datasets/calendars/tables/{table}/items```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|item| |yes|body|none|Calendar item to create|
+|таблица|string|Да|path|Нет|Уникальный идентификатор календаря|
+|item| |Да|текст|Нет|Создаваемый элемент календаря|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="calendargetitem"></a>CalendarGetItem
-Get event: Retrieves a specific item from a calendar 
+## CalendarGetItem
+Получение события: получает определенный элемент из календаря
 
-```GET: /datasets/calendars/tables/{table}/items/{id}``` 
+```GET: /datasets/calendars/tables/{table}/items/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|id|string|yes|path|none|Unique identifier of a calendar item to retrieve|
+|таблица|string|Да|path|Нет|Уникальный идентификатор календаря|
+|id|string|Да|path|Нет|Уникальный идентификатор извлекаемого элемента календаря|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="calendardeleteitem"></a>CalendarDeleteItem
-Delete event: Deletes a calendar item 
+## CalendarDeleteItem
+Удаление события: удаляет элемент календаря
 
-```DELETE: /datasets/calendars/tables/{table}/items/{id}``` 
+```DELETE: /datasets/calendars/tables/{table}/items/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|id|string|yes|path|none|Unique identifier of calendar item to delete|
+|таблица|string|Да|path|Нет|Уникальный идентификатор календаря|
+|id|string|Да|path|Нет|Уникальный идентификатор удаляемого элемента календаря|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="calendarpatchitem"></a>CalendarPatchItem
-Update event: Partially updates a calendar item 
+## CalendarPatchItem
+Изменение события: частично изменяет элемент календаря
 
-```PATCH: /datasets/calendars/tables/{table}/items/{id}``` 
+```PATCH: /datasets/calendars/tables/{table}/items/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|id|string|yes|path|none|Unique identifier of calendar item to update|
-|item| |yes|body|none|Calendar item to update|
+|таблица|string|Да|path|Нет|Уникальный идентификатор календаря|
+|id|string|Да|path|Нет|Уникальный идентификатор обновляемого элемента календаря|
+|item| |Да|текст|Нет|Обновляемый элемент календаря|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="calendargetonnewitems"></a>CalendarGetOnNewItems
-On new items: Triggered when a new calendar item is created 
+## CalendarGetOnNewItems
+При создании элементов: активируется при создании элемента календаря
 
-```GET: /datasets/calendars/tables/{table}/onnewitems``` 
+```GET: /datasets/calendars/tables/{table}/onnewitems```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
+|таблица|string|Да|path|Нет|Уникальный идентификатор календаря|
+|$filter|string|Нет|запрос|Нет|Запрос фильтра ODATA для ограничения количества записей|
+|$orderby|string|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
+|$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="calendargetonupdateditems"></a>CalendarGetOnUpdatedItems
-On updated items: Triggered when a calendar item is modified 
+## CalendarGetOnUpdatedItems
+При изменении элементов: активируется при изменении элемента календаря
 
-```GET: /datasets/calendars/tables/{table}/onupdateditems``` 
+```GET: /datasets/calendars/tables/{table}/onupdateditems```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a calendar|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
+|таблица|string|Да|path|Нет|Уникальный идентификатор календаря|
+|$filter|string|Нет|запрос|Нет|Запрос фильтра ODATA для ограничения количества записей|
+|$orderby|string|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
+|$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="contactgettables"></a>ContactGetTables
-Get contact folders: Retrieves contacts folders 
+## ContactGetTables
+Получение папки контактов: получает папки контактов
 
-```GET: /datasets/contacts/tables``` 
+```GET: /datasets/contacts/tables```
 
-There are no parameters for this call
-#### <a name="response"></a>Response
+Для этого вызова параметры отсутствуют
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="contactgetitems"></a>ContactGetItems
-Get contacts: Retrieves contacts from a contacts folder 
+## ContactGetItems
+Получение контактов: получает контакты из папки контактов
 
-```GET: /datasets/contacts/tables/{table}/items``` 
+```GET: /datasets/contacts/tables/{table}/items```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of the contacts folder to retrieve|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
+|таблица|string|Да|path|Нет|Уникальный идентификатор извлекаемой папки контактов|
+|$filter|string|Нет|запрос|Нет|Запрос фильтра ODATA для ограничения количества записей|
+|$orderby|string|Нет|запрос|Нет|Запрос orderBy ODATA для указания порядка записей|
+|$skip|целое число|Нет|запрос|Нет|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|целое число|Нет|запрос|Нет|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="contactpostitem"></a>ContactPostItem
-Create contact: Creates a new contact 
+## ContactPostItem
+Создание контакта: создает контакт
 
-```POST: /datasets/contacts/tables/{table}/items``` 
+```POST: /datasets/contacts/tables/{table}/items```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a contacts folder|
-|item| |yes|body|none|Contact to create|
+|таблица|string|Да|path|Нет|Уникальный идентификатор папки контактов|
+|item| |Да|текст|Нет|Создаваемый контакт|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="contactgetitem"></a>ContactGetItem
-Get contact: Retrieves a specific contact from a contacts folder 
+## ContactGetItem
+Получение контакта: получает определенный контакт из папки контактов
 
-```GET: /datasets/contacts/tables/{table}/items/{id}``` 
+```GET: /datasets/contacts/tables/{table}/items/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a contacts folder|
-|id|string|yes|path|none|Unique identifier of a contact to retrieve|
+|таблица|string|Да|path|Нет|Уникальный идентификатор папки контактов|
+|id|string|Да|path|Нет|Уникальный идентификатор извлекаемого контакта|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="contactdeleteitem"></a>ContactDeleteItem
-Delete contact: Deletes a contact 
+## ContactDeleteItem
+Удаление контакта: удаляет контакт
 
-```DELETE: /datasets/contacts/tables/{table}/items/{id}``` 
+```DELETE: /datasets/contacts/tables/{table}/items/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a contacts folder|
-|id|string|yes|path|none|Unique identifier of contact to delete|
+|таблица|string|Да|path|Нет|Уникальный идентификатор папки контактов|
+|id|string|Да|path|Нет|Уникальный идентификатор удаляемого контакта|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="contactpatchitem"></a>ContactPatchItem
-Update contact: Partially updates a contact 
+## ContactPatchItem
+Изменение контакта: частично изменяет контакт
 
-```PATCH: /datasets/contacts/tables/{table}/items/{id}``` 
+```PATCH: /datasets/contacts/tables/{table}/items/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|table|string|yes|path|none|Unique identifier of a contacts folder|
-|id|string|yes|path|none|Unique identifier of contact to update|
-|item| |yes|body|none|Contact item to update|
+|таблица|string|Да|path|Нет|Уникальный идентификатор папки контактов|
+|id|string|Да|path|Нет|Уникальный идентификатор обновляемого контакта|
+|item| |Да|текст|Нет|Обновляемый элемент контакта|
 
-#### <a name="response"></a>Response
+#### Ответ
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="object-definitions"></a>Object definitions 
+## Определения объектов 
 
-### <a name="triggerbatchresponse[idictionary[string,object]]"></a>TriggerBatchResponse[IDictionary[String,Object]]
+### TriggerBatchResponse[IDictionary[String,Object]]
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|value|array|No |
+|value|array|Нет |
 
 
 
-### <a name="object"></a>Object
+### Объект
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
 
 
 
-### <a name="sendmessage"></a>SendMessage
+### SendMessage
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Attachments|array|No |
-|From|string|No |
-|Cc|string|No |
-|Bcc|string|No |
-|Subject|string|Yes |
-|Body|string|Yes |
-|Importance|string|No |
-|IsHtml|boolean|No |
-|To|string|Yes |
+|Вложения|array|Нет |
+|Из|string|Нет |
+|Копия|string|Нет |
+|Скрытая копия|string|Нет |
+|Субъект|string|Да |
+|Текст|string|Да |
+|Важность|string|Нет |
+|IsHtml|Логическое|Нет |
+|Кому|string|Да |
 
 
 
-### <a name="sendattachment"></a>SendAttachment
+### SendAttachment
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|@odata.type|string|No |
-|Name|string|Yes |
-|ContentBytes|string|Yes |
+|@odata.type|string|Нет |
+|Имя|string|Да |
+|ContentBytes|string|Да |
 
 
 
-### <a name="receivemessage"></a>ReceiveMessage
+### ReceiveMessage
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Id|string|No |
-|IsRead|boolean|No |
-|HasAttachment|boolean|No |
-|DateTimeReceived|string|No |
-|Attachments|array|No |
-|From|string|No |
-|Cc|string|No |
-|Bcc|string|No |
-|Subject|string|Yes |
-|Body|string|Yes |
-|Importance|string|No |
-|IsHtml|boolean|No |
-|To|string|Yes |
+|Идентификатор|string|Нет |
+|IsRead|Логическое|Нет |
+|HasAttachment|Логическое|Нет |
+|DateTimeReceived|string|Нет |
+|Вложения|array|Нет |
+|Из|string|Нет |
+|Копия|string|Нет |
+|Скрытая копия|string|Нет |
+|Субъект|string|Да |
+|Текст|string|Да |
+|Важность|string|Нет |
+|IsHtml|Логическое|Нет |
+|Кому|string|Да |
 
 
 
-### <a name="receiveattachment"></a>ReceiveAttachment
+### ReceiveAttachment
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Id|string|Yes |
-|ContentType|string|Yes |
-|@odata.type|string|No |
-|Name|string|Yes |
-|ContentBytes|string|Yes |
+|Идентификатор|string|Да |
+|ContentType|string|Да |
+|@odata.type|string|Нет |
+|Имя|string|Да |
+|ContentBytes|string|Да |
 
 
 
-### <a name="digestmessage"></a>DigestMessage
+### DigestMessage
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Subject|string|Yes |
-|Body|string|No |
-|Importance|string|No |
-|Digest|array|Yes |
-|Attachments|array|No |
-|To|string|Yes |
+|Субъект|string|Да |
+|Текст|string|Нет |
+|Важность|string|Нет |
+|Digest|array|Да |
+|Вложения|array|Нет |
+|Кому|string|Да |
 
 
 
-### <a name="triggerbatchresponse[receivemessage]"></a>TriggerBatchResponse[ReceiveMessage]
+### TriggerBatchResponse[ReceiveMessage]
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|value|array|No |
+|value|array|Нет |
 
 
 
-### <a name="datasetsmetadata"></a>DataSetsMetadata
+### DataSetsMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|tabular|not defined|No |
-|blob|not defined|No |
+|tabular|не определено|Нет |
+|blob-объект|не определено|Нет |
 
 
 
-### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
+### TabularDataSetsMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|source|string|No |
-|displayName|string|No |
-|urlEncoding|string|No |
-|tableDisplayName|string|No |
-|tablePluralName|string|No |
+|источник|string|Нет |
+|displayName|string|Нет |
+|urlEncoding|string|Нет |
+|tableDisplayName|string|Нет |
+|tablePluralName|string|Нет |
 
 
 
-### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
+### BlobDataSetsMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|source|string|No |
-|displayName|string|No |
-|urlEncoding|string|No |
+|источник|string|Нет |
+|displayName|string|Нет |
+|urlEncoding|string|Нет |
 
 
 
-### <a name="tablemetadata"></a>TableMetadata
+### TableMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|name|string|No |
-|title|string|No |
-|x-ms-permission|string|No |
-|x-ms-capabilities|not defined|No |
-|schema|not defined|No |
+|name|string|Нет |
+|title|string|Нет |
+|x-ms-permission|string|Нет |
+|x-ms-capabilities|не определено|Нет |
+|schema|не определено|Нет |
 
 
 
-### <a name="tablecapabilitiesmetadata"></a>TableCapabilitiesMetadata
+### TableCapabilitiesMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|sortRestrictions|not defined|No |
-|filterRestrictions|not defined|No |
-|filterFunctions|array|No |
+|sortRestrictions|не определено|Нет |
+|filterRestrictions|не определено|Нет |
+|filterFunctions|array|Нет |
 
 
 
-### <a name="tablesortrestrictionsmetadata"></a>TableSortRestrictionsMetadata
+### TableSortRestrictionsMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|sortable|boolean|No |
-|unsortableProperties|array|No |
-|ascendingOnlyProperties|array|No |
+|sortable|Логическое|Нет |
+|unsortableProperties|array|Нет |
+|ascendingOnlyProperties|array|Нет |
 
 
 
-### <a name="tablefilterrestrictionsmetadata"></a>TableFilterRestrictionsMetadata
+### TableFilterRestrictionsMetadata
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|filterable|boolean|No |
-|nonFilterableProperties|array|No |
-|requiredProperties|array|No |
+|filterable|Логическое|Нет |
+|nonFilterableProperties|array|Нет |
+|requiredProperties|array|Нет |
 
 
 
-### <a name="optionsemailsubscription"></a>OptionsEmailSubscription
+### OptionsEmailSubscription
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|NotificationUrl|string|No |
-|Message|not defined|No |
+|NotificationUrl|string|Нет |
+|Сообщение|не определено|Нет |
 
 
 
-### <a name="messagewithoptions"></a>MessageWithOptions
+### MessageWithOptions
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Subject|string|Yes |
-|Options|string|Yes |
-|Body|string|No |
-|Importance|string|No |
-|Attachments|array|No |
-|To|string|Yes |
+|Субъект|string|Да |
+|Параметры|string|Да |
+|Текст|string|Нет |
+|Важность|string|Нет |
+|Вложения|array|Нет |
+|Кому|string|Да |
 
 
 
-### <a name="subscriptionresponse"></a>SubscriptionResponse
+### SubscriptionResponse
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|id|string|No |
-|resource|string|No |
-|notificationType|string|No |
-|notificationUrl|string|No |
+|id|string|Нет |
+|resource|string|Нет |
+|notificationType|string|Нет |
+|notificationUrl|string|Нет |
 
 
 
-### <a name="approvalemailsubscription"></a>ApprovalEmailSubscription
+### ApprovalEmailSubscription
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|NotificationUrl|string|No |
-|Message|not defined|No |
+|NotificationUrl|string|Нет |
+|Сообщение|не определено|Нет |
 
 
 
-### <a name="approvalmessage"></a>ApprovalMessage
+### ApprovalMessage
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Subject|string|Yes |
-|Options|string|Yes |
-|Body|string|No |
-|Importance|string|No |
-|Attachments|array|No |
-|To|string|Yes |
+|Субъект|string|Да |
+|Параметры|string|Да |
+|Текст|string|Нет |
+|Важность|string|Нет |
+|Вложения|array|Нет |
+|Кому|string|Да |
 
 
 
-### <a name="approvalemailresponse"></a>ApprovalEmailResponse
+### ApprovalEmailResponse
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|SelectedOption|string|No |
+|SelectedOption|string|Нет |
 
 
 
-### <a name="tableslist"></a>TablesList
+### TablesList
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|value|array|No |
+|value|array|Нет |
 
 
 
-### <a name="table"></a>Table
+### Таблица
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Name|string|No |
-|DisplayName|string|No |
+|Имя|string|Нет |
+|DisplayName|string|Нет |
 
 
 
-### <a name="item"></a>Item
+### Элемент
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|ItemInternalId|string|No |
+|ItemInternalId|string|Нет |
 
 
 
-### <a name="calendaritemslist"></a>CalendarItemsList
+### CalendarItemsList
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|value|array|No |
+|value|array|Нет |
 
 
 
-### <a name="calendaritem"></a>CalendarItem
+### CalendarItem
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|ItemInternalId|string|No |
+|ItemInternalId|string|Нет |
 
 
 
-### <a name="contactitemslist"></a>ContactItemsList
+### ContactItemsList
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|value|array|No |
+|value|array|Нет |
 
 
 
-### <a name="contactitem"></a>ContactItem
+### ContactItem
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|ItemInternalId|string|No |
+|ItemInternalId|string|Нет |
 
 
 
-### <a name="datasetslist"></a>DataSetsList
+### DataSetsList
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|value|array|No |
+|value|array|Нет |
 
 
 
-### <a name="dataset"></a>DataSet
+### DataSet
 
 
-| Property Name | Data Type | Required |
+| Имя свойства | Тип данных | Обязательно |
 |---|---|---|
-|Name|string|No |
-|DisplayName|string|No |
+|Name (Имя)|string|Нет |
+|DisplayName|string|Нет |
 
 
-## <a name="next-steps"></a>Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Дальнейшие действия
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

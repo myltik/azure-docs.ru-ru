@@ -1,248 +1,243 @@
 <properties 
-    pageTitle="How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal | Microsoft Azure" 
-    description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="anilmur" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с несколькими скоростями на портале Azure | Microsoft Azure" 
+	description="В этом руководстве подробно описаны все этапы создания канала, который получает на вход динамический односкоростной поток данных и преобразует его в мультискоростной, с помощью портала Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="anilmur" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article"
-    ms.date="09/06/2016"
-    ms.author="juliako;juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article"
+	ms.date="09/06/2016"
+	ms.author="juliako;juliako"/>
 
 
-
-#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>How to perform live streaming using Azure Media Services to create multi-bitrate streams with the Azure portal
+#Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с несколькими скоростями на портале Azure
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [Портал](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- [ИНТЕРФЕЙС REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
-This tutorial walks you through the steps of creating a **Channel** that receives a single-bitrate live stream and encodes it to multi-bitrate stream.
+В этом руководстве подробно описаны все этапы создания **канала**, который получает на вход динамический односкоростной поток данных и преобразует его в мультискоростной.
 
->[AZURE.NOTE]For more conceptual information related to Channels that are enabled for live encoding, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
+>[AZURE.NOTE]Подробные сведения о каналах, в которых разрешено кодирование в реальном времени, см. в статье [Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-##<a name="common-live-streaming-scenario"></a>Common Live Streaming Scenario
+##Стандартный сценарий потоковой передачи в режиме реального времени
 
-The following are general steps involved in creating common live streaming applications.
+Ниже описываются основные этапы создания стандартных приложений, предназначенных для потоковой передачи в реальном времени.
 
->[AZURE.NOTE] Currently, the max recommended duration of a live event is 8 hours. Please contact  amslived at Microsoft.com if you need to run a Channel for longer periods of time.
+>[AZURE.NOTE] Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Если необходимо запустить канал на более продолжительные отрезки времени, обратитесь в amslived на веб-сайте Microsoft.com.
 
-1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
-    
-    This step could also be performed after you create your Channel.
+1. Подключите видеокамеру к компьютеру. Запустите и настройте локальный динамический кодировщик, который может выдавать односкоростной поток по одному из следующих протоколов: RTMP, Smooth Streaming или RTP (MPEG-TS). Дополнительные сведения см. в статье [Поддержка протокола RTMP службами мультимедиа Azure и динамические кодировщики](http://go.microsoft.com/fwlink/?LinkId=532824).
+	
+	Это действие также можно выполнить после создания канала.
 
-1. Create and start a Channel. 
+1. Создайте и запустите канал.
 
-1. Retrieve the Channel ingest URL. 
+1. Получите URL-адрес приема канала.
 
-    The ingest URL is used by the live encoder to send the stream to the Channel.
-1. Retrieve the Channel preview URL. 
+	URL-адрес приема используется динамическим кодировщиком для отправки потока в канал.
+1. Получите URL-адрес предварительного просмотра канала.
 
-    Use this URL to verify that your channel is properly receiving the live stream.
+	С его помощью можно убедиться в том, что канал надлежащим образом получает поток.
 
-3. Create an event/program (that will also create an asset). 
-1. Publish the event (that will create an  OnDemand locator for the associated asset).  
+3. Создайте событие или программу (при этом также будет создан ресурс).
+1. Опубликуйте событие (при этом будет создан указатель OnDemand для соответствующего ресурса).
 
-    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
-1. Start the event when you are ready to start streaming and archiving.
-2. Optionally, the live encoder can be signaled to start an advertisement. The advertisement is inserted in the output stream.
-1. Stop the event whenever you want to stop streaming and archiving the event.
-1. Delete the event (and optionally delete the asset).   
+	Убедитесь, что есть как минимум одна зарезервированная единица потоковой передачи на конечной точке потоковой передачи, с которой необходимо выполнять потоковую передачу содержимого.
+1. Когда вы будете готовы начать потоковую передачу и архивацию, запустите событие.
+2. При необходимости динамическому кодировщику можно дать сигнал начать показ рекламы. Реклама вставляется в выходной поток.
+1. Чтобы остановить потоковую передачу и архивацию содержимого события, завершите работу события.
+1. Удалите событие (и при необходимости ресурс).
 
-##<a name="in-this-tutorial"></a>In this tutorial
+##В этом учебнике рассматриваются следующие темы:
 
-In this tutorial, the Azure portal is used to accomplish the following tasks: 
+В этом руководстве описано выполнение перечисленных ниже задач с помощью портала Azure.
 
-2.  Configure streaming endpoints.
-3.  Create a channel that is enabled to perform live encoding.
-1.  Get the Ingest URL in order to supply it to live encoder. The live encoder will use this URL to ingest the stream into the Channel. .
-1.  Create an event/program (and an asset)
-1.  Publish the asset and get streaming URLs  
-1.  Play your content 
-2.  Cleaning up
+2.  Настройка конечных точек потоковой передачи данных.
+3.  Создание канала, поддерживающего динамического кодирование.
+1.  Получение URL-адреса приема для динамического кодировщика. Динамический кодировщик будет использовать этот URL-адрес для приема потока в канале.
+1.  Создание события или программы (и ресурса)
+1.  Публикация ресурса и получение URL-адресов для потоковой передачи.
+1.  Воспроизведение содержимого
+2.  Очистка.
 
-##<a name="prerequisites"></a>Prerequisites
-The following are required to complete the tutorial.
+##Предварительные требования
+Ниже перечислены необходимые условия для выполнения действий, описанных в этом учебнике.
 
-- To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-- A Media Services account. To create a Media Services account, see [Create Account](media-services-portal-create-account.md).
-- A webcam and an encoder that can send a single bitrate live stream.
+- Для работы с этим учебником требуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Учетная запись служб мультимедиа. Инструкции по созданию учетной записи служб мультимедиа см. в разделе [Создание учетной записи](media-services-create-account.md).
+- Веб-камера и кодировщик, который передает динамический односкоростной поток данных.
 
-##<a name="configure-streaming-endpoints"></a>Configure streaming endpoints 
+##Настройка конечных точек потоковой передачи данных 
 
-Media Services provides dynamic packaging which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to re-package into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
+Службы мультимедиа обеспечивают динамическую упаковку, которая позволяет доставлять MP4-файлы с поддержкой нескольких скоростей в форматах потоковой передачи (MPEG DASH, HLS, Smooth Streaming, HDS) без необходимости повторной упаковки в эти форматы потоковой передачи. С динамической упаковкой потребуется хранить и оплачивать файлы только в одном формате хранения, а службы мультимедиа выполнят сборку и будут обслуживать соответствующий ответ на основе запросов клиента.
 
-To take advantage of dynamic packaging, you need to get at least one streaming unit for the streaming endpoint from which you plan to delivery your content.  
+Для использования динамической упаковки потребуется получить по крайней мере одну единицу потоковой передачи для конечной точки потоковой передачи, из которой планируется передавать содержимое.
 
-To create and change the number of streaming reserved units, do the following:
+Чтобы создать зарезервированные единицы потоковой передачи и изменить их число, сделайте следующее:
 
-1. Log in at the [Azure portal](https://portal.azure.com/).
-1. In the **Settings** window, click **Streaming endpoints**. 
+1. Войдите на [портал Azure](https://portal.azure.com/).
+1. В окне **Параметры** щелкните элемент **Потоковые конечные точки**.
 
-2. Click on the default streaming endpoint. 
+2. Щелкните конечную точку потоковой передачи по умолчанию.
 
-    The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
+	Появится окно **сведений о конечной точке потоковой передачи по умолчанию**.
 
-3. To specify the number of streaming units, slide the **Streaming units** slider.
+3. Чтобы указать число единиц потоковой передачи, передвиньте ползунок **Единицы потоковой передачи**.
 
-    ![Streaming units](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
+	![Единицы потоковой передачи](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
 
-4. Click the **Save** button to save your changes.
+4. Нажмите кнопку **Сохранить**, чтобы сохранить изменения.
 
-    >[AZURE.NOTE]The allocation of any new units can take up to 20 minutes to complete.
+	>[AZURE.NOTE]Выделение новых единиц потоковой передачи может занять до 20 минут.
 
-##<a name="create-a-channel"></a>Create a CHANNEL
+##Создание канала
 
-1. In the [Azure portal](https://portal.azure.com/), click Media Services and then click on the Media Services account name.
-2. Select **Live Streaming**.
-3. Select **Custom create**. This option will let you create a channel that is enabled for live encoding.
+1. На [портале Azure](https://portal.azure.com/) щелкните "Службы мультимедиа", а затем щелкните имя учетной записи служб мультимедиа.
+2. Выберите **Live Streaming** (Потоковая трансляция).
+3. Щелкните **Настраиваемое создание**. Этот параметр позволяет создать канал с поддержкой кодирования в реальном времени.
 
-    ![Create a channel](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
-    
-4. Click on **Settings**.
-    
-    1.  Choose the **Live Encoding** channel type. This type specifies that you want to create a Channel that is enabled for live encoding. That means the incoming single bitrate stream is sent to the Channel and encoded into a multi-bitrate stream using specified live encoder settings. For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md). Click OK.
-    2. Specify a channel's name.
-    3. Click OK at the bottom of the screen.
-    
-5. Select the **Ingest** tab.
+	![Создание канала](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
+	
+4. Щелкните **Параметры**.
+	
+	1.  Выберите тип канала **с кодированием в реальном времени**. Он указывает, что необходимо создать канал с поддержкой кодирования в режиме реального времени. Это означает, что входящий односкоростной поток отправляется в канал и преобразуется в мультискоростной поток на основе заданных параметров динамического кодировщика. Подробные сведения см. в статье [Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с разными скоростями](media-services-manage-live-encoder-enabled-channels.md). Нажмите кнопку ОК.
+	2. Укажите имя канала.
+	3. В нижней части экрана нажмите кнопку "ОК".
+	
+5. Выберите вкладку **Ingest** (Прием).
 
-    1. On this page, you can select a streaming protocol. For the **Live Encoding** channel type, valid protocol options are:
-        
-        - Single bitrate Fragmented MP4 (Smooth Streaming)
-        - Single bitrate RTMP
-        - RTP (MPEG-TS): MPEG-2 Transport Stream over RTP.
-        
-        For detailed explanation about each protocol, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
-    
-        You cannot change the protocol option while the Channel or its associated events/programs are running. If you require different protocols, you should create separate channels for each streaming protocol.  
+	1. На этой странице можно выбрать протокол потоковой передачи. Для типа канала **с кодированием в реальном времени** подходят такие протоколы:
+		
+		- Односкоростной фрагментированный MP4 (Smooth Streaming)
+		- односкоростной RTMP;
+		- RTP (MPEG-TS): MPEG-2 TS по RTP.
+		
+		Подробное описание каждого из протоколов см. в статье [Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с разными скоростями](media-services-manage-live-encoder-enabled-channels.md).
+	
+		Во время работы канала или связанных с ним событий и программ протокол изменить нельзя. Если вам нужны другие протоколы потоковой передачи, создайте отдельный канал для каждого из них.
 
-    2. You can apply IP restriction on the ingest. 
-    
-        You can define the IP addresses that are allowed to ingest a video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (e.g. '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (e.g. '10.0.0.1(255.255.252.0)').
+	2. К приему данных можно применять ограничения IP-адресов.
+	
+		Вы можете определить IP-адреса, с которых разрешено принимать видео в этом канале. Разрешенные IP-адреса можно указать в виде одного IP-адреса (например, 10.0.0.1), диапазона IP-адресов, заданного с помощью IP-адреса и маски подсети CIDR (например, 10.0.0.1/22), или диапазона IP-адресов, заданного с помощью IP-адреса и маски подсети в десятичной записи (например, 10.0.0.1(255.255.252.0)).
 
-        If no IP addresses are specified and there is no rule definition then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
+		Если не указаны IP-адреса и не определено правило, разрешенных IP-адресов нет. Чтобы разрешить все IP-адреса, создайте правило и задайте адрес 0.0.0.0/0.
 
-6. On the **Preview** tab, apply IP restriction on the preview.
-7. On the **Encoding** tab, specify the encoding preset. 
+6. На вкладке **Предварительный просмотр** укажите ограничения IP-адресов для предварительного просмотра.
+7. На вкладке **Кодировка** укажите предустановки для кодирования.
 
-    Currently, the only system preset you can select is **Default 720p**. To specify a custom preset, open a Microsoft support ticket. Then, enter the name of the preset created for you. 
+	В настоящее время можно выбрать только значение **По умолчанию 720p**. Чтобы указать пользовательские предустановки, создайте запрос в службу поддержки Майкрософт. Введите имя набора предустановок, созданного для вас.
 
->[AZURE.NOTE] Currently, the Channel start can take up to 30 minutes. Channel reset can take up to 5 minutes.
+>[AZURE.NOTE] В настоящее время запуск канала может занять до 30 минут. Сброс канала может занимать до 5 минут.
 
-Once you created the Channel, you can click on the channel and select **Settings** where you can view your channels configurations. 
+После создания канала вы можете выбрать канал и открыть вкладку **Параметры**, на которой отображаются конфигурации каналов.
 
-For more information, see [Live streaming using Azure Media Services to create multi-bitrate streams](media-services-manage-live-encoder-enabled-channels.md).
+Подробные сведения см. в статье [Потоковая трансляция с использованием служб мультимедиа Azure для создания потоков с разными скоростями](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##<a name="get-ingest-urls"></a>Get ingest URLs
+##Получение URL-адресов приема
 
-Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
+После создания канала можно получить URL-адреса приема, которые необходимо передать динамическому кодировщику. Он использует эти адреса для передачи динамического потока на вход.
 
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 
-##<a name="create-and-manage-events"></a>Create and manage events
+##Создание событий и управление ими
 
-###<a name="overview"></a>Overview
+###Обзор
 
-A channel is associated with events/programs that enable you to control the publishing and storage of segments in a live stream. Channels manage events/programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel.
+Канал связан с событиями и программами, с помощью которых вы можете управлять публикацией и хранением сегментов динамического потока. Каналы управляют событиями и программами. Отношение между каналом и программой очень похоже на традиционные мультимедиа, где канал передает постоянный поток контента, а программа ограничена временным событием на этом канале.
 
-You can specify the number of hours you want to retain the recorded content for the event by setting the **Archive Window** length. This value can be set from a minimum of 5 minutes to a maximum of 25 hours. Archive window length also dictates the maximum amount of time clients can seek back in time from the current live position. Events can run over the specified amount of time, but content that falls behind the window length is continuously discarded. This value of this property also determines how long the client manifests can grow.
+Чтобы задать количество часов, в течение которых следует хранить записанное содержимое события, укажите длительность **окна архивирования**. Для него можно задать значение от 5 минут до 25 часов. Длина окна архивирования также определяет максимальный период, в пределах которого клиенты могут перемещаться назад во времени относительно текущей позиции в передаваемом потоке данных. События могут происходить в течение определенного времени, однако содержимое, выходящее за пределы этого периода, теряется. Значение этого свойства также определяет максимальный размер манифестов клиентов.
 
-Each event is associated with an Asset. To publish the event you must create an OnDemand locator for the associated asset. Having this locator will enable you to build a streaming URL that you can provide to your clients.
+Каждое событие связано с ресурсом. Чтобы опубликовать событие, необходимо создать указатель OnDemand для соответствующего ресурса. С помощью этого указателя можно сформировать URL-адрес потоковой передачи данных, который предоставляется клиентам.
 
-A channel supports up to three concurrently running events so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of an event, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running event. One event is set to archive 6 hours of the event but the program is not published. The other event is set to archive for 10 minutes and this program is published.
+Канал поддерживает одновременную потоковую трансляцию максимум трех событий, поэтому можно создавать по несколько архивов одного и того же входящего потока. Благодаря этому можно публиковать и архивировать разные части транслируемого мероприятия. Предположим, согласно требованиям вашей компании, необходимо архивировать 6 часов события, а транслировать только последние 10 минут. Для этого необходимо создать два одновременно работающих события. Для одного из них настроено архивирование 6 часов события, но без публикации. Для другого события настроено архивирование 10 минут с публикацией.
 
-You should not reuse existing programs for new events. Instead, create and start a new program for each event.
+Не используйте существующие программы повторно для новых мероприятий. Вместо этого создайте и запустите новую программу для каждого события.
 
-Start an event/program when you are ready to start streaming and archiving. Stop the event whenever you want to stop streaming and archiving the event. 
+Когда вы будете готовы начать потоковую передачу и архивацию, запустите событие или программу. Чтобы остановить потоковую передачу и архивацию содержимого события, завершите работу события.
 
-To delete archived content, stop and delete the event and then delete the associated asset. An asset cannot be deleted if it is used by the event; the event must be deleted first. 
+Чтобы удалить архивированное содержимое, остановите и удалите событие, а затем удалите связанный с ним ресурс. Ресурс невозможно удалить, пока он используется каким-либо событием. Сначала нужно удалить это событие.
 
-Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset.
+Даже после остановки и удаления события пользователи смогут запрашивать потоковую передачу архивированного видеосодержимого, пока не удален соответствующий ресурс.
 
-If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
+Если вы хотите сохранить заархивированное содержимое, но при этом заблокировать возможность его потоковой передачи, удалите указатель.
 
-###<a name="create/start/stop-events"></a>Create/start/stop events
+###Создание, запуск и остановка событий
 
-Once you have the stream flowing into the Channel you can begin the streaming event by creating an Asset, Program, and Streaming Locator. This will archive the stream and make it available to viewers through the Streaming Endpoint. 
+Настроив передачу потока данных в канал, вы можете начать потоковую передачу мероприятия, создав ресурс, программу и указатель потоковой передачи. В результате вы сможете запустить архивирование потока и предложить его зрителям через конечную точку потоковой передачи.
 
-There are two ways to start event: 
+Запустить мероприятие можно двумя способами.
 
-1. From the **Channel** page, press **Live Event** to add a new event.
+1. На странице **канала** щелкните **Live Event** (Интерактивное событие), чтобы добавить новое событие.
 
-    Specify: event name, asset name, archive window, and encryption option.
-    
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-    
-    If you left **Publish this live event now** checked, the event the PUBLISHING URLs will get created.
-    
-    You can press **Start**, whenever you are ready to stream the event.
+	Укажите название события и ресурса, окно архивирования и вариант кодирования.
+	
+	![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+	
+	Если оставить установленным флажок **Publish this live event now** (Опубликовать это динамическое событие), для события будут созданы URL-адреса публикации.
+	
+	Когда вы будете готовы к потоковой передаче события, щелкните **Start** (Начать).
 
-    Once you start the event, you can press **Watch** to start playing the content.
+	После запуска события нажмите кнопку **Watch** (Просмотр), чтобы начать воспроизведение содержимого.
 
-2. Alternatively, you can use a shortcut and press **Go Live** button on the **Channel** page. This will create a default Asset, Program, and Streaming Locator.
+2. Можно также выполнить сразу все операции, нажав кнопку **Go Live** (Перейти к потоковой трансляции) на странице **канала**. В результате будут созданы ресурс по умолчанию, программа и указатель потоковой передачи.
 
-    The event is named **default** and the archive window is set to 8 hours.
+	Событию будет присвоено название **default**, и для него будет задано окно архивирования 8 часов.
 
-You can watch the published event from the **Live event** page. 
+Опубликованное событие можно просмотреть на странице **Live Event** (Интерактивное событие).
 
-If you click **Off Air**, it will stop all live events. 
+После нажатия кнопки **Off Air** (Прекратить трансляцию) трансляция всех событий остановится.
 
 
-##<a name="watch-the-event"></a>Watch the event
+##Просмотр события
 
-To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 
+Чтобы просмотреть событие, щелкните **Посмотреть** на портале Azure или скопируйте URL-адрес потоковой передачи и используйте проигрыватель по своему усмотрению.
  
-![Created](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
+![Создано](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
-Live event automatically converts events to on-demand content when stopped.
+После остановки интерактивное событие автоматически преобразуется в содержимое по требованию.
 
-##<a name="clean-up"></a>Clean up
+##Очистка
 
-If you are done streaming events and want to clean up the resources provisioned earlier, follow the following procedure.
+После завершения потоковой передачи мероприятия вы можете удалить выделенные ранее ресурсы с помощью описанной ниже процедуры.
 
-- Stop pushing the stream from the encoder.
-- Stop the channel. Once the Channel is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
-- You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the channel is in stopped state, it will not incur any charges.
+- Остановите трансляцию потока из кодировщика.
+- Остановите работу канала. После остановки канала начисление платы прекращается. Если вам понадобится снова запустить его, вы можете воспользоваться тем же URL-адресом приема (перенастраивать кодировщик не потребуется).
+- Вы можете остановить конечную точку потоковой передачи, если больше не собираетесь предоставлять доступ к архиву мероприятия в качестве потоковой передачи по требованию. Пока канал остановлен, начисление платы не осуществляется.
   
-##<a name="view-archived-content"></a>View archived content
+##Просмотр архивного содержимого
 
-Even after you stop and delete the event, the users would be able to stream your archived content as a video on demand, for as long as you do not delete the asset. An asset cannot be deleted if it is used by an event; the event must be deleted first. 
+Даже после остановки и удаления события пользователи смогут запрашивать потоковую передачу архивированного видеосодержимого, пока не удален соответствующий ресурс. Ресурс невозможно удалить, пока он используется каким-либо событием: сначала нужно удалить это событие.
 
-To manage your assets select **Setting** and click **Assets**.
+Для управления ресурсами выберите элемент **Параметры** и щелкните пункт **Ресурсы**.
 
-![Assets](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
+![Активы](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
-##<a name="considerations"></a>Considerations
+##Рекомендации
 
-- Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft.com if you need to run a Channel for longer periods of time.
-- Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+- Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Если необходимо запустить канал на более продолжительные отрезки времени, обратитесь в amslived на веб-сайте Microsoft.com.
+- Убедитесь, что есть как минимум одна зарезервированная единица потоковой передачи на конечной точке потоковой передачи, с которой необходимо выполнять потоковую передачу содержимого.
 
 
-##<a name="next-step"></a>Next step
+##Дальнейшие действия
 
-Review Media Services learning paths.
+Просмотрите схемы обучения работе со службами мультимедиа.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

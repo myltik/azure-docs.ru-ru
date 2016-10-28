@@ -1,52 +1,48 @@
-To modify the gateway IP address, use the `New-AzureRmVirtualNetworkGatewayConnection` cmdlet. As long as you keep the name of the local network gateway exactly the same as the existing name, the settings will overwrite. At this time, the "Set" cmdlet does not support modifying the gateway IP address.
+Чтобы изменить IP-адрес шлюза, используйте командлет `New-AzureRmVirtualNetworkGatewayConnection`. Параметры будут перезаписаны, только если вы оставите для шлюза локальной сети существующее имя. Сейчас командлет Set не поддерживает изменение IP-адреса шлюза.
 
-### <a name="<a-name="gwipnoconnection"></a>how-to-modify-the-gateway-ip-address---no-gateway-connection"></a><a name="gwipnoconnection"></a>How to modify the gateway IP address - no gateway connection
+### <a name="gwipnoconnection"></a>Изменение IP-адреса шлюза без подключения шлюза
 
-To update the gateway IP address for your local network gateway that doesn't yet have a connection, use the example below. You can also update the address prefixes at the same time. The settings you specify will overwrite the existing settings. Be sure to use the existing name of your local network gateway. If you don't, you'll be creating a new local network gateway, not overwriting the existing one.
+Ниже описано, как обновить IP-адрес шлюза для шлюза локальной сети, который еще не подключен. При этом вы также можете обновить префиксы адресов. Указав новые параметры, вы перезапишете существующие. Не забудьте указать существующее имя шлюза локальной сети. Иначе вы создадите новый шлюз локальной сети, а не перезапишете существующий.
 
-Use the following example, replacing the values for your own.
+Используйте следующий пример, подставив собственные значения.
 
-    New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
-    -Location "West US" -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24') `
-    -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
-
-
-### <a name="<a-name="gwipwithconnection"></a>how-to-modify-the-gateway-ip-address---existing-gateway-connection"></a><a name="gwipwithconnection"></a>How to modify the gateway IP address - existing gateway connection
-
-If a gateway connection already exists, you'll first need to remove the connection. Then, you can modify the gateway IP address and recreate a new connection. This will result in some downtime for your VPN connection.
+	New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
+	-Location "West US" -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24') `
+	-GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 
 
->[AZURE.IMPORTANT] Don’t delete the VPN gateway. If you do so, you’ll have to go back through the steps to recreate it, as well as reconfigure your on-premises router with the IP address that will be assigned to the newly created gateway.
+### <a name="gwipwithconnection"></a>Изменение IP-адреса с подключением шлюза
+
+Если шлюз уже подключен, вам сначала нужно удалить подключение. Затем вы сможете изменить IP-адрес шлюза и создать новое подключение. При этом VPN-подключение будет некоторое время недоступно.
+
+
+>[AZURE.IMPORTANT] Не удаляйте VPN-шлюз. Иначе вам придется заново выполнить все действия, чтобы восстановить его, а также повторно настроить локальный маршрутизатор с IP-адресом, который будет назначен созданному шлюзу.
  
 
-1. Remove the connection. You can find the name of your connection by using the `Get-AzureRmVirtualNetworkGatewayConnection` cmdlet.
+1. Удалите подключение. Имя подключения можно узнать с помощью командлета `Get-AzureRmVirtualNetworkGatewayConnection`.
 
-        Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
-        -ResourceGroupName MyRGName
+		Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
+		-ResourceGroupName MyRGName
 
-2. Modify the GatewayIpAddress value. You can also modify your address prefixes at this time, if necessary. Note that this will overwrite the existing local network gateway settings. Use the existing name of your local network gateway when modifying so that the settings will overwrite. If you don't, you'll be creating a new local network gateway, not modifying the existing one.
+2. Измените значение GatewayIpAddress. При необходимости вы сразу можете изменить префиксы адресов. Обратите внимание, что при этом будут перезаписаны существующие параметры шлюза локальной сети. Изменяя значения, используйте существующее имя шлюза локальной сети, чтобы перезаписать параметры. Иначе вы создадите новый шлюз локальной сети, а не измените существующий.
 
-        New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
-        -Location "West US" -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24') `
-        -GatewayIpAddress "104.40.81.124" -ResourceGroupName MyRGName
+		New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
+		-Location "West US" -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24') `
+		-GatewayIpAddress "104.40.81.124" -ResourceGroupName MyRGName
 
-3. Create the connection. In this example, we are configuring an IPsec connection type. When you recreate your connection, use the connection type that is specified for your configuration. For additional connection types, see the [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) page.  To obtain the VirtualNetworkGateway name, you can run the `Get-AzureRmVirtualNetworkGateway` cmdlet.
+3. Создайте подключение. В этом примере мы настраиваем тип подключения IPsec. При повторном создании подключения используйте тип соединения, указанный для вашей конфигурации. Дополнительные типы подключений см. на странице с [командлетами PowerShell](https://msdn.microsoft.com/library/mt603611.aspx). Чтобы получить имя VirtualNetworkGateway, запустите командлет `Get-AzureRmVirtualNetworkGateway`.
 
-    Set the variables:
+	Присвойте переменные:
 
-        $local = Get-AzureRMLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
-        $vnetgw = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName MyRGName
+		$local = Get-AzureRMLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
+		$vnetgw = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName MyRGName
 
-    Create the connection:
-    
-        New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName `
-        -Location "West US" `
-        -VirtualNetworkGateway1 $vnetgw `
-        -LocalNetworkGateway2 $local `
-        -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+	Создайте подключение:
+	
+		New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName `
+		-Location "West US" `
+		-VirtualNetworkGateway1 $vnetgw `
+		-LocalNetworkGateway2 $local `
+		-ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

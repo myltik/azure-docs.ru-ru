@@ -1,117 +1,113 @@
 <properties 
-    pageTitle="How to configure a cloud service (portal) | Microsoft Azure" 
-    description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure portal." 
-    services="cloud-services" 
-    documentationCenter="" 
-    authors="Thraka" 
-    manager="timlt" 
-    editor=""/>
+	pageTitle="Как настроить облачную службу (портал) | Microsoft Azure" 
+	description="Узнайте, как настроить облачные службы в Azure. Как обновить конфигурацию облачной службы и настроить удаленный доступ к экземплярам роли. В этих примерах используется портал Azure." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
 <tags 
-    ms.service="cloud-services" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/11/2016"
-    ms.author="adegeo"/>
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2016"
+	ms.author="adegeo"/>
 
-
-# <a name="how-to-configure-cloud-services"></a>How to Configure Cloud Services
+# Настройка облачных служб
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-configure-portal.md)
-- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Портал Azure](cloud-services-how-to-configure-portal.md)
+- [Классический портал Azure](cloud-services-how-to-configure.md)
 
-You can configure the most commonly used settings for a cloud service in the Azure portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
+Часто используемые параметры облачной службы можно настроить на портале Azure. Также можно напрямую изменить файлы конфигурации. Для этого загрузите и измените нужный файл, а затем отправьте его для обновления конфигурации облачной службы. В любом случае обновления конфигурации применяются ко всем экземплярам ролей.
 
-You can also manage the instances of your cloud service roles, or remote desktop into them.
+Также вы можете управлять экземплярами ролей облачной службы или подключиться к ним с помощью удаленного рабочего стола.
 
-Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+При наличии как минимум двух экземпляров для каждой роли в процессе обновления конфигурации Azure обеспечивается доступность службы в течение 99,95 % времени. Такая конфигурация позволяет обрабатывать запросы клиентов на одной виртуальной машине во время обновления другой. Дополнительные сведения см. в разделе [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/).
 
-## <a name="change-a-cloud-service"></a>Change a cloud service
+## Изменение облачной службы
 
-After opening the [Azure portal](https://portal.azure.com/), navigate to your cloud service. From here you manage many aspects of it. 
+Откройте [портал Azure](https://portal.azure.com/) и перейдите к облачной службе. Здесь можно управлять множеством параметров.
 
-![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+![Страница «Параметры»](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-The **Settings** or **All settings** links will open up the **Settings** blade where you can change the **Properties**, change the **Configuration**, manage the **Certificates**, setup **Alert rules**, and manage the **Users** who have access to this cloud service.
+Ссылки **Параметры** или **Все параметры** позволяют открыть колонку **Параметры**, где вы можете изменять **свойства** и **конфигурацию**, настраивать **правила оповещения**, а также управлять **сертификатами** и доступом **пользователей** к этой облачной службе.
 
-![Azure cloud service settings blade](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
+![Колонка параметров облачной службы Azure](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
 >[AZURE.NOTE]
->The operating system used for the cloud service cannot be changed using the **Azure portal**, you can only change this setting through the [Azure classic portal](http://manage.windowsazure.com/). This is detailed [here](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
+Операционную систему, используемую для облачной службы, нельзя изменить на **портале Azure**, ее можно изменить только на [классической версии портала](http://manage.windowsazure.com/). Это подробно описано [здесь](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
 
-## <a name="monitoring"></a>Monitoring
+## Мониторинг
 
-You can add alerts to your cloud service. Click **Settings** > **Alert Rules** > **Add alert**. 
+Вы можете включить оповещения в облачной службе. Щелкните **Параметры** > **Правила оповещения** > **Добавить оповещение**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
-From here you can setup an alert. With the **Mertic** drop down box, you can setup an alert for the following types of data.
+Здесь можно настроить оповещение. Раскрывающийся список **Метрика** позволяет настроить оповещение для следующих типов данных.
 
-- Disk read
-- Disk write
-- Network in
-- Network out
-- CPU percentage 
+- Скорость чтения с диска
+- Скорость записи на диск
+- Входящая скорость сети
+- Исходящая скорость сети
+- Процент использования ЦП
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
 
-### <a name="configure-monitoring-from-a-metric-tile"></a>Configure monitoring from a metric tile
+### Настройка мониторинга с использованием плиток метрик
 
-Instead of using **Settings** > **Alert Rules**, you can click on one of the metric tiles in the **Monitoring** section of the **Cloud service** blade.
+Вместо элементов **Параметры** > **Правила оповещения** вы можете щелкнуть любую из плиток с метриками в разделе **Мониторинг** в колонке **Облачная служба**.
 
-![Cloud Service Monitoring](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
+![Мониторинг облачной службы](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 
-From here you can customize the chart used with the tile, or add an alert rule.
-
-
-## <a name="reboot,-reimage,-or-remote-desktop"></a>Reboot, reimage, or remote desktop
-
-At this time you cannot configure remote desktop using the **Azure portal**. However, you can set it up through the [Azure classic portal](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), or through [Visual Studio](../vs-azure-tools-remote-desktop-roles.md). 
-
-First, click on the cloud service instance.
-
-![Cloud Service Instance](./media/cloud-services-how-to-configure-portal/cs-instance.png)
-
-From the blade that opens uou can initiate a remote desktop connection, remotely reboot the instance, or remotely reimage (start with a fresh image) the instance.
-
-![Cloud Service Instance Buttons](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
+Здесь можно настроить диаграммы для этой плитки или добавить правило оповещения.
 
 
+## Перезагрузка, повторное создание образа и использование удаленного рабочего стола
 
-## <a name="reconfigure-your-.cscfg"></a>Reconfigure your .cscfg
+Сейчас на **портале Azure** нельзя настроить использование удаленного рабочего стола. Но вы можете настроить его с помощью [классического портала Azure](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) или [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-You may need to reconfigure you cloud service through the [service config (cscfg)](cloud-services-model-and-package.md#cscfg) file. First you need to download your .cscfg file, modify it, then upload it.
+Щелкните экземпляр облачной службы.
 
-1. Click on the **Settings** icon or the **All settings** link to open up the **Settings** blade.
+![Экземпляр облачной службы](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 
-    ![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+Откроется колонка, в которой вы можете инициировать подключение к удаленному рабочему столу, удаленно перезагрузить или пересоздать (заново развернуть из образа) экземпляр.
 
-2. Click on the **Configuration** item.
+![Кнопки экземпляра облачной службы](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
-    ![Configuration Blade](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 
-3. Click on the **Download** button.
 
-    ![Download](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+## Изменение CSCFG-файла
 
-4. After you update the service configuration file, upload and apply the configuration updates:
+Иногда возникает потребность изменить настройки облачной службы, сохраненные в файле [конфигурации службы (CSCFG)](cloud-services-model-and-package.md#cscfg). Для этого следует скачать CSCFG-файл, изменить его и отправить обратно.
 
-    ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png) 
+1. Щелкните значок **Параметры** или выберите **Все параметры**, чтобы открыть колонку **Параметры**.
+
+    ![Страница «Параметры»](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+
+2. Выберите элемент **Конфигурация**.
+
+    ![Колонка «Конфигурация»](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
+
+3. Нажмите кнопку **Загрузить**.
+
+    ![Скачивание](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+
+4. Чтобы применить обновления конфигурации, передайте новый файл в службу:
+
+    ![Отправить](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
     
-5. Select the .cscfg file and click **OK**.
+5. Выберите файл .cscfg и нажмите **ОК**.
 
-            
-## <a name="next-steps"></a>Next steps
+			
+## Дальнейшие действия
 
-* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
-* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
-* [Manage your cloud service](cloud-services-how-to-manage-portal.md).
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
+* Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy-portal.md).
+* Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
+* [Управление облачной службой](cloud-services-how-to-manage-portal.md).
+* Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate-portal.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

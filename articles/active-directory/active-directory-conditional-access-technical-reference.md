@@ -1,90 +1,85 @@
 
 <properties
-    pageTitle="Azure Active Directory Conditional Access technical reference | Microsoft Azure"
-    description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
+	pageTitle="Техническая информация об условном доступе в Azure Active Directory | Microsoft Azure"
+	description="С условным контролем доступа при проверке подлинности пользователя и перед предоставлением ему доступа к приложению Azure Active Directory проверяет определенные условия, которые вы можете выбрать. Если эти условия выполняются, пользователь проходит проверку подлинности, и ему дается доступ к приложению."
     services="active-directory"
-    documentationCenter=""
-    authors="MarkusVi"
-    manager="femila"
-    editor=""/>
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.topic="article"
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-    ms.date="10/20/2016"
-    ms.author="markvi"/>
+	ms.date="07/26/2016"
+	ms.author="markvi"/>
 
+# Техническая информация об условном доступе в Azure Active Directory.
 
-# <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory Conditional Access technical reference
+## Службы, включаемые с условным доступом
+Правила условного доступа поддерживаются в самых разных типах приложений Azure AD. В этот список входят:
 
-## <a name="services-enabled-with-conditional-access"></a>Services enabled with conditional access
-Conditional Access rules are supported across various Azure AD application types. This list includes:
-
-- Federated applications from the Azure AD application gallery
-- Password SSO applications from the Azure AD application gallery
-- Applications registered with the Azure Application Proxy
-- Developed line of business and multi-tenant applications registered with Azure AD
+- Федеративные приложения из коллекции приложений Azure AD
+- Приложения с единым входом и паролем из коллекции приложений Azure AD
+- Приложения, зарегистрированные с прокси приложений Azure
+- Линейка многопользовательских и бизнес-приложений, зарегистрированных в Azure AD
 - Visual Studio Online
-- Azure Remote App
--   Dynamics CRM
+- Удаленное приложение Azure
+- 	Dynamics CRM
 - Microsoft Office 365 Yammer
 - Microsoft Office 365 Exchange Online
-- Microsoft Office 365 SharePoint Online (includes OneDrive for Business)
+- Microsoft Office 365 SharePoint Online (включая OneDrive для бизнеса)
 
 
-## <a name="enable-access-rules"></a>Enable access rules
+## Включить правила доступа
 
-Each rule can be enabled or disabled on a per application bases. When rules are **ON** they will be enabled and enforced for users accessing the application. When they are **OFF** they will not be used and will not impact the users sign in experience.
+Каждое правило можно включать или отключать для каждого приложения отдельно. Если правила **включены**, они будут действовать для всех пользователей, которые обращаются к приложению. Если правила **отключены**, они не действуют и не влияют на то, как пользователи входят в систему.
 
-## <a name="applying-rules-to-specific-users"></a>Applying rules to specific users
-Rules can be applied to specific sets of users based on security group by setting **Apply To**. **Apply To** can be set to **All Users** or **Groups**. When set to **All Users** the rules will apply to any user with access to the application. The **Groups** option allows specific security and distribution groups to be selected, rules will only be enforced for these groups.
+## Применение правил к определенным пользователям
+Правила могут применяться для ряда пользователей, входящих в определенную группу безопасности. Для этого используется параметр **Применить к**. Для параметра **Применить к** может быть задано значение **Все пользователи** или **Группы**. Если задано значение **Все пользователи**, правила будут применяться к любому пользователю, имеющему доступ к приложению. Параметр **Группы** позволяет выбрать определенные группы и группы рассылки — правила будут применяться только к выбранным группам.
 
-When deploying a rule,  it is common to first apply it a limited set of users, that are members of a piloting groups. Once complete the rule can be applied to **All Users**. This will cause the rule to be enforced for all users in the organization.
+Обычно при развертывании правило сначала применяется к ограниченному кругу пользователей, входящих в пилотные группы. После завершения правила могут применяться к группе **Все пользователи**. В результате правило будет действовать для всех пользователей в организации.
 
-Select groups may also be exempted from policy using the **Except** option. Any members of these groups will be exempted even if they appear in an included group.
+Некоторые группы можно освободить от подчинения правилу с помощью параметра **Исключение**. Все члены этих групп будет исключены, даже если они входят в какую-либо включенную группу.
 
-## <a name="“at-work”-networks"></a>“At work” networks
-
-
-Conditional access rules that use an “At work” network, rely on trusted IP address ranges that have been configured in Azure AD, or use of the "inside corpnet" claim from AD FS. These rules include:
-
-- Require multi-factor authentication when not at work
-- Block access when not at work
-
-Options for specifiying “at work” networks
-
-1. Configure trusted IP address ranges in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. 
-2. Configure use of the inside corpnet claim, this option can be used with federated directories, using AD FS. [Learn more about the inside coronet claims](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
-3. Configure public IP address ranges. On the configure tab, for your directory, you can set public IP addresses. Conditional Access will use these as ‘at work’ IP addresses, this allows additional ranges to be configure, above the 50 IP address limit that is enforced by the MFA setting page.
+## Сети "на работе"
 
 
+Правила условного доступа с использованием сети "на работе" действуют на основе диапазонов доверенных IP-адресов, которые настроены в Azure AD, или используют утверждение "в пределах корпоративной сети" из AD FS. В эти правила входит следующее:
 
-## <a name="rules-based-on-application-sensitivity"></a>Rules based on application sensitivity
+- Требовать многофакторную проверку подлинности, если пользователь находится не на работе.
+- Блокировать доступ, если пользователь находится не на работе.
 
-Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional access rules can be configured on the  **Configure** tab of the application. 
+Как указать сети "на работе"
 
-Rules currently offered:
+1. Настройте диапазоны доверенных IP-адресов на [странице настройки многофакторной проверки подлинности](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Политика условного доступа использует настроенные диапазоны IP-адресов при каждом запросе проверки подлинности и выдаче токенов для оценки правил.
+2. Настройте использование утверждения "в пределах корпоративной сети". Этот параметр можно использовать с федеративными каталогами с применением AD FS. [Дополнительные сведения об утверждениях "в пределах корпоративной сети"](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+3. Настройте диапазоны общедоступных IP-адресов. Общедоступные IP-адреса можно задать на вкладке "Настройка" каталога. Условный доступ будет использовать их как IP-адреса "на работе", что позволит настроить дополнительные диапазоны, превышая ограничение в 50 IP-адресов, предусмотренное страницей параметров MFA.
 
-- **Require multi-factor authentication**
- - All users that this policy is applied to will be required to authenticate via multi-factor authentication at least once.
+
+
+## Правила, учитывающие уровень конфиденциальности приложений
+
+Правила настраиваются для каждого приложения отдельно, что позволяет защищать особо значимые службы, не препятствуя доступу к другим службам. Правила условного доступа можно настроить на вкладке **Настройка** приложения.
+
+Далее указаны правила, предлагаемые в настоящее время:
+
+- **Требовать многофакторную проверку подлинности**
+ - Все пользователи, к которым применяется эта политика, должны будут проходить многофакторную проверку подлинности хотя бы один раз.
  
-- **Require multi-factor authentication when not at work**
- - If this policy is applied, all users will be required to have performed multi-factor authentication at least once if they access the service from a non-work remote location. If they move from a work to remote location, they will be required to perform multifactor authentication when accessing the service.
+- **Требовать многофакторную проверку подлинности, если пользователь находится не на работе.**
+ - Все пользователи, к которым применяется эта политика, должны будут проходить многофакторную проверку подлинности хотя бы один раз, если обращаются к службе не с рабочего удаленного расположения. Пользователи должны будут проходить многофакторную проверку подлинности, если обращаются к службе не с рабочего места.
  
-- **Block access when not at work** 
- - When users move from work to a remote location, they will be blocked if the "Block access when not at work" policy is applied to them.  They will be re-allowed access when at a work location.
+- **Блокировать доступ, если пользователь находится не на работе.**
+ - При перемещении с рабочего места в удаленное расположение пользователи будут заблокированы, если к ним применяется политика "Блокировать доступ, если пользователь находится не на работе". Оказавшись на рабочем месте, они вновь получат права на доступ.
 
 
-## <a name="related-topics"></a>Related topics
+## Связанные разделы
 
-- [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md)
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Защита доступа к Office 365 и другим приложениям, подключенным к Azure Active Directory](active-directory-conditional-access.md)
+- [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

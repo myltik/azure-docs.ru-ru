@@ -1,27 +1,25 @@
-#### <a name="vpn-type---resource-manager-deployment-model"></a>VPN type - Resource Manager deployment model
+#### Тип VPN — модель развертывания Resource Manager
 
-|      | **RouteBased**    | **PolicyBased** |
+| | **RouteBased** | **PolicyBased** |
 |-----------------------------------|-------------|------------------|
-| **Site-to-Site**                  | Supported   | Supported        |
-| **VNet-to-VNet**                  | Supported   | Not Supported    |
-| **Multi-Site**                    | Supported   | Not Supported    |
-| **S2S and ExpressRoute coexist**  | Supported   | Not Supported    |
-| **Point-to-Site**                 | Supported   | Not Supported    |
-| **Classic to Resource Manager**   | Supported   | Not Supported    |
+| **Сеть-сеть** | Поддерживаются | Поддерживаются |
+| **Подключение между виртуальными сетями** | Поддерживаются | Не поддерживается |
+| **Несколько сайтов** | Поддерживаются | Не поддерживается |
+| **Сосуществование подключения типа "сеть-сеть" и ExpressRoute** | Поддерживаются | Не поддерживается |
+| **Точка-сеть** | Поддерживаются | Не поддерживается |
+| **Классический для диспетчера ресурсов** | Поддерживаются | Не поддерживается |
 
 
-#### <a name="vpn-type---classic-deployment-model"></a>VPN type - classic deployment model
+#### Тип VPN — классическая модель развертывания
 
 
-|       | **Dynamic**        | **Static**   |
+| | **Динамический** | **Статическое** |
 |---------------------------------------------|--------------|--------------|
-| **Site-to-Site**                            | Supported    | Supported      |
-| **VNet-to-VNet**                            | Supported    | Not Supported  |
-| **Multi-Site**                              | Supported    | Not Supported  |
-| **S2S and ExpressRoute coexist**            | Supported    | Not Supported  |
-| **Point-to-Site**                           | Supported    | Not Supported  |
-| **Classic to Resource Manager**             | Supported    | Not Supported  |
+| **Сеть-сеть** | Поддерживаются | Поддерживаются |
+| **Подключение между виртуальными сетями** | Поддерживаются | Не поддерживается |
+| **Несколько сайтов** | Поддерживаются | Не поддерживается |
+| **Сосуществование подключения типа "сеть-сеть" и ExpressRoute** | Поддерживаются | Не поддерживается |
+| **Точка-сеть** | Поддерживаются | Не поддерживается |
+| **Классический для диспетчера ресурсов** | Поддерживаются | Не поддерживается |
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

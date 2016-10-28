@@ -1,100 +1,89 @@
 <properties 
-    pageTitle="Configure Content Key Authorization Policy using the Azure portal | Microsoft Azure" 
-    description="Learn how to configure an authorization policy for a content key." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="juliako" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Настройка политики авторизации ключей содержимого с помощью портала Azure | Microsoft Azure" 
+	description="Узнайте, как настроить политику авторизации для ключа содержимого." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/12/2016" 
-    ms.author="juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+ 	ms.date="09/19/2016" 
+	ms.author="juliako"/>
 
 
 
-
-#<a name="configure-content-key-authorization-policy"></a>Configure Content Key Authorization Policy
+#Настройка политики авторизации ключа содержимого
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 
-##<a name="overview"></a>Overview
+##Обзор
 
-Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and HTTP-Live-Streaming (HLS) streams protected with Advanced Encryption Standard (AES) (using 128-bit encryption keys) or [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). AMS also enables you to deliver DASH streams encrypted with Widevine DRM. Both PlayReady and Widevine are encrypted per the Common Encryption (ISO/IEC 23001-7 CENC) specification.
+Службы мультимедиа Microsoft Azure позволяют защищать потоковое содержимое MPEG-DASH, Smooth Streaming и HTTP Live Streaming (HLS) с помощью стандарта AES (использующего 128-разрядные ключи шифрования) или технологии [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). AMS позволяет также передавать потоки MPEG DASH с шифрованием Widevine DRM. PlayReady и Widewine шифруются согласно спецификации общего шифрования (ISO/IEC 23001-7 CENC).
 
-Media Services also provides a **Key/License Delivery Service** from which clients can obtain AES keys or PlayReady/Widevine licenses to play the encrypted content.
+Кроме того, службы мультимедиа включают в себя **службы доставки ключей и лицензий**, с помощью которых клиенты могут получать ключи AES либо лицензии PlayReady или Widevine для воспроизведения зашифрованного содержимого.
 
-This topic shows how to use the Azure portal to configure the content key authorization policy. The key can later be used to dynamically encrypt your content. Note that currently you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
+В этой статье показано, как настроить политики авторизации ключей содержимого с помощью **классического портала Azure**. Ключ может использоваться позже для динамического шифрования содержимого. Обратите внимание, что сейчас поддерживается шифрование для таких форматов потоковой передачи: HLS, MPEG DASH и Smooth Streaming. Шифрование формата потоковой передачи HDS и последовательных скачиваний не поддерживается.
 
-When a player requests a stream that is set to be dynamically encrypted, Media Services uses the configured key to dynamically encrypt your content using AES or DRM encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
-
-
-If you plan to have multiple content keys or want to specify a **Key/License Delivery Service** URL other than the Media Services key delivery service, use Media Services .NET SDK or REST APIs.
-
-[Configure Content Key Authorization Policy using Media Services .NET SDK](media-services-dotnet-configure-content-key-auth-policy.md)
-
-[Configure Content Key Authorization Policy using Media Services REST API](media-services-rest-configure-content-key-auth-policy.md)
-
-###<a name="some-considerations-apply:"></a>Some considerations apply:
-
-- To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one streaming reserved unit. For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
-- Your asset must contain a set of adaptive bitrate MP4s or adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](media-services-encode-asset.md).
-- The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.  If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.
+Когда проигрыватель запрашивает поток, для которого настроено динамическое шифрование, службы мультимедиа используют настроенный ключ для динамического шифрования содержимого с помощью AES или DRM. Чтобы расшифровать поток, проигрыватель запросит ключ у службы доставки ключей. Чтобы определить, есть ли у пользователя право на получение ключа, служба оценивает политики авторизации, заданные для ключа.
 
 
-##<a name="how-to:-configure-the-key-authorization-policy"></a>How to: configure the key authorization policy
+Если вы планируете использовать несколько ключей содержимого или хотите задать URL-адрес **службы доставки ключей или лицензий**, отличный от адреса службы доставки ключей служб мультимедиа, используйте пакет SDK для .NET или интерфейсы REST API для служб мультимедиа.
 
-To configure the key authorization policy, select the **CONTENT PROTECTION** page.
+[Настройка политики авторизации ключей содержимого с помощью пакета .NET SDK служб мультимедиа](media-services-dotnet-configure-content-key-auth-policy.md)
 
-Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy can have **open**, **token**, or **IP** authorization restrictions (**IP** can be configured with REST or .NET SDK).
+[Настройка политики авторизации ключей содержимого с помощью интерфейсов REST API служб мультимедиа](media-services-rest-configure-content-key-auth-policy.md)
 
-###<a name="open-restriction"></a>Open restriction
+###Важные особенности
 
-The **open** restriction means the system will deliver the key to anyone who makes a key request. This restriction might be useful for testing purposes.
+- Чтобы иметь возможность использовать динамическую упаковку и динамическое шифрование, необходимо иметь по крайней мере одну зарезервированную единицу потоковой передачи. Дополнительную информацию см. в разделе [Масштабирование службы мультимедиа](media-services-portal-manage-streaming-endpoints.md).
+- Ресурс должен содержать набор MP4-файлов с адаптивной скоростью или файлов Smooth Streaming с адаптивной скоростью. Дополнительную информацию см. в разделе [Кодирование ресурса](media-services-encode-asset.md).
+- Служба доставки ключей кэширует политику ContentKeyAuthorizationPolicy и связанные с ней объекты (параметры и ограничения политики) за 15 минут. Если создать политику ContentKeyAuthorizationPolicy и задать для нее ограничение "по маркеру", а затем протестировать ее, то последующее обновление для использования ограничения "открытая" займет примерно 15 минут.
+
+
+##Практическое руководство. Настройка политики авторизации ключей
+
+Чтобы настроить политику авторизации ключей, выберите страницу **ЗАЩИТА СОДЕРЖИМОГО**.
+
+Службы мультимедиа поддерживают несколько способов аутентификации пользователей, которые запрашивают ключи. В политике авторизации ключей содержимого могут быть заданы ограничения авторизации — **открытое**, **по маркеру** или **по IP-адресу** (**IP-адрес** можно настроить с помощью пакета SDK для .NET или REST).
+
+###Ограничение открытого типа
+
+Ограничение **открытого** типа означает, что система будет доставлять ключ всем, кто его запросит. Это ограничение подходит для тестирования.
 
 ![OpenPolicy][open_policy]
 
-###<a name="token-restriction"></a>Token restriction
+###Ограничение по маркеру
 
-To choose the token restricted policy, press the **TOKEN** button.
+Чтобы выбрать политику ограничения по маркеру, нажмите кнопку **МАРКЕР**.
 
-The **token** restricted policy must be accompanied by a token issued by a **Secure Token Service** (STS). Media Services supports tokens in the **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) format and **JSON Web Token** (JWT) format. For information, see [JWT token authentication](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+При ограничении **по маркеру** к политике должен прилагаться маркер, выданный **службой маркеров безопасности** (STS). Службы мультимедиа поддерживают маркеры в формате **простых веб-маркеров** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) и формате **веб-маркера JSON** (JWT). Дополнительную информацию см. в статье [Проверка подлинности по маркерам JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Media Services does not provide **Secure Token Services**. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the encryption key to the client if the token is valid and the claims in the token match those configured for the content key. For more information, see [Use Azure ACS to issue tokens](http://mingfeiy.com/acs-with-key-services).
+Службы мультимедиа не предоставляют **службы маркеров безопасности**. Для выдачи маркеров можно создать пользовательскую службу STS или использовать службу Microsoft Azure ACS. Чтобы создать маркер, подписанный указанным ключом, и получить утверждения, указанные в конфигурации ограничения по маркерам, должна быть настроена служба маркеров безопасности. Служба доставки ключей служб мультимедиа возвращает клиенту ключ шифрования, если маркер является допустимым и утверждения маркера соответствуют утверждениям, настроенным для ключа содержимого. Дополнительную информацию см. в статье [Использование Azure ACS для выдачи маркеров](http://mingfeiy.com/acs-with-key-services).
 
-When configuring the **TOKEN** restricted policy, you must set values for **verification key**, **issuer** and **audience**. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
+При настройке политики ограничения **по маркеру** необходимо указать **ключ проверки**, **издателя** и **аудиторию**. Основной ключ проверки содержит ключ, которым подписан маркер, а издатель — это служба маркеров безопасности, которая выдает маркер. Аудитория (иногда называется областью) описывает назначение маркера или ресурс, доступ к которому обеспечивает маркер. Служба доставки ключей служб мультимедиа проверяет, соответствуют ли эти значения в маркере значениям в шаблоне.
 
-###<a name="playready"></a>PlayReady
+###PlayReady
 
-When protecting your content with **PlayReady**, one of the things you need to specify in your authorization policy is an XML string that defines the PlayReady license template. By default, the following policy is set:
+Когда защита содержимого выполняется с помощью **PlayReady**, в политике авторизации необходимо помимо прочего указать XML-строку, определяющую шаблон лицензии PlayReady. По умолчанию задана следующая политика:
 
-<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
-      <LicenseTemplates>
-        <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
-          <ContentKey i:type="ContentEncryptionKeyFromHeader" />
-          <LicenseType>Nonpersistent</LicenseType>
-          <PlayRight>
-            <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput>
-          </PlayRight>
-        </PlayReadyLicenseTemplate>
-      </LicenseTemplates>
-    </PlayReadyLicenseResponseTemplate>
+<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"> <LicenseTemplates> <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices> <ContentKey i:type="ContentEncryptionKeyFromHeader" /> <LicenseType>Nonpersistent</LicenseType> <PlayRight> <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput> </PlayRight> </PlayReadyLicenseTemplate> </LicenseTemplates> </PlayReadyLicenseResponseTemplate>
 
-You can click the **import policy xml** button and provide a different XML which conforms to the  XML Schema defined [here](https://msdn.microsoft.com/library/azure/dn783459.aspx).
+При этом вы можете нажать кнопку **Импорт XML-файла политики** и выбрать другой XML-файл, который соответствует схеме XML, определенной [здесь](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 
-##<a name="next-step"></a>Next step
+##Дальнейшие действия
 
-Review Media Services learning paths.
+Просмотрите схемы обучения работе со службами мультимедиа.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -105,9 +94,4 @@ Review Media Services learning paths.
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

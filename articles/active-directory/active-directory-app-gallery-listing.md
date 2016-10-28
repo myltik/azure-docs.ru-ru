@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Listing your application in the Azure Active Directory application gallery"
-   description="How to list an application that supports single sign-on in the Azure Active Directory gallery | Microsoft Azure"
+   pageTitle="Добавление приложения в коллекцию приложений Azure Active Directory"
+   description="Как добавить приложение, поддерживающее единый вход, в список галереи Azure Active Directory | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
-   authors="bryanla"
+   authors="msmbaldwin"
    manager="mbaldwin"
    editor=""/>
 
@@ -17,89 +17,84 @@
    ms.author="mbaldwin"/>
 
 
+# Добавление приложения в коллекцию приложений Azure Active Directory
 
-# <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Listing your application in the Azure Active Directory application gallery
+Чтобы указать приложение, поддерживающее единый вход с Azure Active Directory в [коллекции Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/), приложению сначала необходимо реализовать один из следующих режимов интеграции.
 
-To list an application that supports single sign-on with Azure Active Directory in the [Azure AD gallery](https://azure.microsoft.com/marketplace/active-directory/all/), the application first needs to implement one of the following integration modes:
+* **OpenID Connect.** Прямая интеграция с Azure AD с помощью OpenID Connect для проверки подлинности и API согласия Azure AD для конфигурации. Этот режим является рекомендуемым, если вы только начали интеграцию и ваше приложение не поддерживает SAML.
 
-* **OpenID Connect** - Direct integration with Azure AD using OpenID Connect for authentication and the Azure AD consent API for configuration. If you are just starting an integration and your application does not support SAML, then this is the recommend mode.
+* **SAML.** Приложение уже имеет возможность настройки сторонних поставщиков удостоверений с помощью протокола SAML.
 
-* **SAML** – Your application already has the ability to configure third-party identity providers using the SAML protocol.
+Список требований для каждого режима приведен ниже.
 
-Listing requirements for each mode are below.
+##Интеграция OpenID Connect
 
-##<a name="openid-connect-integration"></a>OpenID Connect Integration
+Чтобы интегрировать приложение с Azure AD, следуйте [инструкциям для разработчиков](active-directory-authentication-scenarios.md). Ответьте на указанные ниже вопросы и отправьте их по адресу waadpartners@microsoft.com.
 
-To integrate your application with Azure AD, following the [developer instructions](active-directory-authentication-scenarios.md). Then complete the questions below and send to waadpartners@microsoft.com.
+* Укажите учетные данные для тестового клиента или учетной записи с приложением, которое команда Azure AD может использовать для тестирования интеграции.
 
-* Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
+* Приведите инструкции для команды Azure AD по входу и подключению экземпляра Azure AD к вашему приложению с помощью [платформы согласия Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework).
 
-* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
+* Предоставьте любые дополнительные инструкции, необходимые команде Azure AD для проверки единого входа с использованием вашего приложения.
 
-* Provide any further instructions required for the Azure AD team to test single sign-on with your application. 
+* Укажите следующие сведения.
 
-* Provide the info below:
-
-> Company Name:
+> Название организации:
 > 
-> Company Website:
+> Веб-сайт компании:
 > 
-> Application Name:
+> Имя приложения:
 > 
-> Application Description (256 character limit):
+> Описание приложения (не более 256 символов):
 > 
-> Application Website (informational):
+> Веб-сайт приложения (информационный):
 > 
-> Application Technical Support Website or Contact Info:
+> Веб-сайт технической поддержки приложений или контактные сведения:
 > 
-> Client ID of the application, as shown in the application details at https://manage.windowsazure.com:
+> Идентификатор клиента приложения, как показано в сведениях о приложении в https://manage.windowsazure.com:
 > 
-> Application Sign-Up URL where customers go to sign up for and /or purchase the application:
+> URL-адрес регистрации приложения, по которому пользователи могут зарегистрироваться или приобрести приложение:
 > 
-> Choose up to three categories for your application to be listed under (for available categories see the Azure Active Directory Marketplace):
+> Выберите до трех категорий, в которых будет указано ваше приложение (сведения о доступных категориях см. в разделе Azure Active Directory Marketplace):
 > 
-> Attach Application Small Icon (PNG file, 45px by 45px, solid background color):
+> Приложите мелкий значок приложения (PNG-файл, 45 x 45 пикселей, сплошной цвет фона):
 > 
-> Attach Application Large Icon (PNG file, 215px by 215px, solid background color):
+> Приложите крупный значок приложения (PNG-файл, 215 x 215 пикселей, сплошной цвет фона):
 > 
-> Attach Application Logo (PNG file, 150px by 122px, transparent background color):
+> Приложите логотип приложения (PNG-файл, 150 x 122 пикселя, сплошной цвет фона):
 
-##<a name="saml-integration"></a>SAML Integration
+##Интеграция SAML
 
-Any app that supports SAML 2.0 can be integrated directly with an Azure AD tenant using [these instructions to add a custom application](active-directory-saas-custom-apps.md). Once you have tested that your application integration works with Azure AD, send the following information to <waadpartners@microsoft.com>.
+Любое приложение, которое поддерживает SAML 2.0, можно интегрировать непосредственно с помощью клиента Azure AD, используя [эти инструкции по добавлению настраиваемого приложения](active-directory-saas-custom-apps.md). После проверки поддержки интеграции приложения с Azure AD отправьте следующие сведения в <waadpartners@microsoft.com>.
 
-* Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
+* Укажите учетные данные для тестового клиента или учетной записи с приложением, которое команда Azure AD может использовать для тестирования интеграции.
 
-* Provide the SAML Sign-On URL, Issuer URL (entity ID), and Reply URL (assertion consumer service) values for your application, as described [here](active-directory-saas-custom-apps.md). If you typically provide these values as part of a SAML metadata file, then please send that as well.
+* Укажите URL-адрес единого входа SAML, URL-адрес издателя (идентификатор сущности) и URL-адрес ответа (служба обработчика утверждений) для вашего приложения, как описано [здесь](active-directory-saas-custom-apps.md). Если вы обычно предоставляете эти значения как часть файла метаданных SAML, отправьте и его.
 
-* Provide a brief description of how to configure Azure AD as an identity provider in your application using SAML 2.0. If your application supports configuring Azure AD as an identity provider through a self-service administrative portal, then please ensure the credentials provided above include the ability to set this up.
+* Дайте краткое описание способов настройки Azure AD в качестве поставщика удостоверений в приложении с помощью SAML 2.0. Если ваше приложение поддерживает настройку Azure AD как поставщика удостоверений с помощью портала самообслуживания, убедитесь, что указанные выше учетные данные позволяют выполнить такую настройку.
 
-* Provide the info below:
+* Укажите следующие сведения.
 
-> Company Name:
+> Название организации:
 > 
-> Company Website:
+> Веб-сайт компании:
 > 
-> Application Name:
+> Имя приложения:
 > 
-> Application Description (256 character limit):
+> Описание приложения (не более 256 символов):
 > 
-> Application Website (informational):
+> Веб-сайт приложения (информационный):
 > 
-> Application Technical Support Website or Contact Info:
+> Веб-сайт технической поддержки приложений или контактные сведения:
 > 
-> Application Sign-Up URL where customers go to sign up for and /or purchase the application:
+> URL-адрес регистрации приложения, по которому пользователи могут зарегистрироваться или приобрести приложение:
 > 
-> Choose up to three categories for your application to be listed under (for available categories see the [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))):
+> Выберите до трех категорий, в которых будет указано ваше приложение (сведения о доступных категориях см. в разделе [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/)):
 > 
-> Attach Application Small Icon (PNG file, 45px by 45px, solid background color):
+> Приложите мелкий значок приложения (PNG-файл, 45 x 45 пикселей, сплошной цвет фона):
 > 
-> Attach Application Large Icon (PNG file, 215px by 215px, solid background color):
+> Приложите крупный значок приложения (PNG-файл, 215 x 215 пикселей, сплошной цвет фона):
 > 
-> Attach Application Logo (PNG file, 150px by 122px, transparent background color):
+> Приложите логотип приложения (PNG-файл, 150 x 122 пикселя, сплошной цвет фона):
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

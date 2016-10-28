@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Scheduling a runbook in Azure Automation | Microsoft Azure"
-   description="Describes how to create a schedule in Azure Automation so that you can automatically start a runbook at a particular time or on a recurring schedule."
+   pageTitle="Планирование запуска модуля Runbook в службе автоматизации Azure | Microsoft Azure"
+   description="Рассматривается создание расписания в службе автоматизации Azure, которое позволяет запускать модуль Runbook однократно или несколько раз в определенное время."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
@@ -15,144 +15,140 @@
    ms.date="08/05/2016"
    ms.author="bwren" />
 
+# Создание расписания для Runbook в службе автоматизации Azure
 
-# <a name="scheduling-a-runbook-in-azure-automation"></a>Scheduling a runbook in Azure Automation
-
-To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run once or on a reoccurring hourly or daily schedule for runbooks in the Azure classic portal and for runbooks in the Azure portal,  you can additionally schedule them for weekly, monthly, specific days of the week or days of the month, or a particular day of the month.  A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
+Чтобы запускать модуль Runbook в определенное время с помощью расписания в службе автоматизации Azure, его необходимо привязать к одному или нескольким расписаниям. На классическом портале Azure вы можете настроить расписание для однократного, ежечасного или ежедневного выполнения модулей Runbook. На портале Azure, кроме того, можно запланировать выполнение еженедельно, ежемесячно, в конкретные дни недели или месяца, а также в определенный день месяца. Один модуль Runbook может быть связан с несколькими расписаниями, и одно расписание может иметь несколько привязанных модулей Runbook.
 
 
-## <a name="creating-a-schedule"></a>Creating a schedule
+## Создание расписания
 
-You can create a new schedule for runbooks in the Azure portal, in the classic portal, or with Windows PowerShell. You also have the option of creating a new schedule when you link a runbook to a schedule using the Azure classic or Azure portal.
+Новое расписание для модулей Runbook вы можете создать на портале Azure, на классическом портале Azure или с помощью Windows PowerShell. Также расписание можно создать при связывании Runbook с расписанием с помощью портала Azure или классического портала Azure.
 
->[AZURE.NOTE] When you associate a schedule with a runbook, Automation stores the current versions of the modules in your account and links them to that schedule.  This means that if you had a module with version 1.0 in your account when you created a schedule and then update the module to version 2.0, the schedule will continue to use 1.0.  In order to use the updated module version, you must create a new schedule. 
+>[AZURE.NOTE] При связывании расписания с модулем Runbook служба автоматизации сохраняет текущие версии модулей в вашей учетной записи и связывает их с данным расписанием. Это означает, что если при создании расписания в вашей учетной записи был модуль версии 1.0, и затем этот модуль был обновлен до версии 2.0, то расписание по-прежнему будет использовать версию 1.0. Чтобы использовать обновленную версию модуля, необходимо создать новое расписание.
 
-### <a name="to-create-a-new-schedule-in-the-azure-classic-portal"></a>To create a new schedule in the Azure classic portal
+### Создание нового расписания на классическом портале Azure
 
-1. In the Azure classic portal, select Automation and then then select the name of an automation account.
-1. Select the **Assets** tab.
-1. At the bottom of the window, click **Add Setting**.
-1. Click **Add Schedule**.
-1. Type a **Name** and optionally a **Description** for the new schedule.your schedule will run **One Time**, **Hourly**, **Daily**, **Weekly**, or **Monthly**.
-1. Specify a **Start Time** and other options depending on the type of schedule that you selected.
+1. На классическом портале Azure щелкните "Служба автоматизации", а затем выберите имя учетной записи службы автоматизации.
+1. Выберите вкладку **Средства**.
+1. Нажмите кнопку **Добавить параметр** в нижней части окна.
+1. Щелкните **Добавить расписание**.
+1. Введите **имя** и при желании **описание** нового расписания. Расписание может выполняться **однократно**, **ежечасно**, **ежедневно**, **еженедельно** или **ежемесячно**.
+1. Укажите **Время начала** и другие параметры в зависимости от типа выбранного расписания.
 
-### <a name="to-create-a-new-schedule-in-the-azure-portal"></a>To create a new schedule in the Azure portal
+### Создание нового расписания на портале Azure
 
-1. In the Azure portal, from your automation account, click the **Assets** tile to open the **Assets** blade.
-2. Click the **Schedules** tile to open the **Schedules** blade.
-3. Click **Add a schedule** at the top of the blade.
-4. On the **New schedule** blade, type a **Name** and optionally a **Description** for the new schedule.
-5. Select whether the schedule will run one time, or on a reoccurring schedule by selecting **Once** or **Recurrence**.  If you select **Once** specify a **Start time** and then click **Create**.  If you select **Recurrence**, specify a **Start time** and the frequency for how often you want the runbook to repeat - by **hour**, **day**, **week**, or by **month**.  If you select **week** or **month** from the drop-down list, the **Recurrence option** will appear in the blade and upon selection, the **Recurrence option** blade will be presented and you can select the day of week if you selected **week**.  If you selected **month**, you can choose by **week days** or specific days of the month on the calendar and finally, do you want to run it on the last day of the month or not and then click **OK**.   
+1. На портале Azure из учетной записи службы автоматизации щелкните элемент **Ресурсы**, чтобы открыть колонку **Ресурсы**.
+2. Щелкните элемент **Расписания**, чтобы открыть колонку **Расписания**.
+3. Щелкните **Добавить расписание** в верхней части этой колонки.
+4. В колонке **Новое расписание** введите **имя** и при желании **описание** нового расписания.
+5. Выберите режим выполнения расписания: **Однократно** или **Повторение**. Если вы выбрали режим **Однократно**, то укажите **время начала** и нажмите кнопку **Создать**. Если вы выбрали режим **Повторение**, то укажите **время начала** и частоту повторений для модуля Runbook: каждый **час**, **день**, **неделю** или **месяц**. Если в этом раскрывающемся списке вы выбрали **неделю** или **месяц**, то в колонке появится элемент **Recurrence option** (Параметры периодичности). Щелкнув его, вы откроете колонку **Recurrence option** (Параметры периодичности). Здесь вы сможете выбрать день недели, если ранее выбрали параметр **неделя**. Если же вы выбрали параметр **месяц**, то здесь сможете выбрать **дни недели** или конкретные дни месяца из календаря, а также указать, будет ли модуль выполняться в последний день месяца. Завершив настройку, нажмите кнопку **OK**.
 
-### <a name="to-create-a-new-schedule-with-windows-powershell"></a>To create a new schedule with Windows PowerShell
+### Создание расписания с помощью Windows PowerShell
 
-You can use the [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690271.aspx) cmdlet to create a new schedule in Azure Automation for classic runbooks, or [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx) cmdlet for runbooks in the Azure portal. You must specify the start time for the schedule and the frequency it should run.
+В службе автоматизации Azure вы можете использовать командлет [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690271.aspx), чтобы создать новое расписание для классических модулей Runbook, или командлет [New-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603577.aspx), чтобы создать расписание для модулей Runbook на портале Azure. Укажите для расписания время начала и частоту выполнения.
 
-The following sample commands show how to create a new schedule that runs each day at 3:30 PM starting on January 20, 2015 with an Azure Service Management cmdlet.
+Приведенные ниже примеры команд демонстрируют, как с помощью командлета управления службами Azure создать новое расписание, которое будет запускаться каждый день в 15:30 начиная с 20 января 2015 г.
 
-    $automationAccountName = "MyAutomationAccount"
-    $scheduleName = "Sample-DailySchedule"
-    New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name `
+	$automationAccountName = "MyAutomationAccount"
+	$scheduleName = "Sample-DailySchedule"
+	New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name `
     $scheduleName –StartTime "1/20/2016 15:30:00" –DayInterval 1
 
-The following sample commands shows how to create a schedule for the 15th and 30th of every month using an Azure Resource Manager cmdlet.
+Приведенные ниже примеры команд демонстрируют, как с помощью командлета Azure Resource Manager создать расписание для запуска в 15-й и 30-й день каждого месяца.
 
     $automationAccountName = "MyAutomationAccount"
-    $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
+	$scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
     New-AzureRMAutomationSchedule –AutomationAccountName $automationAccountName –Name `
     $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 `
     -DaysOfMonth Fifteenth,Thirtieth -ResourceGroupName "ResourceGroup01"
     
 
-## <a name="linking-a-schedule-to-a-runbook"></a>Linking a schedule to a runbook
+## Связывание расписания с модулем Runbook
 
-A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it. If a runbook has parameters, then you can provide values for them. You must provide values for any mandatory parameters and may provide values for any optional parameters.  These values will be used each time the runbook is started by this schedule.  You can attach the same runbook to another schedule and specify different parameter values.
+Один модуль Runbook может быть связан с несколькими расписаниями, и одно расписание может иметь несколько привязанных модулей Runbook. Если Runbook имеет параметры, для них можно указать значения. Необходимо предоставить значения для всех обязательных параметров, а также значения для необязательных параметров. Значения будут применяться каждый раз при запуске модуля Runbook с помощью расписания. Один и тот же модуль Runbook можно привязать к другому расписанию и указать другие значения параметров.
 
 
-### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-classic-portal"></a>To link a schedule to a runbook with the Azure classic portal
+### Связывание расписания с модулем Runbook с помощью классического портала Azure
 
-1. In the Azure classic portal, select **Automation** and then then click the name of an automation account.
-2. Select the **Runbooks** tab.
-3. Click on the name of the runbook to schedule.
-4. Click the **Schedule** tab.
-5. If the runbook is not currently linked to a schedule, then you will be given the option to **Link to a New Schedule** or **Link to an Existing Schedule**.  If the runbook is currently linked to a schedule, click **Link** at the bottom of the window to access these options.
-6. If the runbook has parameters, you will be prompted for their values.  
+1. На классическом портале Azure щелкните **Служба автоматизации**, а затем — имя учетной записи службы автоматизации.
+2. Выберите вкладку **Модули Runbook**.
+3. Щелкните имя одного модуля Runbook для привязки к расписанию.
+4. Перейдите на вкладку **Расписание**.
+5. Если модуль Runbook в настоящее время не связан с расписанием, будет предоставлена возможность выбрать **ссылку на новое расписание** или **ссылку на существующее расписание**. Если модуль в настоящее время связан с расписанием, щелкните **Ссылки** в нижней части окна для доступа к этим параметрам.
+6. Если модуль Runbook имеет параметры, их необходимо будет заполнить.
 
-### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>To link a schedule to a runbook with the Azure portal
+### Связывание расписания с модулем Runbook с помощью портала Azure
 
-1. In the Azure portal, from your automation account, click the **Runbooks** tile to open the **Runbooks** blade.
-2. Click on the name of the runbook to schedule.
-3. If the runbook is not currently linked to a schedule, then you will be given the option to create a new schedule or link to an existing schedule.  
-4. If the runbook has parameters, you can select the option **Modify run settings (Default:Azure)** and the **Parameters** blade is presented where you can enter the information accordingly.  
+1. На портале Azure из учетной записи службы автоматизации щелкните элемент **Модули Runbook**, чтобы открыть колонку **Модули Runbook**.
+2. Щелкните имя одного модуля Runbook для привязки к расписанию.
+3. Если модуль Runbook сейчас не связан с расписанием, вы сможете создать новое расписание или связать модуль с существующим расписанием.
+4. Если модуль Runbook имеет параметры, следует выбрать действие **Изменить параметры запуска (по умолчанию: Azure)**, чтобы открыть колонку **Параметры**, где вы сможете ввести нужные данные.
 
-### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>To link a schedule to a runbook with Windows PowerShell
+### Связывание расписания с модулем Runbook с помощью Windows PowerShell
 
-You can use the [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) to link a schedule to a classic runbook or [Register-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603575.aspx) cmdlet for runbooks in the Azure portal.  You can specify values for the runbook’s parameters with the Parameters parameter. See [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) for more information on specifying parameter values.
+Вы можете использовать командлет [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx), чтобы связать расписание с классическим модулем Runbook, или командлет [Register-AzureRmAutomationScheduledRunbook](https://msdn.microsoft.com/library/mt603575.aspx) для модулей Runbook на портале Azure. С помощью параметра "Параметры" можно указать значения параметров для модуля Runbook. Дополнительные сведения об указании значений параметров см. в разделе [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).
 
-The following sample commands show how to link a schedule using an Azure Service Management cmdlet with parameters.
+Приведенные ниже примеры команд демонстрируют, как связать расписание, используя командлет управления службами Azure с параметрами.
 
-    $automationAccountName = "MyAutomationAccount"
-    $runbookName = "Test-Runbook"
-    $scheduleName = "Sample-DailySchedule"
-    $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-    Register-AzureAutomationScheduledRunbook –AutomationAccountName $automationAccountName `
+	$automationAccountName = "MyAutomationAccount"
+	$runbookName = "Test-Runbook"
+	$scheduleName = "Sample-DailySchedule"
+	$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
+	Register-AzureAutomationScheduledRunbook –AutomationAccountName $automationAccountName `
     –Name $runbookName –ScheduleName $scheduleName –Parameters $params
 
-The following sample commands show how to link a schedule to a runbook using an Azure Resource Manager cmdlet with parameters.
+Приведенные ниже примеры команд демонстрируют, как связать расписание с модулем Runbook, используя командлет управления службами Azure с параметрами.
 
     $automationAccountName = "MyAutomationAccount"
-    $runbookName = "Test-Runbook"
-    $scheduleName = "Sample-DailySchedule"
-    $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-    Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationAccountName `
+	$runbookName = "Test-Runbook"
+	$scheduleName = "Sample-DailySchedule"
+	$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
+	Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationAccountName `
     –Name $runbookName –ScheduleName $scheduleName –Parameters $params `
     -ResourceGroupName "ResourceGroup01"
 
-## <a name="disabling-a-schedule"></a>Disabling a schedule
+## Отключение расписания
 
-When you disable a schedule, any runbooks linked to it will no longer run on that schedule. You can manually disable a schedule or set an expiration time for schedules with a frequency when you create them. When the expiration time is reached, the schedule will be disabled.
+Если расписание отключено, модули Runbook, связанные с ним, больше не будут запускаться по такому расписанию. Можно отключить расписание вручную или указать срок действия при создании периодических расписаний. При достижении срока действия расписания будут отключены.
 
-### <a name="to-disable-a-schedule-from-the-azure-classic-portal"></a>To disable a schedule from the Azure classic portal
+### Отключение расписание на классическом портале Azure
 
-You can disable a schedule in the Azure classic portal from the Schedule Details page for the schedule.
+Отключить расписание на классическом портале Azure можно на странице "Сведения о расписании" для соответствующего расписания.
 
-1. In the Azure classic portal, select Automation and then then click the name of an automation account.
-1. Select the Assets tab.
-1. Click the name of a schedule to open its detail page.
-2. Change **Enabled** to **No**.
+1. На классическом портале Azure щелкните "Служба автоматизации", а затем — имя учетной записи службы автоматизации.
+1. Перейдите на вкладку "Средства".
+1. Щелкните имя расписания и откройте страницу со сведениями о нем.
+2. Задайте значение **Нет** для параметра **Включено**.
 
-### <a name="to-disable-a-schedule-from-the-azure-portal"></a>To disable a schedule from the Azure portal
+### Отключение расписания на портале Azure
 
-1. In the Azure portal, from your automation account, click the **Assets** tile to open the **Assets** blade.
-2. Click the **Schedules** tile to open the **Schedules** blade.
-2. Click the name of a schedule to open the details blade.
-3. Change **Enabled** to **No**.
+1. На портале Azure из учетной записи службы автоматизации щелкните элемент **Ресурсы**, чтобы открыть колонку **Ресурсы**.
+2. Щелкните элемент **Расписания**, чтобы открыть колонку **Расписания**.
+2. Щелкните имя расписания и откройте колонку со сведениями о нем.
+3. Задайте значение **Нет** для параметра **Включено**.
 
-### <a name="to-disable-a-schedule-with-windows-powershell"></a>To disable a schedule with Windows PowerShell
+### Отключение расписания с помощью Windows PowerShell
 
-You can use the [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) cmdlet to change the properties of an existing schedule for a classic runbook or [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx) cmdlet for runbooks in the Azure portal. To disable the schedule, specify **false** for the **IsEnabled** parameter.
+В службе автоматизации Azure вы можете использовать командлет [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx), чтобы изменить свойства существующего расписания для классического модуля Runbook, или командлет [Set-AzureRmAutomationSchedule](https://msdn.microsoft.com/library/mt603566.aspx), чтобы изменить расписание для модулей Runbook на портале Azure. Чтобы отключить расписание, задайте значение **False** для параметра **IsEnabled**.
 
-The following sample commands show how to disable a schedule using the Azure Service Management cmdlet.
+Приведенные ниже примеры команд демонстрируют, как отключить расписание, используя командлет управления службами Azure.
 
-    $automationAccountName = "MyAutomationAccount"
-    $scheduleName = "Sample-DailySchedule"
-    Set-AzureAutomationSchedule –AutomationAccountName $automationAccountName `
+	$automationAccountName = "MyAutomationAccount"
+	$scheduleName = "Sample-DailySchedule"
+	Set-AzureAutomationSchedule –AutomationAccountName $automationAccountName `
     –Name $scheduleName –IsEnabled $false
 
-The following sample commands show how to disable a schedule for a runbook using an Azure Resource Manager cmdlet.
+Приведенные ниже примеры команд демонстрируют, как отключить расписание для Runbook, используя командлет Azure Resource Manager.
 
-    $automationAccountName = "MyAutomationAccount"
-    $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
-    Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
+	$automationAccountName = "MyAutomationAccount"
+	$scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
+	Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
     –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- To learn more about working with schedules, see [Schedule Assets in Azure Automation](http://msdn.microsoft.com/library/azure/dn940016.aspx)
-- To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) 
+- Дополнительные сведения о работе с расписаниями см. в статье [Расписания в службе автоматизации Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx).
+- Сведения о том, как начать работу с модулями Runbook в службе автоматизации Azure, см. в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

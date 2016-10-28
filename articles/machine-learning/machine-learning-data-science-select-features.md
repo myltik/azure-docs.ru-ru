@@ -1,75 +1,74 @@
 <properties
-    pageTitle="Feature selection in the Team Data Science Process | Microsoft Azure" 
-    description="Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning."
-    services="machine-learning"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Выбор характеристик в процессе обработки и анализа данных группы | Microsoft Azure" 
+	description="Описывает цели реконструирования характеристик и содержит примеры, поясняющие его роль в совершенствовании данных в процессе машинного обучения."
+	services="machine-learning"
+	documentationCenter=""
+	authors="bradsev"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/19/2016"
-    ms.author="zhangya;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/19/2016"
+	ms.author="zhangya;bradsev" />
 
 
+# Выбор характеристик в процессе обработки и анализа данных группы (TDSP)
 
-# <a name="feature-selection-in-the-team-data-science-process-(tdsp)"></a>Feature selection in the Team Data Science Process (TDSP)
-
-This article explains the purposes of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio. 
+В этой статье описаны цели выбора характеристик и приводятся примеры, поясняющие его роль в совершенствовании данных в процессе машинного обучения. Эти примеры взяты из Студии машинного обучения Azure.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
-This topic explains the purpose of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio. 
+В этом разделе описаны цели выбора характеристик и приводятся примеры, поясняющие его роль в совершенствовании данных в процессе машинного обучения. Эти примеры взяты из Студии машинного обучения Azure.
 
-The engineering and selection of features is one part of the TDSP outlined in the [What is the Team Data Science Process?](data-science-process-overview.md). Feature engineering and selection are parts of the **Develop features** step of the TDSP.
+Реконструирование и выбор характеристик являются частью процесса TDSP, описанного в статье [Что такое процесс обработки и анализа данных группы (TDSP)?](data-science-process-overview.md) Проектирование и выбор характеристик входят в этап **разработки характеристик** процесса TDSP.
 
-* **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase predictive power to the learning algorithm.
+* **Реконструирование признаков**: этот процесс направлен на создание дополнительных признаков на основе соответствующих существующих необработанных признаков и повышение эффективности прогнозирования алгоритма обучения.
 
-* **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
+* **Выбор признаков**: в этом процессе выбирается ключевое подмножество исходных признаков с целью сокращения размерности задачи обучения.
 
-Normally **feature engineering** is applied first to generate additional features, and then the **feature selection** step is performed to eliminate irrelevant, redundant, or highly correlated features.
-
-
-## <a name="filtering-features-from-your-data---feature-selection"></a>Filtering Features from Your Data - Feature Selection 
-
-Feature selection is a process that is commonly applied for the construction of training datasets for predictive modeling tasks such as classification or regression tasks. The goal is to select a subset of the features from the original dataset that reduce its dimensions by using a minimal set of features to represent the maximum amount of variance in the data. This subset of features are, then, the only features to be included to train the model. Feature selection serves two main purposes.
-
-* First, feature selection often increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features.
-* Second, it decreases the number of features which makes model training process more efficient. This is particularly important for learners that are expensive to train such as support vector machines.
-
-Although feature selection does seek to reduce the number of features in the dataset used to train the model, it is not usually referred to by the term "dimensionality reduction". Feature selection methods extract a subset of original features in the data without changing them.  Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them. Examples of dimensionality reduction methods include Principal Component Analysis, canonical correlation analysis, and Singular Value Decomposition.
-
-Among others, one widely applied category of feature selection methods in a supervised context is called "filter based feature selection". By evaluating the correlation between each feature and the target attribute, these methods apply a statistical measure to assign a score to each feature. The features are then ranked by the score, which may be used to help set the threshold for keeping or eliminating a specific feature. Examples of the statistical measures used in these methods include Person correlation, mutual information, and the Chi squared test.
-
-In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include [Filter-Based Feature Selection][filter-based-feature-selection] and [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
-
-![Feature selection example](./media/machine-learning-data-science-select-features/feature-Selection.png)
+Как правило, сначала применяется **реконструирование характеристик** для создания дополнительных характеристик, а затем выполняется этап **выбора характеристик**, чтобы исключить несоответствующие, избыточные или сильно коррелирующие характеристики.
 
 
-Consider, for example, the use of the [Filter-Based Feature Selection][filter-based-feature-selection] module. For the purpose of convenience, we continue to use the text mining example outlined above. Assume that we want to build a regression model after a set of 256 features are created through the [Feature Hashing][feature-hashing] module, and that the response variable is the "Col1" and represents a book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module [Filter-Based Feature Selection][filter-based-feature-selection] will produce a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters we just described.
+## Фильтрация признаков в данных. Выбор признаков 
 
-![Feature selection example](./media/machine-learning-data-science-select-features/feature-Selection1.png)
+Выбор признаков — это процесс, который часто применяется для создания обучающих наборов данных для задач прогнозирующего моделирования, например задач классификации или регрессии. Целью этого является выбор подмножества признаков из исходного набора данных, уменьшение его размеров с помощью минимального набора признаков для представления максимального отклонения в данных. Это подмножество признаков является именно тем подмножеством, которое должно быть включено в обучение модели. Выбор признаков служит двум основным целям.
 
-The following figure shows the resulting datasets. Each feature is scored based on the Pearson Correlation between itself and the target attribute "Col1". The features with top scores are kept.
+* Во-первых, выбор признаков часто повышает точность классификации, исключая несоответствующие, избыточные или сильно коррелирующие признаки.
+* Во-вторых, он сокращает число признаков, что повышает эффективность процесса обучения модели. Это особенно важно для ученик, затратных в плане обучения, таких как вспомогательные векторные машины.
 
-![Feature selection example](./media/machine-learning-data-science-select-features/feature-Selection2.png)
+Несмотря на то, что выбор признаков нацелен на сокращение числа признаков в наборе данных, используемых для обучения модели, он зачастую не связан с термином «сокращение размерности». Методы выбора признаков извлекают поднабор из исходных признаков в данных без каких-либо изменений. Методы сокращения размерности используют реконструированные признаки, которые могут преобразовывать исходные признаки и соответственно изменять их. Примеры методов сокращения размерности: анализ главных компонентов, анализ канонических корреляций и сингулярная декомпозиция.
 
-The corresponding scores of the selected features are shown in the following figure.
+В частности одна из распространенных категорий методов выбора признаков в контролируемом контексте называется «Выбор признаков на основе фильтра». Эти методы применяют статистическую меру для назначения рейтинга каждому признаку путем вычисления корреляции между каждым признаком и целевым атрибутом. Затем признаки ранжируются по рейтингу, который может использоваться, чтобы задать пороговое значение для сохранения или исключения конкретных признаков. Примеры статистических показателей, используемых в этих методах: корреляция Пирсона, взаимная информация и критерий хи-квадрат.
 
-![Feature selection example](./media/machine-learning-data-science-select-features/feature-Selection3.png)
+В Студии машинного обучения Azure предусмотрены модули для выбора признаков. Как показано на следующем рисунке, это модули [Выбор признаков на основе фильтра][filter-based-feature-selection] и [Линейный дискриминант Фишера][fisher-linear-discriminant-analysis].
 
-By applying this [Filter-Based Feature Selection][filter-based-feature-selection] module, 50 out of 256 features are selected because they have the most correlated features with the target variable "Col1", based on the scoring method "Pearson Correlation".
+![Пример выбора признаков](./media/machine-learning-data-science-select-features/feature-Selection.png)
 
-## <a name="conclusion"></a>Conclusion
-Feature engineering and feature selection are two commonly Engineered and selected features increase the efficiency of the training process which attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully.
 
-Note that it is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data we have or collect, the algorithm we pick, and the objective of the experiment.
+Рассмотрим, например, использование модуля [Выбор признаков на основе фильтра][filter-based-feature-selection]. Для удобства мы будем продолжать использовать описанный выше пример интеллектуального анализа текста. Допустим, что мы хотим построить регрессионную модель после создания набор из 256 признаков с помощью модуля [Хэширование признаков][feature-hashing] и что выходная переменная находится в столбце Col1 и представляет собой рейтинги рецензий на книги в диапазоне от 1 до 5. Установив для параметра «Метод количественной оценки» значение «Корреляция Пирсона», параметра «Целевой столбец» — «Col1» и для параметра «Число необходимых признаков» — значение 50. Затем модуль [Выбор признаков на основе фильтра][filter-based-feature-selection] создаст набор данных, содержащий 50 признаков с целевым атрибутом «Col1». На следующем рисунке показан только что описанный процесс этого эксперимента и входные параметры.
+
+![Пример выбора признаков](./media/machine-learning-data-science-select-features/feature-Selection1.png)
+
+На следующем рисунке показаны результирующие наборы данных. Каждый признак оценивается на основе корреляции Пирсона между ним и целевым атрибутом «Col1». Сохраняются признаки с наибольшей оценкой.
+
+![Пример выбора признаков](./media/machine-learning-data-science-select-features/feature-Selection2.png)
+
+На следующем рисунке показаны соответствующие оценки для выбранных признаков.
+
+![Пример выбора признаков](./media/machine-learning-data-science-select-features/feature-Selection3.png)
+
+Применяя этот модуль [Выбор признаков на основе фильтра][filter-based-feature-selection], будут выбраны 50 из 256 признаков, поскольку эти признаки максимально коррелируют с целевой переменной «Col1» на основе метода оценки «Корреляция Пирсона».
+
+## Заключение
+Реконструирование характеристик и выбор характеристик — два часто выполняемых действия. Реконструированные и выбранные характеристики повышают эффективность процесса обучения, который пытается извлечь ключевые сведения, содержащиеся в данных. Они также дают возможность повысить возможности этих моделей, чтобы точнее классифицировать входные данные и более надежно предсказывать нужные результаты. Реконструирование и выбор признаков можно также объединять, чтобы сделать процесс обучения более алгоритмизируемым. Этого можно достичь путем расширения и сокращения числа признаков, необходимых для калибровки или обучения модели. С точки зрения математики выбранные для обучения модели признаки являются минимальным набором независимых переменных, которые определяют структуры в данных и затем успешно прогнозируют результаты.
+
+Обратите внимание, что он не всегда обязателен для выполнения реконструирования или выбора признаков. Его необходимость зависит от собираемых данных, используемого алгоритма и цели эксперимента.
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
@@ -77,8 +76,4 @@ Note that it is not always necessarily to perform feature engineering or feature
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

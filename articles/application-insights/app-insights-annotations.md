@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Release annotations for Application Insights | Microsoft Azure"
-    description="Add deployment or build markers to your metrics explorer charts in Application Insights."
+    pageTitle="Заметки о выпуске для Application Insights | Microsoft Azure"
+    description="Добавление маркеров развертывания или сборки для диаграмм обозревателя метрик в Application Insights."
     services="application-insights"
     documentationCenter=".net"
     authors="alancameronwills"
@@ -12,71 +12,70 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/28/2016"
+	ms.date="06/28/2016"
     ms.author="awills"/>
 
+# Заметки к выпуску в Application Insights
 
-# <a name="release-annotations-in-application-insights"></a>Release annotations in Application Insights
+Заметки к выпуску на диаграммах [обозревателя метрик](app-insights-metrics-explorer.md) показывают, где развернута новая сборка. С их помощью легко увидеть, повлияли ли ваши изменения на производительность приложения. Они могут быть созданы автоматически [системой сборки Visual Studio Team Services](https://www.visualstudio.com/ru-RU/get-started/build/build-your-app-vs). Кроме того, [их можно создать в PowerShell](#create-annotations-from-powershell).
 
-Release annotations on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs), and you can also [create them from PowerShell](#create-annotations-from-powershell).
+![Пример заметок с видимой корреляцией с временем ответа сервера](./media/app-insights-annotations/00.png)
 
-![Example of annotations with visible correlation with server response time](./media/app-insights-annotations/00.png)
+Заметки к выпуску являются функцией службы облачной сборки и выпуска Visual Studio Team Services.
 
-Release annotations are a feature of the cloud-based build and release service of Visual Studio Team Services. 
+## Установка расширения заметок (однократно)
 
-## <a name="install-the-annotations-extension-(one-time)"></a>Install the Annotations extension (one time)
+Чтобы получить возможность создания заметок к выпуску, необходимо установить одно из расширений Team Service, доступных в магазине Visual Studio.
 
-To be able to create release annotations, you'll need to install one of the many Team Service extensions available in the Visual Studio Marketplace.
+1. Войдите в свой проект в [Visual Studio Team Services](https://www.visualstudio.com/ru-RU/get-started/setup/sign-up-for-visual-studio-online).
+2. В магазине Visual Studio [найдите расширение заметок к выпуску](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) и добавьте его к своей учетной записи Team Services.
 
-1. Sign in to your [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) project.
-2. In Visual Studio Marketplace, [get the Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), and add it to your Team Services account.
+![В верхнем правом углу веб-страницы Team Services откройте "Магазин". Выберите Visual Team Services и нажмите кнопку "Дополнительно" в разделе "Сборка и выпуск".](./media/app-insights-annotations/10.png)
 
-![At top right of Team Services web page, open Marketplace. Select Visual Team Services and then under Build and Release, choose See More.](./media/app-insights-annotations/10.png)
+Это необходимо сделать только один раз для учетной записи Visual Studio Team Services. Теперь можно настроить заметки к выпуску для любого проекта в вашей учетной записи.
 
-You only need to do this once for your Visual Studio Team Services account. Release annotations can now be configured for any project in your account. 
+## Получение ключа API из Application Insights
 
-## <a name="get-an-api-key-from-application-insights"></a>Get an API key from Application Insights
-
-You need to do this for each release template that you want to create release annotations.
-
-
-1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](app-insights-overview.md), if you haven't done so yet.)
-2. Open **API Access**, and take a copy of **Application Insights Id**.
-
-    ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the Application ID](./media/app-insights-annotations/20.png)
-
-2. In a separate browser window, open (or create) the release template that manages your deployments from Visual Studio Team Services. 
-
-    Add a task, and select the Application Insights Release Annotation task from the menu.
-
-    Paste the **Application Id** that you copied from the API Access blade.
-
-    ![In Visual Studio Team Services, open Release, select a release definition, and choose Edit. Click Add Task and select Application Insights Release Annotation. Paste the Application Insights Id.](./media/app-insights-annotations/30.png)
-
-3. Set the **APIKey** field to a variable `$(ApiKey)`.
-
-4. Back in the API Access blade, create a new API Key and take a copy of it.
-
-    ![In the API Access blade in the Azure window, click Create API Key. Provide a comment, check Write annotations, and click Generate Key. Copy the new key.](./media/app-insights-annotations/40.png)
-
-4. Open the Configuration tab of the release template.
-
-    Create a variable definition for `ApiKey`.
-
-    Paste your API key to the ApiKey variable definition.
-
-    ![In the Team Services window, select the Configuration tab and click Add Variable. Set the name to ApiKey and into the Value, paste the key you just generated.](./media/app-insights-annotations/50.png)
+Необходимо сделать это для каждого шаблона выпуска, в котором должны создаваться заметки к выпуску.
 
 
-5. Finally, **Save** the release definition.
+1. Выполните вход на [портал Microsoft Azure](https://portal.azure.com) и откройте ресурс Application Insights, который используется для мониторинга вашего приложения. (Или [создайте новый](app-insights-overview.md), если вы этого еще не сделали.)
+2. Откройте **Доступ к API** и скопируйте **идентификатор Application Insights**.
 
-## <a name="create-annotations-from-powershell"></a>Create annotations from PowerShell
+    ![На сайте portal.azure.com откройте ресурс Application Insights и выберите "Параметры". Откройте "Доступ к API". Скопируйте идентификатор приложения.](./media/app-insights-annotations/20.png)
 
-You can also create annotations from any process you like (without using VS Team System). 
+2. В отдельном окне браузера откройте (или создайте) шаблон выпуска, который управляет развертываниями из Visual Studio Team Services.
 
-Get the [Powershell script from GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+    Добавьте задачу и выберите в меню задачу заметок к выпуску Application Insights.
 
-Use it like this:
+    Вставьте **идентификатор приложения**, скопированный из колонки "Доступ к API".
+
+    ![В Visual Studio Team Services откройте "Выпуск", выберите определение выпуска и нажмите кнопку "Изменить". Щелкните "Добавьте задачу" и выберите "Заметки к выпуску Application Insights". Вставьте ИД Application Insights.](./media/app-insights-annotations/30.png)
+
+3. Задайте в качестве значения поля **APIKey** переменную `$(ApiKey)`.
+
+4. В колонке "Доступ к API" создайте новый ключ API и сделайте его копию.
+
+    ![В колонке "Доступ к API" в окне Azure щелкните "Создать ключ API". Введите комментарий, щелкните "Написать заметки" и нажмите кнопку "Создать ключ". Скопируйте новый ключ.](./media/app-insights-annotations/40.png)
+
+4. Перейдите на вкладку "Конфигурация" шаблона выпуска.
+
+    Создайте определение переменной для `ApiKey`.
+
+    Вставьте ключ API в определение переменной ApiKey.
+
+    ![В окне Team Services перейдите на вкладку "Конфигурация" и щелкните "Добавить переменную". Задайте "ApiKey" в качестве имени и в поле "Значение" вставьте ключ, который был только что создан.](./media/app-insights-annotations/50.png)
+
+
+5. Наконец, **сохраните** определение выпуска.
+
+## Создание аннотаций в PowerShell
+
+Вы можете создать аннотации из любого процесса на свой выбор (без использования Visual Studio Team System).
+
+Получите [сценарий PowerShell из GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+
+Используйте его следующим образом.
 
     .\CreateReleaseAnnotation.ps1 `
       -applicationId "<applicationId>" `
@@ -86,19 +85,15 @@ Use it like this:
           "ReleaseDescription"="a description";
           "TriggerBy"="My Name" }
 
-Get the `applicationId` and an `apiKey` from your Application Insights resource: Open Settings, API Access, and copy the Application ID. Then click Create API Key and copy the key. 
+Получите `applicationId` и `apiKey` из ресурса Application Insights: щелкните "Параметры" > "Доступ к API" и скопируйте идентификатор приложения. Затем щелкните "Создать ключ API" и скопируйте ключ.
 
-## <a name="release-annotations"></a>Release annotations
+## Примечания к выпуску
 
-Now, whenever you use the release template to deploy a new release, an annotation will be sent to Application Insights. The annotations will appear on charts in Metrics Explorer.
+Теперь при каждом развертывании нового выпуска с помощью шаблона выпуска заметки будут отправляться в Application Insights. Заметки будут отображаться на диаграммах в обозревателе метрик.
 
-Click on any annotation marker to open details about the release, including requestor, source control branch, release definition, environment, and more.
-
-
-![Click any release annotation marker.](./media/app-insights-annotations/60.png)
+Щелкните любой маркер заметки, чтобы открыть подробные сведения о выпуске, включая запросившую сторону, ветвь системы управления версиями, определение выпуска, среду и многое другое.
 
 
+![Щелкните любой маркер заметки о выпуске.](./media/app-insights-annotations/60.png)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,33 +1,31 @@
 <!--author=alkohli last changed:01/14/2016-->
 
 
-#### <a name="to-create-a-new-service"></a>To create a new service
+#### Создание новой службы
 
-1. Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
+1. Используя учетную запись Майкрософт, войдите на классический портал Azure по ссылке [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
-2. In the Azure classic portal , click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
+2. На классическом портале Azure выберите **Создать** > **Службы данных** > **Диспетчер StorSimple** > **Быстрое создание**.
 
-3. In the form that is displayed, do the following:
-  1. Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
-  2. Supply a **Location** for your service. In general, choose a Location closest to the geographical region where you want to deploy your device. You may also want to factor in the following: 
-     
-        - If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, you should use that datacenter.
-        - Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Azure classic portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After you create this account, add it to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
-         
-  3. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
-  4. Select **Create a new storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf." If you need your data in a different location, uncheck this box. 
-  5. Click **Create StorSimple Manager** to create the service.
+3. В открывшейся форме выполните следующие действия.
+  1. В поле **Имя** укажите уникальное имя для службы. Здесь необходимо указать понятное имя, пригодное для идентификации службы. Имя может содержать от 2 до 50 символов, среди которых могут быть буквы, цифры и дефисы. Имя должно начинаться и заканчиваться буквой или цифрой.
+  2. Укажите **Расположение** службы. В общем, выберите расположение, ближайшее к географическому региону, в котором вы хотите развернуть устройство. Кроме того, необходимо учитывать следующее: 
+	 
+		- Если у вас есть рабочие нагрузки в Azure, которые также будут развернуты на устройстве StorSimple, используйте этот центр обработки данных.
+		- Служба StorSimple Manager и хранилище Azure могут находиться в разных местах. В этом случае необходимо создать службу StorSimple Manager и учетную запись хранения Azure отдельно. Чтобы создать учетную запись хранения Azure, перейдите в службу хранилища Azure на портале управления и следуйте инструкциям в разделе [Создание учетной записи хранилища Azure](storage-create-storage-account.md#create-a-storage-account). После создания учетной записи добавьте ее в службу StorSimple Manager, следуя инструкциям в разделе [Настройка новой учетной записи хранения для службы](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
+		 
+  3. В раскрывающемся списке **Подписка** выберите подписку. Подписка привязана к учетной записи для выставления счетов. Это поле отсутствует, если у вас имеется только одна подписка.
+  4. Выберите **Создать новую учетную запись хранения**, чтобы автоматически создать учетную запись хранения одновременно со службой. Эта учетная запись хранения будет иметь специальное имя, например storsimplebwv8c6dcnf. Если требуется хранить данные в другом расположении, снимите этот флажок. 
+  5. Щелкните **Создать диспетчер StorSimple**, чтобы создать службу.
 
-   ![Create StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![Создать диспетчера StorSimple](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
-  You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+  Будет выполнено перенаправление на стартовую страницу **Служба**. Создание службы займет несколько минут. После успешного создания службы будет выведено уведомление и состояние службы сменится на **Активна**.
  
-   ![Service creation](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+   ![Создание службы](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-![Video available](./media/storsimple-create-new-service/Video_icon.png) **Video available**
+![Доступный видеоролик](./media/storsimple-create-new-service/Video_icon.png) **Доступный видеоролик**
 
-To watch a video that demonstrates how to create a new StorSimple Manager service, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+Чтобы просмотреть видеоролик о том, как создать новую службу диспетчера StorSimple, щелкните [здесь](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0128_2016-->

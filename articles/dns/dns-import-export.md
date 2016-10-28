@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Import and export a domain zone file to Azure DNS using CLI| Microsoft Azure"
-   description="Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI"
+   pageTitle="Импорт и экспорт файла зоны домена с помощью CLI | Microsoft Azure"
+   description="Узнайте, как импортировать файл зоны DNS в Azure DNS и экспортировать его оттуда с помощью интерфейса командной строки Azure."
    services="dns"
    documentationCenter="na"
-   authors="sdwheeler"
+   authors="cherylmc"
    manager="carmonm"
    editor=""/>
 
@@ -14,190 +14,183 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="sewhee"/>
+   ms.author="cherylmc"/>
 
+# Импорт и экспорт файла зоны DNS с помощью Azure CLI
 
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Import and export a DNS zone file using the Azure CLI
 
+В этой статье подробно описывается импорт и экспорт файлов зоны DNS для Azure DNS с помощью Azure CLI.
 
-This article will walk you through how to import and export DNS zone files for Azure DNS using the Azure CLI.
+## Общие сведения о миграции зоны DNS
 
-## <a name="introduction-to-dns-zone-migration"></a>Introduction to DNS zone migration
+Файл зоны DNS — текстовый файл, содержащий сведения о каждой записи службы доменных имен (DNS) в зоне. Он соответствует стандартному формату и позволяет передавать записи DNS в системы DNS. Использование файла зоны — это быстрый, надежный и удобный способ передачи зоны DNS в Azure DNS или в обратном направлении.
 
-A DNS zone file is a text file that contains details of every Domain Name System (DNS) record in the zone. It follows a standard format, making it suitable for transferring DNS records between DNS systems. Using a zone file is a quick, reliable, and convenient way to transfer a DNS zone into or out of Azure DNS.
+Azure DNS поддерживает импорт и экспорт файлов зоны с помощью интерфейса командной строки Azure (CLI). Интерфейс командной строки Azure — это кроссплатформенная программа командной строки для управления службами Azure. Для платформ Windows, Mac и Linux ее можно скачать на [странице скачивания Azure](https://azure.microsoft.com/downloads/). Поддержка разных платформ особенно важна при экспорте и импорте файлов зоны, так как наиболее распространенное программное обеспечение сервера доменных имен ([BIND](https://www.isc.org/downloads/bind/)) обычно выполняется в системе Linux.
 
-Azure DNS supports importing and exporting zone files by using the Azure command-line interface (CLI). The Azure CLI is a cross-platform command-line tool used for managing Azure services. It is available for the Windows, Mac, and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/). Cross-platform support is particularly important for importing and exporting zone files, because the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
+## Получение существующего файла зоны DNS
 
-## <a name="obtain-your-existing-dns-zone-file"></a>Obtain your existing DNS zone file
+Прежде чем импортировать файл зоны DNS в Azure DNS, необходимо получить копию файла зоны. Источник этого файла будет зависеть от текущего размещения зоны DNS.
 
-Before you import a DNS zone file into Azure DNS, you will need to obtain a copy of the zone file. The source of this file will depend on where the DNS zone is currently hosted.
+- Если для размещения зоны DNS используется партнерская служба (например, регистратор доменных имен, поставщик услуг размещения DNS или альтернативный поставщик облачных служб), такая служба должна поддерживать скачивание файла зоны DNS.
 
-- If your DNS zone is hosted by a partner service (such as a domain registrar, dedicated DNS hosting provider, or alternative cloud provider), that service should provide the ability to download the DNS zone file.
+- Если зона DNS размещена на DNS-сервере Windows, по умолчанию файлы зоны можно найти в папке **%systemroot%\\system32\\dns**. Полный путь к каждому файлу зоны также отображается на вкладке **Общие** консоли управления службы DNS.
 
-- If your DNS zone is hosted on Windows DNS, the default folder for the zone files is **%systemroot%\system32\dns**. The full path to each zone file also shows on the **General** tab of the DNS service management console.
+- Если для размещения зоны DNS используется BIND, расположение файла зоны для каждой зоны задается в файле конфигурации BIND **named.conf**.
 
-- If your DNS zone is hosted by using BIND, the location of the zone file for each zone is specified in the BIND configuration file **named.conf**.
+**Работа с файлами с GoDaddy**<BR> Файлы зоны, скачанные с GoDaddy, имеют немного нестандартный формат. Это нужно исправить, прежде чем импортировать эти файлы зоны в Azure DNS. DNS-имена в RData каждой записи DNS указываются как полные имена без точки в конце. Это означает, что другие системы DNS интерпретируют их как относительные имена. Необходимо изменить файл зоны, добавив точку в конце каждого имени, прежде чем импортировать их в Azure DNS.
 
-**Working with zone files from GoDaddy**<BR>
-Zone files downloaded from GoDaddy have a slightly nonstandard format. You need to correct this before you import these zone files into Azure DNS. DNS names in the RData of each DNS record are specified as fully qualified names, but they don't have a terminating "." This means they are interpreted by other DNS systems as relative names. You need to edit the zone file to append the terminating "." to their names before you import them into Azure DNS.
+## Импорт файла зоны DNS в Azure DNS
 
-## <a name="import-a-dns-zone-file-into-azure-dns"></a>Import a DNS zone file into Azure DNS
 
+Импорт файла зоны создает зону в Azure DNS, если таковая не существует. Если зона существует, наборы записей в файле зоны нужно объединить с существующими наборами.
 
-Importing a zone file will create a new zone in Azure DNS if one does not already exist. If the zone already exists, the record sets in the zone file must be merged with the existing record sets.
+### Поведение объединения
 
-### <a name="merge-behavior"></a>Merge behavior
+- По умолчанию объединяются существующие и новые наборы записей. Одинаковые записи в рамках объединенного набора записей дедуплицируются.
 
-- By default, existing and new record sets are merged. Identical records within a merged record set are de-duplicated.
+- Если указать параметр `--force`, процесс импорта будет заменять существующие наборы записей новыми. Существующие наборы записей, у которых нет соответствующих наборов записей в импортированном файле зоны, удаляться не будут.
 
-- Alternatively, by specifying the `--force` option, the import process will replace existing record sets with new record sets. Existing record sets that do not have a corresponding record set in the imported zone file will not be removed.
+- При объединении наборов записей используется значение срока жизни (TTL) существующих наборов записей. При использовании параметра `--force` задается значение срока жизни нового набора записей.
 
-- When record sets are merged, the time to live (TTL) of preexisting record sets is used. When `--force` is used, the TTL of the new record set is used.
+- Параметры начальной записи зоны (SOA) (кроме `host`) всегда берутся из импортированного файла зоны (независимо от использования параметра `--force`). Аналогичным образом для набора записей сервера доменных имен на вершине зоны значение срока жизни всегда извлекается из импортированного файла зоны.
 
-- Start of Authority (SOA) parameters (except `host`) are always taken from the imported zone file, regardless of whether `--force` is used. Similarly, for the name server record set at the zone apex, the TTL is always taken from the imported zone file.
+- Импортированная запись CNAME не заменяет существующую запись CNAME с тем же именем, если только не указан параметр `--force`.
 
-- An imported CNAME record will not replace an existing CNAME record with the same name unless the `--force` parameter is specified.
+- Если возникает конфликт между записью CNAME и другой записью с таким же именем, но другим типом (независимо от того, новая она или существующая), сохраняется существующая запись. Это не зависит от параметра `--force`.
 
-- When a conflict arises between a CNAME record and another record of the same name but different type (regardless of which is existing or new), the existing record is retained. This is independent of the use of `--force`.
+### Дополнительная информация об импорте
 
-### <a name="additional-information-about-importing"></a>Additional information about importing
+Ниже приведены дополнительные технические сведения о процессе импорта зоны.
 
-The following notes provide additional technical details about the zone import process.
+- `$TTL` — необязательная поддерживаемая директива. Если директива `$TTL` не указывается, записи без явного значения срока жизни будут импортированы со стандартным значением срока жизни (3600 секунд). Если в одном наборе записей есть две записи с разными значениями срока жизни, используется меньшее значение.
 
-- The `$TTL` directive is optional, and it is supported. When no `$TTL` directive is given, records without an explicit TTL will be imported set to a default TTL of 3600 seconds. When two records in the same record set specify different TTLs, the lower value is used.
+- `$ORIGIN` — необязательная поддерживаемая директива. Если директива `$ORIGIN` не указывается, используется значение по умолчанию — имя зоны, указанное в командной строке (с точкой в конце).
 
-- The `$ORIGIN` directive is optional, and it is supported. When no `$ORIGIN` is set, the default value used is the zone name as specified on the command line (plus the terminating ".").
+- Директивы `$INCLUDE` и `$GENERATE` не поддерживаются.
 
-- The `$INCLUDE` and `$GENERATE` directives are not supported.
+- Поддерживаются такие типы записей: A, AAAA, CNAME, MX, NS, SOA, SRV и TXT.
 
-- These record types are supported: A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT.
+- Запись типа SOA автоматически создается в Azure DNS во время создания зоны. При импорте файла зоны все параметры SOA, *кроме* параметра `host`, берутся из файла зоны. Этот параметр использует значение, предоставляемое Azure DNS. Это происходит, потому что данный параметр должен ссылаться на первичный сервер имен, предоставляемый Azure DNS.
 
-- The SOA record is created automatically by Azure DNS when a zone is created. When you import a zone file, all SOA parameters are taken from the zone file *except* the `host` parameter. This parameter uses the value provided by Azure DNS. This is because this parameter must refer to the primary name server provided by Azure DNS.
+- Набор записей сервера доменных имен в вершине зоны также создается службой Azure DNS автоматически во время создания зоны. Импортируется только значение TTL этого набора записей. Эти записи содержат имена серверов доменных имен, предоставляемые Azure DNS. Данные записей не перезаписываются значениями в импортированном файле зоны.
 
-- The name server record set at the zone apex is also created automatically by Azure DNS when the zone is created. Only the TTL of this record set is imported. These records contain the name server names provided by Azure DNS. The record data is not overwritten by the values contained in the imported zone file.
+- Общедоступная предварительная версия Azure DNS поддерживает только записи типа TXT с одной строкой. Записи типа TXT, состоящие из нескольких строк, объединяются и усекаются до 255 символов.
 
-- During Public Preview, Azure DNS supports only single-string TXT records. Multistring TXT records will be concatenated and truncated to 255 characters.
+### Формат и значения CLI
 
-### <a name="cli-format-and-values"></a>CLI format and values
 
+Команда Azure CLI для импорта зоны DNS имеет следующий формат.<BR>`azure network dns zone import [options] <resource group> <zone name> <zone file name>`
 
-The format of the Azure CLI command to import a DNS zone is:<BR>`azure network dns zone import [options] <resource group> <zone name> <zone file name>`
+Значения:
 
-Values:
+- `<resource group>` — имя группы ресурсов для зоны в Azure DNS;
+- `<zone name>` — имя зоны;
+- `<zone file name>` — путь и имя импортируемого файла зоны.
 
-- `<resource group>` is the name of the resource group for the zone in Azure DNS.
-- `<zone name>` is the name of the zone.
-- `<zone file name>` is the path/name of the zone file to be imported.
+Если зона с таким именем не существует в группе ресурсов, она будет создана автоматически. Если зона существует, импортированные наборы записей будут объединены с существующими наборами. Чтобы перезаписать существующие наборы записей, используйте параметр `--force`.
 
-If a zone with this name does not exist in the resource group, it will be created for you. If the zone already exists, the imported record sets will be merged with existing record sets. To overwrite the existing record sets, use the `--force` option.
+Чтобы проверить формат файла зоны, не импортируя его, используйте параметр `--parse-only`.
 
-To verify the format of a zone file without actually importing it, use the `--parse-only` option.
+### Шаг 1. Импорт файла зоны
 
-### <a name="step-1.-import-a-zone-file"></a>Step 1. Import a zone file
+Предположим, необходимо импортировать файл зоны для зоны **contoso.com**.
 
-To import a zone file for the zone **contoso.com**.
+1. Войдите в подписку Azure с помощью Azure CLI.
 
-1. Sign in to your Azure subscription by using the Azure CLI.
+		azure login
 
-        azure login
+2. Выберите подписку, в рамках которой будет создана зона DNS.
 
-2. Select the subscription where you want to create your new DNS zone.
+		azure account set <subscription name>
 
-        azure account set <subscription name>
+3. Azure DNS — это служба, управляемая диспетчером ресурсов Azure, поэтому Azure CLI необходимо переключить в режим диспетчера ресурсов.
 
-3. Azure DNS is an Azure Resource Manager-only service, so the Azure CLI must be switched to Resource Manager mode.
+		azure config mode arm
 
-        azure config mode arm
+4. Прежде чем использовать службу Azure DNS, необходимо зарегистрировать подписку для использования поставщика ресурсов Microsoft.Network. (Эта операция выполняется один раз для каждой подписки).
 
-4. Before you use the Azure DNS service, you must register your subscription to use the Microsoft.Network resource provider. (This is a one-time operation for each subscription.)
+		azure provider register Microsoft.Network
 
-        azure provider register Microsoft.Network
+5. Если у вас еще нет группы ресурсов диспетчера ресурсов, создайте ее.
 
-5. If you don’t have one already, you also need to create a Resource Manager resource group.
+		azure group create myresourcegroup westeurope
 
-        azure group create myresourcegroup westeurope
+6. Чтобы импортировать зону **contoso.com** из файла **contoso.com.txt** в зону DNS в группе ресурсов **myresourcegroup**, выполните команду `azure network dns zone import`. <BR>Эта команда загрузит файл зоны и проанализирует его. Затем она инициирует выполнение ряда команд в службе Azure DNS, чтобы создать зону и все наборы записей в ней. При выполнении команды в окне консоли будет виден ход выполнения, а также отображаться все ошибки и предупреждения. Так как наборы записей создаются в серии, при импорте большого файла зоны этот процесс может занять несколько минут.
 
-6. To import the zone **contoso.com** from the file **contoso.com.txt** into a new DNS zone in the resource group **myresourcegroup**, run the command `azure network dns zone import`.<BR>This command will load the zone file and parse it. The command will execute a series of commands on the Azure DNS service to create the zone and all of the record sets in the zone. The command will also report progress in the console window, along with any errors or warnings. Because record sets are created in series, it may take a few minutes to import a large zone file.
+		azure network dns zone import myresourcegroup contoso.com contoso.com.txt
 
-        azure network dns zone import myresourcegroup contoso.com contoso.com.txt
 
 
+### Шаг 2. Проверка зоны
 
-### <a name="step-2.-verify-the-zone"></a>Step 2. Verify the zone
+Чтобы проверить зону DNS после импорта файла, можно использовать один из следующих методов.
 
-To verify the DNS zone after you import the file, you can use any one of the following methods:
+- Список записей можно получить, используя следующую команду Azure CLI.
 
-- You can list the records by using the following Azure CLI command.
+		azure network dns record-set list myresourcegroup contoso.com
 
-        azure network dns record-set list myresourcegroup contoso.com
+- Список записей можно вывести с помощью командлета PowerShell `Get-AzureRmDnsRecordSet`.
 
-- You can list the records by using the PowerShell cmdlet `Get-AzureRmDnsRecordSet`.
+- С помощью `nslookup` можно проверить разрешение имен для записей. Так как зона еще не делегирована, нужно явно указать правильные серверы доменных имен Azure DNS. В примере ниже показано, как получить имена серверов доменных имен, назначенных зоне. В нем также показано, как запросить запись www с помощью команды `nslookup`.
 
-- You can use `nslookup` to verify name resolution for the records. Because the zone isn’t delegated yet, you will need to specify the correct Azure DNS name servers explicitly. The sample below shows how to retrieve the name server names assigned to the zone. IT also shows how to query the "www" record by using `nslookup`.
+    	C:\>azure network dns record-set show myresourcegroup contoso.com @ NS
+    	info:Executing command network dns record-set show
+    	+ Looking up the DNS Record Set "@" of type "NS"
+    	data:Id: /subscriptions/…/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
+    	data:Name: @
+    	data:Type: Microsoft.Network/dnszones/NS
+    	data:Location: global
+    	data:TTL : 3600
+    	data:NS records
+    	data:Name server domain name : ns1-01.azure-dns.com
+    	data:Name server domain name : ns2-01.azure-dns.net
+    	data:Name server domain name : ns3-01.azure-dns.org
+    	data:Name server domain name : ns4-01.azure-dns.info
+    	data:
+    	info:network dns record-set show command OK
+    
+    	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+    
+    	Server: ns1-01.azure-dns.com
+    	Address:  40.90.4.1
+    
+    	Name:www.contoso.com
+    	Addresses:  134.170.185.46
+    	134.170.188.221
 
-        C:\>azure network dns record-set show myresourcegroup contoso.com @ NS
-        info:Executing command network dns record-set show
-        + Looking up the DNS Record Set "@" of type "NS"
-        data:Id: /subscriptions/…/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
-        data:Name: @
-        data:Type: Microsoft.Network/dnszones/NS
-        data:Location: global
-        data:TTL : 3600
-        data:NS records
-        data:Name server domain name : ns1-01.azure-dns.com
-        data:Name server domain name : ns2-01.azure-dns.net
-        data:Name server domain name : ns3-01.azure-dns.org
-        data:Name server domain name : ns4-01.azure-dns.info
-        data:
-        info:network dns record-set show command OK
+### Шаг 3. Обновление делегирования DNS
 
-        C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+После проверки правильности импорта зоны требуется обновить делегирование DNS, чтобы указать серверы доменных имен Azure DNS. Дополнительные сведения см. в статье [Делегирование домена в Azure DNS](dns-domain-delegation.md).
 
-        Server: ns1-01.azure-dns.com
-        Address:  40.90.4.1
+## Экспорт файла зоны DNS из Azure DNS
 
-        Name:www.contoso.com
-        Addresses:  134.170.185.46
-        134.170.188.221
+Команда Azure CLI для импорта зоны DNS имеет следующий формат.<BR>`azure network dns zone export [options] <resource group> <zone name> <zone file name>`
 
-### <a name="step-3.-update-dns-delegation"></a>Step 3. Update DNS delegation
+Значения:
 
-After you have verified that the zone has been imported correctly, you will need to update the DNS delegation to point to the Azure DNS name servers. For more information, see the article [Update the DNS delegation](dns-domain-delegation.md).
+- `<resource group>` — имя группы ресурсов для зоны в Azure DNS;
+- `<zone name>` — имя зоны;
+- `<zone file name>` — путь и имя экспортируемого файла зоны.
 
-## <a name="export-a-dns-zone-file-from-azure-dns"></a>Export a DNS zone file from Azure DNS
+Как и при импорте зоны, сначала требуется войти, выбрать подписку и настроить Azure CLI для использования режима Resource Manager.
 
-The format of the Azure CLI command to import a DNS zone is:<BR>`azure network dns zone export [options] <resource group> <zone name> <zone file name>`
+### Экспорт файла зоны
 
-Values:
 
-- `<resource group>` is the name of the resource group for the zone in Azure DNS.
-- `<zone name>` is the name of the zone.
-- `<zone file name>` is the path/name of the zone file to be exported.
+1. Войдите в подписку Azure с помощью Azure CLI.
 
-As with the zone import, you first need to sign in, choose your subscription, and configure the Azure CLI to use Resource Manager mode.
+		azure login
 
-### <a name="to-export-a-zone-file"></a>To export a zone file
+2. Выберите подписку, в рамках которой будет создана зона DNS.
 
+		azure account set <subscription name>
 
-1. Sign in to your Azure subscription by using the Azure CLI.
+3. DNS Azure является исключительно службой диспетчера ресурсов Azure. Azure CLI необходимо переключить в режим диспетчера ресурсов.
 
-        azure login
+		azure config mode arm
 
-2. Select the subscription where you want to create your new DNS zone.
+4. Чтобы экспортировать существующую зону Azure DNS **contoso.com** (в группе ресурсов **myresourcegroup**) в файл **contoso.com.txt** (в текущей папке), выполните команду `azure network dns zone export`. Эта команда вызывает службу Azure DNS для перечисления наборов записей в зоне и экспорта результатов в файл зоны, совместимый с форматом BIND.
 
-        azure account set <subscription name>
+		azure network dns zone export myresourcegroup contoso.com contoso.com.txt
 
-3. Azure DNS is an Azure Resource Manager-only service. The Azure CLI must be switched to Resource Manager mode.
-
-        azure config mode arm
-
-4. To export the existing Azure DNS zone **contoso.com** in resource group **myresourcegroup** to the file **contoso.com.txt** (in the current folder), run `azure network dns zone export`. This command will call the Azure DNS service to enumerate record sets in the zone and export the results to a BIND-compatible zone file.
-
-        azure network dns zone export myresourcegroup contoso.com contoso.com.txt
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

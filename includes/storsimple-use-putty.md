@@ -1,35 +1,33 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-connect-through-the-serial-console"></a>To connect through the serial console
+#### Подключение через последовательную консоль
 
-1. Connect your serial cable to the device (directly or through a USB-serial adapter).
+1. Подключите последовательный кабель к устройству (непосредственно или через USB-адаптер).
 
-2. Open the **Control Panel**, and then open the **Device Manager**.
+2. Откройте **Панель управления**, а затем откройте **Диспетчер устройств**.
 
-3. Identify the COM port as shown in the following illustration.
+3. Определите COM-порт, как показано на следующем рисунке.
 
-     ![Connecting through serial console](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
+     ![Подключение через последовательную консоль](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 
-4. Start PuTTY. 
+4. Запустите PuTTY.
 
-5. In the right pane, change the **Connection type** to **Serial**.
+5. В правой панели измените **Тип соединения** на **Последовательный**.
 
-6. In the right pane, type the appropriate COM port. Make sure that the serial configuration parameters are set as follows:
-  - Speed: 115,200
-  - Data bits: 8
-  - Stop bits: 1
-  - Parity: None
-  - Flow control: None
+6. В правой панели введите соответствующий COM-порт. Убедитесь, что параметры последовательной конфигурации заданы следующим образом:
+  - Скорость: 115200.
+  - Биты данных: 8.
+  - Стоповые биты: 1.
+  - Четность: нет.
+  - Управление потоком: нет.
 
-    These settings are shown in the following illustration.
+    Эти параметры показаны на следующем рисунке.
 
-     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
+     ![Параметры PuTTY](./media/storsimple-use-putty/HCS_PuttyConfig-include.png)
 
-    > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
+    > [AZURE.NOTE]Если параметр управления потоком по умолчанию не работает, попробуйте задать для управления потоком значение "XON/XOFF".
 
-7. Click **Open** to start a serial session.
+7. Щелкните **Открыть**, чтобы запустить последовательный сеанс.
  
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

@@ -1,145 +1,140 @@
 <properties
-    pageTitle="Storage configuration for SQL Server VMs | Microsoft Azure"
-    description="This topic describes how Azure configures storage for SQL Server VMs during provisioning (Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs."
-    services="virtual-machines-windows"
-    documentationCenter="na"
-    authors="ninarn"
-    manager="jhubbard"    
-    tags="azure-resource-manager"/>
+	pageTitle="Настройка хранилища для виртуальных машин SQL Server | Microsoft Azure"
+	description="В этой статье описывается процесс настройки хранилища для виртуальных машин SQL Server на портале Azure во время подготовки (модель развертывания с помощью Resource Manager). Здесь также описывается настройка хранилища для имеющихся виртуальных машин SQL Server."
+	services="virtual-machines-windows"
+	documentationCenter="na"
+	authors="ninarn"
+	manager="jhubbard"    
+	tags="azure-resource-manager"/>
 <tags
-    ms.service="virtual-machines-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-windows-sql-server"
-    ms.workload="infrastructure-services"
-    ms.date="08/04/2016"
-    ms.author="ninarn" />
+	ms.service="virtual-machines-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/04/2016"
+	ms.author="ninarn" />
 
+# Настройка хранилища для виртуальных машин SQL Server
 
-# <a name="storage-configuration-for-sql-server-vms"></a>Storage configuration for SQL Server VMs
+При настройке образа виртуальной машины SQL Server на портале Azure некоторые процессы конфигурации хранилища выполняются автоматически. К этим процессам относится подключение хранилища к виртуальной машине, предоставление SQL Server доступа к нему и настройка параметров, которые позволяют оптимизировать производительность хранилища.
 
-When you configure a SQL Server virtual machine image in Azure, the Portal helps to automate your storage configuration. This includes attaching storage to the VM, making that storage accessible to SQL Server, and configuring it to optimize for your specific performance requirements.
+В этой статье описывается процесс настройки хранилища для подготавливаемых и уже имеющихся виртуальных машин SQL Server на портале Azure. Эта конфигурация основана на [рекомендациях по оптимизации производительности](virtual-machines-windows-sql-performance.md) для виртуальных машин Azure с SQL Server.
 
-This topic explains how Azure configures storage for your SQL Server VMs both during provisioning and for existing VMs. This configuration is based on the [performance best practices](virtual-machines-windows-sql-performance.md) for Azure VMs running SQL Server.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+## Предварительные требования
+Для поддержки параметров автоматической настройки хранилища виртуальная машина должна:
 
-## <a name="prerequisites"></a>Prerequisites
-To use the automated storage configuration settings, your virtual machine requires the following characteristics:
+- быть подготовлена с помощью [коллекции образов SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-deploy-a-sql-vm-per-minute-licensing);
+- использовать [модель развертывания с помощью Resource Manager](../resource-manager-deployment-model.md);
+- использовать [хранилище класса Premium](../storage/storage-premium-storage.md).
 
-- Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#option-1-deploy-a-sql-vm-per-minute-licensing).
-- Uses the [Resource Manager deployment model](../resource-manager-deployment-model.md).
-- Uses [Premium Storage](../storage/storage-premium-storage.md).
+## Новые виртуальные машины
+В следующих разделах описаны действия по настройке хранилища для новых виртуальных машин SQL Server.
 
-## <a name="new-vms"></a>New VMs
-The following sections describe how to configure storage for new SQL Server virtual machines.
+### Портал Azure
+При подготовке виртуальной машины Azure с помощью образа SQL Server из коллекции хранилище для нее можно настроить автоматически. Можно указать размер хранилища, а также определить ограничения производительности и тип рабочей нагрузки. На следующем снимке экрана показана колонка "Конфигурация хранилища", используемая при подготовке виртуальной машины SQL.
 
-### <a name="azure-portal"></a>Azure Portal
-When provisioning an Azure VM using a SQL Server gallery image, you can choose to automatically configure the storage for your new VM. You specify the storage size, performance limits, and workload type. The following screenshot shows the Storage configuration blade used during SQL VM provisioning.
+.![Настройка хранилища для виртуальной машины SQL Server во время подготовки](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+После создания виртуальной машины в зависимости от вашего выбора Azure выполняет следующие задачи по настройке хранилища:
 
-Based on your choices, Azure performs the following storage configuration tasks after creating the VM:
+- создает и присоединяет к виртуальной машине диски данных хранилища класса Premium;
+- настраивает доступность дисков данных для SQL Server;
+- настраивает диски данных в пуле носителей в зависимости от указанных требований к размеру и производительности (операции ввода-вывода в секунду и пропускная способность);
+- связывает пул носителей с новым диском на виртуальной машине;
+- оптимизирует этот диск в зависимости от указанного типа рабочей нагрузки ("Хранилище данных", "Обработка транзакций" или "Общая").
 
-- Creates and attaches premium storage data disks to the virtual machine.
-- Configures the data disks to be accessible to SQL Server.
-- Configures the data disks into a storage pool based on the specified size and performance (IOPS and throughput) requirements.
-- Associates the storage pool with a new drive on the virtual machine.
-- Optimizes this new drive based on your specified workload type (Data warehousing, Transactional processing, or General).
+Дополнительные сведения о настройке параметров хранилища в Azure см. в разделе [Конфигурация хранилища](#storage-configuration). Полное пошаговое руководство по созданию виртуальной машины SQL Server на портале Azure см. в статье [Подготовка виртуальной машины SQL Server на портале Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
-For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration). For a full walkthrough of how to create a SQL Server VM in the Azure Portal, see [the provisioning tutorial](virtual-machines-windows-portal-sql-server-provision.md).
+### Шаблоны Resource Manager
+При использовании следующих шаблонов Resource Manager по умолчанию к виртуальной машине присоединяются два диска данных класса Premium. В этом случае пул носителей не настраивается. Однако эти шаблоны можно настроить, чтобы изменить количество дисков данных класса Premium, присоединенных к виртуальной машине.
 
-### <a name="resource-manage-templates"></a>Resource Manage templates
-If you use the following Resource Manager templates, two premium data disks are attached by default, with no storage pool configuration. However, you can customize these templates to change the number of premium data disks that are attached to the virtual machine.
+- [Создание виртуальной машины с поддержкой автоматической архивации](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
+- [Создание виртуальной машины с автоматической установкой исправлений](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
+- [Создание виртуальной машины с интеграцией AKV](https://github.com\Azure\azure-quickstart-templates\tree\master\201-vm-sql-full-keyvault)
 
-- [Create VM with Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
-- [Create VM with Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
-- [Create VM with AKV Integration](https://github.com\Azure\azure-quickstart-templates\tree\master\201-vm-sql-full-keyvault)
+## Существующие виртуальные машины
+Для имеющихся виртуальных машин SQL Server на портале Azure можно изменить некоторые параметры хранилища. Выберите виртуальную машину, перейдите в область "Параметры" и выберите "Конфигурация SQL Server". В колонке "Конфигурация SQL Server" отображаются сведения о текущем использовании хранилища вашей виртуальной машиной. На этой диаграмме отображаются все диски, подключенные к виртуальной машине. Дисковое пространство для каждого диска разбито на 4 раздела:
 
-## <a name="existing-vms"></a>Existing VMs
-For existing SQL Server VMs, you can modify some storage settings in the Azure portal. Select your VM, go to the Settings area, and then select SQL Server Configuration. The SQL Server Configuration blade shows the current storage usage of your VM. All drives that exist on your VM are displayed in this chart. For each drive, the storage space displays in four sections:
+- данные SQL;
+- журнал SQL;
+- прочее (не хранилище SQL);
+- Доступна
 
-- SQL data
-- SQL log
-- Other (non-SQL storage)
-- Available
+![Настройка хранилища для имеющейся виртуальной машины SQL Server](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
-![Configure Storage for Existing SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
+Чтобы настроить хранилище для добавления нового диска или расширения имеющегося, щелкните над диаграммой ссылку "Изменить".
 
-To configure the storage to add a new drive or extend an existing drive, click the Edit link above the chart.
+Отображаемые параметры настройки зависят от того, использовали ли вы эту возможность раньше. При первом использовании можно указать собственные требования к хранилищу для нового диска. Если вы ранее использовали эту возможность для создания диска, его объем можно расширить.
 
-The configuration options that you see varies depending on whether you have used this feature before. When using for the first time, you can specify your storage requirements for a new drive. If you previously used this feature to create a drive, you can choose to extend that drive’s storage.
+### Первое использование
+При первом использовании этой возможности можно указать размер хранилища и определить ограничения производительности для нового диска. В целом этот процесс аналогичен настройке в ходе подготовки, а основное различие заключается в том, что вы не можете указать тип рабочей нагрузки. Это ограничение позволяет предотвратить нарушение имеющихся конфигураций SQL Server на виртуальной машине.
 
-### <a name="use-for-the-first-time"></a>Use for the first time
-If it is your first time using this feature, you can specify the storage size and performance limits for a new drive. This experience is similar to what you would see at provisioning time. The main difference is that you are not permitted to specify the workload type. This restriction prevents disrupting any existing SQL Server configurations on the virtual machine.
+.![Ползунки настройки хранилища для SQL Server](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-usage-sliders.png)
 
-![Configure SQL Server Storage Sliders](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-usage-sliders.png)
+Azure создает диск на основе ваших параметров. В этом сценарии Azure выполняет следующие задачи по настройке хранилища:
 
-Azure creates a new drive based on your specifications. In this scenario, Azure performs the following storage configuration tasks:
+- создает и присоединяет к виртуальной машине диски данных хранилища класса Premium;
+- настраивает доступность дисков данных для SQL Server;
+- настраивает диски данных в пуле носителей в зависимости от указанных требований к размеру и производительности (операции ввода-вывода в секунду и пропускная способность);
+- связывает пул носителей с новым диском на виртуальной машине.
 
-- Creates and attaches premium storage data disks to the virtual machine.
-- Configures the data disks to be accessible to SQL Server.
-- Configures the data disks into a storage pool based on the specified size and performance (IOPS and throughput) requirements.
-- Associates the storage pool with a new drive on the virtual machine.
+Дополнительные сведения о настройке параметров хранилища в Azure см. в разделе [Конфигурация хранилища](#storage-configuration).
 
-For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration).
+### Добавление нового диска
+Если хранилище на виртуальной машине SQL Server уже настроено, появится два параметра, позволяющие его расширить. Первый параметр позволяет добавить новый диск, чтобы повысить уровень производительности виртуальной машины.
 
-### <a name="add-a-new-drive"></a>Add a new drive
-If you have already configured storage on your SQL Server VM, expanding storage brings up two new options. The first option is to add a new drive, which can increase the performance level of your VM.
+![Добавление нового диска к виртуальной машине SQL](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-add-new-drive.png)
 
-![Add a new drive to a SQL VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-add-new-drive.png)
+Однако после добавления диска для оптимизации производительности понадобится выполнить некоторые дополнительные настройки вручную.
 
-However, after adding the drive, you must perform some extra manual configuration to achieve the performance increase.
+### Расширение диска
+Другой параметр позволяет увеличить размер имеющегося диска. Он увеличивает количество доступной для хранения памяти, но не повышает производительность. После создания пула носителей вы не сможете изменить количество столбцов. Количество столбцов определяет число параллельных операций записи, которые могут распределяться по дискам данных. Поэтому добавление дисков данных не поможет вам повысить производительность. Они просто предоставляют дополнительное хранилище для записи данных. Это ограничение также означает, что при расширении диска количество столбцов определяет минимальное число дисков данных, которые можно добавить. Таким образом, если вы создаете пул носителей с четырьмя дисками, столбцов также будет четыре. Каждый раз при расширении хранилища необходимо добавлять по крайней мере четыре диска данных.
 
-### <a name="extend-the-drive"></a>Extend the drive
-The other option for expanding storage is to extend the existing drive. This option increases the available storage for your drive, but it does not increase performance. With storage pools, you cannot alter the number of columns after the storage pool is created. The number of columns determines the number of parallel writes, which can be striped across the data disks. Therefore, any added data disks cannot increase performance. They can only provide more storage for the data being written. This limitation also means that, when extending the drive, the number of columns determines the minimum number of data disks that you can add. So if you create a storage pool with four data disks, the number of columns is also four. Any time you extend the storage, you must add at least four data disks.
+.![Расширения диска для виртуальной машины SQL](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
-![Extend a drive for a SQL VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
+## Конфигурация хранилища
+В этом разделе приведена справочная информация по изменениям конфигурации хранилища, которые Azure выполняет автоматически во время подготовки или настройки виртуальной машины SQL на портале Azure.
 
-## <a name="storage-configuration"></a>Storage configuration
-This section provides a reference for the storage configuration changes that Azure automatically performs during SQL VM provisioning or configuration in the Azure Portal.
+- Если для виртуальной машины выбрано хранилище объемом менее 2 ТБ, Azure не создает пул носителей,
+- а если 2 ТБ или больше — пул носителей создается. В следующем разделе этой статьи приведены сведения о конфигурации пула носителей.
+- При автоматической настройке хранилища всегда используются диски данных P30 [хранилища класса Premium](../storage/storage-premium-storage.md). Следовательно, между выбранным числом терабайт и количеством дисков, прикрепленных к виртуальной машине, существует полноценное сопоставление.
 
-- If you have selected fewer than two TBs of storage for your VM, Azure does not create a storage pool.
-- If you have selected at least two TBs of storage for your VM, Azure configures a storage pool. The next section of this topic provides the details of the storage pool configuration.
-- Automatic storage configuration always uses [premium storage](../storage/storage-premium-storage.md) P30 data disks. Consequently, there is a 1:1 mapping between your selected number of Terabytes and the number of data disks attached to your VM.
+Сведения о ценах см. на странице с [ценами на хранилище](https://azure.microsoft.com/pricing/details/storage) на вкладке **Дисковый накопитель**.
 
-For pricing information, see the [Storage pricing](https://azure.microsoft.com/pricing/details/storage) page on the **Disk Storage** tab.
+### Создание пула носителей
+Для создания пула носителей на виртуальных машинах SQL Server Azure использует следующие параметры.
 
-### <a name="creation-of-the-storage-pool"></a>Creation of the storage pool
-Azure uses the following settings to create the storage pool on SQL Server VMs.
-
-| Setting | Value |
+| Настройка | Значение |
 |-----|-----|
-| Stripe size  | 256 KB (Data warehousing); 64 KB (Transactional) |
-| Disk sizes | 1 TB each |
-| Cache | Read |
-| Allocation size | 64 KB NTFS allocation unit size |
-| Instant file initialization | Enabled |
-| Lock pages in memory | Enabled |
-| Recovery | Simple recovery (no resiliency) |
-| Number of columns | Number of data disks<sup>1</sup> |
-| TempDB location | Stored on data disks<sup>2</sup> |
+| Размер полосы | 256 КБ (хранение данных), 64 КБ (обработка транзакций) |
+| Размеры диска | 1 ТБ каждый |
+| Кэш | чтение |
+| Размер выделения | Размер единицы выделения NTFS — 64 КБ |
+| Мгновенная инициализация файлов | Включено |
+| Блокировка страниц в памяти | Включено |
+| Восстановление | Простая модель восстановления (без устойчивости) |
+| Количество столбцов | Количество дисков данных<sup>1</sup> |
+| Расположение временной базы данных | Хранится на дисках данных<sup>2</sup> |
 
-<sup>1</sup> After the storage pool is created, you cannot alter the number of columns in the storage pool.
+<sup>1</sup> После создания пула носителей вы не сможете изменить в нем количество столбцов.
 
-<sup>2</sup> This setting only applies to the first drive you create using the storage configuration feature.
+<sup>2</sup> Этот параметр применяется только для первого диска, созданного с помощью функции конфигурации хранилища.
 
-## <a name="workload-optimization-settings"></a>Workload optimization settings
-The following table describes the three workload type options available and their corresponding optimizations:
+## Параметры оптимизации рабочей нагрузки
+В следующей таблице описаны три доступных типа рабочей нагрузки и соответствующие оптимизации для каждого из них.
 
-| Workload type | Description | Optimizations |
+| Тип рабочей нагрузки | Описание | Оптимизация |
 |-----|-----|-----|
-| **General** | Default setting that supports most workloads | None |
-| **Transactional processing** | Optimizes the storage for traditional database OLTP workloads | Trace Flag 1117<br/>Trace Flag 1118 |
-| **Data warehousing** | Optimizes the storage for analytic and reporting workloads | Trace Flag 610<br/>Trace Flag 1117 |
+| **Общие сведения** | Значение по умолчанию, поддерживающее большинство рабочих нагрузок | None |
+| **Обработка транзакций** | Оптимизирует хранилище для рабочих нагрузок OLTP в традиционных базах данных | Флаг трассировки 1117<br/>Флаг трассировки 1118 |
+| **Хранение данных** | Оптимизирует хранилище для рабочих нагрузок аналитики и отчетов | Флаг трассировки 610<br/>Флаг трассировки 1117 |
 
->[AZURE.NOTE] You can only specify the workload type when you provision a SQL virtual machine by selecting it in the storage configuration step.
+>[AZURE.NOTE] Тип рабочей нагрузки можно указать только во время подготовки виртуальной машины SQL на этапе настройки хранилища.
 
-## <a name="next-steps"></a>Next steps
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
+## Дальнейшие действия
+Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

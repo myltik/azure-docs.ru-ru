@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Create a record set and records for a DNS Zone using the Azure portal | Microsoft Azure"
-   description="How to create host records for Azure DNS and create record sets and records using the Azure portal"
+   pageTitle="Создание набора записей и записей зоны DNS с помощью портала Azure | Microsoft Azure"
+   description="Сведения о создании записей узла для Azure DNS, а также наборов записей и записей с помощью портала Azure"
    services="dns"
    documentationCenter="na"
-   authors="sdwheeler"
+   authors="cherylmc"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -15,58 +15,53 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="sewhee"/>
+   ms.author="cherylmc"/>
 
 
 
-
-# <a name="create-dns-record-sets-and-records-by-using-the-azure-portal"></a>Create DNS record sets and records by using the Azure portal
+# Создание наборов записей и записей DNS с помощью портала Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](dns-getstarted-create-recordset-portal.md)
+- [Портал Azure](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
-- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Интерфейс командной строки Azure](dns-getstarted-create-recordset-cli.md)
 
 
-This article walks you through the process of creating records and records sets by using the Azure portal. After you create your DNS zone, you add the DNS records for your domain. To do this, you first need to understand DNS records and record sets.
+В этой статье показано, как создавать записи и наборы записей с помощью портала Azure. После создания зоны DNS можно добавить DNS-записи для домена. Для этого сначала требуется изучить DNS-записи и наборы записей.
 
 [AZURE.INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
 
-## <a name="create-a-record-set-and-record"></a>Create a record set and record
+## Создание набора записей и записи
 
-The following example walks you through the process of creating a record set and record by using the Azure portal. We'll use the DNS "A" record type.
+Следующий пример демонстрирует создание набора записей и записей с помощью портала Azure. Мы используем запись DNS типа "A".
 
-1. Sign in to the portal.
+1. Войдите на портал.
 
-2. Go to the **DNS zone** blade in which you want to create a record set.
+2. Перейдите к колонке **Зона DNS**, где требуется создать набор записей.
 
-3. At the top of the **DNS zone** blade, select **Record set** to open the **Add record set** blade.
+3. В верхней части этой колонки **Зона DNS** щелкните **Набор записей**, чтобы открыть колонку **Add record set** (Добавление набора записей).
 
-    ![New record set](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
+	![Новый набор записей](./media/dns-getstarted-create-recordset-portal/newrecordset500.png)
 
-4. On the **Add record set** blade, name your record set. For example, you could name your record set "**www**".
+4. В колонке **Add record set** (Добавление набора записей) укажите имя набора записей. Например, набор записей можно назвать **www**.
 
-    ![Add record set](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
+	![Добавление набора записей](./media/dns-getstarted-create-recordset-portal/addrecordset500.png)
 
-5. Select the type of record you want to create. For example, select **A**.
+5. Выберите тип создаваемой записи. Например, выберите **А**.
 
-6. Set the **TTL**. The default time to live in the portal is one hour.
+6. Задайте значение **Срок жизни**. Срок жизни по умолчанию на портале составляет один час.
 
-7. Add the IP addresses, one IP address per line. When you use the suggested record set name and record type described earlier, you add the IPv4 IP addresses to the **A** record for the www record set.
+7. Добавьте IP-адреса, по одному на строке. Если вы использовали предложенное имя набора записей и тип записи, то следует добавить IPv4-адреса в запись **A** для набора записей www.
 
-8. After you finish adding IP addresses, select **OK** at the bottom of the blade. The DNS record set will be created.
-
-
-## <a name="next-steps"></a>Next steps
-
-To manage your record set and records, see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md).
-
-For more information about Azure DNS, see the [Azure DNS overview](dns-overview.md).
+8. Завершив добавление IP-адресов, нажмите кнопку **ОК** в нижней части колонки. Создается набор записей DNS.
 
 
+## Дальнейшие действия
 
-<!--HONumber=Oct16_HO2-->
+Сведения об управлении записями и набором записей см. в статье [Управление записями и наборами записей DNS с помощью портала Azure](dns-operations-recordsets-portal.md).
 
+Дополнительные сведения об Azure DNS см. в статье [Обзор Azure DNS](dns-overview.md).
 
+<!---HONumber=AcomDC_0817_2016-->

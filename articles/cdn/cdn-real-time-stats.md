@@ -1,103 +1,97 @@
 <properties
-    pageTitle="Real-Time-Stats in Azure CDN | Microsoft Azure"
-    description="Real-Time Statistics provides real-time data about the performance of Azure CDN when delivering content to your clients."
-    services="cdn"
-    documentationCenter=""
-    authors="camsoper"
-    manager="erikre"
-    editor=""/>
+	pageTitle="Статистика в реальном времени в сети Azure CDN | Microsoft Azure"
+	description="Статистика в реальном времени предоставляет актуальные данные о производительности сети Azure CDN при доставке содержимого клиентам."
+	services="cdn"
+	documentationCenter=""
+	authors="camsoper"
+	manager="erikre"
+	editor=""/>
 
 <tags
-    ms.service="cdn"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/28/2016"
-    ms.author="casoper"/>
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2016"
+	ms.author="casoper"/>
 
-
-# <a name="real-time-stats-in-microsoft-azure-cdn"></a>Real-time stats in Microsoft Azure CDN
+# Статистика в реальном времени в сети CDN Microsoft Azure
 
 [AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Overview
+## Обзор
 
-This document explains real-time stats in Microsoft Azure CDN.  This functionality provides real-time data, such as bandwidth, cache statuses, and concurrent connections to your CDN profile when delivering content to your clients. This enables continuous monitoring of the health of your service at any time, including go-live events.
+В этом документе содержатся сведения о статистике в реальном времени в сети CDN Microsoft Azure. Эта функция предоставляет данные в реальном времени, например о пропускной способности, состоянии кэша и числе одновременных подключений к профилю сети CDN, при доставке содержимого клиентам. Благодаря этому обеспечивается постоянный мониторинг работоспособности службы, в том числе событий запуска.
 
-The following graphs are available:
+Доступны следующие диаграммы:
 
-* [Bandwidth](#bandwidth)
-* [Status Codes](#status-codes)
-* [Cache Statuses](#cache-statuses)
-* [Connections](#connections)
-
-
-## <a name="accessing-real-time-stats"></a>Accessing real-time stats
-
-1. In the [Azure Portal](https://portal.azure.com), browse to your CDN profile.
-
-    ![CDN profile blade](./media/cdn-real-time-stats/cdn-profile-blade.png)
-
-2. From the CDN profile blade, click the **Manage** button.
-
-    ![CDN profile blade manage button](./media/cdn-real-time-stats/cdn-manage-btn.png)
-
-    The CDN management portal opens.
-
-3. Hover over the **Analytics** tab, then hover over the **Real-Time Stats** flyout.  Click on **HTTP Large Object**.
-
-    ![CDN management portal](./media/cdn-real-time-stats/cdn-premium-portal.png)
-
-    The real-time stats graphs are displayed.
-    
-Each of the graphs displays real-time statistics for the selected time span, starting when the page loads.  The graphs update automatically every few seconds.  The **Refresh Graph** button, if present, will clear the graph, after which it will only display the selected data.
-
-## <a name="bandwidth"></a>Bandwidth
-
-![Bandwidth graph](./media/cdn-real-time-stats/cdn-bandwidth.png)
-
-The **Bandwidth** graph displays the amount of bandwidth used for the current platform over the selected time span. The shaded portion of the graph indicates bandwidth usage. The exact amount of bandwidth currently being used is displayed directly below the line graph.
-
-## <a name="status-codes"></a>Status Codes
-
-![Status code graph](./media/cdn-real-time-stats/cdn-status-codes.png)
-
-The **Status Codes** graph indicates how often certain HTTP response codes are occurring over the selected time span.
-
-> [AZURE.TIP]  For a description of each HTTP status code option, see [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx).
-
-A list of HTTP status codes is displayed directly above the graph. This list indicates each status code that can be included in the line graph and the current number of occurrences per second for that status code. By default, a line is displayed for each of these status codes in the graph. However, you can choose to only monitor the status codes that have special significance for your CDN configuration. To do this, check the desired status codes and clear all other options, then click **Refresh Graph**. 
-
-You can temporarily hide logged data for a particular status code.  From the legend directly below the graph, click the status code you want to hide. The status code will be immediately hidden from the graph. Clicking that status code again will cause that option to be displayed again.
-
-## <a name="cache-statuses"></a>Cache Statuses
-
-![Cache Statuses graph](./media/cdn-real-time-stats/cdn-cache-status.png)
-
-The **Cache Statuses** graph indicates how often certain types of cache statuses are occurring over the selected time span. 
-
-> [AZURE.TIP]  For a description of each cache status code option, see [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx).
-
-A list of cache status codes is displayed directly above the graph. This list indicates each status code that can be included in the line graph and the current number of occurrences per second for that status code. By default, a line is displayed for each of these status codes in the graph. However, you can choose to only monitor the status codes that have special significance for your CDN configuration. To do this, check the desired status codes and clear all other options, then click **Refresh Graph**. 
-
-You can temporarily hide logged data for a particular status code.  From the legend directly below the graph, click the status code you want to hide. The status code will be immediately hidden from the graph. Clicking that status code again will cause that option to be displayed again.
-
-## <a name="connections"></a>Connections
-
-![Connections graph](./media/cdn-real-time-stats/cdn-connections.png)
-
-This graph indicates how many connections have been established to your edge servers. Each request for an asset that passes through our CDN results in a connection.
-
-## <a name="next-steps"></a>Next Steps
-
-- Get notified with [Real-time alerts in Azure CDN](cdn-real-time-alerts.md)
-- Dig deeper with [advanced HTTP reports](cdn-advanced-http-reports.md)
-- Analyze [usage patterns](cdn-analyze-usage-patterns.md)
+* [Пропускная способность](#bandwidth)
+* [Коды состояний](#status-codes)
+* [Состояния кэша](#cache-statuses)
+* [Подключения](#connections)
 
 
+## Доступ к статистике в реальном времени
 
+1. На [портале Azure](https://portal.azure.com) перейдите к профилю CDN.
 
-<!--HONumber=Oct16_HO2-->
+	![Колонка профиля сети CDN](./media/cdn-real-time-stats/cdn-profile-blade.png)
 
+2. В колонке профиля сети CDN нажмите кнопку **Управление**.
 
+	![Кнопка управления в колонке профиля CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
+
+	Откроется портал управления CDN.
+
+3. Наведите указатель на вкладку **Аналитика**, а затем на всплывающее окно **Статистика в реальном времени**. Щелкните **Большой HTTP-объект**.
+
+	![Портал управления CDN](./media/cdn-real-time-stats/cdn-premium-portal.png)
+
+	Отобразятся диаграммы статистических данных в реальном времени.
+	
+На каждой диаграмме отображается статистика в реальном времени за определенный период. Они запускаются при загрузке страницы и автоматически обновляются каждые несколько секунд. Кнопка **Refresh Graph** (Обновить диаграмму), если она присутствует, позволяет очистить данные на диаграмме, после чего отобразятся только выбранные данные.
+
+## Пропускная способность
+
+![Диаграмма "Пропускная способность"](./media/cdn-real-time-stats/cdn-bandwidth.png)
+
+На диаграмме **Пропускная способность** отображается объем пропускной способности, использовавшийся для текущей платформы за выбранный период времени. На затененной части диаграммы показано использование пропускной способности. Точный объем пропускной способности, используемой в данный момент, отображается непосредственно под линейной диаграммой.
+
+## Коды состояний
+
+![Диаграмма "Код состояния"](./media/cdn-real-time-stats/cdn-status-codes.png)
+
+На диаграмме **Коды состояний** показана частота возникновения определенных кодов HTTP-ответов за выбранный период времени.
+
+> [AZURE.TIP]  Описание каждого параметра кода состояния HTTP см. в разделе [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx) (Коды состояний HTTP в сети Azure CDN).
+
+Список кодов состояний HTTP находится непосредственно над диаграммой. В списке приводится каждый код состояния, который может быть включен в линейную диаграмму, и текущее количество вхождений в секунду этого кода состояния. По умолчанию отображается строка для каждого кода состояния в диаграмме. Однако можно отслеживать только те коды состояний, которые имеют особое значение для конфигурации сети CDN. Для этого проверьте требуемые коды состояний и очистите все другие параметры, а затем нажмите кнопку **Refresh Graph** (Обновить диаграмму).
+
+Можно временно скрыть данные журнала для определенного кода состояния. В условных обозначениях непосредственно под диаграммой щелкните код состояния, который нужно скрыть. Код состояния сразу же пропадет из диаграммы. Если щелкнуть этот код состояния еще раз, он снова появится на диаграмме.
+
+## Состояния кэша
+
+![Диаграмма "Состояния кэша"](./media/cdn-real-time-stats/cdn-cache-status.png)
+
+На диаграмме **Состояния кэша** показана частота возникновения определенных типов состояний кэша за выбранный период времени.
+
+> [AZURE.TIP]  Описание каждого параметра кода состояния кэша см. в разделе [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) (Коды состояния кэша в сети Azure CDN).
+
+Список кодов состояний кэша находится непосредственно над диаграммой. В списке приводится каждый код состояния, который может быть включен в линейную диаграмму, и текущее количество вхождений в секунду этого кода состояния. По умолчанию отображается строка для каждого кода состояния в диаграмме. Однако можно отслеживать только те коды состояний, которые имеют особое значение для конфигурации сети CDN. Для этого проверьте требуемые коды состояний и очистите все другие параметры, а затем нажмите кнопку **Refresh Graph** (Обновить диаграмму).
+
+Можно временно скрыть данные журнала для определенного кода состояния. В условных обозначениях непосредственно под диаграммой щелкните код состояния, который нужно скрыть. Код состояния сразу же пропадет из диаграммы. Если щелкнуть этот код состояния еще раз, он снова появится на диаграмме.
+
+## Подключения
+
+![Диаграмма "Подключения"](./media/cdn-real-time-stats/cdn-connections.png)
+
+На этой диаграмме показано количество подключений, установленных с пограничными серверами. Подключение устанавливается при каждом запросе к ресурсу, который проходит через сеть CDN.
+
+## Дальнейшие действия
+
+- Получение уведомлений с помощью [оповещения в режиме реального времени в Azure CDN](cdn-real-time-alerts.md)
+- См. сведения о [расширенных HTTP-отчетах](cdn-advanced-http-reports.md).
+- См. сведения об [анализе шаблонов использования](cdn-analyze-usage-patterns.md).
+
+<!---HONumber=AcomDC_0824_2016-->

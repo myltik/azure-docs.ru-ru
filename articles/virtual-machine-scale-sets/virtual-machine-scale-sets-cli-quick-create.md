@@ -1,37 +1,31 @@
 <properties
-    pageTitle="Scale sets CLI quick create | Microsoft Azure"
-    description="Deploy scale sets using CLI quick create."
-    keywords="virtual machine scale sets" 
-    services="virtual-machine-scale-sets"
-    documentationCenter=""
-    authors="gatneil"
-    manager="madhana"
-    editor="tysonn"
-    tags="azure-resource-manager" />
+	pageTitle="Быстрое создание наборов масштабирования с помощью интерфейса командной строки | Microsoft Azure"
+	description="Вы можете развертывать наборы масштабирования с помощью функции быстрого создания в интерфейсе командной строки."
+	keywords="наборы масштабирования виртуальных машин" 
+	services="virtual-machine-scale-sets"
+	documentationCenter=""
+	authors="gatneil"
+	manager="madhana"
+	editor="tysonn"
+	tags="azure-resource-manager" />
 
 <tags
-    ms.service="virtual-machine-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="03/31/2016"
-    ms.author="gatneil"/>
+	ms.service="virtual-machine-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/31/2016"
+	ms.author="gatneil"/>
 
-
-# <a name="quickly-create-a-scale-set-using-the-azure-cli"></a>Quickly create a scale set using the Azure CLI
+# Быстрое создание набора масштабирования с помощью интерфейса командной строки Azure
 
 [AZURE.INCLUDE [cli-vmss-quick-create](../../includes/virtual-machines-linux-cli-vmss-quick-create-include.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-For example Resource Manager templates using scale sets, search for "vmss" in the [Azure Quickstart Templates github repo](https://github.com/Azure/azure-quickstart-templates).
+Чтобы найти примеры шаблонов Resource Manager с использованием наборов масштабирования, выполните поиск по запросу "vmss" в [репозитории GitHub с шаблонами быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates).
 
-For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Общие сведения см. на [основной целевой странице для наборов масштабирования](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

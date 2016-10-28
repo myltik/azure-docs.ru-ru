@@ -1,119 +1,115 @@
 <properties 
-    pageTitle="How to create a cloud collection of Azure RemoteApp | Microsoft Azure" 
-    description="Learn how to create a deployment of Azure RemoteApp that saves data in the Azure cloud." 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" 
-    editor=""/>
+	pageTitle="Создание облачной коллекции Azure RemoteApp | Microsoft Azure" 
+	description="Узнайте, как создавать развертывания Azure RemoteApp, предназначенные для сохранения данных в облаке Azure." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
 <tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo"/>
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/15/2016" 
+	ms.author="elizapo"/>
 
-
-# <a name="how-to-create-a-cloud-collection-of-azure-remoteapp"></a>How to create a cloud collection of Azure RemoteApp
+# Создание облачной коллекции Azure RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
-There are two kinds of [Azure RemoteApp collections](remoteapp-collections.md): 
+Существует два типа [коллекций Azure RemoteApp](remoteapp-collections.md).
 
-- Cloud: resides completely in Azure. You can choose to save all data in the cloud (so a cloud-only collection) or to connect your collection to a VNET and save data there.   
-- Hybrid: includes a virtual network for on-premises access - this requires the use of Azure AD and an on-premises Active Directory environment.
+- Облачная: полностью размещается в Azure. Вы можете сохранить все данные в облаке (облачная коллекция) или подключить коллекцию к виртуальной сети и сохранить данные в ней.
+- Гибридные: включают виртуальную сеть для локального доступа — это требует использования Azure AD и локальной среды Active Directory.
 
-This tutorial walks you through the process of creating a cloud collection. There are four steps: 
+В данном руководстве описывается процесс создания облачной коллекции. Этот процесс состоит из четырех этапов.
 
-1.  Create an Azure RemoteApp collection.
-2.  Optionally configure directory synchronization. If you are using Azure AD + Active Directory, you have to synchronize users, contacts, and passwords from your on-premises Active Directory to your Azure AD tenant.
-5.  Publish apps.
-6.  Configure user access.
-
-
-**Before you begin**
-
-You need to do the following before creating the collection:
-
-- [Sign up](https://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp. 
-- Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users.
-- This procedure assumes you are either going to use one of the template images provided as part of your subscription or that you have already uploaded the template image you want to use. If you need to upload a different template image, you can do that from the Template Images page. Just click **upload a template image** and follow the steps in the wizard. 
-- Want to use the Office 365 ProPlus image? Check out info [here](remoteapp-officesubscription.md).
-- Want to provide custom apps or LOB programs? Create a new [image](remoteapp-imageoptions.md) and use it in your cloud collection.
-- Figure out whether you need to connect to a VNET. If you choose to connect to a VNET, make sure it meets the [sizing guidelines](remoteapp-vnetsizing.md) and that it [can connect to RemoteApp](remoteapp-vnet.md). Check out the [VNET planning article ](remoteapp-planvnet.md)for more information.
-- If you're using a VNET, decide whether you want to join it to your local Active Directory domain.
-
-## <a name="step-1:-create-a-cloud-collection---with-or-without-a-vnet##"></a>Step 1: Create a cloud collection - with or without a VNET##
+1.	Создание коллекции Azure RemoteApp
+2.	При необходимости настройка синхронизации каталогов. Если используется Azure AD и Active Directory, придется синхронизировать пользователей, контакты и пароли между локальной Active Directory и клиентом Azure AD.
+5.	Публикация приложений
+6.	Настройка доступа пользователей.
 
 
-Use the following steps to **create a cloud-only collection**:
+**Перед началом работы**
 
-1. In the management portal, go to the RemoteApp page.
-2. Click **New > Quick Create**.
-3. Enter a name for your collection, and select your region.
-4. Choose the plan that you want to use - standard or basic.
-5. Choose the template to use for this collection. 
+Перед созданием коллекции необходимо выполнить следующие действия.
 
-    **Tip:** Your subscription for RemoteApp comes with [template images](remoteapp-images.md) that contain Office 365 or Office 2013 (for trial use) programs, some published (such as Word) and others ready to publish. You can also create a new [image](remoteapp-imageoptions.md) and use it in your cloud collection.
+- [Зарегистрируйтесь](https://azure.microsoft.com/services/remoteapp/) в Azure RemoteApp.
+- Соберите сведения о пользователях, которым нужно предоставить доступ. Это могут быть либо данные учетной записи Майкрософт, либо данные рабочей учетной записи Active Directory пользователя.
+- В этой процедуре предполагается, что либо планируется использовать один из образов шаблонов, предоставленных в рамках подписки, либо нужный образ шаблона уже передан. Если требуется отправить другой образ шаблона, это можно сделать на странице образов шаблона. Просто щелкните ссылку **Отправить образ шаблона** и следуйте инструкциям мастера.
+- Хотите использовать образ Office 365 профессиональный плюс? Ознакомьтесь с [этой информацией](remoteapp-officesubscription.md).
+- Хотите предоставить пользователям специализированные приложения или бизнес-программы? Создайте [образ](remoteapp-imageoptions.md) и используйте его в своей облачной коллекции.
+- Определите, нужно ли вам подключаться к виртуальной сети. Если выполняется подключение к виртуальной сети, убедитесь, что она удовлетворяет [требованиям к размеру](remoteapp-vnetsizing.md) и [может подключиться к RemoteApp](remoteapp-vnet.md). Изучите сведения о [планировании виртуальных сетей](remoteapp-planvnet.md).
+- Если вы используете виртуальную сеть, определите, следует ли присоединять ее к локальному домену Active Directory.
 
-
-1. Click **Create RemoteApp collection**.
-    
-    **Important:** It can take up to 30 minutes to provision your collection.
-
-After your Azure RemoteApp collection has been created, double-click the name of the collection. That will bring up the **Quick Start** page - this is where you finish configuring the collection.
-
-Use the following steps to create a **cloud + VNET collection**:
-
-1. In the management portal, go to the Azure RemoteApp page.
-2. Click **New** > **Create with VNET**.
-3. Enter a name for your collection.
-4. Choose the plan that you want to use - standard or basic.
-5. Choose the VNET you already created. Don't know how to do that? For now, the steps are in the [hybrid](remoteapp-create-hybrid-deployment.md) topic.
-6. Decide whether you want to join your collection to your domain. If yes, you'll need to use AD Connect to integrate Azure AD and your Active Directory environment. That's covered in below in **Step 2**.
-6. Click **Create RemoteApp collection**.
+## Шаг 1. Создание облачной коллекции – с виртуальной сетью или без нее.##
 
 
-## <a name="step-2:-configure-active-directory-directory-synchronization-(optional)"></a>Step 2: Configure Active Directory directory synchronization (optional) ##
+Чтобы **создать новую облачную коллекцию**, выполните следующие действия.
 
-If you want to use Active Directory, Azure RemoteApp requires directory synchronization between Azure Active Directory and your on-premises Active Directory to synchronize users,  contacts, and passwords to your Azure Active Directory tenant. See [Configuring Active Directory for Azure RemoteApp](remoteapp-ad.md) for planning information. You can also go directly to [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) for information.
+1. На портале управления перейдите на страницу RemoteApp.
+2. Последовательно выберите **Создать > Быстрое создание**.
+3. Введите имя коллекции и выберите регион.
+4. Выберите нужный план — стандартный или базовый.
+5. Выберите шаблон для коллекции.
 
-## <a name="step-3:-publish-apps"></a>Step 3: Publish apps ##
+	**Совет**. Ваша подписка RemoteApp включает в себя [образы шаблонов](remoteapp-images.md), которые содержат программы Office 365 или Office 2013 (для пробного использования), некоторые из которых уже опубликованы (например, Word), а остальные готовы к публикации. Вы также можете создать [образ](remoteapp-imageoptions.md) и использовать его в своей облачной коллекции.
 
-An Azure RemoteApp app is the app or program that you provide to your users. It is located in the template image you uploaded for the collection. When a user accesses an app, the app appears to run in their local environment, but it is really running in a virtual machine in Azure. 
 
-Before your users can access apps, you need to publish them – publishing apps lets your users access the apps through the Remote Desktop client.
+1. Щелкните **Создать коллекцию RemoteApp**.
+	
+	**Внимание!** Подготовка коллекции к работе может занять до 30 минут.
+
+После создания коллекции Azure RemoteApp дважды щелкните ее имя. Откроется страница **Быстрый запуск** — здесь вы сможете завершить настройку коллекции.
+
+Чтобы **создать новую облачную коллекцию с виртуальной сетью**, выполните следующие действия.
+
+1. На портале управления перейдите на страницу Azure RemoteApp.
+2. Нажмите **Создать** > **Создать с помощью VNET**.
+3. Введите имя своей коллекции.
+4. Выберите нужный план — стандартный или базовый.
+5. Выберите созданную виртуальную сеть. Не знаете, как это сделать? Пока эти шаги находятся в разделе о [гибридных](remoteapp-create-hybrid-deployment.md) коллекциях.
+6. Определите, хотите ли вы подключить коллекцию к домену. Если да, необходимо использовать AD Connect для интеграции Azure AD и вашей среды Active Directory. Это описано ниже в **Шаге 2**.
+6. Щелкните **Создать коллекцию RemoteApp**.
+
+
+## Шаг 2. Настройка синхронизации каталогов Active Directory (при необходимости) ##
+
+Если вы планируете использовать Active Directory, то Azure RemoteApp требуется синхронизация каталогов между Azure Active Directory и локальными службами Active Directory для синхронизации пользователей, контактов и паролей с клиентом Azure Active Directory. Сведения о планировании см. в [статье о настройке Active Directory для Azure RemoteApp](remoteapp-ad.md). Для получения информации вы также можете перейти напрямую к [AD Connect](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/).
+
+## Шаг 3. Публикация приложений ##
+
+Приложение RemoteApp — это приложение или программа, которую вы предоставляете пользователям. Оно располагается в образе шаблона, отправленном для коллекции. Когда пользователь вызывает приложение, оно выполняется как в локальной среде, но на самом деле запускается в виртуальной машине в Azure.
+
+Прежде чем пользователи смогут получить доступ к приложениям, необходимо их опубликовать — это позволит пользователям обращаться к приложениям через клиент удаленного рабочего стола.
  
-You can publish multiple apps to your Azure RemoteApp collection. From the publishing page, click **Publish** to add a program. You can either publish from the **Start** menu of the template image or by specifying the path on the template image for the app. If you choose to add from the **Start** menu, choose the app to publish. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
+В коллекции Azure RemoteApp можно опубликовать несколько приложений. На странице публикации нажмите кнопку **Опубликовать**, чтобы добавить приложение. Опубликовать приложение можно либо из меню **Пуск** образа шаблона, либо указав в образе шаблона путь к приложению. Если вы решили воспользоваться меню **Пуск**, выберите приложение для публикации. Если выбран вариант указания пути к приложению, предоставьте имя приложения и путь, по которому она устанавливается в образе шаблона.
 
-## <a name="step-4:-configure-user-access"></a>Step 4: Configure user access ##
+## Шаг 4. Настройка доступа пользователей ##
 
-Now that you have created your collection, you need to add the users that you want to be able to use your remote resources. If you are using Active Directory, the users that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this collection.
+Теперь, когда коллекция создана, вам нужно добавить пользователей, которым требуется предоставить доступ к удаленным ресурсам. При использовании Active Directory пользователи, которым предоставляется доступ, должны существовать в клиенте Active Directory, связанном с подпиской, в рамках которой создавалась данная коллекция.
 
-1.  From the Quick Start page, click **Configure user access**. 
-2.  Enter the work account (from Active Directory) or Microsoft account that you want to grant access for.
+1.	На странице быстрого запуска щелкните элемент **Настроить доступ пользователей**.
+2.	Введите данные рабочей учетной записи (для Active Directory) или данные учетной записи Майкрософт, для которой планируется предоставить доступ.
 
-    **Notes:** 
+	**Примечания.**
 
-    Make sure that you use the “user@domain.com” format.
+	Используйте формат “user@domain.com.
 
-    If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing. 
+	Если в коллекции используется Office 365 профессиональный плюс, для пользователей необходимо использовать удостоверения Active Directory. Это поможет проверять лицензирование.
 
-3.  After the users are validated, click **Save**.
-
-
-## <a name="next-steps"></a>Next steps ##
-
-That's it - you have successfully created and deployed your Azure RemoteApp cloud collection. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the Azure RemoteApp Quick Start page. Then, have users log into the client and access the apps you published.
-
-### <a name="help-us-help-you"></a>Help us help you 
-Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.
+3.	После проверки пользователей нажмите кнопку **Сохранить**.
 
 
-<!--HONumber=Oct16_HO2-->
+## Дальнейшие действия ##
 
+Итак, облачная коллекция Azure RemoteApp успешно создана и развернута. Далее пользователи должны загрузить и установить клиент удаленного рабочего стола. URL-адрес для клиента вы можете найти на странице быстрого запуска Azure RemoteApp. Затем пользователи должны войти в клиент и вызвать опубликованные приложения.
 
+### Помогите нам помочь вам 
+Вы знаете, что можете не только оценивать эту статью и оставлять комментарии ниже, но и вносить в нее изменения? Чего-то не хватает? Что-то неправильно? Что-то изложено непонятно? Чтобы внести изменения, прокрутите страницу вверх и щелкните **Изменить на GitHub**. Мы просмотрим ваши предложения, и, когда мы их одобрим, вы увидите изменения и улучшения здесь.
+
+<!---HONumber=AcomDC_0817_2016-->

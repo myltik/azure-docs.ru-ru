@@ -1,25 +1,23 @@
-## <a name="quick-steps"></a>Quick steps 
+## Краткое руководство 
 
-The article assumes that you have logged in to your subscription in the portal, and created a virtual machine with the available images using the Resource Manager deployment model. Follow these steps once your virtual machine starts running.
+В этой статье предполагается, что вы вошли в свою подписку на портале и создали виртуальную машину из доступных образов, используя модель развертывания с помощью Resource Manager. После запуска виртуальной машины выполните следующие действия.
 
-1.  View the virtual machine settings on the portal and click the Public IP address.
+1.  Откройте параметры виртуальной машины в портале и щелкните поле "Общедоступный IP-адрес".
 
-    ![locate ip resource](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
+    ![найдите ресурс IP-адреса](./media/virtual-machines-common-portal-create-fqdn/locatePublicIP.PNG)
 
-2.  Note that the DNS name for the Public IP is blank. Click **Configuration** for the Public IP blade.
+2.  Обратите внимание на то, что для общедоступного IP-адреса DNS-имя будет пустым. Щелкните **Конфигурация** в колонке общедоступного IP-адреса.
 
     ![settings ip](./media/virtual-machines-common-portal-create-fqdn/settingsIP.PNG)
 
-3.  Enter the desired DNS name label and **Save** this configuration.
+3.  Введите нужное DNS-имя и **сохраните** эту конфигурацию.
 
-    ![enter dns name label](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
+    ![введите метку имени DNS](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
 
-    The Public IP resource now shows this new DNS label on its blade.
+    Новое DNS-имя появится на вкладке ресурса общедоступного IP-адреса.
 
-4.  Close the Public IP blades and go back to the virtual machine blade in the portal. Verify that the DNS name/FQDN appears next to the IP address for the Public IP resource.
+4.  Закройте колонки общедоступного IP-адреса и вернитесь в колонку виртуальной машины на портале. Убедитесь, что DNS-имя или полное доменное имя отображается рядом с IP-адресом ресурса с общедоступным IP-адресом.
 
-    ![FQDN is created](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
+    ![создается полное доменное имя](./media/virtual-machines-common-portal-create-fqdn/fqdnCreated.PNG)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

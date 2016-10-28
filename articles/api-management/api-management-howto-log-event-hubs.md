@@ -1,70 +1,69 @@
 <properties 
-    pageTitle="How to log events to Azure Event Hubs in Azure API Management | Microsoft Azure" 
-    description="Learn how to log events to Azure Event Hubs in Azure API Management." 
-    services="api-management" 
-    documentationCenter="" 
-    authors="steved0x" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Как регистрировать события в концентраторах событий Azure в службе управления Azure API | Microsoft Azure" 
+	description="Узнайте, как регистрировать события в концентраторах событий Azure в службе управления Azure API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="api-management" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/25/2016" 
-    ms.author="sdanie"/>
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>
 
+# Как регистрировать события в концентраторах событий Azure в службе управления Azure API
 
-# <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>How to log events to Azure Event Hubs in Azure API Management
+Концентраторы событий Azure — это высокомасштабируемая служба приема данных, которая может обрабатывать миллионы событий в секунду, позволяя вам обрабатывать и анализировать огромное количество данных, создаваемых подключенными устройствами и приложениями. Концентраторы событий выступают в качестве "входной двери"для событий конвейера. После того как данные поступили в концентратор событий, они могут быть преобразованы и сохранены с использованием любого поставщика аналитики в режиме реального времени или адаптера пакетной обработки или хранения. Концентраторы событий отделяют создание потока событий от потребления этих событий, чтобы потребители событий могли обращаться к событиям по собственному расписанию.
 
-Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule.
+Эта статья сопровождает видеоролик [Интеграция службы управления API Azure с концентраторами событий](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/). В ней рассматривается регистрация событий управления API с помощью концентраторов событий Azure.
 
-This article is a companion to the [Integrate Azure API Management with Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video and describes how to log API Management events using Azure Event Hubs.
+## Создание концентратора событий Azure
 
-## <a name="create-an-azure-event-hub"></a>Create an Azure Event Hub
+Чтобы создать новый концентратор событий, войдите на [классический портал Azure](https://manage.windowsazure.com) и последовательно щелкните **Создать**->**Службы приложений**->**Служебная шина**->**Концентратор событий**->**Быстрое создание**. Введите имя концентратора событий, регион, выберите подписку и пространство имен. Если пространство имен не было создано ранее, его можно создать, введя имя в текстовом поле **Пространство имен**. После настройки всех свойств щелкните **Создать новый концентратор событий**, чтобы создать концентратор событий.
 
-To create a new Event Hub, sign-in to the [Azure classic portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Service Bus**->**Event Hub**->**Quick Create**. Enter an Event Hub name, region, select a subscription, and select a namespace. If you haven't previously created a namespace you can create one by typing a name in the **Namespace** textbox. Once all properties are configured, click **Create a new Event Hub** to create the Event Hub.
+![Создание концентратора событий][create-event-hub]
 
-![Create event hub][create-event-hub]
+Затем перейдите на вкладку **Настройка**, связанную с новым концентратором событий, и создайте две **политики общего доступа**. Назовите первую **Отправка** и назначьте ей разрешения **Отправка**.
 
-Next, navigate to the **Configure** tab for your new Event Hub and create two **shared access policies**. Name the first one **Sending** and give it **Send** permissions.
+![Политика «Отправка»][sending-policy]
 
-![Sending policy][sending-policy]
+Назовите вторую **Получение**, назначьте ей разрешения **Прослушивание** и щелкните **Сохранить**.
 
-Name the second one **Receiving**, give it **Listen** permissions, and click **Save**.
+![Политика «Получение»][receiving-policy]
 
-![Receiving policy][receiving-policy]
+Каждая политика общего доступа позволяет приложениям отправлять события концентратору событий и получать их. Чтобы получить доступ к строкам подключения для этих политик, перейдите на вкладку **Панель мониторинга** концентратора событий и щелкните **Сведения о подключении**.
 
-Each shared access policy allows applications to send and receive events to and from the Event Hub. To access the connection strings for these policies, navigate to the **Dashboard** tab of the Event Hub and click **Connection information**.
+![Строка подключения][event-hub-dashboard]
 
-![Connection string][event-hub-dashboard]
+Строка подключения **Отправка** используется при регистрации событий, а строка подключения **Получение** — при загрузке событий из концентратора событий.
 
-The **Sending** connection string is used when logging events, and the **Receiving** connection string is used when downloading events from the Event Hub.
+![Строка подключения][event-hub-connection-string]
 
-![Connection string][event-hub-connection-string]
+## Создание средства ведения журнала для управления API
 
-## <a name="create-an-api-management-logger"></a>Create an API Management logger
+Теперь, когда концентратор событий создан, нужно настроить [средство ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx) в службе управления API, которое сможет регистрировать события в концентраторе событий.
 
-Now that you have an Event Hub, the next step is to configure a [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx) in your API Management service so that it can log events to the Event Hub.
+Средства ведения журнала службы управления API настраиваются с помощью [REST API службы управления API](http://aka.ms/smapi). Прежде чем использовать REST API впервые, просмотрите информацию о [необходимых компонентах](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) и убедитесь, что [включен доступ к REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
 
-API Management loggers are configured using the [API Management REST API](http://aka.ms/smapi). Before using the REST API for the first time, review the [prerequisites](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) and ensure that you have [enabled access to the REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
-
-To create a logger, make an HTTP PUT request using the following URL template.
+Чтобы создать средство ведения журнала, выполните HTTP-запрос PUT, используя следующий шаблон URL-адреса.
 
     https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
 
--   Replace `{your service}` with the name of your API Management service instance.
--   Replace `{new logger name}` with the desired name for your new logger. You will reference this name when you configure the [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) policy
+-	Замените `{your service}` именем экземпляра службы управления API.
+-	Замените `{new logger name}` требуемым именем нового средства ведения журнала. Вы укажете это имя при настройке политики [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) (регистрация в концентраторе событий).
 
-Add the following headers to the request.
+Добавьте в запрос следующие заголовки:
 
--   Content-Type : application/json
--   Authorization : SharedAccessSignature uid=...
-    -   For instructions on generating the `SharedAccessSignature` see [Azure API Management REST API Authentication](https://msdn.microsoft.com/library/azure/dn798668.aspx).
+-	тип содержимого: «application/json»;
+-	авторизация: «SharedAccessSignature uid=...»:
+	-	указания по созданию `SharedAccessSignature` см. в разделе [Проверка подлинности REST API управления API Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
 
-Specify the request body using the following template.
+Укажите текст запроса, используя следующий шаблон.
 
     {
       "type" : "AzureEventHub",
@@ -75,52 +74,52 @@ Specify the request body using the following template.
         }
     }
 
--   `type` must be set to `AzureEventHub`.
--   `description` provides an optional description of the logger and can be a zero length string if desired.
--   `credentials` contains the `name` and `connectionString` of your Azure Event Hub.
+-	Для параметра `type` нужно задать значение `AzureEventHub`.
+-	`description` предоставляет дополнительное описание средства ведения журнала. При желании эту строку можно оставить пустой.
+-	`credentials` содержит `name` и `connectionString` концентратора событий Azure.
 
-When you make the request, if the logger is created a status code of `201 Created` is returned. 
+Если при выполнении запроса средство ведения журнала создано, возвращается код состояния `201 Created`.
 
->[AZURE.NOTE] For other possible return codes and their reasons, see [Create a Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). To see how perform other operations such as list, update, and delete, see the [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx) entity documentation.
+>[AZURE.NOTE] Другие возможные коды возврата и их причины см. в разделе [Создание средства ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx#PUT). Чтобы узнать, как выполнять другие операции, такие как перечисление, обновление и удаление, см. документацию по сущности [Средство ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx).
 
-## <a name="configure-log-to-eventhubs-policies"></a>Configure log-to-eventhubs policies
+## Настройка политик регистрации в концентраторах событий
 
-Once your logger is configured in API Management, you can configure your log-to-eventhubs policies to log the desired events. The log-to-eventhubs policy can be used in either the inbound policy section or the outbound policy section.
+Если средство ведения журналов в управлении API уже настроено, вы можете настроить политики регистрации в концентраторах событий для регистрации нужных событий. Политику регистрации в концентраторах событий можно использовать в разделе входящей или исходящей политики.
 
-To configure policies, sign-in to the [Azure classic portal](https://manage.windowsazure.com), navigate your API Management service, and click either **publisher portal** or **Manage** to access the publisher portal.
+Чтобы настроить политики, войдите на [классический портал Azure](https://manage.windowsazure.com), перейдите к службе управления API и щелкните **портал издателя** или **Управление**, чтобы получить доступ к порталу издателя.
 
-![Publisher portal][publisher-portal]
+![Портал издателя][publisher-portal]
 
-Click **Policies** in the API Management menu on the left, select the desired product and API, and click **Add policy**. In this example we're adding a policy to the **Echo API** in the **Unlimited** product.
+В меню управления API слева щелкните **Политики**, выберите желаемый продукт и интерфейс API и щелкните **Добавить политику**. В этом примере мы добавляем политику **Echo API** (API вывода на экран) в продукт **Unlimited**.
 
-![Add policy][add-policy]
+![добавление политики;][add-policy]
 
-Position your cursor in the `inbound` policy section and click the **Log to EventHub** policy to insert the `log-to-eventhub` policy statement template.
+Наведите указатель мыши на раздел политики `inbound` и щелкните политику **Регистрация в концентраторе событий**, чтобы вставить шаблон инструкции политики `log-to-eventhub`.
 
-![Policy editor][event-hub-policy]
+![Редактор политики][event-hub-policy]
 
     <log-to-eventhub logger-id ='logger-id'>
       @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
     </log-to-eventhub>
 
-Replace `logger-id` with the name of the API Management logger you configured in the previous step.
+Замените `logger-id` именем средства ведения журнала службы управления API, настроенного на предыдущем этапе.
 
-You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example a string containing the date and time, service name, request id, request ip address, and operation name is logged.
+Вы можете использовать любое выражение, которое возвращает строку в качестве значения для элемента `log-to-eventhub`. В этом примере регистрируется строка, содержащая дату и время, имя службы, идентификатор запроса, IP-адрес запроса и имя операции.
 
-Click **Save** to save the updated policy configuration. As soon as it is saved the policy is active and events are logged to the designated Event Hub.
+Нажмите кнопку **Сохранить**, чтобы сохранить конфигурацию обновленной политики. Сразу же после сохранения политика становится активной, а события регистрируются в указанном концентраторе событий.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
--   Learn more about Azure Event Hubs
-    -   [Get started with Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-    -   [Receive messages with EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
-    -   [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
--   Learn more about API Management and Event Hubs integration
-    -   [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
-    -   [log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
-    -   [Monitor your APIs with Azure API Management, Event Hubs and Runscope](api-management-log-to-eventhub-sample.md)    
+-	Дополнительная информация о концентраторах событий Azure
+	-	[Приступая к работе с концентраторами событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+	-	[Прием сообщений через EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
+	-	[Руководство по программированию концентраторов событий](../event-hubs/event-hubs-programming-guide.md)
+-	Дополнительные сведения об интеграции службы управления API и концентраторов событий
+	-	[Справочник по сущности "Средство ведения журнала"](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[Справочник по политике регистрации в концентраторе событий](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	-	[Мониторинг API-интерфейсов с помощью службы управления API Azure, концентраторов событий и Runscope](api-management-log-to-eventhub-sample.md)
 
-## <a name="watch-a-video-walkthrough"></a>Watch a video walkthrough
+## Просмотрите видеоруководство
 
 > [AZURE.VIDEO integrate-azure-api-management-with-event-hubs]
 
@@ -134,14 +133,4 @@ Click **Save** to save the updated policy configuration. As soon as it is saved 
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

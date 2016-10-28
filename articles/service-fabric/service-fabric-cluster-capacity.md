@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Planning the Service Fabric cluster capacity | Microsoft Azure"
-   description="Service Fabric cluster capacity planning considerations. Nodetypes, Durability and Reliability tiers"
+   pageTitle="Планирование загрузки кластера Service Fabric | Microsoft Azure"
+   description="Рекомендации по планированию загрузки кластера Service Fabric. NodeTypes, устойчивость и уровни надежности"
    services="service-fabric"
    documentationCenter=".net"
    authors="ChackDan"
@@ -17,99 +17,94 @@
    ms.author="chackdan"/>
 
 
+# Рекомендации по планированию загрузки кластера Service Fabric
 
-# <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric cluster capacity planning considerations
+Для любой рабочей развернутой службы важным шагом является планирование загрузки. Ниже приведено несколько факторов, которые необходимо учитывать при этом.
 
-For any production deployment, capacity planning is an important step. Here are some of the items that you have to consider as a part of that process.
+- Количество типов узлов, с которыми создается кластер
+- Свойства каждого типа узла (размер, первичный узел, доступ к Интернету, количество виртуальных машин и т. п.).
+- Надежность и устойчивость характеристик кластера.
 
-- The number of node types your cluster needs to start out with
-- The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
-- The reliability and durability characteristics of the cluster
+Кратко рассмотрим каждый из пунктов.
 
-Let us briefly review each of these items.
+## Количество типов узлов, с которыми создается кластер
 
-## <a name="the-number-of-node-types-your-cluster-needs-to-start-out-with"></a>The number of node types your cluster needs to start out with
+Во-первых, необходимо выяснить, для чего будет использоваться создаваемый кластер и какие виды приложений планируется в нем развернуть. Если назначение кластера не ясно, скорее всего, вы еще не готовы перейти к планированию загрузки.
 
-First, you need to figure out what the cluster you are creating is going to be used for and what kinds of applications you are planning to deploy into this cluster. If you are not clear on the purpose of the cluster, you are most likely not yet ready to enter the capacity planning process.
+Определите количество типов узлов, с которыми нужно создать кластер. Каждый тип узла соответствует набору масштабирования виртуальных машин. Каждый тип узла поддерживает возможность независимого масштабирования, имеет разные наборы открытых портов и собственные метрики емкости. Поэтому решение о числе типов узлов, в сущности, сводится к следующему.
 
-Establish the number of node types your cluster needs to start out with.  Each node type is mapped to a Virtual Machine Scale Set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. So the decision of the number of node types essentially comes down to the following considerations:
+- Есть ли у вашего приложения несколько служб, среди которых есть службы, которые должны быть общедоступными или доступными из Интернета? Типичные приложения содержат интерфейсную службу шлюза, которая получает входные данные от клиента, и одну или несколько внутренних служб, взаимодействующих с интерфейсными службами. Поэтому в этом случае требуется как минимум два типа узлов.
 
-- Does your application have multiple services, and do any of them need to be public or internet facing? Typical applications contain a front-end gateway service that receives input from a client, and one or more back-end services that communicate with the front-end services. So in this case, you end up having at least two node types.
+- У служб (составляющих приложение) различные требования к инфраструктуре, например больше ОЗУ или тактов центрального процессора? Предположим, что приложение, которое вам необходимо развернуть, содержит интерфейсную и внутреннюю службы. Интерфейсная служба может выполняться на виртуальных машинах меньшего размера (например, D2) с портами, открытыми для доступа через Интернет. Однако внутренняя служба, которая будет выполнять вычисления, должна размещаться на более крупных виртуальных машинах (D4, D6, D15) без выхода в Интернет.
 
-- Do your services (that make up your application) have different infrastructure needs such as greater RAM or higher CPU cycles? For example, let us assume that the application that you want to deploy contains a front-end service and a back-end service. The front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  The back-end service, however, is computation intensive and needs to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet facing.
+ Хотя вы можете поместить все эти службы на узлы одного типа, в этом примере их лучше всего поместить в кластер с двумя типами узлов. Так у каждого типа узла будут свои собственные свойства, например возможность подключения к Интернету или размер виртуальной машины. Кроме того, можно будет независимо менять число виртуальных машин.
 
- In this example, although you can decide to put all the services on one node type, we recommended that you place them in a cluster with two node types.  This allows for each node type to have distinct properties such as internet connectivity or VM size. The number of VMs can be scaled independently, as well.  
+- Так как нельзя предсказать будущее, исходите из известных вам фактов и решите, какое число типов узлов требуется, чтобы начать использовать приложения. Вы всегда сможете добавить или удалить типы узлов позже. У кластера Service Fabric должен быть по крайней мере один тип узла.
 
-- Since you cannot predict the future, go with facts you know of and decide on the number of node types that your applications need to start with. You can always add or remove node types later. A Service Fabric cluster must have at least one node type.
+## Свойства каждого типа узла
 
-## <a name="the-properties-of-each-node-type"></a>The properties of each node type
+**Тип узла** можно считать эквивалентом роли в облачных службах. Он определяет размер виртуальных машин, их количество и свойства. Каждый тип узла, определенный в кластере Service Fabric, настроен как отдельный набор масштабирования виртуальных машин. Наборы масштабирования виртуальных машин являются вычислительными ресурсами Azure. Их можно использовать для развертывания коллекции виртуальных машин и управления ею как набором. Будучи определенным как отдельный набор масштабирования виртуальных машин, каждый тип узла поддерживает возможность независимого масштабирования, имеет разные наборы открытых портов и собственные метрики загрузки.
 
-The **node type** can be seen as equivalent to roles in Cloud Services. Node types define the VM sizes, the number of VMs, and their properties. Every node type that is defined in a Service Fabric cluster is set up as a separate Virtual Machine Scale Set. VM Scale Sets are an Azure compute resource you can use to deploy and manage a collection of virtual machines as a set. Being defined as distinct VM Scale Sets, each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics.
+Кластер может содержать узлы нескольких типов, однако тип первичного узла (тот, который вы задали на портале) должен включать в себя не менее пяти виртуальных машин для кластеров, используемых для рабочих нагрузок в рабочей среде (или не менее трех виртуальных машин для тестовых кластеров). Если вы создаете кластер с помощью шаблона Resource Manager, то в определении типа узла вы найдете атрибут **is Primary**. Тип первичного узла — это тип узла, на котором размещены системные службы Service Fabric.
 
-Your cluster can have more than one node type, but the primary node type (the first one that you define on the portal) must have at least five VMs for clusters used for production workloads (or at least three VMs for test clusters). If you are creating the cluster using an Resource Manager template, then you will find a **is Primary** attribute under the node type definition. The primary node type is the node type where Service Fabric system services are placed.  
+### Тип первичного узла
+Для кластера с несколькими типами узлов необходимо выбрать, какой из них будет первичным. Ниже приведены характеристики типа первичного узла.
 
-### <a name="primary-node-type"></a>Primary node type
-For a cluster with multiple node types, you will need to choose one of them to be primary. Here are the characteristics of a primary node type:
+- Минимальный размер виртуальных машин для типа первичного узла зависит от выбранного уровня устойчивости. Значение по умолчанию для уровня устойчивости — Bronze. Прокрутите вниз, чтобы прочитать об уровне устойчивости и его значениях.
 
-- The minimum size of VMs for the primary node type is determined by the durability tier you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
+- Минимальное количество виртуальных машин для типа первичного узла зависит от выбранного уровня надежности. Значение по умолчанию для уровня надежности — Silver. Прокрутите вниз, чтобы прочитать об уровне надежности и его значениях.
 
-- The minimum number of VMs for the primary node type is determined by the reliability tier you choose. The default for the reliability tier is Silver. Scroll down for details on what the reliability tier is and the values it can take.
+- Системные службы Service Fabric (например, служба диспетчера кластера или служба хранилища образов) размещаются на первичных узлах, поэтому надежность и устойчивость кластера определяется значениями уровней надежности и устойчивости, выбранными для типа первичного узла.
 
-- The Service Fabric system services (for example, the Cluster Manager service or Image Store service) are placed on the primary node type and so the reliability and durability of the cluster is determined by the reliability tier value and durability tier value you select for the primary node type.
-
-![Screen shot of a cluster that has two Node Types ][SystemServices]
-
-
-### <a name="non-primary-node-type"></a>Non-primary node type
-For a cluster with multiple node types, there is one primary node type and the rest of them are non-primary. Here are the characteristics of a non-primary node type:
-
-- The minimum size of VMs for this node type is determined by the durability tier you choose. The default for the durability tier is Bronze. Scroll down for details on what the durability tier is and the values it can take.  
-
-- The minimum number of VMs for this node type can be one. However you should choose this number based on the number of replicas of the application/services that you would like to run in this node type. The number of VMs in a node type can be increased after you have deployed the cluster.
+![Снимок экрана с двумя типами узлов][SystemServices]
 
 
-## <a name="the-durability-characteristics-of-the-cluster"></a>The durability characteristics of the cluster
+### Тип вторичного узла
+В кластере с несколькими типами узлов имеется один тип первичного узла, а остальные — типы вторичных узлов. Ниже приведены характеристики типа вторичного узла.
 
-The durability tier is used to indicate to the system the privileges that your VMs have with the underlying Azure infrastructure. In the primary node type, this privilege allows Service Fabric to pause any VM level infrastructure request (such as a VM reboot, VM reimage, or VM migration) that impact the quorum requirements for the system services and your stateful services. In the non-primary node types, this privilege allows Service Fabric to pause any VM level infrastructure request like VM reboot, VM reimage, VM migration etc., that impact the quorum requirements for your stateful services running in it.
+- Минимальный размер виртуальных машин для этого типа узла зависит от выбранного уровня устойчивости. Значение по умолчанию для уровня устойчивости — Bronze. Прокрутите вниз, чтобы прочитать об уровне устойчивости и его значениях.
 
-This privilege is expressed in the following values:
+- Минимальным количеством виртуальных машин для этого типа узла может быть одна виртуальная машина. Тем не менее это число следует выбирать, руководствуясь количеством реплик приложения или служб, которые вы хотите запустить на узле этого типа. После развертывания кластера число виртуальных машин для типа узла можно увеличить.
 
-- Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD
 
-- Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD (This is currently not enabled for use. Once enabled this will be available on all standard VMs of single core and above).
+## Характеристики устойчивости кластера
 
-- Bronze - No privileges. This is the default.
+Уровень устойчивости используется, чтобы указать системе привилегии, имеющиеся у виртуальных машин в базовой инфраструктуре Azure. Для типа первичного узла эта привилегия позволяет Service Fabric приостановить любой запрос инфраструктуры на уровне виртуальной машины (например, перезагрузку, переустановку из образа или перенос виртуальной машины), который влияет на требования к кворуму, установленные для системных служб и ваших служб с отслеживанием состояния. Для типов вторичных узлов эта привилегия позволяет Service Fabric приостановить любой запрос инфраструктуры на уровне виртуальной машины, например перезагрузку, переустановку из образа или перенос виртуальной машины и т. д., который влияет на требования к кворуму, установленные для ваших служб с отслеживанием состояния, которые в ней запущены.
 
-## <a name="the-reliability-characteristics-of-the-cluster"></a>The reliability characteristics of the cluster
+Эта привилегия обозначается следующими значениями.
 
-The reliability tier is used to set the number of replicas of the system services that you want to run in this cluster on the primary node type. The more the number of replicas, the more reliable the system services are in your cluster.  
+- Gold: задания инфраструктуры могут быть приостановлены в течение 2 часов для UD.
 
-The reliability tier can take the following values.
+- Silver: задания инфраструктуры могут быть приостановлены в течение 30 минут для UD. (В настоящее время эта функция недоступна для использования. После включения она станет доступна для всех стандартных виртуальных машин с не менее чем одним ядром.)
 
-- Platinum - Run the System services with a target replica set count of 9
+- Bronze: привилегии отсутствуют. Это уровень по умолчанию.
 
-- Gold - Run the System services with a target replica set count of 7
+## Характеристики надежности кластера
 
-- Silver - Run the System services with a target replica set count of 5
+Уровень надежности используется для задания числа реплик системных служб, которые будут выполняться в этом кластере на первичных узлах. Чем больше реплик, тем надежнее системные службы в кластере.
 
-- Bronze - Run the System services with a target replica set count of 3
+Уровень надежности может принимать следующие значения.
 
->[AZURE.NOTE] The reliability tier you choose determines the minimum number of nodes your primary node type must have. The reliability tier has no bearing on the max size of the cluster. So you can have a 20 node cluster, that is running at Bronze reliability.
+- Platinum: запуск системных служб с целевым набором из 9 реплик.
 
- You can choose to update the reliability of your cluster from one tier to another. Doing this will trigger the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes etc.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)
+- Gold: запуск системных служб с целевым набором из 7 реплик.
+
+- Silver: запуск системных служб с целевым набором из 5 реплик.
+
+- Bronze: запуск системных служб с целевым набором из 3 реплик.
+
+>[AZURE.NOTE] Выбранный уровень надежности определяет минимальное количество узлов для типа первичного узла. Уровень надежности никак не влияет на максимальный размер кластера. Поэтому можно иметь кластер с 20 узлами с уровнем надежности Bronze.
+
+ Уровень надежности кластера можно изменить в любой момент. Это активирует обновление кластера, необходимое для изменения числа реплик системных служб. Подождите, пока обновление не будет завершено, прежде чем вносить другие изменения в кластер, например, добавлять узлы и т. д. Ход выполнения обновления можно отслеживать в Service Fabric Explorer или с помощью командлета [Get ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Once you finish your capacity planning and set up a cluster, please read the following:
-- [Service Fabric cluster security](service-fabric-cluster-security.md)
-- [Service Fabric health model introduction](service-fabric-health-introduction.md)
+Завершив планирование загрузки и настройку кластера, прочитайте следующие разделы.
+- [Защита кластера Service Fabric](service-fabric-cluster-security.md)
+- [Общие сведения о наблюдении за работоспособностью системы в Service Fabric](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

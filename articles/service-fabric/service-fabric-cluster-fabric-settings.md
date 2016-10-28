@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Customize Service Fabric cluster settings and Fabric Upgrade policy | Microsoft Azure"
-   description="This article describes the fabric settings and the fabric upgrade policies that you can customize."
+   pageTitle="Настройка параметров кластера Service Fabric и политики обновления структур | Microsoft Azure"
+   description="В этой статье описываются параметры структуры и политики обновления структур, которые можно настраивать."
    services="service-fabric"
    documentationCenter=".net"
    authors="chackdan"
@@ -17,67 +17,59 @@
    ms.date="09/20/2016"
    ms.author="chackdan"/>
 
+# Настройка параметров кластера Service Fabric и политики обновления структур
 
-# <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Customize Service Fabric cluster settings and Fabric Upgrade policy
+В этом документе описывается, как настроить различные параметры структуры и политику обновления структур для кластера Service Fabric. Их можно настроить на портале или с помощью шаблона Resource Manager.
 
-This document tells you how to customize the various fabric settings and the fabric upgrade policy for your service fabric cluster. You can customize them on the portal or using a Resource Manager template.
-
-## <a name="fabric-settings-that-you-can-customize"></a>Fabric settings that you can customize
+## Параметры структуры, которые можно настраивать
 
 
-Here are the Fabric settings that you can customize:
+Ниже приведены параметры структуры, которые можно настраивать.
 
-### <a name="section-name:-security"></a>Section Name: Security
+### Имя раздела: Security
 
-|**Parameter**|**Allowed Values**|**Guidance or short Description**|
+|**Параметр**|**Допустимые значения**|**Рекомендация или краткое описание**|
 |-----------------------|--------------------------|--------------------------|
-|ClusterProtectionLevel|None or EncryptAndSign| None (default) for unsecured clusters, EncryptAndSign for secure clusters. |
+|ClusterProtectionLevel|None или EncryptAndSign.| None (по умолчанию) для незащищенных кластеров, EncryptAndSign для защищенных кластеров. |
 
-### <a name="section-name:-hosting"></a>Section Name: Hosting
+### Имя раздела: Hosting
 
-|**Parameter**|**Allowed Values**|**Guidance or short Description**|
+|**Параметр**|**Допустимые значения**|**Рекомендация или краткое описание**|
 |-----------------------|--------------------------|--------------------------|
-|ServiceTypeRegistrationTimeout|Time in Seconds, default is 300| Maximum time allowed for the ServiceType to be  registered with fabric|
-|ServiceTypeDisableFailureThreshold|Whole number, default is 1| This is the threshold for the failure count after which FailoverManager (FM) is notified to disable the service type on that node and try a different node for placement.|
-|ActivationRetryBackoffInterval|Time in Seconds, default is 5|Backoff interval on every activation failure; On every continuous activation failure, the system retries the activation for up to the MaxActivationFailureCount. The retry interval on every try is a product of continuous activation failure and the activation back-off interval.|
-|ActivationMaxRetryInterval|Time in seconds, default is 300| On every continuous activation failure, the system retries the activation for up to ActivationMaxFailureCount. ActivationMaxRetryInterval specifies Wait time interval before retry after every activation failure |
-|ActivationMaxFailureCount|Whole number, default is 10| Number of times system retries failed activation before giving up |
+|ServiceTypeRegistrationTimeout|Время в секундах, по умолчанию — 300.| Максимальное время, отводимое на регистрацию ServiceType в структуре.|
+|ServiceTypeDisableFailureThreshold|Целое число, по умолчанию — 1.| Это пороговое количество сбоев, по достижении которого диспетчер отработки отказов (FailoverManager) будет уведомлен о необходимости отключить тип службы на этом узле и попытаться использовать для размещения другой узел.|
+|ActivationRetryBackoffInterval|Время в секундах, по умолчанию — 5.|Интервал отхода при каждом сбое активации. При каждом постоянном сбое активации система повторяет попытки активации, пока их количество не достигнет значения MaxActivationFailureCount. Интервал повтора при каждой попытке является произведением числа постоянных сбоев активации и интервала отхода активации.|
+|ActivationMaxRetryInterval|Время в секундах, по умолчанию — 300.| При каждом постоянном сбое активации система повторяет попытки активации, пока их число не достигнет значения ActivationMaxFailureCount. ActivationMaxRetryInterval задает интервал времени ожидания перед повторной попыткой, осуществляемой после каждого сбоя активации. |
+|ActivationMaxFailureCount|Целое число, по умолчанию — 10.| Количество неудачных попыток системы выполнить активацию, после которого их следует прекратить. |
 
-### <a name="section-name:-failovermanager"></a>Section Name: FailoverManager
+### Имя раздела: FailoverManager
 
-|**Parameter**|**Allowed Values**|**Guidance or short Description**|
+|**Параметр**|**Допустимые значения**|**Рекомендация или краткое описание**|
 |-----------------------|--------------------------|--------------------------|
-|PeriodicLoadPersistInterval|Time in seconds, default is 10| This determines how often the FM check for new load reports|
+|PeriodicLoadPersistInterval|Время в секундах, по умолчанию — 10.| Этот параметр определяет частоту проверки диспетчером отработки отказов наличия новых отчетов о нагрузке.|
 
-### <a name="section-name:-federation"></a>Section Name: Federation
+### Имя раздела: Federation
 
-|**Parameter**|**Allowed Values**|**Guidance or short Description**|
+|**Параметр**|**Допустимые значения**|**Рекомендация или краткое описание**|
 |-----------------------|--------------------------|--------------------------|
-|LeaseDuration|Time in seconds, default is 30|Duration that a lease lasts between a node and its neighbors.|
-|LeaseDurationAcrossFaultDomain|Time in seconds, default is 30|Duration that a lease lasts between a node and its neighbors across fault domains.|
+|LeaseDuration|Время в секундах, по умолчанию — 30.|Длительность аренды между узлом и его соседями.|
+|LeaseDurationAcrossFaultDomain|Время в секундах, по умолчанию — 30.|Длительность аренды между узлом и его соседями в доменах сбоя.|
 
-### <a name="section-name:-clustermanager"></a>Section Name: ClusterManager
+### Имя раздела: ClusterManager
 
-|**Parameter**|**Allowed Values**|**Guidance or short Description**|
+|**Параметр**|**Допустимые значения**|**Рекомендация или краткое описание**|
 |-----------------------|--------------------------|--------------------------|
-|UpgradeStatusPollInterval|Time in seconds, default is 60|The frequency of polling for application upgrade status. This value determines the rate of update for any GetApplicationUpgradeProgress call|
-|UpgradeHealthCheckInterval|Time in seconds, default is 60|The frequency of health status checks during a monitored application upgrades|
-|FabricUpgradeStatusPollInterval|Time in seconds, default is 60|The frequency of polling for Fabric upgrade status. This value determines the rate of update for any GetFabricUpgradeProgress call |
-|FabricUpgradeHealthCheckInterval|Time in seconds, default is 60|The frequency of health status check during a  monitored Fabric upgrade|
+|UpgradeStatusPollInterval|Время в секундах, по умолчанию — 60.|Частота опроса состояния обновления приложения. Это значение определяет частоту обновления любого вызова GetApplicationUpgradeProgress.|
+|UpgradeHealthCheckInterval|Время в секундах, по умолчанию — 60.|Частота проверок работоспособности во время обновления наблюдаемых приложений.|
+|FabricUpgradeStatusPollInterval|Время в секундах, по умолчанию — 60.|Частота опроса состояния обновления структуры. Это значение определяет частоту обновления любого вызова GetFabricUpgradeProgress. |
+|FabricUpgradeHealthCheckInterval|Время в секундах, по умолчанию — 60.|Частота проверок работоспособности во время обновления наблюдаемой структуры.|
 
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Read these articles for more information on cluster management:
+Дополнительные сведения об управлении кластерами доступны в следующих статьях.
 
-[Add, Roll over, remove certificates from your Azure cluster ](service-fabric-cluster-security-update-certs-azure.md) 
+[Добавление, смена и удаление сертификатов в кластере Azure](service-fabric-cluster-security-update-certs-azure.md)
 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

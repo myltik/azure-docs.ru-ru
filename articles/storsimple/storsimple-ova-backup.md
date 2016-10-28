@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple Virtual Array backup tutorial | Microsoft Azure"
-   description="Describes how to back up StorSimple Virtual Array shares and volumes."
+   pageTitle="Руководство по резервному копированию виртуального массива StorSimple | Microsoft Azure"
+   description="В этой статье описано резервное копирование общих папок и томов виртуального массива StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,98 +15,93 @@
    ms.date="06/07/2016"
    ms.author="alkohli" />
 
+# Резервное копирование виртуального массива StorSimple (предварительная версия)
 
-# <a name="back-up-your-storsimple-virtual-array"></a>Back up your StorSimple Virtual Array
+## Обзор 
 
-## <a name="overview"></a>Overview 
+Этот учебник относится к виртуальному массиву Microsoft Azure StorSimple (также известному как локальное виртуальное устройство StorSimple или виртуальное устройство StorSimple) общедоступной версии, выпущенной в марте 2016 года, или более поздней версии.
 
-This tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later versions.
-
-The StorSimple Virtual Array is a hybrid cloud storage on-premises virtual device that can be configured as a file server or an iSCSI server. It can create backups, restore from backups, and perform device failover if disaster recovery is needed. When configured as a file server, it also allows item-level recovery. This tutorial describes how to use the Azure classic portal or the StorSimple web UI to create scheduled and manual backups of your StorSimple Virtual Array.
+Виртуальный массив StorSimple — это локальное виртуальное устройство для гибридного облачного хранилища. Устройство может быть настроено в качестве файлового сервера или сервера iSCSI. Оно может выполнять резервное копирование, восстановление из резервных копий и отработку отказа устройства при необходимости аварийного восстановления. Кроме того, при настройке в качестве файлового сервера устройство обеспечивает восстановление на уровне элементов. В этом руководстве описано использование классического портала Azure и веб-интерфейса StorSimple для резервного копирования виртуального массива StorSimple по расписанию и вручную.
 
 
-## <a name="back-up-shares-and-volumes"></a>Back up shares and volumes
+## Резервное копирование томов и общих папок
 
-Backups provide point-in-time protection, improve recoverability, and minimize restore times for shares and volumes. You can back up a share or volume on your StorSimple device in two ways: **Scheduled** or **Manual**. Each of the methods is discussed in the following sections.
+Резервные копии позволяют восстанавливать данные на определенный момент времени, улучшают их защиту и одновременно снижают время восстановления томов и общих папок. Создать резервную копию папки или тома на устройстве StorSimple можно двумя способами: **по расписанию** или **вручную**. Каждый метод описан в следующих разделах.
 
-> [AZURE.NOTE] In this release, scheduled backups are created by a default policy that runs daily at a specified time and backs up all the shares or volumes on the device. It is not possible to create custom policies for scheduled backups at this time.
+> [AZURE.NOTE] В этом выпуске резервные копии создаются по расписанию стандартной политикой. Политика запускается ежедневно в указанное время и выполняет резервное копирование общих папок или томов на устройстве. Создание пользовательских политик для резервного копирования по расписанию в данный момент не поддерживается.
 
-## <a name="change-the-backup-schedule"></a>Change the backup schedule
+## Изменение расписания резервного копирования
 
-Your StorSimple virtual device has a default backup policy that starts at a specified time of day (22:30) and backs up all the shares or volumes on the device once a day. You can change the time at which the backup starts, but the frequency and the retention (which specifies the number of backups to retain) cannot be changed. During these backups, the entire virtual device is backed up; therefore, we recommend that you schedule these backups for off-peak hours.
+На виртуальном устройстве StorSimple есть политика резервного копирования по умолчанию, которая ежедневно запускается в указанное время суток (22:30) и выполняет резервное копирование общих папок или томов на устройстве. Вы можете изменить время начала резервного копирования. Частота и параметры хранения (определяют число хранимых резервных копий) изменению не подлежат. Резервное копирование выполняется для всего виртуального устройства, поэтому процесс рекомендуется планировать на часы наименьшей нагрузки.
 
-Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) to change the default backup start time.
+Чтобы изменить стандартное время начала резервного копирования, выполните на [классическом портале Azure](https://manage.windowsazure.com/) указанные ниже действия.
 
-#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>To change the start time for the default backup policy
+#### Изменение времени запуска стандартной политики резервного копирования
 
-1. Navigate to the device **Configuration** tab.
+1. Перейдите на вкладку устройства **Конфигурация**.
 
-2. Under the **Backup** section, specify the start time for the daily backup.
+2. В разделе **Резервное копирование** укажите время начала ежедневного резервного копирования.
 
-3. Click **Save**.
+3. Щелкните **Сохранить**.
 
-### <a name="take-a-manual-backup"></a>Take a manual backup
+### Создание резервной копии вручную
 
-In addition to scheduled backups, you can take a manual (on-demand) backup at any time.
+В дополнение к резервному копированию по расписанию вы можете в любое время создавать резервные копии вручную (резервное копирование по запросу).
 
-#### <a name="to-create-a-manual-(on-demand)-backup"></a>To create a manual (on-demand) backup
+#### Резервное копирование вручную (по запросу)
 
-1. Navigate to the **Shares** tab or the **Volumes** tab.
+1. Перейдите на вкладку **Общие файловые ресурсы** или **Тома**.
 
-2. At the bottom of the page, click **Backup all**. You will be prompted to verify that you would like to take the backup now. Click the check icon ![check icon](./media/storsimple-ova-backup/image3.png) to proceed with the backup.
+2. В нижней части страницы щелкните команду **Выполнить резервное копирование всего**. Отобразится запрос на подтверждение резервного копирования в данный момент. Щелкните значок с изображением флажка ![значок с изображением флажка](./media/storsimple-ova-backup/image3.png), чтобы продолжить резервное копирование.
 
-    ![backup confirmation](./media/storsimple-ova-backup/image4.png)
+    ![подтверждение резервного копирования](./media/storsimple-ova-backup/image4.png)
 
-    You will be notified that a backup job is starting.
+    Отобразится уведомление о запуске задания резервного копирования.
 
-    ![backup starting](./media/storsimple-ova-backup/image5.png)
+    ![запуск резервного копирования](./media/storsimple-ova-backup/image5.png)
 
-    You will be notified that the job was created successfully.
+    Отобразится уведомление об успешном создании задания.
 
-    ![backup job created](./media/storsimple-ova-backup/image7.png)
+    ![задание резервного копирования создано](./media/storsimple-ova-backup/image7.png)
 
-3. To track the progress of the job, click **View Job**.
+3. Для отслеживания хода выполнения задания щелкните **Просмотреть задание**.
 
-4. After the backup job is finished, go to the **Backup catalog** tab. You should see your completed backup.
+4. После выполнения задания архивации перейдите на вкладку **Каталог резервного копирования**. Здесь вы должны увидеть информацию о выполненном резервном копировании.
 
-    ![Completed backup](./media/storsimple-ova-backup/image8.png)
+    ![Завершенное резервное копирование](./media/storsimple-ova-backup/image8.png)
 
-5. Set the filter selections to the appropriate device, backup policy, and time range, and then click the check icon ![check icon](./media/storsimple-ova-backup/image3.png).
+5. С помощью фильтров выберите нужное устройство, политику резервного копирования и диапазон времени, а затем щелкните значок с изображением флажка ![значок галочки](./media/storsimple-ova-backup/image3.png).
 
-    The backup should appear in the list of backup sets that is displayed in the catalog.
+    Резервная копия должна появиться в списке резервных наборов данных, которые отображаются в каталоге.
 
-## <a name="view-existing-backups"></a>View existing backups
+## Просмотр существующих резервных копий
 
-Perform the following steps in the Azure classic portal to view the existing backups.
+Чтобы просмотреть существующие резервные копии, выполните на классическом портале Azure указанные ниже действия.
 
-#### <a name="to-view-existing-backups"></a>To view existing backups
+#### Просмотр списка существующих резервных копий
 
-1. On the StorSimple Manager service page, click the **Backup catalog** tab.
+1. На странице службы диспетчера StorSimple щелкните вкладку **Каталог резервных копий**.
 
-2. Select a backup set as follows:
+2. Выберите резервный набор данных следующим образом:
 
-    1. Select the device.
+    1. Выберите устройство.
 
-    2. In the drop-down list, choose the share or volume for the backup that you wish to select.
+    2. В раскрывающемся списке выберите общую папку (или том), резервные копии которой нужно выбрать.
 
-    3. Specify the time range.
+    3. Укажите интервал времени.
 
-    4. Click the check icon ![](./media/storsimple-ova-backup/image3.png) to execute this query.
+    4. Щелкните значок с изображением флажка ![](./media/storsimple-ova-backup/image3.png), чтобы выполнить этот запрос.
 
-    The backups associated with the selected share or volume should appear in the list of backup sets.
+    В списке наборов резервных данных должны отобразиться резервные копии, связанные с выбранной общей папкой (или томом).
 
-![video_icon](./media/storsimple-ova-backup/video_icon.png) **Video available**
+![video\_icon](./media/storsimple-ova-backup/video_icon.png) **Доступно видео**
 
-Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
+Просмотрите видео о том, как создавать общие папки, выполнять их резервное копирование и восстанавливать данные на виртуальном массиве StorSimple.
 
 > [AZURE.VIDEO use-the-storsimple-virtual-array]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Learn more about [administering your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Дополнительные сведения см. в статье об [администрировании виртуального массива StorSimple](storsimple-ova-web-ui-admin.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

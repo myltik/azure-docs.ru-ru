@@ -1,53 +1,48 @@
 <properties
-    pageTitle="Connect to a Windows Server VM | Microsoft Azure"
-    description="Learn how to connect and log on to a Windows VM using the Azure portal and the Resource Manager deployment model."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager"/>
+	pageTitle="Подключение к виртуальной машине Windows Server | Microsoft Azure"
+	description="Узнайте, как подключиться к виртуальной машине Windows и войти на нее с помощью портала Azure и модели развертывания Resource Manager."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="07/28/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/28/2016"
+	ms.author="cynthn"/>
+
+# Как подключиться к виртуальной машине Azure под управлением Windows и войти на нее 
 
 
-# <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>How to connect and log on to an Azure virtual machine running Windows 
+Чтобы запустить сеанс удаленного рабочего стола, на портале Azure нажмите кнопку **Подключиться**. Сначала вы подключитесь к виртуальной машине, а затем сможете войти на нее.
 
+## Подключение к виртуальной машине
 
-You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session. First you connect to the virtual machine, then you log on.
+1. Перейдите на [портал Azure](https://portal.azure.com/), если вы еще этого не сделали.
 
-## <a name="connect-to-the-virtual-machine"></a>Connect to the virtual machine
+2.	В главном меню щелкните **Виртуальные машины**.
 
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
+3.	Затем выберите виртуальную машину из списка.
 
-2.  On the Hub menu, click **Virtual Machines**.
+4. В колонке виртуальной машины щелкните **Подключить**.
 
-3.  Select the virtual machine from the list.
+	![Снимок экрана портала Azure: подключение к виртуальной машине](./media/virtual-machines-windows-connect-logon/connect.png)
+	
+ > [AZURE.TIP] Если кнопка **Подключить** на портале неактивна и вы не подключены к Azure с помощью канала [Express Route](../expressroute/expressroute-introduction.md) или VPN-подключения типа [сеть — сеть](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), вам нужно сначала создать виртуальную машину и назначить ей общедоступный IP-адрес. Только после этого вы сможете использовать протокол RDP. Дополнительные сведения см. в статье [IP-адреса в Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
-4. On the blade for the virtual machine, click **Connect**.
-
-    ![Screenshot of the Azure portal showing how to connect to your VM.](./media/virtual-machines-windows-connect-logon/connect.png)
-    
- > [AZURE.TIP] If the **Connect** button in the portal is greyed out and you are not connected to Azure via an [Express Route](../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md).
-
-## <a name="log-on-to-the-virtual-machine"></a>Log on to the virtual machine
+## Вход на виртуальную машину
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-If you run into trouble when you try to connect, see [Troubleshoot Remote Desktop connections](virtual-machines-windows-troubleshoot-rdp-connection.md). This article walks you through diagnosing and resolving common problems.
+Если при попытке подключения возникает ошибка, см. сведения в статье [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). В ней описывается процесс диагностики и решения распространенных проблем.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

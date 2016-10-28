@@ -1,50 +1,45 @@
 <!--author=alkohli last changed: 08/16/2016-->
 
-#### <a name="to-create-a-volume"></a>To create a volume
+#### Создание тома
 
-1. On the device **Quick Start** page, click **Add a volume** to start the Add a volume wizard.
+1. На странице **Быстрый запуск** на устройстве щелкните **Добавить том**, чтобы запустить мастер добавления тома.
 
-2. In the Add a volume wizard, under **Basic Settings**:
+2. В разделе **Основные параметры** окна мастера добавления тома выполните следующие действия.
 
-    4. Type a **Name** for your volume.
-    5. On the drop-down list, select the **Usage Type** for your volume. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** volume. For all other data, select a **Tiered** volume. If you are using this volume for archival data, check **Use this volume for less frequently accessed archival data**. 
-    
-        A locally pinned volume is thickly provisioned and ensures that the primary data on the volume stays local to the device and does not spill to the cloud.  If you create a locally pinned volume, the device checks for available space on the local tiers to provision the volume of the requested size. The operation of creating a locally pinned volume may involve spilling existing data from the device to the cloud and the time taken to create the volume may be long. The total time depends on the size of the provisioned volume, available network bandwidth, and the data on your device. 
+	4. В поле **Имя** введите имя тома.
+	5. В раскрывающемся списке **Тип использования** выберите нужный тип для тома. Для рабочих нагрузок, которые требуют локальных гарантий, низкой задержки и более высокой производительности, выберите **Локально закрепленный том**. Для любых других типов данных выберите **Многоуровневый том**. Если вы используете этот том для архивных данных, установите флажок **Использовать этот том для архивных данных, доступ к которым осуществляется нечасто**.
+	
+		Локально закрепленные тома подготавливаются "тесно", это гарантирует, что основные данные тома остаются локальными для устройства и не будут вытеснены в облако. При создании локально закрепленного тома устройство проверяет доступное пространство на локальных уровнях для подготовки тома запрошенного размера. Операция создания локально закрепленного тома может включать в себя вытеснение существующих данных с устройства в облако, поэтому для создания тома может потребоваться длительное время. Общее время создания тома зависит от размера подготавливаемого тома, доступной пропускной способности сети и данных устройства.
 
-        A tiered volume is thinly provisioned and can be created quickly. Selecting **Use this volume for less frequently accessed archival data** for tiered volume targeted for archival data changes the deduplication chunk size for your volume to 512 KB. If this field is not checked, the corresponding tiered volume uses a chunk size of 64 KB. A larger deduplication chunk size allows the device to expedite the transfer of large archival data to the cloud.
+		Для многоуровневых томов предусмотрена тонкая подготовка и возможность быстрого создания. При установке флажка **Используйте этот том для архивных данных, доступ к которым осуществляется нечасто** для многоуровневых томов с архивными данными размер блока дедупликации тома изменяется на 512 КБ. Если этот флажок не установлен, соответствующий многоуровневный том использует размер блока 64 КБ. Больший размер блока дедупликации позволяет устройству быстро передавать большие блоки архивных данных в облако.
 
-    3. Specify the **Provisioned Capacity** for your volume. Make a note of the capacity that is available based on the volume type selected. The specified volume size must not exceed the available space.
+	3. В поле **Выделяемый объем** задайте емкость тома. Запишите емкость, которая доступна на основе выбранного типа тома. Указанный размер тома не должен превышать доступное пространство.
 
-        You can provision locally pinned volumes up to 8.5 TB or tiered volumes up to 200 TB on the 8100 device. On the larger 8600 device, you can provision locally pinned volumes up to 22.5 TB or tiered volumes up to 500 TB. As local space on the device is required to host the working set of tiered volumes, creation of locally pinned volumes impacts the space available for provisioning tiered volumes. Therefore, if you create a locally pinned volume, space available for creation of tiered volumes will be reduced. Similarly, if a tiered volume is created, the available space for creation of locally pinned volumes is reduced.
+		На устройстве 8100 можно подготавливать локально закрепленные тома размером до 8,5 ТБ и многоуровневые тома размером до 200 ТБ. На устройстве 8600, которое отличается большим размером, можно подготавливать локально закрепленные тома размером до 22,5 ТБ и многоуровневые тома размером до 500 ТБ. Так как в локальном пространстве на устройстве размещается рабочий набор многоуровневых томов, то создание локально закрепленных томов влияет на пространство, доступное для подготовки многоуровневых томов. Поэтому при создании локально закрепленного тома свободное пространство для создания многоуровневых томов уменьшится. Точно так же при создании многоуровневого тома доступное пространство для создания локально закрепленных томов уменьшается.
 
-        If you provision a locally pinned volume of 8.5 TB (maximum allowable size) on your 8100 device, then you have exhausted all the local space available on the device. You will not be able to create any tiered volume from that point onwards as there is no local space on the device to host the working set of the tiered volume. Existing tiered volumes also affect the space available. For example, if you have an 8100 device that already has tiered volumes of roughly 106 TB, only 4 TB of space is available for locally pinned volumes.
+		При подготовке локально закрепленного тома размером 8,5 ТБ (максимально допустимый размер) на устройстве 8100 все локальное свободное пространство будет исчерпано. С этого момента вы больше не сможете создавать многоуровневые тома, так как на устройстве нет локального пространства для размещения рабочего набора многоуровневых томов. Существующие многоуровневые тома также влияют на доступное место. Например, если у вас есть устройство 8100, на котором уже есть многоуровневые тома размером около 106 ТБ, для локально закрепленных томов доступно только 4 ТБ пространства.
 
-        The following image shows the **Basic Settings** dialog box for a locally pinned volume.
+        На следующем рисунке показано диалоговое окно **Основные параметры** для локально закрепленного тома.
 
-         ![Add local volume](./media/storsimple-create-volume-u2/add-local-volume-include.png)
+         ![Добавление локального тома](./media/storsimple-create-volume-u2/add-local-volume-include.png)
 
-        The following image shows the **Basic Settings** dialog box for a tiered volume.
+        На следующем рисунке показано диалоговое окно **Основные параметры** для многоуровневого тома.
 
-         ![Add local volume](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
+         ![Добавление локального тома](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
 
-   4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) to go to the next page.
-
-
-3. In the **Additional Settings** dialog box, add a new access control record (ACR):
-
-    1. Supply a **Name** for your ACR.
-    2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, go to [Get the IQN of a Windows Server host](#get-the-iqn-of-a-windows-server-host).
-    3. Under **Default backup for this volume?**, select the **Enable** check box. The default backup creates a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.
-     
-     > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You need to edit the volume to modify this setting.
-
-     ![Add volume](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
-
-4. Click the check icon ![check icon](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). A volume is created with the specified settings.
+   4. Нажмите кнопку с изображением стрелки ![значок стрелки](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png), чтобы перейти к следующей странице.
 
 
+3. В диалоговом окне **Дополнительные параметры** добавьте новую запись управления доступом (ACR).
 
+	1. В поле **Имя** введите имя записи управления доступом.
+	2. В разделе **Имя инициатора iSCSI** укажите полное имя iSCSI (IQN) используемого узла Windows. Если IQN отсутствует, перейдите к разделу [Получение IQN узла Windows Server](#get-the-iqn-of-a-windows-server-host).
+	3. В разделе **Задать архивацию по умолчанию для этого тома?** установите флажок **Включить**. Резервное копирование по умолчанию создает политику, при которой в 22:30 по времени устройства каждый день будет создаваться облачный моментальный снимок этого тома.
+	 
+     > [AZURE.NOTE] После того как в этом разделе будет создано правило архивации, удалить его будет невозможно. Чтобы изменить этот параметр, вам нужно изменить том.
 
-<!--HONumber=Oct16_HO2-->
+     ![Добавить том](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 
+4. Щелкните значок галочки ![значок галочки](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Создан том с указанными настройками.
 
+<!---HONumber=AcomDC_0914_2016---->

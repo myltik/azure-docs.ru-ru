@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to create NSGs in ARM mode using the Azure portal | Microsoft Azure"
-   description="Learn how to create and deploy NSGs in ARM using the Azure portal"
+   pageTitle="Создание групп безопасности сети в режиме ARM с помощью портала Azure | Microsoft Azure"
+   description="Узнайте, как создавать и развертывать группы безопасности сети в режиме ARM с помощью портала Azure."
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,94 +17,90 @@
    ms.date="02/04/2016"
    ms.author="jdial" />
 
-
-# <a name="how-to-manage-nsgs-using-the-azure-portal"></a>How to manage NSGs using the Azure portal
+# Как управлять сетевыми группами безопасности с помощью портала предварительной версии
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] This article covers the Resource Manager deployment model. You can also [create NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] В этой статье описывается модель развертывания с использованием менеджера ресурсов. Вы также можете [создавать группы безопасности сети с помощью классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
 
 [AZURE.INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal. The steps below use **RG-NSG** as the name of the resource group the template was deployed to.
+Для приведенных ниже примеров команд PowerShell требуется уже созданная простая среда, основанная на приведенном выше сценарии. Чтобы выполнять команды в том виде, в котором они представлены в этом документе, сначала создайте тестовую среду, развернув [этот шаблон](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), нажмите **Deploy to Azure** (Развернуть в Azure), при необходимости замените значения параметров по умолчанию и следуйте указаниям на портале. В описанных ниже действиях используйте **RG-NSG** в качестве имени группы ресурсов, в которой был развернут шаблон.
 
-## <a name="create-the-nsg-frontend-nsg"></a>Create the NSG-FrontEnd NSG
+## Создание группы безопасности сети NSG-FrontEnd
 
-To create the **NSG-FrontEnd** NSG as shown in the scenario above, follow the steps below.
+Чтобы создать группу безопасности сети **NSG-FrontEnd**, как показано в описанном выше сценарии, выполните указанные ниже действия.
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. Click **Browse >** > **Network Security Groups**.
+1. В браузере откройте страницу http://portal.azure.com и при необходимости войдите в свою учетную запись Azure.
+2. Щелкните **Обзор** > **Сетевые группы безопасности**.
 
-    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
+    ![Портал Azure — группы безопасности сети](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
 
-3. In the **Network security groups** blade, click **Add**.
+3. В колонке **Сетевые группы безопасности** щелкните **Добавить**.
   
-    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
+    ![Портал Azure — группы безопасности сети](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
 
-4. In the **Create network security group** blade, create an NSG named *NSG-FrontEnd* in the *RG-NSG* resource group, and then click **Create**.
+4. В колонке **Создать группу безопасности сети** создайте группу безопасности *NSG-FrontEnd* в группе ресурсов *RG-NSG*, а затем щелкните **Создать**.
 
-    ![Azure portal - NSGs](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
+	![Портал Azure — группы безопасности сети](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
 
-## <a name="create-rules-in-an-existing-nsg"></a>Create rules in an existing NSG
+## Создание правил в существующей сетевой группе безопасности
 
-To create rules in an existing NSG from the Azure portal, follow the steps below.
+Чтобы создать правила в существующей группе безопасности сети с помощью портала Azure, выполните следующие действия.
 
-2. Click **Browse >** > **Network security groups**.
+2. Щелкните **Обзор** > **Сетевые группы безопасности**.
 
-3. In the list of NSGs, click **NSG-FrontEnd** > **Inbound security rules**
+3. В списке групп выберите **NSG-FrontEnd** > **Правила безопасности для входящего трафика**
 
-    ![Azure portal - NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
+	![Портал Azure — NSG-FrontEnd](./media/virtual-networks-create-nsg-arm-pportal/figure2.png)
 
-4. In the list of **Inbound security rules**, click **Add**.
+4. В списке **Правила безопасности для входящего трафика** нажмите **Добавить**.
 
-    ![Azure portal - Add rule](./media/virtual-networks-create-nsg-arm-pportal/figure3.png)
+	![Портал Azure — добавление правила](./media/virtual-networks-create-nsg-arm-pportal/figure3.png)
 
-5. In the **Add inbound security rule** blade, create a rule named *web-rule* with priority of *200* allowing access via *TCP* to port *80* to any VM from any source, and then click **OK**. Notice that most of these settings are default values already.
+5. В колонке **Добавление правила безопасности для входящего трафика** создайте правило под названием *web-rule* с приоритетом *200*, которое разрешает доступ по протоколу *TCP* к порту *80* на любой виртуальной машине из любого источника, и нажмите кнопку **ОК**. Обратите внимание, что для большинства этих параметров уже заданы значения по умолчанию.
 
-    ![Azure portal - Rule settings](./media/virtual-networks-create-nsg-arm-pportal/figure4.png)
+	![Портал Azure — параметры правила](./media/virtual-networks-create-nsg-arm-pportal/figure4.png)
 
-6. After a few seconds you will see the new rule in the NSG.
+6. Через несколько секунд новое правило появится в сетевой группе безопасности.
 
-    ![Azure portal - New rule](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
+	![Портал Azure — новое правило](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-7. Repeat steps  to 6 to create an inbound rule named *rdp-rule* with a priority of *250* allowing access via *TCP* to port *3389* to any VM from any source.
+7. Повторите действия до шага 6, чтобы создать правило *rdp-rule* с приоритетом *250*, которое разрешает доступ через *TCP*-порт *3389* к любой виртуальной машине из любого источника.
 
-## <a name="associate-the-nsg-to-the-frontend-subnet"></a>Associate the NSG to the FrontEnd subnet
+## Связывание группы безопасности сети с подсетью FrontEnd
 
-1. Click **Browse >** > **Resource groups** > **RG-NSG**.
-2. In the **RG-NSG** blade, click **...** > **TestVNet**.
+1. Щелкните **Обзор** > **Группы ресурсов** > **RG-NSG**.
+2. В колонке **RG-NSG** щелкните **...** > **TestVNet**.
 
-    ![Azure portal - TestVNet](./media/virtual-networks-create-nsg-arm-pportal/figure14.png)
+	![Портал Azure — TestVNet](./media/virtual-networks-create-nsg-arm-pportal/figure14.png)
 
-3. In the **Settings** blade, click **Subnets** > **FrontEnd** > **Network security group** > **NSG-FrontEnd**.
+3. В колонке **Параметры** щелкните **Подсети** > **FrontEnd** > **Группа безопасности сети** > **NSG-FrontEnd**.
 
-    ![Azure portal - Subnet settings](./media/virtual-networks-create-nsg-arm-pportal/figure15.png)
+	![Портал Azure — параметры подсети](./media/virtual-networks-create-nsg-arm-pportal/figure15.png)
 
-4. In the **FrontEnd** blade, click **Save**.
+4. В колонке **FrontEnd** нажмите кнопку **Сохранить**.
 
-    ![Azure portal - Subnet settings](./media/virtual-networks-create-nsg-arm-pportal/figure16.png)
+	![Портал Azure — параметры подсети](./media/virtual-networks-create-nsg-arm-pportal/figure16.png)
 
-## <a name="create-the-nsg-backend-nsg"></a>Create the NSG-BackEnd NSG
+## Создание группы безопасности сети NSG-BackEnd
 
-To create the **NSG-BackEnd** NSG and associate it to the **BackEnd** subnet, follow the steps below.
+Чтобы создать группу безопасности сети **NSG-BackEnd** и связать ее с подсетью **BackEnd**, выполните следующие действия.
 
-1. Repeat the steps in [Create the NSG-FrontEnd NSG](#Create-the-NSG-FrontEnd-NSG) to create an NSG named *NSG-BackEnd*
-2. Repeat the steps in [Create rules in an existing NSG](#Create-rules-in-an-existing-NSG) to create the **inbound** rules in the table below.
+1. Повторите шаги раздела [Создание группы безопасности сети NSG-FrontEnd](#Create-the-NSG-FrontEnd-NSG), чтобы создать группу безопасности сети *NSG-FrontEnd*.
+2. Повторите шаги раздела [Создание правил в существующей сетевой группе безопасности](#Create-rules-in-an-existing-NSG), чтобы создать правила **входящих подключений**, приведенные в таблице ниже.
 
-  	|Inbound rule|Outbound rule|
-  	|---|---|
-  	|![Azure portal - inbound rule](./media/virtual-networks-create-nsg-arm-pportal/figure17.png)|![Azure portal - outbound rule](./media/virtual-networks-create-nsg-arm-pportal/figure18.png)|
+	|Правило входящих подключений|Правило исходящих подключений|
+	|---|---|
+	|![Портал Azure — правило входящих подключений](./media/virtual-networks-create-nsg-arm-pportal/figure17.png)|![Портал Azure — правило исходящих подключений](./media/virtual-networks-create-nsg-arm-pportal/figure18.png)|
 
-3. Repeat the steps in [Associate the NSG to the FrontEnd subnet](#Associate-the-NSG-to-the-FrontEnd-subnet) to associate the **NSG-Backend** NSG to the **BackEnd** subnet.
+3. Повторите шаги раздела [Связывание группы безопасности сети с подсетью FrontEnd](#Associate-the-NSG-to-the-FrontEnd-subnet), чтобы связать группу безопасности сети **NSG-BackEnd** с подсетью **BackEnd**.
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-- Learn how to [manage existing NSGs](virtual-network-manage-nsg-arm-portal.md)
-- [Enable logging](virtual-network-nsg-manage-log.md) for NSGs.
+- Узнайте, как [управлять существующими группами безопасности сети](virtual-network-manage-nsg-arm-portal.md).
+- [Включите ведение журнала](virtual-network-nsg-manage-log.md) для групп безопасности сети.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

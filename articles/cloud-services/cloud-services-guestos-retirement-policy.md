@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="Supportability and retirement policy guide for Azure Guest OS | Microsoft Azure" 
-   description="Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services." 
+   pageTitle="Руководство по политике поддержки и прекращения использования гостевой ОС Azure | Microsoft Azure" 
+   description="Содержит сведения о поддерживаемой корпорацией Майкрософт гостевой ОС, которая используется облачными службами." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="raiye" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,86 +13,81 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/24/2016"
-   ms.author="raiye"/>
+   ms.date="04/19/2016"
+   ms.author="yuemlu"/>
+
+# Политика поддержки и прекращения использования гостевой ОС Azure
+Информация на этой странице относятся к гостевой операционной системе Azure ([гостевой ОС](cloud-services-guestos-update-matrix.md)) для веб-ролей и рабочих ролей облачных служб (PaaS). Они не относятся к виртуальным машинам (IaaS).
+
+В корпорации Майкрософт имеется опубликованная [политика поддержки гостевой ОС](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). На этой странице описаны способы реализации политики.
+
+Что такое политика
+
+1. Корпорация Майкрософт будет поддерживать **как минимум два последних семейства версий гостевой ОС**. Когда использование семейства версий прекращается, у клиентов есть 12 месяцев с официальной даты прекращения использования, чтобы перейти на более новое поддерживаемое семейство версий гостевой ОС.
+2. Корпорация Майкрософт будет поддерживать **как минимум две последних версии гостевой ОС из поддерживаемых семейств версий**. 
+3. Корпорация Майкрософт будет поддерживать **как минимум две последних версии пакета Azure SDK**. Когда использование версии пакета SDK прекращается, у клиентов есть 12 месяцев с официальной даты прекращения использования, чтобы перейти на более новую версию. 
+
+В некоторых случаях могут поддерживаться более двух семейств версий или выпусков. Официальная информация о поддержке гостевой ОС появится в [таблице совместимости выпусков и пакетов SDK гостевой ОС Azure](cloud-services-guestos-update-matrix.md).
 
 
-# <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure Guest OS supportability and retirement policy
-The information on this page relates to the Azure Guest operating system ([Guest OS](cloud-services-guestos-update-matrix.md)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS). 
-
-Microsoft has a published [support policy for the Guest OS](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). The page you are reading now describes how the policy is implemented.
-
-The policy is 
-
-1. Microsoft will support **at least the latest two families of the Guest OS**. When a family is retired, customers have 12 months from the official retirement date to update to a newer supported Guest OS family.
-2. Microsoft will support the **at least the latest two versions of the supported Guest OS families**. 
-3. Microsoft will support the at **least the latest two versions of the Azure SDK**. When a version of the SDK is retired, customers will have 12 months from the official retirement date to update to a newer version. 
-
-At times more than two families or releases may be supported. Official Guest OS support information will appear on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+## В каких случаях прекращается использование семейства версий или конкретной версии гостевой ОС 
 
 
-## <a name="when-a-guest-os-family-or-version-is-retired"></a>When a Guest OS family or version is retired 
+Новое **семейство** версий гостевой ОС выпускается некоторое время спустя после выпуска новой официальной версии операционной системы Windows Server. После выхода нового семейства версий гостевой ОС корпорация Microsoft прекращает использование самого старого семейства версий гостевой ОС.
+
+Новые **версии** гостевой ОС выходят примерно раз в месяц и включают последние обновления MSRC. Из-за регулярных ежемесячных обновлений версия гостевой ОС обычно отключается через 60 дней после своего выпуска. При этом как минимум две версии гостевой ОС из каждого семейства версий доступны для использования.
+
+### Процесс прекращения использования семейства версий гостевой ОС 
 
 
-A new Guest OS **family** is introduced sometime after the release of a new official version of the Windows Server operating system. Whenever a new Guest OS family is introduced, Microsoft will retire the oldest Guest OS family. 
+После объявления о прекращении использования клиентам предоставляется 12-месячный переходный период, прежде чем старое семейство версий будет официально исключено из обслуживания. Этот переходный период может быть продлен по усмотрению корпорации Майкрософт. Обновления будут опубликованы в [таблице совместимости выпусков и пакетов SDK гостевой ОС Azure](cloud-services-guestos-update-matrix.md).
 
-New Guest OS **versions** are introduced about every month to incorporate the latest MSRC updates. Because of the regular monthly updates, a Guest OS version is normally disabled 60 days after its release. This keeps at least two Guest OS versions for each family available for use. 
+Постепенный процесс прекращения использования начинается после 6 месяцев переходного периода. В течение этого времени:
 
-### <a name="process-during-a-guest-os-family-retirement"></a>Process during a Guest OS family retirement 
+1. Корпорация Майкрософт уведомит клиентов о прекращении использования. 
+2. Новая версия пакет Azure SDK не будет поддерживать семейство версий гостевой ОС, использование которого прекращено.
+3. Новые развертывания и повторные развертывания облачных служб не будут разрешены для семейства версий, использование которого прекращено.
 
-
-Once the retirement is announced, customers have a 12 month "transition" period before the older family is officially removed from service. This transition time may be extended at the discretion of Microsoft. Updates will be posted on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
-
-A gradual retirement process will begin 6 months into the transition period. During this time:
-
-1. Microsoft will notify customers of the retirement. 
-2. The newer version of the Azure SDK won’t support the retired Guest OS family.
-3. New deployments and redeployments of Cloud Services will not be allowed on the retired family
-
-Microsoft will continue to introduce new Guest OS version incorporating the latest MSRC updates until the last day of the transition period, known as the "expiration date". At that time, the any Cloud Services still running will be unsupported under the Azure SLA. Microsoft has the discretion to force upgrade, delete or stop those services after that date.
-
-
-
-### <a name="process-during-a-guest-os-version-retirement"></a>Process during a Guest OS Version retirement 
-If customers set their Guest OS to automatically update, they never have to worry about dealing with Guest OS versions. They will always be using the latest Guest OS version.
-
-Guest OS Versions are released every month. Because of the rate of regular releases, each version has a fixed lifespan.
-
-At 60 days into the lifespan a version is "*disabled*". "Disabled" means that the version is removed from the Azure classic portal. It also can no longer be set from the CSCFG configuration file. Existing deployments are left running, but new deployments and code and configuration updates to existing deployments will not be allowed. 
-
-At a later time, the Guest OS version "*expires*" and any installations still running that version are force upgraded and set to automatically update the Guest OS in the future. Expiration is done in batches so the period of time from disablement to expiration can vary. 
-
-These periods may be made longer at Microsoft's discretion to ease customer transitions. Any changes will be communicated on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+Корпорация Майкрософт продолжит выпускать новые версии гостевой ОС, содержащие последние обновления MSRC до последнего дня переходного периода, известного как дата истечения срока действия. В этот момент прекратится поддержка любой запущенной облачной службы в рамках соглашения об уровне обслуживания Azure. Корпорация Майкрософт по своему усмотрению может принудительно обновить, удалить или остановить эти службы после указанной даты.
 
 
 
-### <a name="notifications-during-retirement"></a>Notifications during retirement 
+### Как происходит прекращение использования версии гостевой ОС 
+Если у клиентов гостевая ОС настроена на автоматическое обновление, им не придется беспокоиться о версиях гостевой ОС. Они всегда будут использовать последнюю версию гостевой ОС.
 
-* **Family retirement** <br>Microsoft will use blog posts and Azure classic portal notification. Customers who are still using a retired Guest OS family will be notified through direct communication (email, portal messages, phone call) to assigned service administrators. All changes will be posted to this page and the RSS feed listed at the beginning of this page. 
+Версии гостевой ОС выпускаются каждый месяц. Из-за скорости регулярных выпусков у каждой версии фиксированный срок жизни.
+
+Через 60 дней после выпуска версия *отключается*. Отключение означает, что данная версия удаляется из классического портала Azure. Ее больше нельзя указать в файле конфигурации CSCFG. Существующие развертывания продолжают работать, но новые развертывания и обновления кода и конфигурации существующих развертываний не разрешены.
+
+Позднее у версии гостевой ОС *истекает срок действия*, и любая система, использующая эту версию, принудительно обновляется и настраивается на дальнейшее автоматическое обновление гостевой ОС. Истечение срока действия происходит пакетами, поэтому период времени от отключения до истечения срока действия может быть различным.
+
+Эти периоды могут быть увеличены по усмотрению корпорации Майкрософт, чтобы облегчить переходы клиента. Любые изменения будут опубликованы в [таблице совместимости выпусков и пакетов SDK гостевой ОС Azure](cloud-services-guestos-update-matrix.md).
 
 
-* **Version Retirement** <br>All changes will be posted to this page and the RSS feed listed at the beginning of this page, including the release, disabled and expiration dates. Services admins will receive emails if they have deployments running on a disabled Guest OS version or family. The timing of these emails can vary. Generally they are at least a month before disablement, though this timing is not an official SLA. 
+
+### Уведомления во время прекращения использования 
+
+* **Прекращение использования семейства версий** <br>Корпорация Майкрософт для оповещения будет использовать блог и классический портал Azure. Клиенты, которые по-прежнему используют семейство версий гостевой ОС, использование которого прекращено, будут уведомлены напрямую (по электронной почте, сообщением на портале, телефонным звонком) оповещением назначенным администраторам службы. Все изменения будут опубликованы на этой странице, а RSS-канал — а начале этой странице. 
 
 
-## <a name="frequently-asked-questions"></a>Frequently asked questions
+* **Прекращение использования версий** <br>Все изменения будут опубликованы на этой странице, а RSS-канал — в начале этой страницы, включая даты выпуска, отключения и истечения срока действия. Администраторы служб получат электронные письма, если у них есть развертывания под управлением версии отключенной гостевой ОС или отключенного семейства версий. Время отправки этих электронных писем может быть различным. Обычно они рассылаются как минимум за месяц до отключения, однако этот срок не является официальным.
 
-**How can I mitigate the impacts of migration?**
 
-You should use latest Guest OS family for designing your Cloud Services. 
+## Часто задаваемые вопросы
 
-1. Start planning your migration to a newer family early. 
-2. Set up temporary test deployments to test your Cloud Service running on the new family. 
-3. Set your Guest OS version to **Automatic** (osVersion=* in the [.cscfg](cloud-services-model-and-package.md#cscfg) file) so the migration to new Guest OS versions occurs automatically.
+**Как можно смягчить последствия переноса?**
 
-**What if my web application requires deeper integration with the OS?**
+Следует использовать гостевую ОС последнего семейства версий для разработки облачных служб.
 
-If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as [startup tasks](cloud-services-startup-tasks.md) or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.
+1. Начните планировать переход на новое семейство версий раньше. 
+2. Настройте временные тестовые развертывания для проверки облачных служб, работающих под управлением нового семейства версий. 
+3. Установите для версии гостевой ОС значение **Automatic** (osVersion=* в файле [CSCFG](cloud-services-model-and-package.md#cscfg)), чтобы переход на новые версии гостевой ОС выполнялся автоматически.
+
+**Что делать, если мое веб-приложение требует более глубокой интеграции с ОС?**
+
+Если архитектура веб-приложения более глубоко зависит от базовой операционной системы, используйте возможности, поддерживаемые платформой, например [задачи запуска](cloud-services-startup-tasks.md) или другие механизмы расширяемости, которые могут появиться в будущем. Кроме того, можно использовать [виртуальные машины Azure](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS — инфраструктура как услуга), где пользователь ответственен за поддержку базовой операционной системы.
  
-## <a name="next-steps"></a>Next steps
-Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).
+## Дальнейшие действия
+Просмотрите последние [выпуски гостевой ОС](cloud-services-guestos-update-matrix.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0427_2016-->

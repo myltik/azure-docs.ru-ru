@@ -1,12 +1,11 @@
-## <a name="overview-of-azure-resource-manager-templates"></a>Overview of Azure Resource Manager templates
+## Общие сведения о шаблонах диспетчера ресурсов Azure
 
-Azure Resource Manager templates allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager Templates, please refer to the article below:
+Шаблон Azure Resource Manager позволяет декларативно задать инфраструктуру IaaS Azure на языке JSON, установив зависимости между ресурсами. Более подробно шаблоны Azure Resource Manager рассматриваются в следующих статьях.
 
-[Resource Group Overview](../articles/resource-group-overview.md)
+[Общие сведения о группе ресурсов](../articles/resource-group-overview.md)
 
-## <a name="sample-template-snippet-for-vm-extensions"></a>Sample template snippet for VM extensions
-Deploying VM extensions as part of an Azure Resource Manager template requires you to declaratively specify the extension configuration in the template.
-Here is the format for specifying the extension configuration.
+## Фрагмент примера шаблона для расширений виртуальной машины
+При развертывании расширений виртуальной машины в шаблоне Azure Resource Manager в нем необходимо декларативно задать конфигурацию расширения. Ниже приведен формат для указания конфигурации расширения.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -25,15 +24,13 @@ Here is the format for specifying the extension configuration.
       }
       }
 
-As you can see from the above, the extension template contains two main parts:
+Как видно из указанного выше, расширение шаблона содержит две основные части:
 
-1. Extension name, publisher and version
-2. Extension Configuration.
+1. Имя, издатель и версия расширения.
+2. Конфигурация расширения.
 
-## <a name="identifying-the-publisher,-type,-and-typehandlerversion-for-any-extension"></a>Identifying the publisher, type, and typeHandlerVersion for any extension
+## Определение значений publisher, type и typeHandlerVersion для любого расширения
 
-Azure VM extensions are published by Microsoft and trusted 3rd party publishers and each extension is uniquely identified by its publisher,type and the typeHandlerVersion. These can be determined as following:  
+Расширения виртуальной машины Azure публикуются корпорацией Майкрософт и надежными сторонними издателями. Каждое расширение однозначно определяется по значениям publisher, type и typeHandlerVersion. Эти сведения можно определить следующим образом:
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0330_2016-->

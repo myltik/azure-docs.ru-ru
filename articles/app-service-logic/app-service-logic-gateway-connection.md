@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Logic Apps on-premises data gateway connection | Microsoft Azure"
-   description="Information on how to create a connection to the on-premises data gateway from a logic app."
+   pageTitle="Подключение приложений логики к локальному шлюзу данных | Microsoft Azure"
+   description="Сведения о том, как создать подключение к локальному шлюзу данных из приложения логики."
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,62 +16,58 @@
    ms.date="07/05/2016"
    ms.author="jehollan"/>
 
+# Подключение к локальному шлюзу данных для приложений логики
 
-# <a name="connect-to-the-on-premises-data-gateway-for-logic-apps"></a>Connect to the on-premises data gateway for Logic Apps
+Поддерживаемые соединители приложений логики позволяют настроить подключение для доступа к локальным данным через локальный шлюз данных. Приведенные ниже пошаговые инструкции помогут вам узнать, как установить и настроить локальный шлюз данных для работы с приложением логики.
 
-Supported logic apps connectors allow you to configure your connection to access on-premises data via the on-premises data gateway.  The following steps will walk you through how to install and configure the on-premises data gateway to work with a logic app.
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+* Чтобы связать локальный шлюз данных с вашей учетной записью (на основе Azure Active Directory), необходимо использовать рабочий или учебный электронный адрес в Azure.
+    * Если вы используете учетную запись Майкрософт (например, @outlook.com, @live.com), то можно использовать учетную запись Azure, чтобы создать рабочий или учебный электронный адрес, выполнив [эти указания](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal).
 
-* Must be using a work or school email address in Azure to associate the on-premises data gateway with your account (Azure Active Directory based account)
-    * If you are using a Microsoft Account (e.g. @outlook.com, @live.com) you can use your Azure account to create a work or school email address by [following the steps here](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
+> [AZURE.WARNING] Сейчас есть следующее ограничение: локальная установка шлюза будет завершена только при использовании учетной записи, зарегистрированной с помощью Power BI. Поэтому для успешного завершения установки вам нужно зарегистрировать любую учетную запись с помощью бесплатной версии Power BI.
 
-> [AZURE.WARNING] There is a limitation currently that on-premises gateway install will only complete when using an account that has been registered with Power BI.  In the meantime please register any account with "Power BI Free" to complete the installation successfully.
+* Локальный шлюз данных должен быть [установлен на локальном компьютере](app-service-logic-gateway-install.md).
+* Не должно быть заявок на доступ к этому шлюзу от другого локального шлюза данных Azure ([заявка осуществляется во время создания на шаге 2, приведенном ниже](#2-create-an-azure-on-premises-data-gateway-resource)). Установка может быть связана только с одним ресурсом шлюза.
 
-* Must have the on-premises data gateway [installed on a local machine](app-service-logic-gateway-install.md).
-* Gateway must not have been claimed by another Azure on-premises data gateway ([claim happens with creation of step 2 below](#2-create-an-azure-on-premises-data-gateway-resource)) - an installation can only be associated to one gateway resource.
+## Установка и настройка подключения
 
-## <a name="installing-and-configuring-the-connection"></a>Installing and configuring the connection
+### 1\. Установка локального шлюза данных
 
-### <a name="1.-install-the-on-premises-data-gateway"></a>1. Install the on-premises data gateway
+Сведения об установке локального шлюза данных см. [в этой статье](app-service-logic-gateway-install.md). Шлюз нужно установить на локальном компьютере, прежде чем можно будет продолжить процедуру.
 
-Information on installing the on-premises data gateway can be found [in this article](app-service-logic-gateway-install.md).  The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
+### 2\. Создание ресурса локального шлюза данных Azure
 
-### <a name="2.-create-an-azure-on-premises-data-gateway-resource"></a>2. Create an Azure on-premises data gateway resource
+После установки необходимо связать локальный шлюз данных с подпиской Azure.
 
-Once installed, you must associate your Azure subscription with the on-premises data gateway.
+1. Войдите в Azure с помощью рабочего или учебного электронного адреса, который использовался во время установки шлюза.
+1. Нажмите кнопку **Новый ресурс**.
+1. Найдите и выберите **Локальный шлюз данных**.
+1. Введите информацию, которая нужна для связывания шлюза с учетной записью, включая соответствующее **имя установки**.
 
-1. Login to Azure using the same work or school email address that was used during installation of the gateway
-1. Click **New** resource button
-1. Search and select the **On-premises data gateway**
-1. Complete the information to associate the gateway with your account - including selecting the appropriate **Installation Name**
+    ![Подключение к локальному шлюзу данных][1]
+1. Нажмите кнопку **Создать**, чтобы создать ресурс.
 
-    ![On-Premises Data Gateway Connection][1]
-1. Click the **Create** button to create the resource
+### 3\. Создание подключения приложения логики в конструкторе
 
-### <a name="3.-create-a-logic-app-connection-in-the-designer"></a>3. Create a logic app connection in the designer
+Теперь, когда подписка Azure связана с экземпляром локального шлюза данных, можно создать подключение к нему из приложения логики.
 
-Now that your Azure subscription is associated with an instance of the on-premises data gateway, you can create a connection to it from within a logic app.
+1. Откройте приложение логики и выберите соединитель, который поддерживает локальные подключения (на момент написания этой статьи — SQL Server).
+1. Установите флажок **Connect via on-premises data gateway** (Подключиться через локальный шлюз данных).
 
-1. Open a logic app and choose a connector that supports on-premises connectivity (as of this writing, SQL Server)
-1. Select the checkbox for **Connect via on-premises data gateway**
+    ![Создание подключения к шлюзу в конструкторе приложений логики][2]
+1. Выберите **шлюз** для подключения и введите другие необходимые сведения.
+1. Нажмите кнопку **Создать**, чтобы создать подключение.
 
-    ![Logic App Designer Gateway Creation][2]
-1. Select the **Gateway** to connect to and complete any other connection information required
-1. Click **Create** to create the connection
+Теперь подключение должно быть настроено для использования в приложении логики.
 
-The connection should now be successfully configured for use in your logic app.  
-
-## <a name="next-steps"></a>Next Steps
-- [Common examples and scenarios for logic apps](app-service-logic-examples-and-scenarios.md)
-- [Enterprise integration features](app-service-logic-enterprise-integration-overview.md)
+## Дальнейшие действия
+- [Распространенные примеры и сценарии использования приложений логики](app-service-logic-examples-and-scenarios.md)
+- [Возможности интеграции Enterprise](app-service-logic-enterprise-integration-overview.md)
 
 <!-- Image references -->
 [1]: ./media/app-service-logic-gateway-connection/createblade.PNG
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

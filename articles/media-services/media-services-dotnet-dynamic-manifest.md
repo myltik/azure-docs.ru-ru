@@ -1,157 +1,151 @@
 <properties 
-    pageTitle="Creating Filters with Azure Media Services .NET SDK" 
-    description="This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Создание фильтров с помощью пакета SDK для .NET служб мультимедиа Azure" 
+	description="В этом разделе описывается создание фильтров, с помощью которых клиент может передавать определенные секции потока. Для достижения такой выборочной потоковой передачи службы мультимедиа создают динамические манифесты." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="ne" 
-    ms.topic="article" 
-    ms.date="07/18/2016"
-    ms.author="juliako;cenkdin"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="07/18/2016"
+	ms.author="juliako;cenkdin"/>
 
 
-
-#<a name="creating-filters-with-azure-media-services-.net-sdk"></a>Creating Filters with Azure Media Services .NET SDK
+#Создание фильтров с помощью пакета SDK для .NET служб мультимедиа Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
 - [REST](media-services-rest-dynamic-manifest.md)
 
-Starting with 2.11 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
+Начиная с версии 2.11, службы мультимедиа позволяют определять фильтры для активов. Эти фильтры представляют собой правила на стороне сервера, позволяющие пользователям выполнять следующие действия: воспроизведение только части видео (вместо целого) или указание подмножества представлений аудио и видео, которые может обрабатывать устройство клиента (вместо всех представлений, связанных с активом). Такая фильтрация активов достигается с помощью **динамических манифестов**, которые создаются по запросу клиента для потоковой передачи видео на основе указанных фильтров.
 
-For more detailed information related to filters and Dynamic Manifest, see [Dynamic manifests overview](media-services-dynamic-manifest-overview.md).
+Более подробные сведения, относящиеся к фильтрам и динамическому манифесту, см. в разделе [Обзор динамических манифестов](media-services-dynamic-manifest-overview.md).
 
-This topic shows how to use Media Services .NET SDK to create, update, and delete filters. 
-
-
-Note if you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. It is recommend to clear the cache after updating the filter. If this option is not possible, consider using a different filter. 
-
-##<a name="types-used-to-create-filters"></a>Types used to create filters
-
-The following types are used when creating filters: 
-
-- **IStreamingFilter**.  This type is based on the following REST API [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
-- **IStreamingAssetFilter**. This type is based on the following REST API [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
-- **PresentationTimeRange**. This type is based on the following REST API [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
-- **FilterTrackSelectStatement** and **IFilterTrackPropertyCondition**. These types are based on the following REST APIs [FilterTrackSelect and FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
+В этом разделе показано, как использовать пакет SDK .NET служб мультимедиа для создания, обновления и удаления фильтров.
 
 
-##<a name="create/update/read/delete-global-filters"></a>Create/Update/Read/Delete global filters
+Обратите внимание, что при обновлении фильтра может понадобиться до 2 минут на обновление правил конечной точкой потоковой передачи. Если содержимое было обработано с помощью данного фильтра (и кэшировано на прокси-серверах и в кэшах CDN), обновление этого фильтра может привести к сбоям проигрывателя. Рекомендуется очистить кэш после обновления фильтра. Если такой вариант невозможен, рассмотрите возможность использования другого фильтра.
 
-The following code shows how to use .NET to create, update,read, and delete asset filters.
-    
-    string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
-                
-    List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
-    
-    FilterTrackSelectStatement filterTrackSelectStatement = new FilterTrackSelectStatement();
-    filterTrackSelectStatement.PropertyConditions = new List<IFilterTrackPropertyCondition>();
-    filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackNameCondition("Track Name", FilterTrackCompareOperator.NotEqual));
-    filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackBitrateRangeCondition(new FilterTrackBitrateRange(0, 1), FilterTrackCompareOperator.NotEqual));
-    filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackTypeCondition(FilterTrackType.Audio, FilterTrackCompareOperator.NotEqual));
-    filterTrackSelectStatements.Add(filterTrackSelectStatement);
-    
-    // Create
-    IStreamingFilter filter = _context.Filters.Create(filterName, new PresentationTimeRange(), filterTrackSelectStatements);
-    
-    // Update
-    filter.PresentationTimeRange = new PresentationTimeRange(timescale: 500);
-    filter.Update();
-    
-    // Read
-    var filterUpdated = _context.Filters.FirstOrDefault();
-    Console.WriteLine(filterUpdated.Name);
+##Типы, используемые для создания фильтров
 
-    // Delete
-    filter.Delete();
+При создании фильтров используются следующие типы:
+
+- **IStreamingFilter**. В основе этого типа лежит следующий интерфейс API REST: [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx).
+- **IStreamingAssetFilter**. В основе этого типа лежит следующий интерфейс API REST: [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx).
+- **PresentationTimeRange**. В основе этого типа лежит следующий интерфейс API REST: [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx).
+- **FilterTrackSelectStatement** и **IFilterTrackPropertyCondition**. В основе этих типов лежат следующие интерфейсы API REST: [FilterTrackSelect и FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx).
 
 
-##<a name="create/update/read/delete-asset-filters"></a>Create/Update/Read/Delete asset filters
+##Создание, обновление, чтение и удаление глобальных фильтров
 
-The following code shows how to use .NET to create, update,read, and delete asset filters.
+Следующий код демонстрирует, как использовать .NET для создания, обновления, чтения и удаления фильтров ресурсов-контейнеров.
+	
+	string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
+	            
+	List<FilterTrackSelectStatement> filterTrackSelectStatements = new List<FilterTrackSelectStatement>();
+	
+	FilterTrackSelectStatement filterTrackSelectStatement = new FilterTrackSelectStatement();
+	filterTrackSelectStatement.PropertyConditions = new List<IFilterTrackPropertyCondition>();
+	filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackNameCondition("Track Name", FilterTrackCompareOperator.NotEqual));
+	filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackBitrateRangeCondition(new FilterTrackBitrateRange(0, 1), FilterTrackCompareOperator.NotEqual));
+	filterTrackSelectStatement.PropertyConditions.Add(new FilterTrackTypeCondition(FilterTrackType.Audio, FilterTrackCompareOperator.NotEqual));
+	filterTrackSelectStatements.Add(filterTrackSelectStatement);
+	
+	// Create
+	IStreamingFilter filter = _context.Filters.Create(filterName, new PresentationTimeRange(), filterTrackSelectStatements);
+	
+	// Update
+	filter.PresentationTimeRange = new PresentationTimeRange(timescale: 500);
+	filter.Update();
+	
+	// Read
+	var filterUpdated = _context.Filters.FirstOrDefault();
+	Console.WriteLine(filterUpdated.Name);
 
-    
-    string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
-    var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
-    
-    string filterName = "AssetFilter_" + Guid.NewGuid().ToString();
-    
-        
-    // Create
-    IStreamingAssetFilter filter = asset.AssetFilters.Create(filterName,
-                                        new PresentationTimeRange(), 
-                                        new List<FilterTrackSelectStatement>());
-    
-    // Update
-    filter.PresentationTimeRange = 
-            new PresentationTimeRange(start: 6000000000, end: 72000000000);
-    
-    filter.Update();
-    
-    // Read
-    asset = _context.Assets.Where(c => c.Id == asset.Id).FirstOrDefault();
-    var filterUpdated = asset.AssetFilters.FirstOrDefault();
-    Console.WriteLine(filterUpdated.Name);
-    
-    // Delete
-    filterUpdated.Delete();
-    
+	// Delete
+	filter.Delete();
 
 
+##Создание, обновление, чтение и удаление фильтров ресурсов-контейнеров
 
-##<a name="build-streaming-urls-that-use-filters"></a>Build streaming URLs that use filters
+Следующий код демонстрирует, как использовать .NET для создания, обновления, чтения и удаления фильтров ресурсов-контейнеров.
 
-For information on how to publish and deliver your assets, see [Delivering Content to Customers Overview](media-services-deliver-content-overview.md).
+	
+	string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
+	var asset = _context.Assets.Create(assetName, AssetCreationOptions.None);
+	
+	string filterName = "AssetFilter_" + Guid.NewGuid().ToString();
+	
+	    
+	// Create
+	IStreamingAssetFilter filter = asset.AssetFilters.Create(filterName,
+	                                    new PresentationTimeRange(), 
+	                                    new List<FilterTrackSelectStatement>());
+	
+	// Update
+	filter.PresentationTimeRange = 
+	        new PresentationTimeRange(start: 6000000000, end: 72000000000);
+	
+	filter.Update();
+	
+	// Read
+	asset = _context.Assets.Where(c => c.Id == asset.Id).FirstOrDefault();
+	var filterUpdated = asset.AssetFilters.FirstOrDefault();
+	Console.WriteLine(filterUpdated.Name);
+	
+	// Delete
+	filterUpdated.Delete();
+	
 
 
-The following examples show how to add filters to your streaming URLs.
 
-**MPEG DASH** 
+##Построение URL-адресов потоковой передачи с использованием фильтров
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
+Сведения о публикации и доставке активов см. в разделе [Обзор доставки содержимого клиентам](media-services-deliver-content-overview.md).
+
+
+Следующие примеры показывают, как добавлять фильтры к URL-адресам потоковой передачи.
+
+**MPEG DASH**
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 
 **Apple HTTP Live Streaming (HLS) V4**
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
 
 **Apple HTTP Live Streaming (HLS) V3**
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
 
 **Smooth Streaming**
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
 
 **HDS**
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
 
 
-##<a name="media-services-learning-paths"></a>Media Services learning paths
+##Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-##<a name="see-also"></a>See Also 
+##См. также 
 
-[Dynamic manifests overview](media-services-dynamic-manifest-overview.md)
+[Обзор динамических манифестов](media-services-dynamic-manifest-overview.md)
  
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

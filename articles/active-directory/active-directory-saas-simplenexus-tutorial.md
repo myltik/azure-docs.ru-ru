@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with SimpleNexus | Microsoft Azure" 
-    description="Learn how to use SimpleNexus with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Учебник. Интеграция Azure Active Directory с SimpleNexus | Microsoft Azure" 
+    description="Узнайте, как использовать SimpleNexus вместе с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,109 +14,103 @@
     ms.date="09/19/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-simplenexus"></a>Tutorial: Azure Active Directory integration with SimpleNexus
+#Учебник. Интеграция Azure Active Directory с SimpleNexus
   
-The objective of this tutorial is to show the integration of Azure and SimpleNexus.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+Цель данного учебника — показать интеграцию Azure и SimpleNexus. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
--   A valid Azure subscription
--   A SimpleNexus single sign-on enabled subscription
+-   действующая подписка на Azure;
+-   подписка SimpleNexus с активированной функцией единого входа.
   
-After completing this tutorial, the Azure AD users you have assigned to SimpleNexus will be able to single sign into the application at your SimpleNexus company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+После завершения этого руководства пользователи Azure AD, назначенные SimpleNexus, будут иметь возможность единого входа в приложение на веб-сайте компании SimpleNexus (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1.  Enabling the application integration for SimpleNexus
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Включение интеграции приложений для SimpleNexus
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-![Scenario](./media/active-directory-saas-simplenexus-tutorial/IC785893.png "Scenario")
-##<a name="enabling-the-application-integration-for-simplenexus"></a>Enabling the application integration for SimpleNexus
+![Сценарий](./media/active-directory-saas-simplenexus-tutorial/IC785893.png "Сценарий")
+##Включение интеграции приложений для SimpleNexus
   
-The objective of this section is to outline how to enable the application integration for SimpleNexus.
+В этом разделе показано, как включить интеграцию приложений для SimpleNexus.
 
-###<a name="to-enable-the-application-integration-for-simplenexus,-perform-the-following-steps:"></a>To enable the application integration for SimpleNexus, perform the following steps:
+###Чтобы включить интеграцию приложений для SimpleNexus, выполните следующие действия:
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-simplenexus-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-simplenexus-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-simplenexus-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-simplenexus-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-simplenexus-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-simplenexus-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-simplenexus-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **simple nexus**.
+6.  В **поле поиска** введите **SimpleNexus**.
 
-    ![Application Gallery](./media/active-directory-saas-simplenexus-tutorial/IC785894.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-simplenexus-tutorial/IC785894.png "Коллекция приложений")
 
-7.  In the results pane, select **SimpleNexus**, and then click **Complete** to add the application.
+7.  В области результатов выберите **SimpleNexus** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
-    ![Simple Nexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "Simple Nexus")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+    ![SimpleNexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "SimpleNexus")
+##Настройка единого входа
   
-The objective of this section is to outline how to enable users to authenticate to SimpleNexus with their account in Azure AD using federation based on the SAML protocol.
+В этом разделе показано, как разрешить пользователям проходить аутентификацию в SimpleNexus со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **SimpleNexus** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  На классическом портале Azure на странице интеграции с приложением **SimpleNexus** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Настройка единого входа")
 
-2.  On the **How would you like users to sign on to SimpleNexus** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  На странице **Как пользователи должны входить в SimpleNexus?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Настройка единого входа")
 
-3.  On the **Configure App URL** page, in the **SimpleNexus Sign In URL** textbox, type your URL using the following pattern "*https://simplenexus.com/CompanyName\_login*", and then click **Next**.
+3.  На странице **Настройка URL-адреса приложения** введите свой URL-адрес в текстовое поле **URL-адрес для входа в SimpleNexus**, используя шаблон "*https://simplenexus.com/CompanyName\_login*", а затем нажмите кнопку **Далее**.
 
-    ![Configure App URL](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "Настройка URL-адреса приложения")
 
-4.  On the **Configure single sign-on at SimpleNexus** page, click **Download metadata**, and then forward the metadata file to the SimpleNexus support team.
+4.  На странице **Настройка единого входа в SimpleNexus** нажмите кнопку **Загрузить метаданные**, а затем перешлите файл метаданных в группу поддержки SimpleNexus.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Настройка единого входа")
 
-    >[AZURE.NOTE] Single sign-on needs to be enabled by the SimpleNexus support team.
+    >[AZURE.NOTE] Единый вход должна включить группа поддержки SimpleNexus.
 
-5.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+5.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Configure Single Sign-On")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Настройка единого входа](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Настройка единого входа")
+##Настройка подготовки учетных записей пользователей
   
-In order to enable Azure AD users to log into SimpleNexus, they must be provisioned into SimpleNexus.  
-In the case of SimpleNexus, provisioning is a manual task performed by the tenant administrator.
+Чтобы пользователи Azure AD могли выполнять вход в SimpleNexus, они должны быть подготовлены для работы с SimpleNexus. В случае SimpleNexus подготовка выполняется вручную администратором клиента.
 
->[AZURE.NOTE] You can use any other SimpleNexus user account creation tools or APIs provided by SimpleNexus to provision AAD user accounts.
+>[AZURE.NOTE] Вы можете использовать любые другие инструменты создания учетных записей пользователей SimpleNexus или API, предоставляемые SimpleNexus для подготовки учетных записей пользователей AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-simplenexus,-perform-the-following-steps:"></a>To assign users to SimpleNexus, perform the following steps:
+###Чтобы назначить пользователей SimpleNexus, выполните следующие действия:
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **SimpleNexus **application integration page, click **Assign users**.
+2.  На странице интеграции с приложением **SimpleNexus** нажмите кнопку **Назначить пользователей**.
 
-    ![Assign Users](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Assign Users")
+    ![Назначить пользователей](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Да")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

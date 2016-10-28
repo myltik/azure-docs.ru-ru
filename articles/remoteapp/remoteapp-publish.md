@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Publish an app in Azure RemoteApp | Microsoft Azure"
-    description="Learn how to publish applications and resources in Azure RemoteApp."
+    pageTitle="Публикация приложения в Azure RemoteApp | Microsoft Azure"
+    description="Узнайте, как публиковать приложения и ресурсы в Azure RemoteApp."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -16,28 +16,24 @@
     ms.author="elizapo" />
 
 
-
-# <a name="how-to-publish-an-app-in-remoteapp"></a>How to publish an app in RemoteApp
+# Публикация приложения в RemoteApp
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
-After you create your RemoteApp collection, you need to publish the apps or resources that you want to make available for your users. The template images provided with your subscription only have a few apps published by default - to share the other apps, you need to publish them.
+После создания коллекции RemoteApp необходимо опубликовать приложения или ресурсы, которые должны быть доступны пользователям. Образы шаблонов, входящие в подписку, по умолчанию содержат только некоторые приложения. Чтобы открыть доступ к другим приложениям, их необходимо опубликовать.
 
-> [AZURE.NOTE] Do you need to update an app? You'll need to [update the image](remoteapp-update.md) first.
+> [AZURE.NOTE] Если вы хотите обновить приложение, сначала [обновите образ](remoteapp-update.md).
 
-On the **Publishing** tab in the portal, click **Publish**. You can either add an app from your template image's **Start** menu or provide the path to where the app is installed on the template image. If you choose to add from the **Start** menu, choose the app to publish from the list. If you choose to provide the path to the app, enter a name for the app and the path to the app. Use variables in the path - for example, "%systemdrive%" instead of "c:\".
+На вкладке **Публикация** портала щелкните **Опубликовать**. Вы можете добавить приложение из меню **Пуск** образа шаблона или указать путь, по которому оно установлено в образе. При использовании меню **Пуск** выберите нужное приложение в списке. Если указывается путь к приложению, введите его имя и путь. Используйте в пути переменные, например "%systemdrive%" вместо "c:\".
 
-> [AZURE.NOTE] If you want to add your app from the **Start** menu, you need to have *added that app to the **Start** menu on your template image.* Otherwise, RemoteApp will only see what *is* on the **Start** menu, and you will be confused. 
+> [AZURE.NOTE] Если вы хотите добавить приложение из меню **Пуск**, необходимо заранее **добавить это приложение в меню* *Пуск* в образе шаблона*. В противном случае RemoteApp распознает только те приложения, которые *добавлены* в меню **Пуск**.
 
->To make sure your app is in the **Start** menu, place a shortcut file - **.lnk** - inside the %systemdrive%\ProgramData\Microsoft\Windows\Start Menu\Programs folder.
+>Чтобы ваше приложение было размещено в меню **Пуск**, поместите файл ярлыка (**.lnk**) в папку %systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs.
 
-> If you forgot to add the app to the **Start** menu when you created the template, choose to add the path to the app. (Or recreate your template image, but that's quite a bit more work.)
+> Если вы забыли добавить приложение в меню **Пуск** при создании шаблона, добавьте путь к приложению. (или создайте образ шаблона заново, что потребует больше усилий).
 
 
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

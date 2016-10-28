@@ -1,194 +1,193 @@
 <properties
-    pageTitle="Get started with Azure Search in Java | Microsoft Azure | Hosted cloud search service"
-    description="How to build a hosted cloud search application on Azure using Java as your programming language."
-    services="search"
-    documentationCenter=""
-    authors="EvanBoyle"
-    manager="pablocas"
-    editor="v-lincan"/>
+	pageTitle="Начало работы со службой поиска Azure в Java | Microsoft Azure | Размещенная облачная служба поиска"
+	description="Создание облачного приложения поиска в Azure с использованием Java в качестве языка программирования."
+	services="search"
+	documentationCenter=""
+	authors="EvanBoyle"
+	manager="pablocas"
+	editor="v-lincan"/>
 
 <tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.date="07/14/2016"
-    ms.author="evboyle"/>
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="na"
+	ms.date="07/14/2016"
+	ms.author="evboyle"/>
 
-
-# <a name="get-started-with-azure-search-in-java"></a>Get started with Azure Search in Java
+# Начало работы с Поиском Azure в Java
 > [AZURE.SELECTOR]
-- [Portal](search-get-started-portal.md)
+- [Портал](search-get-started-portal.md)
 - [.NET](search-howto-dotnet-sdk.md)
 
-Learn how to build a custom Java search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
+Узнайте, как создать собственное приложение поиска на Java, использующее Поиск Azure. В этом руководстве [REST API службы поиска Azure](https://msdn.microsoft.com/library/dn798935.aspx) используется для создания объектов и операций, используемых в этом уроке.
 
-To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
+Чтобы запустить этот пример, вам потребуется служба поиска Azure. Создать в ней учетную запись можно на [портале Azure](https://portal.azure.com). Пошаговые инструкции приведены в статье [Создание службы поиска Azure на портале](search-create-service-portal.md).
 
-We used the following software to build and test this sample:
+При создании и проверке этого примера мы использовали следующее программное обеспечение:
 
-- [Eclipse IDE for Java EE Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Be sure to download the EE version. One of the verification steps requires a feature that is found only in this edition.
+- [Интегрированная среда разработки Eclipse для разработчиков Java EE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Обязательно загрузите версию EE. На одном из этапов проверки требуется функция, доступная только в этом выпуске.
 
 - [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-## <a name="about-the-data"></a>About the data
+## О данных
 
-This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
+В этом примере приложения используются данные [Геологической службы США (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), отфильтрованные по штату Род-Айленд для сокращения размера набора данных. Мы будем использовать эти данные при создании приложения поиска, возвращающего важные здания, такие как больницы и школы, а также геологические объекты, например реки, озера и вершины.
 
-In this application, the **SearchServlet.java** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Predefined credentials and connection  information to the online data source are provided in the program code. In terms of data access, no further configuration is necessary.
+В этом приложении программа **SearchServlet.java** создает и загружает индекс с помощью конструкции [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), получая отфильтрованный набор данных USGS из общей Базы данных SQL Azure. Готовые учетные данные и сведения о подключении к сетевому источнику данных предоставляются в программном коде. С точки зрения доступа к данным дальнейшая настройка не требуется.
 
-> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply, and you can modify this code to use a bigger dataset. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] Мы применили фильтр к этому набору данных, чтобы не превысить ограничение бесплатной ценовой категории в 10 000 документов. При использовании стандартной категории это ограничение не накладывается, и вы можете изменять этот код для использования большего набора данных. Подробнее об ограничениях каждой ценовой категории см. в разделе [Ограничения](search-limits-quotas-capacity.md).
 
-## <a name="about-the-program-files"></a>About the program files
+## Сведения о файлах программы
 
-The following list describes the files that are relevant to this sample.
+Ниже перечислены файлы, относящиеся к этому примеру.
 
-- Search.jsp: Provides the user interface
-- SearchServlet.java: Provides methods (similar to a controller in MVC)
-- SearchServiceClient.java: Handles HTTP requests
-- SearchServiceHelper.java: A helper class that provides static methods
-- Document.java: Provides the data model
-- config.properties: Sets the Search service URL and api-key
-- Pom.xml: A Maven dependency
+- Search.jsp: предоставляет пользовательский интерфейс
+- SearchServlet.java: предоставляет методы (аналогично контроллеру в MVC)
+- SearchServiceClient.java: обрабатывает HTTP-запросы
+- SearchServiceHelper.java: вспомогательный класс, предоставляющий статические методы
+- Document.java: предоставляет модель данных
+- config.properties: устанавливает URL-адрес и ключ API службы поиска
+- Pom.xml: зависимость Maven
 
 <a id="sub-2"></a>
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Find the service name and api-key of your Azure Search service
+## Поиск имени службы и ключа API службы поиска Azure
 
-All REST API calls into Azure Search require that you provide the service URL and an api-key. 
+Во всех вызовах REST API в службе поиска Azure необходимо указывать URL-адрес службы и ключ API.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com).
-2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
-3. Select the service you want to use.
-4. On the service dashboard, you'll see tiles for essential information as well as the key icon for accessing the admin keys.
+1. Войдите на [портал Azure](https://portal.azure.com).
+2. На панели переходов щелкните **Служба поиска**, чтобы получить список всех служб поиска Azure, подготовленных для вашей подписки.
+3. Выберите службу, которую вы хотите использовать.
+4. На панели мониторинга службы вы увидите элементы, указывающие на важную информацию, а также значок ключа для доступа к ключам администратора.
 
-    ![][3]
+  	![][3]
 
-5. Copy the service URL and an admin key. You will need them later, when you add them to the **config.properties** file.
+5. Скопируйте URL-адрес службы и ключ администратора. Все эти элементы потребуются вам позже, при добавлении их в файл **config.properties**.
 
-## <a name="download-the-sample-files"></a>Download the sample files
+## Загрузка примеров файлов
 
-1. Go to [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) on Github.
+1. Перейдите в раздел [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) на Github.
 
-2. Click **Download ZIP**, save the .zip file to disk, and then extract all the files it contains. Consider extracting the files into your Java workspace to make it easier to find the project later.
+2. Нажмите кнопку **Загрузить ZIP-файл**, сохраните ZIP-файл на диск, после чего извлеките все содержащиеся в нем файлы. Вы можете извлечь файлы в рабочую область Java, чтобы облегчить поиск проекта в дальнейшем.
 
-3. The sample files are read-only. Right-click folder properties and clear the read-only attribute.
+3. Примеры файлов доступны только для чтения. Щелкните правой кнопкой мыши папку, откройте ее свойства и снимите атрибут только для чтения.
 
-All subsequent file modifications and run statements will be made against files in this folder.  
+Все последующие изменения и операторы выполнения будут применяться к файлам в этой папке.
 
-## <a name="import-project"></a>Import project
+## Импорт проекта
 
-1. In Eclipse, choose **File** > **Import** > **General** > **Existing Projects into Workspace**.
+1. В Eclipse выберите **Файл** > **Импорт** > **Общие** > **Существующие проекты в рабочую область**.
 
     ![][4]
 
-2. In **Select root directory**, browse to the folder containing sample files. Select the folder that contains the .project folder. The project should appear in the **Projects** list as a selected item.
+2. В поле **Выберите корневой каталог** перейдите в папку, содержащую примеры файлов. Выберите папку, содержащую папку .project. Проект должен отобразиться в списке **Проекты** как выбранный элемент.
 
     ![][12]
 
-3. Click **Finish**.
+3. Нажмите кнопку **Готово**
 
-4. Use **Project Explorer** to view and edit the files. If it's not already open, click **Window** > **Show View** > **Project Explorer** or use the shortcut to open it.
+4. Используйте **Обозреватель проектов** для просмотра и редактирования файлов. Если обозреватель еще не открыт, щелкните **Окно** > **Показать представление** > **Обозреватель проектов** или откройте его с помощью ярлыка.
 
-## <a name="configure-the-service-url-and-api-key"></a>Configure the service URL and api-key
+## Настройка URL-адреса и ключа API службы
 
-1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and api-key.
+1. В **Обозревателе проектов** дважды щелкните файл **config.properties**, чтобы изменить параметры конфигурации, содержащие имя сервера и ключ API.
 
-2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure Portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
+2. См. предыдущие шаги в этой статье, в которых вы нашли URL-адрес службы и ключ API на [портале Azure](https://portal.azure.com), чтобы получить значения, которые вы теперь введете в файл **config.properties**.
 
-3. In **config.properties**, replace "Api Key" with the api-key for your service. Next, service name (the first component of the URL http://servicename.search.windows.net) replaces "service name" in the same file.
+3. В файле **config.properties** замените "Api Key" на ключ API для вашей службы. Затем имя службы (первый компонент URL-адреса http://servicename.search.windows.net) заменяет "service name" в том же файле.
 
-    ![][5]
+	![][5]
 
-## <a name="configure-the-project,-build-and-runtime-environments"></a>Configure the project, build and runtime environments
+## Настройка сред проекта, создания и выполнения
 
-1. In Eclipse, in Project Explorer, right-click the project > **Properties** > **Project Facets**.
+1. В Eclipse в обозревателе проектов щелкните проект правой кнопкой мыши, а затем выберите **Свойства** > **Аспекты проекта**.
 
-2. Select **Dynamic Web Module**, **Java**, and **JavaScript**.
+2. Выберите **Динамический веб-модуль**, **Java** и **JavaScript**.
 
     ![][6]
 
-3. Click **Apply**.
+3. Нажмите кнопку **Применить**.
 
-4. Select **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**.
+4. Выберите **Окно** > **Настройки** > **Сервер** > **Среда выполнения** > **Добавить...**
 
-5. Expand Apache and select the version of the Apache Tomcat server you previously installed. On our system, we installed version 8.
+5. Разверните Apache и выберите ранее установленную версию Apache Tomcat. В нашей системе мы установили версию 8.
 
-    ![][7]
+	![][7]
 
-6. On the next page, specify the Tomcat installation directory. On a Windows computer, this will most likely be C:\Program Files\Apache Software Foundation\Tomcat *version*.
+6. На следующей странице укажите каталог установки Tomcat. На компьютере под управлением Windows это, скорее всего, будет C:\\Program Files\\Apache Software Foundation\\Tomcat *версия*
 
-6. Click **Finish**.
+6. Нажмите кнопку **Готово**
 
-7. Select **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
+7. Выберите **Окно** > **Настройки** > **Java** > **Установленные JRE** > **Добавить**.
 
-8. In **Add JRE**, select **Standard VM**.
+8. В окне **Добавить JRE** выберите **Стандартная виртуальная машина**.
 
-10. Click **Next**.
+10. Нажмите кнопку **Далее**.
 
-11. In JRE Definition, in JRE home, click **Directory**.
+11. В разделе "Определение JRE" в главном окне выберите **Каталог**.
 
-12. Navigate to **Program Files** > **Java** and select the JDK you previously installed. It's important to select the JDK as the JRE.
+12. Перейдите в папку **Program Files** > **Java** и выберите ранее установленный пакет JDK. Важно выбрать пакет JDK в качестве JRE.
 
-13. In Installed JREs, choose the **JDK**. Your settings should look similar to the following screenshot.
+13. В разделе "Установленные JRE" выберите пакет **JDK**. Ваши параметры должны выглядеть примерно так.
 
     ![][9]
 
-14. Optionally, select **Window** > **Web Browser** > **Internet Explorer** to open the application in an external browser window. Using an external browser gives you a better Web application experience.
+14. При необходимости выберите **Окно** > **Веб-браузер** > **Internet Explorer**, чтобы открыть приложение во внешнем окне браузера. Использование внешнего браузера обеспечивает лучшую работу веб-приложения.
 
     ![][8]
 
-You have now completed the configuration tasks. Next, you'll build and run the project.
+Процедура настройки завершена. Далее вы соберете и запустите проект.
 
-## <a name="build-the-project"></a>Build the project
+## Сборка проекта
 
-1. In Project Explorer, right-click the project name and choose **Run As** > **Maven build...** to configure the project.
+1. В обозревателе проектов щелкните имя проекта правой кнопкой мыши и выберите **Запуск от имени** > **Сборка Maven...**, чтобы настроить проект.
 
     ![][10]
 
-8. In Edit Configuration, in Goals, type "clean install", and then click **Run**.
+8. В разделе "Изменить конфигурацию" в поле "Цели" введите "чистая установка" и нажмите **Выполнить**.
 
-Status messages are output to the console window. You should see BUILD SUCCESS indicating the project built without errors.
+Сообщения о состоянии выводятся в окне консоли. Вы увидите сообщение "СБОРКА ПРОШЛА УСПЕШНО", указывающее на выполнение сборки проекта без ошибок.
 
-## <a name="run-the-app"></a>Run the app
+## Запуск приложения
 
-In this last step, you will run the application in a local server runtime environment.
+На последнем этапе вы запустите приложение в среде выполнения локального сервера.
 
-If you haven't yet specified a server runtime environment in Eclipse, you'll need to do that first.
+Если вы еще не указали среду выполнения сервера в Eclipse, сделайте это в первую очередь.
 
-1. In Project Explorer, expand **WebContent**.
+1. В обозревателе проектов разверните **WebContent**.
 
-5. Right-click **Search.jsp** > **Run As** > **Run on Server**. Select the Apache Tomcat server, and then click **Run**.
+5. Щелкните правой кнопкой мыши **Search.jsp** > **Запуск от имени** > **Запустить на сервере**. Выберите сервер Apache Tomcat и нажмите кнопку **Запуск**.
 
-> [AZURE.TIP] If you used a non-default workspace to store your project, you'll need to modify **Run Configuration** to point to the project location to avoid a server start-up error. In Project Explorer, right-click **Search.jsp** > **Run As** > **Run Configurations**. Select the Apache Tomcat server. Click **Arguments**. Click **Workspace** or **File System** to set the folder containing the project.
+> [AZURE.TIP] Если для хранения проекта использовалась рабочая область не по умолчанию, вам придется изменить конфигурацию при запуске и указать расположение проекта, чтобы избежать ошибки при запуске сервера. В обозревателе проектов щелкните правой кнопкой мыши **Search.jsp** > **Запуск от имени** > **Конфигурации запуска**. Выберите сервер Apache Tomcat. Выберите **Аргументы**. Выберите **Рабочая область** или **Файловая система**, чтобы указать папку с проектом.
 
-When you run the application, you should see a browser window, providing a search box for entering terms.
+При запуске приложения должно отобразиться окно браузера с полем поиска для ввода условий поиска.
 
-Wait about one minute before clicking **Search** to give the service time to create and load the index. If you get an HTTP 404 error, you just need to wait a little bit longer before trying again.
+Подождите около одной минуты, прежде чем нажать кнопку **Поиск**, чтобы служба успела создать и загрузить индекс. Если возникает ошибка HTTP 404, подождите еще немного и попробуйте снова.
 
-## <a name="search-on-usgs-data"></a>Search on USGS data
+## Поиск по данным USGS
 
-The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default.
+Набор данных USGS включает записи, относящиеся к штату Род-Айленд. Если нажать кнопку **Поиск** в пустом поле поиска, вы получите 50 первых записей. Это настройка по умолчанию.
 
-Entering a search term will give the search engine something to go on. Try entering a regional name. "Roger Williams" was the first governor of Rhode Island. Numerous parks, buildings, and schools are named after him.
+Если ввести условие поиска, поисковая система будет искать конкретные записи. Попробуйте ввести региональное имя или название. "Роджер Уильямс" был первым губернатором Род-Айленда. В его честь названы многие парки, здания и школы.
 
 ![][11]
 
-You could also try any of these terms:
+Вы также можете попробовать одно из следующих условий поиска:
 
-- Pawtucket
-- Pembroke
-- goose +cape
+- Потакет
+- Пемброк
+- гусь +мыс
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-This is the first Azure Search tutorial based on Java and the USGS dataset. Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.
+Это первый учебник по Поиску Azure на базе Java и набора данных USGS. Мы будем постепенно расширять это руководство, чтобы рассказать о дополнительных функциях поиска, которые вы можете использовать в собственных решениях.
 
-If you already have some background in Azure Search, you can use this sample as a springboard for further experimentation, perhaps augmenting the [search page](search-pagination-page-layout.md), or implementing [faceted navigation](search-faceted-navigation.md). You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
+Если у вас уже есть опыт работы с Поиском Azure, вы можете использовать этот пример как фундамент для дальнейших исследований, таких как улучшение [страницы поиска](search-pagination-page-layout.md) или внедрение [фасетной навигации](search-faceted-navigation.md). Вы также можете улучшить страницу результатов поиска путем добавления счетчиков и пакетной обработки документов, чтобы пользователи могли просматривать результаты постранично.
 
-New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
+Новичок в Поиске Azure? Мы рекомендуем ознакомиться с другими учебниками, чтобы получить представление о том, что вы можете создать. Посетите нашу [страницу документации](https://azure.microsoft.com/documentation/services/search/), чтобы найти дополнительные ресурсы. Вы также можете перейти по ссылкам в нашем [списке видео и учебников](search-video-demo-tutorial-list.md), чтобы получить дополнительные сведения.
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG
@@ -204,8 +203,4 @@ New to Azure Search? We recommend trying other tutorials to develop an understan
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

@@ -1,43 +1,38 @@
 <properties
-    pageTitle="Azure Mobile Engagement Web SDK Release notes | Microsoft Azure"
-    description="The latest updates and procedures for Web SDK for Azure Mobile Engagement"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="erikre"
-    editor="" />
+	pageTitle="Заметки о выпуске веб-пакета SDK для Azure Mobile Engagement | Microsoft Azure"
+	description="Последние обновления и процедуры для веб-пакета SDK для Azure Mobile Engagement."
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="web"
-    ms.devlang="js"
-    ms.topic="article"
-    ms.date="06/07/2016"
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="web"
+	ms.devlang="js"
+	ms.topic="article"
+	ms.date="06/07/2016"
+	ms.author="piyushjo" />
 
 
+#Заметки о выпуске веб-пакета SDK для Azure Mobile Engagement
 
-#<a name="azure-mobile-engagement-web-sdk-release-notes"></a>Azure Mobile Engagement Web SDK release notes
+##Выпуск 2.0.1 (10.06.2016)
 
-##<a name="release-2.0.1-(6/10/2016)"></a>Release 2.0.1 (6/10/2016)
+-   Пакет SDK отключен в Internet Explorer 8 и Internet Explorer 9.
+-   Исправлено обнаружение веб-браузера Opera.
 
--   Disabled the SDK in Internet Explorer 8 and Internet Explorer 9.
--   Fixed Opera web browser detection.
+##Выпуск 2.0.0 (07.06.2016)
 
-##<a name="release-2.0.0-(6/7/2016)"></a>Release 2.0.0 (6/7/2016)
+-   Выпущена служба Azure Mobile Engagement.
+-   Выполнено обновление: конфигурация `appId` заменена конфигурацией строки подключения.
+-   Добавлены API-интерфейсы для включения и отключения агента.
+-   Внесены улучшения безопасности.
+-   Выполнено обновление: собственные API-интерфейсы JSON можно использовать из браузеров.
+-   API, который отвечает обмен сообщениями между устройствами (отправка и получение), удален.
+-   Удалены обратные вызовы, связанные с нерекомендованным соединением XMPP.
+-   Удалена поддержка рекламных кампаний.
 
--   Released Azure Mobile Engagement.
--   Updated so that the `appId` configuration is replaced by a connection string configuration.
--   Added APIs to enable and disable the agent.
--   Made security improvements.
--   Updated to use native JSON APIs from browsers.
--   Removed the API that sends and receives messages between devices.
--   Removed callbacks related to the deprecated XMPP connection.
--   Removed support for the Reach feature.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

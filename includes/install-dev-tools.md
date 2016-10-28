@@ -1,13 +1,7 @@
-> [AZURE.NOTE]
-> To successfully complete this section, you must have a working installation of Node.js and the Azure SDK for Node.js for your platform.
+> [AZURE.NOTE]Для успешного завершения этого раздела необходимо установить Node.js и пакет SDK для Azure для вашей платформы.
 
->* Install the Azure SDK for Node.js: <a href="http://go.microsoft.com/fwlink/?LinkId=254279">Windows installer</a> | <a href="http://go.microsoft.com/fwlink/?LinkId=253471">Mac installer</a> | <a href="http://go.microsoft.com/fwlink/?LinkId=253472">Linux download</a></li>
+>* Установка комплекта SDK для Azure для Node.js: <a href="http://go.microsoft.com/fwlink/?LinkId=254279">установщик для Windows</a> | <a href="http://go.microsoft.com/fwlink/?LinkId=253471">установщик для Mac</a> | <a href="http://go.microsoft.com/fwlink/?LinkId=253472">скачивание файлов для Linux</a></li>
 
->* If you are using Mac or Linux, install Node.js from <a href="http://nodejs.org">http://nodejs.org</a>. The Windows installer already includes Node.js.
+>* При использовании Linux или Mac установите Node.js, скачав его на сайте <a href="http://nodejs.org">http://nodejs.org</a>. Установщик Windows уже содержит Node.js.
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

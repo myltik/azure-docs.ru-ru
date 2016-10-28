@@ -1,129 +1,123 @@
 <properties 
-    pageTitle="Ports beyond 1433 for SQL Database | Microsoft Azure"
-    description="Client connections from ADO.NET to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important."
-    services="sql-database"
-    documentationCenter=""
-    authors="MightyPen"
-    manager="jhubbard"
-    editor="" />
+	pageTitle="Порты для Базы данных SQL помимо 1433 | Microsoft Azure"
+	description="Иногда взаимодействие с базой данных при клиентских подключениях из ADO.NET к Базе данных SQL Azure версии 12 происходит непосредственно, без прокси-сервера. Порты, отличные от 1433, становятся важными."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
+	editor="" />
 
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="drivers"
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/17/2016"
-    ms.author="annemill"/>
+	ms.service="sql-database" 
+	ms.workload="drivers"
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2016"
+	ms.author="annemill"/>
 
 
+# Порты, кроме 1433, для ADO.NET 4.5 и Базы данных SQL версии 12
 
-# <a name="ports-beyond-1433-for-ado.net-4.5-and-sql-database-v12"></a>Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12
 
+В этом разделе описываются изменения, которые версия 12 базы данных SQL привносит в поведение подключения клиентов, использующих ADO.NET 4.5 или более поздней версии.
 
-This topic describes the changes that Azure SQL Database V12 brings to the connection behavior of clients that use ADO.NET 4.5 or a later version.
 
+## Версия 11 базы данных SQL: порт 1433
 
-## <a name="v11-of-sql-database:-port-1433"></a>V11 of SQL Database: Port 1433
 
+Когда программа клиента использует ADO.NET 4.5 для подключения и запроса к версии 11 базы данных SQL, внутренняя последовательность выглядит следующим образом.
 
-When your client program uses ADO.NET 4.5 to connect and query with SQL Database V11, the internal sequence is as follows:
 
+1. ADO.NET пытается подключиться к базе данных SQL.
 
-1. ADO.NET attempts to connect to SQL Database.
+2. ADO.NET использует порт 1433 для вызова модуля промежуточного слоя, который в свою очередь подключается к базе данных SQL.
 
-2. ADO.NET uses port 1433 to call a middleware module, and the middleware connects to SQL Database.
+3. База данных SQL отправляет свой ответ обратно в промежуточный слой, который перенаправляет ответ в ADO.NET на порт 1433.
 
-3. SQL Database sends its response back to the middleware, which forwards the response to ADO.NET to port 1433.
 
+**Терминология.** Описывая предыдущую последовательность, мы говорим, что ADO.NET взаимодействует с базой данных SQL с помощью *маршрута прокси*. Если бы промежуточный слой не использовался, можно было бы сказать, что использовался *прямой маршрут*.
 
-**Terminology:** We describe the preceding sequence by saying that ADO.NET interacts with SQL Database by using the *proxy route*. If no middleware were involved, we would say the *direct route* was used.
 
+## Версия 12 базы данных SQL: внешняя и внутренняя программа
 
-## <a name="v12-of-sql-database:-outside-vs-inside"></a>V12 of SQL Database: Outside vs inside
 
+В случае подключения к версии 12 нужно узнать, запускается ли клиентская программа *за пределами* или *внутри* границ облака Azure. В подразделах рассматриваются два типичных сценария.
 
-For connections to V12, we must ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discuss two common scenarios.
 
+#### *Внешняя программа.* Клиент работает на настольном компьютере
 
-#### <a name="*outside:*-client-runs-on-your-desktop-computer"></a>*Outside:* Client runs on your desktop computer
 
+Порт 1433 — единственный порт, который должен быть открыт на компьютере, где размещено ваше клиентское приложение базы данных SQL.
 
-Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
+#### *Внутренняя программа.* Клиент работает в Azure
 
-#### <a name="*inside:*-client-runs-on-azure"></a>*Inside:* Client runs on Azure
 
+При запуске внутри границ облака Azure для взаимодействия с сервером Базы данных SQL клиент использует то, что можно назвать *прямым маршрутом*. После установления подключения дальнейшее взаимодействие между клиентом и базой данных не включает промежуточный слой прокси-сервера.
 
-When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no middleware proxy.
 
+Последовательность выглядит так:
 
-The sequence is as follows:
 
+1. ADO.NET 4.5 (или более поздней версии) инициирует краткое взаимодействие с облаком Azure и получает динамически указанный номер порта.
+ - Диапазон для динамического назначения номера порта: 11000–11999 или 14000–14999.
 
-1. ADO.NET 4.5 (or later) initiates a brief interaction with the Azure cloud, and receives a dynamically identified port number.
- - The dynamically identified port number is in the range of 11000-11999 or 14000-14999.
+2. Затем ADO.NET подключается к серверу базы данных SQL напрямую, с без промежуточного слоя.
 
-2. ADO.NET then connects to the SQL Database server directly, with no middleware in between.
+3. Запросы отправляются непосредственно в базу данных, а результаты возвращаются клиенту.
 
-3. Queries are sent directly to the database, and results are returned directly to the client.
 
+Убедитесь, что диапазоны портов 11000–11999 и 14000–14999 на клиентском компьютере с Azure доступны для взаимодействия клиента ADO.NET 4.5 с базой данных SQL версии 12.
 
-Ensure that the port ranges of 11000-11999 and 14000-14999 on your Azure client machine are left available for ADO.NET 4.5 client interactions with SQL Database V12.
+- В частности, порты в этом диапазоне должны оставаться свободными от других исходящих ошибок.
 
-- In particular, ports in the range must be free of any other outbound blockers.
+- На виртуальной машине Azure параметрами порта управляет **брандмауэр Windows в режиме повышенной безопасности**.
+ - С помощью [пользовательского интерфейса брандмауэра](http://msdn.microsoft.com/library/cc646023.aspx) можно добавить правило, для которого указывается протокол **TCP**, а также диапазон портов, используя следующий синтаксис: **11000–11999**.
 
-- On your Azure VM, the **Windows Firewall with Advanced Security** controls the port settings.
- - You can use the [firewall's user interface](http://msdn.microsoft.com/library/cc646023.aspx) to add a rule for which you specify the **TCP** protocol along with a port range with the syntax like **11000-11999**.
 
+## Уточнение версии
 
-## <a name="version-clarifications"></a>Version clarifications
 
+В этом разделе описываются псевдонимы, относящиеся к версиям продуктов. В нем также перечисляются некоторые пары версий продуктов.
 
-This section clarifies the monikers that refer to product versions. It also lists some pairings of versions between products.
 
+#### ADO.NET
 
-#### <a name="ado.net"></a>ADO.NET
 
+- ADO.NET 4.0 поддерживает протокол TDS 7.3, но не 7.4.
+- ADO.NET 4.5 и более поздних версий поддерживает протокол TDS 7.4.
 
-- ADO.NET 4.0 supports the TDS 7.3 protocol, but not 7.4.
-- ADO.NET 4.5 and later supports the TDS 7.4 protocol.
 
+#### Версии 11 и 12 базы данных SQL
 
-#### <a name="sql-database-v11-and-v12"></a>SQL Database V11 and V12
 
+В этом разделе перечислены различия между клиентскими подключениями в версиях 11 и 12 базы данных SQL.
 
-The client connection differences between SQL Database V11 and V12 are highlighted in this topic.
 
+*Примечание.* Оператор Transact-SQL `SELECT @@version;` возвращает значение, которое начинается с числа и точки ("11." или "12."). Эти значения соответствуют именам версий 11 и 12 Базы данных SQL.
 
-*Note:* The Transact-SQL statement `SELECT @@version;` returns a value that start with a number such as '11.' or '12.', and those match our version names of V11 and V12 for SQL Database.
 
+## Связанные ссылки
 
-## <a name="related-links"></a>Related links
 
+- 20 июля 2015 г. был выпущен ADO.NET 4.6. Объявление в блоге группы разработчиков для .NET доступно [здесь](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
-- ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
+- 15 августа 2012 г. был выпущен ADO.NET 4.5. Объявление в блоге группы разработчиков для .NET доступно [здесь](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+ - Запись блога об ADO.NET 4.5.1 доступна [здесь](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
-- ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
- - A blog post about ADO.NET 4.5.1 is available [here](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
+- [Список версий протокола TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
-- [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 
+- [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md)
 
-- [SQL Database Development Overview](sql-database-develop-overview.md)
 
+- [Брандмауэр базы данных SQL Azure](sql-database-firewall-configure.md)
 
-- [Azure SQL Database firewall](sql-database-firewall-configure.md)
 
+- [Практическое руководство. Настройка параметров брандмауэра для Базы данных SQL](sql-database-configure-firewall-settings.md)
 
-- [How to: Configure firewall settings on SQL Database](sql-database-configure-firewall-settings.md)
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

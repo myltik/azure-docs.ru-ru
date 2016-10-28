@@ -1,27 +1,24 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>To install regular updates via Windows PowerShell for StorSimple
+#### Установка обычных обновлений с помощью Windows PowerShell для StorSimple
 
-1. Open the device serial console and select option 1, **Log in with full access**. Type the password. The default password is *Password1*. 
+1. Откройте последовательную консоль устройства и выберите вариант 1 **Войти с полным доступом**. Введите пароль. Пароль по умолчанию — *Password1*. 
 
-2. At the command prompt, type:
+2. В командной строке выполните следующую команду:
 
      `Get-HcsUpdateAvailability`
     
-    You will be notified if updates are available and whether the updates are disruptive or non-disruptive.
+    Вы получите уведомление о том, что обновления доступны, и о том, являются они критическими или некритическими.
 
-3. At the command prompt, type:
+3. В командной строке выполните следующую команду:
 
      `Start-HcsUpdate`
 
-    The update process will start.
+    Начнется процесс обновления.
 
 > [AZURE.IMPORTANT]
 >
-> - This command applies only to regular updates. You run this command on only one controller, but both controllers will be updated. 
-> - You may notice a controller failover during the update process; however, the failover will not affect system availability or operation.
+> - Эта команда применяется только для обычных обновлений. Эта команда выполняется только на одном контроллере, но обновляться будут оба контроллера. 
+> - В процессе обновления может выполняться отработка отказа контроллера, но это не повлияет на доступность или работу системы.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

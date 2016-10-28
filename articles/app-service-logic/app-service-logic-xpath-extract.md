@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using the BizTalk XPath Extractor in logic apps in Azure App Service | Microsoft Azure"
-   description="BizTalk XPath Extractor"
+   pageTitle="Использование средства извлечения XPath BizTalk в приложениях логики в службе приложений Azure | Microsoft Azure"
+   description="Средство извлечения XPath BizTalk"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="rajram"
@@ -16,42 +16,35 @@
    ms.date="04/20/2016"
    ms.author="rajram"/>
 
-
-# <a name="biztalk-xpath-extractor"></a>BizTalk XPath Extractor
+# Средство извлечения XPath BizTalk
 
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 
-BizTalk XPath Extract connector helps your app lookup and extract data from XML content based on a given XPath.
+Соединитель средства извлечения XPath BizTalk помогает вашему приложению находить и извлекать данные из содержимого XML по заданному XPath.
 
-## <a name="using-the-biztalk-xpath-extractor"></a>Using the BizTalk Xpath Extractor
-1. To use the BizTalk Xpath Extractor, you need to first create an instance of the BizTalk Xpath Extractor API app. This can be done either inline while creating a logic app or by selecting the BizTalk Xpath Extractor API app from the Azure Marketplace.
+## Использование средства извлечения XPath BizTalk
+1. Чтобы использовать средство извлечения XPath BizTalk, необходимо сначала создать экземпляр приложения API средства извлечения XPath BizTalk. Это можно сделать либо в процессе, при создании приложения логики, либо выбрав приложение API средства извлечения XPath BizTalk на сайте Azure Marketplace.
 
-    >[AZURE.NOTE] There are no configuration settings associated with BizTalk Xpath Extractor.
-2. [Create a new logic app]. Open “Triggers and Actions” within your Logic App to open the Logic Apps Designer to configure your flow.
-3. On designer, the right pane lists the API Apps available to build your flow. Find the "BizTalk XPath Extractor". Selecting it adds the Xpath Extractor to your flow and provisions an instance of it.
-4. Once provisioned, the designer shows up the action associated with BizTalk XPath Extractor API App:  
-    ![BizTalk XPath Extractor Choose Action][1]
+	>[AZURE.NOTE] Для средства извлечения Xpath BizTalk не определены параметры конфигурации.
+2. [Создайте новое приложение логики]. Откройте раздел "Триггеры и действия" в приложении логики, чтобы открыть конструктор приложений логики для настройки потока.
+3. В конструкторе в правой части перечисляются приложения API, доступные для построения потока. Найдите приложение BizTalk XPath Extractor. После его выбора в поток добавится приложение Xpath Extractor, и будет подготовлен его экземпляр.
+4. После подготовки конструктор отобразит действие, связанное с приложением API BizTalk XPath Extractor: ![Выбор действия средства извлечения XPath BizTalk][1].
 
-5. Choose "Extract Using XPath". "Extract Using XPath" evaluates input xpath expression on a given input XML:  
-    ![BizTalk XPath Extractor Input][2]
+5. Выберите "Извлечь с помощью XPath". "Извлечь с помощью XPath" вычисляет входное выражение xpath для заданных входных данных XML: ![Ввод средства извлечения XPath BizTalk][2].
 
-    Parameter|Type|Description of the parameter
+	Параметр|Тип|Описание параметра
 ---|---|---
-XPath|string|Query path inside xml.
-Input Xml|string|Input Xml content.
+XPath|string|Путь запроса внутри XML.
+Входные данные XML|string|Входное содержимое XML.
 
-The action returns the output as a string - Result. Result contains the value of query path inside the XML.
+Действие возвращает выходные данные в виде строки Result. Result содержит значение пути запроса внутри XML.
 
 <!-- References -->
 [1]: ./media/app-service-logic-xpath-extract/ChooseAction.PNG
 [2]: ./media/app-service-logic-xpath-extract/ConfigureInput.PNG
 
 <!-- Links -->
-[Create a new Logic App]: app-service-logic-create-a-logic-app.md
+[Создайте новое приложение логики]: app-service-logic-create-a-logic-app.md
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

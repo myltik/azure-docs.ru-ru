@@ -1,16 +1,13 @@
-Here are the usage constraints and other service limits for the Azure Active Directory service.
+Ниже перечислены ограничения на использование и другие ограничения для службы Azure Active Directory.
 
-| Category | Limits |
+| Категория | Ограничения |
 |---|---|
-| Directories | A single user can only be associated with a maximum of 20 Azure Active Directory directories.<br />Examples of possible combinations: <ul> <li>A single user creates 20 directories.</li><li>A single user is added to 20 directories as a member.</li><li>A single user creates 10 directories and later is added by others to 10 different directories.</li></ul> |  
-| Objects | <ul><li>A maximum of 500,000 objects can be used in a single directory by users of the Free edition of Azure Active Directory.</li><li>A non-admin user can create no more than 250 objects.</li></ul> |
-| Schema extensions | <ul><li>String type extensions can have maximum of 256 characters. </li><li>Binary type extensions are limited to 256 bytes.</li><li>100 extension values (across ALL types and ALL applications) can be written to any single object.</li><li>Only “User”, “Group”, “TenantDetail”, “Device”, “Application” and “ServicePrincipal” entities can be extended with “String” type or “Binary” type single-valued attributes.</li><li>Schema extensions are available only in Graph API-version 1.21-preview. The application must be granted write access to register an extension.</li></ul> |
-| Applications | A maximum of 10 users can be owners of a single application. |
-| Groups | <ul><li>A maximum of 10 users can be owners of a single group.</li><li>Any number of objects can be members of a single group in Azure Active Directory.</li><li>The number of members in a group you can synchronize from your on-premises Active Directory to Azure Active Directory is limited to 15K members, using Azure Active Directory Directory Synchronization (DirSync).</li><li>The number of members in a group you can synchronize from your on-premises Active Directory to Azure Active Directory using Azure AD Connect is limited to 50K members.</li></ul> |
-| Access Panel | <ul><li>There is no limit to the number of applications that can be seen in the Access Panel per end user, for users assigned licenses for Azure AD Premium or the Enterprise Mobility Suite.</li><li>A maximum of 10 app tiles (examples: Box, Salesforce, or Dropbox) can be seen in the Access Panel for each end user for users assigned licenses for Free or Azure AD Basic editions of Azure Active Directory. This limit does not apply to Administrator accounts.</li></ul> |
-| Reports | A maximum of 1,000 rows can be viewed or downloaded in any report. Any additional data is truncated. |
+| Каталоги | Один пользователь может быть связан не более чем с 20 каталогами Azure Active Directory. <br />Примеры возможных сочетаний: <ul> <li>Один пользователь создает 20 каталогов.</li><li>Один пользователь добавлен в 20 каталогов как участник.</li><li>Один пользователь создает 10 каталогов и позднее добавляется в другие 10 каталогов.</li></ul> |  
+| Объекты | <ul><li>Пользователи бесплатного выпуска Azure Active Directory могут использовать до 500 000 объектов в одном каталоге.</li><li>Пользователи без прав администратора могут создавать не более 250 объектов.</li></ul> |
+| Расширения схемы | <ul><li>Расширения типа String не должны превышать 256 знаков. </li><li>Расширения типа Binary могут содержать до 256 байтов.</li><li>В любой объект может быть записано 100 значений расширений (для ВСЕХ типов и ВСЕХ приложений).</li><li>С помощью однозначных атрибутов типа String или Binary можно расширить только сущности User, Group, TenantDetail, Device, Application и ServicePrincipal.</li><li>Расширения схемы доступны только в предварительной версии API Graph 1.21. Приложению должен быть предоставлен доступ на запись для регистрации расширения.</li></ul> |
+| Приложения | Владельцами одного приложения могут быть не более 10 пользователей. |
+| Группы | <ul><li>Владельцами одной группы могут быть не более 10 пользователей.</li><li>В Azure Active Directory одна группа может содержать любое количество объектов (участников).</li><li>Количество объектов в группе, которые можно синхронизировать из локальной службы Active Directory в Azure Active Directory, ограничивается 15 000 участников при использовании синхронизации Azure Active Directory (DirSync).</li><li>Количество объектов, которые можно синхронизировать из локальной службы Active Directory в Azure Active Directory с помощью Azure AD Connect, ограничено 50 000 участников.</li></ul> |
+| Панель доступа | <ul><li>Количество приложений, которые пользователь с лицензией Azure AD Premium или Enterprise Mobility Suite может видеть на панели доступа, не ограничено.</li><li>Каждый пользователь с лицензией для выпуска Free или Basic Azure Active Directory может видеть на панели доступа не более 10 плиток приложения (примеры: Box, Salesforce или Dropbox). Это ограничение не действует для учетной записи администратора.</li></ul> |
+| Отчеты | В любом отчете можно просматривать и загружать не более 1000 строк. Любые дополнительные данные будут усечены. |
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

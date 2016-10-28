@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of the Service Fabric Reliable Service programming model | Microsoft Azure"
-   description="Learn about Service Fabric's Reliable Service programming model, and get started writing your own services."
+   pageTitle="Общие сведения о модели программирования надежных служб Service Fabric | Microsoft Azure"
+   description="Сведения о модели программирования надежных служб Service Fabric, позволяющие приступить к написанию собственных служб."
    services="Service-Fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,132 +16,127 @@
    ms.date="03/25/2016"
    ms.author="masnider;vturecek"/>
 
+# Обзор надежных служб
+Платформа Azure Service Fabric упрощает написание надежных служб с отслеживанием и без отслеживания состояния и управление такими службами. В этом документе:
 
-# <a name="reliable-services-overview"></a>Reliable Services overview
-Azure Service Fabric simplifies writing and managing stateless and stateful Reliable Services. This document will talk about:
+- Модель программирования надежных служб для служб с отслеживанием состояния и без него.
+- Варианты выбора при написании надежной службы.
+- Некоторые сценарии и примеры использования надежных служб, а также способ их написания.
 
-- The Reliable Services programming model for stateless and stateful services.
-- The choices you have to make when writing a Reliable Service.
-- Some scenarios and examples of when to use Reliable Services and how they are written.
+Надежные службы являются одной из моделей программирования, доступных в Service Fabric. Дополнительные сведения о модели программирования надежных субъектов см. в статье [Общие сведения о надежных субъектах Service Fabric](service-fabric-reliable-actors-introduction.md).
 
-Reliable Services is one of the programming models available on Service Fabric. For more information on the Reliable Actors programming model, see [Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
+В Service Fabric служба состоит из конфигурации, кода приложения и (при необходимости) состояния.
 
-In Service Fabric, a service is composed of configuration, application code, and (optionally) state.
+Service Fabric управляет временем существования служб от подготовки и развертывания до обновления и удаления посредством [управления приложениями Service Fabric](service-fabric-deploy-remove-applications.md).
 
-Service Fabric manages the lifetime of services, from provisioning and deployment through upgrade and deletion, via [Service Fabric application management](service-fabric-deploy-remove-applications.md).
+## Что такое надежные службы?
+Надежные службы — это простая, мощная, верхнеуровневая модель программирования, открывающая широкие и гибкие возможности для разработки приложений. С помощью модели программирования надежных служб вы получаете такие возможности:
 
-## <a name="what-are-reliable-services?"></a>What are Reliable Services?
-Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. With the Reliable Services programming model, you get:
+- Для служб с отслеживанием состояния модель программирования надежных служб позволяет согласованно и надежно хранить состояние прямо в службе с помощью надежных коллекций, то есть простого набора классов коллекций с высокой доступностью, которые будут знакомы всем, кто использовал коллекции C#. Обычно для надежного управления состоянием службам требовались внешние системы. С использованием надежных коллекций состояние можно хранить рядом с вычислениями с такой же высокой доступностью и надежностью, которых можно ожидать от высокодоступных внешних хранилищ, что также снижает задержку.
 
-- For stateful services, the Reliable Services programming model allows you to consistently and reliably store your state right inside your service by using Reliable Collections. This is a simple set of highly available collection classes that will be familiar to anyone who has used C# collections. Traditionally, services needed external systems for Reliable state management. With Reliable Collections, you can store your state next to your compute with the same high availability and reliability you've come to expect from highly available external stores, and with the additional latency improvements that co-locating the compute and state provide.
+- Простая модель для выполнения собственного кода, которая похожа на привычные модели программирования: у создаваемого кода четко определенная точка входа и простой в управлении жизненный цикл.
 
-- A simple model for running your own code that looks like programming models you are used to. Your code has a well-defined entry point and easily managed lifecycle.
+- Модель взаимодействия со службами Транспорт может быть любым, включая HTTP с [веб-API](service-fabric-reliable-services-communication-webapi.md), протоколы WebSocket, пользовательские протоколы TCP и т. п. Надежные службы позволяют использовать ряд отличных готовых вариантов или задействовать собственный.
 
-- A pluggable communication model. Use the transport of your choice, such as HTTP with [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, custom TCP protocols, etc. Reliable Services provide some great out-of-the-box options you can use, or you can provide your own.
+## Чем отличаются надежные службы
+Надежные службы в Service Fabric отличаются от служб, которые вы могли создавать ранее. Service Fabric обеспечивает надежность, доступность, согласованность и масштабируемость.
 
-## <a name="what-makes-reliable-services-different?"></a>What makes Reliable Services different?
-Reliable Services in Service Fabric is different from services you may have written before. Service Fabric provides reliability, availability, consistency, and scalability.  
+- **Надежность** — ваша служба будет работать даже в ненадежных средах, где компьютеры могут давать сбои или сталкиваться с проблемами сети.
 
-- **Reliability**--Your service will stay up even in unreliable environments where your machines may fail or hit network issues.
+- **Доступность** — служба будет реально доступна и будет реагировать. (Можно иметь работающие службы, которые невозможно найти или получить к ним доступ.)
 
-- **Availability**--Your service will be reachable and responsive. (This doesn't mean that you can't have services that can't be found or reached from outside.)
+- **Масштабируемость** — службы отвязываются от конкретного оборудования и могут увеличиваться или уменьшаться в масштабе (настолько, насколько это нужно) путем добавления или удаления оборудования или виртуальных ресурсов. Службы легко секционируются (особенно в случае с отслеживанием состояния). Это дает возможность масштабировать независимые компоненты службы и обеспечивать их независимую реакцию на сбои. Наконец, Service Fabric позволит подготавливать тысячи служб в рамках одного процесса, если они используют немного памяти. Другими словами, не будет необходимости выделять целые экземпляры ОС для одного экземпляра конкретной рабочей нагрузки.
 
-- **Scalability**--Services are decoupled from specific hardware, and they can grow or shrink as necessary through the addition or removal of hardware or virtual resources. Services are easily partitioned (especially in the stateful case) to ensure that independent portions of the service can scale and respond to failures independently. Finally, Service Fabric encourages services to be lightweight by allowing thousands of services to be provisioned within a single process, rather than requiring or dedicating entire OS instances to a single instance of a particular workload.
+- **Согласованность** — для любой информации, хранящейся в данной службе, можно гарантировать согласованность (это относится только к службам с отслеживанием состояния, подробнее об этом позже).
 
-- **Consistency**--Any information stored in this service can be guaranteed to be consistent (this applies only to stateful services - more on this later)
+## Жизненный цикл службы
+Независимо от того, какую службу вы используете (с отслеживанием или без отслеживания состояния), надежные службы обеспечивают простой жизненный цикл, позволяющий быстро подключить код и приступить к работе. Для запуска службы необходимо реализовать всего лишь один или два метода.
 
-## <a name="service-lifecycle"></a>Service lifecycle
-Whether your service is stateful or stateless, Reliable Services provide a simple lifecycle that lets you quickly plug in your code and get started.  There are just one or two methods that you need to implement to get your service up and running.
+- **CreateServiceReplicaListeners/CreateServiceInstanceListeners** — здесь служба определяет стек связи, который собирается использовать. Стек связи, например [веб-API](service-fabric-reliable-services-communication-webapi.md), определяет одну или несколько конечных точек прослушивания для службы (способ доступа к ней клиентов), а также определяет дальнейшее взаимодействие поступающих сообщений с остальным кодом службы.
 
-- **CreateServiceReplicaListeners/CreateServiceInstanceListeners** - This is where the service defines the communication stack that it wants to use. The communication stack, such as [Web API](service-fabric-reliable-services-communication-webapi.md), is what defines the listening endpoint or endpoints for the service (how clients will reach it). It also defines how the messages that appear end up interacting with the rest of the service code.
+- **RunAsync** — здесь служба выполняет свою бизнес-логику. Предоставляемый токен отмены сигнализирует о моменте, когда работу следует остановить. Например, если вы используете службу, которая постоянно извлекает сообщения из очереди ReliableQueue и обрабатывает их, это и будет местом выполнения соответствующей работы.
 
-- **RunAsync** - This is where your service runs its business logic. The cancellation token that is provided is a signal for when that work should stop. For example, if you have a service that needs to constantly pull messages out of a Reliable Queue and process them, this is where that work would happen.
+### Запуск службы
 
-### <a name="service-startup"></a>Service startup
+Основные события жизненного цикла надежной службы перечислены далее.
 
-The major events in the lifecycle of a Reliable Service are:
+1. Создается объект Service (являющийся производным от StatelessService или StatefulService).
 
-1. The service object (the thing that derives from the stateless service or stateful service) is constructed.
+2. Вызывается метод `CreateServiceReplicaListeners`/`CreateServiceInstanceListeners`, давая службе возможность вернуть один или несколько прослушивателей связи по выбору.
+  - Обратите внимание, что это необязательно, хотя большинство служб предоставляют конечную точку непосредственно.
 
-2. The `CreateServiceReplicaListeners`/`CreateServiceInstanceListeners` method is called, giving the service a chance to return one or more communication listeners of its choice.
-  - Note that this is optional, although most services will expose some endpoint directly.
+3. После создания прослушиватель связи открывается.
+  - Прослушиватели связи содержат метод `OpenAsync()`, который вызывается на этом этапе и возвращает адрес прослушивания для службы. Если в вашей надежной службе используется один из встроенных интерфейсов ICommunicationListener, эта обработка выполняется автоматически.
 
-3. Once the communication listeners are created, it is opened.
-  - Communication listeners have a method called `OpenAsync()`, which is called at this point and which returns the listening address for the service. If your Reliable Service uses one of the built-in ICommunicationListeners, this is handled for you.
+4. Когда прослушиватель открыт, в основной службе вызывается метод `RunAsync()`.
+  - Обратите внимание, что метод `RunAsync()` является необязательным. Если служба выполняет всю работу только непосредственно в ответ на вызовы пользователя, реализовывать метод `RunAsync()` не нужно.
 
-4. Once the communication listener is open, the `RunAsync()` method on the main service is called.
-  - Note that `RunAsync()` is optional. If the service does all its work directly in response to user calls only, there is no need for it to implement `RunAsync()`.
+### Остановка службы
 
-### <a name="service-shutdown"></a>Service shutdown
+При остановке службы (в ходе удаления, обновления или перемещения) методы вызываются в обратном порядке: сначала отменяется маркер отмены из метода `RunAsync()`, а затем для прослушивателей связи вызывается метод `CloseAsync()`.
 
-When the service is being shut down (to be deleted, upgraded, or moved) the call order is mirrored: First, the cancellation token held by `RunAsync()` is canceled; then `CloseAsync()` is called on the communication listeners.
+При остановке служб с отслеживанием состояния необходимо учитывать несколько важных моментов:
 
-There are a few important things to note about shutdown for stateful services:
+- Service Fabric не переведет другую реплику службы в первичное состояние, пока не будут возвращены методы `CloseAsync` и `RunAsync`. Если используется встроенный прослушиватель связи, метод `CloseAsync` обрабатывается автоматически.
 
-- Service Fabric will not promote another replica of your service to Primary status until `CloseAsync` and `RunAsync` have returned. If you are using a built-in communication listener, the `CloseAsync` method is handled for you.
+- Несмотря на то, что возвращение этих методов не ограничивается по времени, вы не сможете записать никакие надежные коллекции, а значит, и выполнить какую-либо действительную задачу. После получения запроса на отмену рекомендуется возвращать методы как можно быстрее.
 
-- While there is no time limit on returning from these methods, you immediately lose the ability to write to Reliable Collections and therefore cannot complete any real work. It is recommended that you return as quickly as possible upon receiving the cancellation request.
+## Примеры служб
+Зная эту модель программирования, давайте кратко рассмотрим две разные службы, чтобы увидеть, как взаимодействуют все описанные элементы.
 
-## <a name="example-services"></a>Example services
-Knowing this programming model, let's take a quick look at two different services to see how these pieces fit together.
+### Надежные службы без отслеживания состояния
+Служба без отслеживания состояния — это служба, в которой в буквальном смысле не поддерживается состояние или имеющееся состояние полностью утилизируется и не требует синхронизации, репликации, постоянного сохранения или высокой доступности.
 
-### <a name="stateless-reliable-services"></a>Stateless Reliable Services
-A stateless service is one where there is literally no state maintained within the service, or the state that is present is entirely disposable and doesn't require synchronization, replication, persistence, or high availability.
+Например, рассмотрим калькулятор — службу, которая не пользуется памятью и которая принимает все условия и операции для одновременного выполнения.
 
-For example, consider a calculator that has no memory and receives all terms and operations to perform at once.
+В этом случае метод RunAsync() службы может быть пустым, так как у службы нет необходимости в фоновой обработке задач. Когда служба калькулятора будет создана, она вернет ICommunicationListener (например, [веб-API](service-fabric-reliable-services-communication-webapi.md)), который открывает конечную точку прослушивания на некотором порту. Эта конечная точка подключится к различным методам (например Add(n1, n2)), которые определяют открытый API калькулятора.
 
-In this case, the RunAsync() of the service can be empty, since there is no background task-processing that the service needs to do. When the calculator service is created, it will return an ICommunicationListener (for example [Web API](service-fabric-reliable-services-communication-webapi.md)) that opens up a listening endpoint on some port. This listening endpoint will hook up to the different methods (example: "Add(n1, n2)") that define the calculator's public API.
+При клиентском вызове вызывается соответствующий метод, а калькулятор выполняет операции над предоставленными данными и возвращает результат. Никакого состояния она не хранит.
 
-When a call is made from a client, the appropriate method is invoked, and the calculator service performs the operations on the data provided and returns the result. It doesn't store any state.
+Это очень простой пример, так как в службе "Калькулятор" внутреннее состояние не сохраняется. Большинство служб без отслеживания состояния не являются таковыми в полной мере, так как они записывают свои состояния в какое-либо внешнее хранилище (например, веб-приложение, хранящее состояние сеанса в резервном хранилище или кэше, не является в полной мере службой без отслеживания состояния).
 
-Not storing any internal state makes this example calculator very simple. But most services aren't truly stateless. Instead, they externalize their state to some other store. (For example, any web app that relies on keeping session state in a backing store or cache is not completely stateless.)
+Распространенным примером использования служб без отслеживания состояния в Service Fabric является внешний интерфейс, который позволяет пользоваться общедоступным интерфейсом API для веб-приложения. Затем внешняя служба обменивается данными со службами с отслеживанием состояния для выполнения запроса пользователя. В этом случае вызовы от клиентов направляются на известный порт, например с номером 80, который прослушивает служба без отслеживания состояния. Такая служба получает вызов и определяет, поступил ли он из надежного источника, а также узнает службу, которой он предназначен. Затем служба без отслеживания состояния перенаправляет вызов на нужную секцию службы с отслеживанием состояния и ожидает ответа. При получении ответа служба без отслеживания состояния отвечает исходному клиенту.
 
-A common example of how stateless services are used in Service Fabric is as a front-end that exposes the public-facing API for a web application. The front-end service then talks to stateful services to complete a user request. In this case, calls from clients are directed to a known port, such as 80, where the stateless service is listening. This stateless service receives the call and determines whether the call is from a trusted party, as well as which service it's destined for.  Then, the stateless service forwards the call to the correct partition of the stateful service and waits for a response. When the stateless service receives a response, it replies back to the original client.
+### Надежные службы с отслеживанием состояния
+Служба с отслеживанием состояния — это служба, которой для надлежащего функционирования необходимо часть состояния поддерживать в согласованном виде. Рассмотрим службу, которая постоянно вычисляет скользящее среднее некоторых значений на основе получаемых обновлений. Для этого службе необходимо располагать текущим набором входящих запросов, которые требуется обработать, а также текущим средним значением. Любая служба, которая получает, обрабатывает и сохраняет информацию во внешнем хранилище (как это сегодня делается в хранилище BLOB-объектов или табличном хранилище Azure), является службой с отслеживанием состояния — она просто хранит свое состояние во внешнем хранилище состояний.
 
-### <a name="stateful-reliable-services"></a>Stateful Reliable Services
-A stateful service is one that must have some portion of state kept consistent and present in order for the service to function. Consider a service that constantly computes a rolling average of some value based on updates it receives. To do this, it must have the current set of incoming requests it needs to process, as well as the current average. Any service that retrieves, processes, and stores information in an external store (such as an Azure blob or table store today) is stateful. It just keeps its state in the external state store.
+Большинство служб сегодня хранят свое состояние во внешних хранилищах, что обеспечивает надежность, доступность, масштабируемость и согласованность состояния. В Service Fabric службам с отслеживанием состояния не обязательно хранить состояние во внешнем хранилище, поскольку Service Fabric берет на себя выполнение этих требований как для кода службы, так и для ее состояния.
 
-Most services today store their state externally, since the external store is what provides reliability, availability, scalability, and consistency for that state. In Service Fabric, stateful services aren't required to store their state externally; Service Fabric takes care of these requirements for both the service code and the service state.
+Предположим, что нужно создать службу, принимающую запросы для ряда преобразований, которые необходимо выполнить над изображением, и изображение, которое требуется преобразовать. Для этой службы будет возвращен прослушиватель связи (предположим, веб-API), который открывает порт связи и позволяет отправлять данные через API, например `ConvertImage(Image i, IList<Conversion> conversions)`. В этом интерфейсе API служба может принимать данные и сохранять запрос в ReliableQueue, а затем возвращать клиенту токен для отслеживания запроса (поскольку запросы могут занимать некоторое время).
 
-Let's say we want to write a service that takes requests for a series of conversions that need to be performed on an image, and the image that needs to be converted.  For this service, it would return a communication listener (let's suppose Web API) that opens up a communication port and allows submissions via an API like `ConvertImage(Image i, IList<Conversion> conversions)`. In this API, the service could take the information and store the request in a Reliable Queue, and then return some token to the client so it could keep track of the request (since the requests could take some time).
+В этой службе метод RunAsync может быть более сложным. Служба внутри RunAsync будет запускать цикл, извлекающий запросы из IReliableQueue, выполняющий перечисленные преобразования и сохраняющий результаты в IReliableDictionary, чтобы при возвращении клиент мог получить преобразованные изображения. Чтобы убедиться, что даже в случае какого-либо отказа изображение не будет потеряно, такая надежная служба будет извлекать очередь, выполнять преобразования и сохранять результат в транзакции, так что сообщение фактически удаляется из очереди и результаты сохраняются в словаре результатов только после завершения преобразований. Если где-либо между этими действиями произойдет отказ (например на компьютере, где выполняется данный экземпляр кода), запрос останется в очереди ожидать повторной обработки.
 
-In this service, RunAsync could be more complex. The service could have a loop inside its RunAsync that pulls requests out of IReliableQueue, performs the conversions listed, and stores the results in IReliableDictionary, so that when the client comes back, they can get their converted images. To ensure that even if something fails the image isn't lost, this Reliable Service would pull out of the queue, perform the conversions, and store the result in a transaction. In this case, the message is actually removed only from the queue and the results are stored in the result dictionary when the conversions are complete. If something fails in the middle (such as the machine this instance of the code is running on), the request remains in the queue waiting to be processed again.
+Следует еще отметить, что данная служба выглядит почти как обычная служба .NET. Единственная разница в том, что используемые структуры данных (ReliableQueue и ReliableDictionary) предоставляются платформой Service Fabric и поэтому для них обеспечивается высокая надежность, доступность и согласованность.
 
-One thing to note about this service is that it sounds like a normal .NET service. The only difference is that the data structures being used (IReliableQueue and IReliableDictionary) are provided by Service Fabric, and hence are made highly reliable, available, and consistent.
+## Когда следует использовать API надежных служб
+Если службе приложения требуется любая из приведенных ниже характеристик, следует рассмотреть возможность использования интерфейсов API надежных служб.
 
-## <a name="when-to-use-reliable-services-apis"></a>When to use Reliable Services APIs
-If any of the following characterize your application service needs, then you should consider Reliable Services APIs:
+- Необходимо обеспечить поведение приложения между несколькими единицами состояния (например заказами и позициями заказов).
 
-- You need to provide application behavior across multiple units of state (e.g., orders and order line items).
+- Состояние приложения можно естественным образом моделировать в виде надежных словарей и очередей.
 
-- Your application’s state can be naturally modeled as Reliable Dictionaries and Queues.
+- Состояние должно быть высокодоступным (с низкой задержкой доступа).
 
-- Your state needs to be highly available with low latency access.
+- Приложению требуется контролировать параллелизм или степень детализации транзакционных операций по одной или нескольким надежным коллекциям.
 
-- Your application needs to control the concurrency or granularity of transacted operations across one or more Reliable Collections.
+- Необходимо управлять обменом данными или контролировать схему секционирования службы.
 
-- You want to manage the communications or control the partitioning scheme for your service.
+- Коду требуется среда выполнения, работающая в режиме свободного потока.
 
-- Your code needs a free-threaded runtime environment.
+- Приложению требуется динамически создавать или уничтожать надежные словари или очереди во время выполнения.
 
-- Your application needs to dynamically create or destroy Reliable Dictionaries or Queues at runtime.
+- Вам нужно программным способом управлять функциями резервного копирования и восстановления, которые предоставляет платформа Service Fabric и которые относятся к вашей службе.*
 
-- You need to programmatically control Service Fabric-provided backup and restore features for your service’s state*.
+- Приложению необходимо поддерживать историю изменений своих единиц состояния.*
 
-- Your application needs to maintain change history for its units of state*.
+- Вам нужно разработать свои настраиваемые поставщики состояний или использовать сторонние.*
 
-- You want to develop or consume third-party-developed, custom state providers*.
-
-> [AZURE.NOTE] *Features available at SDK general availability.
-
-
-## <a name="next-steps"></a>Next steps
-+ [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
-+ [Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
-+ [The Reliable Actors programming model](service-fabric-reliable-actors-introduction.md)
+> [AZURE.NOTE] * Функции доступны при условии общей доступности пакета SDK.
 
 
+## Дальнейшие действия
++ [Краткое руководство по надежным службам Reliable Services](service-fabric-reliable-services-quick-start.md)
++ [Продвинутое использование надежных служб](service-fabric-reliable-services-advanced-usage.md)
++ [Модель программирования надежных субъектов](service-fabric-reliable-actors-introduction.md)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0406_2016-->

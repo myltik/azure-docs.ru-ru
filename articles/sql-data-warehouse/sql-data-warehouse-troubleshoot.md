@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshooting Azure SQL Data Warehouse | Microsoft Azure"
-   description="Troubleshooting Azure SQL Data Warehouse."
+   pageTitle="Устранение неполадок хранилища данных SQL Azure | Microsoft Azure"
+   description="Диагностика и устранение неполадок хранилища данных SQL Azure."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -16,98 +16,98 @@
    ms.date="08/30/2016"
    ms.author="sonyama;barbkess"/>
 
+# Устранение неполадок хранилища данных SQL Azure
 
-# <a name="troubleshooting-azure-sql-data-warehouse"></a>Troubleshooting Azure SQL Data Warehouse
+В этом разделе рассмотрены общие вопросы наших клиентов об устранении неполадок.
 
-This topic lists some of the more common troubleshooting questions we hear from our customers.
+## Подключение
 
-## <a name="connecting"></a>Connecting
-
-| Issue                              | Resolution                                      |
+| Проблема | Способы устранения: |
 | :----------------------------------| :---------------------------------------------- |
-| Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Error: 18456) | This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue either specify the SQL Data Warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][] article for more details.|
-|The server principal "MyUserName" is not able to access the database "master" under the current security context. Cannot open user default database. Login failed. Login failed for user 'MyUserName'. (Microsoft SQL Server, Error: 916) | This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue either specify the SQL Data Warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][] article for more details.|
-| CTAIP error                        | This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security overview][] article.  This article explains how to create create a login and user on master and then how to create a user in the SQL Data Warehouse database.|
-| Blocked by Firewall                |Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [Configure server firewall access for your client IP][] in the [Provisioning instructions][].|
-| Cannot connect with tool or driver | SQL Data Warehouse recommends using [SSMS][], [SSDT for Visual Studio 2015][], or [sqlcmd][] to query your data. For more details on drivers and connecting to SQL Data Warehouse, see [Drivers for Azure SQL Data Warehouse][] and [Connect to Azure SQL Data Warehouse][] articles.|
+| Ошибка входа пользователя "NT AUTHORITY\\ANONYMOUS LOGON". (Microsoft SQL Server, ошибка: 18456) | Эта ошибка возникает, когда пользователь AAD пытается подключиться к базе данных master, в которой нет соответствующей учетной записи пользователя. Для устранения этой проблемы либо укажите хранилище данных SQL, к которому необходимо подключиться, во время подключения, либо добавьте учетную запись пользователя в базу данных master. Дополнительные сведения см. в разделе [Защита базы данных в хранилище данных SQL][].|
+|Субъект-сервер "MyUserName" не может получить доступ к базе данных master в текущем контексте безопасности. Не удается открыть пользовательскую базу данных по умолчанию. Вход в систему не выполнен. Пользователю "MyUserName" не удалось войти в систему. (Microsoft SQL Server, ошибка: 916) | Эта ошибка возникает, когда пользователь AAD пытается подключиться к базе данных master, в которой нет соответствующей учетной записи пользователя. Для устранения этой проблемы либо укажите хранилище данных SQL, к которому необходимо подключиться, во время подключения, либо добавьте учетную запись пользователя в базу данных master. Дополнительные сведения см. в разделе [Защита базы данных в хранилище данных SQL][].|
+| Ошибка CTAIP | Эта ошибка может возникнуть, когда имя для входа создано в базе данных master SQL Server, но не создано в базе данных хранилища данных SQL. Если возникла эта ошибка, ознакомьтесь со статьей с [общими сведениями о безопасности][]. В этой статье объясняется, как создать имя для входа и пользователя в базе данных master, а затем создать пользователя в базе данных хранилища данных SQL.|
+| Заблокировано брандмауэром |Базы данных SQL Azure защищены брандмауэрами на уровне сервера и базы данных. Это гарантирует, что доступ к базам данных возможен только с известных IP-адресов. Брандмауэры являются безопасными по умолчанию. Это означает, что перед подключением необходимо прямо разрешить доступ для IP-адреса или диапазона IP-адресов. Чтобы настроить брандмауэр для предоставления доступа, выполните указания в разделе о [настройке доступа брандмауэра сервера к IP-адресу клиента][] на странице, содержащей [указания по подготовке][].|
+| Не удается подключиться с помощью средства или драйвера | В хранилище данных SQL для запроса данных рекомендуется использовать [SSMS][], [SSDT для Visual Studio 2015][] или [sqlcmd][]. Дополнительные сведения о необходимых драйверах и подключении к хранилищу данных SQL см. статьях [Драйверы для хранилища данных SQL Azure][] и [Подключение к хранилищу данных SQL Azure][].|
 
 
-## <a name="tools"></a>Tools
+## Средства
 
-| Issue                              | Resolution                                      |
+| Проблема | Способы устранения: |
 | :----------------------------------| :---------------------------------------------- |
-| Visual Studio object explorer is missing AAD users | This is a known issue.  As a workaround, view the users in [sys.database_principals][].  See [Authentication to Azure SQL Data Warehouse][] to learn more about using Azure Active Directory with SQL Data Warehouse.|
+| В обозревателе объектов Visual Studio отсутствуют пользователи AAD | Это известная проблема. В качестве обходного пути можно просмотреть сведения о пользователях в файле [sys.database\_principals][]. Дополнительные сведения об использовании Azure Active Directory с хранилищем данных SQL см. в статье [Аутентификация в хранилище данных SQL Azure][].|
 
-## <a name="performance"></a>Performance
+## Производительность
 
-|  Issue                             | Resolution                                      |
+| Проблема | Способы устранения: |
 | :----------------------------------| :---------------------------------------------- |
-| Query performance troubleshooting  | If you are trying to troubleshoot a particular query, start with [Learning how to monitor your queries][].|
-| Poor query performance and plans often is a result of missing statistics   | The most common cause of poor performance is lack of statistics on your tables.  See [Maintaining table statistics][Statistics] for details on how to create statistics and why they are critical to your performance.|
-| Low concurrency / queries queued   | Understanding [Workload management][] is important in order to understand how to balance memory allocation with concurrency.|
-| How to implement best practices    | The best place to start to learn ways to improve query performance is [SQL Data Warehouse best practices][] article.|
-| How to improve performance with scaling  | Sometimes the solution to improving performance is to simply add more compute power to your queries by [Scaling your SQL Data Warehouse][].|
-| Poor query performance as a result of poor index quality | Some times queries can slowdown because of [Poor columnstore index quality][].  See this article for more information and how to [Rebuild indexes to improve segment quality][].|
+| Устранение проблем с производительностью запросов | Если вы пытаетесь устранить проблему конкретного запроса, для начала ознакомьтесь со статьей, [посвященной мониторингу запросов][].|
+| Низкая производительность и неправильные планы запросов в результате отсутствия статистики | Самая распространенная причина низкой производительности — отсутствие статистики таблиц. Дополнительные сведения о создании статистики и о том, почему она очень важна для производительности, см. в статье об [управлении статистикой таблиц][Statistics].|
+| Низкий уровень параллелизма и помещение запросов в очередь | Чтобы обеспечить выделение памяти с учетом параллелизма, важно понимать принципы [управления рабочими нагрузками][].|
+| Реализация рекомендаций | Лучше всего начать изучение способов повышения производительности запросов со статьи [Рекомендации по использованию хранилища данных SQL Azure][].|
+| Повышение производительности за счет масштабирования | Иногда повысить производительность запросов позволяет простое увеличение вычислительной мощности, выделяемой для выполнения запросов, за счет [масштабирования хранилища данных SQL][].|
+| Низкая производительность запросов как результат низкого качества индексов | Иногда выполнение запросов может замедляться из-за [низкого качества индекса Columnstore][]. Дополнительные сведения см. в статье об индексировании таблиц в разделе о [повторном создании индексов для повышения качества сегментов][].|
 
-## <a name="system-management"></a>System management
+## Управление системой
 
-|  Issue                             | Resolution                                      |
+| Проблема | Способы устранения: |
 | :----------------------------------| :---------------------------------------------- |
-| Msg 40847: Could not perform the operation because server would exceed the allowed Database Transaction Unit quota of 45000. | Either reduce the [DWU][] of the database you are trying to create or [request a quota increase][].|
-| Investigating space utilization    | See [Table sizes][] to understand the space utilization of your system.|
-| Help with managing tables          | See the [Table overview][Overview] article for help with managing your tables.  This article also includes links into more detailed topics like [Table data types][Data types], [Distributing a table][Distribute], [Indexing a table][Index],  [Partitioning a table][Partition], [Maintaining table statistics][Statistics] and [Temporary tables][Temporary].|
+| Сообщение 40847: не удалось выполнить операцию, так как сервер достиг допустимой квоты в 45 000 единиц транзакций базы данных (DTU). | Либо уменьшите значение [DWU][] создаваемой базы данных, либо [запросите увеличение квоты][].|
+| Анализ использования пространства | Сведения об использовании пространства в системе см. в разделе о [размерах таблиц][].|
+| Справка по управлению таблицами | Справочную информацию об управлении таблицами см. в статье, содержащей [общие сведения о таблицах][Overview]. Эта статья также включает в себя ссылки на разделы с более подробными сведениями о [типах данных таблиц][Data types], [распределении][Distribute], [индексировании][Index] и [секционировании таблицы][Partition], а также сведениями об [управлении статистикой таблиц][Statistics] и о [временных таблицах][Temporary].|
 
-## <a name="polybase"></a>Polybase
+## PolyBase
 
-|  Issue                             | Resolution                                      |
+| Проблема | Способы устранения: |
 | :----------------------------------| :---------------------------------------------- |
-| UTF-8 error                        |  Currently PolyBase only supports loading data files that have been UTF-8 encoded.  See [Working around the PolyBase UTF-8 requirement][] for guidance on how to work around this limitation.|
-| Load fails because of large rows   | Currently large row support is not available for Polybase.  This means that if your table contains VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX), External tables cannot be used to load your data.  Loads for large rows is currently only supported through Azure Data Factory (with BCP), Azure Stream Analytics, SSIS, BCP or the .NET SQLBulkCopy class. PolyBase support for large rows will be added in a future release.|
-| bcp load of table with MAX data type is failing | There is a known issue which requires that VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX) be placed at the end of the table in some scenarios.  Try moving your MAX columns to the end of the table.|
+| Ошибка UTF-8 | В настоящее время PolyBase поддерживает загрузку файлов данных только с кодировкой UTF-8. Рекомендации о том, как обойти это ограничение, см. в разделе [Обход требования PolyBase UTF-8][].|
+| Ошибка загрузки из-за большого размера строк | В настоящее время для Polybase не поддерживаются строки большого размера. Таким образом, если ваша таблица содержит данные типа VARCHAR(MAX), NVARCHAR(MAX) или VARBINARY(MAX), для их загрузки нельзя использовать внешние таблицы. Строки больших размеров можно загружать только с помощью фабрики данных Azure (с использованием BCP), Azure Stream Analytics, служб SSIS, программы BCP или класса .NET SQLBulkCopy. Поддержка строк большого размера для PolyBase будет добавлена в будущем выпуске.|
+| Ошибка загрузки таблицы с типом данных MAX с использованием BCP | Это известная проблема. Для ее решения в некоторых сценариях нужно поместить данные VARCHAR(MAX), NVARCHAR(MAX) или VARBINARY(MAX) в конец таблицы. Попытайтесь переместить столбцы с типом данных MAX в конец таблицы.|
 
-## <a name="differences-from-sql-database"></a>Differences from SQL Database
+## Отличия от базы данных SQL
 
-|  Issue                             | Resolution                                      |
+| Проблема | Способы устранения: |
 | :----------------------------------| :---------------------------------------------- |
-| Unsupported SQL Database features  | See [Unsupported table features][].|
-| Unsupported SQL Database data types  | See [Unsupported data types][].|
-| DELETE and UPDATE limitations      | See [UPDATE workarounds][], [DELETE workarounds][] and [Using CTAS to work around unsupported UPDATE and DELETE syntax][].  |
-| MERGE statement is not supported   | See [MERGE workarounds][].|
-| Stored procedure limitations       | See [Stored procedure limitations][] to understand some of the limitations of stored procedures.|
-| UDFs do not support SELECT statements | This is a current limitation of our UDFs.  See [CREATE FUNCTION][] for the syntax we support.   |
+| Неподдерживаемые функции базы данных SQL | Ознакомьтесь с разделом [Неподдерживаемые функции таблиц][].|
+| Неподдерживаемые типы данных базы данных SQL | Ознакомьтесь с разделом [Неподдерживаемые типы данных][].|
+| Ограничения относительно инструкций DELETE и UPDATE | Ознакомьтесь с обходных решениях для инструкций [UPDATE][] и [DELETE][], а также с [использованием инструкции CTAS для обхода неподдерживаемого синтаксиса UPDATE и DELETE][]. |
+| Инструкция MERGE не поддерживается | Ознакомьтесь с [обходными решениями для инструкции MERGE][].|
+| Ограничения хранимых процедур | Ознакомьтесь с [ограничениями хранимых процедур][].|
+| Определяемые пользователем функции не поддерживают инструкции SELECT | Это текущее ограничение определяемых пользователем функций. Сведения о поддерживаемом синтаксисе см. в разделе документации об инструкции [CREATE FUNCTION][]. |
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-If you are were unable to find a solution to your issue above, here are some other resources you can try.
+Если не удалось найти решение для приведенной выше проблемы, то можно ознакомиться со следующими ресурсами, которые могут помочь.
 
-- [Blogs]
-- [Feature requests]
-- [Videos]
-- [CAT team blogs]
-- [Create support ticket]
-- [MSDN forum]
-- [Stack Overflow forum]
+- [Блоги]
+- [Запросы функций]
+- [Видеоролики]
+- [Блоги группы CAT]
+- [Создание запроса в службу поддержки]
+- [Форум MSDN]
+- [Форум Stack Overflow]
 - [Twitter]
 
 <!--Image references-->
 
 <!--Article references-->
-[Security overview]: ./sql-data-warehouse-overview-manage-security.md
+[Защита базы данных в хранилище данных SQL]: ./sql-data-warehouse-overview-manage-security.md
+[общими сведениями о безопасности]: ./sql-data-warehouse-overview-manage-security.md
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
-[SSDT for Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
-[Drivers for Azure SQL Data Warehouse]: ./sql-data-warehouse-connection-strings.md
-[Connect to Azure SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-[Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Scaling your SQL Data Warehouse]: ./sql-data-warehouse-manage-compute-overview.md
+[SSDT для Visual Studio 2015]: ./sql-data-warehouse-install-visual-studio.md
+[Драйверы для хранилища данных SQL Azure]: ./sql-data-warehouse-connection-strings.md
+[Подключение к хранилищу данных SQL Azure]: ./sql-data-warehouse-connect-overview.md
+[Создание запроса в службу поддержки]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[масштабирования хранилища данных SQL]: ./sql-data-warehouse-manage-compute-overview.md
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[request a quota increase]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change 
-[Learning how to monitor your queries]: ./sql-data-warehouse-manage-monitor.md
-[Provisioning instructions]: ./sql-data-warehouse-get-started-provision.md
-[Configure server firewall access for your client IP]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
-[Table sizes]: ./sql-data-warehouse-tables-overview.md#table-size-queries
-[Unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Unsupported data types]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
+[запросите увеличение квоты]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[посвященной мониторингу запросов]: ./sql-data-warehouse-manage-monitor.md
+[указания по подготовке]: ./sql-data-warehouse-get-started-provision.md
+[настройке доступа брандмауэра сервера к IP-адресу клиента]: ./sql-data-warehouse-get-started-provision.md#create-a-new-azure-sql-server-level-firewall
+[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
+[размерах таблиц]: ./sql-data-warehouse-tables-overview.md#table-size-queries
+[Неподдерживаемые функции таблиц]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[Неподдерживаемые типы данных]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [Overview]: ./sql-data-warehouse-tables-overview.md
 [Data types]: ./sql-data-warehouse-tables-data-types.md
 [Distribute]: ./sql-data-warehouse-tables-distribute.md
@@ -115,34 +115,29 @@ If you are were unable to find a solution to your issue above, here are some oth
 [Partition]: ./sql-data-warehouse-tables-partition.md
 [Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Poor columnstore index quality]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
-[Rebuild indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Workload management]: ./sql-data-warehouse-develop-concurrency.md
-[Using CTAS to work around unsupported UPDATE and DELETE syntax]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
-[UPDATE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
-[DELETE workarounds]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
-[MERGE workarounds]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
-[Stored procedure limitations]: ./sql-data-warehouse-develop-stored-procedures.md#limitations
-[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
-[Working around the PolyBase UTF-8 requirement]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
+[низкого качества индекса Columnstore]: ./sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
+[повторном создании индексов для повышения качества сегментов]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[управления рабочими нагрузками]: ./sql-data-warehouse-develop-concurrency.md
+[использованием инструкции CTAS для обхода неподдерживаемого синтаксиса UPDATE и DELETE]: ./sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
+[UPDATE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[DELETE]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[обходными решениями для инструкции MERGE]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[ограничениями хранимых процедур]: ./sql-data-warehouse-develop-stored-procedures.md#limitations
+[Аутентификация в хранилище данных SQL Azure]: ./sql-data-warehouse-authentication.md
+[Обход требования PolyBase UTF-8]: ./sql-data-warehouse-load-polybase-guide.md#working-around-the-polybase-utf-8-requirement
 
 <!--MSDN references-->
-[sys.database_principals]: https://msdn.microsoft.com/library/ms187328.aspx
+[sys.database\_principals]: https://msdn.microsoft.com/library/ms187328.aspx
 [CREATE FUNCTION]: https://msdn.microsoft.com/library/mt203952.aspx
-[sqlcmd]: https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
+[sqlcmd]: https://azure.microsoft.com/documentation/articles/sql-data-warehouse-get-started-connect-sqlcmd/
 
 <!--Other Web references-->
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[CAT team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Блоги]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Блоги группы CAT]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Запросы функций]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Форум MSDN]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
+[Форум Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Видеоролики]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

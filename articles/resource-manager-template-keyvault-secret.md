@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager template for a secret in a key vault | Microsoft Azure"
-   description="Shows the Resource Manager schema for deploying key vault secrets through a template."
+   pageTitle="Шаблон диспетчера ресурсов для секретного кода в хранилище ключей | Microsoft Azure"
+   description="В этой статье демонстрируется схема диспетчера ресурсов для развертывания секретных кодов хранилища ключей с помощью шаблона."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,14 +16,13 @@
    ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
+# Схема шаблона секретного кода хранилища ключей
 
-# <a name="key-vault-secret-template-schema"></a>Key vault secret template schema
+Создает секретный код, который хранится в хранилище ключей. Этот тип ресурса часто развертывается как дочерний ресурс [хранилища ключей](resource-manager-template-keyvault.md).
 
-Creates a secret that is stored in a key vault. This resource type is frequently deployed as a child resource of [key vault](resource-manager-template-keyvault.md).
+## Формат схемы
 
-## <a name="schema-format"></a>Schema format
-
-To create a key vault secret, add the following schema to your template. The secret can be defined as either a child resource of a key vault or as top-level resource. You can define it as a child resource when the key vault is deployed in the same template. You will need to define the secret as a top-level resource when the key vault is not deployed in the same template, or when you need to create multiple secrets by looping on the resource type. 
+Чтобы создать секретный код хранилища ключей, добавьте в шаблон указанную ниже схему. Секретный код можно определить либо как дочерний ресурс хранилища ключей, либо как ресурс верхнего уровня. Его можно определить как дочерний ресурс, если хранилище ключей развертывается в том же шаблоне. Определять секретный код как ресурс верхнего уровня необходимо, если хранилище ключей не развертывается в том же шаблоне или если вам нужно создать несколько секретных кодов, используя тип ресурса в циклической конструкции.
 
     {
         "type": enum,
@@ -35,29 +34,29 @@ To create a key vault secret, add the following schema to your template. The sec
         "dependsOn": [ array values ]
     }
 
-## <a name="values"></a>Values
+## Значения
 
-The following tables describe the values you need to set in the schema.
+В следующих таблицах описаны значения, которые следует указать в этой схеме.
 
-| Name | Value |
+| Имя | Значение |
 | ---- | ---- | 
-| type | Enum<br />Required<br />**secrets** (when deployed as a child resource of key vault) or<br /> **Microsoft.KeyVault/vaults/secrets** (when deployed as a top-level resource)<br /><br />The resource type to create. |
-| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
-| name | String<br />Required<br />A single word when deployed as a child resource of a key vault, or in the format **{key-vault-name}/{secret-name}** when deployed as a top-level resource to be added to an existing key vault.<br /><br />The name of the secret to create. |
-| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the value of the secret to create. |
-| dependsOn | Array<br />Optional<br />A comma-separated list of a resource names or resource unique identifiers.<br /><br />The collection of resources this link depends on. If the key vault for the secret is deployed in the same template, include the name of the key vault in this element to ensure it is deployed first. |
+| type | Перечисление.<br />Обязательное значение.<br />**secrets** (при развертывании в качестве дочернего ресурса хранилища ключей) или<br /> **Microsoft.KeyVault/vaults/secrets** (при развертывании в качестве ресурса верхнего уровня)<br /><br />Тип создаваемого ресурса. |
+| версия\_API | Перечисление.<br />Обязательное значение.<br />**2015-06-01** или **2014-12-19-preview**<br /><br />Версия API, которая будет использоваться для создания ресурса. | 
+| name | Строка.<br />Обязательное значение.<br />Одно слово при развертывании в качестве дочернего ресурса хранилища ключей либо значение в формате **{имя-ключа-хранилища}/{имя-секрета}** при развертывании в качестве ресурса верхнего уровня ресурсов для добавления в существующее хранилище ключей.<br /><br />Имя создаваемого секрета. |
+| properties | Объект.<br />Обязательное значение.<br />[Объект свойств.](#properties)<br /><br />Объект, который указывает значение создаваемого секрета. |
+| Свойство dependsOn | Массив.<br />Необязательное значение.<br />Разделенный запятыми список имен или уникальных идентификаторов ресурсов.<br /><br />Коллекция ресурсов, от которых зависит эта связь. Если хранилище ключей разворачивается в том же шаблоне, включите в этот элемент имя хранилища ключей, чтобы оно было развернуто первым. |
 
 <a id="properties" />
-### <a name="properties-object"></a>properties object
+### объект properties
 
-| Name | Value |
+| Имя | Значение |
 | ---- | ---- | 
-| value | String<br />Required<br /><br />The secret value to store in the key vault. When passing in a value for this property, use a parameter of type **securestring**.  |
+| value | Строка.<br />Обязательное значение.<br /><br />Значение секрета для хранения в хранилище ключей. Для передачи значения этого свойства используйте параметр типа **securestring**. |
 
-    
-## <a name="examples"></a>Examples
+	
+## Примеры
 
-The first example deploys a secret as a child resource of a key vault.
+Код в первом примере разворачивает секретный код как дочерний ресурс хранилища ключей.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -183,7 +182,7 @@ The first example deploys a secret as a child resource of a key vault.
         }]
     }
 
-The second example deploys the secret as a top-level resource that is stored in an existing key vault.
+Код во втором примере разворачивает секретный код как ресурс верхнего уровня, хранящийся в существующем хранилище ключей.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -223,15 +222,9 @@ The second example deploys the secret as a top-level resource that is stored in 
     }
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- For general information about key vaults, see [Get started with Azure Key Vault](./key-vault/key-vault-get-started.md).
-- For an example of referencing a key vault secret when deploying templates, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+- Общие сведения о хранилищах ключей см. в разделе [Приступая к работе с хранилищем ключей Azure](./key-vault/key-vault-get-started.md).
+- Пример ссылки на секретный код хранилища ключей при развертывании шаблонов см. в статье [ Передача безопасных значений в процессе развертывания](resource-manager-keyvault-parameter.md).
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

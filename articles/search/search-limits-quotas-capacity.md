@@ -1,105 +1,100 @@
 <properties
-    pageTitle="Service limits in Azure Search | Microsoft Azure"
-    description="Service limits used for capacity planning and maximum limits on requests and reponses for Azure Search."
-    services="search"
-    documentationCenter=""
-    authors="HeidiSteen"
-    manager="jhubbard"
-    editor=""
+	pageTitle="Ограничения поиска Azure | Microsoft Azure"
+	description="Ограничения службы поиска Azure, используемые при планировании мощности, а также ограничения запросов и ответов на них."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="jhubbard"
+	editor=""
     tags="azure-portal"/>
 
 <tags
-    ms.service="search"
-    ms.devlang="NA"
-    ms.workload="search"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.date="10/17/2016"
-    ms.author="heidist"/>
+	ms.service="search"
+	ms.devlang="NA"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.date="08/03/2016"
+	ms.author="heidist"/>
 
+# Ограничения поиска Azure
 
-# <a name="service-limits-in-azure-search"></a>Service limits in Azure Search
+Ограничения хранилища, рабочих нагрузок, количества индексов, документов и других объектов зависят от того, добавили ли вы Поиск Azure в ценовую категорию **Бесплатный**, **Базовый** или **Стандартный**.
 
-Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you add Azure Search at a **Free**, **Basic**, or **Standard** pricing tier.
+- Категория **Бесплатный** представляет собой мультитенантную службу, которая предоставляется вместе с подпиской Azure. Это вариант без дополнительных затрат для существующих подписчиков, который позволяет поэкспериментировать со службой до регистрации для использования выделенных ресурсов.
+- Категория **Базовый** предоставляет выделенные вычислительные ресурсы для небольших рабочих нагрузок в рабочей среде.
+- Для категории **Стандартный** используются выделенные виртуальные машины. Это обеспечивает увеличение емкости хранилища и вычислительной мощности на всех уровнях, даже при минимальной конфигурации. В категории "Стандартный" доступно четыре уровня: S1, S2, S3 и S3, высокая плотность (S3 HD). Уровни S3 и S3 HD сейчас находятся на этапе предварительной версии и предлагаются со скидкой 50 % на этом этапе.
 
-- **Free** is a multi-tenant shared service that comes with your Azure subscription. It's a no-additional-cost option for existing subscribers that allows you to experiment with the service before signing up for dedicated resources. 
-- **Basic** provides dedicated computing resources for production workloads at a smaller scale. ).
-- **Standard** runs on dedicated machines, with more storage and processing capacity at every level, including the minimum configuration. Standard comes in four levels: S1, S2, S3, and S3 High Density (S3 HD). S3 and S3 HD are currently in Preview and offered at a 50% reduced rate during the Preview period.
+Все уровни могут быть [подготовлены на портале](search-create-service-portal.md). Служба изначально выделяет одну секцию и одну реплику, но вы можете изменить выделение ресурсов после создания службы. Дополнительные сведения см. в разделе [Планирование емкости в поиске Azure](search-capacity-planning.md).
 
-All tiers can be [provisioned in the portal](search-create-service-portal.md). A service is initially allocated one partition and one replica, but you can change the resource allocation once the service is created. See [Scale resource levels for query and indexing workloads](search-capacity-planning.md) for details.
-
-## <a name="per-subscription-limits"></a>Per subscription limits
+## Ограничения подписки
 
 [AZURE.INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="per-service-limits"></a>Per service limits ##
+## Ограничения службы ##
 
 [AZURE.INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## <a name="per-index-limits"></a>Per index limits ##
+## Ограничения индекса ##
 
-There is a one-to-one correspondence between limits on indexes and limits on indexers. Given a limit of 200 indexes per S2 service, the maximum indexers and indexer datasources is also 200 for the same service.
+Существует прямое соответствие между ограничениями индексов и индексаторов. При ограничении в 200 индексов для каждой службы S2 максимальное число индексаторов и источников данных индексаторов для этой службы также равно 200.
 
-Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
+Resource (Ресурс)|Free|базовая; |S1|S2|S3 (предварительная версия)|S3 HD (предварительная версия) 
 ---|---|---|---|---- |---|----
-Index: maximum fields per index|1000|100 <sup>1</sup>|1000|1000|1000|1000 
-Index: maximum scoring profiles per index|16|16|16|16|16|16 
-Index: maximum functions per profile|8|8|8|8|8|8 
-Indexers: maximum indexing load per invocation|10,000 documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents|Limited only by maximum documents|N/A <sup>2</sup> 
-Indexers: maximum running time|3 minutes|24 hours|24 hours|24 hours|24 hours|N/A <sup>2</sup> 
-Blob indexer: maximum blob size, MB|16|16|128|256|256|N/A <sup>2</sup> 
-Blob indexer: maximum characters of content extracted from a blob|32,000|64,000|4 million|4 million|4 million|N/A <sup>2</sup> 
+Индекс: максимальное число полей на индекс|1000|100 <sup>1</sup>|1000|1000|1000|1000 
+Максимальное число профилей оценки на индекс|16|16|16|16|16|16 
+Индекс: максимальное число функций на профиль|8|8|8|8|8|8 
+Индексаторы: максимальная нагрузка индексирования на вызов|10 000 документов|Ограничивается только максимальным числом документов|Ограничивается только максимальным числом документов|Ограничивается только максимальным числом документов|Ограничивается только максимальным числом документов|Недоступно <sup>2</sup> 
+Индексаторы: максимальное время выполнения|3 минуты|24 часа|24 часа|24 часа|24 часа|Недоступно <sup>2</sup> 
+Индексатор BLOB-объектов: максимальный размер BLOB-объектов в МБ|16|16|128|256|256|Недоступно <sup>2</sup> 
+Индексатор BLOB-объектов: максимальное число символов в содержимом, извлеченном из BLOB-объекта|32 000|64 000|4 млн|4 млн|4 млн|Недоступно <sup>2</sup> 
 
-<sup>1</sup> Basic tier is the only SKU with a lower limit of 100 fields per index.
+<sup>1</sup> Уровень "Базовый" — единственный SKU с нижним пределом, составляющим 100 полей на индекс.
 
-<sup>2</sup> S3 HD doesn't currently support indexers or indexer datasources. Please contact Azure Support if you have an urgent need for this capability.
+<sup>2</sup> S3 HD сейчас не поддерживает индексаторы или источники данных индексаторов. Обратитесь в службу поддержки Azure, если вам срочно требуется эта возможность.
 
-## <a name="document-size-limits"></a>Document size limits ##
+## Ограничения размера документа ##
 
-Resource|Free|Basic |S1|S2|S3 (Preview)|S3 HD (Preview) 
+Resource (Ресурс)|Free|базовая; |S1|S2|S3 (предварительная версия)|S3 HD (предварительная версия) 
 ---|---|---|---|---- |---|----
-Individual document size per Index API|<16 MB|<16 MB|<16 MB |<16 MB|<16 MB|<16 MB
+Размер отдельного документа на API индекса|Меньше 16 МБ|Меньше 16 МБ|Меньше 16 МБ |Меньше 16 МБ|Меньше 16 МБ|Меньше 16 МБ
 
-Refers to the maximum document size when calling an Index API. Document size is actually a limit on the size of the Index API request body. Since you can pass a batch of multiple documents to the Index API at once, the size limit actually depends on how many documents are in the batch. For a batch with a single document, the maximum document size will be to 16 MB of JSON.
+Относится к максимальному размеру документа при вызове API индекса. Фактически размер документа ограничивает размер текста запроса API индекса. Так как пакет из нескольких документов можно передать в API индекса за один раз, фактически предельный размер зависит от того, сколько документов находится в пакете. Для пакета с одним документом максимальный размер документа будет 16 МБ данных JSON.
 
-To keep document size down, remember to exclude non-queryable data from the request. Images and other binary data are not directly queryable and shouldn't be stored in the index. To integrate non-queryable data into search results, define a non-searchable field that stores a a URL reference to the resource.
+Чтобы уменьшить размер документа, не забудьте исключить из запроса недоступные для запроса данные. Образы и другие двоичные данные не запрашиваются напрямую и не должны храниться в индексе. Чтобы добавить в результаты поиска недоступные для запроса данные, определите поле, недоступное для поиска, в котором хранится ссылка на URL-адрес ресурса.
 
-## <a name="workload-limits-(queries-per-second)"></a>Workload limits (Queries per second) ##
+## Ограничения рабочей нагрузки (запросов в секунду) ##
 
-Resource|Free|Basic|S1|S2|S3 (Preview)|S3 HD (Preview)
+Resource (Ресурс)|Free|базовая;|S1|S2|S3 (предварительная версия)|S3 HD (предварительная версия)
 ---|---|---|---|----|---|----
-QPS|N/A|~3 per replica|~15 per replica|~60 per replica|>60 per replica|>60 per replica
+Число запросов в секунду|Недоступно|~3 на реплику|~15 на реплику|~60 на реплику|Больше 60 на реплику|Больше 60 на реплику
 
-Queries per second (QPS) is an approximation based on heuristics, using simulated and actual customer workloads to derive estimated values. Exact QPS throughput will vary depending on your data and the nature of the query.
+Число запросов в секунду (QPS) определяется приблизительно, в зависимости от эвристики, с использованием смоделированных и фактических нагрузок клиента для получения предполагаемых значений. Точная пропускная способность QPS будет зависеть от характера данных и природы запроса.
 
-Although rough estimates are provided above, an actual rate is difficult to determine, especially in the Free shared service where throughput is based on available bandwidth and competition for system resources. In the Free tier, compute and storage resources are shared by multiple subscribers, so QPS for your solution will always vary depending on how many other workloads are running at the same time. 
+Несмотря на то, что выше приведены приблизительные значения, фактическую скорость трудно определить, особенно для общей службы уровня "Бесплатный", где пропускная способность основана на доступной пропускной способности и конкуренции за системные ресурсы. Для уровня "Бесплатный" вычислительные ресурсы и ресурсы хранилища используются несколькими подписчиками. Поэтому значение QPS для вашего решения всегда будет зависеть от количества всех рабочих нагрузок, выполняемых одновременно.
 
-At the standard level, you can estimate QPS more closely because you have control over more of the parameters. See the best practices section in [Manage your search solution](search-manage.md) for guidance on how to calculate QPS for your workloads. 
+Для категории "Стандартный" можно точнее оценить QPS, так как вы можете контролировать больше параметров. См. раздел рекомендаций в статье [Управление решением поиска](search-manage.md), чтобы ознакомиться с указаниями по вычислению QPS рабочих нагрузок.
 
-## <a name="api-request-limits"></a>API Request limits
+## Ограничения запроса API
 
-- Maximum of 16 MB per request <sup>1</sup>
-- Maximum 8 KB URL length
-- Maximum 1000 documents per batch of index uploads, merges, or deletes
-- Maximum 32 fields in $orderby clause
-- Maximum search term size is 32766 bytes (32 KB minus 2 bytes) of UTF-8 encoded text
+- Максимум 16 МБ на один запрос <sup>1</sup>
+- Максимальная длина URL-адреса — 8 КБ.
+- Максимум 1000 документов на одну операцию загрузки индексов, объединения или удаления.
+- Максимум 32 поля в предложении $orderby.
+- Максимальный размер поискового запроса — 32 766 байт (32 КБ минус 2 байта) текста в кодировке UTF-8.
 
-<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions).
+<sup>1</sup> В Поиске Azure размер текста запроса должен быть не больше 16 МБ. Это накладывает фактическое ограничение на отдельные поля или коллекции, для которых теоретические ограничения не установлены (дополнительные сведения о составе и ограничениях полей см. в разделе [Поддерживаемые типы данных](https://msdn.microsoft.com/library/azure/dn798938.aspx)).
 
-## <a name="api-response-limits"></a>API Response limits
+## Ограничения ответа API
 
-- Maximum 1000 documents returned per page of search results
-- Maximum 100 suggestions returned per Suggest API request
+- Максимум 1000 документов на одну страницу результатов поиска.
+- Максимум 100 предложений на один запрос API предложений.
 
-## <a name="api-key-limits"></a>API Key limits
+## Ограничения ключа API
 
-Api-keys are used for service authentication. There are two types. Admin keys are specified in the request header and grant full read-write access to the service. Query keys are read-only, specified on the URL, and typically distributed to client applications.
+Ключи API используются для проверки подлинности в службе. Существует два типа ключей. Ключи администратора указываются в заголовке запроса и предоставляют доступ к службе на чтение и запись. Ключи запросов доступны только для чтения, они указываются в URL-адресе и обычно передаются в клиентские приложения.
 
-- Maximum of 2 admin keys per service
-- Maximum of 50 query keys per service
+- Максимум 2 ключа администратора на одну службу.
+- Максимум 50 ключей запросов на одну службу.
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

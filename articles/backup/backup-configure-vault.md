@@ -1,260 +1,255 @@
 <properties
-    pageTitle="Back up a Windows Server or client to Azure with Azure Backup using the Resource Manager deployment model | Microsoft Azure"
-    description="Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders."
-    services="backup"
-    documentationCenter=""
-    authors="markgalioto"
-    manager="cfreeman"
-    editor=""
-    keywords="backup vault; back up a Windows server; backup windows;"/>
+	pageTitle="Архивация сервера Windows Server или клиентского компьютера Windows в Azure с помощью службы архивации Azure с использованием модели развертывания Resource Manager | Microsoft Azure"
+	description="Архивация серверов или клиентов Windows в Azure путем создания хранилища архивации, скачивания учетных данных, установки агента архивации и выполнения начальной архивации файлов и папок."
+	services="backup"
+	documentationCenter=""
+	authors="markgalioto"
+	manager="cfreeman"
+	editor=""
+	keywords="хранилище архивации; архивация сервера Windows; архивация Windows;"/>
 
 <tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/10/2016"
-    ms.author="jimpark; trinadhk; markgal"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2016"
+	ms.author="jimpark; trinadhk; markgal"/>
 
-
-# <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Back up a Windows Server or client to Azure using the Resource Manager deployment model
+# Архивация сервера Windows Server или клиента Windows в Azure с использованием модели развертывания с помощью Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure portal](backup-configure-vault.md)
-- [Classic portal](backup-configure-vault-classic.md)
+- [Портал Azure](backup-configure-vault.md)
+- [Классический портал.](backup-configure-vault-classic.md)
 
-This article explains how to back up your Windows Server (or Windows client) files and folders to Azure with Azure Backup using the Resource Manager deployment model.
+В этой статье описывается, как выполнить архивацию файлов и папок Windows Server или клиентского компьютера Windows в Azure с помощью службы архивации Azure, используя модель развертывания Resource Manager.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/backup-deployment-models.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Классическая модель развертывания.
 
-![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
+![Шаги архивации](./media/backup-configure-vault/initial-backup-process.png)
 
 
-## <a name="before-you-start"></a>Before you start
-To back up a server or client to Azure, you need an Azure account. If you don't have one, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
+## Перед началом работы
+Для архивации сервера или клиента в Azure вам потребуется учетная запись Azure. Если ее нет, можно создать [бесплатную учетную запись](https://azure.microsoft.com/free/) всего за несколько минут.
 
-## <a name="step-1:-create-a-recovery-services-vault"></a>Step 1: Create a Recovery Services vault
+## Шаг 1. Создание хранилища служб восстановления
 
-A Recovery Services vault is an entity that stores all the backups and recovery points you create over time. The Recovery Services vault also contains the backup policy applied to the protected files and folders. When you create a Recovery Services vault, you should also select the appropriate storage redundancy option.
+Хранилище служб восстановления — это сущность, в которой хранятся все созданные резервные копии и точки восстановления. В нем также содержится политика архивации, которая применяется к защищенным файлам и папкам. При создании хранилища служб восстановления следует также выбрать подходящий параметр избыточности хранилища.
 
-### <a name="to-create-a-recovery-services-vault"></a>To create a Recovery Services vault
+### Создание хранилища служб восстановления
 
-1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Используя подписку Azure, войдите на [портал Azure](https://portal.azure.com/) (если вы еще этого не сделали).
 
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults**.
+2. В главном меню щелкните **Обзор**, а затем в списке ресурсов введите **Службы восстановления**. Как только вы начнете вводить, список отфильтруется соответствующим образом. Щелкните **Хранилища служб восстановления**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+    ![Создание хранилища служб восстановления — шаг 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults is displayed.
+    После этого отобразится список хранилищ служб восстановления.
 
-3. On the **Recovery Services vaults** menu, click **Add**.
+3. В меню **Хранилища служб восстановления** щелкните **Добавить**.
 
-    ![Create Recovery Services Vault step 2](./media/backup-configure-vault/rs-vault-menu.png)
+    ![Создание хранилища служб восстановления — шаг 2](./media/backup-configure-vault/rs-vault-menu.png)
 
-    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
+    Откроется колонка хранилища служб восстановления, в которой нужно указать **имя**, **подписку**, **группу ресурсов** и **расположение**.
 
-    ![Create Recovery Services vault step 5](./media/backup-configure-vault/rs-vault-attributes.png)
+    ![Создание хранилища служб восстановления — шаг 5](./media/backup-configure-vault/rs-vault-attributes.png)
 
-4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
+4. В поле **Имя** введите понятное имя хранилища. Имя должно быть уникальным в пределах подписки Azure. Введите имя длиной от 2 до 50 знаков. Имя должно начинаться с буквы, оно может содержать только буквы, цифры и дефисы.
 
-5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
+5. Щелкните **Подписка**, чтобы просмотреть список доступных подписок. Если неизвестно, какую подписку нужно использовать, оставьте подписку по умолчанию (или предлагаемую подписку). Вариантов будет несколько только в том случае, если учетная запись вашей организации связана с несколькими подписками Azure.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
+6. Щелкните **Группа ресурсов**, чтобы просмотреть список доступных групп ресурсов, или создайте группу ресурсов, щелкнув **Создать**. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения об Azure Resource Manager](../resource-group-overview.md).
 
-7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent. By choosing a geographic region that's close to your location, you can reduce network latency when backing up to Azure.
+7. Щелкните **Расположение**, чтобы выбрать географический регион для хранилища. Этот выбор определяет географический регион, в который будут отправляться данные архивации. Если вы выберете географический регион, который находится недалеко от вашего расположения, вы уменьшите задержки в сети во время архивации в Azure.
 
-8. Click **Create**. It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it should open in the portal. If you don't see your vault listed after it has been completed, click **Refresh**. When the list refreshes, click the name of the vault.
+8. Щелкните **Создать**. Для создания хранилища служб восстановления может потребоваться некоторое время. Следите за уведомлениями о состоянии на портале в верхней правой области. Сразу после создания хранилище откроется на портале. Если созданное хранилище не отображается, щелкните **Обновить**. После обновления списка щелкните имя хранилища.
 
-### <a name="to-determine-storage-redundancy"></a>To determine storage redundancy
-When you first create a Recovery Services vault you determine how storage is replicated.
+### Определение избыточности для хранилища
+При первом создании хранилища служб восстановления нужно определить способ его репликации.
 
-1. In the **Settings** blade, which opens automatically with your vault dashboard, click **Backup Infrastructure**.
+1. В колонке **Параметры**, которая автоматически откроется с панелью мониторинга хранилища, щелкните **Backup Infrastructure** (Инфраструктура архивации).
 
-2. In the Backup Infrastructure blade, click **Backup Configuration** to view the **Storage replication type**.
+2. В колонке Backup Infrastructure (Инфраструктура архивации) щелкните **Резервная конфигурация**, чтобы просмотреть **тип репликации хранилища**.
 
-    ![Create Recovery Services vault step 5](./media/backup-configure-vault/backup-infrastructure.png)
+    ![Создание хранилища служб восстановления — шаг 5](./media/backup-configure-vault/backup-infrastructure.png)
 
-3. Choose the storage replication option for your vault.
+3. Выберите тип репликации для хранилища.
 
-    ![List of recovery services vaults](./media/backup-configure-vault/choose-storage-configuration.png)
+    ![Список хранилищ служб восстановления](./media/backup-configure-vault/choose-storage-configuration.png)
 
-    By default, your vault has geo-redundant storage. If you are using Azure as a primary backup storage endpoint, continue using geo-redundant storage. If you are using Azure as a non-primary backup storage endpoint, then choose locally redundant storage, which will reduce the cost of storing data in Azure. Read more about [geo-redundant](../storage/storage-redundancy.md#geo-redundant-storage) and [locally redundant](../storage/storage-redundancy.md#locally-redundant-storage) storage options in this [overview](../storage/storage-redundancy.md).
+    По умолчанию это геоизбыточное хранилище. Если в качестве конечной точки основного хранилища службы архивации используется Azure, продолжайте использовать геоизбыточное хранилище. Если Azure используется как конечная точка дополнительного хранилища архивации, используйте локально избыточное хранилище. Это позволит снизить затраты на хранение данных в Azure. Дополнительные сведения о [геоизбыточном](../storage/storage-redundancy.md#geo-redundant-storage) и [локально избыточном](../storage/storage-redundancy.md#locally-redundant-storage) хранилищах см. в этом [обзоре](../storage/storage-redundancy.md).
 
-    After choosing the storage option for your vault, you are ready to associate your files and folders with the vault.
+    Выбрав параметры хранилища, вы можете приступать к связыванию файлов и папок с хранилищем.
 
-Now that you've created a vault, you prepare your infrastructure to back up files and folders by downloading and installing the Microsoft Azure Recovery Services agent, downloading vault credentials, and then using those credentials to register the agent with the vault.
+Создав хранилище, подготовьте инфраструктуру к архивации файлов и папок. Для этого сначала скачайте и установите агент служб восстановления Microsoft Azure, а затем скачайте учетные данные хранилища и зарегистрируйте с их помощью агент в хранилище.
 
-## <a name="step-2---download-files"></a>Step 2 - Download files
+## Шаг 2. Скачивание файлов
 
->[AZURE.NOTE] Enabling backup through the Azure portal is coming soon. At this time, you use the Microsoft Azure Recovery Services Agent on-premises to back up your files and folders.
+>[AZURE.NOTE] Включение архивации на портале Azure станет доступным в ближайшее время. В настоящее время агент служб восстановления Microsoft Azure используется локально для резервного копирования файлов и папок.
 
-1. Click **Settings** on the Recovery Services vault dashboard.
+1. На панели мониторинга хранилища служб восстановления щелкните **Параметры**.
 
-    ![Open backup goal blade](./media/backup-configure-vault/settings-button.png)
+    ![Открытая колонка цели резервного копирования](./media/backup-configure-vault/settings-button.png)
 
-2. Click **Getting Started > Backup** on the Settings blade.
+2. В колонке "Параметры" щелкните **Приступая к работе > Резервное копирование**.
 
-    ![Open backup goal blade](./media/backup-configure-vault/getting-started-backup.png)
+    ![Открытая колонка цели резервного копирования](./media/backup-configure-vault/getting-started-backup.png)
 
-3. Click **Backup goal** on the Backup blade.
+3. В колонке "Резервное копирование" щелкните **Backup goal** (Цель архивации).
 
-    ![Open backup goal blade](./media/backup-configure-vault/backup-goal.png)
+    ![Открытая колонка цели резервного копирования](./media/backup-configure-vault/backup-goal.png)
 
-4. Select **On-premises** from the Where is your workload running? menu.
+4. В меню Where is your workload running? (Где необходимо запустить рабочую нагрузку?) выберите **Локально**.
 
-5. Select **Files and folders** from the What do you want to backup? menu, and click **OK**.
+5. В меню What do you want to backup? (Для чего необходимо создать резервную копию?) выберите **Файлы и папки** и нажмите кнопку **ОК**.
 
-#### <a name="download-the-recovery-services-agent"></a>Download the Recovery Services agent
+#### Скачивание агента служб восстановления
 
-1. Click **Download Agent for Windows Server or Windows Client** in the **Prepare infrastructure** blade.
+1. В колонке **Prepare infrastructure** (Подготовка инфраструктуры) щелкните **Download Agent for Windows Server or Windows Client** (Скачать агент для Windows Server или клиента Windows).
 
-    ![prepare infrastructure](./media/backup-configure-vault/prepare-infrastructure-short.png)
+    ![подготовка инфраструктуры](./media/backup-configure-vault/prepare-infrastructure-short.png)
 
-2. Click **Save** in the download pop-up. By default, the **MARSagentinstaller.exe** file is saved to your Downloads folder.
+2. Во всплывающем окне скачивания щелкните **Сохранить**. По умолчанию файл **MARSagentinstaller.exe** сохраняется в папке для скачивания.
 
-#### <a name="download-vault-credentials"></a>Download vault credentials
+#### Скачивание учетных данных хранилища
 
-1. Click **Download > Save** on the Prepare infrastructure blade.
+1. В колонке Prepare infrastructure (Подготовка инфраструктуры) щелкните **Скачать > Сохранить**.
 
-    ![prepare infrastructure](./media/backup-configure-vault/prepare-infrastructure-download.png)
+    ![подготовка инфраструктуры](./media/backup-configure-vault/prepare-infrastructure-download.png)
 
-## <a name="step-3--install-and-register-the-agent"></a>Step 3 -Install and register the agent
+## Шаг 3. Установка и регистрация агента
 
-1. Locate and double click the **MARSagentinstaller.exe** from the Downloads folder (or other saved location).
+1. Найдите и дважды щелкните файл **MARSagentinstaller.exe** в папке для скачивания (или в другом расположении).
 
-2. Complete the Microsoft Azure Recovery Services Agent Setup Wizard. To complete the wizard, you need to:
+2. Выполните шаги мастера настройки агента служб восстановления Microsoft Azure. Для завершения работы с мастерам вам нужно:
 
-    - Choose a location for the installation and cache folder.
-    - Provide your proxy server info if you use a proxy server to connect to the internet.
-    - Provide your user name and password details if you use an authenticated proxy.
-    - Provide the downloaded vault credentials
-    - Save the encryption passphrase in a secure location.
+    - Выбрать папку установки и папку кэша.
+    - Если для подключения к Интернету используется прокси-сервер, указать данные прокси-сервера.
+    - Если используется прокси-сервер, прошедший проверку подлинности, ввести имя пользователя и пароль.
+    - Указать скачанные учетные данные хранилища.
+    - Сохранить парольную фразу шифрования в безопасном месте.
 
-    >[AZURE.NOTE] If you lose or forget the passphrase, Microsoft cannot help recover the backup data. Please save the file in a secure location. It is required to restore a backup.
+    >[AZURE.NOTE] Если вы потеряли или забыли парольную фразу, корпорация Майкрософт не сможет помочь вам восстановить резервную копию данных. Сохраните файл в безопасном месте, так как он потребуется для восстановления резервной копии.
 
-The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
+Теперь, когда агент установлен и компьютер зарегистрирован в хранилище, вы можете настроить параметры резервного копирования, в том числе расписание.
 
-### <a name="confirm-the-installation"></a>Confirm the installation
+### Подтверждение установки
 
-To confirm that the agent was installed and registered correctly, you can check for the items you backed up in the **Production Server** section of the management portal. To do this:
+Чтобы убедиться, что агент установлен и зарегистрирован правильно, вы можете проверить наличие элементов, резервная копия которых была создана в разделе **Рабочий сервер** портала управления. Для этого:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Войдите на [портал Azure](https://portal.azure.com/), используя свою подписку Azure.
 
-2. On the Hub menu, click **Browse** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults**.
+2. В главном меню щелкните **Обзор**, а затем в списке ресурсов введите **Службы восстановления**. Как только вы начнете вводить, список отфильтруется соответствующим образом. Щелкните **Хранилища служб восстановления**.
 
-    ![Create Recovery Services Vault step 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
+    ![Создание хранилища служб восстановления — шаг 1](./media/backup-configure-vault/browse-to-rs-vaults.png) <br/>
 
-    The list of Recovery Services vaults is displayed.
+    После этого отобразится список хранилищ служб восстановления.
 
-2. Select the name of the vault you created.
+2. Выберите имя хранилища, которое вы создали.
 
-    The Recovery Services vault dashboard blade opens.
+    Откроется колонка панели мониторинга хранилища служб восстановления.
 
-    ![recovery services vault dashboard](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
+    ![Панель мониторинга хранилища служб восстановления](./media/backup-configure-vault/rs-vault-dashboard.png) <br/>
 
-3. Click the **Settings** button at the top of the page.
+3. Нажмите кнопку **Параметры** в верхней части страницы.
 
-4. Click **Backup Infrastructure > Production Servers**.
+4. Щелкните **Инфраструктура резервного копирования > Рабочие серверы**.
 
-    ![Production servers](./media/backup-configure-vault/production-server-verification.png)
+    ![Рабочие серверы](./media/backup-configure-vault/production-server-verification.png)
 
-If you see your servers in the list, you have confirmation that the agent has been installed and registered correctly.
+Если ваши серверы есть в списке, это является подтверждением того, что агент установлен и зарегистрирован правильно.
 
-## <a name="step-4:-complete-the-initial-backup"></a>Step 4: Complete the initial backup
+## Шаг 4. Выполните начальную архивацию
 
-The initial backup includes two key tasks:
+Начальная архивация включает в себя две основные задачи:
 
-- Schedule the backup
-- Back up files and folders for the first time
+- Планирование архивации
+- архивация файлов и папок впервые.
 
-To complete the initial backup, you use the Microsoft Azure backup agent.
+Чтобы выполнить начальную архивацию, используйте агент службы архивации Microsoft Azure.
 
-### <a name="to-schedule-the-backup"></a>To schedule the backup
+### Планирование архивации
 
-1. Open the Microsoft Azure Backup agent. You can find it by searching your machine for **Microsoft Azure Backup**.
+1. Откройте агент службы архивации Microsoft Azure. Его можно найти, выполнив поиск строки **служба архивации Microsoft Azure** на компьютере.
 
-    ![Launch the Azure Backup agent](./media/backup-configure-vault/snap-in-search.png)
+    ![Запуск агента службы архивации Azure](./media/backup-configure-vault/snap-in-search.png)
 
-2. In the Backup agent, click **Schedule Backup**.
+2. В агенте службы архивации щелкните **Создать расписание архивации**.
 
-    ![Schedule a Windows Server backup](./media/backup-configure-vault/schedule-first-backup.png)
+    ![Планирование архивации Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 
-3. On the Getting started page of the Schedule Backup Wizard, click **Next**.
+3. На странице "Приступая к работе" в мастере планирования архивации нажмите кнопку **Далее**.
 
-4. On the Select Items to Backup page, click **Add Items**.
+4. На странице "Выбор элементов для архивации" щелкните **Добавить элементы**.
 
-5. Select the files and folders that you want to back up, and then click **Okay**.
+5. Выберите файлы и папки, которые нужно архивировать, и нажмите кнопку **ОК**.
 
-6. Click **Next**.
+6. Нажмите кнопку **Далее**.
 
-7. On the **Specify Backup Schedule** page, specify the **backup schedule** and click **Next**.
+7. На странице **Указать расписание архивации** укажите **расписание архивации** и нажмите кнопку **Далее**.
 
-    You can schedule daily (at a maximum rate of three times per day) or weekly backups.
+    Вы можете запланировать ежедневную (не более трех раз в день) или еженедельную архивацию.
 
-    ![Items for Windows Server Backup](./media/backup-configure-vault/specify-backup-schedule-close.png)
+    ![Элементы для архивации Windows Server](./media/backup-configure-vault/specify-backup-schedule-close.png)
 
-    >[AZURE.NOTE] For more information about how to specify the backup schedule, see the article [Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
+    >[AZURE.NOTE] Дополнительные сведения о настройке расписания архивации см. в статье [Использование службы архивации Azure для замены ленточной инфраструктуры](backup-azure-backup-cloud-as-tape.md).
 
-8. On the **Select Retention Policy** page, select the **Retention Policy** for the backup copy.
+8. На странице **Выбрать политику хранения** выберите **политику хранения** для резервной копии.
 
-    The retention policy specifies the duration for which the backup will be stored. Rather than just specifying a “flat policy” for all backup points, you can specify different retention policies based on when the backup occurs. You can modify the daily, weekly, monthly, and yearly retention policies to meet your needs.
+    Политика хранения определяет время, в течение которого должен храниться архив. Вместо того, чтобы настраивать одну политику для всех точек архивации, вы можете настроить разные политики хранения на основе времени создания архива. Вы можете выбрать ежедневную, еженедельную, ежемесячную или ежегодную политику хранения с учетом своих потребностей.
 
-9. On the Choose Initial Backup Type page, choose the initial backup type. Leave the option **Automatically over the network** selected, and then click **Next**.
+9. На странице "Выберите тип начального архива" выберите тип начального архива. Не снимайте флажок **Автоматически по сети** и нажмите кнопку **Далее**.
 
-    You can back up automatically over the network, or you can back up offline. The remainder of this article describes the process for backing up automatically. If you prefer to do an offline backup, review the article [Offline backup workflow in Azure Backup](backup-azure-backup-import-export.md) for additional information.
+    Резервное копирование можно выполнять по сети или в автономном режиме. В оставшейся части этой статьи описан процесс автоматической архивации. Если вы предпочитаете автономную архивацию, см. статью [Автономное резервное копирование в службе архивации Azure](backup-azure-backup-import-export.md).
 
-10. On the Confirmation page, review the information, and then click **Finish**.
+10. Проверьте сведения на странице подтверждения и нажмите кнопку **Готово**.
 
-11. After the wizard finishes creating the backup schedule, click **Close**.
+11. Когда мастер завершит создание расписания архивации, нажмите кнопку **Закрыть**.
 
-### <a name="enable-network-throttling-(optional)"></a>Enable network throttling (optional)
+### Включить регулирование сети (необязательно)
 
-The backup agent provides network throttling. Throttling controls how network bandwidth is used during data transfer. This control can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other Internet traffic. Throttling applies to back up and restore activities.
+Агент архивации обеспечивает регулирование сети. Регулирование управляет тем, как пропускная способность сети используется во время передачи данных. Это полезно, если вам нужно выполнить архивацию в рабочее время так, чтобы данная операция не мешала другим процессам, связанным с обработкой интернет-трафика. Регулирование применяется при архивации и восстановлении.
 
->[AZURE.NOTE] Network throttling is not available on Windows Server 2008 R2 SP1, Windows Server 2008 SP2, or Windows 7 (with service packs). The Azure Backup network throttling feature engages Quality of Service (QoS) on the local operating system. Though Azure Backup can protect these operating systems, the version of QoS available on these platforms doesn't work with Azure Backup network throttling. Network throttling can be used on all other [supported operating systems](backup-azure-backup-faq.md#installation-amp-configuration).
+>[AZURE.NOTE] Регулирование сети недоступно в Windows Server 2008 R2 с пакетом обновления 1 (SP1), Windows Server 2008 с пакетом обновления 2 (SP2) или Windows 7 (с пакетами обновления). Функция регулирования сети службы архивации Azure обеспечивает качество обслуживания (QoS) в локальной операционной системе. Хотя служба архивации Azure может защитить эти операционные системы, версия качества обслуживания, доступная на этих платформах, не работает с регулированием сети службы архивации Azure. Регулирование сети можно использовать во всех остальных [поддерживаемых операционных системах](backup-azure-backup-faq.md#installation-amp-configuration).
 
-**To enable network throttling**
+**Включение регулирования сети**
 
-1. In the backup agent, click **Change Properties**.
+1. В агенте архивации щелкните **Изменить свойства**.
 
-    ![Change properties](./media/backup-configure-vault/change-properties.png)
+    ![Изменить свойства](./media/backup-configure-vault/change-properties.png)
 
-2. On the **Throttling** tab, select the **Enable internet bandwidth usage throttling for backup operations** check box.
+2. На вкладке **Регулирование** установите флажок **Разрешить регулирование уровня использования пропускной способности интернет-канала для операций архивации**.
 
-    ![Network throttling](./media/backup-configure-vault/throttling-dialog.png)
+    ![Регулирование сети](./media/backup-configure-vault/throttling-dialog.png)
 
-3. After you have enabled throttling, specify the allowed bandwidth for backup data transfer during **Work hours** and **Non-work hours**.
+3. После включения регулирования укажите допустимую пропускную способность для передачи данных во время архивации в **рабочие** и **нерабочие часы**.
 
-    The bandwidth values begin at 512 kilobits per second (Kbps) and can go up to 1,023 megabytes per second (MBps). You can also designate the start and finish for **Work hours**, and which days of the week are considered work days. Hours outside of designated work hours are considered non-work hours.
+    Значения пропускной способности начинаются с 512 килобитов в секунду (Кбит/с) и могут перейти до 1023 мегабайтов в секунду (МБ/с). Можно также назначить время начала и окончания для **рабочих часов** и выбрать, какие дни недели считаются рабочими. Время, не входящее в назначенные рабочие часы, считается нерабочим.
 
-4. Click **OK**.
+4. Нажмите кнопку **ОК**.
 
-### <a name="to-back-up-files-and-folders-for-the-first-time"></a>To back up files and folders for the first time
+### Архивация файлов и папок впервые
 
-1. In the backup agent, click **Back Up Now** to complete the initial seeding over the network.
+1. В агенте службы архивации нажмите кнопку **Выполнить моментальную архивацию**, чтобы завершить начальное заполнение по сети.
 
-    ![Windows Server backup now](./media/backup-configure-vault/backup-now.png)
+    ![Моментальная архивация Windows Server](./media/backup-configure-vault/backup-now.png)
 
-2. On the Confirmation page, review the settings that the Back Up Now Wizard will use to back up the machine. Then click **Back Up**.
+2. На странице "Подтверждение" проверьте параметры, которые мастер будет использовать для архивации данных на компьютере. Затем нажмите кнопку **Архивировать**.
 
-3. Click **Close** to close the wizard. If you do this before the backup process finishes, the wizard continues to run in the background.
+3. Нажмите кнопку **Закрыть**, чтобы закрыть мастер. Если сделать это до завершения архивации, мастер продолжит работу в фоновом режиме.
 
-After the initial backup is completed, the **Job completed** status appears in the Backup console.
+После завершения начальной архивации в консоли службы архивации отобразится состояние **Задание выполнено**.
 
-![IR complete](./media/backup-configure-vault/ircomplete.png)
+![Первоначальное восстановление завершено](./media/backup-configure-vault/ircomplete.png)
 
-## <a name="questions?"></a>Questions?
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+## Вопросы?
+Если вы хотите задать вопрос или предложить добавить какие-либо функции, [отправьте нам свой отзыв](http://aka.ms/azurebackup_feedback).
 
-## <a name="next-steps"></a>Next steps
-For additional information about backing up VMs or other workloads, see:
+## Дальнейшие действия
+Дополнительные сведения об архивации виртуальных машин и других рабочих нагрузок см. в следующих разделах:
 
-- Now that you've backed up your files and folders, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
-- If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
+- Теперь, когда вы выполнили архивацию файлов и папок, вы можете [управлять хранилищами и серверами](backup-azure-manage-windows-server.md).
+- Если необходимо восстановить резервную копию, см. статью о [восстановлении файлов на компьютере с ОС Windows](backup-azure-restore-windows-server.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

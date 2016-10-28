@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Add the Office 365 Outlook connector in your Logic Apps | Microsoft Azure"
-    description="Create logic apps with Office 365 connector to enable interaction with Office 365. For example: creating, editing, and updating contacts and calendar items."
+    pageTitle="Добавление соединителя Office 365 Outlook в приложениях логики | Microsoft Azure"
+    description="Сведения о создании приложений логики с использованием соединителя Office 365 для взаимодействия с этой службой. Например, он позволяет создавать, редактировать и обновлять контакты и элементы календаря."
     services=""    
     documentationCenter=""     
     authors="MandiOhlinger"    
-    manager="anneta"    
+    manager="erikre"    
     editor="" 
     tags="connectors" />
 
@@ -14,762 +14,758 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="10/18/2016"
+ms.date="07/26/2016"
 ms.author="mandia"/>
 
+# Начало работы с соединителем Office 365 Outlook 
 
-# <a name="get-started-with-the-office-365-outlook-connector"></a>Get started with the Office 365 Outlook connector 
+Соединитель Office 365 Outlook обеспечивает взаимодействие с Outlook в Office 365. С помощью этого соединителя можно создавать, изменять и обновлять контакты и элементы календаря, а также обмениваться сообщениями электронной почты.
 
-The Office 365 Outlook connector enables interaction with Outlook in Office 365. Use this connector to create, edit, and update contacts and calendar items, and also get, send, and reply to email.
+Office 365 Outlook позволяет следующее:
 
-With Office 365 Outlook, you:
+- создать рабочий процесс с использованием возможностей электронной почты и календаря в Office 365;
+- использовать триггеры для запуска рабочего процесса при получении сообщения электронной почты, обновлении элемента календаря и т. д.;
+- использовать действия для отправки сообщения электронной почты, создания события календаря и т. д. Например, при создании объекта в Salesforce (триггер) будет отправляться сообщение электронной почты в Office 365 Outlook (действие).
 
-- Build your workflow using the email and calendar features within Office 365. 
-- Use triggers to start your workflow when there is a new email, when a calendar item is updated, and more.
-- Use actions to send an email, create a new calendar event, and more. For example, when there is a new object in Salesforce (a trigger), send an email to your Office 365 Outlook (an action). 
+В этой статье содержатся сведения об использовании соединителя Office 365 Outlook в приложении логики, а также перечислены предоставляемые им триггеры и действия.
 
-This topic shows you how to use the Office 365 Outlook connector in a logic app, and also lists the triggers and actions.
+>[AZURE.NOTE] Эта версия статьи предназначена для общедоступного выпуска приложений логики.
 
->[AZURE.NOTE] This version of the article applies to Logic Apps general availability (GA).
+Дополнительные сведения о приложениях логики см. в статье, посвященной [приложениям логики](../app-service-logic/app-service-logic-what-are-logic-apps.md), и [руководстве по созданию приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To learn more about Logic Apps, see [What are logic apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Подключение к Office 365
 
-## <a name="connect-to-office-365"></a>Connect to Office 365
-
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to Office 365 Outlook, you first need an Office 365 *connection*. To create a connection, enter the credentials you normally use to access the service you wish to connect to. So with Office 365 Outlook, enter the credentials to your Office 365 account to create the connection.
-
-
-## <a name="create-the-connection"></a>Create the connection
-
->[AZURE.INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
-
-## <a name="use-a-trigger"></a>Use a trigger
-
-A trigger is an event that can be used to start the workflow defined in a logic app. Triggers "poll" the service at an interval and frequency that you want. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
-
-1. In the logic app, type "office 365" to get a list of the triggers:  
-
-    ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-
-2. Select **Office 365 Outlook - When an upcoming event is starting soon**. If a connection already exists, then select a calendar from the drop-down list.
-
-    ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
-
-    If you are prompted to sign in, then enter the sign in details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic lists the steps. 
-
-    > [AZURE.NOTE] In this example, the logic app runs when a calendar event is updated. To see the results of this trigger, add another action that sends you a text message. For example, add the Twilio *Send message* action that texts you when the calendar event is starting in 15 minutes. 
-
-3. Select the **Edit** button and set the **Frequency** and **Interval** values. For example, if you want the trigger to poll every 15 minutes, then set the **Frequency** to **Minute**, and set the **Interval** to **15**. 
-
-    ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
-
-4. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите соединение между приложением логики и другой службой. Например, чтобы подключиться к Office 365 Outlook, сначала необходимо установить *подключения* к службе Office 365. Чтобы создать подключение, введите учетные данные, которые используются для доступа к определенной службе. Для создания подключения к Office 365 Outlook необходимо использовать учетные данные учетной записи Office 365.
 
 
-## <a name="use-an-action"></a>Use an action
+## Создание подключения
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+>[AZURE.INCLUDE [Шаги по созданию подключения к Office 365](../../includes/connectors-create-api-office365-outlook.md)]
 
-1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+## Использование триггера
 
-    ![](./media/connectors-create-api-office365-outlook/add-action.png)
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Триггеры опрашивают службу с определенным интервалом и частотой. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-2. Choose **Add an action**.
+1. Чтобы открыть список триггеров, в текстовом поле приложения логики введите office 365.
 
-3. In the text box, type “office 365” to get a list of all the available actions.
+	![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-    ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
+2. Выберите триггер Office 365 Outlook **When an upcoming event is starting soon** (Если приближается время начала предстоящего события). Если подключение уже существует, выберите календарь в раскрывающемся списке.
 
-4. In our example, choose **Office 365 Outlook - Create contact**. If a connection already exists, then choose the **Folder ID**, **Given Name**, and other properties:  
+	![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
 
-    ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
+	Если появится запрос на вход, введите учетные данные для входа, чтобы создать подключение. Дополнительные сведения о создании подключения см. в [разделе выше](connectors-create-api-office365-outlook.md#create-the-connection).
 
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-office365-outlook.md#create-the-connection) in this topic describes these properties. 
+	> [AZURE.NOTE] В этом примере приложение логики выполняется при обновлении события календаря. Чтобы увидеть результаты работы триггера, добавьте другое действие, которое отправляет текстовое сообщение. Например, добавьте действие Twilio *Отправить сообщение*, которое отправляет текстовое сообщение, если событие календаря должно запуститься через 15 минут.
 
-    > [AZURE.NOTE] In this example, we create a new contact in Office 365 Outlook. You can use output from another trigger to create the contact. For example, add the SalesForce *When an object is created* trigger. Then add the Office 365 Outlook *Create contact* action that uses the SalesForce fields to create the new new contact in Office 365. 
+3. Нажмите кнопку **Изменить** и задайте **частоту** и **интервал**. Например, если требуется, чтобы триггер выполнял опрос каждые 15 минут, задайте для параметра **Частота** значение **Минута**, а для параметра **Интервал** — **15**.
 
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+	![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
+
+4. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
 
 
-## <a name="technical-details"></a>Technical Details
+## Использование действий
 
-Here are the details about the triggers, actions and responses that this connection supports:
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-## <a name="office-365-triggers"></a>Office 365 triggers
+1. Щелкните знак "плюс". Отобразятся следующие параметры: **Добавить действие**, **Добавить условие** или **Еще**.
 
-|Trigger | Description|
+	![](./media/connectors-create-api-office365-outlook/add-action.png)
+
+2. Выберите **Добавить действие**.
+
+3. Чтобы открыть список всех доступных действий, в текстовом поле введите office 365.
+
+	![](./media/connectors-create-api-office365-outlook/office365-actions.png)
+
+4. В этом примере мы выберем действие Office 365 Outlook **Создать контакт**. Если подключение уже существует, задайте **идентификатор папки**, **имя** и другие свойства:
+
+	![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
+
+	Если появится запрос на предоставление сведений о подключении, введите их, чтобы создать подключение. Эти свойства описаны в разделе [Создание подключения](connectors-create-api-office365-outlook.md#create-the-connection) этой статьи.
+
+	> [AZURE.NOTE] В этом примере мы создадим контакт в Office 365 Outlook. Чтобы создать контакт, можно использовать выходные данные другого триггера. Например, добавьте триггер SalesForce *При создании объекта*. Затем добавьте действие Office 365 Outlook *Создать контакт*, которое создает контакт в Office 365, используя значения в полях SalesForce.
+
+5. **Сохраните** изменения, нажав соответствующую кнопку в левом верхнем углу панели инструментов. Приложение логики сохранено и теперь может быть включено автоматически.
+
+
+## Технические сведения
+
+Ниже приведены сведения о триггерах, действиях и ответах, которые поддерживает это подключение.
+
+## Триггеры Office 365
+
+|Триггер | Описание|
 |--- | ---|
-|[When an upcoming event is starting soon](connectors-create-api-office365-outlook.md#when-an-upcoming-event-is-starting-soon)|This operation triggers a flow when an upcoming calendar event is starting.|
-|[When a new email arrives](connectors-create-api-office365-outlook.md#when-a-new-email-arrives)|This operation triggers a flow when a new email arrives|
-|[When a new event is created](connectors-create-api-office365-outlook.md#when-a-new-event-is-created)|This operation triggers a flow when a new event is created in a calendar.|
-|[When an event is modified](connectors-create-api-office365-outlook.md#when-an-event-is-modified)|This operation triggers a flow when an event is modified in a calendar.|
+|[When an upcoming event is starting soon](connectors-create-api-office365-outlook.md#when-an-upcoming-event-is-starting-soon) (Если приближается время начала предстоящего события)|Активирует поток при наступлении предстоящего события календаря.|
+|[When a new email arrives](connectors-create-api-office365-outlook.md#when-a-new-email-arrives) (При получении нового сообщения электронной почты)|Активирует поток при получении нового сообщения.|
+|[When a new event is created](connectors-create-api-office365-outlook.md#when-a-new-event-is-created) (При создании события)|Активирует поток при создании события в календаре.|
+|[When an event is modified](connectors-create-api-office365-outlook.md#when-an-event-is-modified) (При изменении события)|Активирует поток при изменении события в календаре.|
 
 
-## <a name="office-365-actions"></a>Office 365 actions
+## Действия Office 365
 
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[Get emails](connectors-create-api-office365-outlook.md#get-emails)|This operation gets emails from a folder.|
-|[Send an email](connectors-create-api-office365-outlook.md#send-an-email)|This operation sends an email message.|
-|[Delete email](connectors-create-api-office365-outlook.md#delete-email)|This operation deletes an email by id.|
-|[Mark as read](connectors-create-api-office365-outlook.md#mark-as-read)|This operation marks an email as having been read.|
-|[Reply to email](connectors-create-api-office365-outlook.md#reply-to-email)|This operation replies to an email.|
-|[Get attachment](connectors-create-api-office365-outlook.md#get-attachment)|This operation gets an email attachment by id.|
-|[Send email with options](connectors-create-api-office365-outlook.md#send-email-with-options)|This operation sends an email with multiple options and waits for the recipient to respond back with one of the options.|
-|[Send approval email](connectors-create-api-office365-outlook.md#send-approval-email)|This operation sends an approval email and waits for a response from the recipient.|
-|[Get calendars](connectors-create-api-office365-outlook.md#get-calendars)|This operation lists available calendars.|
-|[Get events](connectors-create-api-office365-outlook.md#get-events)|This operation gets events from a calendar.|
-|[Create event](connectors-create-api-office365-outlook.md#create-event)|This operation creates a new event in a calendar.|
-|[Get event](connectors-create-api-office365-outlook.md#get-event)|This operation gets a specific event from a calendar.|
-|[Delete event](connectors-create-api-office365-outlook.md#delete-event)|This operation deletes an event in a calendar.|
-|[Update event](connectors-create-api-office365-outlook.md#update-event)|This operation updates an event in a calendar.|
-|[Get contact folders](connectors-create-api-office365-outlook.md#get-contact-folders)|This operation lists available contacts folders.|
-|[Get contacts](connectors-create-api-office365-outlook.md#get-contacts)|This operation gets contacts from a contacts folder.|
-|[Create contact](connectors-create-api-office365-outlook.md#create-contact)|This operation creates a new contact in a contacts folder.|
-|[Get contact](connectors-create-api-office365-outlook.md#get-contact)|This operation gets a specific contact from a contacts folder.|
-|[Delete contact](connectors-create-api-office365-outlook.md#delete-contact)|This operation deletes a contact from a contacts folder.|
-|[Update contact](connectors-create-api-office365-outlook.md#update-contact)|This operation updates a contact in a contacts folder.|
+|[Получение сообщений электронной почты](connectors-create-api-office365-outlook.md#get-emails)|Возвращает сообщения электронной почты из папки.|
+|[Отправка электронного сообщения](connectors-create-api-office365-outlook.md#send-an-email)|Отправляет сообщение электронной почты.|
+|[Удаление сообщения электронной почты](connectors-create-api-office365-outlook.md#delete-email)|Удаляет сообщение электронной почты по идентификатору.|
+|[Пометить как прочитанное](connectors-create-api-office365-outlook.md#mark-as-read)|Помечает сообщение электронной почты как прочитанное.|
+|[Reply to email](connectors-create-api-office365-outlook.md#reply-to-email) (Ответить на сообщение электронной почты)|Отвечает на сообщение электронной почты.|
+|[Получение вложения](connectors-create-api-office365-outlook.md#get-attachment)|Возвращает вложение сообщения электронной по идентификатору.|
+|[Отправка сообщения электронной почты с параметрами](connectors-create-api-office365-outlook.md#send-email-with-options)|Отправляет сообщение электронной почты с несколькими параметрами и ожидает ответа от получателя с одним из параметров.|
+|[Отправка сообщения электронной почты с утверждением](connectors-create-api-office365-outlook.md#send-approval-email)|Отправляет сообщение электронной почты с утверждением и ожидает ответа от получателя.|
+|[Получение календарей](connectors-create-api-office365-outlook.md#get-calendars)|Выводит список доступных календарей.|
+|[Получить события](connectors-create-api-office365-outlook.md#get-events)|Возвращает события календаря.|
+|[Создание события](connectors-create-api-office365-outlook.md#create-event)|Создает событие в календаре.|
+|[Получение события](connectors-create-api-office365-outlook.md#get-event)|Возвращает конкретное событие календаря.|
+|[Удаление события](connectors-create-api-office365-outlook.md#delete-event)|Удаляет событие в календаре.|
+|[Обновление события](connectors-create-api-office365-outlook.md#update-event)|Обновляет событие в календаре.|
+|[Получение папки контактов](connectors-create-api-office365-outlook.md#get-contact-folders)|Выводит список доступных папок контактов.|
+|[Получение контактов](connectors-create-api-office365-outlook.md#get-contacts)|Возвращает контакты из папки контактов.|
+|[Создание контакта](connectors-create-api-office365-outlook.md#create-contact)|Создает контакт в папке контактов.|
+|[Получение контакта](connectors-create-api-office365-outlook.md#get-contact)|Возвращает конкретный контакт из папки контактов.|
+|[Удаление контакта](connectors-create-api-office365-outlook.md#delete-contact)|Удаляет контакт из папки контактов.|
+|[Обновление контакта](connectors-create-api-office365-outlook.md#update-contact)|Обновляет контакт в папке контактов.|
 
-### <a name="trigger-and-action-details"></a>Trigger and Action details
+### Сведения о триггерах и действиях
 
-In this section, see the specific details about each trigger and action, including any required or optional input properties, and any corresponding output associated with the connector.
+В этом разделе приведены сведения о каждом триггере и действии, включая обязательные и необязательные входные свойства, а также соответствующие выходные данные, связанные с соединителем.
 
-#### <a name="when-an-upcoming-event-is-starting-soon"></a>When an upcoming event is starting soon
-This operation triggers a flow when an upcoming calendar event is starting. 
+#### When an upcoming event is starting soon (Если приближается время начала предстоящего события)
+Активирует поток при наступлении предстоящего события календаря.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Calendar id|Unique identifier of the calendar|
-|lookAheadTimeInMinutes|Look ahead time|Time (in minutes) to look ahead for upcoming events|
+|table*|Идентификатор календаря|Уникальный идентификатор календаря|
+|lookAheadTimeInMinutes|Look ahead time (Время до наступления событий)|Время (в минутах), оставшееся до наступления предстоящих событий|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-CalendarItemsList: The list of calendar items
+##### Сведения о выходных данных
+CalendarItemsList: список элементов календаря
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|value|array|List of calendar items|
+|value|array|Список элементов календаря|
 
 
-#### <a name="get-emails"></a>Get emails
-This operation gets emails from a folder. 
+#### Получение сообщений электронной почты
+Возвращает сообщения электронной почты из папки.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|folderPath|Folder Path|Path of the folder to retrieve emails (default: 'Inbox')|
-|top|Top|Number of emails to retrieve (default: 10)|
-|fetchOnlyUnread|Fetch Only Unread Messages|Retrieve only unread emails?|
-|includeAttachments|Include Attachments|If set to true, attachments will also be retrieved along with the email|
-|searchQuery|Search Query|Search query to filter emails|
-|skip|Skip|Number of emails to skip (default: 0)|
-|skipToken|Skip Token|Skip token to fetch new page|
+|folderPath|Путь к папке|Путь к папке для извлечения сообщений (по умолчанию — "Входящие")|
+|top|Первые|Количество извлекаемых сообщений электронной почты (значение по умолчанию — 10)|
+|fetchOnlyUnread|Fetch Only Unread Messages (Извлекать только непрочитанные сообщения)|Извлекать только непрочитанные сообщения?|
+|includeAttachments|Include Attachments (Включать вложения)|Если задано значение true, вложения будут извлекаться вместе с сообщением электронной почты|
+|searchQuery|Поисковый запрос|Запрос поиска для фильтрации сообщений электронной почты|
+|skip|Skip|Количество пропускаемых сообщений (значение по умолчанию — 0)|
+|skipToken|Маркер пропуска|Токен пропуска для извлечения новой страницы|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-ReceiveMessage: Receive Email Message
+##### Сведения о выходных данных
+ReceiveMessage: получение сообщения электронной почты
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|From|string|From|
-|To|string|To|
-|Subject|string|Subject|
-|Body|string|Body|
-|Importance|string|Importance|
-|HasAttachment|boolean|Has Attachment|
-|Id|string|Message Id|
-|IsRead|boolean|Is Read|
-|DateTimeReceived|string|Date time received|
-|Attachments|array|Attachments|
-|Cc|string|Specify email addresses separated by semicolons like someone@contoso.com|
-|Bcc|string|Specify email addresses separated by semicolons like someone@contoso.com|
-|IsHtml|boolean|Is Html|
+|Из|строка|Из|
+|Кому|string|Кому|
+|Субъект|string|Субъект|
+|Текст|string|Текст|
+|Важность|string|Важность|
+|HasAttachment|Логическое|Имеет вложение|
+|Идентификатор|string|Идентификатор сообщения|
+|IsRead|Логическое|Прочитано|
+|DateTimeReceived|string|Время и дата получения|
+|Вложения|array|Вложения|
+|Копия|строка|Укажите адреса электронной почты через точку с запятой, например someone@contoso.com|
+|Скрытая копия|string|Укажите адреса электронной почты через точку с запятой, например someone@contoso.com|
+|IsHtml|Логическое|HTML-код|
 
 
-#### <a name="send-an-email"></a>Send an email
-This operation sends an email message. 
+#### Отправка электронного сообщения
+Отправляет сообщение электронной почты.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
 |emailMessage*|Email|Email|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Нет.
 
-#### <a name="delete-email"></a>Delete email
-This operation deletes an email by id. 
+#### Удаление сообщения электронной почты
+Удаляет сообщение электронной почты по идентификатору.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|messageId*|Message Id|Id of the email to delete|
+|messageId*|Идентификатор сообщения|Идентификатор удаляемого сообщения электронной почты|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Нет.
 
-#### <a name="mark-as-read"></a>Mark as read
-This operation marks an email as having been read. 
+#### Пометить как прочитанное
+Помечает сообщение электронной почты как прочитанное.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|messageId*|Message Id|Id of the email to be marked as read|
+|messageId*|Идентификатор сообщения|Идентификатор сообщения, помечаемого как прочитанное|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Нет.
 
 
-#### <a name="reply-to-email"></a>Reply to email
-This operation replies to an email. 
+#### Reply to email (Ответить на сообщение электронной почты)
+Отвечает на сообщение электронной почты.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|messageId*|Message Id|Id of the email to reply to|
-|comment*|Comment|Reply comment|
-|replyAll|Reply All|Reply to all recipients|
+|messageId*|Идентификатор сообщения|Идентификатор сообщения электронной почты для ответа|
+|comment*|Комментарий|Комментарий ответа|
+|replyAll|Ответить всем|Ответ всем получателям|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Нет.
 
 
-#### <a name="get-attachment"></a>Get attachment
-This operation gets an email attachment by id. 
+#### Получение вложения
+Возвращает вложение сообщения электронной по идентификатору.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|messageId*|Message Id|Id of the email|
-|attachmentId*|Attachment Id|Id of the attachment to download|
+|messageId*|Идентификатор сообщения|Идентификатор сообщения электронной почты|
+|attachmentId*|Идентификатор вложения|Идентификатор скачиваемого вложения|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Нет.
 
 
-#### <a name="when-a-new-email-arrives"></a>When a new email arrives
-This operation triggers a flow when a new email arrives.
+#### When a new email arrives (При получении нового сообщения электронной почты)
+Активирует поток при получении нового сообщения.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|folderPath|Folder Path|Email folder to retrieve (default: Inbox)|
-|to|To|Recipient email addresses|
-|from|From|From address|
-|importance|Importance|Importance of the email (High, Normal, Low) (default: Normal)|
-|fetchOnlyWithAttachment|Has Attachments|Retrieve only emails with an attachment|
-|includeAttachments|Include Attachments|Include attachments|
-|subjectFilter|Subject Filter|String to look for in the subject|
+|folderPath|Путь к папке|Извлекаемая папка электронной почты (по умолчанию — "Входящие")|
+|значение|Кому|Адреса получателей электронной почты|
+|from|Из|Адрес отправителя|
+|importance|Важность|Важность сообщения электронной почты ("Высокая", "Обычная", "Низкая") (значение по умолчанию — "Обычная")|
+|fetchOnlyWithAttachment|Имеет вложения|Извлечение только сообщений с вложением|
+|includeAttachments|Include Attachments (Включать вложения)|Включение вложений|
+|subjectFilter|Фильтр темы|Строка для поиска в теме|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 TriggerBatchResponse[ReceiveMessage]
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
-#### <a name="send-email-with-options"></a>Send email with options
-This operation sends an email with multiple options and waits for the recipient to respond back with one of the options. 
+#### Отправка сообщения электронной почты с параметрами
+Отправляет сообщение электронной почты с несколькими параметрами и ожидает ответа от получателя с одним из параметров.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|optionsEmailSubscription*|Subscription request for options email|Subscription request for options email|
+|optionsEmailSubscription*|Запрос на подписку для сообщения электронной почты с параметрами|Запрос на подписку для сообщения электронной почты с параметрами|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-SubscriptionResponse: Model for Approval Email Subscription
+##### Сведения о выходных данных
+SubscriptionResponse: модель для подписки сообщения электронной почты с утверждением
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|id|string|Id of the subscription|
-|resource|string|Resource of the subscription request|
-|notificationType|string|Notification Type|
-|notificationUrl|string|Notification Url|
+|id|строка|Идентификатор подписки|
+|resource|string|Ресурс запроса на подписку|
+|notificationType|string|Тип уведомления|
+|notificationUrl|string|URL-адрес уведомления|
 
 
-#### <a name="send-approval-email"></a>Send approval email
-This operation sends an approval email and waits for a response from the recipient. 
+#### Отправка сообщения электронной почты с утверждением
+Отправляет сообщение электронной почты с утверждением и ожидает ответа от получателя.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|approvalEmailSubscription*|Subscription request for approval email|Subscription request for approval email|
+|approvalEmailSubscription*|Запрос на подписку для сообщения электронной почты с утверждением|Запрос на подписку для сообщения электронной почты с утверждением|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-SubscriptionResponse: Model for Approval Email Subscription
+##### Сведения о выходных данных
+SubscriptionResponse: модель для подписки сообщения электронной почты с утверждением
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|id|string|Id of the subscription|
-|resource|string|Resource of the subscription request|
-|notificationType|string|Notification Type|
-|notificationUrl|string|Notification Url|
+|id|string|Идентификатор подписки|
+|resource|строка|Ресурс запроса на подписку|
+|notificationType|string|Тип уведомления|
+|notificationUrl|string|URL-адрес уведомления|
 
 
-#### <a name="get-calendars"></a>Get calendars
-This operation lists available calendars. 
+#### Получение календарей
+Выводит список доступных календарей.
 
-There are no parameters for this call.
+Для этого вызова параметры отсутствуют.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 TablesList
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
-#### <a name="get-events"></a>Get events
-This operation gets events from a calendar. 
+#### Получить события
+Возвращает события календаря.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|table*|Идентификатор календаря|Выберите календарь|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-CalendarEventList: The list of calendar items
+##### Сведения о выходных данных
+CalendarEventList: список элементов календаря
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|value|array|List of calendar items|
+|value|array|Список элементов календаря|
 
 
-#### <a name="create-event"></a>Create event
-This operation creates a new event in a calendar. 
+#### Создание события
+Создает событие в календаре.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|item*|Item|Event to create|
+|table*|Идентификатор календаря|Выберите календарь|
+|item*|Элемент|Событие, которое требуется создать|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-CalendarEvent: Connector specific calendar event model class.
+##### Сведения о выходных данных
+CalendarEvent: класс модели событий в календаре соединителя
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|Id|string|The Event's unique identifier.|
-|Attendees|array|List of attendees for the event.|
-|Body|not defined|The body of the message associated with the event.|
-|BodyPreview|string|The preview of the message associated with the event.|
-|Categories|array|The categories associated with the event.|
-|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
-|DateTimeCreated|string|The date and time that the event was created.|
-|DateTimeLastModified|string|The date and time that the event was last modified.|
-|End|string|The end time of the event.|
-|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
-|HasAttachments|boolean|Set to true if the event has attachments.|
-|Importance|string|The importance of the event: Low, Normal or High.|
-|IsAllDay|boolean|Set to true if the event lasts all day.|
-|IsCancelled|boolean|Set to true if the event has been canceled.|
-|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
-|Location|not defined|The location of the event.|
-|Organizer|not defined|The organizer of the event.|
-|Recurrence|not defined|The recurrence pattern for the event.|
-|Reminder|integer|Time in minutes before event start to remind.|
-|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
-|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
-|SeriesMasterId|string|Unique identifier for Series Master event type.|
-|ShowAs|string|Shows as free or busy.|
-|Start|string|The start time of the event.|
-|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
-|Subject|string|Event subject.|
-|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
-|WebLink|string|The preview of the message associated with the event.|
+|Идентификатор|строка|Уникальный идентификатор события|
+|Участники|array|Список участников события|
+|Текст|не определено|Текст сообщения, связанного с событием|
+|BodyPreview|string|Предварительный просмотр текста сообщения, связанного с событием|
+|Категории|array|Категории, связанные с событием|
+|ChangeKey|string|Определяет версию объекта события. Каждый раз, когда изменяется событие, также меняется и ключ ChangeKey|
+|DateTimeCreated|строка|Дата и время создания события|
+|DateTimeLastModified|string|Дата и время последнего изменения события|
+|End|строка|Время окончания события|
+|EndTimeZone|строка|Указывает часовой пояс, по которому указано время окончания собрания. Это значение соответствует заданному в Windows (например, Pacific Standard Time)|
+|HasAttachments|Логическое|Задается значение true, если событие содержит вложения|
+|Важность|строка|Важность события: Low, Normal или High.|
+|IsAllDay|Логическое|Задается значение true, если событие длится целый день|
+|IsCancelled|Логическое|Задается значение true, если событие отменено|
+|IsOrganizer|Логическое|Задается значение true, если отправитель сообщения также является организатором|
+|Расположение|не определено|Расположение события|
+|Организатор|не определено|Организатор события|
+|Периодичность|не определено|Шаблон повторения события|
+|Напоминание|целое число|Время в минутах до начала события, при наступлении которого будет создаваться напоминание|
+|ResponseRequested|Логическое|Задается значение true, если отправитель хочет получать ответ при принятии или отклонении события|
+|ResponseStatus|не определено|Указывает тип ответа, отправляемого при получении сообщения о событии|
+|SeriesMasterId|строка|Уникальный идентификатор основного события ряда|
+|ShowAs|string|Показывает состояние: Free или Busy|
+|Начало|string|Время начала события|
+|StartTimeZone|строка|Указывает часовой пояс, по которому указано время начала собрания. Это значение соответствует заданному в Windows (например, Pacific Standard Time)|
+|Субъект|string|Тема события|
+|Тип|string|Тип события: Single Instance, Occurrence, Exception или Series Master|
+|WebLink|string|Предварительный просмотр текста сообщения, связанного с событием|
 
 
-#### <a name="get-event"></a>Get event
-This operation gets a specific event from a calendar. 
+#### Получение события
+Возвращает конкретное событие календаря.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|id*|Item id|Select an event|
+|table*|Идентификатор календаря|Выберите календарь|
+|id*|Идентификатор элемента|Выберите событие|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-CalendarEvent: Connector specific calendar event model class.
+##### Сведения о выходных данных
+CalendarEvent: класс модели событий в календаре соединителя
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|Id|string|The Event's unique identifier.|
-|Attendees|array|List of attendees for the event.|
-|Body|not defined|The body of the message associated with the event.|
-|BodyPreview|string|The preview of the message associated with the event.|
-|Categories|array|The categories associated with the event.|
-|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
-|DateTimeCreated|string|The date and time that the event was created.|
-|DateTimeLastModified|string|The date and time that the event was last modified.|
-|End|string|The end time of the event.|
-|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
-|HasAttachments|boolean|Set to true if the event has attachments.|
-|Importance|string|The importance of the event: Low, Normal or High.|
-|IsAllDay|boolean|Set to true if the event lasts all day.|
-|IsCancelled|boolean|Set to true if the event has been canceled.|
-|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
-|Location|not defined|The location of the event.|
-|Organizer|not defined|The organizer of the event.|
-|Recurrence|not defined|The recurrence pattern for the event.|
-|Reminder|integer|Time in minutes before event start to remind.|
-|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
-|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
-|SeriesMasterId|string|Unique identifier for Series Master event type.|
-|ShowAs|string|Shows as free or busy.|
-|Start|string|The start time of the event.|
-|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
-|Subject|string|Event subject.|
-|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
-|WebLink|string|The preview of the message associated with the event.|
+|Идентификатор|string|Уникальный идентификатор события|
+|Участники|array|Список участников события|
+|Текст|не определено|Текст сообщения, связанного с событием|
+|BodyPreview|строка|Предварительный просмотр текста сообщения, связанного с событием|
+|Категории|array|Категории, связанные с событием|
+|ChangeKey|строка|Определяет версию объекта события. Каждый раз, когда изменяется событие, также меняется и ключ ChangeKey|
+|DateTimeCreated|string|Дата и время создания события|
+|DateTimeLastModified|строка|Дата и время последнего изменения события|
+|End|строка|Время окончания события|
+|EndTimeZone|string|Указывает часовой пояс, по которому указано время окончания собрания. Это значение соответствует заданному в Windows (например, Pacific Standard Time)|
+|HasAttachments|Логическое|Задается значение true, если событие содержит вложения|
+|Важность|строка|Важность события: Low, Normal или High.|
+|IsAllDay|Логическое|Задается значение true, если событие длится целый день|
+|IsCancelled|Логическое|Задается значение true, если событие отменено|
+|IsOrganizer|Логическое|Задается значение true, если отправитель сообщения также является организатором|
+|Расположение|не определено|Расположение события|
+|Организатор|не определено|Организатор события|
+|Периодичность|не определено|Шаблон повторения события|
+|Напоминание|целое число|Время в минутах до начала события, при наступлении которого будет создаваться напоминание|
+|ResponseRequested|Логическое|Задается значение true, если отправитель хочет получать ответ при принятии или отклонении события|
+|ResponseStatus|не определено|Указывает тип ответа, отправляемого при получении сообщения о событии|
+|SeriesMasterId|строка|Уникальный идентификатор основного события ряда|
+|ShowAs|строка|Показывает состояние: Free или Busy|
+|Начало|string|Время начала события|
+|StartTimeZone|string|Указывает часовой пояс, по которому указано время начала собрания. Это значение соответствует заданному в Windows (например, Pacific Standard Time)|
+|Субъект|string|Тема события|
+|Тип|string|Тип события: Single Instance, Occurrence, Exception или Series Master|
+|WebLink|string|Предварительный просмотр текста сообщения, связанного с событием|
 
 
-#### <a name="delete-event"></a>Delete event
-This operation deletes an event in a calendar. 
+#### Удаление события
+Удаляет событие в календаре.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|id*|Id|Select an event|
+|table*|Идентификатор календаря|Выберите календарь|
+|id*|Идентификатор|Выберите событие|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Нет.
 
 
-#### <a name="update-event"></a>Update event
-This operation updates an event in a calendar. 
+#### Обновление события
+Обновляет событие в календаре.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|id*|Id|Select an event|
-|item*|Item|Event to update|
+|table*|Идентификатор календаря|Выберите календарь|
+|id*|Идентификатор|Выберите событие|
+|item*|Элемент|Событие, которое нужно обновить|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-CalendarEvent: Connector specific calendar event model class.
+##### Сведения о выходных данных
+CalendarEvent: класс модели событий в календаре соединителя
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|Id|string|The Event's unique identifier.|
-|Attendees|array|List of attendees for the event.|
-|Body|not defined|The body of the message associated with the event.|
-|BodyPreview|string|The preview of the message associated with the event.|
-|Categories|array|The categories associated with the event.|
-|ChangeKey|string|Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well.|
-|DateTimeCreated|string|The date and time that the event was created.|
-|DateTimeLastModified|string|The date and time that the event was last modified.|
-|End|string|The end time of the event.|
-|EndTimeZone|string|Specifies the time zone of the meeting end time. This value must be as defined in Windows (example: 'Pacific Standard Time').|
-|HasAttachments|boolean|Set to true if the event has attachments.|
-|Importance|string|The importance of the event: Low, Normal or High.|
-|IsAllDay|boolean|Set to true if the event lasts all day.|
-|IsCancelled|boolean|Set to true if the event has been canceled.|
-|IsOrganizer|boolean|Set to true if the message sender is also the organizer.|
-|Location|not defined|The location of the event.|
-|Organizer|not defined|The organizer of the event.|
-|Recurrence|not defined|The recurrence pattern for the event.|
-|Reminder|integer|Time in minutes before event start to remind.|
-|ResponseRequested|boolean|Set to true if the sender would like a response when the event is accepted or declined.|
-|ResponseStatus|not defined|Indicates the type of response sent in response to an event message.|
-|SeriesMasterId|string|Unique identifier for Series Master event type.|
-|ShowAs|string|Shows as free or busy.|
-|Start|string|The start time of the event.|
-|StartTimeZone|string|Specifies the time zone of the meeting start time. This value must be as defined in Windows (example: "Pacific Standard Time").|
-|Subject|string|Event subject.|
-|Type|string|The event type: Single Instance, Occurrence, Exception, or Series Master.|
-|WebLink|string|The preview of the message associated with the event.|
+|Идентификатор|строка|Уникальный идентификатор события|
+|Участники|array|Список участников события|
+|Текст|не определено|Текст сообщения, связанного с событием|
+|BodyPreview|строка|Предварительный просмотр текста сообщения, связанного с событием|
+|Категории|array|Категории, связанные с событием|
+|ChangeKey|string|Определяет версию объекта события. Каждый раз, когда изменяется событие, также меняется и ключ ChangeKey|
+|DateTimeCreated|строка|Дата и время создания события|
+|DateTimeLastModified|string|Дата и время последнего изменения события|
+|End|string|Время окончания события|
+|EndTimeZone|string|Указывает часовой пояс, по которому указано время окончания собрания. Это значение соответствует заданному в Windows (например, Pacific Standard Time)|
+|HasAttachments|Логическое|Задается значение true, если событие содержит вложения|
+|Важность|string|Важность события: Low, Normal или High.|
+|IsAllDay|Логическое|Задается значение true, если событие длится целый день|
+|IsCancelled|Логическое|Задается значение true, если событие отменено|
+|IsOrganizer|Логическое|Задается значение true, если отправитель сообщения также является организатором|
+|Расположение|не определено|Расположение события|
+|Организатор|не определено|Организатор события|
+|Периодичность|не определено|Шаблон повторения события|
+|Напоминание|целое число|Время в минутах до начала события, при наступлении которого будет создаваться напоминание|
+|ResponseRequested|Логическое|Задается значение true, если отправитель хочет получать ответ при принятии или отклонении события|
+|ResponseStatus|не определено|Указывает тип ответа, отправляемого при получении сообщения о событии|
+|SeriesMasterId|string|Уникальный идентификатор основного события ряда|
+|ShowAs|строка|Показывает состояние: Free или Busy|
+|Начало|строка|Время начала события|
+|StartTimeZone|строка|Указывает часовой пояс, по которому указано время начала собрания. Это значение соответствует заданному в Windows (например, Pacific Standard Time)|
+|Субъект|string|Тема события|
+|Тип|string|Тип события: Single Instance, Occurrence, Exception или Series Master|
+|WebLink|строка|Предварительный просмотр текста сообщения, связанного с событием|
 
 
-#### <a name="when-a-new-event-is-created"></a>When a new event is created
-This operation triggers a flow when a new event is created in a calendar. 
+#### When a new event is created (При создании события)
+Активирует поток при создании события в календаре.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|table*|Идентификатор календаря|Выберите календарь|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-CalendarItemsList: The list of calendar items
+##### Сведения о выходных данных
+CalendarItemsList: список элементов календаря
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|value|array|List of calendar items|
+|value|array|Список элементов календаря|
 
 
-#### <a name="when-an-event-is-modified"></a>When an event is modified
-This operation triggers a flow when an event is modified in a calendar. 
+#### When an event is modified (При изменении события)
+Активирует поток при изменении события в календаре.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Calendar id|Select a calendar|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|table*|Идентификатор календаря|Выберите календарь|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-CalendarItemsList: The list of calendar items
+##### Сведения о выходных данных
+CalendarItemsList: список элементов календаря
 
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|value|array|List of calendar items|
+|value|array|Список элементов календаря|
 
 
-#### <a name="get-contact-folders"></a>Get contact folders
-This operation lists available contacts folders. 
+#### Получение папки контактов
+Выводит список доступных папок контактов.
 
-There are no parameters for this call.
+Для этого вызова параметры отсутствуют.
 
-##### <a name="output-details"></a>Output Details
+##### Сведения о выходных данных
 TablesList
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
-#### <a name="get-contacts"></a>Get contacts
-This operation gets contacts from a contacts folder. 
+#### Получение контактов
+Возвращает контакты из папки контактов.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Folder id|Unique identifier of the contacts folder to retrieve|
-|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
-|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
-|$skip|Skip Count|Number of entries to skip (default = 0)|
-|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+|table*|Идентификатор папки|Уникальный идентификатор извлекаемой папки контактов|
+|$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения возвращаемых записей|
+|$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-ContactList: The list of contacts
+##### Сведения о выходных данных
+ContactList: список контактов
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|value|array|List of contacts|
+|value|array|Список контактов|
 
 
-#### <a name="create-contact"></a>Create contact
-This operation creates a new contact in a contacts folder. 
+#### Создание контакта
+Создает контакт в папке контактов.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Folder id|Select a contacts folder|
-|item*|Item|Contact to create|
+|table*|Идентификатор папки|Выберите папку контактов|
+|item*|Элемент|Создаваемый контакт|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-Contact: Contact
+##### Сведения о выходных данных
+Contact: контакт
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|Id|string|The contact's unique identifier.|
-|ParentFolderId|string|The ID of the contact's parent folder|
-|Birthday|string|The contact's birthday.|
-|FileAs|string|The name the contact is filed under.|
-|DisplayName|string|The contact's display name.|
-|GivenName|string|The contact's given name.|
-|Initials|string|The contact's initials.|
-|MiddleName|string|The contact's middle name.|
-|NickName|string|The contact's nickname.|
-|Surname|string|The contact's surname.|
-|Title|string|The contact's title.|
-|Generation|string|The contact's generation.|
-|EmailAddresses|array|The contact's email addresses.|
-|ImAddresses|array|The contact's instant messaging (IM) addresses.|
-|JobTitle|string|The contact's job title.|
-|CompanyName|string|The name of the contact's company.|
-|Department|string|The contact's department.|
-|OfficeLocation|string|The location of the contact's office.|
-|Profession|string|The contact's profession.|
-|BusinessHomePage|string|The business home page of the contact.|
-|AssistantName|string|The name of the contact's assistant.|
-|Manager|string|The name of the contact's manager.|
-|HomePhones|array|The contact's home phone numbers.|
-|BusinessPhones|array|The contact's business phone numbers|
-|MobilePhone1|string|The contact's mobile phone number.|
-|HomeAddress|not defined|The contact's home address.|
-|BusinessAddress|not defined|The contact's business address.|
-|OtherAddress|not defined|Other addresses for the contact.|
-|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
-|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
-|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
-|Categories|array|The categories associated with the contact.|
-|ChangeKey|string|Identifies the version of the event object|
-|DateTimeCreated|string|The time the contact was created.|
-|DateTimeLastModified|string|The time the contact was modified.|
+|Идентификатор|string|Уникальный идентификатор контакта|
+|ParentFolderId|string|Идентификатор родительской папки контакта|
+|Birthday|string|День рождения контакта|
+|FileAs|string|Имя, под которым сохранен контакт|
+|DisplayName|string|Отображаемое имя контакта|
+|GivenName|string|Заданное имя контакта|
+|Initials|string|Инициалы контакта|
+|MiddleName|строка|Отчество контакта|
+|NickName|string|Псевдоним контакта|
+|Surname|string|Фамилия контакта|
+|Название|строка|Должность контакта|
+|Generation|строка|Создание контакта|
+|EmailAddresses|array|Адрес электронной почты контакта|
+|ImAddresses|array|Адрес для мгновенного обмена сообщениями с контактом|
+|JobTitle|string|Должность контакта|
+|CompanyName|строка|Название компании, в которой работает контакт|
+|Department|string|Подразделение, в котором работает контакт|
+|OfficeLocation|строка|Расположение офиса контакта|
+|Profession|string|Профессия контакта|
+|BusinessHomePage|string|Рабочая домашняя страница контакта|
+|AssistantName|string|Имя помощника контакта|
+|Manager|строка|Имя менеджера контакта|
+|HomePhones|array|Номер домашнего телефона контакта|
+|BusinessPhones|array|Номер рабочего телефона контакта|
+|MobilePhone1|строка|Номер мобильного телефона контакта|
+|HomeAddress|не определено|Домашний адрес контакта|
+|BusinessAddress|не определено|Рабочий адрес контакта|
+|OtherAddress|не определено|Другой адрес контакта|
+|YomiCompanyName|string|Произношение названия компании, в которой работает контакт, на японском языке|
+|YomiGivenName|string|Произношение имени контакта на японском языке|
+|YomiSurname|string|Произношение фамилии контакта на японском языке|
+|Категории|array|Категории, связанные с контактом|
+|ChangeKey|string|Определяет версию объекта события|
+|DateTimeCreated|string|Время создания контакта|
+|DateTimeLastModified|строка|Время изменения контакта|
 
 
-#### <a name="get-contact"></a>Get contact
-This operation gets a specific contact from a contacts folder. 
+#### Получение контакта
+Возвращает конкретный контакт из папки контактов.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Folder id|Select a contacts folder|
-|id*|Item id|Unique identifier of a contact to retrieve|
+|table*|Идентификатор папки|Выберите папку контактов|
+|id*|Идентификатор элемента|Уникальный идентификатор извлекаемого контакта|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-Contact: Contact
+##### Сведения о выходных данных
+Contact: контакт
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|Id|string|The contact's unique identifier.|
-|ParentFolderId|string|The ID of the contact's parent folder|
-|Birthday|string|The contact's birthday.|
-|FileAs|string|The name the contact is filed under.|
-|DisplayName|string|The contact's display name.|
-|GivenName|string|The contact's given name.|
-|Initials|string|The contact's initials.|
-|MiddleName|string|The contact's middle name.|
-|NickName|string|The contact's nickname.|
-|Surname|string|The contact's surname.|
-|Title|string|The contact's title.|
-|Generation|string|The contact's generation.|
-|EmailAddresses|array|The contact's email addresses.|
-|ImAddresses|array|The contact's instant messaging (IM) addresses.|
-|JobTitle|string|The contact's job title.|
-|CompanyName|string|The name of the contact's company.|
-|Department|string|The contact's department.|
-|OfficeLocation|string|The location of the contact's office.|
-|Profession|string|The contact's profession.|
-|BusinessHomePage|string|The business home page of the contact.|
-|AssistantName|string|The name of the contact's assistant.|
-|Manager|string|The name of the contact's manager.|
-|HomePhones|array|The contact's home phone numbers.|
-|BusinessPhones|array|The contact's business phone numbers|
-|MobilePhone1|string|The contact's mobile phone number.|
-|HomeAddress|not defined|The contact's home address.|
-|BusinessAddress|not defined|The contact's business address.|
-|OtherAddress|not defined|Other addresses for the contact.|
-|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
-|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
-|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
-|Categories|array|The categories associated with the contact.|
-|ChangeKey|string|Identifies the version of the event object|
-|DateTimeCreated|string|The time the contact was created.|
-|DateTimeLastModified|string|The time the contact was modified.|
+|Идентификатор|string|Уникальный идентификатор контакта|
+|ParentFolderId|string|Идентификатор родительской папки контакта|
+|Birthday|строка|День рождения контакта|
+|FileAs|string|Имя, под которым сохранен контакт|
+|DisplayName|string|Отображаемое имя контакта|
+|GivenName|строка|Заданное имя контакта|
+|Initials|string|Инициалы контакта|
+|MiddleName|строка|Отчество контакта|
+|NickName|string|Псевдоним контакта|
+|Surname|string|Фамилия контакта|
+|Название|строка|Должность контакта|
+|Generation|string|Создание контакта|
+|EmailAddresses|array|Адрес электронной почты контакта|
+|ImAddresses|array|Адрес для мгновенного обмена сообщениями с контактом|
+|JobTitle|string|Должность контакта|
+|CompanyName|string|Название компании, в которой работает контакт|
+|Department|string|Подразделение, в котором работает контакт|
+|OfficeLocation|string|Расположение офиса контакта|
+|Profession|string|Профессия контакта|
+|BusinessHomePage|string|Рабочая домашняя страница контакта|
+|AssistantName|string|Имя помощника контакта|
+|Manager|string|Имя менеджера контакта|
+|HomePhones|array|Номер домашнего телефона контакта|
+|BusinessPhones|array|Номер рабочего телефона контакта|
+|MobilePhone1|строка|Номер мобильного телефона контакта|
+|HomeAddress|не определено|Домашний адрес контакта|
+|BusinessAddress|не определено|Рабочий адрес контакта|
+|OtherAddress|не определено|Другой адрес контакта|
+|YomiCompanyName|string|Произношение названия компании, в которой работает контакт, на японском языке|
+|YomiGivenName|string|Произношение имени контакта на японском языке|
+|YomiSurname|string|Произношение фамилии контакта на японском языке|
+|Категории|array|Категории, связанные с контактом|
+|ChangeKey|строка|Определяет версию объекта события|
+|DateTimeCreated|string|Время создания контакта|
+|DateTimeLastModified|string|Время изменения контакта|
 
 
-#### <a name="delete-contact"></a>Delete contact
-This operation deletes a contact from a contacts folder. 
+#### Удаление контакта
+Удаляет контакт из папки контактов.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Folder id|Select a contacts folder|
-|id*|Id|Unique identifier of contact to delete|
+|table*|Идентификатор папки|Выберите папку контактов|
+|id*|Идентификатор|Уникальный идентификатор удаляемого контакта|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-None.
+##### Сведения о выходных данных
+Нет.
 
 
-#### <a name="update-contact"></a>Update contact
-This operation updates a contact in a contacts folder. 
+#### Обновление контакта
+Обновляет контакт в папке контактов.
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|table*|Folder id|Select a contacts folder|
-|id*|Id|Unique identifier of contact to update|
-|item*|Item|Contact item to update|
+|table*|Идентификатор папки|Выберите папку контактов|
+|id*|Идентификатор|Уникальный идентификатор обновляемого контакта|
+|item*|Элемент|Обновляемый элемент контакта|
 
-An asterisk (*) means the property is required.
+Звездочка (*) означает, что свойство является обязательным.
 
-##### <a name="output-details"></a>Output Details
-Contact: Contact
+##### Сведения о выходных данных
+Contact: контакт
 
-| Property Name | Data Type | Description |
+| Имя свойства | Тип данных | Описание |
 |---|---|---|
-|Id|string|The contact's unique identifier.|
-|ParentFolderId|string|The ID of the contact's parent folder|
-|Birthday|string|The contact's birthday.|
-|FileAs|string|The name the contact is filed under.|
-|DisplayName|string|The contact's display name.|
-|GivenName|string|The contact's given name.|
-|Initials|string|The contact's initials.|
-|MiddleName|string|The contact's middle name.|
-|NickName|string|The contact's nickname.|
-|Surname|string|The contact's surname.|
-|Title|string|The contact's title.|
-|Generation|string|The contact's generation.|
-|EmailAddresses|array|The contact's email addresses.|
-|ImAddresses|array|The contact's instant messaging (IM) addresses.|
-|JobTitle|string|The contact's job title.|
-|CompanyName|string|The name of the contact's company.|
-|Department|string|The contact's department.|
-|OfficeLocation|string|The location of the contact's office.|
-|Profession|string|The contact's profession.|
-|BusinessHomePage|string|The business home page of the contact.|
-|AssistantName|string|The name of the contact's assistant.|
-|Manager|string|The name of the contact's manager.|
-|HomePhones|array|The contact's home phone numbers.|
-|BusinessPhones|array|The contact's business phone numbers|
-|MobilePhone1|string|The contact's mobile phone number.|
-|HomeAddress|not defined|The contact's home address.|
-|BusinessAddress|not defined|The contact's business address.|
-|OtherAddress|not defined|Other addresses for the contact.|
-|YomiCompanyName|string|The phonetic Japanese company name of the contact.|
-|YomiGivenName|string|The phonetic Japanese given name (first name) of the contact.|
-|YomiSurname|string|The phonetic Japanese surname (last name) of the contact|
-|Categories|array|The categories associated with the contact.|
-|ChangeKey|string|Identifies the version of the event object|
-|DateTimeCreated|string|The time the contact was created.|
-|DateTimeLastModified|string|The time the contact was modified.|
+|Идентификатор|string|Уникальный идентификатор контакта|
+|ParentFolderId|string|Идентификатор родительской папки контакта|
+|Birthday|string|День рождения контакта|
+|FileAs|string|Имя, под которым сохранен контакт|
+|DisplayName|string|Отображаемое имя контакта|
+|GivenName|string|Заданное имя контакта|
+|Initials|string|Инициалы контакта|
+|MiddleName|string|Отчество контакта|
+|NickName|string|Псевдоним контакта|
+|Surname|string|Фамилия контакта|
+|Название|строка|Должность контакта|
+|Generation|string|Создание контакта|
+|EmailAddresses|array|Адрес электронной почты контакта|
+|ImAddresses|array|Адрес для мгновенного обмена сообщениями с контактом|
+|JobTitle|string|Должность контакта|
+|CompanyName|string|Название компании, в которой работает контакт|
+|Department|string|Подразделение, в котором работает контакт|
+|OfficeLocation|string|Расположение офиса контакта|
+|Profession|строка|Профессия контакта|
+|BusinessHomePage|string|Рабочая домашняя страница контакта|
+|AssistantName|string|Имя помощника контакта|
+|Manager|string|Имя менеджера контакта|
+|HomePhones|array|Номер домашнего телефона контакта|
+|BusinessPhones|array|Номер рабочего телефона контакта|
+|MobilePhone1|string|Номер мобильного телефона контакта|
+|HomeAddress|не определено|Домашний адрес контакта|
+|BusinessAddress|не определено|Рабочий адрес контакта|
+|OtherAddress|не определено|Другой адрес контакта|
+|YomiCompanyName|строка|Произношение названия компании, в которой работает контакт, на японском языке|
+|YomiGivenName|строка|Произношение имени контакта на японском языке|
+|YomiSurname|string|Произношение фамилии контакта на японском языке|
+|Категории|array|Категории, связанные с контактом|
+|ChangeKey|строка|Определяет версию объекта события|
+|DateTimeCreated|string|Время создания контакта|
+|DateTimeLastModified|string|Время изменения контакта|
 
 
 
-## <a name="http-responses"></a>HTTP responses
+## Ответы HTTP
 
-The actions and triggers above can return one or more of the following HTTP status codes: 
+Описанные выше действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже.
 
-|Name|Description|
+|Имя|Описание|
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred|
-|default|Operation Failed.|
+|200|ОК|
+|202|Принято|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore the other available connectors in Logic Apps at our [APIs list](apis-list.md).
+См. статью о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в Logic Apps, см. [список API-интерфейсов](apis-list.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

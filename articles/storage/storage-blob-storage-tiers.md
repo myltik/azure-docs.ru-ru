@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure cool storage for blobs | Microsoft Azure"
-    description="Storage tiers for Azure Blob storage offer cost-efficient storage for object data based on access patterns. The cool storage tier is optimized for data that is accessed less frequently."
+    pageTitle="Холодный уровень хранилища Azure для больших двоичных объектов | Microsoft Azure"
+    description="Уровни хранилища BLOB-объектов Azure обеспечивают экономичное хранение данных объектов в зависимости от схемы доступа. ";Холодный"; уровень хранилища оптимизирован для данных, доступ к которым осуществляется нечасто."
     services="storage"
     documentationCenter=""
     authors="michaelhauss"
@@ -17,345 +17,327 @@
     ms.author="mihauss;robinsh"/>
 
 
+# Хранилище BLOB-объектов Azure: "горячий" и "холодный" уровни хранилища
 
-# <a name="azure-blob-storage:-hot-and-cool-storage-tiers"></a>Azure Blob Storage: Hot and cool storage tiers
+## Обзор
 
-## <a name="overview"></a>Overview
+Служба хранилища Azure предусматривает два уровня для хранилища BLOB-объектов (хранилища объектов), чтобы данные можно было хранить наиболее эффективно в зависимости от их использования. **"Горячий" уровень хранилища** Azure оптимизирован для хранения часто используемых данных. **"Холодный" уровень хранилища** Azure оптимизирован для хранения данных, которые используют редко и долго хранят. Данные на "холодном" уровне хранилища могут отличаться меньшей доступностью, но должны быть так же надежны и доступны, как горячие данные, и обладать такими же характеристиками пропускной способности и времени получения доступа. Приемлемым компромиссом для более экономного хранения редко используемых данных является соглашение об уровне обслуживания, предусматривающее более низкую доступность, и больше затрат на доступ.
 
-Azure Storage now offers two storage tiers for Blob storage (object storage), so that you can store your data most cost-effectively depending on how you use it. The Azure **hot storage tier** is optimized for storing data that is accessed frequently. The Azure **cool storage tier** is optimized for storing data that is infrequently accessed and long-lived. Data in the cool storage tier can tolerate a slightly lower availability, but still requires high durability and similar time to access and throughput characteristics as hot data. For cool data, slightly lower availability SLA and higher access costs are acceptable trade-offs for much lower storage costs.
+В настоящее время объемы данных, хранящихся в облаке, увеличиваются в геометрической прогрессии. Управления затратами при увеличении хранилища помогает организовать размещение данных по уровням в зависимости от таких атрибутов, как частота доступа и планируемый срок хранения. Данные, хранящиеся в облаке, по-разному создаются и обрабатываются, а также используются с разной частотой. Одни данные активно используют и изменяют на протяжении всего жизненного цикла. Другие же часто используют в начале цикла, но все реже по мере их устаревания. Третьи данные не используют или делают это редко, возможно даже единожды за весь срок хранения.
 
-Today, data stored in the cloud is growing at an exponential pace. To manage costs for your expanding storage needs, it's helpful to organize your data based on attributes like frequency of access and planned retention period. Data stored in the cloud can be quite different in terms of how it is generated, processed, and accessed over its lifetime. Some data is actively accessed and modified throughout its lifetime. Some data is accessed very frequently early in its lifetime, with access dropping drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored.
+Каждый из сценариев доступа к данным выше создает преимущества за счет хранения на разных уровнях, оптимизированных для конкретных шаблонов доступа. С появлением "горячего" и "холодного" уровней в хранилище BLOB-объектов Azure можно хранить данные на разных уровнях и использовать разные модели ценообразования.
 
-Each of these data access scenarios described above benefits from a differentiated tier of storage that is optimized for a particular access pattern. With the introduction of hot and cool storage tiers, Azure Blob storage now addresses this need for differentiated storage tiers with separate pricing models.
+## Учетные записи хранения BLOB-объектов
 
-## <a name="blob-storage-accounts"></a>Blob storage accounts
+**Учетные записи хранения BLOB-объектов** — это специализированные учетные записи хранения таких неструктурированных данных, как большие двоичные объекты, в службе хранилища Azure. Теперь благодаря учетным записям хранилища BLOB-объектов вы можете выбрать уровень хранилища: "горячий" — чтобы сэкономить на доступе к данным, которые используются чаще; "холодный" — чтобы сэкономить на хранении данных, которые используются редко. Учетные записи хранения BLOB-объектов аналогичны учетным записям хранения общего назначения и обладают такими же функциями обеспечения устойчивости, надежности, масштабируемости и производительности, которые вы уже используете, а также отличаются полной согласованностью API в плане блочных BLOB-объектов и добавления больших двоичных объектов.
 
-**Blob storage accounts** are specialized storage accounts for storing your unstructured data as blobs (objects) in Azure Storage. With Blob storage accounts, you can now choose between hot and cool storage tiers to store your less frequently accessed cool data at a lower storage cost, and store more frequently accessed hot data at a lower access cost. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today, including 100% API consistency for block blobs and append blobs.
+> [AZURE.NOTE] Учетные записи хранения BLOB-объектов поддерживают только блочные и добавочные BLOB-объекты и не поддерживают страничные.
 
-> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
+Учетные записи хранения BLOB-объектов используют атрибут **уровня доступа**, который позволяет задавать **горячий** или **холодный** уровень хранилища в зависимости от данных, хранящихся в учетной записи. Если схема использования данных изменилась, вы в любое время можете изменить уровень хранилища.
 
-Blob storage accounts expose the **Access Tier** attribute, which allow you to specify the storage tier as **Hot** or **Cool** depending on the data stored in the account. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time.
+> [AZURE.NOTE] За изменение уровня хранилища может взиматься дополнительная плата. Дополнительные сведения см. в разделе [Цены и выставление счетов](storage-blob-storage-tiers.md#pricing-and-billing).
 
-> [AZURE.NOTE] Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+Ниже перечислены ситуации, в которых данные нужно хранить на "горячем" уровне хранилища.
 
-Example usage scenarios for the hot storage tier include:
+- Данные активно используют или планируют часто получать к ним доступ (для чтения и записи).
+- Данные, которые вы планируете обрабатывать и в конечном счете перенести, лучше отнести к "холодному" уровню хранилища.
 
-- Data that is in active use or expected to be accessed (read from and written to) frequently.
-- Data that is staged for processing and eventual migration to the cool storage tier.
+Ниже перечислены ситуации, в которых данные нужно хранить на "холодном" уровне хранилища.
 
-Example usage scenarios for the cool storage tier include:
+- Наборы данных резервного копирования, архивирования и аварийного восстановления.
+- Старое мультимедийное содержимое, которое нечасто просматривают, но которое должно быть доступно сразу по необходимости.
+- Большие наборы данных, которые нужно хранить при меньших затратах, при этом данные собирают для последующей обработки (*например*, нужно долго хранить данные научных исследований или необработанные данные телеметрии производственного объекта).
+- Исходные (необработанные) данные, которые необходимо сохранить даже после их окончательной обработки (*например*, необработанные мультимедийные данные после перекодирования в другие форматы).
+- Архивные данные и данные соответствия требованиям, которые нужно хранить в течение длительного времени и которые вряд ли когда-либо будут использовать (*например*, записи камер безопасности, старые рентгенограммы и результаты МРТ в организациях здравоохранения или аудиозаписи и записи разговоров с клиентами в финансовых службах).
 
-- Backup, archival and disaster recovery datasets.
-- Older media content not viewed frequently anymore but is expected to be available immediately when accessed.
-- Large data sets that need to be stored cost effectively while more data is being gathered for future processing. (*e.g.*, long-term storage of scientific data, raw telemetry data from a manufacturing facility)
-- Original (raw) data that must be preserved, even after it has been processed into final usable form. (*e.g.*, Raw media files after transcoding into other formats)
-- Compliance and archival data that needs to be stored for a long time and is hardly ever accessed. (*e.g.*, Security camera footage, old X-Rays/MRIs for healthcare organizations, audio recordings and transcripts of customer calls for financial services)
+Дополнительные сведения об учетных записях хранения см. в статье [Об учетных записях хранения Azure](storage-create-storage-account.md).
 
-See [About Azure storage accounts](storage-create-storage-account.md) for more information on storage accounts.
+Для приложений, которые нужны, только чтобы блокировать или добавлять хранилище BLOB-объектов, лучше использовать учетные записи хранения BLOB-объектов. Это позволит получить преимущества дифференцированной модели ценообразования многоуровневого хранилища. Тем не менее ясно, что при определенных обстоятельствах это всегда возможно, и лучше всего использовать учетные записи хранения общего назначения. Например:
 
-For applications requiring only block or append blob storage, we recommend using Blob storage accounts, to take advantage of the differentiated pricing model of tiered storage. However, we understand that this might not be possible under certain circumstances where using general-purpose storage accounts would be the way to go, such as:
+- Если вам необходимо использовать таблицы, очереди или файлы, а большие двоичные объекты при этом нужно хранить в той же учетной записи хранения. Учтите, что хранение в одной учетной записи не предоставляет никаких технических преимуществ, кроме использования одних и тех же общих ключей.
+- При этом все равно нужно использовать классическую модель развертывания. Учетные записи хранения BLOB-объектов доступны при использовании модели развертывания с помощью Azure Resource Manager.
+- Вам нужно использовать страничные BLOB-объекты. Учетные записи хранения BLOB-объектов не поддерживают страничные BLOB-объекты. Обычно блочные BLOB-объекты рекомендуется использовать, только если нет необходимости в страничных BLOB-объектах.
+- Вы используете версию [REST API служб хранилища](https://msdn.microsoft.com/library/azure/dd894041.aspx), выпущенную раньше 14.02.2014, или клиентскую библиотеку версии ниже 4 и не можете установить новую версию приложения.
 
-- You need to use tables, queues, or files and want your blobs stored in the same storage account. Note that there is no technical advantage to storing these in the same account other than having the same shared keys.
-- You still need to use the Classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
-- You need to use page blobs. Blob storage accounts do not support page blobs. We generally recommend using block blobs unless you have a specific need for page blobs.
-- You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
+> [AZURE.NOTE] Сейчас учетные записи хранения BLOB-объектов поддерживаются в большинстве регионов Azure, и планируется расширить поддержку. Обновленный список регионов доступности см. на странице [Службы Azure по региону](https://azure.microsoft.com/regions/#services).
 
-> [AZURE.NOTE] Blob storage accounts are currently supported in a majority of Azure regions with more to follow. You can find the updated list of available regions on the [Azure Services by Region](https://azure.microsoft.com/regions/#services) page.
+## Сравнение уровней хранилища
 
-## <a name="comparison-between-the-storage-tiers"></a>Comparison between the storage tiers
-
-The following table highlights the comparison between the two storage tiers:
+В следующей таблице сравниваются два уровня хранилища.
 
 <table border="1" cellspacing="0" cellpadding="0" style="border: 1px solid #000000;">
-<col width="250">
-<col width="250">
-<col width="250">
+<col width="250"> <col width="250"> <col width="250">
 <tbody>
 <tr>
     <td><strong><center></center></strong></td>
-    <td><strong><center>Hot storage tier</center></strong></td>
-    <td><strong><center>Cool storage tier</center></strong></td
+    <td><strong><center>"Горячий" уровень хранилища</center></strong></td>
+    <td><strong><center>"Холодный" уровень хранилища</center></strong>&lt;/td
 </tr>
 <tr>
-    <td><strong><center>Availability</center></strong></td>
-    <td><center>99.9%</center></td>
-    <td><center>99%</center></td>
+    <td><strong><center>Доступность</center></strong></td>
+    <td><center>99,9 %</center></td>
+    <td><center>99 %</center></td>
 </tr>
 <tr>
-    <td><strong><center>Availability<br>(RA-GRS reads)</center></strong></td>
-    <td><center>99.99%</center></td>
-    <td><center>99.9%</center></td>
+    <td><strong><center>Доступность<br>(операции чтения RA-GRS)</center></strong></td>
+    <td><center>99,99 %</center></td>
+    <td><center>99,9 %</center></td>
 </tr>
 <tr>
-    <td><strong><center>Usage charges</center></strong></td>
-    <td><center>Higher storage costs<br>Lower access and transaction costs</center></td>
-    <td><center>Lower storage costs<br>Higher access and transaction costs</center></td>
+    <td><strong><center>Плата за использование</center></strong></td>
+    <td><center>Больше затрат на хранение.<br>Меньше затрат на доступ и транзакции</center></td>
+    <td><center>Меньше затрат на хранение.<br>Больше затрат на доступ и транзакции</center></td>
 </tr>
 <tr>
-    <td><strong><center>Minimum object size<center></strong></td>
-    <td colspan="2"><center>N/A</center></td>
+    <td><strong><center>Объекты минимального размера<center></strong></td>
+    <td colspan="2"><center>НЕДОСТУПНО</center></td>
 </tr>
 <tr>
-    <td><strong><center>Minimum storage duration<center></strong></td>
-    <td colspan="2"><center>N/A</center></td>
+    <td><strong><center>Минимальный срок хранения<center></strong></td>
+    <td colspan="2"><center>НЕДОСТУПНО</center></td>
 </tr>
 <tr>
-    <td><strong><center>Latency<br>(Time to first byte)<center></strong></td>
-    <td colspan="2"><center>milliseconds</center></td>
+    <td><strong><center>Задержка<br>(время до получения первого байта)<center></strong></td>
+    <td colspan="2"><center>Миллисекунды</center></td>
 </tr>
 <tr>
-    <td><strong><center>Scalability and performance targets<center></strong></td>
-    <td colspan="2"><center>Same as general-purpose storage accounts</center></td>
+    <td><strong><center>Цели по масштабируемости и производительности хранилища<center></strong></td>
+    <td colspan="2"><center>Такие же, как при использовании учетных записей хранения общего назначения</center></td>
 </tr>
 </tbody>
 </table>
 
-> [AZURE.NOTE] Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for more information.
+> [AZURE.NOTE] Учетные записи хранения BLOB-объектов обеспечивают такую же производительность и масштабируемость, как учетные записи хранения общего назначения. Дополнительные сведения см. в статье [Целевые показатели масштабируемости и производительности службы хранилища Azure](storage-scalability-targets.md).
 
-## <a name="pricing-and-billing"></a>Pricing and Billing
+## Цены и выставление счетов
 
-Blob storage accounts use a new pricing model for blob storage based on the storage tier. When using a Blob storage account, the following billing considerations apply:
+В учетных записях хранилища BLOB-объектов используется новая модель ценообразования для хранения BLOB-объектов на разных уровнях хранилища. При использовании учетной записи хранения BLOB-объектов счета выставляются следующим образом:
 
-- **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the storage tier. The per-gigabyte cost is lower for the cool storage tier than for the hot storage tier.
-- **Data access costs**: For data in the cool storage tier, you will be charged a per-gigabyte data access charge for reads and writes.
-- **Transaction costs**: There is a per-transaction charge for both tiers. However, the per-transaction cost for the cool storage tier is higher than that for the hot storage tier.
-- **Geo-Replication data transfer costs**: This only applies to accounts with geo-replication configured, including GRS and RA-GRS. Geo-replication data transfer incurs a per-gigabyte charge.
-- **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general-purpose storage accounts.
-- **Changing the storage tier**: Changing the storage tier from cool to hot will incur a charge equal to reading all the data existing in the storage account for every transition. On the other hand, changing the storage tier from hot to cool will be free of cost.
+- **Расходы на хранение**. Плата за хранение данных зависит не только от их объема, но и от уровня хранилища. На "холодном" уровне хранилища цена за гигабайт ниже, чем на "горячем" уровне.
+- **Расходы на доступ к данным**. На "холодном" уровне хранилища взимается плата за каждый гигабайт данных для операций чтения и записи.
+- **Расходы на транзакции**. На обоих уровнях взимается плата за каждую транзакцию. Тем не менее стоимость транзакции на "холодном" уровне хранилища выше, чем на "горячем".
+- **Расходы на передачу данных георепликации**. Этот пункт касается только тех учетных записей, в которых настроена георепликация, включая GRS и RA-GRS. При передаче данных георепликации взимается плата за гигабайт данных.
+- **Расходы на исходящий трафик**. Передача трафика (из региона Azure) предусматривает выставление счетов за использование пропускной способности по гигабайтам, как и при использовании учетных записей хранения общего назначения.
+- **Изменение уровня хранилища**. За каждый переход с "холодного" уровня хранилища на "горячий" взимается плата, равная плате за чтение всех данных в учетной записи хранения. За переход с "горячего" уровня хранилища на "холодный" плата не взимается.
 
-> [AZURE.NOTE] In order to allow users to try out the new storage tiers and validate functionality post launch, the charge for changing the storage tier from cool to hot will be waived off until June 30th 2016. Starting July 1st 2016, the charge will be applied to all transitions from cool to hot. For more details on the pricing model for Blob storage accounts see, [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more details on the outbound data transfer charges see, [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
+> [AZURE.NOTE] Чтобы пользователи могли опробовать новые уровни хранилища и проверить работоспособность системы после запуска на новом уровне, переход с "холодного" уровня хранилища на "горячий" до 30 июня 2016 г. будет бесплатным. С 1 июля 2016 года будет взиматься плата за каждый переход с холодного уровня на горячий. Дополнительные сведения о модели ценообразования для учетных записей хранения BLOB-объектов см. на странице [Цены на хранилища Azure](https://azure.microsoft.com/pricing/details/storage/). Дополнительные сведения о ценах на исходящий трафик см. на странице [Сведения о ценах — передача данных](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="quick-start"></a>Quick Start
+## Быстрый запуск
 
-In this section we will demonstrate the following scenarios using the Azure portal:
+В этом разделе продемонстрированы следующие сценарии, предусматривающие использование портала Azure:
 
-- How to create a Blob storage account.
-- How to manage a Blob storage account.
+- создание учетной записи хранения BLOB-объектов;
+- управление учетной записью хранения BLOB-объектов.
 
-### <a name="using-the-azure-portal"></a>Using the Azure portal
+### Использование портала Azure
 
-#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Create a Blob storage account using the Azure portal
+#### Создание учетной записи хранилища BLOB-объектов с использованием портала Azure
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Войдите на [портал Azure](https://portal.azure.com).
 
-2. On the Hub menu, select **New** > **Data + Storage** > **Storage account**.
+2. В главном меню выберите **Создать** -> **Данные+хранилище** -> **Учетная запись хранения**.
 
-3. Enter a name for your storage account.
+3. Выберите имя для своей учетной записи хранения.
 
-    This name must be globally unique; it is used as part of the URL used to access the objects in the storage account.  
+	Это имя должно быть уникальным глобально. Оно используется как часть URL-адреса, необходимого для доступа к объектам в учетной записи хранения.
 
-4. Select **Resource Manager** as the deployment model.
+4. Выберите **Resource Manager** в качестве модели развертывания.
 
-    Tiered storage can only be used with Resource Manager storage accounts; this is the recommended deployment model for new resources. For more information, check out the [Azure Resource Manager overview](../resource-group-overview.md).  
+	Для многоуровневого хранилища можно использовать только учетные записи хранения Resource Manager. Это рекомендуемая модель развертывания для новых ресурсов. Дополнительные сведения см. в статье [Общие сведения о Azure Resource Manager](../resource-group-overview.md).
 
-5. In the Account Kind dropdown list, select **Blob Storage**.
+5. В раскрывающемся списке Account Kind (Тип учетной записи) выберите **Хранилище BLOB-объектов**.
 
-    This is where you select the type of storage account. Tiered storage is not available in general-purpose storage; it is only available in the Blob storage type account.    
+	Таким образом вы выбираете тип учетной записи хранения. Многоуровневое хранилище недоступно при использовании учетных записей хранения общего назначения. Оно доступно только при использовании учетной записи хранилища BLOB-объектов.
 
-    Note that when you select this, the performance tier is set to Standard. Tiered storage is not available with the Premium performance tier.
+	Для многоуровневого хранилища используется уровень производительности Standard. Уровень Premium недоступен.
 
-6. Select the replication option for the storage account: **LRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
+6. Выберите тип хранилища репликации для учетной записи хранения: **LRS**, **GRS** или **RA-GRS**. Значение по умолчанию — **RA-GRS**.
 
-    LRS = locally redundant storage; GRS = geo-redundant storage (2 regions); RA-GRS is read-access geo-redundant storage (2 regions with read access to the second).
+	LRS — локально избыточное хранилище; GRS — геоизбыточное хранилище (2 региона); RA-GRS — геоизбыточное хранилище с доступом для чтения (2 региона с доступом для чтения второго).
 
-    For more details on Azure Storage replication options, check out [Azure Storage replication](storage-redundancy.md).
+	Дополнительные сведения о репликации службы хранилища Azure см. в статье [Репликация службы хранилища Azure](storage-redundancy.md).
 
-7. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**. The default is **Hot**.
+7. Выберите нужный уровень хранилища в соответствии со своими потребностями, задав для параметра **Уровень доступа** значение **Холодный** или **Горячий**. По умолчанию используется значение **Горячий**.
 
-8. Select the subscription in which you want to create the new storage account.
+8. Выберите подписку, в которой вы создаете учетную запись хранения.
 
-9. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../resource-group-overview.md).
+9. Выберите существующую группу ресурсов или создайте новую. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения об Azure Resource Manager](../resource-group-overview.md).
 
-10. Select the region for your storage account.
+10. Выберите регион для вашей учетной записи хранения.
 
-11. Click **Create** to create the storage account.
+11. Щелкните **Создать**, чтобы создать учетную запись хранения.
 
-#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Change the storage tier of a Blob storage account using the Azure portal
+#### Изменение уровня хранилища в учетной записи хранилища BLOB-объектов с помощью портала Azure
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Войдите на [портал Azure](https://portal.azure.com).
 
-2. To navigate to your storage account, select All Resources, then select your storage account.
+2. Чтобы перейти к вашей учетной записи хранения, выберите "Все ресурсы", а затем — необходимую учетную запись хранения.
 
-3. In the Settings blade, click **Configuration** to view and/or change the account configuration.
+3. В колонке "Параметры" щелкните **Конфигурация**, чтобы просмотреть и (или) изменить конфигурацию учетной записи.
 
-4. Select the right storage tier for your needs: Set the **Access tier** to either **Cool** or **Hot**.
+4. Выберите нужный уровень хранилища в соответствии со своими потребностями, задав для параметра **Уровень доступа** значение **Холодный** или **Горячий**.
 
-5. Click Save at the top of the blade.
+5. Щелкните "Сохранить" в верхней части колонки.
 
-> [AZURE.NOTE] Changing the storage tier may result in additional charges. Please see the [Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) section for more details.
+> [AZURE.NOTE] За изменение уровня хранилища может взиматься дополнительная плата. Дополнительные сведения см. в разделе [Цены и выставление счетов](storage-blob-storage-tiers.md#pricing-and-billing).
 
-## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Evaluating and migrating to Blob storage accounts
+## Оценка учетных записей хранилища BLOB-объектов и переход на них
 
-The purpose of this section is to help users to make a smooth transition to using Blob storage accounts. There are two user scenarios:
+В это разделе описано, как выполнить оптимальный переход к использованию учетной записи хранилища BLOB-объектов. Есть два пользовательских сценария.
 
-- You have an existing general-purpose storage account and want to evaluate a change to a Blob storage account with the right storage tier.
-- You have decided to use a Blob storage account or already have one and want to evaluate whether you should use the hot or cool storage tier.
+- У вас есть учетная запись хранилища общего назначения, и вы хотите оценить последствия перехода на учетную запись хранилища BLOB-объектов с соответствующим уровнем хранилища.
+- Вы решили использовать или уже используете учетную запись хранилища BLOB-объектов. Теперь вы хотите выяснить, какой уровень хранилища использовать — "горячий" или "холодный".
 
-In both cases, the first order of business is to estimate the cost of storing and accessing your data stored in a Blob storage account and compare that against your current costs.
+В обоих случаях сначала стоит оценить затраты на хранение данных и доступ к ним в учетной записи хранилища BLOB-объектов, а затем сравнить эти затраты с текущими.
 
-### <a name="evaluating-blob-storage-account-tiers"></a>Evaluating Blob storage account tiers
+### Оценка уровней учетной записи хранилища BLOB-объектов
 
-In order to estimate the cost of storing and accessing data stored in a Blob storage account, you will need to evaluate your existing usage pattern or approximate your expected usage pattern. In general, you will want to know:
+Чтобы оценить затраты на хранение данных и доступ к ним в учетной записи хранилища BLOB-объектов, необходимо оценить существующую схему использования или приблизительно определить будущую. В общем, необходимо выяснить следующее:
 
-- Your storage consumption - How much data is being stored and how does this change on a monthly basis?
-- Your storage access pattern - How much data is being read from and written to the account (including new data)? How many transactions are used for data access, and what kinds of transactions are they?
+- Использование хранилища. Сколько данных хранится и насколько меняется их объем каждый месяц?
+- Схема доступа к хранилищу. Какой объем данных считывается из учетной записи и какой объем записывается в нее? (В этих расчетах также должны учитываться новые данные.) Сколько транзакций используется для доступа к данным? Что это за транзакции?
 
-#### <a name="monitoring-existing-storage-accounts"></a>Monitoring existing storage accounts
+#### Мониторинг существующих учетных записей хранения
 
-To monitor your existing storage accounts and gather this data, you can make use of Azure Storage Analytics which performs logging and provides metrics data for a storage account.
-Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to the Blob storage service for both general-purpose storage accounts as well as Blob storage accounts.
-This data is stored in well-known tables in the same storage account.
+Чтобы отслеживать существующие учетные записи хранения и собирать данные о них, используйте службу анализа службы хранилища Azure, которая ведет журналы и хранит метрики учетной записи хранения. Служба анализа службы хранилища хранит метрики, содержащие сводную статистику транзакций и данные емкости запросов к службе хранилища BLOB-объектов. Речь идет о метриках учетных записей хранения общего назначения и учетных записей хранилища BLOB-объектов. Эти данные хранятся в общеизвестных таблицах в той же учетной записи хранения.
 
-For more details, please see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+Дополнительные сведения см. в статьях, описывающих [метрики службы анализа службы хранилища](https://msdn.microsoft.com/library/azure/hh343258.aspx) и [схему таблиц метрик службы анализа службы хранилища](https://msdn.microsoft.com/library/azure/hh343264.aspx).
 
-> [AZURE.NOTE] Blob storage accounts expose the table service endpoint only for storing and accessing the metrics data for that account.
+> [AZURE.NOTE] Учетные записи хранилища BLOB-объектов предоставляют конечную точку службы таблиц только для хранения данных метрик для этой учетной записи и доступа к этим данным.
 
-To monitor the storage consumption for the Blob storage service, you will need to enable the capacity metrics.
-With this enabled, capacity data is recorded daily for a storage account’s Blob service, and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.
+Чтобы отслеживать использование ресурсов хранения в службе хранилища BLOB-объектов, необходимо включить метрики емкости. Если эти метрики включены, данные емкости записываются для службы BLOB-объектов учетной записи хранения ежедневно. Эти данные регистрируются как запись таблицы, которая записывается в таблицу *$MetricsCapacityBlob* в той же учетной записи хранения.
 
-To monitor the data access pattern for the Blob storage service, you will need to enable the hourly transaction metrics at an API level.
-With this enabled, per API transactions are aggregated every hour, and recorded as a table entry that is written to the *$MetricsHourPrimaryTransactionsBlob* table within the same storage account. The *$MetricsHourSecondaryTransactionsBlob* table records the transactions to the secondary endpoint in case of RA-GRS storage accounts.
+Чтобы отслеживать схему доступа к данным для службы хранилища BLOB-объектов, включите почасовые метрики транзакций на уровне API. Если эти метрики включены, транзакции каждого API собираются каждый час. Эти данные регистрируются как запись таблицы, которая записывается в таблицу *$MetricsHourPrimaryTransactionsBlob* в той же учетной записи хранения. Транзакции учетных записей хранения RA-GRS таблица *$MetricsHourSecondaryTransactionsBlob* записывает на вторую конечную точку.
 
-> [AZURE.NOTE] In case you have a general-purpose storage account in which you have stored page blobs and virtual machine disks alongside block and append blob data, this estimation process is not applicable. This is because you will have no way of distinguishing capacity and transaction metrics based on the type of blob for only block and append blobs which can be migrated to a Blob storage account.
+> [AZURE.NOTE] Этот процесс оценки нельзя применить к учетной записи хранения общего назначения, в которой хранятся страничные BLOB-объекты и диски виртуальных машин вместе с данными блочных или добавочных BLOB-объектов. Это связано с тем, что вы не сможете различить метрики емкости и транзакций, ориентируясь на тип большого двоичного объекта только для блочных или добавочных BLOB-объектов, которые могут быть перенесены в учетную запись хранилища BLOB-объектов.
 
-To get a good approximation of you data consumption and access pattern, we recommend you choose a retention period for the metrics that is representative of your regular usage, and extrapolate.
-One option is to retain the metrics data for 7 days and collect the data every week, for analysis at the end of the month.
-Another option is to retain the metrics data for the last 30 days and collect and analyze the data at the end of the 30 day period.
+Чтобы правильно определить приблизительное потребление данных и схему доступа, рекомендуем выбрать период хранения для метрик, представляющих регулярное использование, и экстраполировать эти данные. Один из вариантов — хранить данные метрик в течение 7 дней и собирать данные каждую неделю для анализа в конце месяца. Альтернативный вариант — хранить данные метрик за последние 30 дней и собирать и анализировать данные в конце 30-дневного периода.
 
-For details on enabling, collecting and viewing metrics data, please see, [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md).
+Дополнительные сведения о включении, сборе и просмотре данных метрик см. в статье [Включение метрик хранилища Azure и просмотр данных метрик](storage-enable-and-view-metrics.md).
 
-> [AZURE.NOTE] Storing, accessing and downloading analytics data is also charged just like regular user data.
+> [AZURE.NOTE] Хранение и загрузка данных аналитики, а также доступ к ним оплачиваются как обычные данные пользователя.
 
-#### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Utilizing usage metrics to estimate costs
+#### Оценка затрат с помощью метрик использования
 
-##### <a name="storage-costs"></a>Storage costs
+##### Затраты на хранение
 
-The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'data'* shows the storage capacity consumed by user data.
-The latest entry in the capacity metrics table *$MetricsCapacityBlob* with the row key *'analytics'* shows the storage capacity consumed by the analytics logs.
+Последняя запись в таблице метрик емкости *$MetricsCapacityBlob* с ключом строки *data* показывает емкость хранилища, которую потребляют данные пользователя. Последняя запись в таблице метрик емкости *$MetricsCapacityBlob* с ключом строки *analytics* показывает емкость хранилища, которую потребляют журналы службы аналитики.
 
-This total capacity consumed by both user data and analytics logs (if enabled) can then be used to estimate the cost of storing data in the storage account.
-The same method can also be used for estimating storage costs for block and append blobs in general-purpose storage accounts.
+Сведения об общей емкости, потребляемой данными пользователя и журналами службы аналитики (если они включены), позволяют оценить затраты на хранение данных в учетной записи хранения. Этот метод можно использовать для оценки затрат на хранение для блочных и добавочных BLOB-объектов в учетных записях хранения общего назначения.
 
-##### <a name="transaction-costs"></a>Transaction costs
+##### Плата за транзакции
 
-The sum of *'TotalBillableRequests'*, across all entries for an API in the transaction metrics table indicates the total number of transactions for that particular API. *e.g.*, the total number of *'GetBlob'* transactions in a given period can be calculated by the sum of total billable requests for all entries with the row key *'user;GetBlob'*.
+Сумма значений *TotalBillableRequests* во всех записях для API в таблице метрик транзакций означает общее количество транзакций для этого API. *Например*, общее количество транзакций *GetBlob* в течение указанного периода можно вычислить, просуммировав общее количество оплачиваемых запросов для всех операций с ключом строки *user;GetBlob*.
 
-In order to estimate transaction costs for Blob storage accounts, you will need to break down the transactions into three groups since they are priced differently.
+Чтобы оценить затраты на транзакции для учетных записей хранилища BLOB-объектов, разделите транзакции на три группы, так как для них установлены разные цены.
 
-- Write transactions such as *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'*, and *'CopyBlob'*.
-- Delete transactions such as *'DeleteBlob'* and *'DeleteContainer'*.
-- All other transactions.
+- Транзакции записи: *PutBlob*, *PutBlock*, *PutBlockList*, *AppendBlock*, *ListBlobs*, *ListContainers*, *CreateContainer*, *SnapshotBlob* и *CopyBlob*.
+- Транзакции удаления: *DeleteBlob* и *DeleteContainer*.
+- Все остальные транзакции.
 
-In order to estimate transaction costs for general-purpose storage accounts, you need to aggregate all transactions irrespective of the operation/API.
+Чтобы оценить затраты на транзакции для учетных записей хранения общего назначения, просуммируйте стоимость всех транзакций независимо от операции или API.
 
-##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Data access and geo-replication data transfer costs
+##### Стоимость передачи данных георепликации и доступа к данным
 
-While storage analytics does not provide the amount of data read from and written to a storage account, it can be roughly estimated by looking at the transaction metrics table.
-The sum of *'TotalIngress'* across all entries for an API in the transaction metrics table indicates the total amount of ingress data in bytes for that particular API.
-Similarly the sum of *'TotalEgress'* indicates the total amount of egress data, in bytes.
+Служба аналитики службы хранилища не указывает объем данных, которые считываются из учетной записи хранения и записываются в нее. Но этот объем можно приблизительно оценить, просмотрев таблицу метрик транзакций. Сумма значений *TotalIngress* во всех записях для API в таблице метрик транзакций отображает общий объем входящих данных в байтах для этого API. Точно так же сумма значений *TotalEgress* отображает общий объем исходящих данных в байтах.
 
-In order to estimate the data access costs for Blob storage accounts, you will need to break down the transactions into two groups.
+Чтобы оценить затраты на доступ к данным для учетных записей хранилища BLOB-объектов, разделите транзакции на две группы.
 
-- The amount of data retrieved from the storage account can be estimated by looking at the sum of *'TotalEgress'* for primarily the *'GetBlob'* and *'CopyBlob'* operations.
-- The amount of data written to the storage account can be estimated by looking at the sum of *'TotalIngress'* for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
+- Чтобы оценить объем данных, полученных из учетной записи хранения, суммируйте значения *TotalEgress* в первую очередь для операций *GetBlob* и *CopyBlob*.
+- Чтобы оценить объем данных, записанных в учетную запись хранения, суммируйте значения *TotalIngress* в первую очередь для операций *PutBlob*, *PutBlock*, *CopyBlob* и *AppendBlock*.
 
-The cost of geo-replication data transfer for Blob storage accounts can also be calculated by using the estimate for the amount of data written in case of a GRS or RA-GRS storage account.
+Стоимость передачи данных георепликации для учетных записей хранилища BLOB-объектов также можно вычислить путем оценки объема данных, записанных в учетные записи хранения GRS или RA-GRS.
 
-> [AZURE.NOTE] For a more detailed example about calculating the costs for using the hot or cool storage tier, please take a look at the FAQ titled *'What are Hot and Cool access tiers and how should I determine which one to use?'* in the [Azure Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/).
+> [AZURE.NOTE] Более подробный пример расчета затрат на использование "горячего" или "холодного" уровня хранилища см. в ответе на вопрос *Что такое "горячий" и "холодный" уровень доступа и как определить, какой из них следует использовать?* на странице [Цены на хранилища Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-### <a name="migrating-existing-data"></a>Migrating existing data
+### Миграция существующих данных
 
-A Blob storage account is specialized for storing only block and append blobs. Existing general-purpose storage accounts, which allow you to store tables, queues, files and disks, as well as blobs, cannot be converted to Blob storage accounts. To use the storage tiers, you will need to create new Blob storage accounts and migrate your existing data into the newly created accounts.
-You can use the following methods to migrate existing data into Blob storage accounts from on-premise storage devices, from third-party cloud storage providers, or from your existing general-purpose storage accounts in Azure:
+Учетная запись хранения BLOB-объектов предназначена для хранения только блочных и добавочных BLOB-объектов. Существующие учетные записи хранения общего назначения, в которых можно хранить таблицы, очереди, файлы, диски и большие двоичные объекты, нельзя преобразовать в учетные записи хранилища BLOB-объектов. Чтобы использовать уровни хранилища, вам необходимо будет создать учетные записи хранения BLOB-объектов и перенести существующие данные в новые учетные записи. Чтобы перенести данные в учетную запись хранения BLOB-объектов из устройств локального хранилища, сторонних поставщиков облачного хранилища или учетной записи хранения общего назначения в Azure, можно использовать следующее:
 
-#### <a name="azcopy"></a>AzCopy
+#### AzCopy
 
-AzCopy is a Windows command-line utility designed for high-performance copying of data to and from Azure Storage. You can use AzCopy to copy data into your Blob storage account from your existing general-purpose storage accounts, or to upload data from your on-premises storage devices into your Blob storage account.
+AzCopy — это программа командной строки Windows, предназначенная для быстрого копирования большого объема данных в службу хранилища Azure и из нее. С помощью AzCopy можно копировать данные в учетную запись хранения BLOB-объектов из существующих учетных записей хранения общего назначения или передать данные из локальных устройств хранения в учетную запись хранения BLOB-объектов.
 
-For more details, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
+Дополнительные сведения см. в статье [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md).
 
-#### <a name="data-movement-library"></a>Data Movement Library
+#### Библиотека перемещения данных
 
-Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable and easy data transfer operations similar to AzCopy. This allows you to take full benefits of the features provided by AzCopy in your application natively without having to deal with running and monitoring external instances of AzCopy.
+В основе библиотеки перемещения данных службы хранилища Azure для .NET лежит основная платформа перемещения данных, на базе которой работает AzCopy. Библиотека предназначена для надежной и легкой передачи данных при высокой производительности, аналогично AzCopy. Благодаря ей вы можете изначально пользоваться всеми преимуществами функций AzCopy в своем приложении без необходимости запускать внешние экземпляры AzCopy и выполнять их мониторинг.
 
-For more details, see [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
+Дополнительные сведения см. в статье [Azure Storage Data Movement Library for .NET](https://github.com/Azure/azure-storage-net-data-movement) (Библиотека перемещения данных службы хранилища Azure для .NET).
 
-#### <a name="rest-api-or-client-library"></a>REST API or Client Library
+#### REST API или клиентская библиотека
 
-You can create a custom application to migrate your data into a Blob storage account using one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
+Вы можете самостоятельно создать приложение, чтобы перенести данные в учетную запись хранения BLOB-объектов, используя одну из клиентских библиотек Azure или API REST служб хранения Azure. Служба хранилища Azure предоставляет богатые клиентские библиотеки для создания приложений с использованием .NET, Java, Android, C++, Node.js, PHP, Ruby и Python. Клиентские библиотеки предлагают дополнительные возможности, такие как логический алгоритм повтора, ведение журнала и параллельная загрузка. Также есть возможность вести разработку непосредственно через интерфейс API REST, который можно вызывать в любом языке программирования, поддерживающем запросы HTTP/HTTPS.
 
-For more details, see [Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md).
+Дополнительные сведения см. в статье [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](storage-dotnet-how-to-use-blobs.md).
 
-> [AZURE.NOTE] Blobs encrypted using client-side encryption store encryption-related metadata stored with the blob. It is absolutely critical that any copy mechanism should ensure that the blob metadata, and especially the encryption-related metadata, is preserved. If you copy the blobs without this metadata, the blob content will not be retrievable again. For more details regarding encryption-related metadata, see [Azure Storage client side encryption](storage-client-side-encryption.md).
+> [AZURE.NOTE] Вместе с большими двоичными объектами, зашифрованными на стороне клиента, хранятся связанные с шифрованием метаданные. Крайне важно, чтобы используемый механизм копирования обеспечивал копирование метаданных большого двоичного объекта, особенно тех, которые связаны с шифрованием. Если копировать большие двоичные объекты без этих метаданных, содержимое объектов нельзя будет извлечь снова. Дополнительные сведения о метаданных, связанных с шифрованием, см. в статье [Шифрование на стороне клиента для службы хранилища Microsoft Azure](storage-client-side-encryption.md).
 
-## <a name="faqs"></a>FAQs
+## Часто задаваемые вопросы
 
-1. **Are existing storage accounts still available?**
+1. **Будут ли по-прежнему доступны существующие учетные записи хранения?**
 
-    Yes, existing storage accounts are still available and are unchanged in pricing or functionality.  They do not have the ability to choose an storage tier and will not have tiering capabilities in the future.
+    Да, учетные записи хранения будут доступны. Их функции и цена на их использование также не изменятся. В них нельзя выбрать уровень хранилища. В будущем уровни хранилища в учетных записях хранения не будут поддерживаться.
 
-2. **Why and when should I start using Blob storage accounts?**
+2. **Когда и почему лучше начать использовать учетные записи хранения BLOB-объектов?**
 
-    Blob storage accounts are specialized for storing blobs and allow us to introduce new blob-centric features. Going forward, Blob storage accounts are the recommended way for storing blobs, as future capabilities such as hierarchical storage and tiering will be introduced based on this account type. However, it is up to you when you would like to migrate based on your business requirements.
+    Учетные записи хранения BLOB-объектов предназначены специально для хранения больших двоичных объектов и предоставляют новые функции их использования. Забегая вперед, можно отметить, что учетная запись хранения BLOB-объектов — это рекомендуемое средство хранения соответствующих объектов, ведь в будущем планируется реализовать возможности иерархического и уровневого хранения на основе учетной записи этого типа. Тем не менее решение о миграции следует принимать на основе требований своего бизнеса.
 
-3. **Can I convert my existing storage account to a Blob storage account?**
+3. **Можно ли преобразовать учетную запись хранения в учетную запись хранения BLOB-объектов?**
 
-    No. Blob storage account is a different kind of storage account and you will need to create it new and migrate your data as explained above.
+    Нет. Учетная запись ранения BLOB-объектов — это учетная запись другого типа. Вам необходимо создать новую запись и перенести данные, как описано выше.
 
-4. **Can I store objects in both storage tiers in the same account?**
+4. **Можно ли хранить объекты на обоих уровнях хранилища в одной учетной записи?**
 
-    The *'Access Tier'* attribute which indicates the storage tier is set at an account level and applies to all objects in that account. You cannot set the access tier attribute at an object level.
+    Атрибут *Уровень доступа*, который обозначает уровень хранилища, устанавливается на уровне учетной записи и применяется ко всем объектам в ней. Атрибут уровня доступа нельзя задать на уровне объекта.
 
-5. **Can I change the storage tier of my Blob storage account?**
+5. **Можно ли изменить уровень хранилища в учетной записи хранилища BLOB-объектов?**
 
-    Yes. You will be able to change the storage tier by setting the *'Access Tier'* attribute on the storage account. Changing the storage tier will apply to all objects stored in the account. Change the storage tier from hot to cool will not incur any charges, while changing from cool to hot will incur a per GB cost for reading all the data in the account.
+    Да. Вы можете изменить уровень хранилища, установив атрибут *Уровень доступа* для учетной записи хранения. Изменение уровня хранилища применяется ко всем объектам, которые хранятся в учетной записи. За изменение уровня хранилища с "горячего" на "холодный" плата не взимается, а за изменение с "холодного" на "горячий" взимается плата за чтение каждого гигабайта данных в учетной записи.
 
-6. **How frequently can I change the storage tier of my Blob storage account?**
+6. **Как часто можно изменять уровень хранилища в учетной записи хранилища BLOB-объектов?**
 
-    While we do not enforce a limitation on how frequently the storage tier can be changed, please be aware that changing the storage tier from cool to hot will incur significant charges. We do not recommend changing the storage tier frequently.
+    Ограничений на частоту изменения уровня хранилища нет. Но учитывайте, что изменение уровня хранилища с "холодного" на "горячий" связано с большими расходами. Мы не рекомендуем часто менять уровень хранилища.
 
-7. **Will the blobs in the cool storage tier behave differently than the ones in the hot storage tier?**
+7. **Будет ли поведение больших двоичных объектов на "холодном" уровне хранилища отличаться от поведения этих объектов на "горячем" уровне?**
 
-    Blobs in the hot storage tier have the same latency as blobs in general-purpose storage accounts. Blobs in the cool storage tier have a similar latency (in milliseconds) as blobs in general-purpose storage accounts.
+    Для больших двоичных объектов на "горячем" уровне хранилища характерна такая же задержка, как для больших двоичных объектов в учетных записях хранения общего назначения. Для больших двоичных объектов на "холодном" уровне хранилища характерна такая же задержка (в миллисекундах), как для больших двоичных объектов в учетных записях хранения общего назначения.
 
-    Blobs in the cool storage tier will have a slightly lower availability service level (SLA) than the blobs stored in the hot storage tier. For more details, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage).
+    Доступность больших двоичных объектов на "холодном" уровне хранилища несколько ниже (в соответствии с соглашением об уровне обслуживания), чем у больших двоичных объектов на "горячем" уровне хранилища. Дополнительные сведения см. в статье [Соглашение об уровне обслуживания для хранилища](https://azure.microsoft.com/support/legal/sla/storage).
 
-8. **Can I store page blobs and virtual machine disks in Blob storage accounts?**
+8. **Можно ли хранить страничные BLOB-объекты и диски виртуальных машин в учетных записях хранения BLOB-объектов?**
 
-    Blob storage accounts support only block and append blobs, and not page blobs. Azure virtual machine disks are backed by page blobs and as a result Blob storage accounts cannot be used to store virtual machine disks. However it is possible to store backups of the virtual machine disks as block blobs in a Blob storage account.
+    Учетные записи хранения BLOB-объектов поддерживают только блочные и добавочные BLOB-объекты и не поддерживают страничные. Диски виртуальных машин Azure используют страничные BLOB-объекты, поэтому учетные записи хранения BLOB-объектов нельзя использовать для хранения дисков виртуальных машин. Но в учетных записях хранения BLOB-объектов можно хранить резервные копии дисков виртуальных машин в качестве блочных BLOB-объектов.
 
-9. **Will I need to change my existing applications to use Blob storage accounts?**
+9. **Нужно ли изменять свои существующие приложения, чтобы использовать учетные записи хранения BLOB-объектов?**
 
-    Blob storage accounts are 100% API consistent with general-purpose storage accounts for block and append blobs. As long as your application is using block blobs or append blobs, and you are using the 2014-02-14 version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) or greater then your application should just work. If you are using an older version of the protocol, then you will need to update your application to use the new version so as to work seamlessly with both types of storage accounts. In general, we always recommend using the latest version regardless of which storage account type you use.
+    Учетные записи хранения BLOB-объектов полностью совместимы с API учетных записей хранения общего назначения в плане блочных и добавочных BLOB-объектов. Приложение будет работать при использовании блочных или добавочных BLOB-объектов и [REST API служб хранилища](https://msdn.microsoft.com/library/azure/dd894041.aspx) версии от 14.02.2014 или более поздней. Если вы используете протокол старой версии, нужно обновить приложение, чтобы использовать новую версию и эффективно работать с учетными записями хранения обоих типов. В целом рекомендуется всегда использовать последнюю версию, независимо от того, учетную запись хранения какого типа вы используете.
 
-10. **Will there be a change in user experience?**
+10. **Будет ли взиматься плата за работу пользователей?**
 
-    Blob storage accounts are very similar to a general-purpose storage accounts for storing block and append blobs, and support all the key features of Azure Storage, including high durability and availability, scalability, performance, and security. Other than the features and restrictions specific to Blob storage accounts and its storage tiers that have been called out above, everything else remains the same.
+    Учетные записи хранения BLOB-объектов аналогичны учетным записям хранения общего назначения, что касается хранения блочных и добавочных BLOB-объектов, и поддерживают все ключевые функции службы хранилища Azure, в том числе обеспечение высокой надежности и доступности, а также масштабируемости, производительности и безопасности. Они отличаются только функциями, определенными ограничениями для учетных записей хранилища BLOB-объектов, а также уровнями хранилища, описанными выше.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-### <a name="evaluate-blob-storage-accounts"></a>Evaluate Blob storage accounts
+### Оценка учетных записей хранения BLOB-объектов
 
-[Check availability of Blob storage accounts by region](https://azure.microsoft.com/regions/#services)
+[Проверка доступности учетных записей хранения BLOB-объектов по региону](https://azure.microsoft.com/regions/#services)
 
-[Evaluate usage of your current storage accounts by enabling Azure Storage metrics](storage-enable-and-view-metrics.md)
+[Оценка использования текущих учетных записей хранения путем включения метрик службы хранилища Azure](storage-enable-and-view-metrics.md)
 
-[Check Blob storage pricing by region](https://azure.microsoft.com/pricing/details/storage/)
+[Проверка цен на хранилище BLOB-объектов по региону](https://azure.microsoft.com/pricing/details/storage/)
 
-[Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Проверка сведений о ценах на передачу данных](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-### <a name="start-using-blob-storage-accounts"></a>Start using Blob storage accounts
+### Начало работы с учетными записями хранения BLOB-объектов
 
-[Get Started with Azure Blob storage](storage-dotnet-how-to-use-blobs.md)
+[Приступая к работе с хранилищем BLOB-объектов Azure](storage-dotnet-how-to-use-blobs.md)
 
-[Moving data to and from Azure Storage](storage-moving-data.md)
+[Перемещение данных в службу хранилища Azure и обратно](storage-moving-data.md)
 
-[Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md)
+[Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy.md)
 
-[Browse and explore your storage accounts](http://storageexplorer.com/)
+[Обозреватель службы хранилища Microsoft Azure](http://storageexplorer.com/)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

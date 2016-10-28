@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Viewing diagnostic logs for Azure Data Lake Analytics | Microsoft Azure" 
-   description="Understand how to setup and access diagnostic logs for Azure Data Lake analytics " 
+   pageTitle="Просмотр журналов диагностики Azure Data Lake Analytics | Microsoft Azure" 
+   description="Из этой статьи вы узнаете, как настроить журналы диагностики для Azure Data Lake Analytics и просмотреть их. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="Blackmist" 
@@ -16,72 +16,71 @@
    ms.date="08/11/2016"
    ms.author="larryfr"/>
 
+# Доступ к журналам диагностики для Azure Data Lake Analytics
 
-# <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostic logs for Azure Data Lake Analytics
+Узнайте, как включить ведение журнала диагностики для учетной записи Data Lake Analytics и просматривать журналы, собранные для этой учетной записи.
 
-Learn about how to enable diagnostic logging for your Data Lake Analytics account and how to view the logs collected for your account.
+Организации могут включать ведение журналов диагностики, чтобы в учетных записях Azure Data Lake Analytics собирать журналы аудита доступа к данным. Эти журналы содержат такие сведения:
 
-Organizations can enable diagnostic logging for their Azure Data Lake Analytics account to collect data access audit trails. These logs provide information such as:
+* список пользователей, которые получали доступ к данным;
+* частота доступа к данным;
+* объем данных, хранящихся в учетной записи.
 
-* A list of users that accessed the data.
-* How frequently the data is accessed.
-* How much data is stored in the account.
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Включите свою подписку Azure** для общедоступной предварительной версии Data Lake Analytics. См. [инструкции](data-lake-analytics-get-started-portal.md#signup).
+- **Учетная запись Azure Data Lake Analytics**. Следуйте инструкциям, приведенным в [руководстве по началу работы с Azure Data Lake Analytics с помощью портала Azure](data-lake-analytics-get-started-portal.md).
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-- **Enable your Azure subscription** for Data Lake Analytics Public Preview. See [instructions](data-lake-analytics-get-started-portal.md#signup).
-- **Azure Data Lake Analytics account**. Follow the instructions at [Get started with Azure Data Lake Analytics using the Azure portal](data-lake-analytics-get-started-portal.md).
+## Включение ведения журналов
 
-## <a name="enable-logging"></a>Enable logging
+1. Войдите на новый [портал Azure](https://portal.azure.com).
 
-1. Sign on to the new [Azure portal](https://portal.azure.com).
+2. Откройте свою учетную запись Data Lake Analytics. В колонке учетной записи Data Lake Analytics выберите **Параметры**, а затем щелкните **Параметры диагностики**.
 
-2. Open your Data Lake Analytics account, and from your Data Lake Analytics account blade, click **Settings**, and then click **Diagnostic Settings**.
+3. В колонке **Диагностика** внесите следующие изменения, чтобы настроить ведение журнала диагностики:
 
-3. In the **Diagnostic** blade, make the following changes to configure diagnostic logging.
+	![Включение ведения журналов диагностики](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Включение ведения журнала диагностики для веб-приложений в службе приложений Azure")
 
-    ![Enable diagnostic logging](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
+	* Чтобы включить ведение журналов диагностики, для параметра **Состояние** установите значение **Включено**.
+	* Можно выбрать хранение и обработку данных одним из двух способов.
+		* Выберите параметр **Export to Event Hub** (Экспорт в концентратор событий), чтобы передавать поток данных журнала в концентратор событий Azure. Этот параметр следует использовать, если есть конвейер последующей обработки для анализа входящих журналов в режиме реального времени. При выборе этого параметра необходимо указать сведения о концентраторе событий Azure, который вы хотите использовать.
+		* Выберите параметр **Export to Storage Account** (Экспорт в учетную запись хранения), чтобы сохранять журналы в учетной записи хранения Azure. Этот параметр следует использовать, если вы хотите архивировать данные. Если выбран этот параметр, необходимо указать учетную запись хранения Azure для сохранения журналов.
+	* Укажите, хотите ли вы получить журналы аудита или журналы запросов, либо и те, и другие.
+	* Укажите число дней, в течение которых должны храниться данные.
+	* Щелкните **Сохранить**.
 
-    * Set **Status** to **On** to enable diagnostic logging.
-    * You can choose to store/process the data in two different ways.
-        * Select **Export to Event Hub** to stream log data to an Azure Event Hub. Use this option if you have a downstream processing pipeline to analyze incoming logs in real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
-        * Select **Export to Storage Account** to store logs to an Azure Storage account. Use this option if you want to archive the data. If you select this option, you must provide an Azure Storage account to save the logs to.
-    * Specify whether you want to get audit logs or request logs or both.
-    * Specify the number of days for which the data must be retained.
-    * Click **Save**.
+Включив параметры диагностики, вы сможете просматривать журналы на вкладке **Журналы диагностики**.
 
-Once you have enabled diagnostic settings, you can watch the logs in the **Diagnostic Logs** tab.
+## Просмотр журналов
 
-## <a name="view-logs"></a>View logs
+Существует два способа просмотра данных журнала для учетной записи Data Lake Analytics:
 
-There are two ways to view the log data for your Data Lake Analytics account.
+* из раздела параметров учетной записи Data Lake Analytics;
+* из учетной записи хранения Azure, в которой хранятся данные.
 
-* From the Data Lake Analytics account settings
-* From the Azure Storage account where the data is stored
+### Использование представления параметров Data Lake Analytics
 
-### <a name="using-the-data-lake-analytics-settings-view"></a>Using the Data Lake Analytics Settings view
+1. В колонке **Параметры** учетной записи Data Lake Analytics щелкните **Журналы диагностики**.
 
-1. From your Data Lake Analytics account **Settings** blade, click **Diagnostic Logs**.
+	![Просмотр ведения журнала диагностики](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Просмотр журналов диагностики")
 
-    ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
+2. В колонке **Журналы диагностики** должны отображаться журналы, упорядоченные по категориям **Журналы аудита** и **Журналы запросов**.
+	* В журналы запросов записываются все запросы API к учетной записи Data Lake Analytics.
+	* Журналы аудита похожи на журналы запросов, но содержат более подробную статистику операций с учетной записью Data Lake Analytics. Например, вызов API для одной передачи в журнале запросов может породить несколько операций добавления в журналах аудита.
 
-2. In the **Diagnostic Logs** blade, you should see the logs categorized by **Audit Logs** and **Request Logs**.
-    * Request logs capture every API request made on the Data Lake Analytics account.
-    * Audit Logs are similar to request Logs but provide a much more detailed breakdown of the operations being performed on the Data Lake Analytics account. For example, a single upload API call in request logs might result in multiple "Append" operations in the audit logs.
+3. Щелкните ссылку **Скачать** для каждой записи журнала, чтобы скачать журналы.
 
-3. Click the **Download** link for a log entry to download the logs.
+### Использование учетной записи хранения Azure, в которой хранятся данные
 
-### <a name="from-the-azure-storage-account-that-contains-log-data"></a>From the Azure Storage account that contains log data
+1. Откройте колонку учетной записи хранения Azure, связанную с Data Lake Analytics для ведения журнала, и щелкните "BLOB-объекты". В колонке **Служба BLOB-объектов** отображается два контейнера.
 
-1. Open the Azure Storage account blade associated with Data Lake Analytics for logging, and then click Blobs. The **Blob service** blade lists two containers.
+	![Просмотр ведения журнала диагностики](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Просмотр журналов диагностики")
 
-    ![View diagnostic logging](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
+	* В контейнере **insights-logs-audit** содержатся журналы аудита.
+	* В контейнере **insights-logs-requests** содержатся журналы запросов.
 
-    * The container **insights-logs-audit** contains the audit logs.
-    * The container **insights-logs-requests** contains the request logs.
-
-2. Within these containers, the logs are stored under the following structure.
+2. Журналы в этих контейнерах хранятся с использованием следующей структуры:
 
         resourceId=/
           SUBSCRIPTIONS/
@@ -99,39 +98,39 @@ There are two ways to view the log data for your Data Lake Analytics account.
                                   m=00/
                                     PT1H.json
     
-    > [AZURE.NOTE] The `##` entries in the path contain the year, month, day, and hour in which the log was created. Data Lake Analytics creates one file every hour, so `m=` always contains a value of `00`.
+    > [AZURE.NOTE] Записи `##` в пути обозначают год, месяц, день и час создания журнала. Служба Data Lake Analytics создает один файл каждый час, поэтому параметр `m=` всегда содержит значение `00`.
 
-    As an example, the complete path to an audit log could be:
+	Например, полный путь к журналу аудита может выглядеть таким образом:
     
         https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
 
-    Similarly, the complete path to a request log could be:
+	Аналогично, полный путь к журналу запросов может выглядеть так:
     
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## <a name="log-structure"></a>Log structure
+## Структура журнала
 
-The audit and request logs are in a JSON format. In this section, we look at the structure of JSON for request and audit logs.
+В журналах аудита и запросов используется формат JSON. В этом разделе мы рассмотрим структуру JSON для журналов запросов и аудита.
 
-### <a name="request-logs"></a>Request logs
+### Журналы запросов
 
-Here's a sample entry in the JSON-formatted request log. Each blob has one root object called **records** that contains an array of log objects.
+Ниже приведен пример записи журнала запросов в формате JSON. Каждый большой двоичный объект имеет один корневой объект под названием **records**, который содержит массив объектов журнала.
 
-    {
-    "records": 
-      [     
-        . . . .
-        ,
-        {
-             "time": "2016-07-07T21:02:53.456Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_analytics_account_name>",
-             "category": "Requests",
-             "operationName": "GetAggregatedJobHistory",
-             "resultType": "200",
-             "callerIpAddress": "::ffff:1.1.1.1",
-             "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
-             "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
-             "properties": {
+	{
+	"records": 
+	  [		
+		. . . .
+		,
+		{
+			 "time": "2016-07-07T21:02:53.456Z",
+			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_analytics_account_name>",
+			 "category": "Requests",
+			 "operationName": "GetAggregatedJobHistory",
+			 "resultType": "200",
+			 "callerIpAddress": "::ffff:1.1.1.1",
+			 "correlationId": "4a11c709-05f5-417c-a98d-6e81b3e29c58",
+			 "identity": "1808bd5f-62af-45f4-89d8-03c5e81bac30",
+			 "properties": {
                  "HttpMethod":"POST",
                  "Path":"/JobAggregatedHistory",
                  "RequestContentLength":122,
@@ -139,106 +138,100 @@ Here's a sample entry in the JSON-formatted request log. Each blob has one root 
                  "StartTime":"2016-07-07T21:02:52.472Z",
                  "EndTime":"2016-07-07T21:02:53.456Z"
                  }
-        }
-        ,
-        . . . .
-      ]
-    }
+		}
+		,
+		. . . .
+	  ]
+	}
 
-#### <a name="request-log-schema"></a>Request log schema
+#### Схема журнала запросов
 
-| Name            | Type   | Description                                                                    |
+| Name (Имя) | Тип | Описание |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| time            | String | The timestamp (in UTC) of the log                                              |
-| resourceId      | String | The ID of the resource that operation took place on                            |
-| category        | String | The log category. For example, **Requests**.                                   |
-| operationName   | String | Name of the operation that is logged. For example, GetAggregatedJobHistory.              |
-| resultType      | String | The status of the operation, For example, 200.                                 |
-| callerIpAddress | String | The IP address of the client making the request                                |
-| correlationId   | String | The id of the log. This value can be used to group a set of related log entries |
-| identity        | Object | The identity that generated the log                                            |
-| properties      | JSON   | See the next section (Request log properties schema) for details |
+| Twitter в режиме реального | Строковый | Метка времени журнала (в формате UTC). |
+| resourceId | Строка | Идентификатор ресурса, с которым была выполнена операция. |
+| category | Строка | Категория журнала. Например, **Requests**. |
+| operationName | Строковый | Имя операции, добавленной в журнал. Например, GetAggregatedJobHistory. |
+| resultType | Строка | Состояние операции. Например, 200. |
+| callerIpAddress | Строка | IP-адрес клиента, отправившего запрос. |
+| correlationId | Строковый | Идентификатор журнала. С помощью этого значения можно группировать связанные записи журнала. |
+| identity | Объект | Идентификатор, для которого был создан журнал. |
+| properties | JSON | Дополнительные сведения см. в следующем разделе ("Схема свойств журнала запросов"). |
 
-#### <a name="request-log-properties-schema"></a>Request log properties schema
+#### Схема свойств журнала запросов
 
-| Name                 | Type   | Description                                               |
+| Имя | Тип | Описание |
 |----------------------|--------|-----------------------------------------------------------|
-| HttpMethod           | String | The HTTP Method used for the operation. For example, GET. |
-| Path                 | String | The path the operation was performed on                   |
-| RequestContentLength | int    | The content length of the HTTP request                    |
-| ClientRequestId      | String | The Id that uniquely identifies this request              |
-| StartTime            | String | The time at which the server received the request         |
-| EndTime              | String | The time at which the server sent a response              |
+| HttpMethod | Строка | Метод HTTP, использованный для операции. Например, GET. |
+| Путь | Строковый | Путь выполнения операции. |
+| RequestContentLength | int | Длина содержимого HTTP-запроса. |
+| ClientRequestId | Строковый | Идентификатор, однозначно определяющий данный запрос. |
+| StartTime | Строка | Время получения запроса сервером. |
+| EndTime | Строковый | Время отправки ответа сервером. |
 
-### <a name="audit-logs"></a>Audit logs
+### Журналы аудита
 
-Here's a sample entry in the JSON-formatted audit log. Each blob has one root object called **records** that contains an array of log objects
+Ниже приведен пример записи журнала аудита в формате JSON. Каждый большой двоичный объект имеет один корневой объект под названием **records**, который содержит массив объектов журнала.
 
-    {
-    "records": 
-      [     
-        . . . .
-        ,
-        {
-             "time": "2016-07-28T19:15:16.245Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_ANALYTICS_account_name>",
-             "category": "Audit",
-             "operationName": "JobSubmitted",
-             "identity": "user@somewhere.com",
-             "properties": {
+	{
+	"records": 
+	  [		
+		. . . .
+		,
+		{
+			 "time": "2016-07-28T19:15:16.245Z",
+			 "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/<data_lake_ANALYTICS_account_name>",
+			 "category": "Audit",
+			 "operationName": "JobSubmitted",
+			 "identity": "user@somewhere.com",
+			 "properties": {
                  "JobId":"D74B928F-5194-4E6C-971F-C27026C290E6",
                  "JobName": "New Job", 
                  "JobRuntimeName": "default",
                  "SubmitTime": "7/28/2016 7:14:57 PM"
                  }
-        }
-        ,
-        . . . .
-      ]
-    }
+		}
+		,
+		. . . .
+	  ]
+	}
 
-#### <a name="audit-log-schema"></a>Audit log schema
+#### Схема журнала аудита
 
-| Name            | Type   | Description                                                                    |
+| Имя | Тип | Описание |
 |-----------------|--------|--------------------------------------------------------------------------------|
-| time            | String | The timestamp (in UTC) of the log                                              |
-| resourceId      | String | The ID of the resource that operation took place on                            |
-| category        | String | The log category. For example, **Audit**.                                      |
-| operationName   | String | Name of the operation that is logged. For example, JobSubmitted.              |
-| resultType | String | A substatus for the job status (operationName). |
-| resultSignature | String | Additional details on the job status (operationName). |
-| identity      | String | The user that requested the operation. For example, susan@contoso.com.                                 |
-| properties      | JSON   | See the next section (Audit log properties schema) for details |
+| Twitter в режиме реального | Строковый | Метка времени журнала (в формате UTC). |
+| resourceId | Строка | Идентификатор ресурса, с которым была выполнена операция. |
+| category | Строка | Категория журнала. Например, **Audit**. |
+| operationName | Строковый | Имя операции, добавленной в журнал. Например, JobSubmitted. |
+| resultType | Строка | Подсостояние состояния задания (operationName). |
+| resultSignature | Строка | Дополнительные сведения о состоянии задания (operationName). |
+| identity | Строка | Пользователь, который запросил операцию. Пример: susan@contoso.com. |
+| properties | JSON | Дополнительные сведения см. в следующем разделе ("Схема свойств журнала аудита"). |
 
-> [AZURE.NOTE] __resultType__ and __resultSignature__ provide information on the result of an operation, and only contain a value if an operation has completed. For example, they contain a value when __operationName__ contains a value of __JobStarted__ or __JobEnded__.
+> [AZURE.NOTE] Свойства __resultType__ и __resultSignature__ содержат информацию о результате операции. У них только в том случае есть значение, если операция завершена. К примеру, у них есть значение, когда у свойства __operationName__ есть значение __JobStarted__ или __JobEnded__.
 
-#### <a name="audit-log-properties-schema"></a>Audit log properties schema
+#### Схема свойств журнала аудита
 
-| Name       | Type   | Description                              |
+| Имя | Тип | Описание |
 |------------|--------|------------------------------------------|
-| JobId | String | The ID assigned to the job  |
-| JobName | String | The name that was provided for the job |
-| JobRunTime | String | The runtime used to process the job |
-| SubmitTime | String | The time (in UTC) that the job was submitted |
-| StartTime | String | The time the job started running after submission (in UTC). |
-| EndTime | String | The time the job ended. |
-| Parallelism | String | The number of Data Lake Analytics units requested for this job during submission. |
+| JobId | Строковый | Идентификатор, присвоенный заданию. |
+| JobName | Строка | Имя, указанное для задания. |
+| JobRunTime | Строка | Среда выполнения, используемая для обработки задания. |
+| SubmitTime | Строка | Время отправки задания (в формате UTC). |
+| StartTime | Строка | Время начала выполнения задания после отправки (в формате UTC). |
+| EndTime | Строка | Время завершения задания. |
+| Параллелизм | Строка | Количество единиц Data Lake Analytics, запрошенных для этого задания во время отправки. |
 
-> [AZURE.NOTE] __SubmitTime__, __StartTime__, __EndTime__ and __Parallelism__ provide information on an operation, and only contain a value if an operation has started or completed. For example, __SubmitTime__ contains a value after __operationName__ indicates __JobSubmitted__.
+> [AZURE.NOTE] Свойства __SubmitTime__, __StartTime__, __EndTime__ и __Parallelism__ содержат информацию об операции. У них только в том случае есть значение, если операция началась или уже завершена. К примеру, у свойства __SubmitTime__ появляется значение после того, как свойство __operationName__ получает значение __JobSubmitted__.
 
-## <a name="process-the-log-data"></a>Process the log data
+## Обработка данных журнала
 
-Azure Data Lake Analytics provides a sample on how to process and analyze the log data. You can find the sample at [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
-
-
-## <a name="next-steps"></a>Next steps
-
-- [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
+В Azure Data Lake Analytics есть пример обработки и анализа данных журнала. Этот пример можно найти по адресу [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 
+## Дальнейшие действия
 
+- [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

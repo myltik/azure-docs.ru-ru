@@ -1,229 +1,226 @@
 <properties
-    pageTitle="Autoscaling and App Service Environment | Microsoft Azure"
-    description="Autoscaling and App Service Environment"
-    services="app-service"
-    documentationCenter=""
-    authors="btardif"
-    manager="wpickett"
-    editor=""
+	pageTitle="Автоматическое масштабирование среды службы приложений | Microsoft Azure"
+	description="Автоматическое масштабирование и среда службы приложений"
+	services="app-service"
+	documentationCenter=""
+	authors="btardif"
+	manager="wpickett"
+	editor=""
 />
 
 <tags
-    ms.service="app-service"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/07/2016"
-    ms.author="byvinyal"
+	ms.service="app-service"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/07/2016"
+	ms.author="byvinyal"
 />
 
+# Автоматическое масштабирование и среда службы приложений
 
-# <a name="autoscaling-and-app-service-environment"></a>Autoscaling and App Service Environment
+Среды службы приложений Azure поддерживают *автоматическое масштабирование*. Вы можете настроить автоматическое масштабирование отдельных рабочих пулов на основе метрик или расписаний.
 
-Azure App Service environments support *autoscaling*. You can autoscale individual worker pools based on metrics or schedule.
+![Параметры автоматического масштабирования для рабочего пула.][intro]
 
-![Autoscale options for a worker pool.][intro]
+Автоматическое масштабирование оптимизирует использование ресурсов, без вашего участия увеличивая и уменьшая среду службы приложений с учетом бюджета и (или) профиля нагрузки.
 
-Autoscaling optimizes your resource utilization by automatically growing and shrinking an App Service environment to fit your budget and or load profile.
+## Настройка автоматического масштабирования рабочего пула
 
-## <a name="configure-worker-pool-autoscale"></a>Configure worker pool autoscale
+Управлять автоматическим масштабированием можно на вкладке **Параметры** для рабочего пула.
 
-You can access the autoscale functionality from the **Settings** tab of the worker pool.
+![Вкладка "Параметры" для рабочего пула.][settings-scale]
 
-![Settings tab of the worker pool.][settings-scale]
+Этот интерфейс должен быть вам уже знаком — точно такой же применяется для масштабирования плана службы приложений. Вы можете вручную ввести значение масштаба.
 
-From there, the interface should be fairly familiar because this is the same experience that you see when you scale an App Service plan. You will be able to enter a scale value manually.
+![Параметры масштабирования вручную.][scale-manual]
 
-![Manual scale settings.][scale-manual]
+Можно также настроить профиль автомасштабирования.
 
-You can also configure an autoscale profile.
+![Параметры автомасштабирования.][scale-profile]
 
-![Autoscale settings.][scale-profile]
+Профили автомасштабирования используются для настройки ограничений масштаба. Вы обеспечите согласованную производительность, установив значение нижней границы масштаба (1), а также прогнозируемый лимит затрат, установив значение верхней границы (2).
 
-Autoscale profiles are useful to set limits on your scale. This way, you can have a consistent performance experience by setting a lower bound scale value (1) and a predictable spend cap by setting an upper bound (2).
+![Параметры масштабирования в профиле.][scale-profile2]
 
-![Scale settings in profile.][scale-profile2]
+Определив профиль, вы можете добавить правила автоматического масштабирования для увеличения или уменьшения числа экземпляров в рабочем пуле в пределах границ, определяемых профилем. Правила автоматического масштабирования основаны на метриках.
 
-After you define a profile, you can add autoscale rules to scale up or down the number of instances in the worker pool within the bounds defined by the profile. Autoscale rules are based on metrics.
+![Правило масштабирования.][scale-rule]
 
-![Scale rule.][scale-rule]
+ Чтобы определить правила автомасштабирования, можно использовать любые метрики рабочего пула или внешнего интерфейса. Это те же метрики, которые можно отслеживать в графах колонки ресурсов и для которых можно настроить оповещения.
 
- Any worker pool or front-end metrics can be used to define autoscale rules. These are the same metrics that you can monitor in the resource blade graphs or set alerts for.
+## Пример автоматического масштабирования
 
-## <a name="autoscale-example"></a>Autoscale example
+Автомасштабирование среды службы приложений лучше всего проиллюстрировать пошаговым сценарием.
 
-Autoscale of an App Service environment can best be illustrated by walking through a scenario.
+В этой статье описываются все факторы, которые необходимо учитывать при настройке автоматического масштабирования. Также здесь рассматриваются все взаимосвязи, актуальные при планировании автоматического масштабирования сред службы приложений, размещенных в среде службы приложений.
 
-This article explains all the necessary considerations when you set up autoscale and all the interactions that come into play when you factor in autoscaling App Service environments that are hosted in App Service Environment.
+### Общие сведения о сценарии
 
-### <a name="scenario-introduction"></a>Scenario introduction
+Федор — системный администратор предприятия, который перенес часть рабочих нагрузок в среду службы приложений.
 
-Frank is a sysadmin for an enterprise who has migrated a portion of the workloads that he manages to an App Service environment.
+Для этой среды службы приложений масштабирование вручную настроено так:
 
-The App Service environment is configured to manual scale as follows:
+* **внешние интерфейсы**: 3;
+* **рабочий пул 1**: 10;
+* **рабочий пул 2**: 5;
+* **рабочий пул 3**: 5.
 
-* **Front ends:** 3
-* **Worker pool 1**: 10
-* **Worker pool 2**: 5
-* **Worker pool 3**: 5
+Рабочий пул 1 используется для производственных рабочих нагрузок, а рабочий пул 2 и рабочий пул 3 — для задач контроля качества и разработки.
 
-Worker pool 1 is used for production workloads, while worker pool 2 and worker pool 3 are used for quality assurance (QA) and development workloads.
+Планы службы приложений, используемые для контроля качества и разработки, настроены для масштабирования вручную. Для производственного плана службы приложений установлено автоматическое масштабирование, которое позволяет справляться с колебаниями нагрузки и трафика.
 
-The App Service plans for QA and dev are configured to manual scale, but the production App Service plan is set to autoscale to deal with variations in load and traffic.
+Федор хорошо знаком с приложением. Он знает, что пиковая нагрузка приходится на период с 9:00 до 18:00, ведь это бизнес-приложение используется сотрудниками, работающими в офисе. В конце рабочего дня показатели использования падают. В этот период сохраняется некоторая рабочая нагрузка, так как пользователи могут использовать приложение удаленно с мобильных устройств или домашних компьютеров. Производственный план службы приложений уже настроен на автоматическое масштабирование в соответствии с загрузкой ЦП и на основе следующих правил:
 
-Frank is very familiar with the application. He knows that the peak hours for load are between 9:00 AM and 6:00 PM because this is a line-of-business (LOB) application that employees use while they are in the office. Usage drops after that when users are done for that day. Outside peak hours, there is still some load because users can access the app remotely by using their mobile devices or home PCs. The production App Service plan is already configured to autoscale based on CPU usage with the following rules:
+![Параметры бизнес-приложения.][asp-scale]
 
-![Specific settings for LOB app.][asp-scale]
+|	**Профиль автоматического масштабирования — рабочие дни — план службы приложений** |	**Профиль автоматического масштабирования — выходные дни — план службы приложений** |
+|	----------------------------------------------------	|	----------------------------------------------------	|
+|	**Имя:** профиль рабочего дня |	**Имя:** профиль выходного дня |
+|	**Масштабирование:** расписание и правила производительности |	**Масштабирование:** расписание и правила производительности |
+|	**Профиль:** рабочие дни |	**Профиль:** выходные дни |
+|	**Тип:** повторение |	**Тип:** повторение |
+|	**Целевой диапазон:** 5–20 экземпляров |	**Целевой диапазон:** 3–10 экземпляров |
+|	**Дни:** понедельник, вторник, среда, четверг, пятница |	**Дни:** суббота, воскресенье |
+|	**Время начала:** 9:00 |	**Время начала:** 9:00 |
+|	**Часовой пояс:** UTC-08 |	**Часовой пояс:** UTC-08 |
+| | |
+|	**Правило автоматического масштабирования (увеличение масштаба)** |	**Правило автоматического масштабирования (увеличение масштаба)** |
+|	**Ресурс:** производство (среда службы приложений) |	**Ресурс:** производство (среда службы приложений) |
+|	**Метрика:** % ЦП |	**Метрика:** % ЦП |
+|	**Операции:** более 60 % |	**Операции:** более 80 % |
+|	**Длительность:** 5 минут |	**Длительность:** 10 минут |
+|	**Агрегация по времени:** среднее |	**Агрегация по времени:** среднее |
+|	**Действие:** увеличить количество на 2 |	**Действие:** увеличить количество на 1 |
+|	**Охлаждение (в минутах):** 15 |	**Охлаждение (в минутах):** 20 |
+| | |
+ |	**Правило автоматического масштабирования (уменьшение масштаба)** |	**Правило автоматического масштабирования (уменьшение масштаба)** |
+|	**Ресурс:** производство (среда службы приложений) |	**Ресурс:** производство (среда службы приложений) |
+|	**Метрика:** % ЦП |	**Метрика:** % ЦП |
+|	**Операции:** менее 30 % |	**Операции:** менее 20 % |
+|	**Длительность:** 10 минут |	**Длительность:** 15 минут |
+|	**Агрегация по времени:** среднее |	**Агрегация по времени:** среднее |
+|	**Действие:** уменьшить количество на 1 |	**Действие:** уменьшить количество на 1 |
+|	**Охлаждение (в минутах):** 20 |	**Охлаждение (в минутах):** 10 |
 
-|   **Autoscale profile – Weekdays – App Service plan**     |   **Autoscale profile – Weekends – App Service plan**     |
-|   ----------------------------------------------------    |   ----------------------------------------------------    |
-|   **Name:** Weekday profile                               |   **Name:** Weekend profile                               |
-|   **Scale by:** Schedule and performance rules            |   **Scale by:** Schedule and performance rules            |
-|   **Profile:** Weekdays                                   |   **Profile:** Weekend                                    |
-|   **Type:** Recurrence                                    |   **Type:** Recurrence                                    |
-|   **Target range:** 5 to 20 instances                     |   **Target range:** 3 to 10 instances                     |
-|   **Days:** Monday, Tuesday, Wednesday, Thursday, Friday  |   **Days:** Saturday, Sunday                              |
-|   **Start time:** 9:00 AM                                 |   **Start time:** 9:00 AM                                 |
-|   **Time zone:** UTC-08                                   |   **Time zone:** UTC-08                                   |
-|                                                           |                                                           |
-|   **Autoscale rule (Scale Up)**                           |   **Autoscale rule (Scale Up)**                           |
-|   **Resource:** Production (App Service Environment)      |   **Resource:** Production (App Service Environment)      |
-|   **Metric:** CPU %                                       |   **Metric:** CPU %                                       |
-|   **Operation:** Greater than 60%                         |   **Operation:** Greater than 80%                         |
-|   **Duration:** 5 Minutes                                 |   **Duration:** 10 Minutes                                |
-|   **Time aggregation:** Average                           |   **Time aggregation:** Average                           |
-|   **Action:** Increase count by 2                         |   **Action:** Increase count by 1                         |
-|   **Cool down (minutes):** 15                             |   **Cool down (minutes):** 20                             |
-|                                                           |                                                           |
-  	|   **Autoscale rule (Scale Down)**                     |   **Autoscale rule (Scale Down)**                         |
-|   **Resource:** Production (App Service Environment)      |   **Resource:** Production (App Service Environment)      |
-|   **Metric:** CPU %                                       |   **Metric:** CPU %                                       |
-|   **Operation:** Less than 30%                            |   **Operation:** Less than 20%                            |
-|   **Duration:** 10 minutes                                |   **Duration:** 15 minutes                                |
-|   **Time aggregation:** Average                           |   **Time aggregation:** Average                           |
-|   **Action:** Decrease count by 1                         |   **Action:** Decrease count by 1                         |
-|   **Cool down (minutes):** 20                             |   **Cool down (minutes):** 10                             |
+### Скорость роста плана службы приложений
 
-### <a name="app-service-plan-inflation-rate"></a>App Service plan inflation rate
+Планы службы приложений, настроенные на автоматическое масштабирование, выполняют эту операцию с определенной максимальной почасовой скоростью. Эту скорость можно рассчитать на основе значений, указанных в правиле автоматического масштабирования.
 
-App Service plans that are configured to autoscale will do so at a maximum rate per hour. This rate can be calculated based on the values provided on the autoscale rule.
+Чтобы успешно применять автомасштабирование среды службы приложений, важно разбираться в значениях *скорости роста плана службы приложений*, а также уметь их рассчитывать, так как изменения масштаба рабочего пула вступают в силу не мгновенно.
 
-Understanding and calculating the *App Service plan inflation rate* is important for App Service environment autoscale because scale changes to a worker pool are not instantaneous.
+Скорость роста плана службы приложений рассчитывается так:
 
-The App Service plan inflation rate is calculated as follows:
+![Расчет скорости роста плана службы приложений.][ASP-Inflation]
 
-![App Service plan inflation rate calculation.][ASP-Inflation]
+Для правила "Автоматическое масштабирование — увеличение масштаба" в профиле "Рабочие дни" производственного плана службы приложений расчет выглядит так:
 
-Based on the Autoscale – Scale Up rule for the Weekday profile of the production App Service plan, this would look as follows:
+![Скорость роста плана службы приложений для рабочих дней на основе правила "Автомасштабирование — увеличение масштаба".][Equation1]
 
-![App Service plan inflation rate for weekdays based on Autoscale – Scale Up rule.][Equation1]
+Для правила "Автоматическое масштабирование — увеличение масштаба" в профиле "Выходные дни" производственного плана службы приложений эта формула выглядит так:
 
-In the case of the Autoscale – Scale Up rule for the Weekend profile of the production App Service plan, the formula would resolve to:
+![Скорость роста плана службы приложений для выходных дней на основе правила "Автомасштабирование — увеличение масштаба".][Equation2]
 
-![App Service plan inflation rate for weekends based on Autoscale – Scale Up rule.][Equation2]
+Это значение можно вычислить и для операций уменьшения масштаба.
 
-This value can also be calculated for scale-down operations.
+Для правила "Автоматическое масштабирование — уменьшение масштаба" в профиле "Рабочие дни" производственного плана службы приложений расчет выглядит так:
 
-Based on the Autoscale – Scale Down rule for the Weekday profile of the production App Service plan, this would look as follows:
+![Скорость роста плана службы приложений для рабочих дней на основе правила "Автомасштабирование — уменьшение масштаба".][Equation3]
 
-![App Service plan inflation rate for weekdays based on Autoscale – Scale Down rule.][Equation3]
+Для правила "Автоматическое масштабирование — уменьшение масштаба" в профиле "Выходные дни" производственного плана службы приложений эта формула выглядит так:
 
-In the case of the Autoscale – Scale Down rule for the Weekend profile of the production App Service plan, the formula would resolve to:  
+![Скорость роста плана службы приложений для выходных дней на основе правила "Автомасштабирование — уменьшение масштаба".][Equation4]
 
-![App Service plan inflation rate for weekends based on Autoscale – Scale Down rule.][Equation4]
+Это означает, что производственный план службы приложений может увеличиваться с максимальной скоростью восемь экземпляров в час в течение рабочей недели или четыре экземпляра в час в выходные дни. Экземпляры могут высвобождаться с максимальной скоростью четыре экземпляра в час в течение рабочей недели или шесть экземпляров в час в выходные дни.
 
-This means that the production App Service plan can grow at a maximum rate of eight instances per hour during the week and four instances per hour during the weekend. And it can release instances at a maximum rate of four instances per hour during the week and six instances per hour during weekends.
+Если в рабочем пуле размещено несколько планов службы приложений, вам нужно рассчитать *общую скорость роста*, то есть сумму скоростей роста для всех планов службы приложений, размещенных в этом рабочем пуле.
 
-If multiple App Service plans are being hosted in a worker pool, you have to calculate the *total inflation rate* as the sum of the inflation rate for all the App Service plans that are being hosting in that worker pool.
+![Расчет общей скорости роста по нескольким планам службы приложений, размещенным в рабочем пуле.][ASP-Total-Inflation]
 
-![Total inflation rate calculation for multiple App Service plans hosted in a worker pool.][ASP-Total-Inflation]
+### Использование показателей скорости роста плана службы приложений для определения правил автоматического масштабирования рабочего пула
 
-### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Use the App Service plan inflation rate to define worker pool autoscale rules
+Для рабочих пулов, содержащих планы службы приложений с настроенным автомасштабированием, следует выделить резервную емкость (буфер). Этот буфер нужен для автоматического увеличения или уменьшения плана службы приложений по мере необходимости. Минимальный размер буфера рассчитывается с учетом общей скорости роста плана службы приложений.
 
-Worker pools that host App Service plans that are configured to autoscale will need to be allocated a buffer of capacity. The buffer allows for the autoscale operations to grow and shrink the App Service plan as needed. The minimum buffer would be the calculated Total App Service Plan Inflation Rate.
+Так как масштабирование среды службы приложений выполняется некоторое время, при любом изменении нужно учитывать дальнейшие колебания спроса, которые могут произойти в ходе операции. Чтобы включить в расчет эту задержку, мы рекомендуем использовать расчетную общую скорость роста плана службы приложений как минимальное число экземпляров, добавляемых для каждой операции автоматического масштабирования.
 
-Because App Service environment scale operations take some time to apply, any change should account for further demand changes that could happen while a scale operation is in progress. To accommodate this latency, we recommend that you use the calculated Total App Service Plan Inflation Rate as the minimum number of instances that are added for each autoscale operation.
+Эти сведения помогут Федору определить профиль и правила автоматического масштабирования:
 
-With this information, Frank can define the following autoscale profile and rules:
+![Правила профиля автомасштабирования на примере бизнес-приложения.][Worker-Pool-Scale]
 
-![Autoscale profile rules for LOB example.][Worker-Pool-Scale]
+|	**Профиль автоматического масштабирования — рабочие дни** |	**Профиль автоматического масштабирования — выходные дни** |
+|	----------------------------------------------------	|	--------------------------------------------	|
+|	**Имя:** профиль рабочего дня |	**Имя:** профиль выходного дня |
+|	**Масштабирование:** расписание и правила производительности |	**Масштабирование:** расписание и правила производительности |
+|	**Профиль:** рабочие дни |	**Профиль:** выходные дни |
+|	**Тип:** повторение |	**Тип:** повторение |
+|	**Целевой диапазон:** 13–25 экземпляров |	**Целевой диапазон:** 6–15 экземпляров |
+|	**Дни:** понедельник, вторник, среда, четверг, пятница |	**Дни:** суббота, воскресенье |
+|	**Время начала:** 7:00 |	**Время начала:** 9:00 |
+|	**Часовой пояс:** UTC-08 |	**Часовой пояс:** UTC-08 |
+| | |
+|	**Правило автоматического масштабирования (увеличение масштаба)** |	**Правило автоматического масштабирования (увеличение масштаба)** |
+|	**Ресурс:** рабочий пул 1 |	**Ресурс:** рабочий пул 1 |
+|	**Метрика:** WorkersAvailable |	**Метрика:** WorkersAvailable |
+|	**Операции:** менее 8 |	**Операции:** менее 3 |
+|	**Длительность:** 20 минут |	**Длительность:** 30 минут |
+|	**Агрегация по времени:** среднее |	**Агрегация по времени:** среднее |
+|	**Действие:** увеличить количество на 8 |	**Действие:** увеличить количество на 3 |
+|	**Охлаждение (в минутах):** 180 |	**Охлаждение (в минутах):** 180 |
+| | |
+|	**Правило автоматического масштабирования (уменьшение масштаба)** |	**Правило автоматического масштабирования (уменьшение масштаба)** |
+|	**Ресурс:** рабочий пул 1 |	**Ресурс:** рабочий пул 1 |
+|	**Метрика:** WorkersAvailable |	**Метрика:** WorkersAvailable |
+|	**Операции:** более 8 |	**Операции:** более 3 |
+|	**Длительность:** 20 минут |	**Длительность:** 15 минут |
+|	**Агрегация по времени:** среднее |	**Агрегация по времени:** среднее |
+|	**Действие:** уменьшить количество на 2 |	**Действие:** уменьшить количество на 3 |
+|	**Охлаждение (в минутах):** 120 |	**Охлаждение (в минутах):** 120 |
 
-|   **Autoscale profile – Weekdays**                        |   **Autoscale profile – Weekends**                |
-|   ----------------------------------------------------    |   --------------------------------------------    |
-|   **Name:** Weekday profile                               |   **Name:** Weekend profile                       |
-|   **Scale by:** Schedule and performance rules            |   **Scale by:** Schedule and performance rules    |
-|   **Profile:** Weekdays                                   |   **Profile:** Weekend                            |
-|   **Type:** Recurrence                                    |   **Type:** Recurrence                            |
-|   **Target range:** 13 to 25 instances                    |   **Target range:** 6 to 15 instances             |
-|   **Days:** Monday, Tuesday, Wednesday, Thursday, Friday  |   **Days:** Saturday, Sunday                      |
-|   **Start time:** 7:00 AM                                 |   **Start time:** 9:00 AM                         |
-|   **Time zone:** UTC-08                                   |   **Time zone:** UTC-08                           |
-|                                                           |                                                   |
-|   **Autoscale rule (Scale Up)**                           |   **Autoscale rule (Scale Up)**                   |
-|   **Resource:** Worker pool 1                             |   **Resource:** Worker pool 1                     |
-|   **Metric:** WorkersAvailable                            |   **Metric:** WorkersAvailable                    |
-|   **Operation:** Less than 8                              |   **Operation:** Less than 3                      |
-|   **Duration:** 20 minutes                                |   **Duration:** 30 minutes                        |
-|   **Time aggregation:** Average                           |   **Time aggregation:** Average                   |
-|   **Action:** Increase count by 8                         |   **Action:** Increase count by 3                 |
-|   **Cool down (minutes):** 180                            |   **Cool down (minutes):** 180                    |
-|                                                           |                                                   |
-|   **Autoscale rule (Scale Down)**                         |   **Autoscale rule (Scale Down)**                 |
-|   **Resource:** Worker pool 1                             |   **Resource:** Worker pool 1                     |
-|   **Metric:** WorkersAvailable                            |   **Metric:** WorkersAvailable                    |
-|   **Operation:** Greater than 8                           |   **Operation:** Greater than 3                   |
-|   **Duration:** 20 minutes                                |   **Duration:** 15 minutes                        |
-|   **Time aggregation:** Average                           |   **Time aggregation:** Average                   |
-|   **Action:** Decrease count by 2                         |   **Action:** Decrease count by 3                 |
-|   **Cool down (minutes):** 120                            |   **Cool down (minutes):** 120                    |
+Целевой диапазон, определяемый в профиле, вычисляется по минимальному числу экземпляров, указанных в профиле для плана службы приложений с учетом емкости буфера.
 
-The Target range defined in the profile is calculated by the minimum instances defined in the profile for the App Service plan + buffer.
+Максимальный диапазон вычисляется как сумма всех максимальных диапазонов для всех планов службы приложений, размещенных в рабочем пуле.
 
-The Maximum range would be the sum of all the maximum ranges for all App Service plans hosted in the worker pool.
+Значение увеличения для правил увеличения масштаба должно включать не менее одной скорости роста плана службы приложений.
 
-The Increase count for the scale up rules should be set to at least 1X the App Service Plan Inflation Rate for scale up.
+Значение уменьшения можно установить в пределах от половины до одной скорости роста плана службы приложений.
 
-Decrease count can be adjusted to something between 1/2X or 1X the App Service Plan Inflation Rate for scale down.
+### Автоматическое масштабирование для интерфейсного пула
 
-### <a name="autoscale-for-front-end-pool"></a>Autoscale for front-end pool
+Правила автомасштабирования для интерфейсных пулов проще, чем правила для рабочих пулов. Важно, чтобы при определении продолжительности измерений и таймеров ожидания вы учитывали, что масштабирование плана службы приложений происходит не мгновенно.
 
-Rules for front-end autoscale are simpler than for worker pools. Primarily, you should  
-make sure that duration of the measurement and the cooldown timers consider that scale operations on an App Service plan are not instantaneous.
+В нашем сценарии Федор знает о том, что частота ошибок возрастает, когда загрузка ЦП на интерфейсных компьютерах достигает 80 %. Чтобы избежать этого, он устанавливает правила автомасштабирования для увеличения числа экземпляров:
 
-For this scenario, Frank knows that the error rate increases after front ends reach 80% CPU utilization.
-To prevent this, he sets the autoscale rule to increase instances as follows:
+![Параметры автомасштабирования для интерфейсного пула.][Front-End-Scale]
 
-![Autoscale settings for front-end pool.][Front-End-Scale]
-
-|   **Autoscale profile – Front ends**              |
-|   --------------------------------------------    |
-|   **Name:** Autoscale – Front ends                |
-|   **Scale by:** Schedule and performance rules    |
-|   **Profile:** Everyday                           |
-|   **Type:** Recurrence                            |
-|   **Target range:** 3 to 10 instances             |
-|   **Days:** Everyday                              |
-|   **Start time:** 9:00 AM                         |
-|   **Time zone:** UTC-08                           |
-|                                                   |
-|   **Autoscale rule (Scale Up)**                   |
-|   **Resource:** Front-end pool                    |
-|   **Metric:** CPU %                               |
-|   **Operation:** Greater than 60%                 |
-|   **Duration:** 20 minutes                        |
-|   **Time aggregation:** Average                   |
-|   **Action:** Increase count by 3                 |
-|   **Cool down (minutes):** 120                    |
-|                                                   |
-|   **Autoscale rule (Scale Down)**                 |
-|   **Resource:** Worker pool 1                     |
-|   **Metric:** CPU %                               |
-|   **Operation:** Less than 30%                    |
-|   **Duration:** 20 Minutes                        |
-|   **Time aggregation:** Average                   |
-|   **Action:** Decrease count by 3                 |
-|   **Cool down (minutes):** 120                    |
+|	**Профиль автоматического масштабирования — внешние интерфейсы** |
+|	--------------------------------------------	|
+|	**Имя:** автоматическое масштабирование — внешние интерфейсы |
+|	**Масштабирование:** расписание и правила производительности |
+|	**Профиль:** ежедневно |
+|	**Тип:** повторение |
+|	**Целевой диапазон:** 3–10 экземпляров |
+|	**Дни:** ежедневно |
+|	**Время начала:** 9:00 |
+|	**Часовой пояс:** UTC-08 |
+| |
+|	**Правило автоматического масштабирования (увеличение масштаба)** |
+|	**Ресурс:** пул внешних интерфейсов |
+|	**Метрика:** % ЦП |
+|	**Операции:** более 60 % |
+|	**Длительность:** 20 минут |
+|	**Агрегация по времени:** среднее |
+|	**Действие:** увеличить количество на 3 |
+|	**Охлаждение (в минутах):** 120 |
+| |
+|	**Правило автоматического масштабирования (уменьшение масштаба)** |
+|	**Ресурс:** рабочий пул 1 |
+|	**Метрика:** % ЦП |
+|	**Операции:** менее 30 % |
+|	**Длительность:** 20 минут |
+|	**Агрегация по времени:** среднее |
+|	**Действие:** уменьшить количество на 3 |
+|	**Охлаждение (в минутах):** 120 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png
@@ -242,8 +239,4 @@ To prevent this, he sets the autoscale rule to increase instances as follows:
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

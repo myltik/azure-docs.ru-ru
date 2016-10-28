@@ -1,28 +1,25 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="to-add-a-volume-container"></a>To add a volume container
+#### Добавление контейнера томов
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+1. На странице **Устройства** выберите устройство, дважды щелкните его и перейдите на вкладку **Контейнеры томов**.
 
-2. Click **Add** at the bottom of the page. In the **Create volume container** dialog box, do the following:
+2. В нижней части страницы нажмите кнопку **Добавить**. В диалоговом окне **Создание контейнера томов** выполните указанные ниже действия.
 
-  1. Supply a unique **Name** for your volume container. This name can contain a maximum of 32 characters.
-  2. Select a **Storage Account** to be associated with this volume container. You can choose from an existing storage account within the same subscription or select **Add more** to select a storage account from another subscription. You can also choose the storage account that was first generated when the service was created.
-  3. Specify bandwidth as **Unlimited** if you want to consume all available bandwidth, or **Custom** to employ bandwidth controls. For a custom bandwidth, supply a value between 1 and 1000 Mbps. To allocate bandwidth based on a schedule, you can **Select a bandwidth template**.
-  4. We recommend that you keep **Enable Cloud Storage Encryption** selected to encrypt the data that is going to the cloud. Disable encryption only if you are employing other means to encrypt your data. You cannot modify the encryption setting once the volume container has been created.
-  5. Provide a **Cloud Storage Encryption Key** that contains between 8 and 32 characters. The device uses this key to access the encrypted data. In the **Confirm Cloud Storage Encryption Key** field, enter the cloud storage encryption key again to confirm it. 
-  6. Click the arrow to proceed to the next page.
+  1. В поле **Имя** укажите уникальное имя контейнера томов. Имя может содержать не более 32 символов.
+  2. В списке **Учетная запись хранения** выберите учетную запись, которая будет связана с этим контейнером томов. Можно выбрать существующую учетную запись хранилища в рамках одной подписки или нажать кнопку **Добавить больше** для выбора учетной записи хранения из другой подписки. Также можно выбрать учетную запись хранилища, которая была создана при создании службы.
+  3. Укажите для пропускной способности **Без ограничений**, если вы хотите использовать всю доступную пропускную способность, или **Пользовательская**, чтобы задействовать элементы управления пропускной способностью. Для пользовательской пропускной способности укажите значение в диапазоне от 1 до 1 000 Мбит/с. Чтобы выделить пропускную способность на основе расписания, можно **Выбрать шаблон пропускной способности**.
+  4. Рекомендуем выбрать вариант **Включить шифрование облачного хранилища**, чтобы шифровать данные, передаваемые в облако. Отключайте шифрование только в том случае, если для шифрования данных используются другие средства. Параметр шифрования нельзя изменить после создания контейнера томов.
+  5. Введите **ключ шифрования облачного хранилища**, содержащий от 8 до 32 символов. Этот ключ используется устройством для доступа к зашифрованным данным. В поле **Подтвердить ключ шифрования облачного хранилища** снова введите ключ шифрования облачного хранилища, чтобы подтвердить его. 
+  6. Щелкните стрелку, чтобы перейти к следующей странице.
 
-    ![Create volume container with bandwidth template 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png) 
+    ![Создание контейнера томов с помощью шаблона пропускной способности 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png)
 
-3. If you specified **Select a bandwidth template**, choose from the dropdown list of existing bandwidth templates. Review the schedule settings and click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
+3. Если используется вариант **Выбрать шаблон пропускной способности**, выберите шаблон в раскрывающемся списке существующих шаблонов пропускной способности. Просмотрите параметры расписания и щелкните значок галочки ![значок галочки](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
 
-    ![Create volume container with bandwidth template 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png) 
+    ![Создание контейнера томов с помощью шаблона пропускной способности 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png)
 
-The volume container will be saved and the newly created volume container will be listed on the **Volume container** page.
+Контейнер томов будет сохранен, а вновь созданный контейнер тома появится в списке на странице **Контейнер томов**.
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0114_2016-->

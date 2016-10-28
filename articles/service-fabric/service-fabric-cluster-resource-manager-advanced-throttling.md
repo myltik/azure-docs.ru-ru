@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Throttling in the Service Fabric cluster resource manager | Microsoft Azure"
-   description="Learn to configure the throttles provided by the Service Fabric Cluster Resource Manager."
+   pageTitle="Регулирование в диспетчере кластерных ресурсов Service Fabric | Microsoft Azure"
+   description="Узнайте, как настраивать регулирование в диспетчере кластерных ресурсов Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -17,17 +17,16 @@
    ms.author="masnider"/>
 
 
+# Регулирование поведения диспетчера кластерных ресурсов Service Fabric
+Даже если диспетчер кластерных ресурсов настроен правильно, работа кластера может быть нарушена. Например, отказы нескольких узлов или доменов сбоя могут произойти во время установки новой версии или при применении обновлений. Resource Manager будет пытаться все исправить, но в таких случаях вы задумаетесь о поддержке, позволяющей кластеру самостоятельно стабилизировать работу (чтобы восстанавливаемые узлы возвращались в строй, сети сами восстанавливали свою работоспособность, а исправленные биты развертывались). Чтобы помочь в подобных ситуациях, диспетчер кластерных ресурсов Service Fabric включает в себя несколько регулировок. Обратите внимание, что это может значительно повлиять на работу системы, поэтому не стоит их использовать, пока вы тщательно не просчитали объем параллельных работ, которые фактически можно выполнить в кластере, и не определили, насколько часто приходится реагировать на подобные события незапланированной колоссальной перенастройки (т. н. "очень неудачные дни").
 
-# <a name="throttling-the-behavior-of-the-service-fabric-cluster-resource-manager"></a>Throttling the behavior of the Service Fabric Cluster Resource Manager
-Even if you’ve configured the Cluster Resource Manager correctly, the cluster can get disrupted. For example there could be simultaneous node or fault domain failures - what would happen if that occurred during an upgrade? The Resource Manager will try its best to fix everything, but in times like this you may want to consider a backstop so that the cluster itself has a chance to stabilize (the nodes which are going to come back do, the network conditions heal themselves, corrected bits get deployed). To help with these sorts of situations, the Service Fabric Cluster Resource Manager does include several throttles. Note that these throttles are fairly disruptive and generally shouldn’t be used unless there’s been some careful math done around the amount of parallel work that can actually be done in the cluster, as well as a frequent need to respond to these sorts of (ahem) unplanned macroscopic reconfiguration events (AKA: “Very Bad Days”).
+Обычно мы рекомендуем избегать очень неудачных дней иными средствами (в первую очередь, регулярно обновляя код и не перегружая расписание кластера), а не регулировать кластер, чтобы он не пытался использования ресурсы, одновременно пытаясь восстановить свою работоспособность. Регулировки имеют значения по умолчанию, которые мы определили, основываясь на своем опыте. Однако рекомендуем вам взглянуть на них и настроить в соответствии с ожидаемой фактической нагрузкой. Рекомендуется не ограничивать и не перегружать кластер чрезмерно. Однако вы можете выяснить, что существуют случаи, когда (пока вы не устраните проблему) необходимо иметь несколько регулировок, даже если это означает, что стабилизация кластера будет занимать больше времени.
 
-Generally, we recommend avoiding very bad days through other options (like regular code updates and avoiding overscheduling the cluster to begin with) rather than throttling your cluster to prevent it from using resources when it is trying to fix itself). The throttles do have default values that we've found through experience to be ok defaults, but you should probably take a look and tune them to your expected actual load. While not overly constraining or loading the cluster is a best practice you may determine that there are cases which (until you can remedy them) where you need to have a couple of throttles in place, even if it means the cluster will take longer to stabilize.
+##Настройка регулирования
+По умолчанию включены следующие регулировки:
 
-##<a name="configuring-the-throttles"></a>Configuring the throttles
-The throttles that are included by default are:
-
--   GlobalMovementThrottleThreshold – this controls the total number of movements in the cluster over some time (defined as the GlobalMovementThrottleCountingInterval, value in seconds)
--   MovementPerPartitionThrottleThreshold – this controls the total number of movements for any service partition over some time (the MovementPerPartitionThrottleCountingInterval, value in seconds)
+-	GlobalMovementThrottleThreshold — управляет общим количеством перемещений в кластере за некоторое время (определяется в секундах как GlobalMovementThrottleCountingInterval).
+-	MovementPerPartitionThrottleThreshold — управляет общим количеством перемещений для любой секции службы за некоторое время (MovementPerPartitionThrottleCountingInterval, значение задается в секундах).
 
 ``` xml
 <Section Name="PlacementAndLoadBalancing">
@@ -38,14 +37,10 @@ The throttles that are included by default are:
 </Section>
 ```
 
-Be aware that most of the time we’ve seen customers use these throttles it has been because they were already in a resource constrained environment (such as limited network bandwidth into individual nodes or disks which weren't up to the requirements of parallel replica builds which were being placed on them) which meant that such operations wouldn’t succeed or would be slow anyway.  In these situations customers were comfortable knowing that they were potentially extending the amount of time it would take the cluster to reach a stable state, including knowing that they could end up running at lower overall reliability while they were throttled.
+Имейте в виду, что чаще всего клиенты используют эти регулировки, так как в их среде уже были ограничены ресурсы (например, ограниченная пропускная способность подключений к отдельным узлам или дискам, которые не соответствовали предъявляемым к ним требованиям параллельных сборок реплик), то есть такие операции в любом случае не выполнялись бы или выполнялись бы медленно. В таких ситуациях клиентов устраивало, что они потенциально увеличивают время, затрачиваемое на стабилизацию работы кластера, и что регулирование может привести к понижению общей надежности.
 
-## <a name="next-steps"></a>Next steps
-- To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
-- The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
+## Дальнейшие действия
+- Чтобы узнать, как диспетчер кластерных ресурсов управляет нагрузкой кластера и балансирует ее, ознакомьтесь со статьей о [балансировке нагрузки](service-fabric-cluster-resource-manager-balancing.md).
+- В диспетчере кластерных ресурсов много параметров для описания кластера. Чтобы узнать о них больше, ознакомьтесь с этой статьей об [описании кластера Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,22 +1,18 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **Cordova**. Under **Configure your client application**, select **Create a New App**, then click **Download**. This downloads a complete Cordova project for an app pre-configured to connect to your backend.
+1. Откройте [портал Azure]. Щелкните **Просмотреть все** > **Мобильные приложения** и выберите только что созданную серверную часть приложения. В параметрах мобильного приложения щелкните **Быстрый старт** > **Cordova**. В разделе **Настройка клиентского приложения** выберите **Создание приложения**, а затем нажмите кнопку **Скачать**. Будет скачан полный проект Cordova для приложения, предварительно настроенный для подключения к серверу.
 
-2. Unpack the downloaded ZIP file to a directory on your hard drive, navigate to the solution file (.sln) and open it using Visual Studio.
+2. Распакуйте скачанный ZIP-файл в каталог на жестком диске, перейдите к файлу решения (SLN) и откройте его с помощью Visual Studio.
 
-5. In Visual Studio, choose the solution platform (Android, iOS or Windows) from the drop-down next to the start arrow, then select a specific deployment device or emulator by clicking the drop-down on the green arrow. Note that you can use the default Android platform and Ripple emulator. More advanced tutorials will require you to select a supported device or emulator. 
+5. В Visual Studio выберите платформу решения (Android, iOS или Windows) в раскрывающемся меню, которое находится возле стрелки запуска, затем выберите устройство развертывания или эмулятор. Для этого щелкните зеленую стрелку, чтобы открылось раскрывающееся меню. Обратите внимание, что вы можете использовать стандартную платформу Android и эмулятор Ripple. В руководствах для продвинутых пользователей требуется выбрать поддерживаемое устройство или эмулятор.
 
-6. Press F5 or click the green arrow to build and and run your Cordova app. If you see a security dialog in the emulator requesting access to the network, accept it.   
+6. Нажмите клавишу F5 или зеленую стрелку, чтобы создать и запустить приложение Cordova. Если отображается диалоговое окно безопасности в эмуляторе, которое требует доступ к сети, примите запрос.
 
-7. After the the app is started on the device or emulator, type meaningful text in **Enter new text**, such as _Complete the tutorial_ and then click the **Add** button.  
-This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem table in the SQL Database, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list.
+7. После запуска приложения на устройстве или эмуляторе введите осмысленный текст в поле **Enter new text** (Ввод нового текста), например _Complete the tutorial_ (Завершение работы с руководством), и нажмите кнопку **Добавить**. Это отправляет запрос POST на ранее развернутый внутренний сервер Azure. Сервер вносит данные из запроса в таблицу TodoItem в базе данных SQL и возвращает сведения о сохраненных элементах в мобильное приложение. В мобильном приложении эти данные отображаются в списке.
 
-    ![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
+    .![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
     
-8. Repeat the previous three steps for each device platform that you plan to support.
+8. Повторите предыдущие три этапа для каждой платформы устройства, которую вы планируете поддерживать.
 
-[Azure Portal]: https://portal.azure.com/
+[портал Azure]: https://portal.azure.com/
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,58 +1,57 @@
 <properties
-    pageTitle="Getting started with elastic database jobs"
-    description="how to use elastic database jobs"
-    services="sql-database"
-    documentationCenter=""  
-    manager="jhubbard"
-    authors="ddove"/>
+	pageTitle="Начало работы с заданиями обработки эластичных баз данных"
+	description="как использовать задания обработки эластичных баз данных"
+	services="sql-database"
+	documentationCenter=""  
+	manager="jhubbard"
+	authors="ddove"/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="ddove" />
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="ddove" />
+
+# Начало работы с заданиями обработки эластичных баз данных
+
+Задания обработки эластичных баз данных (предварительная версия) для Базы данных SQL Azure позволяют надежно выполнять сценарии T-SQL, относящиеся к нескольким базам данных, автоматически повторяя попытки и обеспечивая гарантии успешного завершения. Дополнительные сведения о функции заданий обработки эластичных баз данных см. на [странице с обзором функций](sql-database-elastic-jobs-overview.md).
+
+В этом разделе более подробно рассматривается пример из раздела [Приступая к работе с инструментами эластичных баз данных](sql-database-elastic-scale-get-started.md). Прочитав эту статью, вы узнаете, как создавать и настраивать задания, которые управляют группой связанных баз данных. Чтобы воспользоваться преимуществами заданий обработки эластичных БД, не обязательно использовать инструменты эластичного масштабирования.
+
+## Предварительные требования
+
+Загрузите и запустите пример [Приступая к работе с инструментами эластичной базы данных](sql-database-elastic-scale-get-started.md).
+
+## Создание диспетчера сопоставления сегментов с помощью примера приложения
+
+Здесь мы создадим диспетчер сопоставления сегментов вместе с несколькими сегментами, а затем выполним вставку данных в сегменты. Если вы уже настроили сегменты с помощью сегментированных данных, описанные ниже действия можно пропустить и перейти к следующему разделу.
+
+1. Постройте и запустите пример приложения **Приступая к работе с инструментами эластичной базы данных**. Следуйте инструкциям до шага 7 в разделе [Загрузка и запуск примера приложения](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). В конце шага 7 появится следующее окно командной строки:
+
+	![окно командной строки.][1]
+
+2.  В окне команд введите "1" и нажмите клавишу **ВВОД**. Это позволит создать диспетчер сопоставления сегментов и добавить два сегмента на сервер. Затем введите 3 и нажмите клавишу **ВВОД**. Повторите это действие четыре раза. Это позволит вставить строки демонстрационных данных в свои сегменты.
+
+3.  На [портале Azure](https://portal.azure.com) на сервере v12 должны появиться три новые базы данных.
+
+	![Подтверждение Visual Studio][2]
+
+	На этом этапе мы создадим семейство баз данных, которое включает все базы данных в карте сегментов. Это позволит нам создать и выполнить задание, которое добавит новую таблицу в сегменты.
+
+Здесь обычно создается целевая карта сегментов с помощью командлета **New-AzureSqlJobTarget**. Для этого необходимо указать управляющую базу данных карт сегментов как целевую базу данных, а затем указать в качестве цели конкретную карту сегментов. Вместо этого мы перечислим все базы данных на сервере и добавим базы данных в новое семейство, за исключением базы данных master.
+
+##Создает пользовательское семейство и добавляет все базы данных на сервере в целевое семейство, за исключением базы данных master.
 
 
-# <a name="getting-started-with-elastic-database-jobs"></a>Getting started with Elastic Database jobs
-
-Elastic Database jobs (preview) for Azure SQL Database allows you to reliability execute T-SQL scripts that span multiple databases while automatically retrying and providing eventual completion guarantees. For more information about the Elastic Database job feature, please see the [feature overview page](sql-database-elastic-jobs-overview.md).
-
-This topic extends the sample found in [Getting started with Elastic Database tools](sql-database-elastic-scale-get-started.md). When completed, you will: learn how to create and manage jobs that manage a group of related databases. It is not required to use the Elastic Scale tools in order to take advantage of the benefits of Elastic jobs.
-
-## <a name="prerequisites"></a>Prerequisites
-
-Download and run the [Getting started with Elastic Database tools sample](sql-database-elastic-scale-get-started.md).
-
-## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Create a shard map manager using the sample app
-
-Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you already have shards set up with sharded data in them, you can skip the following steps and move to the next section.
-
-1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). At the end of Step 7, you will see the following command prompt:
-
-    ![command prompt][1]
-
-2.  In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat this action four times. This inserts sample data rows in your shards.
-
-3.  The [Azure Portal](https://portal.azure.com) should show three new databases in your v12 server:
-
-    ![Visual Studio confirmation][2]
-
-    At this point, we will create a custom database collection that reflects all the databases in the shard map. This will allow us to create and execute a job that add a new table across shards.
-
-Here we would usually create a shard map target, using the **New-AzureSqlJobTarget** cmdlet. The shard map manager database must be set as a database target and then the specific shard map is specified as a target. Instead, we are going to enumerate all the databases in the server and add the databases to the new custom collection with the exception of master database.
-
-##<a name="creates-a-custom-collection-and-adds-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master."></a>Creates a custom collection and adds all databases in the server to the custom collection target with the exception of master.
-
-
-    $customCollectionName = "dbs_in_server"
-    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
-    $ResourceGroupName = "ddove_samples"
-    $ServerName = "samples"
-    $dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
-    $dbsinserver | %{
+	$customCollectionName = "dbs_in_server"
+	New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
+	$ResourceGroupName = "ddove_samples"
+	$ServerName = "samples"
+	$dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+	$dbsinserver | %{
     $currentdb = $_.DatabaseName 
     $ErrorActionPreference = "Stop"
     Write-Output ""
@@ -109,333 +108,333 @@ Here we would usually create a shard map target, using the **New-AzureSqlJobTarg
     }
     $ErrorActionPreference = "Continue"
 }
-    
-## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Create a T-SQL Script for execution across databases
+	
+## Создание сценария T-SQL для выполнения между базами данных
 
-    $scriptName = "NewTable"
-    $scriptCommandText = "
-    IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'Test')
-    BEGIN
-        CREATE TABLE Test(
-            TestId INT PRIMARY KEY IDENTITY,
-            InsertionTime DATETIME2
-        );
-    END
-    GO
-    INSERT INTO Test(InsertionTime) VALUES (sysutcdatetime());
-    GO"
+	$scriptName = "NewTable"
+	$scriptCommandText = "
+	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'Test')
+	BEGIN
+		CREATE TABLE Test(
+			TestId INT PRIMARY KEY IDENTITY,
+			InsertionTime DATETIME2
+		);
+	END
+	GO
+	INSERT INTO Test(InsertionTime) VALUES (sysutcdatetime());
+	GO"
 
-    $script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
-    Write-Output $script
+	$script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
+	Write-Output $script
 
-##<a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Create the job to execute a script across the custom group of databases
+##Создание задания для выполнения сценария в пользовательской группе баз данных
 
-    $jobName = "create on server dbs"
-    $scriptName = "NewTable"
-    $customCollectionName = "dbs_in_server"
-    $credentialName = "ddove66"
-    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    $job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
-    Write-Output $job
+	$jobName = "create on server dbs"
+	$scriptName = "NewTable"
+	$customCollectionName = "dbs_in_server"
+	$credentialName = "ddove66"
+	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+	$job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
+	Write-Output $job
 
 
-##<a name="execute-the-job"></a>Execute the job 
+##Выполнение задания 
 
-The following PowerShell script can be used to execute an existing job:
+Следующий сценарий PowerShell позволяет выполнить существующее задание:
 
-Update the following variable to reflect the desired job name to have executed:
+Измените следующую переменную в соответствии с именем выполняемого задания:
 
-    $jobName = "create on server dbs"
-    $jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
-    Write-Output $jobExecution
+	$jobName = "create on server dbs"
+	$jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
+	Write-Output $jobExecution
  
-## <a name="retrieve-the-state-of-a-single-job-execution"></a>Retrieve the state of a single job execution
+## Получение состояния выполнения одного задания
 
-Use the same **Get-AzureSqlJobExecution** cmdlet with the **IncludeChildren** parameter to view the state of child job executions, namely the specific state for each job execution against each database targeted by the job.
+Используйте такой же командлет **Get-AzureSqlJobExecution** с параметром **IncludeChildren**, чтобы просмотреть состояние выполнения дочерних заданий, в том числе конкретное состояние выполнения каждого задания в каждой целевой базе данных задания.
 
-    $jobExecutionId = "{Job Execution Id}"
-    $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
-    Write-Output $jobExecutions 
+	$jobExecutionId = "{Job Execution Id}"
+	$jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
+	Write-Output $jobExecutions 
 
-## <a name="view-the-state-across-multiple-job-executions"></a>View the state across multiple job executions
+## Просмотр состояния выполнения нескольких заданий
 
-The **Get-AzureSqlJobExecution** cmdlet has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters. The following demonstrates some of the possible ways to use Get-AzureSqlJobExecution:
+У командлета **Get-AzureSqlJobExecution** есть несколько необязательных параметров, позволяющих увидеть ход выполнения нескольких заданий, отфильтрованных по указанным параметрам. Ниже показаны некоторые из возможных способов использования командлета Get-AzureSqlJobExecution:
 
-Retrieve all active top level job executions:
+Получение сведений о выполнении всех активных заданий верхнего уровня:
 
-    Get-AzureSqlJobExecution
+	Get-AzureSqlJobExecution
 
-Retrieve all top level job executions, including inactive job executions:
+Получение сведений о выполнении всех заданий верхнего уровня, включая неактивные задания:
 
-    Get-AzureSqlJobExecution -IncludeInactive
+	Get-AzureSqlJobExecution -IncludeInactive
 
-Retrieve all child job executions of a provided job execution ID, including inactive job executions:
+Получение состояния выполнения всех дочерних заданий, включая неактивные, по указанному идентификатору выполнения задания:
 
-    $parentJobExecutionId = "{Job Execution Id}"
-    Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
+	$parentJobExecutionId = "{Job Execution Id}"
+	Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId –IncludeInactive -IncludeChildren
 
-Retrieve all job executions created using a schedule / job combination, including inactive jobs:
+Получение состояния выполнения всех заданий, созданных с помощью сочетания расписания и задания, включая неактивные:
 
-    $jobName = "{Job Name}"
-    $scheduleName = "{Schedule Name}"
-    Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
+	$jobName = "{Job Name}"
+	$scheduleName = "{Schedule Name}"
+	Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
 
-Retrieve all jobs targeting a specified shard map, including inactive jobs:
+Получение сведения обо всех заданиях в указанной карте сегментов, включая неактивные:
 
-    $shardMapServerName = "{Shard Map Server Name}"
-    $shardMapDatabaseName = "{Shard Map Database Name}"
-    $shardMapName = "{Shard Map Name}"
-    $target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+	$shardMapServerName = "{Shard Map Server Name}"
+	$shardMapDatabaseName = "{Shard Map Database Name}"
+	$shardMapName = "{Shard Map Name}"
+	$target = Get-AzureSqlJobTarget -ShardMapManagerDatabaseName $shardMapDatabaseName -ShardMapManagerServerName $shardMapServerName -ShardMapName $shardMapName
+	Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
 
-Retrieve all jobs targeting a specified custom collection, including inactive jobs:
+Получение сведения обо всех заданиях в указанном пользовательском семействе, включая неактивные:
 
-    $customCollectionName = "{Custom Collection Name}"
-    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
+	$customCollectionName = "{Custom Collection Name}"
+	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+	Get-AzureSqlJobExecution -TargetId $target.TargetId –IncludeInactive
  
-Retrieve the list of job task executions within a specific job execution:
+Получение списка выполнения задач в определенном задании:
 
-    $jobExecutionId = "{Job Execution Id}"
-    $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
-    Write-Output $jobTaskExecutions 
+	$jobExecutionId = "{Job Execution Id}"
+	$jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
+	Write-Output $jobTaskExecutions 
 
-Retrieve job task execution details:
+Получение сведений о выполнении задачи:
 
-The following PowerShell script can be used to view the details of a job task execution, which is particularly useful when debugging execution failures.
+Следующий сценарий PowerShell позволяет просмотреть сведения о выполнении задачи, что особенно полезно при отладке сбоев выполнения.
 
-    $jobTaskExecutionId = "{Job Task Execution Id}"
-    $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
-    Write-Output $jobTaskExecution
+	$jobTaskExecutionId = "{Job Task Execution Id}"
+	$jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
+	Write-Output $jobTaskExecution
 
-## <a name="retrieve-failures-within-job-task-executions"></a>Retrieve failures within job task executions
+## Получение ошибок при выполнении задач
 
-The JobTaskExecution object includes a property for the Lifecycle of the task along with a Message property. If a job task execution failed, the Lifecycle property will be set to *Failed* and the Message property will be set to the resulting exception message and its stack. If a job did not succeed, it is important to view the details of job tasks that did not succeed for a given job.
+Объект JobTaskExecution включает свойство Lifecycle для жизненного цикла задачи и свойство Message. В случае сбоя при выполнении задачи свойство Lifecycle принимает значение *Failed*, а свойство Message содержит сообщение об исключении и его стек. Если задание завершилось неудачно, важно просмотреть сведения задачах, которые не были выполнены в определенном задании.
 
-    $jobExecutionId = "{Job Execution Id}"
-    $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
-    Foreach($jobTaskExecution in $jobTaskExecutions) 
-        {
-        if($jobTaskExecution.Lifecycle -ne 'Succeeded')
-            {
-            Write-Output $jobTaskExecution
-            }
-        }
+	$jobExecutionId = "{Job Execution Id}"
+	$jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
+	Foreach($jobTaskExecution in $jobTaskExecutions) 
+		{
+		if($jobTaskExecution.Lifecycle -ne 'Succeeded')
+    		{
+        	Write-Output $jobTaskExecution
+    		}
+		}
 
-## <a name="waiting-for-a-job-execution-to-complete"></a>Waiting for a job execution to complete
+## Ожидание завершения выполнения задания
 
-The following PowerShell script can be used to wait for a job task to complete:
+Следующий сценарий PowerShell позволяет дождаться завершения задачи:
 
-    $jobExecutionId = "{Job Execution Id}"
-    Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
+	$jobExecutionId = "{Job Execution Id}"
+	Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
 
-## <a name="create-a-custom-execution-policy"></a>Create a custom execution policy
+## Создание пользовательской политики выполнения
 
-Elastic Database jobs supports creating custom execution policies that can be applied when starting jobs.
+Задания обработки эластичных баз данных поддерживают создание пользовательских политик выполнения, которые можно применять при запуске заданий.
   
-Execution policies currently allow for defining:
+В настоящий момент политики выполнения позволяют задать следующее:
 
-* Name: Identifier for the execution policy.
-* Job Timeout: Total time before a job will be canceled by Elastic Database Jobs.
-* Initial Retry Interval: Interval to wait before first retry.
-* Maximum Retry Interval: Cap of retry intervals to use.
-* Retry Interval Backoff Coefficient: Coefficient used to calculate the next interval between retries.  The following formula is used: (Initial Retry Interval) * Math.pow((Interval Backoff Coefficient), (Number of Retries) - 2). 
-* Maximum Attempts: The maximum number of retry attempts to perform within a job.
+* Имя: идентификатор политики выполнения.
+* Время ожидания задания: общее время до отмены задания службой заданий обработки эластичных баз данных.
+* Исходный интервал повторных попыток: интервал ожидания до первой повторной попытки.
+* Максимальный интервал повторных попыток: предел используемых интервалов повторных попыток.
+* Коэффициент роста интервала повторных попыток: коэффициент, используемый для вычисления следующего интервала между повторными попытками. Используется следующая формула: (Исходный интервал повторных попыток) * Math.pow((Коэффициент роста интервала), (Число повторных попыток) - 2).
+* Максимальное число попыток: максимальное число повторных попыток, выполняемых в задании.
 
-The default execution policy uses the following values:
+В политике выполнения по умолчанию используются следующие значения:
 
-* Name: Default execution policy
-* Job Timeout: 1 week
-* Initial Retry Interval:  100 milliseconds
-* Maximum Retry Interval: 30 minutes
-* Retry Interval Coefficient: 2
-* Maximum Attempts: 2,147,483,647
+* Имя: политика выполнения по умолчанию
+* Время ожидания задания: 1 неделя
+* Исходный интервал повторных попыток: 100 миллисекунд
+* Максимальный интервал повторных попыток: 30 минут
+* Коэффициент интервала повторных попыток: 2
+* Максимальное число попыток: 2 147 483 647
 
-Create the desired execution policy:
+Создайте нужную политику выполнения:
 
-    $executionPolicyName = "{Execution Policy Name}"
-    $initialRetryInterval = New-TimeSpan -Seconds 10
-    $jobTimeout = New-TimeSpan -Minutes 30
-    $maximumAttempts = 999999
-    $maximumRetryInterval = New-TimeSpan -Minutes 1
-    $retryIntervalBackoffCoefficient = 1.5
-    $executionPolicy = New-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
-    Write-Output $executionPolicy
+	$executionPolicyName = "{Execution Policy Name}"
+	$initialRetryInterval = New-TimeSpan -Seconds 10
+	$jobTimeout = New-TimeSpan -Minutes 30
+	$maximumAttempts = 999999
+	$maximumRetryInterval = New-TimeSpan -Minutes 1
+	$retryIntervalBackoffCoefficient = 1.5
+	$executionPolicy = New-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
+	Write-Output $executionPolicy
 
-### <a name="update-a-custom-execution-policy"></a>Update a custom execution policy
+### Изменение пользовательской политики выполнения
 
-Update the desired execution policy to update:
+Измените нужную политику выполнения:
 
-    $executionPolicyName = "{Execution Policy Name}"
-    $initialRetryInterval = New-TimeSpan -Seconds 15
-    $jobTimeout = New-TimeSpan -Minutes 30
-    $maximumAttempts = 999999
-    $maximumRetryInterval = New-TimeSpan -Minutes 1
-    $retryIntervalBackoffCoefficient = 1.5
-    $updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
-    Write-Output $updatedExecutionPolicy
+	$executionPolicyName = "{Execution Policy Name}"
+	$initialRetryInterval = New-TimeSpan -Seconds 15
+	$jobTimeout = New-TimeSpan -Minutes 30
+	$maximumAttempts = 999999
+	$maximumRetryInterval = New-TimeSpan -Minutes 1
+	$retryIntervalBackoffCoefficient = 1.5
+	$updatedExecutionPolicy = Set-AzureSqlJobExecutionPolicy -ExecutionPolicyName $executionPolicyName -InitialRetryInterval $initialRetryInterval -JobTimeout $jobTimeout -MaximumAttempts $maximumAttempts -MaximumRetryInterval $maximumRetryInterval -RetryIntervalBackoffCoefficient $retryIntervalBackoffCoefficient
+	Write-Output $updatedExecutionPolicy
  
-## <a name="cancel-a-job"></a>Cancel a job
+## Отмена задания
 
-Elastic Database Jobs supports jobs cancellation requests.  If Elastic Database Jobs detects a cancellation request for a job currently being executed, it will attempt to stop the job.
+Задания обработки эластичных баз данных поддерживают запросы на отмену заданий. Если служба заданий обработки эластичных баз данных обнаружат запрос на отмену выполняемого задания, она попытается остановить задачу.
 
-There are two different ways that Elastic Database Jobs can perform a cancellation:
+Служба заданий обработки эластичных баз данных может выполнить отмену двумя разными способами:
 
-1. Canceling Currently Executing Tasks: If a cancellation is detected while a task is currently running, a cancellation will be attempted within the currently executing aspect of the task.  For example: If there is a long running query currently being performed when a cancellation is attempted, there will be an attempt to cancel the query.
-2. Canceling Task Retries: If a cancellation is detected by the control thread before a task is launched for execution, the control thread will avoid launching the task and declare the request as canceled.
+1. Отмена выполняющихся заданий: если отмена обнаружена во время выполнения задачи, произойдет попытка отмены в существующем аспекте задачи. Например: если при попытке отмены выполняются длинный запрос, произойдет попытка его отмены.
+2. Отмена повторных попыток задач: если поток управления обнаружит отмену, он не будет запускать задачу и объявит запрос отмененным.
 
-If a job cancellation is requested for a parent job, the cancellation request will be honored for the parent job and for all of its child jobs.
+В случае запроса отмены родительского задания этот запрос будет выполнен для родительского задания и всех его дочерних заданий.
  
-To submit a cancellation request, use the **Stop-AzureSqlJobExecution** cmdlet and set the **JobExecutionId** parameter.
+Чтобы отправить запрос на отмену, используйте командлет **Stop-AzureSqlJobExecution** с параметром **JobExecutionId**.
 
-    $jobExecutionId = "{Job Execution Id}"
-    Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
+	$jobExecutionId = "{Job Execution Id}"
+	Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
-## <a name="delete-a-job-by-name-and-the-job's-history"></a>Delete a job by name and the job's history
+## Удаление задания по имени и журналу
 
-Elastic Database jobs supports asynchronous deletion of jobs. A job can be marked for deletion and the system will delete the job and all its job history after all job executions have completed for the job. The system will not automatically cancel active job executions.  
+Задания обработки эластичных баз данных поддерживают асинхронное удаление заданий. Задания могут быть отмечены для удаления, а система удалит задание и весь его журнал после завершения всех выполнений задания. Система не будет автоматически отменять активные выполнения заданий.
 
-Instead, Stop-AzureSqlJobExecution must be invoked to cancel active job executions.
+Вместо этого необходимо вызвать командлет Stop-AzureSqlJobExecution, чтобы отменить активные выполнения задания.
 
-To trigger job deletion, use the **Remove-AzureSqlJob** cmdlet and set the **JobName** parameter.
+Чтобы запустить удаление задания, используйте командлет **Remove-AzureSqlJob** с параметром **JobName**.
 
-    $jobName = "{Job Name}"
-    Remove-AzureSqlJob -JobName $jobName
+	$jobName = "{Job Name}"
+	Remove-AzureSqlJob -JobName $jobName
  
-## <a name="create-a-custom-database-target"></a>Create a custom database target
-Custom database targets can be defined in Elastic Database jobs which can be used either for execution directly or for inclusion within a custom database group. Since **Elastic Database pools** are not yet directly supported via the PowerShell APIs, you simply create a custom database target and custom database collection target which encompasses all the databases in the pool.
+## Создание пользовательской целевой базы данных
+В заданиях обработки эластичных баз данных можно задать пользовательские целевые базы данных, которые можно использовать либо для непосредственного выполнения, либо для включения в пользовательскую группу баз данных. Так как **задания обработки эластичных баз данных** еще не поддерживаются API-интерфейсами PowerShell напрямую, достаточно создать пользовательские целевые базу данных и семейство, которое включает все базы данных в пуле.
 
-Set the following variables to reflect the desired database information:
+Задайте следующие переменные в соответствии с нужными сведениями о базе данных:
 
-    $databaseName = "{Database Name}"
-    $databaseServerName = "{Server Name}"
-    New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
+	$databaseName = "{Database Name}"
+	$databaseServerName = "{Server Name}"
+	New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
-## <a name="create-a-custom-database-collection-target"></a>Create a custom database collection target
-A custom database collection target can be defined to enable execution across multiple defined database targets. After a database group is created, databases can be associated to the custom collection target.
+## Создание пользовательского целевого семейства баз данных
+Вы можете указать собственное целевое семейство в нескольких целевых базах данных. После создания группы баз данных можно связывать их с пользовательским целевым семейством.
 
-Set the following variables to reflect the desired custom collection target configuration:
+Задайте следующие переменные в соответствии с нужной конфигурацией пользовательского семейства:
 
-    $customCollectionName = "{Custom Database Collection Name}"
-    New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
+	$customCollectionName = "{Custom Database Collection Name}"
+	New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 
-### <a name="add-databases-to-a-custom-database-collection-target"></a>Add databases to a custom database collection target
+### Добавление баз данных в пользовательское целевое семейство баз данных
 
-Database targets can be associated with custom database collection targets to create a group of databases. Whenever a job is created that targets a custom database collection target, it will be expanded to target the databases associated to the group at the time of execution.
+Целевые базы данных можно связывать с целевыми пользовательскими семействами для создания группы баз данных. При создании задания с целевым пользовательским семейством баз данных оно будет расширено до баз данных, связанных с группой во время выполнения.
 
-Add the desired database to a specific custom collection:
+Добавление нужной базы данных в определенное пользовательское семейство:
 
-    $serverName = "{Database Server Name}"
-    $databaseName = "{Database Name}"
-    $customCollectionName = "{Custom Database Collection Name}"
-    Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
+	$serverName = "{Database Server Name}"
+	$databaseName = "{Database Name}"
+	$customCollectionName = "{Custom Database Collection Name}"
+	Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
 
-#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Review the databases within a custom database collection target
+#### Просмотр баз данных в целевом пользовательском семействе баз данных
 
-Use the **Get-AzureSqlJobTarget** cmdlet to retrieve the child databases within a custom database collection target. 
+Используйте командлет **Get-AzureSqlJobTarget**, чтобы получить дочерние базы данных в пользовательском семействе.
  
-    $customCollectionName = "{Custom Database Collection Name}"
-    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
-    Write-Output $childTargets
+	$customCollectionName = "{Custom Database Collection Name}"
+	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+	$childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
+	Write-Output $childTargets
 
-### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Create a job to execute a script across a custom database collection target
+### Создание задания для выполнения сценария в пользовательском семействе баз данных
 
-Use the **New-AzureSqlJob** cmdlet to create a job against a group of databases defined by a custom database collection target. Elastic Database jobs will expand the job into multiple child jobs each corresponding to a database associated with the custom database collection target and ensure that the script is executed against each database. Again, it is important that scripts are idempotent to be resilient to retries.
+Используйте командлет **New-AzureSqlJob**, чтобы создать задание в группе баз данных, определенной пользовательским семейством баз данных. Задания обработки эластичных баз данных расширят задание до нескольких дочерних заданий, каждое из которых соответствует базе данных, связанной с целевым пользовательским семейством, и обеспечивают выполнение сценария для каждой базы данных. Как и ранее, важно, чтобы сценарии были идемпотентными и защищенными от повторных попыток.
 
-    $jobName = "{Job Name}"
-    $scriptName = "{Script Name}"
-    $customCollectionName = "{Custom Collection Name}"
-    $credentialName = "{Credential Name}"
-    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
-    $job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
-    Write-Output $job
+	$jobName = "{Job Name}"
+	$scriptName = "{Script Name}"
+	$customCollectionName = "{Custom Collection Name}"
+	$credentialName = "{Credential Name}"
+	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+	$job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -ContentName $scriptName -TargetId $target.TargetId
+	Write-Output $job
 
-## <a name="data-collection-across-databases"></a>Data collection across databases
+## Сбор данных между базами данных
 
-**Elastic Database jobs** supports executing a query across a group of databases and sends the results to a specified database’s table. The table can be queried after the fact to see the query’s results from each database. This provides an asynchronous mechanism to execute a query across many databases. Failure cases such as one of the databases being temporarily unavailable are handled automatically via retries.
+**Задания обработки эластичных баз данных** поддерживают выполнение запроса для группы баз данных и отправку результатов в таблицу указанной базы данных. Позже можно отправить таблице запрос, чтобы увидеть результаты запроса из каждой базы данных. Это обеспечивает асинхронный механизм выполнения запроса для множества баз данных. Аварийные ситуации, например временная недоступность одной из баз данных, обрабатываются автоматически с помощью повторных попыток.
 
-The specified destination table will be automatically created if it does not yet exist, matching the schema of the returned result set. If a script execution returns multiple result sets, Elastic Database jobs will only send the first one to the provided destination table.
+Указанная целевая таблица будет автоматически создана (если ее еще не существует) в соответствии со схемой возвращенного результирующего набора. Если после выполнения сценария возвращается несколько наборов результатов, задания обработки эластичных баз данных будут отправлять в указанную целевую таблицу только первый из них.
 
-The following PowerShell script can be used to execute a script collecting its results into a specified table. This script assumes that a T-SQL script has been created which outputs a single result set and a custom database collection target has been created.
+Следующий сценарий PowerShell можно использовать для выполнения сценария и сбора результатов в указанную таблицу. В этом сценарии предполагается, что были созданы сценарий T-SQL, который выводит один набор результатов, и целевое пользовательское семейство баз данных.
 
-Set the following to reflect the desired script, credentials, and execution target:
+Задайте следующие переменные в соответствии с нужными сценарием, учетными данными и целью выполнения:
 
-    $jobName = "{Job Name}"
-    $scriptName = "{Script Name}"
-    $executionCredentialName = "{Execution Credential Name}"
-    $customCollectionName = "{Custom Collection Name}"
-    $destinationCredentialName = "{Destination Credential Name}"
-    $destinationServerName = "{Destination Server Name}"
-    $destinationDatabaseName = "{Destination Database Name}"
-    $destinationSchemaName = "{Destination Schema Name}"
-    $destinationTableName = "{Destination Table Name}"
-    $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
+	$jobName = "{Job Name}"
+	$scriptName = "{Script Name}"
+	$executionCredentialName = "{Execution Credential Name}"
+	$customCollectionName = "{Custom Collection Name}"
+	$destinationCredentialName = "{Destination Credential Name}"
+	$destinationServerName = "{Destination Server Name}"
+	$destinationDatabaseName = "{Destination Database Name}"
+	$destinationSchemaName = "{Destination Schema Name}"
+	$destinationTableName = "{Destination Table Name}"
+	$target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
-### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>Create and start a job for data collection scenarios
-    $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
-    Write-Output $job
-    $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
-    Write-Output $jobExecution
+### Создание и запуск задания для сбора данных
+	$job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
+	Write-Output $job
+	$jobExecution = Start-AzureSqlJobExecution -JobName $jobName
+	Write-Output $jobExecution
 
-## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Create a schedule for job execution using a job trigger
+## Создание расписания выполнения заданий с помощью триггера
 
-The following PowerShell script can be used to create a reoccurring schedule. This script uses a one minute interval, but New-AzureSqlJobSchedule also supports -DayInterval, -HourInterval, -MonthInterval, and -WeekInterval parameters. Schedules that execute only once can be created by passing -OneTime.
+Следующий сценарий PowerShell позволяет создать повторяющееся расписание. В этом сценарии используется интервал в одну минуту, но командлет New-AzureSqlJobSchedule также поддерживает параметры -DayInterval, -HourInterval, -MonthInterval и -WeekInterval. Расписания, которые выполняются только один раз, можно создавать с помощью параметра -OneTime.
 
-Create a new schedule:
+Создание нового расписания
 
-    $scheduleName = "Every one minute"
-    $minuteInterval = 1
-    $startTime = (Get-Date).ToUniversalTime()
-    $schedule = New-AzureSqlJobSchedule -MinuteInterval $minuteInterval -ScheduleName $scheduleName -StartTime $startTime 
-    Write-Output $schedule
+	$scheduleName = "Every one minute"
+	$minuteInterval = 1
+	$startTime = (Get-Date).ToUniversalTime()
+	$schedule = New-AzureSqlJobSchedule -MinuteInterval $minuteInterval -ScheduleName $scheduleName -StartTime $startTime 
+	Write-Output $schedule
 
-### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Create a job trigger to have a job executed on a time schedule
+### Создание триггера для выполнения задания по расписанию
 
-A job trigger can be defined to have a job executed according to a time schedule. The following PowerShell script can be used to create a job trigger.
+Вы можете определить триггер задания, который будет выполнять задание согласно расписанию. Следующий сценарий PowerShell позволяет создать триггер задания.
 
-Set the following variables to correspond to the desired job and schedule:
+Задайте следующие переменные в соответствии с нужными заданием и расписанием:
 
-    $jobName = "{Job Name}"
-    $scheduleName = "{Schedule Name}"
-    $jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName –JobName $jobName
-    Write-Output $jobTrigger
+	$jobName = "{Job Name}"
+	$scheduleName = "{Schedule Name}"
+	$jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName –JobName $jobName
+	Write-Output $jobTrigger
 
-### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Remove a scheduled association to stop job from executing on schedule
+### Удаление запланированной связи для остановки выполнения задания по расписанию
 
-To discontinue reoccurring job execution through a job trigger, the job trigger can be removed. Remove a job trigger to stop a job from being executed according to a schedule using the **Remove-AzureSqlJobTrigger** cmdlet.
+Чтобы остановить регулярное выполнение задания с помощью триггера, можно удалить триггер. Чтобы удалить триггер и остановить выполнение задания по расписанию, используйте командлет **Remove-AzureSqlJobTrigger**.
 
-    $jobName = "{Job Name}"
-    $scheduleName = "{Schedule Name}"
-    Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
-
-
+	$jobName = "{Job Name}"
+	$scheduleName = "{Schedule Name}"
+	Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
 
 
 
-## <a name="import-elastic-database-query-results-to-excel"></a>Import elastic database query results to Excel
 
- You can import the results from of a query to an Excel file.
 
-1. Launch Excel 2013.
-2.  Navigate to the **Data** ribbon.
-3.  Click **From Other Sources** and click **From SQL Server**.
+## Импорт в Excel результатов запроса к эластичной базе данных
 
-    ![Excel import from other sources][5]
-4.  In the **Data Connection Wizard** type the server name and login credentials. Then click **Next**.
-5.  In the dialog box **Select the database that contains the data you want**, select the **ElasticDBQuery** database.
-6.  Select the **Customers** table in the list view and click **Next**. Then click **Finish**.
-7.  In the **Import Data** form, under **Select how you want to view this data in your workbook**, select **Table** and click **OK**.
+ Результаты запроса можно импортировать в файл Excel.
 
-All the rows from **Customers** table, stored in different shards populate the Excel sheet.
+1. Запустите Excel 2013.
+2. 	Перейдите на ленту **Данные**.
+3. 	Щелкните **Из других источников**, а затем **Из SQL Server**.
 
-## <a name="next-steps"></a>Next steps
-You can now use Excel’s data functions. Use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. Refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
+	![Импорт в Excel из других источников][5]
+4. 	В **мастере подключения к данным** введите имя сервера и учетные данные для входа. Нажмите кнопку **Далее**.
+5. 	В диалоговом окне **Выберите базу данных, которая содержит требуемые данные** выберите базы данных **ElasticDBQuery**.
+6. 	Выберите таблицу **Клиенты** в представлении списка и нажмите кнопку **Далее**. Нажмите кнопку **Готово**.
+7. 	В форме **Импорт данных** в разделе **Выберите способ просмотра этих данных в книге** выберите **Таблица** и нажмите кнопку **ОК**.
 
-### <a name="cost"></a>Cost
-There is no additional charge for using the Elastic Database query feature. However, at this time this feature is available only on premium databases as an end point, but the shards can be of any service tier.
+Все строки из таблицы **Клиенты**, хранящиеся в различных сегментах, попадают на лист Excel.
 
-For pricing information see [SQL Database Pricing Details](https://azure.microsoft.com/pricing/details/sql-database/).
+## Дальнейшие действия
+Теперь можно использовать функции обработки данных Excel. Для подключения к эластичной базе данных своих инструментов бизнес-аналитики и интеграции данных можно использовать строку подключения с именем сервера, именем базы данных и учетными данными. Убедитесь, что в качестве источника данных для вашего инструмента поддерживается SQL Server. На запрос к эластичной базе данных и внешние таблицы можно ссылаться таким же образом, как и на любую другую базу данных SQL Server и таблицы SQL Server, которые вы хотите подключить с помощью своего инструмента.
+
+### Стоимость
+Дополнительная плата за использование функции запросов к эластичной базе данных отсутствует. Однако в настоящее время эта функция доступна только в базах данных premium как конечная точка, а сегменты могут находиться на любом уровне служб.
+
+Сведения о ценах см. в разделе [Информация о ценах на базу данных SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
@@ -448,8 +447,4 @@ For pricing information see [SQL Database Pricing Details](https://azure.microso
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

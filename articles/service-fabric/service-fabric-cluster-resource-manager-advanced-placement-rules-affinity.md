@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric Cluster Resource Manager - Affinity | Microsoft Azure"
-   description="Overview of configuring affinity for Service Fabric Services"
+   pageTitle="Диспетчер кластерных ресурсов Service Fabric: сходство | Microsoft Azure"
+   description="Общие сведения о настройке сходства для служб Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,25 +16,24 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
+# Настройка и использование сходства служб в Service Fabric
 
-# <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configuring and using service affinity in Service Fabric
+Сходство — это элемент управления, который применяется в основном для облегчения перевода больших, монолитных приложений в мир микро- и облачных служб. С другой стороны, в некоторых случаях этот элемент может использоваться в качестве доступного инструмента оптимизации производительности служб, хотя и может иметь побочные эффекты.
 
-Affinity is a control that is provided mainly to help ease the transition of larger monolithic applications into the cloud and microservices world. That said it can also be used in certain cases as a legitimate optimization for improving the performance of services, though this can have side effects.
+Допустим, вам нужно добавить в Service Fabric большое приложение или приложение, не предназначенное для работы с микрослужбами. Мы не раз имели дело с клиентами (как внутренними, так и внешними), перед которыми стояла такая задача перевода. Сначала вы вводите приложение в среду, упаковываете его и запускаете. Затем вы начинаете делить его на различные более мелкие службы, взаимодействующие между собой.
 
-Let’s say you’re bringing a larger app, or one that just wasn’t designed with microservices in mind, to Service Fabric. This transition is actually common, and we’ve had several customers (both internal and external) in this situation. You start by lifting up the entire app into the environment, getting it packaged and running. Then you start breaking it down into different smaller services that all talk to each other.
+И вот здесь возникают проблемы. Обычно проблемы относятся к одной из следующих категорий:
 
-Then there’s an “Oops...”. The “Oops” usually falls into one of these categories:
+1. Некий компонент Х в монолитном приложении имел незадокументированную зависимость от компонента Y, который только что был превращен в отдельные службы. Так как теперь они выполняются на разных узлах кластера, их связь разрушена.
+2.	Компоненты взаимодействуют через (каналы с локальными именами | общую память | файлы на диске), но для того, чтобы ускорить процессы хотя бы немного, необходима возможность обновлять их независимо друг от друга. Чуть позже мы уберем жесткую зависимость.
+3.	Все работает, но оказывается, что эти два компонента выдают слишком много данных или слишком чувствительны к производительности. С их переносом в отдельные службы общая производительность приложения резко упала или увеличилась задержка. В результате приложение в целом не удовлетворяет требованиям.
 
-1. Some component X in the monolithic app had an undocumented dependency on component Y, and we just turned those into separate services. Since these are now running on different nodes in the cluster, they're broken.
-2.  These things communicate via (local named pipes | shared memory | files on disk) but I really need to be able to update it independently to speed things up a bit. I'll remove the hard dependency later.
-3.  Everything is fine, but it turns out that these two components are actually very chatty/performance sensitive. When they moved them into separate services overall application performance tanked or latency increased. As a result, the overall application is not meeting expectations.
+В описанных ситуациях необходимо не потерять проделанную работу и не вернуться к монолитному решению, но выполнить действия, которые требуются для того, чтобы все работало как надо. Проблема сохранится до тех пор, пока компоненты не будут изменены и не заработают как службы, или пока мы не сможем решить вопрос повышения производительности каким-то другим способом.
 
-In these cases we don’t want to lose our refactoring work, and don’t want to go back to the monolith, but we do need some sense of locality. This will persist either until we can redesign the components to work naturally as services, or until we can solve the performance expectations some other way, if possible.
+Что делать? Попробуйте включить сопоставление.
 
-What to do? Well you could try turning on affinity.
-
-## <a name="how-to-configure-affinity"></a>How to configure affinity
-To set up affinity, you define an affinity relationship between two different services. You can think of affinity as “pointing” one service at another and saying “This service can only run where that service is running.” Sometimes we refer to affinity as a parent/child relationship (where you point the child at the parent). Affinity ensures that the replicas or instances of one service are placed on the same nodes as the replicas or instances of another.
+## Настройка сходства
+Для настройки сходства необходимо определить отношения сопоставления между двумя отдельными службами. Это все равно, что указать одной службе на другую и сказать: "Эта служба может работать только тогда, когда та служба работает". Иногда сходство называют родительско-дочерними отношениями (где вы указываете ребенку на родителя). В результате применения сходства реплики и экземпляры одной службы помещаются в те же узлы, что и реплики и экземпляры другой службы.
 
 ``` csharp
 ServiceCorrelationDescription affinityDescription = new ServiceCorrelationDescription();
@@ -44,33 +43,29 @@ serviceDescription.Correlations.Add(affinityDescription);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-## <a name="different-affinity-options"></a>Different affinity options
-Affinity is represented via one of several correlation schemes, and has two different modes. The most common mode of affinity is what we call NonAlignedAffinity. In NonAlignedAffinity the replicas or instances of the different services are placed on the same nodes. The other mode is AlignedAffinity. Aligned Affinity is useful only with stateful services. Configuring two stateful services to have aligned affinity ensures that the primaries of those services are placed on the same nodes as each other. It also causes each pair of secondaries for those services to be placed on the same nodes. It is also possible (though less common) to configure NonAlignedAffinity for stateful services. For NonAlignedAffinity the different replicas of the two stateful services would be collocated on the same nodes, but no attempt would be made to align their primaries or secondaries.
+## Различные параметры сходства
+Сопоставление представляет одна из нескольких возможных схем корреляции, которая имеет два различных режима. Наиболее распространенный режим сопоставления — NonAlignedAffinity. В режиме NonAlignedAffinity реплики или экземпляры различных служб помещаются в одни и те же узлы. Другой режим — AlignedAffinity. Он применяется только для служб с отслеживанием состояния. Сопоставление двух служб с отслеживанием состояния в режиме AlignedAffinity гарантирует, что первичные реплики одной службы будут размещаться на тех же узлах, что и первичные реплики другой службы. И там же будет размещаться каждая пара вторичных реплик этих служб. Сопоставление в режиме NonAlignedAffinity также можно настроить для служб с отслеживанием состояния (хотя это встречается реже). В режиме NonAlignedAffinity разные реплики двух служб с отслеживанием состояния будут размещаться на одних и тех же узлах, но контроль за тем, чтобы первичные и вторичные реплики размещались на одних и тех узлах, не осуществляется.
 
-![Affinity Modes and Their Effects][Image1]
+![Режимы сопоставления и их воздействие][Image1]
 
-### <a name="best-effort-desired-state"></a>Best effort desired state
-There are a few differences between affinity and monolithic architectures. Many of them are because an affinity relationship is best effort. The services in an affinity relationship are fundamentally different entities that can fail and be moved independently. There are also causes for why an affinity relationship could break. For example, capacity limitations where only some of the service objects in the affinity relationship can fit on a given node. In these cases even though there's an affinity relationship in place, it can't be enforced due to the other constraints. If it is possible to enforce all the other constraints and affinity at a later time the violation of the affinity constraint will be automatically corrected.  
+### Требуемое состояние не гарантируется
+Между сопоставленными и монолитными архитектурами существует несколько различий. Многие из них связаны с тем, что отношение сходства является наилучшим вариантом. Поскольку службы, сопоставленные с помощью отношения сходства, совершенно различны, они могут отказать независимо друг от друга, и так же независимо их можно перенести. Также существуют причины, по которым отношение сходства может быть разорвано. Например, ограничение емкости, из-за которого на заданном узле может разместиться только часть объектов обслуживания в отношении сходства. В этих случаях даже имеющееся отношение сходства не сможет работать из-за других ограничений. Проблема с нарушением ограничений сходства будет исправлена автоматически, если впоследствии удастся применить все другие ограничения и сходства.
 
-### <a name="chains-vs.-stars"></a>Chains vs. stars
-Today we aren’t able to model chains of affinity relationships. What this means is that a service that is a child in one affinity relationship can’t be a parent in another affinity relationship. If you want to model this type of relationship, you effectively have to model it as a star, rather than a chain. In order to do this, the bottommost child would be parented to the “middle” child’s parent instead. Depending on the arrangement of your services, this may require creating a "placeholder" service to serve as the parent for multiple children.
+### Цепочки и звезды
+На данный момент моделировать цепочки отношений сопоставления нельзя. Это означает, что служба, которая является дочерней в одном отношении сопоставления, не может быть родительской в другом. Для моделирования такого типа связи это необходимо сделать не в виде цепочки, а как звезду. Для этого самый нижний дочерний элемент необходимо сделать родительским объектом для родительского объекта среднего дочернего элемента. В зависимости от расположения служб может потребоваться создать службу-заполнитель, которая будет выступать родительским объектом для нескольких дочерних элементов.
 
-![Chains vs. Stars in the Context of Affinity Relationships][Image2]
+![Цепочки и звезды в контексте отношений сопоставления][Image2]
 
-Another thing to note about affinity relationships today is that they are directional. This means that the “affinity” rule only enforces that the child is where the parent is. If for example the parent suddenly fails over to another node then the Cluster Resource Manager doesn’t actually think there’s anything wrong until it notices that the child is not located with a parent; the relationship is not immediately enforced.
+Также следует помнить, что на сегодняшний день отношения сопоставления являются направленными. Это означает, что правило сходства определяет только размещение дочернего элемента вместе с родительским. Например, когда в результате сбоя родительский элемент переносится на другой узел, диспетчер кластерных ресурсов не увидит в этом ничего плохого, пока не заметит, что дочерний и родительский элементы не размещаются вместе. После этого отношения будут немедленно восстановлены.
 
-### <a name="partitioning-support"></a>Partitioning support
-The final thing to notice about affinity is that affinity relationships aren’t supported where the parent is partitioned. This is something that we may support eventually, but today it is not allowed.
+### Поддержка секционирования
+И, наконец, отношения сопоставления не поддерживаются, если родительский элемент секционирован. Со временем ситуация может измениться, но на данном этапе такой вариант не допускается.
 
-## <a name="next-steps"></a>Next steps
-- For more information about the other options available for configuring services check out the topic on the other Cluster Resource Manager configurations available [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
-- Many reasons where people use affinity, such as limiting services to a small set of machines and trying to aggregate the load of a collection of services, are better supported through Application Groups. Check out [Application Groups](service-fabric-cluster-resource-manager-application-groups.md)
+## Дальнейшие действия
+- Дополнительные сведения о других вариантах настройки служб см. в статье [Настройка параметров диспетчера кластерных ресурсов для служб Service Fabric](service-fabric-cluster-resource-manager-configure-services.md).
+- Большинство задач, для которых используется сходство, например работа служб на небольшом количестве компьютеров или сбор информации о нагрузке в коллекции служб, зачастую проще решить с помощью групп приложений. См. статью [Группы приложений](service-fabric-cluster-resource-manager-application-groups.md)
 
-[Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
-[Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
+[Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
+[Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

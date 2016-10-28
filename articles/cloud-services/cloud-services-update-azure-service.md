@@ -1,6 +1,6 @@
 <properties
-pageTitle="How to update a cloud service | Microsoft Azure"
-description="Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability."
+pageTitle="Обновление облачной службы | Microsoft Azure"
+description="Узнайте, как обновлять облачные службы в Azure. Узнайте, как обеспечивается доступность облачной службы при ее обновлении."
 services="cloud-services"
 documentationCenter=""
 authors="Thraka"
@@ -15,183 +15,176 @@ ms.topic="article"
 ms.date="08/10/2016"
 ms.author="adegeo"/>
 
+# Обновление облачной службы
 
-# <a name="how-to-update-a-cloud-service"></a>How to update a cloud service
+## Обзор
+Говоря упрощенно, обновление облачной службы, включая ее роли или гостевую ОС, состоит их трех этапов. Сначала нужно передать двоичные файлы и файлы конфигурации новой облачной службы или новой версии ОС. Затем Azure резервирует вычислительные и сетевые ресурсы для облачной службы в соответствии с требованиями новой версии облачной службы. И, наконец, Azure выполняет процесс последовательного обновления клиента до новой версии службы или гостевой ОС, сохраняя при этом доступность. В этой статье подробно описан последний шаг этого процесса — последовательное обновление.
 
-## <a name="overview"></a>Overview
-At 10,000 feet, updating a cloud service, including both its roles and guest OS, is a three step process. First, the binaries and configuration files for the new cloud service or OS version must be uploaded. Next, Azure reserves compute and network resources for the cloud service based on the requirements of the new cloud service version. Finally, Azure performs a rolling upgrade to incrementally update the tenant to the new version or guest OS, while preserving your availability. This article discusses the details of this last step – the rolling upgrade.
+## Обновление службы Azure
 
-## <a name="update-an-azure-service"></a>Update an Azure Service
+Azure распределяет экземпляры роли по логическим группам, которые называются доменами обновления. Домены обновления — это логические наборы экземпляров ролей, которые обновляются одновременно. Azure поочередно обновляет по одному домену обновления облачной службы, позволяя экземплярам в других доменах обновления продолжать обработку запросов.
 
-Azure organizes your role instances into logical groupings called upgrade domains (UD). Upgrade domains (UD) are logical sets of role instances that are updated as a group.  Azure updates a cloud service one UD at a time, which allows instances in other UDs to continue serving traffic.
+Количество доменов обновления по умолчанию равно 5. Вы можете указать любое другое количество доменов обновления, включив в файл определения службы (CSDEF) атрибут upgradeDomainCount. Дополнительные сведения об атрибуте upgradeDomainCount см. в статьях [Схема WebRole](https://msdn.microsoft.com/library/azure/gg557553.aspx) и [Схема WorkerRole](https://msdn.microsoft.com/library/azure/gg557552.aspx).
 
-The default number of upgrade domains is 5. You can specify a different number of upgrade domains by including the upgradeDomainCount attribute in the service’s definition file (.csdef). For more information about the upgradeDomainCount attribute, see [WebRole Schema](https://msdn.microsoft.com/library/azure/gg557553.aspx) or [WorkerRole Schema](https://msdn.microsoft.com/library/azure/gg557552.aspx).
+Когда вы выполняете обновление на месте, Azure обновляет наборы экземпляров ролей поочередно в соответствии с их распределением в доменах обновления. Azure одновременно обновляет все экземпляры, входящие в домен обновления: останавливает их, выполняет изменения и снова возвращает в работу. Затем Azure переходит к следующему домену обновления. Поскольку работу прекращают только те экземпляры, которые находятся в текущем домене обновления, Azure обновляет службу без существенного влияния на ее работу. Подробнее этот процесс описан в разделе [Как происходит обновление](#howanupgradeproceeds).
 
-When you perform an in-place update of one or more roles in your service, Azure updates sets of role instances according to the upgrade domain to which they belong. Azure updates all of the instances in a given upgrade domain – stopping them, updating them, bringing them back on-line – then moves onto the next domain. By stopping only the instances running in the current upgrade domain, Azure makes sure that an update occurs with the least possible impact to the running service. For more information, see [How the update proceeds](#howanupgradeproceeds) later in this article.
+> [AZURE.NOTE] Служба Azure выполняет два типа обновления: **обновление (изменение) конфигурации** и **обновление версий программ**. Описываемые в этой статье процессы и функции работают одинаково в обоих случаях, поэтому мы будем собирательно называть их обновлением.
 
-> [AZURE.NOTE] While the terms **update** and **upgrade** have slightly different meaning in the context Azure, they can be used interchangeably for the processes and descriptions of the features in this document.
+Чтобы обновление роли на месте проходило без остановки ее работы, для этой роли следует определить не менее двух экземпляров. Служба, содержащая только один экземпляр одной роли, будет недоступна во время обновления на месте.
 
-Your service must define at least two instances of a role for that role to be updated in-place without downtime. If the service consists of only one instance of one role, your service will be unavailable until the in-place update has finished.
+В этом разделе мы рассмотрим следующие сведения об обновлениях Azure.
 
-This topic covers the following information about Azure updates:
-
--   [Allowed service changes during an update](#AllowedChanges)
--   [How an upgrade proceeds](#howanupgradeproceeds)
--   [Rollback of an update](#RollbackofanUpdate)
--   [Initiating multiple mutating operations on an ongoing deployment](#multiplemutatingoperations)
--   [Distribution of roles across upgrade domains](#distributiondfroles)
+-   [Допустимые изменения службы во время обновления](#AllowedChanges)
+-   [Как происходит обновление](#howanupgradeproceeds)
+-   [Откат обновления](#RollbackofanUpdate)
+-   [Запуск нескольких операций изменения в текущем развертывании](#multiplemutatingoperations)
+-   [Распределение ролей в доменах обновления](#distributiondfroles)
 
 <a name="AllowedChanges"></a>
-## <a name="allowed-service-changes-during-an-update"></a>Allowed service changes during an update
-The following table shows the allowed changes to a service during an update:
+## Допустимые изменения службы во время обновления
+Все допустимые изменения службы во время обновления приведены в следующей таблице.
 
-|Changes permitted to hosting, services, and roles|In-place update|Staged (VIP swap)|Delete and re-deploy|
+|Изменения, которые можно выполнять для хостинга, служб и ролей|Обновление "на месте"|Промежуточная среда (переключение виртуального IP-адреса)|Удаление и повторное развертывание|
 |---|---|---|---|
-|Operating system version|Yes|Yes|Yes
-|.NET trust level|Yes|Yes|Yes|
-|Virtual machine size<sup>1</sup>|Yes<sup>2</sup>|Yes|Yes|
-|Local storage settings|Increase only<sup>2</sup>|Yes|Yes|
-|Add or remove roles in a service|Yes|Yes|Yes|
-|Number of instances of a particular role|Yes|Yes|Yes|
-|Number or type of endpoints for a service|Yes<sup>2</sup>|No|Yes|
-|Names and values of configuration settings|Yes|Yes|Yes|
-|Values (but not names) of configuration settings|Yes|Yes|Yes|
-|Add new certificates|Yes|Yes|Yes|
-|Change existing certificates|Yes|Yes|Yes|
-|Deploy new code|Yes|Yes|Yes|
-<sup>1</sup>Size change limited to the subset of sizes available for the cloud service.
+|Версия операционной системы|Да|Да|Да
+|Уровень доверия .NET|Да|Да|Да|
+|Размер виртуальной машины <sup>1</sup>|Да <sup>2</sup>|Да|Да|
+|Параметры хранилища Azure|Только увеличение <sup>2</sup>|Да|Да|
+|Добавление и удаление ролей в службе|Да|Да|Да|
+|Количество экземпляров определенной роли|Да|Да|Да|
+|Количество и тип конечных точек службы|Да <sup>2</sup>|Нет|Да|
+|Имена и значения параметров конфигурации|Да|Да|Да|
+|Только значения параметров конфигурации|Да|Да|Да|
+|Добавление сертификатов|Да|Да|Да|
+|Изменение существующих сертификатов|Да|Да|Да|
+|Развертывание нового кода|Да|Да|Да|
+<sup>1</sup> Размер можно изменять в пределах подмножества размеров, доступных для облачной службы.
 
-<sup>2</sup>Requires Azure SDK 1.5 or later versions.
+<sup>2</sup> Требуется пакет SDK Azure 1.5 или более поздней версии.
 
-> [AZURE.WARNING] Changing the virtual machine size will destroy local data.
+> [AZURE.WARNING] Изменение размера виртуальной машины приведет к уничтожению локальных данных.
 
 
-The following items are not supported during an update:
+Следующие действия не могут выполняться во время обновления:
 
--   Changing the name of a role. Remove and then add the role with the new name.
--   Changing of the Upgrade Domain count.
--   Decreasing the size of the local resources.
+-   Изменение имени роли. Роль следует удалить, а затем добавить с новым именем.
+-   Изменение количества доменов обновления.
+-   Уменьшение размера локальных ресурсов.
 
-If you are making other updates to your service's definition, such as decreasing the size of local resource, you must perform a VIP swap update instead. For more information, see [Swap Deployment](https://msdn.microsoft.com/library/azure/ee460814.aspx).
+Чтобы внести другие изменения в определение службы, например уменьшить размер локального ресурса, вы можете выполнить переключение виртуального IP-адреса. Дополнительные сведения см. в статье [Переключение развертывания](https://msdn.microsoft.com/library/azure/ee460814.aspx).
 
 <a name="howanupgradeproceeds"></a>
-## <a name="how-an-upgrade-proceeds"></a>How an upgrade proceeds
-You can decide whether you want to update all of the roles in your service or a single role in the service. In either case, all instances of each role that is being upgraded and belong to the first upgrade domain are stopped, upgraded, and brought back online. Once they are back online, the instances in the second upgrade domain are stopped, upgraded, and brought back online. A cloud service can have at most one upgrade active at a time. The upgrade is always performed against the latest version of the cloud service.
+## Как происходит обновление
+Вы можете выбрать обновление всех ролей службы или только одной. В любом случае сначала Azure остановит, обновит и снова запустит все экземпляры всех обновляемых ролей, входящих в первый домен обновления. Когда все роли возобновят работу, экземпляры во втором домене обновления будут остановлены, обновлены и запущены. Для каждой облачной службы в один момент времени выполняется только один процесс обновления. Обновление всегда выполняется до самой последней версии облачной службы.
 
-The following diagram illustrates how the upgrade proceeds if you are upgrading all of the roles in the service:
+На следующей схеме показан процесс обновления всех ролей в службе.
 
-![Upgrade service](media/cloud-services-update-azure-service/IC345879.png "Upgrade service")
+![Обновление службы](media/cloud-services-update-azure-service/IC345879.png "Обновление службы")
 
-This next diagram illustrates how the update proceeds if you are upgrading only a single role:
+На следующей диаграмме показан процесс обновления одной роли службы.
 
-![Upgrade role](media/cloud-services-update-azure-service/IC345880.png "Upgrade role")  
+![Обновление роли](media/cloud-services-update-azure-service/IC345880.png "Обновление роли")
 
-> [AZURE.NOTE] When upgrading a service from a single instance to multiple instances your service will be brought down while the upgrade is performed due to the way Azure upgrades services. The service level agreement guaranteeing service availability only applies to services that are deployed with more than one instance. The following list describes how the data on each drive is affected by each Azure service upgrade scenario:
+> [AZURE.NOTE] Если при обновлении службы количество ее экземпляров увеличивается от одного до нескольких, Azure остановит такую службу на время обновления. Это обусловлено особенностями процесса обновления. Соглашение об уровне обслуживания, гарантирующее доступность службы, применяется только для служб с несколькими экземплярами. Следующий список описывает, что происходит с данными на дисках при различных сценариях обновления службы Azure.
 >
->VM Reboot:
+>Перезагрузка виртуальной машины:
 >
--   C: Preserved
--   D: Preserved
--   E: Preserved
+-   C: сохраняются;
+-   D: сохраняются;
+-   E: сохраняются.
 >
->Portal Reboot:
+>Перезагрузка портала:
 >
--   C: Preserved
--   D: Preserved
--   E: Destroyed
+-   C: сохраняются;
+-   D: сохраняются;
+-   E: уничтожаются.
 >
->Portal Reimage:
+>Пересоздание образа портала:
 >
--   C: Preserved
--   D: Destroyed
--   E: Destroyed
+-   C: сохраняются;
+-   D: уничтожаются;
+-   E: уничтожаются.
 
->In-Place Upgrade:
+>Обновление на месте:
 >
--   C: Preserved
--   D: Preserved
--   E: Destroyed
+-   C: сохраняются;
+-   D: сохраняются;
+-   E: уничтожаются.
 >
->Node migration:
+>Миграция узла:
 >
--   C: Destroyed
--   D: Destroyed
--   E: Destroyed
+-   C: уничтожаются;
+-   D: уничтожаются;
+-   E: уничтожаются.
 
->Note that, in the above list, the E: drive represents the role’s root drive, and should not be hard-coded. Instead, use the %RoleRoot% environment variable to represent the drive.
+>Обратите внимание, что в приведенном выше списке диск E: обозначает корневой диск роли. Это значение не должно быть жестко запрограммированным. Для обращения к этому диску используйте переменную среды %RoleRoot%.
 
->To minimize the downtime when upgrading a single-instance service, deploy a new multi-instance service to the staging server and perform a VIP swap.
+>Чтобы сократить время простоя при обновлении службы с одним экземпляром, вы можете развернуть на промежуточном сервере новую службу с несколькими экземплярами и выполнить переключение виртуального IP-адреса.
 
-During an automatic update, the Azure Fabric Controller periodically evaluates the health of the cloud service to determine when it’s safe to walk the next UD. This health evaluation is performed on a per-role basis and considers only instances in the latest version (i.e. instances from UDs that have already been walked). It verifies that a minimum number of role instances, for each role, have achieved a satisfactory terminal state.
+В ходе автоматического обновления контроллер структуры Azure периодически проверяет работоспособность облачной службы, чтобы определить безопасный момент для перехода к следующему домену обновления. Проверка работоспособности выполняется для каждой роли отдельно с учетом экземпляров только самой последней версии (т. е. экземпляров из тех доменов обновления, для которых процесс уже начат). Чтобы служба считалась работоспособной, удовлетворительного конечного состояния должно достичь минимальное заданное количество экземпляров каждой роли.
 
-### <a name="role-instance-start-timeout"></a>Role Instance Start Timeout
-The Fabric Controller will wait 30 minutes for each role instance to reach a Started state. If the timeout duration elapses, the Fabric Controller will continue walking to the next role instance.
+### Время ожидания запуска экземпляра роли
+Контроллер структуры будет 30 минут ожидать перехода каждого экземпляра роли в запущенное состояние. По истечении времени ожидания контроллер структуры переходит к следующему экземпляру роли.
 
 <a name="RollbackofanUpdate"></a>
-## <a name="rollback-of-an-update"></a>Rollback of an update
-Azure provides flexibility in managing services during an update by letting you initiate additional operations on a service, after the initial update request is accepted by the Azure Fabric Controller. A rollback can only be performed when an update (configuration change) or upgrade is in the **in progress** state on the deployment. An update or upgrade is considered to be in-progress as long as there is at least one instance of the service which has not yet been updated to the new version. To test whether a rollback is allowed, check the value of the RollbackAllowed flag, returned by [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations, is set to true.
+## Откат обновления
+Во время обновления Azure обеспечивает определенную гибкость в управлении службами. Система принимает запросы на дополнительные операции для службы даже после того, как контроллер структуры Azure получит первичный запрос на обновление. Откат может быть выполнен только тогда, когда обновление версии или конфигурации развертывания находится в состоянии **выполнения**. Обновление версии или конфигурации считается выполняющимся, если существует хотя бы один экземпляр службы, который еще не обновлен до новой версии. Чтобы проверить возможность отката, убедитесь, что тег RollbackAllowed имеет значение True (значение этого тега возвращают операции [получить развертывание](https://msdn.microsoft.com/library/azure/ee460804.aspx) и [получить свойства облачной службы](https://msdn.microsoft.com/library/azure/ee460806.aspx)).
 
-> [AZURE.NOTE] It only makes sense to call Rollback on an **in-place** update or upgrade because VIP swap upgrades involve replacing one entire running instance of your service with another.
+> [AZURE.NOTE] Откат имеет смысл только в случае обновления **на месте**, так как обновление путем переключения виртуального IP-адреса подразумевает замену одного работающего экземпляра службы другим.
 
-Rollback of an in-progress update has the following effects on the deployment:
+Откат выполняющегося обновления влияет на развертывание следующим образом.
 
--   Any role instances which had not yet been updated or upgraded to the new version are not updated or upgraded, because those instances are already running the target version of the service.
--   Any role instances which had already been updated or upgraded to the new version of the service package (\*.cspkg) file or the service configuration (\*.cscfg) file (or both files) are reverted to the pre-upgrade version of these files.
+-   Все экземпляры ролей, которые еще не были обновлены, останутся в прежнем состоянии, поскольку на них выполняется нужная версия службы.
+-   На все экземпляры ролей с установленными новыми версиями файла пакета (CSPKG) и/или файла конфигурации (CSCFG) будут возвращены старые версии этих файлов.
 
-This functionally is provided by the following features:
+Это обеспечивается следующими функциями.
 
--   The [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation, which can be called on a configuration update (triggered by calling [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx)) or an upgrade (triggered by calling [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx)) as long as there is at least one instance in the service which has not yet been updated to the new version.
--   The Locked element and the RollbackAllowed element, which are returned as part of the response body of the [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations:
-    1.  The Locked element allows you to detect when a mutating operation can be invoked on a given deployment.
-    2.  The RollbackAllowed element allows you to detect when the [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation can be called on a given deployment.
+-   Операция [Откатить обновление](https://msdn.microsoft.com/library/azure/hh403977.aspx). Ее можно вызвать во время обновления конфигурации (запускается операцией [Изменить конфигурацию развертывания](https://msdn.microsoft.com/library/azure/ee460809.aspx)) или версии (запускается операцией [Обновить развертывание](https://msdn.microsoft.com/library/azure/ee460793.aspx)) при условии, что хотя бы один экземпляр службы еще не был обновлен до новой версии.
+-   Элементы Locked и RollbackAllowed, которые возвращаются в теле ответа операциями [Получить развертывание](https://msdn.microsoft.com/library/azure/ee460804.aspx) и [Получить свойства облачной службы](https://msdn.microsoft.com/library/azure/ee460806.aspx).
+    1.  Элемент Locked (Заблокировано) позволяет определить, можно ли выполнять операции изменения в этом развертывании.
+    2.  Элемент RollbackAllowed (Откат разрешен) позволяет определить, можно ли выполнять операцию [Откатить обновление](https://msdn.microsoft.com/library/azure/hh403977.aspx) в этом развертывании.
 
-    In order to perform a rollback, you do not have to check both the Locked and the RollbackAllowed elements. It suffices to confirm that RollbackAllowed is set to true. These elements are only returned if these methods are invoked by using the request header set to “x-ms-version: 2011-10-01” or a later version. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+    Чтобы выполнить откат, не обязательно проверять оба элемента (Locked и RollbackAllowed). Достаточно удостовериться, что RollbackAllowed имеет значение True. Эти элементы возвращаются только в том случае, если в запросе при вызове метода указан заголовок x-ms-version: 2011-10-01 или с более поздней версией. Подробнее о заголовках управления версиями см. в статье [Управление версиями службы управления](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
-There are some situations where a rollback of an update or upgrade is not supported, these are as follows:
+Существуют ситуации, когда откат обновления невозможен. Примеры таких ситуаций представлены ниже.
 
--   Reduction in local resources - If the update increases the local resources for a role the Azure platform does not allow rolling back. 
--   Quota limitations - If the update was a scale down operation you may no longer have sufficient compute quota to complete the rollback operation. Each Azure subscription has a quota associated with it that specifies the maximum number of cores which can be consumed by all hosted services that belong to that subscription. If performing a rollback of a given update would put your subscription over quota then that a rollback will not be enabled.
--   Race condition - If the initial update has completed, a rollback is not possible.
+-   Сокращение размера локальных ресурсов — если обновление увеличивает локальные ресурсы для роли, платформа Azure запрещает выполнять откат.
+-   Ограничения квоты — если обновление предусматривает уменьшение масштаба, вы можете выйти за рамки квоты на вычислительные ресурсы для завершения отката. Для каждой подписки Azure установлена определенная квота на количество ядер, которые могут использовать все службы в рамках этой подписки. Если для выполнения отката обновления требуется превысить квоту подписки, такой откат будет запрещен.
+-   Состояние гонки — если обновление уже завершено, откат невозможен.
 
-An example of when the rollback of an update might be useful is if you are using the [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) operation in manual mode to control the rate at which a major in-place upgrade to your Azure hosted service is rolled out.
+Давайте рассмотрим ситуацию, когда может быть полезен откат обновления. Вы запускаете операцию [Обновить развертывание](https://msdn.microsoft.com/library/azure/ee460793.aspx) в ручном режиме, чтобы управлять скоростью крупномасштабного обновления размещенной в Azure службы, которое выполняется на месте.
 
-During the rollout of the upgrade you call [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) in manual mode and begin to walk upgrade domains. If at some point, as you monitor the upgrade, you note some role instances in the first upgrade domains that you examine have become unresponsive, you can call the [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation on the deployment, which will leave untouched the instances which had not yet been upgraded and rollback instances which had been upgraded to the previous service package and configuration.
+Во время выполнения автоматического обновления вы запускаете операцию [Обновить развертывание](https://msdn.microsoft.com/library/azure/ee460793.aspx) в ручном режиме и начинаете отслеживать домены обновления. В определенный момент, контролируя ход обновления, вы замечаете, что некоторые экземпляры роли в первых доменах обновления перестали отвечать на запросы. В этот момент вы можете вызвать операцию [Откатить обновление](https://msdn.microsoft.com/library/azure/hh403977.aspx), которая оставит без изменений необновленные экземпляры, а обновленные вернет к прежнему состоянию пакета и конфигурации службы.
 
 <a name="multiplemutatingoperations"></a>
-## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Initiating multiple mutating operations on an ongoing deployment
-In some cases you may want to initiate multiple simultaneous mutating operations on an ongoing deployment. For example, you may perform a service update and, while that update is being rolled out across your service, you want to make some change, e.g. to roll the update back, apply a different update, or even delete the deployment. A case in which this might be necessary is if a service upgrade contains buggy code which causes an upgraded role instance to repeatedly crash. In this case, the Azure Fabric Controller will not be able to make progress in applying that upgrade because an insufficient number of instances in the upgraded domain are healthy. This state is referred to as a *stuck deployment*. You can unstick the deployment by rolling back the update or applying a fresh update over top of the failing one.
+## Запуск нескольких операций изменения в текущем развертывании
+В некоторых случаях будет удобно одновременно запустить несколько операций изменения в рамках текущего развертывания. Например, во время обновления службы вам может понадобиться внести какие-то изменения, например откатить это обновление, применить другое обновление или даже удалить развертывание. Эта необходимость может возникнуть, если обновление службы содержит ошибку в коде, из-за которой обновленные экземпляры роли постоянно завершаются сбоем. В этом случае контроллер структуры Azure не сможет завершить процесс обновления, поскольку в текущем домене обновления не будет запущено достаточное количество работоспособных экземпляров. Такое состояние называется *константной неисправностью развертывания*. Выйти из этой ситуации поможет откат обновления или применение свежего обновления поверх неисправного.
 
-Once the initial request to update or upgrade the service has been received by the Azure Fabric Controller, you can start subsequent mutating operations. That is, you do not have to wait for the initial operation to complete before you can start another mutating operation.
+Когда первоначальный запрос на обновление службы будет принят контроллером структуры Azure, можно начинать другие операции изменения. Таким образом, чтобы начать следующую операцию изменения, вам не нужно ждать завершения предыдущей.
 
-Initiating a second update operation while the first update is ongoing will perform similar to the rollback operation. If the second update is in automatic mode, the first upgrade domain will be upgraded immediately, possibly leading to instances from multiple upgrade domains being offline at the same point in time.
+Запуск второй операции обновления во время первого обновления будет обработан так же, как операция отката. Если второе обновление выполняется в автоматическом режиме, первый домен обновления будет обновлен немедленно. Это может привести к тому, что одновременно будут отключены экземпляры из нескольких доменов обновления.
 
-The mutating operations are as follows: [Change Deployment Configuration](https://msdn.microsoft.com/library/azure/ee460809.aspx), [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx), [Update Deployment Status](https://msdn.microsoft.com/library/azure/ee460808.aspx), [Delete Deployment](https://msdn.microsoft.com/library/azure/ee460815.aspx), and [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx).
+Существуют следующие операции изменения: [Изменить конфигурацию развертывания](https://msdn.microsoft.com/library/azure/ee460809.aspx), [Обновить развертывание](https://msdn.microsoft.com/library/azure/ee460793.aspx), [Обновить состояние развертывания](https://msdn.microsoft.com/library/azure/ee460808.aspx), [Удалить развертывание](https://msdn.microsoft.com/library/azure/ee460815.aspx) и [Откатить обновление](https://msdn.microsoft.com/library/azure/hh403977.aspx).
 
-Two operations, [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx), return the Locked flag which can be examined to determine whether a mutating operation can be invoked on a given deployment.
+Две операции ([Получить развертывание](https://msdn.microsoft.com/library/azure/ee460804.aspx) и [Получить свойства облачной службы](https://msdn.microsoft.com/library/azure/ee460806.aspx)) возвращают тег блокировки Locked, который позволяет определить, можно ли запустить операции изменения в определенном развертывании.
 
-In order to call the version of these methods which returns the Locked flag, you must set request header to “x-ms-version: 2011-10-01” or a later. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
+Чтобы получить эти элементы, в запросе при вызове метода должен быть указан заголовок «x-ms-version: 2011-10-01» или с более поздней версией. Подробнее о заголовках управления версиями см. в статье [Управление версиями службы управления](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
 <a name="distributiondfroles"></a>
-## <a name="distribution-of-roles-across-upgrade-domains"></a>Distribution of roles across upgrade domains
-Azure distributes instances of a role evenly across a set number of upgrade domains, which can be configured as part of the service definition (.csdef) file. The max number of upgrade domains is 20 and the default is 5. For more information about how to modify the service definition file, see [Azure Service Definition Schema (.csdef File)](cloud-services-model-and-package.md#csdef).
+## Распределение ролей в доменах обновления
+Azure равномерно распределяет экземпляры роли по заданному количеству доменов обновления, которое можно указать в файле определения службы (CSDEF). По умолчанию используется 5 доменов обновления, а максимально возможное количество равно 20. Подробнее об изменении файла определения службы см. в разделе [Схема определения службы Azure (CSDEF-файл)](cloud-services-model-and-package.md#csdef).
 
-For example, if your role has ten instances, by default each upgrade domain contains two instances. If your role has 14 instances, then four of the upgrade domains contain three instances, and a fifth domain contains two.
+Например, для роли с 10 экземплярами к каждому домену обновления по умолчанию будет отнесено 2 экземпляра. Если роль содержит 14 экземпляров, в четырех доменах обновления будет по три экземпляра, а в пятом — два экземпляра.
 
-Upgrade domains are identified with a zero-based index: the first upgrade domain has an ID of 0, and the second upgrade domain has an ID of 1, and so on.
+Нумерация доменов обновления начинается с нуля: первый домен обновления имеет идентификатор 0, второй — идентификатор 1 и т. д.
 
-The following diagram illustrates how a service than contains two roles are distributed when the service defines two upgrade domains. The service is running eight instances of the web role and nine instances of the worker role.
+Следующая схема демонстрирует распределение экземпляров в службе, содержащей две роли, если задано два домена обновления. Служба выполняет восемь экземпляров веб-роли и девять экземпляров рабочей роли.
 
-![Distribution of Upgrade Domains](media/cloud-services-update-azure-service/IC345533.png "Distribution of Upgrade Domains")
+![Распределение доменов обновления](media/cloud-services-update-azure-service/IC345533.png "Распределение доменов обновления")
 
-> [AZURE.NOTE] Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
+> [AZURE.NOTE] Обратите внимание, что распределением экземпляров в домены обновления управляет Azure. Вы не можете повлиять на то, в какой домен будут включены конкретные экземпляры.
 
-## <a name="next-steps"></a>Next steps
-[How to Manage Cloud Services](cloud-services-how-to-manage.md)  
-[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)  
-[How to Configure Cloud Services](cloud-services-how-to-configure.md)  
+## Дальнейшие действия
+[Управление облачными службами](cloud-services-how-to-manage.md) [Мониторинг облачных служб](cloud-services-how-to-monitor.md) [Настройка облачных служб](cloud-services-how-to-configure.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

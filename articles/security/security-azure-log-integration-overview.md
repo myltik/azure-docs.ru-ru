@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduction to Microsoft Azure log integration | Microsoft Azure"
-   description="Learn about Azure log integration, its key capabilities, and how it works."
+   pageTitle="Введение в службу интеграции журналов Microsoft Azure (предварительная версия) | Microsoft Azure"
+   description="Узнайте о службе интеграции журналов Azure, ее основных возможностях и принципах работы."
    services="security"
    documentationCenter="na"
    authors="TomShinder"
@@ -16,46 +16,41 @@
    ms.date="08/24/2016"
    ms.author="TomSh"/>
 
+# Введение в службу интеграции журналов Microsoft Azure (предварительная версия)
 
-# <a name="introduction-to-microsoft-azure-log-integration-(preview)"></a>Introduction to Microsoft Azure log integration (Preview)
+Узнайте о службе интеграции журналов Azure, ее основных возможностях и принципах работы.
 
-Learn about Azure log integration, its key capabilities, and how it works.
+## Обзор
 
-## <a name="overview"></a>Overview
+Платформа как услуга (PaaS) и инфраструктура как услуга (IaaS), размещенные в Azure, создают большой объем данных в журналах безопасности. Эти журналы содержат важную информацию, позволяющую получить ценные сведения о нарушениях политик, внутренних и внешних угрозах, проблемах соответствия нормативным требованиям и аномалиях в работе сети, узлов и активности пользователей.
 
-Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) hosted in Azure generate a large amount of data in security logs. These logs contain vital information that can provide intelligence and powerful insights into policy violations, internal and external threats, regulatory compliance issues, and anomalies in network, host, and user activity.
+Служба интеграции журналов Azure позволяет интегрировать необработанные журналы из ресурсов Azure с локальными системами SIEM (Security Information and Event Management). Служба интеграции журналов Azure собирает данные системы диагностики Azure из виртуальных машин Windows *(WAD)*, а также диагностические данные от партнерских решений, таких как брандмауэр веб-приложения (WAF). С помощью такой интеграции вы можете получить доступ ко всем своим ресурсам, локальным или облачным, на единой панели мониторинга, что позволяет выполнять статистическую обработку, сопоставление и анализ, а также предупреждать о событиях безопасности.
 
-Azure log integration enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. Azure log integration collects Azure Diagnostics from your Windows *(WAD)* virtual machines, as well as diagnostics from partner solutions such as a Web Application Firewall (WAF). This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
+![Служба интеграции журналов Azure][1]
 
-![Azure log integration][1]
+## Какие журналы можно интегрировать?
 
-## <a name="what-logs-can-i-integrate?"></a>What logs can I integrate?
+Azure создает подробные журналы для каждой службы Azure. Они подразделяются на следующие две основные категории:
 
-Azure produces extensive logging for every Azure service. These logs are categorized by two main types:
+- **Журналы управления и контроля**, которые предоставляют информацию о таких операциях Azure Resource Manager, как CREATE, UPDATE и DELETE. К этому типу, например, относятся журналы аудита Azure.
+- **Журналы плоскости данных**, которые предоставляют информацию о событиях, возникающих при использовании ресурса Azure. Например, к этому типу относятся журналы событий Windows для системы, безопасности и приложений на виртуальной машине.
 
-- **Control/management logs**, which give visibility into the Azure Resource Manager CREATE, UPDATE, and DELETE operations. Azure Audit Logs is an example of this type of log.
-- **Data plane logs**, which give visibility into the events raised as part of the usage of an Azure resource. Examples of this type of log are the Windows event System, Security, and Application logs in a virtual machine.
+В настоящее время служба интеграция журналов Azure поддерживает интеграцию журналов аудита Azure, журналов виртуальных машин и оповещений центра безопасности Azure.
 
-Azure log integration currently supports integration of Azure Audit Logs, virtual machine logs, and Azure Security Center alerts.
+Если у вас есть вопросы о службе интеграции журналов Azure, отправьте электронное сообщение на адрес [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com).
 
-If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com] (mailto:AzSIEMteam@microsoft.com)
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+В этом документе вы ознакомились со службой интеграции журналов Azure. Чтобы узнать больше о службе интеграции журналов Azure и поддерживаемых типах журналов, ознакомьтесь с приведенными ниже статьями.
 
-In this document, you were introduced to Azure log integration. To learn more about Azure log integration and the types of logs supported, see the following:
-
-- [Microsoft Azure Log Integration for Azure logs (Preview)](https://www.microsoft.com/download/details.aspx?id=53324) – Download Center for details, system requirements, and install instructions on Azure log integration.
-- [Get started with Azure log integration](security-azure-log-integration-get-started.md) - This tutorial walks you through installation of Azure log integration and integrating logs from Azure storage, Azure Audit Logs, and Security Center alerts.
-- [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – This blog post shows you how to configure Azure log integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar.
-- [Azure log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md) - This FAQ answers questions about Azure log integration.
-- [Integrating Security Center alerts with Azure log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md) – This document shows you how to sync Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure Audit Logs, with your log analytics or SIEM solution.
-- [New features for Azure diagnostics and Azure Audit Logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – This blog post introduces you to Azure Audit Logs and other features that help you gain insights into the operations of your Azure resources.
+- [Microsoft Azure Log Integration for Azure logs (Preview)](https://www.microsoft.com/download/details.aspx?id=53324) (Служба интеграции журналов Microsoft Azure для журналов Azure (предварительная версия)) — посетите Центр загрузки, чтобы получить дополнительные сведения, изучить требования к системе и инструкции по установке службы интеграции журналов Azure.
+- [Приступая к работе со службой интеграции журналов Azure](security-azure-log-integration-get-started.md) — в этом учебнике рассматривается установка службы интеграции журналов Azure и интеграция журналов из службы хранилища Azure, журналов аудита Azure и оповещений центра безопасности Azure.
+- [Azure Log Integration SIEM configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) (Настройка SIEM для службы интеграции журналов Azure) — в этой записи блога показано, как настроить службу интеграции журналов Azure для работы с такими решениями партнеров, как Splunk, HP ArcSight и IBM QRadar.
+- [Azure log integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md) (Служба интеграции журналов Azure: часто задаваемые вопросы) — эта статья содержит ответы на часто задаваемые вопросы об интеграции журналов Azure.
+- [Интеграция оповещений центра обеспечения безопасности с помощью интеграции журналов Azure (предварительная версия)](../security-center/security-center-integrating-alerts-with-log-integration.md) — в этом документе показано, как синхронизировать оповещения центра безопасности, а также события безопасности виртуальных машин, собранные системой диагностики Azure и в журналах аудита Azure, с решением Log Analytics или SIEM.
+- [New features for Azure diagnostics and Azure Audit logs](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) (Новые возможности системы диагностики Azure и журналов аудита Azure) — в этой записи блога рассказывается о журналах аудита Azure и других функциях, которые помогут глубже понять, как работают ваши ресурсы Azure.
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

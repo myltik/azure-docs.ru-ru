@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Restore from a backup of your StorSimple Virtual Array"
-   description="Learn more about how to restore a backup of your StorSimple Virtual Array."
+   pageTitle="Восстановление из резервной копии виртуального массива StorSimple (предварительная версия)"
+   description="Дополнительные сведения о том, как восстановить ресурсы из резервной копии виртуального массива StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,129 +16,124 @@
    ms.date="06/07/2016"
    ms.author="alkohli"/>
 
+# Восстановление из резервной копии виртуального массива StorSimple (предварительная версия)
 
-# <a name="restore-from-a-backup-of-your-storsimple-virtual-array"></a>Restore from a backup of your StorSimple Virtual Array
+## Обзор 
 
-## <a name="overview"></a>Overview 
-
-This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running March 2016 general availability (GA) release or later. This article describes step-by-step how to restore from a backup set of your shares or volumes on your StorSimple Virtual Array. The article also details how the item-level recovery works on your StorSimple Virtual Array that is configured as a file server.
-
-
-## <a name="restore-shares-from-a-backup-set"></a>Restore shares from a backup set
+Эта статья относится к виртуальному массиву Microsoft Azure StorSimple (также известному как локальное виртуальное устройство StorSimple или виртуальное устройство StorSimple) общедоступной версии, выпущенной в марте 2016 года, или более поздней версии. В этой статье описаны шаги по восстановлению общих ресурсов и томов для виртуального массива StorSimple из набора архивации. Здесь также подробно объясняется, как происходит восстановление на уровне элементов для виртуального массива StorSimple, настроенного в качестве файлового сервера.
 
 
-**Before you try to restore shares, ensure that you have sufficient space on the device to complete this operation.** To restore from a backup, in the [Azure classic portal](https://manage.windowsazure.com/), perform the following steps.
-
-#### <a name="to-restore-a-share"></a>To restore a share
-
-1.  Browse to the **Backup Catalog**. Filter by appropriate device and time range to search for your backups. Click the check icon ![](./media/storsimple-ova-restore/image1.png) to execute the query.
+## Восстановление общих папок из набора архивации
 
 
-1.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various shares under it. Click and select a share that you want to restore.
+**Прежде чем начать восстановление общих папок, убедитесь, что на устройстве достаточно места для выполнения этой операции.** Чтобы восстановить том из резервной копии, выполните указания, приведенные ниже, на [классическом портале Azure](https://manage.windowsazure.com/).
 
-2.  At the bottom of the page, click **Restore as new**.
+#### Восстановление общей папки
 
-3.  This will initiate the **Restore as new share** wizard. On the **Specify name and location** page:
-
-
-    1.  Verify the source device name. This should be the device that contains the share you want to restore. The device selection is grayed out. To select a different source device, you will need to exit the wizard and reselect the backup set again.
-
-    2.  Provide a share name. The share name must contain 3 to 127 characters.
-
-    3.  Review the size, type, and permissions associated with the share that you are trying to restore. You will be able to modify the share properties via Windows Explorer after the restore is complete.
-
-    4.  Click the check icon ![](./media/storsimple-ova-restore/image1.png).
-
-        ![](./media/storsimple-ova-restore/image9.png)
-
-1.  After the restore job is complete, the restore will start and you will see another notification. To monitor the progress of restore, click **View job**. This will take you to the **Jobs** page.
-
-2.  You can track the progress of the restore job. When the restore is 100% complete, navigate back to the **Shares** page on your device.
-
-3.  You can now view the new restored share in the list of shares on your device. Note that restore is done to the same type of the share. A tiered share is restored as tiered and a locally pinned share as a locally pinned share.
-
-You have now completed the device configuration and learned how to backup or restore a share. 
+1.  Перейдите к **каталогу архивов**. Отфильтруйте содержимое по соответствующему устройству и времени, чтобы найти необходимые резервные копии. Щелкните значок галочки ![](./media/storsimple-ova-restore/image1.png), чтобы выполнить запрос.
 
 
-## <a name="restore-volumes-from-a-backup-set"></a>Restore volumes from a backup set
+1.  В отображенном списке наборов архивации щелкните и выберите определенную резервную копию. Разверните резервную копию, чтобы увидеть общие папки, которые она содержит. Щелкните и выберите общую папку, которую нужно восстановить.
+
+2.  В нижней части страницы щелкните **Восстановить в качестве новой**.
+
+3.  Запустится мастер **Восстановление как нового общего файлового ресурса**. На странице **Указание имени и расположения** выполните следующее.
 
 
-To restore from a backup, in the Azure classic portal, perform the following steps. The restore operation restores the backup to a new volume on the same virtual device; you cannot restore to a different device.
+	1.  Проверьте имя исходного устройства. Это должно быть устройство, где содержится общая папка, которую нужно восстановить. Выбор устройств будет недоступен. Чтобы выбрать другое исходное устройство, нужно выйти из мастера и снова выбрать набор архивации.
 
-#### <a name="to-restore-a-volume"></a>To restore a volume
+	2.  Введите имя общей папки. Его имя должно быть от 3 до 127 символов в длину.
 
-1.  Browse to the **Backup Catalog**. Filter by appropriate device and time range to search for your backups. Click the check icon ![](./media/storsimple-ova-restore/image1.png) to execute the query.
+	3.  Проверьте размер, тип и разрешения, связанные с восстанавливаемой общей папкой. После восстановления свойства общей папки можно будет изменить в проводнике.
 
-2.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various volumes under it. Select the volume you want to restore. 
+	4.  Щелкните значок галочки ![](./media/storsimple-ova-restore/image1.png).
 
-5.  At the bottom of the page, click **Restore as new**. The **Restore as new volume** wizard will start.
+		![](./media/storsimple-ova-restore/image9.png)
 
-1.  On the **Specify name and location** page:
+1.  По завершении задания начнется восстановление и появится другое уведомление. Чтобы проконтролировать ход восстановления, щелкните **Просмотреть задание**. После этого вы перейдете на страницу **Задания**.
+
+2.  Здесь вы можете проследить за выполнением задания восстановления. Когда восстановление будет завершено на 100 %, перейдите на страницу **Общие файловые ресурсы** устройства.
+
+3.  Теперь вы можете просмотреть восстановленную общую папку в списке общих папок на устройстве. Обратите внимание, что после восстановления у общей папки будет тот же тип. Многоуровневая общая папка будет восстановлена в качестве многоуровневой общей папки, а локально закрепленная общая папка — в качестве локально закрепленной.
+
+Настройка устройства завершена. Теперь вы знаете, как создать резервную копию общей папки и восстановить ее.
 
 
-    1.  Verify the source device name. This should be the device that contains the volume that you want to restore. The device selection is unavailable. To select a different source device, you will need to exit the wizard and reselect the backup set again.
+## Восстановление томов из набора архивации
 
-    2.  Provide a volume name for the volume being restored as new. The volume name must contain 3 to 127 characters.
 
-    3.  Click the arrow icon.
+Чтобы восстановить том из резервной копии, выполните шаги ниже на классическом портале Azure. Операция предполагает восстановление резервной копии в новом томе того же виртуального устройства. Нельзя выполнить восстановление на другое устройство.
 
-        ![](./media/storsimple-ova-restore/image12.png)
+#### Восстановление тома
 
-1.  On the **Specify hosts that can use this volume** page, select the appropriate ACRs from the dropdown list.
+1.  Перейдите к **каталогу архивов**. Отфильтруйте содержимое по соответствующему устройству и времени, чтобы найти необходимые резервные копии. Щелкните значок галочки ![](./media/storsimple-ova-restore/image1.png), чтобы выполнить запрос.
 
-    ![](./media/storsimple-ova-restore/image13.png)
+2.  В отображенном списке наборов архивации щелкните и выберите определенную резервную копию. Разверните резервную копию, чтобы увидеть тома, которые она содержит. Выберите том, который требуется восстановить.
 
-1.  Click the check icon ![](./media/storsimple-ova-restore/image1.png). This will initiate a restore job and you will see the following notification that the job is in progress.
+5.  В нижней части страницы щелкните **Восстановить как новый**. Запустится мастер **Восстановление как нового тома**.
 
-2.  After the restore job is complete, the restore will start and you will see another notification. To monitor the progress of restore, click **View job**. This will take you to the **Jobs** page.
+1.  На странице **Указание имени и расположения** выполните следующее.
 
-3.  You can track the progress of the restore job. Navigate back to the **Volumes** page on your device.
 
-4.  You can now view the new restored volume in the list of volumes on your device. Note that restore is done to the same type of volume. A tiered volume is restored as tiered and a locally pinned volume is restored as a locally pinned volume.
+	1.  Проверьте имя исходного устройства. Это должно быть устройство, где содержится том, который нужно восстановить. Выбор устройств будет недоступен. Чтобы выбрать другое исходное устройство, нужно выйти из мастера и снова выбрать набор архивации.
 
-5.  Once the volume appears online on the list of volumes, the volume is available for use.  On the iSCSI initiator host, refresh the list of targets in iSCSI initiator properties window.  A new target which contains the restored volume name should appear as 'inactive' under the status column.
+	2.  Укажите имя восстанавливаемого в качестве нового тома. Оно должно быть от 3 до 127 символов в длину.
 
-6.  Select the target and click **Connect**.   After the initiator is connected to the target, the status should change to **Connected**. 
+	3.  Щелкните значок стрелки.
 
-7.  In the **Disk Management** window, the mounted volumes will appear as shown in the following illustration. Right-click the discovered volume (click the disk name), and then click **Online**.
+		![](./media/storsimple-ova-restore/image12.png)
 
-> [AZURE.IMPORTANT] When trying to restore a volume or a share from a backup set, if the restore job fails, a target volume or share may still be created in the portal. It is important that you delete this target volume or share in the portal to minimize any  future issues arising from this element.
+1.  На странице **Указание узлов, которые могут использовать этот том** из раскрывающегося списка выберите соответствующие ACR.
 
-## <a name="item-level-recovery-(ilr)"></a>Item-level recovery (ILR)
+	![](./media/storsimple-ova-restore/image13.png)
 
-This release introduces the item-level recovery (ILR) on a StorSimple virtual device configured as a file server. The feature allows you to do granular recovery of files and folders from a cloud backup of all the shares on the StorSimple device. Users can retrieve deleted files from recent backups using a self-service model.
+1.  Щелкните значок галочки ![](./media/storsimple-ova-restore/image1.png). Это запустит задание восстановления, и вы увидите уведомление о том, что задание выполняется.
 
-Every share has a *.backups* folder that contains the most recent backups. The user can navigate to the desired backup, copy relevant files and folders from the backup and restore them. This eliminates calls to administrators for restoring files from backups.
+2.  По завершении задания начнется восстановление и появится другое уведомление. Чтобы наблюдать ход восстановления, щелкните **Просмотреть задание**. Откроется страница **Задания**.
 
-1.  When performing the ILR, you can view the backups through Windows Explorer. Click the specific share that you want to look at the backup for. You will see a *.backups* folder created under the share that stores all the backups. Expand the *.backups* folder to view the backups. The folder will then show the exploded view of the entire backup hierarchy. This view is created on-demand and usually takes only a couple of seconds to create.
+3.  Здесь вы можете проследить за выполнением задания восстановления. Вернитесь на страницу **Тома** устройства.
 
-    The last 5 backups are displayed in this way and can be used to perform an item-level recovery. The 5 recent backups include both the default scheduled and the manual backups.
+4.  Теперь вы можете просмотреть восстановленный том в списке томов на устройстве. Обратите внимание, что после восстановления у тома будет тот же тип. Многоуровневый том будет восстановлен в качестве многоуровневого тома, а локально закрепленный том — в качестве локально закрепленного.
 
-    
-    -   **Scheduled backups** named as &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
+5.  Как только том появится в списке томов в сети, он будет доступен для использования. На узле инициатора iSCSI обновите список целей в окне свойств инициатора iSCSI. Новая цель, которая содержит имя восстановленного тома, должна иметь значение "Неактивна" в столбце состояния.
 
-    -   **Manual backups** named as Ad-hoc-YYYYMMDD-HHMMSS-UTC.
-    
-        ![](./media/storsimple-ova-restore/image14.png)
+6.  Выберите цель и щелкните **Подключиться**. После подключения инициатора к цели состояние должно измениться на **Подключено**.
 
-1.  Identify the backup containing the most recent version of the deleted file. Though the folder name contains a UTC timestamp in each of the above cases, the time at which the folder was created is the actual device time when the backup started. Use the folder timestamp to locate and identify the backups.
+7.  В окне **Управление дисками** подключенные тома отображаются так, как показано на следующем рисунке. Щелкните правой кнопкой мыши обнаруженные тома (щелкните имя диска) и выберите пункт **Подключить**.
 
-2.  Locate the folder or the file that you want to restore in the backup that you identified in the previous step. Note you can only view the files or folders that you have permissions for. If you are not able to access certain files or folders, you will need to contact a share administrator who can use Windows Explorer to edit the share permissions and give you access to the specific file or folder. It is a recommended best practice that the share administrator be a user group instead of a single user.
+> [AZURE.IMPORTANT] Если при попытке восстановить том или общую папку из набора архивации происходит сбой задания восстановления, на портале все равно может быть создан целевой том или общая папка. Важно удалить этот целевой том или общую папку на портале, чтобы свести к минимуму проблемы, которые могут возникнуть из-за этого элемента.
 
-3.  Copy the file or the folder to the appropriate share on your StorSimple file server.
+## Восстановление на уровне элементов
 
-![video_icon](./media/storsimple-ova-restore/video_icon.png) **Video available**
+В этом выпуске добавлена возможность восстановления на уровне элементов на виртуальном устройстве StorSimple, которое настроено в качестве файлового сервера. Эта функция позволяет выполнять фрагментарное восстановление файлов и папок из облачной резервной копии всех общих папок на устройстве StorSimple. Пользователи могут извлекать удаленные файлы из последних резервных копий, используя модель самообслуживания.
 
-Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
+В каждом общем ресурсе есть папка *.backups*, в которой хранятся самые последние резервные копии. Пользователь может перейти к нужной резервной копии, скопировать из нее соответствующие файлы и папки, а затем восстановить их. Это устраняет необходимость обращаться к администратору за восстановлением файлов из резервных копий.
+
+1.  При восстановлении на уровне элементов резервные копии можно просмотреть через проводник. Выберите конкретную общую папку, резервные копии которой необходимо просмотреть. Вы увидите папку *.backups* общего ресурса, в которой хранятся все резервные копии. Разверните папку *.backups*, чтобы просмотреть резервные копии. Папка будет отображаться в разрезе всей иерархии резервных копий. Такое представление создается по запросу всего за несколько секунд (как правило).
+
+	Так будут отображены последние пять резервных копий, которые можно использовать для выполнения восстановления на уровне элемента. Они включают в себя резервные копии, которые создаются запланировано по умолчанию и те, что создаются вручную.
+
+	
+	-   У имен **запланированных резервных копий** такой формат: "&lt;Имя устройства&gt;DailySchedule-ГГГГММДД-ЧЧММСС-UTC".
+
+	-   У имен **резервных копий, созданных вручную**, такой формат: "Ad-hoc-ГГГГММДД-ЧЧММСС-UTC".
+	
+		![](./media/storsimple-ova-restore/image14.png)
+
+1.  Укажите резервную копию, в которой содержится последняя версия удаленного файла. В каждом из случаев выше в имени папки есть метка времени UTC, но на самом деле время создания папки — это фактическое время запуска резервного копирования на устройстве. Метку времени папки можно использовать для поиска и идентификации резервных копий.
+
+2.  В резервной копии, определенной на предыдущем шаге, найдите папку или файл, которые нужно восстановить. Обратите внимание, что вы можете просматривать только те файлы или папки, на которые у вас есть разрешения. Если к определенным файлам и папкам не удается получить доступ, нужно обратиться к администратору общей папки. Он сможет использовать проводник, чтобы изменить разрешения общей папки и предоставить вам доступ к файлу или папке. Советуем настроить администраторские права не для одного пользователя, а для группы пользователей.
+
+3.  Скопируйте файл или папку в соответствующую общую папку на файловом сервере StorSimple.
+
+![video\_icon](./media/storsimple-ova-restore/video_icon.png) **Доступно видео**
+
+Просмотрите видео о том, как создавать общие папки, выполнять их резервное копирование и восстанавливать данные на виртуальном массиве StorSimple.
 
 > [AZURE.VIDEO use-the-storsimple-virtual-array]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
+Узнайте, как осуществлять [администрирование виртуального массива StorSimple, используя локальный пользовательский веб-интерфейс](storsimple-ova-web-ui-admin.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0629_2016-->

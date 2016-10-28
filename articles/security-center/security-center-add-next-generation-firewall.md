@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Add a next generation firewall in Azure Security Center | Microsoft Azure"
-   description="This document shows you how to implement the Azure Security Center recommendations **Add a Next Generation Firewall** and **Route traffice through NGFW only**."
+   pageTitle="Добавление брандмауэра следующего поколения в центре безопасности Azure | Microsoft Azure"
+   description="В этом документе показано, как выполнить рекомендации центра безопасности **Добавить брандмауэр следующего поколения** и **Route traffic through NGFW only** (Маршрутизировать трафик только через NGFW)."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,63 +16,52 @@
    ms.date="07/26/2016"
    ms.author="terrylan"/>
 
+# Добавление брандмауэра следующего поколения в центре безопасности Azure
 
-# <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Add a Next Generation Firewall in Azure Security Center
+Центр безопасности Azure может рекомендовать добавить брандмауэр следующего поколения (NGFW) от партнера корпорации Майкрософт для повышения безопасности. В этом документе вы найдете пример применения такой рекомендации.
 
-Azure Security Center may recommend that you add a next generation firewall (NGFW) from a Microsoft partner in order to increase your security protections. This document walks you through an example of how to do this.
+> [AZURE.NOTE] В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+## Выполнение рекомендаций
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. В колонке **Рекомендации** выберите **Добавить брандмауэр следующего поколения**. ![Добавление брандмауэра следующего поколения][1]
 
-1. In the **Recommendations** blade, select **Add a Next Generation Firewall**.
-![Add a Next Generation Firewall][1]
+2. В колонке **Добавить брандмауэр следующего поколения** выберите конечную точку. ![Выбор конечной точки][2]
 
-2. In the **Add a Next Generation Firewall** blade, select an endpoint.
-![Select an endpoint][2]
+3. Откроется вторая колонка **Добавить брандмауэр следующего поколения**. Можно использовать существующее решение (если оно доступно) или создать новое. В этом примере нет доступных решений, поэтому мы создадим новый NGFW. ![Создание нового брандмауэра следующего поколения][3]
 
-3. A second **Add a Next Generation Firewall** blade opens. You can choose to use an existing solution if available or you can create a new one. In this example there are no existing solutions available so we'll create a new NGFW.
-![Create new Next Generation Firewall][3]
+4. Чтобы создать NGFW, выберите решение из списка решений партнеров по интеграции. В этом примере мы выберем **Check Point**. ![Выбор решения брандмауэра следующего поколения][4]
 
-4. To create a new NGFW, select a solution from the list of integrated partners. In this example we will select **Check Point**.
-![Select Next Generation Firewall solution][4]
+5. Откроется колонка **Check Point**, в которой содержатся сведения о решении партнера. В колонке сведений щелкните **Создать**. ![Колонка со сведениями о брандмауэре][5]
 
-5. The **Check Point** blade opens providing you information about the partner solution. Select **Create** in the information blade.
-![Firewall information blade][5]
+6. Откроется колонка **Создание виртуальной машины**. В ней можно ввести сведения, необходимые для настройки виртуальной машины, на которой будет выполняться NGFW. Следуйте инструкциям и укажите требуемые данные NGFW. Нажмите кнопку "ОК", чтобы применить введенные данные. ![Создание виртуальной машины для выполнения NGFW][6]
 
-6. The **Create virtual machine** blade opens. Here you can enter information required to spin up a virtual machine (VM) that will run the NGFW. Follow the steps and provide the NGFW information required. Select OK to apply.
-![Create virtual machine to run NGFW][6]
+## Маршрутизация трафика только через NGFW
 
-## <a name="route-traffic-through-ngfw-only"></a>Route traffic through NGFW only
+Вернитесь в колонку **Рекомендации**. После добавления NGFW посредством центра безопасности была создана новая запись **Route traffic through NGFW only** (Маршрутизировать трафик только через NGFW). Эта рекомендация создается только в том случае, если вы установили NGFW с помощью центра безопасности. При наличии подключенных к Интернету конечных точек центр безопасности будет рекомендовать настроить правила группы безопасности сети, которые принудительно передают входящий трафик на виртуальную машину через ваш NGFW.
 
-Return to the **Recommendations** blade. A new entry was generated after you added a NGFW via Security Center, called **Route traffic through NGFW only**. This recommendation is created only if you installed your NGFW through Security Center. If you have Internet-facing endpoints, Security Center will recommend that you configure Network Security Group rules that force inbound traffic to your VM through your NGFW.
+1. В колонке **Рекомендации** выберите **Route traffic through NGFW only** (Маршрутизировать трафик только через NGFW). ![Маршрутизация трафика только через NGFW][7]
 
-1. In the **Recommendations blade**, select **Route traffic through NGFW only**.
-![Route traffic through NGFW only][7]
+2. Откроется колонка **Route traffic through NGFW only** (Маршрутизация трафика только через NGFW), в которой перечислены виртуальные машины, для которых можно перенаправлять трафик. Выберите виртуальную машину из списка. ![Выбор виртуальной машины][8]
 
-2. This opens the blade **Route traffic through NGFW only** which lists VMs that you can route traffic to. Select a VM from the list.
-![Select a VM][8]
+3. Откроется колонка для выбранной виртуальной машины, содержащая связанные правила входящего трафика. Отображенное описание будет содержать дополнительные сведения о возможных дальнейших действиях. Выберите **Изменить правила для входящего трафика**, чтобы перейти к изменению правила входящего трафика. Ожидается, что для параметра **Источник** подключенных к Интернету конечных точек, которые связаны с NGFW, не задано значение **Любой**. Чтобы узнать больше о свойствах правила входящего трафика, ознакомьтесь с [правилами группы безопасности сети](../virtual-network/virtual-networks-nsg.md#nsg-rules). ![Настройка правил для ограничения доступа][9] ![Изменение правила входящего трафика][10]
 
-3. A blade for the selected VM opens, displaying related inbound rules. A description provides you with more information on possible next steps. Select **Edit inbound rules** to proceed with editing an inbound rule. The expectation is that **Source** is not set to **Any** for the Internet-facing endpoints linked with the NGFW. To learn more about the properties of the inbound rule, see [NSG rules](../virtual-network/virtual-networks-nsg.md#nsg-rules).
-![Configure rules to limit access][9]
-![Edit inbound rule][10]
+## См. также
 
-## <a name="see-also"></a>See also
-
-This document showed you how to implement the Security Center recommendation "Add a Next Generation Firewall." To learn more about NGFWs and the Check Point partner solution, see the following:
+В этом документе показано, как выполнить рекомендацию центра безопасности "Добавить брандмауэр следующего поколения". Для получения дополнительных сведений о NGFW и решении партнера Check Point ознакомьтесь со статьями:
 
 - [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
 - [Check Point vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
 
-To learn more about Security Center, see the following:
+Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
+- [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — узнайте, как настраивать политики безопасности.
+- [Управление рекомендациями по безопасности в Центре безопасности Azure](security-center-recommendations.md). Узнайте, как рекомендации могут помочь вам защитить ресурсы Azure.
+- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md) — узнайте, как наблюдать за работоспособностью ресурсов Azure.
+- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
+- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md) — узнайте, как отслеживать состояние работоспособности решений партнеров.
+- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
+- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — публикации блога, посвященные безопасности и соответствию требованиям в Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-add-next-gen-firewall/add-next-gen-firewall.png
@@ -86,8 +75,4 @@ To learn more about Security Center, see the following:
 [9]: ./media/security-center-add-next-gen-firewall/configure-rules-to-limit-access.png
 [10]: ./media/security-center-add-next-gen-firewall/edit-inbound-rule.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

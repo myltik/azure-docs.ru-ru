@@ -1,91 +1,88 @@
 <properties
-    pageTitle="Manage Azure Traffic Manager profiles | Microsoft Azure"
-    description="This article helps you create, disable, enable, delete, and view the history of a Azure Traffic Manager profile."
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
+   pageTitle="Управление профилями диспетчера трафика Microsoft Azure | Microsoft Azure"
+   description="Эта статья содержит информацию о том, как создавать, отключать, включать, удалять и просматривать журнал профиля диспетчера трафика Azure."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="sdwheeler"
+   manager="carmonm"
+   editor="tysonn" />
 <tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="03/17/2016"
+   ms.author="sewhee" />
+
+# Управление профилем диспетчера трафика Azure
+
+Профиль диспетчера трафика нужен, чтобы определять, какие конечные точки облачных служб и веб-сайтов будет отслеживать диспетчер трафика, а также какой метод маршрутизации трафика будет использоваться для распределения соединений между этими конечными точками.
+
+## Создание профиля диспетчера трафика с помощью быстрого создания
+
+Используя функцию быстрого создания на классическом портале Azure, вы можете легко создать профиль диспетчера трафика. Эта функция дает возможность создавать профили с параметрами основной конфигурации. Однако ее нельзя использовать, чтобы настроить набор конечных точек (облачных служб и веб-сайтов), порядок отработки отказа для метода отказоустойчивой маршрутизации трафика, параметры мониторинга и т. д. Эти параметры можно настроить на классическом портале Azure уже после создания профиля. Диспетчер трафика поддерживает до 200 конечных точек на профиль. Однако для большинства сценариев использования требуется небольшое количество конечных точек.
+
+### Создание профиля диспетчера трафика
+
+1. **Разверните свои облачные службы и веб-сайты в рабочей среде.** Дополнительную информацию об облачных службах см. в статье [Облачные службы](http://go.microsoft.com/fwlink/p/?LinkId=314074). Информацию об облачных службах см. в статье [Рекомендации](https://msdn.microsoft.com/library/azure/5229dd1c-5a91-4869-8522-bed8597d9cf5#bkmk_TrafficManagerBestPracticesProfile). Дополнительную информацию о веб-сайтах см. в статье [Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327).
+
+2. **Войдите на классический портал Azure.** Чтобы создать новый профиль диспетчера трафика, щелкните **Создать** в левом нижнем углу портала, а затем, чтобы начать настройку профиля, последовательно щелкните **Сетевые службы > Диспетчер трафика** и **Быстрое создание**.
+3. **Настройте префикс DNS.** Присвойте профилю диспетчера трафика уникальное имя префикса DNS. Можно указать только префикс для доменного имени диспетчера трафика.
+4. **Выберите подписку.** Выберите соответствующую подписку Azure. Каждый профиль связан с одной подпиской. Если у вас только одна подписка, этот параметр не отображается.
+5. **Выберите метод маршрутизации трафика.** Выберите метод маршрутизации трафика в разделе **Политика маршрутизации трафика**. Дополнительную информацию о методах маршрутизации трафика см. в статье [О методах маршрутизации трафика в диспетчере трафика](traffic-manager-routing-methods.md).
+6. **Нажмите кнопку "Создать", чтобы создать новый профиль**. После завершения настройки профиля его можно найти на панели диспетчера трафика на классическом портале Azure.
+7. **Настройте конечные точки, мониторинг и дополнительные параметры на классическом портале Azure.** Так как с помощью функции быстрого создания можно настроить только базовые параметры, необходимо настроить дополнительные параметры, такие как список конечных точек и порядок отработки отказа конечных точек, чтобы завершить создание нужной конфигурации.
 
 
-# <a name="manage-an-azure-traffic-manager-profile"></a>Manage an Azure Traffic Manager profile
+## Включение, отключение или удаление профиля
 
-Traffic Manager profiles use traffic-routing methods to control the distribution of traffic to your cloud services or website endpoints. This article explains how to create and manage these profiles.
+Существующий профиль диспетчера трафика можно отключить, чтобы он не указывал запросам пользователей на соответствующие конечные точки. При отключении профиля диспетчера трафика сам профиль и содержащиеся в нем сведения останутся нетронутыми и могут быть отредактированы в интерфейсе диспетчера трафика. При необходимости можно снова включить профиль на классическом портале Azure, чтобы возобновить перенаправление. При создании профиля диспетчера трафика на классическом портале Azure он включается автоматически. Если вы решили, что профиль больше не нужен, его можно удалить.
 
-## <a name="create-a-traffic-manager-profile-using-quick-create"></a>Create a Traffic Manager profile using Quick Create
+### Отключение профиля
 
-You can quickly create a Traffic Manager profile by using Quick Create in the Azure classic portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover traffic routing method, or monitoring settings. After creating your profile, you can configure these settings in the Azure classic portal. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a few of endpoints.
+1. Измените запись ресурса DNS на DNS-сервере Интернета, чтобы использовать соответствующий тип записи и указатель на другое имя или IP-адрес определенного расположения в Интернете. Другими словами, измените запись ресурса DNS на DNS-сервере Интернета, чтобы она больше не использовала запись ресурса CNAME, указывающую на доменное имя вашего профиля диспетчера трафика.
+2. Трафик перестанет направляться на конечные точки посредством параметров профиля диспетчера трафика.
+3. Выберите профиль, который требуется отключить. Чтобы выбрать профиль, на странице диспетчера трафика выделите профиль, щелкнув столбец рядом с его именем. Не щелкайте имя профиля или стрелку рядом с именем, так как при этом вы перейдете на страницу параметров для профиля.
+4. После выбора профиля нажмите кнопку **Отключить** в нижней части страницы.
 
-### <a name="to-create-a-traffic-manager-profile"></a>To create a Traffic Manager profile
+### Включение профиля
 
-1. **Deploy your cloud services and websites to your production environment.** For more information about cloud services, see [Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074). For more information about websites, see [Websites](http://go.microsoft.com/fwlink/p/?LinkId=393327).
+1. Выберите профиль, который требуется включить. Чтобы выбрать профиль, на странице диспетчера трафика выделите профиль, щелкнув столбец рядом с его именем. Не щелкайте имя профиля или стрелку рядом с именем, так как при этом вы перейдете на страницу параметров для профиля.
+2. После выбора профиля нажмите кнопку **Включить** в нижней части страницы.
+3. Измените запись ресурса DNS на DNS-сервере Интернета, чтобы использовать тип записи CNAME, который сопоставляет доменное имя вашей компании с доменным именем вашего профиля диспетчера трафика. Дополнительную информацию см. в статье [Направление интернет-домена компании на домен диспетчера трафика](traffic-manager-point-internet-domain.md).
+4. Трафик снова будет направляться на конечные точки.
 
-2. **Log in to the Azure classic portal.** Click **New** on the lower left of the portal, click **Network Services > Traffic Manager**, and then click **Quick Create** to begin configuring your profile.
-3. **Configure the DNS prefix.** Give your traffic manager profile a unique DNS prefix name. You can specify only the prefix for a Traffic Manager domain name.
-4. **Select the subscription.** Select the appropriate Azure subscription. Each profile is associated with a single subscription. If you only have one subscription, this option does not appear.
-5. **Select the traffic routing method.** Select the traffic routing method in **traffic routing Policy**. For more information about traffic routing methods, see [About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md).
-6. **Click "Create" to create the profile**. When the profile configuration is completed, you can locate your profile in the Traffic Manager pane in the Azure classic portal.
-7. **Configure endpoints, monitoring, and additional settings in the Azure classic portal.** Using Quick Create only configures basic settings. It is necessary to configure additional settings such as the list of endpoints and the endpoint failover order.
+### Порядок удаления профиля
 
+1. Убедитесь, что запись ресурса DNS на DNS-сервере Интернета больше не использует запись ресурса CNAME, указывающую на доменное имя вашего профиля диспетчера трафика.
+2. Выберите профиль, который требуется удалить. Для этого выделите его на странице диспетчера трафика, щелкнув столбец рядом с именем профиля. Не щелкайте имя профиля или стрелку рядом с именем, так как при этом вы перейдете на страницу параметров для профиля.
+4. После выбора профиля нажмите кнопку **Удалить** в нижней части страницы.
 
-## <a name="disable,-enable,-or-delete-a-profile"></a>Disable, enable, or delete a profile
+## Просмотр журнала изменений профиля диспетчера трафика
 
-You can disable an existing profile so that Traffic Manager does not refer user requests to the configured endpoints. When you disable a Traffic Manager profile, the profile and the information contained in the profile remain intact and can be edited in the Traffic Manager interface.  Referrals resume when you re-enable the profile. When you create a Traffic Manager profile in the Azure classic portal, it's automatically enabled. If you decide a profile is no longer necessary, you can delete it.
+Журнал изменений профиля диспетчера трафика можно просмотреть на классическом портале Azure в разделе «Службы управления».
 
-### <a name="to-disable-a-profile"></a>To disable a profile
+### Для этого выполните следующее:
 
-1. If you are using a custom domain name, change the CNAME record on your Internet DNS server so that it no longer points to your Traffic Manager profile.
-2. Traffic stops being directed to the endpoints through the Traffic Manager profile settings.
-3. Select the profile that you want to disable. On the Traffic Manager page, highlight the profile by clicking the column next to the profile name. Note, clicking the name of the profile or the arrow next to the name opens the settings page for the profile.
-4. After selecting the profile, click **Disable** at the bottom of the page.
-
-### <a name="to-enable-a-profile"></a>To enable a profile
-
-1. Select the profile that you want to disable. On the Traffic Manager page, highlight the profile by clicking the column next to the profile name. Note, clicking the name of the profile or the arrow next to the name opens the settings page for the profile.
-2. After selecting the profile, click **Enable** at the bottom of the page.
-3. If you are using a custom domain name, create a CNAME resource record on your Internet DNS server to point to the domain name of your Traffic Manager profile.
-4. Traffic is directed to the endpoints again.
-
-### <a name="to-delete-a-profile"></a>To delete a profile
-
-1. Ensure that the DNS resource record on your Internet DNS server no longer uses a CNAME resource record that points to the domain name of your Traffic Manager profile.
-2. Select the profile that you want to disable. On the Traffic Manager page, highlight the profile by clicking the column next to the profile name. Note, clicking the name of the profile or the arrow next to the name opens the settings page for the profile.
-3. After selecting the profile, click **Delete** at the bottom of the page.
-
-## <a name="view-traffic-manager-profile-change-history"></a>View Traffic Manager profile change history
-
-You can view the change history for your Traffic Manager profile in the Azure classic portal in Management Services.
-
-### <a name="to-view-your-traffic-manager-change-history"></a>To view your Traffic Manager change history
-
-1. In the left pane of the Azure classic portal, click **Management Services**.
-2. On the Management Services page, click **Operation Logs**.
-3. On the Operation Logs page, you can filter to view the change history for your Traffic Manager profile. After selecting your filtering options, click the checkmark to view the results.
-
-   - To view the changes for all your profiles, select your subscription and time range and then select **Traffic Manager** from the **Type** shortcut menu.
-   - To filter by profile name, type the name of the profile in the **Service Name** field or select it from the shortcut menu.
-   - To view details for each individual change, select the row with the change that you want to view, and then click **Details** at the bottom of the page. In the **Operation Details** window, you can view the XML representation of the API object that was created or updated as part of the operation.
-
-## <a name="next-steps"></a>Next steps
-
-- [Add an endpoint](traffic-manager-endpoints.md)
-- [Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
-- [Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
-- [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
-- [Point a company Internet domain to a Traffic Manager domain name](traffic-manager-point-internet-domain.md)
-- [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
+1. В левой области классического портала Azure откройте раздел **Службы управления**.
+2. На странице служб управления щелкните **Журналы операций**.
+3. На странице «Журналы операций» вы можете с помощью фильтра выбрать журнал изменений для просмотра. Выбрав параметры фильтрации, установите флажок, чтобы просмотреть результаты.
+   - Чтобы просмотреть изменения всех профилей, выберите свою подписку и временной диапазон, а затем выберите пункт **Диспетчер трафика** из раскрывающегося списка **Тип**.
+   - Чтобы выполнить фильтрацию по имени профиля, введите имя профиля в поле **Имя службы** или выберите его из раскрывающегося списка.
+   - Чтобы просмотреть информацию о каждом отдельном изменении, выберите строку с изменением, с которым вы хотите ознакомиться, и в нижней части страницы нажмите кнопку **Сведения**. В окне **Сведения об операции** вы можете просмотреть XML-представление объекта API, который был создан или обновлен в рамках операции, а также скопировать код XML в буфер обмена.
 
 
-<!--HONumber=Oct16_HO2-->
+## Дальнейшие действия
 
+[Добавление конечной точки](traffic-manager-endpoints.md)
 
+[Настройка маршрутизации с отработкой отказа](traffic-manager-configure-failover-routing-method.md)
+
+[Настройка метода маршрутизации с применением циклического перебора](traffic-manager-configure-round-robin-routing-method.md)
+
+[Настройка маршрутизации производительности](traffic-manager-configure-performance-routing-method.md)
+
+[Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
+
+<!---HONumber=AcomDC_0824_2016-->

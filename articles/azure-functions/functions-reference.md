@@ -1,36 +1,35 @@
 <properties
-    pageTitle="Azure Functions developer reference | Microsoft Azure"
-    description="Understand Azure Functions concepts and components that are common to all languages and bindings."
-    services="functions"
-    documentationCenter="na"
-    authors="christopheranderson"
-    manager="erikre"
-    editor=""
-    tags=""
-    keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+	pageTitle="Справочник разработчика по функциям Azure | Microsoft Azure"
+	description="Ознакомьтесь с особенностями и компонентами Функций Azure, общими для всех языков и привязок."
+	services="functions"
+	documentationCenter="na"
+	authors="christopheranderson"
+	manager="erikre"
+	editor=""
+	tags=""
+	keywords="функции azure, функции, обработка событий, веб-перехватчики, динамические вычисления, независимая архитектура"/>
 
 <tags
-    ms.service="functions"
-    ms.devlang="multiple"
-    ms.topic="reference"
-    ms.tgt_pltfrm="multiple"
-    ms.workload="na"
-    ms.date="05/13/2016"
-    ms.author="chrande"/>
+	ms.service="functions"
+	ms.devlang="multiple"
+	ms.topic="reference"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="05/13/2016"
+	ms.author="chrande"/>
+
+# Справочник разработчика по функциям Azure
+
+Функции Azure имеют ряд общих технических особенностей и компонентов вне зависимости от используемого языка или привязки. Прежде чем приступать к детальному изучению особенностей, характерных для определенного языка или привязки, ознакомьтесь с этими общими сведениями.
+
+В этой статье предполагается, что вы уже прочитали [обзор функций Azure](functions-overview.md) и знакомы с [понятиями, связанными с пакетом SDK веб-заданий, такими как триггеры, привязки и среда выполнения JobHost](../app-service-web/websites-dotnet-webjobs-sdk.md). Функции Azure основаны на пакете SDK веб-заданий.
 
 
-# <a name="azure-functions-developer-reference"></a>Azure Functions developer reference
+## Код функции
 
-Azure Functions share a few core technical concepts and components, regardless of the language or binding you use. Before you jump into learning details specific to a given language or binding, be sure to read through this overview that applies to all of them.
+Ключевым элементом решения "Функции Azure" является *функция*. Вы пишете код функции на любом языке на свой выбор, а затем сохраняете файлы кода и файл конфигурации в одной папке. Файл конфигурации имеет формат JSON и имя `function.json`. Поддерживаются различные языки, и способы работы с каждым из них немного различаются в целях удобства.
 
-This article assumes that you've already read the [Azure Functions overview](functions-overview.md) and are familiar with [WebJobs SDK concepts such as triggers, bindings, and the JobHost runtime](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure Functions is based on the WebJobs SDK. 
-
-
-## <a name="function-code"></a>Function code
-
-A *function* is the primary concept in Azure Functions. You write code for a function in a language of your choice and save the code file(s) and a configuration file in the same folder. Configuration is in JSON, and the file is named `function.json`. A variety of languages are supported, and each one has a slightly different experience optimized to work best for that language. 
-
-The `function.json` file contains configuration specific to a function, including its bindings. The runtime reads this file to determine which events to trigger off of, which data to include when calling the function, and where to send data passed along from the function itself. 
+Файл `function.json` содержит конфигурацию, относящуюся к функции, включая привязки. Среда выполнения считывает этот файл, чтобы определить, какие события следует активировать, какие данные включить при вызове функции и куда отправить сведения, переданные из нее.
 
 ```json
 {
@@ -47,117 +46,108 @@ The `function.json` file contains configuration specific to a function, includin
 }
 ```
 
-You can prevent the runtime from running the function by setting the `disabled` property to `true`.
+Чтобы запретить среде выполнения запускать функцию, присвойте свойству `disabled` значение `true`.
 
-The `bindings` property is where you configure both triggers and bindings. Each binding shares a few common settings and some settings which are specific to a particular type of binding. Every binding requires the following settings:
+В свойстве `bindings` указываются свойства триггеров и привязок. Каждая привязка имеет ряд общих параметров и некоторые параметры, характерные для данного типа привязки. Для каждой привязки требуются указанные ниже параметры.
 
-|Property|Values/Types|Comments|
+|Свойство|Значения и типы|Комментарии|
 |---|-----|------|
-|`type`|string|Binding type. For example, `queueTrigger`.
-|`direction`|'in', 'out'| Indicates whether the binding is for receiving data into the function or sending data from the function.
-| `name` | string | The name that will be used for the bound data in the function. For C# this will be an argument name; for JavaScript it will be the key in a key/value list.
+|`type`|string|Тип привязки. Пример: `queueTrigger`.
+|`direction`|"in", "out"| Указывает, служит ли привязка для получения данных в функции или для отправки их из функции.
+| `name` | string | Имя, которое будет использоваться для связанных данных в функции. Для C# это будет имя аргумента, а для JavaScript — ключ в списке ключей и значений.
 
-## <a name="function-app"></a>Function app
+## Приложение-функция
 
-A function app is comprised of one or more individual functions that are managed together by Azure App Service. All of the functions in a function app share the same pricing plan, continuous deployment and runtime version. Functions written in multiple languages can all share the same function app. Think of a function app as a way to organize and collectively manage your functions. 
+Приложение-функция состоит из одной или нескольких независимых функций, совместно управляемых службой приложений Azure. Для всех функций в приложении-функции действует один ценовой план, непрерывное развертывание и версия среды выполнения. В одном приложении-функции можно объединить функции, написанные на разных языках. Приложение-функцию можно рассматривать как способ упорядочения функций и совместного управления ими.
 
-## <a name="runtime-(script-host-and-web-host)"></a>Runtime (script host and web host)
+## Среда выполнения (средство обработки сценариев и веб-узел)
 
-The runtime, or script host, is the underlying WebJobs SDK host which listens for events, gathers and sends data, and ultimately runs your code. 
+Среда выполнения (также называемая средством обработки сценариев) является базовым узлом пакета SDK веб-заданий, который прослушивает события, собирает и отправляет данные и, самое главное, выполняет ваш код.
 
-To facilitate HTTP triggers, there is also a web host which is designed to sit in front of the script host in production scenarios. This helps to isolate the script host from the front end traffic managed by the web host.
+Чтобы упростить инициацию триггеров HTTP, также используется веб-узел, который размещается перед средством обработки сценариев в рабочих средах. Это позволяет изолировать средство обработки сценариев от трафика переднего плана, которым управляет веб-узел.
 
-## <a name="folder-structure"></a>Folder Structure
+## Структура папок
 
 [AZURE.INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-When setting-up a project for deploying functions to a function app in Azure App Service, you can treat this folder structure as your site code. You can use existing tools like continuous integration and deployment, or custom deployment scripts for doing deploy time package installation or code transpilation.
+При разработке проекта по развертыванию функций в приложении-функции в службе приложений Azure эту структуру папок можно рассматривать как код сайта. Для установки пакетов или транспиляции кода во время развертывания можно использовать существующие средства, такие как непрерывная интеграция и развертывание, или пользовательские сценарии развертывания.
 
-## <a name="<a-id="fileupdate"></a>-how-to-update-function-app-files"></a><a id="fileupdate"></a> How to update function app files
+## <a id="fileupdate"></a> Как обновить файлы приложения-функции
 
-The function editor built into the Azure portal lets you update the *function.json* file and the code file for a function. To upload or update other files such as *package.json* or *project.json* or dependencies, you have to use other deployment methods.
+Редактор функций на портале Azure позволяет обновлять файл *function.json* и файл кода для функции. Чтобы передавать или обновлять другие файлы (например, *package.json* и *project.json*) или зависимости, необходимо использовать другие методы развертывания.
 
-Function apps are built on App Service, so all of the [deployment options available to standard web apps](../app-service-web/web-sites-deploy.md) are available for function apps as well. Here are some methods you can use to upload or update function app files. 
+Приложения-функции создаются на базе службы приложений, поэтому для этих приложений доступны все [параметры развертывания, доступные для стандартных веб-приложений](../app-service-web/web-sites-deploy.md). Ниже перечислены методы, с помощью которых можно передавать или обновлять файлы приложения-функции.
 
-#### <a name="to-use-app-service-editor"></a>To use App Service Editor
+#### Использование редактора службы приложений
 
-1. In the Azure Functions portal, click **Function app settings**.
+1. На портале функций Azure щелкните **Function app settings** (Параметры приложений-функций).
 
-2. In the **Advanced Settings** section, click **Go to App Service Settings**.
+2. В разделе **Дополнительные параметры** щелкните **Go to App Service Settings** (Перейти к параметрам службы приложений).
 
-3. Click **App Service Editor** in App Menu Nav under **DEVELOPMENT TOOLS**.
+3. Щелкните **Редактор службы приложений** на панели навигации меню приложения в разделе **Средства разработки**.
 
-4.  click **Go**.
+4.  Щелкните **Переход**.
 
-    After App Service Editor loads, you'll see the *host.json* file and function folders under *wwwroot*. 
+	После загрузки редактора службы приложений файл *host.json* и папки функций отобразятся в разделе *wwwroot*.
 
-5. Open files to edit them, or drag and drop from your development machine to upload files.
+5. Откройте файлы, чтобы изменить их, или передайте файлы, перетащив их с компьютера, на котором ведется разработка.
 
-#### <a name="to-use-the-function-app's-scm-(kudu)-endpoint"></a>To use the function app's SCM (Kudu) endpoint
+#### Использование конечной точки SCM (Kudu) приложения-функции
 
-1. Navigate to: `https://<function_app_name>.scm.azurewebsites.net`.
+1. Перейдите на страницу `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Click **Debug Console > CMD**.
+2. Щелкните **Консоль отладки > CMD**.
 
-3. Navigate to `D:\home\site\wwwroot\` to update *host.json* or `D:\home\site\wwwroot\<function_name>` to update a function's files.
+3. Перейдите по пути `D:\home\site\wwwroot`, чтобы обновить файл *host.json*, или `D:\home\site\wwwroot<function_name>`, чтобы обновить файлы функции.
 
-4. Drag-and-drop a file you want to upload into the appropriate folder in the file grid. There are two areas in the file grid where you can drop a file. For *.zip* files, a box appears with the label "Drag here to upload and unzip." For other file types, drop in the file grid but outside the "unzip" box.
+4. Перетащите файл, который необходимо передать, в соответствующую папку на файловой сетке. В файловой сетке есть две области, куда можно перетащить файл. Для *ZIP*-файлов появится поле "Drag here to upload and unzip" (Перетащите сюда, чтобы передать и распаковать). Файлы других типов следует перетаскивать на сетку, но за пределами поля для распаковки.
 
-#### <a name="to-use-ftp"></a>To use FTP
+#### Использование FTP
 
-1. Follow the instructions [here](../app-service-web/web-sites-deploy.md#ftp) to get FTP configured.
+1. Для настройки FTP следуйте указаниям в [этом разделе](../app-service-web/web-sites-deploy.md#ftp).
 
-2. When you're connected to the function app site, copy an updated *host.json* file to `/site/wwwroot` or copy function files to `/site/wwwroot/<function_name>`.
+2. Подключившись к сайту приложения-функции, скопируйте обновленный файл *host.json* в расположение `/site/wwwroot` или скопируйте файлы функции в расположение `/site/wwwroot/<function_name>`.
 
-#### <a name="to-use-continuous-deployment"></a>To use continuous deployment
+#### Включение непрерывного развертывания
 
-Follow the instructions in the topic [Continuous deployment for Azure Functions](functions-continuous-deployment.md).
+Выполните инструкции из статьи [о непрерывном развертывании для функций Azure](functions-continuous-deployment.md).
 
-## <a name="parallel-execution"></a>Parallel execution
+## Параллельное выполнение
 
-When multiple triggering events occur faster than a single-threaded function runtime can process them, the runtime may invoke the function multiple times in parallel.  If a function app is using the [Dynamic Service Plan](functions-scale.md#dynamic-service-plan), the function app could scale out automatically.  Each instance of the function app, whether the app runs on the Dynamic Service Plan or a regular [App Service Plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), might process concurrent function invocations in parallel using multiple threads.  The maximum number of concurrent function invocations in each function app instance varies based on the memory size of the function app. 
+Если однопотоковая среда выполнения функций не успевает обрабатывать активируемые события, она может вызывать функцию несколько раз в параллельном режиме. Если для приложения-функции используется [динамический план обслуживания](functions-scale.md#dynamic-service-plan), это приложение может автоматически развертываться. Каждый экземпляр приложения-функции, как при использовании динамического плана обслуживания, так и при использовании обычного [плана службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), может обрабатывать несколько параллельных вызовов функции с помощью нескольких потоков. Максимальное число параллельных вызовов функции в каждом экземпляре приложения функции зависит от размера памяти этого приложения.
 
-## <a name="azure-functions-pulse"></a>Azure Functions Pulse  
+## Пульс в Функциях Azure  
 
-Pulse is a live event stream which shows how often your function runs, as well as successes and failures. You can also monitor your average execution time. We’ll be adding more features and customization to it over time. You can access the **Pulse** page from the **Monitoring** tab.
+Пульс — это динамический поток событий, в котором показано, как часто выполняются функции, а также указывается, успешно ли они были выполнены. Вы также можете отслеживать среднее время выполнения. Со временем функциональность этого потока будет расширяться. Получить доступ к странице **Pulse** (Пульс) можно на вкладке **Мониторинг**.
 
-## <a name="repositories"></a>Repositories
+## Репозитории
 
-The code for Azure Functions is open source and stored in GitHub repositories:
+Код функций Azure имеет вид открытого исходного кода и хранится в репозиториях GitHub:
 
-* [Azure Functions runtime](https://github.com/Azure/azure-webjobs-sdk-script/)
-* [Azure Functions portal](https://github.com/projectkudu/AzureFunctionsPortal)
-* [Azure Functions templates](https://github.com/Azure/azure-webjobs-sdk-templates/)
-* [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)
-* [Azure WebJobs SDK Extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+* [среда выполнения функций Azure;](https://github.com/Azure/azure-webjobs-sdk-script/)
+* [портал функций Azure;](https://github.com/projectkudu/AzureFunctionsPortal)
+* [шаблоны функций Azure;](https://github.com/Azure/azure-webjobs-sdk-templates/)
+* [пакет Azure SDK для веб-заданий;](https://github.com/Azure/azure-webjobs-sdk/)
+* [расширения пакета Azure SDK для веб-заданий.](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
-## <a name="bindings"></a>Bindings
+## Привязки
 
-Here is a table of all supported bindings.
+В таблице ниже приведены все поддерживаемые привязки.
 
-[AZURE.INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+[AZURE.INCLUDE [динамические вычисления](../../includes/functions-bindings.md)]
 
-## <a name="reporting-issues"></a>Reporting Issues
+## Создание отчетов о проблемах
 
-[AZURE.INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)] 
+[AZURE.INCLUDE [Создание отчетов о проблемах](../../includes/functions-reporting-issues.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-For more information, see the following resources:
+Для получения дополнительных сведений см. следующие ресурсы:
 
-* [Azure Functions C# developer reference](functions-reference-csharp.md)
-* [Azure Functions F# developer reference](functions-reference-fsharp.md)
-* [Azure Functions NodeJS developer reference](functions-reference-node.md)
-* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
-* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) on the Azure App Service team blog. A history of how Azure Functions was developed.
+* [Справочник разработчика C# по функциям Azure](functions-reference-csharp.md)
+* [Справочник разработчика F# по функциям Azure](functions-reference-fsharp.md)
+* [Справочник разработчика NodeJS по функциям Azure](functions-reference-node.md)
+* [Azure Functions triggers and bindings (Триггеры и привязки в Функциях Azure)](functions-triggers-bindings.md)
+* [Azure Functions: The Journey](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) (Функции Azure: путешествие) в блоге группы разработчиков службы приложений Azure. В этой статье рассказывается история создания функций Azure.
 
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

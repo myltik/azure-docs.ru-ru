@@ -1,49 +1,48 @@
 <properties
-    pageTitle="Machine learning algorithm cheat sheet | Microsoft Azure"
-    description="A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio."
-    keywords="algorithm cheat sheet,cheat sheet,machine learning algorithm"
-    services="machine-learning"
-    documentationCenter=""
-    authors="brohrer"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Памятка по алгоритмам Машинного обучения Microsoft Azure | Microsoft Azure"
+	description="Памятка по алгоритмам Машинного обучения Microsoft Azure для печати поможет выбрать в Студии машинного обучения Azure правильный алгоритм для модели прогнозирования."
+	keywords="памятка по алгоритмам, памятка, алгоритм машинного обучения"
+	services="machine-learning"
+	documentationCenter=""
+	authors="brohrer"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/09/2016"
-    ms.author="brohrer;garye" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/09/2016"
+	ms.author="brohrer;garye" />
 
 
+# Памятка по алгоритмам машинного обучения для Студии машинного обучения Microsoft Azure
 
-# <a name="machine-learning-algorithm-cheat-sheet-for-microsoft-azure-machine-learning-studio"></a>Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio
+**Памятка по алгоритмам Машинного обучения Microsoft Azure** поможет выбрать правильный алгоритм для модели прогнозной аналитики.
 
-The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right algorithm for a predictive analytics model.
-
-[Azure Machine Learning Studio](https://studio.azureml.net/) has a large library of algorithms from the  ***regression***, ***classification***, ***clustering***, and ***anomaly detection*** families. Each is designed to address a different type of machine learning problem.
+[Студия машинного обучения Azure](https://studio.azureml.net/) включает большую библиотеку алгоритмов из семейств ***регрессии***, ***классификации***, ***кластеризации*** и ***обнаружения аномалий***. Каждое семейство предназначено для решения определенного типа проблем, связанных с машинным обучением.
 
 
-## <a name="download:-machine-learning-algorithm-cheat-sheet"></a>Download: Machine learning algorithm cheat sheet
+## Скачать памятку по алгоритмам Машинного обучения Microsoft Azure
 
-**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
+**Скачать можно здесь: [Памятка по алгоритмам Машинного обучения Microsoft Azure (27,94 x 43,18 см)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
-![Machine Learning Algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.][cheat-sheet]
+![Памятка по алгоритмам машинного обучения: как выбрать алгоритм машинного обучения?][cheat-sheet]
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
-Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
+Скачайте и распечатайте памятку по алгоритмам машинного обучения в формате в формате А3 (27,94 x 43,18 см), чтобы вы всегда могли обратиться к ней при выборе алгоритма.
 
-> [AZURE.NOTE] See the article [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md) for a detailed guide to using this cheat sheet.
+> [AZURE.NOTE] Подробное руководство по использованию этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
 
-## <a name="more-help-with-algorithms"></a>More help with algorithms
+## Дополнительная помощь с алгоритмами
 
-* For a deeper discussion of the different types of machine learning algorithms, how they're used, and how to use this cheat sheet for choosing the right algorithm, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
-* For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model][initialize-model] in the Machine Learning Studio Algorithm and Module Help.
-* For a complete list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules][a-z-list] in Machine Learning Studio Algorithm and Module Help.
-* To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
+* Более глубокое обсуждение различных типов алгоритмов машинного обучения, их использования и выбора правильного алгоритма с использованием этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
+* Список всех категорий алгоритмов, доступных в Студии машинного обучения, см. в разделе [Инициализация модели][initialize-model] в справке по алгоритмам и модулям Студии машинного обучения.
+* Полный список всех алгоритмов и модулей машинного обучения, доступных в Студии машинного обучения, см. в разделе [Полный список модулей Студии машинного обучения][a-z-list] в справке по алгоритмам и модулям Студии машинного обучения.
+* Чтобы скачать и распечатать схему, на которой представлены общие возможности Студии машинного обучения, см. раздел [Обзорная схема возможностей Студии машинного обучения Azure](machine-learning-studio-overview-diagram.md).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -88,8 +87,4 @@ Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,6 +1,6 @@
 <properties
-pageTitle="Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell"
-description="How to configure your azure cloud service application using PowerShell to allow remote desktop connections"
+pageTitle="Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell"
+description="Как настроить приложение облачной службы Azure для подключений к удаленному рабочему столу с помощью PowerShell"
 services="cloud-services"
 documentationCenter=""
 authors="thraka"
@@ -15,47 +15,46 @@ ms.topic="article"
 ms.date="08/05/2016"
 ms.author="adegeo"/>
 
-
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell
+# Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell
 
 >[AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
+- [Классический портал Azure](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 - [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
-Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.
+С помощью удаленного рабочего стола обеспечивается доступ к рабочему столу экземпляра, работающего в Azure. Подключение к удаленному рабочему столу позволяет диагностировать и устранять неполадки выполняющегося приложения.
 
-This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for the prerequisites needed for this article. PowerShell utilizes the Remote Desktop Extension so you can enable Remote Desktop after the application is deployed.
+В этой статье описывается включение удаленного рабочего стола для ролей облачной службы с помощью PowerShell. Сведения о компонентах, которые потребуются для выполнения инструкций в этой статье, см. в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md). В PowerShell используется расширение удаленного рабочего стола, поэтому удаленный рабочий стол можно включить даже после развертывания приложения.
 
 
-## <a name="configure-remote-desktop-from-powershell"></a>Configure Remote Desktop from PowerShell
+## Настройка удаленного рабочего стола с помощью PowerShell
 
-The [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet allows you to enable Remote Desktop on specified roles or all roles of your cloud service deployment. The cmdlet lets you specify the Username and Password for the remote desktop user through the *Credential* parameter that accepts a PSCredential object.
+Командлет [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) позволяет включить удаленный рабочий стол для всех или некоторых ролей в развернутой облачной службе. Он позволяет указать имя и пароль пользователя удаленного рабочего стола с помощью параметра *Credential*, который принимает объект PSCredential.
 
-If you are using PowerShell interactively, you can easily set the PSCredential object by calling the [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+Если вы используете PowerShell в интерактивном режиме, то можете задать объект PSCredential, вызвав командлет [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx).
 
 ```
 $remoteusercredentials = Get-Credential
 ```
 
-This command displays a dialog box allowing you to enter the username and password for the remote user in a secure manner.
+Эта команда открывает диалоговое окно, в котором вы сможете в защищенном режиме указать имя и пароль удаленного пользователя.
 
-Since PowerShell helps in automation scenarios, you can also set up the **PSCredential** object in a way that doesn't require user interaction. First, you need to set up a secure password. You begin with specifying a plain text password convert it to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Next you need to convert this secure string into an encrypted standard string using [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). Now you can save this encrypted standard string to a file using [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
+Так как PowerShell используется в сценариях автоматизации, объект **PSCredential** можно настроить так, чтобы участие пользователя не требовалось. Сначала необходимо задать надежный пароль. Для начала нужно придумать текстовый пароль и преобразовать его в защищенную строку с помощью командлета [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx). Далее следует преобразовать защищенную строку в зашифрованную стандартную строку, используя командлет [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx). После этого вы можете сохранить зашифрованную стандартную строку в файл с помощью командлета [Set-Content](https://technet.microsoft.com/library/ee176959.aspx).
 
-You can also create a secure password file so that you don't have to type in the password every time. Also, a secure password file is better than a plain text file. Use the following PowerShell to create a secure password file:
+Можно также создать файл с надежным паролем, чтобы не нужно было каждый раз вводить пароль. Кроме того, файл с надежным паролем безопаснее, чем обычный текстовый файл. Для создания файла надежного пароля используйте эту команду PowerShell:
 
 ```
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
->[AZURE.IMPORTANT] When setting the password, make sure that you meet the [complexity requirements](https://technet.microsoft.com/library/cc786468.aspx).
+>[AZURE.IMPORTANT] При выборе пароля убедитесь, что соблюдены [требования к сложности](https://technet.microsoft.com/library/cc786468.aspx).
 
-To create the credential object from the secure password file, you must read the file contents and convert them back to a secure string using [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
+Чтобы создать объект учетных данных из файла с надежным паролем, необходимо считать содержимое файла и преобразовать его обратно в защищенную строку с помощью командлета [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
-The [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) cmdlet also accepts an *Expiration* parameter, which specifies a **DateTime** at which the user account expires. For example, you could set the account to expire a few days from the current date and time.
+Командлет [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) принимает также параметр *Expiration*, который указывает значение **DateTime**, определяющее дату и время истечения срока действия учетной записи пользователя. Например, можно задать срок действия учетной записи, который истечет через несколько дней.
 
-This PowerShell example shows you how to set the Remote Desktop Extension on a cloud service:
+В этом примере показано, как установить расширение удаленного рабочего стола для облачной службы с помощью PowerShell:
 
 ```
 $servicename = "cloudservice"
@@ -65,47 +64,43 @@ $expiry = $(Get-Date).AddDays(1)
 $credential = New-Object System.Management.Automation.PSCredential $username,$securepassword
 Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $credential -Expiration $expiry
 ```
-You can also optionally specify the deployment slot and roles that you want to enable remote desktop on. If these parameters are not specified, the cmdlet enables remote desktop on all roles in the **Production** deployment slot.
+При необходимости вы также можете указать слот развертывания и роли, для которых необходимо включить удаленный рабочий стол. Если эти параметры не указаны, командлет по умолчанию включит использование удаленного рабочего стола для всех ролей в слоте развертывания **рабочей среды**.
 
-The Remote Desktop extension is associated with a deployment. If you create a new deployment for the service, you have to enable remote desktop on that deployment. If you always want to have remote desktop enabled, then you should consider integrating the PowerShell scripts into your deployment workflow.
+Расширение удаленного рабочего стола привязывается к развернутой службе. В случае создания нового развертывания службы потребуется включить использование удаленного рабочего стола для этого развертывания. Если необходимо, чтобы использование удаленного рабочего стола включалось всегда, рассмотрите возможность интеграции соответствующих сценариев PowerShell в рабочий процесс развертывания.
 
 
-## <a name="remote-desktop-into-a-role-instance"></a>Remote Desktop into a role instance
-The [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet is used to remote desktop into a specific role instance of your cloud service. You can use the *LocalPath* parameter to download the RDP file locally. Or you can use the *Launch* parameter to directly launch the Remote Desktop Connection dialog to access the cloud service role instance.
+## Подключение к экземпляру роли по протоколу удаленного рабочего стола
+Командлет [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) можно использовать, чтобы добавить удаленный рабочий стол для определенного экземпляра роли облачной службы. Можно использовать параметр *LocalPath*, чтобы скачать RDP-файл на локальный компьютер. Вы можете также использовать параметр *Launch*, чтобы открыть диалоговое окно "Подключение к удаленному рабочему столу" для доступа к экземпляру роли облачной службы.
 
 ```
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
 
-## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>Check if Remote Desktop extension is enabled on a service
-The [Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) cmdlet displays that remote desktop is enabled or disabled on a service deployment. The cmdlet returns the username for the remote desktop user and the roles that the remote desktop extension is enabled for. By default, this happens on the deployment slot and you can choose to use the staging slot instead.
+## Убедитесь, что расширение удаленного рабочего стола включено в службе.
+Командлет [Get-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495261.aspx) показывает, включен ли удаленный рабочий стол в развернутой службе. Он возвращает имя пользователя удаленного рабочего стола и роли, для которых включено расширение удаленного рабочего стола. По умолчанию это выполняется в слоте развертывания, и вы можете выбрать слот промежуточного развертывания.
 
 ```
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
-## <a name="remove-remote-desktop-extension-from-a-service"></a>Remove Remote Desktop extension from a service
-If you have already enabled the remote desktop extension on a deployment, and need to update the remote desktop settings, first remove the extension. And enable it again with the new settings. For example, if you want to set a new password for the remote user account, or the account expired. Doing this is required on existing deployments that have the remote desktop extension enabled. For new deployments, you can simply apply the extension directly.
+## Удаление расширения удаленного рабочего стола из службы
+Если вы уже включили расширение удаленного рабочего стола в развернутой службе и хотите обновить параметры удаленного рабочего стола, то сначала удалите расширение удаленного рабочего стола. Затем снова включите его с новыми параметрами. Например, если вы хотите задать новый пароль для учетной записи удаленного пользователя или ее срок действия истек. Данное действие необходимо только для существующих развертываний, в которых включено расширение удаленного рабочего стола. К новым развертываниям можно непосредственно применить расширение.
 
-To remove the remote desktop extension from the deployment, you can use the [Remove-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495280.aspx) cmdlet. You can also optionally specify the deployment slot and role from which you want to remove the remote desktop extension.
+Чтобы удалить расширение удаленного рабочего стола из развернутой службы, используйте командлет [Remove-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495280.aspx). При необходимости можно также указать слот развертывания и роль, для которой необходимо удалить удаленный рабочий стол.
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
->[AZURE.NOTE] To completely remove the extension configuration, you should call the *remove* cmdlet with the **UninstallConfiguration** parameter.
+>[AZURE.NOTE] Чтобы полностью удалить конфигурацию расширения, выполните командлет *remove* с параметром **UninstallConfiguration**.
 >
->The **UninstallConfiguration** parameter uninstalls any extension configuration that is applied to the service. Every extension configuration is associated with the service configuration. Calling the *remove* cmdlet without **UninstallConfiguration** disassociates the <mark>deployment</mark> from the extension configuration, thus effectively removing the extension. However, the extension configuration remains associated with the service.
+>Параметр **UninstallConfiguration** удаляет все конфигурации расширения, примененные к службе. Каждая конфигурация расширения связана с конфигурацией службы. Вызов командлета *remove* без параметра **UninstallConfiguration** разорвет связь <mark>развертывания</mark> с конфигурацией расширения, фактически удаляя это расширение. Однако конфигурация расширения будет по-прежнему связана со службой.
 
 
 
-## <a name="additional-resources"></a>Additional Resources
+## дополнительные ресурсы.
 
-[How to Configure Cloud Services](cloud-services-how-to-configure.md)
+[Настройка облачных служб](cloud-services-how-to-configure.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

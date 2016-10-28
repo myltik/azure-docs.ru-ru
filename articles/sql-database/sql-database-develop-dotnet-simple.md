@@ -1,62 +1,52 @@
 <properties
-    pageTitle="Connect to SQL Database by using .NET (C#) | Microsoft Azure"
-    description="Use the sample code in this quick start to build a modern application with C# and backed by a powerful relational database in the cloud with Azure SQL Database."
-    services="sql-database"
-    documentationCenter=""
-    authors="tobbox"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Подключение к базе данных SQL с помощью .NET (C#) | Microsoft Azure"
+	description="Используйте приведенный в этом кратком руководстве пример кода, чтобы с помощью Базы данных SQL Azure разработать современное приложение на C# на основе мощной облачной реляционной базы данных."
+	services="sql-database"
+	documentationCenter=""
+	authors="tobbox"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="drivers"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="06/16/2016"
-    ms.author="tobiast"/>
+	ms.service="sql-database"
+	ms.workload="drivers"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2016"
+	ms.author="tobiast"/>
 
+# Подключение к базе данных SQL с помощью .NET (C#)
 
-# <a name="connect-to-sql-database-by-using-.net-(c#)"></a>Connect to SQL Database by using .NET (C#)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
+## Шаг 1. Настройка среды разработки
 
-## <a name="step-1:-configure-development-environment"></a>Step 1:  Configure Development Environment
+[Настройка среды разработки ADO.NET](https://msdn.microsoft.com/library/mt718321.aspx)
 
-[Configure development environment for ADO.NET development](https://msdn.microsoft.com/library/mt718321.aspx)
+## Шаг 2. Создание базы данных SQL
 
-## <a name="step-2:-create-a-sql-database"></a>Step 2: Create a SQL database
+Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
-See the [getting started page](sql-database-get-started.md) to learn how to create a sample database.  It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**.  
-
-## <a name="step-3:-get-connection-string"></a>Step 3:  Get Connection String
+## Шаг 3. Получение строки подключения
 
 [AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
 
-## <a name="step-4:-run-sample-code"></a>Step 4: Run sample code
+## Шаг 4. Выполнение примера кода
 
-* [Proof of concept connecting to SQL using ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx)
-* [Connect resiliently to SQL with ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx)
+* [Подтверждение концепции подключения к SQL с использованием ADO.NET](https://msdn.microsoft.com/library/mt718320.aspx)
+* [Отказоустойчивое подключение к SQL с помощью ADO.NET](https://msdn.microsoft.com/library/mt703195.aspx)
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-* [Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service]( ../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
-* [Build a service using an existing SQL database with the Mobile Services .NET backend](../mobile-services/mobile-services-dotnet-backend-use-existing-sql-database.md)
-* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
-* More information on the [Microsoft ADO.Net Driver for SQL Server](https://msdn.microsoft.com/library/mt657768.aspx)
+* [Создание приложения ASP.NET MVC с проверкой подлинности и базой данных SQL и развертывание службы приложений Azure](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)
+* [Сборка службы с использованием существующей базы данных SQL на внутреннем сервере мобильных служб .NET](../mobile-services/mobile-services-dotnet-backend-use-existing-sql-database.md)
+* Ознакомьтесь с разделом [Общие сведения о разработке базы данных SQL](sql-database-develop-overview.md).
+* Получите дополнительные сведения о [драйвере Microsoft ADO.Net для SQL Server](https://msdn.microsoft.com/library/mt657768.aspx).
 
-## <a name="additional-resources"></a>Additional resources 
+## Дополнительные ресурсы 
 
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)
+* [Шаблоны разработки для мультитенантных приложений SaaS с использованием базы данных Azure SQL](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
 
-
-
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0622_2016-->

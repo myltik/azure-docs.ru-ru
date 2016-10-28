@@ -1,263 +1,258 @@
 <properties
-    pageTitle="Set up PostgreSQL on a Linux VM | Microsoft Azure"
-    description="Learn how to install and configure PostgreSQL on a Linux virtual machine in Azure"
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="SuperScottz"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager,azure-service-management"/>
+	pageTitle="Настройка PostgreSQL на виртуальной машине Linux | Microsoft Azure"
+	description="Узнайте, как установить и настроить PostgreSQL на виртуальной машине Linux в Azure."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="SuperScottz"
+	manager="timlt"
+	editor=""
+ 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="vm-linux"
-    ms.workload="infrastructure-services"
-    ms.date="02/01/2016"
-    ms.author="mingzhan"/>
+	ms.service="virtual-machines-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="02/01/2016"
+	ms.author="mingzhan"/>
 
 
+# Установка и настройка PostgreSQL в Azure
 
-# <a name="install-and-configure-postgresql-on-azure"></a>Install and configure PostgreSQL on Azure
+PostgreSQL — это расширенная открытая СУБД, аналогичная СУБД Oracle и DB2. Она предлагает возможности корпоративного уровня, обеспечивая полное соответствие принципам ACID, надежную обработку транзакций и управление параллелизмом в разных версиях. Она также поддерживает такие стандарты, как ANSI SQL и SQL/MED (включая оболочки для внешних данных Oracle, MySQL, MongoDB и др.). Высокая расширяемость обеспечивается поддержкой более 12 процедурных языков, индексов GIN и GIST, пространственных данных, различных функций NoSQL для JSON и приложений на основе пары "ключ — значение".
 
-PostgreSQL is an advanced open-source database similar to Oracle and DB2. It includes enterprise-ready features such as full ACID compliance, reliable transactional processing, and multi-version concurrency control. It also supports standards such as ANSI SQL and SQL/MED (including foreign data wrappers for Oracle, MySQL, MongoDB, and many others). It is highly extensible with support for over 12 procedural languages, GIN and GiST indexes, spatial data support, and multiple NoSQL-like features for JSON or key-value-based applications.
-
-In this article, you will learn how to install and configure PostgreSQL on an Azure virtual machine running Linux.
+Из этой статьи вы узнаете, как установить и настроить СУБД PostgreSQL на виртуальной машине Azure под управлением Linux.
 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-## <a name="install-postgresql"></a>Install PostgreSQL
+## Установка PostgreSQL
 
-> [AZURE.NOTE] You must already have an Azure virtual machine running Linux in order to complete this tutorial. To create and set up a Linux VM before proceeding, see the [Azure Linux VM tutorial](virtual-machines-linux-quick-create-cli.md).
+> [AZURE.NOTE] Для выполнения инструкций учебника у вас уже должна быть виртуальная машина Microsoft Azure под управлением Linux. Прежде чем продолжить, создайте и настройте виртуальную машину под управлением Linux, используя сведения, приведенные в [учебнике по виртуальным машинам Azure под управлением Linux](virtual-machines-linux-quick-create-cli.md).
 
-In this case, use port 1999 as the PostgreSQL port.  
+В качестве порта PostgreSQL используйте порт 1999.
 
-Connect to the Linux VM you created via PuTTY. If this is the first time you're using an Azure Linux VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md) to learn how to use PuTTY to connect to a Linux VM.
+Подключитесь к виртуальной машине под управлением Linux, используя утилиту PuTTY. Если виртуальная машина Linux Azure используется впервые, изучите статью [Использование SSH с Linux в Azure](virtual-machines-linux-mac-create-ssh-keys.md), чтобы узнать, как использовать PuTTY для подключения к виртуальной машине Linux.
 
-1. Run the following command to switch to the root (admin):
+1. Выполните следующую команду, чтобы переключиться на привилегированного пользователя (администратора):
 
-        # sudo su -
+		# sudo su -
 
-2. Some distributions have dependencies that you must install before installing PostgreSQL. Check for your distro in this list and run the appropriate command:
+2. Для некоторых дистрибутивов требуется перед установкой PostgreSQL установить другие программы. Найдите свой дистрибутив в списке и выполните соответствующую команду:
 
-    - Red Hat base Linux:
+	- Linux на базе Red Hat:
 
-            # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+			# yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
-    - Debian base Linux:
+	- Linux на базе Debian:
 
-            # apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
+ 			# apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
 
-    - SUSE Linux:
+	- SUSE Linux:
 
-            # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
+			# zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
-3. Download PostgreSQL into the root directory, and then unzip the package:
+3. Загрузите PostgreSQL в корневой каталог и распакуйте пакет:
 
-        # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
+		# wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
 
-        # tar jxvf  postgresql-9.3.5.tar.bz2
+		# tar jxvf  postgresql-9.3.5.tar.bz2
 
-    The above is an example. You can find the more detailed download address in the [Index of /pub/source/](https://ftp.postgresql.org/pub/source/).
+	Выше приведен лишь пример. Более точный адрес для скачивания см. в [индексе каталога /pub/source/](https://ftp.postgresql.org/pub/source/).
 
-4. To start the build, run these commands:
+4. Чтобы запустить сборку, выполните следующие команды:
 
-        # cd postgresql-9.3.5
+		# cd postgresql-9.3.5
 
-        # ./configure --prefix=/opt/postgresql-9.3.5
+		# ./configure --prefix=/opt/postgresql-9.3.5
 
-5. If  you want to build everything that can be built, including the documentation (HTML and man pages) and additional modules (contrib), run the following command instead:
+5. Если вы хотите включить в сборку все возможные компоненты, в том числе документацию (HTML и руководства) и дополнительные модули (от участников сообщества), выполните следующую команду вместо предыдущих:
 
-        # gmake install-world
+		# gmake install-world
 
-    You should receive the following confirmation message:
+	Должно появиться следующее подтверждение:
 
-        PostgreSQL, contrib, and documentation successfully made. Ready to install.
+		PostgreSQL, contrib, and documentation successfully made. Ready to install.
 
-## <a name="configure-postgresql"></a>Configure PostgreSQL
+## Настройка PostgreSQL
 
-1. (Optional) Create a symbolic link to shorten the PostgreSQL reference to not include the version number:
+1. (Необязательно) Создайте символьную ссылку на PostgreSQL, исключив номер версии:
 
-        # ln -s /opt/pgsql9.3.5 /opt/pgsql
+		# ln -s /opt/pgsql9.3.5 /opt/pgsql
 
-2. Create a directory for the database:
+2. Создайте каталог для базы данных:
 
-        # mkdir -p /opt/pgsql_data
+		# mkdir -p /opt/pgsql_data
 
-3. Create a non-root user and modify that user’s profile. Then, switch to this new user (called *postgres* in our example):
+3. Создайте непривилегированного пользователя и измените его профиль. Затем переключитесь на этого пользователя (в нашем примере — *postgres*):
 
-        # useradd postgres
+		# useradd postgres
 
-        # chown -R postgres.postgres /opt/pgsql_data
+		# chown -R postgres.postgres /opt/pgsql_data
 
-        # su - postgres
+		# su - postgres
 
-   > [AZURE.NOTE] For security reasons, PostgreSQL uses a non-root user to initialize, start, or shut down the database.
+   > [AZURE.NOTE] В целях безопасности для инициализации, запуска или завершения работы базы данных в PostgreSQL используется непривилегированный пользователь.
 
 
-4. Edit the *bash_profile* file by entering the commands below. These lines will be added to the end of the *bash_profile* file:
+4. Измените файл *bash\_profile*, используя следующие команды. Эти строки будут добавлены в конец файла *bash\_profile*:
 
-        cat >> ~/.bash_profile <<EOF
-        export PGPORT=1999
-        export PGDATA=/opt/pgsql_data
-        export LANG=en_US.utf8
-        export PGHOME=/opt/pgsql
-        export PATH=\$PATH:\$PGHOME/bin
-        export MANPATH=\$MANPATH:\$PGHOME/share/man
-        export DATA=`date +"%Y%m%d%H%M"`
-        export PGUSER=postgres
-        alias rm='rm -i'
-        alias ll='ls -lh'
-        EOF
+		cat >> ~/.bash_profile <<EOF
+		export PGPORT=1999
+		export PGDATA=/opt/pgsql_data
+		export LANG=en_US.utf8
+		export PGHOME=/opt/pgsql
+		export PATH=\$PATH:\$PGHOME/bin
+		export MANPATH=\$MANPATH:\$PGHOME/share/man
+		export DATA=`date +"%Y%m%d%H%M"`
+		export PGUSER=postgres
+		alias rm='rm -i'
+		alias ll='ls -lh'
+		EOF
 
-5. Execute the *bash_profile* file:
+5. Запустите файл *bash\_profile*:
 
-        $ source .bash_profile
+		$ source .bash_profile
 
-6. Validate your installation by using the following command:
+6. Проверьте установку, используя следующую команду:
 
-        $ which psql
+		$ which psql
 
-    If your installation is successful, you will see the following response:
+	Если установка выполнена успешно, появится такой ответ:
 
-        /opt/pgsql/bin/psql
+		/opt/pgsql/bin/psql
 
-7. You can also check the PostgreSQL version:
+7. Вы также можете проверить версию PostgreSQL:
 
-        $ psql -V
+		$ psql -V
 
-8. Initialize the database:
+8. Инициализируйте базу данных:
 
-        $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
+		$ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
 
-    You should receive the following output:
+	Вы должны увидеть следующий результат:
 
-![image](./media/virtual-machines-linux-postgresql-install/no1.png)
+![изображение](./media/virtual-machines-linux-postgresql-install/no1.png)
 
-## <a name="set-up-postgresql"></a>Set up PostgreSQL
+## Настройка PostgreSQL
 
-<!--    [postgres@ test ~]$ exit -->
+<!--	[postgres@ test ~]$ exit -->
 
-Run the following commands:
+Выполните следующие команды:
 
-    # cd /root/postgresql-9.3.5/contrib/start-scripts
+	# cd /root/postgresql-9.3.5/contrib/start-scripts
 
-    # cp linux /etc/init.d/postgresql
+	# cp linux /etc/init.d/postgresql
 
-Modify two variables in the /etc/init.d/postgresql file. The prefix is set to the installation path of PostgreSQL: **/opt/pgsql**. PGDATA is set to the data storage path of PostgreSQL: **/opt/pgsql_data**.
+Измените две переменные в файле /etc/init.d/postgresql. В качестве префикса задайте путь установки PostgreSQL: **/opt/pgsql**. В качестве значения PGDATA задайте путь к хранилищу данных из PostgreSQL: **/opt/pgsql\_data**.
 
-    # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
+	# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
-    # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
+	# sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![image](./media/virtual-machines-linux-postgresql-install/no2.png)
+![изображение](./media/virtual-machines-linux-postgresql-install/no2.png)
 
-Change the file to make it executable:
+Сделайте файл исполняемым:
 
-    # chmod +x /etc/init.d/postgresql
+	# chmod +x /etc/init.d/postgresql
 
-Start PostgreSQL:
+Запустите PostgreSQL:
 
-    # /etc/init.d/postgresql start
+	# /etc/init.d/postgresql start
 
-Check if the endpoint of PostgreSQL is on:
+Убедитесь, что конечная точка PostgreSQL включена:
 
-    # netstat -tunlp|grep 1999
+	# netstat -tunlp|grep 1999
 
-You should see the following output:
+Вы должны увидеть следующий результат.
 
-![image](./media/virtual-machines-linux-postgresql-install/no3.png)
+![изображение](./media/virtual-machines-linux-postgresql-install/no3.png)
 
-## <a name="connect-to-the-postgres-database"></a>Connect to the Postgres database
+## Подключение к базе данных Postgres
 
-Switch to the postgres user once again:
+Снова переключитесь на пользователя postgres:
 
-    # su - postgres
+	# su - postgres
 
-Create a Postgres database:
+Создайте базу данных Postgres:
 
-    $ createdb events
+	$ createdb events
 
-Connect to the events database that you just created:
+Подключитесь к только что созданной базе данных events:
 
-    $ psql -d events
+	$ psql -d events
 
-## <a name="create-and-delete-a-postgres-table"></a>Create and delete a Postgres table
+## Создание и удаление таблицы Postgres
 
-Now that you have connected to the database, you can create tables in it.
+После подключения к базе данных можно приступить к созданию таблиц в ней.
 
-For example, create a new example Postgres table by using the following command:
+Например, можно создать новую таблицу Postgres с помощью следующей команды:
 
-    CREATE TABLE potluck (name VARCHAR(20), food VARCHAR(30),   confirmed CHAR(1), signup_date DATE);
+	CREATE TABLE potluck (name VARCHAR(20),	food VARCHAR(30),	confirmed CHAR(1), signup_date DATE);
 
-You have now set up a four-column table with the following column names and restrictions:
+Теперь у нас есть таблица из четырех столбцов со следующими именами и ограничениями:
 
-1. The “name” column has been limited by the VARCHAR command to be under 20 characters long.
-2. The “food” column indicates the food item that each person will bring. VARCHAR limits this text to be under 30 characters.
-3. The “confirmed” column records whether the person has RSVP’d to the potluck. The acceptable values are "Y" and "N".
-4. The “date” column shows when they signed up for the event. Postgres requires that dates be written as yyyy-mm-dd.
+1. Столбец name (имя) не может быть длиннее 20 символов (ограничение команды VARCHAR).
+2. Столбец food (еда) указывает блюдо, которое принесет каждый пользователь. Команда VARCHAR устанавливает ограничение в 30 символов.
+3. В столбце confirmed (подтверждено) указывается, подтвердил ли человек свое участие. Допустимые значения: «Y» (да) и «N» (нет).
+4. В столбце date (дата) будет отображаться дата регистрации на мероприятие. В Postgres даты должны записываться в формате гггг-мм-дд.
 
-You should see the following if your table has been successfully created:
+Если таблица создана успешно, вы должны увидеть следующее:
 
-![image](./media/virtual-machines-linux-postgresql-install/no4.png)
+![изображение](./media/virtual-machines-linux-postgresql-install/no4.png)
 
-You can also check the table structure by using the following command:
+Вы также можете проверить структуру таблицы, используя следующую команду:
 
-![image](./media/virtual-machines-linux-postgresql-install/no5.png)
+![изображение](./media/virtual-machines-linux-postgresql-install/no5.png)
 
-### <a name="add-data-to-a-table"></a>Add data to a table
+### Добавление данных в таблицу
 
-First, insert information into a row:
+Прежде всего, вставьте в строку следующие сведения:
 
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
+	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
 
-You should see this output:
+Вы должны увидеть такой результат:
 
-![image](./media/virtual-machines-linux-postgresql-install/no6.png)
+![изображение](./media/virtual-machines-linux-postgresql-install/no6.png)
 
-You can add a couple more people to the table as well. Here are some options, or you can create your own:
+Вы можете добавить в таблицу еще пару человек. Здесь мы привели несколько примеров, однако вы можете создать собственные:
 
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
+	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
 
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES ('Tom', 'BBQ','Y', '2012-04-18');
+	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES ('Tom', 'BBQ','Y', '2012-04-18');
 
-    INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
+	INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
 
-### <a name="show-tables"></a>Show tables
+### Просмотр таблиц
 
-Use the following command to show a table:
+Чтобы отобразить таблицу, используйте следующую команду:
 
-    select * from potluck;
+	select * from potluck;
 
-The output is:
+Результаты:
 
-![image](./media/virtual-machines-linux-postgresql-install/no7.png)
+![изображение](./media/virtual-machines-linux-postgresql-install/no7.png)
 
-### <a name="delete-data-in-a-table"></a>Delete data in a table
+### Удаление данных из таблицы
 
-Use the following command to delete data in a table:
+Для удаления данных из таблицы используйте следующую команду:
 
-    delete from potluck where name=’John’;
+	delete from potluck where name=’John’;
 
-This deletes all the information in the "John" row. The output is:
+Она удалит все данные в строке John. Результаты:
 
-![image](./media/virtual-machines-linux-postgresql-install/no8.png)
+![изображение](./media/virtual-machines-linux-postgresql-install/no8.png)
 
-### <a name="update-data-in-a-table"></a>Update data in a table
+### Обновление данных в таблице
 
-Use the following command to update data in a table. For this one, Sandy has confirmed that she is attending, so we will change her RSVP from "N" to "Y":
+Для обновления данных в таблице используйте следующую команду: В нашем примере Sandy подтверждает свое участие, поэтому мы изменим статус подтверждения с N (нет) на Y (да):
 
-    UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
+ 	UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
-##<a name="get-more-information-about-postgresql"></a>Get more information about PostgreSQL
-Now that you have completed the installation of PostgreSQL in an Azure Linux VM, you can enjoy using it in Azure. To learn more about PostgreSQL, visit the [PostgreSQL website](http://www.postgresql.org/).
+##Получение дополнительных сведений о PostgreSQL
+Завершив установку PostgreSQL на виртуальную машину Azure под управлением Linux, вы сможете использовать ее в Azure. Дополнительные сведения о PostgreSQL см. на [веб-сайте PostgreSQL](http://www.postgresql.org/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

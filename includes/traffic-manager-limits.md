@@ -1,10 +1,8 @@
-Resource| Default limit
+Ресурс| Ограничение по умолчанию
 ---|---
-Profiles per subscription | 100 <sup>1</sup>
-Endpoints per profile| 200
+Профилей на подписку | 100 <sup>1</sup>
+Конечных точек на профиль| 200
 
-<sup>1</sup>Contact support in case you need to increase these limits.
+<sup>1</sup>Если требуется увеличить эти предельные значения, обратитесь в службу поддержки.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Nov15_HO1-->

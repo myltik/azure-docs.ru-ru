@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Builds Multi-Tenant Apps With Isolation and Efficiency"
-   description="Learn how SQL Database builds multi-tenant apps"
+   pageTitle="Построение изолированных и эффективных мультитенантных приложений с помощью Базы данных SQL Azure"
+   description="Узнайте, как база данных SQL создает мультитенантные приложения"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -14,64 +14,55 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="10/13/2016"
+   ms.date="07/19/2016"
    ms.author="carlrab"/>
 
+# Построение изолированных и эффективных мультитенантных приложений с помощью Базы данных SQL Azure
 
-# <a name="builds-multi-tenant-apps-with-azure-sql-database-with-isolation-and-efficiency"></a>Builds Multi-tenant Apps with Azure SQL Database With Isolation and Efficiency
+## Использование пулов эластичных баз данных для создания более эффективных мультитенантных приложений
 
-## <a name="leverage-elastic-pools-and-build-more-efficient-multi-tenant-apps"></a>Leverage elastic pools and build more efficient multi-tenant apps
-
-If you're a SaaS dev writing a multi-tenant app and handling many customers, you often make tradeoffs in customer performance, management, and security. With Azure SQL Database Elastic Database Pools, you no longer have to make that compromise. These pools help you manage and monitor multi-tenant apps and gain isolation benefits of one-customer-per-database. See [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Разработчикам мультитенантных приложений SaaS, которые обслуживают большое число пользователей, часто приходится жертвовать производительностью, безопасностью и удобством управления. Благодаря пулам эластичных баз данных SQL Azure вам больше не нужно идти на эти жертвы. Эти пулы помогут отслеживать мультитенантные приложения и управлять ими, а также использовать более удобную структуру с отдельной базой данных для каждого клиента. См. статью [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Конструктивные шаблоны для мультитенантных приложений SaaS с использованием базы данных Azure SQL).
 
 ![build-multi-tenant-apps](./media/sql-database-build-multi-tenant-apps/sql-database-build-multi-tenant-apps.png)
 
-## <a name="auto-scaling-you-control"></a>Auto-scaling you control
+## Управляемое автомасштабирование
 
-Pools automatically scale performance and storage capacity for elastic databases on the fly. You can control the performance assigned to a pool, add or remove elastic databases on demand, and define performance of elastic databases without affecting the overall cost of the pool. This means you don't have to worry about managing the usage of individual databases.
+Пулы автоматически в режиме реального времени масштабируют производительность и емкость хранилища для эластичных баз данных. Вы можете контролировать ресурсы, назначенные для пула, по мере необходимости добавляя и удаляя эластичные базы данных, а также определять производительность эластичных баз данных, не меняя общие затраты на пул. Это означает, что вам не придется управлять использованием каждой базы данных отдельно.
 
-[Read the documentation](sql-database-elastic-pool.md)
+[Ознакомьтесь с документацией.](sql-database-elastic-pool.md)
 
-## <a name="intelligent-management-of-your-environment"></a>Intelligent management of your environment
+## Интеллектуальное управление средой
 
-Built-in sizing recommendations proactively identify databases that would benefit from pools. These recommendations allow "what-if" analysis for quick optimization to meet your performance goals. Rich performance monitoring and troubleshooting dashboards help you visualize historical pool utilization.
+Встроенные рекомендации заблаговременно определяют, для каких баз данных использование пулов принесет пользу. Эти рекомендации позволяют выполнить анализ целевого состояния, чтобы быстро оптимизировать производительность в соответствии с вашими задачами. Широкие возможности панелей мониторинга и устранения неполадок помогают наглядно оценивать историю использования пула.
 
-[Read the documentation](sql-database-elastic-pool-guidance.md)
+[Ознакомьтесь с документацией.](sql-database-elastic-pool-guidance.md)
 
-## <a name="performance-and-price-to-meet-your-needs"></a>Performance and price to meet your needs
+## Производительность и стоимость в соответствии с потребностями
 
-Basic, Standard, and Premium pools provide you a broad spectrum of performance, storage and pricing options. Pools can contain up to 400 elastic databases. Elastic databases can auto-scale up to 1000 elastic database transaction units (eDTU).
+Категории пулов "Базовый", "Стандартный" и "Премиум" предоставляют широкий диапазон для изменения ресурсов производительности и хранения, а также стоимости их использования. Пулы могут содержать до 400 эластичных баз данных. Эластичные базы данных поддерживают автомасштабирование до 1000 единиц транзакций эластичных баз данных (eDTU).
 
-[Read the documentation](https://azure.microsoft.com/pricing/details/sql-database/?b=16.50)
+[Ознакомьтесь с документацией.](https://azure.microsoft.com/pricing/details/sql-database/?b=16.50)
 
-## <a name="elastic-tools"></a>Elastic tools
+## Инструменты эластичных БД
 
-In addition to elastic pools, there are SQL Database features to help manage operational activities across multiple databases:
+Помимо пулов эластичных баз данных, базы данных SQL предоставляют полезные функции для управления рабочими операциями в нескольких базах данных.
 
-** Perform cross-database queries and reporting. **  
-[Elastic database query](sql-database-elastic-query-overview.md) enables you to run queries or reports across databases in your elastic pool and access remote data stored in many databases of your pool at once.
+** Выполнение запросов и отчетов по нескольким базам данных. ** [Запрос эластичной базы данных](sql-database-elastic-query-overview.md) позволяет выполнять запросы и отчеты по базам данных, входящим в пул, и одновременно обращаться к удаленным данным, которые хранятся в нескольких базах данных в пуле.
 
-** Run cross database transactions. **  
-[Elastic database transactions](sql-database-elastic-transactions-overview.md) allow you to run transactions that span several databases in SQL Databases and perform operations (i.e. when processing financial transactions across databases, or when updating inventory in one database and orders).
+** Выполнение транзакций по нескольким базам данных. ** [Транзакции эластичной базы данных](sql-database-elastic-transactions-overview.md) позволяют выполнять транзакции, которые охватывают несколько баз данных в службе баз данных SQL (например, при обработке финансовых транзакций в нескольких базах данных или при обновлении запасов и заказов в одной базе данных).
 
-** Execute the same operations on several databases. **  
-[Elastic database jobs](sql-database-elastic-jobs-overview.md) execute administrative operations such as rebuilding indexes or updating schemas across each database in your elastic pool.
+** Выполнение одинаковых операций для нескольких баз данных. ** [Задания эластичной базы данных](sql-database-elastic-jobs-overview.md) выполняют административные операции (например, повторное создание индексов или обновление схем) в каждой базе данных пула эластичных баз данных.
 
-Go to the homepage to see what else SQL Database has to offer.
-[Check it out](https://azure.microsoft.com/services/sql-database/) 
+Ознакомиться с другими преимуществами базы данных SQL вы можете [здесь.](https://azure.microsoft.com/services/sql-database/)
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+Вы можете получить [бесплатную подписку Azure](https://azure.microsoft.com/get-started/) и [создать первую базу данных SQL Azure](sql-database-get-started.md).
 
-## <a name="additional-resources"></a>Additional resources
+## Дополнительные ресурсы
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
  
-Review the [technical overview of SQL Database](sql-database-technical-overview.md).  
+Вы можете ознакомиться с [техническим обзором Базы данных SQL](sql-database-technical-overview.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

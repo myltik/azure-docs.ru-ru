@@ -1,51 +1,50 @@
 <properties 
-    pageTitle="How to get technical support from Application Insights development team | Microsoft Azure" 
-    description="When you have a case that requires special support from Application Insights development team, this is how you can submit the details to get support." 
-    services="application-insights" 
+	pageTitle="Как получить техническую поддержку от команды разработчиков Application Insights | Microsoft Azure" 
+	description="В случае необходимости специальной поддержки от команды разработчиков Application Insights, можно отправить сведения для получения поддержки следующим образом." 
+	services="application-insights" 
     documentationCenter=""
-    authors="alexbulankou" 
-    manager="douge"/>
+	authors="alexbulankou" 
+	manager="douge"/>
  
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="06/01/2016" 
-    ms.author="albulank"/>
-    
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/01/2016" 
+	ms.author="albulank"/>
+	
+# Как получить техническую поддержку от команды разработчиков Application Insights
+	
+Если у вас возникла техническая проблема с [Visual Studio Application Insights](app-insights-overview.md), вот как можно получить помощь.
 
-# <a name="how-to-get-technical-support-from-application-insights-development-team"></a>How to get technical support from Application Insights development team
-    
-When you have a technical issue with [Visual Studio Application Insights](app-insights-overview.md), here are your options for getting help:
+## 1\. Проверка документов
 
-## <a name="1.-check-the-documents"></a>1. Check the documents
+* Пропали данные? Проверьте: [выборку](app-insights-sampling.md), [квоты и регулирование](app-insights-pricing.md).
+* Устранение неполадок: [ASP.NET](app-insights-troubleshoot-faq.md) | [Java](app-insights-java-troubleshoot.md)
 
-* Missing data? Check: [sampling](app-insights-sampling.md), [quotas and throttling](app-insights-pricing.md).
-* Troubleshooting: [ASP.NET](app-insights-troubleshoot-faq.md) | [Java](app-insights-java-troubleshoot.md)
+## 2\. Поиск на форумах
 
-## <a name="2.-search-the-forums"></a>2. Search the forums
+* [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+* [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
-* [MSDN forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
-* [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+## 3\. План поддержки Azure?
 
-## <a name="3.-azure-support-plan?"></a>3. Azure Support Plan?
+В некоторых ситуациях разработчикам нужно изучить вашу проблему подробнее.
 
-There are situations where you would like developers to investigate your specific case. 
+Если у вас есть [план поддержки Microsoft Azure](https://azure.microsoft.com/support/plans/), вы можете [создать запрос в службу поддержки](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-If you have a [support plan with Microsoft Azure](https://azure.microsoft.com/support/plans/) you can [open a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+## 4\. Обращение к команде Application Insights
 
-## <a name="4.-contact-the-application-insights-team"></a>4. Contact the Application Insights team
-
-If you don't have a support plan, our development team is happy to offer best effort support to Application Insights customers as we prepare for the General Availability milestone. We are introducing **a new support option**: You can describe your case to us by submitting a feedback form on Azure portal and have a developer on the Application Insights team contact you back to help resolve your issue.
+Если у вас нет плана поддержки, наша группа разработчиков все равно всегда готова оказать вам (как и другим пользователям Application Insights) техническую поддержку в рамках подготовки к переходу к общедоступной версии. Представляем **новый вариант поддержки**: вы можете описать свою проблему, заполнив форму обратной связи на портале Azure, чтобы разработчик из команды Application Insights связался с вами.
 
 
-1. In the [Application Insights portal](https://portal.azure.com), click the smiley face at the top right corner:  
+1. На [портале Application Insights](https://portal.azure.com) щелкните смайлик в правом верхнем углу.  
 
-    ![Feedback button](./media/app-insights-get-dev-support/01.png)   
+    ![Кнопка обратной связи](./media/app-insights-get-dev-support/01.png)
 
-2. In the comment box please make sure to specify **AppInsights** as the first line and then include the following information:   
+2. В поле для комментария обязательно укажите **AppInsights** в первой строке, а ниже включите следующие сведения:
 
     ```
 
@@ -56,18 +55,12 @@ If you don't have a support plan, our development team is happy to offer best ef
 
     ```   
 
-    ![Feedback dialog](./media/app-insights-get-dev-support/02.png)   
+    ![Диалоговое окно обратной связи](./media/app-insights-get-dev-support/02.png)
 
-3. Check "Yes, it is ok to email you". 
+3. Установите флажок, указывающий, что вы разрешаете отправлять вам сообщения по электронной почте.
 
-    ![Submit section](./media/app-insights-get-dev-support/03.png)  
+    ![Раздел отправки](./media/app-insights-get-dev-support/03.png)
 
-An engineer on the Application Insights team will get in touch with you soon. As we are providing this service on best effort basis, no formal SLA can be given at this point.
+Инженер из команды Application Insights свяжется с вами в ближайшее время. Так как эта услуга предусматривает наилучший возможный уровень исполнения, формальное соглашение об уровне обслуживания не предоставляется на этом этапе.
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

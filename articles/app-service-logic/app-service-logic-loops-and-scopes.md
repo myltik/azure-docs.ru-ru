@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Logic Apps Loops, Scopes, and Debatching | Microsoft Azure"
-   description="Logic App loop, scope, and debatching concepts"
+   pageTitle="Циклы, области действия и индивидуальная обработка приложений логики | Microsoft Azure"
+   description="Основные понятия циклов, областей действия и индивидуальной обработки приложений логики"
    services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
@@ -16,16 +16,15 @@
    ms.date="05/14/2016"
    ms.author="jehollan"/>
    
+# Циклы, области действия и индивидуальная обработка приложений логики
+  
+>[AZURE.NOTE] Эта версия статьи предназначена для приложений логики со схемой версии 2016-04-01-preview и более поздних версий. Основные понятия такие же, как в более ранних схемах, но области действий доступны только для этой и более ранних версий схемы.
+  
+## Цикл и массивы ForEach
+  
+Приложения логики позволяют запускать циклы с использованием набора данных и выполнять определенное действие с каждым из них. Это можно сделать с помощью действия `foreach`. В конструкторе можно добавить цикл foreach. Выбрав массив для перебора, можно приступать к добавлению действий. В настоящее время с каждым циклом foreach можно выполнять только одно действие, однако в ближайшие недели это ограничение будет снято. Один раз в цикле можно указать, что должно происходить с каждым значением в массиве.
 
-# <a name="logic-apps-loops,-scopes,-and-debatching"></a>Logic Apps Loops, Scopes, and Debatching
-  
->[AZURE.NOTE] This version of the article applies to Logic Apps 2016-04-01-preview schema and later.  Concepts are similar for older schemas, but scopes are only available for this schema and later.
-  
-## <a name="foreach-loop-and-arrays"></a>ForEach Loop and Arrays
-  
-Logic Apps allows you to loop over a set of data and perform an action for each item.  This is possible via the `foreach` action.  In the designer, you can specify to add a for each loop.  After selecting the array you wish to iterate over, you can begin adding actions.  Currently you are limited to only one action per foreach loop, but this restriction will be lifted in the coming weeks.  Once within the loop you can begin to specify what should occur at each value of the array.
-
-If using code-view, you can specify a for each loop like below.  This is an example of a for each loop that sends an email for each email address that contains 'microsoft.com':
+В представлении кода цикл foreach можно указать представленным ниже образом. Это пример цикла foreach, который отправляет сообщение на каждый адрес электронной почты, который содержит microsoft.com:
 
 ```
 {
@@ -63,17 +62,17 @@ If using code-view, you can specify a for each loop like below.  This is an exam
 }
 ```
   
-  A `foreach` action can iterate over arrays up to 5,000 rows.  Each iteration can execute in parallel, so it may be necessary to add messages to a queue if flow control is needed.
+  Действие `foreach` может перебирать массивы, содержащие до 5000 строк. Переборы могут выполняться параллельно, поэтому, если требуется управление потоком, сообщения необходимо добавлять в очередь.
   
-## <a name="until-loop"></a>Until Loop
+## Цикл Until
   
-  You can perform an action or series of actions until a condition is met.  The most common scenario for this is calling an endpoint until you get the response you are looking for.  In the designer, you can specify to add an until loop.  After adding actions inside the loop, you can set the exit condition, as well as the loop limits.  There is a 1 minute delay between loop cycles.
+  Действие или серию действий можно выполнять, пока не будет выполнено определенное условие. Чаще всего эта возможность применяется для вызова конечной точки до получения искомого ответа. В конструкторе можно добавить цикл until. После добавления действия в цикл можно задать условия выхода, а также ограничения для цикла. Между циклами действует одноминутная задержка.
   
-  If using code-view, you can specify an until loop like below.  This is an example of calling an HTTP endpoint until the response body has the value 'Completed'.  It will complete when either 
+  В представлении кода цикл until можно указать представленным ниже образом. Это пример вызова конечной точки HTTP до получения значения "Выполнен" в теле ответа. Действие будет завершено при выполнении одного из следующих условий:
   
-  * HTTP Response has status of 'Completed'
-  * It has tried for 1 hour
-  * It has looped 100 times
+  * HTTP-ответ имеет состояние "Выполнен".
+  * Действие выполнялось 1 час.
+  * Действие было выполнено 100 раз.
   
   ```
   {
@@ -99,11 +98,11 @@ If using code-view, you can specify a for each loop like below.  This is an exam
   }
   ```
   
-## <a name="spliton-and-debatching"></a>SplitOn and Debatching
+## SplitOn и индивидуальная обработка
 
-Sometimes a trigger may recieve an array of items that you want to debatch and start a workflow per item.  This can be accomplished via the `spliton` command.  By default, if your trigger swagger specifies a payload that is an array, a `spliton` will be added and start a run per item.  SplitOn can only be added to a trigger.  This can be manually configured or overridden in definition code-view.  Currently SplitOn can debatch arrays up to 5,000 items.  You cannot have a `spliton` and also implement the syncronous response pattern.  Any workflow called that has a `response` action in addition to `spliton` will run asyncronously and send an immediate `202 Accepted` response.  
+Иногда триггер может получить массив элементов, которые нужно обработать отдельно и запустить для каждого собственный рабочий процесс. Это можно сделать с помощью команды `spliton`. По умолчанию, если триггер Swagger определяет полезные данные, составляющие массив, `spliton` будет добавлен и запустит выполнение каждого элемента. SplitOn можно добавить только к триггеру. Его можно настроить вручную или перезаписать в представлении кода определения. В настоящее время SplitOn может выполнять индивидуальную обработку массивов, содержащих до 5000 элементов. Одновременно использовать `spliton` и реализовать шаблон синхронных ответов нельзя. Любой вызываемый рабочий процесс, содержащий действие `response` помимо `spliton`, будет выполняться асинхронно и отправлять незамедлительный ответ `202 Accepted`.
 
-SplitOn can be specified in code-view as the following example.  This recieves an array of items and debatches on each row.
+В приведенном ниже примере SplitOn указывается в представлении кода. Он получает массив элементов и выполняет их по отдельности в каждой строке.
 
 ```
 {
@@ -113,7 +112,7 @@ SplitOn can be specified in code-view as the following example.  This recieves a
             "url": "http://getNewCustomers",
         },
         "recurrence": {
-            "frequency": "Second",
+            "frequencey": "Second",
             "interval": 15
         },
         "spliton": "@triggerBody()['rows']"
@@ -121,9 +120,9 @@ SplitOn can be specified in code-view as the following example.  This recieves a
 }
 ```
 
-## <a name="scopes"></a>Scopes
+## Области действия
 
-It is possible to group a series of actions together using a scope.  This is particularly useful for implementing exception handling.  In the designer you can add a new scope, and begin adding any actions inside of it.  You can define scopes in code-view like the following:
+Последовательности действий можно группировать, используя область действий. Это можно использовать для обработки исключений. Добавьте новую область в конструкторе и начните добавлять в нее действия. Области можно определять в представлении кода следующим образом:
 
 
 ```
@@ -142,8 +141,4 @@ It is possible to group a series of actions together using a scope.  This is par
 }
 ```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

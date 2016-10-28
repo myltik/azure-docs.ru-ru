@@ -1,147 +1,142 @@
 <properties
-    pageTitle="Fix 502 bad gateway, 503 service unavailable errors | Microsoft Azure"
-    description="Troubleshoot 502 bad gateway and 503 service unavailable errors in your web app hosted in Azure App Service."
-    services="app-service\web"
-    documentationCenter=""
-    authors="cephalin"
-    manager="wpickett"
-    editor=""
-    tags="top-support-issue"
-    keywords="502 bad gateway, 503 service unavailable, error 503, error 502"/>
+	pageTitle="Устранение ошибок ";502 — недопустимый шлюз"; и ";503 — служба недоступна"; | Microsoft Azure"
+	description="Устранение ошибок ";502 — недопустимый шлюз"; и ";503 — служба недоступна";, возникающих при работе веб-приложения, размещенного в службе приложений Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor=""
+	tags="top-support-issue"
+	keywords="502 — недопустимый шлюз, 503 — служба недоступна, ошибка 503, ошибка 502"/>
 
 <tags
-    ms.service="app-service-web"
-    ms.workload="web"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/06/2016"
-    ms.author="cephalin"/>
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2016"
+	ms.author="cephalin"/>
 
+# Устранение ошибок HTTP "502 — недопустимый шлюз" и "503 — служба недоступна" в работе ваших веб-приложений Azure
 
-# <a name="troubleshoot-http-errors-of-"502-bad-gateway"-and-"503-service-unavailable"-in-your-azure-web-apps"></a>Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps
+"502 — недопустимый шлюз" и "503 — служба недоступна" — распространенные ошибки, возникающие при работе веб-приложения, размещенного в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Эта статья поможет вам устранить эти ошибки.
 
-"502 bad gateway" and "503 service unavailable" are common errors in your web app hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). This article helps you troubleshoot these errors.
+Если вам потребуется дополнительная помощь по любому из вопросов, рассматриваемых в статье, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](https://azure.microsoft.com/support/forums/). Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт службы поддержки Azure](https://azure.microsoft.com/support/options/) и щелкните **Поддержка**.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
+## Симптом
 
-## <a name="symptom"></a>Symptom
+При открытии веб-приложения браузер возвращает ошибку HTTP "502 — недопустимый шлюз" или HTTP "503 — служба недоступна".
 
-When you browse to the web app, it returns a HTTP "502 Bad Gateway" error or a HTTP "503 Service Unavailable" error.
+## Причина:
 
-## <a name="cause"></a>Cause
+Эта проблема часто связана с проблемами на уровне приложения, например:
 
-This problem is often caused by application level issues, such as:
+-	слишком долгое выполнение запросов;
+-	слишком высокие требования приложения к памяти и процессору;
+-	сбой приложения из-за исключения.
 
--   requests taking a long time
--   application using high memory/CPU
--   application crashing due to an exception.
+## Действия по устранению ошибок "502 — недопустимый шлюз" и "503 — служба недоступна"
 
-## <a name="troubleshooting-steps-to-solve-"502-bad-gateway"-and-"503-service-unavailable"-errors"></a>Troubleshooting steps to solve "502 bad gateway" and "503 service unavailable" errors
+Процесс устранения неполадок можно разделить на три последовательных задачи.
 
-Troubleshooting can be divided into three distinct tasks, in sequential order:
+1.	[Наблюдение за поведением приложения.](#observe)
+2.	[Сбор данных.](#collect)
+3.	[Устранение проблемы.](#mitigate)
 
-1.  [Observe and monitor application behavior](#observe)
-2.  [Collect data](#collect)
-3.  [Mitigate the issue](#mitigate)
-
-[App Service Web Apps](/services/app-service/web/) gives you various options at each step.
+[Веб-приложения службы приложений](/services/app-service/web/) содержат несколько инструментов для каждого из этих этапов.
 
 <a name="observe" />
-### <a name="1.-observe-and-monitor-application-behavior"></a>1. Observe and monitor application behavior
+### 1\. Наблюдение за поведением приложения
 
-####    <a name="track-service-health"></a>Track Service health
+####	Мониторинг работоспособности службы
 
-Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../azure-portal/insights-service-health.md).
+Microsoft Azure информирует о каждом случае прерывания работы или снижения производительности службы. Можно следить за работоспособностью службы на [портале Azure](https://portal.azure.com/). Дополнительные сведения см. в статье [Мониторинг работоспособности службы](../azure-portal/insights-service-health.md).
 
-####    <a name="monitor-your-web-app"></a>Monitor your web app
+####	Мониторинг веб-приложения
 
-This option enables you to find out if your application is having any issues. In your web app’s blade, click the **Requests and errors** tile. The **Metric** blade will show you all the metrics you can add.
+Этот инструмент позволяет определить наличие проблем с приложением. В колонке веб-приложения щелкните элемент **Запросы и ошибки**. Колонка **Метрика** содержит все метрики, которые вы можете добавить.
 
-Some of the metrics that you might want to monitor for your web app are
+Некоторые из этих метрик помогут вам отслеживать работу веб-приложения, например:
 
--   Average memory working set
--   Average response time
--   CPU time
--   Memory working set
--   Requests
+-	средний размер рабочего набора памяти;
+-	Average response time (Среднее время ответа)
+-	время ЦП;
+-	рабочий набор памяти;
+-	Requests (Запросы)
 
-![monitor web app towards solving HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
+![Мониторинг веб-приложения для устранения ошибок HTTP "502 — недопустимый шлюз" и "503 — служба недоступна"](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
-For more information, see:
+Дополнительные сведения см. в следующих статьях:
 
--   [Monitor Web Apps in Azure App Service](web-sites-monitor.md)
--   [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md)
+-	[Мониторинг веб-приложений в службе приложений Azure](web-sites-monitor.md)
+-	[Получение уведомлений об оповещениях](../azure-portal/insights-receive-alert-notifications.md)
 
 <a name="collect" />
-### <a name="2.-collect-data"></a>2. Collect data
+### 2\. Сбор данных
 
-####    <a name="use-the-azure-app-service-support-portal"></a>Use the Azure App Service Support Portal
+####	Использование портала поддержки службы приложений Azure
 
-Web Apps provides you with the ability to troubleshoot issues related to your web app by looking at HTTP logs, event logs, process dumps, and more. You can access all this information using our Support portal at **http://&lt;your app name>.scm.azurewebsites.net/Support**
+Веб-приложения позволяют вам просматривать HTTP-журналы, журналы событий, дампы процессов и другую информацию для диагностики неполадок, связанных с вашим приложением. Эту информацию вы сможете найти на нашем портале поддержки по адресу **http://&lt;your имя приложения>.scm.azurewebsites.net/Support**
 
-The Azure App Service Support portal provides you with three separate tabs to support the three steps of a common troubleshooting scenario:
+На портале поддержки службы приложений Azure вы увидите три отдельные вкладки, соответствующие трем этапам стандартного процесса устранения неполадок.
 
-1.  Observe current behavior
-2.  Analyze by collecting diagnostics information and running the built-in analyzers
-3.  Mitigate
+1.	Наблюдение за поведением.
+2.	Сбор диагностических данных и запуск встроенных средств анализа.
+3.	Устранение неполадки.
 
-If the issue is happening right now, click **Analyze** > **Diagnostics** > **Diagnose Now** to create a diagnostic session for you, which will collect HTTP logs, event viewer logs, memory dumps, PHP error logs and PHP process report.
+Если проблема происходит прямо сейчас, щелкните **Анализ** > **Диагностика** > **Запустить диагностику**. Так вы создадите сеанс диагностики, в ходе которого будут собираться HTTP-журналы, журналы просмотра событий, дампы памяти, журналы ошибок PHP и отчеты процесса PHP.
 
-Once the data is collected, it will also run an analysis on the data and provide you with an HTML report.
+После сбора данных будет выполнен их анализ и создан отчет в формате HTML.
 
-In case you want to download the data, by default, it would be stored in the D:\home\data\DaaS folder.
+Вы также можете загрузить собранные данные на свой компьютер. По умолчанию они сохраняются в папке D:\\home\\data\\DaaS.
 
-For more information on the Azure App Service Support portal, see [New Updates to Support Site Extension for Azure Websites](/blog/new-updates-to-support-site-extension-for-azure-websites).
+Дополнительные сведения о возможностях портала поддержки службы приложений Azure см. в статье [Обновления веб-сайтов Azure для поддержки расширения сайта](/blog/new-updates-to-support-site-extension-for-azure-websites).
 
-####    <a name="use-the-kudu-debug-console"></a>Use the Kudu Debug Console
+####	Использование консоли отладки Kudu
 
-Web Apps comes with a debug console that you can use for debugging, exploring, uploading files, as well as JSON endpoints for getting information about your environment. This is called the _Kudu Console_ or the _SCM Dashboard_ for your web app.
+Веб-приложения оснащены консолью отладки, с помощью которой вы можете получать сведения о среде, используя функции отладки, изучения, передачи файлов и конечных точек JSON. Она называется _консолью Kudu_ или _панелью SCM_ вашего приложения.
 
-You can access this dashboard by going to the link **https://&lt;Your app name>.scm.azurewebsites.net/**.
+Вы можете открыть эту панель по ссылке **https://&lt;Your имя приложения>.scm.azurewebsites.net/**.
 
-Some of the things that Kudu provides are:
+Вот некоторые возможности консоли Kudu:
 
--   environment settings for your application
--   log stream
--   diagnostic dump
--   debug console in which you can run Powershell cmdlets and basic DOS commands.
+-	настройки среды для вашего приложения;
+-	потоковая передача журналов;
+-	диагностический дамп;
+-	консоль отладки с возможностью запуска командлетов Powershell и основных команд DOS.
 
 
-Another useful feature of Kudu is that, in case your application is throwing first-chance exceptions, you can use Kudu and the SysInternals tool Procdump to create memory dumps. These memory dumps are snapshots of the process and can often help you troubleshoot more complicated issues with your web app.
+У консоли Kudu есть еще одна очень полезная функция. Если приложение создает обрабатываемые исключения, с помощью консоли Kudu и средства SysInternals Procdump вы можете получать дампы памяти. Эти дампы представляют собой снимок процессов, выполняемых в момент создания исключения. Вы можете использовать эти данные при анализе сложных проблем в веб-приложении.
 
-For more information on features available in Kudu, see [Azure Websites online tools you should know about](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Дополнительные сведения о возможностях консоли Kudu см. в статье [Онлайн-средства веб-сайтов Azure, о которых вам нужно знать](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
-### <a name="3.-mitigate-the-issue"></a>3. Mitigate the issue
+### 3\. Устранение проблемы
 
-####    <a name="scale-the-web-app"></a>Scale the web app
+####	Масштабирование веб-приложения
 
-In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up a web app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
+В службе приложений Azure вы можете изменять масштаб выполнения приложения, чтобы увеличить его производительность и пропускную способность. Масштабирование веб-приложений предполагает два связанных действия: изменение ценовой категории для используемого плана службы приложений на более высокую с последующей настройкой некоторых параметров.
 
-For more information on scaling, see [Scale a web app in Azure App Service](web-sites-scale.md).
+Дополнительные сведения о масштабировании см. в статье [Масштабирование веб-приложения в службе приложений Azure](web-sites-scale.md).
 
-Additionally, you can choose to run your application on more than one instance . This not only provides you with more processing capability, but also gives you some amount of fault tolerance. If the process goes down on one instance, the other instance will still continue serving requests.
+Кроме того, вы можете запустить более одного экземпляра приложения. Это не только увеличит возможности обработки, но и повысит устойчивость приложения к сбоям. Если прекратит работу один экземпляр приложения, другой экземпляр продолжит обрабатывать запросы.
 
-You can set the scaling to be Manual or Automatic.
+Вы можете выбрать ручной или автоматический режим масштабирования.
 
-####    <a name="use-autoheal"></a>Use AutoHeal
+####	Использование функции AutoHeal
 
-AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure Portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
+Функция AutoHeal перезапускает рабочий процесс вашего приложения при определенных условиях, которые вы определяете в настройках (например, при изменении конфигурации, при определенном количестве запросов, при достижении ограничений памяти или времени выполнения запроса). В большинстве случаев повторный запуск процесса будет самым быстрым способом устранения проблемы. Хотя веб-приложение всегда можно вручную перезапустить на портале Azure, функция AutoHeal позволяет выполнять перезапуск автоматически. Для этого достаточно добавить в корневой файл web.config вашего веб-приложения некоторые триггеры. Эти параметры одинаково работают во всех приложениях, а не только в приложениях .NET.
 
-For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-windows-azure-web-sites/).
-
-
-####    <a name="restart-the-web-app"></a>Restart the web app
-
-This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com/), on your web app’s blade, you have the options to stop or restart your app.
-
- ![restart app to solve HTTP errors of 502 bad gateway and 503 service unavailable](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
-
-You can also manage your web app using Azure Powershell. For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+Дополнительные сведения см. в разделе [Автоматическое восстановление веб-сайтов Microsoft Azure](/blog/auto-healing-windows-azure-web-sites/).
 
 
+####	Перезапуск веб-приложения
 
-<!--HONumber=Oct16_HO2-->
+Обычно это самый простой способ восстановления после проблемы, которая возникла один раз. Остановить или перезапустить приложение можно при помощи колонки веб-приложения на [портале Azure](https://portal.azure.com/).
 
+ ![Перезапуск приложения для устранения ошибок HTTP "502 — недопустимый шлюз" и "503 — служба недоступна"](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
+Управлять приложениями можно также с помощью Azure Powershell. Дополнительные сведения см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
+
+<!---HONumber=AcomDC_0713_2016-->

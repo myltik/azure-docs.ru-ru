@@ -1,15 +1,13 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-exit-maintenance-mode"></a>To exit Maintenance mode
+#### Выход из режима обслуживания
 
-1. At the command prompt type:
+1. В командной строке ведите:
 
      `Exit-HcsMaintenanceMode`
 
-2. A warning message and a confirmation message will appear. Type **Y** to exit Maintenance mode.
+2. Отобразится сообщение с предупреждением и сообщение с запросом на подтверждение. Нажмите клавишу **Y**, чтобы выйти из режима обслуживания.
 
-    Both controllers will restart. When the restart is complete, another message will appear indicating that the device is in Normal mode.
+    Оба контроллера будут перезапущены. После завершения перезапуска появится сообщение о том, что устройство находится в обычном режиме.
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

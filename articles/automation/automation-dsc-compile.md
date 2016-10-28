@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Compiling configurations in Azure Automation DSC | Microsoft Azure" 
-   description="Overview of two ways to compile Desired State Configuration (DSC) configurations: In the Azure portal, and with Windows PowerShell. " 
+   pageTitle="Компилирование конфигураций в Azure Automation DSC | Microsoft Azure" 
+   description="Обзор двух способов, с помощью которых можно компилировать конфигурации требуемого состояния (DSC): на портале Azure или с помощью Windows PowerShell. " 
    services="automation" 
    documentationCenter="na" 
    authors="coreyp-at-msft" 
@@ -16,221 +16,216 @@
    ms.date="01/25/2016"
    ms.author="coreyp"/>
    
+#Компилирование конфигураций в Azure Automation DSC#
 
-#<a name="compiling-configurations-in-azure-automation-dsc#"></a>Compiling configurations in Azure Automation DSC#
+Вы можете компилировать конфигурации требуемого состояния (DSC) двумя способами: на портале Azure или с помощью Windows PowerShell. Нижеприведенная таблица поможет определить, когда и какой метод использовать с учетом характеристик каждого метода.
 
-You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation: In the Azure portal, and with Windows PowerShell. The following table will help you determine when to use which method based on the characteristics of each: 
+###Портал предварительной версии Azure###
+- Простейший способ с интерактивным пользовательским интерфейсом.
+- Форма для предоставления значений простых параметров.
+- Легко отслеживаемое состояние задания.
+- Доступ с проверкой подлинности в Azure.
 
-###<a name="azure-preview-portal###"></a>Azure preview portal###
-- Simplest method with interactive user interface
-- Form to provide simple parameter values
-- Easily track job state
-- Access authenticated with Azure logon
+###Windows PowerShell###
+- Вызов из командной строки с помощью командлетов Windows PowerShell.
+- Может быть добавлено в автоматизированное решение, состоящее из нескольких шагов.
+- Необходимо предоставить значения простых и сложных параметров.
+- Отслеживание состояния задания
+- Для поддержки командлетов PowerShell необходим клиент.
+- Передача данных ConfigurationData.
+- Компилирование конфигураций, использующих учетные данные.
 
-###<a name="windows-powershell###"></a>Windows PowerShell###
-- Call from command line with Windows PowerShell cmdlets
-- Can be included in automated solution with multiple steps
-- Provide simple and complex parameter values
-- Track job state
-- Client required to support PowerShell cmdlets
-- Pass ConfigurationData
-- Compile configurations that use credentials
+После выбора метода компиляции вы можете выполнять процедуры, описанные ниже, чтобы начать компилирование.
 
-Once you have decided on a compilation method, you can follow the respective procedures below to start compiling.
+##Компилирование конфигурации DSC с помощью портала Azure##
 
-##<a name="compiling-a-dsc-configuration-with-the-azure-portal##"></a>Compiling a DSC Configuration with the Azure portal##
+1.  В своей учетной записи автоматизации щелкните элемент **Конфигурации**.
+2.  Щелкните конфигурацию, чтобы открыть ее колонку.
+3.  Нажмите кнопку **Компилировать**.
+4.  Если конфигурация не имеет параметров, нужно будет подтвердить ее компилирование. Если конфигурация имеет параметры, отобразится колонка **Компилирование конфигурации**, в которой можно указать значения параметров. Дополнительные сведения о параметрах см. в разделе <a href="#basic-parameters">**Базовые параметры**</a> ниже.
+5.  Откроется колонка **Задание компилирования**, где вы можете отследить статус задания компилирования, а также конфигурации узла (документы конфигурации MOF), которые это задание расположило на опрашивающем сервере Azure Automation DSC.
 
-1.  From your automation account, click **Configurations**.
-2.  Click a configuration to open its blade.
-3.  Click **Compile**.
-4.  If the configuration has no parameters, you will be prompted to confirm whether you want to compile it. If the configuration has parameters, the **Compile Configuration** blade will open so you can provide parameter values. See the <a href="#basic-parameters">**Basic Parameters**</a> section below for further details on parameters.
-5.  The **Compilation Job** blade is opened so that you can track the compilation job's status, and the node configurations (MOF configuration documents) it caused to be placed on the Azure Automation DSC Pull Server.
+##Компилирование конфигурации DSC с помощью Windows PowerShell##
 
-##<a name="compiling-a-dsc-configuration-with-windows-powershell##"></a>Compiling a DSC Configuration with Windows PowerShell##
-
-You can use [`Start-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.com/library/mt244118.aspx) to start compiling with Windows PowerShell. The following sample code starts compilation of a DSC configuration called **SampleConfig**.
+Чтобы начать компилирование с помощью Windows PowerShell, вы можете использовать [`Start-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.com/library/mt244118.aspx). В следующем примере кода запускается компилирование конфигурации DSC под именем **SampleConfig**.
 
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig" 
  
-`Start-AzureRmAutomationDscCompilationJob` returns a compilation job object that you can use to track its status. You can then use this compilation job object with [`Get-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.com/library/mt244120.aspx) to determine the status of the compilation job, and [`Get-AzureRmAutomationDscCompilationJobOutput`](https://msdn.microsoft.com/library/mt244103.aspx) to view its streams (output). The following sample code starts compilation of the **SampleConfig** configuration, waits until it has completed, and then displays its streams.
+`Start-AzureRmAutomationDscCompilationJob` возвращает объект задания компилирования, с помощью которого вы можете отслеживать состояние. После этого вы можете использовать этот объект задания компилирования с помощью [`Get-AzureRmAutomationDscCompilationJob`](https://msdn.microsoft.com/library/mt244120.aspx), чтобы определить статус задания компилирования, или с помощью [`Get-AzureRmAutomationDscCompilationJobOutput`](https://msdn.microsoft.com/library/mt244103.aspx), чтобы просматривать его потоки (выходные данные). В следующем примере кода мы запускаем компилирование конфигурации **SampleConfig**, ждем, пока оно завершится, а затем отображаем его потоки.
     
     $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "SampleConfig"
     
-    while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)           
+    while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)       	
     {
-        $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
-        Start-Sleep -Seconds 3
+    	$CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
+    	Start-Sleep -Seconds 3
     }
     
     $CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput –Stream Any 
 
 
-##<a name="basic-parameters##"></a>Basic Parameters##
+##Базовые параметры##
 
-Parameter declaration in DSC configurations, including parameter types and properties, works the same as in Azure Automation runbooks. See [Starting a runbook in Azure Automation](automation-starting-a-runbook.md) to learn more about runbook parameters.
+Объявление параметров, в том числе типов и свойств параметров, в конфигурациях DSC выполняется так же, как и в модулях Runbook службы автоматизации Azure. Дополнительные сведения о модулях Runbook см. в статье [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md).
 
-The following example uses two parameters called **FeatureName** and **IsPresent**, to determine the values of properties in the **ParametersExample.sample** node configuration, generated during compilation.
+Чтобы определить значения свойств в конфигурации узла **ParametersExample.sample**, созданной во время компилирования, в следующем примере используются два параметра, **FeatureName** и **IsPresent**.
 
     Configuration ParametersExample
     {
-        param(
-            [Parameter(Mandatory=$true)]
+    	param(
+    		[Parameter(Mandatory=$true)]
     
-            [string] $FeatureName,
+    		[string] $FeatureName,
     
-            [Parameter(Mandatory=$true)]
-            [boolean] $IsPresent
-        )
+    		[Parameter(Mandatory=$true)]
+    		[boolean] $IsPresent
+    	)
     
-        $EnsureString = "Present"
-        if($IsPresent -eq $false)
-        {
-            $EnsureString = "Absent"
-        }
+    	$EnsureString = "Present"
+    	if($IsPresent -eq $false)
+    	{
+    		$EnsureString = "Absent"
+    	}
     
-        Node "sample"
-        {
-            WindowsFeature ($FeatureName + "Feature")
-            {
-                Ensure = $EnsureString
-                Name = $FeatureName
-            }
-        }
+    	Node "sample"
+    	{
+    		WindowsFeature ($FeatureName + "Feature")
+    		{
+    			Ensure = $EnsureString
+    			Name = $FeatureName
+    		}
+    	}
     }
 
-You can compile DSC Configurations that use basic parameters in the Azure Automation DSC portal, or with Azure PowerShell:
+Вы можете компилировать конфигурации DSC, использующие базовые параметры, на портале Azure Automation DSC или с помощью Azure PowerShell:
 
-###<a name="portal###"></a>Portal###
+###Microsoft Azure###
 
-In the portal, you can enter parameter values after clicking **Compile**.
+Чтобы ввести значения параметров на портале, нажмите кнопку **Компилировать**.
 
-![alt text](./media/automation-dsc-compile/DSC_compiling_1.png)
+![замещающий текст](./media/automation-dsc-compile/DSC_compiling_1.png)
 
-###<a name="powershell###"></a>PowerShell###
+###PowerShell###
 
-PowerShell requires parameters in a [hashtable](http://technet.microsoft.com/library/hh847780.aspx) where the key matches the parameter name, and the value equals the parameter value.
+Для модуля PowerShell нужны параметры в таблице [hashtable](http://technet.microsoft.com/library/hh847780.aspx), в которой раздел соответствует имени параметра, а значение — значению параметра.
 
     $Parameters = @{
-            "FeatureName" = "Web-Server"
-            "IsPresent" = $False
+    		"FeatureName" = "Web-Server"
+    		"IsPresent" = $False
     }
     
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ParametersExample" -Parameters $Parameters 
     
 
-For information about passing PSCredentials as parameters, see <a href="#credential-assets">**Credential Assets**</a> below.
+Сведения о передаче учетных данных PSCredentials в качестве параметров см. в статье <a href="#credential-assets">**Доступ к учетным данным**</a> ниже.
 
-##<a name="configurationdata##"></a>ConfigurationData##
+##ConfigurationData##
 
-**ConfigurationData** allows you to separate structural configuration from any environment specific configuration while using PowerShell DSC. See [Separating "What" from "Where" in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) to learn more about **ConfigurationData**.
+Параметр **ConfigurationData** позволяет при использовании PowerShell DSC отделить конфигурацию структуры от любой конфигурации среды. Дополнительные сведения о **ConfigurationData** см. в статье [Разница между «что» и «где» в DSC PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx).
 
->[AZURE.NOTE] You can use **ConfigurationData** when compiling in Azure Automation DSC using Azure PowerShell, but not in the Azure portal.
+>[AZURE.NOTE] Вы можете использовать **ConfigurationData**, когда выполняете компилирование на платформе Azure Automation DSC с помощью Azure PowerShell. На портале Azure этот параметр использовать нельзя.
 
-The following example DSC configuration uses **ConfigurationData** via the **$ConfigurationData** and **$AllNodes** keywords. You'll also need the [**xWebAdministration** module](https://www.powershellgallery.com/packages/xWebAdministration/) for this example:
+В приведенном ниже примере конфигурации DSC параметр **ConfigurationData** используется через ключевые слова **$ConfigurationData** и **$AllNodes**. Для этого примера понадобится также модуль [**xWebAdministration**](https://www.powershellgallery.com/packages/xWebAdministration/).
 
      Configuration ConfigurationDataSample
      {
-        Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
+    	Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
     
-        Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
+    	Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
     
-        Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
-        {
-            xWebsite Site
-            {
-                Name = $Node.SiteName
-                PhysicalPath = $Node.SiteContents
-                Ensure   = "Present"
-            }
-        }
+    	Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
+    	{
+    		xWebsite Site
+    		{
+    			Name = $Node.SiteName
+    			PhysicalPath = $Node.SiteContents
+    			Ensure   = "Present"
+    		}
+    	}
     }
 
-You can compile the DSC configuration above with PowerShell. The below PowerShell adds two node configurations to the Azure Automation DSC Pull Server: **ConfigurationDataSample.MyVM1** and **ConfigurationDataSample.MyVM3**:
+Вы можете компилировать конфигурацию DSC, показанную выше, с помощью PowerShell. Команда PowerShell ниже добавляет две конфигурации узла в опрашивающий сервер службы автоматизации Azure: **ConfigurationDataSample.MyVM1** и **ConfigurationDataSample.MyVM3**.
 
     $ConfigData = @{
-        AllNodes = @(
-            @{
-                NodeName = "MyVM1"
-                Role = "WebServer"
-            },
-            @{
-                NodeName = "MyVM2"
-                Role = "SQLServer"
-            },
-            @{
-                NodeName = "MyVM3"
-                Role = "WebServer"
+    	AllNodes = @(
+			@{
+    			NodeName = "MyVM1"
+    			Role = "WebServer"
+    		},
+    		@{
+    			NodeName = "MyVM2"
+    			Role = "SQLServer"
+    		},
+    		@{
+    			NodeName = "MyVM3"
+    			Role = "WebServer"
     
-            }
+    		}
     
-        )
+    	)
     
-        NonNodeData = @{
-            SomeMessage = "I love Azure Automation DSC!"
+    	NonNodeData = @{
+    		SomeMessage = "I love Azure Automation DSC!"
     
-        }
+    	}
     
     } 
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "ConfigurationDataSample" -ConfigurationData $ConfigData
 
 
-##<a name="assets##"></a>Assets##
+##Активы##
 
-Asset references are the same in Azure Automation DSC configurations and runbooks. See the following for more information:
+Ссылки на активы одинаковы в конфигурациях и модулях Runbook платформы Azure Automation DSC. Дополнительную информацию см. в следующих статьях:
 
-- [Certificates](automation-certificates.md)
-- [Connections](automation-connections.md)
-- [Credentials](automation-credentials.md)
-- [Variables](automation-variables.md)
+- [Сертификаты](automation-certificates.md)
+- [Подключения](automation-connections.md)
+- [Учетные данные](automation-credentials.md)
+- [Переменные](automation-variables.md)
 
-###<a name="credential-assets###"></a>Credential Assets###
-While DSC configurations in Azure Automation can reference credential assets using **Get-AzureRmAutomationCredential**, credential assets can also be passed in via parameters, if desired. If a configuration takes a parameter of **PSCredential** type, then you need to pass the string name of an Azure Automation credential asset as that parameter’s value, rather than a PSCredential object. Behind the scenes, the Azure Automation credential asset with that name will be retrieved and passed to the configuration.
+###Активы учетных данных###
+Хотя конфигурации DSC в службе автоматизации Azure могут ссылаться на ресурсы учетных данных с помощью командлета **Get-AzureRmAutomationCredential**, при необходимости эти ресурсы можно передавать и в качестве параметров. Если конфигурация принимает параметр типа **PSCredential**, в качестве значения этого параметра нужно использовать имя строки ресурса учетных данных (используется в службе автоматизации Azure), а не объект PSCredential. Названный так актив учетных данных, используемых для службы автоматизации Azure, будет в фоновом режиме извлечен и передан в конфигурацию.
 
-Keeping credentials secure in node configurations (MOF configuration documents) requires encrypting the credentials in the node configuration MOF file. Azure Automation takes this one step further and encrypts the entire MOF file. However, currently you must tell PowerShell DSC it is okay for credentials to be outputted in plain text during node configuration MOF generation, because PowerShell DSC doesn’t know that Azure Automation will be encrypting the entire MOF file after its generation via a compilation job.
+Чтобы обеспечить безопасность учетных данных в конфигурациях узла (документы конфигурации MOF), учетные данные нужно зашифровать в MOF-файле конфигурации узла. Служба автоматизации Azure делает больше — она зашифровывает MOF-файл целиком. Но сейчас в модуле DSC PowerShell нужно подтверждать, что учетные данные можно отображать в формате обычного текста во время создания MOF-файла конфигурации узла. Это связано с тем, что модулю DSC PowerShell неизвестно, что, когда MOF-файл будет создан с помощью задачи компилирования, служба автоматизации Azure будет шифровать его целиком.
 
-You can tell PowerShell DSC that it is okay for credentials to be outputted in plain text in the generated node configuration MOFs using <a href="#configurationdata">**ConfigurationData**</a>. You should pass `PSDscAllowPlainTextPassword = $true` via **ConfigurationData** for each node block’s name that appears in the DSC configuration and uses credentials.
+Вы можете подтвердить в модуле DSC PowerShell, что учетные данные можно отобразить в формате обычного текста в MOF-файлах конфигурации узлов, использующих <a href="#configurationdata">**ConfigurationData**</a>. `PSDscAllowPlainTextPassword = $true` следует передать через **ConfigurationData** для каждого имени блока узла, которое отображается в конфигурации DSC и для которого нужны учетные данные.
 
-The following example shows a DSC configuration that uses an Automation credential asset.
+В следующем примере показана конфигурация DSC, использующая актив учетных данных автоматизации.
 
     Configuration CredentialSample
     {
        $Cred = Get-AzureRmAutomationCredential -Name "SomeCredentialAsset"
     
-        Node $AllNodes.NodeName
-        { 
-            File ExampleFile
-            { 
-                SourcePath = "\\Server\share\path\file.ext" 
-                DestinationPath = "C:\destinationPath" 
-                Credential = $Cred 
-            }
-        }
+    	Node $AllNodes.NodeName
+    	{ 
+    		File ExampleFile
+    		{ 
+    			SourcePath = "\\Server\share\path\file.ext" 
+    			DestinationPath = "C:\destinationPath" 
+    			Credential = $Cred 
+       		}
+    	}
     }
 
-You can compile the DSC configuration above with PowerShell. The below PowerShell adds two node configurations to the Azure Automation DSC Pull Server:  **CredentialSample.MyVM1** and **CredentialSample.MyVM2**.
+Вы можете компилировать конфигурацию DSC, показанную выше, с помощью PowerShell. Команда PowerShell ниже добавляет две конфигурации узла в опрашивающий сервер службы автоматизации Azure: **CredentialSample.MyVM1** и **CredentialSample.MyVM2**.
 
 
     $ConfigData = @{
-        AllNodes = @(
-            @{
-                NodeName = "*"
-                PSDscAllowPlainTextPassword = $True
-            },
-            @{
-                NodeName = "MyVM1"
-            },
-            @{
-                NodeName = "MyVM2"
-            }
-        )
+    	AllNodes = @(
+    		@{
+    			NodeName = "*"
+    			PSDscAllowPlainTextPassword = $True
+    		},
+    		@{
+    			NodeName = "MyVM1"
+    		},
+    		@{
+    			NodeName = "MyVM2"
+    		}
+    	)
     }
     
     Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

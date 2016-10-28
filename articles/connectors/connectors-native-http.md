@@ -1,12 +1,12 @@
 <properties
-    pageTitle="Add the HTTP action in logic apps | Microsoft Azure"
-    description="Overview of the HTTP action with properties"
-    services=""
-    documentationCenter=""
-    authors="jeffhollan"
-    manager="erikre"
-    editor=""
-    tags="connectors"/>
+	pageTitle="Добавление действия HTTP в приложения логики | Microsoft Azure"
+	description="Обзор действий HTTP и их свойств"
+	services=""
+	documentationCenter=""
+	authors="jeffhollan"
+	manager="erikre"
+	editor=""
+	tags="connectors"/>
 
 <tags
    ms.service="logic-apps"
@@ -17,205 +17,198 @@
    ms.date="07/15/2016"
    ms.author="jehollan"/>
 
+# Начало работы с действием HTTP
 
-# <a name="get-started-with-the-http-action"></a>Get started with the HTTP action
+Благодаря действию HTTP можно расширить рабочие процессы своей организации и взаимодействовать с конечной точкой по протоколу HTTP.
 
-With the HTTP action, you can extend workflows for your organization and communicate to any endpoint over HTTP.
+Вы можете:
 
-You can:
+- Создайте рабочие процессы приложений логики, которые будут активироваться, когда управляемый вами веб-сайт выйдет из строя.
+- Настройте взаимодействие с конечной точкой по протоколу HTTP, чтобы распространить рабочие процессы на другие службы.
 
-- Create logic app workflows that activate (trigger) when a website that you manage goes down.
-- Communicate to any endpoint over HTTP to extend your workflows into other services.
+Сведения о начале работы с действием HTTP в приложении логики см. в статье о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To get started using the HTTP action in a logic app, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Использование триггера HTTP
 
-## <a name="use-the-http-trigger"></a>Use the HTTP trigger
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](connectors-overview.md).
 
-A trigger is an event that can be used to start the workflow that is defined in a logic app. [Learn more about triggers](connectors-overview.md).
+Ниже приведен пример последовательности настройки триггера HTTP в конструкторе приложений логики.
 
-Here’s an example sequence of how to set up the HTTP trigger in the Logic App Designer.
+1. Добавьте триггер HTTP в приложение логики.
+2. Заполните параметры конечной точки HTTP, которую нужно опросить.
+3. Измените интервал повторения на частоту опроса.
+4. Теперь приложение логики запускается с любым содержимым, возвращаемым при проверке.
 
-1. Add the HTTP trigger in your logic app.
-2. Fill in the parameters for the HTTP endpoint that you want to poll.
-3. Modify the recurrence interval on how frequently it should poll.
-4. The logic app now fires with any content that is returned during each check.
+.![Триггер HTTP](./media/connectors-native-http/using-trigger.png)
 
-![HTTP trigger](./media/connectors-native-http/using-trigger.png)
+### Принцип работы триггера HTTP
 
-### <a name="how-the-http-trigger-works"></a>How the HTTP trigger works
-
-The HTTP trigger makes a call to an HTTP endpoint on a recurring interval. By default, any HTTP response code less than 300 results in a logic app run. You can add a condition in code view that will evaluate after the HTTP call to determine if the logic app should fire. Here's an example of an HTTP trigger that fires whenever the status code returned is greater than or equal to `400`.
+Триггер HTTP вызывает конечную точку HTTP в соответствии с интервалом повторения. По умолчанию код ответа HTTP со значением меньше 300 приводит к запуску приложения логики. В представление кода можно добавить условие, которое будет оценивать результат вызова HTTP, чтобы определить, нужно ли запускать приложение логики. Ниже приведен пример триггера HTTP, который срабатывает, когда возвращаемый код состояния больше или равен `400`.
 
 ```javascript
 "Http":
 {
-    "conditions": [
-        {
-            "expression": "@greaterOrEquals(triggerOutputs()['statusCode'], 400)"
-        }
-    ],
-    "inputs": {
-        "method": "GET",
-        "uri": "https://blogs.msdn.microsoft.com/logicapps/",
-        "headers": {
-            "accept-language": "en"
-        }
-    },
-    "recurrence": {
-        "frequency": "Second",
-        "interval": 15
-    },
-    "type": "Http"
+	"conditions": [
+		{
+			"expression": "@greaterOrEquals(triggerOutputs()['statusCode'], 400)"
+		}
+	],
+	"inputs": {
+		"method": "GET",
+		"uri": "https://blogs.msdn.microsoft.com/logicapps/",
+		"headers": {
+			"accept-language": "en"
+		}
+	},
+	"recurrence": {
+		"frequency": "Second",
+		"interval": 15
+	},
+	"type": "Http"
 }
 ```
 
-Full details about the HTTP trigger parameters are available on [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
+Подробные сведения о параметрах триггера HTTP можно найти в библиотеке [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
 
-## <a name="use-the-http-action"></a>Use the HTTP action
+## Использование действия HTTP
 
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](connectors-overview.md).
 
-1. Select the **New Step** button.
-2. Choose **Add an action**.
-3. In the action search box, type **http** to list the HTTP action.
+1. Нажмите кнопку **Новый шаг**.
+2. Выберите **Добавить действие**.
+3. В поле поиска действий введите **http**, чтобы получить список действий HTTP.
 
-    ![Select the HTTP action](./media/connectors-native-http/using-action-1.png)
+	.![Выбор действия HTTP](./media/connectors-native-http/using-action-1.png)
 
-4. Add in any parameters that are required for the HTTP call.
+4. Добавьте параметры, необходимые для вызова HTTP.
 
-    ![Complete the HTTP action](./media/connectors-native-http/using-action-2.png)
+	![Выполнение действия HTTP](./media/connectors-native-http/using-action-2.png)
 
-5. Click the top left corner of the toolbar to save. Your logic app will both save and publish (activate).
+5. Нажмите кнопку в левом верхнем углу панели инструментов, чтобы сохранить. После этого приложение логики будет сохранено и опубликовано (активировано).
 
-## <a name="http-trigger"></a>HTTP trigger
+## Триггер HTTP
 
-Here are the details for the trigger that this connector supports. The HTTP connector has one trigger.
+Ниже приведены подробные сведения о триггере, поддерживаемом этим соединителем. У соединителя HTTP один триггер.
 
-|Trigger|Description|
+|Триггер|Описание|
 |---|---|
-|HTTP|Makes an HTTP call and returns the response content.|
+|HTTP|Совершает вызов HTTP и возвращает содержимое ответа.|
 
-## <a name="http-action"></a>HTTP action
+## Действие HTTP
 
-Here are the details for the action that this connector supports. The HTTP connector has one possible action.
+Ниже приведены подробные сведения о действии, которое поддерживает этот соединитель. У соединителя HTTP одно возможное действие.
 
-|Action|Description|
+|Действие|Описание|
 |---|---|
-|HTTP|Makes an HTTP call and returns the response content.|
+|HTTP|Совершает вызов HTTP и возвращает содержимое ответа.|
 
-## <a name="http-details"></a>HTTP details
+## Сведения о HTTP
 
-The following tables describe the required and optional input fields for the action and the corresponding output details that are associated with using the action.
+В следующих таблицах приведены обязательные и необязательные поля ввода для действия, а также соответствующие выходные данные, связанные с его использованием.
 
 
-#### <a name="http-request"></a>HTTP request
-The following are input fields for the action, which makes an HTTP outbound request.
-A * means that it is a required field.
+#### HTTP-запрос
+Ниже перечислены поля ввода для действия, выполняющего исходящий HTTP-запрос. Звездочка (*) означает, что это поле обязательное для заполнения.
 
-|Display name|Property name|Description|
+|Отображаемое имя|Имя свойства|Описание|
 |---|---|---|
-|Method*|method|The HTTP verb to use|
-|URI*|uri|The URI for the HTTP request|
-|Headers|headers|A JSON object of HTTP headers to include|
-|Body|body|The HTTP request body|
-|Authentication|authentication|Details in the [Authentication](#authentication) section|
+|Метод*|метод|HTTP-команда для использования|
+|URI*|uri|URI HTTP-запроса|
+|Заголовки|headers|Объект JSON заголовков HTTP, который нужно включить|
+|Текст|текст|Текст HTTP-запроса|
+|Аутентификация|authentication|Подробнее см. в разделе [Аутентификация](#authentication)|
 <br>
 
-#### <a name="output-details"></a>Output details
+#### Сведения о выходных данных
 
-The following are output details for the HTTP response.
+Ниже приведены сведения о выходных данных для ответа HTTP.
 
-|Property name|Data type|Description|
+|Имя свойства|Тип данных|Описание|
 |---|---|---|
-|Headers|object|Response headers|
-|Body|object|Response object|
-|Status Code|int|HTTP status code|
+|Заголовки|object|Заголовки ответов|
+|Текст|object|Объект ответа|
+|Код состояния|int|HTTP status code (Код состояния HTTP)|
 
-## <a name="authentication"></a>Authentication
+## Аутентификация
 
-The Logic Apps feature of Azure App Service allows you to use different types of authentication against HTTP endpoints. You can use this authentication with the **HTTP**, **[HTTP + Swagger](./connectors-native-http-swagger.md)**, and **[HTTP Webhook](./connectors-native-webhook.md)** connectors. The following types of authentication are configurable:
+Функция приложений логики в службе приложений Azure позволяет использовать разные типы аутентификации на основе конечных точек HTTP. Такую аутентификацию можно применять с соединителями **HTTP**, **[HTTP + Swagger](./connectors-native-http-swagger.md)** и **[HTTP Webhook](./connectors-native-webhook.md)**. Ниже приведены типы аутентификации, которые можно настроить.
 
-* [Basic authentication](#basic-authentication)
-* [Client certificate authentication](#client-certificate-authentication)
-* [Azure Active Directory (Azure AD) OAuth authentication](#azure-active-directory-oauth-authentication)
+* [Обычная аутентификация](#basic-authentication)
+* [Аутентификация на основе сертификата клиента](#client-certificate-authentication)
+* [Аутентификация Azure Active Directory (Azure AD) OAuth](#azure-active-directory-oauth-authentication)
 
-#### <a name="basic-authentication"></a>Basic authentication
+#### Обычная аутентификация
 
-The following authentication object is needed for basic authentication.
-A * means that it is a required field.
+Для обычной аутентификации требуется следующий объект аутентификации. Звездочка (*) означает, что это поле обязательное для заполнения.
 
-|Property name|Data type|Description|
+|Имя свойства|Тип данных|Описание|
 |---|---|---|
-|Type*|type|Type of authentication (must be `Basic` for basic authentication)|
-|Username*|username|User name to authenticate|
-|Password*|password|Password to authenticate|
+|Тип*|type|Тип аутентификации (для обычной аутентификации значение должно быть `Basic`)|
+|Имя пользователя*|Имя пользователя|Имя пользователя для аутентификации|
+|Пароль*|пароль|Пароль для аутентификации.|
 
->[AZURE.TIP] If you want to use a password that cannot be retrieved from the definition, use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs).
+>[AZURE.TIP] Если вы хотите использовать пароль, который не удается получить из определения, используйте параметр `securestring` и [функцию определения рабочего процесса](http://aka.ms/logicappdocs) `@parameters()`.
 
-So you would create an object like this in the authentication field:
+Таким образом, в поле аутентификации будет создан следующий объект.
 
 ```javascript
 {
-    "type": "Basic",
-    "username": "user",
-    "password": "test"
+	"type": "Basic",
+	"username": "user",
+	"password": "test"
 }
 ```
 
-#### <a name="client-certificate-authentication"></a>Client certificate authentication
+#### Аутентификация на основе сертификата клиента
 
-The following authentication object is needed for client certificate authentication. A * means that it is a required field.
+Для аутентификации на основе сертификата клиента требуется следующий объект аутентификации. Звездочка (*) означает, что это поле обязательное для заполнения.
 
-|Property name|Data type|Description|
+|Имя свойства|Тип данных|Описание|
 |---|---|---|
-|Type*|type|The type of authentication (must be `ClientCertificate` for SSL client certificates)|
-|PFX*|pfx|The Base64-encoded contents of the Personal Information Exchange (PFX) file|
-|Password*|password|The password to access the PFX file|
+|Тип*|type|Тип аутентификации (для аутентификации на основе SSL-сертификатов клиента значение должно быть `ClientCertificate`)|
+|PFX*|pfx|Содержимое файла обмена личной информацией (PFX-файла) с кодировкой Base64|
+|Пароль*|пароль|Пароль для доступа к PFX-файлу|
 
->[AZURE.TIP] You can use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs) to use a parameter that won't be readable in the definition after saving the logic app.
+>[AZURE.TIP] Можно использовать параметр `securestring` и [функцию определения рабочего процесса](http://aka.ms/logicappdocs) `@parameters()`, чтобы применить параметр, который после сохранения приложения логики будет недоступным для чтения в определении.
 
-For example:
+Например:
 
 ```javascript
 {
-    "type": "ClientCertificate",
-    "pfx": "aGVsbG8g...d29ybGQ=",
-    "password": "@parameters('myPassword')"
+	"type": "ClientCertificate",
+	"pfx": "aGVsbG8g...d29ybGQ=",
+	"password": "@parameters('myPassword')"
 }
 ```
 
-#### <a name="azure-ad-oauth-authentication"></a>Azure AD OAuth authentication
+#### Аутентификация Azure AD OAuth
 
-The following authentication object is needed for Azure AD OAuth authentication. A * means that it is a required field.
+Для аутентификации Azure AD OAuth требуется следующий объект аутентификации. Звездочка (*) означает, что это поле обязательное для заполнения.
 
-|Property name|Data type|Description|
+|Имя свойства|Тип данных|Описание|
 |---|---|---|
-|Type*|type|The type of authentication (must be `ActiveDirectoryOAuth` for Azure AD OAuth)|
-|Tenant*|tenant|The tenant identifier for the Azure AD tenant|
-|Audience*|audience|Set to `https://management.core.windows.net/`|
-|Client ID*|clientId|The client identifier for the Azure AD application|
-|Secret*|secret|The secret of the client that is requesting the token|
+|Тип*|type|Тип аутентификации (для аутентификации Azure AD OAuth значение должно быть `ActiveDirectoryOAuth`)|
+|Клиент*|tenant|Идентификатор клиента Azure AD.|
+|Аудитория*|audience|Установите значение `https://management.core.windows.net/`|
+|Идентификатор клиента*|clientid|Идентификатор клиента для приложения Azure AD|
+|Секрет*|secret|Секретные данные клиента, запрашивающего маркер|
 
->[AZURE.TIP] You can use a `securestring` parameter and the `@parameters()` [workflow definition function](http://aka.ms/logicappdocs) to use a parameter that won't be readable in the definition after saving.
+>[AZURE.TIP] Можно использовать параметр `securestring` и [функцию определения рабочего процесса](http://aka.ms/logicappdocs) `@parameters()`, чтобы применить параметр, который после сохранения будет недоступным для чтения в определении.
 
-For example:
+Например:
 
 ```javascript
 {
-    "type": "ActiveDirectoryOAuth",
-    "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "audience": "https://management.core.windows.net/",
-    "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-    "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+	"type": "ActiveDirectoryOAuth",
+	"tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+	"audience": "https://management.core.windows.net/",
+	"clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+	"secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
 }
 ```
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Now, try out the platform and [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md). You can explore the other available connectors in Logic Apps by looking at our [APIs list](apis-list.md).
+Теперь опробуйте платформу и [создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md). Чтобы узнать, какие еще соединители доступны в приложениях логики, ознакомьтесь со [списком интерфейсов API](apis-list.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

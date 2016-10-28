@@ -1,155 +1,150 @@
 <properties
-    pageTitle="Assigning administrator roles in Azure Active Directory | Microsoft Azure"
-    description="Explains what administrator roles are available with Azure Active Directory and how to assign them."
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Назначение ролей администратора в Azure Active Directory | Microsoft Azure"
+	description="Поясняет, какие роли администратора доступны в Azure Active Directory и как их назначить."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/31/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2016"
+	ms.author="curtand"/>
+
+# Назначение ролей администратора в Azure Active Directory
+
+С помощью Azure Active Directory (Azure AD) можно назначить несколько администраторов, которые будут выполнять различные функции. У них будет доступ к различным возможностям на портале Azure (обновленном или классическом) и, в зависимости от их роли, они смогут создавать или изменять пользователей, назначать административные роли другим пользователям, сбрасывать пароли пользователей, управлять лицензиями и доменами. У пользователя, которому назначена роль администратора, будут одинаковые разрешения во всех облачных службах, на которые подписана ваша организация, независимо от того, назначена ли роль на портале Office 365, на классическом портале Azure или с помощью модуля Azure AD для Windows PowerShell.
+
+Доступны следующие роли администратора.
 
 
-# <a name="assigning-administrator-roles-in-azure-active-directory"></a>Assigning administrator roles in Azure Active Directory
+- **Администратор выставления счетов**: совершает покупки, управляет подписками и запросами в службу поддержки, а также отслеживает работоспособность службы.
 
-Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. These administrators will have access to various features in the Azure portal or Azure classic portal and, depending on their role, will be able to create or edit users, assign administrative roles to others, reset user passwords, manage user licenses, and manage domains, among other things. A user who is assigned an admin role will have the same permissions across all of the cloud services that your organization has subscribed to, regardless of whether you assign the role in the Office 365 portal, or in the Azure classic portal, or by using the Azure AD module for Windows PowerShell.
+- **Глобальный администратор или администратор организации** имеет доступ ко всем административным функциям. Пользователь, зарегистрировавший учетную запись Azure, становится глобальным администратором. Только глобальные администраторы могут назначать другие административные роли. В компании может быть несколько глобальных администраторов.
 
-The following administrator roles are available:
+	> [AZURE.NOTE] В API Microsoft Graph, API Azure AD Graph и Azure AD PowerShell эта роль определяется как "Администратор организации". На [портале Azure](https://portal.azure.com) это "Глобальный администратор".
 
+- **Администратор соответствия требованиям**:
 
-- **Billing administrator**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
+- **Администратор службы CRM**: пользователи с этой ролью имеют глобальные разрешения в Microsoft CRM Online при наличии этой службы. Дополнительные сведения см. в разделе [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=ru-RU&rs=ru-RU&ad=US).
 
-- **Global administrator / Company Administrator**: Has access to all administrative features. The person who signs up for the Azure account becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company.
+- **Лицо, утверждающее доступ клиентов к LockBox**: если включена служба защищенного хранилища, то пользователи с этой ролью могут утверждать запросы инженеров корпорации Майкрософт на доступ к данным компании. Дополнительные сведения см. в разделе [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=ru-RU&rs=ru-RU&ad=US).
 
-    > [AZURE.NOTE] In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
+- **Администраторы устройств**: пользователи с этой ролью становятся администраторами всех устройств Windows 10, присоединенных к Azure Active Directory.
 
-- **Compliance administrator**:
+- **Читатели каталогов**: это устаревшая роль, которая будет назначаться приложениям, не поддерживающим [платформу предоставления разрешений](active-directory-integrating-applications.md). Ее не следует назначать пользователям.
 
-- **CRM Service administrator**: Users with this role have global permissions within Microsoft CRM Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).”
+- **Учетные записи для синхронизации службы каталогов**: не используйте. Эта роль автоматически назначается службе Azure AD Connect, она не предназначена для любого другого использования.
 
-- **Customer LockBox access approver**: When the LockBox service is enabled, users with this role can approve requests for Microsoft engineers to access company information. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).”
+- **Писатели в каталоги**: это устаревшая роль, которая будет назначаться приложениям, не поддерживающим [платформу предоставления разрешений](active-directory-integrating-applications.md). Ее не следует назначать пользователям.
 
-- **Device administrators**: Users with this role become Administrators on all Windows 10 devices that are joined to Azure Active Directory.”
+- **Администратор службы Exchange**: пользователи с этой ролью имеют глобальные разрешения в Microsoft Exchange Online при наличии этой службы. Дополнительные сведения см. в разделе [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=ru-RU&rs=ru-RU&ad=US).
 
-- **Directory readers**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](active-directory-integrating-applications.md). It should not be assigned to any users.
+- **Администратор службы Intune**: пользователи с этой ролью имеют глобальные разрешения в Microsoft Intune Online при наличии этой службы. Дополнительные сведения см. в разделе [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=ru-RU&rs=ru-RU&ad=US).
 
-- **Directory synchronization accounts**: Do not use. This role is automatically assigned to the Azure AD Connect service, and is not intended or supported for any other use.
+- **Администратор службы Skype для бизнеса**: пользователи с этой ролью имеют глобальные разрешения в Microsoft Skype для бизнеса при наличии этой службы. Дополнительные сведения см. в разделе [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=ru-RU&rs=ru-RU&ad=US). Ранее эта роль называлась **Администратор службы Lync**.
 
-- **Directory writers**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](active-directory-integrating-applications.md). It should not be assigned to any users.
+- **Администратор паролей или администратор службы поддержки**: позволяет сбрасывать пароли, управлять запросами на обслуживание и отслеживать работоспособность служб. Администраторы паролей могут сбрасывать пароли только для пользователей и других администраторов паролей.
 
-- **Exchange service administrator**: Users with this role have global permissions within Microsoft Exchange Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).”
+	> [AZURE.NOTE] В API Microsoft Graph, API Azure AD Graph и Azure AD PowerShell эта роль определяется как "Администратор службы поддержки".
 
-- **Intune service administrator**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+- **Администратор службы SharePoint**: пользователи с этой ролью имеют глобальные разрешения в Microsoft SharePoint Online при наличии этой службы. Дополнительные сведения см. в разделе [Роли администраторов в Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=ru-RU&rs=ru-RU&ad=US).
 
-- **Skype for Business service administrator**: Users with this role have global permissions within Microsoft Skype for Business, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US). This role was referred to previously as the **Lync service administrator** role.
+- **Администратор службы**: управляет запросами на обслуживание и отслеживает работоспособность службы.
 
-- **Password administrator/Helpdesk administrator**: Resets passwords, manages service requests, and monitors service health. Password administrators can reset passwords only for users and other password administrators.
+	> [AZURE.NOTE] Чтобы назначить пользователю роль администратора службы, глобальный администратор наделяет его правами администратора в такой службе, как Exchange Online, и затем назначает ему роль администратора службы на классическом портале Azure.
 
-    > [AZURE.NOTE] In Microsoft Graph API, Azure AD Graph API and Azure AD PowerShell, this role is identified as "Helpdesk Administrator".
+- **Администратор учетных записей пользователей**: позволяет сбрасывать пароли, отслеживать работоспособность служб и управлять учетными записями пользователей, группами пользователей и запросами на обслуживание. К разрешениям администраторов пользователей применяются некоторые ограничения. Например, они не могут удалить глобального администратора или создать других администраторов. Кроме того, они не могут сбрасывать пароли для глобальных администраторов, администраторов выставления счетов и администраторов служб.
 
-- **SharePoint service administrator**: Users with this role have global permissions within Microsoft SharePoint Online, when the service is present. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d?ui=en-US&rs=en-US&ad=US).
+- **Чтение данных безопасности**: доступ только для чтения к ряду функций безопасности центра защиты идентификации, управления привилегированными пользователями, отслеживания работоспособности служб Office 365 и Центра безопасности и соответствия требованиям Office 365.
 
-- **Service administrator**: Manages service requests and monitors service health.
+- **Администратор безопасности**: все разрешения только для чтения, доступные роли **Чтение данных безопасности**, а также ряд дополнительных разрешений администратора для тех же служб: центр защиты идентификации, управление привилегированными пользователями, отслеживание работоспособности служб Office 365 и Центр безопасности и соответствия требованиям Office 365.
 
-    > [AZURE.NOTE] To assign the service administrator role to a user, the global administrator must first assign administrative permissions to the user in the service, such as Exchange Online, and then assign the service administrator role to the user in the Azure classic portal.
+## Разрешения администратора
 
-- **User account administrator**: Resets passwords, monitors service health, and manages user accounts, user groups, and service requests. Some limitations apply to the permissions of a user management administrator. For example, they cannot delete a global administrator or create other administrators. Also, they cannot reset passwords for billing, global, and service administrators.
+### Администратор выставления счетов
 
-- **Security reader**: Read-only access to a number of security features of Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Security & Compliance Center.
-
-- **Security administrator**: All of the read-only permissions of the **Security reader** role, plus a number of additional administrative permissions for the same services: Identity Protection Center, Privileged Identity Management, Monitor Office 365 Service Health, and Office 365 Security & Compliance Center.
-
-## <a name="administrator-permissions"></a>Administrator permissions
-
-### <a name="billing-administrator"></a>Billing administrator
-
-Can do | Cannot do
+Может | Не может
 ------------- | -------------
-<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p> | <p>Reset user passwords</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View reports</p>
+<p>Просматривать сведения о компании и пользователях</p><p>Управлять запросами на обслуживание Office</p><p>Выполнять операции выставления счетов и совершать покупки продуктов Office</p> | <p>Сбрасывать пароли пользователей</p><p>Создавать представления пользователей и управлять ими</p><p>Создавать, изменять, удалять пользователей и группы, а также управлять пользовательскими лицензиями</p><p>Управлять доменами</p><p>Управлять данными компании</p><p>Делегировать административные роли другим пользователям</p><p>Использовать синхронизацию каталогов</p><p>Просматривать отчеты</p>
 
-### <a name="global-administrator"></a>Global administrator
+### Глобальный администратор
 
-Can do | Cannot do
+Может | Не может
 ------------- | -------------
-<p>View company and user information</p><p>Manage Office support tickets</p><p>Perform billing and purchasing operations for Office products</p> <p>Reset user passwords</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View reports</p> | N/A
+<p>Просматривать сведения о компании и пользователях</p><p>Управлять запросами на обслуживание Office</p><p>Выполнять операции выставления счетов и совершать покупки продуктов Office</p> <p>Сбрасывать пароли пользователей</p><p>Создавать представления пользователей и управлять ими</p><p>Создавать, изменять, удалять пользователей и группы, а также управлять пользовательскими лицензиями</p><p>Управлять доменами</p><p>Управлять данными компании</p><p>Делегировать административные роли другим пользователям</p><p>Использовать синхронизацию каталогов</p><p>Включать и отключать многофакторную идентификацию</p><p>Просматривать отчеты</p> | Недоступно
 
-### <a name="password-administrator"></a>Password administrator
+### Администратор паролей
 
-Can do | Cannot do
+Может | Не может
 ------------- | -------------
-<p>View company and user information</p><p>Manage Office support tickets</p><p>Reset user passwords</p> | <p>Perform billing and purchasing operations for Office products</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View reports</p>
+<p>Просматривать сведения о компании и пользователях</p><p>Управлять запросами на обслуживание Office</p><p>Сбрасывать пароли пользователей</p> | <p>Выполнять операции выставления счетов и совершать покупки продуктов Office</p><p>Создавать представления пользователей и управлять ими</p><p>Создавать, изменять, удалять пользователей и группы, а также управлять пользовательскими лицензиями</p><p>Управлять доменами</p><p>Управлять данными компании</p><p>Делегировать административные роли другим пользователям</p><p>Использовать синхронизацию каталогов</p><p>Просматривать отчеты</p>
 
-### <a name="service-administrator"></a>Service administrator
+### Администратор служб
 
-Can do | Cannot do
+Может | Не может
 ------------- | -------------
-<p>View company and user information</p><p>Manage Office support tickets</p> | <p>Reset user passwords</p><p>Perform billing and purchasing operations for Office products</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>View reports</p>
+<p>Просматривать сведения о компании и пользователях</p><p>Управлять запросами на обслуживание Office</p> | <p>Сбрасывать пароли пользователей</p><p>Выполнять операции выставления счетов и совершать покупки продуктов Office</p><p>Создавать представления пользователей и управлять ими</p><p>Создавать, изменять, удалять пользователей и группы, а также управлять пользовательскими лицензиями</p><p>Управлять доменами</p><p>Управлять данными компании</p><p>Делегировать административные роли другим пользователям</p><p>Использовать синхронизацию каталогов</p><p>Просматривать отчеты</p>
 
-### <a name="user-administrator"></a>User administrator
+### Администратор пользователей
 
-Can do | Cannot do
+Может | Не может
 ------------- | -------------
-<p>View company and user information</p><p>Manage Office support tickets</p><p>Reset user passwords, with limitations. He or she cannot reset passwords for billing, global, and service administrators.</p><p>Create and manage user views</p><p>Create, edit, and delete users and groups, and manage user licenses, with limitations. He or she cannot delete a global administrator or create other administrators.</p> | <p>Perform billing and purchasing operations for Office products</p><p>Manage domains</p><p>Manage company information</p><p>Delegate administrative roles to others</p><p>Use directory synchronization</p><p>Enable or disable multi-factor authentication</p><p>View reports</p>
+<p>Просматривать сведения о компании и пользователях</p><p>Управлять запросами на обслуживание Office</p><p>Сбрасывать пароли пользователей без ограничений. Администраторы не могут сбрасывать пароли для администраторов выставления счетов, глобальных администраторов и администраторов службы.</p><p>Создавать представления пользователей и управлять ими</p><p>Создавать, изменять, удалять пользователей и группы, а также управлять пользовательскими лицензиями без ограничений. Администраторы не могут удалить глобального администратора или создать других администраторов.</p> | <p>Выполнять операции выставления счетов и совершать покупки продуктов Office</p><p>Управлять доменами</p><p>Управлять данными компании</p><p>Делегировать административные роли другим пользователям</p><p>Использовать синхронизацию каталогов</p><p>Включать и отключать многофакторную идентификацию</p><p>Просматривать отчеты</p>
 
-### <a name="security-reader"></a>Security Reader
+### Чтение данных безопасности
 
-In | Can do
+В | Может
 ------------- | -------------
-Identity Protection Center | Read all security reports and settings information for security features<ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mailflow rules
-Privileged Identity Management | <p>Has read-only access to all information surfaced in Azure AD PIM: Policies and reports for Azure AD role assignments, security reviews and in the future read access to policy data and reports for scenarios besides Azure AD role assignment.<p>**Cannot** sign up for Azure AD PIM or make any changes to it. In PIM's portal or via PowerShell, someone in this role can activate additional roles (for example, Global Admin or Privileged Role Administrator), if the user is a candidate for them.
-<p>Monitor Office 365 Service Health</p><p>Office 365 Security & Compliance Center</p> | <ul><li>Read and manage alerts<li>Read security policies<li>Read threat intelligence, Cloud App Discovery, and Quarantine in Search and Investigate<li>Read all reports
+Центр защиты идентификации | Чтение всех отчетов о безопасности и сведений о параметрах функций безопасности<ul><li>Защита от нежелательной почты<li>Шифрование<li>Защита от потери данных<li>Защита от вредоносных программ<li>Дополнительная защита от угроз<li>Защита от фишинга<li>Правила обработки почты
+управление привилегированными пользователями; | <p>Имеет доступ только для чтения ко всем сведениям, отображаемым в службе управления привилегированными пользователями (PIM) Azure AD: политики и отчеты для назначения ролей Azure AD, проверки безопасности, а в будущем также доступ на чтение для данных политик и отчетов, относящихся к сценариям за пределами назначения ролей Azure AD.<p>**Не может** регистрироваться в службе управления привилегированными пользователями Azure AD или вносить в нее какие-либо изменения. Используя портал службы управления привилегированными пользователями или PowerShell, кто-то в этой роли может активировать дополнительные роли (например, глобальный администратор или администратор привилегированных ролей), если пользователь является кандидатом на них.
+<p>Отслеживание работоспособности служб Office 365</p><p>Центр безопасности и соответствия требованиям Office 365</p> | <ul><li>Чтение оповещений и управление ими<li>Чтение политик безопасности<li>Чтение аналитики угроз, Cloud App Discovery и карантин в поиске и расследовании<li>Чтение всех отчетов
 
-### <a name="security-administrator"></a>Security Administrator
+### Администратор безопасности
 
-In | Can do
+В | Может
 ------------- | -------------
-Identity Protection Center | <ul><li>All permissions of the Security Reader role.<li>Additionally, the ability to perform all IPC operations except for resetting passwords.
-Privileged Identity Management | <ul><li>All permissions of the Security Reader role.<li>**Cannot** manage Azure AD role memberships or settings.
-<p>Monitor Office 365 Service Health</p><p>Office 365 Security & Compliance Center | <ul><li>All permissions of the Security Reader role.<li>Can configure all settings in the Advanced Threat Protection feature (malware & virus protection, malicious URL config, URL tracing, etc.).
+Центр защиты идентификации | <ul><li>Все разрешения роли "Чтение данных безопасности".<li>А также возможность выполнять все операции центра защиты идентификации кроме сброса паролей.
+управление привилегированными пользователями; | <ul><li>Все разрешения роли "Чтение данных безопасности".<li>**Не может** управлять принадлежностью к ролям или параметрами ролей Azure AD.
+<p>Отслеживание работоспособности служб Office 365</p><p>Центр безопасности и соответствия требованиям Office 365 | <ul><li>Все разрешения роли "Чтение данных безопасности".<li>Может настраивать все параметры функции "Дополнительная защита от угроз" (защита от вредоносных программ и вирусов, защита от вредоносных URL-адресов, трассировка URL-адресов и т. д.).
 
-## <a name="details-about-the-global-administrator-role"></a>Details about the global administrator role
+## Сведения о роли глобального администратора
 
-The global administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the global administrator role for the directory. Only global administrators can assign other administrator roles.
+Глобальный администратор имеет доступ ко всем административным функциям. По умолчанию роль глобального администратора каталога назначается пользователю, зарегистрировавшему подписку Azure. Только глобальные администраторы могут назначать другие административные роли.
 
-## <a name="assign-or-remove-administrator-roles"></a>Assign or remove administrator roles
+## Назначение и удаление ролей администратора
 
-1. In the [Azure classic portal](https://manage.windowsazure.com), click **Active Directory**, and then click the name of your organization’s directory.
+1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Active Directory**, а затем выберите имя каталога своей организации.
 
-2. On the **Users** page, click the display name of the user you want to edit.
+2. На странице **Пользователи** щелкните отображаемое имя пользователя, которое требуется изменить.
 
-3. In the **Organizational Role** list, select the administrator role that you want to assign to this user, or select **User** if you want to remove an existing administrator role.
+3. Из списка **Роль в организации** выберите роль администратора, которую требуется назначить этому пользователю, или выберите **Пользователь**, чтобы удалить существующую роль администратора.
 
-4. In the **Alternate Email Address** box, type an email address. This email address is used for important notifications, including password self-reset, so the user must be able to access the email account whether or not the user can access Azure.
+4. В поле **запасной адрес электронной почты** введите электронный адрес. Он используется для важных уведомлений, в том числе для самостоятельного сброса пароля, поэтому у пользователя должен быть доступ к учетной записи электронной почты независимо от доступа к Azure.
 
-5. Select **Allow** or **Block** to specify whether to allow the user to sign in and access services.
+5. Выберите **Разрешить** или **Блокировать**, чтобы указать, следует ли разрешить пользователю вход и доступ к службам.
 
-6. Specify a location from the **Usage Location** drop-down list.
+6. Выберите расположение из раскрывающегося списка **Место использования**.
 
-7. When you have finished, click **Save**.
+7. После завершения нажмите кнопку **Сохранить**.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md)
+- Дополнительные сведения об изменении администраторов для подписки Azure см. в статье [Добавление или изменение ролей администратора Azure](../billing-add-change-azure-subscription-administrator.md).
 
-- To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory-understanding-resource-access.md)
+- Дополнительные сведения о том, как осуществляется доступ к ресурсам в Microsoft Azure, см. в статье [Основные сведения о доступе к ресурсам в Azure](active-directory-understanding-resource-access.md).
 
-- For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+- Дополнительные сведения о связи Azure Active Directory с подпиской Azure см. в статье [Связь между подписками Azure и Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
-- [Manage users](active-directory-create-users.md)
+- [Управление пользователями](active-directory-create-users.md)
 
-- [Manage passwords](active-directory-manage-passwords.md)
+- [Управление паролями](active-directory-manage-passwords.md)
 
-- [Manage groups](active-directory-manage-groups.md)
+- [Управление группами](active-directory-manage-groups.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

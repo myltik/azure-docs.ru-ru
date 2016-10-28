@@ -1,47 +1,41 @@
 <properties
-    pageTitle="About Linux virtual machines | Microsoft Azure"
-    description="Learn about the basics of Linux virtual machines in Azure using both deployment models."
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager,azure-service-management"/>
+	pageTitle="О виртуальных машинах Linux | Microsoft Azure"
+	description="Изучите основные сведения о виртуальных машинах Linux в Azure с использованием обеих моделей развертывания."
+	services="virtual-machines-linux"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/15/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/15/2016"
+	ms.author="cynthn"/>
 
-
-#<a name="about-linux-virtual-machines-in-azure"></a>About Linux virtual machines in Azure
+#Сведения о виртуальных машинах Linux в Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-Azure Virtual Machines is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you'll choose a virtual machine if you need more control over the computing environment than the other choices offer.
+Виртуальные машины Azure — один из нескольких типов запрашиваемых масштабируемых вычислительных ресурсов, которые предоставляет Azure. Обычно виртуальную машину выбирают, когда требуется более строгий контроль за вычислительной средой, чем в других вариантах.
 
-An Azure virtual machine gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine. However, you still need to maintain the virtual machine -- configuring, patching, and maintaining the software that runs on the virtual machine. You can also learn [about Windows virtual machines in Azure](virtual-machines-windows-about.md).
+Виртуальная машина Azure предоставляет гибкие возможности виртуализации без необходимости приобретать и обслуживать физическое оборудование, на котором выполняется виртуальная машина. Однако вам по-прежнему приходится обслуживать виртуальную машину — настраивать ее, устанавливать исправления и обслуживать программное обеспечение, работающее на виртуальной машине. Вы также можете получить сведения о [виртуальных машинах Windows в Azure](virtual-machines-windows-about.md).
 
-This table helps you compare the choices offered by Azure.
+Эта таблица поможет сравнить варианты, предлагаемые Azure.
 
 [AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Try out a virtual machine by creating a simple virtual machine quickly. For instructions, see [Create a virtual machine running Linux](virtual-machines-linux-quick-create-cli.md).
+Опробуйте простую виртуальную машину, быстро создав ее. Инструкции см. в статье [Создание виртуальной машины Linux](virtual-machines-linux-quick-create-cli.md).
 
-Because the tutorial helps you create a virtual machine quickly, it only shows you one way to do it instead of describing the various tools you can use to create virtual machines. For a summary of these tools and links to instructions, see [Different ways to create a Linux virtual machine](virtual-machines-linux-creation-choices.md).
+Так как это руководство помогает быстро создать виртуальную машину, оно описывает только один из способов создания вместо описания различных инструментов, с помощью которых можно создавать виртуальные машины. Краткий обзор этих инструментов и ссылки на инструкции см. в статье [Различные способы создания виртуальной машины Linux](virtual-machines-linux-creation-choices.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

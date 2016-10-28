@@ -1,266 +1,260 @@
 <properties
-    pageTitle="Manage Azure Blob Storage resources with Storage Explorer (Preview) | Microsoft Azure"
-    description="Manage Azure Blob Containers and Blobs with Storage Explorer (Preview)"
-    services="storage"
-    documentationCenter="na"
-    authors="TomArcher"
-    manager="douge"
-    editor="" />
+	pageTitle="Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ (предварительная версия) | Microsoft Azure"
+	description="Управление контейнерами BLOB-объектов и BLOB-объектами Azure с помощью обозревателя хранилищ (предварительная версия)"
+	services="storage"
+	documentationCenter="na"
+	authors="TomArcher"
+	manager="douge"
+	editor="" />
 
  <tags
-    ms.service="storage"
-    ms.devlang="multiple"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/17/2016"
-    ms.author="tarcher" />
+	ms.service="storage"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/17/2016"
+	ms.author="tarcher" />
 
+# Управление ресурсами хранилища BLOB-объектов Azure с помощью обозревателя хранилищ (предварительная версия)
 
-# <a name="manage-azure-blob-storage-resources-with-storage-explorer-(preview)"></a>Manage Azure Blob Storage resources with Storage Explorer (Preview)
+## Обзор
 
-## <a name="overview"></a>Overview
+[Хранилище BLOB-объектов Azure](./storage/storage-dotnet-how-to-use-blobs.md) — это служба хранения большого количества неструктурированных данных (текстовых или двоичных), к которым можно получить доступ практически из любой точки мира по протоколу HTTP или HTTPS. Хранилища BLOB-объектов можно использовать для предоставления данных в открытом доступе всему миру или для хранения данных от приложений в частном порядке. Эта статья посвящена использованию обозревателя хранилищ (предварительная версия) во время работы с контейнерами больших двоичных объектов и большими двоичными объектами.
 
-[Azure Blob Storage](./storage/storage-dotnet-how-to-use-blobs.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
-You can use Blob storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer (Preview) to work with blob containers and blobs.
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+Чтобы выполнить действия, описанные в этой статье, необходимо следующее:
 
-To complete the steps in this article, you'll need the following:
+- [Скачайте и установите обозреватель хранилищ (предварительная версия)](http://www.storageexplorer.com).
+- [Установите подключение к учетной записи хранения или службе хранилища Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service).
 
-- [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
-- [Connect to a Azure storage account or service](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+## Создание контейнера BLOB-объектов
 
-## <a name="create-a-blob-container"></a>Create a blob container
+Все большие двоичные объекты должны находиться в контейнере. Это логическая группировка больших двоичных объектов. Учетная запись может содержать неограниченное количество контейнеров. В каждом контейнере может храниться неограниченное количество больших двоичных объектов.
 
-All blobs must reside in a blob container, which is simply a logical grouping of blobs. An account can contain an unlimited number of containers, and each container can store an unlimited number of blobs.
+Ниже описаны этапы создания контейнера больших двоичных объектов в обозревателе хранилищ (предварительная версия).
 
-The following steps illustrate how to create a blob container within Storage Explorer (Preview).
+1.	Откройте обозреватель хранилищ (предварительная версия).
+1.	В левой области разверните учетную запись хранения, в которой собираетесь создать контейнер больших двоичных объектов.
+1.	Щелкните правой кнопкой мыши пункт **Контейнеры больших двоичных объектов** и в выберите в контекстном меню команду **Создать контейнер BLOB-объектов**.
 
-1.  Open Storage Explorer (Preview).
-1.  In the left pane, expand the storage account within which you wish to create the blob container.
-1.  Right-click **Blob Containers**, and - from the context menu - select **Create Blob Container**.
+	![Контекстное меню для создания контейнеров BLOB-объектов][0]
 
-    ![Create blob containers context menu][0]
+1.	Под папкой **Контейнеры больших двоичных объектов** отобразится текстовое поле. Введите имя контейнера больших двоичных объектов. В разделе с [правилами именования контейнеров](./storage/storage-dotnet-how-to-use-blobs.md#create-a-container) представлен список правил и ограничений при именовании контейнеров больших двоичных объектов.
 
-1.  A text box will appear below the **Blob Containers** folder. Enter the name for your blob container. See the [Container naming rules](./storage/storage-dotnet-how-to-use-blobs.md#create-a-container) section for a list of rules and restrictions on naming blob containers.
+	![Текстовое поле для создания контейнеров BLOB-объектов][1]
 
-    ![Create Blob Containers text box][1]
+1.	Нажмите клавишу **ВВОД**, чтобы создать контейнер больших двоичных объектов, или **Esc** для отмены. После успешного создания контейнера больших двоичных объектов он отображается в папке **Контейнеры больших двоичных объектов** для выбранной учетной записи хранения.
 
-1.  Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container has been successfully created, it will be displayed under the **Blob Containers** folder for the selected storage account.
+	![Контейнер BLOB-объектов создан][2]
 
-    ![Blob Container created][2]
+## Просмотр содержимого контейнера больших двоичных объектов
 
-## <a name="view-a-blob-container's-contents"></a>View a blob container's contents
+Контейнеры больших двоичных объектов содержат большие двоичные объекты и папки (которые также могут содержать большие двоичные объекты).
 
-Blob containers contain blobs and folders (that can also contain blobs).
+Ниже описаны этапы просмотра содержимого контейнера больших двоичных объектов в обозревателе хранилищ (предварительная версия).
 
-The following steps illustrate how to view the contents of a blob container within Storage Explorer (Preview):
+1.	Откройте обозреватель хранилищ (предварительная версия).
+1.	В левой области разверните учетную запись хранения, содержащую контейнер больших двоичных объектов, который необходимо просмотреть.
+1.	Разверните папку **Контейнеры больших двоичных объектов** в учетной записи хранения.
+1.	Щелкните правой кнопкой мыши контейнер больших двоичных объектов, который хотите просмотреть, и выберите в контекстном меню пункт **Открыть редактор контейнеров BLOB-объектов**. Также можно дважды щелкнуть контейнер больших двоичных объектов, который необходимо просмотреть.
 
-1.  Open Storage Explorer (Preview).
-1.  In the left pane, expand the storage account containing the blob container you wish to view.
-1.  Expand the storage account's **Blob Containers**.
-1.  Right-click the blob container you wish to view, and - from the context menu - select **Open Blob Container Editor**.
-You can also double-click the blob container you wish to view.
+	![Контекстное меню для открытия редактора контейнеров BLOB-объектов][19]
 
-    ![Open blob container editor context menu][19]
+1.	В основной области отобразится содержимое контейнера больших двоичных объектов.
 
-1.  The main pane will display the blob container's contents.
+	![Редактор контейнеров BLOB-объектов][3]
 
-    ![Blob container editor][3]
+## Удаление контейнера blob-объектов
 
-## <a name="delete-a-blob-container"></a>Delete a blob container
+Контейнеры больших двоичных объектов можно легко создавать и удалять по мере необходимости. (Чтобы узнать, как удалять отдельные большие двоичные объекты, ознакомьтесь с разделом [Управление большими двоичными объектами в контейнере](./#managing-blobs-in-a-blob-container).)
 
-Blob containers can be easily created and deleted as needed. (To see how to delete individual blobs, refer to the section, [Managing blobs in a blob container](./#managing-blobs-in-a-blob-container).)
+Ниже описаны этапы удаления контейнера больших двоичных объектов в обозревателе хранилищ (предварительная версия).
 
-The following steps illustrate how to delete a blob container within Storage Explorer (Preview):
+1.	Откройте обозреватель хранилищ (предварительная версия).
+1.	В левой области разверните учетную запись хранения, содержащую контейнер больших двоичных объектов, который необходимо просмотреть.
+1.	Разверните папку **Контейнеры больших двоичных объектов** в учетной записи хранения.
+1.	Щелкните правой кнопкой мыши контейнер больших двоичных объектов, который хотите удалить, и выберите в контекстном меню команду **Удалить**. Также можно нажать кнопку **Удалить**, чтобы удалить выбранный контейнер.
 
-1.  Open Storage Explorer (Preview).
-1.  In the left pane, expand the storage account containing the blob container you wish to view.
-1.  Expand the storage account's **Blob Containers**.
-1.  Right-click the blob container you wish to delete, and - from the context menu - select **Delete**.
-You can also press **Delete** to delete the currently selected blob container.
+	![Контекстное меню для удаления контейнера BLOB-объектов][4]
 
-    ![Delete blob container context menu][4]
+1.	Щелкните **Да** в диалоговом окне подтверждения.
 
-1.  Select **Yes** to the confirmation dialog.
+	![Подтверждение удаления контейнера BLOB-объектов][5]
 
-    ![Delete blob Container confirmation][5]
+## Копирование контейнера больших двоичных объектов
 
-## <a name="copy-a-blob-container"></a>Copy a blob container
+Обозреватель хранилищ (предварительная версия) позволяет скопировать контейнер больших двоичных объектов в буфер обмена и вставить его в другую учетную запись хранения. (Чтобы узнать, как копировать отдельные большие двоичные объекты, ознакомьтесь с разделом [Управление большими двоичными объектами в контейнере](./#managing-blobs-in-a-blob-container).)
 
-Storage Explorer (Preview) enables you to copy a blob container to the clipboard, and then paste that blob container into another storage account. (To see how to copy individual blobs, refer to the section, [Managing blobs in a blob container](./#managing-blobs-in-a-blob-container).)
+Ниже описаны этапы копирования контейнера больших двоичных объектов из одной учетной записи хранения в другую.
 
-The following steps illustrate how to copy a blob container from one storage account to another.
+1.	Откройте обозреватель хранилищ (предварительная версия).
+1.	В левой области разверните учетную запись хранения, содержащую контейнер больших двоичных объектов, который необходимо скопировать.
+1.	Разверните папку **Контейнеры больших двоичных объектов** в учетной записи хранения.
+1.	Щелкните правой кнопкой мыши контейнер больших двоичных объектов, который хотите скопировать, и выберите в контекстном меню пункт **Copy Blob Container** (Копировать контейнер BLOB-объектов).
 
-1.  Open Storage Explorer (Preview).
-1.  In the left pane, expand the storage account containing the blob container you wish to copy.
-1.  Expand the storage account's **Blob Containers**.
-1.  Right-click the blob container you wish to copy, and - from the context menu - select **Copy Blob Container**.
+	![Контекстное меню для копирования контейнера BLOB-объектов][6]
 
-    ![Copy blob container context menu][6]
+1.	Щелкните правой кнопкой мыши учетную запись хранения, в которую требуется вставить контейнер больших двоичных объектов, и выберите в контекстном меню команду **Paste Blob Container** (Вставить контейнер BLOB-объектов).
 
-1.  Right-click the desired "target" storage account into which you want to paste the blob container, and - from the context menu - select **Paste Blob Container**.
+	![Контекстное меню для вставки контейнера BLOB-объектов][7]
 
-    ![Paste blob container context menu][7]
+## Получение SAS для контейнера больших двоичных объектов
 
-## <a name="get-the-sas-for-a-blob-container"></a>Get the SAS for a blob container
+[Подписанный URL-адрес (SAS)](./storage/storage-dotnet-shared-access-signature-part-1.md) обеспечивает делегированный доступ к ресурсам в вашей учетной записи хранения. Это означает, что клиенту можно предоставить ограниченное право на работу с объектами в вашей учетной записи хранения на определенный период времени и с определенным набором разрешений, не сообщая ему ключи доступа к своей учетной записи.
 
-A [shared access signature (SAS)](./storage/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account.
-This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys.
+Ниже описаны этапы создания SAS для контейнера больших двоичных объектов.
 
-The following steps illustrate how to create a SAS for a blob container:
+1.	Откройте обозреватель хранилищ (предварительная версия).
+1.	В левой области разверните учетную запись хранения, содержащую контейнер больших двоичных объектов, для которого необходимо получить SAS.
+1.	Разверните папку **Контейнеры больших двоичных объектов** в учетной записи хранения.
+1.	Щелкните правой кнопкой мыши нужный контейнер больших двоичных объектов и в контекстном меню выберите команду **Get Shared Access Signature** (Получить подписанный URL-адрес).
 
-1.  Open Storage Explorer (Preview).
-1.  In the left pane, expand the storage account containing the blob container for which you wish to get a SAS.
-1.  Expand the storage account's **Blob Containers**.
-1.  Right-click the desired blob container, and - from the context menu - select **Get Shared Access Signature**.
+	![Контекстное меню для получения SAS][8]
 
-    ![Get SAS context menu][8]
+1.	В диалоговом окне **Shared Access Signature** (Подписанный URL-адрес) укажите политику, даты начала и окончания, часовой пояс и уровни доступа для ресурса.
 
-1.  In the **Shared Access Signature** dialog, specify the policy, start and expiration dates, time zone, and access levels you want for the resource.
+	![Параметры получения SAS][9]
 
-    ![Get SAS options][9]
+1.	Указав параметры SAS, выберите **Создать**.
 
-1.  When you're finished specifying the SAS options, select **Create**.
+1.	Во втором диалоговом окне **Shared Access Signature** (Подписанный URL-адрес) отобразится контейнер больших двоичных объектов вместе с URL-адресом и строками запросов, которые вы можете использовать для доступа к ресурсу хранилища. Выберите команду **Копировать** рядом с URL-адресом, который необходимо скопировать в буфер обмена.
 
-1.  A second **Shared Access Signature** dialog will then display that lists the blob container along with the URL and QueryStrings you can use to access the storage resource.
-Select **Copy** next to the URL you wish to copy to the clipboard.
+	![Копирование URL-адресов SAS][10]
 
-    ![Copy SAS URLs][10]
+1.	По завершении нажмите **Закрыть**.
 
-1.  When done, select **Close**.
+## Управление политиками доступа для контейнера больших двоичных объектов
 
-## <a name="manage-access-policies-for-a-blob-container"></a>Manage Access Policies for a blob container
+Ниже представлены инструкции по управлению (добавление и удаление) политиками доступа для контейнера больших двоичных объектов.
 
-The following steps illustrate how to manage (add and remove) access policies for a blob container:
+1.	Откройте обозреватель хранилищ (предварительная версия).
+1.	В левой области разверните учетную запись хранения, содержащую контейнер больших двоичных объектов, политиками которого необходимо управлять.
+1.	Разверните папку **Контейнеры больших двоичных объектов** в учетной записи хранения.
+1.	Выберите нужный контейнер больших двоичных объектов и в контекстном меню выберите пункт **Manage Access Policies** (Управление политиками доступа).
 
-1.  Open Storage Explorer (Preview).
-1.  In the left pane, expand the storage account containing the blob container whose access policies you wish to manage.
-1.  Expand the storage account's **Blob Containers**.
-1.  Select the desired blob container, and - from the context menu - select **Manage Access Policies**.
+	![Контекстное меню для управления политиками доступа][11]
 
-    ![Manage access policies context menu][11]
+1.	В диалоговом окне **Политики доступа** будут отображаться все политики доступа, созданные для выбранного контейнера больших двоичных объектов.
 
-1.  The **Access Policies** dialog will list any access policies already created for the selected blob container.
+	![Параметры политик доступа][12]
 
-    ![Access Policy options][12]        
+1.	Выполните описанные ниже действия в зависимости от задач управления политиками доступа.
 
-1.  Follow these steps depending on the access policy management task:
+	- **Добавление новой политики доступа** — выберите команду **Добавить**. Добавленная политика доступа отобразится в диалоговом окне **Политики доступа** сразу же после создания (при настройках по умолчанию).
+	- **Изменение политики доступа** — внесите все нужные изменения и выберите команду **Сохранить**.
+	- **Удаление политики доступа** — выберите команду **Удалить** рядом с политикой доступа, которую нужно удалить.
 
-    - **Add a new access policy** - Select **Add**. Once generated, the **Access Policies** dialog will display the newly added access policy (with default settings).
-    - **Edit an access policy** -  Make any desired edits, and select **Save**.
-    - **Remove an access policy** - Select **Remove** next to the access policy you wish to remove.
+## Настройка уровня общего доступа для контейнера больших двоичных объектов
 
-## <a name="set-the-public-access-level-for-a-blob-container"></a>Set the Public Access Level for a blob container
+По умолчанию для каждого контейнера больших двоичных объектов установлено значение No public access (Без общего доступа).
 
-By default, every blob container is set to "No public access".
+Ниже приведены инструкции по установке уровня общего доступа для контейнера больших двоичных объектов.
 
-The following steps illustrate how to specify a public access level for a blob container.
+1.	Откройте обозреватель хранилищ (предварительная версия).
+1.	В левой области разверните учетную запись хранения, содержащую контейнер больших двоичных объектов, политиками которого необходимо управлять.
+1.	Разверните папку **Контейнеры больших двоичных объектов** в учетной записи хранения.
+1.	Выберите нужный контейнер больших двоичных объектов и в контекстном меню выберите пункт **Set Public Access Level** (Задать уровень общего доступа).
 
-1.  Open Storage Explorer (Preview).
-1.  In the left pane, expand the storage account containing the blob container whose access policies you wish to manage.
-1.  Expand the storage account's **Blob Containers**.
-1.  Select the desired blob container, and - from the context menu - select **Set Public Access Level**.
+	![Контекстное меню для настройки уровня общего доступа][13]
 
-    ![Set public access level context menu][13]
+1.	В диалоговом окне **Set Container Public Access Level** (Настройка уровня общего доступа для контейнера) укажите требуемый уровень доступа.
 
-1.  In the **Set Container Public Access Level** dialog, specify the desired access level.
+	![Параметры настройки уровня общего доступа][14]
 
-    ![Set public access level options][14]
+1.	Нажмите кнопку **Применить**.
 
-1.  Select **Apply**.
+## Управление большими двоичными объектами в контейнере
 
-## <a name="managing-blobs-in-a-blob-container"></a>Managing blobs in a blob container
+После создания контейнера больших двоичных объектов можно отправлять туда большие двоичные объекты, скачивать их на локальный компьютер, открывать их на нем, а также выполнять многие другие действия.
 
-Once you've created a blob container, you can upload a blob to that blob container, download a blob to your local computer, open a blob on your local computer, and much more.
+Ниже приведены инструкции по управлению большими двоичными объектами (и папками) в контейнере больших двоичных объектов.
 
-The following steps illustrate how to manage the blobs (and folders) within a blob container.
+1.	Откройте обозреватель хранилищ (предварительная версия).
+1.	В левой области разверните учетную запись хранения, содержащую контейнер больших двоичных объектов, которым необходимо управлять.
+1.	Разверните папку **Контейнеры больших двоичных объектов** в учетной записи хранения.
+1.	Дважды щелкните контейнер больших двоичных объектов, который необходимо просмотреть.
+1.	В основной области отобразится содержимое контейнера больших двоичных объектов.
 
-1.  Open Storage Explorer (Preview).
-1.  In the left pane, expand the storage account containing the blob container you wish to manage.
-1.  Expand the storage account's **Blob Containers**.
-1.  Double-click the blob container you wish to view.
-1.  The main pane will display the blob container's contents.
+	![Просмотр контейнера BLOB-объектов][3]
 
-    ![View blob container][3]
+1.	В основной области отобразится содержимое контейнера больших двоичных объектов.
 
-1.  The main pane will display the blob container's contents.
+1.	Следуйте приведенным ниже инструкциям в зависимости от задачи, которую необходимо выполнить.
 
-1.  Follow these steps depending on the task you wish to perform:
+	- **Отправка файлов в контейнер больших двоичных объектов**
 
-    - **Upload files to a blob container**
+		1.	На панели инструментов в основной области нажмите кнопку **Отправить**, а затем выберите пункт **Отправить файлы** в раскрывающемся меню.
 
-        1.  On the main pane's toolbar, select **Upload**, and then **Upload Files** from the drop-down menu.
+			![Меню для отправки файлов][15]
 
-            ![Upload files menu][15]
+		1.	В диалоговом окне **Отправка файлов** нажмите кнопку с многоточием (**…**) справа от поля **Файлы**, чтобы выбрать файлы для отправки.
 
-        1.  In the **Upload files** dialog, select the ellipsis (**…**) button on the right side of the **Files** text box to select the file(s) you wish to upload.
+			![Параметры отправки файлов][16]
 
-            ![Upload files options][16]
+		1.	Укажите тип в поле **Тип BLOB-объекта**. В статье [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](./storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) описаны различия между типами больших двоичных объектов.
 
-        1.  Specify the type of **Blob type**. The article [Get started with Azure Blob storage using .NET](./storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explains the differences between the various blob types.
+		1.	При необходимости укажите папку, в которую будут отправлены выбранные файлы. Если такой папки не существует, она будет создана.
 
-        1.  Optionally, specify a target folder into which the selected file(s) will be uploaded. If the target folder doesn’t exist, it will be created.
+		1.	Щелкните **Отправить**.
 
-        1.  Select **Upload**.
+	- **Отправка папки в контейнер больших двоичных объектов**
 
-    - **Upload a folder to a blob container**
+		1.	На панели инструментов в основной области нажмите кнопку **Отправить**, а затем выберите пункт **Отправить папку** в раскрывающемся меню.
 
-        1.  On the main pane's toolbar, select **Upload**, and then **Upload Folder** from the drop-down menu.
+			![Меню для отправки папок][17]
 
-            ![Upload folder menu][17]
+		1.	В диалоговом окне **Отправка папок** нажмите кнопку с многоточием (**…**) справа от поля **Папка**, чтобы выбрать папку, содержимое которой необходимо отправить.
 
-        1.  In the **Upload folder** dialog, select the ellipsis (**…**) button on the right side of the **Folder** text box to select the folder whose contents you wish to upload.
+			![Параметры отправки папок][18]
 
-            ![Upload folder options][18]
+		1.	Укажите тип в поле **Тип BLOB-объекта**. В статье [Приступая к работе с хранилищем BLOB-объектов Azure с помощью .NET](./storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) описаны различия между типами больших двоичных объектов.
 
-        1.  Specify the type of **Blob type**. The article [Get started with Azure Blob storage using .NET](./storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) explains the differences between the various blob types.
+		1.	При необходимости укажите папку, в которую будут отправлено содержимое выбранной папки. Если такой папки не существует, она будет создана.
 
-        1.  Optionally, specify a target folder into which the selected folder's contents will be uploaded. If the target folder doesn’t exist, it will be created.
+		1.	Щелкните **Отправить**.
 
-        1.  Select **Upload**.
+	- **Скачивание большого двоичного объекта на локальный компьютер**
 
-    - **Download a blob to your local computer**
+		1.	Выберите большой двоичный объект, который хотите скачать.
 
-        1.  Select the blob you wish to download.
+		1.	На панели инструментов в основной области нажмите кнопку **Скачать**.
 
-        1.  On the main pane's toolbar, select **Download**.
+		1.	В диалоговом окне **Specify where to save the downloaded blob** (Укажите расположение для сохранения загруженного BLOB-объекта) укажите расположение, в которое нужно скачать большой двоичный объект, а также имя, которое собираетесь ему присвоить.
 
-        1.  In the **Specify where to save the downloaded blob** dialog, specify the location where you want the blob downloaded, and the name you wish to give it.  
+		1.	Щелкните **Сохранить**.
 
-        1.  Select **Save**.
+	- **Открытие большого двоичного объекта на локальном компьютере**
 
-    - **Open a blob on your local computer**
+		1.	Выберите большой двоичный объект, который хотите открыть.
 
-        1.  Select the blob you wish to open.
+		1.	На панели инструментов в основной области нажмите кнопку **Открыть**.
 
-        1.  On the main pane's toolbar, select **Open**.
+		1.	Большой двоичный объект будет загружен и открыт с помощью приложения, выбор которого зависит от типа базового файла большого двоичного объекта.
 
-        1.  The blob will be downloaded and opened using the application associated with the blob's underlying file type.
+	- **Копирование большого двоичного объекта в буфер обмена**
 
-    - **Copy a blob to the clipboard**
+		1.	Выберите большой двоичный объект, который собираетесь скопировать.
 
-        1.  Select the blob you wish to copy.
+		1.	На панели инструментов в основной области нажмите кнопку **Копировать**.
 
-        1.  On the main pane's toolbar, select **Copy**.
+		1.	В левой области перейдите в другой контейнер больших двоичных объектов и дважды щелкните его, чтобы он отобразился в основной области.
 
-        1.  In the left pane, navigate to another blob container, and double-click it to view it in the main pane.
+		1.	На панели инструментов в основной области нажмите кнопку **Вставить**, чтобы создать копию большого двоичного объекта.
 
-        1.  On the main pane's toolbar, select **Paste** to create a copy of the blob.
+	- **Удаление большого двоичного объекта**
 
-    - **Delete a blob**
+		1.	Выберите большой двоичный объект, который собираетесь удалить.
 
-        1.  Select the blob you wish to delete.
+		1.	На панели инструментов в основной области нажмите кнопку **Удалить**.
 
-        1.  On the main pane's toolbar, select **Delete**.
+		1.	Щелкните **Да** в диалоговом окне подтверждения.
 
-        1.  Select **Yes** to the confirmation dialog.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
-
-- View the [latest Storage Explorer (Preview) release notes and videos](http://www.storageexplorer.com).
-- Learn how to [create applications using Azure blobs, tables, queues, and files](https://azure.microsoft.com/documentation/services/storage/).
+- Просмотрите [последние заметки о выпуске обозревателя хранилищ (предварительная версия) и связанные с ним видео](http://www.storageexplorer.com).
+- Узнайте, как [создавать приложения с помощью больших двоичных объектов (BLOB), таблиц, очередей и файлов Azure](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png
 [1]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-create.png
@@ -283,7 +277,4 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

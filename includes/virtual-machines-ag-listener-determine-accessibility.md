@@ -1,15 +1,11 @@
-It is important to realize that there are two ways to configure an Availability Group listener in Azure. These methods differ in the type of Azure load balancer you use when you create the listener. The following table describes the differences:
+Важно понимать, что есть два способа настройки прослушивателя группы доступности в Azure. Они отличаются типом подсистемы балансировки нагрузки Azure, используемой при создании прослушивателя. Различия описаны в следующей таблице:
 
-| Load Balancer | Implementation | Use When: |
+| Подсистема балансировки нагрузки | Реализация | Используйте, когда: |
 | ------------- | -------------- | ----------- |
-| **External** | Uses the **public Virtual IP address** of the cloud service that hosts the Virtual Machines. | You need to access the listener from outside the virtual network, including from the internet. |
-| **Internal** | Uses **Internal Load Balancing (ILB)** with a private address for the listener. | You only access the listener from within the same virtual network. This includes site-to-site VPN in hybrid scenarios. |
+| **Внешний** | Использование **общедоступного виртуального IP-адреса** облачной службы, на которой размещены виртуальные машины. | Необходимо, чтобы прослушиватель был доступен за пределами виртуальной сети, в том числе из Интернета. |
+| **Внутренний** | Использование **внутренней балансировки нагрузки (ILB)** с частным адресом для прослушивателя. | Необходимо, чтобы прослушиватель был доступен только в этой виртуальной сети. Сюда относится VPN типа "сеть-сеть" в гибридных сценариях. |
 
->[AZURE.IMPORTANT] For a listener using the cloud service's public VIP (external load balancer), as long as the client, listener, and databases are in the same Azure region you will not incur egress charges. Otherwise, any data returned through the listener is considered egress and charged at normal data transfer rates. 
+>[AZURE.IMPORTANT] Если прослушиватель использует общедоступный VIP-адрес облачной службы (внешний балансировщик нагрузки), то при условии, что клиент, прослушиватель и база данных находятся в одном регионе Azure, вам не будет начисляться плата за исходящий трафик. В противном случае все данные, возвращаемые через прослушиватель, считаются исходящим трафиком и оплачиваются по обычным тарифам на передачу данных.
 
-ILB can only be configured on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use ILB. For more information, see [Internal Load Balancer](../articles/load-balancer/load-balancer-internal-overview.md).
-
-
-<!--HONumber=Oct16_HO2-->
-
+ILB можно настроить только в виртуальных сетях регионального масштаба. В имеющихся виртуальных сетях, настроенных для территориальной группы, невозможно использовать внутреннюю балансировку нагрузки. Дополнительную информацию см. в разделе [Внутренняя подсистема балансировки нагрузки](../articles/load-balancer/load-balancer-internal-overview.md).
 

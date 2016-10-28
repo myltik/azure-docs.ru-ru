@@ -1,139 +1,138 @@
 <properties 
-    pageTitle="How to use properties in Azure API Management policies" 
-    description="Learn how to use properties in Azure API Management policies." 
-    services="api-management" 
-    documentationCenter="" 
-    authors="steved0x" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Использование свойств в политиках управления API Azure" 
+	description="Узнайте, как использовать свойства в политиках управления API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="api-management" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/25/2016" 
-    ms.author="sdanie"/>
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/09/2016" 
+	ms.author="sdanie"/>
 
 
+# Использование свойств в политиках управления API Azure
 
-# <a name="how-to-use-properties-in-azure-api-management-policies"></a>How to use properties in Azure API Management policies
+Политики управления API представляют собой одну из эффективных функций системы, позволяющих издателю изменять поведение интерфейса API путем его настройки. Политика — это коллекция правил, которые выполняются последовательно над запросом или ответом API. Для создания правил политики можно использовать литеральные текстовые значения, выражения политики и свойства.
 
-API Management policies are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and properties. 
-
-Each API Management service instance has a properties collection of key/value pairs that are global to the service instance. These properties can be used to manage constant string values across all API configuration and policies. Each property has the following attributes.
+Каждый экземпляр службы управления API имеет коллекцию свойств пар "ключ-значение", которые являются глобальными для экземпляра службы. Эти свойства можно использовать для управления постоянными строковыми значениями во всей конфигурации и политиках API. Каждое свойство имеет следующие атрибуты.
 
 
-| Attribute | Type            | Description                                                                                             |
+| Атрибут | Тип | Описание |
 |-----------|-----------------|---------------------------------------------------------------------------------------------------------|
-| Name      | string          | The name of the property. It may contain only letters, digits, period, dash, and underscore characters. |
-| Value     | string          | The value of the property. It may not be empty or consist only of whitespace.                           |
-| Secret    | boolean         | Determines whether the value is a secret and should be encrypted or not.                                |
-| Tags      | array of string | Optional tags that when provided can be used to filter the property list.                               |
+| Name (Имя) | строка | Имя свойства. Может содержать только буквы, цифры, точки, тире и знаки подчеркивания. |
+| Значение | строка | Значение свойства. Не может быть пустым или состоять только из пробелов. |
+| Секрет | Логическое | Определяет, является ли значение секретом и должно ли быть зашифровано. |
+| Теги | Массив строк | Необязательные теги, которые (если указаны) можно использовать для фильтрации списка свойств. |
 
-Properties are configured in the publisher portal on the **Properties** tab. In the following example, three properties are configured.
+Свойства настраиваются на портале издателя на вкладке **Свойства**. В приведенном далее примере настраиваются три свойства.
 
-![Properties][api-management-properties]
+![Свойства][api-management-properties]
 
-Property values can contain literal strings and [policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx). The following table shows the previous three sample properties and their attributes. The value of `ExpressionProperty` is a policy expression that returns a string containing the current date and time. The property `ContosoHeaderValue` is marked as a secret, so its value is not displayed.
+Значения свойств могут содержать строковые литералы и [выражения политики](https://msdn.microsoft.com/library/azure/dn910913.aspx). В приведенной далее таблице приводятся предыдущие три примера свойств и их атрибуты. Значение `ExpressionProperty` является выражением политики, которое возвращает строку, содержащую текущую дату и время. Свойство `ContosoHeaderValue` помечено как секрет, поэтому его значение не отображается.
 
-| Name               | Value                      | Secret | Tags    |
+| Name (Имя) | Значение | Секрет | Теги |
 |--------------------|----------------------------|--------|---------|
-| ContosoHeader      | TrackingId                 | False  | Contoso |
-| ContosoHeaderValue | ••••••••••••••••••••••     | True   | Contoso |
-| ExpressionProperty | @(DateTime.Now.ToString()) | False  |         |
+| ContosoHeader | TrackingId | Ложь | Contoso |
+| ContosoHeaderValue | •••••••••••••••••••••• | Истина | Contoso |
+| ExpressionProperty | @(DateTime.Now.ToString()) | Ложь | |
 
-## <a name="to-use-a-property"></a>To use a property
+## Использование свойства
 
-To use a property in a policy, place the property name inside a double pair of braces like `{{ContosoHeader}}`, as shown in the following example.
+Чтобы использовать свойство в политике, поместите имя свойства внутри пары двойных фигурных скобок `{{ContosoHeader}}`, как показано в следующем примере.
 
-    <set-header name="{{ContosoHeader}}" exists-action="override">
+	<set-header name="{{ContosoHeader}}" exists-action="override">
       <value>{{ContosoHeaderValue}}</value>
     </set-header>
 
-In this example, `ContosoHeader` is used as the name of a header in a `set-header` policy, and `ContosoHeaderValue` is used as the value of that header. When this policy is evaluated during a request or response to the API Management gateway, `{{ContosoHeader}}` and `{{ContosoHeaderValue}}` are replaced with their respective property values.
+В этом примере `ContosoHeader` используется как имя заголовка в политике `set-header`, а `ContosoHeaderValue` в качестве значения этого заголовка. При оценке этой политики во время запроса или ответа к шлюзу управления API `{{ContosoHeader}}` и `{{ContosoHeaderValue}}` заменяются соответствующими значениями свойств.
 
-Properties can be used as complete attribute or element values as shown in the previous example, but they can also be inserted into or combined with part of a literal text expression as shown in the following example: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+Свойства можно использовать как полные значения атрибутов или элементов, как показано в предыдущем примере, но их можно также вставлять в литеральное текстовое выражение или комбинировать с частью этого выражения, как показано в следующем примере: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
-Properties can also contain policy expressions. In the following example, the `ExpressionProperty` is used.
+Свойства могут также содержать выражения политики. В следующем примере используется `ExpressionProperty`.
 
-    <set-header name="CustomHeader" exists-action="override">
-        <value>{{ExpressionProperty}}</value>
-    </set-header>
+	<set-header name="CustomHeader" exists-action="override">
+		<value>{{ExpressionProperty}}</value>
+	</set-header>
 
-When this policy is evaluated, `{{ExpressionProperty}}` is replaced with its value: `@(DateTime.Now.ToString())`. Since the value is a policy expression, the expression is evaluated and the policy proceeds with its execution.
+При оценке этой политики `{{ExpressionProperty}}` заменяется своим значением: `@(DateTime.Now.ToString())`. Поскольку значение является выражением политики, выражение проходит оценку и политика продолжает выполнение.
 
-You can test this out in the developer portal by calling an operation that has a policy with properties in scope. In the following example, an operation is called with the two previous example `set-header` policies with properties. Note that the response contains two custom headers that were configured using policies with properties.
+Этот момент можно проверить на портале разработчика путем вызова операции, имеющей политику со свойствами. В приведенном далее примере вызывается операция с двумя политиками `set-header` со свойствами из предыдущего примера. Обратите внимание, что ответ содержит два пользовательских заголовка, которые были настроены с помощью политик со свойствами.
 
-![Developer portal][api-management-send-results]
+![Портал разработчика][api-management-send-results]
 
-If you look at the [API Inspector trace](api-management-howto-api-inspector.md) for a call that includes the two previous sample policies with properties, you can see the two `set-header` policies with the property values inserted as well as the policy expression evaluation for the property that contained the policy expression.
+Если взглянуть на [трассировку инспектора API](api-management-howto-api-inspector.md) для вызова, который содержит две политики со свойствами из предыдущего примера, можно увидеть две политики `set-header` со вставленными значениями свойств, а также оценку выражения политики для свойства, содержащего выражение политики.
 
-![API Inspector trace][api-management-api-inspector-trace]
+![Трассировка с помощью инспектора API][api-management-api-inspector-trace]
 
-Note that while property values can contain policy expressions, property values can't contain other properties. If text containing a property reference is used for a property value, such as `Property value text {{MyProperty}}`, that property reference won't be replaced and will be included as part of the property value.
+Обратите внимание, что хотя значения свойств могут содержать выражения политики, они не могут содержать другие свойства. Если текст, содержащий ссылку на свойство, используется для значения свойства, такого как `Property value text {{MyProperty}}`, эта ссылка на свойство не будет заменена и включится в значение свойства.
 
-## <a name="to-create-a-property"></a>To create a property
+## Создание свойства
 
-To create a property, click **Add property** on the **Properties** tab.
+Чтобы создать свойство, нажмите кнопку **Добавить свойство** на вкладке **Свойства**.
 
-![Add property][api-management-properties-add-property-menu]
+![Добавление свойства][api-management-properties-add-property-menu]
 
-**Name** and **Value** are required values. If this property value is a secret, check the **This is a secret** checkbox. Enter one or more optional tags to help with organizing your properties, and click **Save**.
+Поля **Имя** и **Значение** обязательны для заполнения. Если значением свойства является секрет, установите флажок **Это секрет**. Введите один или несколько необязательных тегов, чтобы упорядочить свойства, и нажмите кнопку **Сохранить**.
 
-![Add property][api-management-properties-add-property]
+![Добавление свойства][api-management-properties-add-property]
 
-When a new property is saved, the **Search property** textbox is populated with the name of the new property and the new property is displayed. To display all properties, clear the **Search property** textbox and press enter.
+После сохранения нового свойства в текстовом поле **Свойство поиска** появляется имя нового свойства и отображается новое свойство. Чтобы отобразить все свойства, очистите поле **Свойство поиска** и нажмите клавишу ВВОД.
 
-![Properties][api-management-properties-property-saved]
+![Свойства][api-management-properties-property-saved]
 
-For information on creating a property using the REST API, see [Create a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
+Сведения о создании свойства с помощью REST API см. в разделе [Создание свойства с помощью REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
 
-## <a name="to-edit-a-property"></a>To edit a property
+## Изменение свойства
 
-To edit a property, click **Edit** beside the property to edit.
+Чтобы изменить свойство, щелкните **Изменить** рядом с нужным свойством.
 
-![Edit property][api-management-properties-edit]
+![Изменение свойства][api-management-properties-edit]
 
-Make any desired changes, and click **Save**. If you change the property name, any policies that reference that property are automatically updated to use the new name.
+Внесите необходимые изменения и нажмите кнопку **Сохранить**. Если изменяется имя свойства, все политики, которые ссылаются на это свойство, автоматически обновляются для использования нового имени.
 
-![Edit property][api-management-properties-edit-property]
+![Изменение свойства][api-management-properties-edit-property]
 
-For information on editing a property using the REST API, see [Edit a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+Сведения об изменении свойства с помощью REST API см. в разделе [Изменение свойства с помощью REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
 
-## <a name="to-delete-a-property"></a>To delete a property
+## Удаление свойства
 
-To delete a property, click **Delete** beside the property to delete.
+Чтобы удалить свойство, нажмите кнопку **Удалить** рядом с нужным свойством.
 
-![Delete property][api-management-properties-delete]
+![Изменение свойства][api-management-properties-delete]
 
-Click **Yes, delete it** to confirm.
+Чтобы подтвердить действие, нажмите кнопку **Yes, delete it** (Да, удалить).
 
-![Confirm delete][api-management-delete-confirm]
+![Подтверждение удаления][api-management-delete-confirm]
 
->[AZURE.IMPORTANT] If the property is referenced by any policies, you will be unable to successfully delete it until you remove the property from all policies that use it.
+>[AZURE.IMPORTANT] Если на свойство ссылаются какие-либо политики, его можно удалить только после удаления из всех политик, которые его используют.
 
-For information on deleting a property using the REST API, see [Delete a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+Сведения об удалении свойства с помощью REST API см. в разделе [Удаление свойства с помощью REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
 
-## <a name="to-search-and-filter-properties"></a>To search and filter properties
+## Поиск и фильтрация свойств
 
-The **Properties** tab includes searching and filtering capabilities to help you manage your properties. To filter the property list by property name, enter a search term in the **Search property** textbox. To display all properties, clear the **Search property** textbox and press enter.
+На вкладке **Свойства** находятся функции поиска и фильтрации, упрощающие управление свойствами. Чтобы отфильтровать список свойств по имени свойства, введите условие поиска в поле **Свойство поиска**. Чтобы отобразить все свойства, очистите поле **Свойство поиска** и нажмите клавишу ВВОД.
 
-![Search][api-management-properties-search]
+![Поиск][api-management-properties-search]
 
-To filter the property list by tag values, enter one or more tags into the **Filter by tags** textbox. To display all properties, clear the **Filter by tags** textbox and press enter.
+Чтобы отфильтровать список свойств по значениям тегов, введите один или несколько тегов в поле **Фильтровать по тегам**. Чтобы отобразить все свойства, очистите поле **Фильтровать по тегам** и нажмите клавишу ВВОД.
 
-![Filter][api-management-properties-filter]
+![Фильтр][api-management-properties-filter]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
--   Learn more about working with policies
-    -   [Policies in API Management](api-management-howto-policies.md)
-    -   [Policy reference](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-    -   [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+-	Узнайте больше о работе с политиками
+	-	[Политики в управлении API](api-management-howto-policies.md)
+	-	[Справочник по политикам](https://msdn.microsoft.com/library/azure/dn894081.aspx)
+	-	[Выражения политики](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
-## <a name="watch-a-video-overview"></a>Watch a video overview
+## Просмотр видеообзора
 
 > [AZURE.VIDEO use-properties-in-policies]
 
@@ -150,9 +149,4 @@ To filter the property list by tag values, enter one or more tags into the **Fil
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

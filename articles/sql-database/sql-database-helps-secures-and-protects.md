@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Secures and Protects"
-   description="Learn how SQL Database helps secure and protect"
+   pageTitle="Безопасность и защита благодаря Базе данных SQL"
+   description="Узнайте, как база данных SQL помогает обеспечивать безопасность и защиту"
    keywords=""
    services="sql-database"
    documentationCenter=""
@@ -17,50 +17,42 @@
    ms.date="09/13/2016"
    ms.author="carlrab"/>
    
+# Безопасность и защита благодаря Базе данных SQL
 
-# <a name="azure-sql-database-secures-and-protects"></a>Azure SQL Database Secures and Protects
+## Надежное и безопасное хранение данных приложений
 
-## <a name="keep-your-app’s-data-safe-and-secure"></a>Keep your app’s data safe and secure
-
-Azure SQL Database supports millions of mission-critical databases in the cloud&mdash;where they all benefit from high availability, security, compliance, and high performance. From the smallest startup to the largest enterprise, data security is increasingly top of mind for all businesses, and SQL Database supports everyone.
+База данных SQL Azure поддерживает миллионы критически важных баз данных в облаке, обеспечивая высокий уровень доступности, безопасность, соответствие требованиям, а также высокую производительность. Безопасность данных становится все более важной для всех предприятий, начиная от небольших стартапов и заканчивая огромными корпорациями; база данных SQL поможет решить эту задачу.
 
 ![helps-secures-and-protects](./media/sql-database-helps-secures-and-protects/sql-database-helps-secures-and-protects.png)
 
-## <a name="we’ve-got-your-back"></a>We’ve got your back
+## Мы вам поможем
 
-You can only hope you don't need to access yesterday's backups or recover from a disaster. But if you find yourself in this situation, SQL Database is there to help. With 99.99% availability, automatic backups, Point-in-Time Restore, built-in Geo-Replication, and failover options, you'll rest easy knowing your app is safe and sound.
+Вы можете только надеяться, что вам никогда не потребуется вчерашняя резервная копия или восстановление после аварии. Но если это случится, база данных SQL всегда выручит вас. Вам гарантированы: доступность на уровне 99,99 %, автоматическая архивация, восстановление до точки во времени, встроенная георепликация и возможности отработки отказа. Благодаря этому вы можете не беспокоиться о безопасности и работоспособности своего приложения.
 
-[Read the documentation](sql-database-business-continuity.md)
+[Ознакомьтесь с документацией.](sql-database-business-continuity.md)
 
-## <a name="the-largest-compliance-portfolio"></a>The largest compliance portfolio
+## Крупнейшее портфолио соответствия требованиям
 
-SQL Database has the largest compliance portfolio in the industry. So if you need HIPPA compliance or FERPA or even Singapore MTCS Level 3 don't worry&mdash;we got you covered.  
+База данных SQL располагает крупнейшим портфолио соответствия промышленным стандартам. Если требуется соответствие требованиям HIPPA, FERPA или даже Сингапурского стандарта MTCS уровня 3, не беспокойтесь, мы все это обеспечиваем.
 
-[Read the documentation](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+[Ознакомьтесь с документацией.](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 
-## <a name="layers-of-protection"></a>Layers of protection
+## Уровни защиты
 
-SQL Database provides multiple layers of data protection. Your data is protected by encrypting data while at rest, in motion or in use, authenticating only authorized users against the database or application, and limiting user access to the appropriate subset of the data. Additionally, SQL Database provides continuous monitoring and auditing of activities to help detect potential threats and provide a record of critical events in case of a breach. These features are balanced by the ability to quickly implement features and mitigate security risk without compromising developer productivity or a customer’s experience.
+База данных SQL предоставляет несколько уровней защиты данных. Данные защищаются с помощью шифрования при хранении, в движении и при использовании. Доступ к базе данных или приложению предоставляется только авторизованным пользователям, прошедшим проверку подлинности. Доступ пользователей ограничивается только необходимым подмножеством данных. Кроме того, база данных SQL непрерывно ведет наблюдение и аудит действий, чтобы обнаруживать потенциальные угрозы с предоставлением записи критических событий в случае нарушения защиты. Эти функции дополняются способностью быстро внедрять новые функции и смягчать риски безопасности без ущерба для производительности труда разработчиков и качества работы пользователей.
 
-[Read the documentation](http://go.microsoft.com/fwlink/?LinkID=787593)
+[Ознакомьтесь с документацией](http://go.microsoft.com/fwlink/?LinkID=787593).
 
-Go to the homepage to see what else SQL Database has to offer.
-[Check it out](https://azure.microsoft.com/services/sql-database/) 
+Ознакомиться с другими преимуществами базы данных SQL вы можете [здесь.](https://azure.microsoft.com/services/sql-database/)
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
+Вы можете получить [бесплатную подписку Azure](https://azure.microsoft.com/get-started/) и [создать первую базу данных SQL Azure](sql-database-get-started.md).
 
-## <a name="additional-resources"></a>Additional resources
+## Дополнительные ресурсы
 
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+Вы можете изучить все [возможности Базы данных SQL](https://azure.microsoft.com/services/sql-database/).
  
-Review the [technical overview of SQL Database](sql-database-technical-overview.md).  
+Вы можете ознакомиться с [техническим обзором Базы данных SQL](sql-database-technical-overview.md).
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

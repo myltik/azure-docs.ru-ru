@@ -1,46 +1,42 @@
-Resource|Default Limit
+Ресурс|Ограничение по умолчанию
 ---|---
-Number of storage accounts per subscription|200<sup>1</sup>
-TB per storage account|500 TB
-Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
-Max size of a single blob container, table, or queue|500 TB
-Max number of blocks in a block blob or append blob|50,000
-Max size of a block in a block blob or append blob|4 MB
-Max size of a block blob or append blob|50,000 X 4 MB (approx. 195 GB) 
-Max size of a page blob |1 TB
-Max size of a table entity|1 MB
-Max number of properties in a table entity|252
-Max size of a message in a queue|64 KB
-Max size of a file share|5 TB
-Max size of a file in a file share|1 TB
-Max number of files in a file share|Only limit is the 5 TB total capacity of the file share
-Max 8 KB IOPS per share|1000
-Max number of files in a file share|Only limit is the 5 TB total capacity of the file share
-Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account|Only limit is the 500 TB storage account capacity
-Max number of stored access policies per container, file share, table, or queue|5
-Total Request Rate (assuming 1KB object size) per storage account|Up to 20,000 IOPS, entities per second, or messages per second
-Target throughput for single blob|Up to 60 MB per second, or up to 500 requests per second
-Target throughput for single queue (1 KB messages)|Up to 2000 messages per second
-Target throughput for single table partition (1 KB entities)|Up to 2000 entities per second
-Target throughput for single file share|Up to 60 MB per second
-Max ingress<sup>2</sup> per storage account (US Regions)|10 Gbps if GRS/ZRS<sup>3</sup> enabled, 20 Gbps for LRS
-Max egress<sup>2</sup> per storage account (US Regions)|20 Gbps if RA-GRS/GRS/ZRS<sup>3</sup> enabled, 30 Gbps for LRS
-Max ingress<sup>2</sup> per storage account (European and Asian Regions)|5 Gbps if GRS/ZRS<sup>3</sup> enabled, 10 Gbps for LRS
-Max egress<sup>2</sup> per storage account (European and Asian Regions)|10 Gbps if RA-GRS/GRS/ZRS<sup>3</sup> enabled, 15 Gbps for LRS
+Количество учетных записей хранилища на подписку|200<sup>1</sup>
+ТБ на учетную запись хранилища|500 TБ
+Максимальное количество контейнеров BLOB-объектов, BLOB-объектов, общих папок, таблиц, очередей, сущностей или сообщений для учетной записи хранения|Ограничение касается только размера учетной записи хранения, который не может превышать 500 ТБ
+Максимальный размер одного контейнера BLOB-объектов, таблицы или очереди|500 TБ
+Максимальное количество блоков в блочном BLOB-объекте или дополнительном BLOB-объекте|50 000
+Максимальный размер блока в блочном BLOB-объекте или дополнительном BLOB-объекте|4 МБ
+Максимальный размер блочного BLOB-объекта или дополнительного BLOB-объекта|50 000 x 4 МБ (прибл. 195 ГБ) 
+Максимальный размер страничного BLOB-объекта |1 TБ
+Максимальный размер сущности таблицы|1 МБ
+Максимальное количество свойств в сущности таблицы|252
+Максимальный размер сообщения в очереди|64 КБ
+Максимальный размер общей папки|5 ТБ
+Максимальный размер файла в общей папке|1 TБ
+Максимальное количество файлов в общей папке|Ограничение касается только размера общей папки, который не может превышать 5 ТБ
+Максимальное количество операций ввода-вывода в секунду для блоков размером 8 КБ на один общий ресурс|1000
+Максимальное количество файлов в общей папке|Ограничение касается только размера общей папки, который не может превышать 5 ТБ
+Максимальное количество контейнеров BLOB-объектов, BLOB-объектов, общих папок, таблиц, очередей, сущностей или сообщений для учетной записи хранения|Ограничение касается только размера учетной записи хранения, который не может превышать 500 ТБ
+Максимальное число хранимых политик доступа для каждых контейнера, общей папки, таблицы или очереди|5
+Частота запросов (предполагается размер объекта в 1 КБ) для учетной записи хранилища|До 20 000 операций ввода-вывода, объектов или сообщений в секунду
+Целевая пропускная способность для одного большого двоичного объекта|До 60 МБ в секунду или до 500 запросов в секунду
+Целевая пропускная способность для одной очереди (размер сообщений — 1 КБ)|До 2 000 сообщений в секунду
+Предельная пропускная способность для отдельного табличного раздела (размер сущностей 1 КБ)|До 2 000 сущностей в секунду
+Целевая пропускная способность для одного файлового ресурса|До 60 МБ в секунду
+Максимальная скорость входящих данных<sup>2</sup> на одну учетную запись хранения (регионы США)|10 Гбит/c для хранилищ GRS и ZRS<sup>3</sup>, 20 Гбит/c для хранилищ LRS
+Максимальная скорость исходящих данных<sup>2</sup> на одну учетную запись хранения (регионы США)|20 Гбит/с для хранилищ RA-GRS, GRS и ZRS<sup>3</sup>, 30 Гбит/с для хранилищ LRS
+Максимальная скорость входящих данных<sup>2</sup> на одну учетную запись хранения (европейский и азиатский регионы)|5 Гбит/c для хранилищ GRS и ZRS<sup>3</sup>, 10 Гбит/c для хранилищ LRS
+Максимальная скорость исходящих данных<sup>2</sup> на одну учетную запись хранения (европейский и азиатский регионы)|10 Гбит/с для хранилищ RA-GRS, GRS и ZRS<sup>3</sup>, 15 Гбит/с для хранилищ LRS
 
-<sup>1</sup>This includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
+<sup>1</sup>Сюда входят учетные записи хранения класса Standard и Premium. Если требуется более 200 учетных записей хранения, обратитесь с запросом в [службу поддержки Azure](https://azure.microsoft.com/support/faq/). Команда хранилища Azure рассмотрит вашу бизнес-модель и может утвердить до 250 учетных записей хранения.
 
-<sup>2</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
+<sup>2</sup>Термин *Входящие данные* означает все данные (запросы), отправляемые в учетную запись хранения. Под *исходящими данными* понимаются все данные (отклики), получаемые из учетной записи хранения.
 
-<sup>3</sup>Azure Storage replication options include:
+<sup>3</sup>Ниже перечислены параметры репликации службы хранилища Azure.
 
-- **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
-- **GRS**:  Geo-redundant storage. 
-- **ZRS**: Zone-redundant storage. Available only for block blobs. 
-- **LRS**: Locally redundant storage. 
+- **RA-GRS**. Геоизбыточное хранилище с доступом для чтения. Если параметр RA-GRS включен, входящие целевые объекты для вторичного расположения идентичны целевым объектам для первичного расположения.
+- **GRS**. Геоизбыточное хранилище.
+- **ZRS**. Хранилище, избыточное в пределах зоны. Доступно только для блочных BLOB-объектов.
+- **LRS**. Локально избыточное хранилище.
 
-
-
-<!--HONumber=Oct16_HO3-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

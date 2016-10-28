@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Restore a StorSimple volume from backup | Microsoft Azure"
-   description="Explains how to use the StorSimple Manager service Backup Catalog page to restore a StorSimple volume from a backup set."
+   pageTitle="Восстановление тома StorSimple из резервной копии | Microsoft Azure"
+   description="Описание способов использования страницы каталога резервного копирования службы диспетчера StorSimple для восстановления тома StorSimple из резервного набора данных."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,109 +15,104 @@
    ms.date="04/26/2016"
    ms.author="v-sharos" />
 
-
-# <a name="restore-a-storsimple-volume-from-a-backup-set-(update-2)"></a>Restore a StorSimple volume from a backup set (Update 2)
+# Восстановление тома StorSimple из резервного набора данных (обновление 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
-## <a name="overview"></a>Overview
+## Обзор
 
-The **Backup Catalog** page displays all the backup sets that are created when manual or automated backups are taken. You can use this page to list all the backups for a backup policy or a volume, select or delete backups, or use a backup to restore or clone a volume.
+Страница **Каталог резервного копирования** содержит все наборы резервных данных, созданные во время ручного или автоматического резервного копирования. Эта страница позволяет просмотреть все резервные копии для определенной политики резервного копирования или определенного тома, выбрать или удалить резервные копии или использовать резервную копию для восстановления или клонирования тома.
 
- ![Backup Catalog page](./media/storsimple-restore-from-backup-set-u2/restore.png)
+ ![Страница каталога резервного копирования](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
-This tutorial explains how to use the **Backup Catalog** page to restore your device from a backup set.
+В этом учебнике объясняется, как использовать страницу **Каталог резервного копирования** для восстановления устройства из резервного набора данных.
 
-You can restore a volume from a local or cloud backup. In either case, the restore operation brings the volume online immediately while data is downloaded in the background. 
+Вы можете восстановить том из локальной или облачной резервной копии. В любом случае операция восстановления незамедлительно переводит том в рабочий режим, пока данные загружаются в фоновом режиме.
 
-Before you initiate a restore operation, you should be aware of the following:
+Прежде чем начать операцию восстановления, необходимо учитывать следующее:
 
-- **You must take the volume offline** – Take the volume offline on both the host and the device before you initiate the restore operation. Although the restore operation automatically brings the volume online on the device, you must manually bring the device online on the host. You can bring the volume online on the host as soon as the volume is online on the device. (You do not need to wait until the restore operation is finished.) For procedures, go to [Take a volume offline](storsimple-manage-volumes-u2.md#take-a-volume-offline).
+- **Необходимо отключить том** — отключите том на узле и устройстве, прежде чем запустить операцию восстановления. Несмотря на то, что операция восстановления автоматически переводит том в рабочий режим на устройстве, сделать это на узле необходимо вручную. Перевести том в рабочий режим на узле можно после того, как оно перешло в рабочий режим на устройстве. (Дожидаться завершения операции восстановления не нужно.) Описание процедур см. в разделе [Отключение тома](storsimple-manage-volumes-u2.md#take-a-volume-offline).
 
-- **Volume type after restore** – Deleted volumes are restored based on the type in the snapshot; that is, volumes that were locally pinned are restored as locally pinned volumes and volumes that were tiered are restored as tiered volumes.
+- **Тип тома после восстановления** — удаленные тома восстанавливаются на основе типа, указанного в снимке; то есть тома, которые были локально закреплены, восстанавливаются в виде локально закрепленных, а тома, которые были многоуровневыми, восстанавливаются как многоуровневые.
 
-    For existing volumes, the current usage type of the volume overrides the type that is stored in the snapshot. For example, if you restore a volume from a snapshot that was taken when the volume type was tiered and that volume type is now locally pinned (due to a conversion operation that was performed), then the volume will be restored as a locally pinned volume. Similarly, if an existing locally pinned volume was expanded and subsequently restored from an older snapshot taken when the volume was smaller, the restored volume will retain the current expanded size.
+    Для существующих томов текущий тип использования тома переопределяет тип, сохраненный в моментальном снимке. Например, если восстановить том из моментального снимка, который был сделан, когда том был многоуровневым, а сейчас том является локально закрепленным (из-за выполненной операции преобразования), то том будет восстановлен как локально закрепленный. Аналогично, если существующий локально закрепленный том был расширен и затем восстановлен из старого моментального снимка, сделанного, когда том был меньше, то восстановленный том сохранит текущий расширенный размер.
 
-    You cannot convert a volume from a tiered volume to a locally pinned volume or from a locally pinned volume to a tiered volume while the volume is being restored. Wait until the restore operation is finished, and then you can convert the volume to another type. For information about converting a volume, go to [Change the volume type](storsimple-manage-volumes-u2.md#change-the-volume-type). 
+    Во время восстановления тома нельзя преобразовать его из многоуровневого в локально закрепленный и наоборот. Дождитесь завершения операции восстановления, после чего том можно будет преобразовать в другой тип. Сведения о преобразовании тома см. в разделе [Изменение типа тома](storsimple-manage-volumes-u2.md#change-the-volume-type).
 
-- **The volume size will be reflected in the restored volume** – This is an important consideration if you are restoring a locally pinned volume that has been deleted (because locally pinned volumes are fully provisioned). Make sure that you have sufficient space before you attempt to restore a locally pinned volume that was previously deleted. 
+- **Размер тома будут отражен в восстановленном томе** — это важно учитывать при восстановлении локально закрепленного тома, который был удален (поскольку локально закрепленные тома подготавливаются полностью). Убедитесь, что у вас достаточно пространства, прежде чем пытаться восстановить локально закрепленный том, который был удален.
 
-- **You cannot expand a volume while it is being restored** – Wait until the restore operation is finished before you attempt to expand the volume. For information about expanding a volume, go to [Modify a volume](storsimple-manage-volumes-u2.md#modify-a-volume).
+- **Невозможно расширить том, пока выполняется восстановление** — дождитесь завершения операции восстановления, после чего можно будет увеличить размер тома. Дополнительные сведения о расширении тома см. в разделе [Изменение тома](storsimple-manage-volumes-u2.md#modify-a-volume).
 
-- **You can perform a backup while you are restoring a local volume** – For procedures go to [Use the StorSimple Manager service to manage backup policies](storsimple-manage-backup-policies.md).
+- **Выполнять резервное копирование при восстановлении локального тома можно** — описание процедур см. в разделе [Управление политиками резервного копирования с помощью службы диспетчера StorSimple](storsimple-manage-backup-policies.md).
 
-- **You can cancel a restore operation** – If you cancel the restore job, then the volume will be rolled back to the state that it was in before you initiated the restore operation. For procedures, go to [Cancel a job](storsimple-manage-jobs-u2.md#cancel-a-job).
+- **Операцию восстановления можно отменить** — если отменить задание восстановления, то том будет возвращен в состояние, существовавшее до запуска операции восстановления. Описание процедур см. в разделе [Отмена задания](storsimple-manage-jobs-u2.md#cancel-a-job).
 
-## <a name="how-to-use-the-backup-catalog"></a>How to use the backup catalog
+## Как использовать каталог резервных копий
 
-The **Backup Catalog** page provides a query that helps you to narrow your backup set selection. You can filter the backup sets that are retrieved based on the following parameters:
+Страница **Каталог резервного копирования** позволяет создать запрос, который поможет сузить спектр выбранных резервных наборов данных. Вы можете фильтровать полученные резервные наборы данных по следующим параметрам:
 
-- **Device** – The device on which the backup set was created.
-- **Backup policy** or **volume** – The backup policy or volume associated with this backup set.
-- **From** and **To** – The date and time range when the backup set was created.
+- **Устройство** — устройство, на котором был создан резервный набор данных.
+- **Политика резервного копирования** или **том** — политика резервного копирования или том, связанные с этим резервным набором данных.
+- **С** и **По** — диапазон дат и времени создания резервного набора данных.
 
-The filtered backup sets are then tabulated based on the following attributes:
+Затем отфильтрованные резервные наборы данных будут представлены в табличной форме на основе следующих атрибутов:
 
-- **Name** – The name of the backup policy or volume associated with the backup set.
-- **Size** – The actual size of the backup set.
-- **Created on** – The date and time when the backups were created. 
-- **Type** – Backup sets can be local snapshots or cloud snapshots. A local snapshot is a backup of all your volume data stored locally on the device, whereas a cloud snapshot refers to the backup of volume data residing in the cloud. Local snapshots provide faster access, whereas cloud snapshots are chosen for data resiliency.
-- **Initiated by** – The backups can be initiated automatically according to a schedule or manually by a user. (You can use a backup policy to schedule backups. Alternatively, you can use the **Take backup** option to take an interactive backup.)
+- **Имя** — имя политики резервного копирования или тома, связанное с резервным набором данных.
+- **Размер** — фактический размер резервного набора данных.
+- **Создано** — дата и время, когда были созданы резервные копии. 
+- **Тип** — наборы резервного копирования могут представлять собой локальные моментальные снимки или облачные моментальные снимки. Локальный моментальный снимок — это резервная копия всех данных тома, которая хранится локально на устройстве, а облачный моментальный снимок — это резервная копия данных тома, хранящаяся в облаке. Локальные моментальные снимки обеспечивают более быстрый доступ, а облачные моментальные снимки выбираются для обеспечения устойчивости данных.
+- **Инициировано** — резервные копии могут инициироваться автоматически по расписанию или вручную пользователем. (Для планирования резервного копирования можно использовать политику резервного копирования. Кроме того, можно использовать параметр **Создать резервную копию** для резервного копирования в интерактивном режиме.)
 
-## <a name="how-to-restore-your-storsimple-volume-from-a-backup"></a>How to restore your StorSimple volume from a backup
+## Восстановление тома StorSimple из резервной копии
 
-You can use the **Backup Catalog** page to restore your StorSimple volume from a specific backup. Keep in mind, however, that restoring a volume will revert the volume to the state it was in when the backup was taken. Any data that was added after the backup operation will be lost.
+С помощью страницы **Каталог резервного копирования** можно восстановить том устройства StorSimple из определенной резервной копии. Однако следует помнить, что в результате восстановления том вернется к состоянию, в котором он находился на момент резервного копирования. Любые данные, добавленные после операции резервного копирования, будут утрачены.
 
-> [AZURE.WARNING] Restoring from a backup will replace the existing volumes from the backup. This may cause the loss of any data that was written after the backup was taken.
+> [AZURE.WARNING] Восстановление из резервной копии приведет к замене существующих томов томами из резервной копии. Это может привести к потере всех данных, которые были записаны после резервного копирования.
 
-### <a name="to-restore-your-volume"></a>To restore your volume
+### Восстановление тома
 
-1. On the StorSimple Manager service page, click the **Backup catalog** tab.
+1. На странице службы диспетчера StorSimple щелкните вкладку **Каталог резервных копий**.
 
-    ![Backup catalog](./media/storsimple-restore-from-backup-set-u2/restore.png)
+    ![Каталог резервного копирования](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
-2. Select a backup set as follows:
-  1. Select the appropriate device.
-  2. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
-  3. Specify the time range.
-  4. Click the check icon ![check icon](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png) to execute this query.
+2. Выберите резервный набор данных следующим образом:
+  1. Выберите подходящее устройство.
+  2. В раскрывающемся списке выберите том или политику резервного копирования для той резервной копии, которую нужно выбрать.
+  3. Укажите интервал времени.
+  4. Щелкните значок с изображением флажка ![значок с изображением флажка](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png), чтобы выполнить этот запрос.
  
-    The backups associated with the selected volume or backup policy should appear in the list of backup sets.
+    В списке резервных наборов данных должны отобразиться резервные копии, связанные с выбранным томом или политикой резервного копирования.
 
-3. Expand the backup set to view the associated volumes. These volumes must be taken offline on the host and device before you can restore them. Access the volumes on the **Volume Containers** page, and then follow the steps in [Take a volume offline](storsimple-manage-volumes-u2.md#take-a-volume-offline) to take them offline.
+3. Разверните резервный набор данных для просмотра связанных томов. Перед восстановлением эти тома необходимо отключить на узле и устройстве. Откройте страницу **Контейнеры томов** со списком томов, а затем следуйте указаниям, описанным в разделе [Отключение тома](storsimple-manage-volumes-u2.md#take-a-volume-offline), чтобы отключить том.
 
-    > [AZURE.IMPORTANT] Make sure that you have taken the volumes offline on the host first, before you take the volumes offline on the device. If you do not take the volumes offline on the host, it could potentially lead to data corruption.
+    > [AZURE.IMPORTANT] Прежде чем отключать том на устройстве, сначала отключите его на узле. Если тома на узле не переведены в автономный режим, это может привести к повреждению данных.
 
-4. Navigate back to the **Backup Catalog** tab and select a backup set.
+4. Вернитесь на вкладку **Каталог резервного копирования** и выберите резервный набор данных.
 
-5. Click **Restore** at the bottom of the page.
+5. В нижней части страницы нажмите кнопку **Восстановить**.
 
-6. You will be prompted for confirmation. Review the restore information, and then select the confirmation check box.
+6. После этого введите подтверждение для применения этих исправлений. Просмотрите информацию о восстановлении и затем установите флажок подтверждения.
 
-    ![Confirmation page](./media/storsimple-restore-from-backup-set-u2/ConfirmRestore.png)
+    ![Страница подтверждения](./media/storsimple-restore-from-backup-set-u2/ConfirmRestore.png)
 
-7. Click the check icon ![check icon](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png). This will initiate a restore job that you can view by accessing the **Jobs** page. 
+7. Щелкните значок галочки ![значок галочки](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png). Запустится задание восстановления, которое можно просмотреть на странице **Задания**.
 
-8. After the restore is complete, you can verify that the contents of your volumes are replaced by volumes from the backup.
+8. После завершения восстановления можно убедиться, что содержимое томов заменено томами из резервной копии.
 
-![Video available](./media/storsimple-restore-from-backup-set-u2/Video_icon.png) **Video available**
+![Доступно видео](./media/storsimple-restore-from-backup-set-u2/Video_icon.png) **Доступно видео**
 
-To watch a video that demonstrates how you can use the clone and restore features in StorSimple to recover deleted files, click [here](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+Чтобы посмотреть видео о том, как использовать функции клонирования и восстановления в StorSimple для восстановления удаленных файлов, щелкните [здесь](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
-## <a name="if-the-restore-fails"></a>If the restore fails
+## Если восстановление завершается неудачно
 
-You will receive an alert if the restore operation fails for any reason. If this occurs, refresh the backup list to verify that the backup is still valid. If the backup is valid and you are restoring from the cloud, then connectivity issues might be causing the problem. 
+Если операция восстановления заканчивается неудачно по любой причине, вы получите оповещение. Если это произошло, обновите список резервных копий для проверки действительности резервной копии. Если резервная копия действительна и восстанавливается из облака, ошибка может быть вызвана проблемами с подключением.
 
-To complete the restore operation, take the volume offline on the host and retry the restore operation. Note that any modifications to the volume data that were performed during the restore process will be lost.
+Чтобы завершить операцию восстановления, переведите том в автономный режим на узле и повторите операцию восстановления. Обратите внимание, что любые изменения, внесенные в данные тома во время процесса восстановления, будут потеряны.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- Learn how to [Manage StorSimple volumes](storsimple-manage-volumes-u2.md).
+- Узнайте об [управлении томами StorSimple](storsimple-manage-volumes-u2.md).
 
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Узнайте об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0504_2016-->

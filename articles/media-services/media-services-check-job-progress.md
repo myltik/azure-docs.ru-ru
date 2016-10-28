@@ -1,124 +1,119 @@
 <properties 
-    pageTitle="Monitor Job Progress using .NET" 
-    description="Learn how to use event handler code to track job progress and send status updates. The code sample is written in C# and uses the Media Services SDK for .NET." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="juliako" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Мониторинг хода выполнения задания с помощью .NET" 
+	description="Узнайте, как использовать код обработчика событий для проверки хода выполнения задания и отправки сведений об обновлении состояния. Пример кода написан на языке C# и использует пакет SDK служб мультимедиа для .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="08/19/2016"   
-    ms.author="juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/19/2016"   
+	ms.author="juliako"/>
 
-
-# <a name="monitor-job-progress-using-.net"></a>Monitor Job Progress using .NET
+# Мониторинг хода выполнения задания с помощью .NET
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-check-job-progress.md)
+- [Портал](media-services-portal-check-job-progress.md)
 - [.NET](media-services-check-job-progress.md)
 - [REST](media-services-rest-check-job-progress.md)
 
-When you run jobs, you often require a way to track job progress. You can check the progress by defining a StateChanged event handler (as described in this topic) or using Azure Queue storage to monitor Media Services job notifications (as described in [this](media-services-dotnet-check-job-progress-with-queues.md) topic).
+При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Вы можете проверить ход выполнения, определив обработчик событий StateChanged (как описано в этой статье) или используя хранилище очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа (как описано [здесь](media-services-dotnet-check-job-progress-with-queues.md)).
 
-## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Define StateChanged event handler to monitor job progress
+## Определение обработчика событий StateChanged для отслеживания хода выполнения задания
 
-The following code example defines the StateChanged event handler. This event handler tracks job progress and provides updated status, depending on the state. The code also defines the LogJobStop method. This helper method logs error details.
+Следующий пример кода определяет обработчик событий StateChanged. Этот обработчик отслеживает ход выполнения задачи и предоставляет обновленное состояние. Кроме того, код определяет метод LogJobStop. Этот вспомогательный метод заносит в журнал сведения об ошибках.
 
-    private static void StateChanged(object sender, JobStateChangedEventArgs e)
-    {
-        Console.WriteLine("Job state changed event:");
-        Console.WriteLine("  Previous state: " + e.PreviousState);
-        Console.WriteLine("  Current state: " + e.CurrentState);
-    
-        switch (e.CurrentState)
-        {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("********************");
-                Console.WriteLine("Job is finished.");
-                Console.WriteLine("Please wait while local tasks or downloads complete...");
-                Console.WriteLine("********************");
-                Console.WriteLine();
-                Console.WriteLine();
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-                // Display or log error details as needed.
-                LogJobStop(job.Id);
-                break;
-            default:
-                break;
-        }
-    }
-    
-    private static void LogJobStop(string jobId)
-    {
-        StringBuilder builder = new StringBuilder();
-        IJob job = GetJob(jobId);
-    
-        builder.AppendLine("\nThe job stopped due to cancellation or an error.");
-        builder.AppendLine("***************************");
-        builder.AppendLine("Job ID: " + job.Id);
-        builder.AppendLine("Job Name: " + job.Name);
-        builder.AppendLine("Job State: " + job.State.ToString());
-        builder.AppendLine("Job started (server UTC time): " + job.StartTime.ToString());
-        builder.AppendLine("Media Services account name: " + _accountName);
-        builder.AppendLine("Media Services account location: " + _accountLocation);
-        // Log job errors if they exist.  
-        if (job.State == JobState.Error)
-        {
-            builder.Append("Error Details: \n");
-            foreach (ITask task in job.Tasks)
-            {
-                foreach (ErrorDetail detail in task.ErrorDetails)
-                {
-                    builder.AppendLine("  Task Id: " + task.Id);
-                    builder.AppendLine("    Error Code: " + detail.Code);
-                    builder.AppendLine("    Error Message: " + detail.Message + "\n");
-                }
-            }
-        }
-        builder.AppendLine("***************************\n");
-        // Write the output to a local file and to the console. The template 
-        // for an error output file is:  JobStop-{JobId}.txt
-        string outputFile = _outputFilesFolder + @"\JobStop-" + JobIdAsFileName(job.Id) + ".txt";
-        WriteToFile(outputFile, builder.ToString());
-        Console.Write(builder.ToString());
-    }
-    
-    private static string JobIdAsFileName(string jobID)
-    {
-        return jobID.Replace(":", "_");
-    }
+	private static void StateChanged(object sender, JobStateChangedEventArgs e)
+	{
+	    Console.WriteLine("Job state changed event:");
+	    Console.WriteLine("  Previous state: " + e.PreviousState);
+	    Console.WriteLine("  Current state: " + e.CurrentState);
+	
+	    switch (e.CurrentState)
+	    {
+	        case JobState.Finished:
+	            Console.WriteLine();
+	            Console.WriteLine("********************");
+	            Console.WriteLine("Job is finished.");
+	            Console.WriteLine("Please wait while local tasks or downloads complete...");
+	            Console.WriteLine("********************");
+	            Console.WriteLine();
+	            Console.WriteLine();
+	            break;
+	        case JobState.Canceling:
+	        case JobState.Queued:
+	        case JobState.Scheduled:
+	        case JobState.Processing:
+	            Console.WriteLine("Please wait...\n");
+	            break;
+	        case JobState.Canceled:
+	        case JobState.Error:
+	            // Cast sender as a job.
+	            IJob job = (IJob)sender;
+	            // Display or log error details as needed.
+	            LogJobStop(job.Id);
+	            break;
+	        default:
+	            break;
+	    }
+	}
+	
+	private static void LogJobStop(string jobId)
+	{
+	    StringBuilder builder = new StringBuilder();
+	    IJob job = GetJob(jobId);
+	
+	    builder.AppendLine("\nThe job stopped due to cancellation or an error.");
+	    builder.AppendLine("***************************");
+	    builder.AppendLine("Job ID: " + job.Id);
+	    builder.AppendLine("Job Name: " + job.Name);
+	    builder.AppendLine("Job State: " + job.State.ToString());
+	    builder.AppendLine("Job started (server UTC time): " + job.StartTime.ToString());
+	    builder.AppendLine("Media Services account name: " + _accountName);
+	    builder.AppendLine("Media Services account location: " + _accountLocation);
+	    // Log job errors if they exist.  
+	    if (job.State == JobState.Error)
+	    {
+	        builder.Append("Error Details: \n");
+	        foreach (ITask task in job.Tasks)
+	        {
+	            foreach (ErrorDetail detail in task.ErrorDetails)
+	            {
+	                builder.AppendLine("  Task Id: " + task.Id);
+	                builder.AppendLine("    Error Code: " + detail.Code);
+	                builder.AppendLine("    Error Message: " + detail.Message + "\n");
+	            }
+	        }
+	    }
+	    builder.AppendLine("***************************\n");
+	    // Write the output to a local file and to the console. The template 
+	    // for an error output file is:  JobStop-{JobId}.txt
+	    string outputFile = _outputFilesFolder + @"\JobStop-" + JobIdAsFileName(job.Id) + ".txt";
+	    WriteToFile(outputFile, builder.ToString());
+	    Console.Write(builder.ToString());
+	}
+	
+	private static string JobIdAsFileName(string jobID)
+	{
+	    return jobID.Replace(":", "_");
+	}
 
 
 
-##<a name="next-step"></a>Next step
+##Дальнейшие действия
 
-Review Media Services learning paths.
+Просмотрите схемы обучения работе со службами мультимедиа.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

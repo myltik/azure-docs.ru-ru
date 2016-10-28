@@ -1,94 +1,93 @@
 <properties 
-    pageTitle="Manage a web app in Azure App Service" 
-    description="Links to resources for managing a web app in Azure App Service." 
-    services="app-service\web" 
-    documentationCenter="" 
-    authors="erikre" 
-    manager="wpickett" 
-    editor=""/>
+	pageTitle="Управление веб-приложением в службе приложений Azure" 
+	description="Ссылки на ресурсы, посвященные управлению веб-приложением в службе приложений Azure." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="erikre" 
+	manager="wpickett" 
+	editor=""/>
 
 <tags 
-    ms.service="app-service-web" 
-    ms.workload="web" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/24/2016" 
-    ms.author="rachelap"/>
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2016" 
+	ms.author="rachelap"/>
+
+# Управление веб-приложением в службе приложений Azure
+
+В этом разделе представлены ссылки на ресурсы, посвященные управлению веб-приложением в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Под управлением подразумеваются все задачи, направленные на обеспечение стабильной работы веб-приложения.
+
+На различных этапах существования веб-приложения вам придется выполнять разные задачи управления, от первоначального развертывания до обычной эксплуатации, обслуживания и применения обновлений.
+
+Многие задачи, связанные с управлением веб-приложением, можно выполнять на портале Azure.
+
+## Перед развертыванием веб-приложения в рабочей среде
+
+### Выберите уровень.
+
+Служба приложений Azure доступна для 5 уровней: Free, Shared, Basic, Standard и Premium. Информацию о функциях и ценах для каждого уровня см. в разделе [Сведения о ценах](/pricing/details/app-service/).
+
+- [Планы службы приложений](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) позволяют группировать несколько веб-приложений на одном уровне.
+- Всегда можно [сменить уровень](web-sites-scale.md) после создания веб-приложения.
+
+### Конфигурация
+
+На [портале Azure](https://portal.azure.com/) можно задать различные параметры конфигурации. Подробные сведения см. в разделе [Настройка веб-приложений в службе приложений Azure](web-sites-configure.md). Вот краткий контрольный список:
+
+- При необходимости выберите **версии сред выполнения** для .NET, PHP, Java или Python.
+- Если в веб-приложении используется протокол **WebSockets**, включите его поддержку (это относится к приложениям, в которых применяется [ASP.NET SignalR](http://www.asp.net/signalr) или [socket.io](web-sites-nodejs-chat-app-socketio.md)).
+- Вы используете непрерывные веб-задания? Если да, то выберите параметр **Always On** (Всегда включено).
+- Задайте **документ по умолчанию**, например index.html.
+
+Помимо этих базовых параметров конфигурации, вы также можете настроить следующее:
+
+- Шифрование по протоколу **SSL**. Чтобы использовать SSL с пользовательским доменным именем, вам необходимо получить SSL-сертификат и настроить веб-приложение для работы с ним. См. статью [Включение протокола HTTPS для веб-приложения в службе приложений Azure](web-sites-configure-ssl-certificate.md).
+- **Пользовательское доменное имя.** Вашему веб-приложению автоматически присваивается дочерний домен в azurewebsites.net. Вы можете связать сайт с пользовательским доменным именем, например contoso.com. См. статью [Настройка личного доменного имени для службы приложений Azure](web-sites-custom-domain-name.md).
+
+Настройка для определенных языков программирования:
+
+- **PHP**: статья [Настройка PHP в веб-приложениях службы приложений Azure](web-sites-php-configure.md).
+- **Python**: статья [Настройка Python в веб-приложениях службы приложений Azure](web-sites-python-configure.md).
 
 
-# <a name="manage-a-web-app-in-azure-app-service"></a>Manage a web app in Azure App Service
+## В ходе эксплуатации веб-приложения
 
-This topic contains links to resources for managing a web app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Management includes all of the tasks that keep your web app running smoothly. 
+В ходе эксплуатации веб-приложения важно, чтобы оно всегда было доступно, а его ресурсы масштабировались с учетом пользовательского трафика. Кроме того, возможно, вам придется устранять возникающие неполадки.
 
-Over the lifetime of a web app, you will perform different management tasks, as you move from initial deployment to normal operation, maintenance, and updates.
+### Мониторинг
 
-Many web app management tasks can be performed in the Azure Portal.
-
-## <a name="before-you-deploy-your-web-app-to-production"></a>Before you deploy your web app to production
-
-### <a name="choose-a-tier"></a>Choose a tier
-
-Azure App Service is offered in five tiers: Free, Shared, Basic, Standard, and Premium. For information about the features and pricing for each tier, see [Pricing details](/pricing/details/app-service/). 
-
-- [App Service plans](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) let you group multiple web apps under the same tier.
-- You can always [switch tiers](web-sites-scale.md) after you create your web app.
-
-### <a name="configuration"></a>Configuration
-
-Use the [Azure Portal](https://portal.azure.com/) to set various configuration options. For details, see [Configure web apps in Azure App Service](web-sites-configure.md). Here is a quick checklist:
-
-- Select **runtime versions** for .NET, PHP, Java, or Python, if needed.
-- Enable **WebSockets** if your web app uses the WebSocket protocol. (This includes apps that use [ASP.NET SignalR](http://www.asp.net/signalr) or [socket.io](web-sites-nodejs-chat-app-socketio.md).)
-- Are you running continuous web jobs? If so, enable **Always On**.
-- Set the **default document**, such as index.html.
-
-In addition to these basic configuration settings, you may want to configure the following:
-
-- **Secure Socket Layer (SSL)** encryption. To use SSL with a custom domain name, you must get an SSL certificate and configure your web app to use it. See [Enable HTTPS for a web app in Azure App Service](web-sites-configure-ssl-certificate.md).
-- **Custom domain name.** Your web app automatically has a subdomain under azurewebsites.net. You can associate a custom domain name, such as contoso.com. See [Configure a custom domain name in Azure App Service](web-sites-custom-domain-name.md).
-
-Language-specific configuration:
-
-- **PHP**: [Configure PHP in Azure App Service Web Apps](web-sites-php-configure.md).
-- **Python**: [Configuring Python with Azure App Service Web Apps](web-sites-python-configure.md)
-
-
-## <a name="while-your-web-app-is-running"></a>While your web app is running
-
-While your web app is running, you want to make sure it is available, and that it scales to meet user traffic. You may also need to troubleshoot errors.
-
-### <a name="monitoring"></a>Monitoring
-
-- Through the Azure Portal, you can [add performance metrics](web-sites-monitor.md) such as CPU usage and number of client requests.
-- [Scale your web app](web-sites-scale.md) in response to traffic. Depending on your tier, you can scale the number of VMs and/or the size of the VM instances. In the Standard and Premium tiers, you can also set up autoscaling, so your web app scales automatically, either on a fixed schedule, or in response to load.  
+- На портале Azure можно [добавить показатели производительности](web-sites-monitor.md), например показатель использования ЦП и количество запросов от клиентов.
+- [Ресурсы веб-сайта можно масштабировать](web-sites-scale.md) с учетом трафика. В зависимости от уровня плана размещения можно изменять количество виртуальных машин и (или) размер экземпляров виртуальных машин. На уровнях Standard и Premium вы также можете настроить автоматическое масштабирование веб-приложения по заданному графику или с учетом нагрузки.
  
-### <a name="backups"></a>Backups
+### Резервные копии
 
-- Set [automatic backups](web-sites-backup.md) of your web app. Learn more about backups in [this video](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Learn about the options for [database recovery](../sql-database/sql-database-business-continuity.md) in Azure SQL Database.
+- Настройка [автоматического резервного копирования](web-sites-backup.md) для веб-приложения. Дополнительные сведения о резервном копировании см. в [этом видео](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
+- Ознакомьтесь с параметрами [восстановления базы данных](../sql-database/sql-database-business-continuity.md) SQL Azure.
 
-### <a name="troubleshooting"></a>Troubleshooting
+### Устранение неполадок
 
-- If something goes wrong, you can [troubleshoot in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), using diagnostic logs and live debugging in the cloud. 
-- Outside of Visual Studio, there are various ways to collect diagnostic logs. See [Enable diagnostics logging for web apps in Azure App Service](web-sites-enable-diagnostic-log.md).
-- For Node.js applications, see [How to debug a Node.js web app in Azure App Service](web-sites-nodejs-debug.md).
+- Возникающие неполадки можно [устранять в Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug) с помощью журналов диагностики и отладки в облаке в режиме реального времени.
+- Кроме того, журналы диагностики можно собирать различными способами не только в Visual Studio. См. статью [Включение ведения журнала диагностики для веб-приложений в службе приложений Azure](web-sites-enable-diagnostic-log.md).
+- Для приложений Node.js см. раздел [Отладка веб-приложения Node.js в службе приложений Azure](web-sites-nodejs-debug.md).
 
-### <a name="restoring-data"></a>Restoring Data
+### Восстановление данных
 
-- [Restore](web-sites-restore.md) a web app that was previously backed up.
+- Веб-приложение можно [восстанавливать](web-sites-restore.md) из ранее созданных резервных копий.
 
 
-## <a name="when-you-update-your-web-app"></a>When you update your web app
+## При обновлении веб-приложения
 
-If you have not enabled automatic backups, you can create a [manual backup](web-sites-backup.md).
+Если вы не включили автоматическое резервное копирование, то можете создавать резервные копии [вручную](web-sites-backup.md).
 
-Consider using [staged deployment](web-sites-staged-publishing.md). This option lets you publish updates to a staging deployment that runs side-by-side with your production deployment. 
+Возможно, вас также заинтересует [промежуточное развертывание](web-sites-staged-publishing.md). С его помощью вы сможете публиковать обновления в промежуточной среде, функционирующей параллельно с рабочей.
 
-If you use Visual Studio Team Services, you can set up continuous deployment from source control:
+Если вы используете Visual Studio Team Services, то можете настроить непрерывное развертывание из системы управления версиями:
 
-- [Using Team Foundation Version Control (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
-- [Using Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
+- [С помощью системы управления версиями Team Foundation](../cloud-services/cloud-services-continuous-delivery-use-vso.md)
+- [С помощью Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
 <!-- Anchors. -->
 
@@ -98,8 +97,4 @@ If you use Visual Studio Team Services, you can set up continuous deployment fro
 
   
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

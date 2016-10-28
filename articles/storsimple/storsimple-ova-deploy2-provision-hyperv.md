@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy StorSimple Virtual Array - Provision in Hyper-V"
-   description="This second tutorial in StorSimple Virtual Array deployment involves provisioning a virtual device in Hyper-V."
+   pageTitle="Развертывание виртуального массива StorSimple — подготовка в Hyper-V"
+   description="Второе руководство по развертыванию виртуального массива StorSimple посвящено подготовке виртуального устройства в Hyper-V."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -16,260 +16,255 @@
    ms.date="07/14/2016"
    ms.author="alkohli"/>
 
-
-# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V
+# Развертывание виртуального массива StorSimple — подготовка виртуального массива в Hyper-V
 
 ![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
-## <a name="overview"></a>Overview
+## Обзор
 
-This provisioning tutorial applies to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running March 2016 general availability (GA) release. This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012 or Windows Server 2008 R2. This article applies to the deployment of StorSimple Virtual Arrays in Azure classic portal as well as Microsoft Azure Government Cloud.
+Этот учебник по подготовке относится к виртуальным массивам Microsoft Azure StorSimple (также известным как локальные виртуальные устройства StorSimple или виртуальные устройства StorSimple) общедоступной версии, выпущенной в марте 2016 года. В этом учебнике описывается, как подготовить виртуальный массив StorSimple в главной системе, в которой выполняется Hyper-V на платформе Windows Server 2012 R2, Windows Server 2012 или Windows Server 2008 R2. Эта статья относятся к развертыванию виртуальных массивов StorSimple на классическом портале Azure, а также в облаке Microsoft Azure для государственных организаций.
 
-You will need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
+Для подготовки и настройки виртуального устройства требуются права администратора. Подготовка и начальная настройка могут занять около 10 минут.
 
 
-## <a name="provisioning-prerequisites"></a>Provisioning prerequisites
+## Предварительные требования к подготовке
 
-Here you will find the prerequisites to provision a virtual device on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2.
+Здесь приведены предварительные требования к подготовке виртуального устройства в главной системе, в которой выполняется Hyper-V на платформе Windows Server 2012 R2, Windows Server 2012 или Windows Server 2008 R2.
 
-### <a name="for-the-storsimple-manager-service"></a>For the StorSimple Manager service
+### Для службы Диспетчера StorSimple
 
-Before you begin, make sure that:
+Перед тем как начать, убедитесь в следующем.
 
--   You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
+-   Выполнены все инструкции из статьи [Deploy StorSimple Virtual Array — Prepare the portal](storsimple-ova-deploy1-portal-prep.md).
 
--   You have downloaded the virtual device image for Hyper-V from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
+-   Вы скачали с портала Azure образ виртуального устройства для Hyper-V. Дополнительные сведения см. в разделе [Шаг 3. Скачивание образа виртуального устройства](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
 
-    > [AZURE.IMPORTANT] The software running on the StorSimple Virtual Array may only be used in conjunction with the Storsimple Manager service.
+	> [AZURE.IMPORTANT] Программное обеспечение, выполняемое на виртуальном массиве StorSimple, может использоваться только совместно со службой диспетчера StorSimple.
 
-### <a name="for-the-storsimple-virtual-device"></a>For the StorSimple virtual device
+### Для виртуального устройства StorSimple
 
-Before you deploy a virtual device, make sure that:
+Перед развертыванием виртуального устройства нужно выполнить указанные ниже условия.
 
--   You have access to a host system running Hyper-V on Windows Server 2008 R2 or later that can be used to a provision a device.
+-   У вас должен быть доступ к главной системе, в которой выполняется Hyper-V на платформе Windows Server 2008 R2 или более поздней версии, которую можно использовать для подготовки устройства.
 
--   The host system is able to dedicate the following resources to provision your virtual device:
+-   ОС сервера виртуальных машин должна быть в состоянии выделить указанные ниже ресурсы для подготовки виртуального устройства к работе.
 
-    -   A minimum of 4 cores.
+	-   Не менее 4 ядер.
 
-    -   At least 8 GB of RAM.
+	-   Не менее 8 ГБ ОЗУ.
 
-    -   One network interface.
+	-   Один сетевой интерфейс.
 
-    -   A 500 GB virtual disk for system data.
+	-   Виртуальный диск размером 500 ГБ для системных данных.
 
-### <a name="for-the-network-in-the-datacenter"></a>For the network in the datacenter
+### Сеть в центре обработки данных
 
-Before you begin, review the networking requirements to deploy a StorSimple virtual device and configure the datacenter network appropriately. For more information, see [StorSimple Virtual Array networking requirements](storsimple-ova-system-requirements.md#networking-requirements).
+Прежде чем начать, изучите сетевые требования к развертыванию виртуального устройства StorSimple и соответствующим образом настройте сеть центра обработки данных. Дополнительные сведения см. в разделе [Системные требования для виртуального массива StorSimplе](storsimple-ova-system-requirements.md#networking-requirements).
 
-## <a name="step-by-step-provisioning"></a>Step-by-step provisioning
+## Пошаговая подготовка
 
-To provision and connect to a virtual device, you will need to perform the following steps:
+Для подготовки виртуального устройства и подключения к нему необходимо выполнить указанные ниже действия.
 
-1.  Ensure that the host system has sufficient resources to meet the minimum virtual device requirements.
+1.  Убедитесь, что главная система обладает достаточными ресурсами для соответствия минимальным требованиям к виртуальному устройству.
 
-2.  Provision a virtual device in your hypervisor.
+2.  Подготовьте виртуальное устройство в низкоуровневой оболочке.
 
-3.  Start the virtual device and get the IP address.
+3.  Запустите виртуальное устройство и получите IP-адрес.
 
-Each of these steps is explained in the following sections.
+В следующих разделах отдельно рассматривается каждый шаг.
 
-## <a name="step-1:-ensure-that-the-host-system-meets-minimum-virtual-device-requirements"></a>Step 1: Ensure that the host system meets minimum virtual device requirements
+## Шаг 1. Обеспечение соответствия главной системы минимальным требованиям к виртуальному устройству
 
-To create a virtual device, you will need:
+Для создания виртуального устройства необходимы такие компоненты:
 
--   The Hyper-V role installed on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 SP1.
+-   Роль Hyper-V, установленная в ОС Windows Server 2012 R2, Windows Server 2012 или Windows Server 2008 R2 с пакетом обновления 1 (SP1).
 
--   Microsoft Hyper-V Manager on a Microsoft Windows client connected to the host.
+-   диспетчер Microsoft Hyper-V в клиенте Microsoft Windows, подключенном к главной системе.
 
-You must make sure that the underlying hardware (host system) on which you are creating the virtual device is able to dedicate the following resources to your virtual device:
+Необходимо убедиться в том, что оборудование (главная система), на котором создается виртуальное устройство, располагает указанными ниже ресурсами для виртуального устройства:
 
-- A minimum of 4 cores.
-- At least 8 GB of RAM.
-- One network interface.
-- A 500 GB virtual disk for system data.
+- Не менее 4 ядер.
+- Не менее 8 ГБ ОЗУ.
+- Один сетевой интерфейс.
+- Виртуальный диск размером 500 ГБ для системных данных.
 
-## <a name="step-2:-provision-a-virtual-device-in-hypervisor"></a>Step 2: Provision a virtual device in hypervisor
+## Шаг 2. Подготовка виртуального устройства в низкоуровневой оболочке
 
-Perform the following steps to provision a device in your hypervisor.
+Для подготовки устройства в низкоуровневой оболочке выполните указанные ниже действия.
 
-#### <a name="to-provision-a-virtual-device"></a>To provision a virtual device
+#### Подготовка виртуального устройства
 
-1.  On your Windows Server host, copy the virtual device image to a local drive. This is the image (VHD or VHDX) that you downloaded through the Azure portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
+1.  На узле Windows Server скопируйте образ виртуального устройства на локальный диск. Это образ (VHD- или VHDX-файл), который вы скачали с портала Azure. Запишите расположение, в которое был скопирован образ. Эти сведения потребуются вам позднее.
 
-2.  Open **Server Manager**. In the top right corner, click **Tools** and select **Hyper-V Manager**.
+2.  Откройте **диспетчер сервера**. В верхнем правом углу выберите **Сервис**, а затем — **Диспетчер Hyper-V**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image1.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image1.png)
 
-    If you are running Windows Server 2008 R2, open the Hyper-V Manager. In Server Manager, click **Roles > Hyper-V > Hyper-V Manager**.
+	Если вы используете Windows Server 2008 R2, откройте диспетчер Hyper-V. В диспетчере сервера щелкните **Роли > Hyper-V > Диспетчер Hyper-V**.
 
-1.  In **Hyper-V Manager**, in the scope pane, right-click your system node to open the context menu, and then click **New** > **Virtual Machine**.
+1.  В **диспетчере Hyper-V** на панели областей щелкните правой кнопкой мыши узел системы, чтобы открыть контекстное меню, затем щелкните **Создать** > **Виртуальная машина**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image2.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image2.png)
 
-1.  On the **Before you begin** page of the New Virtual Machine Wizard, click **Next**.
+1.  На странице **Перед началом работы** мастера создания виртуальной машины нажмите кнопку **Далее**.
 
-1.  On the **Specify name and location** page, provide a **Name** for your virtual device. Click **Next**.
+1.  На странице **Указание имени и расположения** введите **имя** виртуального устройства. Нажмите кнопку **Далее**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
-1.  On the **Specify generation** page, choose the device image type and then click **Next**. This page doesn't appear if you're using Windows Server 2008 R2.
+1.  На странице **Укажите поколение** выберите тип образа устройства и нажмите кнопку **Далее**. Эта страница не отобразится, если вы используете Windows Server 2008 R2.
 
-    * Choose **Generation 2** if you downloaded a .vhdx image for Windows Server 2012 or later.
-    * Choose **Generation 1** if you downloaded a .vhd image for Windows Server 2008 R2 or later.
+    * Выберите **Поколение 2**, если в скачали VHDX-файл образа для Windows Server 2012 или более поздней версии.
+    * Выберите **Поколение 1**, если в скачали VHD-файл образа для Windows Server 2008 R2 или более поздней версии.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image5.png)
 
-1.  On the **Assign memory** page, specify a **Startup memory** of at least **8192 MB**, don't enable dynamic memory, and then click **Next**.
+1.  На странице **Выделить память** для параметра **Память при запуске** укажите по крайней мере **8192 МБ**. Не включайте динамическую память. Нажмите кнопку **Далее**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image6.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image6.png)
 
-1.  On the **Configure networking** page, specify the virtual switch that is connected to the Internet and then click **Next**.
+1.  На странице **Настройка сети** укажите виртуальный коммутатор, подключенный к Интернету, и нажмите кнопку **Далее**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image7.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image7.png)
 
-1.  On the **Connect virtual hard disk** page, choose **Use an existing virtual hard disk**, specify the location of the virtual device image (.vhdx or .vhd), and then click **Next**.
+1.  На странице **Подключить виртуальный жесткий диск** выберите переключатель **Использовать существующий виртуальный жесткий диск**, укажите расположение образа виртуального устройства (VHDX- или VHD-файл) и нажмите кнопку **Далее**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
 
-1.  Review the **Summary** and then click **Finish** to create the virtual machine. But don't jump ahead yet - you still need to add some CPU cores and a second drive. 
+1.  Просмотрите информацию на странице **Сводка**. Для создания виртуальной машины нажмите кнопку **Готово**. Но не спешите — еще нужно добавить несколько ядер ЦП и второй диск.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
 
-1.  To meet the minimum requirements, you will need 4 cores. To add virtual processors, with your host system selected in the **Hyper-V Manager** window, in the right-pane under the list of **Virtual Machines**, locate the virtual machine you just created. Select and right-click the machine name and select **Settings**.
+1.  В соответствии с минимальными требованиями требуется 4 ядра. Чтобы добавить виртуальные процессоры, выбрав в окне **Диспетчер Hyper-V** главную систему, найдите только что созданную виртуальную машину на панели справа в списке **Виртуальные машины**. Выберите и щелкните правой кнопкой мыши имя виртуальной машины, затем выберите **Параметры**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image10.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image10.png)
 
-1.  On the **Settings** page, in the left-pane, click **Processor**. In the right-pane, set **number of virtual processors** to 4 (or more). Click **Apply**.
+1.  В левой области страницы **Параметры** щелкните **Процессор**. В области справа установите для параметра **Количество виртуальных процессоров** значение 4 (или больше). Нажмите кнопку **Применить**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image11.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image11.png)
 
-1.  To meet the minimum requirements, you also need to add a 500 GB virtual data disk. In the **Settings** page:
+1.  В соответствии с минимальными требованиями также необходимо добавить виртуальный диск данных размером 500 ГБ. На странице **Параметры**:
 
-    1.  In the left pane, select **SCSI Controller**.
-    2.  In the right pane, select **Hard Drive,** and click **Add**.
+    1.  В области слева выберите **Контроллер SCSI**.
+    2.  В области справа выберите **Жесткий диск** и нажмите кнопку **Добавить**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image12.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image12.png)
 
-1.  On the **Hard drive** page, select the **Virtual hard disk** option and click **New**. This will start the **New Virtual Hard Disk Wizard**.
+1.  На странице **Жесткий диск** выберите **Виртуальный жесткий диск** и нажмите кнопку **Создать**. Запустится **мастер создания виртуального жесткого диска**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image13.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image13.png)
 
-1.  On the **Before you begin** page of the New Virtual Hard Disk Wizard, click **Next**.
+1.  На странице **Перед началом работы** мастера создания виртуального жесткого диска нажмите кнопку **Далее**.
 
-1.  On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**. You won't see this screen if you're running Windows Server 2012 R2 or Windows Server 2008 R2.
+1.  На странице **Выбор формата диска** примите выбор формата **VHDX** по умолчанию. Нажмите кнопку **Далее**. Этот экран не будет отображаться, если вы используете Windows Server 2012 R2 или Windows Server 2008 R2.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
-1.  On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). If you choose **Fixed size** disk, it will also work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**. Note that **Dynamically expanding** is the default in Windows Server 2012 R2 and Windows Server 2012. In Windows Server 2008 R2, the default is **Fixed size**.
+1.  На странице **Выбор типа диска** задайте для типа виртуального жесткого диска значение **Динамически расширяемый** (рекомендуется). Диск будет работать и при выборе параметра **Фиксированный размер**, но может потребоваться много времени. Параметр **Разностный** использовать не рекомендуется. Нажмите кнопку **Далее**. Обратите внимание, что значение **Динамически расширяемый** используется по умолчанию в Windows Server 2012 R2 и Windows Server 2012. В Windows Server 2008 R2 значение по умолчанию — **Фиксированный размер**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
 
-1.  On the **Specify Name and Location** page, provide a **name** as well as **location** (you can browse to one) for the data disk. Click **Next**.
+1.  На странице **Указание имени и расположения** введите **имя** и **расположение** (к нему можно перейти) диска данных. Нажмите кнопку **Далее**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image17.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image17.png)
 
-1.  On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **500 GB** (or more). Click **Next**.
+1.  На странице **Настройка диска** выберите параметр **Создать пустой виртуальный жесткий диск** и укажите размер **500 ГБ** (или больше). Нажмите кнопку **Далее**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image18.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image18.png)
 
-1.  On the **Summary** page, review the details of your virtual data disk and if satisfied, click **Finish** to create the disk. The wizard will close and a virtual hard disk will be added to your machine.
+1.  На странице **Сводка** просмотрите подробные сведения о данных виртуального диска и, если они соответствуют требованиям, нажмите кнопку **Готово** для создания диска. Мастер закроется, и виртуальный жесткий диск будет добавлен на компьютер.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image19.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image19.png)
 
-2.  You will return to the **Settings** page. Click **OK** to close the **Settings** page and return to Hyper-V Manager window.
+2.  Вы вернетесь к странице **Параметры**. Нажмите кнопку **ОК**, чтобы закрыть страницу **Параметры** и вернуться к окну диспетчера Hyper-V.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image20.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image20.png)
 
-## <a name="step-3:-start-the-virtual-device-and-get-the-ip"></a>Step 3: Start the virtual device and get the IP
+## Шаг 3. Запуск виртуального устройства и получение IP-адреса
 
-Perform the following steps to start your virtual device and connect to it.
+Чтобы запустить виртуальное устройство и подключиться к нему, сделайте следующее.
 
-#### <a name="to-start-the-virtual-device"></a>To start the virtual device
+#### Запуск виртуального устройства
 
-1.  Start the virtual device.
+1.  Запустите виртуальное устройство.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image21.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image21.png)
 
-1.  After the device is running, select the device, right click, and select **Connect**.
+1.  После запуска выберите устройство, щелкните правой кнопкой мыши и выберите **Подключить**.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image22.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image22.png)
 
-1.  You may have to wait 5-10 minutes for the device to be ready. A status message is displayed on the console to indicate the progress. After the device is ready, go to **Action**. Press `Ctrl + Alt + Delete` to log into the virtual device. The default user is *StorSimpleAdmin* and the default password is *Password1*.
+1.  Подготовка устройства может занять 5–10 минут. На консоли отображается сообщение о состоянии, указывающее на ход выполнения. Как только устройство будет готово к работе, перейдите в меню **Действие**. Для входа на виртуальное устройство нажмите клавиши `Ctrl + Alt + Delete`. По умолчанию используются имя пользователя *StorSimpleAdmin* и пароль *Password1*.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image23.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image23.png)
 
-1.  For security reasons, the device administrator password expires at the first log on. You will be prompted to change the password.
+1.  В целях безопасности срок действия пароля администратора устройства истекает после первого входа в систему. Вам будет предложено изменить пароль.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image24.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image24.png)
 
-    Enter a password that contains at least 8 characters. The password must satisfy at least 3 out of the following 4 requirements: uppercase, lowercase, numeric, and special characters. Reenter the password to confirm it. You will be notified that the password has changed.
+	Введите пароль длиной не менее 8 символов. Он должен содержать по крайней мере 3 из 4 указанных далее типов символов: прописные буквы, строчные буквы, цифры и специальные символы. Повторно введите пароль для подтверждения. Вы получите уведомление об изменении пароля.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image25.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image25.png)
 
-1.  After the password is successfully changed, the virtual device may restart. Wait for the device to start.
+1.  После успешного изменения пароля может быть выполнен перезапуск виртуального устройства. Подождите, пока устройство запустится.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image26.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image26.png)
 
-    The Windows PowerShell console of the device will be displayed along with a progress bar.
+ 	Будет отображаться консоль устройства Windows PowerShell с индикатором выполнения.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image27.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image27.png)
 
-1.  Steps 6-8 only apply when booting up in a non DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non DHCP environment, you will see the following screen.
+1.  Шаги 6–8 применяются только при загрузке в среде без DHCP. Если вы работаете в среде DHCP, пропустите эти шаги и перейдите к шагу 9. Если устройство загружено в среде без DHCP, отобразится следующий экран.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image28m.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image28m.png)
 
-    You will now need to configure the network.
+ 	Теперь необходимо настроить сеть.
 
-1.  Use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
+1.  Используйте команду `Get-HcsIpAddress` для получения списка сетевых интерфейсов, включенных на виртуальном устройстве. Если на устройстве включен один сетевой интерфейс, по умолчанию ему назначается имя `Ethernet`.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image29m.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image29m.png)
 
-1.  Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
+1.  Для настройки сети используйте командлет `Set-HcsIpAddress`. Пример приведен ниже.
 
-    `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
+ 	`Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image30.png)
+ 	![](./media/storsimple-ova-deploy2-provision-hyperv/image30.png)
 
-1.  After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. You will use this IP address to connect to the web UI of your virtual device and complete the local setup and registration.
+1.  По завершении начальной установки и загрузки устройства отобразится текст его баннера. Для управления устройством запишите IP-адрес и URL-адрес, отображающиеся в тексте баннера. Этот IP-адрес используется для подключения к веб-интерфейсу виртуального устройства, а также для выполнения локальной установки и регистрации.
 
-    ![](./media/storsimple-ova-deploy2-provision-hyperv/image31m.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image31m.png)
 
 
 
-1. (Optional) Perform this step only if you are deploying your device in the Government Cloud. You will now enable the United States Federal Information Processing Standard (FIPS) mode on your device. The FIPS 140 standard defines cryptographic algorithms approved for use by US Federal government computer systems for the protection of sensitive data.
-    1. To enable the FIPS mode, run the following cmdlet:
+1. (Необязательно.) Выполните этот шаг только в том случае, если вы развертываете устройство в облаке для государственных организаций. Теперь на устройстве нужно включить режим FIPS (федеральный стандарт обработки информации США). Стандарт FIPS 140 определяет криптографические алгоритмы, утвержденные для использования в компьютерных системах федеральной власти США для защиты конфиденциальных данных.
+	1. Чтобы включить режим FIPS, выполните следующий командлет.
 
-        `Enter-HcsFIPSMode`
+		`Enter-HcsFIPSMode`
 
-    2. Reboot your device after you have enabled the FIPS mode so that the cryptographic validations take effect.
+	2. Перезагрузите устройство после включения режима FIPS, чтобы криптографические проверки вступили в силу.
 
-        > [AZURE.NOTE] You can either enable or disable FIPS mode on your device. Alternating the device between FIPS and non-FIPS mode is not supported.
+		> [AZURE.NOTE] Можно включить или отключить режим FIPS на устройстве. Поочередное использование устройства в режиме FIPS и без него без перезагрузки не поддерживается.
 
-If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Если устройство не соответствует минимальным требованиям к конфигурации, в тексте баннера отобразится сообщение об ошибке (см. ниже). Потребуется изменить конфигурацию устройства и привести его ресурсы в соответствие с минимальными требованиями. Затем можно выполнить перезапуск и установить подключение к устройству. Минимальные требования к конфигурации см. в разделе [Шаг 1. Обеспечение соответствия главной системы минимальным требованиям к виртуальному устройству](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
 
 ![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
 
-If you face any other error during the initial configuration using the local web UI, refer to the following workflows in [Manage your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
+При возникновении любой другой ошибки во время начальной настройки с помощью локального веб-интерфейса см. сведения о соответствующих рабочих процессах в статье [Использование пользовательского веб-интерфейса для администрирования виртуального массива StorSimple](storsimple-ova-web-ui-admin.md).
 
--   Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
+-   Выполните диагностические тесты для [устранения неполадок при настройке пользовательского веб-интерфейса](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
--   [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+-   [Создайте пакет журнала и просмотрите файлы журнала](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
-![video icon](./media/storsimple-ova-deploy2-provision-hyperv/video_icon.png)  **Video available**
+![значок видео](./media/storsimple-ova-deploy2-provision-hyperv/video_icon.png) **Доступно видео**
 
-Watch the video to see how you can provision a StorSimple Virtual Array in Hyper-V.
+Просмотрите видеоролик, чтобы узнать, как подготовить виртуальный массив StorSimple в Hyper-V.
 
 > [AZURE.VIDEO create-a-storsimple-virtual-array]
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
--   [Set up your StorSimple Virtual Array as a file server](storsimple-ova-deploy3-fs-setup.md)
+-   [Deploy StorSimple Virtual Array - Set up as file server (Preview) (Развертывание виртуального массива StorSimple — настройка в качестве файлового сервера (предварительная версия))](storsimple-ova-deploy3-fs-setup.md)
 
--   [Set up your StorSimple Virtual Array as an iSCSI server](storsimple-ova-deploy3-iscsi-setup.md)
+-   [Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server (preview) (Развертывание виртуального массива StorSimple — настройка в качестве сервера iSCSI (предварительная версия))](storsimple-ova-deploy3-iscsi-setup.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

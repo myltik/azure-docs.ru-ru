@@ -1,57 +1,52 @@
 <properties
-    pageTitle="Assign a user to administrator roles in Azure Active Directory preview | Microsoft Azure"
-    description="Explains how to change user administrative information in Azure Active Directory"
-    services="active-directory"
-    documentationCenter=""
-    authors="curtand"
-    manager="femila"
-    editor=""/>
+	pageTitle="Назначение пользователю ролей администратора в предварительной версии Azure Active Directory | Microsoft Azure"
+	description="В данном разделе поясняется, как изменить административную информацию о пользователе в Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="curtand"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/12/2016"
+	ms.author="curtand"/>
+
+# Назначение пользователю ролей администратора в предварительной версии Azure Active Directory
+
+В этой статье описывается назначение роли администратора пользователю в предварительной версии Azure Active Directory (Azure AD). [Что есть в предварительной версии?](active-directory-preview-explainer.md) Сведения о добавлении новых пользователей в организации см. в статье [Добавление новых пользователей в Azure Active Directory](active-directory-users-create-azure-portal.md). По умолчанию добавленные пользователи не имеют прав администратора, но вы можете назначать им роли в любое время.
+
+## Назначение роли пользователю
+
+1.  Войдите на [портал Azure](https://portal.azure.com) с помощью учетной записи глобального администратора каталога.
+
+2.  Выберите **Больше служб**, введите **Пользователи и группы** в текстовое поле, а затем нажмите клавишу **ВВОД**.
+
+    ![Открытие страницы "Управление пользователями"](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
+
+3.  В колонке **Пользователи и группы** выберите **Все пользователи**.
+
+    ![Открытие колонки "Все пользователи"](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
+
+4. В колонке **Пользователи и группы — Все пользователи** выберите пользователя из списка.
+
+5. В колонке для выбранного пользователя щелкните **Роль каталога**, после чего назначьте пользователя для роли из списка **Роль каталога**. Дополнительные сведения о ролях пользователей и администраторов см. в разделе [Назначение ролей администратора в Azure AD](active-directory-assign-admin-roles.md).
+
+	  ![Назначение пользователя для роли](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
+
+6. Щелкните **Сохранить**.
 
 
-# <a name="assign-a-user-to-administrator-roles-in-azure-active-directory-preview"></a>Assign a user to administrator roles in Azure Active Directory preview
+## Что дальше?
 
-This article explains how to assign an administrative role to a user in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+- [Добавление пользователей](active-directory-users-create-azure-portal.md)
+- [Сброс пароля пользователя на новом портале Azure](active-directory-users-reset-password-azure-portal.md)
+- [Изменение сведений о работе пользователя](active-directory-users-work-info-azure-portal.md)
+- [Управление профилями пользователей](active-directory-users-profile-azure-portal.md)
+- [Удаление пользователя из Azure AD](active-directory-users-delete-user-azure-portal.md)
 
-## <a name="assign-a-role-to-a-user"></a>Assign a role to a user
-
-1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
-
-2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
-
-    ![Opening user management](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
-
-3.  On the **Users and groups** blade, select **All users**.
-
-    ![Opening the All users blade](./media/active-directory-users-assign-role-azure-portal/create-users-open-users-blade.png)
-
-4. On the **Users and groups - All users** blade, select a user from the list.
-
-5. On the blade for the selected user, select **Directory role**, and then assign the user to a role from the **Directory role** list. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
-
-      ![Assigning a user to a role](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
-
-6. Select **Save**.
-
-
-## <a name="what's-next"></a>What's next
-
-- [Add a user](active-directory-users-create-azure-portal.md)
-- [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
-- [Change a user's work information](active-directory-users-work-info-azure-portal.md)
-- [Manage user profiles](active-directory-users-profile-azure-portal.md)
-- [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

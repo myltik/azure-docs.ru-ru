@@ -1,6 +1,6 @@
 <properties
-   pageTitle="What is a Network Access Control List (ACL)?"
-   description="Learn about ACLs"
+   pageTitle="Сетевой список управления доступом"
+   description="Дополнительные сведения о списках ACL"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -15,93 +15,88 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
+# Список управления доступом (ACL) конечной точки
 
-# <a name="what-is-an-endpoint-access-control-list-(acls)?"></a>What is an endpoint Access Control List (ACLs)?
+Список управления доступом (ACL) конечной точки — это дополнительный компонент системы безопасности, который можно использовать для вашего развертывания Azure. Список ACL дает возможность выборочно разрешать или блокировать трафик для конечной точки виртуальной машины. Такая возможность фильтрации пакетов обеспечивает дополнительный уровень безопасности. Задавать сетевые списки ACL можно только для конечных точек. Список ACL нельзя задать для виртуальной сети или конкретной подсети в ней.
 
-An endpoint Access Control List (ACL) is a security enhancement available for your Azure deployment. An ACL provides the ability to selectively permit or deny traffic for a virtual machine endpoint. This packet filtering capability provides an additional layer of security. You can specify network ACLs for endpoints only. You can't specify an ACL for a virtual network or a specific subnet contained in a virtual network.
+> [AZURE.IMPORTANT] При любой возможности вместо списков ACL рекомендуется использовать группы безопасности сети (NSG). Дополнительные сведения об NSG см. в статье [Что такое группа безопасности сети](virtual-networks-nsg.md).
 
-> [AZURE.IMPORTANT] It is recommended to use Network Security Groups (NSGs) instead of ACLs whenever possible. To learn more about NSGs, see [What is a Network Security Group?](virtual-networks-nsg.md).
+Списки ACL можно настраивать с помощью PowerShell или портала управления. Сведения о настройке ACL с помощью PowerShell см. в статье [Управление списками управления доступом (ACL) для конечных точек с помощью PowerShell](virtual-networks-acl-powershell.md). Сведения о настройке списков ACL с помощью портала управления см. в статье [Настройка конечных точек виртуальной машины](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
 
-ACLs can be configured by using either PowerShell or the Management Portal. To configure a network ACL by using PowerShell, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md). To configure a network ACL by using the Management Portal, see [How to Set Up Endpoints to a Virtual Machine](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
+Сетевые списки ACL позволяют:
 
-Using Network ACLs, you can do the following:
+- выборочно разрешать или запрещать входящий трафик на входной конечной точке виртуальной машины на основе диапазона IPv4-адресов удаленной подсети;
 
-- Selectively permit or deny incoming traffic based on remote subnet IPv4 address range to a virtual machine input endpoint.
+- добавлять IP-адреса в черный список;
 
-- Blacklist IP addresses
+- создавать по несколько правил для каждой конечной точки виртуальной машины;
 
-- Create multiple rules per virtual machine endpoint
+- настраивать до 50 правил для каждой конечной точки виртуальной машины;
 
-- Specify up to 50 ACL rules per virtual machine endpoint
+- упорядочивать правила, что дает возможность использовать на той или иной конечной точке виртуальной машины необходимый набор правил (чем ниже номер правила, тем выше приоритет);
 
-- Use rule ordering to ensure the correct set of rules are applied on a given virtual machine endpoint (lowest to highest)
+- указывать список ACL для конкретного IPv4-адреса удаленной подсети.
 
-- Specify an ACL for a specific remote subnet IPv4 address.
+## Принцип работы списков управления доступом
 
-## <a name="how-acls-work"></a>How ACLs work
+ACL — это объект, содержащий список правил. После создания списка ACL и его применения к конечной точке виртуальной машины на главном узле виртуальной машины начинается фильтрация пакетов. Это означает, что трафик с удаленных IP-адресов фильтруется на предмет соответствия правилам ACL главным узлом, а не виртуальной машиной. Благодаря этому виртуальная машина не тратит циклы ЦП на фильтрование пакетов.
 
-An ACL is an object that contains a list of rules. When you create an ACL and apply it to a virtual machine endpoint, packet filtering takes place on the host node of your VM. This means the traffic from remote IP addresses is filtered by the host node for matching ACL rules instead of on your VM. This prevents your VM from spending the precious CPU cycles on packet filtering.
+После создания виртуальной машины для блокирования всего входящего трафика используется список ACL по умолчанию. Но если для какого-то порта, например 3389, создана конечная точка, список ACL по умолчанию изменяется таким образом, чтобы разрешить весь входящий трафик для этой конечной точки. В результате к этой конечной точке пропускается весь входящий трафик из любой удаленной подсети и подготовка брандмауэра не требуется. Входящий трафик на всех остальных портах будет блокироваться, пока для них не будут созданы отдельные конечные точки. Исходящий трафик по умолчанию разрешен.
 
-When a virtual machine is created, a default ACL is put in place to block all incoming traffic. However, if an endpoint is created for (port 3389), then the default ACL is modified to allow all inbound traffic for that endpoint. Inbound traffic from any remote subnet is then allowed to that endpoint and no firewall provisioning is required. All other ports are blocked for inbound traffic unless endpoints are created for those ports. Outbound traffic is allowed by default.
+**Пример списка ACL по умолчанию**
 
-**Example Default ACL table**
-
-| **Rule #** | **Remote Subnet** | **Endpoint** | **Permit/Deny** |
+| **Номер правила** | **Удаленная подсеть** | **Конечная точка** | **Разрешение или запрет** |
 |--------|---------------|----------|-------------|
-| 100    | 0.0.0.0/0     | 3389     | Permit      |
+| 100 | 0\.0.0.0/0 | 3389 | Разрешение |
 
-## <a name="permit-and-deny"></a>Permit and deny
+## Разрешение и запрет
 
-You can selectively permit or deny network traffic for a virtual machine input endpoint by creating rules that specify "permit" or "deny". It's important to note that by default, when an endpoint is created, all traffic is permitted to the endpoint. For that reason, it's important to understand how to create permit/deny rules and place them in the proper order of precedence if you want granular control over the network traffic that you choose to allow to reach the virtual machine endpoint.
+Для входной конечной точки виртуальной машины можно выборочно разрешать или запрещать сетевой трафик. Для этого нужно создать правила, разрешающие или блокирующие трафик. Важно отметить, что по умолчанию после создания конечной точки весь трафик к ней разрешен. В связи с этим вам необходимо научиться создавать правила, разрешающие или блокирующие трафик, и размещать их в порядке приоритетности. Это позволит вам точно контролировать сетевой трафик, который вы пропускаете к конечной точке виртуальной машины.
 
-Points to consider:
+Необходимо учесть следующие моменты.
 
-1. **No ACL –** By default when an endpoint is created, we permit all for the endpoint.
+1. **Без ACL**. По умолчанию после создании конечной точки весь трафик для нее разрешен.
 
-1. **Permit -** When you add one or more "permit" ranges, you are denying all other ranges by default. Only packets from the permitted IP range will be able to communicate with the virtual machine endpoint.
+1. **Разрешение**. При добавлении одного или нескольких разрешенных диапазонов все остальные диапазоны запрещаются по умолчанию. Конечная точка виртуальной машины сможет обмениваться пакетами данных только с IP-адресами из разрешенного диапазона.
 
-1. **Deny -** When you add one or more "deny" ranges, you are permitting all other ranges of traffic by default.
+1. **Запрет**. При добавлении одного или нескольких запрещенных диапазонов все остальные диапазоны разрешаются по умолчанию.
 
-1. **Combination of Permit and Deny -** You can use a combination of "permit" and "deny" when you want to carve out a specific IP range to be permitted or denied.
+1. **Комбинация разрешений и запретов**. Если нужно выделить диапазон запрещенных и разрешенных IP-адресов, можно использовать сочетание разрешений и запретов.
 
-## <a name="rules-and-rule-precedence"></a>Rules and rule precedence
+## Правила и их приоритетность
 
-Network ACLs can be set up on specific virtual machine endpoints. For example, you can specify a network ACL for an RDP endpoint created on a virtual machine which locks down access for certain IP addresses. The table below shows a way to grant access to public virtual IPs (VIPs) of a certain range to permit access for RDP. All other remote IPs are denied. We follow a *lowest takes precedence* rule order.
+Сетевые списки ACL можно настроить на конкретных конечных точках виртуальной машины. Например, вы можете настроить сетевой список ACL для конечной точки RDP, созданной на виртуальной машине, который будет блокировать доступ для определенных IP-адресов. В таблице ниже показан способ предоставления доступа для общедоступных виртуальных IP-адресов (VIP) определенного диапазона. С этих адресов к виртуальной машине можно будет подключаться по протоколу RDP. Все другие удаленные IP-адреса будут блокироваться. При упорядочивании правил мы следуем правилу *чем меньший номер, тем больший приоритет*.
 
-### <a name="multiple-rules"></a>Multiple rules
+### Несколько правил
 
-In the example below, if you want to allow access to the RDP endpoint only from two public IPv4 address ranges (65.0.0.0/8, and 159.0.0.0/8), you can achieve this by specifying two *Permit* rules. In this case, since RDP is created by default for a virtual machine, you may want to lock down access to the RDP port based on a remote subnet. The example below shows a way to grant access to public virtual IPs (VIPs) of a certain range to permit access for RDP. All other remote IPs are denied. This works because network ACLs can be set up for a specific virtual machine endpoint and access is denied by default.
+Если вы хотите разрешить доступ к конечной точке RDP только из двух диапазонов общедоступных IPv4-адресов (65.0.0.0/8 и 159.0.0.0/8), это можно сделать, настроив два *разрешающих* правила (см. пример ниже). Так как протокол RDP создается по умолчанию для виртуальной машины, вам может потребоваться заблокировать доступ к порту RDP из удаленной подсети. В примере ниже показан способ предоставления доступа для общедоступных виртуальных IP-адресов (VIP) определенного диапазона. С этих адресов к виртуальной машине можно будет подключаться по протоколу RDP. Все другие удаленные IP-адреса будут блокироваться. Это работает, потому что сетевые списки управления доступом можно настроить для конкретной конечной точки виртуальной машины и по умолчанию доступ будет запрещен.
 
-**Example – Multiple rules**
+**Пример нескольких правил**
 
-| **Rule #** | **Remote Subnet** | **Endpoint** | **Permit/Deny** |
+| **Номер правила** | **Удаленная подсеть** | **Конечная точка** | **Разрешение или запрет** |
 |--------|---------------|----------|-------------|
-| 100    | 65.0.0.0/8    | 3389     | Permit      |
-| 200    | 159.0.0.0/8   | 3389     | Permit      |
+| 100 | 65\.0.0.0/8 | 3389 | Разрешение |
+| 200 | 159\.0.0.0/8 | 3389 | Разрешение |
 
-### <a name="rule-order"></a>Rule order
+### Порядок правил
 
-Because multiple rules can be specified for an endpoint, there must be a way to organize rules in order to determine which rule takes precedence. The rule order specifies precedence. Network ACLs follow a *lowest takes precedence* rule order. In the example below, the endpoint on port 80 is selectively granted access to only certain IP address ranges. To configure this, we have a deny rule (Rule \# 100) for addresses in the 175.1.0.1/24 space. A second rule is then specified with precedence 200 that permits access to all other addresses under 175.0.0.0/8.
+Так как для конечной точки можно задать несколько правил, должен быть способ упорядочить их с определенной приоритетностью. Порядок правил определяет их приоритет. В сетевых списках ACL используется правило *чем меньший номер, тем больший приоритет*. В приведенном ниже примере конечной точке на порту 80 предоставляется доступ только к определенным диапазонам IP-адресов. Чтобы настроить это, мы указали запрещающее правило (номер 100) для адресов в подсети 175.1.0.1/24. Затем указали второе правило с номером 200, которое разрешает доступ всем другим адресам в подсети 175.0.0.0/8.
 
-**Example – Rule precedence**
+**Пример приоритета правил**
 
-| **Rule #** | **Remote Subnet** | **Endpoint** | **Permit/Deny** |
+| **Номер правила** | **Удаленная подсеть** | **Конечная точка** | **Разрешение или запрет** |
 |--------|---------------|----------|-------------|
-| 100    | 175.1.0.1/24  | 80       | Deny        |
-| 200    | 175.0.0.0/8   | 80       | Permit      |
+| 100 | 175\.1.0.1/24 | 80 | Запрет |
+| 200 | 175\.0.0.0/8 | 80 | Разрешение |
 
-## <a name="network-acls-and-load-balanced-sets"></a>Network ACLs and load balanced sets
+## Сетевые списки ACL и наборы с балансировкой нагрузки
 
-Network ACLs can be specified on a Load balanced set (LB Set) endpoint. If an ACL is specified for a LB Set, the Network ACL is applied to all Virtual Machines in that LB Set. For example, if a LB Set is created with "Port 80" and the LB Set contains 3 VMs, the Network ACL created on endpoint "Port 80" of one VM will automatically apply to the other VMs.
+Сетевые списки ACL можно указывать в конечной точке набора с балансировкой нагрузки (далее — набор). Если для набора задан список ACL, этот список применяется ко всем виртуальным машинам в наборе. Например, если создать набор с портом 80, содержащий три виртуальные машины, сетевой список ACL, созданный на порте 80 конечной точки одной из виртуальных машин, будет автоматически применен к остальным виртуальным машинам.
 
-![Network ACLs and load balanced sets](./media/virtual-networks-acl/IC674733.png)
+![Сетевые списки ACL и наборы с балансировкой нагрузки](./media/virtual-networks-acl/IC674733.png)
 
-## <a name="next-steps"></a>Next Steps
+## Дальнейшие действия
 
-[How to manage Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md)
+[Управление списками управления доступом для конечных точек с помощью PowerShell](virtual-networks-acl-powershell.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

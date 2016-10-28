@@ -1,6 +1,6 @@
 <properties
-   pageTitle="What's New in Azure Data Catalog | Microsoft Azure"
-   description="This article provides an overview of new capabilities added to Azure Data Catalog."
+   pageTitle="Новые возможности каталога данных Azure | Microsoft Azure"
+   description="Эта статься содержит обзор новых возможностей каталога данных Azure."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -16,284 +16,279 @@
    ms.date="09/21/2016"
    ms.author="maroche"/>
 
+# Новые возможности каталога данных Azure
 
-# <a name="what's-new-in-azure-data-catalog"></a>What's new in Azure Data Catalog
+Обновления к **каталогу данных Azure** выпускаются на регулярной основе. Не все версии будут содержать новые функции, доступные пользователям, так как некоторые версии ориентированы на возможности серверной службы. На этой странице рассматриваются новые доступные пользователям возможности, которые добавлены в службу каталога данных Azure.
 
-Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the Azure Data Catalog service.
 
 
+## Новые возможности выпуска от 16 сентября 2016 г.
 
-## <a name="what's-new-for-the-week-of-september-16,-2016-release"></a>What's new for the week of September 16, 2016 release
+По состоянию на 16 сентября 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of September 16, 2016, the following capabilities have been added to Azure Data Catalog:
+- Поддержка источников данных IBM DB2. Теперь пользователи могут регистрироваться и обнаруживать базы данных, таблицы и представления DB2.
+- Поддержка источников данных Azure DocumentDB. Теперь пользователи могут регистрироваться и обнаруживать базы данных и коллекции DocumentDB.
+- Поддержка настройки имени каталога на портале каталога данных. Теперь администраторы каталога могут указать текст, который будет отображаться в заголовке на портале, например название организации.
 
-- Support for IBM DB2 data sources. Users can now register and discover DB2 databases, tables, and views.
-- Support for Azure DocumentDB data sources. Users can now register and discover DocumentDB databases and collections.
-- Support for customizing the catalog name in the Data Catalog portal. Catalog administrators can now provide text that will be displayed in the portal title, such as the organization name.
+## Новые возможности выпуска от 26 августа 2016 г.
 
-## <a name="what's-new-for-the-week-of-august-26,-2016-release"></a>What's new for the week of August 26, 2016 release
+По состоянию на 26 августа 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of August 26, 2016, the following capabilities have been added to Azure Data Catalog:
+- Улучшенные возможности регистрации источников данных служб SQL Server Master Data Services (MDS). Теперь пользователи могут добавить данные для предварительного просмотра и профили данных при регистрации сущностей MDS с помощью инструмента регистрации источников данных в каталоге данных.
+- Поддержка сохраненных поисковых запросов организации, определенных администратором. Теперь администраторы могут сохранить на портале каталога данных поисковые запросы для личного использования или для всех пользователей каталога. Сохраненные поисковые запросы организации могут видеть все пользователи каталога. Они могут служить в качестве стандартизированных отправных точек для обнаружения источников данных.
 
-- Enhancements for registration of SQL Server Master Data Services (MDS) data sources. Users can now include previews and data profiles when registering MDS entities using the Data Catalog data source registration tool.
-- Support for admin-defined organizational saved searches. When saving a search in the Data Catalog portal, Data Catalog administrators can now choose to save searches for personal use or for all catalog users. Organizational saved searches are shared with all catalog users, and can provide standardized starting points for data source discovery.
+## Новые возможности выпуска от 5 августа 2016 г.
 
-## <a name="what's-new-for-the-week-of-august-5,-2016-release"></a>What's new for the week of August 5, 2016 release
+По состоянию на 5 августа 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of August 5, 2016, the following capabilities have been added to Azure Data Catalog:
+- Обновления представления свойств на портале каталога данных. Теперь все свойства ресурсов данных отображаются и управляются в единой области регулируемого размера, что обеспечивает более согласованные условия работы и упрощает обнаружение данных.
 
-- Updates to the properties view in the Data Catalog portal. All data asset properties are now displayed and managed in a single, resizable pane to provide a more consistent and discoverable experience.
+## Новые возможности выпуска от 29 июля 2016 г.
 
-## <a name="what's-new-for-the-week-of-july-29,-2016-release"></a>What's new for the week of July 29, 2016 release
+По состоянию на 29 июля 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of July 29, 2016, the following capabilities have been added to Azure Data Catalog:
+- Поддержка источников данных служб SQL Server Master Data Services (MDS). Теперь пользователи могут регистрироваться и обнаруживать модели и сущности MDS.
 
-- Support for SQL Server Master Data Services (MDS) data sources. Users can now register and discover MDS models and entities.
+## Новые возможности выпуска от 22 июля 2016 г.
 
-## <a name="what's-new-for-the-week-of-july-22,-2016-release"></a>What's new for the week of July 22, 2016 release
+По состоянию на 22 июля 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of July 22, 2016, the following capabilities have been added to Azure Data Catalog:
+- Поддержка хранимых процедур SQL Server. Теперь пользователи могут регистрироваться и обнаруживать объекты хранимых процедур в источниках данных SQL Server.
+- Поддержка дополнительных языков на портале каталога данных Azure и в инструменте регистрации источников данных (до 18 языков). Локализация интерфейса каталога данных Azure осуществляется на основе языковых параметров, заданных в Windows или веб-браузере пользователя.
 
-- Support for SQL Server stored procedures. Users can now register and discover stored procedure objects in SQL Server data sources.
-- Support for additional languages in the Azure Data Catalog portal and the data source registration tool, for a total of 18 supported languages. The Azure Data Catalog user experience will be localized based on the language preferences set in Windows or in the user’s web browser.
+## Новые возможности выпуска от 8 июля 2016 г.
 
-## <a name="what's-new-for-the-week-of-july-8,-2016-release"></a>What's new for the week of July 8, 2016 release
+По состоянию на 8 июля 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of July 8, 2016, the following capabilities have been added to Azure Data Catalog:
+- Обновления и улучшения домашней страницы портала каталога данных, включая повышение производительности и оптимизацию работы пользователей.
 
-- Updates and refinement for the Data Catalog portal home page, including performance improvements and a streamlined user experience.
+## Новые возможности выпуска от 24 июня 2016 г.
 
-## <a name="what's-new-for-the-week-of-june-24,-2016-release"></a>What's new for the week of June 24, 2016 release
+По состоянию на 24 июня 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of June 24, 2016, the following capabilities have been added to Azure Data Catalog:
+- Поддержка изменения размеров столбцов в представлении списка при обнаружении ресурсов данных на портале каталога данных. Теперь пользователи могут изменять размер отдельных столбцов для более удобного чтения объемных метаданных ресурса, например тегов и описаний.
+- На портале каталога данных в меню "Открыть в" добавлен пункт "Power Query для Excel". Теперь пользователи могут открывать поддерживаемые источники данных в Excel 2016, Excel 2010 или в Excel 2013 с установленной надстройкой [Power Query для Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605).
 
-- Support for resizing columns in the list view when discovering data assets in the Data Catalog portal. Users can now resize individual columns to more easily read lengthy asset metadata such as tags and descriptions.
-- Power Query for Excel has been added to the "Open in" menu in the Data Catalog portal. Users can now open supported data sources in Excel 2016 or in Excel 2010 and Excel 2013 with the [Power Query for Excel](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605) add-in installed.
 
+## Новые возможности выпуска от 17 июня 2016 г.
 
-## <a name="what's-new-for-the-week-of-june-17,-2016-release"></a>What's new for the week of June 17, 2016 release
+По состоянию на 17 июня 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of June 17, 2016, the following capabilities have been added to Azure Data Catalog:
+- Поддержка источников данных службы хранилища таблиц Azure. Теперь пользователи могут регистрироваться и обнаруживать объекты таблицы в источниках данных службы хранилища Azure.
 
-- Support for Azure Table Storage data sources. Users can now register and discover Table objects in Azure Storage data sources.
+## Новые возможности выпуска от 20 мая 2016 г.
 
-## <a name="what's-new-for-the-week-of-may-20,-2016-release"></a>What's new for the week of May 20, 2016 release
+По состоянию на 20 мая 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of May 20, 2016, the following capabilities have been added to Azure Data Catalog:
+- Улучшенный бизнес-глоссарий каталога данных предоставляет пользователям возможность обновлять несколько терминов за одну операцию. Пользователи могут выбрать несколько условий для изменения в следующих полях:
+    - Родительский термин: пользователь может выбрать новый родительский термин, в случае чего после обновления все выбранные термины станут для этого термина дочерними. Если все выбранные термины имеют один и тот же родительский термин, он отображается в текстовом поле; в противном случае поле родительского термина будет пустым.
+    - Теги и заинтересованные лица: пользователи могут добавлять и удалять теги и заинтересованных лиц для нескольких терминов в глоссарии, используя такой же интерфейс, как при назначении тегов для несколько ресурсов данных.
 
-- Enhancements to the Data Catalog Business Glossary that allows users to update multiple glossary terms in a single operation. Users can select multiple terms to edit the following fields:
-    - Parent Term: The user can select a new parent term, and all selected terms will be updated to be children of the selected parent term. If the selected terms all have the same parent, then that parent is shown in the textbox, otherwise the parent term field will be blank.   
-    - Tags and Stakeholders: Users can add and remove tags and stakeholders for multiple glossary terms using the same experience as tagging multiple data assets.
+Дополнительные сведения о бизнес-глоссарии см. в статье [Как настроить бизнес-глоссарий для регулируемого добавления тегов](data-catalog-how-to-business-glossary.md).
 
-For more information on the business glossary, see [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
+## Новые возможности выпуска от 6 мая 2016 г.
 
-## <a name="what's-new-for-the-week-of-may-6,-2016-release"></a>What's new for the week of May 6, 2016 release
+По состоянию на 6 мая 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of May 6, 2016, the following capabilities have been added to Azure Data Catalog:
+- Бизнес-глоссарий, который позволяет администраторам каталога определять бизнес-термины и иерархии для создания общего бизнес-словаря. Пользователи могут помечать зарегистрированные ресурсы данных терминами глоссария, чтобы упростить обнаружение и понимание содержимого каталога. Дополнительные сведения см. в статье [Как настроить бизнес-глоссарий для регулируемого добавления тегов](data-catalog-how-to-business-glossary.md).
 
-- A Business Glossary that allows catalog administrators to define business terms and hierarchies to create a common business vocabulary. Users can tag registered data assets with glossary terms to make it easier to discover and understand the contents of the catalog. For more information see  [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)  
+> [AZURE.NOTE] Бизнес-глоссарий доступен только в выпуске "Стандартный" каталога данных Azure. Выпуск "Бесплатный" не предоставляет возможности для использования регулируемого добавления тегов или бизнес-глоссария.
 
-> [AZURE.NOTE] The business glossary is available only in the Standard Edition of Azure Data Catalog. The Free Edition does not provide capabilities for governed tagging or a business glossary.
 
+## Новые возможности выпуска от 11 марта 2016 г.
 
-## <a name="what's-new-for-the-week-of-march-11,-2016-release"></a>What's new for the week of March 11, 2016 release
+По состоянию на 11 марта 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of March 11, 2016, the following capabilities have been added to Azure Data Catalog:
+- Объединенная конечная точка REST API для программного доступа к возможностям поиска и управления ресурсами каталога для службы каталога данных Azure. Существующие конечная точка API поиска и конечная точка API каталога устарели, и их поддержка будет прекращена 21 марта 2016 г. В семантике API никаких изменений не произошло; изменился только URI конечной точки. Дополнительные сведения см. в разделе [Справочник по API REST каталога данных](https://msdn.microsoft.com/library/azure/mt267595.aspx). Примеры API см. в разделе [Примеры каталога данных для разработчиков](data-catalog-samples.md).
 
-- A consolidated REST API endpoint for programmatically accessing the search capabilities and catalog asset management capabilities of the Azure Data Catalog service. The existing search API endpoint and catalog API endpoint are being deprecated and will be discontinued on March 21, 2016. There are no changes to the semantics of the API; only the endpoint URI is changing. For additional information, see the [Azure Data Catalog REST API Reference](https://msdn.microsoft.com/library/azure/mt267595.aspx). For API samples, see [Azure Data Catalog developer samples](data-catalog-samples.md).
+## Новые возможности версии от 19 февраля 2016 г.
 
-## <a name="what's-new-for-the-week-of-february-19,-2016-release"></a>What's new for the week of February 19, 2016 release
+По состоянию на 19 февраля 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of February 19, 2016, the following capabilities have been added to Azure Data Catalog:
+- Модернизированный интерфейс для выбора источника данных в инструменте регистрации источников данных каталога данных Azure. Инструмент регистрации источников данных обновлен с целью упрощения поиска и выбора источников данных, поддерживаемых каталогом данных Azure.
+- Поддержка десяти дополнительных языков на портале и в инструменте регистрации источников данных каталога данных Azure. Помимо английского, интерфейс каталога данных Azure теперь доступен на немецком, испанском, французском, итальянском, японском, корейском, португальском (Бразилия), русском и китайском (упрощенное и традиционное письмо) языках. Локализация интерфейса каталога данных Azure осуществляется на основе языковых параметров, заданных в Windows или веб-браузере пользователя.
+- Поддержка георепликации данных в каталоге данных Azure для обеспечения непрерывности бизнес-процессов и аварийного восстановления. Все содержимое каталога данных Azure, включая метаданные источника данных и коллективные аннотации, теперь реплицируется между двумя регионами Azure без дополнительных затрат со стороны клиентов. Регионы Azure (разнесенные минимум на 500 км) предварительно сопряжены, и сопоставление для них выполняется, как описано в статье [Непрерывность бизнес-процессов и аварийное восстановление в службах BizTalk: пары регионов Azure](../best-practices-availability-paired-regions.md).
 
-- A newly redesigned data source selection experience in the Azure Data Catalog data source registration tool. The data source registration tool has been updated to make it easier for users to locate and select from the data sources supported by Azure Data Catalog.
-- Support for ten additional languages in the Azure Data Catalog portal and the data source registration tool. In addition to English, the Azure Data Catalog experience is now available in German, Spanish, French, Italian, Japanese, Korean, Brazilian Portuguese, Russian, Simplified Chinese, and Traditional Chinese. The Azure Data Catalog user experience will be localized based on the language preferences set in Windows or in the user’s web browser.
-- Support for geo-replication of Azure Data Catalog data for business continuity and disaster recovery. All Azure Data Catalog contents, including data source metadata and crowdsourced annotations, are now replicated between two Azure regions at no additional cost to customers. The Azure regions are pre-paired, at least 500 miles apart, and follow the mapping as described in [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
+## Новые возможности версии от 5 февраля 2016 г.
 
-## <a name="what's-new-for-the-week-of-february-5,-2016-release"></a>What's new for the week of February 5, 2016 release
+По состоянию на 5 февраля 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of February 5, 2016, the following capabilities have been added to Azure Data Catalog:
+- Поддержка изменения подписки Azure, используемой каталогом данных Azure. Администраторы каталога данных Azure могут выбрать другую подписку Azure для выставления счетов на странице "Настройки" портала каталога данных Azure.
 
-- Support for changing the Azure subscription used by Azure Data Catalog. Azure Data Catalog administrators can use the Settings page in the Azure Data Catalog portal to select a different Azure subscription for billing purposes.
+## Новые возможности версии от 29 января 2016 г.
 
-## <a name="what's-new-for-the-week-of-january-29,-2016-release"></a>What's new for the week of January 29, 2016 release
+По состоянию на 29 января 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of January 29, 2016, the following capabilities have been added to Azure Data Catalog:
+- Поддержка регистрации дополнительных источников данных вручную. Теперь пользователи могут воспользоваться пунктом меню "Создать запись вручную" на портале каталога данных Azure или интерфейсом REST API каталога данных Azure для регистрации следующих источников данных:
+   + OData — функция, набор сущностей и контейнер сущностей;
+   + HTTP — файл, конечная точка, отчет и сайт;
+   + Файловая система — файл;
+   + SharePoint — список;
+   + FTP — файл и каталог;
+   + Salesforce.com — объект;
+   + DB2 — таблица, представление и база данных;
+   + PostgreSQL — таблица, представление и база данных;
+- Поддержка команды "Открыть в SQL Server Data Tools" для источников данных SQL Server (включая базу данных SQL Azure и хранилище данных SQL Azure).
 
-- Support for manually registering additional data sources. Users can now use "Create Manual Entry" in the Azure Data Catalog portal, or use the Azure Data Catalog REST API to register the following data sources:
-   + OData - Function, Entity Set, and Entity Container
-   + HTTP - File, Endpoint, Report, and Site
-   + File System - File
-   + SharePoint - List
-   + FTP - File and Directory
-   + Salesforce.com - Object
-   + DB2 - Table, View, and Database
-   + PostgreSQL - Table, View, and Database
-- Support for "Open in SQL Server Data Tools" for SQL Server (including Azure SQL DB and Azure SQL Data Warehouse) data sources.  
+> [AZURE.NOTE] Чтобы воспользоваться командой "Открыть в SQL Server Data Tools", требуется установить Visual Studio 2013 с обновлением 4 и средства SQL Server. Чтобы установить последнюю версию SQL Server Data Tools, см. сведения в статье [Скачать SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
 
-> [AZURE.NOTE] "Open in SQL Server Data Tools" requires Visual Studio 2013 with Update 4 and SQL Server Tooling to be installed. To install the latest version of SQL Server Data Tools, visit [Download SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+## Новые возможности версии от 22 января 2016 г.
 
-## <a name="what's-new-for-the-week-of-january-22,-2016-release"></a>What's new for the week of January 22, 2016 release
+По состоянию на 22 января 2016 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of January 22, 2016, the following capabilities have been added to Azure Data Catalog:
+- Поддержка регистрации и обнаружения представлений и пакетов SAP HANA. Пользователи могут регистрировать источники данных SAP HANA с помощью инструмента регистрации каталога данных Azure, а также обнаруживать зарегистрированные источники данных SAP HANA и снабжать их аннотациями с помощью портала каталога данных Azure.
 
-- Support for registering and discovering SAP HANA views and packages. Users can register SAP HANA data sources using the Azure Data Catalog data source registration tool, and can annotate and discover registered SAP HANA data sources using the Azure Data Catalog portal.
+## Новые возможности версии от 8 января 2016 г.
 
-## <a name="what's-new-for-the-week-of-january-8,-2016-release"></a>What's new for the week of January 8, 2016 release
+По состоянию на 8 января 2016 г. в каталог данных Azure добавлены следующие возможности:
 
-As of the week of January 8, 2016, the following capabilities have been added to Azure Data Catalog:
+- Возможность закрепления и открепления ресурсов данных на портале каталога данных Azure. Пользователи могут закрепить ресурсы данных, чтобы более удобно находить и повторно использовать их в будущем.
+- Обновленная домашняя страница на портале каталога данных Azure. Новая начальная страница содержит сведения о текущей деятельности пользователей — включая недавно опубликованные ресурсы, прикрепленные ресурсы и сохраненные результаты поиска, а также сведения о действиях в каталоге в целом.
+- Поддержка постоянных пользовательских параметров на портале каталога данных Azure. Параметры взаимодействия с пользователем, включая представление в виде сетки или мозаики, количество результатов на страницу, а также включение или отключение выделения, сохраняются между сеансами пользователей.
+- Каталог данных Azure теперь доступен в двух новых регионах Azure. Клиенты могут выполнять подготовку каталога данных Azure в Северной Европе и Юго-Восточной Азии, а также в восточной части США, в западной части США, в Западной Европе и восточной Австралии. Дополнительные сведения см. в разделе [Регионы Azure](https://azure.microsoft.com/regions/).
 
-- The ability to pin and unpin data assets in the Azure Data Catalog portal. Users can choose to pin data assets to make them easier to re-discover and re-use.
-- A newly redesigned home page in the Azure Data Catalog portal. The new home page includes insight into the current users activity - including recently published assets, pinned assets, and saved searches - as well as insight into the activity in the Catalog as a whole.
-- Support for persistent user settings in the Azure Data Catalog portal. User experience settings - including grid or tile view, the number of results per page, and hit highlighting on or off - are persisted between user sessions.
-- Azure Data Catalog is now available in two new Azure regions. Customers can provision the Azure Data Catalog in the North Europe and Southeast Asia regions, in addition to East US, West US, West Europe, and Australia East. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
+## Новые возможности выпуска от 18 декабря 2015 г.
 
-## <a name="what's-new-for-the-week-of-december-18,-2015-release"></a>What's new for the week of December 18, 2015 release
+По состоянию на 18 декабря 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of December 18, 2015, the following capabilities have been added to Azure Data Catalog:
+- Поддержка профилей данных для источников данных хранилища данных SQL Azure. При регистрации таблиц и представлений хранилища данных SQL Azure пользователи могут включать метрики профилей данных с метаданными, полученными из источника данных.
+- Поддержка регистрации и обнаружения объектов и баз данных MySQL. Пользователи могут регистрировать источники данных MySQL с помощью инструмента регистрации каталога данных Azure, а также снабжать аннотациями и обнаруживать зарегистрированные источники данных MySQL с помощью портала каталога данных Azure.
 
-- Support for data profiles for Azure SQL Data Warehouse data sources. When registering Azure SQL Data Warehouse tables and views, users can choose to include data profile metrics with the metadata extracted from the data source.
-- Support for registering and discovering MySQL objects and databases. Users can register MySQL data sources using the Azure Data Catalog data source registration tool, and can annotate and discover registered MySQL data sources using the Azure Data Catalog portal.
+## Новые возможности выпуска от 4 декабря 2015 г.
 
-## <a name="what's-new-for-the-week-of-december-4,-2015-release"></a>What's new for the week of December 4, 2015 release
+По состоянию на 4 декабря 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of December 4, 2015, the following capabilities have been added to Azure Data Catalog:
+- Поддержка проверки подлинности SPNEGO и Windows для источников данных Teradata. При регистрации таблиц и представлений Teradata пользователи могут подключиться к Teradata с использованием проверки подлинности SPNEGO и Windows, а также LDAP и TD2.
+- Поддержка источников данных хранилища озера данных Azure. Теперь пользователи могут регистрировать и обнаруживать источники данных хранилища озера данных Azure с помощью каталога данных Azure.
+- Поддержка ручного указания параметров сетевого прокси-сервера в средстве регистрации источников данных каталога данных Azure. Пользователи могут выбрать параметр "Изменение параметров прокси" на странице приветствия средства и указать адрес прокси-сервера и порт, используемый данным средством.
 
-- Support for SPNEGO and Windows authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using SPNEGO and Windows as well as LDAP and TD2 authentication.
-- Support for Azure Data Lake Store data sources. Users can now register and discover Azure Data Lake Store data sources using Azure Data Catalog.
-- Support for manually specifying network proxy settings in the Azure Data Catalog data source registration tool. Users can select "Modify proxy settings" from the tool's welcome page, and can specify the proxy address and port to be used by the tool.
 
+## Новые возможности выпуска от 20 ноября 2015 г.
 
-## <a name="what's-new-for-the-week-of-november-20,-2015-release"></a>What's new for the week of November 20, 2015 release
+По состоянию на 20 ноября 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of November 20, 2015, the following capabilities have been added to Azure Data Catalog:
+- Возможность просмотра и копирования строк подключения с портала каталога данных Azure для источников данных SQL Server (включая Базу данных SQL Azure) и Oracle. Пользователи могут перейти по ссылке "Просмотр строк подключения" в сведениях о подключении для таблицы, представления или базы данных SQL Server или Oracle, чтобы просмотреть строки подключения, используемые для подключения к источнику данных. Для источников данных SQL Server предоставляются строки подключения ADO.NET, ODBC, OLEDB и JDBC. Для источников данных Oracle предоставляются строки подключения ODBC и OLEDB.
+- Поддержка включения профилей данных при регистрации таблиц и представлений Teradata.
+- Поддержка команды "Открыть в Power BI Desktop" для источников данных SQL Server (включая базу данных SQL Azure и хранилище данных SQL Azure), служб SQL Server Analysis, хранилища Azure и источников HDFS.
 
-- The ability to view and copy connection strings from within the Azure Data Catalog portal for SQL Server (including Azure SQL Database) and Oracle data sources. Users can click on the "View Connection Strings" link in the connection information for a SQL Server or Oracle table, view, or database, to see the connection strings used to connect to the data source. ADO.NET, ODBC, OLEDB and JDBC connection strings are provided for SQL Server data sources. ODBC and OLEDB connection strings are provided for Oracle data sources.
-- Support for including data profiles when registering Teradata tables and views.
-- Support for "Open in Power BI Desktop" for SQL Server (including Azure SQL DB and Azure SQL Data Warehouse), SQL Server Analysis Services, Azure Storage, and HDFS sources.  
+> [AZURE.NOTE] Для работы функции "Открыть в Power BI Desktop" должна быть установлена текущая версия приложения Power BI Desktop. При возникновении проблем или ошибок при работе с этой функцией убедитесь в наличии последней версии Power BI Desktop, скачанной с сайта [PowerBI.com](https://powerbi.com).
 
-> [AZURE.NOTE] "Open in Power BI Desktop" requires a current version of the Power BI Desktop application to be installed. If you encounter problems or errors using this feature, please ensure that you have the latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com).
+## Новые возможности выпуска от 13 ноября 2015 г.
 
-## <a name="what's-new-for-the-week-of-november-13,-2015-release"></a>What's new for the week of November 13, 2015 release
+По состоянию на 13 ноября 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of November 13, 2015, the following capabilities have been added to Azure Data Catalog:
+- Поддержка проверки подлинности LDAP для источников данных Teradata. При регистрации таблиц и представлений Teradata пользователи могут подключиться к Teradata с помощью протокола проверки подлинности LDAP и TD2.
+- Поддержка команды "Открыть в Excel" для источников данных Teradata.
+- Поддержка недавних поисковых запросов на портале каталога данных Azure. При поиске на портале пользователи могут выбрать поисковые запросы из списка недавно использованных, чтобы ускорить процесс обнаружения.
 
-- Support for LDAP authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using LDAP as well as TD2 authentication.
-- Support for "Open in Excel" for Teradata data sources.
-- Support for recent search terms in the Azure Data Catalog portal. When searching in the portal, users can select from recently used search terms to accelerate the discovery experience.
+## Новые возможности выпуска от 6 ноября 2015 г.
 
-## <a name="what's-new-for-the-week-of-november-6,-2015-release"></a>What's new for the week of November 6, 2015 release
+По состоянию на 6 ноября 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of November 6, 2015, the following capabilities have been added to Azure Data Catalog:
+- Поддержка предварительной версии источников данных Teradata. При регистрации таблиц и представлений Teradata пользователи могут включать записи моментальных снимков с метаданными, полученными из источника данных.
+- Поддержка операции "Открыть в Excel" для источников данных хранилища данных SQL Azure.
+- Поддержка определения и изменения схем уровня столбца для зарегистрированных вручную ресурсов данных. После ручного создания ресурса данных с помощью портала каталога данных Azure пользователи могут добавлять определения столбцов в свойства ресурса данных.
+- Поддержка запросов has при поиске в каталоге данных Azure, обеспечивающая обнаружение зарегистрированных ресурсов данных, обладающих конкретными метаданными. Синтаксис запросов каталога данных Azure теперь включает в себя следующее.
 
-- Support for preview for Teradata data sources. When registering Teradata tables and views, users can choose to include snapshot records with the metadata extracted from the data source.
-- Support for "Open in Excel" for Azure SQL Data Warehouse data sources.
-- Support for defining and editing column-level schemas for manually registered data assets. After manually creating a data asset using the Azure Data Catalog portal, users can add column definitions in the data asset properties.
-- Support for "has" queries when searching Azure Data Catalog, to enable the discovery of registered data assets that possess specific metadata. Azure Data Catalog query syntax now includes:
-
-| Query syntax            | Purpose |
+| Синтаксис запросов | Назначение |
 |-------------------------|---------|
-| has:previews             | Finds data assets that include a preview  |
-| has:documentation       | Finds data assets for which documentation has been provided |
-| has:tableDataProfiles   | Finds data assets with table-level data profile information |
-| has:columnsDataProfiles | Finds data assets with column-level data profile information |
+| has:previews | Находит ресурсы данных, включающие в себя предварительную версию. |
+| has:documentation | Находит ресурсы данных, для которых была предоставлена документация. |
+| has:tableDataProfiles | Находит ресурсы данных со сведениями данных профиля на уровне таблицы. |
+| has:columnsDataProfiles | Находит ресурсы данных со сведениями данных профиля на уровне столбца. |
 
 
-## <a name="what's-new-for-the-week-of-october-30,-2015-release"></a>What's new for the week of October 30, 2015 release
+## Новые возможности версии от 30 октября 2015 г.
 
-As of the week of October 30, 2015, the following capabilities have been added to Azure Data Catalog:
+По состоянию на 30 октября 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-- Support for encryption at rest of data previews and data profiles for registered data sources. Azure Data Catalog will transparently encrypt any preview records and data profiles data sources registered with the service, without any need for key management by Catalog administrators.
+- Поддержка шифрования статических данных для предварительного просмотра и профилей данных для зарегистрированных источников данных. Каталог данных Azure будет прозрачно шифровать и выполнять предварительный просмотр источников данных записей и профилей данных, зарегистрированных в службе, без необходимости управления ключами со стороны администраторов каталога.
 
-## <a name="what's-new-for-the-week-of-october-23,-2015-release"></a>What's new for the week of October 23, 2015 release
+## Новые возможности выпуска от 23 октября 2015 г.
 
-As of the week of October 23, 2015, the following capabilities have been added to Azure Data Catalog:
+По состоянию на 23 октября 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-- Support for Teradata data sources. Users can now register and discover Teradata tables and views.
+- Поддержка источников данных Teradata. Пользователи теперь могут регистрироваться и обнаруживать таблицы и представления Teradata.
 
-> [AZURE.NOTE] For the current release, only Teradata TD2 authentication is supported. Additional authentication mechanisms will be supported in future releases.
+> [AZURE.NOTE] В текущем выпуске поддерживается только аутентификация Teradata TD2. Поддержка дополнительных механизмов аутентификации будет обеспечена в будущих выпусках.
 
-## <a name="what's-new-for-the-week-of-october-16,-2015-release"></a>What's new for the week of October 16, 2015 release
+## Новые возможности версии от 16 октября 2015 г.
 
-As of the week of October 16, 2015, the following capabilities have been added to Azure Data Catalog:
+По состоянию на 16 октября 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-- Support for on-premises Hive data sources. Users can now register and discover Hive tables for Apache Hive in Hadoop on-premises data sources.
-- Support for saved searches in the Azure Data Catalog portal. Users can save search terms and filter selections to easily repeat previous searches and define useful views of the Catalog's contents. User can also mark a saved search as their default search. When a user clicks the "magnifying glass" search icon from the Azure Data Catalog portal home page or from the "getting started" page, the user will be taken directly to the saved search flagged as default.
-
-
-## <a name="what's-new-for-the-week-of-october-9,-2015-release"></a>What's new for the week of October 9, 2015 release
-
-As of the week of October 9, 2015, the following capabilities have been added to Azure Data Catalog:
-
-- Support for rich text documentation for registered data assets and containers in the Azure Data Catalog portal. Users can now provide documentation for data assets such as tables, views, and reports, and for containers such as databases and models, for scenarios where tags and descriptions are not sufficient.
-
-## <a name="what's-new-for-the-week-of-october-2,-2015-release"></a>What's new for the week of October 2, 2015 release
-
-As of the week of October 2, 2015, the following capabilities have been added to Azure Data Catalog:
-
-- Support for manually registering known data source types. Users can manually enter data source information using the Azure Data Catalog portal for all data source types supported by Azure Data Catalog.
-- Support for authorizing Azure Active Directory security groups. Catalog administrators can enable catalog access to security groups as well as to user accounts, making it easier to manage access to Azure Data Catalog.
-- Support for opening Hive data sources in Excel from the Azure Data Catalog portal.
-
-> [AZURE.NOTE] To use the "Open in Excel" feature for Hive data sources, users must have installed the ODBC driver for Hive.
-
-## <a name="what's-new-for-the-week-of-september-25,-2015-release"></a>What's new for the week of September 25, 2015 release
-
-As of the week of September 25, 2015, the following capabilities have been added to Azure Data Catalog:
-
-- Support for including data profiles when registering Hive data sources.
-- Support for programmatically discovering the Catalog API, making it easier for applications to integrate with Azure Data Catalog.
-
-## <a name="what's-new-for-the-week-of-september-18,-2015-release"></a>What's new for the week of September 18, 2015 release
-
-As of the week of September 18, 2015, the following capabilities have been added to Azure Data Catalog:
-
-- A new "getting started" data source discovery experience in the Azure Data Catalog portal. When users enter the "discover" page of the  Azure Data Catalog portal without entering a search term, they will be presented with an overview of the catalog contents including the most frequently used tags, as well as experts, data source types and object types.
-- Support for registering and discovering Azure SQL Data Warehouse objects and databases. For additional information on Azure SQL Data Warehouse, see [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-- Support for registering and discovering SQL Server Analysis Services models and SQL Server Reporting Services servers as containers. When registering SSAS and SSRS objects, Azure Data Catalog will create an entry for the SSAS model and SSRS server as well as for the reports and other objects. The containers can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a model or server in addition to searching and filtering the contents of the catalog.
-
-> [AZURE.NOTE] SSAS and SSRS objects that have been registered prior to the September 18 release must be re-registered using the data source registration tool before the model or server entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the Azure Data Catalog portal.
-
-## <a name="what's-new-for-the-week-of-september-11,-2015-release"></a>What's new for the week of September 11, 2015 release
-
-As of the week of September 11, 2015, the following capabilities have been added to Azure Data Catalog:
-
-- Support for registering and discovering SQL Server Analysis Services objects via HTTP/HTTPS. Users can now connect to SSAS servers using a URL (such as https://servername/olap/msmdpump.dll) rather than a server name, and can use Basic authentication and Anonymous connections in addition to Windows authentication. For additional information on HTTP/HTTPS connections to SSAS, see [Configure HTTP Access to Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-- Support for Hive data sources on HDInsight. Users can now register and discover Hive tables for Apache Hive in Hadoop on HDInsight data sources. For additional information on Hive on HDInsight, see the [HDInsight documentation center](../hdinsight/hdinsight-use-hive.md).
-- Support for registering and discovering Oracle databases and HDFS clusters as containers. When registering Oracle tables and views or HDFS , Azure Data Catalog will create an entry for the database as well as for the tables and views. The database can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a database or cluster in addition to searching and filtering the contents of the catalog.
+- Поддержка локальных источников данных Hive. Теперь пользователи могут регистрировать и обнаруживать таблицы Hive для Apache Hive в Hadoop в локальных источниках данных.
+- Поддержка сохраненных условий поиска на портале каталога данных Azure. Пользователи могут сохранить условия поиска и параметры фильтрации, чтобы легко повторять предыдущие поиски и определять удобные представления содержимого каталога. Пользователь также может пометить сохраненный поиск как поиск по умолчанию. Когда пользователь щелкает значок поиска "лупа" на домашней странице портала каталога данных Azure или на странице "Начало работы", он сразу же перенаправляется к сохраненным условиям поиска, помеченным в качестве используемых по умолчанию.
 
 
-> [AZURE.NOTE] Oracle tables and views and HDFS files and directories that have been registered prior to the September 11 release must be re-registered using the data source registration tool before the database or cluster entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the Azure Data Catalog portal.
+## Новые возможности версии от 9 октября 2015 г.
 
-## <a name="what's-new-for-the-week-of-september-4,-2015-release"></a>What's new for the week of September 4, 2015 release
+По состоянию на 9 октября 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of September 4, 2015, the following capabilities have been added to Azure Data Catalog:
+- Поддержка документации в виде форматированного текста для зарегистрированных ресурсов и контейнеров в портале каталога данных Azure. Теперь пользователи могут предоставлять документацию для ресурсов данных, таких как таблицы, представления и отчеты, а также для контейнеров, таких как базы данных и модели, в тех случаях, когда тегов и описания недостаточно.
 
-- Support for manually registering unknown data source types. Users can manually enter data source information using the Azure Data Catalog portal, so that data sources not explicitly supported by the data source registration tool can be annotated and discovered.
-- Support for registering and discovering SQL Server databases as containers. When registering SQL Server tables and views, Azure Data Catalog will create an entry for the database as well as for the tables and views. The database can be discovered and annotated using the Azure Data Catalog portal. Users can also search and filter the contents of a database in addition to searching and filtering the contents of the catalog.
+## Новые возможности версии от 2 октября 2015 г.
 
-> [AZURE.NOTE] SQL Server tables and views that have been registered prior to the September 4 release must be re-registered using the data source registration tool before the database entry will be added to the catalog. Re-registering a data source does not affect any annotations that have been added by users in the Azure Data Catalog portal.
+По состоянию на 2 октября 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-## <a name="what's-new-for-the-week-of-august-28,-2015-release"></a>What's new for the week of August 28, 2015 release
+- Поддержка ручной регистрации неизвестных типов источников данных. Пользователи могут вручную вводить информацию об источнике данных на портале каталога данных Azure для всех типов источников данных, поддерживаемых каталогом данных Azure.
+- Поддержка авторизации групп безопасности Azure Active Directory. Администраторы каталога могут разрешить доступ к каталогу для групп безопасности, а также для учетных записей пользователей, что упрощает управление доступом к каталогу данных Azure.
+- Поддержка открытия источников данных Hive в Excel на портале каталога данных Azure.
 
-As of the week of August 28, 2015, the following capabilities have been added to Azure Data Catalog:
+> [AZURE.NOTE] Для использования функции «Открыть в Microsoft Excel» для источников данных Hive пользователям необходимо установить драйвер ODBC для Hive.
 
-- Support for data profiling of SQL Server and Oracle data sources. When registering SQL Server and Oracle tables and views, users can choose to include data profile information for the objects being registered. The data profile includes object-level and column-level statistics.
-- Support for Hadoop HDFS data sources. Users can now register and discover HDFS files and directories.
+## Новые возможности в выпуске от 25 сентября 2015 г.
 
-## <a name="what's-new-for-the-week-of-august-21,-2015-release"></a>What's new for the week of August 21, 2015 release
+По состоянию на 25 сентября 2015 г. в каталог данных Azure добавлены следующие возможности.
 
-As of the week of August 21, 2015, the following capabilities have been added to Azure Data Catalog:
+- Поддержка включения профилей данных при регистрации источников данных Hive.
+- Поддержка программного обнаружения API каталога, упрощающая интеграцию приложений с каталогом данных Azure.
 
-- Support for providing access request information for registered data sources. For any registered data asset, users can now provide instructions for requesting access, including email links or URLs, to easily integrate with existing tools and processes.
-- Tool tips for tags and experts, to make it easier to discover what users have provided what metadata for registered data assets.
-- We’ve added a new “User” button and menu to our top navigation bar. This menu lets the user see the account used to log on to Azure Data Catalog, and to sign out if desired. This menu also displays the catalog name, which is valuable to developers using the Azure Data Catalog REST API.
-- Standard Edition Only: When adding owners to data assets, Azure Data Catalog now supports both user accounts and security groups as owners. To add a security group as an owner for selected data assets, you can enter either the group’s display name or the group’s UPN email address, if it has one.
-- Support for Azure Blob Storage data sources. Users can now register and discover Azure Storage blobs and directories.
+## Новые возможности выпуска от 18 сентября 2015 г.
+
+По состоянию на 18 сентября 2015 г. в каталог данных Azure добавлены следующие возможности.
+
+- Новая функция обнаружения источников данных в разделе "Начало работы" на портале каталога данных Azure. Когда пользователи переходят на страницу обнаружения на портале каталога данных Azure, не вводя условия поиска, для них отображаются общие сведения о содержимом каталога, включая сведения о наиболее часто используемых тегах, а также об экспертах, типах источников данных и объектов.
+- Поддержка регистрации и обнаружения объектов и баз данных в хранилище данных SQL Azure. Дополнительные сведения о хранилище данных SQL Azure см. в статье [Хранилище данных SQL](https://azure.microsoft.com/services/sql-data-warehouse/).
+- Поддержка регистрации и обнаружения моделей служб SQL Server Analysis Services и серверов SQL Server Reporting Services в качестве контейнеров. При регистрации объектов служб SSAS и SSRS каталог данных Azure создает запись для модели службы SSAS и сервера SSRS, а также для отчетов и других объектов. Контейнеры можно обнаружить и снабдить аннотациями с помощью портала каталога данных Azure. Помимо поиска и фильтрации содержимого каталога пользователи могут выполнять поиск и фильтрацию модели или сервера.
+
+> [AZURE.NOTE] Объекты SSAS и SSRS, зарегистрированные до выпуска от 18 сентября, необходимо повторно зарегистрировать с помощью средства регистрации источников данных перед добавлением записи модели или сервера в каталог. Повторная регистрация источника данных не влияет на аннотации, добавленные пользователями на портале каталога данных Azure.
+
+## Новые возможности версии от 11 сентября 2015 г.
+
+По состоянию на 11 сентября 2015 г. в каталог данных Azure добавлены следующие возможности.
+
+- Поддержка регистрации и обнаружения объектов SQL Server Analysis Services через протокол HTTP или HTTPS. Теперь пользователи могут подключаться к серверам SSAS с помощью URL-адреса (например, https://servername/olap/msmdpump.dll), а не имени сервера и в дополнение к проверке подлинности Windows использовать базовую проверку подлинности и анонимные подключения. Дополнительные сведения о подключениях к SSAS по протоколу HTTP или HTTPS см. в статье [Настройка HTTP-доступа к службам Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+- Поддержка источников данных Hive в HDInsight. Теперь пользователи могут регистрировать и обнаруживать таблицы Hive для Apache Hive в Hadoop в источниках данных HDInsight. Дополнительные сведения о Hive в HDInsight см. в [Центре документации по HDInsight](../hdinsight/hdinsight-use-hive.md).
+- Поддержка регистрации и обнаружения баз данных Oracle и кластеров HDFS в качестве контейнеров. При регистрации таблиц и представлений Oracle или HDFS каталог данных Azure создает запись для базы данных, таблиц и представлений. Базу данных можно обнаружить и снабдить аннотациями с помощью портала каталога данных Azure. Пользователи также могут выполнять поиск и фильтрацию содержимого базы данных или кластера, а также поиск и фильтрацию содержимого каталога.
 
 
+> [AZURE.NOTE] Таблицы и представления Oracle, а также файлы и каталоги HDFS, которые были зарегистрированы до выпуска от 11 сентября, необходимо повторно зарегистрировать с помощью инструмента регистрации источников данных перед добавлением записи базы данных или кластера в каталог. Повторная регистрация источника данных не влияет на аннотации, добавленные пользователями на портале каталога данных Azure.
 
-<!--HONumber=Oct16_HO2-->
+## Новые возможности версии от 4 сентября 2015 г.
 
+По состоянию на 4 сентября 2015 г. в каталог данных Azure добавлены следующие возможности.
 
+- Поддержка ручной регистрации неизвестных типов источников данных. Пользователи могут вручную вводить сведения об источниках данных с помощью портала каталога данных Azure. Таким образом, можно обнаружить и снабдить аннотациями источники данных, которые инструмент регистрации источников данных не поддерживает явно.
+- Поддержка регистрации и обнаружения баз данных SQL Server в качестве контейнеров. При регистрации таблиц и представлений SQL Server каталог данных Azure создает запись для базы данных, таблиц и представлений. Базу данных можно обнаружить и снабдить аннотациями с помощью портала каталога данных Azure. Пользователи также могут выполнять поиск и фильтрацию содержимого базы данных, а также поиск и фильтрацию содержимого каталога.
+
+> [AZURE.NOTE] Таблицы и представления SQL Server, которые были зарегистрированы до выпуска от 4 сентября, необходимо повторно зарегистрировать с помощью инструмента регистрации источников данных перед добавлением записи базы данных в каталог. Повторная регистрация источника данных не влияет на аннотации, добавленные пользователями на портале каталога данных Azure.
+
+## Новые возможности выпуска от 28 августа 2015 г.
+
+По состоянию на 28 августа 2015 г. в каталог данных Azure добавлены указанные ниже возможности.
+
+- Поддержка профилирования данных для источников данных SQL Server и Oracle. При регистрации таблиц и представлений SQL Server и Oracle пользователи смогут включать данные профиля для регистрации объектов. Профиль данных содержит статистику уровня столбца и уровня объектов.
+- Поддержка источников данных Hadoop HDFS. Пользователи теперь могут регистрироваться и обнаруживать файлы и каталоги HDFS.
+
+## Новые возможности версии от 21 августа 2015 г.
+
+По состоянию на 21 августа 2015 г. в каталог данных Azure добавлены указанные ниже возможности.
+
+- Поддержка предоставления информации о запросе на доступ для зарегистрированных источников данных. Пользователи теперь могут предоставлять указания по запросам доступа для любого зарегистрированного ресурса данных, включая ссылки в электронных сообщениях или URL-адреса, что упрощает интеграцию с существующими инструментами и процессами.
+- Всплывающие подсказки для тегов и экспертов, которые позволяют быстрее обнаруживать, какие пользователи предоставили метаданные для зарегистрированных ресурсов данных и тип этих метаданных.
+- Добавлена новая кнопка "Пользователь" и меню в верхней панели навигации. Это меню позволяет пользователю просмотреть учетную запись, используемую для входа в каталог данных Azure, и при необходимости выйти из каталога. Кроме того, в этом меню отображается имя каталога, которое может пригодиться разработчикам, использующим REST API каталога данных Azure.
+- Только для выпуска "Стандартный": теперь в качестве владельцев ресурсов данных каталог данных Azure позволяет добавлять и учетные записи пользователей, и группы безопасности. Чтобы добавить группу безопасности в качестве владельца для выбранных ресурсов данных, можно ввести отображаемое имя группы или электронный адрес участника-пользователя группы, если он имеется.
+- Поддержка источников данных хранилища больших двоичных объектов Azure. Пользователи теперь могут регистрироваться и обнаруживать большие двоичные объекты и каталоги службы хранилища Azure.
+
+<!---HONumber=AcomDC_0921_2016-->

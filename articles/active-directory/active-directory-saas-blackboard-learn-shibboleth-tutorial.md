@@ -1,262 +1,261 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with Blackboard Learn - Shibboleth | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and Blackboard Learn - Shibboleth."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Руководство. Интеграция Azure Active Directory с Blackboard Learn — Shibboleth | Microsoft Azure"
+	description="Узнайте, как настроить единый вход Azure Active Directory в Blackboard Learn — Shibboleth."
+	services="active-directory"
+	documentationCenter=""
+	authors="andkjell"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/10/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/10/2016"
+	ms.author="andkjell"/>
 
 
+# Руководство. Интеграция Azure Active Directory с Blackboard Learn — Shibboleth
 
-# <a name="tutorial:-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>Tutorial: Azure Active Directory integration with Blackboard Learn - Shibboleth
+В этом руководстве описано, как интегрировать Blackboard Learn — Shibboleth с Azure Active Directory (Azure AD).
 
-In this tutorial, you learn how to integrate Blackboard Learn - Shibboleth with Azure Active Directory (Azure AD).
+Интеграция Blackboard Learn — Shibboleth с Azure AD обеспечивает следующие преимущества.
 
-Integrating Blackboard Learn - Shibboleth with Azure AD provides you with the following benefits:
+- С помощью Azure AD вы можете контролировать доступ к Blackboard Learn — Shibboleth.
+- Вы можете включить автоматический вход пользователей в Blackboard Learn — Shibboleth (единый вход) с использованием учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через классический портал Azure.
 
-- You can control in Azure AD who has access to Blackboard Learn - Shibboleth
-- You can enable your users to automatically get signed-on to Blackboard Learn - Shibboleth (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure classic portal
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+Чтобы настроить интеграцию Azure AD с Blackboard Learn — Shibboleth, вам потребуется:
 
-To configure Azure AD integration with Blackboard Learn - Shibboleth, you need the following items:
-
-- An Azure AD subscription
-- A Blackboard Learn - Shibboleth single-sign on enabled subscription
-
-
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+- подписка Azure AD;
+- подписка на Blackboard Learn — Shibboleth с поддержкой единого входа.
 
 
-To test the steps in this tutorial, you should follow these recommendations:
-
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
 
-## <a name="scenario-description"></a>Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment.
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-The scenario outlined in this tutorial consists of two main building blocks:
-
-1. Adding Blackboard Learn - Shibboleth from the gallery
-2. Configuring and testing Azure AD single sign-on
+- Не следует использовать рабочую среду при отсутствии необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
 
-## <a name="adding-blackboard-learn---shibboleth-from-the-gallery"></a>Adding Blackboard Learn - Shibboleth from the gallery
-To configure the integration of Blackboard Learn - Shibboleth into Azure AD, you need to add Blackboard Learn - Shibboleth from the gallery to your list of managed SaaS apps.
+## Описание сценария
+В рамках этого руководства проводится проверка единого входа Azure AD в тестовой среде.
 
-**To add Blackboard Learn - Shibboleth from the gallery, perform the following steps:**
+Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-
-    ![Active Directory][1]
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Applications][2]
-
-4. Click **Add** at the bottom of the page.
-
-    ![Applications][3]
-
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
-
-    ![Applications][4]
-
-6. In the search box, type **Blackboard Learn - Shibboleth**.
-
-    ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_01.png)
-
-7. In the results pane, select **Blackboard Learn - Shibboleth**, and then click **Complete** to add the application.
-    
-    ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_02.png)
+1. Добавление Blackboard Learn — Shibboleth из коллекции
+2. Настройка и проверка единого входа в Azure AD
 
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Blackboard Learn - Shibboleth based on a test user called "Britta Simon".
+## Добавление Blackboard Learn — Shibboleth из коллекции
+Чтобы настроить интеграцию Blackboard Learn — Shibboleth с Azure AD, необходимо добавить Blackboard Learn — Shibboleth из коллекции в список управляемых приложений SaaS.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Blackboard Learn - Shibboleth is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Blackboard Learn - Shibboleth needs to be established.
+**Чтобы добавить Blackboard Learn — Shibboleth из коллекции, выполните следующие действия.**
 
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Blackboard Learn - Shibboleth.
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-To configure and test Azure AD single sign-on with Blackboard Learn - Shibboleth, you need to complete the following building blocks:
+	![Active Directory][1]
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Blackboard Learn - Shibboleth test user](#creating-a-blackboard-learn-shibboleth-test-user)** - to have a counterpart of Britta Simon in Blackboard Learn - Shibboleth that is linked to the Azure AD representation of her.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD single sign-on
+	![Приложения][2]
 
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Blackboard Learn - Shibboleth application.
+4. В нижней части страницы нажмите кнопку **Добавить**.
+
+	![Приложения][3]
+
+5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+
+	![Приложения][4]
+
+6. В поле поиска введите **Blackboard Learn — Shibboleth**.
+
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_01.png)
+
+7. В области результатов выберите **Blackboard Learn — Shibboleth** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+	
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_02.png)
 
 
-**To configure Azure AD single sign-on with Blackboard Learn - Shibboleth, perform the following steps:**
+##  Настройка и проверка единого входа в Azure AD
+В этом разделе описана настройка и проверка единого входа Azure AD в Blackboard Learn — Shibboleth с использованием тестового пользователя Britta Simon.
 
-1. In the classic portal, on the **Blackboard Learn - Shibboleth** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-     
-    ![Configure Single Sign-On][6] 
+Для работы единого входа Azure AD необходимо знать, какой пользователь в Blackboard Learn — Shibboleth соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в Blackboard Learn — Shibboleth.
 
-2. On the **How would you like users to sign on to Blackboard Learn - Shibboleth** page, select **Azure AD Single Sign-On**, and then click **Next**.
+Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в Blackboard Learn — Shibboleth.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_03.png) 
+Чтобы настроить и проверить единый вход Azure AD в Blackboard Learn — Shibboleth, вам потребуется выполнить следующие действия.
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+3. **[Создание тестового пользователя Blackboard Learn — Shibboleth](#creating-a-blackboard-learn-shibboleth-test-user)** требуется для создания в Blackboard Learn — Shibboleth пользователя Britta Simon, связанного с соответствующим представлением в Azure AD.
+4. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_04.png) 
+### Настройка единого входа в Azure AD
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Blackboard Learn - Shibboleth application using the following pattern: **https://\<yourblackoardlearnserver\>.blackboardlearn.com/Shibboleth.sso/Login**
-    
-    b. In the **Identifier** textbox, type the URL using the following pattern: **https://\<yourblackoardlearnserver\>.blackboardlearn.com/shibboleth-sp**
+В этом разделе описано, как включить единый вход Azure AD на классическом портале и настроить его в приложении Blackboard Learn — Shibboleth.
 
-    c. In the **Reply URL** textbox, type the URL using the following pattern: **https://\<yourblackoardlearnserver\>.blackboardlearn.com/Shibboleth.sso/SAML2/POST**
 
-    > [AZURE.NOTE] You will able to find all these values in the Federation Metadata doucument provided by your Blackboard Learn partner.
+**Чтобы настроить единый вход Azure AD в Blackboard Learn — Shibboleth, выполните следующие действия.**
 
-    d. click **Next**
+1. На классическом портале на странице интеграции с приложением **Blackboard Learn — Shibboleth** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
+	 
+	![Настройка единого входа][6]
+
+2. На странице **Как пользователи должны входить в Blackboard Learn — Shibboleth** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+
+	![Настройка единого входа](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_03.png)
+
+3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
+
+	![Настройка единого входа](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_04.png)
+
+    а. В текстовое поле **URL-адрес для входа** введите URL-адрес, используемый для входа в приложение Blackboard Learn — Shibboleth, в формате **https://\<ваш\_сервер\_blackoardlearn>.blackboardlearn.com/Shibboleth.sso/Login**.
+	
+	b. В текстовое поле **Идентификатор** введите URL-адрес в следующем формате: **https://\<ваш\_сервер\_blackoardlearn>.blackboardlearn.com/shibboleth-sp**.
+
+	c. В текстовое поле **URL-адрес ответа** введите URL-адрес в следующем формате: **https://\<ваш\_сервер\_blackoardlearn>.blackboardlearn.com/Shibboleth.sso/SAML2/POST**.
+
+	> [AZURE.NOTE] Все эти значения можно найти в документе метаданных федерации, предоставленном партнером Blackboard Learn.
+
+	4\. Нажмите кнопку **Далее**.
  
-4. On the **Configure single sign-on at Blackboard Learn - Shibboleth** page, perform the following steps:
+4. На странице **Настройка единого входа в Blackboard Learn — Shibboleth** выполните следующие действия.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_05.png)
+	![Настройка единого входа](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_05.png)
 
-    a. Click **Download metadata**, and then save the file on your computer.
+    а. Нажмите **Загрузить метаданные** и сохраните файл на свой компьютер.
 
-    b. Click **Next**.
+    b. Нажмите кнопку **Далее**.
 
 
-5. To get SSO configured for your application, contact your Blackboard Learn - Shibboleth partner and provide them with the following:
+5. Для настройки единого входа для своего приложения обратитесь в службу поддержки Blackboard Learn — Shibboleth и предоставьте следующие сведения:
 
-    • The downloaded **metadata**
+	• скачанный файл **метаданных**.
 
-    • The **Issuer URL**
+	• **URL-адрес издателя**;
 
-    • The **SAML SSO URL**
+	• **URL-адрес единого входа SAML**;
 
-    • The **Single Sign-out service URL**
+	• **URL-адрес службы единого выхода**.
 
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-    
-    ![Azure AD Single Sign-On][10]
+6. На классическом портале подтвердите конфигурацию единого входа и нажмите кнопку **Далее**.
+	
+	![Единый вход в Azure AD][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
  
-    ![Azure AD Single Sign-On][11]
+	![Единый вход в Azure AD][11]
 
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-In this section, you create a test user in the classic portal called Britta Simon.
+### Создание тестового пользователя Azure AD
+В этом разделе описано, как создать на классическом портале тестового пользователя с именем Britta Simon.
 
 
-![Create Azure AD User][20]
+![Создание пользователя Azure AD][20]
 
-**To create a test user in Azure AD, perform the following steps:**
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_09.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_09.png)
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_03.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_03.png)
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_04.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_04.png)
 
-5. On the **Tell us about this user** dialog page, perform the following steps:  ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_05.png) 
+5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_05.png)
 
-    a. As Type Of User, select New user in your organization.
+    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
 
-    c. Click **Next**.
+    c. Нажмите кнопку **Далее**.
 
-6.  On the **User Profile** dialog page, perform the following steps: ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_06.png) 
+6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия. ![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_06.png)
 
-    a. In the **First Name** textbox, type **Britta**.  
+    а. В текстовом поле **Имя** введите **Britta**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    b. В текстовое поле **Фамилия** введите **Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
 
-    d. In the **Role** list, select **User**.
+    г) В списке **Роль** выберите **Пользователь**.
 
-    e. Click **Next**.
+    д. Нажмите кнопку **Далее**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_07.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_07.png)
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_08.png) 
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/create_aaduser_08.png)
 
-    a. Write down the value of the **New Password**.
+    а. Запишите значение поля **Новый пароль**.
 
-    b. Click **Complete**.   
-
-
-### <a name="creating-an-blackboard-learn---shibboleth-test-user"></a>Creating an Blackboard Learn - Shibboleth test user
-
-In this section, you create a user called Britta Simon in Blackboard Learn - Shibboleth. Please work with your Blackboard Learn partner to add the users in the Blackboard Learn - Shibboleth platform.
+    b. Нажмите **Завершено**.
 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+### Создание тестового пользователя Blackboard Learn — Shibboleth
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Blackboard Learn - Shibboleth.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Blackboard Learn - Shibboleth, perform the following steps:**
-
-1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-
-    ![Assign User][201] 
-
-2. In the applications list, select **Blackboard Learn - Shibboleth**.
-
-    ![Configure Single Sign-On](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_50.png) 
-
-3. In the menu on the top, click **Users**.
-
-    ![Assign User][203]
-
-4. In the Users list, select **Britta Simon**.
-
-5. In the toolbar on the bottom, click **Assign**.
-
-    ![Assign User][205]
+В этом разделе описано, как создать пользователя Britta Simon в приложении Blackboard Learn — Shibboleth. Обратитесь к партнеру Blackboard Learn, чтобы добавить пользователей к платформе Blackboard Learn — Shibboleth.
 
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+### Назначение тестового пользователя Azure AD
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+В этом разделе описано, как разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ему доступ к Blackboard Learn — Shibboleth.
 
-When you click the Blackboard Learn - Shibboleth tile in the Access Panel, you should get automatically signed-on to your Blackboard Learn - Shibboleth application.
+![Назначение пользователя][200]
+
+**Чтобы назначить пользователя Britta Simon в Blackboard Learn — Shibboleth, выполните следующие действия.**
+
+1. Чтобы открыть представление приложений, в представлении каталога на классическом портале щелкните **Приложения** в верхнем меню.
+
+	![Назначение пользователя][201]
+
+2. В списке приложений выберите **Blackboard Learn — Shibboleth**.
+
+	![Настройка единого входа](./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_blackboardlearnshibboleth_50.png)
+
+3. В меню в верхней части страницы щелкните **Пользователи**.
+
+	![Назначение пользователя][203]
+
+4. В списке пользователей выберите **Britta Simon**.
+
+5. На панели инструментов внизу щелкните **Назначить**.
+
+	![Назначение пользователя][205]
 
 
-## <a name="additional-resources"></a>Additional resources
+### Проверка единого входа
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+В этом разделе описано, как проверить конфигурацию единого входа Azure AD с помощью панели доступа.
+
+Щелкнув плитку Blackboard Learn — Shibboleth на панели доступа, вы автоматически войдете в приложение Blackboard Learn — Shibboleth.
+
+
+## Дополнительные ресурсы
+
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -277,7 +276,4 @@ When you click the Blackboard Learn - Shibboleth tile in the Access Panel, you s
 [204]: ./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-blackboard-learn-shibboleth-tutorial/tutorial_general_205.png
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

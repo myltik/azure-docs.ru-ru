@@ -1,7 +1,7 @@
 
 <properties
-    pageTitle="Free 30 day trial of Azure RemoteApp | Microsoft Azure"
-    description="Check out the 30 day free trial for Azure RemoteApp."
+    pageTitle="Бесплатная пробная версия Azure RemoteApp на 30 дней | Microsoft Azure"
+    description="Испытайте бесплатную пробную версию Azure RemoteApp на 30 дней."
     services="remoteapp"
     documentationCenter=""
     authors="lizap"
@@ -18,24 +18,19 @@
 
 
 
-
-# <a name="free-30-day-trial-of-azure-remoteapp"></a>Free 30 day trial of Azure RemoteApp
+# Бесплатная пробная версия Azure RemoteApp на 30 дней
 
 > [AZURE.IMPORTANT]
-> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+Мы выводим удаленное приложение Azure RemoteApp из эксплуатации. Дополнительные сведения см. в [объявлении](https://go.microsoft.com/fwlink/?linkid=821148).
 
-If you have an Azure subscription, you can try [Azure RemoteApp free for 30 days](https://www.remoteapp.windowsazure.com/en/tour.aspx). To start, simply sign in to the Azure Management Portal, navigate to the Azure RemoteApp node, and then create a collection. This is a great way to test drive the full administrative experience before converting to a paid subscription of Azure RemoteApp.  
+Если у вас есть подписка Azure, вы можете получить бесплатную пробную версию [Azure RemoteApp на 30 дней](https://www.remoteapp.windowsazure.com/en/tour.aspx). Чтобы начать работу, просто войдите на портал управления Azure, перейдите к узлу Azure RemoteApp и создайте коллекцию. Это отличный способ протестировать все возможности администрирования перед переходом на платную подписку Azure RemoteApp.
 
-While in trial mode, you can create two collections with a 10 user per collection limit. There are no other limitations. You can convert your trial to a paid subscription at any time. After 30 days your collections will go into disabled state if you don’t convert to paid subscription.
+В режиме пробной версии можно создать две коллекции с ограничением в 10 пользователей на коллекцию. Другие ограничения отсутствуют. Вы можете преобразовать пробную версию в платную подписку в любое время. Если вы не преобразуете подписку в платную, то через 30 дней ваши коллекции будут отключены.
 
->[AZURE.NOTE] The Azure SLA does not apply to collections created in trial mode.  
+>[AZURE.NOTE] Соглашение об уровне обслуживания Azure не относится к коллекциям, созданным в режиме пробной версии.
 
-Can’t wait? Watch a quick video on how to [create a cloud deployment](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
+Не хотите ждать? Посмотрите краткое видео о [создании облачного развертывания](https://azure.microsoft.com/documentation/videos/azure-remoteapp-cloud-deployment-overview/).
 
-Got feedback? Post questions to [the discussion forums](https://feedback.azure.com/forums/247748-azure-remoteapp/). If you have an [Azure support plan](https://azure.microsoft.com/support/plans/), you can submit a support case. Everyone can submit feedback on our [Feedback forum](https://feedback.azure.com/forums/247748-azure-remoteapp/).  
+Хотите отправить отзыв? Задайте вопросы на [форумах обсуждений](https://feedback.azure.com/forums/247748-azure-remoteapp/). Если у вас есть [план поддержки Azure](https://azure.microsoft.com/support/plans/), вы можете отправить обращение в службу поддержки. Любой пользователь может отправить отзыв на [форуме отзывов](https://feedback.azure.com/forums/247748-azure-remoteapp/).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

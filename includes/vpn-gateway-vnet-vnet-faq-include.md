@@ -1,25 +1,23 @@
-- The virtual networks can be in the same or different Azure regions (locations).
+- Виртуальные сети могут быть в одном или разных регионах (расположениях) Azure.
 
-- A cloud service or a load balancing endpoint CANNOT span across virtual networks, even if they are connected together.
+- Облачная служба или конечная точка с балансировкой нагрузки НЕ МОЖЕТ распространяться на виртуальные сети, даже если они соединены друг с другом.
 
-- Connecting multiple Azure virtual networks together doesn't require any on-premises VPN gateways unless cross-premises connectivity is required.
+- Для подключения нескольких виртуальных сетей Azure друг к другу не требуются локальные VPN-шлюзы, если только не требуется распределенное подключение.
 
-- VNet-to-VNet supports connecting virtual networks. It does not support connecting virtual machines or cloud services NOT in a virtual network.
+- Подключения между виртуальными сетями поддерживают подключение нескольких виртуальных сетей. Не поддерживается подключение виртуальных машин или облачных служб, размещенных НЕ в виртуальной сети.
 
-- VNet-to-VNet requires Azure VPN gateways with RouteBased (previously called Dynamic Routing) VPN types. 
+- Для подключения между виртуальными сетями необходимы VPN-шлюзы Azure с VPN типа RouteBased (этот тип раньше назывался динамической маршрутизацией).
 
-- Virtual network connectivity can be used simultaneously with multi-site VPNs, with a maximum of 10 (Default/Standard Gateways) or 30 (High Performance Gateways) VPN tunnels for a virtual network VPN gateway connecting to either other virtual networks or on-premises sites.
+- Подключение к виртуальной сети можно использовать одновременно с многосайтовыми сетями VPN, использующими до 10 (при использовании шлюзов по умолчанию или стандартных шлюзов) или до 30 туннелей VPN (при использовании высокопроизводительных шлюзов) для подключения VPN-шлюза виртуальной сети к другим виртуальным сетям или локальным сайтам.
 
-- The address spaces of the virtual networks and on-premises local network sites must not overlap. Overlapping address spaces will cause the creation of VNet-to-VNet connections to fail.
+- Адресные пространства виртуальных сетей и местных сайтов локальных сетей не должны перекрываться. Перекрытие адресных пространств приведет к сбою при создании подключения между виртуальными сетями.
 
-- Redundant tunnels between a pair of virtual networks are not supported.
+- Избыточные туннели между парой виртуальных сетей не поддерживаются.
 
-- All VPN tunnels of the virtual network share the available bandwidth on the Azure VPN gateway and the same VPN gateway uptime SLA in Azure.
+- Все туннели VPN виртуальной сети совместно используют доступную пропускную способность VPN-шлюза Azure и одно соглашение об уровне обслуживания VPN-шлюзов в Azure.
 
-- VNet-to-VNet traffic travels across the Microsoft Network, not the Internet.
+- Трафик между виртуальными сетями проходит через Microsoft Network, а не Интернет.
 
-- VNet-to-VNet traffic within the same region is free for both directions; cross region VNet-to-VNet egress traffic is charged with the outbound inter-VNet data transfer rates based on the source regions. Please refer to the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) for details.
+- Трафик между виртуальными сетями в одном регионе предоставляется бесплатно в обоих направлениях. Исходящий трафик между виртуальными сетями оплачивается с учетом внешней скорости передачи данных между виртуальными сетями в зависимости от исходных регионов. Дополнительные сведения см. на [странице с ценами](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

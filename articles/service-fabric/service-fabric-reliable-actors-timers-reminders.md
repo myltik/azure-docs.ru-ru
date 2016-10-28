@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors timers and reminders | Microsoft Azure"
-   description="Introduction to timers and reminders for Service Fabric Reliable Actors."
+   pageTitle="Таймеры и напоминания надежных субъектов | Microsoft Azure"
+   description="Общие сведения о таймерах и напоминаниях для надежных субъектов Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,14 +17,13 @@
    ms.author="vturecek"/>
 
 
+# Таймеры и напоминания субъекта
+Субъекты могут планировать для себя периодические операции, регистрируя таймеры или напоминания. В этой статье показано, как использовать таймеры и напоминания, а также объясняются различия между ними.
 
-# <a name="actor-timers-and-reminders"></a>Actor timers and reminders
-Actors can schedule periodic work on themselves by registering either timers or reminders. This article shows how to use timers and reminders and explains the differences between them.
+## Таймеры субъектов
+Таймеры субъекта обеспечивают простую оболочку для таймера .NET, чтобы методы обратного вызова учитывали гарантии пошагового параллелизма, предоставляемые средой выполнения субъектов.
 
-## <a name="actor-timers"></a>Actor timers
-Actor timers provide a simple wrapper around .NET timer to ensure that the callback methods respect the turn-based concurrency guarantees that the Actors runtime provides.
-
-Actors can use the `RegisterTimer` and `UnregisterTimer` methods on their base class to register and unregister their timers. The example below shows the use of timer APIs. The APIs are very similar to the .NET timer. In this example, when the timer is due, the Actors runtime will call the `MoveObject` method. The method is guaranteed to respect the turn-based concurrency. This means that no other actor methods or timer/reminder callbacks will be in progress until this callback completes execution.
+Субъекты могут использовать методы `RegisterTimer` и `UnregisterTimer` в своем базовом классе для регистрации и отмены регистрации своих таймеров. В приведенном ниже примере показано использование интерфейсов API таймера. Эти интерфейсы API очень похожи на таймер .NET. В этом примере при срабатывании таймера среда выполнения субъектов вызовет метод `MoveObject`. Этот метод гарантированно учитывает пошаговый параллелизм. Это означает, что никакие другие методы субъектов или обратные вызовы таймеров или напоминаний не будут выполняться до завершения этого обратного вызова.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -62,16 +61,16 @@ class VisualObjectActor : Actor, IVisualObject
 }
 ```
 
-The next period of the timer starts after the callback completes execution. This implies that the timer is stopped while the callback is executing and is started when the callback finishes.
+Следующий период таймера начинается после завершения выполнения обратного вызова. Это подразумевает, что таймер останавливается во время выполнения обратного вызова и запускается по завершении обратного вызова.
 
-The Actors runtime saves changes made to the actor's State Manager when the callback finishes. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. 
+Среда выполнения субъектов сохраняет изменения, внесенные в диспетчере состояния субъекта, по завершении обратного вызова. В случае ошибки при сохранении состояния объект данного субъекта отключается и активным становится новый экземпляр.
 
-All timers are stopped when the actor is deactivated as part of garbage collection. No timer callbacks are invoked after that. Also, the Actors runtime does not retain any information about the timers that were running before deactivation. It is up to the actor to register any timers that it needs when it is reactivated in the future. For more information, see the section on [actor garbage collection](service-fabric-reliable-actors-lifecycle.md).
+При отключении субъекта в процессе сборки мусора все таймеры останавливаются. После этого обратные вызовы таймеров не выполняются. Кроме того, среда выполнения Actors не сохраняет никаких сведений о таймерах, запущенных до отключения. Регистрация таймеров, которые понадобятся субъекту при повторной активации в будущем, возлагается на субъект. Дополнительные сведения см. в статье [Сборка мусора и субъекты](service-fabric-reliable-actors-lifecycle.md).
 
-## <a name="actor-reminders"></a>Actor reminders
-Reminders are a mechanism to trigger persistent callbacks on an actor at specified times. Their functionality is similar to timers. But unlike timers, reminders are triggered under all circumstances until the actor explicitly unregisters them or the actor is explicitly deleted. Specifically, reminders are triggered across actor deactivations and failovers because the Actors runtime persists information about the actor's reminders.
+## Напоминания для субъекта
+Напоминания — это механизм для срабатывания постоянных обратных вызовов по субъекту в заданные моменты времени. Их функциональные возможности аналогичны таймерам. В отличие от таймеров, напоминания активируются при любых обстоятельствах, пока субъект явно не отменит их регистрацию или не удалит их. В частности, напоминания срабатывают независимо от отключения субъектов и отработки отказов, так как в среде выполнения Actors сохраняются сведения о напоминаниях субъекта.
 
-To register a reminder, an actor calls the `RegisterReminderAsync` method provided on the base class, as shown in the following example:
+Чтобы зарегистрировать напоминание, субъект вызывает метод `RegisterReminderAsync`, предоставленный в базовом классе, как показано в примере ниже.
 
 ```csharp
 protected override async Task OnActivateAsync()
@@ -87,9 +86,9 @@ protected override async Task OnActivateAsync()
 }
 ```
 
-In this example, `"Pay cell phone bill"` is the reminder name. This is a string that the actor uses to uniquely identify a reminder. `BitConverter.GetBytes(amountInDollars)` is the context that is associated with the reminder. It will be passed back to the actor as an argument to the reminder callback, i.e. `IRemindable.ReceiveReminderAsync`.
+В этом примере `"Pay cell phone bill"` — имя напоминания. Это строка, которую субъект использует для уникальной идентификации напоминания. `BitConverter.GetBytes(amountInDollars)` — это контекст, связанный с напоминанием. Он будет передан обратно субъекту в качестве аргумента обратного вызова напоминания, т. е. `IRemindable.ReceiveReminderAsync`.
 
-Actors that use reminders must implement the `IRemindable` interface, as shown in the example below.
+Субъекты, использующие напоминания, должны реализовать интерфейс `IRemindable` (см. пример ниже).
 
 ```csharp
 public class ToDoListActor : Actor, IToDoListActor, IRemindable
@@ -106,28 +105,24 @@ public class ToDoListActor : Actor, IToDoListActor, IRemindable
 }
 ```
 
-When a reminder is triggered, the Reliable Actors runtime will invoke the  `ReceiveReminderAsync` method on the Actor. An actor can register multiple reminders, and the `ReceiveReminderAsync` method is invoked when any of those reminders is triggered. The actor can use the reminder name that is passed in to the `ReceiveReminderAsync` method to figure out which reminder was triggered.
+При активации напоминания среда выполнения субъектов Reliable Actors вызовет метод субъекта `ReceiveReminderAsync`. Субъект может зарегистрировать несколько напоминаний, и метод `ReceiveReminderAsync` будет вызываться при активации любого из них. Субъект с помощью имени напоминания, переданного методу `ReceiveReminderAsync`, может выяснить, какое напоминание сработало.
 
-The Actors runtime saves the actor's state when the `ReceiveReminderAsync` call finishes. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. 
+Когда вызов `ReceiveReminderAsync` будет завершен, среда выполнения субъектов сохранит состояние субъекта. В случае ошибки при сохранении состояния объект данного субъекта отключается и активным становится новый экземпляр.
 
-To unregister a reminder, an actor calls the `UnregisterReminder` method, as shown in the example below.
+Чтобы отменить регистрацию напоминания, субъект вызывает метод `UnregisterReminder` (см. пример ниже).
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
 Task reminderUnregistration = UnregisterReminder(reminder);
 ```
 
-As shown above, the `UnregisterReminder` method accepts an `IActorReminder` interface. The actor base class supports a `GetReminder` method that can be used to retrieve the `IActorReminder` interface by passing in the reminder name. This is convenient because the actor does not need to persist the `IActorReminder` interface that was returned from the `RegisterReminder` method call.
+Как показано выше, метод `UnregisterReminder` принимает интерфейс `IActorReminder`. Базовый класс субъекта поддерживает метод `GetReminder`, с помощью которого можно получить интерфейс `IActorReminder`, передав имя напоминания. Это удобно, поскольку субъекту не требуется сохранять интерфейс `IActorReminder`, который был возвращен вызовом метода `RegisterReminder`.
 
-## <a name="next-steps"></a>Next Steps
- - [Actor events](service-fabric-reliable-actors-events.md)
- - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
- - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
- - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Sample code](https://github.com/Azure/servicefabric-samples)
+## Дальнейшие действия
+ - [События субъекта](service-fabric-reliable-actors-events.md)
+ - [Повторный вход субъекта](service-fabric-reliable-actors-reentrancy.md)
+ - [Диагностика и мониторинг производительности в Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+ - [Справочная документация по API субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+ - [Пример кода](https://github.com/Azure/servicefabric-samples)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

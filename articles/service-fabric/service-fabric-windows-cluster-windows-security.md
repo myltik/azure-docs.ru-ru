@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Secure a cluster running on Windows using Windows Security | Microsoft Azure"
-   description="Learn how to configure node-to-node and client-to-node security on a standalone cluster running on Windows using Windows Security."
+   pageTitle="Защита кластера, работающего под управлением Windows, с помощью системы безопасности Windows | Microsoft Azure"
+   description="Узнайте, как настроить безопасность обмена данными между узлами или между клиентом и узлом в автономном кластере, работающем под управлением Windows, с помощью системы безопасности Windows."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -17,23 +17,22 @@
    ms.author="ryanwi"/>
 
 
+# Защита автономного кластера под управлением Windows с помощью системы безопасности Windows
 
-# <a name="secure-a-standalone-cluster-on-windows-using-windows-security"></a>Secure a standalone cluster on Windows using Windows security
-
-To prevent unauthorized access to a Service Fabric cluster you must secure it, especially when it has production workloads running on it. This article describes how to configure node-to-node and client-to-node security using Windows security in the *ClusterConfig.JSON* file and corresponds to the configure security step of [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md). For more information on how Service Fabric uses Windows Security, see [Cluster security scenarios](service-fabric-cluster-security.md).
+Во избежание несанкционированного доступа к кластеру Service Fabric следует защитить его, особенно если на нем выполняются рабочие нагрузки. В этой статье описывается, как настроить безопасность обмена данными между узлами, а также между клиентом и узлом с помощью системы безопасности Windows в файле *ClusterConfig.JSON*. Это соответствует шагу по настройке безопасности в статье о [создании автономного кластера, работающего под управлением Windows](service-fabric-cluster-creation-for-windows-server.md). Дополнительные сведения об использовании системы безопасности Windows в Service Fabric см. в разделе [Сценарии обеспечения безопасности кластера](service-fabric-cluster-security.md).
 
 >[AZURE.NOTE]
-You should consider your security selection for node-to-node security carefully, since there is no cluster upgrade from one security choice to another. Changing the security selection would require a full cluster rebuild.
+Выбирать вариант безопасности для защиты обмена данными между узлами следует тщательно, так как один вариант безопасности кластера нельзя обновить до другого. Чтобы изменить вариант безопасности, необходимо перестроить весь кластер.
 
-## <a name="configure-windows-security"></a>Configure Windows security
-The sample *ClusterConfig.Windows.JSON* configuration file downloaded with the [Microsoft.Azure.ServiceFabric.WindowsServer.<version>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) standalone cluster package contains a template for configuring Windows security.  Windows security is configured in the **Properties** section:
+## Настройка безопасности Windows
+В примере файла конфигурации *ClusterConfig.Windows.JSON*, скачанном с пакетом автономного кластера [Microsoft.Azure.ServiceFabric.WindowsServer.<версия>.zip](http://go.microsoft.com/fwlink/?LinkId=730690), содержится шаблон для настройки безопасности Windows. Безопасность Windows настраивается в разделе **Properties**.
 
 ```
 "security": {
             "ClusterCredentialType": "Windows",
             "ServerCredentialType": "Windows",
             "WindowsIdentities": {
-        "ClusterIdentity" : "[domain\machinegroup]",
+		"ClusterIdentity" : "[domain\machinegroup]",
                 "ClientIdentities": [{
                     "Identity": "[domain\username]",
                     "IsAdmin": true
@@ -42,29 +41,28 @@ The sample *ClusterConfig.Windows.JSON* configuration file downloaded with the [
         }
 ```
 
-|**Configuration Setting**|**Description**|
+|**Параметр конфигурации**|**Описание**|
 |-----------------------|--------------------------|
-|ClusterCredentialType|Windows Security is enabled by setting the **ClusterCredentialType** parameter to *Windows*.|
-|ServerCredentialType|Windows Security for clients is enabled by setting the **ServerCredentialType** parameter to *Windows*. This indicates that the clients of the cluster, and the cluster itself, are running within an Active Directory Domain.|
-|WindowsIdentities|Contains the cluster and client identities.|
-|ClusterIdentity|Configures node-to-node security. A comma-separated list of group managed service accounts or machine names.|
-|ClientIdentities|Configures client-to-node security. An array of client user accounts.|
-|Identity|The client identity, a domain user.|
-|IsAdmin|True specifies that the domain user has administrator client access, false for user client access.|
+|ClusterCredentialType|Безопасность Windows можно включить, задав для параметра **ClusterCredentialType** значение *Windows*.|
+|ServerCredentialType|Безопасность Windows для клиентов можно включить, задав для параметра **ServerCredentialType** значение *Windows*. Это указывает, что клиенты кластера и сам кластер работают внутри домена Active Directory.|
+|WindowsIdentities|Содержит удостоверения кластера и клиента.|
+|ClusterIdentity|Настраивает безопасность обмена данными между узлами. Список групповых управляемых учетных записей служб или имен компьютеров через запятую.|
+|ClientIdentities|Настраивает безопасность обмена данными между клиентами и узлами. Массив учетных записей клиентов.|
+|Удостоверение|Удостоверение клиента, пользователь домена.|
+|IsAdmin|Значение true указывает, что у пользователя домена есть клиентский доступ с правами администратора, а значение false — клиентский доступ с правами пользователя.|
 
-[Node to node security](service-fabric-cluster-security.md#node-to-node-security) is configured by setting using **ClusterIdentity**. In order to build trust relationships between nodes, they must be made aware of each other. This can be accomplished in two different ways: Specify the Group Managed Service Account that includes all nodes in the cluster or Specify the domain node identities of all nodes in the cluster. We strongly recommend using the [Group Managed Service Account (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) approach, particularly for larger clusters (more than 10 nodes) or for clusters that are likely to grow or shrink.
-This approach allows nodes to be added or removed from the gMSA, without requiring changes to the cluster manifest. This approach does not require the creation of a domain group for which cluster administrators have been granted access rights to add and remove members. For more information, see [Getting Started with Group Managed Service Accounts](http://technet.microsoft.com/library/jj128431.aspx).
+[Безопасность обмена данными между узлами](service-fabric-cluster-security.md#node-to-node-security) настраивается с помощью параметра **ClusterIdentity**. Чтобы создать отношения доверия между узлами, им нужно сообщить друг о друге. Это можно сделать двумя разными способами: указав групповую управляемую учетную запись, которая включает все узлы в кластере, или удостоверения всех узлов домена в кластере. Настоятельно рекомендуем применять подход с использованием [групповой управляемой учетной записи службы](https://technet.microsoft.com/library/hh831782.aspx), в частности для больших кластеров (более 10 узлов) или для кластеров, размер которых может изменяться. При этом подходе можно добавлять узлы в групповую управляемую учетную запись службы или удалять их оттуда, не изменяя манифест кластера. Кроме того, этот подход не требует создания группы домена, администраторам кластера которой были предоставлены права доступа для добавления и удаления участников. Дополнительные сведения см. в статье [Getting Started with Group Managed Service Accounts](http://technet.microsoft.com/library/jj128431.aspx) (Приступая к работе с групповыми управляемыми учетными записями служб).
 
-[Client to node security](service-fabric-cluster-security.md#client-to-node-security) is configured using **ClientIdentities**. In order to establish trust between a client and the cluster, you must configure the cluster to know which client identities that it can trust. This can be done in two different ways: Specify the domain group users that can connect or specify the domain node users that can connect. Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control provides the ability for the cluster administrator to limit access to certain types of cluster operations for different groups of users, making the cluster more secure.  Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.
+[Безопасность обмена данными между клиентом и узлом](service-fabric-cluster-security.md#client-to-node-security) настраивается с помощью параметра **ClientIdentities**. Чтобы установить отношение доверия между клиентом и кластером, необходимо настроить кластер таким образом, чтобы ему были известны удостоверения клиентов, которым можно доверять. Это можно сделать двумя разными способами: указав пользователей группы домена или узла домена, которые могут подключаться. Service Fabric поддерживает два разных типа контроля доступа для клиентов, подключенных к кластеру Service Fabric: администраторский и пользовательский. Благодаря контролю доступа администратор кластера может ограничить доступ разных групп пользователей на выполнение определенных типов операций в кластере, повысив тем самым уровень безопасности кластера. Администраторы имеют полный доступ к возможностям управления (включая возможности чтения и записи). Пользователи по умолчанию имеют доступ только на чтение для управления (например, при работе с запросами) и возможность разрешения приложений и служб.
 
-The following example **security** section configures Windows security and specifies that the machines in *ServiceFabric/clusterA.contoso.com* are part of the cluster and that *CONTOSO\usera* has admin client access:
+В следующем примере раздела **security** настраивается безопасность Windows и указывается, что компьютеры в *ServiceFabric/clusterA.contoso.com* — это часть кластера, а также что у *CONTOSO\\usera* есть клиентский доступ с правами администратора.
 
 ```
 "security": {
     "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
     "WindowsIdentities": {
-        "ClusterIdentity" : "ServiceFabric/clusterA.contoso.com",
+		"ClusterIdentity" : "ServiceFabric/clusterA.contoso.com",
         "ClientIdentities": [{
             "Identity": "CONTOSO\\usera",
         "IsAdmin": true
@@ -73,16 +71,12 @@ The following example **security** section configures Windows security and speci
 },
 ```
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-After configuring Windows security in the *ClusterConfig.JSON* file, resume the cluster creation process in [Create a standalone cluster running on Windows](service-fabric-cluster-creation-for-windows-server.md).
+После настройки безопасности Windows в файле *ClusterConfig.JSON* возобновите процесс создания кластера, который описан в разделе [Создание кластера под управлением Windows Server и управление им](service-fabric-cluster-creation-for-windows-server.md).
 
-For more information on how node-to-node security, client-to-node security, and role-based access control, see [Cluster security scenarios](service-fabric-cluster-security.md).
+Дополнительные сведения о безопасности обмена данными между узлами, между клиентом и узлом и об управлении доступом на основе ролей см. в разделе [Сценарии защиты кластера Service Fabric](service-fabric-cluster-security.md).
 
-See [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) for examples of connecting using PowerShell or FabricClient.
+Примеры подключений с помощью PowerShell или FabricClient см. в статье [Безопасное подключение к кластеру](service-fabric-connect-to-secure-cluster.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

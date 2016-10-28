@@ -1,260 +1,257 @@
-# <a name="internet-of-things-security-architecture"></a>Internet of Things security architecture
+# Архитектура безопасности "Интернета вещей"
 
-When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is particularly important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning. 
+При разработке системы важно знать угрозы, которым она может подвергаться, а по завершении разработки и создания архитектуры предусмотреть надлежащие средства ее защиты. Особенно важно спланировать стратегию безопасности в самом начале разработки продукта, ведь зная, как злоумышленники могут скомпрометировать систему, можно изначально устранить соответствующие риски.
 
-## <a name="security-starts-with-a-threat-model"></a>Security starts with a threat model
+## Обеспечение безопасности начинается с рассмотрения модели рисков
  
-Microsoft has long used threat models for its products and has made the company’s threat modeling process publically available. The company experience demonstrates that the modelling has unexpected benefits beyond the immediate understanding of what threats are the most concerning. For example, it also creates an avenue for an open discussion with others outside the development team, which can lead to new ideas and improvements in the product.
+Корпорация Майкрософт уже давно использует модели рисков для своих продуктов и сделала процесс моделирования рисков доступным для всех. Опыт корпорации показывает, что кроме быстрого выяснения того, какие угрозы самые серьезные, моделирование предоставляет неожиданные преимущества. Например, таким образом можно обсудить угрозы с пользователями не из команды разработки, чтобы почерпнуть новые идеи и улучшить продукт.
   
-The objective of threat modeling is to understand how an attacker might be able to compromise a system and then make sure appropriate mitigations are in place. Threat modeling forces the design team to consider mitigations as the system is designed rather than after a system is deployed. This fact is critically important, because retrofitting security defenses to a myriad of devices in the field is infeasible, error prone and will leave customers at risk.
+Цель моделирования — понять, как злоумышленники могут скомпрометировать систему, и обеспечить надлежащее устранение рисков. Благодаря моделированию рисков команда разработчиков находит способы устранения рисков во время разработки системы, чтобы их не пришлось искать после ее развертывания. Это крайне важно, так как модернизация средств безопасности для множества устройств в отрасли нецелесообразна, может влечь ошибки и сопровождаться риском для клиентов.
 
-Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why. Threat modeling is a structured process that creates a discussion about the security design decisions in the system, as well as changes to the design that are made along the way that impact security. While a threat model is simply a document, this documentation also represents an ideal way to ensure continuity of knowledge, retention of lessons learned, and help new team onboard rapidly. Finally, an outcome of threat modeling is to enable you to consider other aspects of security, such as what security commitments you wish to provide to your customers. These commitments in conjunction with threat modeling will inform and drive testing of your Internet of Things (IoT) solution.
+Многие команды удачно устанавливают функциональные требования к системе, что предоставляет преимущества клиентам. Тем не менее, есть более сложная задача — найти в системе неочевидные уязвимости, которыми могут воспользоваться. Моделирование рисков помогает командам разработки понять, что может сделать злоумышленник и почему. В рамках этого структурированного процесса они обсуждают решения по проектированию среды безопасности в системе, а также вносят изменения в архитектуру, связанные с безопасностью. Хотя модель рисков представляет собой всего лишь документ, это идеальный способ обеспечить непрерывную передачу знаний и использование полученного опыта, позволяющий новым командам быстро войти в курс дела. Наконец, моделирование рисков позволяет учесть другие аспекты безопасности, например обязательства в отношении безопасности перед клиентами. В сочетании с моделированием рисков эти обязательства обеспечат осведомленность устройства при тестировании решения "Интернета вещей" (IoT).
  
 
-### <a name="when-to-threat-model"></a>When to threat model
+### Когда моделировать риски
 
-[Threat modeling](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) offers the greatest value if it is incorporated into the design phase. When you are designing, you have the greatest flexibility to make changes to eliminate threats. Eliminating threats by design is the desired outcome. It is much easier than adding mitigations, testing them, and ensuring they remain current and moreover, such elimination is not always possible. It becomes harder to eliminate threats as a product becomes more mature, and in turn will ultimately require more work and a lot harder tradeoffs than threat modeling early on in the development.
+[Моделирование рисков](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) — очень ценное преимущество, если его используют на этапе разработки. При разработке доступны более гибкие возможности внесения изменений для устранения угроз. Таким образом можно изначально устранить угрозы. Это гораздо проще, чем добавлять средства устранения рисков, тестировать их и поддерживать их актуальность. Кроме того, не всегда возможно все это сделать. По мере развития продукта становится все труднее устранять угрозы. В свою очередь, это требует больше работы и более жестких компромиссов, чем моделирование рисков на раннем этапе разработки.
 
-### <a name="what-to-threat-model"></a>What to threat model
+### Для каких направлений моделировать риски
 
-You should thread model the solution as a whole and also focus in the following areas:
+Моделировать риски следует для всего решения, сосредотачиваясь на следующих функциях:
 
-- The security and privacy features
-- The features whose failures are security relevant
-- The features that touch a trust boundary 
+- обеспечение безопасности и конфиденциальности;
+- функции, сбой которых влияет на безопасность;
+- функции, работа которых связана с границей доверия.
 
-### <a name="who-threat-models"></a>Who threat models
+### Кому следует моделировать риски
 
-Threat modeling is a process like any other.  It is a good idea to treat the threat model document like any other component of the solution and validate it. Many development teams do an excellent job capturing the functional requirements for the system that benefit customers. However, identifying non-obvious ways that someone might misuse the system is more challenging. Threat modeling can help development teams understand what an attacker might do and why.
+Моделирование рисков — такой же процесс, как и все остальные. Документ модели рисков следует использовать как обычный компонент решения и проверять его соответствующим образом. Многие команды удачно устанавливают функциональные требования к системе, что предоставляет преимущества клиентам. Тем не менее, есть более сложная задача — найти в системе неочевидные уязвимости, которыми могут воспользоваться. Моделирование рисков помогает командам разработки понять, что может сделать злоумышленник и почему.
 
-### <a name="how-to-threat-model"></a>How to threat model
+### Как моделировать риски
 
-The threat modeling process is composed of four steps; the steps are:
+Моделирование рисков предусматривает следующие четыре этапа:
 
-- Model the application
-- Enumerate Threats
-- Mitigate threats
-- Validate the mitigations
+- моделирование применения;
+- создание списка угроз;
+- устранение рисков;
+- проверка устранения рисков.
 
-#### <a name="the-process-steps"></a>The process steps
+#### Шаги моделирования
 
-Three rules of thumb to keep in mind when building a threat model:
+При построении модели рисков следует руководствоваться следующими рекомендациями:
 
-1. Create a diagram out of reference architecture. 
-2. Start breadth-first. Get an overview, and understand the system as a whole, before deep-diving.  This helps ensure that you deep-dive in the right places.
-3. Drive the process, don’t let the process drive you. If you find an issue in the modeling phase and want to explore it, go for it!  Don’t feel you need to follow these steps slavishly.  
+1. Создайте схему на основе эталонной архитектуры.
+2. Начните с обзора. Прежде чем углубиться в процесс, получите сведения о системе и сформируйте общее представление. Таким образом вы сможете сосредоточиться на нужных аспектах.
+3. Не процесс должен управлять вами, а вы процессом. Если вы обнаружили проблему на этапе моделирования и хотите изучить ее, сразу же приступайте. (Не нужно строго придерживаться этих рекомендаций.)
 
-#### <a name="threats"></a>Threats
+#### Риски
 
-The four core elements of a threat model are:
+Модель рисков предусматривает следующие четыре основных элемента:
 
-- Processes (web services, Win32 services, *nix daemons, etc. Note that some complex entities (e.g. field gateways and sensors) can be abstracted as a process when a technical drill down in these areas is not possible.
-- Data stores (anywhere data is stored, such as a configuration file or database)
-- Data flow (where data moves between other elements in the application)
-- External Entities (anything that interacts with the system, but is not under the control of the application, examples include users and satellite feeds)
+- процессы (веб-служб, служб Win32, управляющих программ *nix и т. д.). Обратите внимание, что некоторые сложные сущности (например, полевые шлюзы и датчики) могут быть абстрагированы в качестве процессов, если в соответствующих областях невозможна техническая детализация;
+- хранилища данных (любые места хранения данных, например файлы конфигурации или базы данных);
+- потоки данных (в которых данные перемещаются между другими элементами приложения);
+- внешние сущности (любые элементы, которые взаимодействуют с системой, но не под управлением приложения, к примеру пользователи и вспомогательные веб-каналы).
 
-All elements in the architectural diagram are subject to various threats; we will use the STRIDE mnemonic. Read [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) to know more about the STRIDE elements.
+Все элементы в схеме архитектуры подвержены различным угрозам. В этой статье мы будем использовать для них обозначение STRIDE (спуфинг, незаконное изменение, отказ, раскрытие информации, отказ в обслуживании и несанкционированное повышение привилегий). Дополнительные сведения об элементах STRIDE см. в статье [Threat Modeling Again, STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) (Дополнительные сведения о моделировании рисков. STRIDE).
 
-Different elements of the application diagram are subject to certain STRIDE threats:
+Различные элементы схемы приложения подвержены разным угрозам STRIDE:
 
-- Processes are subject to STRIDE
-- Data flows are subject to TID
-- Data stores are subject to TID, and sometimes R, if the data stores are log files.
-- External entities are subject to SRD
+- процессы подвержены угрозам STRIDE;
+- потоки данных — угрозам TID;
+- хранилища данных подвержены угрозам TID, а иногда и R, если данные хранятся в файлах журналов;
+- внешние сущности подвержены угрозам SRD.
 
-## <a name="security-in-iot"></a>Security in IoT
+## Безопасность в IoT
 
-Connected special-purpose devices have a significant number of potential interaction surface areas and interaction patterns, all of which must be considered to provide a framework for securing digital access to those devices. The term “digital access” is used here to distinguish from any operations that are carried out through direct device interaction where access security is provided through physical access control. For example, putting the device into a room with a lock on the door. While physical access cannot be denied using software and hardware, measures can be taken to prevent physical access from leading to system interference. 
+Перед подключенными специализированными устройствами открывается большое количество возможных зон и шаблонов взаимодействия, которые необходимо учесть при создании инфраструктуры безопасности цифрового доступа к этим устройствам. Здесь термин "цифровой доступ" используется, чтобы отличить соответствующие операции от тех, которые выполняются при прямом взаимодействии с устройством, когда безопасность обеспечивается за счет физического контроля доступа. Например, устройство находится в комнате, дверь которой закрыта на замок. Хотя физический доступ нельзя запретить с помощью программного обеспечения и оборудования, можно предпринять меры, чтобы предотвратить такой доступ и уменьшить вероятность вмешательства в интерфейс системы.
 
-As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment.
+Исследуя шаблоны взаимодействия, мы уделим одинаковое внимание контролю устройства и данным устройства. Контроль устройства можно классифицировать как ввод любых сведений, предоставленных устройству любой стороной, чтобы изменить его поведение или повлиять на него, а именно на его состояние или состояние его среды. Данные устройства можно классифицировать как любые сведения о его состоянии и наблюдаемом состоянии его среды, которые устройство предоставляет другой стороне.
    
-In order to optimize security best practices, it is recommended that a typical IoT architecture be divided into several component/zones as part of the threat modeling exercise. These zones are described fully throughout this section and include:
+Чтобы оптимально использовать рекомендации по обеспечению безопасности, советуем разделить типичную архитектуру IoT на несколько компонентов или зон в рамках моделирования рисков. Эти зоны подробно описаны в этом разделе и включают в себя:
 
--   Device,
--   Field Gateway,
--   Cloud gateways, and
--   Services.
+-	устройство;
+-	полевой шлюз;
+-	облачные шлюзы;
+-	утверждения.
 
-Zones are broad way to segment a solution; each zone often has its own data and authentication and authorization requirements. Zones can also be used to isolation damage and restrict the impact of low trust zones on higher trust zones.
+Разделение на зоны — всеобъемлющий способ сегментации решения. Зачастую в каждой зоне содержатся отдельные данные, а также есть требования к проверке подлинности и авторизации. С помощью зоны можно изолировать повреждение и ограничить влияние зон с низким уровнем доверия на те, уровень доверия к которым выше.
 
-Each zone is separated by a Trust Boundary, which is noted as the dotted red line in the diagram below. It represents a transition of data/information from one source to another. During this transition, the data/information could be subject to Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service and Elevation of Privilege (STRIDE).
+Зоны разделяются границами доверия. На схеме ниже они обозначены красной пунктирной линией. Здесь изображен переход сведений или данных из одного источника в другой. Во время этого перехода данные могут подвергаться различным угрозам STRIDE.
 
-![IoT Security Zones](media/iot-security-architecture/iot-security-architecture-fig1.png) 
+![Зоны безопасности IoT](media/iot-security-architecture/iot-security-architecture-fig1.png)
 
-The components depicted within each boundary are also subjected to STRIDE, enabling a full 360 threat modeling view of the solution. The sections below elaborate on each of the components and specific security concerns and solutions that should be put into place.
+Компоненты в пределах каждой границы также подвержены угрозам STRIDE, что позволяет получить всеобъемлющую модель рисков для решения. В следующих подразделах содержатся детальные сведения о каждом из компонентов, соответствующие проблемы безопасности, а также решения по их устранению.
 
-The sections that follows will discuss standard components typically found in these zones.
+В последующих разделах мы обсудим стандартные компоненты, которые, как правило, находятся в этих зонах.
 
-### <a name="the-device-zone"></a>The Device Zone
+### Зона устройства
 
-The device environment is the immediate physical space around the device where physical access and/or “local network” peer-to-peer digital access to the device is feasible. A “local network” is assumed to be a network that is distinct and insulated from – but potentially bridged to – the public Internet, and includes any short-range wireless radio technology that permits peer-to-peer communication of devices. It does *not* include any network virtualization technology creating the illusion of such a local network and it does also not include public operator networks that require any two devices to communicate across public network space if they were to enter a peer-to-peer communication relationship.
+Среда устройства — это физическое пространство вокруг устройства, в пределах которого к нему можно получить физический доступ и/или цифровой доступ через одноранговую локальную сеть. Под локальной сетью подразумевается уникально идентифицируемая изолированная от общего доступа из Интернета сеть, к которой можно установить сетевой мост. Ею может быть любая технология беспроводной радиосвязи ближнего действия, позволяющая осуществлять одноранговый обмен данными между устройствами. Ею *не* может быть технология сетевой виртуализации, которая создает иллюзию локальной сети, или общедоступная операторская сеть, в которой для однорангового обмена данными требуются два устройства, взаимодействующие в пространстве общедоступной сети.
 
-### <a name="the-field-gateway-zone"></a>The Field Gateway Zone
+### Зона полевого шлюза
 
-Field gateway is a device/appliance or some general-purpose server computer software that acts as communication enabler and, potentially, as a device control system and device data processing hub. The field gateway zone includes the field gateway itself and all devices that are attached to it. As the name implies, field gateways act outside dedicated data processing facilities, are usually location bound, are potentially subject to physical intrusion, and will have limited operational redundancy. All to say that a field gateway is commonly a thing one can touch and sabotage while knowing what its function is. 
+Полевой шлюз — это устройство, программное обеспечение или серверное программное обеспечение общего назначения, которое служит средством реализации обмена данными, а также, по возможности, системой управления устройствами и центром обработки данных, получаемых от устройств. В зоне полевого шлюза находится сам полевой шлюз и все подключенные к нему устройства. Как подразумевает название, полевые шлюзы не используют выделенные средства обработки данных. Обычно они привязаны к расположению, могут подвергаться физическим атакам, а их оперативная избыточность ограничена. Проще говоря, полевой шлюз — обычно именно тот объект, на который могут повлиять или который могут атаковать, так как известны его функции.
 
-A field gateway is different from a mere traffic router in that it has had an active role in managing access and information flow, meaning it is an application addressed entity and network connection or session terminal. An NAT device or firewall, in contrast, do not qualify as field gateways since they are not explicit connection or session terminals, but rather a route (or block) connections or sessions made through them. The field gateway has two distinct surface areas. One faces the devices that are attached to it and represents the inside of the zone, and the other faces all external parties and is the edge of the zone.   
+Полевой шлюз отличается от обычного маршрутизатора трафика тем, что ему отведена активная роль в управлении доступом и передачей информации. Это значит, что он является ориентированным на приложения объектом, а также терминалом сетевых подключений или сеансов. Устройства преобразования сетевых адресов и брандмауэры, напротив, не могут считаться полевыми шлюзами, так как они не являются явными терминалами подключений или сеансов. Они просто маршрутизируют (или блокируют) подключения или сеансы, которые осуществляются через них. У полевого шлюза есть две отдельные контактные зоны. Одна из них представляет собой внутреннюю часть зоны и взаимодействует с устройствами, подключенными к шлюзу. Другая же представляет собой границу зоны и взаимодействует со всеми сторонними подключениями.
 
-### <a name="the-cloud-gateway-zone"></a>The cloud gateway zone
+### Зона облачного шлюза
 
-Cloud gateway is a system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways. Also in a Cloud Zone, operational measures prevent targeted physical access and is not necessarily exposed to a “public cloud” infrastructure.  
+Облачный шлюз — это система, которая обеспечивает удаленный обмен данными между устройствами или полевыми шлюзами из нескольких различных сайтов через пространство общедоступной сети. Обычно данные передаются в облачную систему управления и анализа данных или федерацию таких систем. В некоторых случаях облачный шлюз позволяет немедленно получить доступ к специализированным устройствам с помощью таких терминалов, как планшеты или телефоны. В этом контексте облако — выделенная система обработки данных, непривязанная к тому же сайту, что подключенные устройства или полевые шлюзы. Кроме того, в зоне облака операционные меры предотвращают целевой физический доступ и не всегда доступны в инфраструктуре общедоступного облака.
 
-A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it. The edge of the zone is a distinct surface area where all external parties communicate through.
+Облачный шлюз можно сопоставить с наложением виртуализации сети, чтобы изолировать трафик этого шлюза и всех устройств или полевых шлюзов, подключенных к нему, от сетевого трафика. Сам облачный шлюз не является ни системой управления устройствами, ни средством обработки или хранения данных устройств. Эти средства только взаимодействуют с ним. Зона облачного шлюза включает в себя сам облачный шлюз и все полевые шлюзы и устройства, прямо или опосредованно подключенные к нему. Граница зоны — это отдельная контактная зона, через которую взаимодействуют все внешние стороны.
 
-### <a name="the-services-zone"></a>The services zone
+### Зоны служб
 
-A “service” is defined for this context as any software component or module that is interfacing with devices through a field- or cloud gateway for data collection and analysis, as well as for command and control.  Services are mediators. They act under their identity towards gateways and other subsystems, store and analyze data, autonomously issue commands to devices based on data insights or schedules and expose information and control capabilities to authorized end-users.
+В этом контексте служба — это любой программный компонент или модуль, который взаимодействует с устройствами через полевой или облачный шлюз, чтобы собирать и анализировать данные, а также обеспечивать управление и контроль. Службы представляют собой посредников. Они используют свои удостоверения, чтобы взаимодействовать со шлюзами и другими подсистемами, хранят и анализируют данные, автономно выполняют команды на устройствах на основе анализа данных или расписаний, а также предоставляют авторизованным пользователям сведения и возможности управления.
 
-### <a name="information-devices-vs.-special-purpose-devices"></a>Information-devices vs. special-purpose devices
+### Информационные и специализированные устройства
 
-PCs, phones, and tablets are primarily interactive information devices. Phones and tablets are explicitly optimized around maximizing battery lifetime. They preferably turn off partially when not immediately interacting with a person, or when not providing services like playing music or guiding their owner to a particular location. From a systems perspective, these information technology devices are mainly acting as proxies towards people. They are “people actuators” suggesting actions and “people sensors” collecting input. 
+ПК, телефоны и планшеты — преимущественно интерактивные информационные устройства. Телефоны и планшеты явно оптимизированы для увеличения времени работы от батареи. Они частично переходят в спящий режим, если человек не использует устройство или такие функции, как воспроизведение музыки или навигация. С точки зрения системы люди используют эти информационно-технологические устройства преимущественно в качестве прокси. Они являются воздействующими устройствами, предлагающими действия, и датчиками, которые собирают входные данные.
 
-Special-purpose devices, from simple temperature sensors to complex factory production lines with thousands of components inside them, are different. These devices are much more scoped in purpose and even if they provide some user interface, they are largely scoped to interfacing with or be integrated into assets in the physical world. They measure and report environmental circumstances, turn valves, control servos, sound alarms, switch lights, and do many other tasks. They help to do work for which an information device is either too generic, too expensive, too big, or too brittle. The concrete purpose immediately dictates their technical design as well the available monetary budget for their production and scheduled lifetime operation. The combination of these two key factors constrains the available operational energy budget, physical footprint, and thus available storage, compute, and security capabilities.  
+Специализированные устройства (простые датчики температуры или сложные фабричные изделия), состоящие из тысяч компонентов, носят совершенно иной характер. Это устройства более узкого предназначения, и даже при наличии пользовательского интерфейса они больше ориентированы на взаимодействие с физическими ресурсами или интеграцию в них. Они измеряют данные окружающей среды и создают отчеты о них, включают клапаны, контролируют работу сервосистемы, подают звуковые сигналы, переключают индикаторы и выполняют множество других задач. Они позволяют делать ту работу, для которой информационные устройства слишком дорогие, большие, непрочные или не предоставляют необходимые функции. Конкретные цели применения позволяют сразу же определить их техническую структуру, а доступный бюджет — объем работы и запланированное время эксплуатации. Вместе эти два ключевых фактора ограничивают занимаемое место и бюджет на потребляемую энергию, а поэтому уменьшают возможности хранения, вычисления и обеспечения безопасности.
 
-If something “goes wrong” with automated or remote controllable devices, for example, physical defects or control logic defects to willful unauthorized intrusion and manipulation. The production lots may be destroyed, buildings may be looted or burned down, and people may be injured or even die. This is, of course, a whole different class of damage than someone maxing out a stolen credit card's limit. The security bar for devices that make things move, and also for sensor data that eventually results in commands that cause things to move, must be higher than in any e-commerce or banking scenario. 
+Проблема с автоматически или удаленно управляемыми устройствами, например физический дефект или ошибка в логике управления, может повлечь преднамеренное несанкционированное вторжение и изменение. Это может уничтожить партии изделий, вызвать разграбление здания или пожар, а для людей — травмы или даже смерть. Конечно, этот тип ущерба кардинально отличается от превышения лимита на украденной кредитной карте. Средства безопасности устройств управления, а также для датчиков, которые могут инициировать команды управления, должны быть лучше, чем в любом коммерческом или банковском сценарии.
 
 
-### <a name="device-control-and-device-data-interactions"></a>Device control and device data interactions
+### Взаимодействие контроля устройства и данных устройства
 
-Connected special-purpose devices have a significant number of potential interaction surface areas and interaction patterns, all of which must be considered to provide a framework for securing digital access to those devices. The term “digital access” is used here to distinguish from any operations that are carried out through direct device interaction where access security is provided through physical access control. For example, putting the device into a room with a lock on the door. While physical access cannot be denied using software and hardware, measures can be taken to prevent physical access from leading to system interference. 
+Перед подключенными специализированными устройствами открывается большое количество возможных зон и шаблонов взаимодействия, которые необходимо учесть при создании инфраструктуры безопасности цифрового доступа к этим устройствам. Здесь термин "цифровой доступ" используется, чтобы отличить соответствующие операции от тех, которые выполняются при прямом взаимодействии с устройством, когда безопасность обеспечивается за счет физического контроля доступа. Например, устройство находится в комнате, дверь которой закрыта на замок. Хотя физический доступ нельзя запретить с помощью программного обеспечения и оборудования, можно предпринять меры, чтобы предотвратить такой доступ и уменьшить вероятность вмешательства в интерфейс системы.
  
-As we explore the interaction patterns, we will look at “device control” and “device data” with the same level of attention while threat modeling. “Device control” can be classified as any information that is provided to a device by any party with the goal of changing or influencing its behavior towards its state or the state of its environment. “Device data” can be classified as any information that a device emits to any other party about its state and the observed state of its environment. 
+Исследуя шаблоны взаимодействия, в рамках моделирования мы уделяли одинаковое внимание контролю устройства и данным устройства. Контроль устройства можно классифицировать как ввод любых сведений, предоставленных устройству любой стороной, чтобы изменить его поведение или повлиять на него, а именно на его состояние или состояние его среды. Данные устройства можно классифицировать как любые сведения о его состоянии и наблюдаемом состоянии его среды, которые устройство предоставляет другой стороне.
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>Threat modeling the Azure IoT reference architecture
+## Моделирование рисков эталонной архитектуры Azure IoT
 
-Microsoft uses the framework outlined above to do threat modelling for Azure IoT. In the section below we therefore use the concrete example of Azure IoT Reference Architecture to demonstrate how to think about threat modelling for IoT and how to address the threats identified. In our case we identified four main areas of focus:
+Корпорация Майкрософт использует вышеуказанную платформу, чтобы создавать модели рисков для Azure IoT. В разделе ниже мы используем конкретный пример эталонной архитектуры Azure IoT, чтобы показать, как продумать моделирование рисков для IoT, а также устранить найденные угрозы. В нашем сценарии мы выявили четыре основных области, на которых следует сосредоточиться:
 
--   Devices and Data Sources,
--   Data Transport,
--   Device and Event Processing, and
--   Presentation
+-	устройства и источники данных;
+-	передача данных;
+-	обработка устройств и событий;
+-	Уровень представления
 
-![Threat Modeling for Azure IoT](media/iot-security-architecture/iot-security-architecture-fig2.png) 
+![Моделирование рисков для Azure IoT](media/iot-security-architecture/iot-security-architecture-fig2.png)
 
-The diagram below provides a simplified view of Microsoft’s IoT Architecture using a Data Flow Diagram model that is used by the Microsoft Threat Modeling Tool:
+На рисунке ниже показано упрощенное представление архитектуры IoT Microsoft со схемой потоков данных, моделью, которая используется в средстве Майкрософт для моделирования рисков (Microsoft Threat Modeling Tool).
 
-![Threat Modeling for Azure IoT using MS Threat Modeling Tool](media/iot-security-architecture/iot-security-architecture-fig3.png)
+![Моделирование рисков для Azure IoT с помощью средства Microsoft Threat Modeling Tool](media/iot-security-architecture/iot-security-architecture-fig3.png)
 
-It is important to note that the architecture separates the device and gateway capabilities. This allows the user to leverage gateway devices that are more secure: they are capable of communicating with the cloud gateway using secure protocols, which typically requires greater processing overhead that a native device  - such as a thermostat - could provide on its own. In the Azure services zone, we assume that the Cloud Gateway is represented by the Azure IoT Hub service.
+Следует отметить, что в этой архитектуре разделены возможности шлюза и устройств. Так пользователь может использовать устройства шлюзов более безопасно: они способны взаимодействовать с облачным шлюзом, используя протоколы безопасности, что обычно требует больше ресурсов обработки, чем может предоставить собственное устройство, например термостат. Предполагается, что в зоне служб Azure облачный шлюз представлен службой центра IoT Azure.
 
-### <a name="device-and-data-sources/data-transport"></a>Device and data sources/data transport
+### Устройства, источники данных и передача данных
 
-This section explores the architecture outlined above through the lens of threat modeling and gives an overview of how we are addressing some of the inherent concerns. We will focus on the core elements of a threat model:
+В этом подразделе подробно рассматривается моделирование рисков вышеописанной архитектуры и приведены общие сведения о том, как устранить некоторые характерные проблемы. Мы рассмотрим следующие основные элементы модели рисков:
 
-- Processes (those under our control and external items)
-- Communication (also called data flows)
-- Storage (also called data stores)
+- процессы (подконтрольные и внешние);
+- взаимодействие (или потоки данных);
+- хранение (или хранилища данных).
 
-#### <a name="processes"></a>Processes
+#### Процессы
 
-In each of the categories outlined in the Azure IoT architecture, we try to mitigate a number of different threats across the different stages data/information exists in: process, communication, and storage. Below we give an overview of the most common ones for the “process” category, followed by an overview of how these could be best mitigated: 
+Для каждой из категорий архитектуры Azure IoT мы попытаемся устранить различные риски на разных этапах существования данных: в процессах, при взаимодействии и хранении. Ниже приведен обзор самых распространенных рисков для категории процессов и описание лучших способов того, как их устранить:
 
-**Spoofing (S)**: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
+**Спуфинг (Spoofing, далее "S")**. Злоумышленник может извлечь материал криптографического ключа из устройства, оборудования или программного обеспечения, а затем получить доступ к системе с помощью другого физического или виртуального устройства, используя удостоверение устройства, с которого украл материал. Хороший пример: с помощью пультов дистанционного управления можно включить любой телевизор, поэтому их часто используют, чтобы подшутить над кем-то.
 
-**Denial of Service (D)**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out will not report data, at all.
+**Отказ в обслуживании (Denial of Service, далее "D")**. Устройство может быть распознано как неработоспособное или неспособное обмениваться данными из-за радиочастотных помех или потому, что обрезаны провода. Например, камера видеонаблюдения, питание или сетевое подключение которой преднамеренно вывели из строя, не будет передавать данные.
 
-**Tampering (T)**: An attacker may partially or wholly replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program. For example, an attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
+**Незаконное изменение (Tampering, далее "T")**. Злоумышленник может частично или полностью заменить программное обеспечение, которое работает на устройстве, чтобы другое ПО могло использовать удостоверение подлинности устройства, если материал ключа или средства шифрования, в которых есть материалы ключей, доступны несанкционированной программе. Например, злоумышленник может использовать полученный материал ключа, чтобы перехватить или изъять данные с устройства во время передачи и заменить их ложными данными, для проверки подлинности которых использовался украденный материал ключа.
 
-**Information Disclosure (I)**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties. For example, an attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
+**Раскрытие информации (Information Disclosure, далее "I")**. Если на устройстве работает измененное программное обеспечение, из него возможна утечка данных посторонним лицам. Например, злоумышленник может использовать полученный материал ключа, чтобы вмешаться в обмен данными между устройством и контроллером, полевым или облачным шлюзом, а затем получать сведения.
 
-**Elevation of Privilege (E)**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Несанкционированное повышение привилегий (Information Disclosure, далее "E")**. Это случай, когда устройство, которое выполняет определенную функцию, используют для принудительного выполнения других действий. Например, клапан, запрограммированный открываться наполовину, могут настроить открываться полностью.
 
-| **Component** | **Threat** | **Mitigation**                                                                                                                                                | **Risk**                                                                                                                                                                                                    | **Implementation**                                                                                                                                                                                                                                                                                                                                     |
+| **Компонент** | **Threat** | **Устранение** | **Риск** | **Реализация** |
 |---------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Device        | S          | Assigning identity to the device and authenticating the device                                                                                                | Replacing device or part of the device with some other device. How do we know we are talking to the right device?                                                                                           | Authenticating the device, using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt)                             |
-|               | TRID       | Apply tamperproof mechanisms to the device for example by making it very hard to impossible to extract keys and other cryptographic material from the device. | The risk is if someone is tampering the device (physical interference). How are we sure, that device has not tampered with.                                                                                 | The most effective mitigation is a trusted platform module (TPM) capability that allows storing keys in special on-chip circuitry from which the keys cannot be read, but can only be used for cryptographic operations that use the key but never disclose the key. Memory encryption of the device. Key management for the device. Signing the code. |
-|               | E          | Having access control of the device. Authorization scheme.                                                                                                    | If the device allows for individual actions to be performed based on commands from an outside source, or even compromised sensors, it will allow the attack to perform operations not otherwise accessible. | Having authorization scheme for the device                                                                                                                                                                                                                                                                                                             |
-| Field Gateway | S          | Authenticating the Field gateway to Cloud Gateway (cert based, PSK, Claim based,..)                                                                           | If someone can spoof Field Gateway, then it can present itself as any device.                                                                                                                               | TLS RSA/PSK, IPSe, [RFC 4279](https://tools.ietf.org/html/rfc4279). All the same key storage and attestation concerns of devices in general – best case is use TPM. 6LowPAN extension for IPSec to support Wireless Sensor Networks (WSN).                                                                                                              |
-|               | TRID       | Protect the Field Gateway against tampering (TPM?)                                                                                                            | Spoofing attacks that trick the cloud gateway thinking it is talking to field gateway could result in information disclosure and data tampering                                                             | Memory encryption, TPM’s, authentication.                                                                                                                                                                                                                                                                                                              |
-|               | E          | Access control mechanism for Field Gateway                                                                                                                    |                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                        |
+| Устройство | S | Назначить устройству удостоверение и проверять его подлинность | Замена устройства или его части другим устройством. Как узнать, какое из устройств подлинное? | Проверка подлинности устройства с использованием протокола TLS или IPSec. Инфраструктура должна поддерживать общие ключи для тех устройств, которые не выполняют полное асимметричное шифрование. Использование Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
+| | TRID | Применить механизмы защиты от незаконного изменения на устройстве, чтобы сделать невозможным извлечение из него ключей и других криптографических материалов | Кто-то может незаконно изменить устройство (физически вмешаться). Нужно убедиться, что устройство не изменили незаконным образом | Устранить риски эффективнее всего позволяет доверенный платформенный модуль. Он позволяет хранить ключи на специальной встроенной схеме, из которой нельзя считать ключи, но их можно использовать только в криптографических операциях, предусматривающих использование ключей без раскрытия. Шифрование памяти устройства. Управление ключами устройства. Подписывание кода |
+| | E | Обеспечить контроль доступа к устройству. Применить схему авторизации | Если устройство позволяет выполнять отдельные действия с помощью команд из внешнего источника или даже со скомпрометированного датчика, при атаке оно позволит выполнять операции, которые недоступны при других обстоятельствах | Реализация схемы авторизации для устройства |
+| Полевой шлюз | S | Обеспечить аутентификацию полевого шлюза при доступе к облачному шлюзу (на основе сертификатов, общих ключей, утверждений и т. д.) | Если кто-то может подделать данные полевого шлюза, он сможет выдавать свое устройство за любое другое | Использование RSA или общего ключа с протоколом TLS, протокола IPSe, стандарта [RFC 4279](https://tools.ietf.org/html/rfc4279). В отношении тех же основных проблем хранения и обеспечения соответствия устройств в целом лучшее решение — использовать доверенный платформенный модуль. Использование расширения 6LowPAN для IPSec, чтобы обеспечить поддержку сетей беспроводных датчиков |
+| | TRID | Защитить полевой шлюз от незаконного изменения (с помощью доверенного платформенного модуля) | Если спуфингу, направленному на полевой шлюз, подвергнется облачный шлюз, это может повлечь раскрытие информации и незаконное изменение данных | Шифрование памяти, доверенные платформенные модули, проверка подлинности |
+| | E | Реализовать механизм контроля доступа для полевого шлюза | | |
 
-Here are some examples of threats in this category:
+Ниже приведены некоторые примеры угроз, которые могут быть в этой категории.
 
-Spoofing: An attacker may extract cryptographic key material from a device, either at the software or hardware level, and subsequently access the system with a different physical or virtual device under the identity of the device the key material has been taken from.
+Спуфинг. Злоумышленник может извлечь материал криптографического ключа из устройства, оборудования или программного обеспечения, а затем получить доступ к системе с помощью другого физического или виртуального устройства, используя удостоверение устройства, с которого украл материал.
 
-**Denial of Service**: A device can be rendered incapable of functioning or communicating by interfering with radio frequencies or cutting wires. For example, a surveillance camera that had its power or network connection intentionally knocked out will not report data, at all.
+**Отказ в обслуживании**. Устройство может быть распознано как неработоспособное или неспособное обмениваться данными из-за радиочастотных помех или потому, что обрезаны провода. Например, камера видеонаблюдения, питание или сетевое подключение которой преднамеренно вывели из строя, не будет передавать данные.
 
-**Tampering**: An attacker may partially or wholly replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
+**Незаконное изменение**. Злоумышленник может частично или полностью заменить программное обеспечение, которое работает на устройстве, чтобы ПО могло использовать удостоверение подлинности устройства, если материал ключа или средства шифрования, в которых есть материалы ключей, доступны несанкционированной программе.
 
-**Tampering**: A surveillance camera that’s showing a visible-spectrum picture of an empty hallway could be aimed at a photograph of such a hallway. A smoke or fire sensor could be reporting someone holding a lighter under it. In either case, the device may be technically fully trustworthy towards the system, but it will report manipulated information.
+**Незаконное изменение**. Чтобы камера видеонаблюдения не засняла злоумышленника, он может настроить в качестве показываемой картинки фотографию пустого коридора. Дымовой или пожарный датчик может передать данные о возгорании, если кто-то держит возле него включенную зажигалку. В обоих случаях устройства полностью технически исправны, но будут сообщать системе сведения, полученные в результате изменений.
 
-**Tampering**: An attacker may leverage extracted key material to intercept and suppress data from the device on the communication path and replace it with false data that is authenticated with the stolen key material.
+**Незаконное изменение**. Злоумышленник может использовать полученный материал ключа, чтобы перехватить или изъять данные с устройства во время передачи и заменить их на ложные данные, а значит аутентифицироваться, используя украденный материал ключа.
 
-**Tampering**: An attacker may partially or completely replace the software running on the device, potentially allowing the replaced software to leverage the genuine identity of the device if the key material or the cryptographic facilities holding key materials were available to the illicit program.
+**Незаконное изменение**. Злоумышленник может частично или полностью заменить программное обеспечение, которое работает на устройстве, чтобы ПО могло использовать удостоверение подлинности данного устройства, если материал ключа или средства шифрования, в которых есть материалы ключей, доступны несанкционированной программе.
    
-**Information Disclosure**: If the device is running manipulated software, such manipulated software could potentially leak data to unauthorized parties.
+**Раскрытие информации**. Если на устройстве работает измененное программное обеспечение, из него возможна утечка данных посторонним лицам.
 
-**Information Disclosure**: An attacker may leverage extracted key material to inject itself into the communication path between the device and a controller or field gateway or cloud gateway to siphon off information.
+**Раскрытие информации**. Злоумышленник может использовать полученный материал ключа, чтобы вмешаться в обмен данными между устройством и контроллером, полевым или облачным шлюзом, а затем получать сведения.
 
-**Denial of Service**: The device can be turned off or turned into a mode where communication is not possible (which is intentional in many industrial machines).
+**Отказ в обслуживании**. Для устройства можно отключить или включить режим, в котором невозможно поддерживать связь (это могут делать преднамеренно со многими производственными установками).
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted
+**Незаконное изменение**. Для устройства могут настроить другое неизвестное системе управления состояние (параметры, которые не относятся к эталонным), из-за чего устройство будет передавать данные, которые можно неправильно интерпретировать.
 
-**Elevation of Privilege**: A device that does specific function can be forced to do something else. For example, a valve that is programmed to open half way can be tricked to open all the way.
+**Несанкционированное повышение привилегий**. Это случай, когда устройство, которое выполняет определенную функцию, используют для принудительного выполнения других действий. Например, клапан, запрограммированный открываться наполовину, могут настроить открываться полностью.
 
-**Denial of Service**: The device can be turned into a state where communication is not possible.
+**Отказ в обслуживании**. Устройство могут перевести в состояние, при котором невозможно поддерживать связь.
 
-**Tampering**: The device can be reconfigured to operate in a state unknown to the control system (outside of known calibration parameters) and thus provide data that can be misinterpreted.
+**Незаконное изменение**. Для устройства могут настроить другое неизвестное системе управления состояние (параметры, которые не относятся к эталонным), из-за чего устройство будет передавать данные, которые можно неправильно интерпретировать.
  
-**Spoofing/Tampering/Repudiation**: If not secured (which is rarely the case with consumer remote controls) an attacker can manipulate the state of a device anonymously. A good illustration is remote controls that can turn any TV and that are popular prankster tools.
+**Спуфинг, незаконное изменение данных и отказ**. При отсутствии защиты (она редко используется в потребительских пультах дистанционного управления) злоумышленник может анонимно изменять состояние устройства. Хороший пример: с помощью пультов дистанционного управления можно включить любой телевизор, поэтому их часто используют, чтобы подшутить над кем-то.
 
-#### <a name="communication"></a>Communication
+#### Обмен данными
 
-Threats around communication path between devices, devices and field gateways and device and cloud gateway. The table below has some guidance around open sockets on the device/VPN:
+Здесь описаны угрозы, связанные с путем обмена данными между устройствами, устройствами и полевыми или облачными шлюзами. В таблице ниже приведены некоторые рекомендации по использованию открытых портов устройств и VPN:
 
-| **Component**               | **Threat** | **Mitigation**                                      | **Risk**                                                                                                      | **Implementation**                                                                                                                                                                                                                                                                                                                                                               |
+| **Компонент** | **Threat** | **Устранение** | **Риск** | **Реализация** |
 |-----------------------------|------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Device IoT Hub              | TID        | (D)TLS (PSK/RSA) to encrypt the traffic             | Eavesdropping or interfering the communication between the device and the gateway                             | Security on the protocol level. With custom protocols, we need to figure out how to protect them. In most cases, the communication takes place from the device to the IoT Hub (device initiates the connection).                                                                                                                                                                 |
-| Device Device               | TID        | (D)TLS (PSK/RSA) to encrypt the traffic.            | Reading data in transit between devices. Tampering with the data. Overloading the device with new connections | Security on the protocol level (HTTP(S)/AMQP/MQTT/CoAP. With custom protocols, we need to figure out how to protect them. The mitigation for the DoS threat is to peer devices through a cloud or field gateway and have them only act as clients towards the network. The peering may result in a direct connection between the peers after having been brokered by the gateway |
-| External Entity Device      | TID        | Strong pairing of the external entity to the device | Eavesdropping the connection to the device. Interfering the communication with the device                     | Securely pairing the external entity to the device NFC/Bluetooth LE. Controlling the operational panel of the device (Physical)                                                                                                                                                                                                                                                  |
-| Field Gateway Cloud Gateway | TID        | TLS (PSK/RSA) to encrypt the traffic.               | Eavesdropping or interfering the communication between the device and the gateway                             | Security on the protocol level (HTTP(S)/AMQP/MQTT/CoAP). With custom protocols, we need to figure out how to protect them.                                                                                                                                                                                                                                                       |
-| Device Cloud Gateway        | TID        | TLS (PSK/RSA) to encrypt the traffic.               | Eavesdropping or interfering the communication between the device and the gateway                             | Security on the protocol level (HTTP(S)/AMQP/MQTT/CoAP). With custom protocols, we need to figure out how to protect them.                                                                                                                                                                                                                                                       |
+| Устройство, центр IoT | TID | (От D) использовать TLS (для общих ключей или RSA), чтобы шифровать трафик | Перехват данных обмена между устройством и шлюзом или вмешательство в обмен | Обеспечение безопасности на уровне протокола. При использовании пользовательских протоколов нужно выяснить, как обеспечить соответствующую защиту. В большинстве случаев устройство отправляет данные в центр IoT (инициирует подключение) |
+| Устройство, устройство | TID | (От D) использовать TLS (для общих ключей или RSA), чтобы шифровать трафик | Считывание данных при их передаче между устройствами. Незаконное изменение данных. Перегрузка устройства новыми подключениями | Обеспечение безопасности на уровне протокола (HTTP, HTTPS, AMQP, MQTT или CoAP). При использовании пользовательских протоколов нужно выяснить, как обеспечить соответствующую защиту. Чтобы устранить риск атаки типа "отказ в обслуживании", нужно устанавливать одноранговые подключения устройств через полевой или облачный шлюз, чтобы они работали в качестве клиентов по отношению к сети. Пиринг может повлечь создание прямого подключения между одноранговыми узлами через шлюз |
+| Внешняя сущность, устройство | TID | Надежное подключение внешней сущности к устройству | Перехват подключения к устройству. Вмешательство в обмен данными с устройством | Обеспечить безопасное подключение внешней сущности к устройству, используя технологию Bluetooth с низким энергопотреблением или NFC. Обеспечить контроль рабочей панели устройства (физический) |
+| Полевой шлюз, облачный шлюз | TID | Использовать TLS (для общих ключей или RSA), чтобы шифровать трафик | Перехват данных обмена между устройством и шлюзом или вмешательство в обмен | Обеспечение безопасности на уровне протокола (HTTP, HTTPS, AMQP, MQTT или CoAP). При использовании пользовательских протоколов нужно выяснить, как обеспечить соответствующую защиту. |
+| Устройство, облачный шлюз | TID | Использовать TLS (для общих ключей или RSA), чтобы шифровать трафик | Перехват данных обмена между устройством и шлюзом или вмешательство в обмен | Обеспечение безопасности на уровне протокола (HTTP, HTTPS, AMQP, MQTT или CoAP). При использовании пользовательских протоколов нужно выяснить, как обеспечить соответствующую защиту. |
 
-Here are some examples of threats in this category:
+Ниже приведены некоторые примеры угроз, которые могут быть в этой категории.
 
-**Denial of Service**: Constrained devices are generally under DoS threat when they actively listen for inbound connections or unsolicited datagrams on a network, because an attacker can open many connections in parallel and not service them or service them very slowly, or the device can be flooded with unsolicited traffic. In both cases, the device can effectively be rendered inoperable on the network.
+**Отказ в обслуживании**. Устройства с ограниченными функциями обычно подвержены угрозе атаки типа "отказ в обслуживании", если активно прослушивают входящие подключения или нежелательные датаграммы в сети, так как злоумышленник может открыть много параллельных подключений, не обслуживать их либо обслуживать их очень медленно или устройство может быть перегружено нежелательным трафиком. В обоих случаях сеть может распознать устройство как неработоспособное.
 
-**Spoofing, Information Disclosure**: Constrained devices and special-purpose devices often have one-for-all security facilities like password or PIN protection, or they wholly rely on trusting the network, meaning they will grant access to information when a device is on the same network, and that network is often only protected by a shared key. That means that when the shared secret to device or network is disclosed, it is possible to control the device or observe data emitted from the device.  
+**Спуфинг, раскрытие информации**. Устройства с ограниченными функциями и специализированные устройства часто используют общие средства защиты, такие как пароль или ПИН-код, или используют только отношение доверия к сети. Это значит, что они будут предоставлять доступ к сведениям устройств в той же сети, а сети зачастую защищены только общим ключом. Следовательно, при раскрытии общего секрета устройства или сети можно будет управлять этим устройством или просматривать данные, которые оно отправляет.
 
-**Spoofing**: an attacker may intercept or partially override the broadcast and spoof the originator (man in the middle)
+**Спуфинг**. Злоумышленник может перехватить сигнал вещания, частично переопределить его данные или выдать себя за отправителя (вмешаться).
 
-**Tampering**: an attacker may intercept or partially override the broadcast and send false information 
+**Незаконное изменение**. Злоумышленник может перехватить сигнал вещания, частично переопределить его данные и отправить ложные сведения.
 
-**Information Disclosure:** an attacker may eavesdrop on a broadcast and obtain information without authorization **Denial of Service:** an attacker may jam the broadcast signal and deny information distribution
+**Раскрытие информации**. Злоумышленник может перехватывать сигнал вещания и получить сведения без авторизации. **Отказ в обслуживании**. Злоумышленник может перехватить сигнал вещания и отказать в распространении информации.
 
-#### <a name="storage"></a>Storage
+#### Хранилище
 
-Every device and field gateway has some form of storage (temporary for queuing the data, os image storage).
+У каждого устройства и полевого шлюза есть определенная форма хранилища (место временного хранения очередей данных или образов операционных систем).
 
-| **Component**                            | **Threat** | **Mitigation**                       | **Risk**                                                                                                                                                                                                                                                                                                                | **Implementation**                                                                                                                                                     |
+| **Компонент** | **Threat** | **Устранение** | **Риск** | **Реализация** |
 |------------------------------------------|------------|--------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Device storage                           | TRID       | Storage encryption, signing the logs | Reading data from the storage (PII data), tampering with telemetry data. Tampering with queued or cached command control data. Tampering with configuration or firmware update packages while cached or queued locally can lead to OS and/or system components being compromised                                         | Encryption, message authentication code (MAC) or digital signature. Where possible, strong access control through resource access control lists (ACLs) or permissions. |
-| Device OS image                          | TRID       |                                      | Tampering with OS /replacing the OS components                                                                                                                                                                                                                                                                         | Read-only OS partition, signed OS image, Encryption                                                                                                                    |
-| Field Gateway storage (queuing the data) | TRID       | Storage encryption, signing the logs | Reading data from the storage (PII data), tampering with telemetry data, tampering with queued or cached command control data. Tampering with configuration or firmware update packages (destined for devices or field gateway) while cached or queued locally can lead to OS and/or system components being compromised | BitLocker                                                                                                                                                              |
-| Field Gateway OS image                   | TRID       |                                      | Tampering with OS /replacing the OS components                                                                                                                                                                                                                                                                          | Read-only OS partition, signed OS image, Encryption                                                                                                                    |
+| Хранилище устройства | TRID | Шифрование хранилища, подписывание журналов | Чтение (личных) данных из хранилища, незаконное изменение данных телеметрии. Незаконное изменение данных управления командами, которые находятся в очереди или кэше. Незаконное изменение пакетов обновления конфигурации или встроенного ПО, которые есть в локальной очереди или локальном кэше, может повлечь компрометацию операционной системы или ее компонентов. | Шифрование, использование кода проверки подлинности сообщения или цифровых подписей. Обеспечение строгого контроля доступа к ресурсам с помощью списков управления доступом (ACL) или разрешений |
+| Образ ОС устройства | TRID | | Незаконное изменение ОС или замена ее компонентов | Секционирование ОС только для чтения, подписывание образов ОС, шифрование |
+| Хранилище полевого шлюза (для хранения очередей данных) | TRID | Шифрование хранилища, подписывание журналов | Чтение (личных) данных из хранилища, незаконное изменение данных телеметрии, а также данных управления командами, которые находятся в очереди или кэше. Незаконное изменение пакетов обновления конфигурации или встроенного ПО (предназначенных для устройств или полевого шлюза), которые есть в локальной очереди или локальном кэше, может повлечь компрометацию операционной системы или ее компонентов. | BitLocker |
+| Образ ОС полевого шлюза | TRID | | Незаконное изменение ОС или замена ее компонентов | Секционирование ОС только для чтения, подписывание образов ОС, шифрование |
 
-### <a name="device-and-event-processing/cloud-gateway-zone"></a>Device and event processing/cloud gateway zone
+### Обработка устройств и событий. Зона облачного шлюза
 
-A cloud gateway is system that enables remote communication from and to devices or field gateways from several different sites across public network space, typically towards a cloud-based control and data analysis system, a federation of such systems. In some cases, a cloud gateway may immediately facilitate access to special-purpose devices from terminals such as tablets or phones. In the context discussed here, “cloud” is meant to refer to a dedicated data processing system that is not bound to the same site as the attached devices or field gateways, and where operational measures prevent targeted physical access but is not necessarily to a “public cloud” infrastructure.  A cloud gateway may potentially be mapped into a network virtualization overlay to insulate the cloud gateway and all of its attached devices or field gateways from any other network traffic. The cloud gateway itself is neither a device control system nor a processing or storage facility for device data; those facilities interface with the cloud gateway. The cloud gateway zone includes the cloud gateway itself along with all field gateways and devices directly or indirectly attached to it.
+Облачный шлюз — это система, которая обеспечивает удаленный обмен данными между устройствами или полевыми шлюзами поля из нескольких различных сайтов через пространство общедоступной сети. Обычно данные передаются в облачную систему управления и анализа данных или федерацию таких систем. В некоторых случаях облачный шлюз позволяет немедленно получить доступ к специализированным устройствам с помощью таких терминалов, как планшеты или телефоны. В этом контексте под облаком подразумевается выделенная система обработки данных, непривязанная к тому же сайту, что подключенные устройства или полевые шлюзы. В облаке операционные измерения предотвращают целевой физический доступ и не всегда доступны в инфраструктуре общедоступного облака. Облачный шлюз можно сопоставить с наложением виртуализации сети, чтобы изолировать трафик этого шлюза и всех устройств или полевых шлюзов, подключенных к нему, от сетевого трафика. Сам облачный шлюз не является ни системой управления устройствами, ни средством обработки или хранения данных устройств. Эти средства только взаимодействуют с ним. Зона облачного шлюза включает в себя сам облачный шлюз и все полевые шлюзы и устройства, прямо или опосредованно подключенные к нему.
 
-Cloud gateway is mostly custom built piece of software running as a service with exposed endpoints to which field gateway and devices connect. As such it must be designed with security in mind. Please follow [SDL](http://www.microsoft.com/sdl) process for designing and building this service. 
+Облачный шлюз — в большей степени компонент программного обеспечения, разрабатываемый пользователями, который работает в качестве службы и предоставляет конечные точки для подключения устройств и полевого шлюза. Следовательно, при его разработке нужно спланировать систему безопасности. При разработке и создании этой службы следуйте соответствующей процедуре для [SDL](http://www.microsoft.com/sdl).
 
-#### <a name="services-zone"></a>Services zone
+#### Зона служб
 
-A control system (or controller) is a software solution that interfaces with a device, or a field gateway, or cloud gateway for the purpose of controlling one or multiple devices and/or to collect and/or store and/or analyze device data for presentation, or subsequent control purposes. Control systems are the only entities in the scope of this discussion that may immediately facilitate interaction with people. The exception are intermediate physical control surfaces on devices, like a switch that allows a person to turn the device off or change other properties, and for which there is no functional equivalent that can be accessed digitally. 
+Система контроля (или контроллер) — это программное решение, которое взаимодействует с устройством, полевым или облачным шлюзом, чтобы контролировать одно или несколько устройств, собирать, хранить и/или анализировать их данные. Оно позволяет использовать результаты, чтобы сформировать представление, или для дальнейшего контроля. Это единственная сущность в этом обсуждении, которая позволяет немедленно получить доступ для взаимодействия с пользователями. Исключение представляют промежуточные физические зоны контроля на устройствах, такие как выключатели. Они позволяют выключать устройства, а также изменять свойства. Другого такого функционального устройства, к которому можно получить цифровой доступ, нет.
 
-Intermediate physical control surfaces are those where any sort of governing logic constrains the function of the physical control surface such that an equivalent function can be initiated remotely or input conflicts with remote input can be avoided – such intermediated control surfaces are conceptually attached to a local control system that leverages the same underlying functionality as any other remote control system that the device may be attached to in parallel. Top threats to the cloud computing can be read at [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/) page.
+Промежуточные физические зоны контроля — это области, в которых логики регулирования ограничивают функции физической зоны контроля, чтобы предотвратить удаленное управление эквивалентными функциями или конфликты удаленного ввода. Эти промежуточные зоны по сути подключаются к локальной системе управления, которая использует те же базовые функции, что и любая другая система удаленного управления, к которой устройство может быть подключено параллельно. Дополнительные сведения о самых распространенных угрозах безопасности облачных вычислений см. на странице [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/research/top-threats/).
 
 
-## <a name="additional-resources"></a>Additional resources
+## Дополнительные ресурсы
 
-Refer to the following articles for additional information:
+Дополнительные сведения см. в следующих статьях:
 
-- [SDL Threat Modeling Tool](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-- [Microsoft Azure IoT reference architecture](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
+- [SDL Threat Modeling Tool (Средство моделирования рисков SDL)](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
+- [Microsoft Azure IoT reference architecture (Эталонная архитектура Microsoft Azure IoT)](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
  
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0928_2016-->

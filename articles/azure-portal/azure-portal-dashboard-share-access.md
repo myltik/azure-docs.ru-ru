@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure portal dashboard access | Microsoft Azure"
-   description="This article explains how to share access to a dashboard in the Azure portal."
+   pageTitle="Доступ к панели мониторинга на портале Azure | Microsoft Azure"
+   description="В этой статье описывается, как предоставить общий доступ к панели мониторинга на портале Azure."
    services="azure-portal"
    documentationCenter=""
    authors="tfitzmac"
@@ -16,73 +16,69 @@
    ms.date="08/01/2016"
    ms.author="tomfitz"/>
 
+# Совместное использование панелей мониторинга Azure
 
-# <a name="sharing-azure-dashboards"></a>Sharing Azure dashboards
+После настройки панели мониторинга ее можно опубликовать и использовать совместно с другими пользователями в организации. Предоставить другим пользователям доступ к панели мониторинга Azure можно с помощью [управления доступом на основе ролей](../active-directory/role-based-access-control-configure.md). Роль назначается пользователю или группе пользователей. Она определяет, можно ли пользователям просматривать или изменять опубликованную панель мониторинга.
 
-After configuring a dashboard, you can publish it and share it with other users in your organization. You permit others to access your dashboard by using Azure [Role Based Access Control](../active-directory/role-based-access-control-configure.md). You assign a user or group of users to a role, and that role defines whether those users can view or modify the published dashboard. 
+Все опубликованные панели мониторинга реализуются как ресурсы Azure, т. е. они представлены в качестве управляемых элементов в рамках подписки и находятся в группе ресурсов. С точки зрения контроля доступа панели мониторинга ничем не отличаются от других ресурсов, например виртуальной машины и учетной записи хранения.
 
-All published dashboards are implemented as Azure resources, which means they exist as manageable items within your subscription and are contained in a resource group.  From an access control perspective, dashboards are no different than other resources, such as a virtual machine or a storage account.
+> [AZURE.TIP] Отдельные элементы на панели мониторинга принудительно применяют собственные требования к контролю доступа (в зависимости от отображаемых ими ресурсов). Таким образом, можно создать панель мониторинга с более широкими возможностями совместного использования, по-прежнему обеспечивая защиту данных в отдельных элементах.
 
-> [AZURE.TIP] Individual tiles on the dashboard enforce their own access control requirements based on the resources they display.  Therefore, you can design a dashboard that is shared broadly while still protecting the data on individual tiles.
+## Общие сведения о контроле доступа для панелей мониторинга
 
-## <a name="understanding-access-control-for-dashboards"></a>Understanding access control for dashboards
+С помощью управления доступом на основе ролей пользователям можно назначать роли на трех разных уровнях области:
 
-With role-based access control, you can assign users to roles at three different levels of scope:
-
-- subscription
+- подписку
 - resource group
 - resource
 
-The permissions you assign are inherited from subscription down to the resource. The published dashboard is a resource. Therefore, you may already have users assigned to roles for the subscription which also work for the published dashboard. 
+Разрешения, которые вы назначаете, наследуются от подписки до ресурса. Опубликованная панель мониторинга — это ресурс. Значит, пользователям уже могут быть назначены роли для подписки, которая также относится к опубликованной панели мониторинга.
 
-Here is an example.  Let's say you have an Azure subscription and various members of your team have been assigned the roles of **owner**, **contributor**, or **reader** for the subscription. Users who are owners or contributors are able to list, view, create, modify, or delete dashboards within the subscription.  Users who are readers are able to list and view dashboards, but cannot modify or delete them.  Users with reader access are able to make local edits to a published dashboard (such as, when troubleshooting an issue), but are not able to publish those changes back to the server.  They will have the option to make a private copy of the dashboard for themselves
+Ниже приведен пример. Допустим, у вас есть подписка Azure, а некоторым участникам рабочей группы назначены роли **владельца**, **участника** или **читателя** в подписке. Пользователи, являющиеся владельцами или участниками, могут просматривать, создавать, изменять и удалять панели мониторинга в подписке, а также получать их списки. Пользователи, являющиеся читателями, могут просматривать панели мониторинга и получать их списки, но не могут изменять или удалять их. Пользователи с доступом для чтения могут вносить локальные изменения в опубликованную панель мониторинга (например, при устранении неполадок), но не могут публиковать эти изменения на сервере. Они получат возможность создать закрытую копию панели мониторинга для собственных потребностей.
 
-However, you could also assign permissions to the resource group that contains several dashboards or to an individual dashboard. For example, you may decide that a group of users should have limited permissions across the subscription but greater access to a particular dashboard. You assign those users to a role for that dashboard. 
+Однако можно назначать разрешения для группы ресурсов, содержащей несколько панелей мониторинга, или для отдельной панели мониторинга. Например, вы можете решить, что группа пользователей должна располагать ограниченными разрешениями в подписке, но иметь доступ более высокого уровня к определенной панели мониторинга. Таким образом, пользователям необходимо назначить роль для этой панели мониторинга.
 
-## <a name="publish-dashboard"></a>Publish dashboard
+## Публикация панели мониторинга
 
-Let's suppose you have finished configuring a dashboard that you want to share with a group of users in your subscription. The steps below depict a customized group called Storage Managers, but you can name your group whatever you would like. For information about creating an Active Directory group and adding users to that group, see [Managing groups in Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
+Предположим, что вы завершили настройку панели мониторинга, которую необходимо использовать совместно с группой пользователей в вашей подписке. В следующих шагах описывается настроенная группа, которая называется "Менеджеры хранилищ" (вы можете присвоить группе любое другое имя). Сведения о создании группы Active Directory и добавлении в нее пользователей см. в статье [Управление группами в Azure Active Directory](../active-directory/active-directory-accessmanagement-manage-groups.md).
 
-1. In the dashboard, select **Share**.
+1. На панели мониторинга выберите **Общий доступ**.
 
-     ![select share](./media/azure-portal-dashboard-share-access/select-share.png)
+     ![выбрать "Общий доступ"](./media/azure-portal-dashboard-share-access/select-share.png)
 
-2. Before assigning access, you must publish the dashboard. By default, the dashboard will be published to a resource group named **dashboards**. Select **Publish**.
+2. Перед назначением доступа необходимо опубликовать панель мониторинга. По умолчанию панель мониторинга будет опубликована в группе ресурсов с именем **Панели мониторинга**. Нажмите кнопку **Опубликовать**.
 
      ![publish](./media/azure-portal-dashboard-share-access/publish.png)
 
-Your dashboard is now published. If the permissions inherited from the subscription are suitable, you do not need to do anything more. Other users in your organization will be able to access and modify the dashboard based on their subscription level role. However, for this tutorial, let's assign a group of users to a role for that dashboard.
+Панель мониторинга опубликована. Если разрешения, унаследованные от подписки, подходят, больше ничего не нужно делать. Другие пользователи в организации смогут получать доступ к панели мониторинга и изменять ее на основе роли уровня подписки. Однако в целях этого руководства давайте назначим группе пользователей роль для этой панели мониторинга.
 
-## <a name="assign-access-to-a-dashboard"></a>Assign access to a dashboard
+## Назначение доступа к панели мониторинга
 
-1. After publishing the dashboard, select **Manage users**.
+1. После публикации панели мониторинга щелкните **Управление пользователями**.
 
-     ![manage users](./media/azure-portal-dashboard-share-access/manage-users.png)
+     ![управлять пользователями.](./media/azure-portal-dashboard-share-access/manage-users.png)
 
-2. You will see a list of existing users that are already assigned a role for this dashboard. Your list of existing users will be different than the image below. Most likely, the assignments are inherited from the subscription. To add a new user or group, select **Add**.
+2. Появится список имеющихся пользователей, которым уже назначена роль для этой панели мониторинга. Ваш список имеющихся пользователей будет отличаться от приведенного на рисунке ниже. Скорее всего, назначения будут унаследованы от подписки. Щелкните **Добавить**, чтобы добавить нового пользователя или группу.
 
-     ![add user](./media/azure-portal-dashboard-share-access/existing-users.png)
+     ![добавить пользователя](./media/azure-portal-dashboard-share-access/existing-users.png)
 
-3. Select the role that represents the permissions you would like to grant. For this example, select **Contributor**.
+3. Выберите роль, соответствующую разрешениям, которые нужно предоставить. В этом примере щелкните **Участник**.
 
-     ![select role](./media/azure-portal-dashboard-share-access/select-role.png)
+     ![выбрать роль](./media/azure-portal-dashboard-share-access/select-role.png)
 
-4. Select the user or group that you wish to assign to the role. If you do not see the user or group you are looking for in the list, use the search box. Your list of available groups will depend on the groups you have created in your Active Directory.
+4. Выберите пользователя или группу, которым нужно назначить роль. Если необходимых пользователя или группы нет в списке, используйте поле поиска. В списке доступных групп будут отображаться группы, созданные в Active Directory.
 
-     ![select user](./media/azure-portal-dashboard-share-access/select-user.png) 
+     ![выбрать пользователя](./media/azure-portal-dashboard-share-access/select-user.png)
 
-5. When you have finished adding users or groups, select **OK**. 
+5. По завершении добавления пользователей или групп нажмите кнопку **ОК**.
 
-6. The new assignment is added to the list of users. Notice that its **Access** is listed as **Assigned** rather than **Inherited**.
+6. Новое назначение будет добавлено в список пользователей. Обратите внимание, что для **доступа** задано состояние **Назначенный**, а не **Унаследованный**.
 
-     ![assigned roles](./media/azure-portal-dashboard-share-access/assigned-roles.png)
+     ![назначенные роли](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- For a list of roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md).
-- To learn about managing resources, see [Manage Azure resources through portal](resource-group-portal.md).
+- Сведения о списке ролей см. в статье [RBAC: встроенные роли](../active-directory/role-based-access-built-in-roles.md).
+- Сведения об управлении ресурсами см. в статье [Управление ресурсами Azure через портал](resource-group-portal.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

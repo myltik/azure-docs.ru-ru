@@ -1,125 +1,120 @@
 <properties
-    pageTitle="Create your first Windows VM | Microsoft Azure"
-    description="Learn how to create your first Windows virtual machine by using the Azure portal."
-    keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Создание первой виртуальной машины Windows | Microsoft Azure"
+	description="Узнайте, как создать первую виртуальную машину Windows с помощью портала Azure."
+	keywords="виртуальная машина Windows, создать виртуальную машину, виртуальный компьютер, настроить виртуальную машину"
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 <tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="09/06/2016"
-    ms.author="cynthn"/>
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="09/06/2016"
+	ms.author="cynthn"/>
+
+# Создание первой виртуальной машины Windows на портале Azure
+
+В этом руководстве мы покажем, как на портале Azure всего за несколько минут можно создать виртуальную машину Windows.
+
+Если у вас еще нет подписки Azure, [создайте бесплатную учетную запись Azure](https://azure.microsoft.com/free/), прежде чем начинать работу.
+
+## Выбор образа виртуальной машины из Marketplace
+
+Мы будем использовать в качестве примера образ Windows Server 2012 R2 Datacenter — один из многих образов, доступных в Azure. Доступность образов зависит от подписки. Например, [подписчикам MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) могут быть доступны некоторые образы для настольных компьютеров.
+
+1. Выполните вход на [портал Azure](https://portal.azure.com).
+
+2. В главном меню последовательно выберите **Создать** > **Виртуальные машины** > **Windows Server 2012 R2 Datacenter**.
+
+	![Снимок экрана с доступными на портале образами виртуальных машин Azure](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 
 
-# <a name="create-your-first-windows-virtual-machine-in-the-azure-portal"></a>Create your first Windows virtual machine in the Azure portal
+3. В колонке **Windows Server 2012 R2 Datacenter** в раскрывающемся списке **Выбор модели развертывания** выберите **Resource Manager**. Щелкните **Создать**.
 
-This tutorial shows you how easy it is to create a Windows virtual machine (VM) in just a few minutes, by using the Azure portal.  
+	![Снимок экрана: модель развертывания, доступная для выбора при создании виртуальной машины](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+## Создание виртуальной машины Windows
 
-## <a name="choose-the-vm-image-from-the-marketplace"></a>Choose the VM image from the marketplace
+Выбрав образ, можно оставить значения, используемые по умолчанию, и быстро создать виртуальную машину.
 
-We use a Windows Server 2012 R2 Datacenter image as an example, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, some desktop images are available to [MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+1. В колонке **Основные сведения** в поле **Имя** введите имя виртуальной машины. Оно должно содержать от 1 до 15 знаков и не может включать специальные знаки.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Введите в соответствующих полях **имя пользователя** и надежный **пароль**, который будет использоваться для создания локальной учетной записи на виртуальной машине. Локальная учетная запись используется для входа на виртуальную машину и управления ею.
 
-2. On the hub menu, click **New** > **Virtual Machines** > **Windows Server 2012 R2 Datacenter**.
-
-    ![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
+	Пароль должен содержать от 8 до 123 символов и включать по меньшей мере три из следующих символов: одна строчная буква, одна прописная буква, одна цифра и один специальный символ. См. дополнительную информацию о [требованиях к имени пользователя и паролю](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 
-3. On the **Windows Server 2012 R2 Datacenter** blade, in **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
+3. Выберите существующую [группу ресурсов](../resource-group-overview.md#resource-groups) или введите имя, чтобы создать новую. В раскрывающемся списке **Расположение** выберите расположение центра данных Azure, например **западная часть США**.
 
-    ![Screenshot that shows the deployment model to select for the VM](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
+4. После этого нажмите кнопку **ОК**, чтобы перейти к следующему разделу.
 
-## <a name="create-the-windows-virtual-machine"></a>Create the Windows virtual machine
+	![Снимок экрана: параметры в колонке **Основные сведения** для настройки виртуальной машины Azure](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
 
-After you select the image, you can use the default settings and quickly create the virtual machine.
+	
+5. Выберите [размер](virtual-machines-windows-sizes.md) виртуальной машины и нажмите кнопку **Выбрать**, чтобы продолжить.
 
-1. On the **Basics** blade, enter a **Name** for the virtual machine. The name must be 1-15 characters long and it cannot contain special characters.
+	![Снимок экрана: колонка выбора размера с доступными размерами виртуальной машины Azure](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 
-2. Enter a **User name**, and a strong **Password** that will be used to create a local account on the VM. The local account is used to sign in to and manage the VM. 
+6. В колонке **Параметры** можно изменить параметры сети и хранилища. Для работы с этим руководством можно принять значения по умолчанию. Если вы выбрали размер виртуальной машины, который поддерживает хранилище Azure класса Premium, можно опробовать его, выбрав значение **Premium (SSD)** для параметра **Тип диска**. После внесения изменений нажмите кнопку **ОК**.
 
-    The password must be 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+	![Снимок экрана: колонка "Параметры", где можно настроить дополнительные возможности для виртуальной машины Azure](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
 
+7. Щелкните **Сводка**, чтобы просмотреть выбранные значения. При появлении сообщения **Проверка пройдена** нажмите кнопку **ОК**.
 
-3. Select an existing [Resource group](../resource-group-overview.md#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 
+	![Снимок экрана: страница "Сводка" с параметрами конфигурации, выбранными для виртуальной машины Azure](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 
-4. When you are done, click **OK** to continue to the next section. 
-
-    ![Screenshot that shows the settings on the **Basics** blade for configuring an Azure VM](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-
-    
-5. Choose a VM [size](virtual-machines-windows-sizes.md), and then click **Select** to continue. 
-
-    ![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
-
-6. On the **Settings** blade, you can change the storage and network options. For this tutorial, accept the default settings. If you selected a virtual machine size that supports it, you can try Azure Premium Storage by selecting **Premium (SSD)** in **Disk type**. When you're done making changes, click **OK**.
-
-    ![Screenshot of the Settings blade where you can configure optional features for an Azure VM](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
-
-7. Click **Summary** to review your choices. When you see the **Validation passed** message, click **OK**.
-
-    ![Screenshot of the Summary page that shows the configuration choices made for the Azure VM](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
-
-8. While Azure creates the virtual machine, you can track the progress in **Virtual Machines** on the hub menu. 
+8. Процесс создания виртуальной машины в Azure можно отслеживать в разделе **Виртуальные машины**, выбрав его в главном меню.
 
 
-## <a name="connect-to-the-virtual-machine-and-sign-on"></a>Connect to the virtual machine and sign on
+## Подключение к виртуальной машине и вход
 
-1.  On the hub menu, click **Virtual Machines**.
+1.	В главном меню щелкните **Виртуальные машины**.
 
-2.  Select the virtual machine from the list.
+2.	Затем выберите виртуальную машину из списка.
 
-3. On the blade for the virtual machine, click **Connect**. This creates and downloads a Remote Desktop Protocol file (.rdp file) that is like a shortcut to connect to your machine. You might want to save the file to your desktop for easy access. **Open** this file to connect to your VM.
+3. В колонке виртуальной машины щелкните **Подключить**. В результате этого будет создан и скачан RDP-файл в виде ярлыка, с помощью которого можно подключиться к компьютеру. Этот файл можно сохранить на рабочем столе для быстрого доступа. **Откройте** этот файл, чтобы подключиться к виртуальной машине.
 
-    ![Screenshot of the Azure portal showing how to connect to your VM](./media/virtual-machines-windows-hero-tutorial/connect.png)
+	![Снимок экрана портала Azure: подключение к виртуальной машине](./media/virtual-machines-windows-hero-tutorial/connect.png)
 
-4. You get a warning that the .rdp is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
+4. Появится предупреждение, что издатель RDP-файла неизвестен. Это нормально. Чтобы продолжить, в окне удаленного рабочего стола нажмите кнопку **Подключить**.
 
-    ![Screenshot of a warning about an unknown publisher](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)
+	![Снимок экрана с предупреждением о неизвестном издателе](./media/virtual-machines-windows-hero-tutorial/rdp-warn.png)
 
-5. In the Windows Security window, type the username and password for the local account that you created when you created the VM. The username is entered as *vmname*&#92;*username*, then click **OK**.
+5. В окне "Безопасность Windows" введите имя пользователя и пароль локальной учетной записи, созданной при создании виртуальной машины. Введите имя пользователя в формате *имя виртуальной машины*&#92;*имя пользователя*, а затем нажмите кнопку **ОК**.
 
-    ![Screenshot of entering the VM name, user name and password](./media/virtual-machines-windows-hero-tutorial/credentials.png)
-    
-6.  You get a warning that the certificate cannot be verified. This is normal. Click **Yes** to verify the identity of the virtual machine and finish logging on.
+	![Снимок экрана: ввод имени виртуальной машины, имени пользователя и пароля](./media/virtual-machines-windows-hero-tutorial/credentials.png)
+ 	
+6.	Вы получите предупреждение о том, что сертификат невозможно проверить. Это нормально. Щелкните **Да** для проверки удостоверения виртуальной машины и завершения входа в систему.
 
-    ![Screenshot showing a message abut verifying the identity of the VM](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
-
-
-If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
-
-You can now work with the virtual machine as you would with any other server.
+	![Снимок экрана с сообщением о проверке удостоверения виртуальной машины](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
 
+Если при попытке подключения возникает ошибка, см. сведения в статье [Устранение неполадок с подключением к удаленному рабочему столу на виртуальной машине Azure под управлением Windows](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
-## <a name="optional:-stop-the-vm"></a>Optional: Stop the VM
-
-It is a good idea to stop the VM so you don't incur charges when you aren't actually using it. Just click **Stop** and then click **Yes**.
-
-![Screenshot showing the button to stop a VM](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
-    
-Click the **Start** button to restart the VM when you're ready to use it again.
-
-
-## <a name="next-steps"></a>Next steps
-
-- You can experiment with your new VM by [installing IIS](virtual-machines-windows-hero-role.md). This tutorial also shows how to open port 80 to incoming web traffic using a network security group (NSG). 
-
-- You can also [create a Windows VM by using PowerShell](virtual-machines-windows-ps-create.md) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) by using the Azure CLI.
-
-- If you're interested in automating deployments, see [Create a Windows virtual machine by using a Resource Manager template](virtual-machines-windows-ps-template.md).
+Теперь вы сможете работать с виртуальной машиной так же, как и с любым сервером.
 
 
 
-<!--HONumber=Oct16_HO2-->
+## (Необязательно) Остановка виртуальной машины
+
+Рекомендуется остановить виртуальную машину, чтобы с вас не взималась плата, когда вы фактически ее не используете. Просто щелкните **Прервать** и нажмите кнопку **Да**.
+
+![Снимок экрана: кнопка для остановки работы виртуальной машины](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
+	
+Чтобы перезапустить виртуальную машину для повторного использования, нажмите кнопку **Запустить**.
 
 
+## Дальнейшие действия
+
+- Вы можете поэкспериментировать с новой виртуальной машиной, [установив IIS](virtual-machines-windows-hero-role.md). В этом руководстве также показано, как открыть порт 80 для входящего веб-трафика с помощью группы безопасности сети (NSG).
+
+- Вы также можете [создать виртуальную машину Windows с помощью PowerShell](virtual-machines-windows-ps-create.md) или [виртуальную машину Linux](virtual-machines-linux-quick-create-cli.md) с помощью интерфейса командной строки Azure.
+
+- Если вас интересует автоматизация развертываний, см. статью [Создание виртуальной машины Windows с использованием шаблона Resource Manager](virtual-machines-windows-ps-template.md).
+
+<!---HONumber=AcomDC_0912_2016---->

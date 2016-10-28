@@ -1,96 +1,89 @@
 <properties 
-    pageTitle="How to configure a cloud service (classic portal) | Microsoft Azure" 
-    description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." 
-    services="cloud-services" 
-    documentationCenter="" 
-    authors="Thraka" 
-    manager="timlt" 
-    editor=""/>
+	pageTitle="Настройка облачной службы (классический портал) | Microsoft Azure" 
+	description="Узнайте, как настроить облачные службы в Azure. Как обновить конфигурацию облачной службы и настроить удаленный доступ к экземплярам роли." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
 <tags 
-    ms.service="cloud-services" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/11/2016"
-    ms.author="adegeo"/>
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2016"
+	ms.author="adegeo"/>
 
 
 
 
-
-# <a name="how-to-configure-cloud-services"></a>How to Configure Cloud Services
+# Настройка облачных служб
 
 > [AZURE.SELECTOR]
-- [Azure portal](cloud-services-how-to-configure-portal.md)
-- [Azure classic portal](cloud-services-how-to-configure.md)
+- [Портал Azure](cloud-services-how-to-configure-portal.md)
+- [Классический портал Azure](cloud-services-how-to-configure.md)
 
-You can configure the most commonly used settings for a cloud service in the Azure classic portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
+Часто используемые параметры облачной службы можно настроить на классическом портале Azure. Также можно напрямую изменить файлы конфигурации. Для этого загрузите и измените нужный файл, а затем отправьте его для обновления конфигурации облачной службы. В любом случае обновления конфигурации применяются ко всем экземплярам ролей.
 
-The Azure classic portal also allows you to [enable Remote Desktop Connection for a Role in Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
+Классический портал Azure также позволяет [активировать подключение к удаленному рабочему столу для роли в облачных службах Azure](cloud-services-role-enable-remote-desktop.md)
 
-Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+При наличии как минимум двух экземпляров для каждой роли в процессе обновления конфигурации Azure обеспечивается доступность службы в течение 99,95 % времени. Такая конфигурация позволяет обрабатывать запросы клиентов на одной виртуальной машине во время обновления другой. Дополнительные сведения см. в разделе [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/).
 
-## <a name="change-a-cloud-service"></a>Change a cloud service
+## Изменение облачной службы
 
-1. In the [Azure classic portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
+1. На [классическом портале Azure](http://manage.windowsazure.com/) щелкните **Облачные службы**, затем щелкните имя облачной службы, а после этого элемент **Настройка**.
 
-    ![Configuration Page](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
+    ![Страница «Конфигурация»](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage1.png)
     
-    On the **Configure** page, you can configure monitoring, update role settings, and choose the guest operating system and family for role instances. 
+    На странице **Настройка** можно задать параметры мониторинга, обновить настройки ролей, а также выбрать гостевую операционную систему и семейство для экземпляров роли.
 
-2. In **monitoring**, set the monitoring level to Verbose or Minimal, and configure the diagnostics connection strings that are required for verbose monitoring.
+2. В параметрах **мониторинга** задайте уровень "Подробно" или "Минимальный" и настройте строки подключения диагностики, необходимые для подробного мониторинга.
 
-3. For service roles (grouped by role), you can update the following settings:
+3. Для ролей службы, сгруппированных по ролям, можно обновить следующие параметры:
     
-    >**Settings**  
-    >Modify the values of miscellaneous configuration settings that are specified in the *ConfigurationSettings* elements of the service configuration (.cscfg) file.
+    >**Настройки** — измените значения параметров конфигурации, определенных в элементах *ConfigurationSettings* файла конфигурации службы (CSCFG-файла).
     >
-    >**Certificates**  
-    >Change the certificate thumbprint that's being used in SSL encryption for a role. To change a certificate, you must first upload the new certificate (on the **Certificates** page). Then update the thumbprint in the certificate string displayed in the role settings.
+    >**Сертификаты** — измените отпечаток сертификата, используемый при SSL-шифровании для роли. Чтобы сменить сертификат, загрузите новый сертификат на странице **Сертификаты**. После этого обновите отпечаток сертификата в строке в параметрах роли.
 
-4. In **operating system**, you can change the operating system family or version for role instances, or choose **Automatic** to enable automatic updates of the current operating system version. The operating system settings apply to web roles and worker roles, but do not affect Virtual Machines.
+4. В параметрах **операционной системы** можно задать версию или семейство ОС для экземпляров роли, а также выбрать параметр **Автоматически**, который позволяет включить автоматическое обновление текущей версии ОС. Настройки ОС распространяются на веб-роли и рабочие роли, но не влияют на виртуальные машины.
 
-    During deployment, the most recent operating system version is installed on all role instances, and the operating systems are updated automatically by default. 
+    В процессе развертывания на все экземпляры роли устанавливается последняя версия ОС с включенным по умолчанию автоматическим обновлением.
     
-    If you need for your cloud service to run on a different operating system version because of compatibility requirements in your code, you can choose an operating system family and version. When you choose a specific operating system version, automatic operating system updates for the cloud service are suspended. You will need to ensure the operating systems receive updates.
+    Если требования к совместимости кода предусматривают работу с облачной службой в другой версии операционной системы, можно выбрать нужные версию и семейство ОС. При выборе конкретной версии ОС автоматическое обновление для облачной службы приостанавливается. В этом случае необходимо настроить обновление операционных систем.
     
-    If you resolve all compatibility issues that your apps have with the most recent operating system version, you can enable automatic operating system updates by setting the operating system version to **Automatic**. 
+    Если в последней версии ОС все проблемы с совместимостью приложений устранены, установите значение параметра **Автоматически**, чтобы включить автоматическое обновление операционной системы.
     
-    ![OS Settings](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png)
+    ![Параметры ОС](./media/cloud-services-how-to-configure/CloudServices_ConfigurePage_OSSettings.png)
 
-5. To save your configuration settings, and push them to the role instances, click **Save**. (Click **Discard** to cancel the changes.) **Save** and **Discard** are added to the command bar after you change a setting.
+5. Чтобы сохранить параметры конфигурации и передать их в экземпляры ролей, нажмите кнопку **Сохранить**. (Чтобы отменить изменения, нажмите кнопку **Отменить**.) Кнопки **Сохранить** и **Отменить** добавляются в панель команд после изменения параметра.
 
-## <a name="update-a-cloud-service-configuration-file"></a>Update a cloud service configuration file
+## Обновление файла конфигурации облачной службы
 
-1. Download a cloud service configuration file (.cscfg) with the current configuration. On the **Configure** page for the cloud service, click **Download**. Then click **Save**, or click **Save As** to save the file.
+1. Загрузите файл конфигурации облачной службы (CSCFG) с текущей конфигурацией. На странице **Настройка** облачной службы щелкните **Загрузить**. Далее выберите команды **Сохранить** или **Сохранить как** для сохранения файла.
 
-2. After you update the service configuration file, upload and apply the configuration updates:
+2. Чтобы применить обновления конфигурации, передайте новый файл в службу:
 
-    1. On the **Configure** page, click **Upload**.
+    1. На странице **Настройка** нажмите **Передать**.
     
-        ![Upload Configuration](./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png)
+        ![Отправка конфигурации](./media/cloud-services-how-to-configure/CloudServices_UploadConfigFile.png)
     
-    2. In **Configuration file**, use **Browse** to select the updated .cscfg file.
+    2. На вкладке **Файл конфигурации** нажмите кнопку **Обзор**, чтобы выбрать обновленный CSCFG-файл.
     
-    3. If your cloud service contains any roles that have only one instance, select the **Apply configuration even if one or more roles contain a single instance** check box to enable the configuration updates for the roles to proceed.
+    3. Если в облачной службе содержатся роли с одним экземпляром, установите флажок **Применить, даже если одна или несколько ролей содержат отдельный экземпляр**, чтобы обеспечить обновление конфигурации ролей.
     
-        Unless you define at least two instances of every role, Azure cannot guarantee at least 99.95 percent availability of your cloud service during service configuration updates. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+        Если для каждой роли не определены как минимум два экземпляра, Azure не гарантирует доступность службы в течение 99,95 % времени в процессе обновления конфигурации. Дополнительные сведения см. в разделе [Соглашения об уровне обслуживания](https://azure.microsoft.com/support/legal/sla/).
     
-    4. Click **OK** (checkmark). 
+    4. Нажмите кнопку **OK** (флажок).
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy.md).
-* Configure a [custom domain name](cloud-services-custom-domain-name.md).
-* [Manage your cloud service](cloud-services-how-to-manage.md).
-* [Enable Remote Desktop Connection for a Role in Azure Cloud Services](cloud-services-role-enable-remote-desktop.md)
-* Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).
+* Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy.md).
+* Настройте [пользовательское доменное имя](cloud-services-custom-domain-name.md).
+* [Управляйте облачной службой](cloud-services-how-to-manage.md).
+* [Активация подключения к удаленному рабочему столу для роли в облачных службах Azure](cloud-services-role-enable-remote-desktop.md)
+* Настройка [SSL-сертификатов](cloud-services-configure-ssl-certificate.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

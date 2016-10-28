@@ -1,111 +1,110 @@
 <properties 
-    pageTitle="How to page search results in Azure Search | Microsoft Azure | Hosted cloud search service" 
-    description="Pagination in Azure Search, a hosted cloud search service on Microsoft Azure." 
-    services="search" 
-    documentationCenter="" 
-    authors="HeidiSteen" 
-    manager="jhubbard" 
-    editor=""/>
+	pageTitle="Как разбивать на страницы результаты в Поиске Azure | Microsoft Azure | Размещенная облачная служба поиска" 
+	description="Разбивка на страницы в службе Поиск Azure, размещенной облачной службе поиска в Microsoft Azure." 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="jhubbard" 
+	editor=""/>
 
 <tags 
-    ms.service="search" 
-    ms.devlang="rest-api" 
-    ms.workload="search" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.date="08/29/2016" 
-    ms.author="heidist"/>
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="08/29/2016" 
+	ms.author="heidist"/>
 
+#Разбивка результатов поиска на страницы в службе поиска Azure.#
 
-#<a name="how-to-page-search-results-in-azure-search#"></a>How to page search results in Azure Search#
-
-This article provides guidance on how to use the Azure Search Service REST API to implement standard elements of a search results page, such as total counts, document retrieval, sort orders, and navigation.
+В данной статье приводятся рекомендации по использованию API REST службы поиска Azure для реализации стандартных элементов страницы результатов поиска, например, общего подсчета, извлечения документа, порядка сортировки и навигации.
  
-In every case mentioned below, page-related options that contribute data or information to your search results page are specified through the [Search Document](http://msdn.microsoft.com/library/azure/dn798927.aspx) requests sent to your Azure Search Service. Requests include a GET command, path, and query parameters that inform the service what is being requested, and how to formulate the response.
+В любом из перечисленных ниже случаев связанные со страницей параметры, добавляющие данные или информацию к странице результатов поиска, задаются в запросах [Поиск документа](http://msdn.microsoft.com/library/azure/dn798927.aspx), отправляемых службе поиска Azure. Запросы включают команду GET, путь и параметры запроса, уведомляющие службу о том, что запрашивается и как сформировать ответ.
 
-> [AZURE.NOTE] A valid request includes a number of elements, such as a service URL and path, HTTP verb, `api-version`, and so on. For brevity, we trimmed the examples to highlight just the syntax that is relevant to pagination. Please see the [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) documentation for details about request syntax.
+> [AZURE.NOTE] Допустимый запрос содержит несколько элементов, например URL-адрес службы и путь, HTTP-команду, `api-version` и т. д. Для краткости в примерах указывается только синтаксис, касающийся разбивки на страницы. Подробную информацию о синтаксисе запроса см. в [API REST службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-## <a name="total-hits-and-page-counts"></a>Total hits and Page Counts ##
+## Общее количество совпадений и страниц ##
 
-Showing the total number of results returned from a query, and then returning those results in smaller chunks, is fundamental to virtually all search pages.
+Практически для всех страниц поиска основным является отображение общего количества результатов запроса с последующим их выводом более мелкими порциями.
 
 ![][1]
  
-In Azure Search, you use the `$count`, `$top`, and `$skip` parameters to return these values. The following example shows a sample request for total hits, returned as `@OData.count`:
+В поиске Azure используйте параметры `$count`, `$top` и `$skip` для вывода этих значений. В следующем примере показан образец запроса для общего количества совпадений, возвращаемого как `@OData.count`:
 
-        GET /indexes/onlineCatalog/docs?$count=true
+    	GET /indexes/onlineCatalog/docs?$count=true
 
-Retrieve documents in groups of 15, and also show the total hits, starting at the first page:
+Получать документы группами по 15, а также показывать общее количество совпадений, начиная с первой страницы:
 
-        GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
+		GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
-Paginating results requires both `$top` and `$skip`, where `$top` specifies how many items to return in a batch, and `$skip` specifies how many items to skip. In the following example, each page shows the next 15 items, indicated by the incremental jumps in the `$skip` parameter.
+Разбивка результатов на страницы требует наличия как `$top`, так и `$skip`, где `$top` показывает количество выводимых элементов на странице, а `$skip` — количество элементов, которые нужно пропустить. В следующем примере на каждой странице отображаются очередные 15 элементов, на что указывает пошаговое увеличение параметра `$skip`.
 
-        GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
+    	GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
-        GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=15&$count=true
+    	GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=15&$count=true
 
-        GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
+    	GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
 
-## <a name="layout"></a>Layout  ##
+## Макет  ##
 
-On a search results page, you might want to show a thumbnail image, a subset of fields, and a link to a full product page.
+На странице результатов поиска может потребоваться отобразить эскиз страницы, подмножество полей и ссылку на страницу полной версии продукта.
 
  ![][2]
  
-In Azure Search, you would use `$select` and a lookup command to implement this experience.
+Для реализации данного интерфейса в Поиске Azure используйте `$select` и команду поиска.
 
-To return a subset of fields for a tiled layout:
+Чтобы получить подмножество полей для мозаичного макета:
 
-        GET /indexes/ onlineCatalog/docs?search=*&$select=productName,imageFile,description,price,rating 
+    	GET /indexes/ onlineCatalog/docs?search=*&$select=productName,imageFile,description,price,rating 
 
-Images and media files are not directly searchable and should be stored in another storage platform, such as Azure Blob storage, to reduce costs. In the index and documents, define a field that stores the URL address of the external content. You can then use the field as an image reference. The URL to the image should be in the document.
+Непосредственный поиск в изображениях и файлах мультимедиа невозможен. Для уменьшения расходов они должны сохраняться на другой платформе хранения, такой как хранилище BLOB-объектов Azure. В индексе и документах определите поле, в котором содержится URL-адрес внешнего контента. Затем можно использовать это поле как ссылку на изображение. URL-адрес изображения должен находиться в документе.
 
-To retrieve a product description page for an **onClick** event, use [Lookup Document](http://msdn.microsoft.com/library/azure/dn798929.aspx) to pass in the key of the document to retrieve. The data type of the key is `Edm.String`. In this example, it is *246810*. 
+Чтобы получить страницу описания продукта для события **onClick**, используйте [Поиск документа](http://msdn.microsoft.com/library/azure/dn798929.aspx) для передачи ключа документа, который нужно получить. Тип данных ключа — `Edm.String`. В данном примере это *246810*.
    
-        GET /indexes/onlineCatalog/docs/246810
+    	GET /indexes/onlineCatalog/docs/246810
 
-## <a name="sort-by-relevance,-rating,-or-price"></a>Sort by relevance, rating, or price ##
+## Сортировка по соответствию, оценке или цене ##
 
-Sort orders often default to relevance, but it's common to make alternative sort orders readily available so that customers can quickly reshuffle existing results into a different rank order.
+Порядок сортировки по соответствию часто задан по умолчанию, но обычно альтернативные порядки сортировки подготавливаются заранее, чтобы клиенты могли быстро реорганизовать имеющиеся результаты в другом порядке приоритетности.
 
  ![][3]
 
-In Azure Search, sorting is based on the `$orderby` expression, for all fields that are indexed as `"Sortable": true.`
+В Поиске Azure сортировка основывается на выражении `$orderby` для всех полей, которые индексируются как `"Sortable": true.`
 
-Relevance is strongly associated with scoring profiles. You can use the default scoring, which relies on text analysis and statistics to rank order all results, with higher scores going to documents with more or stronger matches on a search term.
+Соответствие тесно связано с профилями оценки. Можно использовать оценки по умолчанию, зависящие от анализа текста и статистики для расстановки всех результатов по критерию выбора, при этом более высокая оценка дается документам с большим количеством или более точными совпадениями с условием поиска.
 
-Alternative sort orders are typically associated with **onClick** events that call back to a method that builds the sort order. For example, given this page element:
+Альтернативные порядки сортировки обычно связаны с событиями **onClick**, вызывающими метод, который строит выбранный порядок сортировки. Например, если взять этот элемент страницы:
 
  ![][4]
 
-You would create a method that accepts the selected sort option as input, and returns an ordered list for the criteria associated with that option.
+Можно создать метод, который принимает выбранный параметр сортировки в качестве ввода и возвращает список, упорядоченный по критериям, связанным с этим параметром.
 
  ![][5]
  
-> [AZURE.NOTE] While the default scoring is sufficient for many scenarios, we recommend basing relevance on a custom scoring profile instead. A custom scoring profile gives you a way to boost items that are more beneficial to your business. See [Add a scoring profile](http://msdn.microsoft.com/library/azure/dn798928.aspx) for more information. 
+> [AZURE.NOTE] В то время как оценка по умолчанию является достаточной для многих сценариев, рекомендуется, чтобы соответствие основывалось на пользовательском профиле оценки. Пользовательский профиль оценки предоставляет способ повышения приоритета элементов, имеющих большее значение для бизнеса. Более подробную информацию см. в разделе [Добавление профиля оценки](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
-## <a name="faceted-navigation"></a>Faceted navigation ##
+## Фасетная навигация ##
 
-Search navigation is common on a results page, often located at the side or top of a page. In Azure Search, faceted navigation provides self-directed search based on predefined filters. See [Faceted navigation in Azure Search](search-faceted-navigation.md) for details.
+Навигация поиска обычно находится на странице результатов, часто сбоку или вверху страницы. В Поиске Azure фасетная навигация обеспечивает самостоятельный поиск на основе предварительно заданных фильтров. Более подробную информацию см. в [Фасетная навигация в службе поиска Azure](search-faceted-navigation.md).
 
-## <a name="filters-at-the-page-level"></a>Filters at the page level ##
+## Фильтры на уровне страницы ##
 
-If your solution design included dedicated search pages for specific types of content (for example, an online retail application that has departments listed at the top of the page), you can insert a filter expression alongside an **onClick** event to open a page in a prefiltered state. 
+Если решение поиска включает отдельные поисковые страницы для конкретных типов контента (например, приложение для розничной торговли в Интернете с перечнем отделов в верхней части страницы), можно вставить выражение фильтра наряду с событием **onClick**, чтобы затем открыть страницу в состоянии после первичного фильтра.
 
-You can send a filter with or without a search expression. For example, the following request will filter on brand name, returning only those documents that match it.
+Можно отправлять фильтр с выражением поиска или без него. Например, следующий запрос осуществляет фильтрацию по имени бренда, выводя только те документы, которые соответствуют ему.
 
-        GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
+    	GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for more information about `$filter` expressions.
+Более подробную информацию о выражениях `$filter` см. в разделе [Поиск документов (API службы поиска Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-## <a name="see-also"></a>See Also ##
+## См. также ##
 
-- [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)
-- [Index Operations](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-- [Document Operations](http://msdn.microsoft.com/library/azure/dn800962.aspx)
-- [Video and tutorials about Azure Search](search-video-demo-tutorial-list.md)
-- [Faceted Navigation in Azure Search](search-faceted-navigation.md)
+- [REST API службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
+- [Операции с индексами](http://msdn.microsoft.com/library/azure/dn798918.aspx)
+- [Операции с документом.](http://msdn.microsoft.com/library/azure/dn800962.aspx)
+- [Поиск Azure: учебники, видеодемонстрации и примеры](search-video-demo-tutorial-list.md)
+- [Фасетная навигация в службе поиска Azure](search-faceted-navigation.md)
 
 
 <!--Image references-->
@@ -113,10 +112,6 @@ See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azur
 [2]: ./media/search-pagination-page-layout/Pages-2-Tiled.PNG
 [3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
-[5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png 
+[5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

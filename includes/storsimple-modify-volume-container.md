@@ -1,35 +1,29 @@
 <!--author=SharS last changed: 1/7/2016-->
 
-#### <a name="to-modify-a-volume-container"></a>To modify a volume container
+#### Изменение контейнера томов
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+1. На странице **Устройства** выберите устройство, дважды щелкните его и перейдите на вкладку **Контейнеры томов**.
 
-2. In the tabular listing of the volume containers, select the setting that you want to modify, and click **Modify**.
+2. В таблице со списком контейнеров томов выберите параметр, который хотите изменить, и щелкните **Изменить**.
 
-3. In the **Modify Volume container** dialog box, do the following:
+3. В диалоговом окне **Изменение контейнера томов** выполните следующие действия:
 
-    1. Change the name of the volume container and modify the associated bandwidth setting. 
+    1. Измените имя контейнера томов и соответствующий параметр пропускной способности. 
 
-        ![Modify Volume Container with Bandwidth Template 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
+        ![Изменение контейнера томов с использованием шаблона пропускной способности 1](./media/storsimple-modify-volume-container/HCS_ModifyVCBT1-include.png)
 
-    2. The encryption key and storage account cannot be changed after they are specified. If you specified **Select a bandwidth template**, click the arrow to proceed to the next page.
+    2. Изменить указанные ключ шифрования и учетную запись хранения невозможно. Если вы указали вариант **Выбрать шаблон пропускной способности**, щелкните стрелку, чтобы перейти на следующую страницу.
 
-4. In the next page of the **Modify Volume Container** dialog box:
+4. На следующей странице диалогового окна **Изменение контейнера томов** выполните следующие действия:
 
-    1. From the drop-down list, choose an existing bandwidth template.
+    1. Выберите из раскрывающегося списка шаблон пропускной способности.
 
-    2. Review the schedule settings for the specified bandwidth template.
+    2. Проверьте параметры расписания для указанного шаблона.
 
-        ![Modify Volume Container with Bandwidth Template 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
+        ![Изменение контейнера томов с использованием шаблона пропускной способности 2](./media/storsimple-modify-volume-container/HCS_ModifyVCBT2-include.png)
 
-    3. Click the check icon ![check icon](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png) to save the updated settings. The **Volume containers** page will be updated to reflect the changes.
+    3. Щелкните значок галочки ![значок галочки](./media/storsimple-modify-volume-container/HCS_CheckIcon-include.png), чтобы сохранить настройки. Содержимое страницы **Контейнеры томов** будет обновлено с учетом изменений.
 
  
 
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0114_2016-->

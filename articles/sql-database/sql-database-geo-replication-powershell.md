@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Configure Active Geo-Replication for Azure SQL Database using PowerShell | Microsoft Azure" 
-    description="Configure Active Geo-replication for Azure SQL Database using PowerShell" 
+    pageTitle="Настройка активной георепликации баз данных SQL Azure с помощью PowerShell | Microsoft Azure" 
+    description="Настройка активной георепликации для базы данных SQL Azure с помощью PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -16,79 +16,77 @@
     ms.date="07/14/2016"
     ms.author="sstein"/>
 
-
-# <a name="configure-geo-replication-for-azure-sql-database-with-powershell"></a>Configure Geo-Replication for Azure SQL Database with PowerShell
+# Настройка георепликации базы данных SQL Azure с помощью PowerShell
 
 > [AZURE.SELECTOR]
-- [Overview](sql-database-geo-replication-overview.md)
-- [Azure Portal](sql-database-geo-replication-portal.md)
+- [Обзор](sql-database-geo-replication-overview.md)
+- [Портал Azure](sql-database-geo-replication-portal.md)
 - [PowerShell](sql-database-geo-replication-powershell.md)
 - [T-SQL](sql-database-geo-replication-transact-sql.md)
 
-This article shows you how to configure Active Geo-Replication for SQL Database with PowerShell.
+В этой статье показано, как настроить активную георепликацию для базы данных SQL Azure с помощью PowerShell.
 
-To initiate failover using PowerShell, see [Initiate a planned or unplanned failover for Azure SQL Database with PowerShell](sql-database-geo-replication-failover-powershell.md).
+Чтобы инициировать отработку отказа с помощью PowerShell, ознакомьтесь с разделом [Запуск плановой или незапланированной отработки отказа для базы данных SQL Azure с помощью PowerShell](sql-database-geo-replication-failover-powershell.md).
 
->[AZURE.NOTE] Active Geo-Replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
-
-
-
-To configure Active Geo-Replication using PowerShell, you need the following:
-
-- An Azure subscription. 
-- An Azure SQL database - The primary database that you want to replicate.
-- Azure PowerShell 1.0 or later. You can download and install the Azure PowerShell modules by following [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+>[AZURE.NOTE] Активная георепликация (с доступными для чтения базами данных-получателями) теперь доступна для всех баз данных и всех уровней обслуживания. В апреле 2017 г. недоступные для чтения базы данных-получатели будут удалены, и существующие недоступные для чтения базы данных-получатели будут автоматически преобразованы в доступные для чтения.
 
 
-## <a name="configure-your-credentials-and-select-your-subscription"></a>Configure your credentials and select your subscription
 
-First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure portal.
+Для настройки активной георепликации с помощью PowerShell необходимо следующее.
 
-
-    Login-AzureRmAccount
-
-After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
+- Подписка Azure.
+- База данных SQL Azure — база данных-источник, которую необходимо реплицировать.
+- Azure PowerShell, начиная с версии 1.0. Модули Azure PowerShell можно загрузить и установить, выполнив инструкции из раздела [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 
-### <a name="select-your-azure-subscription"></a>Select your Azure subscription
+## Настройка учетных данных и выбор подписки
 
-To select the subscription you need your subscription Id. You can copy the subscription Id from the information displayed from the previous step, or if you have multiple subscriptions and need more details you can run the **Get-AzureRmSubscription** cmdlet and copy the desired subscription information from the resultset. The following cmdlet uses the subscription Id to set the current subscription:
-
-    Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-
-After successfully running **Select-AzureRmSubscription** you are returned to the PowerShell prompt.
+Для начала установите доступ к учетной записи Azure. Для этого запустите PowerShell и выполните указанный ниже командлет. На экране входа в систему укажите те же адрес электронной почты и пароль, которые используются для входа на портал Azure.
 
 
-## <a name="add-secondary-database"></a>Add secondary database
+	Login-AzureRmAccount
+
+После успешного входа на экране будут отображаться некоторые сведения, включая идентификатор, под которым вы вошли в систему, и подписки Azure, к которым у вас есть доступ.
 
 
-The following steps create a new secondary database in a Geo-Replication partnership.  
+### Выбор подписки Azure
+
+Для выбора подписки вам нужно знать ее идентификатор. Идентификатор подписки можно скопировать из данных, которые были показаны на предыдущем этапе. Если у вас несколько подписок и вам нужны дополнительные данные, выполните командлет **Get-AzureRmSubscription** и скопируйте нужные данные из полученных результатов. С помощью идентификатора подписки приведенный ниже командлет задает текущую подписку:
+
+	Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
+
+После успешного выполнения командлета **Select-AzureRmSubscription** вы вернетесь в командную строку PowerShell.
+
+
+## Добавление базы данных-получателя
+
+
+Следующие действия позволяют создать новую базу данных-получатель в связи георепликации.
   
-To enable a secondary you must be the subscription owner or co-owner. 
+Включить базу данных-получатель может только владелец или совладелец подписки.
 
-You can use the **New-AzureRmSqlDatabaseSecondary** cmdlet to add a secondary database on a partner server to a local database on the server to which you are connected (the primary database). 
+Чтобы добавить базу данных-получатель на сервере-партнере в локальную базу данных на сервере, к которому выполняется подключение (база данных-источник), используйте командлет **New-AzureRmSqlDatabaseSecondary**.
 
-This cmdlet replaces **Start-AzureSqlDatabaseCopy** with the **–IsContinuous** parameter.  It will output an **AzureRmSqlDatabaseSecondary** object that can be used by other cmdlets to clearly identify a specific replication link. This cmdlet will return when the secondary database is created and fully seeded. Depending on the size of the database it may take from minutes to hours.
+Этот командлет заменяет параметр **Start-AzureSqlDatabaseCopy** на **–IsContinuous**. Он выдает объект **AzureRmSqlDatabaseSecondary**, который может использоваться другими командлетами для четкого определения конкретной связи репликации. Этот командлет возвращает результат после создания и полного заполнения базы данных-получателя. В зависимости от размера базы данных этот процесс может длиться от нескольких минут до нескольких часов.
 
-The replicated database on the secondary server will have the same name as the database on the primary server and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a single database or an elastic database. For more information, see [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) and [Service Tiers](sql-database-service-tiers.md).
-After the secondary is created and seeded, data will begin replicating from the primary database to the new secondary database. The steps below describe how to accomplish this task using PowerShell to create non-readable and readable secondaries, either with a single database or an elastic database.
+Реплицированная база данных на сервере-получателе будет иметь такое же имя, как и база данных на сервере-источнике, и по умолчанию тот же уровень службы. База данных-получатель может быть доступной или недоступной для чтения, отдельной или эластичной. Дополнительные сведения см. в статьях [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) и [Уровни служб](sql-database-service-tiers.md). После создания и заполнения базы данных-получателя начинается репликация данных из базы данных-источника в новую базу-данных-получателя. Ниже описано, как выполнить эту задачу с помощью PowerShell, чтобы создать доступную или недоступную для чтения базу данных-получателя с отдельной или эластичной базой данных.
 
-If the partner database already exists (for example - as a result of terminating a previous Geo-Replication relationship) the command will fail.
-
+Если база данных-партнер уже создана (например, в результате прекращения предыдущей связи георепликации), выполнение команды завершится сбоем.
 
 
-### <a name="add-a-non-readable-secondary-(single-database)"></a>Add a non-readable secondary (single database)
 
-The following command creates a non-readable secondary of database "mydb" of server "srv2" in resource group "rg2":
+### Добавление недоступной для чтения отдельной базы данных-получателя
+
+Следующая команда создает недоступную для чтения базу данных-получателя базы данных mydb сервера srv2 в группе ресурсов rg2:
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "No"
 
 
 
-### <a name="add-readable-secondary-(single-database)"></a>Add readable secondary (single database)
+### Добавление доступной для чтения отдельной базы данных-получателя
 
-The following command creates a readable secondary of database "mydb" of server "srv2" in resource group "rg2":
+Следующая команда создает доступную для чтения базу данных-получателя базы данных mydb сервера srv2 в группе ресурсов rg2:
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
@@ -96,17 +94,17 @@ The following command creates a readable secondary of database "mydb" of server 
 
 
 
-### <a name="add-a-non-readable-secondary-(elastic-database)"></a>Add a non-readable secondary (elastic database)
+### Добавление недоступной для чтения эластичной базы данных-получателя
 
-The following command creates a non-readable secondary of database "mydb" in the elastic database pool named "ElasticPool1" of server "srv2" in resource group "rg2":
+Следующая команда создает недоступную для чтения базу данных-получателя базы данных mydb в пуле эластичных баз данных ElasticPool1 сервера srv2 в группе ресурсов rg2:
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
 
 
-### <a name="add-a-readable-secondary-(elastic-database)"></a>Add a readable secondary (elastic database)
+### Добавление доступной для чтения эластичной базы данных-получателя
 
-The following command creates a readable secondary of database "mydb" in the elastic database pool named "ElasticPool1" of server "srv2" in resource group "rg2":
+Следующая команда создает доступную для чтения базу данных-получателя базы данных mydb в пуле эластичных баз данных ElasticPool1 сервера srv2 в группе ресурсов rg2:
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"
@@ -115,44 +113,39 @@ The following command creates a readable secondary of database "mydb" in the ela
 
 
 
-## <a name="remove-secondary-database"></a>Remove secondary database
+## Удаление базы данных-получателя
 
-Use the **Remove-AzureRmSqlDatabaseSecondary** cmdlet to permanently terminate the replication partnership between a secondary database and its primary. After the relationship termination, the secondary database becomes a read-write database. If the connectivity to secondary database is broken the command succeeds but the secondary will become read-write after connectivity is restored. For more information, see [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) and [Service Tiers](sql-database-service-tiers.md).
+С помощью командлета **Remove-AzureRmSqlDatabaseSecondary** можно навсегда завершить отношение репликации между базой данных-получателем и ее источником. После завершения этого отношения база данных-получатель становится базой данных для чтения и записи. Если подключение к базе данных-получателю прервано, команда все равно будет выполнена. При этом получатель станет базой данных для чтения и записи только тогда, когда восстановится подключение. Дополнительные сведения см. в разделах [Remove-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603457.aspx) и [Уровни служб](sql-database-service-tiers.md).
 
-This cmdlet replaces Stop-AzureSqlDatabaseCopy for replication. 
+Этот командлет заменяет Stop-AzureSqlDatabaseCopy для репликации.
 
-This removal is equivalent of a forced termination that removes the replication link and leaves the former secondary as a standalone database that is not fully replicated prior to termination. All link data will be cleaned up on both the former primary and former secondary, if or when they are available. This cmdlet will return when the replication link is removed. 
+Такое удаление эквивалентно принудительному завершению, которое удаляет канал репликации и оставляет бывшую базу данных-получателя в качестве автономной базы данных, репликация которой выполнена не полностью перед завершением работы. Все данные связи (если доступны) на предыдущем отправителе и предыдущем получателе будут очищены. Этот командлет возвращает результат при удалении связи репликации.
 
 
-In order to remove secondary, users should have write access to both primary and secondary databases according to RBAC. See Role-based access control for details.
+Чтобы удалить получателя, пользователи должны иметь доступ на запись к базе данных-источнику и базе данных-получателю в соответствии с RBAC. Дополнительные сведения см. в разделе "Контроль доступа на основе ролей".
 
-The following removes replication link of database named "mydb" to server "srv2" of the resource group "rg2". 
+Следующие действия удаляют связь репликации между базой данных с именем mydb и сервером srv2 из группы ресурсов rg2.
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –SecondaryResourceGroup "rg2" –PartnerServerName "srv2"
     $secondaryLink | Remove-AzureRmSqlDatabaseSecondary 
 
 
-## <a name="monitor-geo-replication-configuration-and-health"></a>Monitor geo-replication configuration and health
+## Мониторинг конфигурации и работоспособности георепликации
 
-Monitoring tasks include monitoring of the geo-replication configuration and monitoring data replication health.  
+К задачам мониторинга относятся мониторинг конфигурации георепликации и мониторинг работоспособности репликации данных.
 
-[Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) can be used to retrieve the information about the forward replication links visible in the sys.geo_replication_links catalog view.
+Командлет [Get-AzureRmSqlDatabaseReplicationLink](https://msdn.microsoft.com/library/mt619330.aspx) можно использовать для получения сведений о каналах прямой репликации, отображаемых в представлении каталога sys.geo\_replication\_links.
 
-The following command retrieves status of the replication link between the primary database "mydb” and the secondary on server "srv2” of the resource group "rg2”.
+Следующая команда отображает состояние канала репликации между базой данных-источником mydb и базой данных-получателем на сервере srv2 из группы ресурсов rg2.
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | Get-AzureRmSqlDatabaseReplicationLink –PartnerResourceGroup "rg2” –PartnerServerName "srv2”
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- To learn more about Active Geo-Replication, see - [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
+- Чтобы больше узнать об активной георепликации, ознакомьтесь с разделом [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
+- Сведения об обеспечении непрерывности бизнес-процессов и возможные сценарии описаны в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

@@ -1,57 +1,50 @@
 <properties
-    pageTitle="Best Practices for Azure App Service"
-    description="Learn best practices and troubleshooting for Azure App Service."
-    services="app-service"
-    documentationCenter=""
-    authors="dariagrigoriu"
-    manager="wpickett"
-    editor="mollybos"/>
+	pageTitle="Рекомендации по использованию службы приложений Azure"
+	description="Ознакомьтесь с рекомендациями и методами устранения неполадок для службы приложений Azure."
+	services="app-service"
+	documentationCenter=""
+	authors="dariagrigoriu"
+	manager="wpickett"
+	editor="mollybos"/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/30/2016"
-    ms.author="dariagrigoriu"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2016"
+	ms.author="dariagrigoriu"/>
     
+# Рекомендации по использованию службы приложений Azure
 
-# <a name="best-practices-for-azure-app-service"></a>Best Practices for Azure App Service
+В этой статье собраны рекомендации по использованию [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-This article summarizes best practices for using [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 
+## <a name="colocation"></a> Совместное размещение
+Если входящие в решение ресурсы Azure, например веб-приложения и базы данных, находятся в разных регионах, возможны следующие последствия:
 
-## <a name="<a-name="colocation"></a>colocation"></a><a name="colocation"></a>Colocation
-When Azure resources composing a solution such as a web app and a database are located in different regions the effects can include the following:
+*  увеличение задержки при взаимодействии между ресурсами,
+*  денежные расходы на передачу данных между регионами в соответствии со [стоимостью услуг Azure](https://azure.microsoft.com/pricing/details/data-transfers).
 
-*  Increased latency in communication between resources
-*  Monetary charges for outbound data transfer cross-region as noted on the [Azure pricing page](https://azure.microsoft.com/pricing/details/data-transfers).
+Совместное размещение в одном и том же регионе — оптимальный вариант для ресурсов Azure, составляющих отдельное решение, таких как веб-приложение и база данных, а также учетной записи хранения, в которой хранятся содержимое или данные. При создании ресурсов следует убедиться в том, что они находятся в одном регионе Azure, если иное не диктуется особенностями вашего бизнеса или структуры решения. Вы можете переместить приложение службы приложений в тот же регион, в котором расположена база данных, с помощью [функции клонирования службы приложений](app-service-web-app-cloning-portal.md). В настоящее время она доступна для приложений с планом обслуживания Premium.
 
-Colocation in the same region is best for Azure resources composing a solution such as a web app and a database or storage account used to hold content or data. When creating resources you should make sure they are in the same Azure region unless you have specific business or design reason for them not to be. You can move an App Service app to the same region as your database by leveraging the [App Service cloning feature](app-service-web-app-cloning-portal.md) currently available for Premium App Service Plan apps.   
+## <a name="memoryresources"></a>Если приложения используют больше памяти, чем ожидалось
+Если вы заметите по данным мониторинга или по рекомендациям службы, что приложение использует больше памяти, чем ожидалось, попробуйте применить [функцию автоматического восстановления службы приложений](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). В одном из режимов работы функция автоматического восстановления выполняет действия с учетом заданного порога использования памяти. Возможные действия включают уведомления по электронной почте, исследования с помощью дампа памяти, мгновенное реагирование с перезапуском рабочего процесса. Функция автоматического восстановления настраивается через файл web.config или через удобный пользовательский интерфейс, как описано в записи блога [App Service Support Site Extension](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps) (Расширение сайта поддержки для службы приложений).
 
-## <a name="<a-name="memoryresources"></a>when-apps-consume-more-memory-than-expected"></a><a name="memoryresources"></a>When apps consume more memory than expected
-When you notice an app consumes more memory than expected as indicated via monitoring or service recommendations consider the [App Service Auto-Healing feature](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). One of the options for the Auto-Healing feature is taking custom actions based on a memory threshold. Actions span the spectrum from email notifications to investigation via memory dump to on-the-spot mitigation by recycling the worker process. Auto-healing can be configured via web.config and via a friendly user interface as described at in this blog post for the [App Service Support Site Extension](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
+## <a name="CPUresources"></a>Если приложения используют больше ресурсов ЦП, чем ожидалось
+Если вы заметите по данным мониторинга или по рекомендациям службы, что приложение потребляет больше ресурсов ЦП, чем ожидалось, или регулярно создает пиковые нагрузки на ЦП, примените вертикальное или горизонтальное масштабирование плана службы приложений. Если приложение отслеживает состояние, допустимо только вертикальное масштабирование. Если же приложение работает без сохранения состояния, горизонтальное масштабирование более предпочтительно, поскольку оно обеспечит больше гибкости и возможностей.
 
-## <a name="<a-name="cpuresources"></a>when-apps-consume-more-cpu-than-expected"></a><a name="CPUresources"></a>When apps consume more CPU than expected
-When you notice an app consumes more CPU than expected or experiences repeated CPU spikes as indicated via monitoring or service recommendations consider scaling up or scaling out the App Service plan. If your application is statefull, scaling up is the only option, while if your application is stateless, scaling out will give you more flexibility and higher scale potential. 
+Дополнительные сведения об отслеживании состояния в приложении можно получить в видеопрезентации [Planning a Scalable End-to-End Multi-Tier Application on Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid) (Проектирование масштабируемого полнофункционального многоуровневого приложения в службе приложений Microsoft Azure). Дополнительные сведения о масштабировании службы приложений и возможностях автоматического масштабирования см. в статье [Масштабирование веб-приложения в службе приложений Azure](web-sites-scale.md).
 
-For more information about “statefull” vs “stateless” applications you can watch this video: [Planning a Scalable End-to-End Multi-Tier Application on Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). For more information about App Service scaling and autoscaling options read: [Scale a Web App in Azure App Service](web-sites-scale.md).  
+## <a name="socketresources"></a>Если исчерпаны ресурсы сокетов
+Исчерпание резерва исходящих TCP-подключений обычно происходит, если используемые клиентские библиотеки не поддерживают повторное использование TCP-подключений или не используют метод проверки активности (Keep-Alive) для протоколов более высокого уровня (например, HTTP). Ознакомьтесь с документацией по каждой библиотеке, на которые ссылаются приложения в вашем плане службы приложений, и убедитесь, что настройка этих библиотек и методы их вызова обеспечивают эффективное повторное использование исходящих подключений. Также выполните все приведенные в документации рекомендации по правильному созданию, освобождению и очистке подключений, чтобы избежать утечки данных во время подключений. Пока выполняется эта проверка клиентских библиотек, последствия можно временно устранить, увеличив количество экземпляров.
 
-## <a name="<a-name="socketresources"></a>when-socket-resources-are-exhausted"></a><a name="socketresources"></a>When socket resources are exhausted
-A common reason for exhausting outbound TCP connections is the use of client libraries which are not implemented to reuse TCP connections, or in the case of a higher level protocol such as HTTP - Keep-Alive not being leveraged. Please review the documentation for each of the libraries referenced by the apps in your App Service Plan to ensure they are configured or accessed in your code for efficient reuse of outbound connections. Also follow the library documentation guidance for proper creation and release or cleanup to avoid leaking connections. While such client libraries investigations are in progress impact may be mitigated by scaling out to multiple instances.  
+## <a name="appbackup"></a>Когда начинаются сбои архивации приложения
+Две основные причины, по которым происходят сбои архивации приложения, это недопустимые параметры хранилища и недопустимая конфигурация базы данных. Эти сбои обычно происходят при изменении ресурсов хранилища или базы данных либо в случае изменения способа доступа к этим ресурсам (например, были обновлены учетные данные для базы данных, выбранной в параметрах архивации). Обычно архивация выполняется по расписанию и требует доступа к хранилищу (для вывода резервной копий файлов) и базам данных (для копирования и чтения содержимого, добавляемого в резервную копию). В случае отсутствия доступа к любому из этих ресурсов будет постоянно происходить сбой архивации.
 
-## <a name="<a-name="appbackup"></a>when-your-app-backup-starts-failing"></a><a name="appbackup"></a>When your app backup starts failing
-The two most common reasons why app backup fails are: invalid storage settings and invalid database configuration. These failures typically happen when there are changes to storage or database resources, or changes for how to access these resources (e.g. credentials updated for the database selected in the backup settings). Backups typically run on a schedule and require access to storage (for outputting the backed up files) and databases (for copying and reading contents to be included in the backup). The result of failing to access either of these resources would be consistent backup failure. 
+При возникновении сбоев архивации просмотрите последние результаты, чтобы понять, какого типа происходит сбой. В случае сбоев доступа к хранилищу просмотрите и обновите параметры хранилища, используемые в конфигурации архивации. В случае сбоев доступа к базам данных просмотрите и обновите строки подключения в параметрах приложения. Затем обновите конфигурацию архивации соответствующим образом, добавив в нее необходимые базы данных. Дополнительные сведения об архивации приложений см. в разделе [Резервное копирование веб-приложений в службе приложений Azure](web-sites-backup.md).
 
-When backup failures happen, please review most recent results to understand which type of failure is happening. In the case of storage access failures, please review and update the storage settings used in the backup configuration. In the case of database access failures, please review and update your connections strings as part of app settings; then proceed to update your backup configuration to properly include the required databases. For more information on app backup please see the [Back up a web app in Azure App Service](web-sites-backup.md) documentation.
+## <a name="nodejs"></a>Развертывание новых приложений Node.js в службе приложений Azure
+Конфигурация по умолчанию службы приложений Azure для приложений Node.js предназначена для наиболее распространенных из них. Если в конфигурации для приложения Node.js целесообразно использовать персонализированные настройки, чтобы повысить производительность или оптимизировать использование ресурсов ЦП, памяти и сети, то можно ознакомиться с нашими рекомендациями и действиями по устранению неполадок. В статье [Рекомендации и руководство по устранению неполадок приложений Node в веб-приложениях Azure](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md) описаны параметры IISNode, которые может потребоваться настроить для приложения Node.js. В ней также рассмотрены различные сценарии и проблемы, которые могут возникнуть при работе приложения, и показано, как устранить эти проблемы.
 
-## <a name="<a-name="nodejs"></a>when-new-node.js-apps-are-deployed-to-azure-app-service"></a><a name="nodejs"></a>When new Node.js apps are deployed to Azure App Service
-Azure App Service default configuration for Node.js apps is intended to best suit the needs of most common apps. If configuration for your Node.js app would benefit from personalized tuning to improve performance or optimize resource usage for CPU/memory/network resources, you could review our best practices and troubleshooting steps. This documentation article describes the iisnode settings you may need to configure for your Node.js app, describes the various scenarios or issues that your app may be facing, and shows how to address these issues: [Best practices and troubleshooting guide for Node applications on Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md).   
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Monitor usage and statistics in an Azure Search service | Microsoft Azure | Hosted cloud search service" 
-   description="Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure." 
+   pageTitle="Мониторинг использования и статистики в службе Поиск Azure | Microsoft Azure | Размещенная облачная служба поиска" 
+   description="Отслеживайте потребление ресурсов и размера индексов для Поиска Azure, размещенной облачной службы поиска в Microsoft Azure." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -17,40 +17,39 @@
    ms.date="05/17/2016"
    ms.author="heidist"/>
 
+# Контроль использования и статистики в службе поиска Azure
 
-# <a name="monitor-usage-and-statistics-in-an-azure-search-service"></a>Monitor usage and statistics in an Azure Search service
+Отслеживание роста индексов и размера документа может помочь заранее настроить емкость перед достижением верхнего предела, установленного для службы.
 
-Tracking the growth of indexes and document size can help you proactively adjust capacity before hitting the upper limit you've established for your service. 
+Чтобы проконтролировать использование ресурсов, можно легко просмотреть подсчеты и статистику своей службы на [портале Azure](https://portal.azure.com), но при создании пользовательского инструмента администрирования службы можно также получить эти сведения программно. В этой статье описаны действия для обоих методов.
 
-To monitor resource usage, counts and statistics for your service are easily viewed in the [Azure Portal](https://portal.azure.com), but you can also obtain the information programmatically if you are building a custom service administration tool. This article covers the steps for both techniques.
+Новую функцию анализа поискового трафика можно использовать для анализа действий на уровне индексов. Посетите страницу [Включение и использование аналитики поискового трафика](search-traffic-analytics.md), чтобы приступить к работе.
 
-You can also use the new search traffic analytics feature for insights into activity at the index level. Visit [Search Traffic Analytics for Azure Search](search-traffic-analytics.md) to get started.
+##Просмотр подсчетов и показателей на портале 
 
-##<a name="view-counts-and-metrics-in-the-portal"></a>View counts and metrics in the portal 
+1. Войдите на [портал Azure](https://portal.azure.com).
 
-1. Sign in to the [Azure Portal](https://portal.azure.com). 
+2. Откройте служебную панель службы поиска Azure. Плитки для службы можно найти на домашней странице или загрузить их в службу, нажав «Обзор» на панели быстрого перехода. В разделе [Создать службу](search-create-service-portal.md) приведены пошаговые инструкции.
 
-2. Open the service dashboard of your Azure Search service. Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar. See [Create a service](search-create-service-portal.md) for step-by-step instructions.
-
-The Usage section includes a meter that tells you what portion of available resources are currently in use.
+Раздел «Использование» включает индикатор, показывающий, какая часть доступных в настоящее время ресурсов используется.
 
   ![][1]
 
-Recall that the shared service has a maximum of one replica and partition each. Additionally, it can only support 10,000 documents in total or 50 MB of data, whichever comes first.
+Помните, что общие службы имеют максимум по одной реплике и одному разделу каждая. Кроме того, они поддерживают только 10 000 документов или 50 МБ данных, в зависимости от того, что наступит раньше.
 
-##<a name="get-index-statistics-using-the-rest-api"></a>Get index statistics using the REST API
+##Получение статистики индексов с помощью интерфейса REST API
 
-Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics.  If you are using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) to load an index from Azure SQL Database or DocumentDB, an additional API is available to get the numbers you require. 
+И API REST и пакет SDK для .NET службы поиска Azure обеспечивают программный доступ к показателям обслуживания. Если вы используете [индексаторы](https://msdn.microsoft.com/library/azure/dn946891.aspx) для загрузки индекса из базы данных SQL Azure или DocumentDB, для получения требуемых показателей имеется дополнительный API-интерфейс.
 
-  + [Get Index Statistics](https://msdn.microsoft.com/library/azure/dn798942.aspx)
-  + [Count Documents](https://msdn.microsoft.com/library/azure/dn798924.aspx)
-  + [Get Indexer Status](https://msdn.microsoft.com/library/azure/dn946884.aspx)
+  + [Получение статистики индексов](https://msdn.microsoft.com/library/azure/dn798942.aspx)
+  + [Подсчет документов](https://msdn.microsoft.com/library/azure/dn798924.aspx)
+  + [Получение состояния индексатора](https://msdn.microsoft.com/library/azure/dn946884.aspx)
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Review [Limits and capacity](search-limits-quotas-capacity.md) to determine the combination of partitions and replicas you'll need if existing capacity is insufficient. 
+Просмотрите [Ограничения и емкость](search-limits-quotas-capacity.md), чтобы определить сочетание разделов и реплик, которые потребуются при недостаточной емкости.
 
-Visit [Manage your Search service on Microsoft Azure](search-manage.md) for more information on service administration.
+Более подробную информацию об администрировании службы поиска см. в [Управление службой поиска в Microsoft Azure](search-manage.md).
 
 <!--Image references-->
 [1]: ./media/search-monitor-usage/AzureSearch-Monitor1.PNG
@@ -60,8 +59,4 @@ Visit [Manage your Search service on Microsoft Azure](search-manage.md) for more
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

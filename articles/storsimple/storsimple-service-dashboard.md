@@ -1,6 +1,6 @@
 <properties
-   pageTitle="StorSimple Manager service dashboard | Microsoft Azure"
-   description="Describes the StorSimple Manager service dashboard and explains how to use it to monitor the health of your StorSimple solution."
+   pageTitle="Панель мониторинга службы диспетчера StorSimple | Microsoft Azure"
+   description="В статье описывается панель мониторинга службы диспетчера StorSimple и способы ее использования для наблюдения за работоспособностью решения StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -15,70 +15,65 @@
    ms.date="05/24/2016"
    ms.author="v-sharos" />
 
+# Использование панели мониторинга службы диспетчера StorSimple
 
-# <a name="use-the-storsimple-manager-service-dashboard"></a>Use the StorSimple Manager service dashboard
+## Обзор
 
-## <a name="overview"></a>Overview
+Страница панели мониторинга службы диспетчера StorSimple содержит сводное представление всех устройств, подключенных к службе диспетчера StorSimple. Устройства, требующие вмешательства системного администратора, выделены. Этот учебник рассказывает о странице панели мониторинга, объясняет содержимое и функции панели мониторинга и описывает задачи, которые можно выполнить с этой страницы.
 
-The StorSimple Manager service dashboard page provides a summary view of all the devices that are connected to the StorSimple Manager service, highlighting those that need a system administrator's attention. This tutorial introduces the dashboard page, explains the dashboard content and function, and describes the tasks that you can perform from this page.
+![Панель мониторинга службы](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
 
-![Service dashboard](./media/storsimple-service-dashboard/HCS_ServiceDashboard.png)
+На панели мониторинга службы диспетчера StorSimple отображается следующая информация.
 
-The StorSimple Manager service dashboard displays the following information:
+- В области **Диаграммы** можно увидеть соответствующие метрики для устройств. Здесь можно просмотреть объем основного хранилища (локально закрепленные и многоуровневые тома), используемый на всех устройствах, а также объем облачного хранилища, использованный устройствами за определенное время. Используйте элементы управления в правом верхнем углу диаграммы, чтобы указать шкалу времени: 1 неделя, 1 месяц, 3 месяца или 1 год.
 
-- In the **chart** area, you can see the relevant metrics chart for your devices. You can view the primary storage (locally pinned and tiered) used across all the devices, as well as the cloud storage consumed by devices over a period of time. Use the controls in the top-right corner of the chart to specify a 1-week, 1-month, 3-month, or 1-year time scale.
+- Страница **Общие сведения об использовании** показывает основное хранилище, которое подготовлено и используется всеми устройствами, относительно общего объема хранилища на всех устройствах. Раздел **Подготовлено** относится к объему хранилища, которое подготовлено и выделено для использования, а раздел **Используется** относится к использованию томов с точки зрения инициаторов, которые подключены к устройствам.
 
-- The **usage overview** shows the primary storage that is provisioned and consumed by all devices relative to the total storage available across all devices. **Provisioned** refers to the amount of storage that is prepared and allocated for use, while **Used** refers to usage of volumes as viewed by the initiators that are connected to the devices.
+- Область **Предупреждения** предоставляет моментальный снимок всех активных оповещений на всех устройствах, сгруппированных по уровню серьезности предупреждения. При щелчке на уровень серьезности открывается страница **Предупреждения**, где отображаются эти предупреждения. На странице **Предупреждения** можно щелкнуть отдельное предупреждение, чтобы просмотреть дополнительные сведения об этом предупреждении, включая рекомендуемые действия. Также можно удалить предупреждение, если проблема решена.
 
-- The **alerts** area provides a snapshot of all the active alerts across all the devices, grouped by alert severity. Clicking the severity level opens the **Alerts** page, scoped to show those alerts. On the **Alerts** page, you can click an individual alert to view additional details about that alert, including any recommended actions. You can also clear the alert if the issue has been resolved.
+- Область **Задания** предоставляет моментальный снимок последних заданий на всех устройствах, подключенных к вашей службе. Существуют ссылки, которые можно использовать для просмотра заданий, которые выполняются в данный момент, были завершены сбоем за последние 24 часа или запланированы для выполнения в течение 24 часов.
 
-- The **jobs** area provides a snapshot of recent jobs across all devices that are connected to your service. There are links that you can use to look at jobs that are currently in progress, those that failed in the last 24 hours, or those that are scheduled to run in the next 24 hours.
+- Область **Сводка** предоставляет полезные сведения, такие как состояние службы, количество устройств, подключенных к службе, расположение службы и информация о подписке, связанной со службой. Также есть ссылка на журнал операций. Щелкните ссылку, чтобы просмотреть список всех завершенных операций службы диспетчера StorSimple.
 
-- The **quick glance** area provides useful information such as service status, number of devices connected to the service, location of the service, and details of the subscription that is associated with the service. There is also a link to the operations log. Click the link to see a list of all completed StorSimple Manager service operations.
+Вы можете использовать страницу панели мониторинга службы диспетчера StorSimple для выполнения следующих задач.
 
-You can use the StorSimple Manager service dashboard page to initiate the following tasks:
+- Просмотр или повторное создание ключа регистрации службы.
+- Изменение ключа шифрования данных службы.
+- Просмотр журналов операций.
 
-- View or regenerate the service registration key.
-- Change the service data encryption key.
-- View the operation logs.
+## Просмотр или повторное создание ключа регистрации службы
 
-## <a name="view-or-regenerate-the-service-registration-key"></a>View or regenerate the service registration key
+Ключ регистрации службы используется для регистрации устройства Microsoft Azure StorSimple в службе диспетчера StorSimple, чтобы устройство отображалось на классическом портале Azure для дальнейших действий по управлению. Ключ создается на первом устройстве и распространяется на остальные устройства.
 
-The service registration key is used to register a Microsoft Azure StorSimple device with the StorSimple Manager service, so that the device appears in the Azure classic portal for further management actions. The key is created on the first device and shared with the rest of your devices.
+При щелчке на ссылку **Ключ регистрации** (в нижней части страницы) открывается диалоговое окно **Ключ регистрации службы**, где можно либо скопировать существующий ключ регистрации службы в буфер обмена, либо повторно создать ключ регистрации службы.
 
-Clicking **Registration Key** (at the bottom of the page) opens the **Service Registration Key** dialog box, where you can either copy the current service registration key to the clipboard or regenerate the service registration key.
+Повторное создание ключа не влияет на ранее зарегистрированные устройства: оно влияет только на устройства, зарегистрированные в службе после создания нового ключа.
 
-Regenerating the key does not affect previously registered devices: it affects only the devices that are registered with the service after the key is regenerated.
+Дополнительные сведения о просмотре и создании ключа регистрации службы см. в разделе [Получение ключа регистрации службы](storsimple-manage-service.md#get-the-service-registration-key).
 
-For more information about viewing and generating the service registration key, go to [Get the service registration key](storsimple-manage-service.md#get-the-service-registration-key).
+## Изменение ключа шифрования данных службы
 
-## <a name="change-the-service-data-encryption-key"></a>Change the service data encryption key
+Ключи шифрования данных службы используются для шифрования конфиденциальных данных клиентов, например учетных данных учетной записи, которые отправляются из диспетчера службы StorSimple к устройству StorSimple. Необходимо будет периодически менять эти ключи, если у ИТ-организации есть политика ротации ключей на устройствах хранения. Процесс изменения ключа может немного отличаться в зависимости от того, имеется ли одно или несколько устройств, управляемых службой диспетчера StorSimple.
 
-Service data encryption keys are used to encrypt confidential customer data, such as storage account credentials, that are sent from your StorSimple Manager service to the StorSimple device. You will need to change these keys periodically if your IT organization has a key rotation policy on the storage devices. The key change process can be slightly different depending on whether there is a single device or multiple devices managed by the StorSimple Manager service.
+Процесс изменения ключа шифрования данных службы включает 3 шага.
 
-Changing the service data encryption key is a 3-step process:
+1. С помощью классического портала Azure выполните авторизацию устройства, чтобы изменить ключ шифрования данных службы.
+2. С помощью Windows PowerShell для StorSimple инициируйте изменение ключа шифрования данных службы.
+3. Если у вас более одного устройства StorSimple, обновите ключ шифрования данных службы на других устройствах.
 
-1. Using the Azure classic portal, authorize a device to change the service data encryption key.
-2. Using Windows PowerShell for StorSimple, initiate the service data encryption key change.
-3. If you have more than one StorSimple device, update the service data encryption key on the other devices.
-
-The following steps describe the rollover process for the service data encryption key.
+Следующие шаги описывают процесс замены ключа шифрования данных службы.
 
 [AZURE.INCLUDE [storsimple-change-data-encryption-key](../../includes/storsimple-change-data-encryption-key.md)]
 
 
-## <a name="view-the-operations-logs"></a>View the operations logs
+## Просмотр журналов операций
 
-You can view the operation logs by clicking the operation logs link available in the **quick glance** pane of the dashboard. This will take you to the management services page, where you can filter and see the logs specific to your StorSimple Manager service.
+Журналы операций можно просмотреть, щелкнув ссылку на журналы операций, доступную в области **Сводка** на панели мониторинга. При этом вы перейдете на страницу служб управления, где можно фильтровать и просмотреть журналы определенной службы диспетчера StorSimple.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- Learn how to [troubleshoot a StorSimple device](storsimple-troubleshoot-operational-device.md).
+- Узнайте, как [устранять неполадки устройства StorSimple](storsimple-troubleshoot-operational-device.md).
 
-- Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0525_2016-->

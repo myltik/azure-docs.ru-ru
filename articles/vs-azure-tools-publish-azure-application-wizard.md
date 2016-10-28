@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Publish Azure Application Wizard | Microsoft Azure"
-   description="Publish Azure Application Wizard"
+   pageTitle="Мастер публикации приложений Azure | Microsoft Azure"
+   description="Мастер публикации приложений Azure"
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,134 +15,128 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Мастер публикации приложений Azure
 
-# <a name="publish-azure-application-wizard"></a>Publish Azure Application Wizard
+## Обзор
 
-## <a name="overview"></a>Overview
+Разработанное в Visual Studio веб-приложение проще всего опубликовать в облачной службе Azure, используя мастер **публикации приложений Azure**. В первом разделе описаны шаги, которые необходимо выполнить, прежде чем использовать мастер. В остальных разделах описаны возможности мастера.
 
-After you develop a web application in Visual Studio, you can publish that application more easily to an Azure cloud service by using the **Publish Azure Application** wizard. The first section explains the steps that you must complete before you use the wizard, and the remaining sections explain the features of the wizard.
+>[AZURE.NOTE] Эта статья посвящена развертыванию в облачных службах, а не на веб-сайтах. Сведения о развертывании на веб-сайтах см. в статье [Развертывание веб-сайта Azure](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
 
->[AZURE.NOTE] This topic is about deploying to cloud services, not to web sites. For information about deploying to web sites, see [How to Deploy an Azure Web Site](https://social.msdn.microsoft.com/Search/windowsazure?query=How%20to%20Deploy%20an%20Azure%20Web%20Site&Refinement=138&ac=4#refinementChanges=117&pageNumber=1&showMore=false).
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+Чтобы опубликовать веб-приложение в Azure, необходимо иметь учетную запись Майкрософт и подписку Azure, а также связать веб-приложение с облачной службой Azure. Если вы уже выполнили эти задачи, можно перейти к следующему разделу.
 
-Before you can publish your web application to Azure, you need to have a Microsoft account and an Azure subscription, and you have to associate your web application with an Azure cloud service. If you’ve already completed these tasks, you can skip to the next section.
+1. Создайте учетную запись Майкрософт и подписку Azure. [Здесь](https://azure.microsoft.com/pricing/free-trial/) вы можете получить бесплатную пробную подписку Azure на месяц.
 
-1. Get a Microsoft account and an Azure subscription. You can try a free one month free Azure subscription [here](https://azure.microsoft.com/pricing/free-trial/)
+1. Создайте облачную службу и учетную запись хранения в Azure. Это можно сделать в обозревателе сервера в Visual Studio или на [классическом портале Azure](http://go.microsoft.com/fwlink/?LinkID=213885).
 
-1. Create a cloud service and a storage account on Azure. You can do this from Server Explorer in Visual Studio, or by using the [Azure classic portal](http://go.microsoft.com/fwlink/?LinkID=213885).
+1. Включите веб-приложение для Azure. Чтобы включить веб-приложение для публикации в Azure из Visual Studio, необходимо связать его с проектом облачной службы Azure в Visual Studio. Чтобы создать связанный проект облачной службы, откройте контекстное меню для проекта веб-приложения и выберите «Преобразовать», а затем — **Преобразовать в проект облачной службы Azure**.
 
-1. Enable your web application for Azure. To enable your web application to be published to Azure from Visual Studio, you’ll need to associate it with an Azure cloud service project in Visual Studio. To create the associated cloud service project, open the shortcut menu for the project for your web application, and then choose Convert, **Convert to Azure Cloud Service Project**.
+1. После добавления в решение проекта облачной службы снова откройте это контекстное меню и выберите **Опубликовать**. Дополнительные сведения о включении приложений для Azure см. в статье [Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx).
 
-1. After the cloud service project is added to your solution, open the same shortcut menu again and then choose **Publish**. For more information about how to enable applications for Azure, see [How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx).
+>[AZURE.NOTE] Не забудьте запустить Visual Studio с правами администратора («Запуск от имени администратора»).
 
->[AZURE.NOTE] Be sure to start Visual Studio with administrator credentials (Run As Administrator).
+1. Когда вы будете готовы к публикации приложения, откройте контекстное меню для проекта облачной службы Azure и выберите команду **Опубликовать**. Ниже показаны шаги мастера публикации приложений Azure.
 
-1. When you’re ready to publish your application, open the shortcut menu for the Azure cloud service project, and then choose **Publish**. The following steps show the Publish Azure Application wizard.
+## Выбор подписки
 
-## <a name="choosing-your-subscription"></a>Choosing Your Subscription
+### Чтобы выбрать подписку, сделайте следующее.
 
-### <a name="to-choose-a-subscription"></a>To choose a subscription
+1. Если вы используете мастер впервые, сначала необходимо выполнить вход. Нажмите ссылку **Вход**. Войдите на портал Azure, указав в окне запроса имя пользователя и пароль учетной записи Azure.
 
-1. Before you use the wizard for the first time, you must sign in. Choose the **Sign In** link. Sign in to the Azure portal when prompted, and provide your Azure user name and password. 
+    ![Это одно из окон мастера публикации](./media/vs-azure-tools-publish-azure-application-wizard/IC799159.png)
 
-    ![This is one of the publishing wizard screens](./media/vs-azure-tools-publish-azure-application-wizard/IC799159.png)
+    В списке подписок указаны подписки, связанные с вашей учетной записью. Подписки также можно просмотреть в любом импортированном ранее файле подписки.
 
-    The list of subscriptions populates with the subscriptions associated with your account. You might also see subscriptions from any subscription files that you imported previously.
+1. В списке **Выбор подписки** выберите подписку, которую следует использовать для этого развертывания.
 
-1. In the **Choose your subscription** list, choose the subscription to use for this deployment.
-
-   If you choose **<Manage…>**, the **Manage Subscriptions** dialog box appears, and you can choose the subscription and user account you want to use. The **Accounts** tab shows all of your accounts, and the **Subscriptions** tab shows all of the subscriptions associated with the accounts. You can also choose a region from which to use Azure resources, as well as create or import certificates for your subscription from the Azure portal. If you imported any subscriptions from a subscription file, the associated certificates will appear under the **Certificates** tab. When you're done, choose the **Close** button.
+   Если выбрать элемент **<Управление…>**, откроется диалоговое окно **Управление подписками**. В нем можно выбрать подписку и учетную запись пользователя, которые следует использовать. На вкладке **Учетные записи** отображаются все ваши учетные записи, а на вкладке **Подписки** — все подписки, связанные с учетными записями. Кроме того, можно выбрать регион, из которого необходимо использовать ресурсы Azure, а также создать или импортировать с портала Azure сертификаты для подписки. Если вы импортировали подписки из файла подписки, связанные сертификаты будут отображаться на вкладке **Сертификаты**. Когда все будет готово, нажмите кнопку **Закрыть**.
 
     ![Manage subscriptions](./media/vs-azure-tools-publish-azure-application-wizard/IC799160.png)
 
     >[AZURE.NOTE] A subscription file can contain more than one subscription.
 
-1. Choose the **Next** button to continue. 
+1. Чтобы продолжить, нажмите кнопку **Далее**.
 
-    If there aren't any cloud services in your subscription, you need to create a cloud service in Azure to host your project. The **Create Cloud Service and Storage Account** dialog box appears.
+    Если в подписке нет облачных служб, необходимо создать облачную службу в Azure для размещения проекта. Откроется диалоговое окно **Создание облачной службы и учетной записи хранилища**.
 
-    Specify a new name for the cloud service. The name must be unique in Azure. Then specify a region or affinity group for a data center that’s near you or most of your clients. This name is also used for a new storage account that Azure creates for your cloud service.
+    Укажите новое имя для облачной службы. Имя должно быть уникальным в рамках Azure. Укажите регион или территориальную группу для центра обработки данных, ближайшего к вам или к большинству ваших клиентов. Это имя также используется для новой учетной записи хранения, которую создает Azure для вашей облачной службы.
 
-1. Modify any settings you want for this deployment and then publish it by choosing the **Publish** button (The next section provides more details about the various settings). To review the settings before publishing, choose the **Next** button.
+1. Измените любые параметры, необходимые для этого развертывания, а затем опубликуйте его с помощью кнопки **Опубликовать** (в следующем разделе приведены дополнительные сведения о различных параметрах). Чтобы просмотреть параметры перед публикацией, нажмите кнопку **Далее**.
 
-    >[AZURE.NOTE] If you chose Publish in this step, you can monitor the status of this deployment in Visual Studio.
+    >[AZURE.NOTE] Если на этом шаге нажать кнопку «Опубликовать», состояние этого развертывания можно будет отслеживать в Visual Studio.
 
-You can modify both common and advanced settings for a deployment by using the **Publish Azure Application** wizard. For example, you can choose a setting to deploy your application to a test environment before you release it. The following illustration shows the **Common Settings** tab for an Azure deployment.
+Как общие, так и расширенные параметры развертывания можно изменить с помощью мастера **публикации приложений Azure**. Например, можно выбрать параметр для развертывания приложения в тестовой среде перед выпуском. На рисунке ниже показана вкладка **Общие параметры** для развертывания Azure.
 
-![Common Settings](./media/vs-azure-tools-publish-azure-application-wizard/IC749013.png)
+![Общие параметры](./media/vs-azure-tools-publish-azure-application-wizard/IC749013.png)
 
-## <a name="configuring-your-publish-settings"></a>Configuring Your Publish Settings
+## Настройка параметров публикации
 
-### <a name="to-configure-the-publish-settings"></a>To configure the publish settings
+### Чтобы настроить параметры публикации, сделайте следующее.
 
-1. In the **Cloud service** list, perform one of the following sets of steps:
+1. В списке **Облачная служба** выполните один из следующих наборов действий.
 
-   1. In the dropdown list box, choose an existing cloud service. The data center location for the service appears. You should note this location and make sure that your storage account location is in the same data center.
+   1. В раскрывающемся списке выберите существующую облачную службу. Отобразится расположение центра обработки данных для службы. Запишите это расположение и убедитесь, что учетная запись хранения расположена в том же центре обработки данных.
 
-    1. Choose **Create New** to create a cloud service that Azure hosts. In the **Create Cloud Service** dialog box, provide a name for the service, and then specify a region or affinity group to specify the location of the data center that you want to host this cloud service. The name must be unique in Azure.
+    1. Выберите **Создать**, чтобы создать облачную службу, размещенную в Azure. В диалоговом окне **Создание облачной службы** укажите имя службы, а затем выберите регион или территориальную группу, чтобы указать расположение центра обработки данных, где будет размещена эта облачная служба. Имя должно быть уникальным в рамках Azure.
 
-1. In the **Environment** list, choose either **Production** or **Staging**. Choose the staging environment if you want to deploy your application to a test environment. You can move your application to the production environment later.
+1. В списке **Среда** выберите **Рабочая среда** или **Промежуточная среда**. Выберите промежуточную среду, если хотите развернуть приложение в тестовой среде. Приложение можно переместить в рабочую среду позже.
 
-1. In the **Build configuration** list, choose either **Debug** or **Release**.
+1. В списке **Конфигурация построения** выберите **Отладка** или **Выпуск**.
 
-1. In the **Service configuration** list, choose either **Cloud** or **Local**.
+1. В списке **Конфигурация службы** выберите **Облако** или **Локально**.
 
-    Select the **Enable Remote Desktop for all roles** check box if you want to be able to remotely connect to the service. This option is primarily used for troubleshooting. When you select this check box, the **Remote Desktop Configuration** dialog box appears. Choose the Settings link to change the configuration.
+    Установите флажок **Включить удаленный рабочий стол для всех ролей**, если хотите удаленно подключаться к службе. Этот параметр в основном используется для устранения неполадок. Если этот флажок установлен, откроется диалоговое окно **Конфигурация удаленного рабочего стола**. Чтобы изменить конфигурацию, нажмите ссылку «Параметры».
 
-    Select the **Enable Web Deploy for all web roles** check box to enable web deployment for the service. You must enable Remote Desktop to use this feature. For more information, see [[Publishing a Cloud Service using the Azure Tools](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx). For more information about Web Deploy, see [[Publishing a Cloud Service using the Azure Tools](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx).
+    Установите флажок **Включить веб-развертывание для всех веб-ролей**, чтобы включить веб-развертывание для службы. Для использования этой функции необходимо включить удаленный рабочий стол. Дополнительные сведения см. в статье [[Публикация облачной службы с помощью инструментов Azure](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx). Дополнительные сведения о веб-развертывании см. в статье [[Публикация облачной службы с помощью инструментов Azure](https://msdn.microsoft.com/library/azure/ff683672.aspx)](https://msdn.microsoft.com/library/azure/ff683672.aspx).
 
-1. Choose the **Advanced Settings** tab. In the **Deployment label** field, either accept the default name, or enter a name of your choosing. To append the date to the deployment label, leave the check box selected.
+1. Выберите вкладку **Дополнительные параметры**. В поле **Метка развернутого приложения** оставьте имя по умолчанию или введите имя на свой выбор. Чтобы добавить дату к метке развертывания, оставьте флажок установленным.
 
-    ![Third screen of the Publishing Wizard](./media/vs-azure-tools-publish-azure-application-wizard/IC749014.png)
+    ![Третье окно мастера публикации](./media/vs-azure-tools-publish-azure-application-wizard/IC749014.png)
 
-1. In the **Storage account** list, choose the storage account to use for this deployment. Compare the locations of the data centers for your cloud service and your storage account. Ideally, these locations should be the same.
+1. В списке **Учетная запись хранения** выберите учетную запись хранения для этого развертывания. Сравните расположения центров обработки данных для облачной службы и учетной записи хранения. В идеале эти расположения должны совпадать.
 
-    >[AZURE.NOTE] The Azure storage account stores the package for the application deployment. After the application is deployed, the package is removed from the storage account.
+    >[AZURE.NOTE] В учетной записи хранения Azure содержится пакет для развертывания приложения. После развертывания приложения пакет удаляется из учетной записи хранения.
 
-1. Select the **Deployment update** check box if you want to deploy only updated components. This type of deployment can be faster than a full deployment. Choose the **Settings** link to open the **Deployment update settings** dialog box, shown in the following illustration. 
+1. Установите флажок **Обновление развертывания**, если требуется развернуть только обновленные компоненты. Этот тип развертывания выполняется быстрее, чем полное развертывание. Выберите ссылку **Параметры**, чтобы открыть диалоговое окно **Параметры обновления развертывания**, показанное на следующем рисунке.
 
-    ![Deployment Settings](./media/vs-azure-tools-publish-azure-application-wizard/IC617060.png)
+    ![Параметры развертывания](./media/vs-azure-tools-publish-azure-application-wizard/IC617060.png)
 
-    You can choose either of two options for update deployment, incremental or simultaneous. An incremental deployment updates one deployed instance at a time, so that your application remains online and available to users. A simultaneous deployment updates all deployed instances at once. Simultaneous update is faster than incremental update, but if you choose this option, your application might not be available during the update process.
+    Можно выбрать один из вариантов для развертывания обновлений — добавочное или одновременное. В случае добавочного развертывания за один раз обновляется один развернутый экземпляр, чтобы приложение оставалось в сети доступным для пользователей. В случае одновременного развертывания обновляются все развернутые экземпляры одновременно. Одновременное обновление выполняется быстрее, чем добавочное, но если выбрать этот вариант, приложения могут быть недоступны во время обновления.
 
-    You should select the check box for If deployment can't be updated, do a full deployment if you want the full deployment to take place automatically if an update deployment fails. A full deployment resets the virtual IP (VIP) address for the cloud service. For more information, see [How to: Retain a Constant Virtual IP Address for a Cloud Service](https://msdn.microsoft.com/library/azure/jj614593.aspx).
-
-
-1. To debug your service, select the **Enable IntelliTrace** check box, or if you are deploying a **Debug** configuration and want to debug your cloud service in Azure, select the **Enable Remote Debugger for all roles** checkbox to deploy the remote debugging services.
-
-2. To profile the application, select the **Enable profiling** check box, and then choose the **Settings** link to display the profiling options. 
+    Если полное развертывание должно выполняться автоматически в случае сбоя развертывания обновлений, установите флажок «Если развертывание невозможно обновить, выполнять полное развертывание». Полное развертывание сбрасывает виртуальный IP-адрес облачной службы. Дополнительные сведения см. в статье [Инструкции. Сохранение константного виртуального IP-адреса для облачной службы](https://msdn.microsoft.com/library/azure/jj614593.aspx).
 
 
-    >[AZURE.NOTE] You must use Visual Studio Ultimate to enable either IntelliTrace or Tier Interaction Profiling (TIP), and you can't enable both at the same time.
+1. Чтобы выполнить отладку службы, установите флажок **Включить IntelliTrace**. Или же, если вы развертываете конфигурацию **Отладка** и требуется отладка облачной службы в Azure, установите флажок **Включить удаленный отладчик для всех ролей**, чтобы развернуть службы удаленной отладки.
 
-    For more information, see [Debugging a Published Cloud Service with IntelliTrace and Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx) and [Testing the Performance of a Cloud Service](https://msdn.microsoft.com/library/azure/hh369930.aspx).
-
-1. Choose **Next** to view the summary page for the application.
-
-## <a name="publishing-your-application"></a>Publishing Your Application
-
-1. You can choose to create a publishing profile from the settings that you have chosen. For example, you might create one profile for a test environment and another for production. To save this profile, choose the **Save** icon. The wizard creates the profile and saves it in the Visual Studio project. To modify the profile name, open the **Target profile** list, and then choose **<Manage…>**.
-
-    ![Summary screen of the Publishing Wizard](./media/vs-azure-tools-publish-azure-application-wizard/IC749015.png)
-
-    >[AZURE.NOTE] The publishing profile appears in Solution Explorer in Visual Studio, and the profile settings are written to a file with an .azurePubxml extension. Settings are saved as attributes of XML tags.
-
-1. Choose **Publish** to publish your application. You can monitor the process status in the **Output** window in Visual Studio.
-
-## <a name="see-also"></a>See Also
-
-[How to: Migrate and Publish a Web Application to an Azure Cloud Service from Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx)
-
-[Publishing a Cloud Service using the Azure Tools](https://msdn.microsoft.com/library/azure/ff683672.aspx)
-
-[Debugging a Published Cloud Service with IntelliTrace and Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx)
-
-[Testing the Performance of a Cloud Service](https://msdn.microsoft.com/library/azure/hh369930.aspx)
+2. Чтобы выполнить профилирование приложения, установите флажок **Включить профилирование**, а затем нажмите ссылку **Параметры**, чтобы отобразить параметры профилирования.
 
 
+    >[AZURE.NOTE] Чтобы включить IntelliTrace или профилирование уровневого взаимодействия, необходимо использовать Visual Studio Ultimate. Оба типа профилирования нельзя включить одновременно.
 
+    Дополнительные сведения см. в статьях [Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx) и [Тестирование производительности облачной службы](https://msdn.microsoft.com/library/azure/hh369930.aspx).
 
-<!--HONumber=Oct16_HO2-->
+1. Чтобы просмотреть страницу сводки для приложения, выберите **Далее**.
 
+## Публикация приложения
 
+1. Вы можете создать профиль публикации на основе ранее выбранных параметров. Например, можно создать один профиль для тестовой среды, а другой — для рабочей. Чтобы сохранить профиль, щелкните значок **Сохранить**. Мастер создаст профиль и сохранит его в проекте Visual Studio. Чтобы изменить имя профиля, откройте список **Целевой профиль**, а затем выберите **<Управление…>**.
+
+    ![Окно сводки мастера публикации](./media/vs-azure-tools-publish-azure-application-wizard/IC749015.png)
+
+    >[AZURE.NOTE] Профиль публикации отображается в обозревателе решений в Visual Studio, а параметры профиля записываются в файл с расширением AZUREPUBXML. Параметры сохраняются как атрибуты XML-тегов.
+
+1. Чтобы опубликовать приложение, нажмите кнопку **Опубликовать**. Состояние процесса можно отслеживать в окне **Вывод** в Visual Studio.
+
+## См. также
+
+[Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx)
+
+[Публикация облачной службы с помощью инструментов Azure](https://msdn.microsoft.com/library/azure/ff683672.aspx)
+
+[Отладка опубликованной облачной службы с помощью IntelliTrace и Visual Studio](https://msdn.microsoft.com/library/azure/ff683671.aspx)
+
+[Тестирование производительности облачной службы](https://msdn.microsoft.com/library/azure/hh369930.aspx)
+
+<!---HONumber=AcomDC_0817_2016-->

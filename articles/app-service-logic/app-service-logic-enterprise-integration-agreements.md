@@ -1,74 +1,68 @@
 <properties 
-    pageTitle="Overview of partners and Enterprise Integration Pack | Microsoft Azure App Service" 
-    description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
-    services="logic-apps" 
-    documentationCenter=".net,nodejs,java"
-    authors="msftman" 
-    manager="erikre" 
-    editor="cgronlun"/>
+	pageTitle="Обзор партнеров и пакета интеграции Enterprise | Служба приложений Microsoft Azure" 
+	description="Узнайте, как использовать партнеры с пакетом интеграции Enterprise и приложениями логики." 
+	services="logic-apps" 
+	documentationCenter=".net,nodejs,java"
+	authors="msftman" 
+	manager="erikre" 
+	editor="cgronlun"/>
 
 <tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="06/29/2016" 
-    ms.author="deonhe"/>
+	ms.service="logic-apps" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/29/2016" 
+	ms.author="deonhe"/>
 
 
+# Узнайте о соглашениях и пакете интеграции Enterprise.
 
-# <a name="learn-about-agreements-and-enterprise-integration-pack"></a>Learn about agreements and Enterprise Integration Pack
+## Обзор
+Соглашения являются краеугольным камнем взаимодействия "бизнес-бизнес" (B2B), так как позволяют бизнес-сущностям легко обмениваться данными с помощью стандартных протоколов.
 
-## <a name="overview"></a>Overview
-Agreements are the cornerstone of business-to-business (B2B) communications, allowing business entities to communicate seamlessly using industry standard protocols.  
+## Что такое соглашение?
 
-## <a name="what-is-an-agreement?"></a>What is an agreement?
+В контексте пакета интеграции Enterprise соглашением является договоренность о взаимодействии между торговыми партнерами "бизнес-бизнес". Соглашение основывается на взаимодействии, которого желают достичь эти два партнера, и зависит от конкретного протокола или транспорта.
 
-An agreement, as far as the Enterprise Integration Pack is concerned, is a communications arrangement between B2B trading partners. An agreement is based on the communications the partners wish to achieve and is protocol or transport specific.
-
-Enterprise integration supports three protocol/transport standards:  
+Интеграция Enterprise поддерживает три стандартных протокола или транспорта:
 
 - [AS2](./app-service-logic-enterprise-integration-as2.md)
 - [X12](./app-service-logic-enterprise-integration-x12.md)
 - [EDIFACT](./app-service-logic-enterprise-integration-edifact.md)
 
-## <a name="why-use-agreements"></a>Why use agreements
-Some of the common benefits of using agreements are:
-- Enables different organizations and businesses to be able to exchange information in a well known format.  
-- Improves efficiency when conducting B2B transactions  
-- Easy to create, manage and use them when creating enterprise integration apps  
+## Для чего используются соглашения
+Ниже приведено несколько общих преимуществ использования соглашений:
+- Позволяет различным организациям и компаниям обмениваться данными в общеизвестном формате.
+- Повышает эффективность при проведении транзакций "бизнес-бизнес".
+- Упрощает создание, использование и управление приложениями интергации Enterprise.
 
-## <a name="how-to-create-agreements"></a>How to create agreements
-- [Create an AS2 agreement](./app-service-logic-enterprise-integration-as2.md)   
-- [Create an X12 agreement](./app-service-logic-enterprise-integration-x12.md)   
+## Как создать соглашение
+- [Создание соглашения AS2](./app-service-logic-enterprise-integration-as2.md)
+- [Создание соглашения X12](./app-service-logic-enterprise-integration-x12.md)
 
-## <a name="how-to-use-an-agreement"></a>How to use an agreement
-After creating an agreement, you can use it via the Azure portal to create [Logic apps](./app-service-logic-what-are-logic-apps.md "Learn about Logic apps") with B2B features.
+## Как использовать соглашение
+После создания соглашения его можно использовать на портале Azure, чтобы создавать [приложения логики](./app-service-logic-what-are-logic-apps.md "Узнайте о приложениях логики.") с функциями "бизнес-бизнес".
 
-## <a name="how-to-edit-an-agreement"></a>How to edit an agreement
-You can edit any agreement by following these steps:  
-1. Select the Integration account that contains the agreement you wish to modify.  
-2. Select the **Agreements** tile  
-3. Select the agreement you wish to modify on the **Agreements** blade  
-4. Select **Edit** from the menu above   
-5. On the Edit menu that opens, make you changes then select the **OK** button to save the changes  
+## Как изменить соглашение
+Любое соглашение можно изменить следующим образом.
+1. Выберите учетную запись интеграции, содержащую соглашение, которое вы хотите изменить.
+2. Выберите элемент **Соглашение**.
+3. В колонке **Соглашения** выберите соглашение, которое нужно изменить.
+4. В меню вверху выберите **Изменить**.
+5. Когда откроется меню "Правка", внесите нужные изменения и нажмите кнопку **ОК**, чтобы сохранить их.
 
-## <a name="how-to-delete-an-agreement"></a>How to delete an agreement
-You can delete any agreement by following these steps from within the integration account that contains the agreement you wish to delete:   
-1. Select the **Agreements** tile  
-2. Select the agreement you wish to delete on the **Agreements** blade  
-3. Select **Delete** from the menu above  
-4. Confirm that you really want to delete the agreement  
-5. Notice that the agreement is no longer listed on the Agreements blade  
+## Как удалить учетную запись
+Можно удалить любое соглашение, выполнив приведенные ниже действия в учетной записи интеграции, содержащей соглашение, которое нужно удалить.
+1. Выберите элемент **Соглашение**.
+2. В колонке **Соглашения** выберите соглашение, которое нужно удалить.
+3. В меню вверху выберите **Удалить**.
+4. Подтвердите, что вы действительно хотите удалить соглашение.
+5. Обратите внимание, что соглашение больше не отображается в колонке "Соглашение".
  
 
-## <a name="next-steps"></a>Next steps
-- [Create an AS2 agreement](./app-service-logic-enterprise-integration-as2.md)  
+## Дальнейшие действия
+- [Создание соглашения AS2](./app-service-logic-enterprise-integration-as2.md)
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

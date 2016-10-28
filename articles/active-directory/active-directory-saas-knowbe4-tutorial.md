@@ -1,256 +1,251 @@
 <properties
-    pageTitle="Tutorial: Azure Active Directory integration with KnowBe4 | Microsoft Azure"
-    description="Learn how to configure single sign-on between Azure Active Directory and KnowBe4."
-    services="active-directory"
-    documentationCenter=""
-    authors="jeevansd"
-    manager="femila"
-    editor=""/>
+	pageTitle="Руководство. Интеграция Azure Active Directory с KnowBe4 | Microsoft Azure"
+	description="Узнайте, как настроить единый вход Azure Active Directory в KnowBe4."
+	services="active-directory"
+	documentationCenter=""
+	authors="jeevansd"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/29/2016"
-    ms.author="jeedes"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2016"
+	ms.author="jeedes"/>
 
 
+# Руководство. Интеграция Azure Active Directory с KnowBe4
 
-# <a name="tutorial:-azure-active-directory-integration-with-knowbe4"></a>Tutorial: Azure Active Directory integration with KnowBe4
+Цель этого учебника — показать, как интегрировать Azure Active Directory (Azure AD) с приложением KnowBe4. Интеграция Azure AD с приложением KnowBe4 обеспечивает следующие преимущества.
 
-The objective of this tutorial is to show you how to integrate KnowBe4 with Azure Active Directory (Azure AD).  
-Integrating KnowBe4 with Azure AD provides you with the following benefits:
+- С помощью Azure AD вы можете контролировать доступ к KnowBe4.
+- Вы можете включить автоматический вход пользователей в KnowBe4 (единый вход) с использованием учетной записи Azure AD.
+- Вы можете управлять учетными записями централизованно — через портал Azure Active Directory
 
-- You can control in Azure AD who has access to KnowBe4
-- You can enable your users to automatically get signed-on to KnowBe4 (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
+## Предварительные требования
 
-## <a name="prerequisites"></a>Prerequisites
+Чтобы настроить интеграцию Azure AD с KnowBe4, вам потребуется:
 
-To configure Azure AD integration with KnowBe4, you need the following items:
+- подписка Azure AD;
+- подписка на KnowBe4 с поддержкой единого входа.
 
-- An Azure AD subscription
-- A KnowBe4 single-sign on enabled subscription
 
+> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
+При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-To test the steps in this tutorial, you should follow these recommendations:
+- Не следует использовать рабочую среду при отсутствии необходимости.
+- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
 
-- You should not use your production environment, unless this is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
+## Описание сценария
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. Сценарий, описанный в этом руководстве, состоит из двух стандартных блоков.
 
-## <a name="scenario-description"></a>Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
-The scenario outlined in this tutorial consists of two main building blocks:
+1. Добавление KnowBe4 из коллекции
+2. Настройка и проверка единого входа в Azure AD
 
-1. Adding KnowBe4 from the gallery
-2. Configuring and testing Azure AD single sign-on
 
+## Добавление KnowBe4 из коллекции
+Чтобы настроить интеграцию KnowBe4 с Azure AD, необходимо добавить KnowBe4 из коллекции в список управляемых приложений SaaS.
 
-## <a name="adding-knowbe4-from-the-gallery"></a>Adding KnowBe4 from the gallery
-To configure the integration of KnowBe4 into Azure AD, you need to add KnowBe4 from the gallery to your list of managed SaaS apps.
+**Чтобы добавить KnowBe4 из коллекции, сделайте следующее:**
 
-**To add KnowBe4 from the gallery, perform the following steps:**
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+	![Active Directory][1]
 
-    ![Active Directory][1]
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.
+	![Приложения][2]
 
-    ![Applications][2]
+4. В нижней части страницы нажмите кнопку **Добавить**.
 
-4. Click **Add** at the bottom of the page.
+	![Приложения][3]
 
-    ![Applications][3]
+5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+	![Приложения][4]
 
-    ![Applications][4]
+6. В поле поиска введите **KnowBe4**.
 
-6. In the search box, type **KnowBe4**.
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_01.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_01.png)
+7. В области результатов выберите **KnowBe4** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
-7. In the results pane, select **KnowBe4**, and then click **Complete** to add the application.
 
+##  Настройка и проверка единого входа в Azure AD
+В этом разделе описано, как настроить и проверить единый вход Azure AD в KnowBe4 с использованием тестового пользователя Britta Simon.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with KnowBe4 based on a test user called "Britta Simon".
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в KnowBe4 соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в KnowBe4. Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в KnowBe4.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in KnowBe4 to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in KnowBe4 needs to be established.  
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in KnowBe4.
+Чтобы настроить и проверить единый вход Azure AD в KnowBe4, вам потребуется выполнить действия в следующих стандартных блоках:
 
-To configure and test Azure AD single sign-on with KnowBe4, you need to complete the following building blocks:
+1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию.
+2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon.
+4. **[Создание тестового пользователя KnowBe4](#creating-a-KnowBe4-test-user)** требуется для создания пользователя Britta Simon в KnowBe4, связанного с представлением этого же пользователя в Azure AD.
+5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход в Azure AD.
+5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a KnowBe4 test user](#creating-a-KnowBe4-test-user)** - to have a counterpart of Britta Simon in KnowBe4 that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+### Настройка единого входа в Azure AD
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuring Azure AD Single Sign-On
+В этом разделе описано, как включить единый вход Azure AD на классическом портале Azure AD и настроить единый вход в приложение KnowBe4.
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your KnowBe4 application.
 
 
+**Чтобы настроить единый вход Azure AD в KnowBe4, сделайте следующее:**
 
-**To configure Azure AD single sign-on with KnowBe4, perform the following steps:**
+1. На странице интеграции с приложением **KnowBe4** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-1. In the Azure classic portal, on the **KnowBe4** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+	![Настройка единого входа][6]
 
-    ![Configure Single Sign-On][6] 
+2. На странице **Как пользователи должны входить в KnowBe4?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
 
-2. On the **How would you like users to sign on to KnowBe4** page, select **Azure AD Single Sign-On**, and then click **Next**.
+	![Настройка единого входа](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_03.png)
 
-    ![Configure Single Sign-On](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_03.png) 
+3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+	![Настройка единого входа](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_04.png)
 
-    ![Configure Single Sign-On](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_04.png) 
 
+    а. В текстовом поле "URL-адрес для входа" введите URL-адрес, используемый для входа в приложение KnowBe4, в следующем формате: **https://<имя\_компании>.knowbe4.com/auth/saml/aad168.ccsctp.net**.
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your KnowBe4 application using the following pattern: **“https://\<company name\>.knowbe4.com/auth/saml/aad168.ccsctp.net)”**.
 
+4. На странице **Настройка единого входа в KnowBe4** выполните следующие действия.
 
-4. On the **Configure single sign-on at KnowBe4** page, perform the following steps:
+	![Настройка единого входа](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_05.png)
 
-    ![Configure Single Sign-On](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_05.png) 
+    а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
 
-    a. Click **Download certificate**, and then save the file on your computer.
+    b. Нажмите кнопку **Далее**.
 
-    b. Click **Next**.
 
+5. Чтобы настроить единый вход для своего приложения, обратитесь в [службу поддержки KnowBe4](mailto:support@knowbe4.com). Вложите в сообщение скачанный файл сертификата и укажите URL-адреса метаданных (идентификатор сущности, URL-адрес единого входа и URL-адрес выхода), чтобы специалисты KnowBe4 смогли настроить единый вход со своей стороны.
 
-5. To get SSO configured for your application, contact your [KnowBe4 support team](mailto:support@knowbe4.com ). Attach the downloaded certificate file to your mail and share the metadata urls (Entity ID, SSO Sign in URL and Sign Out URL) with KnowBe4 team to set up SSO on their side.
 
+6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
 
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+	![Единый вход в Azure AD][10]
 
-    ![Azure AD Single Sign-On][10]
+7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+	![Единый вход в Azure AD][11]
 
-    ![Azure AD Single Sign-On][11]
 
 
 
+### Создание тестового пользователя Azure AD
+Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
 
-### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.  
+![Создание пользователя Azure AD][20]
 
-![Create Azure AD User][20]
+**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-**To create a test user in Azure AD, perform the following steps:**
+1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_09.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_09.png) 
+2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-2. From the **Directory** list, select the directory for which you want to enable directory integration.
+3. Чтобы отобразить список пользователей, щелкните **Пользователи** в меню вверху.
 
-3. To display the list of users, in the menu on the top, click **Users**.
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_03.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_03.png) 
+4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу щелкните **Добавить пользователя**.
 
-4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_04.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_04.png) 
+5. На диалоговой странице **Тип учетной записи пользователя** выполните следующие действия.
 
-5. On the **Tell us about this user** dialog page, perform the following steps:
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_05.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_05.png) 
+    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
 
-    a. As Type Of User, select New user in your organization.
+    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
 
-    b. In the User Name **textbox**, type **BrittaSimon**.
+    c. Нажмите кнопку **Далее**.
 
-    c. Click **Next**.
+6.  На диалоговой странице **Профиль пользователя** выполните следующие действия.
 
-6.  On the **User Profile** dialog page, perform the following steps:
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_06.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_06.png) 
+    а. В текстовом поле **Имя** введите **Britta**.
 
-    a. In the **First Name** textbox, type **Britta**.  
+    b. В текстовое поле **Фамилия** введите **Simon**.
 
-    b. In the **Last Name** textbox, type, **Simon**.
+    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
 
-    c. In the **Display Name** textbox, type **Britta Simon**.
+    г) В списке **Роль** выберите **Пользователь**.
 
-    d. In the **Role** list, select **User**.
+    д. Нажмите кнопку **Далее**.
 
-    e. Click **Next**.
+7. На диалоговой странице **Получить временный пароль** щелкните **Создать**.
 
-7. On the **Get temporary password** dialog page, click **create**.
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_07.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_07.png) 
+8. На диалоговой странице **Получить временный пароль** выполните следующие действия.
 
-8. On the **Get temporary password** dialog page, perform the following steps:
+	![Создание тестового пользователя Azure AD](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_08.png)
 
-    ![Creating an Azure AD test user](./media/active-directory-saas-knowbe4-tutorial/create_aaduser_08.png) 
+    а. Запишите значение поля **Новый пароль**.
 
-    a. Write down the value of the **New Password**.
+    b. Нажмите **Завершено**.
 
-    b. Click **Complete**.   
 
 
+### Создание тестового пользователя KnowBe4
 
-### <a name="creating-a-knowbe4-test-user"></a>Creating a KnowBe4 test user
+В этом разделе описано, как создать пользователя с именем Britta Simon в приложении KnowBe4. Приложение KnowBe4 поддерживает JIT-подготовку. Эта функция включена по умолчанию.
 
-The objective of this section is to create a user called Britta Simon in KnowBe4. KnowBe4 supports just-in-time provisioning, which is by default enabled.
+В этом разделе никакие действия с вашей стороны не требуются. При попытке получить доступ к KnowBe4 будет создан пользователь (если он еще не создан).
 
-There is no action item for you in this section. A new user will be created during an attempt to access KnowBe4 if it doesn't exist yet. 
+> [AZURE.NOTE] Если вам нужно создать пользователя вручную, обратитесь в службу поддержки KnowBe4.
 
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the KnowBe4 support team.
 
+### Назначение тестового пользователя Azure AD
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
+Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив ей доступ к KnowBe4.
 
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to KnowBe4.
+	![Assign User][200] 
 
-    ![Assign User][200] 
+**Чтобы назначить пользователя Britta Simon в KnowBe4, сделайте следующее:**
 
-**To assign Britta Simon to KnowBe4, perform the following steps:**
+1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните **Приложения** в меню вверху.
 
-1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+	![Назначение пользователя][201]
 
-    ![Assign User][201] 
+2. В списке приложений выберите **KnowBe4**.
 
-2. In the applications list, select **KnowBe4**.
+	![Настройка единого входа](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_50.png)
 
-    ![Configure Single Sign-On](./media/active-directory-saas-knowbe4-tutorial/tutorial_knowbe4_50.png) 
+1. В меню в верхней части страницы щелкните **Пользователи**.
 
-1. In the menu on the top, click **Users**.
+	![Назначение пользователя][203]
 
-    ![Assign User][203] 
+1. В списке пользователей выберите **Britta Simon**.
 
-1. In the Users list, select **Britta Simon**.
+2. На панели инструментов внизу щелкните **Назначить**.
 
-2. In the toolbar on the bottom, click **Assign**.
+	![Назначение пользователя][205]
 
-    ![Assign User][205]
 
 
+### Проверка единого входа
 
-### <a name="testing-single-sign-on"></a>Testing Single Sign-On
+Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа. Щелкнув элемент KnowBe4 на панели доступа, вы автоматически войдете в приложение KnowBe4.
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
-When you click the KnowBe4 tile in the Access Panel, you should get automatically signed-on to your KnowBe4 application.
 
+## Дополнительные ресурсы
 
-## <a name="additional-resources"></a>Additional Resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -271,8 +266,4 @@ When you click the KnowBe4 tile in the Access Panel, you should get automaticall
 [204]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-knowbe4-tutorial/tutorial_general_205.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

@@ -1,24 +1,21 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-install-maintenance-mode-hotfixes-via-windows-powershell-for-storsimple"></a>To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
+#### Установка исправлений режима обслуживания с помощью Windows PowerShell для StorSimple
 
-> [AZURE.IMPORTANT] In Maintenance mode, you need to apply the hotfix first on one controller and then on the other controller.
+> [AZURE.IMPORTANT]В режиме обслуживания необходимо сначала применить исправление на одном контроллере, а затем на другом.
 
-1. Place the device into Maintenance mode. See [Step 2: Enter Maintenance mode](storsimple-update-device.md#step2) for instructions on how to enter Maintenance mode.
+1. Переведите устройство в режим обслуживания. Указания по переходу в режим обслуживания см. в разделе [Шаг 2. Вход в режим обслуживания](storsimple-update-device.md#step2).
 
-2. To apply the hotfix, type:
+2. Чтобы применить исправление, введите:
 
-     `Start-HcsHotfix` 
+     `Start-HcsHotfix`
 
-3. When prompted, supply the path to the network shared folder that contains the hotfix files.
+3. При появлении запроса укажите путь к общей сетевой папке, содержащей файлы исправления.
 
-4. You will be prompted for confirmation. Type **Y** to proceed with the hotfix installation.
+4. После этого введите подтверждение для применения этих исправлений. Нажмите клавишу **Y** для продолжения установки исправления.
 
-5. After you have applied the hotfix on one controller, log on to the other controller. Apply the hotfix as you did for the previous controller.
+5. После применения исправления на одном контроллере войдите на другой контроллер. Установите исправление, как для предыдущего контроллера.
 
-6. After the hotfixes are applied, exit Maintenance mode. See [Step 4: Exit Maintenance mode](storsimple-update-device.md#step4) for instructions.
+6. После применения исправления выйдите из режима обслуживания. Указания см. в разделе [Шаг 4. Выход из режима обслуживания](storsimple-update-device.md#step4).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

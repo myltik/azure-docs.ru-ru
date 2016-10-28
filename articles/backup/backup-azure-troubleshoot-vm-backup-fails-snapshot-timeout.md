@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out | Microsoft Azure"
-   description="Symptoms causes and resolutions for Azure VM backup failures related to could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out error"
+   pageTitle="Ошибка резервного копирования виртуальной машины Azure: ";Не удалось запросить состояние моментального снимка в агенте ВМ. Истекло время ожидания для подзадачи моментального снимка ВМ"; | Microsoft Azure"
+   description="Симптомы, причины и способы устранения проблем при резервном копировании виртуальной машины Azure, связанных с невозможностью запросить состояние моментальных снимков в агенте виртуальной машины. Ошибка ";Истекло время ожидания для подзадачи моментального снимка ВМ";"
    services="backup"
    documentationCenter=""
    authors="genlin"
@@ -16,129 +16,124 @@
     ms.date="07/14/2016"
     ms.author="jimpark; markgal;genli"/>
 
+# Ошибка резервного копирования виртуальной машины Azure: "Не удалось запросить состояние моментального снимка в агенте ВМ. Истекло время ожидания для подзадачи моментального снимка ВМ"
 
-# <a name="azure-vm-backup-fails:-could-not-communicate-with-the-vm-agent-for-snapshot-status---snapshot-vm-sub-task-timed-out"></a>Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out
+## Сводка
 
-## <a name="summary"></a>Summary
-
-After registering and scheduling a Virtual Machine (VM) for Azure Backup, the Azure Backup service initiates the backup job at the scheduled time by communicating with the backup extension in the VM to take a point-in-time snapshot. There are conditions that may prevent the snapshot from being triggered which leads to a backup failure. This article provides troubleshooting steps for issues related to Azure VM backup failures related to snapshot time out error.
+Когда виртуальная машина будет зарегистрирована в службе архивации Azure и для нее будет составлено расписание, служба архивации Azure в установленное время запустит задание резервного копирования. Она свяжется с модулем резервного копирования на виртуальной машине, который создаст снимок текущего состояния. При некоторых условиях создание моментального снимка невозможно, и это приводит к сбою резервного копирования. В этой статье описываются шаги по устранению неполадок, связанных с ошибками резервного копирования виртуальных машин Azure при превышении времени ожидания моментального снимка.
 
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="symptom"></a>Symptom
+## Симптом
 
-Microsoft Azure Backup for infrastructure as a service (IaaS) VM fails and returns the following error message in the job error details in Azure Portal.
+Резервное копирование виртуальной машины IaaS в Microsoft Azure завершается сбоем, и в сведениях об ошибке задания на портале Azure отображается следующее сообщение об ошибке:
 
-**Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out.**
+**Не удалось запросить состояние моментального снимка в агенте ВМ. Истекло время ожидания для подзадачи моментального снимка ВМ.**
 
-## <a name="cause"></a>Cause
-There are four common causes for this error:
+## Причина:
+Существует четыре основные причины этой ошибки:
 
-- The VM does not have Internet access.
-- The Microsoft Azure VM agent installed in the VM is out of date (for Linux VMs).
-- The backup extension fails to update or load.
-- The snapshots status cannot be retrieved or the snapshots cannot be taken.
+- Виртуальная машина не подключена к Интернету.
+- Устарел агент виртуальной машины Microsoft Azure, установленный на виртуальной машине (для виртуальных машин Linux).
+- Не удалось обновить или загрузить расширение резервного копирования.
+- Не удалось получить состояние моментальных снимков или создать моментальные снимки.
 
-## <a name="cause-1:-the-vm-does-not-have-internet-access"></a>Cause 1: The VM does not have Internet access
-Per the deployment requirement, the VM has no Internet access, or has restrictions in place that prevent access to the Azure infrastructure.
+## Причина 1. Виртуальная машина не подключена к Интернету.
+Согласно требованиям к развертыванию виртуальная машина не имеет доступа к Интернету или существуют ограничения на доступ к инфраструктуре Azure.
 
-The backup extension requires connectivity to the Azure public IP addresses to function correctly. This is because it sends commands to an Azure Storage endpoint (HTTP URL) to manage the snapshots of the VM. If the extension does not have access to the public Internet, the backup eventually fails.
+Для правильной работы расширения резервного копирования требуется возможность подключения к общедоступным IP-адресам Azure. Это связано с тем, что для управления моментальными снимками виртуальной машины это расширение отправляет команды к конечной точке хранилища Azure (URL-адрес HTTP). Если расширение не имеет доступа к общедоступному Интернету, резервное копирование завершится сбоем.
 
-### <a name="solution"></a>Solution
-In this scenario, use one of the following methods to resolve the issue:
+### Решение
+В этом случае для устранения проблемы можно применить один из следующих методов:
 
-- Whitelist the Azure datacenter IP ranges
-- Create a path for HTTP traffic to flow
+- Добавьте диапазоны IP-адресов центра обработки данных Azure в список разрешений.
+- Создание пути для прохождения трафика HTTP
 
-### <a name="to-whitelist-the-azure-datacenter-ip-ranges"></a>To whitelist the Azure datacenter IP ranges
+### Добавление диапазонов IP-адресов центра обработки данных Azure в список разрешений
 
-1. Obtain the [list of Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be whitelisted.
-2. Unblock the IPs by using the New-NetRoute cmdlet. Run this cmdlet in the Azure VM in an elevated PowerShell window (run as Administrator).
-3. Add rules to the Network Security Group (NSG) if you have one to allow access to the IPs.
+1. Получите [список IP-адресов центра обработки данных Azure ](https://www.microsoft.com/download/details.aspx?id=41653) для добавления в список разрешений.
+2. Разблокируйте IP-адреса с помощью командлета New-NetRoute. Запустите этот командлет на виртуальной машине Azure в окне PowerShell с повышенными привилегиями (от имени администратора).
+3. Добавьте правила в группу безопасности сети (если она настроена) для доступа к IP-адресам.
 
-### <a name="to-create-a-path-for-http-traffic-to-flow"></a>To create a path for HTTP traffic to flow
+### Создание пути для прохождения трафика HTTP
 
-1. If you have network restrictions in place (for example, an NSG), deploy an HTTP proxy server to route the traffic.
-2. If you have a network security group (NSG), add rules to allow access to the Internet from the HTTP proxy.
+1. При наличии каких-либо ограничений сети (например, группы безопасности сети) разверните прокси-сервер HTTP для перенаправления трафика.
+2. Если вы используете группу безопасности сети, добавьте правила, чтобы разрешить доступ к Интернету с прокси-сервера HTTP.
 
-Learn how to [set up an HTTP proxy for VM backups](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Узнайте, как [настроить прокси-сервер HTTP для резервного копирования виртуальной машины](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
 
-## <a name="cause-2:-the-microsoft-azure-vm-agent-installed-in-the-vm-is-out-of-date-(for-linux-vms)"></a>Cause 2: The Microsoft Azure VM agent installed in the VM is out of date (for Linux VMs)
+## Причина 2. Устарел агент виртуальной машины Microsoft Azure, установленный на виртуальной машине (для виртуальных машин Linux)
 
-### <a name="solution"></a>Solution
-Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an old VM agent. As a general guideline, the first steps to troubleshoot this issue are the following:
+### Решение
+Большая часть неполадок, связанных с агентом или расширением на виртуальных машинах Linux, вызваны проблемами с устаревшим агентом виртуальной машины. В общем случае для устранения таких проблем прежде всего сделайте следующее.
 
-1. [Install the latest Azure VM agent](https://github.com/Azure/WALinuxAgent).
-2. Make sure that the Azure agent is running on the VM. To do this, run the following command:     ```ps -e```
+1. [Установите последнюю версию агента виртуальной машины Azure](https://github.com/Azure/WALinuxAgent).
+2. Убедитесь, что на виртуальной машине запущен агент Azure. Для этого выполните команду ```ps -e```.
 
-    If this process is not running, use the following commands to restart it.
+    Если нужный процесс не запущен, используйте следующие команды для его перезапуска.
 
-    For Ubuntu:     ```service walinuxagent start```
+    Для Ubuntu: ```service walinuxagent start```.
 
-    For other distributions:     ```service waagent start
-```
+    Для других дистрибутивов: ```service waagent start
+```.
 
-3. [Configure the auto restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
+3. [Настройте автоматический перезапуск агента](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 
-4. Run a new test backup. If the failures persist, please collect logs from the following folders for further debugging.
+4. Снова запустите резервное копирование для проверки. Если ошибки повторяются, для дальнейшей отладки соберите журналы из следующих папок.
 
-    We require the following logs from the customer’s VM:
+    Мы просим клиентов предоставить следующие журналы виртуальной машины:
 
     - /var/lib/waagent/*.xml
     - /var/log/waagent.log
     - /var/log/azure/*
 
-If we require verbose logging for waagent, follow these steps to enable this:
+Если вас попросят включить подробное ведение журналов для waagent, выполните следующие действия.
 
-1. In the /etc/waagent.conf file, locate the following line:
+1. В файле /etc/waagent.conf найдите такую строку:
 
     Enable verbose logging (y|n)
 
-2. Change the **Logs.Verbose** value from n to y.
-3. Save the change, and then restart waagent by following the previous steps in this section.
+2. Для параметра **Logs.Verbose** измените значение с n на y.
+3. Сохраните изменения и перезапустите waagent, как описано выше в этом разделе.
 
-## Cause 3: The backup extension fails to update or load
-If extensions cannot be loaded, then Backup fails because a snapshot cannot be taken.
+## Причина 3. Не удалось обновить или загрузить расширение резервного копирования
+Если не удается загрузить расширения, получить моментальный снимок состояния невозможно, и резервное копирование завершится сбоем.
 
-### Solution
-For Windows guests:
+### Решение
+Для гостевых систем Windows.
 
-1. Verify that the iaasvmprovider service is enabled and has a startup type of automatic.
-2. If this is not the configuration, enable the service to determine whether the next backup succeeds.
+1. Убедитесь, что служба iaasvmprovider включена и для нее установлен автоматический тип запуска.
+2. Если это не так, включите службу и проверьте, будет ли успешно выполнено следующее резервное копирование.
 
-For Linux guests:
+Для гостевой ОС Linux.
 
-The latest version of VMSnapshot Linux (extension used by backup) is 1.0.91.0
+Последняя версия Linux VMSnapshot (расширение резервной копии) — 1.0.91.0.
 
-If the backup extension still fails to update or load, you can force the VMSnapshot extension to be reloaded by uninstalling the extension. The next backup attempt will reload the extension.
+Если расширение резервной копии по-прежнему не удается обновить или загрузить, попробуйте принудительно перезагрузить расширение VMSnapshot, удалив это расширение. Расширение будет перезагружено при следующей попытке резервного копирования.
 
-### To uninstall the extension
+### Удаление расширения
 
-1. Go to the [Azure portal](https://portal.azure.com/).
-2. Locate the particular VM that has backup problems.
-3. Click **Settings**.
-4. Click **Extensions**.
-5. Click **Vmsnapshot Extension**.
-6. Click **uninstall**.
+1. Перейдите на [портал Azure](https://portal.azure.com/).
+2. Найдите виртуальную машину, с которой возникли проблемы при резервном копировании.
+3. Щелкните **Параметры**.
+4. Щелкните **Расширения**.
+5. Щелкните **Расширение Vmsnapshot**.
+6. Щелкните **Удалить**.
 
-This will cause the extension to be reinstalled during the next backup.
+После этого расширение будет повторно установлено при следующем запуске резервного копирования.
 
-## Cause 4: The snapshots status cannot be retrieved or the snapshots cannot be taken
-VM backup relies on issuing snapshot command to underlying storage. The backup can fail because it has no access to storage or because of a delay in snapshot task execution.
+## Причина 4. Не удалось получить состояние моментальных снимков или создать моментальные снимки
+Резервное копирование виртуальных машин зависит от команды моментального снимка в базовом хранилище. Резервное копирование может завершиться сбоем, если эта задача не имеет доступа к хранилищу или если возникнет задержка в получении моментальных снимков.
 
-### Solution
-The following conditions can cause snapshot task failure:
+### Решение
+Сбой задачи создания снимка может быть вызван следующими условиями.
 
-| Cause | Solution |
+| Причина: | Решение |
 | ----- | ----- |
-| VMs that have Microsoft SQL Server Backup configured. By default, VM Backup runs a VSS Full backup on Windows VMs. On VMs that are running SQL Server-based servers and on which SQL Server Backup is configured, snapshot execution delays may occur. | Set following registry key if you are experiencing backup failures because of snapshot issues.<br><br>[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE" |
-| VM status is reported incorrectly because the VM is shut down in RDP. If you shut down the virtual machine in RDP, check the portal to determine whether that VM status is reflected correctly. | If it’s not, shut down the VM in the portal by using the ”Shutdown” option in the VM dashboard. |
-| Many VMs from the same cloud service are configured to back up at the same time. | It’s a best practice to spread out the VMs from the same cloud service to have different backup schedules. |
-| The VM is running at high CPU or memory usage. | If the VM is running at high CPU usage (more than 90 percent) or high memory usage, the snapshot task is queued and delayed and eventually times out. In this situation, try on-demand backup. |
-|The VM cannot get host/fabric address from DHCP.|DHCP must be enabled inside the guest for IaaS VM Backup to work.  If the VM cannot get host/fabric address from DHCP response 245, then it cannot download ir run any extensions. If you need a static private IP, you should configure it through the platform. The DHCP option inside the VM should be left enabled. View more information about [Setting a Static Internal Private IP](../virtual-network/virtual-networks-reserved-private-ip.md).|
+| Виртуальные машины, для которых настроено резервное копирование Microsoft SQL Server. По умолчанию при резервном копировании виртуальной машины выполняется полное резервное копирование VSS на виртуальных машинах Windows. Если на виртуальной машине запущен сервер на основе SQL Server и настроено резервное копирование SQL Server, при выполнении моментального снимка может возникать задержка. | Если возникают ошибки резервного копирования из-за проблем с моментальными снимками, задайте следующий ключ реестра.<br><br>[HKEY\_LOCAL\_MACHINE\\SOFTWARE\\MICROSOFT\\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE" |
+| Состояние виртуальной машины отображается неправильно из-за того, что работа виртуальной машины была завершена в сеансе удаленного рабочего стола. Когда вы завершаете работу виртуальной машины в сеансе удаленного рабочего стола, следует убедиться, что состояние виртуальной машины правильно отображается на портале. | Если это не так, завершите работу виртуальной машины на портале с помощью операции "Завершение работы" на панели мониторинга виртуальной машины. |
+| Для нескольких виртуальных машин из одной облачной службы резервное копирование выполняется в одно и то же время. | Рекомендуется распределить виртуальные машины из одной облачной службы так, чтобы резервное копирование выполнялось в разное время. |
+| Виртуальная машина использует большие ресурсы процессора или памяти. | Если виртуальная машина работает с высоким уровнем загрузки ЦП (более 90 %) или использует большой объем памяти, задача создания моментального снимка помещается в очередь и время ее ожидания истекает. В таких ситуациях попробуйте резервное копирование по запросу. |
+|Виртуальная машина не может получить адрес узла или структуры от DHCP.|Для работы резервного копирования службы архивации на виртуальной машине IaaS DHCP должна быть включена для учетной записи гостя. Если виртуальная машина не может получить адрес узла или структуры в виде ответа DHCP 245, она не сможет загрузить или запустить расширения. Если вам нужен статический частный IP-адрес, следует настроить его через платформу. DHCP для виртуальной машины следует оставить включенным. См. дополнительные сведения в статье [Настройка статического внутреннего частного IP-адреса](../virtual-network/virtual-networks-reserved-private-ip.md).|
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

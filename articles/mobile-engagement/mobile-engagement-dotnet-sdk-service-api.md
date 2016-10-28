@@ -1,46 +1,44 @@
 <properties 
-    pageTitle="Using .NET SDK to access Azure Mobile Engagement Service APIs" 
-    description="Describes how to use the Mobile Engagement .NET SDK to access Azure Mobile Engagement Service APIs"        
-    services="mobile-engagement" 
-    documentationCenter="mobile" 
-    authors="piyushjo" 
-    manager="erikre" 
-    editor="" />
+	pageTitle="Использование пакета SDK для .NET для доступа к интерфейсам API службы Azure Mobile Engagement" 
+	description="Описывает, как использовать пакет SDK для .NET Mobile Engagement для доступа к интерфейсам API службы Azure Mobile Engagement"		
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="erikre" 
+	editor="" />
 
 <tags 
-    ms.service="mobile-engagement" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-multiple" 
-    ms.devlang="dotnet" 
-    ms.topic="article" 
-    ms.date="08/19/2016" 
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/19/2016" 
+	ms.author="piyushjo" />
 
+#Использование пакета SDK для .NET для доступа к интерфейсам API службы Azure Mobile Engagement
 
-#<a name="using-.net-sdk-to-access-azure-mobile-engagement-service-apis"></a>Using .NET SDK to access Azure Mobile Engagement Service APIs
+Azure Mobile Engagement предоставляет набор интерфейсов API для управления устройствами, кампаниями охвата/продвижения и т. д. Для взаимодействия с этими интерфейсами API мы также предоставляем [файл Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json), который можно использовать со средствами для создания пакетов SDK для предпочитаемого языка. Мы рекомендуем использовать средство [AutoRest](https://github.com/Azure/AutoRest) для создания пакета SDK из нашего файла Swagger.
 
-Azure Mobile Engagement exposes a set of APIs for you to manage Devices, Reach/Push campaigns etc. To interact with these APIs, we also provide you a [Swagger file](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) that you can use with tools to generate SDKs for your preferred language. We recommend using the [AutoRest](https://github.com/Azure/AutoRest) tool to generate your SDK from our Swagger file. 
+Аналогичным образом мы создали пакет SDK для .NET, который позволяет взаимодействовать с этими интерфейсами API с помощью оболочки C# без самостоятельного согласования маркера проверки подлинности и обновления.
 
-We have created a .NET SDK in a similar manner which allows you to interact with these APIs using a C# wrapper and you don't have to do the authentication token negotiation and refresh yourself.  
+В этом примере используется набор шагов, которые необходимо выполнить для использования пакета SDK для .NET:
 
-This sample goes through the set of steps to follow to use the .NET SDK:
+1. Во-первых, необходимо настроить проверку подлинности для интерфейсов API с помощью Azure Active Directory, как описано [здесь](mobile-engagement-api-authentication.md#authentication). По завершении этих шагов вы должны иметь допустимые **идентификатор подписки**, **идентификатор клиента**, **идентификатор приложения** и **секрет**.
 
-1. First of all, you need to setup the authentication for your APIs using the Azure Active Directory as described [here](mobile-engagement-api-authentication.md#authentication). At the end of these steps, you should have a valid **SubscriptionId**, **TenantId**, **ApplicationId** and **Secret**. 
+2. Мы используем простое консольное приложение Windows для демонстрации работы с пакетом SDK для .NET с помощью сценария создания кампании типа "Объявление". Откройте Visual Studio и создайте **консольное приложение**.
 
-2. We will use a simple Windows Console app to demonstrate working with the .NET SDK with the scenario of creating an Announcement campaign. So open up Visual Studio and create a **Console Application**.   
+3. Далее необходимо загрузить пакет SDK для .NET, который доступен в виде **библиотеки управления Microsoft Azure Engagement** в коллекции Nuget [здесь](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement/). Если вы устанавливаете Nuget из Visual Studio, убедитесь, что при поиске пакета установлен флажок **Включить предварительный выпуск**:
 
-3. Next you need to download the .NET SDK which is available as **Microsoft Azure Engagement Management Library** in the Nuget gallery [here](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement/).
-If you are installing the Nuget from Visual Studio, you need to ensure that you have check marked the **Include prerelease** option while searching for the package:
+	![][1]
 
-    ![][1]
+4. В файле `Program.cs` добавьте следующие пространства имен:
 
-4. In the `Program.cs` file, add the following namespaces:
+		using Microsoft.Rest.Azure.Authentication;
+		using Microsoft.Azure.Management.Engagement;
+		using Microsoft.Azure.Management.Engagement.Models;
 
-        using Microsoft.Rest.Azure.Authentication;
-        using Microsoft.Azure.Management.Engagement;
-        using Microsoft.Azure.Management.Engagement.Models;
-
-5. Next you need to define the following constants that we will use for authentication and interacting with the Mobile Engagement App in which you are creating the Announcement campaign:
+5. Затем необходимо определить следующие константы, которые будут использоваться для проверки подлинности и взаимодействия с приложением Mobile Engagement, в которой вы создаете кампанию типа "Объявление":
 
         // For authentication
         const string TENANT_ID = "<Your TenantId>";
@@ -49,7 +47,7 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
         const string SUBSCRIPTION_ID = "<Your Subscription Id>";
 
         // This is the Azure Resource group concept for grouping together resources 
-        //  see here: https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/
+        //  see here: https://azure.microsoft.com/documentation/articles/resource-group-portal/
         const string RESOURCE_GROUP = "";
 
         // For Mobile Engagement operations
@@ -58,13 +56,13 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
         // Application Resource Name - make sure you are using the one as specified in the Azure portal (NOT the App Name)
         const string APP_RESOURCE_NAME = "";
 
-6. Define the `EngagementManagementClient` variable which we will use to call the Mobile Engagement SDK methods:
+6. Определите переменную `EngagementManagementClient`, которая будет использоваться для вызова методов пакета SDK Mobile Engagement:
 
-        static EngagementManagementClient engagementClient; 
+		static EngagementManagementClient engagementClient; 
 
-7. Add the following to your `Main` method:
+7. Затем добавьте в метод `Main` следующие строки:
 
-        try
+		try
             {
                 // Initialize the Engagement SDK to call out APIs. 
                 InitEngagementClient().Wait();
@@ -78,7 +76,7 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
                 throw ex;
             }
 
-8. Define the following method which takes care of initializing the `EngagementManagementClient` by first authenticating and then associating itself with the Mobile Engagement App in which you plan to create the Announcement campaign:
+8. Определите следующий метод, который отвечает за инициализацию `EngagementManagementClient`, выполняя проверку подлинности и связывая себя с приложением Mobile Engagement, в котором вы планируете создать кампанию типа "Объявление":
 
         private static async Task InitEngagementClient()
         {
@@ -93,14 +91,14 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
             engagementClient.AppName = APP_RESOURCE_NAME;
         }
 
-    > [AZURE.IMPORTANT] Note that you need to use the **App Resource Name** as defined in the Azure management portal for the AppName parameter. 
+	> [AZURE.IMPORTANT] Обратите внимание, что для параметра AppName необходимо использовать **имя ресурса приложения**, определенное в портале управления Azure.
 
-9. Lastly, define the CreateCampaign method which will take care of using the previously initialized EngagementClient to create a simple **AnyTime** & **Notification-only** campaign with a title and message: 
+9. Наконец, определите метод CreateCampaign, который с помощью ранее инициализированного объекта EngagementClient создаст простую кампанию с характеристиками **В любое время** и **Только уведомление** и со следующими заголовком и сообщением:
 
         private async static Task CreateCampaign()
         {
             //  Refer to the Announcement Campaign format from here - 
-            //      https://msdn.microsoft.com/en-us/library/azure/mt683751.aspx
+            //      https://msdn.microsoft.com/ru-RU/library/azure/mt683751.aspx
             // Make sure you are passing all the non-optional parameters
             Campaign parameters = new Campaign(
                 name:"WelcomeCampaign",
@@ -110,22 +108,18 @@ If you are installing the Nuget from Visual Studio, you need to ensure that you 
                 deliveryTime:"any"
                 );
 
-            // Refer to the Campaign Kinds from here - https://msdn.microsoft.com/en-us/library/azure/mt683742.aspx
+            // Refer to the Campaign Kinds from here - https://msdn.microsoft.com/ru-RU/library/azure/mt683742.aspx
             CampaignStateResult result = 
                 await engagementClient.Campaigns.CreateAsync(CampaignKinds.Announcements, parameters);
             Console.WriteLine("Campaign Id '{0}' was created successfully and it is in '{1}' state", result.Id, result.State);
         }
 
-10. Run the console app and you will see the following on successful creation of the campaign:
+10. Запустите консольное приложение, и при успешном создании кампании вы увидите следующее сообщение:
 
-    **Campaign Id '159' was created successfully and it is in 'draft' state**
+	**Кампания с идентификатором 159 успешно создана и находится в состоянии "черновик"**
 
 <!-- Images. -->
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

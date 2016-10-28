@@ -1,6 +1,6 @@
 <properties
-pageTitle="Azure Active Directory Application and Service Principal Objects | Microsoft Azure"
-description="A discussion of the relationship between application and service principal objects in Azure Active Directory"
+pageTitle="Объекты приложения и субъекта-службы в Azure Active Directory | Microsoft Azure"
+description="Сведения о связи между объектами приложений и субъектов-служб в Azure Active Directory"
 documentationCenter="dev-center-name"
 authors="bryanla"
 manager="mbaldwin"
@@ -16,47 +16,46 @@ ms.workload="identity"
 ms.date="08/10/2016"
 ms.author="bryanla;mbaldwin"/>
 
+# Объекты приложения и субъекта-службы в Azure Active Directory
+Приложение Azure Active Directory (AD) — это не всегда то, что мы привыкли называть приложением. Цель этой статьи — объяснить понятие приложения Azure Active Directory, а также определить концептуальные и практические аспекты его интеграции. Кроме того, здесь приведен пример регистрации [мультитенантного приложения](active-directory-dev-glossary.md#multi-tenant-application) и предоставления соответствующих разрешений.
 
-# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Application and service principal objects in Azure Active Directory
-When you read about an Azure Active Directory (AD) "application", it's not always clear exactly what is being referred to by the author. The goal of this article is to make it clearer, by defining the conceptual and concrete aspects of Azure AD application integration, with an example of registration and consent for a [multi-tenant application](active-directory-dev-glossary.md#multi-tenant-application).
+## Обзор
+Приложение Azure AD — это более широкое понятие, нежели просто компонент программного обеспечения. Это общий термин, который включает в себя не только программное обеспечение, но и процесс регистрации приложения (также называемый конфигурацией удостоверения) в Azure AD, что позволяет ему принимать участие в обмене данными во время проверки подлинности и авторизации в среде выполнения. По определению приложение можно развернуть в роли [клиента](active-directory-dev-glossary.md#client-application) (потребление ресурсов), [сервера ресурсов](active-directory-dev-glossary.md#resource-server) (предоставление API для клиентов) или в обеих ролях. Протокол общения определяется [потоком предоставления кода авторизации OAuth2.0](active-directory-dev-glossary.md#authorization-grant). Он используется для предоставления клиенту или ресурсу доступа к данным ресурса или разрешения на их защиту. Теперь давайте рассмотрим приложение Azure AD более детально и узнаем, что оно собой представляет.
 
-## <a name="overview"></a>Overview
-An Azure AD application is broader than just a piece of software. It's a conceptual term, referring not only to application software, but also its registration (aka: identity configuration) with Azure AD, which allows it to participate in authentication and authorization "conversations" at runtime. By definition, an application can function in a [client](active-directory-dev-glossary.md#client-application) role (consuming a resource), a [resource server](active-directory-dev-glossary.md#resource-server) role (exposing APIs to clients), or even both. The conversation protocol is defined by an [OAuth 2.0 Authorization Grant flow](active-directory-dev-glossary.md#authorization-grant), with a goal of allowing the client/resource to access/protect a resource's data respectively. Now let's go a level deeper, and see how the Azure AD application model represents an application internally. 
+## Регистрация приложения
+При регистрации приложения на [классическом портале Azure][AZURE-Classic-Portal] в клиенте Azure AD создаются два объекта: объект приложения и объект субъекта-службы.
 
-## <a name="application-registration"></a>Application registration
-When you register an application in the [Azure classic portal][AZURE-Classic-Portal], two objects are created in your Azure AD tenant: an application object, and a service principal object.
+#### Объект приложения
+Объект приложения представляет *определение* вашего приложения Azure AD. Единственный экземпляр объекта приложения размещается в главном клиенте Azure AD приложения (то есть в клиенте, в котором зарегистрировано приложение). Объект приложения предоставляет сведения, связанные с идентификацией приложения. Кроме того, он представляет собой шаблон, на основе которого *определяются* соответствующие объекты субъектов-служб, используемые в среде выполнения.
 
-#### <a name="application-object"></a>Application object
-An Azure AD application is *defined* by its one and only application object, which resides in the Azure AD tenant where the application was registered, referred to as the application's "home" tenant. The application object provides identity-related information for an application, and is the template from which its corresponding service principal object(s) are *derived* for use at run-time. 
+В некотором роде объект приложения является *глобальным* представлением вашего приложения (для использования во всех клиентах), а субъект-службы — *локальным* (для использования в определенных клиентах). Схема для объекта приложения определяется в [сущности приложения][AAD-Graph-App-Entity] Azure AD Graph. Между объектом приложения и самим приложением устанавливается отношение 1:1, а между объектом приложения и соответствующими субъектами-служб — 1:*n*, где *n* — количество субъектов-служб.
 
-You can think of the application as the *global* representation of your application (for use across all tenants), and the service principal as the *local* representation (for use in a specific tenant). The Azure AD Graph [Application entity][AAD-Graph-App-Entity] defines the schema for an application object. An application object therefore has a 1:1 relationship with the software application, and a 1:*n* relationship with its corresponding *n* service principal object(s).
+#### Объект субъекта-службы
+Объект субъекта-службы определяет политику и разрешения для приложения. Это основа для создания субъекта безопасности, используемого для представления приложения при получении доступа к ресурсам во время выполнения. Схема для объекта субъекта-службы определяется в [сущности ServicePrincipal][AAD-Graph-Sp-Entity] Azure AD Graph.
 
-#### <a name="service-principal-object"></a>Service principal object
-The service principal object defines the policy and permissions for an application, providing the basis for a security principal to represent the application when accessing resources at run-time. The Azure AD Graph [ServicePrincipal entity][AAD-Graph-Sp-Entity] defines the schema for a service principal object. 
+Объект субъекта-службы необходимо создать в каждом клиенте, на котором используется экземпляр приложения. Это обеспечивает безопасный доступ ко всем ресурсам пользователя из клиента. В однотенантных приложениях используется только один субъект-служба, размещенный в главном клиенте. А в мультитенантных [веб-приложениях](active-directory-dev-glossary.md#web-client), помимо этого, субъекты-службы создаются во всех клиентах, где пользователь или администратор предоставил приложению доступ к своим ресурсам. После получения разрешения к субъекту-службе будет происходить обращение при последующих запросах авторизации.
 
-A service principal object is required in each tenant for which an instance of the application's usage must be represented, enabling secure access to resources owned by user accounts from that tenant. A single-tenant application will have only one service principal (in its home tenant). A multi-tenant [Web application](active-directory-dev-glossary.md#web-client) will also have a service principal in each tenant where an administrator or user(s) from that tenant have given consent, allowing it to access their resources. Following consent, the service principal object will be consulted for future authorization requests. 
+> [AZURE.NOTE] Любые изменения объекта приложения также отражаются в объекте субъекта-службы, размещенном в главном клиенте приложения (то есть в клиенте, в котором зарегистрировано приложение). При использовании мультитенантных приложений изменения объекта приложения не отражаются в объектах субъекта-службы клиента-потребителя до тех пор, пока клиент-потребитель не отменит доступ и не предоставит его снова.
 
-> [AZURE.NOTE] Any changes you make to your application object, are also reflected in its service principal object in the application's home tenant only (the tenant where it was registered). For multi-tenant applications, changes to the application object are not reflected in any consumer tenants' service principal objects, until the consumer tenant removes access and grants access again.
+## Пример
+На следующей схеме показана связь между объектом приложения и соответствующими объектами субъекта-службы в контексте образца мультитенантного приложения под названием **Приложение по управлению персоналом**. В этом сценарии используются три клиента Azure AD.
 
-## <a name="example"></a>Example
-The following diagram illustrates the relationship between an application's application object and corresponding service principal objects, in the context of a sample multi-tenant application called **HR app**. There are three Azure AD tenants in this scenario: 
+- **Adatum** — клиент, который используется компанией, разработавшей **приложение по управлению персоналом**.
+- **Contoso** — клиент, который используется компанией Contoso, потребляющей **приложение по управлению персоналом**.
+- **Fabrikam** — клиент, который используется компанией Fabrikam, также потребляющей **приложение по управлению персоналом**.
 
-- **Adatum** - the tenant used by the company that developed the **HR app**
-- **Contoso** - the tenant used by the Contoso organization, which is a consumer of the **HR app**
-- **Fabrikam** - the tenant used by the Fabrikam organization, which also consumes the **HR app**
+.![Связь между объектом приложения и объектом субъекта-службы](./media/active-directory-application-objects/application-objects-relationship.png)
 
-![Relationship between an application object and a service principal object](./media/active-directory-application-objects/application-objects-relationship.png)
+На предыдущей схеме шаг 1 — это процесс создания объектов приложения и субъекта-службы в главном клиенте приложения.
 
-In the previous diagram, Step 1 is the process of creating the application and service principal objects in the application's home tenant.
+На шаге 2 при согласии администраторов компании Contoso и Fabrikam в клиенте Azure AD компании создается объект субъекта-службы, и ему назначаются разрешения, предоставленные администратором. Обратите внимание, что приложение по управлению персоналом можно создать или настроить для отдельных пользователей.
 
-In Step 2, when Contoso and Fabrikam administrators complete consent, a service principal object is created in their company's Azure AD tenant and assigned the permissions that the administrator granted. Also note that the HR app could be configured/designed to allow consent by users for individual use.
+На шаге 3 каждый из клиентов-потребителей приложения по управлению персоналом (Contoso и Fabrikam) имеет собственный объект субъекта-службы. И каждый из них представляет использование экземпляра приложения во время выполнения. Это использование зависит от разрешений, предоставленных соответствующим администратором.
 
-In Step 3, the consumer tenants of the HR application (Contoso and Fabrikam) each have their own service principal object. Each represents their use of an instance of the application at runtime, governed by the permissions consented by the respective administrator.
+## Дальнейшие действия
+Доступ к объекту приложения можно осуществить через API Azure AD Graph, как определено в [сущности приложения][AAD-Graph-App-Entity] OData.
 
-## <a name="next-steps"></a>Next steps
-An application's application object can be accessed via the Azure AD Graph API, as represented by its OData [Application entity][AAD-Graph-App-Entity]
-
-An application's service principal object can be accessed via the Azure AD Graph API, as represented by its OData [ServicePrincipal entity][AAD-Graph-Sp-Entity]
+Доступ к объекту субъекта-службы приложения можно осуществить через API Azure AD Graph, как определено в [сущности ServicePrincipal][AAD-Graph-Sp-Entity] OData.
 
 
 
@@ -67,7 +66,4 @@ An application's service principal object can be accessed via the Azure AD Graph
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AZURE-Classic-Portal]: https://manage.windowsazure.com
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

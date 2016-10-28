@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to manage service configurations and profiles | Microsoft Azure"
-   description="Learn how to work with service configurations and profiles configuration files| which store settings for the deployment environments and publish settings for cloud services."
+   pageTitle="Как управлять конфигурациями и профилями службы | Microsoft Azure"
+   description="Узнайте, как работать с файлами конфигурации службы и файлами профилей, в которых хранятся параметры для сред развертывания и параметры публикации для облачных служб."
    services="visual-studio-online"
    documentationCenter="na"
    authors="TomArcher"
@@ -15,125 +15,120 @@
    ms.date="08/15/2016"
    ms.author="tarcher" />
 
+# Управление конфигурациями и профилями службы
 
-# <a name="how-to-manage-service-configurations-and-profiles"></a>How to manage service configurations and profiles
+## Обзор
 
-## <a name="overview"></a>Overview
+При публикации облачной службы Visual Studio сохраняет сведения о конфигурации в файлах конфигурации двух видов: конфигурациях службы и профилях. Конфигурации службы (CSCFG-файлы) содержат параметры для сред развертывания облачной службы Azure. Azure использует эти файлы конфигурации при управлении облачными службами. В свою очередь, профили (файлы AZUREPUBXML) содержат параметры публикации для облачных служб. Эти параметры являются отражением конфигурации, выбранной при использовании мастера публикации, и используются локально в Visual Studio. В этой статье объясняется, как работать с файлами конфигурации обоих типов.
 
-When you publish a cloud service, Visual Studio stores configuration information in two kinds of configuration files: service configurations and profiles. Service configurations (.cscfg files) store settings for the deployment environments for an Azure cloud service. Azure uses these configuration files when it manages your cloud services. On the other hand, profiles (.azurePubxml files) store publish settings for cloud services. These settings are a record of what you choose when you use the publish wizard, and are used locally by Visual Studio. This topic explains how to work with both types of configuration files.
+## Конфигурации службы
 
-## <a name="service-configurations"></a>Service Configurations
+Вы можете создать несколько конфигураций службы для каждой из своих сред развертывания. Например, вы можете создать одну конфигурацию службы для локальной среды, в которой запускаете и тестируете приложения Azure, а другую — для рабочей среды.
 
-You can create multiple service configurations to use for each of your deployment environments. For example, you might create a service configuration for the local environment that you use to run and test an Azure application and another service configuration for your production environment.
+Вы можете добавлять, удалять, переименовывать и изменять конфигурации служб по своему усмотрению. Конфигурациями служб можно управлять из Visual Studio, как показано на следующем рисунке.
 
-You can add, delete, rename, and modify these service configurations based on your requirements. You can manage these service configurations from Visual Studio, as shown in the following illustration.
+![Управление конфигурациями службы](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-service-config.png)
 
-![Manage Service Configurations](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-service-config.png)
+Также вы можете открыть диалоговое окно **Управление конфигурациями** со страниц свойств роли. Чтобы открыть окно свойств роли в проекте Azure, откройте контекстное меню для этой роли и выберите пункт **Свойства**. На вкладке **Параметры** разверните список **Конфигурация службы**, а затем выберите **Управление**, чтобы открыть диалоговое окно **Управление конфигурациями**.
 
-You can also open the **Manage Configurations** dialog box from the role’s property pages. To open the properties for a role in your Azure project, open the shortcut menu for that role, and then choose **Properties**. On the **Settings** tab, expand the **Service Configuration** list, and then select **Manage** to open the **Manage Configurations** dialog box.
+### Добавление конфигурации службы
 
-### <a name="to-add-a-service-configuration"></a>To add a service configuration
+1. В обозревателе решений откройте контекстное меню проекта Azure и выберите пункт **Управление конфигурациями**.
 
-1. In Solution Explorer open the shortcut menu for the Azure project and then select **Manage Configurations**.
+    Откроется диалоговое окно **Управление конфигурациями службы**.
 
-    The **Manage Service Configurations** dialog box appears.
+1. Чтобы добавить новую конфигурацию службы, создайте копию существующей конфигурации. Для этого выберите в списке "Имя" конфигурацию, которую хотите скопировать, и нажмите кнопку **Создать копию**.
 
-1. To add a service configuration, you must create a copy of an existing configuration. To do this, choose the configuration that you want to copy from the Name list and then select **Create copy**.
+1. Чтобы изменить имя конфигурации службы, выберите в списке "Имя" новую конфигурацию службы и нажмите кнопку **Переименовать**. Этот шаг можно пропустить. В текстовом поле **Имя** введите имя для этой конфигурации службы и нажмите кнопку **ОК**.
 
-1. (Optional) To give the service configuration a different name, choose the new service configuration from the Name list and then select **Rename**. In the **Name** text box, type the name that you want to use for this service configuration and then select **OK**.
+    В проект Azure в обозревателе решений добавится новый CSCFG-файл с именем ServiceConfiguration.[Новое имя].cscfg.
 
-    A new service configuration file that is named ServiceConfiguration.[New Name].cscfg is added to the Azure project in Solution Explorer.
 
+### Удаление конфигурации службы
 
-### <a name="to-delete-a-service-configuration"></a>To delete a service configuration
+1. В обозревателе решений откройте контекстное меню проекта Azure и выберите пункт **Управление конфигурациями**.
 
-1. In Solution Explorer, open the shortcut menu for the Azure project and then select **Manage Configurations**.
+    Откроется диалоговое окно **Управление конфигурациями службы**.
 
-    The **Manage Service Configurations** dialog box appears.
+1. Чтобы удалить конфигурацию службы, выберите из списка **Имя** конфигурацию, которую нужно удалить, и нажмите кнопку **Удалить**. Появится диалоговое окно, в котором следует подтвердить удаление конфигурации.
 
-1. To delete a service configuration, choose the configuration that you want to delete from the **Name** list and then select **Remove**. A dialog box appears to verify that you want to delete this configuration.
+1. Нажмите кнопку **Удалить**.
 
-1. Select **Delete**.
+     Файл конфигурации службы будет удален из проекта Azure в обозревателе решений.
 
-     The service configuration file is removed from the Azure project in Solution Explorer.
 
+### Переименование конфигурации службы
 
-### <a name="to-rename-a-service-configuration"></a>To rename a service configuration
+1. В обозревателе решений откройте контекстное меню проекта Azure и выберите пункт **Управление конфигурациями**.
 
-1. In Solution Explorer, open the shortcut menu for the Azure project, and then select **Manage Configurations**.
+    Откроется диалоговое окно **Управление конфигурациями службы**.
 
-    The **Manage Service Configurations** dialog box appears.
+1. Чтобы переименовать конфигурацию службы, выберите из списка **Имя** новую конфигурацию службы и нажмите кнопку **Переименовать**. В текстовом поле **Имя** введите имя для этой конфигурации службы и нажмите кнопку **ОК**.
 
-1. To rename a service configuration, choose the new service configuration from the **Name** list, and then select **Rename**. In the **Name** text box, type the name that you want to use for this service configuration, and then select **OK**.
+    Имя файла конфигурации службы изменится в проекте Azure в обозревателе решений.
 
-    The name of the service configuration file is changed in the Azure project in Solution Explorer.
+### Изменение конфигурации службы
 
-### <a name="to-change-a-service-configuration"></a>To change a service configuration
+- Если вы хотите изменить конфигурацию службы, откройте контекстное меню для роли в проекте Azure, которую нужно изменить, и выберите пункт **Свойства**. Дополнительные сведения см. в статье [Инструкции. Настройка ролей для облачной службы Azure в среде Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx).
 
-- If you want to change a service configuration, open the shortcut menu for the specific role you want to change in the Azure project, and then select **Properties**. See [How to: Configure the Roles for an Azure Cloud Service with Visual Studio](https://msdn.microsoft.com/library/azure/hh369931.aspx) for more information.
+## Создание различных комбинаций параметров с помощью профилей
 
-## <a name="make-different-setting-combinations-by-using-profiles"></a>Make different setting combinations by using profiles
+С помощью профилей вы можете автоматически добавлять в **мастер публикации** комбинации параметров для различных целей. Например, вы можете создать один профиль для отладки, а другой — для сборок выпуска. В таком случае в профиле **Отладка** будет включен параметр **IntelliTrace** и выбрана конфигурация **Отладка**, а в профиле **Выпуск** будет отключен параметр **IntelliTrace** и выбрана конфигурация **Выпуск**. Также вы можете использовать различные профили для развертывания службы с помощью разных учетных записей хранения.
 
-By using a profile, you can automatically fill in the **Publish Wizard** with different combinations of settings for different purposes. For example, you can have one profile for debugging and another for release builds. In that case, your **Debug** profile would have **IntelliTrace** enabled and the **Debug** configuration selected, and your **Release** profile would have **IntelliTrace** disabled and the **Release** configuration selected. You could also use different profiles to deploy a service using a different storage account.
+При первом запуске мастера публикации создается профиль по умолчанию. Visual Studio создает файл профиля с расширением AZUREPUBXML и сохраняет его в папку **Профили** вашего проекта Azure. Если при следующем запуске мастера вы вручную укажете другие параметры, этот файл автоматически обновится. Перед выполнением следующей процедуры следует хотя бы один раз опубликовать облачную службу.
 
-When you run the wizard for the first time, a default profile is created. Visual Studio stores the profile in a file that has an .azurePubXml extension, which is added to your Azure project under the **Profiles** folder. If you manually specify different choices when you run the wizard later, the file automatically updates. Before you run the following procedure, you should have already published your cloud service at least once.
+### Добавление профиля
 
-### <a name="to-add-a-profile"></a>To add a profile
+1. Откройте контекстное меню проекта Azure и выберите пункт **Опубликовать**.
 
-1. Open the shortcut menu for your Azure project, and then select **Publish**.
+1. Нажмите кнопку **Сохранить профиль**, расположенную рядом со списком **Целевой профиль**, как показано на следующем рисунке. Будет создан новый профиль.
 
-1. Next to the **Target profile** list, select the **Save Profile** button, as the following illustration shows. This creates a profile for you.
+    ![Создание нового профиля](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/create-new-profile.png)
 
-    ![Create an new profile](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/create-new-profile.png)
+1. Создав профиль, щелкните **<Управление>** в списке **Целевой профиль**.
 
-1. After the profile is created, select **<Manage…>** in the **Target profile** list.
+    Появится диалоговое окно **Управление профилями**, как показано на следующем рисунке.
 
-    The **Manage Profiles** dialog box appears, as the following illustration shows.
+    ![Диалоговое окно «Управление профилями»](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-profiles.png)
 
-    ![Manage Profiles Dialog](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-profiles.png)
+1. В списке **Имя** выберите профиль и нажмите кнопку **Создать копию**.
 
-1. In the **Name** list, choose a profile, and then select **Create Copy**.
+1. Щелкните кнопку **Закрыть**.
 
-1. Choose the **Close** button.
+    Новый профиль появится в списке «Целевой профиль».
 
-    The new profile appears in the Target profile list.
+1. Выберите этот профиль в списке **Целевой профиль**. Значения из выбранного профиля будут заданы для параметров мастера публикации.
 
-1. In the **Target profile** list, select the profile that you just created. The Publish Wizard settings are filled in with the choices from the profile you selected.
+1. Просмотрите страницы мастера публикации, нажимая кнопки **Назад** и **Далее**, и настройте параметры для этого профиля. Дополнительные сведения см. в статье [Мастер публикации приложений Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
 
-1. Select the **Previous** and **Next** buttons to display each page of the Publish Wizard, and then customize the settings for this profile. See [Publish Azure Application Wizard](http://go.microsoft.com/fwlink/p/?LinkID=623085) for information.
+1. Когда вы настроите все параметры, нажмите кнопку **Далее**, чтобы вернуться на страницу параметров. Профиль будет сохранен, если вы опубликуете службу с помощью этих параметров или нажмете кнопку **Сохранить** рядом со списком профилей.
 
-1. After you finish customizing the settings, select **Next** to go back to the Settings page. The profile is saved when you publish the service by using these settings or if you select **Save** next to the list of profiles.
+### Переименование или удаление профиля
 
-### <a name="to-rename-or-delete-a-profile"></a>To rename or delete a profile
+1. Откройте контекстное меню проекта Azure и выберите пункт **Опубликовать**.
 
-1. Open the shortcut menu for your Azure project, and then select **Publish**.
+1. В списке **Целевой профиль** выберите пункт **Управление**.
 
-1. In the **Target profile** list, select **Manage**.
+1. В диалоговом окне **Управление профилями** выберите профиль, который нужно удалить, и нажмите кнопку **Удалить**.
 
-1. In the **Manage Profiles** dialog box, select the profile that you want to delete, and then select **Remove**.
+1. В появившемся диалоговом окне подтвердите удаление, нажав кнопку **ОК**.
 
-1. In the confirmation dialog box that appears, select **OK**.
+1. Нажмите кнопку **Закрыть**.
 
-1. Select **Close**.
+### Изменение профиля
 
-### <a name="to-change-a-profile"></a>To change a profile
+1. Откройте контекстное меню проекта Azure и выберите пункт **Опубликовать**.
 
-1. Open the shortcut menu for your Azure project, and then select **Publish**.
+1. В списке **Целевой профиль** выберите профиль, который нужно изменить.
 
-1. In the **Target profile** list, select the profile that you want to change.
+1. Просмотрите страницы мастера публикации, нажимая кнопки **Назад** и **Далее**, и настройте необходимые параметры. Дополнительные сведения см. в статье [Мастер публикации приложений Azure](http://go.microsoft.com/fwlink/p/?LinkID=623085).
 
-1. Select the **Previous** and **Next** buttons to display each page of the Publish Wizard, and then change the settings you want. See [Publish Azure Application Wizard](http://go.microsoft.com/fwlink/p/?LinkID=623085) for information.
+1. Когда вы настроите все параметры, нажмите кнопку **Далее**, чтобы вернуться на страницу **Параметры**.
 
-1. After you finish changing the settings, select **Next** to go back to the **Settings** page.
+1. Нажмите кнопку **Опубликовать**, чтобы опубликовать облачную службу с новыми параметрами. Этот шаг можно пропустить. Если вы не опубликуете облачную службу и закроете мастер публикации, в Visual Studio появится запрос на сохранение изменений в профиле.
 
-1. (Optional) select **Publish** to publish the cloud service using the new settings. If you don’t want to publish your cloud service at this time, and you close the Publish Wizard, Visual Studio asks you if you want to save the changes to the profile.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+Дополнительные сведения о настройке других частей проекта Azure в Visual Studio см. в статье [Настройка проекта Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075).
 
-To learn about configuring other parts of your Azure project from Visual Studio, see [Configuring an Azure Project](http://go.microsoft.com/fwlink/p/?LinkID=623075)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

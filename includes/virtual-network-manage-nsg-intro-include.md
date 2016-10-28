@@ -1,7 +1,3 @@
-After you create one or more Network Security Groups (NSGs), you need to be able to retrieve information about your NSGs, add and remove rules, edit existing rules, associate or dissociate NSGs, and delete NSGs. In this article, you will learn how to execute each of these tasks. Before you can manage NSGs, it's important to know [how NSGs work](..\articles\virtual-network\virtual-networks-nsg.md). 
+После создания одной или нескольких групп безопасности сети у вас должна быть возможность получить информацию об этих группах, добавить и удалить правила, изменить существующие правила, установить или удалить связь с группой безопасности сети, а также удалить группы безопасности сети. В этой статье вы узнаете, как выполнить каждую из этих задач. Прежде чем приступить к управлению группами безопасности сети, важно знать, [как они работают](..\articles\virtual-network\virtual-networks-nsg.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

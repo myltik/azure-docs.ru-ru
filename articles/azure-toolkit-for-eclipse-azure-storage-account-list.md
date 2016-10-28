@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure Storage Account List"
-    description="Manage your storage account settings using the Azure Toolkit for Eclipse"
+    pageTitle="Список учетных записей хранения Azure"
+    description="Управление параметрами учетной записи хранения с помощью набора средств Azure для Eclipse"
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,84 +16,84 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn205108.aspx -->
 
-# <a name="azure-storage-account-list"></a>Azure Storage Account List #
+# Список учетных записей хранения Azure #
 
-Azure storage accounts enable download locations to be used for your JDK, application server, and arbitrary components, as well as for storing state when using caching. Eclipse maintains a list of known storage accounts that are available to your projects in your Eclipse workspace. To open the **Storage Accounts** dialog, which is used to manage that list, within Eclipse, click **Window**, click **Preferences**, expand **Azure**, and then click **Storage Accounts**.
+Учетные записи хранения Azure позволяют использовать расположения скачивания для JDK, сервера приложений и произвольных компонентов, а также для хранения состояния при использовании кэширования. Eclipse ведет список известных учетных записей хранения, доступных вашим проектам в рабочей области Eclipse. Чтобы открыть диалоговое окно **Учетные записи хранения**, которое используется для управления этим списком, в Eclipse, щелкните **Окно**, **Настройки**, разверните узел **Azure** и выберите **Учетные записи хранения**.
 
-The following shows the **Storage Accounts** dialog.
+Ниже показано диалоговое окно **Учетные записи хранения**.
 
 ![][ic719496]
 
-This dialog can also be opened from an **Accounts** link on dialog boxes that use storage accounts, such as the following:
+Кроме того, это диалоговое окно можно открыть с помощью ссылки **Учетные записи** в диалоговых окнах, использующих учетные записи хранения, включая следующие:
 
-* The **JDK** tab of the **Server Configuration** dialog.
-* The **Server** tab of the **Server Configuration** dialog.
-* The **Add Component** dialog.
-* The **Caching** properties dialog.
+* Вкладка **JDK** диалогового окна **Конфигурация сервера**.
+* Вкладка **Сервер** диалогового окна **Конфигурация сервера**.
+* Диалоговое окно **Добавить компонент**.
+* Диалоговое окно свойств **Кэширование**.
 
-## <a name="to-import-your-storage-accounts-using-a-publish-settings-file"></a>To import your storage accounts using a publish settings file ##
+## Импорт учетных записей хранения с помощью файла параметров публикации ##
 
-1. Within the **Storage Accounts** dialog, click **Import from PUBLISH-SETTINGS file**.
-2. (Skip this step if you have already saved a publish settings file to your local machine.) In the **Import Subscription Information** dialog, click **Download PUBLISH-SETTINGS File**. If you are not yet logged into your Azure account, you will be prompted to log in. Then you'll be prompted to save an Azure publish settings file. (You can ignore the resulting instructions shown on the logon pages - they are provided by the Azure portal and are intended for Visual Studio users.) Save it to your local machine.
-3. Still in the **Import Subscription Information** dialog, click the **Browse** button, select the publish settings file that you saved locally previously, and then click **Open**.
-4. Click **OK** to close the **Import Subscription Information** dialog.
+1. В диалоговом окне **Учетные записи хранения** щелкните **Import from PUBLISH-SETTINGS file** (Импорт из файла параметров публикации).
+2. (Пропустите этот шаг, если вы уже сохранили файл параметров публикации на локальном компьютере.) В диалоговом окне **Import Subscription Information** (Импорт сведений о подписке) щелкните **Download PUBLISH-SETTINGS File** (Скачать PUBLISHSETTINGS-файл). Если вы еще не вошли в учетную запись Azure, вам будет предложено войти. Затем вам будет предложено сохранить файл параметров публикации Azure. (Вы можете игнорировать инструкции, приведенные на страницах входа в систему, так как они предоставляются порталом Azure и предназначены для пользователей Visual Studio.) Сохраните его на локальном компьютере.
+3. В диалоговом окне **Import Subscription Information** (Импорт сведений о подписке), нажмите кнопку **Обзор**, выберите файл параметров публикации, который ранее был сохранен локально, и нажмите кнопку **Открыть**.
+4. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Import Subscription Information** (Импорт сведений о подписке).
 
-## <a name="to-create-a-new-storage-account"></a>To create a new storage account ##
+## Создание учетной записи хранения ##
 
-1. Within the **Storage Accounts** dialog, click **Add**.
-2. Within the **Add Storage Account** dialog, click **New**.
-3. Within the **New Storage Account** dialog, specify values for the following:
-    * Storage account name.
-    * Location of the storage account.
-    * Description of the storage account.
-    * The subscription to which the storage account belongs.
-4. Click **OK** to close the **New Storage Account** dialog.
+1. В диалоговом окне **Учетные записи хранения** нажмите кнопку **Добавить**.
+2. В диалоговом окне **Добавление учетной записи хранения** нажмите кнопку **Создать**.
+3. В диалоговом окне **Создать учетную запись хранения** укажите следующие значения:
+    * имя учетной записи хранения;
+    * расположение учетной записи хранения;
+    * описание учетной записи хранения;
+    * подписка, к которой относится учетная запись хранения.
+4. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Создать учетную запись хранения**.
 
-It may take several minutes for your storage account to be created. After it is created, click **OK** to close the **Add Storage Account** dialog, and your new storage account will be added to the list of available storage accounts.
+Создание вашей учетной записи хранения может занять несколько минут. После ее создания нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Добавление учетной записи хранения**, после чего новая учетная запись хранения добавляется в список доступных учетных записей хранения.
 
-## <a name="to-add-an-existing-storage-account-to-the-list"></a>To add an existing storage account to the list ##
+## Добавление существующей учетной записи хранения в список ##
 
-1. If you do not already have a Azure storage account, create one by following the steps listed in the **To create a new storage account section** above. (Alternatively, you can create a new storage account at the [Azure Management Portal][].)
-2. Within the **Storage Accounts** dialog, click **Add**.
-3. Within the **Add Storage Account** dialog, enter values for **Name** and **Access Key**. The account name and access key must be for an existing Azure storage account. Use the **Storage** section of the [Azure Management Portal][] to view your storage account names and keys. Your **Add Storage Account** dialog will look similar to the following.
+1. Если у вас еще нет учетной записи хранения Azure, создайте ее, выполнив действия, описанные в приведенном выше разделе **Создание учетной записи хранения**. (Кроме того, вы можете создать учетную запись хранения с помощью [портала управления Azure][].)
+2. В диалоговом окне **Учетные записи хранения** нажмите кнопку **Добавить**.
+3. В диалоговом окне **Добавление учетной записи хранения** введите значения для параметров **Имя** и **Ключ доступа**. Имя и ключ доступа должны относиться к существующей учетной записи хранения Azure. Используйте раздел **Хранилище** [портала управления][], чтобы просмотреть имена и ключи своих учетных записей хранения. Диалоговое окно **Добавление учетной записи хранения** будет выглядеть следующим образом.
 
     ![][ic719497]
 
-4. Click **OK** to close the **Add Storage Account** dialog.
+4. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Добавление учетной записи хранения**.
 
-## <a name="to-modify-a-storage-account-to-use-a-new-access-key"></a>To modify a storage account to use a new access key ##
+## Изменение учетной записи хранения для использования нового ключа доступа ##
 
-1. Within the **Storage Accounts** dialog, click the storage account that you want to edit and then click **Edit**.
-2. Within the **Edit Storage Account Access Key** dialog, modify the **Access Key** value.
-3. Click **OK** to close the **Edit Storage Account Access Key** dialog.
+1. В диалоговом окне **Учетные записи хранения** щелкните учетную запись хранения, которую требуется изменить, и нажмите кнопку **Изменить**.
+2. В диалоговом окне**Edit Storage Account Access Key** (Изменение ключа доступа учетной записи хранения) измените значение **Ключ доступа**.
+3. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Edit Storage Account Access Key** (Изменение ключа доступа учетной записи хранения).
 
-## <a name="to-remove-a-storage-account-from-the-list-maintained-in-eclipse"></a>To remove a storage account from the list maintained in Eclipse ##
+## Удаление учетной записи хранения из списка, хранящегося в Eclipse ##
 
-1. Within the **Storage Accounts** dialog, click the storage account that you want to edit and then click **Remove**.
-2. Click **OK** when prompted to remove the storage account.
+1. В диалоговом окне **Учетные записи хранения** щелкните учетную запись хранения, которую требуется изменить, и нажмите кнопку **Удалить**.
+2. Нажмите кнопку **ОК** при появлении запроса на удаление учетной записи хранения.
 
->[AZURE.NOTE] Removing the storage account through the **Storage Accounts** dialog only removes it from the list of storage accounts viewable within Eclipse. It does not remove the storage account from your Azure subscription. Additionally, the storage account could appear again in your list after Eclipse reloads the details of your subscription.
+>[AZURE.NOTE] При удалении учетной записи хранения через диалоговое окно **Учетные записи хранения** она удаляется лишь из списка учетных записей хранения, который можно просмотреть в Eclipse. Сама учетная запись из подписки Azure не удаляется. Кроме того, учетная запись хранения может снова появиться в списке, после того как Eclipse перезагрузит сведения о подписке.
 
-## <a name="see-also"></a>See Also ##
+## См. также ##
 
-[Azure Toolkit for Eclipse][]
+[Набор средств Azure для Eclipse][]
 
-[Installing the Azure Toolkit for Eclipse][] 
+[Установка набора средств Azure для Eclipse][]
 
-[Creating a Hello World Application for Azure in Eclipse][]
+[Создание приложения Hello World для Azure в Eclipse][]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center][].
+Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[портала управления]: http://go.microsoft.com/fwlink/?LinkID=512959
+[портала управления Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [What's New in the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699552
 
 <!-- IMG List -->
@@ -101,8 +101,4 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [ic719496]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719496.png
 [ic719497]: ./media/azure-toolkit-for-eclipse-azure-storage-account-list/ic719497.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

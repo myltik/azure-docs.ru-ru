@@ -1,133 +1,127 @@
 <properties
-    pageTitle="Get started with Azure Mobile Engagement for Web Apps | Microsoft Azure"
-    description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Web Apps."
-    services="mobile-engagement"
-    documentationCenter="Mobile"
-    authors="piyushjo"
-    manager=""
-    editor="" />
+	pageTitle="Приступая к работе с Azure Mobile Engagement для веб-приложений | Microsoft Azure"
+	description="Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для веб-приложений."
+	services="mobile-engagement"
+	documentationCenter="Mobile"
+	authors="piyushjo"
+	manager=""
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="js"
-    ms.topic="hero-article"
-    ms.date="06/01/2016"
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="js"
+	ms.topic="hero-article"
+	ms.date="06/01/2016"
+	ms.author="piyushjo" />
 
+# Приступая к работе с Azure Mobile Engagement для веб-приложений
 
-# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Get started with Azure Mobile Engagement for Web Apps
+[AZURE.INCLUDE [Выбор других руководств](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-[AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+В этой статье показано, как с помощью Azure Mobile Engagement понять тенденции использования веб-приложения.
 
-This topic shows you how to use Azure Mobile Engagement to understand your Web App usage.
+Для работы с данным учебником требуется следующее:
 
-This tutorial requires the following:
++ Visual Studio 2015 или другой редактор по вашему выбору;
++ [веб-пакет SDK](http://aka.ms/P7b453). 
 
-+ Visual Studio 2015 or any other editor of your choice
-+ [Web SDK](http://aka.ms/P7b453) 
+Сейчас веб-пакет SDK находится в предварительной версии и поддерживает только функцию аналитики. Пока он не поддерживает отправку push-уведомлений в приложении или браузере.
 
-This Web SDK is in Preview and only supports Analytics at the moment and doesn't support sending browser or in-app push notifications yet. 
+> [AZURE.NOTE] Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
 
-> [AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
+##Настройка Mobile Engagement для веб-приложения
 
-##<a name="setup-mobile-engagement-for-your-web-app"></a>Setup Mobile Engagement for your Web app
+[AZURE.INCLUDE [Создание приложения Mobile Engagement на портале](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
+##<a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
 
-##<a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Connect your app to the Mobile Engagement backend
+В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных.
 
-This tutorial presents a "basic integration," which is the minimal set required to collect data.
+Мы создадим базовое веб-приложение с помощью Visual Studio, чтобы продемонстрировать интеграцию, хотя вы можете выполнить эти действия для любого веб-приложения, созданного вне Visual Studio.
 
-We will create a basic web app with Visual Studio to demonstrate the integration though you can follow the steps with any web application created outside of Visual Studio also. 
+###Создание нового веб-приложения
 
-###<a name="create-a-new-web-app"></a>Create a new Web App
+Указанные ниже действия предполагают использование Visual Studio 2015, хотя они и аналогичны действиям с использованием более ранних версий Visual Studio.
 
-The following steps assume the use of Visual Studio 2015 though the steps are similar in earlier versions of Visual Studio. 
+1. Запустите Visual Studio и на **начальном** экране выберите пункт **Создать проект**.
 
-1. Start Visual Studio, and in the **Home** screen, select **New Project**.
+2. Во всплывающем окне последовательно выберите пункты **Веб** -> **Веб-приложение ASP.NET**. Введите необходимые значения в полях **Имя**, **Расположение** и **Имя решения**, а затем нажмите кнопку **ОК**.
 
-2. In the pop-up, select **Web** -> **ASP.Net Web Application**. Fill in the app **Name**, **Location** and  **Solution name**, and then click **OK**.
+3. Во всплывающем окне **Выбор шаблона** выберите элемент **Пусто** в разделе **ASP.Net 4.5 Templates** (Шаблоны ASP.Net 4.5) и нажмите кнопку **ОК**.
 
-3. In the **Select a template** popup, select **Empty** under **ASP.Net 4.5 Templates** and click **OK**. 
+Вы создали пустой проект веб-приложения, в которое мы интегрируем веб-пакет SDK для Azure Mobile Engagement.
 
-You have now created a new blank Web App project into which we will integrate the Azure Mobile Engagement Web SDK.
+###Подключите приложение к серверной части Mobile Engagement.
 
-###<a name="connect-your-app-to-mobile-engagement-backend"></a>Connect your app to Mobile Engagement backend
+1. Создайте новую папку с именем **javascript** в решении и добавьте в нее JS-файл веб-пакета SDK с именем **azure engagement.js**. 
 
-1. Create a new folder called **javascript** in your solution and add the Web SDK JS file **azure-engagement.js** into it. 
+2. Добавьте в папку javascript новый файл с именем **main.js**, содержащий следующий код. Обязательно обновите строку подключения. Этот объект `azureEngagement` будет использоваться для доступа к методам веб-пакета SDK.
 
-2. Add a new file called **main.js** in this javascript folder with the following code. Make sure to update the connection string. This `azureEngagement` object will be used to access Web SDK methods. 
+		var azureEngagement = {
+		    debug: true,
+		    connectionString: 'xxxxx'
+		};
 
-        var azureEngagement = {
-            debug: true,
-            connectionString: 'xxxxx'
-        };
+	![Использование JS-файлов в Visual Studio][1]
 
-    ![Visual Studio with js files][1]
+##Включение мониторинга в режиме реального времени
 
-##<a name="enable-real-time-monitoring"></a>Enable real-time monitoring
+Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере одно действие в серверную часть Mobile Engagement. Действие в контексте веб-приложения — это веб-страница.
 
-In order to start sending data and ensuring that the users are active, you must send at least one Activity to the Mobile Engagement backend. An activity in the context of a web app is a web page. 
+1. Создайте страницу с именем **home.html** в решении и настройте ее в качестве начальной страницы для веб-приложения. 
+2. Включите два сценария JavaScript, добавленных ранее на этой странице. Для этого добавьте в тег body следующий код. 
 
-1. Create a new page called **home.html** in your solution and set it as the starting page for your web app. 
-2. Include the two javascripts we added earlier in this page by adding the following within the body tag. 
+	    <script type="text/javascript" src="javascript/main.js"></script>
+	    <script type="text/javascript" src="javascript/azure-engagement.js"></script>
 
-        <script type="text/javascript" src="javascript/main.js"></script>
-        <script type="text/javascript" src="javascript/azure-engagement.js"></script>
+3. Обновите тег body для вызова метода `startActivity` EngagementAgent.
+		
+		<body onload="engagement.agent.startActivity('Home')">
 
-3. Update the body tag to call EngagementAgent's `startActivity` method
-        
-        <body onload="engagement.agent.startActivity('Home')">
+4. Вот как будет выглядеть страница **home.html**:
+		
+		<html>
+		<head>
+			...
+		</head>
+		<body onload="engagement.agent.startActivity('Home')">
+		    <script type="text/javascript" src="javascript/main.js"></script>
+		    <script type="text/javascript" src="javascript/azure-engagement.js"></script>
+		</body>
+		</html>
 
-4. Here is what your **home.html** will look like
-        
-        <html>
-        <head>
-            ...
-        </head>
-        <body onload="engagement.agent.startActivity('Home')">
-            <script type="text/javascript" src="javascript/main.js"></script>
-            <script type="text/javascript" src="javascript/azure-engagement.js"></script>
-        </body>
-        </html>
+##Подключение приложения с возможностью его отслеживания в режиме реального времени
 
-##<a name="connect-app-with-real-time-monitoring"></a>Connect app with real-time monitoring
-
-[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+[AZURE.INCLUDE [Подключение приложения с возможностью его отслеживания в режиме реального времени](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ![][2]
 
-##<a name="extend-analytics"></a>Extend analytics
+##Расширение аналитики
 
-Here are all the methods currently available with Web SDK that you can use for analytics:
+Здесь приведены все доступные методы для веб-пакета SDK, которые можно использовать для аналитики:
 
-1. Activities/Web pages:
+1. Действия и веб-страницы:
 
-        engagement.agent.startActivity(name);
-        engagement.agent.endActivity();
+		engagement.agent.startActivity(name);
+		engagement.agent.endActivity();
 
-2. Events
-        
-        engagement.agent.sendEvent(name, extras);
+2. События
+		
+		engagement.agent.sendEvent(name, extras);
 
-3. Errors
+3. Ошибки
 
-        engagement.agent.sendError(name, extras);
+		engagement.agent.sendError(name, extras);
 
-4. Jobs
+4. Задания
 
-        engagement.agent.startJob(name);
-        engagement.agent.endJob(name);
+		engagement.agent.startJob(name);
+		engagement.agent.endJob(name);
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!----HONumber=AcomDC_0615_2016-->

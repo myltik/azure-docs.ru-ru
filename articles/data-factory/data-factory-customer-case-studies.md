@@ -1,56 +1,51 @@
 <properties 
-    pageTitle="Customer case studies | Microsoft Azure" 
-    description="Learn about how some of our customers have been using Azure Data Factory." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="sharonlo101" 
-    manager="jhubbard" 
-    editor="monicar"/>
+	pageTitle="Примеры реальных клиентов | Microsoft Azure" 
+	description="Узнайте о том, как некоторые из наших клиентов используют фабрику данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
 <tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/20/2016" 
-    ms.author="shlo"/>
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/20/2016" 
+	ms.author="spelluru"/>
 
+# Примеры реальных клиентов
 
-# <a name="customer-case-studies"></a>Customer case studies
+Фабрика данных представляет собой облачную службу управления информацией, которая автоматизирует перемещение и преобразование данных. Клиенты из многих отраслей используют фабрику данных и другие службы Azure для построения аналитических конвейеров и решения проблем бизнеса. Узнайте от самих клиентов, как и почему они используют фабрику данных.
 
-Data Factory is a cloud-based information management service that automates the movement and transformation of data. Customers across many industries use Data Factory and other Azure services to build their analytics pipelines and solve their business problems.  Learn directly from our customers how and why they are using Data Factory.
+## Milliman
 
-## <a name="milliman"></a>Milliman
+[Лучшая страховая компания преобразует страховую индустрию](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
 
-[Top Actuarial firm transforms the insurance industry](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
+## Rockwell Automation
 
-## <a name="rockwell-automation"></a>Rockwell Automation
+[Фирма, специализирующаяся на промышленной автоматизации, снижает затраты на 90 процентов благодаря решениям на основе больших данных](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
 
-[Industrial Automation Firm Cuts Costs up to 90 Percent with Big Data Solutions](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+## Ziosk
 
-## <a name="ziosk"></a>Ziosk
+[С каким мясом вы хотите заказать гамбургер? Ziosk уже знает ответ.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
-[What game will you want to go with that burger? Ziosk may already know.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
+## Alaska Airlines
 
-## <a name="alaska-airlines"></a>Alaska Airlines
+[Авиакомпания использует Планшетные ПК и облачные службы для предоставления более \\интересных развлечений в полете](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
-[Airline Uses Tablets, Cloud Services to Offer More Engaging In-Flight Entertainment](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
+## Общественные школы Tacoma Public Schools
 
-## <a name="tacoma-public-schools"></a>Tacoma public schools
+[Использование облачной аналитики для прогнозирования риска отсева учащихся и увеличения процента успешных закончивших обучение](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 
-[Predicting student dropout risks, increasing graduation rates with cloud analytics](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
+## ФК Реал Мадрид
 
-## <a name="real-madrid-fc"></a>Real Madrid FC
+[Реал Мадрид использует Microsoft Cloud, чтобы предоставить доступ на стадион 450-ти миллионам болельщиков со всего мира](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
 
-[Real Madrid brings the stadium closer to 450 million fans around the globe, with the Microsoft Cloud](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
+## Pier 1 Imports
 
-## <a name="pier-1-imports"></a>Pier 1 Imports
+[Укрепление связей с клиентами благодаря облачному машинному обучению](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-[Finding a Better Connection with Customers through Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

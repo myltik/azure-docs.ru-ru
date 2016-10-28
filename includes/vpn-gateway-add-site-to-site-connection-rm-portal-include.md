@@ -1,29 +1,25 @@
-1. Locate your virtual network gateway and click **All settings** to open the **Settings** blade.
+1. Найдите свой шлюз виртуальной сети и щелкните **Все параметры**. Откроется колонка **Параметры**.
 
-2. On the **Settings** blade, click **Connections**, and then click **Add** at the top of the blade to open the **Add connection** blade.
+2. В колонке **Параметры** щелкните **Подключения**, а затем в верхней части колонки нажмите кнопку **Добавить**. Откроется колонка **Добавить подключение**.
 
-    ![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
+	![Создание подключения типа "сеть — сеть"](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
 
-3. On the **Add connection** blade, **Name** your connection. 
+3. В колонке **Добавить подключение** укажите для своего подключения **имя**.
 
-4. For **Connection type**, select **Site-to-site(IPSec)**.
+4. В раскрывающемся списке **Тип подключения** выберите **Сеть — сеть (IPSec)**.
 
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
+5. Значение параметра **Шлюз виртуальной сети** изменить нельзя, так как вы подключаетесь из этого шлюза.
 
-6. For **Local network gateway**, click **Choose a local network gateway** and select the local network gateway that you want to use. 
+6. В разделе **Шлюз локальной сети** щелкните **Выбрать шлюз локальной сети** и выберите нужный шлюз.
 
-7. For **Shared Key**, the value here must match the value that you are using for your local VPN device. If your VPN device on your local network doesn't provide a shared key, you can make one up and input it here and on your local device. The important thing is that they both match.
+7. Значение в поле **Общий ключ** должно соответствовать ключу локального VPN-устройства. Если VPN-устройство локальной сети не предоставляет общего ключа, можно придумать воображаемый ключ и ввести его здесь и на локальном устройстве. Важно, чтобы оба ключа совпадали.
 
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
+8. Значения параметров **Подписка**, **Группа ресурсов** и **Расположение** изменить нельзя.
 
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
+9. Щелкните **ОК** для создания подключения. На экране появится надпись *Идет создание подключения*.
 
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+10. Когда подключение будет создано, оно появится в колонке **Подключения** вашего шлюза.
 
-    ![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
+	![Создание подключения типа "сеть — сеть"](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0406_2016---->

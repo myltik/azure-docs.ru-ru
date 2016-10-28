@@ -1,103 +1,98 @@
 <properties
-    pageTitle="Create text analytics models in Azure Machine Learning Studio | Microsoft Azure"
-    description="How to create text analytics models in Azure Machine Learning Studio using modules for text preprocessing, N-grams or feature hashing"
-    services="machine-learning"
-    documentationCenter=""
-    authors="rastala"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Создание моделей текстовой аналитики в Студии машинного обучения Azure | Microsoft Azure"
+	description="Узнайте, как с помощью модулей для предварительной обработки текста, N-грамм и хэширования признаков создавать модели текстовой аналитики в Студии машинного обучения Azure."
+	services="machine-learning"
+	documentationCenter=""
+	authors="rastala"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="roastala" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/06/2016"
+	ms.author="roastala" />
 
 
+#Создание моделей текстовой аналитики в Студии машинного обучения Azure
 
-#<a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Create text analytics models in Azure Machine Learning Studio
+Машинное обучения Azure можно использовать для создания и ввода в эксплуатацию моделей текстовой аналитики. Эти модели могут быть полезными, например, при решении проблем с классификацией документов или анализом мнений.
 
-You can use Azure Machine Learning to build and operationalize text analytics models. These models can help you solve, for example, document classification or sentiment analysis problems.
+В эксперименте текстовой аналитики, как правило, выполняются следующие действия:
 
-In a text analytics experiment, you would typically:
+ 1. Очистка и предварительная обработка набора текстовых данных.
+ 2. Извлечение из предварительно обработанного текста векторов числовых признаков.
+ 3. Обучение модели классификации или регрессии.
+ 4. Оценка и проверка модели.
+ 5. Развертывание модели в рабочей среде.
 
- 1. Clean and preprocess text dataset
- 2. Extract numeric feature vectors from pre-processed text
- 3. Train classification or regression model
- 4. Score and validate the model
- 5. Deploy the model to production
+В данном учебнике эти действия демонстрируются на примере модели анализа мнений с использованием набора данных Amazon Book Reviews (Обзоры книг на Amazon). См. исследовательскую работу "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification" (Биографии, Болливуд, бум-боксы и блендеры: адаптация домена для классификации мнений пользователей), авторы — Джон Блитцер (John Blitzer), Марк Дредзе (Mark Dredze) и Фернандо Перейра (Fernando Pereira); Ассоциация компьютерной лингвистики (ACL), 2007 г. Этот набор данных состоит из оценок в обзоре (1-2 или 4-5) и текста в произвольной форме. Целью является прогнозирование оценки в обзоре: низкая (1-2) или высокая (4-5).
 
-In this tutorial, you learn these steps as we walk through a sentiment analysis model using Amazon Book Reviews dataset (see this research paper “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” by John Blitzer, Mark Dredze, and Fernando Pereira; Association of Computational Linguistics (ACL), 2007.) This dataset consists of review scores (1-2 or 4-5) and a free-form text. The goal is to predict the review score: low (1-2) or high (4-5).
+Эксперименты, рассматриваемые в этом учебнике, можно найти в коллекции Cortana Intelligence:
 
-You can find experiments covered in this tutorial at Cortana Intelligence Gallery:
+[Predict Book Reviews (Прогнозирование оценок в обзоре книг).](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
-[Predict Book Reviews] (https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Predict Book Reviews - Predictive Experiment (Прогнозирование оценок в обзоре книг — прогнозной эксперимент).](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
-[Predict Book Reviews - Predictive Experiment] (https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+## Шаг 1. Очистка и предварительная обработка набора текстовых данных
 
-## <a name="step-1:-clean-and-preprocess-text-dataset"></a>Step 1: Clean and preprocess text dataset
+Мы начинаем эксперимент с разделения оценок в обзоре на категориальные контейнеры низких и высоких оценок, чтобы сформулировать проблему как двухклассовую классификацию. Для этого мы используем модули [Редактирование метаданных](https://msdn.microsoft.com/library/azure/dn905986.aspx) и [Значения категорий группы](https://msdn.microsoft.com/library/azure/dn906014.aspx).
 
-We begin the experiment by dividing the review scores into categorical low and high buckets to formulate the problem as two-class classification. We use [Edit Metadata] (https://msdn.microsoft.com/library/azure/dn905986.aspx) and [Group Categorical Values] (https://msdn.microsoft.com/library/azure/dn906014.aspx) modules.
+![Создание метки](./media/machine-learning-text-analytics-module-tutorial/create-label.png)
 
-![Create Label](./media/machine-learning-text-analytics-module-tutorial/create-label.png)
+Затем мы выполняем очистку текста с помощью модуля [Preprocess Text](https://msdn.microsoft.com/library/azure/mt762915.aspx) (Предварительная обработка текста). Очистка снижает количество шумов в наборе данных, помогает найти наиболее важные признаки и повысить точность конечной модели. Удаляются стоп-слова (такие как артикли или частицы), числа, специальные знаки, повторяющиеся знаки, адреса электронной почты и URL-адреса. Также текст преобразовывается в нижний регистр, выполняется лемматизация слов и определяются границы предложений, которые затем обозначаются в предварительно обработанном тексте символом |||.
 
-Then, we clean the text using [Preprocess Text] (https://msdn.microsoft.com/library/azure/mt762915.aspx) module. The cleaning reduces the noise in the dataset, help you find the most important features, and improve the accuracy of the final model. We remove stopwords - common words such as "the" or "a" - and numbers, special characters, duplicated characters, email addresses, and URLs. We also convert the text to lowercase, lemmatize the words, and detect sentence boundaries that are then indicated by "|||" symbol in pre-processed text.
+![Предварительная обработка текста](./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
 
-![Preprocess Text](./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
+Можно ли использовать настраиваемый список стоп-слов? Его можно передать в качестве дополнительных входных данных. Также можно использовать настраиваемые регулярные выражения с синтаксисом C# для замены подстрок и удаления слов по частям речи (существительные, глаголы или прилагательные).
 
-What if you want to use a custom list of stopwords? You can pass it in as optional input. You can also use custom C# syntax regular expression to replace substrings, and remove words by part of speech: nouns, verbs, or adjectives.
+Когда предварительная обработка завершена, мы разделяем данные на наборы для обучения и тестирования.
 
-After the preprocessing is complete, we split the data into train and test sets.
+## Шаг 2. Извлечение из предварительно обработанного текста векторов числовых признаков
 
-## <a name="step-2:-extract-numeric-feature-vectors-from-pre-processed-text"></a>Step 2: Extract numeric feature vectors from pre-processed text
+Чтобы создать модель из текстовых данных, как правило, требуется преобразовать произвольный текст в векторы числовых признаков. В этом примере для преобразования текстовых данных в такой формат используется модуль [Extract N-Gram Features from Text](https://msdn.microsoft.com/library/azure/mt762916.aspx) (Извлечение из текста признаков N-грамм). Этот модуль принимает столбец слов, разделенных пробелами, и вычисляет словарь слов, или N-граммы слов, которые отображаются в наборе данных. Затем модуль подсчитывает, сколько раз каждое слово, или N-грамм, встречается в каждой записи, и создает на основании этих подсчетов векторы признаков. В этом учебнике для N-грамм задано значение 2, поэтому наши векторы признаков включают отдельные слова и сочетания из двух последовательных слов.
 
-To build a model for text data, you typically have to convert free-form text into numeric feature vectors. In this example, we use [Extract N-Gram Features from Text] (https://msdn.microsoft.com/library/azure/mt762916.aspx) module to transform the text data to such format. This module takes a column of whitespace-separated words and computes a dictionary of words, or N-grams of words, that appear in your dataset. Then, it counts how many times each word, or N-gram, appears in each record, and creates feature vectors from those counts. In this tutorial, we set N-gram size to 2, so our feature vectors include single words and combinations of two subsequent words.
+![Извлечение N-грамм](./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
 
-![Extract N-grams](./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
+При подсчете N-грамм применяются взвешенные значения TF*IDF (частота условия — инверсная частота в документе). Этот подход добавляет взвешенные значения слов, которые часто встречаются в одной записи, но редко — по всему набору данных. Другие варианты включают двоичные значения, TF и взвешенные значения диаграммы.
 
-We apply TF*IDF (Term Frequency Inverse Document Frequency) weighting to N-gram counts. This approach adds weight of words that appear frequently in a single record but are rare across the entire dataset. Other options include binary, TF, and graph weighing.
+Такие текстовые признаки часто обладают высокой размерностью. Например, если ваш текст состоит из 100 000 уникальных слов, то пространство признаков будет иметь 100 000 размеров, или даже больше (когда используются N-граммы). Модуль "Extract N-Gram Features from Text" (Извлечение из текста признаков N-грамм) предоставляет набор параметров для уменьшения размерности. Можно исключить слова, которые являются короткими, длинными, либо встречаются слишком редко или часто, чтобы влиять на прогнозное значение. В этом учебнике мы исключаем N-граммы, которые встречаются реже чем в 5 записях или чаще чем в 80 % записей.
 
-Such text features often have high dimensionality. For example, if your corpus has 100,000 unique words, your feature space would have 100,000 dimensions, or more if N-grams are used. The Extract N-Gram Features module gives you a set of options to reduce the dimensionality. You can choose to exclude words that are short or long, or too uncommon or too frequent to have significant predictive value. In this tutorial, we exclude N-grams that appear in fewer than 5 records or in more than 80% of records.
+Вы также можете использовать выбор признаков, чтобы отбирались только те признаки, которые максимально связаны с целью прогноза. Мы используем выбор признаков хи-квадрат, чтобы отобрать 1000 признаков. Словарь выбранных слов или N-грамм можно просмотреть, щелкнув правую часть выходных данных модуля "Extract N-Gram Features from Text" (Извлечение из текста признаков N-грамм).
 
-Also, you can use feature selection to select only those features that are the most correlated with your prediction target. We use Chi-Squared feature selection to select 1000 features. You can view the vocabulary of selected words or N-grams by clicking the right output of Extract N-grams module.
+В качестве альтернативы этому модулю можно использовать модуль "Функции хэширования". Однако имейте в виду, что модуль [Функции хэширования](https://msdn.microsoft.com/library/azure/dn906018.aspx) не имеет встроенной функции выбора признаков или взвешенных значений TF*IDF.
 
-As an alternative approach to using Extract N-Gram Features, you can use Feature Hashing module. Note though that [Feature Hashing] (https://msdn.microsoft.com/library/azure/dn906018.aspx) does not have build-in feature selection capabilities, or TF*IDF weighing.
+## Шаг 3. Обучение модели классификации или регрессии
 
-## <a name="step-3:-train-classification-or-regression-model"></a>Step 3: Train classification or regression model
+Итак, текст преобразован в столбцы числовых признаков. Набор данных по-прежнему содержит строковые столбцы из предыдущих шагов, поэтому для их исключения мы используем модуль "Select Columns in Dataset" (Выбор столбцов в наборе данных).
 
-Now the text has been transformed to numeric feature columns. The dataset still contains string columns from previous stages, so we use Select Columns in Dataset to exclude them.
+Затем мы используем [двухклассовую логистическую регрессию](https://msdn.microsoft.com/library/azure/dn905994.aspx) для прогнозирования цели: высокая или низкая оценка в обзоре. На этом этапе задача текстовой аналитики преобразовывается в обычную задачу классификации. Для улучшения модели можно воспользоваться инструментами, доступными в Машинном обучении Azure. Например, можно поэкспериментировать с разными классификаторами, чтобы узнать, насколько точные результаты они предоставляют, или воспользоваться настройкой гиперпараметров для повышения точности.
 
-We then use [Two-Class Logistic Regression] (https://msdn.microsoft.com/library/azure/dn905994.aspx) to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
+![Обучение и оценка](./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
 
-![Train and Score](./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
+## Шаг 4. Оценка и проверка модели
 
-## <a name="step-4:-score-and-validate-the-model"></a>Step 4: Score and validate the model
+Как проверить обученную модель? Мы оцениваем ее на основе тестового набора данных и анализируем точность. Однако модель усвоила словарь N-грамм и их взвешенные значения из набора данных для обучения. Поэтому при извлечении признаков из тестовых данных мы должны использовать этот словарь и эти взвешенные значения, а не создавать словарь заново. Следовательно, мы добавляем модуль "Extract N-Gram Features from Text" (Извлечение из текста признаков N-грамм) в ветвь оценки эксперимента, подключаем выходной словарь из ветви обучения и выбираем режим словаря "только для чтения". Мы также отключаем фильтрацию N-грамм по частоте, задав минимальное значение — 1 экземпляр, а максимальное значение — 100 %, и отключаем выбор признаков.
 
-How would you validate the trained model? We score it against the test dataset and evaluate the accuracy. However, the model learned the vocabulary of N-grams and their weights from the training dataset. Therefore, we should use that vocabulary and those weights when extracting features from test data, as opposed to creating the vocabulary anew. Therefore, we add Extract N-Gram Features module to the scoring branch of the experiment, connect the output vocabulary from training branch, and set the vocabulary mode to read-only. We also disable the filtering of N-grams by frequency by setting the minimum to 1 instance and maximum to 100%, and turn off the feature selection.
+После преобразования текстового столбца в тестовых данных в столбцы числовых признаков мы исключаем строковые столбцы из предыдущих шагов, как в ветви обучения. Затем мы используем модуль "Score Model" (Оценка модели) для выполнения прогнозов и модуль "Evaluate Model" (Анализ модели) для оценки точности.
 
-After the text column in test data has been transformed to numeric feature columns, we exclude the string columns from previous stages like in training branch. We then use Score Model module to make predictions and Evaluate Model module to evaluate the accuracy.
+## Шаг 5. Развертывание модели в рабочей среде
 
-## <a name="step-5:-deploy-the-model-to-production"></a>Step 5: Deploy the model to production
+Модель почти готова к развертыванию в рабочей среде. Если модель развернута как веб-служба, то в качестве входных данных она принимает строку с текстом в произвольной форме, а возвращает прогнозную оценку — "высокая" или "низкая". Она использует усвоенный словарь N-грамм для преобразования текста в признаки, а обученную модель логистической регрессии — для формирования прогноза на основе этих признаков.
 
-The model is almost ready to be deployed to production. When deployed as web service, it takes free-form text string as input, and return a prediction "high" or "low." It uses the learned N-gram vocabulary to transform the text to features, and trained logistic regression model to make a prediction from those features. 
+Чтобы настроить прогнозный эксперимент, сначала необходимо сохранить словарь N-грамм как набор данных, а также обученную модель логистической регрессии из ветви обучения эксперимента. Затем мы сохраняем эксперимент с помощью команды "Сохранить как", чтобы создать диаграмму эксперимента для прогнозного эксперимента. Мы удаляем из эксперимента модуль "Split Data" (Разделение данных) и ветвь обучения. Затем мы подключаем сохраненные ранее словарь N-грамм и модель к модулям "Extract N-Gram Features from Text" (Извлечение из текста признаков N-грамм) и "Score Model" (Оценка модели) соответственно. Кроме того, мы удаляем модуль "Evaluate Model" (Анализ модели).
 
-To set up the predictive experiment, we first save the N-gram vocabulary as dataset, and the trained logistic regression model from the training branch of the experiment. Then, we save the experiment using "Save As" to create an experiment graph for predictive experiment. We remove the Split Data module and the training branch from the experiment. We then connect the previously saved N-gram vocabulary and model to Extract N-Gram Features and Score Model modules, respectively. We also remove the Evaluate Model module.
+Вставляем модуль "Select Columns in Dataset" (Выбор столбцов в наборе данных) перед модулем "Preprocess Text" (Предварительная обработка текста), чтобы удалить столбец меток, и снимаем флажок "Append score column to dataset" (Добавить в набор данных столбец оценок) в модуле "Score Model" (Оценка модели). Таким образом, веб-служба не запрашивает метку, которую она пытается прогнозировать, и в результате входные признаки не выводятся на экран.
 
-We insert Select Columns in Dataset module before Preprocess Text module to remove the label column, and unselect "Append score column to dataset" option in Score Module. That way, the web service does not request the label it is trying to predict, and does not echo the input features in response.
+![Прогнозный эксперимент](./media/machine-learning-text-analytics-module-tutorial/predictive-text.png)
 
-![Predictive Experiment](./media/machine-learning-text-analytics-module-tutorial/predictive-text.png)
+Теперь у нас готов эксперимент, который можно опубликовать как веб-службу и вызывать с помощью интерфейсов API "запрос-ответ" или пакетного выполнения.
 
-Now we have an experiment that can be published as a web service and called using request-response or batch execution APIs.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next Steps
+Дополнительные сведения о модулях текстовой аналитики см. в [документации MSDN](https://msdn.microsoft.com/library/azure/dn905886.aspx).
 
-Learn about text analytics modules from [MSDN documentation] (https://msdn.microsoft.com/library/azure/dn905886.aspx).
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

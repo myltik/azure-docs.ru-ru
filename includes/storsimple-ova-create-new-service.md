@@ -1,39 +1,36 @@
-#### <a name="to-create-a-new-service"></a>To create a new service
+#### Создание новой службы
 
-1.  Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/). If deploying the device in Government portal, log in at:  [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
+1.  Используя учетную запись Майкрософт, войдите на классический портал Azure по этому URL-адресу: [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Если развертывание устройства выполняется на портале для государственных организаций, для входа используйте адрес: [https://manage.windowsazure.us/](https://manage.windowsazure.us/)
 
-2.  In the portal, click **New > Data Services > StorSimple Manager > Quick Create**.
+2.  На портале последовательно выберите **Создать > Службы данных > Диспетчер StorSimple > Быстрое создание**.
 
-3.  In the form that is displayed, do the following:
+3.  В открывшейся форме выполните следующие действия.
 
-    1.  Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
+	1.  В поле **Имя** укажите уникальное имя для службы. Здесь необходимо указать понятное имя, пригодное для идентификации службы. Имя может содержать от 2 до 50 символов, среди которых могут быть буквы, цифры и дефисы. Имя должно начинаться и заканчиваться буквой или цифрой.
 
-    2.  For a service to manage a StorSimple virtual device, from the drop down list for **Managed devices type**, choose **Virtual device series**.
+	2.  Чтобы служба могла управлять виртуальным устройством StorSimple, из раскрывающегося списка **Тип управляемых устройств** выберите пункт **Серия виртуального устройства**.
 
-    3.  Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device.
+	3.  Укажите **Расположение** службы. Расположение означает географический регион, в котором планируется развертывание устройства.
 
-     -   If you have other workloads in Azure that you intend to deploy with your StorSimple device, we recommend that you use that datacenter.
+	 -   Если у вас есть другие рабочие нагрузки в Azure, которые будут развернуты вместе с устройством StorSimple, рекомендуем использовать этот центр обработки данных.
 
-     -   The StorSimple Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#optional-step-configure-a-new-storage-account-for-the-service).
-     
-     -   If deploying the virtual device in the Government Portal, the StorSimple Manager service is available in US Iowa and US Virginia locations.
-     
-        
-    1.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present when you have only one subscription.
+   	 -   Диспетчер StorSimple и служба хранилища Azure могут находиться в разных местах. В этом случае необходимо создать службу StorSimple Manager и учетную запись хранения Azure отдельно. Чтобы создать учетную запись хранения Azure, перейдите в службу хранилища Azure на портале и следуйте указаниям из раздела [Создание учетной записи хранения Azure](storage-create-storage-account.md#create-a-storage-account). Создав учетную запись, добавьте ее в службу диспетчера StorSimple. Для этого выполните действия, описанные в разделе [Настройка новой учетной записи хранения для службы](#optional-step-configure-a-new-storage-account-for-the-service).
+   	 
+   	 -   Если развертывание устройства выполняется на портале для государственных организаций, то служба диспетчера StorSimple доступна в расположениях "Айова (для обслуживания государственных организаций США)" и "Виргиния (для обслуживания государственных организаций США)".
+   	 
+   	 	
+	1.  В раскрывающемся списке **Подписка** выберите подписку. Подписка привязана к учетной записи для выставления счетов. Если у вас есть только одна подписка, это поле будет отсутствовать.
 
-    1.  Select **Create a new Azure storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf". If you need your data in a different location, clear this check box.
+	1.  Выберите **Создать новую учетную запись хранения Azure**, чтобы автоматически создать учетную запись хранения одновременно со службой. Эта учетная запись будет иметь специальное имя, например storsimplebwv8c6dcnf. Если данные нужно хранить в другом расположении, снимите этот флажок.
 
-    1.  Click **Create StorSimple Manager** to create the service.
+	1.  Щелкните **Создать диспетчер StorSimple**, чтобы создать службу.
 
-        ![](./media/storsimple-ova-create-new-service/image1m-include.png)
+		![](./media/storsimple-ova-create-new-service/image1m-include.png)
 
-    You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately.
+	Будет выполнено перенаправление на стартовую страницу **Служба**. Создание службы займет несколько минут. После успешного создания службы вы получите соответствующее уведомление.
 
-    ![](./media/storsimple-ova-create-new-service/image2-include.png)
+	![](./media/storsimple-ova-create-new-service/image2-include.png)
 
-    The status of the service will change to **Active**.
+	Состояние службы изменится на **Активна**.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0316_2016-->

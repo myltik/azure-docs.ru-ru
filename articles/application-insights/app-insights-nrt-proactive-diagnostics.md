@@ -1,182 +1,175 @@
 <properties 
-    pageTitle="Near Real Time Proactive Diagnostics in Application Insights | Microsoft Azure" 
-    description="Alerts you to unusual failure patterns in your app, and provides diagnostic analysis. No configuration is needed." 
-    services="application-insights" 
+	pageTitle="Упреждающая диагностика в Application Insights почти в реальном времени | Microsoft Azure" 
+	description="Оповещает о необычном характере ошибок в приложении и предоставляет диагностический анализ. Настройка не требуется." 
+	services="application-insights" 
     documentationCenter=""
-    authors="yorac" 
-    manager="douge"/>
+	authors="yorac" 
+	manager="douge"/>
 
 <tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/05/2016" 
-    ms.author="awills"/>
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/05/2016" 
+	ms.author="awills"/>
  
+# Превентивная диагностика в близком к реальному масштабе времени
 
-# <a name="near-real-time-proactive-diagnostics"></a>Near Real Time Proactive Diagnostics
+[Visual Studio Application Insights](app-insights-overview.md) автоматически уведомляет вас о чрезмерном увеличении частоты невыполненных запросов в близком к реальному масштабе времени. Для того чтобы вам было проще определить и диагностировать проблему, в уведомление включается анализ характеристик невыполненных запросов и соответствующие данные телеметрии. Кроме того, даются ссылки на портал Application Insights для дальнейшей диагностики. Эта функция не требует настройки, так как использует алгоритмы машинного обучения для прогнозирования нормальной частоты невыполненных запросов.
 
-[Visual Studio Application Insights](app-insights-overview.md) automatically notifies you in near real time if an abnormal rise in failed requests rate is detected. To help you triage and diagnose the problem, an analysis of the characteristics of failed requests and related telemetry is provided in the notification. There are also links to the Application Insights portal for further diagnosis. The feature needs no set-up or configuration, as it uses machine learning algorithms to predict the normal failure rate.
+Эта функция работает для веб-приложений Java и ASP.NET, размещенных в облаке или на ваших серверах. Она также работает для любого приложения, создающего телеметрию запросов, например, при наличии рабочей роли, вызывающей [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request).
 
-This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
+После настройки [Application Insights для вашего проекта](app-insights-overview.md) при условии, что ваше приложение создает минимальное количество данных телеметрии, системе превентивной диагностики в близком к реальному времени необходимо 24 часа, чтобы изучить нормальное поведение приложения. По истечении этого времени систему можно будет включить, и она начнет отправлять оповещения.
 
-After setting up [Application Insights for your project](app-insights-overview.md), and provided your app generates a certain minimum amount of telemetry, NRT Proactive Diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
+Вот пример оповещения.
 
-Here's a sample alert. 
+![Пример умного оповещения, содержащий связанный со сбоем анализ кластера](./media/app-insights-nrt-proactive-diagnostics/010.png)
 
-![Sample Intelligent Alert showing cluster analysis around failure](./media/app-insights-nrt-proactive-diagnostics/010.png)
+> [AZURE.NOTE] По умолчанию приходит более краткое сообщение, чем в этом примере. Но можно [переключиться на этот подробный формат](#configure-alerts).
 
-> [AZURE.NOTE] By default, you get a shorter format mail than this example. But you can [switch to this detailed format](#configure-alerts).
+Обратите внимание на то, что оно содержит:
 
-Notice that it tells you:
+* Количество сбоев по сравнению с обычным поведением приложения.
+* Число затронутых пользователей, чтобы вы знали, насколько сильно следует беспокоиться.
+* Шаблон характеристик, связанный с ошибками. В этом примере имеются конкретный код ошибки, имя запроса (операция) и версия приложения. Это позволяет сразу же определить фрагмент кода, с которого следует начать поиск. К другим возможностям может относиться определенный тип браузера или клиентской операционной системы.
+* Исключения, трассировки журналов и сбои в зависимостях (базах данных или других внешних компонентах), которые могут быть связаны с описанными неудачными запросами.
+* Прямые ссылки на соответствующие поиски телеметрии в Application Insights.
 
-* The failure rate compared to normal app behavior.
-* How many users are affected – so you know how much to worry.
-* A characteristic pattern associated with the failures. In this example, there’s a particular response code, request name (operation) and app version. That immediately tells you where to start looking in your code. Other possibilities could be a specific browser or client operating system.
-* The exception, log traces, and dependency failure (databases or other external components) that appear to be associated with the characterized failed requests.
-* Links directly to relevant searches on the telemetry in Application Insights.
+## Преимущества упреждающих оповещений
 
-## <a name="benefits-of-proactive-alerts"></a>Benefits of proactive alerts
+Обычные [оповещения метрик](app-insights-alerts.md) сообщают о возможном наличии проблемы. Однако функция превентивной диагностики в близком к реальному масштабе времени начинает самостоятельно осуществлять диагностику, выполняя множество операций анализа, которые в противном случае вам пришлось бы проводить самостоятельно. Вы получаете тщательно подобранные результаты, что помогает быстро выявить первопричину проблемы.
 
-Ordinary [metric alerts](app-insights-alerts.md) tell you there might be a problem. But NRT Proactive Diagnostics starts the diagnostic work for you, performing a lot of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
+## Принцип работы
 
-## <a name="how-it-works"></a>How it works
+Диагностика в близком к реальному масштабе времени отслеживает поступающие из вашего приложения данные телеметрии, а именно частоту невыполненных запросов. Эта метрика подсчитывает количество запросов, для которых свойство `Successful request` имеет значение false. По умолчанию `Successful request== (resultCode < 400)` (если вы не написали пользовательский код для [фильтрации](app-insights-api-filtering-sampling.md#filtering) или создания собственных вызовов [TrackRequest](app-insights-api-custom-events-metrics.md#track-request)).
 
-Near Real Time Proactive Diagnostics monitors the telemetry received from your app, and in particular the failed request rate. This metric counts the number of requests for which the `Successful request` property is false. By default, `Successful request== (resultCode < 400)` (unless you have written custom code to [filter](app-insights-api-filtering-sampling.md#filtering) or generate your own [TrackRequest](app-insights-api-custom-events-metrics.md#track-request) calls). 
+Производительность вашего приложения обладает типичным шаблоном поведения. Одни запросы будут более подвержены сбоям, чем другие, а общий процент сбоев может возрастать при увеличении нагрузки. Для выявления таких аномалий превентивная диагностика в близком к реальному масштабе времени использует машинное обучение.
 
-Your app’s performance has a typical pattern of behavior. Some requests will be more prone to failure than others; and the overall failure rate may go up as load increases. NRT Proactive Diagnostics uses machine learning to find these anomalies. 
+Поскольку телеметрия поступает в Application Insights из веб-приложения, превентивная диагностика в близком к реальному масштабе времени сравнивает текущее поведение с шаблонами, зарегистрированными за последние несколько дней. Если по сравнению с предыдущими показателями производительности наблюдается чрезмерное увеличение частоты отказов, запускается анализ.
 
-As telemetry comes into Application Insights from your web app, NRT Proactive Diagnostics compares the current behavior with the patterns seen over the past few days. If an abnormal rise in failure rate is observed by comparison with previous performance, an analysis is triggered.
+При запуске анализа служба анализирует кластер по неудачному запросу, чтобы попытаться определить шаблон значений, который характеризует отказы. В приведенном выше примере анализ обнаружил, что большинство сбоев связаны с конкретным кодом ошибки, именем запроса, URL-адресом сервера и экземпляром роли. Анализ также обнаружил, что свойство операционной системы клиента распределено по нескольким значениям, и поэтому его нет в списке.
 
-When an analysis is triggered, the service performs a cluster analysis on the failed request, to try to identify a pattern of values that characterize the failures. In the example above, the analysis has discovered that most failures are about a specific result code, request name, Server URL host, and role instance. By contrast, the analysis has discovered that the client operating system property is distributed over multiple values, and so it is not listed.
+Если ваша служба может предоставлять эти данные телеметрии, анализатор находит исключение и ошибку зависимости, связанные с запросами в установленном кластере, а также примеры журналов трассировки, связанных с такими запросами.
 
-When your service is instrumented with these telemetry, the analyser finds an exception and a dependency failure that are associated with requests in the cluster it has identified, together with an example of any trace logs associated with those requests.
+Результат анализа отправляется в виде оповещения, если в настройках не указан иной способ.
 
-The resulting analysis is sent to you as alert, unless you have configured it not to.
+Как и в случае [оповещений, настраиваемых вручную](app-insights-alerts.md), вы можете проверить состояние оповещения и настроить его в соответствующей колонке ресурса Application Insights. Но в отличие от других оповещений здесь не требуется настройка превентивной диагностики в близком к реальному масштабе времени. При желании адреса электронной почты для отправки оповещений можно отключить или изменить.
 
-Like the [alerts you set manually](app-insights-alerts.md), you can inspect the state of the alert and configure it in the Alerts blade of your Application Insights resource. But unlike other alerts, you don't need to set up or configure NRT Proactive Diagnostics. If you want, you can disable it or change its target email addresses.
 
+## Настройка оповещений 
 
-## <a name="configure-alerts"></a>Configure alerts 
+Вы можете отключить упреждающую диагностику, изменить получателей электронной почты, создать веб-перехватчик или предоставить согласие на получение более подробных оповещений.
 
-You can disable proactive diagnostics, change the email recipients, create a webhook, or opt in to more detailed alert messages.
+Откройте страницу "Оповещения". Превентивная диагностика включается для всех оповещений, которые вы настроили вручную. Здесь можно увидеть, находится ли она в состоянии оповещения.
 
-Open the Alerts page. Proactive Diagnostics is included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
+![На странице "Обзор" щелкните плитку оповещения. Либо на любой странице метрики нажмите кнопку "Оповещения".](./media/app-insights-nrt-proactive-diagnostics/021.png)
 
-![On the Overview page, click Alerts tile. Or on any Metrics page, click Alerts button.](./media/app-insights-nrt-proactive-diagnostics/021.png)
+Щелкните оповещение, чтобы его настроить.
 
-Click the alert to configure it.
+![Конфигурация](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
-![Configuration](./media/app-insights-nrt-proactive-diagnostics/031.png)
 
+Обратите внимание, что превентивную диагностику можно отключить, но нельзя удалить (или создать еще одну).
 
-Notice that you can disable Proactive Diagnostics, but you can't delete it (or create another one).
+#### Подробные оповещения
 
-#### <a name="detailed-alerts"></a>Detailed alerts
+Если установить флажок "Получать подробный анализ", сообщение электронной почты будет содержать дополнительные диагностические сведения. Иногда удается диагностировать проблему на основе только данных в сообщении электронной почты.
 
-If you select "Receive detailed analysis" then the email will contain more diagnostic information. Sometimes you'll be able to diagnose the problem just from the data in the email. 
+Существует небольшой риск, что более подробное оповещение может содержать конфиденциальные сведения, поскольку оно включает сообщения об исключениях и трассировке. Тем не менее это может произойти, только если код допускает передачу конфиденциальных сведений в эти сообщения.
 
-There's a slight risk that the more detailed alert could contain sensitive information, because it includes exception and trace messages. However, this would only happen if your code could allow sensitive information into those messages. 
 
+## Рассмотрение и диагностика оповещения
 
-## <a name="triaging-and-diagnosing-an-alert"></a>Triaging and diagnosing an alert
+Оповещение означает, что обнаружен чрезмерный рост частоты невыполненных запросов. Скорее всего, проблема возникла в приложении или его среде.
 
-An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there is some problem with your app or its environment.
+В зависимости от процента запросов и числа вовлеченных пользователей вы можете решить, насколько срочно необходимо решить проблему. В приведенном выше примере доля невыполненных запросов (22,5 %) сравнивается с нормальным показателем (1 %), из чего очевидно наличие проблемы. С другой стороны, это затронуло только 11 пользователей. Если это было ваше приложение, вы сможете оценить серьезность ситуации.
 
-From the percentage of requests and number of users affected, you can decide how urgent the issue is. In the example above, the failure rate of 22.5% compares with a normal rate of 1%, indicates that something bad is going on. On the other hand, only 11 users were affected. If it were your app, you'd be able to assess how serious that is.
+Зачастую проблему можно быстро диагностировать по имени запроса, исключениям, зависимостям и другим данным трассировки.
 
-In many cases, you will be able to diagnose the problem quickly from the request name, exception, dependency failure and trace data provided. 
+Существуют и некоторые другие признаки. Например, процент сбоев зависимостей в этом примере совпадает с процентом исключений (89,3 %). Из этого можно предположить, что исключение возникает непосредственно при сбое зависимости, что позволяет точно определить фрагмент кода, с которого следует начать проверку.
 
-There are some other clues. For example, the dependency failure rate in this example is the same as the exception rate (89.3%). This suggests that the exception arises directly from the dependency failure - giving you a clear idea of where to start looking in your code.
+Для дальнейшего изучения воспользуйтесь ссылками в каждом разделе, которые укажут на [страницу поиска](app-insights-diagnostic-search.md), относящуюся к соответствующим запросам, исключениям, зависимостям или трассировкам. Вы также можете открыть [портал Azure](https://portal.azure.com), выбрав ресурс Application Insights для своего приложения и открыв колонку "Сбои".
 
-To investigate further, the links in each section will take you straight to a [search page](app-insights-diagnostic-search.md) filtered to the relevant requests, exception, dependency or traces. Or you can open the [Azure portal](https://portal.azure.com), navigate to the Application Insights resource for your app, and open the Failures blade.
+В этом примере при выборе ссылки "Просмотр сведений о сбоях зависимостей" откроется колонка поиска Application Insights с инструкциями SQL и первопричиной: значения NULL, указанные в обязательных полях, не прошли проверку во время операции сохранения.
 
-In this example, clicking the 'View dependency failures details' link opens Application Insights search blade on the SQL statement with the root cause: NULLs where provided at mandatory fields and did not pass validation during the save operation.
 
+![Поиск по журналу диагностики](./media/app-insights-nrt-proactive-diagnostics/051.png)
 
-![Diagnostic search](./media/app-insights-nrt-proactive-diagnostics/051.png)
+## Просмотр последних оповещений
 
-## <a name="review-recent-alerts"></a>Review recent alerts
+Чтобы просмотреть оповещения на портале, откройте **Параметры, Журналы аудита**.
 
-To review alerts in the portal, open **Settings, Audit logs**.
+![Общие данные оповещения](./media/app-insights-nrt-proactive-diagnostics/041.png)
 
-![Alerts summary](./media/app-insights-nrt-proactive-diagnostics/041.png)
 
+Щелкните оповещение, чтобы открыть его полные данные.
 
-Click any alert to see its full detail.
+Или щелкните **Упреждающее обнаружение**, чтобы быстро перейти к последнему оповещению.
 
-Or click **Proactive detection** to get straight to the most recent alert:
+![Общие данные оповещения](./media/app-insights-nrt-proactive-diagnostics/070.png)
 
-![Alerts summary](./media/app-insights-nrt-proactive-diagnostics/070.png)
 
 
 
+## В чем разница?
 
-## <a name="what's-the-difference-..."></a>What's the difference ...
+Превентивная диагностика в близком к реальному масштабе времени дополняет другие похожие, но иные компоненты Application Insights.
 
-NRT Proactive Diagnostics complements other similar but distinct features of Application Insights. 
+* [Оповещения метрик](app-insights-alerts.md) задаются пользователем и позволяют отслеживать самые разные метрики, включая нагрузку на ЦП, частоту запросов, время загрузки страниц и т. д. Их можно использовать, например, для того, чтобы добавить ресурсы. В свою очередь, превентивная диагностика в близком к реальному масштабе времени охватывает небольшой диапазон критически важных метрик (в настоящее время только частоту невыполненных запросов) и в близком к реальному масштабе времени оповещает пользователя в случае, если частота невыполненных запросов в веб-приложении намного превышает нормальный для этого приложения уровень.
 
-* [Metric Alerts](app-insights-alerts.md) are set by you and can monitor a wide range of metrics such as CPU occupancy, request rates,  page load times, and so on. You can use them to warn you, for example, if you need to add more resources. By contrast, NRT Proactive Diagnostics cover a small range of critical metrics (currently only failed request rate), designed to notify you in near real time manner once your web app's failed request rate increases significantly compared to web app's normal behavior.
+    Превентивная диагностика в близком к реальному масштабе времени автоматически корректирует пороговое значение в соответствии с преобладающими условиями.
 
-    NRT Proactive Diagnostics automatically adjusts its threshold in response to prevailing conditions.
+    Превентивная диагностика в близком к реальному масштабе времени самостоятельно запускает процедуру диагностики.
+* [Упреждающее обнаружение](app-insights-proactive-detection.md) использует искусственный интеллект для обнаружения необычного поведения ваших метрик и не требует настройки. В отличие от превентивной диагностики в близком к реальному масштабе времени, эта функция предназначена для поиска плохо обслуживаемых сегментов вашего приложения, например неправильной работы определенных страниц в определенном типе браузера. Анализ выполняется ежедневно, и обнаруженные результаты обычно не требуют таких срочных действий, как оповещения. Для сравнения анализ данных превентивной диагностики в близком к реальному масштабе времени выполняется постоянно на основе всех поступающих данных телеметрии, и в случае, если частота сбоев сервера намного превысит ожидания, вы получите оповещение в течение нескольких минут.
 
-    NRT Proactive Diagnostics start the diagnostic work for you. 
-* [Proactive Detection](app-insights-proactive-detection.md) also uses machine intelligence to discover unusual patterns in your metrics, and no configuration by you is required. But unlike NRT Proactive Diagnostics, the purpose of Proactive Detection is to find segments of your usage manifold that might be badly served - for example, by specific pages on a specific type of browser. The analysis is performed daily, and if any result is found, it's likely to be much less urgent than an alert. By contrast, the analysis for NRT Proactive Diagnostics is performed continuously on incoming telemetry, and you will be notified within minutes if server failure rates are greater than expected.
+## Действия при получении оповещения предупреждения превентивной диагностики в близком к реальному масштабе времени
 
-## <a name="if-you-receive-an-nrt-proactive-diagnostics-alert"></a>If you receive an NRT Proactive Diagnostics alert
+*Почему мне направлено это предупреждение?*
 
-*Why have I received this alert?*
+*	Мы обнаружили аномальное увеличение количества неудачных запросов по сравнению с обычными показателями за предыдущий период. После анализа сбоев и соответствующей телеметрии мы считаем, что возникла проблема, которую необходимо решить.
 
-*   We detected an abnormal rise in failed requests rate compared to the normal baseline of the preceding period. After analysis of the failures and associated telemetry, we think that there is a problem that you should look into. 
+*Уведомление означает, что определенно возникла какая-то неполадка?*
 
-*Does the notification mean I definitely have a problem?*
+*	Мы стараемся выдавать предупреждения о нарушении или ухудшении работы приложения, хотя только вы имеете полное представление о семантике и влиянии на приложение или пользователей.
 
-*   We try to alert on app disruption, or degradation, although only you can fully understand the semantics and the impact on the app or users.
+*Это означает, что вы отслеживаете мои данные?*
 
-*So, you guys look at my data?*
+*	Нет, служба работает полностью в автоматическом режиме. Уведомления получаете только вы. Ваши данные [конфиденциальны](app-insights-data-retention-privacy.md).
 
-*   No. The service is entirely automatic. Only you get the notifications. Your data is [private](app-insights-data-retention-privacy.md).
+*Нужно ли мне подписаться на это оповещение?*
 
-*Do I have to subscribe to this alert?* 
+*	Нет. Каждое приложение, отправляющее телеметрию запросов, имеет это правило оповещения.
 
-*   No. Every application sending request telemetry has this alert rule.
+*Можно отменить подписку или настроить пересылку уведомлений моим коллегам?*
 
-*Can I unsubscribe or get the notifications sent to my colleagues instead?*
+*	Да, в области "Правила оповещений" щелкните правило "Превентивная диагностика" для настройки пересылки. Вы можете отключить это оповещение или изменить его получателей.
 
-*   Yes, In Alert rules, click Proactive Diagnostics rule to configure it. You can disable the alert, or change recipients for the alert. 
+*Не могу найти письмо. Где найти уведомления на портале?*
 
-*I lost the email. Where can I find the notifications in the portal?*
+*	В журналах аудита. Щелкните "Параметры", "Журналы аудита", а затем щелкните по любому оповещению, чтобы просмотреть его. При этом отображаемые сведения о свойстве будут ограничены.
 
-*   In the Audit logs. Click Settings, Audit logs, then any alert to see its occurrence, but with limited detailed view.
+*Некоторые оповещения относятся к известным проблемам, и я не хочу получать их.*
 
-*Some of the alerts are of known issues and I do not want to receive them.*
+*	У нас в планах есть функция подавления оповещений.
 
-*   We have alert suppression on our backlog.
 
+## Отправляйте нам свои отзывы
 
-## <a name="feedback-please"></a>Feedback please
+* *Нам очень интересно узнать ваше мнение об этом. Отправляйте отзывы по адресу:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
 
-*We are very interested to know what you think about this. Please send feedback to:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+Эти диагностические средства позволяют проверять данные телеметрии из приложения:
 
-These diagnostic tools help you inspect the telemetry from your app:
+* [Обозреватель метрик](app-insights-metrics-explorer.md)
+* [Обозреватель поиска](app-insights-diagnostic-search.md)
+* [Аналитика, мощный язык запросов](app-insights-analytics-tour.md)
 
-* [Metric explorer](app-insights-metrics-explorer.md)
-* [Search explorer](app-insights-diagnostic-search.md)
-* [Analytics - powerful query language](app-insights-analytics-tour.md)
+Упреждающее обнаружение — это полностью автоматическая функция, но, возможно, вам потребуется настроить некоторые дополнительные оповещения.
 
-Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
+* [Настройка оповещений в Application Insights](app-insights-alerts.md)
+* [Доступность веб-тестов](app-insights-monitor-web-app-availability.md)
 
-* [Manually configured metric alerts](app-insights-alerts.md)
-* [Availability web tests](app-insights-monitor-web-app-availability.md) 
-
-
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

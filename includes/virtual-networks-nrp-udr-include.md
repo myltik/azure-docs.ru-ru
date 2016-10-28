@@ -1,63 +1,61 @@
-## <a name="route-tables"></a>Route tables
-Route table resources contains routes used to define how traffic flows within your Azure infrastructure. You can use user defined routes (UDR) to send all traffic from a given subnet to a virtual appliance, such as a firewall or intrusion detection system (IDS). You can associate a route table to subnets. 
+## Таблицы маршрутов
+Ресурсы таблиц маршрутов содержат маршруты, используемые для направления трафика в рамках инфраструктуры Azure. Вы можете использовать определяемые пользователем маршруты (UDR) для отправки всего трафика из определенной подсети в виртуальный модуль, например брандмауэр или систему обнаружения атак (IDS). Таблицу маршрутизации можно связать с подсетью.
 
-Route tables contain the following properties.
+Таблицы маршрутизации обладают следующими свойствами.
 
-|Property|Description|Sample values|
+|Свойство|Описание|Примеры значений|
 |---|---|---|
-|**routes**|Collection of user defined routes in the route table|see [user defined routes](#User-defined-routes)|
-|**subnets**|Collection of subnets the route table is applied to|see [subnets](#Subnets)|
+|**routes**|Коллекция определяемых пользователем маршрутов в таблице маршрутизации.|См. раздел [Определяемые пользователем маршруты](#User-defined-routes).|
+|**Подсети**|Коллекция подсетей, к которым применяется таблица маршрутизации.|См. раздел [Подсети](#Subnets).|
 
 
-### <a name="user-defined-routes"></a>User defined routes
-You can create UDRs to specify where traffic should be sent to, based on its destination address. You can think of a route as the default gateway definition based on the destination address of a network packet.
+### Определяемые пользователем маршруты
+Вы можете создать определяемые пользователем маршруты, чтобы указать, куда следует отправлять трафик, по его адресу назначения. Маршрут можно считать определением шлюза по умолчанию, построенным на основе адреса назначения сетевого пакета.
 
-UDRs contain the following properties. 
+Определяемые пользователем маршруты содержат следующие свойства.
 
-|Property|Description|Sample values|
+|Свойство|Описание|Примеры значений|
 |---|---|---|
-|**addressPrefix**|Address prefix, or full IP address for the destination|192.168.1.0/24, 192.168.1.101|
-|**nextHopType**|Type of device the traffic will be sent to|VirtualAppliance, VPN Gateway, Internet|
-|**nextHopIpAddress**|IP address for the next hop|192.168.1.4|
+|**addressPrefix**|Префикс адреса или полный IP-адрес назначения.|192\.168.1.0/24, 192.168.1.101|
+|**nextHopType**|Тип устройства, на которое будет отправляться трафик.|VirtualAppliance, VPN-шлюз, Интернет|
+|**nextHopIpAddress**|IP-адрес следующего прыжка.|192\.168.1.4|
 
 
-Sample route table in JSON format:
+Пример таблицы маршрутов в формате JSON:
 
-    {
-        "name": "UDR-BackEnd",
-        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd",
-        "etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-        "type": "Microsoft.Network/routeTables",
-        "location": "westus",
-        "properties": {
-            "provisioningState": "Succeeded",
-            "routes": [
-                {
-                    "name": "RouteToFrontEnd",
-                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd/routes/RouteToFrontEnd",
-                    "etag": "W/\"v\"",
-                    "properties": {
-                        "provisioningState": "Succeeded",
-                        "addressPrefix": "192.168.1.0/24",
-                        "nextHopType": "VirtualAppliance",
-                        "nextHopIpAddress": "192.168.0.4"
-                    }
-                }
-            ],
-            "subnets": [
-                {
-                    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd"
-                }
-            ]
-        }
-    }
+	{
+	    "name": "UDR-BackEnd",
+	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd",
+	    "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+	    "type": "Microsoft.Network/routeTables",
+	    "location": "westus",
+	    "properties": {
+	        "provisioningState": "Succeeded",
+	        "routes": [
+	            {
+	                "name": "RouteToFrontEnd",
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd/routes/RouteToFrontEnd",
+	                "etag": "W/"v"",
+	                "properties": {
+	                    "provisioningState": "Succeeded",
+	                    "addressPrefix": "192.168.1.0/24",
+	                    "nextHopType": "VirtualAppliance",
+	                    "nextHopIpAddress": "192.168.0.4"
+	                }
+	            }
+	        ],
+	        "subnets": [
+	            {
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd"
+	            }
+	        ]
+	    }
+	}
 
-### <a name="additional-resources"></a>Additional resources
+### Дополнительные ресурсы
 
-- Get more information about [UDRs](../articles/virtual-network/virtual-networks-udr-overview.md).
-- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502549.aspx) for route tables.
-- Read the [REST API reference documentation](https://msdn.microsoft.com/library/azure/mt502539.aspx) for user defined routes (UDRs).
+- Более подробная информация об [определяемых пользователем маршрутах](../articles/virtual-network/virtual-networks-udr-overview.md).
+- Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt502549.aspx) для таблиц маршрутов.
+- Прочитайте [справочную документацию по REST API](https://msdn.microsoft.com/library/azure/mt502539.aspx) для определяемых пользователем маршрутов (UDR).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

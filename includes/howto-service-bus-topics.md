@@ -1,61 +1,56 @@
-## <a name="what-are-service-bus-topics-and-subscriptions?"></a>What are Service Bus topics and subscriptions?
+## Что такое разделы и подписки служебной шины?
 
-Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When using topics and subscriptions, components of a distributed application do not communicate directly with each other; instead they exchange messages via a topic, which acts as an intermediary.
+Разделы и подписки служебной шины поддерживают модель обмена сообщениями "*публикация и подписка*". При использовании разделов и подписок компоненты распределенного приложения не взаимодействуют между собой напрямую, а обмениваются сообщениями через раздел, который выступает в качестве посредника.
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
 
-In contrast with Service Bus queues, in which each message is processed by a single consumer, topics and subscriptions provide a "one-to-many" form of communication, using a publish/subscribe pattern. It is possible to register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently.
+В отличие от очередей служебной шины, где каждое сообщение обрабатывается одним потребителем, разделы и подписки предоставляют вид связи одного со многими с помощью шаблона публикации и подписки. Можно зарегистрировать несколько подписок на раздел. Когда сообщение отправляется в раздел, оно затем может обрабатываться независимо каждой подпиской.
 
-A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which enables you to filter or restrict which messages to a topic are received by which topic subscriptions.
+Раздел подписки напоминает виртуальную очередь, которая получает копии сообщений, отправленных в раздел. Вы можете зарегистрировать правила фильтрации для раздела на основе подписки, которые позволят определить, какие сообщения и от каких подписок могут быть получены разделом.
 
-Service Bus topics and subscriptions enable you to scale and process a very large number of messages across many users and applications.
+Разделы и подписки служебной шины обеспечивают возможность масштабирования и обработки очень большого количества сообщений для многих пользователей и приложений.
 
-## <a name="create-a-namespace"></a>Create a namespace
+## Создание пространства имен
 
-To begin using Service Bus topics and subscriptions in Azure, you must first create a *service namespace*. A namespace provides a scoping container for addressing Service Bus resources within your application.
+Чтобы начать использование разделов и подписок служебной шины в Azure, необходимо сначала создать *пространство имен службы*. Пространство имен предоставляет контейнер для адресации ресурсов служебной шины в вашем приложении.
 
-To create a namespace:
+Создание пространства имен службы:
 
-1. Log on to the [Azure portal][].
+1. Войдите на [портал Azure][].
 
-2. In the left navigation pane of the portal, click **New**, then click **Enterprise Integration**, and then click **Service Bus**.
+2. В левой области навигации на портале щелкните **Создать**, **Интеграция Enterprise**, **Служебная шина**.
 
-4. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
+4. В диалоговом окне **Создание пространства имен** укажите имя пространства имен. Система немедленно проверяет, доступно ли оно.
 
-5. After making sure the namespace name is available, choose the pricing tier (Basic, Standard, or Premium).
+5. Убедившись, что пространство имен доступно, выберите ценовую категорию: "Базовый", "Стандартный" или "Премиум".
 
-7. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
+7. Выберите **подписку** Azure, в рамках которой будет создано пространство имен.
 
-9. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
+9. Выберите существующую **группу ресурсов**, в которую будет включено это пространство имен, или создайте новую.
 
-8. In **Location**, choose the country or region in which your namespace should be hosted.
+8. Укажите **расположение** — страну или регион для размещения пространства имен.
 
-    ![Create namespace][create-namespace]
+	![Создание пространства имен][create-namespace]
 
-6. Click the **Create** button. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6. Нажмите кнопку **Создать**. Теперь система создает пространство имен и включает его. Возможно, вам придется подождать несколько минут, пока система выделит ресурсы для вашей учетной записи.
  
-### <a name="obtain-the-credentials"></a>Obtain the credentials
+### Получение учетных данных
 
-1. In the list of namespaces, click the newly created namespace name.
+1. В списке пространств имен щелкните имя только что созданного пространства имен.
  
-3. In the **Service Bus namespace** blade, click **Shared access policies**.
+3. В колонке **Пространство имен служебной шины** щелкните **Политики общего доступа**.
 
-4. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
+4. В колонке **Политики общего доступа** щелкните **RootManageSharedAccessKey**.
 
-    ![connection-info][connection-info]
+	![Сведения о подключении][connection-info]
 
-5. In the **Policy: RootManageSharedAccessKey** blade, click the copy button next to **Connection string–primary key**, to copy the connection string to your clipboard for later use.
+5. В колонке **Политика: RootManageSharedAccessKey** нажмите кнопку копирования рядом с полем **Строка подключения — первичный ключ**, чтобы скопировать строку подключения в буфер обмена для последующего использования.
 
-    ![connection-string][connection-string]
+	![Строка подключения][connection-string]
 
-[Azure portal]: https://portal.azure.com
+[портал Azure]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

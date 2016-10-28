@@ -1,117 +1,113 @@
 <properties
-    pageTitle="Infrastructure Naming Guidelines | Microsoft Azure"
-    description="Learn about the key design and implementation guidelines for naming in Azure infrastructure services."
-    documentationCenter=""
-    services="virtual-machines-linux"
-    authors="iainfoulds"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+	pageTitle="Рекомендации по именованию для инфраструктуры | Microsoft Azure"
+	description="Изучите основные рекомендации по проектированию и реализации, касающиеся именования в службах инфраструктуры Azure."
+	documentationCenter=""
+	services="virtual-machines-linux"
+	authors="iainfoulds"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/08/2016"
-    ms.author="iainfou"/>
+	ms.service="virtual-machines-linux"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2016"
+	ms.author="iainfou"/>
 
+# Рекомендации по именованию для инфраструктуры
 
-# <a name="infrastructure-naming-guidelines"></a>Infrastructure naming guidelines
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
+Это статья посвящена тому, как выбрать соглашения об именовании различных ресурсов Azure, чтобы создать логичный и легко идентифицируемый набор ресурсов в своей среде.
 
-This article focuses on understanding how to approach naming conventions for all your various Azure resources to build a logical and easily identifiable set of resources across your environment.
+## Рекомендации по реализации соглашений об именовании
 
-## <a name="implementation-guidelines-for-naming-conventions"></a>Implementation guidelines for naming conventions
+Решения
 
-Decisions:
+- Каковы соглашения об именовании для ресурсов Azure?
 
-- What are your naming conventions for Azure resources?
+Задачи
 
-Tasks:
+- Определите аффиксы, которые будут использоваться для ресурсов, чтобы обеспечить их согласованность.
+- Определите имена учетных записей хранения, учитывая, что они должны быть глобально уникальными.
+- Задокументируйте используемое соглашение об именовании и распространите его всем участникам, чтобы обеспечить согласованность развертываний.
 
-- Define the affixes to use across your resources to maintain consistency.
-- Define storage account names given the requirement for them to be globally unique.
-- Document the naming convention to be used and distribute to all parties involved to ensure consistency across deployments.
+## Соглашения об именовании.
 
-## <a name="naming-conventions"></a>Naming conventions
+Прежде чем создавать что-либо в Azure, следует задать надлежащее соглашение об именовании. Такое соглашение гарантирует предсказуемость имен всех ресурсов, позволяющую снизить административную нагрузку, связанную с управлением этими ресурсами.
 
-You should have a good naming convention in place before creating anything in Azure. A naming convention ensures that all the resources have a predictable name, which helps lower the administrative burden associated with managing those resources.
+Вы можете следовать некоторому набору соглашений об именовании, определенному для всей вашей организации, конкретной подписки Azure или учетной записи Azure. Хотя сотрудники организации могут с легкостью устанавливать неявные правила при работе с ресурсами Azure, вам необходима возможность масштабирования для команд, работающих в Azure.
 
-You might choose to follow a specific set of naming conventions defined for your entire organization or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, you need to be able to scale for teams working together in Azure.
+Установите соглашения об именовании заранее. Ниже приведено несколько рекомендаций по соглашениям об именовании, которые составляют данный набор правил.
 
-Agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across that sets of rules.
+## Аффиксы
 
-## <a name="affixes"></a>Affixes
+При определении соглашения об именовании следует решить, где будет находиться аффикс:
 
-As you look to define a naming convention, one decision is whether the affix is at:
+- в начале имени (префикс);
+- в конце имени (суффикс).
 
-- The beginning of the name (prefix)
-- The end of the name (suffix)
+Например, группа ресурсов, использующая `rg`, может иметь такие два аффикса:
 
-For instance, here are two possible names for a Resource Group using the `rg` affix:
+- Rg-WebApp (префикс);
+- WebApp-Rg (суффикс).
 
-- Rg-WebApp (prefix)
-- WebApp-Rg (suffix)
+Аффиксы относятся к различным аспектам, описывающим конкретные ресурсы. В следующей таблице приведены примеры типичных случаев.
 
-Affixes can refer to different aspects that describe the particular resources. The following table shows some examples typically used.
-
-| Aspect                               | Examples                                                               | Notes                                                                                                      |
+| Аспект | Примеры | Примечания |
 |:-------------------------------------|:-----------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
-| Environment                          | dev, stg, prod                                                         | Depending on the purpose and name of each environment.                                                     |
-| Location                             | usw (West US), use (East US 2)                                         | Depending on the region of the datacenter or the region of the organization.                               |
-| Azure component, service, or product | Rg for resource group, VNet for virtual network                        | Depending on the product for which the resource provides support.                                          |
-| Role                                 | db, app, web                                                           | Depending on the role of the virtual machine.                                                              |
-| Instance                             | 01, 02, 03, etc.                                                       | For resources that have more than one instance. For example, load balanced web servers in a cloud service. |
+| Среда | dev, stg, prod | Зависит от назначения и имени каждой среды. |
+| Расположение | usw (западная часть США), use (восточная часть США 2) | Зависит от региона, в котором располагается центр обработки данных или организация. |
+| Служба, продукт или компонент Azure | Rg — группа ресурсов, VNet — виртуальная сеть. | Зависит от продукта, для которого ресурс обеспечивает поддержку. |
+| Роль | базы данных, приложения, веб | Зависит от роли виртуальной машины. |
+| Экземпляр | 01, 02, 03 и т. д. | Для ресурсов, которые имеют более одного экземпляра. Например, веб-серверы с балансировкой нагрузки, размещенные в облачной службе. |
 
 
-When establishing your naming conventions, make sure that they clearly state which affixes to use for each type of resource, and in which position (prefix vs suffix).
+При установке соглашений об именовании убедитесь, что они явно указывают, какие аффиксы используются для каждого типа ресурсов, и их расположение (префикс или суффикс).
 
-## <a name="dates"></a>Dates
+## Даты
 
-It is often important to determine the date of creation from the name of a resource. We recommend the YYYYMMDD date format. This format ensures that not only is the full date is recorded, but also that two resources whose names differ only on the date are sorted alphabetically and chronologically.
+Часто крайне важно определять дату создания по имени ресурса. Мы рекомендуем использовать формат даты ГГГГММДД. Этот формат обеспечивает не только запись полной даты, но и то, что два ресурса, имена которых отличаются только датой, сортируются в алфавитном и хронологическом порядке.
 
-## <a name="naming-resources"></a>Naming resources
+## Именование ресурсов
 
-Define each type of resource in the naming convention, which should have rules that define how to assign names to each resource that is created. These rules should apply to all types of resources, for example:
+В соглашении об именовании определите каждый тип ресурсов и правила назначения имен каждому создаваемому ресурсу. Эти правила применяются ко всем типам ресурсов, например:
 
-- Subscriptions
-- Accounts
-- Storage accounts
-- Virtual networks
-- Subnets
-- Availability sets
-- Resource groups
-- Virtual machines
+- Подписки
+- Учетные записи
+- учетные записи хранения;
+- виртуальные сети;
+- Подсети
+- Группы доступности
+- Группы ресурсов
+- Виртуальные машины
 - Endpoints
-- Network security groups
-- Roles
+- Группы безопасности сети
+- Роли
 
-To ensure that the name provides enough information to determine to which resource it refers, you should use descriptive names.
+Используйте содержательные имена, которые позволяют безошибочно определить ресурсы, к которым они относятся.
 
-## <a name="computer-names"></a>Computer names
+## Имена компьютеров
 
-When you create a virtual machine (VM), Azure requires a VM name of up to 64 characters that is used for the resource name. Azure uses the same name for the operating system installed in the VM. However, these names might not always be the same.
+При создании виртуальной машины в Azure требуется указать ее имя, содержащее не более 64 знаков, которое используется в качестве имени ресурса. Это же имя Azure использует в качестве имени компьютера в операционной системе виртуальной машины. Однако эти имена могут и не совпадать.
 
-If a VM is created from a .vhd image file that already contains an operating system, the VM name in Azure can differ from the VM's operating system computer name. This situation can add a degree of difficulty to VM management, which we therefore do not recommend. Assign the Azure VM resource the same name as the computer name that you assign to the operating system of that VM.
+Если виртуальная машина создается с помощью VHD-файла образа, в котором уже установлена операционная система, то имя виртуальной машины в Azure может отличаться от имени компьютера, заданного в ее операционной системе. В таком случае управление виртуальной машиной может усложниться, поэтому мы рекомендуем не допускать этого. Используйте имя ресурса виртуальной машины Azure, совпадающее с именем компьютера, заданным в операционной системе этой виртуальной машины.
 
-We recommend that the Azure VM name is the same as the underlying operating system computer name.
+Мы рекомендуем использовать имя виртуальной машины Azure, совпадающее с именем компьютера базовой операционной системы.
 
-## <a name="storage-account-names"></a>Storage account names
+## Имена учетных записей хранения
 
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+Имена учетных записей хранения создаются по особым правилам. Вы можете использовать только строчные буквы и цифры. Дополнительные сведения см. в статье [Создание учетной записи хранения](../storage/storage-create-storage-account.md#create-a-storage-account). Кроме того, имя учетной записи хранения с core.windows.net должно являться глобально допустимым уникальным именем DNS. Например, если учетная запись хранения называется mystorageaccount, уникальными должны быть следующие имена DNS:
 
-- mystorageaccount.blob.core.windows.net
-- mystorageaccount.table.core.windows.net
-- mystorageaccount.queue.core.windows.net
-
-
-## <a name="next-steps"></a>Next steps
-[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)] 
+- mystorageaccount.blob.core.windows.net;
+- mystorageaccount.table.core.windows.net;
+- mystorageaccount.queue.core.windows.net.
 
 
-<!--HONumber=Oct16_HO2-->
+## Дальнейшие действия
+[AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory Integration with UserVoice | Microsoft Azure" 
-    description="Learn how to use UserVoice with Azure Active Directory to enable single sign-on, automated provisioning, and more!." 
+    pageTitle="Руководство. Интеграция Azure Active Directory с UserVoice | Microsoft Azure" 
+    description="Узнайте, как использовать UserVoice вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -14,160 +14,152 @@
     ms.date="09/11/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-uservoice"></a>Tutorial: Azure Active Directory Integration with UserVoice
+#Руководство. Интеграция Azure Active Directory с UserVoice
   
-The objective of this tutorial is to show the integration of Azure and UserVoice.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+Цель данного учебника — показать интеграцию Azure и UserVoice. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
--   A valid Azure subscription
--   A UserVoice tenant
+-   Действующая подписка на Azure
+-   Клиент UserVoice
   
-After completing this tutorial, the Azure AD users you have assigned to UserVoice will be able to single sign into the application at your UserVoice company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+После прохождения этого учебника пользователи Azure AD, назначенные UserVoice, будут иметь возможность единого входа в приложение на веб-сайте UserVoice вашей компании (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1.  Enabling the application integration for UserVoice
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Включение интеграции приложений для UserVoice
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-![Scenario](./media/active-directory-saas-uservoice-tutorial/IC777514.png "Scenario")
+![Сценарий](./media/active-directory-saas-uservoice-tutorial/IC777514.png "Сценарий")
 
-##<a name="enabling-the-application-integration-for-uservoice"></a>Enabling the application integration for UserVoice
+##Включение интеграции приложений для UserVoice
   
-The objective of this section is to outline how to enable the application integration for UserVoice.
+В этом разделе показано, как включить интеграцию приложений для UserVoice.
 
-###<a name="to-enable-the-application-integration-for-uservoice,-perform-the-following-steps:"></a>To enable the application integration for UserVoice, perform the following steps:
+###Чтобы включить интеграцию приложений для UserVoice, выполните следующие действия.
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-uservoice-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-uservoice-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-uservoice-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-uservoice-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-uservoice-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-uservoice-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-uservoice-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **UserVoice**.
+6.  В **поле поиска** введите **UserVoice**.
 
-    ![Application gallery](./media/active-directory-saas-uservoice-tutorial/IC777513.png "Application gallery")
+    ![Коллекция приложений](./media/active-directory-saas-uservoice-tutorial/IC777513.png "Коллекция приложений")
 
-7.  In the results pane, select **UserVoice**, and then click **Complete** to add the application.
+7.  В области результатов выберите **UserVoice** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![UserVoice](./media/active-directory-saas-uservoice-tutorial/IC777810.png "UserVoice")
 
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
   
-The objective of this section is to outline how to enable users to authenticate to UserVoice with their account in Azure AD using federation based on the SAML protocol.  
-Configuring single sign-on for UserVoice requires you to retrieve a thumbprint value from a certificate.  
-If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в UserVoice с помощью своей учетной записи Azure AD, используя федерацию на основе протокола SAML. Чтобы настроить единый вход для UserVoice, необходимо извлечь значение отпечатка из сертификата. Если вы не знакомы с этой процедурой, посмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **UserVoice** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  На странице интеграции с приложением **UserVoice** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure single sign-on](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777515.png "Настройка единого входа")
 
-2.  On the **How would you like users to sign on to UserVoice** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  На странице **Как пользователи будут входить в UserVoice?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure single sign-on](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777516.png "Настройка единого входа")
 
-3.  On the **Configure App URL** page, in the **UserVoice Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.UserVoice.com*", and then click **Next**.
+3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес входа в UserVoice** введите свой URL-адрес, используя шаблон *https://\<имя-клиента>.UserVoice.com*, а затем нажмите кнопку **Далее**.
 
-    ![Configure App URL](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-uservoice-tutorial/IC777517.png "Настройка URL-адреса приложения")
 
-4.  On the **Configure single sign-on at UserVoice** page, to download your certificate, click **Download certificate**, and then save the certificate file locally as **c:\\UserVoice.cer**.
+4.  На странице **Настройка единого входа в UserVoice** нажмите кнопку **Загрузить сертификат**, а затем сохраните файл сертификата локально как **c:\\UserVoice.cer**.
 
-    ![Configure single sign-on](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777518.png "Настройка единого входа")
 
-5.  In a different web browser window, log into your UserVoice company site as an administrator.
+5.  В другом окне веб-браузера войдите на веб-сайт UserVoice вашей компании в качестве администратора.
 
-6.  In the toolbar on the top, click Settings, and then select Web portal from the menu.
+6.  На панели инструментов в меню в верхней части экрана щелкните "Параметры", а затем — "Веб-портал".
 
-    ![Settings](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Settings")
+    ![Параметры](./media/active-directory-saas-uservoice-tutorial/IC777519.png "Параметры")
 
-7.  On the **Web portal** tab, in the **User authentication** section, click **Edit** to open the **Edit User Authentication** dialog page
+7.  На вкладке **Веб-портал** в разделе **Проверки подлинности пользователя** щелкните ссылку **Изменить**, чтобы открыть страницу **Изменение проверки подлинности пользователя**
 
-    ![Web portal](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Web portal")
+    ![Веб-портал](./media/active-directory-saas-uservoice-tutorial/IC777520.png "Веб-портал")
 
-8.  On the **Edit User Authentication** dialog page, perform the following steps:
+8.  На странице **Изменение проверки подлинности пользователя** выполните следующие действия.
 
-    ![Edit user authentication](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Edit user authentication")
+    ![Изменение проверки подлинности пользователей](./media/active-directory-saas-uservoice-tutorial/IC777521.png "Изменение проверки подлинности пользователей")
 
-    1.  Click **Single Sign-On (SSO)**.
-    2.  In the Azure classic portal, on the **Configure single sign-on at UserVoice** dialog page, copy the **Remote Login URL** value, and then paste it into the **SSO Remote Sign-In** textbox.
-    3.  In the Azure classic portal, on the **Configure single sign-on at UserVoice** dialog page, copy the **Remote Logout URL** value, and then paste it into the **SSO Remote Sign-Out textbox**.
-    4.  Copy the **Thumbprint** value from the exported certificate, and then paste it into the **Current certificate SHA1 fingerprint** textbox.  
+    1.  Выберите **Единый вход (SSO)**.
+    2.  На странице **Настройка единого входа в UserVoice** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **SSO Remote Sign-In** (URL-адрес удаленного входа для единого входа).
+    3.  На странице **Настройка единого входа в UserVoice** классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **SSO Remote Sign-Out** (URL-адрес удаленного выхода для единого входа).
+    4.  Скопируйте значение поля **Отпечаток** из экспортированного сертификата и вставьте его в текстовое поле **Отпечаток текущего сертификата SHA1**.
 
-        >[AZURE.TIP] For more details, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI)
+        >[AZURE.TIP] Дополнительные сведения можно найти в видео [Как получить значение отпечатка сертификата](http://youtu.be/YKQF266SAxI).
 
-    5.  Click **Save authentication settings**.
+    5.  Нажмите кнопку **Сохранить параметры проверки подлинности**.
 
-9.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+9.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure single sign-on](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-uservoice-tutorial/IC777522.png "Настройка единого входа")
 
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+##Настройка подготовки учетных записей пользователей
   
-In order to enable Azure AD users to log into UserVoice, they must be provisioned into UserVoice.  
-In the case of UserVoice, provisioning is a manual task.
+Чтобы пользователи Azure AD могли выполнять вход в UserVoice, они должны быть подготовлены для UserVoice. В случае с UserVoice подготовка выполняется вручную.
 
-###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>To provision a user accounts, perform the following steps:
+###Чтобы подготовить учетные записи пользователей, выполните следующие действия:
 
-1.  Log in to your **UserVoice** tenant.
+1.  Войдите в клиента **UserVoice**.
 
-2.  Go to **Settings**.
+2.  Перейдите в меню **Параметры**.
 
-    ![Settings](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Settings")
+    ![Параметры](./media/active-directory-saas-uservoice-tutorial/IC777811.png "Параметры")
 
-3.  Click **General**.
+3.  Выберите пункт **Общие**.
 
-4.  Click **Agents and permissions**.
+4.  Выберите пункт **Агенты и разрешения**.
 
-    ![Agents and permissions](./media/active-directory-saas-uservoice-tutorial/IC777812.png "Agents and permissions")
+    ![Агенты и разрешения](./media/active-directory-saas-uservoice-tutorial/IC777812.png "Агенты и разрешения")
 
-5.  Click **Add admins**.
+5.  Нажмите кнопку **Добавить администраторов**.
 
-    ![Add admins](./media/active-directory-saas-uservoice-tutorial/IC777813.png "Add admins")
+    ![Добавление администраторов](./media/active-directory-saas-uservoice-tutorial/IC777813.png "Добавление администраторов")
 
-6.  On the **Invite admins** dialog, perform the following steps:
+6.  В диалоговом окне **Пригласить администраторов** выполните следующие действия.
 
-    ![Invite admins](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Invite admins")
+    ![Приглашение администраторов](./media/active-directory-saas-uservoice-tutorial/IC777814.png "Приглашение администраторов")
 
-    1.  In the Emails texbox, type the email address of the account you want to provision, and then click **Add**.
-    2.  Click **Invite**.
+    1.  В текстовом поле "Электронная почта" введите адрес электронной почты учетной записи, которую вы хотите подготовить, а затем нажмите кнопку **Добавить**.
+    2.  Щелкните **Invite** (Пригласить).
 
->[AZURE.NOTE] You can use any other UserVoice user account creation tools or APIs provided by UserVoice to provision AAD user accounts.
+>[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя UserVoice или API-интерфейсы, предоставляемые UserVoice для подготовки учетных записей пользователя AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-uservoice,-perform-the-following-steps:"></a>To assign users to UserVoice, perform the following steps:
+###Чтобы назначить пользователей UserVoice, выполните следующие действия.
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **UserVoice **application integration page, click **Assign users**.
+2.  На странице интеграции с приложением **UserVoice** нажмите кнопку **Назначить пользователей**.
 
-    ![Assign users](./media/active-directory-saas-uservoice-tutorial/IC777523.png "Assign users")
+    ![Назначение пользователей](./media/active-directory-saas-uservoice-tutorial/IC777523.png "Назначение пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-uservoice-tutorial/IC767830.png "Да")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,18 +1,15 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deploy. 
+С помощью диспетчера ресурсов Azure можно определить параметры значений, которые должны указываться на этапе развертывания шаблона. В шаблоне есть раздел "Параметры", содержащий все значения параметров. Для этих значений необходимо определить параметры, которые будут зависеть от развертываемого проекта либо от среды, в которой выполняется развертывание. Не задавайте параметры для значений, которые не меняются. Значение каждого параметра в шаблоне определяет развертываемые ресурсы.
 
-When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided during deployment.
+При определении параметров задать значения, указываемые пользователем во время развертывания, можно с помощью поля **allowedValues**. С помощью поля **defaultValue** можно назначить параметру значение, которое будет использоваться в случае, если значение во время развертывания не указано.
 
-We will describe each parameter in the template.
+Далее следует описание каждого параметра в шаблоне.
 
-### <a name="logicappname"></a>logicAppName
+### logicAppName
 
-The name of the logic app to create.
+Имя создаваемого приложения логики.
 
     "logicAppName": {
         "type": "string"
     }
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

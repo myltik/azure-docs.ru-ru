@@ -1,148 +1,141 @@
 <properties
-    pageTitle="Troubleshooting: You can't get there from here | Microsoft Azure"
-    description="This topic helps you identify remediation steps that you can follow to gain access to an application."
-    services="active-directory"
-    keywords="device-based conditional access, device registration, enable device registration, device registration and MDM"
-    documentationCenter=""
-    authors="markusvi"
-    manager="femila"
-    editor=""/>
+	pageTitle="Устранение неполадок: развернутые инструкции | Microsoft Azure"
+	description="В этой статье описаны действия для получения доступа к необходимому приложению после отображения страницы с отказом в доступе."
+	services="active-directory"
+	keywords="условный доступ на основе устройств, регистрация устройств, включить регистрацию устройств, регистрация устройств и MDM"
+	documentationCenter=""
+	authors="markusvi"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/23/2016"
-    ms.author="markvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/23/2016"
+	ms.author="markvi"/>
+
+
+# Устранение неполадок: развернутые инструкции
+
+При доступе к приложению (например, SharePoint Online) отобразилась страница с отказом в доступе. Что же делать в этом случае?
+
+В этом руководстве приведены действия для получения доступа к необходимому приложению после отображения страницы с отказом в доступе.
 
 
 
-# <a name="troubleshooting:-you-can't-get-there-from-here"></a>Troubleshooting: You can't get there from here
-
-You got an access denied page when you accessed an application like SharePoint Online.  
-Now, what do you do?
-
-This guide helps you identify available remediation steps that you can follow to gain access to the application.
+На какой платформе запущено ваше устройство? Ответ на этот вопрос позволит определить, в каком разделе этой статьи находятся нужные вам действия:
 
 
+-	устройство с Windows;
+-	устройство с iOS (iPhone или iPad);
+-	устройство с Android.
 
-What device platform is your device running on?
-The answer to this question determines the right section in this topic for you:
+## Доступ при использовании устройства с Windows
 
+Если устройство работает под управлением Windows 10, Windows 8.1, Windows 8.0, Windows 7, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 или Windows Server 2008 R2, соответствующую причину отказа в доступе можно определить по типу отобразившейся страницы.
 
--   Windows device
--   iOS device (iPhone or iPad)
--   Android device
+### Устройство не зарегистрировано
 
-## <a name="access-from-a-windows-device"></a>Access from a Windows device
+Если устройство не зарегистрировано в Azure Active Directory (Azure AD), а для защиты приложения используется политика на основе устройства, отобразится страница со следующим содержимым.
 
-If your device runs Windows 10, Windows 8.1, Windows 8.0, Windows 7, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2, choose the appropriate cause by identifying the page that you got when you tried to access the application.
-
-### <a name="device-is-not-registered"></a>Device is not registered
-
-If your device is not registered with Azure Active Directory (Azure AD) and the application is protected with a device-based policy, you might see a page with the following content:
-
-!["You can't get there from here" messages for unregistered devices](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
+![Сообщения об отказе в доступе для незарегистрированных устройств](./media/active-directory-conditional-access-device-remediation/01.png "Сценарий")
 
 
 
-If your device is domain-joined to Active Directory in your organization, you can try the following:
+Если устройство присоединено к домену Active Directory организации, выполните такие действия:
 
-1.  Make sure that you have signed in to Windows by using your work account (Active Directory account).
-2.  Connect to your corporate network via VPN or DirectAccess.
-3.  After you are connected, lock your Windows session by using the Windows key + L key.
-4.  Unlock your Windows session by entering your work account credentials.
-5.  Wait for a minute, and then try to access the application again.
-6.  If you get the same page, contact your administrator, click the **More details** link, and then provide the details.
+1.	Войдите в Windows, используя рабочую учетную запись (учетную запись Active Directory).
+2.	Подключитесь к корпоративной сети через VPN или DirectAccess.
+3.	После подключения заблокируйте сеанс Windows, нажав клавиши Windows+L.
+4.	Разблокируйте сеанс Windows, указав учетные данные рабочей учетной записи.
+5.	Подождите минуту и попробуйте получить доступ к приложению еще раз.
+6.	Если отобразится та же страница, свяжитесь с администратором и предоставьте сведения, которые можно получить, щелкнув ссылку **Дополнительные сведения**.
 
-If your device is not domain-joined and runs Windows 10, you have two options:
+Если устройство не присоединено к домену и работает под управлением Windows 10, у вас есть два варианта доступа:
 
-- Run Azure AD Join.
-- Add your work or school account to Windows.
+- запустите присоединение к Azure AD;
+- добавьте свою рабочую или учебную учетную запись в Windows.
 
-For information about the differences between the two, see [Using Windows 10 devices in your workplace](active-directory-azureadjoin-windows10-devices.md).
+Дополнительные сведения о различиях между этими вариантами см. в статье [Устройства под управлением Windows 10 в вашей рабочей области](active-directory-azureadjoin-windows10-devices.md).
 
-To run Azure AD Join, do the following (not available for Windows Phone):
+Чтобы выполнить присоединение к Azure AD, сделайте следующее (недоступно в Windows Phone):
 
-**Windows 10 Anniversary Update**
+**Юбилейное обновление Windows 10**
 
-1.  Open the **Settings** app.
-2.  Click **Accounts** > **Access work or school**.
-3.  Click **Connect**.
-4.  Click **Join this device to Azure AD** at the bottom of the page.
-5.  Authenticate to your organization, provide multi-factor authentication proof, if needed, and then follow the steps until completion.
-6.  Sign out, and then sign in by using your work account.
-7.  Try to access the application again.
+1.	Откройте приложение **Параметры**.
+2.	Щелкните **Учетные записи** > **Доступ к учетной записи места работы или учебного заведения**.
+3.	Щелкните **Подключить**.
+4.	В нижней части страницы выберите **Присоединить это устройство к Azure Active Directory**.
+5.	Пройдите проверку подлинности в организации, при необходимости предоставьте подтверждение многофакторной проверки подлинности и выполните остальные действия.
+6.	Выйдите из системы и войдите с помощью рабочей учетной записи.
+7.	Попробуйте получить доступ к приложению еще раз.
 
 
 
 
-**Windows 10 November 2015 Update**
+**Обновление Windows 10 от ноября 2015 г.**
 
 
-1.  Open the **Settings** app.
-2.  Click **System** > **About**.
-3.  Click **Join Azure AD**.
-4.  Authenticate to your organization, provide multi-factor authentication proof, if needed, and then follow the steps until completion.
-5.  Sign out, and then sign in by using your work account (Azure AD account).
-6.  Try to access the application again.
+1.	Откройте приложение **Параметры**.
+2.	Щелкните **Система** > **О программе**.
+3.	Щелкните **Присоединиться к Azure AD**.
+4.	Пройдите проверку подлинности в организации, при необходимости предоставьте подтверждение многофакторной проверки подлинности и выполните остальные действия.
+5.	Выйдите из системы и войдите с помощью рабочей учетной записи (Azure AD).
+6.	Попробуйте получить доступ к приложению еще раз.
 
-To add your work or school account, do the following:
+Чтобы добавить свою рабочую или учебную учетную запись, выполните следующее.
 
-**Windows 10 Anniversary Update**
+**Юбилейное обновление Windows 10**
 
-1.  Open the **Settings** app.
-2.  Click **Accounts** > **Access work or school**.
-3.  Click **Connect**.
-4.  Authenticate to your organization, provide multi-factor authentication proof, if needed, and then follow the steps until completion.
-5.  Try to access the application again.
-
-
-**Windows 10 November 2015 Update**
-
-1.  Open the **Settings** app.
-2.  Click **Accounts** > **Your accounts**.
-3.  Click **Add work or school account**.
-4.  Authenticate to your organization, provide multi-factor authentication proof, if needed, and then follow the steps until completion.
-5.  Try to access the application again.
-
-If your device is not domain-joined and runs Windows 8.1, you can do Workplace Join and enroll in Microsoft Intune by doing the following:
-
-1.  Open **PC Settings**.
-2.  Click **Network** > **Workplace**.
-3.  Click **Join**.
-4.  Authenticate to your organization, provide multi-factor authentication proof, if needed, and then follow the steps until completion.
-5.  Click **Turn on**.
-6.  Wait until completion.
-7.  Try to access the application again.
+1.	Откройте приложение **Параметры**.
+2.	Щелкните **Учетные записи** > **Доступ к учетной записи места работы или учебного заведения**.
+3.	Щелкните **Подключить**.
+4.	Пройдите проверку подлинности в организации, при необходимости предоставьте подтверждение многофакторной проверки подлинности и выполните остальные действия.
+5.	Попробуйте получить доступ к приложению еще раз.
 
 
-## <a name="unsupported-browser"></a>Unsupported browser
+**Обновление Windows 10 от ноября 2015 г.**
 
-If you are accessing the application from the following browsers, you will see a page that's similar to the page shown previously:
+1.	Откройте приложение **Параметры**.
+2.	Щелкните **Учетные записи** > **Ваши учетные записи**.
+3.	Щелкните **Добавить рабочую или учебную учетную запись**.
+4.	Пройдите проверку подлинности в организации, при необходимости предоставьте подтверждение многофакторной проверки подлинности и выполните остальные действия.
+5.	Попробуйте получить доступ к приложению еще раз.
 
-- Chrome, Firefox, or any other browser that is not Microsoft Edge or Microsoft Internet Explorer in Windows 10 or Windows Server 2016.
-- Firefox in Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2.
+Если устройство не присоединено к домену и работает под управлением Windows 8.1, подключитесь к рабочему месту и зарегистрируйтесь в Microsoft Intune, выполнив следующие действия:
 
-!["You can't get there from here" message for unsupported browsers](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
-
-
-The only remediation is to use a browser that the application supports for your device platform.
-
-## <a name="access-from-an-ios-device"></a>Access from an iOS device
-Check back soon for instructions for iPhones or iPads.
-
-## <a name="access-from-an-android-device"></a>Access from an Android device
-Check back soon for instructions for Android phones or tablets.
-
-## <a name="next-steps"></a>Next steps
-
-[Azure Active Directory conditional access](active-directory-conditional-access.md)
+1.	Откройте раздел **Параметры ПК**.
+2.	Щелкните **Сеть** > **Рабочее место**.
+3.	Щелкните **Соединить**.
+4.	Пройдите проверку подлинности в организации, при необходимости предоставьте подтверждение многофакторной проверки подлинности и выполните остальные действия.
+5.	Щелкните **Включить**.
+6.	Дождитесь завершения.
+7.	Попробуйте получить доступ к приложению еще раз.
 
 
+## Неподдерживаемый браузер
 
-<!--HONumber=Oct16_HO2-->
+При доступе к приложению из одного из следующих браузеров отобразится страница, аналогичная показанной ниже.
+
+- Chrome, Firefox или другой браузер (не Microsoft Edge или Microsoft Internet Explorer) в Windows 10 или Windows Server 2016;
+- Firefox в Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 или Windows Server 2008 R2.
+
+![Сообщение об отказе в доступе для неподдерживаемых браузеров](./media/active-directory-conditional-access-device-remediation/02.png "Сценарий")
 
 
+В этом случае для получения доступа к приложению нужно использовать браузер, поддерживаемый платформой устройства.
+
+## Доступ с устройства под управлением iOS
+Инструкции для устройств iPhone или iPad будут добавлены позже.
+
+## Доступ с устройства под управлением Android
+Инструкции для планшетов и телефонов Android будут добавлены позже.
+
+## Дальнейшие действия
+
+[Условный доступ в Azure Active Directory](active-directory-conditional-access.md)
+
+<!---HONumber=AcomDC_0831_2016--->

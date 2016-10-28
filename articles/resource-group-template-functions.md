@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager Template Functions | Microsoft Azure"
-   description="Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information."
+   pageTitle="Функции шаблонов диспетчера ресурсов | Microsoft Azure"
+   description="Описывает функции, используемые в шаблоне диспетчера ресурсов Azure для извлечения значений, работы со строками и числовыми значениями и получения сведений о развертывании."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -16,39 +16,38 @@
    ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
+# Функции шаблонов диспетчера ресурсов Azure
 
-# <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager template functions
+В этом разделе описаны все функции, которые можно использовать в шаблоне Azure Resource Manager.
 
-This topic describes all the functions you can use in an Azure Resource Manager template.
+Функции шаблонов и их параметры зависят от регистра. Например, диспетчер ресурсов одинаково преобразует **variables('var1')** и **VARIABLES('VAR1')**. При вычислении функция сохранит регистр, если его изменение не является ее явным предназначением (например, функции toUpper и toLower). Для некоторых типов ресурсов требования к регистру могут не зависеть от того, как происходит вычисление функций.
 
-Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
+## Числовые функции
 
-## <a name="numeric-functions"></a>Numeric functions
+Диспетчер ресурсов предоставляет следующие функции для работы с целыми числами:
 
-Resource Manager provides the following functions for working with integers:
-
-- [add](#add)
+- [добавление](#add)
 - [copyIndex](#copyindex)
 - [div](#div)
 - [int](#int)
-- [mod](#mod)
+- [mod (модуль)](#mod)
 - [mul](#mul)
 - [sub](#sub)
 
 
-<a id="add" />
-### <a name="add"></a>add
+.<a id="add" />
+### добавление
 
-**add(operand1, operand2)**
+**add(операнд1, операнд2)**
 
-Returns the sum of the two provided integers.
+Возвращает сумму двух указанных целочисленных значений.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | First integer to add.
-| operand2                           |   Yes    | Second integer to add.
+| операнд1 | Да | Целочисленное первое слагаемое.
+| операнд2 | Да | Целочисленное второе слагаемое.
 
-The following example adds two parameters.
+В следующем примере суммируются два параметра.
 
     "parameters": {
       "first": {
@@ -72,20 +71,20 @@ The following example adds two parameters.
       }
     }
 
-<a id="copyindex" />
-### <a name="copyindex"></a>copyIndex
+.<a id="copyindex" />
+### copyIndex
 
 **copyIndex(offset)**
 
-Returns the current index of an iteration loop. 
+Возвращает индекс текущего цикла итерации.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| offset                           |   No    | The amount to add to current iteration value.
+| offset | Нет | Число, которое нужно добавить к текущему значению итерации.
 
-This function is always used with a **copy** object. For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+Эта функция всегда используется с объектом **copy**. Полное описание использования **copyIndex** см. в статье [Создание нескольких экземпляров ресурсов в Azure Resource Manager](resource-group-create-multiple.md).
 
-The following example shows a copy loop and the index value included in the name. 
+В следующем примере представлен цикл копирования, в котором значение индекса включается в имя.
 
     "resources": [ 
       { 
@@ -100,19 +99,19 @@ The following example shows a copy loop and the index value included in the name
     ]
 
 
-<a id="div" />
-### <a name="div"></a>div
+.<a id="div" />
+### div
 
-**div(operand1, operand2)**
+**div(операнд1, операнд2)**
 
-Returns the integer division of the two provided integers.
+Возвращает целую часть частного от деления двух указанных целочисленных значений.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | Integer being divided.
-| operand2                           |   Yes    | Integer that is used to divide. Cannot be 0.
+| операнд1 | Да | Целочисленное делимое.
+| операнд2 | Да | Целочисленный делитель. Не может иметь значение 0.
 
-The following example divides one parameter by another parameter.
+В следующем примере один параметр делится на другой.
 
     "parameters": {
       "first": {
@@ -136,18 +135,18 @@ The following example divides one parameter by another parameter.
       }
     }
 
-<a id="int" />
-### <a name="int"></a>int
+.<a id="int" />
+### int;
 
 **int(valueToConvert)**
 
-Converts the specified value to Integer.
+Преобразует указанное значение в целое число.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| valueToConvert                     |   Yes    | The value to convert to Integer. The type of value can only be String or Integer.
+| valueToConvert | Да | Значение, которое необходимо преобразовать в целое число. Это может быть значение типа String или Integer.
 
-The following example converts the user-provided parameter value to Integer.
+В следующем примере указанное пользователем значение параметра преобразуется в целое число.
 
     "parameters": {
         "appId": { "type": "string" }
@@ -158,18 +157,18 @@ The following example converts the user-provided parameter value to Integer.
 
 
 <a id="mod" />
-### <a name="mod"></a>mod
+### mod (модуль)
 
-**mod(operand1, operand2)**
+**mod(операнд1, операнд2)**
 
-Returns the remainder of the integer division using the two provided integers.
+Возвращает остаток от деления двух указанных целочисленных значений.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | Integer being divided.
-| operand2                           |   Yes    | Integer that is used to divide, has to be different from 0.
+| операнд1 | Да | Целочисленное делимое.
+| операнд2 | Да | Целочисленный делитель; не должен быть равен 0.
 
-The following example returns the remainder of dividing one parameter by another parameter.
+В следующем примере возвращается остаток от деления одного параметра на другой.
 
     "parameters": {
       "first": {
@@ -193,19 +192,19 @@ The following example returns the remainder of dividing one parameter by another
       }
     }
 
-<a id="mul" />
-### <a name="mul"></a>mul
+.<a id="mul" />
+### mul
 
-**mul(operand1, operand2)**
+**mul(операнд1, операнд2)**
 
-Returns the multiplication of the two provided integers.
+Возвращает произведение двух указанных целочисленных значений.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | First integer to multiply.
-| operand2                           |   Yes    | Second integer to multiply.
+| операнд1 | Да | Целочисленный первый множитель.
+| операнд2 | Да | Целочисленный второй множитель.
 
-The following example multiplies one parameter by another parameter.
+В следующем примере один параметр умножается на другой.
 
     "parameters": {
       "first": {
@@ -229,19 +228,19 @@ The following example multiplies one parameter by another parameter.
       }
     }
 
-<a id="sub" />
-### <a name="sub"></a>sub
+.<a id="sub" />
+### sub
 
-**sub(operand1, operand2)**
+**sub(операнд1, операнд2)**
 
-Returns the subtraction of the two provided integers.
+Возвращает разность двух указанных целочисленных значений.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | Integer that is subtracted from.
-| operand2                           |   Yes    | Integer that is subtracted.
+| операнд1 | Да | Целочисленное уменьшаемое.
+| операнд2 | Да | Целочисленное вычитаемое.
 
-The following example subtracts one parameter from another parameter.
+В следующем примере один параметр вычитается из другого.
 
     "parameters": {
       "first": {
@@ -265,13 +264,13 @@ The following example subtracts one parameter from another parameter.
       }
     }
 
-## <a name="string-functions"></a>String functions
+## Строковые функции
 
-Resource Manager provides the following functions for working with strings:
+Диспетчер ресурсов предоставляет следующие функции для работы со строками:
 
 - [base64](#base64)
 - [concat](#concat)
-- [length](#lengthstring)
+- [длина](#lengthstring)
 - [padLeft](#padleft)
 - [replace](#replace)
 - [skip](#skipstring)
@@ -286,39 +285,39 @@ Resource Manager provides the following functions for working with strings:
 - [uri](#uri)
 
 
-<a id="base64" />
-### <a name="base64"></a>base64
+.<a id="base64" />
+### base64
 
-**base64 (inputString)**
+**base64 (входная\_строка)**
 
-Returns the base64 representation of the input string.
+Возвращает входную строку в кодировке Base64.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| inputString                        |   Yes    | The string value to return as a base64 representation.
+| входная\_строка | Да | Строковое значение, которое нужно вернуть в кодировке Base64.
 
-The following example shows how to use the base64 function.
+В следующем примере показано, как использовать функцию base64.
 
     "variables": {
       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-<a id="concat" />
-### <a name="concat---string"></a>concat - string
+.<a id="concat" />
+### concat для строк
 
-**concat (string1, string2, string3, ...)**
+**concat (строка1, строка2, строка3,...)**
 
-Combines multiple string values and returns the concatenated string. 
+Объединяет несколько строковых значений и возвращает результирующую строку.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| string1                        |   Yes    | A string value to concatenate.
-| additional strings             |   No     | String values to concatenate.
+| строка1 | Да | Строковое значение для объединения.
+| дополнительные строки | Нет | Строковые значения для объединения.
 
-This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating arrays, see [concat - array](#concatarray).
+Эта функция может принимать любое количество аргументов, а также строки или массивы параметров. Пример объединения массивов см. в разделе [concat для массива](#concatarray).
 
-The following example shows how to combine multiple string values to return a concatenated string.
+В следующем примере показано, как объединить несколько строк для возврата объединенной строки.
 
     "outputs": {
         "siteUri": {
@@ -328,20 +327,20 @@ The following example shows how to combine multiple string values to return a co
     }
 
 
-<a id="lengthstring" />
-### <a name="length---string"></a>length - string
+.<a id="lengthstring" />
+### length для строки
 
 **length(string)**
 
-Returns the number of characters in a string.
+Возвращает число символов в строке.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Description (Описание)
 | :--------------------------------: | :------: | :----------
-| string                        |   Yes    | The string value to use for getting the number of characters.
+| строка | Да | Строковое значение, для которого вычисляется количество символов.
 
-For an example of using length with an array, see [length - array](#length).
+Пример вычисления длины для массива см. в разделе [length для массива](#length).
 
-The following example returns the number of characters in a string. 
+В следующем примере возвращается число символов в строке.
 
     "parameters": {
         "appName": { "type": "string" }
@@ -351,20 +350,20 @@ The following example returns the number of characters in a string.
     }
         
 
-<a id="padleft" />
-### <a name="padleft"></a>padLeft
+.<a id="padleft" />
+### padLeft
 
-**padLeft(valueToPad, totalLength, paddingCharacter)**
+**padLeft (значение\_для\_заполнения, общая\_длина, символ\_заполнения)**
 
-Returns a right-aligned string by adding characters to the left until reaching the total specified length.
+Возвращает выровненную по правому краю строку, добавляя символы в левую часть до достижения общее указанной длины.
   
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| valueToPad                         |   Yes    | The string or int to right-align.
-| totalLength                        |   Yes    | The total number of characters in the returned string.
-| paddingCharacter                   |   No     | The character to use for left-padding until the total length is reached. The default value is a space.
+| значение\_для\_заполнения | Да | Строка или целое число для выравнивания по правому краю.
+| общая\_длина | Да | Общее число символов в возвращаемой строке.
+| символ\_заполнения | Нет | Символ, используемый для заполнения левой части до достижения общей длины. Значение по умолчанию — пробел.
 
-The following example shows how to pad the user-provided parameter value by adding the zero character until the string reaches 10 characters. If the original parameter value is longer than 10 characters, no characters are added.
+В следующем примере показано, как заполнить предоставленное пользователем значение параметра, добавляя символ нуля, пока длина строки не достигнет 10 символов. Если исходное значение параметра длиннее 10 символов, символы не добавляются.
 
     "parameters": {
         "appName": { "type": "string" }
@@ -373,20 +372,20 @@ The following example shows how to pad the user-provided parameter value by addi
         "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
     }
 
-<a id="replace" />
-### <a name="replace"></a>replace
+.<a id="replace" />
+### replace
 
-**replace(originalString, oldCharacter, newCharacter)**
+**replace(исходная\_строка, старый\_символ, новый\_символ)**
 
-Returns a new string with all instances of one character in the specified string replaced by another character.
+Возвращает новую строку, где все экземпляры одного символа заменены другим символом.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Description (Описание)
 | :--------------------------------: | :------: | :----------
-| originalString                     |   Yes    | The string that has all instances of one character replaced by another character.
-| oldCharacter                       |   Yes    | The character to be removed from the original string.
-| newCharacter                       |   Yes    | The character to add in place of the removed character.
+| исходная\_строка | Да | Строка, в которой все экземпляры одного символа будут заменены другим символом.
+| старый\_символ | Да | Символ, который удаляется из исходной строки.
+| новый\_символ | Да | Символ, добавляемый вместо удаляемого символа.
 
-The following example shows how to remove all dashes from the user-provided string.
+В следующем примере показано, как удалить все тире из предоставленной пользователем строки.
 
     "parameters": {
         "identifier": { "type": "string" }
@@ -396,19 +395,19 @@ The following example shows how to remove all dashes from the user-provided stri
     }
 
 <a id="skipstring" />
-### <a name="skip---string"></a>skip - string
+### skip для строки
 **skip(originalValue, numberToSkip)**
 
-Returns a string with all the characters after the specified number in the string.
+Возвращает строку, содержащую все символы из исходной строки, начиная с заданной позиции.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| originalValue                      |   Yes    | The string to use for skipping.
-| numberToSkip                       |   Yes    | The number of characters to skip. If this value is 0 or less, all the characters in the string are returned. If it is larger than the length of the string, an empty string is returned. 
+| originalValue | Да | Строка, используемая для пропуска.
+| numberToSkip | Да | Число символов, которые нужно пропустить. Если это значение меньше или равно 0, возвращаются все символы в строке. Если это значение превышает длину строки, возвращается пустая строка. 
 
-For an example of using skip with an array, see [skip - array](#skip).
+Пример использования см. в разделе [skip для массива](#skip).
 
-The following example skips the specified number of characters in the string.
+В следующем примере пропускается заданное число символов в строке.
 
     "parameters": {
       "first": {
@@ -434,21 +433,21 @@ The following example skips the specified number of characters in the string.
     }
 
 
-<a id="split" />
-### <a name="split"></a>split
+.<a id="split" />
+### split
 
 **split(inputString, delimiterString)**
 
-**split(inputString, delimiterArray)**
+**split(inputString, delimiterString)**
 
-Returns an array of strings that contains the substrings of the input string that are delimited by the specified delimiters.
+Возвращает массив строк, содержащий подстроки входной строки, разделенные переданными разделителями.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| inputString                        |   Yes    | The string to split.
-| delimiter                          |   Yes    | The delimiter to use, can be a single string or an array of strings.
+| входная\_строка | Да | Строка для разделения.
+| delimiter | Да | Разделитель, который нужно использовать; может быть отдельной строкой или массивом строк.
 
-The following example splits the input string with a comma.
+В следующем примере входная строка разделяется с помощью запятой.
 
     "parameters": {
         "inputString": { "type": "string" }
@@ -457,7 +456,7 @@ The following example splits the input string with a comma.
         "stringPieces": "[split(parameters('inputString'), ',')]"
     }
 
-The next example splits the input string with either a comma or a semi-colon.
+В следующем примере входная строка разбивается с помощью запятой или точки с запятой.
 
     "variables": {
       "stringToSplit": "test1,test2;test3",
@@ -472,17 +471,17 @@ The next example splits the input string with either a comma or a semi-colon.
     }
 
 <a id="string" />
-### <a name="string"></a>string
+### строка
 
 **string(valueToConvert)**
 
-Converts the specified value to a string.
+Преобразует указанное значение в строку.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| valueToConvert                     |   Yes    | The value to convert to string. Any type of value can be converted, including objects and arrays.
+| valueToConvert | Да | Значение, которое необходимо преобразовать в строку. Можно преобразовать любой тип значения, включая объекты и массивы.
 
-The following example converts the user-provided parameter values to strings.
+В следующем примере указанные пользователем значения параметра преобразуются в строку.
 
     "parameters": {
       "jsonObject": {
@@ -507,20 +506,20 @@ The following example converts the user-provided parameter values to strings.
       "intString": "[string(parameters('jsonInt'))]"
     }
 
-<a id="substring" />
-### <a name="substring"></a>substring
+.<a id="substring" />
+### substring
 
 **substring(stringToParse, startIndex, length)**
 
-Returns a substring that starts at the specified character position and contains the specified number of characters.
+Возвращает подстроку, которая начинается с указанной позиции и содержит указанное количество символов.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Description (Описание)
 | :--------------------------------: | :------: | :----------
-| stringToParse                     |   Yes    | The original string from which the substring is extracted.
-| startIndex                         | No      | The zero-based starting character position for the substring.
-| length                             | No      | The number of characters for the substring.
+| stringToParse | Да | Исходная строка, из которой извлекается подстрока.
+| startIndex | Нет | Отсчитываемая от нуля позиция первого знака для подстроки.
+| длина | Нет | Число символов в подстроке.
 
-The following example extracts the first three characters from a parameter.
+Следующий пример извлекает три первых символа из параметра.
 
     "parameters": {
         "inputString": { "type": "string" }
@@ -529,20 +528,20 @@ The following example extracts the first three characters from a parameter.
         "prefix": "[substring(parameters('inputString'), 0, 3)]"
     }
 
-<a id="takestring" />
-### <a name="take---string"></a>take - string
+.<a id="takestring" />
+### take для строки
 **take(originalValue, numberToTake)**
 
-Returns a string with the specified number of characters from the start of the string.
+Возвращает часть строки с указанным числом символов, считая от начала строки.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| originalValue                      |   Yes    | The string to take the characters from.
-| numberToTake                       |   Yes    | The number of characters to take. If this value is 0 or less, an empty string is returned. If it is larger than the length of the given string, all the characters in the string are returned.
+| originalValue | Да | Строка, из которой берутся символы.
+| numberToTake | Да | Количество символов, которые нужно извлечь. Если это значение меньше или равно 0, возвращается пустая строка. Если это значение превышает длину заданной строки, возвращаются все символы в строке.
 
-For an example of using take with an array, see [take - array](#take).
+Пример использования см. в разделе [take для массива](#take).
 
-The following example takes the specified number of characters from the string.
+В следующем примере из строки извлекается заданное число символов.
 
     "parameters": {
       "first": {
@@ -567,18 +566,18 @@ The following example takes the specified number of characters from the string.
       }
     }
 
-<a id="tolower" />
-### <a name="tolower"></a>toLower
+.<a id="tolower" />
+### toLower
 
-**toLower(stringToChange)**
+**toLower(изменяемая\_строка)**
 
-Converts the specified string to lower case.
+Преобразует указанную строку в нижний регистр.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Description (Описание)
 | :--------------------------------: | :------: | :----------
-| stringToChange                     |   Yes    | The string to convert to lower case.
+| изменяемая\_строка | Да | Строка для преобразования в нижний регистр.
 
-The following example converts the user-provided parameter value to lower case.
+В следующем примере предоставленное пользователем значение параметра преобразуется в нижний регистр.
 
     "parameters": {
         "appName": { "type": "string" }
@@ -587,18 +586,18 @@ The following example converts the user-provided parameter value to lower case.
         "lowerCaseAppName": "[toLower(parameters('appName'))]"
     }
 
-<a id="toupper" />
-### <a name="toupper"></a>toUpper
+.<a id="toupper" />
+### toUpper
 
-**toUpper(stringToChange)**
+**toUpper(изменяемая\_строка)**
 
-Converts the specified string to upper case.
+Преобразует указанную строку в верхний регистр.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Description (Описание)
 | :--------------------------------: | :------: | :----------
-| stringToChange                     |   Yes    | The string to convert to upper case.
+| изменяемая\_строка | Да | Строка для преобразования в верхний регистр.
 
-The following example converts the user-provided parameter value to upper case.
+В следующем примере предоставленное пользователем значение параметра преобразуется в верхний регистр.
 
     "parameters": {
         "appName": { "type": "string" }
@@ -608,17 +607,17 @@ The following example converts the user-provided parameter value to upper case.
     }
 
 <a id="trim" />
-### <a name="trim"></a>trim
+### trim
 
 **trim (stringToTrim)**
 
-Removes all leading and trailing white-space characters from the specified string.
+Удаляет все начальные и конечные знаки пробела из указанной строки.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Description (Описание)
 | :--------------------------------: | :------: | :----------
-| stringToTrim                       |   Yes    | The string to trim.
+| stringToTrim | Да | Строка для усечения.
 
-The following example trims the white-space characters from the user-provided parameter value.
+Следующий пример удаляет пробелы из значения параметра, предоставленного пользователем.
 
     "parameters": {
         "appName": { "type": "string" }
@@ -627,39 +626,39 @@ The following example trims the white-space characters from the user-provided pa
         "trimAppName": "[trim(parameters('appName'))]"
     }
 
-<a id="uniquestring" />
-### <a name="uniquestring"></a>uniqueString
+.<a id="uniquestring" />
+### uniqueString
 
 **uniqueString (baseString, ...)**
 
-Creates a deterministic hash string based on the values provided as parameters. 
+Создает детерминированную хэш-строку на основании значений, указанных как параметры.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| baseString      |   Yes    | The string used in the hash function to create a unique string.
-| additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level of uniqueness.
+| baseString | Да | Строка, используемая в хэш-функции для создания уникальной строки.
+| Дополнительные параметры (если необходимы) | Нет | Можно добавить столько строк, сколько необходимо для создания значения, которое задает уровень уникальности.
 
-This function is helpful when you need to create a unique name for a resource. You provide parameter values that limit the scope of uniqueness for the result. You can specify whether the name is unique down to subscription, resource group, or deployment. 
+Эта функция полезна в тех случаях, когда необходимо создать уникальное имя ресурса. Указываются значения параметров, которые ограничивают область уникальности результата. Можно указать, является ли уникальным имя в подписке, группе ресурсов или развертывании.
 
-The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. Of course, the actual value will vary by the provided parameters.
+Возвращаемое значение — не произвольная строка, а, скорее, результат хэш-функции. Возвращаемое значение содержит 13 знаков. Оно не является глобально уникальным. Вы можете добавить к значению префикс из своего соглашения об именовании, чтобы создать значимое имя. В следующем примере показан формат возвращаемого значения. Разумеется, фактическое значение будет зависеть от указанных параметров.
 
     tcvhiyu5h2o5o
 
-The following examples show how to use uniqueString to create a unique value for commonly used levels.
+В следующих примерах показывается, как использовать uniqueString при создании уникального значения для часто используемых уровней.
 
-Unique scoped to subscription
+Уникальное в пределах подписки.
 
     "[uniqueString(subscription().subscriptionId)]"
 
-Unique scoped to resource group
+Уникальное в пределах группы ресурсов.
 
     "[uniqueString(resourceGroup().id)]"
 
-Unique scoped to deployment for a resource group
+Уникальное в пределах развертывания для группы ресурсов.
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
     
-The following example shows how to create a unique name for a storage account based on your resource group (inside this resource group the name is not unique if constructed the same way).
+В следующем примере показано, как создать уникальное имя для учетной записи хранения на основе группы ресурсов (в этой группе ресурсов имя не является уникальным, если оно составлено по такому же принципу).
 
     "resources": [{ 
         "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
@@ -669,49 +668,49 @@ The following example shows how to create a unique name for a storage account ba
 
 
 <a id="uri" />
-### <a name="uri"></a>uri
+### uri
 
 **uri (baseUri, relativeUri)**
 
-Creates an absolute URI by combining the baseUri and the relativeUri string.
+Создает абсолютный URI, объединяя строки baseUri и relativeUri.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| baseUri                            |   Yes    | The base uri string.
-| relativeUri                        |   Yes    | The relative uri string to add to the base uri string.
+| baseUri | Да | Строка базового универсального кода ресурса (URI).
+| relativeUri | Да | Строка относительного универсального кода ресурса (URI), добавляемая к строке базового универсального кода ресурса (URI).
 
-The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing **http://contoso.com/resources/azuredeploy.json** as the baseUri parameter results in a base URI of **http://contoso.com/resources/**.
+Значение параметра **baseUri** может включать в себя определенный файл, однако при построении универсального кода ресурса (URI) используется только базовый путь. Например, если передать **http://contoso.com/resources/azuredeploy.json** в качестве параметра baseUri, базовый универсальный код ресурса (URI) будет иметь значение **http://contoso.com/resources/**.
 
-The following example shows how to construct a link to a nested template based on the value of the parent template.
+В следующем примере показано создание ссылки на вложенный шаблон в зависимости от значения параметра родительского шаблона.
 
     "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
-## <a name="array-functions"></a>Array functions
+## Функции массивов
 
-Resource Manager provides several functions for working with array values.
+Диспетчер ресурсов предоставляет ряд функций для работы с массивами значений.
 
 - [concat](#concatarray)
-- [length](#length)
+- [длина](#length)
 - [skip](#skip)
 - [take](#take)
 
-To get an array of string values delimited by a value, see [split](#split).
+Чтобы получить массив строковых значений, разделенных определенным значением, используйте [split](#split).
 
-<a id="concatarray" />
-### <a name="concat---array"></a>concat - array
+.<a id="concatarray" />
+### сoncat для массива
 
-**concat (array1, array2, array3, ...)**
+**concat (массив1, массив2, массив3,...)**
 
-Combines multiple arrays and returns the concatenated array. 
+Объединяет несколько массивов и возвращает результирующий массив.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| array1                        |   Yes    | An array to concatenate.
-| additional arrays             |   No     | Arrays to concatenate.
+| массив1 | Да | Массив для объединения.
+| Дополнительные массивы | Нет | Массивы для объединения.
 
-This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating string values, see [concat - string](#concat).
+Эта функция может принимать любое количество аргументов, а также строки или массивы параметров. Пример объединения строк см. в разделе [concat для строк](#concat).
 
-The following example shows how to combine two arrays.
+В следующем примере показано, как объединить два массива.
 
     "parameters": {
         "firstarray": {
@@ -726,42 +725,42 @@ The following example shows how to combine two arrays.
      }
         
 
-<a id="length" />
-### <a name="length---array"></a>length - array
+.<a id="length" />
+### length для массива
 
-**length(array)**
+**length(массив)**
 
-Returns the number of elements in an array.
+Возвращает количество элементов в массиве.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| array                        |   Yes    | The array to use for getting the number of elements.
+| array | Да | Массив, для которого нужно получить число элементов.
 
-You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
+Эту функцию можно использовать с массивом для указания числа итераций при создании ресурсов. В следующем примере параметр **siteNames** ссылается на массив имен для использования при создании веб-сайтов.
 
     "copy": {
         "name": "websitescopy",
         "count": "[length(parameters('siteNames'))]"
     }
 
-For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md). 
+Дополнительные сведения об использовании этой функции с массивом см. в статье [Создание нескольких экземпляров ресурсов в Диспетчере ресурсов Azure](resource-group-create-multiple.md).
 
-For an example of using length with a string value, see [length - string](#lengthstring).
+Пример вычисления длины для строкового значения см. в разделе [length для строки](#lengthstring).
 
-<a id="skip" />
-### <a name="skip---array"></a>skip - array
+.<a id="skip" />
+### skip для массива
 **skip(originalValue, numberToSkip)**
 
-Returns an array with all the elements after the specified number in the array.
+Возвращает массив всех элементов массива после указанного числа элементов.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| originalValue                      |   Yes    | The array to use for skipping.
-| numberToSkip                       |   Yes    | The number of elements to skip. If this value is 0 or less, all the elements in the array are returned. If it is larger than the length of the array, an empty array is returned. 
+| originalValue | Да | Массив, используемый для пропуска.
+| numberToSkip | Да | Число элементов, которые нужно пропустить. Если это значение меньше или равно 0, возвращаются все элементы в массиве. Если это значение превышает длину массива, возвращается пустой массив. 
 
-For an example of using skip with a string, see [skip - string](#skipstring).
+Пример использования см. в разделе [skip для строки](#skipstring).
 
-The following example skips the specified number of elements in the array.
+В следующем примере в массиве пропускается заданное число элементов.
 
     "parameters": {
       "first": {
@@ -787,20 +786,20 @@ The following example skips the specified number of elements in the array.
       }
     }
 
-<a id="take" />
-### <a name="take---array"></a>take - array
+.<a id="take" />
+### take для массива
 **take(originalValue, numberToTake)**
 
-Returns an array with the specified number of elements from the start of the array.
+Возвращает массив с указанным числом элементов, считая от начала массива.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| originalValue                      |   Yes    | The array to take the elements from.
-| numberToTake                       |   Yes    | The number of elements to take. If this value is 0 or less, an empty array is returned. If it is larger than the length of the given array, all the elements in the array are returned.
+| originalValue | Да | Массив, из которого берутся элементы.
+| numberToTake | Да | Число элементов, которые нужно извлечь. Если это значение меньше или равно 0, возвращается пустой массив. Если это значение превышает длину заданного массива, возвращаются все элементы в массиве.
 
-For an example of using take with a string, see [take - string](#takestring).
+Пример использования в разделе [take для строки](#takestring).
 
-The following example takes the specified number of elements from the array.
+В следующем примере из массива извлекается заданное число элементов.
 
     "parameters": {
       "first": {
@@ -826,26 +825,26 @@ The following example takes the specified number of elements from the array.
       }
     }
 
-## <a name="deployment-value-functions"></a>Deployment value functions
+## Функции для параметров развертывания
 
-Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
+Диспетчер ресурсов предоставляет следующие функции для получения значений из разделов шаблонов и значений, связанных с развертыванием:
 
 - [deployment](#deployment)
 - [parameters](#parameters)
 - [variables](#variables)
 
-To get values from resources, resource groups, or subscriptions, see [Resource functions](#resource-functions).
+Сведения о получении значений из ресурсов, групп ресурсов или подписки см. в разделе [Функции для работы с ресурсами](#resource-functions).
 
-<a id="deployment" />
-### <a name="deployment"></a>deployment
+.<a id="deployment" />
+### deployment
 
 **deployment()**
 
-Returns information about the current deployment operation.
+Возвращает сведения о текущей операции развертывания.
 
-This function returns the object that is passed during deployment. The properties in the returned object differ based on whether the deployment object is passed as a link or as an in-line object. 
+Эта функция возвращает объект, который передается во время развертывания. Свойства в возвращаемом объекте зависят от того, передается ли объект развертывания в виде ссылки или встроенного объекта.
 
-When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object has the following format:
+Когда объект развертывания передается встроенным (например, при использовании параметра **-TemplateFile** в Azure PowerShell для определения локального файла), формат возвращаемого объекта будет таким:
 
     {
         "name": "",
@@ -865,7 +864,7 @@ When the deployment object is passed in-line, such as when using the **-Template
         }
     }
 
-When the object is passed as a link, such as when using the **-TemplateUri** parameter to point to a remote object, the object is returned in the following format. 
+Когда объект передается в виде ссылки, как, например, при использовании параметра **- TemplateUri** для указания на удаленный объект, объект возвращается в следующем формате.
 
     {
         "name": "",
@@ -887,24 +886,24 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
         }
     }
 
-The following example shows how to use deployment() to link to another template based on the URI of the parent template.
+В следующем примере показано использование deployment() для ссылки на другой шаблон в зависимости от URI родительского шаблона.
 
     "variables": {  
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
     }  
 
-<a id="parameters" />
-### <a name="parameters"></a>parameters
+.<a id="parameters" />
+### parameters
 
-**parameters (parameterName)**
+**parameters (имя\_параметра)**
 
-Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
+Возвращает значение параметра. Указанное имя параметра должно быть определено в разделе параметров шаблона.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| parameterName                      |   Yes    | The name of the parameter to return.
+| имя\_параметра | Да | Имя параметра, который требуется вернуть.
 
-The following example shows a simplified use of the parameters function.
+В следующем примере показано упрощенное использование функции parameters.
 
     "parameters": { 
       "siteName": {
@@ -921,17 +920,17 @@ The following example shows a simplified use of the parameters function.
     ]
 
 <a id="variables" />
-### <a name="variables"></a>variables
+### variables
 
-**variables (variableName)**
+**variables (имя\_переменной)**
 
-Returns the value of variable. The specified variable name must be defined in the variables section of the template.
+Возвращает значение переменной. Указанное имя переменной должно быть определено в разделе переменных шаблона.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Description (Описание)
 | :--------------------------------: | :------: | :----------
-| variable Name                      |   Yes    | The name of the variable to return.
+| имя\_переменной | Да | Имя переменной, которую необходимо вернуть.
 
-The following example uses a variable value.
+В следующем примере используется значение переменной.
 
     "variables": {
       "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
@@ -944,45 +943,44 @@ The following example uses a variable value.
       }
     ],
 
-## <a name="resource-functions"></a>Resource functions
+## Функции для работы с ресурсами
 
-Resource Manager provides the following functions for getting resource values:
+Диспетчер ресурсов предоставляет следующие функции для получения значений ресурсов:
 
-- [listKeys and list{Value}](#listkeys)
+- [listKeys и list{Value}](#listkeys)
 - [providers](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
 - [resourceId](#resourceid)
 - [subscription](#subscription)
 
-To get values from parameters, variables, or the current deployment, see [Deployment value functions](#deployment-value-functions).
+Получение значений параметров, переменных или текущего развертывания описано в разделе [Функции для параметров развертывания](#deployment-value-functions).
 
-<a id="listkeys" />
-<a id="list" />
-### <a name="listkeys-and-list{value}"></a>listKeys and list{Value}
+<a id="listkeys" /> <a id="list" />
+### listKeys и list{Value}
 
-**listKeys (resourceName or resourceIdentifier, apiVersion)**
+**listKeys (resourceName или resourceIdentifier, apiVersion)**
 
-**list{Value} (resourceName or resourceIdentifier, apiVersion)**
+**list{Value} (имя\_ресурса или идентификатор\_ресурса, версия\_API)**
 
-Returns the values for any resource type that supports the list operation. The most common usage is **listKeys**. 
+Возвращает значения для любого типа ресурса, который поддерживает операцию list. Наиболее распространенным вариантом применения является **listKeys**.
   
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Description (Описание)
 | :--------------------------------: | :------: | :----------
-| resourceName or resourceIdentifier |   Yes    | Unique identifier for the resource.
-| apiVersion                         |   Yes    | API version of resource runtime state.
+| имя\_ресурса или идентификатор\_ресурса | Да | Уникальный идентификатор ресурса.
+| версия\_API | Да | Версия API для состояния среды выполнения ресурса.
 
-Any operation that starts with **list** can be used a function in your template. The available operations include not only **listKeys**, but also operations like **list**, **listAdminKeys**, and **listStatus**. To determine which resource types have a list operation, use the following PowerShell command.
+Любая операция, которая начинается с **list**, может быть использована в шаблоне как функция. Это относится к не только к **listKeys**, но и к таким операциям, как **list**, **listAdminKeys** и **listStatus**. Чтобы определить, какие типы ресурсов поддерживают операцию list, используйте следующую команду PowerShell.
 
     Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
 
-Or, retrieve the list with Azure CLI. The following example retrieves all the operations for **apiapps**, and uses the JSON utility [jq](http://stedolan.github.io/jq/download/) to filter only the list operations.
+Или получите список с помощью Azure CLI. В следующем примере извлекаются все операции для **apiapps** и используется служебная программа JSON [jq](http://stedolan.github.io/jq/download/), которая фильтрует только операции list.
 
-    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains("list"))"
 
-The resourceId can be specified by using the [resourceId function](#resourceid) or by using the format **{providerNamespace}/{resourceType}/{resourceName}**.
+Идентификатор ресурса можно задать с помощью [функции resourceId](./#resourceid) или в формате **{пространство\_имен\_поставщика}/тип\_ресурса/имя\_ресурса**.
 
-The following example shows how to return the primary and secondary keys from a storage account in the outputs section.
+В следующем примере показано, как получить в разделе выходных данных первичный и вторичный ключи из учетной записи хранения.
 
     "outputs": { 
       "listKeysOutput": { 
@@ -991,7 +989,7 @@ The following example shows how to return the primary and secondary keys from a 
       } 
     } 
 
-The returned object from listKeys has the following format:
+Возвращаемый функцией listKeys объект имеет следующий формат:
 
     {
       "keys": [
@@ -1008,19 +1006,19 @@ The returned object from listKeys has the following format:
       ]
     }
 
-<a id="providers" />
-### <a name="providers"></a>providers
+.<a id="providers" />
+### providers
 
 **providers (providerNamespace, [resourceType])**
 
-Returns information about a resource provider and its supported resource types. If you do not provide a resource type, the function returns all the supported types for the resource provider.
+Возвращает сведения о поставщике ресурсов и поддерживаемых типах ресурсов. Если тип ресурса не указан, функция возвращает все типы, поддерживаемые для поставщика ресурсов.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Описание
 | :--------------------------------: | :------: | :----------
-| providerNamespace                  |   Yes    | Namespace of the provider
-| resourceType                       |   No     | The type of resource within the specified namespace.
+| пространство\_имен\_поставщика | Да | Пространство имен поставщика.
+| тип\_ресурса | Нет | Тип ресурса в указанном пространстве имен.
 
-Each supported type is returned in the following format. Array ordering is not guaranteed.
+Все поддерживаемые типы возвращаются в следующем формате. Упорядочение массива не гарантируется.
 
     {
         "resourceType": "",
@@ -1028,77 +1026,77 @@ Each supported type is returned in the following format. Array ordering is not g
         "apiVersions": [ ]
     }
 
-The following example shows how to use the provider function:
+Следующий пример показывает, как использовать функцию provider:
 
     "outputs": {
-        "exampleOutput": {
-            "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
-            "type" : "object"
-        }
+	    "exampleOutput": {
+		    "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
+		    "type" : "object"
+	    }
     }
 
-<a id="reference" />
-### <a name="reference"></a>reference
+.<a id="reference" />
+### reference
 
-**reference (resourceName or resourceIdentifier, [apiVersion])**
+**reference (имя\_ресурса или идентификатор\_ресурса, [версия\_API])**
 
-Returns an object representing another resource's runtime state.
+Возвращает объект, представляющий состояние выполнения другого ресурса.
 
-| Parameter                          | Required | Description
+| Параметр | Обязательно | Description (Описание)
 | :--------------------------------: | :------: | :----------
-| resourceName or resourceIdentifier |   Yes    | Name or unique identifier of a resource.
-| apiVersion                         |   No     | API version of the specified resource. Include this parameter when the resource is not provisioned within same template.
+| имя\_ресурса или идентификатор\_ресурса | Да | Имя или уникальный идентификатор ресурса.
+| версия\_API | Нет | Версия API для указанного ресурса. Если ресурс не предоставляется в рамках того же шаблона, необходимо включить этот параметр.
 
-The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
+Функция **reference** получает свое значение из состояния среды выполнения, и поэтому ее невозможно использовать в разделе переменных. Она может использоваться в разделе выходных данных шаблона.
 
-By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the **dependsOn** property. The function is not evaluated until the referenced resource has completed deployment.
+С помощью функции reference вы прямо объявляете, что один ресурс зависит от другого, если ресурс, на который указывает ссылка, предоставляется в том же шаблоне. При этом свойство **dependsOn** использовать не нужно. Расчет функции выполняется только после развертывания ресурса, на который указывает ссылка.
 
-The following example references a storage account that is deployed in the same template.
-
-    "outputs": {
-        "NewStorage": {
-            "value": "[reference(parameters('storageAccountName'))]",
-            "type" : "object"
-        }
-    }
-
-The following example references a storage account that is not deployed in this template, but exists within the same resource group as the resources being deployed.
+Следующий пример ссылается на учетную запись хранения, которая развертывается в том же шаблоне.
 
     "outputs": {
-        "ExistingStorage": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
-            "type" : "object"
-        }
-    }
+		"NewStorage": {
+			"value": "[reference(parameters('storageAccountName'))]",
+			"type" : "object"
+		}
+	}
 
-You can retrieve a particular value from the returned object, such as the blob endpoint URI, as shown in the following example.
-
-    "outputs": {
-        "BlobUri": {
-            "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
-            "type" : "string"
-        }
-    }
-
-The following example references a storage account in a different resource group.
+Следующий пример ссылается на учетную запись хранения, которая не развертывается в этом шаблоне, но существует в той же группе ресурсов, что и развертываемые ресурсы.
 
     "outputs": {
-        "BlobUri": {
-            "value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
-            "type" : "string"
-        }
-    }
+		"ExistingStorage": {
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
+			"type" : "object"
+		}
+	}
 
-The properties on the object returned from the **reference** function vary by resource type. To see the property names and values for a resource type, create a simple template that returns the object in the **outputs** section. If you have an existing resource of that type, your template just returns the object without deploying any new resources. If you do not have an existing resource of that type, your template deploys only that type and returns the object. Then, add those properties to other templates that need to dynamically retrieve the values during deployment. 
+Можно получить конкретное значение из возвращенного объекта, например URI конечной точки BLOB-объекта, как показано ниже.
+
+    "outputs": {
+		"BlobUri": {
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+			"type" : "string"
+		}
+	}
+
+Следующий пример ссылается на учетную запись хранения в другой группе ресурсов.
+
+    "outputs": {
+		"BlobUri": {
+			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+			"type" : "string"
+		}
+	}
+
+Свойства в объекте, возвращаемом из функции **reference**, зависят от типа ресурса. Чтобы просмотреть имена и значения свойств для типа ресурса, создайте в разделе **outputs** простой шаблон, который возвращает объект. Если ресурс этого типа уже существует, то шаблон просто возвращает объект, не развертывая новых ресурсов. Если у вас нет существующего ресурса этого типа, то шаблон развертывает только этот тип и возвращает объект. Затем добавьте эти свойства в другие шаблоны, которым необходимо динамически извлечь значения в процессе развертывания.
 
 <a id="resourcegroup" />
-### <a name="resourcegroup"></a>resourceGroup
+### resourceGroup
 
 **resourceGroup()**
 
-Returns an object that represents the current resource group. 
+Возвращает объект, который представляет текущую группу ресурсов.
 
-The returned object is in the following format:
+Возвращаемый объект имеет следующий формат:
 
     {
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
@@ -1111,7 +1109,7 @@ The returned object is in the following format:
       }
     }
 
-The following example uses the resource group location to assign the location for a web site.
+В следующем примере расположение группы ресурсов используется для назначения расположения веб-сайту.
 
     "resources": [
        {
@@ -1123,31 +1121,31 @@ The following example uses the resource group location to assign the location fo
        }
     ]
 
-<a id="resourceid" />
-### <a name="resourceid"></a>resourceId
+.<a id="resourceid" />
+### resourceId
 
-**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+**resourceId ([идентификатор\_подписки],[имя\_группы\_ресурсов], тип\_ресурса, имя\_ресурса1, [имя\_ресурса2]...)**
 
-Returns the unique identifier of a resource. 
+Возвращает уникальный идентификатор ресурса.
       
-| Parameter         | Required | Description
+| Параметр | Обязательно | Описание
 | :---------------: | :------: | :----------
-| subscriptionId    |   No     | Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription.
-| resourceGroupName |   No     | Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group.
-| resourceType      |   Yes    | Type of resource including resource provider namespace.
-| resourceName1     |   Yes    | Name of resource.
-| resourceName2     |   No     | Next resource name segment if resource is nested.
+| subscriptionId | Нет | Значение по умолчанию — текущая подписка. Укажите это значение, если нужно получить ресурс из другой подписки.
+| имя\_группы\_ресурсов | Нет | Значение по умолчанию — текущая группа ресурсов. Укажите это значение, если нужно получить ресурс из другой группы ресурсов.
+| тип\_ресурса | Да | Тип ресурса, включая пространство имен поставщика ресурсов.
+| имя\_ресурса1 | Да | Имя ресурса.
+| имя\_ресурса2 | Нет | Имя следующего ресурса, если ресурс является вложенным.
 
-You use this function when the resource name is ambiguous or not provisioned within the same template. The identifier is returned in the following format:
+Используйте эту функцию в том случае, когда имя ресурса является неоднозначным или не было предоставлено в пределах того же шаблона. Идентификатор возвращается в следующем формате:
 
     /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
 
-The following example shows how to retrieve the resource ids for a web site and a database. The web site exists in a resource group named **myWebsitesGroup** and the database exists in the current resource group for this template.
+В следующем примере показано, как получить идентификаторы ресурсов для веб-сайта и базы данных. Веб-сайт находится в группе ресурсов с именем **myWebsitesGroup**, а база данных — в текущей группе ресурсов для этого шаблона.
 
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
     [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
     
-Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
+Эта функция часто необходима при использовании учетной записи хранения или виртуальной сети в альтернативной группе ресурсов. Учетная запись хранения и виртуальная сеть могут использоваться несколькими группами ресурсов, поэтому их не следует удалять при удалении одной группы ресурсов. В следующем примере показано, как ресурс из внешней группы ресурсов можно легко использовать:
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -1190,12 +1188,12 @@ Often, you need to use this function when using a storage account or virtual net
       }]
     }
 
-<a id="subscription" />
-### <a name="subscription"></a>subscription
+.<a id="subscription" />
+### subscription
 
 **subscription()**
 
-Returns details about the subscription in the following format.
+Возвращает сведения о подписке в следующем формате.
 
     {
         "id": "/subscriptions/#####",
@@ -1203,7 +1201,7 @@ Returns details about the subscription in the following format.
         "tenantId": "#####"
     }
 
-The following example shows the subscription function called in the outputs section. 
+В следующем примере показана функция subscription, вызываемая в разделе выходных данных.
 
     "outputs": { 
       "exampleOutput": { 
@@ -1213,15 +1211,10 @@ The following example shows the subscription function called in the outputs sect
     } 
 
 
-## <a name="next-steps"></a>Next Steps
-- For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
-- To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
-- To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
-- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
+## Дальнейшие действия
+- Описание разделов в шаблоне диспетчера ресурсов Azure см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
+- Инструкции по объединению нескольких шаблонов см. в статье [Использование связанных шаблонов в диспетчере ресурсов Azure](resource-group-linked-templates.md).
+- Указания по выполнению заданного количества циклов итерации при создании типа см. в статье [Создание нескольких экземпляров ресурсов в Диспетчере ресурсов Azure](resource-group-create-multiple.md).
+- Указания по развертыванию созданного шаблона см. в статье [Развертывание приложения с использованием шаблона Диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

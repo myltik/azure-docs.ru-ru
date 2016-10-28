@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Apply disk encryption in Azure Security Center | Microsoft Azure"
-   description="This document shows you how to implement the Azure Security Center recommendation **Apply disk encryption**."
+   pageTitle="Шифрование диска в центре безопасности Azure | Microsoft Azure"
+   description="В этом документе объясняется, как выполнить рекомендацию Центра безопасности Azure **Применение шифрования дисков**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,60 +16,55 @@
    ms.date="07/29/2016"
    ms.author="terrylan"/>
 
+# Шифрование диска в центре безопасности Azure
 
-# <a name="apply-disk-encryption-in-azure-security-center"></a>Apply disk encryption in Azure Security Center
-
-Azure Security Center will recommend that you apply disk encryption if you have Windows or Linux VM disks that are not encrypted using Azure Disk Encryption. Disk Encryption lets you encrypt your Windows and Linux IaaS VM disks.  Encryption is recommended for both the OS and data volumes on your VM.
+Центр безопасности Azure рекомендует применять шифрование дисков, если вы используете диски виртуальных машин Windows или Linux, которые не зашифрованы с помощью шифрования дисков Azure. Шифрование дисков позволяет шифровать диски виртуальных машин IaaS Windows и Linux. Шифровать рекомендуется как том операционной системы, так и том данных на виртуальной машине.
 
 
-Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide OS and data encryption to help protect and safeguard your data and meet your organizational security and compliance commitments. Disk Encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk encryption keys and secrets in your Key Vault subscription, while ensuring that all data in the VM disks are encrypted at rest in your [Azure Storage](https://azure.microsoft.com/documentation/services/storage/).
+Шифрование дисков использует стандартные для отрасли функции [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) для Windows и [DM Crypt](https://en.wikipedia.org/wiki/Dm-crypt) для Linux. С помощью этих функций шифруется операционная система и данные, что обеспечивает защиту данных и выполнение требований безопасности вашей организации. Шифрование дисков интегрировано с [хранилищем ключей Azure](https://azure.microsoft.com/documentation/services/key-vault/), то есть позволяет управлять ключами и секретами шифрования дисков в подписке хранилища ключей. Шифрование выполняется для всех данных на дисках виртуальных машин в [службе хранилища Azure](https://azure.microsoft.com/documentation/services/storage/).
 
-> [AZURE.NOTE] Azure Disk Encryption is supported on the following Windows server operating systems - Windows Server 2008 R2, Windows Server 2012, and Windows Server 2012 R2. Disk encryption is supported on the following Linux server operating systems - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES).
+> [AZURE.NOTE] Шифрование дисков Azure доступно для следующих операционных систем Windows Server: Windows Server 2008 R2, Windows Server 2012 и Windows Server 2012 R2. Шифрование дисков доступно для следующих операционных систем Linux: Ubuntu, CentOS, SUSE и SUSE Linux Enterprise Server (SLES).
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+## Выполнение рекомендаций
 
-1. In the **Recommendations** blade, select **Apply disk encryption**.
-2. In the **Apply disk encryption** blade, you will see a list of VMs for which Disk Encryption is recommended.
-3. Follow the instructions to apply encryption to these VMs.
+1. В колонке **Рекомендации** выберите пункт **Применить шифрование дисков**.
+2. В колонке **Применение шифрования дисков** появится список виртуальных машин, для которых рекомендуется использовать шифрование дисков.
+3. Следуйте инструкциям, чтобы применить шифрование дисков к этим виртуальным машинам.
 
 ![][1]
 
-To encrypt Azure Virtual Machines that have been identified by Security Center as needing encryption, we recommend the following steps:
+Для шифрования виртуальных машин Azure, которые определены центром безопасности как требующие шифрования, мы рекомендуем выполнить следующие действия.
 
-- Install and configure Azure PowerShell. This will enable you to run the PowerShell commands required to set up the prerequisites required to encrypt Azure Virtual Machines.
-- Obtain and run the Azure Disk Encryption Prerequisites Azure PowerShell script.
-- Encrypt your virtual machines.
+- Установите и настройте Azure PowerShell. Это позволит вам выполнять команды PowerShell, чтобы установить необходимые компоненты для шифрования виртуальных машин Azure.
+- Получите и выполните сценарий Azure PowerShell с необходимыми компонентами для шифрования дисков Azure.
+- Зашифруйте свои виртуальные машины.
 
-[Encrypt an Azure Virtual Machine](security-center-disk-encryption.md) will walk you through these steps.  This topic assumes you are using Windows 10 as the client machine from which you will configure disk encryption.
+Выполнить это вам поможет раздел [Шифрования виртуальной машины Azure](security-center-disk-encryption.md). В этом разделе предполагается, что в качестве клиентского компьютера, на котором будет настраиваться шифрование дисков, используется компьютер под управлением Windows 10.
 
-There are many approaches that can be used to setup the prerequisites and to configure encryption for Azure Virtual Machines. If you are already well-versed in Azure PowerShell or Azure CLI, then you may prefer to use alternate approaches. To learn about these other approaches see [Azure disk encryption](../security/azure-security-disk-encryption.md).
+Существуют разные методы установки необходимых компонентов и настройки шифрования виртуальных машин Azure. Если у вас есть опыт работы с Azure PowerShell или интерфейсом командной строки Azure, вы можете использовать альтернативные подходы. Дополнительные сведения об этих подходах см. в статье [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](../security/azure-security-disk-encryption.md).
 
 
 
-## <a name="see-also"></a>See also
+## См. также
 
-This document showed you how to implement the Security Center recommendation "Apply disk encryption." To learn more about disk encryption, see the following:
+В этом документе объясняется, как выполнить рекомендацию Центра безопасности "Применение шифрования дисков". Дополнительные сведения о шифровании дисков см. по ссылкам ниже.
 
-- [Encryption and key management with Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 min 39 sec) -- Learn how to use disk encryption management for IaaS VMs and Azure Key Vault to help protect and safeguard your data.
-- [Encrypt an Azure Virtual Machine](security-center-disk-encryption.md) (document) -- Learn how to encrypt Azure Virtual Machines.
-- [Azure disk encryption](../security/azure-security-disk-encryption.md) (document) -- Learn how to enable disk encryption for Windows and Linux VMs.
+- [Encryption and key management with Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (видео, 36 мин 39 с) – узнайте, как использовать управление шифрованием дисков для защиты данных на виртуальных машинах IaaS и в хранилище ключей Azure.
+- [Шифрование виртуальной машины Azure](security-center-disk-encryption.md) (документ) — узнайте, как шифровать виртуальные машины Azure.
+- [Дисковое шифрование Azure для виртуальных машин IaaS под управлением Windows и Linux](../security/azure-security-disk-encryption.md) (документ) — узнайте, как включить шифрование дисков для виртуальных машин Windows и Linux.
 
-To learn more about Security Center, see the following:
+Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
+- [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) – узнайте, как настроить политики безопасности.
+- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md) – узнайте, как отслеживать работоспособность ресурсов Azure.
+- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) – узнайте, как управлять оповещениями системы безопасности и реагировать на них.
+- [Управление рекомендациями по безопасности в Центре безопасности Azure](security-center-recommendations.md) — узнайте, как рекомендации могут помочь вам защитить ресурсы Azure.
+- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) – часто задаваемые вопросы об использовании этой службы.
+- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) – публикации блога, посвященные безопасности и соответствию требованиям в Azure.
 
 
 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

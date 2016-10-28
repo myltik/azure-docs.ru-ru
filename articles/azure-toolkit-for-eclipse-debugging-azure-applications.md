@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Debugging Azure Applications in Eclipse"
-    description="Learn about the Debugging Azure Applications using the Azure Toolkit for Eclipse."
+    pageTitle="Отладка приложений Azure в Eclipse"
+    description="Узнайте об отладке приложений Azure с помощью набора средств Azure для Eclipse."
     services=""
     documentationCenter="java"
     authors="rmcmurray"
@@ -16,128 +16,121 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
-
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690949.aspx -->
 
-# <a name="debugging-azure-applications-in-eclipse"></a>Debugging Azure Applications in Eclipse #
+# Отладка приложений Azure в Eclipse #
 
-Using the Azure Toolkit for Eclipse, you can debug your applications whether they are running in Azure, or in the compute emulator if you are using Windows as your operating system. The following image shows the **Debugging** properties dialog used to enable remote debugging:
+С помощью набора средств Azure для Eclipse вы можете выполнять отладку приложений, выполняемых как в Azure, так и в эмуляторе вычислений, при условии использования операционной системы Windows. На следующем рисунке показано диалоговое окно свойств **Отладка**, используемое для включения удаленной отладки.
 
 ![][ic719504]
 
-This tutorial assumes you already have an application that has been successfully created, and are familiar with the compute emulator and deploying to Azure.
+В этом руководстве предполагается, что у вас уже есть успешно созданное приложение, а сами вы знакомы с эмулятором вычислений и развертыванием в Azure.
 
-We'll use the application from the [Using the Azure Service Runtime Library in JSP][] tutorial as the starting point for this topic. Before proceeding, create that application if you have not already done so.
+В качестве отправной точки в этом разделе мы будем использовать приложение из [центра разработчиков Java][]. Создайте такое приложение, прежде чем продолжить, если вы еще не сделали этого.
 
-## <a name="to-debug-your-application-while-running-in-azure"></a>To debug your application while running in Azure ##
+## Отладка приложения во время выполнения в Azure ##
 
->[AZURE.WARNING] The toolkit's current support for remote Java debugging is intended primarily for deployments running in the Azure compute emulator. Because the debugging connection is not secure, you should not enable remote debugging in production deployments. If you need to debug an application running in the Azure cloud, use a staging deployment, but realize that unauthorized access to your debug session is possible if someone knows the IP address of your cloud deployment, even if it is a staging deployment.
+>[AZURE.WARNING] Текущая поддержка удаленной отладки Java в данном наборе средств ориентирована в основном на развертывания, работающие в эмуляторе вычислений Azure. Поскольку подключение отладки не является безопасным, не следует включать удаленную отладку в рабочей среде. Если вам требуется выполнить отладку приложения, запущенного в облаке Azure, используйте промежуточное развертывание, но учтите, что существует вероятность несанкционированного доступа к сеансу отладки, если кто-то знает IP-адрес вашего облачного развертывания, даже если это промежуточное развертывание.
 
-1. Build your project for testing in the emulator: In Eclipse's Project Explorer, right-click **MyAzureProject**, click **Properties**, click **Azure**, and set **Build for** to **Deployment to cloud**.
-1. Rebuild your project: From the Eclipse menu, click **Project**, then click **Build All**.
-1. Deploy your application to *staging* in Azure.
-    >[AZURE.IMPORTANT] As mentioned above, it is highly recommended that you debug in the compute emulator in most cases, then debug in the staging environment only if additional debugging is needed. It is recommended to not debug in the production environment.
-1. Once your deployment is ready in Azure, obtain the DNS name for the deployment from the [Azure Management Portal][]. A staging deployment has a DNS name in the form of http://*&lt;guid&gt;*.cloudapp.net, where *&lt;guid&gt;* is a GUID value assigned by Azure.
-1. In Eclipse's Project Explorer, right-click **WorkerRole1**, click **Azure**, and then click **Debugging**.
-1. In the **Properties for WorkerRole1 Debugging** dialog:
-    1. Check **Enable remote debugging for this role.**
-    1. For **Input endpoint to use**, use **Debugging (public:8090, private:8090)**.
-    1. Ensure **Start JVM in suspended mode, waiting for a debugger connection** is unchecked.
-        >[AZURE.IMPORTANT] The **Start JVM in suspended mode, waiting for a debugger connection** option is intended for advanced debugging scenarios in the compute emulator only (not for cloud deployments). If the **Start JVM in suspended mode, waiting for a debugger connection** option is used, it will suspend the server's startup process until the Eclipse debugger is connected to its JVM. While you could use this option for a debugging session using the compute emulator, do not use it for a debugging session in a cloud deployment. A server's initialization takes place in an Azure startup task, and the Azure cloud does not make public endpoints available until the startup task is completed. Hence, a startup process will not complete successfully if this option is enabled in a cloud deployment, because it will not be able to receive a connection from an external Eclipse client.
-1. Click **Create Debug Configurations**.
-1. In the **Azure Debug Configuration** dialog:
-    1. For **Java project to debug**, select the **MyHelloWorld** project.
-    1. For **Configure debugging for**, check **Azure cloud (staging)**.
-    1. Ensure **Azure compute emulator** is unchecked.
-    1. For **Host**, enter the DNS name of your staged deployment, but without the preceding **http://**. For example (use your GUID in place of the GUID shown here): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**
-1. Click **OK** to close the **Azure Debug Configuration** dialog.
-1. Click **OK** to close the **Properties for WorkerRole1 Debugging** dialog.
-1. If you don't have a breakpoint already set in index.jsp, set it:
-    1. Within Eclipse's Project Explorer, expand **MyHelloWorld**, expand **WebContent**, and double-click **index.jsp**.
-    1. Within index.jsp, right-click in the blue bar to the left of your Java code and click **Toggle Breakpoints**, as shown in the following:  ![][ic551537]
-1. Within Eclipse's menu, click **Run** and then click **Debug Configurations**.
-1. In the **Debug Configurations** dialog, expand **Remote Java Application** in the left-hand pane, select **Azure Cloud (WorkerRole1)**, and click **Debug**.
-1. Within your browser, run your staged application, **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, substituting the GUID from your DNS name for *&lt;guid&gt;*. If prompted by a **Confirm Perspective Switch** dialog box, click **Yes**. Your debug session should now execute to the line of code where the breakpoint was set.
+1. Выполните сборку проекта для тестирования в эмуляторе: в обозревателе проектов Eclipse щелкните правой кнопкой мыши элемент **MyAzureProject**, выберите пункт **Свойства**, нажмите кнопку **Azure** и задайте для параметра **Build for** (Сборка для) значение **Deployment to cloud** (Развертывание в облаке).
+1. Перестройте проект: в меню Eclipse выберите **Проект** и щелкните **Build All** (Собрать все).
+1. Разверните приложение в *промежуточной среде* в Azure.
+    >[AZURE.IMPORTANT] Ранее уже упоминалось, что в большинстве случаев отладку настоятельно рекомендуется выполнять в эмуляторе вычислений, поэтому отладку в промежуточной среде следует выполнять только в том случае, когда требуется дополнительная отладка. Рекомендуется не выполнять отладку в рабочей среде.
+1. Когда развертывание в Azure будет готово, получите DNS-имя для развертывания с [портала управления Azure][]. Промежуточное развертывание имеет DNS-имя в виде http://*&lt;guid&gt;*.cloudapp.net, где *&lt;guid&gt;* представляет собой значение GUID, назначенное службой Azure.
+1. В обозревателе проектов Eclipse щелкните правой кнопкой мыши **WorkerRole1**, выберите пункт **Azure**, а затем щелкните **Отладка**.
+1. В диалоговом окне **Properties for WorkerRole1 Debugging** (Свойства для отладки WorkerRole1) выполните следующие действия.
+    1. Установите флажок **Enable remote debugging for this role** (Включить удаленную отладку для этой роли).
+    1. Для параметра **Input endpoint to use** (Используемая входная конечная точка) используйте значение **Debugging (public:8090, private:8090)** (Отладка — открытый:8090, закрытый:8090).
+    1. Убедитесь, что флажок **Start JVM in suspended mode, waiting for a debugger connection** (Запустить JVM в режиме приостановки, ожидая подключение отладчика) снят.
+        >[AZURE.IMPORTANT] Параметр **Start JVM in suspended mode, waiting for a debugger connection** (Запустить JVM в режиме приостановки, ожидая подключение отладчика) предназначен только для сценариев расширенной отладки в эмуляторе вычислений (не для развертываний в облаке). Если параметр **Start JVM in suspended mode, waiting for a debugger connection** (Запустить JVM в режиме приостановки, ожидая подключение отладчика) используется, он приостанавливает процесс запуска сервера до подключения отладчика Eclipse к его виртуальной машине Java. Хотя вы можете использовать этот параметр для сеанса отладки с применением эмулятора вычислений, не используйте его для сеанса отладки в облачном развертывании. Инициализация сервера выполняется в рамках задачи запуска Azure, и облако Azure не предоставляет доступ к общедоступным конечным точкам до завершения задачи запуска. Таким образом, процесс запуска не завершается, если этот параметр включен в облачном развертывании, так как получить подключение из внешнего клиента Eclipse будет невозможно.
+    1. Щелкните **Create Debug Configurations** (Создать конфигурации отладки).
+1. В диалоговом окне **Azure Debug Configuration** (Конфигурация отладки Azure) выполните следующие действия.
+    1. Для параметра **Java project to debug** (Проект Java для отладки) выберите проект **MyHelloWorld**.
+    1. Для параметра **Configure debugging for** (Настроить отладку для) выберите **Azure cloud (staging)** (Облако Azure, промежуточная среда).
+    1. Убедитесь, что флажок **Azure compute emulator** (Эмулятор вычислений Azure) снят.
+    1. Для параметра **Узел** введите DNS-имя промежуточного развертывания, но без **http://** в начале. Например (используйте свой идентификатор GUID вместо приведенного здесь): **4e616d65-6f6e-6d65-6973-526f62657274.cloudapp.net**.
+1. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Azure Debug Configuration** (Конфигурация отладки Azure).
+1. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Properties for WorkerRole1 Debugging** (Свойства для отладки WorkerRole1).
+1. Если вы еще не задали точку останова в index.jsp, задайте ее:
+    1. В обозревателе проектов Eclipse разверните узел **MyHelloWorld**, разверните узел **WebContent** и дважды щелкните **index.jsp**.
+    1. В пределах index.jsp щелкните правой кнопкой мыши синюю полосу слева от кода Java и выберите пункт **Toggle Breakpoints** (Переключить точки останова), как показано ниже: ![][ic551537]
+1. В меню Eclipse выберите **Выполнить** и щелкните **Debug Configurations** (Конфигурации отладки).
+1. В диалоговом окне **Debug Configurations** (Конфигурации отладки) разверните узел **Remote Java Application** (Удаленное приложение Java) на левой панели, выберите **Azure Cloud (WorkerRole1)** (Облако Azure [WorkerRole1]) и нажмите кнопку **Отладка**.
+1. В браузере запустите промежуточное приложение **http://***&lt;guid&gt;***.cloudapp.net/MyHelloWorld**, подставив GUID из DNS-имени вместо *&lt;guid&gt;*. При отображении диалогового окна **Confirm Perspective Switch** (Подтвердить смену перспективы) нажмите кнопку **Да**. Теперь сеанс отладки должен дойти до строки кода, где была задана точка останова.
 
->[AZURE.NOTE] If you're attempting to start a remote debugging connection to a deployment that has multiple role instances running, you cannot currently control which instance the debugger will be initially connected to, as the Azure load balancer will pick an instance at random. Once you're connected with that instance, though, you will continue debugging the same instance. Note also, if there is a period of inactivity of more than 4 minutes (for example, when you're stopped at a breakpoint for too long), Azure may close the connection.
+>[AZURE.NOTE] Если вы пытаетесь запустить удаленное подключение к развертыванию, в котором запущено несколько экземпляров ролей, то вы не сможете контролировать, к какому экземпляру отладчик подключается изначально, поскольку балансировщик нагрузки Azure выбирает экземпляр случайным образом. Однако после подключения к этому экземпляру вы продолжите осуществлять отладку того же самого экземпляра. Обратите внимание и на то, что, если период бездействия длится более 4 минут (например, когда вы надолго останавливаетесь в точке останова), Azure может закрыть подключение.
 
-## <a name="debugging-a-specific-role-instance-in-a-multi-instance-deployment"></a>Debugging a specific role instance in a multi-instance deployment ##
+## Отладка определенного экземпляра роли в развертывании с несколькими экземплярами ##
 
-When your deployment is running in the cloud, you will most likely be running it in multiple compute, or role, instances. This enables you to take advantage of Azure 99.95% availability guarantee, and to scale out your application.
+Если развертывание выполняется в облаке, вы, вероятнее всего, используете для него несколько вычислительных операций или экземпляров роли. Это позволяет воспользоваться преимуществами гарантии доступности Azure в течение 99,95 % всего времени, а также развернуть приложение.
 
-In such scenarios, you may need to remotely debug your Java application in a specific role instance. However, if you enable only a regular input endpoint for debugging, the Azure load balancer will make it virtually impossible for you to connect the debugger to a specific role instance. Instead it will connect you to a role instance that it picks at random.
+В таких случаях может потребоваться удаленная отладка приложения Java в определенном экземпляре роли. Однако если вы включите для отладки только обычную входную конечную точку, балансировщик нагрузки Azure сделает практически невозможным подключение отладчика к определенному экземпляру роли. Вместо этого подключение будет устанавливаться со случайным экземпляром роли.
 
-This is the type of scenario where taking advantage of instance input endpoints will make it easier for you to debug a specific role instance.
+Именно в таком сценарии вы можете использовать преимущества входных конечных точек экземпляра, чтобы упростить отладку конкретного экземпляра роли.
 
-Let's say you plan to run up to 5 role instances of your deployment. Using the **Endpoints** property page in the role properties dialog, create an instance input endpoint and assign it a range of public ports, rather than a single port number. For example, in the **Public port** input box, specify **81-85**.
+Предположим, что вы планируете запустить в развертывании до 5 экземпляров роли. С помощью страницы свойств **Конечные точки** в диалоговом окне свойств роли создайте входную конечную точку экземпляра и присвойте ей диапазон общих портов, а не один номер порта. Например, в поле ввода данных **Общий порт** укажите значение **81–85**.
 
-After you deploy your application with this instance endpoint, Azure will assign a unique port number from this range to each of the role instances. Then, in order to find out which instance got assigned which port number, you can use the *InstanceEndpointName***_PUBLICPORT** environment variable (where *InstanceEndpointName* is the name you assigned when you created the instance endpoint) automatically configured by the toolkit in your deployment (for example, by returning its value in the footer of a webpage, so you could read it when you browse to it).
+После развертывания приложения с этой конечной точкой экземпляра Azure присвоит каждому экземпляру роли уникальный номер порта из данного диапазона. Чтобы узнать, какой номер порта назначен какому экземпляру, вы можете воспользоваться переменной среды *InstanceEndpointName***\_PUBLICPORT** (где *InstanceEndpointName* — это имя, назначенное при создании конечной точки экземпляра), которую набор средств автоматически настроил в развертывании (например, возвратив ее значение в нижнем колонтитуле веб-страницы, чтобы вы могли прочитать его при переходе на нее).
 
-Once you know what public port number that instance was assigned, you can reference it in your debug configuration in Eclipse, by affixing it to the host name of your service. This will enable the Eclipse debugger to connect to that specific instance, and not any of the other instances.
+Выяснив, какой номер общего порта был назначен этому экземпляру, вы можете сослаться на него в конфигурации отладки в Eclipse, добавив его к имени узла службы. Это позволит отладчику Eclipse подключиться к данному конкретному экземпляру вместо одного из других экземпляров.
 
-## <a name="windows-only:-to-debug-your-application-while-running-in-the-compute-emulator"></a>Windows only: To debug your application while running in the compute emulator ##
+## Только для Windows: отладка приложения во время выполнения в эмуляторе вычислений ##
 
->[AZURE.NOTE] The Azure emulator is only available on Windows. Skip this section if you are using an operating system other than Windows. 
+>[AZURE.NOTE] Эмулятор Azure доступен только в Windows. Этот раздел можно пропустить, если вы используете другую операционную систему.
 
-1. Build your project for testing in the emulator: In Eclipse's Project Explorer, right-click **MyAzureProject**, click **Properties**, click **Azure**, and set **Build for** to **Testing in emulator**.
-1. Rebuild your project: From the Eclipse menu, click **Project**, then click **Build All**.
-1. In Eclipse's Project Explorer, right-click **WorkerRole1**, click **Azure**, and then click **Debugging**.
-1. In the **Properties for WorkerRole1 Debugging** dialog:
-    1. Check **Enable remote debugging for this role.**
-    1. For **Input endpoint to use**, use the default endpoint automatically generated by the toolkit, listed as **Debugging (public:8090, private:8090)**.
-    1. Ensure the **Start JVM in suspended mode, waiting for a debugger connection** option is unchecked.
-        >[AZURE.IMPORTANT] The **Start JVM in suspended mode, waiting for a debugger connection** option is intended for advanced debugging scenarios in the compute emulator only (not for cloud deployments). If the **Start JVM in suspended mode, waiting for a debugger connection** option is used, it will suspend the server's startup process until the Eclipse debugger is connected to its JVM. While you could use this option for a debugging session using the compute emulator, do not use it for a debugging session in a cloud deployment. A server's initialization takes place in an Azure startup task, and the Azure cloud does not make public endpoints available until the startup task is completed. Hence, a startup process will not complete successfully if this option is enabled in a cloud deployment, because it will not be able to receive a connection from an external Eclipse client.
-1. Click **Create Debug Configurations**.
-1. In the **Azure Debug Configuration** dialog:
-    1. For **Java project to debug**, select the **MyHelloWorld** project.
-    1. For **Configure debugging for**, check **Azure compute emulator**.
-1. Click **OK** to close the **Azure Debug Configuration** dialog.
-1. Click **OK** to close the **Properties for WorkerRole1 Debugging** dialog.
-1. Set a breakpoint in index.jsp:
-    1. Within Eclipse's Project Explorer, expand **MyHelloWorld**, expand **WebContent**, and double-click **index.jsp**.
-    1. Within index.jsp, right-click in the blue bar to the left of your Java code and click **Toggle Breakpoints**, as shown in the following:  ![][ic551537]
+1. Выполните сборку проекта для тестирования в эмуляторе: в обозревателе проектов Eclipse щелкните правой кнопкой мыши элемент **MyAzureProject**, выберите пункт **Свойства**, нажмите кнопку **Azure** и задайте для параметра **Build for** (Сборка для) значение **Testing in emulator** (Тестирование в эмуляторе).
+1. Перестройте проект: в меню Eclipse выберите **Проект** и щелкните **Build All** (Собрать все).
+1. В обозревателе проектов Eclipse щелкните правой кнопкой мыши **WorkerRole1**, выберите пункт **Azure**, а затем щелкните **Отладка**.
+1. В диалоговом окне **Properties for WorkerRole1 Debugging** (Свойства для отладки WorkerRole1) выполните следующие действия.
+    1. Установите флажок **Enable remote debugging for this role** (Включить удаленную отладку для этой роли).
+    1. Для параметра **Input endpoint to use** (Используемая входная конечная точка) используйте созданную набором средств конечную точку по умолчанию — **Debugging (public:8090, private:8090)** (Отладка — открытый:8090, закрытый:8090).
+    1. Убедитесь, что флажок **Start JVM in suspended mode, waiting for a debugger connection** (Запустить JVM в режиме приостановки, ожидая подключение отладчика) снят.
+        >[AZURE.IMPORTANT] Параметр **Start JVM in suspended mode, waiting for a debugger connection** (Запустить JVM в режиме приостановки, ожидая подключение отладчика) предназначен только для сценариев расширенной отладки в эмуляторе вычислений (не для развертываний в облаке). Если параметр **Start JVM in suspended mode, waiting for a debugger connection** (Запустить JVM в режиме приостановки, ожидая подключение отладчика) используется, он приостанавливает процесс запуска сервера до подключения отладчика Eclipse к его виртуальной машине Java. Хотя вы можете использовать этот параметр для сеанса отладки с применением эмулятора вычислений, не используйте его для сеанса отладки в облачном развертывании. Инициализация сервера выполняется в рамках задачи запуска Azure, и облако Azure не предоставляет доступ к общедоступным конечным точкам до завершения задачи запуска. Таким образом, процесс запуска не завершается, если этот параметр включен в облачном развертывании, так как получить подключение из внешнего клиента Eclipse будет невозможно.
+    1. Щелкните **Create Debug Configurations** (Создать конфигурации отладки).
+1. В диалоговом окне **Azure Debug Configuration** (Конфигурация отладки Azure) выполните следующие действия.
+    1. Для параметра **Java project to debug** (Проект Java для отладки) выберите проект **MyHelloWorld**.
+    1. Для параметра **Configure debugging for** (Настроить отладку для) выберите **Azure compute emulator** (Эмулятор вычислений Azure).
+1. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Azure Debug Configuration** (Конфигурация отладки Azure).
+1. Нажмите кнопку **ОК**, чтобы закрыть диалоговое окно **Properties for WorkerRole1 Debugging** (Свойства для отладки WorkerRole1).
+1. Установите точку останова в index.jsp:
+    1. В обозревателе проектов Eclipse разверните узел **MyHelloWorld**, разверните узел **WebContent** и дважды щелкните **index.jsp**.
+    1. В пределах index.jsp щелкните правой кнопкой мыши синюю полосу слева от кода Java и выберите пункт **Toggle Breakpoints** (Переключить точки останова), как показано ниже: ![][ic551537]
 
-       A breakpoint is set if you see a breakpoint icon within the blue bar to the left of your Java code.
-1. Start the application in the compute emulator by clicking the **Run in Azure Emulator** button on the Azure toolbar.
-1. Within Eclipse's menu, click **Run** and then click **Debug Configurations**.
-1. In the **Debug Configurations** dialog, expand **Remote Java Application** in the left-hand pane, select **Azure Emulator (WorkerRole1)**, and click **Debug**.
-1. After the compute emulator indicates that your application is running, within your browser, run **http://localhost:8080/MyHelloWorld**.
-    If prompted by a **Confirm Perspective Switch** dialog box, click **Yes**.
-    Your debug session should now execute to the line of code where the breakpoint was set.
+       Если вы видите значок точки останова в синей полосе слева от кода Java, точка остановка установлена.
+1. Запустите приложение в эмуляторе вычислений, нажав кнопку **Run in Azure Emulator** (Запуск в эмуляторе Azure) на панели инструментов Azure.
+1. В меню Eclipse выберите **Выполнить** и щелкните **Debug Configurations** (Конфигурации отладки).
+1. В диалоговом окне **Debug Configurations** (Конфигурации отладки) разверните узел **Remote Java Application** (Удаленное приложение Java) на левой панели, выберите **Azure Emulator (WorkerRole1)** (Эмулятор Azure [WorkerRole1]) и нажмите кнопку **Отладка**.
+1. Когда эмулятор вычислений сообщит о том, что приложение выполняется, запустите **http://localhost:8080/MyHelloWorld** в браузере. При отображении диалогового окна **Confirm Perspective Switch** (Подтвердить смену перспективы) нажмите кнопку **Да**. Теперь сеанс отладки должен дойти до строки кода, где была задана точка останова.
 
-This showed you how to debug in the compute emulator; the next section shows you how to debug an application deployed to Azure.
+Здесь был описан процесс отладки в эмуляторе вычислений, ниже показано, как выполнять отладку приложения, развернутого в Azure.
 
-## <a name="debugging-notes"></a>Debugging Notes ##
+## Заметки об отладке ##
 
-* After debugging, you can switch the perspective from **Debug** to **Java** via clicking Eclipse's menu, by clicking **Window**, **Open Perspective**, and selecting the perspective that you want to use.
-* To enable remote debugging in GlassFish, do not use the remote debugging configuration feature of the Azure Toolkit for Eclipse. Instead configure GlassFish manually. Because of the way GlassFish treats Java options predefined in environment variables, the toolkit's remote debugging configuration feature does not work properly with GlassFish. If the toolkit's remote debugging configuration feature is enabled, it may prevent GlassFish from starting.
+* После отладки вы можете переключить перспективу с **Отладка** на **Java** через меню Eclipse, щелкнув **Окно**, **Open Perspective** (Открыть перспективу) и выбрав нужную перспективу.
+* Чтобы включить удаленную отладку в GlassFish, не используйте функцию конфигурации удаленной отладки из набора средств Azure для Eclipse. Вместо этого настройте GlassFish вручную. Из-за особенностей обработки GlassFish параметров Java, предварительно заданных в переменных среды, функция конфигурации удаленной отладки из набора средств работает с GlassFish неправильно. Если функция конфигурации удаленной отладки из набора средств включена, GlassFish может не запускаться.
 
-## <a name="see-also"></a>See Also ##
+## См. также ##
 
-[Azure Toolkit for Eclipse][]
+[Набор средств Azure для Eclipse][]
 
-[Creating a Hello World Application for Azure in Eclipse][]
+[Создание приложения Hello World для Azure в Eclipse][]
 
-[Installing the Azure Toolkit for Eclipse][] 
+[Установка набора средств Azure для Eclipse][]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center][].
+Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure][].
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Using the Azure Service Runtime Library in JSP]: http://go.microsoft.com/fwlink/?LinkID=699551
+[центре разработчиков Java для Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[портала управления Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Набор средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Создание приложения Hello World для Azure в Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[центра разработчиков Java]: http://go.microsoft.com/fwlink/?LinkID=699551
 
 <!-- IMG List -->
 
 [ic719504]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic719504.png
 [ic551537]: ./media/azure-toolkit-for-eclipse-debugging-azure-applications/ic551537.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

@@ -1,80 +1,75 @@
 <properties
-    pageTitle="Advanced Configuration for Windows Universal Apps Engagement SDK"
-    description="Advanced Configuration options for Azure Mobile Engagement with Windows Universal Apps"                    
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="erikre"
-    editor="" />
+	pageTitle="Расширенная конфигурация пакета SDK службы Engagement для универсальных приложений для Windows"
+	description="Параметры расширенной конфигурации Azure Mobile Engagement при использовании с универсальными приложениями для Windows" 					
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="erikre"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-windows-store"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="piyushjo;ricksal" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/12/2016"
+	ms.author="piyushjo;ricksal" />
 
-
-# <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Advanced Configuration for Windows Universal Apps Engagement SDK
+# Расширенная конфигурация пакета SDK службы Engagement для универсальных приложений для Windows
 
 > [AZURE.SELECTOR]
-- [Universal Windows](mobile-engagement-windows-store-advanced-configuration.md)
+- [Универсальная платформа Windows](mobile-engagement-windows-store-advanced-configuration.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 - [iOS](mobile-engagement-ios-integrate-engagement.md)
-- [Android](mobile-engagement-android-advanced-configuration.md)
+- [Android](mobile-engagement-android-advan.mdced-configuration.md)
 
-This procedure describes how to configure various configuration options for Azure Mobile Engagement Android apps.
+В этой статье описано, как настроить различные параметры конфигурации для приложений Android в службе Azure Mobile Engagement.
 
-## <a name="prerequisites"></a>Prerequisites
+## Предварительные требования
 
-[AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
+[AZURE.INCLUDE [Предварительные требования](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-##<a name="advanced-configuration"></a>Advanced configuration
+##Расширенная конфигурация
 
-### <a name="disable-automatic-crash-reporting"></a>Disable automatic crash reporting
+### Отключение автоматического создания отчетов о сбоях
 
-You can disable the automatic crash reporting feature of Engagement. Then, when an unhandled exception occurs, Engagement does nothing.
+Вы можете отключить функцию автоматического создания отчетов о сбоях в Engagement. Тогда при возникновении необработанного исключения служба Engagement не будет выполнять никаких действий.
 
-> [AZURE.WARNING] If you disable this feature, then when an unhandled crash occurs in your app, Engagement does not send the crash **AND** does not close the session and jobs.
+> [AZURE.WARNING] Если отключить эту функцию, то при возникновении необработанного сбоя в приложении служба Engagement не будет отправлять уведомление о сбое **И** не закроет сеанс и задания.
 
-To disable automatic crash reporting, customize your configuration depending on the way you declared it:
+Чтобы отключить автоматическое создание отчетов о сбоях, настройте конфигурацию в зависимости от того, как она была объявлена.
 
-#### <a name="from-`engagementconfiguration.xml`-file"></a>From `EngagementConfiguration.xml` file
+#### Из файла `EngagementConfiguration.xml`
 
-Set report crash to `false` between `<reportCrash>` and `</reportCrash>` tags.
+Задайте для параметра уведомления о сбоях значение `false` между тегами `<reportCrash>` и `</reportCrash>`.
 
-#### <a name="from-`engagementconfiguration`-object-at-run-time"></a>From `EngagementConfiguration` object at run time
+#### Из объекта `EngagementConfiguration` во время выполнения
 
-Set report crash to false using your EngagementConfiguration object.
+Задайте для параметра уведомления о сбоях значение false с помощью объекта EngagementConfiguration.
 
-        /* Engagement configuration. */
-        EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-        engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+		/* Engagement configuration. */
+		EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+		engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
 
-        /* Disable Engagement crash reporting. */
-        engagementConfiguration.Agent.ReportCrash = false;
+		/* Disable Engagement crash reporting. */
+		engagementConfiguration.Agent.ReportCrash = false;
 
-### <a name="disable-real-time-reporting"></a>Disable real time reporting
+### Отключение отчетов в реальном времени
 
-By default, the Engagement service reports logs in real time. If your application reports logs frequently, it is better to buffer the logs and to report them all at once on a regular time basis. This is called “burst mode”.
+По умолчанию служба Engagement ведет отчеты по журналам в режиме реального времени. Если приложение часто отправляет отчеты журналов, лучше сохранить их в буфер и передавать все вместе через определенные промежутки времени. Это называется пакетным режимом.
 
-To do so, call the method:
+Для этого вызовите следующий метод:
 
-        EngagementAgent.Instance.SetBurstThreshold(int everyMs);
+		EngagementAgent.Instance.SetBurstThreshold(int everyMs);
 
-The argument is a value in **milliseconds**. Whenever you want to reactivate the real-time logging, call the method without any parameter, or with the 0 value.
+Значение аргумента задается в **миллисекундах**. Когда бы вам ни потребовалось повторно активировать ведение журнала в реальном времени, просто вызовите метод без каких-либо параметров или со значением 0.
 
-Burst mode slightly increases the battery life but has an impact on the Engagement Monitor: all sessions and jobs duration are rounded to the burst threshold (thus, sessions and jobs shorter than the burst threshold may not be visible). We recommend using a burst threshold no longer than 30000 (30s). Saved logs are limited to 300 items. If sending is too long, you can lose some logs.
+Пакетный режим немного продлевает время работы батареи, но влияет на Engagement Monitor: время выполнения всех сеансов и заданий будет округляться до порогового значения пакета (таким образом, сеансы и задания, время выполнения которых короче, чем пороговое значение пакета, могут не отображаться). Мы рекомендуем использовать пороговое значение пакета не более 30 000 (30 с). Для сохраненных журналов действует ограничение с 300 элементов. Если отправка занимает слишком много времени, некоторые журналы могут быть потеряны.
 
-> [AZURE.WARNING] The burst threshold cannot be configured to a period less than one second. If you do so, the SDK shows a trace with the error and automatically resets to the default value, zero seconds. This triggers the SDK to report the logs in real-time.
+> [AZURE.WARNING] Для порогового значения пакета нельзя настроить период менее одной секунды. При попытке сделать это трассировка в пакете SDK отобразится с ошибкой, и будет автоматически восстановлено значения по умолчанию, т. е. ноль секунд. Это приведет к тому, что пакет SDK начнет создавать отчеты по журналам в реальном времени.
 
-[here]:http://www.nuget.org/packages/Capptain.WindowsCS
-[NuGet website]:http://docs.nuget.org/docs/start-here/overview
+[here]: http://www.nuget.org/packages/Capptain.WindowsCS
+[NuGet website]: http://docs.nuget.org/docs/start-here/overview
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0817_2016-->

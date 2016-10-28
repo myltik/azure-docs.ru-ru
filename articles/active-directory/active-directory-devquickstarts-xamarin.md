@@ -1,67 +1,66 @@
 <properties
-    pageTitle="Azure AD Xamarin Getting Started | Microsoft Azure"
-    description="How to build a Xamarin application that integrates with Azure AD for sign in and calls Azure AD protected APIs using OAuth."
-    services="active-directory"
-    documentationCenter="xamarin"
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Приступая к работе с Xamarin Azure AD | Microsoft Azure"
+	description="Практическое руководство по созданию приложения Xamarin, которое интегрируется с Azure AD для входа в систему и вызывает программные интерфейсы приложения, защищенные Azure AD, с помощью OAuth."
+	services="active-directory"
+	documentationCenter="xamarin"
+	authors="dstrockis"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="mobile-xamarin"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="dastrock"/>
 
 
-
-# <a name="integrate-azure-ad-into-a-xamarin-app"></a>Integrate Azure AD into a Xamarin App
+# Интеграция Azure AD в приложение Xamarin
 
 [AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Xamarin allows you to write mobile apps in C# that can run on iOS, Android, and Windows (mobile devices and PCs). If you're building an app using Xamarin, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts. It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
+Xamarin позволяет создавать мобильные приложения на C#, которые могут работать в iOS, Android и Windows (на мобильных устройствах и ПК). При разработке приложения с помощью Xamarin система Azure AD позволяет легко и просто осуществлять проверку подлинности пользователей с помощью их учетных записей в Active Directory. Это также позволяет вашему приложению безопасно использовать любые веб-интерфейсы API, защищаемые с помощью Azure AD, например интерфейсы Office 365 API или Azure API.
 
-For Xamarin apps that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL. ADAL’s sole purpose in life is to make it easy for your app to get access tokens. To demonstrate just how easy it is, here we’ll build a "Directory Searcher" app that:
+Для приложений Xamarin, которым требуется доступ к защищенным ресурсам, система Azure AD предоставляет библиотеку проверки подлинности Active Directory (или ADAL). Единственное предназначение ADAL — упростить процесс получения маркеров доступа. Чтобы продемонстрировать, насколько простой является данная процедура, мы выполним сборку приложения DirectorySearcher, которое:
 
--   Runs on iOS, Android, Windows Desktop, Windows Phone, and Windows Store.
-- Uses a single portable class library (PCL) to authenticate users and get tokens for the Azure AD Graph API
--   Searches a directory for users with a given UPN.
+-	выполняется на платформах iOS, Android, Windows Desktop, Windows Phone и Магазина Windows;
+- использует единую переносимую библиотеку классов (PCL) для проверки подлинности пользователей и получения маркеров для интерфейса API Graph в Azure AD;
+-	осуществляет поиск пользователей в каталоге с помощью заданного UPN.
 
-To build the complete working application, you’ll need to:
+Для создания полного рабочего приложения необходимо:
 
-2. Set up your Xamarin development environment
-2. Register your application with Azure AD.
-3. Install & Configure ADAL.
-5. Use ADAL to get tokens from Azure AD.
+2. настроить среду разработки Xamarin;
+2. Зарегистрировать приложение в Azure AD.
+3. установить и настроить ADAL;
+5. использовать ADAL для получения маркеров из Azure AD.
 
-To get started, [download a skeleton project](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Each is a Visual Studio 2013 solution. You'll also need an Azure AD tenant in which you can create users and register an application. If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
+Чтобы начать работу, [загрузите проект схемы](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) или [загрузите готовый пример](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Каждый из них является решением Visual Studio 2013. Вам также потребуется клиент Azure AD, в котором можно создавать пользователей и регистрировать приложение. Если клиента нет, [узнайте, как его получить](active-directory-howto-tenant.md).
 
-## <a name="*0.-set-up-your-xamarin-development-environment*"></a>*0. Set up your Xamarin Development Environment*
-Because this tutorial includes projects for iOS, Android, and Windows, you’ll need Visual Studio and Xamarin together. To create the necessary environment, follow the complete instructions on [Setup and Install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) on MSDN. Those instructions include material you can review to learn more about Xamarin while you're waiting for the installers to complete. 
+## *0. Настройка среды разработки Xamarin*
+Так как этот учебник содержит проекты для iOS, Android и Windows, вам потребуются Visual Studio и Xamarin. Для создания необходимой среды следуйте инструкциям в разделе [Настройка и установка](https://msdn.microsoft.com/library/mt613162.aspx) на сайте MSDN. Эти инструкции содержат материалы, которые можно просмотреть, чтобы больше узнать о Xamarin, пока вы ожидаете завершения работы установщиков.
 
-Once you've completed the necessary setup, open the solution in Visual Studio to get started. You will find six projects: five platform-specific projects and one portable class library that will be shared across all platforms, `DirectorySearcher.cs`
+После завершения процесса настройки откройте решение в Visual Studio, чтобы приступить к работе. Вы увидите шесть проектов: пять проектов для конкретной платформы и одну переносимую библиотеку классов, которая будет общей для всех платформ `DirectorySearcher.cs`
 
-## <a name="*1.-register-the-directory-searcher-application*"></a>*1. Register the Directory Searcher Application*
-To enable your app to get tokens, you’ll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:
+## *1. Регистрация приложения Directory Searcher*
+Чтобы приложение могло получать маркеры, сначала необходимо его зарегистрировать в клиенте Azure AD и предоставить ему разрешение на доступ к интерфейсу Graph API Azure AD.
 
--   Sign into the [Azure Management Portal](https://manage.windowsazure.com)
--   In the left hand nav, click on **Active Directory**
--   Select a tenant in which to register the application.
--   Click the **Applications** tab, and click **Add** in the bottom drawer.
--   Follow the prompts and create a new **Native Client Application**.
-    -   The **Name** of the application will describe your application to end-users
-    -   The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses. Enter a value, e.g. `http://DirectorySearcher`.
--   Once you’ve completed registration, AAD will assign your app a unique client identifier. You’ll need this value in the next sections, so copy it from the **Configure** tab.
-- Also in **Configure** tab, locate the "Permissions to Other Applications" section. For the "Azure Active Directory" application, add the **Access Your Organization's Directory** permission under **Delegated Permissions**. This will enable your application to query the Graph API for users.
+-	Войдите на [Портал управления Azure](https://manage.windowsazure.com)
+-	В левой панели навигации щелкните **Active Directory**.
+-	Выберите клиента, в котором будет зарегистрировано приложение.
+-	Перейдите на вкладку **Приложения** и нажмите кнопку **Добавить** в нижней панели.
+-	Следуйте инструкциям на экране, а затем создайте новое **Собственное клиентское приложение**.
+    -	**Имя** приложения отображает его описание конечным пользователям.
+    -	**Uri перенаправления** представляет собой комбинацию схемы и строки, которую Azure AD будет использовать для возврата ответов на маркеры. Введите значение, например `http://DirectorySearcher`.
+-	После завершения регистрации Azure AD назначает приложению уникальный идентификатор клиента. Это значение понадобится в следующих разделах, поэтому скопируйте его с вкладки **Настройка**.
+- Также во вкладке **Настройка** найдите раздел "Разрешения для других приложений". Для приложения Azure Active Directory добавьте разрешение на **Допуск к каталогу вашей организации** в списке **Делегированные разрешения**. Это позволит приложению запрашивать интерфейс Graph API для пользователей.
 
-## <a name="*2.-install-&-configure-adal*"></a>*2. Install & Configure ADAL*
-Now that you have an application in Azure AD, you can install ADAL and write your identity-related code. In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.
--   Begin by adding ADAL to each of the projects in the solution using the Package Manager Console.
+## *2. Установка и настройка ADAL*
+Теперь, когда приложение зарегистрировано в Azure AD, можно установить библиотеку ADAL и написать код для работы с удостоверением. Чтобы ADAL могла обмениваться информацией с Azure AD, необходимо предоставить некоторую информацию о регистрации вашего приложения.
+-	Начните с добавления ADAL в каждый из проектов в решении с помощью консоли диспетчера пакетов.
 
 `
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib
@@ -83,24 +82,24 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal
 `
 
-- You should notice that two library references are added to each project - the PCL portion of ADAL and a platform-specific portion.
+- Следует отметить, что в каждый проект добавляются две ссылки на библиотеку: часть PCL в ADAL и специфическая для платформы часть.
 
--   In the DirectorySearcherLib project, open `DirectorySearcher.cs`. Change the class member values to reflect the values you input into the Azure Portal. Your code will reference these values whenever it uses ADAL.
-    -   The `tenant` is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com
-    -   The `clientId` is the clientId of your application you copied from the portal.
-    - The `returnUri` is the redirectUri you entered in the portal, e.g. `http://DirectorySearcher`.
+-	В проекте DirectorySearcherLib откройте `DirectorySearcher.cs`. Замените значения членов класса, чтобы отражать значения, введенные на портале Azure. Ваш код будет ссылаться на эти значения при каждом использовании ADAL.
+    -	`tenant` — это домен вашего клиента Azure AD, например contoso.onmicrosoft.com
+    -	`clientId` — это идентификатор clientId приложения, скопированный с портала.
+    - `returnUri` — это redirectUri, который был введен на портале, например `http://DirectorySearcher`.
 
-## <a name="*3.-use-adal-to-get-tokens-from-aad*"></a>*3.  Use ADAL to Get Tokens from AAD*
-*Almost* all of the app's authentication logic lies in `DirectorySearcher.SearchByAlias(...)`. All that is necessary in the platform-specific projects is to pass a contextual parameter to the `DirectorySearcher` PCL.
+## *3. Использование ADAL для получения маркеров из Azure AD*
+*Практически* все файлы логики проверки подлинности приложения находятся в `DirectorySearcher.SearchByAlias(...)`. Специфические для платформы проекты должны отправлять контекстный параметр в `DirectorySearcher` PCL.
 
-- First, open `DirectorySearcher.cs` and add a new parameter to the `SearchByAlias(...)` method. `IPlatformParameters` is the contextual parameter that encapsulates the platform-specific objects that ADAL needs to perform authentication.
+- Сначала откройте `DirectorySearcher.cs` и добавьте новый параметр в метод `SearchByAlias(...)`. `IPlatformParameters` — это контекстный параметр, инкапсулирующий специфические для платформы объекты, которые нужны ADAL для проверки подлинности.
 
 ```C#
 public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent)
 {
 ```
 
--   Next, initialize the `AuthenticationContext` - ADAL’s primary class. This is where you pass ADAL the coordinates it needs to communicate with Azure AD. Then call `AcquireTokenAsync(...)`, which accepts the `IPlatformParameters` object and will invoke the authentication flow necessary to return a token to the app.
+-	Затем инициализируйте `AuthenticationContext` — основной класс ADAL. Здесь вы отправляете в ADAL координаты, которые ему требуются для взаимодействия с Azure AD. Затем вызовите `AcquireTokenAsync(...)`, который принимает объект `IPlatformParameters` и будет вызывать поток проверки подлинности, необходимый для возврата маркера в приложение.
 
 ```C#
 ...
@@ -117,10 +116,10 @@ public static async Task<List<User>> SearchByAlias(string alias, IPlatformParame
     }
 ...
 ```
-- `AcquireTokenAsync(...)` will first attempt to return a token for the requested resource (the Graph API in this case) without prompting the user to enter their credentials (via caching or refreshing old tokens). Only if necessary, it will show the user the Azure AD sign in page before acquiring the requested token.
+- `AcquireTokenAsync(...)` сначала попытается вернуть маркер для запрошенного ресурса (в данном случае Graph API) и не будет предлагать пользователю вводить свои учетные данные (путем кэширования или обновления старых маркеров). Только при необходимости перед получением запрошенного токена для пользователя появится страница входа в Azure AD.
 
 
-- You can then attach the access token to the Graph API request in the Authorization header:
+- Затем вы можете присоединить маркер доступа к запросу интерфейса Graph API в заголовке авторизации:
 
 ```C#
 ...
@@ -128,15 +127,15 @@ public static async Task<List<User>> SearchByAlias(string alias, IPlatformParame
 ...
 ```
 
-That's all for the `DirectorySearcher` PCL and your app's identity-related code.  All that remains is to call the `SearchByAlias(...)` method in each platform's views, and where necessary add code for correctly handling the UI lifecycle.
+Это все, что нужно сделать для `DirectorySearcher` PCL и кода, связанного с идентификацией вашего приложения. Остается только вызвать метод `SearchByAlias(...)` во всех представлениях для платформы и при необходимости добавить код для правильной обработки жизненного цикла пользовательского интерфейса.
 
-####<a name="android:"></a>Android:
-- In `MainActivity.cs`, add a call to `SearchByAlias(...)` in the button click handler:
+####Android:
+- В `MainActivity.cs` добавьте вызов в `SearchByAlias(...)` в обработчике нажатия кнопки:
 
 ```C#
 List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
 ```
-- You also need to override the `OnActivityResult` lifecycle method to forward any authentication redirects back to the appropriate method.  ADAL provides a helper method for this in Android:
+- Также необходимо переопределить метод жизненного цикла `OnActivityResult` для пересылки операций перенаправления проверку подлинности обратно в соответствующий метод. Для этого ADAL предоставляет вспомогательный метод в Android:
 
 ```C#
 ...
@@ -148,8 +147,8 @@ protected override void OnActivityResult(int requestCode, Result resultCode, Int
 ...
 ```
 
-####<a name="windows-desktop:"></a>Windows Desktop:
-- In `MainWindow.xaml.cs`, simply make a call to `SearchByAlias(...)` passing a `WindowInteropHelper` in the desktop's `PlatformParameters` object:
+####Классическое приложение Windows:
+- В `MainWindow.xaml.cs` просто отправьте вызов в `SearchByAlias(...)`, передавая `WindowInteropHelper` в объекте `PlatformParameters` классического приложения:
 
 ```C#
 List<User> results = await DirectorySearcher.SearchByAlias(
@@ -157,8 +156,8 @@ List<User> results = await DirectorySearcher.SearchByAlias(
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
 ```
 
-####<a name="ios:"></a>iOS:
-- In `DirSearchClient_iOSViewController.cs`, the iOS `PlatformParameters` object simply takes a reference to the View Controller:
+####iOS:
+- В `DirSearchClient_iOSViewController.cs` объект `PlatformParameters` iOS просто принимает ссылку на контроллер представления:
 
 ```C#
 List<User> results = await DirectorySearcher.SearchByAlias(
@@ -166,8 +165,8 @@ List<User> results = await DirectorySearcher.SearchByAlias(
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
 ```
 
-####<a name="windows-universal:"></a>Windows Universal:
-- In Windows Universal, open `MainPage.xaml.cs` and implement the `Search` method, which uses a helper method in a shared project to update UI as necessary.
+####Универсальное приложение Windows:
+- В универсальном приложении Windows откройте `MainPage.xaml.cs` и реализуйте метод `Search`, который использует вспомогательный метод в общем проекте для обновления пользовательского интерфейса требуемым образом.
 
 ```C#
 ...
@@ -175,18 +174,14 @@ List<User> results = await DirectorySearcher.SearchByAlias(
 ...
 ```
 
-Congratulations! You now have a working Xamarin app that has the ability to authenticate users and securely call Web APIs using OAuth 2.0 across five different platforms. If you haven’t already, now is the time to populate your tenant with some users. Run your DirectorySearcher app, and sign in with one of those users. Search for other users based on their UPN.
+Поздравляем! Теперь у нас есть рабочее приложение Xamarin, которое позволяет проверять подлинность пользователей и безопасным образом вызывать веб-интерфейс API с помощью OAuth 2.0 на пяти различных платформах. Если вы это еще не сделали, сейчас можно добавить несколько пользователей вашему клиенту. Запустите свое приложение DirectorySearcher и войдите под именем одного из таких пользователей. Осуществите поиск других пользователей по их имени участника-пользователя.
 
-ADAL makes it easy to incorporate common identity features into your app. It takes care of all the dirty work for you - cache management, OAuth protocol support, presenting the user with a login UI, refreshing expired tokens, and more. All you really need to know is a single API call, `authContext.AcquireToken*(…)`.
+ADAL упрощает процесс включения общих возможностей идентификации в приложение. Он отвечает за всю грязную работу: управление кэшем, поддержку протокола OAuth, предоставление пользователю пользовательского интерфейса для входа, обновление истекших маркеров и многое другое. Все, что вам действительно нужно знать, — это вызов интерфейса API `authContext.AcquireToken*(…)`.
 
-For reference, the completed sample (without your configuration values) is provided [here](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). You can now move on to additional identity scenarios. You may want to try:
+Для справки следует отметить, что готовый пример (без ваших значений конфигурации) находится [здесь](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Теперь можно приступить к дополнительным сценариям идентификации. Можно попробовать:
 
-[Secure a .NET Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Безопасность веб-API .NET с Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,313 +1,308 @@
 <properties
-    pageTitle="Provision and deploy microservices predictably in Azure"
-    description="Learn how to deploy an application composed of microservices in Azure App Service as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting."
-    services="app-service"
-    documentationCenter=""
-    authors="cephalin"
-    manager="wpickett"
-    editor="jimbe"/>
+	pageTitle="Предсказуемые подготовка и развертывание микрослужб в Azure"
+	description="Узнайте, как с помощью шаблонов групп ресурсов JSON и скриптов PowerShell предсказуемо подготовить и развернуть приложение, состоящее из микрослужб, в службу приложений Azure как единое целое."
+	services="app-service"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
+	editor="jimbe"/>
 
 <tags
-    ms.service="app-service"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="01/06/2016"
-    ms.author="cephalin"/>
+	ms.service="app-service"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/06/2016"
+	ms.author="cephalin"/>
 
 
+# Предсказуемые подготовка и развертывание микрослужб в Azure #
 
-# <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provision and deploy microservices predictably in Azure #
+В этой статье описано, как предсказуемо с помощью шаблонов групп ресурсов JSON и скриптов PowerShell подготовить и развернуть приложение, состоящее из [микрослужб](https://en.wikipedia.org/wiki/Microservices), в [службу приложений Azure](/services/app-service/) как единое целое.
 
-This tutorial shows how to provision and deploy an application composed of [microservices](https://en.wikipedia.org/wiki/Microservices) in [Azure App Service](/services/app-service/) as a single unit and in a predictable manner using JSON resource group templates and PowerShell scripting. 
+Залогом успеха при подготовке и развертывании крупномасштабных приложений, которые состоят из разъединенных микрослужб, являются повторяемость и предсказуемость. [Служба приложений Azure](/services/app-service/) позволяет создавать микрослужбы, которые содержат веб-приложения, мобильные приложения, приложения API и приложения логики. [Диспетчер ресурсов Azure](../resource-group-overview.md) позволяет управлять микрослужбами как единым целым, вместе с зависимостями ресурсов, например параметрами управления базами данных и систем управления версиями. Теперь можно также развернуть такое приложение с помощью шаблонов JSON и простых скриптов PowerShell.
 
-When provisioning and deploying high-scale applications that are composed of highly decoupled microservices, repeatability and predictability are crucial to success. [Azure App Service](/services/app-service/) enables you to create microservices that include web apps, mobile apps, API apps, and logic apps. [Azure Resource Manager](../resource-group-overview.md) enables you to manage all the microservices as a unit, together with resource dependencies such as database and source control settings. Now, you can also deploy such an application using JSON templates and simple PowerShell scripting. 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+## Выполняемая задача ##
 
-## <a name="what-you-will-do"></a>What you will do ##
+В этом учебнике будет развернуто приложение, которое включает в себя:
 
-In the tutorial, you will deploy an application that includes:
+-	два веб-приложения (т. е. две микрослужбы);
+-	базу данных SQL внутреннего сервера;
+-	параметры приложения, строки подключения и система управления версиями;
+-	анализы приложений, предупреждения, параметры автоматического масштабирования.
 
--   Two web apps (i.e. two microservices)
--   A backend SQL Database
--   App settings, connection strings, and source control
--   Application insights, alerts, autoscaling settings
+## Используемые инструменты ##
 
-## <a name="tools-you-will-use"></a>Tools you will use ##
+В этом учебнике будут использоваться следующие инструменты. Так как подробное изучение инструментов не входит в задачу данного учебника, будем придерживаться беглого сценария и остановимся лишь на кратком введении к каждому инструменту и скажем, где можно будет найти дополнительную информацию о них.
 
-In this tutorial, you will use the following tools. Since it’s not comprehensive discussion on tools, I’m going to stick to the end-to-end scenario and just give you a brief intro to each, and where you can find more information on it. 
-
-### <a name="azure-resource-manager-templates-(json)"></a>Azure Resource Manager templates (JSON) ###
+### Шаблоны диспетчера ресурсов Azure (JSON) ###
  
-Every time you create a web app in Azure App Service, for example, Azure Resource Manager uses a JSON template to create the entire resource group with the component resources. A complex template from the [Azure Marketplace](/marketplace) like the [Scalable WordPress](/marketplace/partners/wordpress/scalablewordpress/) app can include the MySQL database, storage accounts, the App Service plan, the web app itself, alert rules, app settings, autoscale settings, and more, and all these templates are available to you through PowerShell. For information on how to download and use these templates, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+Каждый раз при создании веб-приложения, например, в службе приложений Azure диспетчер ресурсов Azure использует шаблон JSON для создания всей группы ресурсов с ресурсами компонентов. Сложный шаблон из [Azure Marketplace](/marketplace), такой как приложение [Scalable WordPress](/marketplace/partners/wordpress/scalablewordpress/), может содержать базу данных MySQL, учетные записи хранения, план службы приложения, само веб-приложение, правила оповещений, параметры приложения, параметры автоматического масштабирования и др., и все эти шаблоны доступны через PowerShell. Информацию о том, как скачивать и использовать эти шаблоны, см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
-For more information on the Azure Resource Manager templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
+Дополнительную информацию о шаблонах диспетчера ресурсов Azure см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
-### <a name="azure-sdk-2.6-for-visual-studio"></a>Azure SDK 2.6 for Visual Studio ###
+### Пакет SDK для Azure 2.6 для Visual Studio ###
 
-The newest SDK contains improvements to the Resource Manager template support in the JSON editor. You can use this to quickly create a resource group template from scratch or open an existing JSON template (such as a downloaded gallery template) for modification, populate the parameters file, and even deploy the resource group directly from an Azure Resource Group solution.
+Новейший пакет SDK содержит улучшения для поддержки шаблонов диспетчера ресурсов в редакторе JSON. Здесь можно быстро создать шаблон группы ресурсов с нуля или открыть существующий шаблон JSON (например, скачанный шаблон коллекции) для изменения, заполнения файла параметров и даже развертывания группы ресурсов непосредственно из решения для групп ресурсов Azure.
 
-For more information, see [Azure SDK 2.6 for Visual Studio](/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
+Дополнительную информацию см. в статье [Пакет SDK для Azure версии 2.6 для Visual Studio](/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
 
-### <a name="azure-powershell-0.8.0-or-later"></a>Azure PowerShell 0.8.0 or later ###
+### Azure PowerShell 0.8.0 или более поздней версии ###
 
-Beginning in version 0.8.0, the Azure PowerShell installation includes the Azure Resource Manager module in addition to the Azure module. This new module enables you to script the deployment of resource groups.
+Начиная с версии 0.8.0, установка Azure PowerShell в дополнение к модулю Azure содержит модуль диспетчера ресурсов Azure. Этот новый модуль позволяет создавать скрипты развертывания групп ресурсов.
 
-For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
+Дополнительную информацию см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
-### <a name="azure-resource-explorer"></a>Azure Resource Explorer ###
+### Обозреватель ресурсов Azure ###
 
-This [preview tool](https://resources.azure.com) enables you to explore the JSON definitions of all the resource groups in your subscription and the individual resources. In the tool, you can edit the JSON definitions of a resource, delete an entire hierarchy of resources, and create new resources.  The information readily available in this tool is very helpful for template authoring because it shows you what properties you need to set for a particular type of resource, the correct values, etc. You can even create your resource group in the [Azure Portal](https://portal.azure.com/), then inspect its JSON definitions in the explorer tool to help you templatize the resource group.
+Этот [инструмент предварительного просмотра](https://resources.azure.com) позволяет изучать определения JSON всех групп ресурсов в подписке и отдельных ресурсах. Этот инструмент предназначен для изменения определений JSON ресурса, удаления всей иерархии ресурсов и создания новых ресурсов. Информация, которая уже доступна в этом инструменте, особенно полезна при создании шаблонов, так как она показывает, какие свойства необходимо задать для ресурса определенного типа, правильных значений и т. д. Вы даже можете создать группу ресурсов на [портале Azure](https://portal.azure.com/) и проверить ее определения JSON в инструменте обозревателя, чтобы упростить разработку шаблона группы ресурсов.
 
-### <a name="deploy-to-azure-button"></a>Deploy to Azure button ###
+### Кнопка "Развертывание в Azure" ###
 
-If you use GitHub for source control, you can put a [Deploy to Azure button](/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) into your README.MD, which enables a turn-key deployment UI to Azure. While you can do this for any simple web app, you can extend this to enable deploying an entire resource group by putting an azuredeploy.json file in the repository root. This JSON file, which contains the resource group template, will be used by the Deploy to Azure button to create the resource group. For an example, see the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) sample, which you will use in this tutorial.
+При использовании GitHub для управления версиями можно поместить [кнопку "Развертывание в Azure"](/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) в свой файл README.MD, которая обеспечивает пользовательский интерфейс развертывания в Azure одним действием. Хотя это можно сделать для любого простого веб-приложения, этот параметр можно расширить, чтобы организовать развертывание группы ресурсов как единого целого, помещая файл azuredeploy.json в корневой репозиторий. Этот файл JSON, который содержит шаблон группы ресурсов, используется кнопкой "Развертывание в Azure" для создания группы ресурсов. Например, см. образец [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp), который будет использоваться в этом учебнике.
 
-## <a name="get-the-sample-resource-group-template"></a>Get the sample resource group template ##
+## Получение образца шаблона группы ресурсов ##
 
-So now let’s get right to it.
+Теперь давайте сразу к делу.
 
-1.  Navigate to the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) App Service sample.
+1. 	Перейдите к образцу службы приложений [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp).
 
-2.   In readme.md, click **Deploy to Azure**.
+2.	 В readme.md щелкните **Развертывание в Azure**.
  
-3.  You’re taken to the [deploy-to-azure](https://deploy.azure.com) site and asked to input deployment parameters. Notice that most of the fields are populated with the repository name and some random strings for you. You can change all the fields if you want, but the only things you have to enter are the SQL Server administrative login and the password, then click **Next**.
+3.	Вы будете перенаправлены на веб-сайт [Развертывание в Azure](https://deploy.azure.com) и получите запрос на ввод параметров развертывания. Обратите внимание, что большая часть полей уже заполнена именем репозитория и какими-либо случайными строками. При необходимости можно изменить все поля, но для этого нужно ввести имя и пароль администратора SQL Server, а затем щелкнуть **Далее**.
  
-    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
+	![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 
-4.  Next, click **Deploy** to start the deployment process. Once the process runs to completion, click the http://todoapp*XXXX*.azurewebsites.net link to browse the deployed application. 
+4.	Затем щелкните **Развернуть** для запуска процесса развертывания. Когда процесс подойдет к завершению, перейдите по ссылке http://todoapp*XXXX*.azurewebsites.net для просмотра развернутого приложения.
 
-    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
+	![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
 
-    The UI would be a little slow when you first browse to it because the apps are just starting up, but convince yourself that it’s a fully-functional application.
+	При первом переходе к приложению пользовательский интерфейс будет работать немного медленнее, так как приложение только запускается, но убедитесь, что это полнофункциональное приложение.
 
-5.  Back in the Deploy page, click the **Manage** link to see the new application in the Azure Portal.
+5.	На странице «Развертывание» откройте ссылку **Управление**, чтобы увидеть новое приложение на портале Azure.
 
-6.  In the **Essentials** dropdown, click the resource group link. Note also that the web app is already connected to the GitHub repository under **External Project**. 
+6.	В раскрывающемся списке **Основные компоненты** щелкните ссылку "Группа ресурсов". Обратите внимание, что веб-приложение уже подключено к репозиторию GitHub в разделе **Внешний проект**.
 
-    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
+	![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
  
-7.  In the resource group blade, note that there are already two web apps and one SQL Database in the resource group.
+7.	Обратите внимание, что в колонке "Группа ресурсов" уже есть два веб-приложения и одна база данных SQL в группе ресурсов.
 
-    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
+	![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
  
-Everything that you just saw in a few short minutes is a fully deployed two-microservice application, with all the components, dependencies, settings, database, and continuous publishing, set up by an automated orchestration in Azure Resource Manager. All this was done by two things:
+Все, что вы могли видеть в течение этих нескольких минут, — это полностью развернутое приложение, состоящее из двух микрослужб, со всеми компонентами, зависимостями, параметрами, базами данных и непрерывной публикацией, которое настроено диспетчером ресурсов Azure с помощью автоматической оркестрации. Все это было проделано с помощью двух вещей:
 
--   The Deploy to Azure button
--   azuredeploy.json in the repo root
+-	кнопки "Развертывание в Azure";
+-	файла azuredeploy.json в корневом каталоге репозитория.
 
-You can deploy this same application tens, hundreds, or thousands of times and have the exact same configuration every time. The repeatability and the predictability of this approach enables you to deploy high-scale applications with ease and confidence.
+Это же приложение можно развернуть десятки, сотни или тысячи раз и каждый раз с точно такой же конфигурацией. Повторяемость и предсказуемость такого подхода позволяет легко и надежно развертывать крупномасштабные приложения.
 
-## <a name="examine-(or-edit)-azuredeploy.json"></a>Examine (or edit) AZUREDEPLOY.JSON ##
+## Изучение (или изменение) файла AZUREDEPLOY.JSON ##
 
-Now let’s look at how the GitHub repository was set up. You will be using the JSON editor in the Azure .NET SDK, so if you haven’t already installed [Azure .NET SDK 2.6](/downloads/), do it now.
+Теперь давайте посмотрим, как был настроен репозиторий GitHub. Вы будете использовать редактор JSON в пакете SDK для Azure .NET, поэтому, если вы еще не установили [пакет SDK для Azure .NET 2.6](/downloads/), сделайте это сейчас.
 
-1.  Clone the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) repository using your favorite git tool. In the screenshot below, I’m doing this in the Team Explorer in Visual Studio 2013.
+1.	Клонируйте репозиторий [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) с помощью выбранного инструмента git. На снимке экрана ниже я делаю это в Team Explorer в Visual Studio 2013.
 
-    ![](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
+	![](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
 
-2.  From the repository root, open azuredeploy.json in Visual Studio. If you don’t see the JSON Outline pane, you need to install Azure .NET SDK.
+2.	В корневом каталоге репозитория откройте файл azuredeploy.json в Visual Studio. Если панель структуры JSON не отображается, необходимо установить пакет SDK для Azure .NET.
 
-    ![](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
+	![](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
 
-I’m not going to describe every detail of the JSON format, but the [More Resources](#resources) section has links for learning the resource group template language. Here, I’m just going to show you the interesting features that can help you get started in making your own custom template for app deployment.
+Я не буду описывать все подробности формата JSON, но в разделе [Дополнительные ресурсы](#resources) приведены ссылки для изучения языка шаблонов групп ресурсов. Здесь я просто выберу для отображения интересные возможности, которые помогут вам приступить к работе при создании пользовательского шаблона для развертывания приложения.
 
-### <a name="parameters"></a>Parameters ###
+### Параметры ###
 
-Take a look at the parameters section to see that most of these parameters are what the **Deploy to Azure** button prompts you to input. The site behind the **Deploy to Azure** button populates the input UI using the parameters defined in azuredeploy.json. These parameters are used throughout the resource definitions, such as resource names, property values, etc.
+Обратите внимание на раздел "Параметры", чтобы увидеть, что большинство из этих параметров можно ввести на запрос, формируемый командой кнопки **Развертывание в Azure**. Веб-сайт кнопки **Развертывание в Azure** заполняет входные элементы пользовательского интерфейса на основе параметров, определенных в файле azuredeploy.json. Эти параметры используются в определениях ресурсов, таких как имена ресурсов, значения свойств и т. д.
 
-### <a name="resources"></a>Resources ###
+### Ресурсы ###
 
-In the resources node, you can see that 4 top-level resources are defined, including a SQL Server instance, an App Service plan, and two web apps. 
+В узле "ресурсы" можно видеть, что определены 4 ресурса верхнего уровня, включая экземпляр SQL Server, план службы приложений и два веб-приложения.
 
-#### <a name="app-service-plan"></a>App Service plan ####
+#### План службы приложений ####
 
-Let’s start with a simple root-level resource in the JSON. In the JSON Outline, click the App Service plan named **[hostingPlanName]** to highlight the corresponding JSON code. 
+Начнем с простого ресурса корневого уровня в JSON. В структуре JSON щелкните план службы приложений с именем **[hostingPlanName]**, чтобы выделить соответствующий код JSON.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-3-appserviceplan.png)
 
-Note that the `type` element specifies the string for an App Service plan (it was called a server farm a long, long time ago), and other elements and properties are filled in using the parameters defined in the JSON file, and this resource doesn’t have any nested resources.
+Обратите внимание, что элемент `type` указывает на строку для плана службы приложений (он был вызван с фермы серверов уже довольно давно), а другие элементы и свойства заполняются на основе параметров, определенных в файле JSON, и этот ресурс не содержит никаких вложенных ресурсов.
 
->[AZURE.NOTE] Note also that the value of `apiVersion` tells Azure which version of the REST API to use the JSON resource definition with, and it can affect how the resource should be formatted inside the `{}`. 
+>[AZURE.NOTE] Обратите внимание, что значение `apiVersion` сообщает Azure, какая версия интерфейса REST API будет использоваться с определением ресурса JSON, и оно может повлиять на форматирование ресурса в `{}`.
 
-#### <a name="sql-server"></a>SQL Server ####
+#### SQL Server ####
 
-Next, click on the SQL Server resource named **SQLServer** in the JSON Outline.
+Затем щелкните ресурс SQL Server с именем **SQLServer** в структуре JSON.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-4-sqlserver.png)
  
-Note the following about the highlighted JSON code:
+Обратите внимание на следующее в выделенном коде JSON.
 
--   The use of parameters ensures that the created resources are named and configured in a way that makes them consistent with one another.
--   The SQLServer resource has two nested resources, each has a different value for `type`.
--   The nested resources inside `“resources”: […]`, where the database and the firewall rules are defined, have a `dependsOn` element that specifies the resource ID of the root-level SQLServer resource. This tells Azure Resource Manager, “before you create this resource, that other resource must already exist; and if that other resource is defined in the template, then create that one first”.
+-	Использование параметров гарантирует, что создаваемые ресурсы именуются и настраиваются так, чтобы они были согласованы друг с другом.
+-	Ресурс SQLServer содержит два вложенных ресурса, у которых имеются разные значения для `type`.
+-	Вложенные ресурсы в `“resources”: […]`, где определены база данных и правила брандмауэра, содержат элемент `dependsOn`, указывающий на идентификатор ресурса для ресурса SQLServer корневого уровня. Этим диспетчеру ресурсов Azure сообщается, что "перед созданием ресурса уже должен существовать другой ресурс и, если этот другой ресурс определен в шаблоне, сначала создайте его".
 
-    >[AZURE.NOTE] For detailed information on how to use the `resourceId()` function, see [Azure Resource Manager Template Functions](../resource-group-template-functions.md).
+	>[AZURE.NOTE] Дополнительную информацию об использовании `resourceId()` см. в статье [Функции шаблонов в диспетчере ресурсов Azure](../resource-group-template-functions.md).
 
--   The effect of the `dependsOn` element is that Azure Resource Manager can know which resources can be created in parallel and which resources must be created sequentially. 
+-	Результатом работы элемента `dependsOn` будет то, что диспетчер ресурсов Azure сможет узнать, какие ресурсы могут быть созданы в параллельном режиме и какие ресурсы должны быть созданы последовательно.
 
-#### <a name="web-app"></a>Web app ####
+#### Веб-приложение ####
 
-Now, let’s move on to the actual web apps themselves, which are more complicated. Click the [variables(‘apiSiteName’)] web app in the JSON Outline to highlight its JSON code. You’ll notice that things are getting much more interesting. For this purpose, I’ll talk about the features one by one:
+Теперь перейдем к реальным веб-приложениям, которые значительно сложнее. Щелкните веб-приложение [variables('apiSiteName')] в структуре JSON и выделите его код JSON. Теперь вы увидите гораздо более интересные вещи. Поэтому я расскажу об этих особенностях по очереди.
 
-##### <a name="root-resource"></a>Root resource #####
+##### Корневой ресурс #####
 
-The web app depends on two different resources. This means that Azure Resource Manager will create the web app only after both the App Service plan and the SQL Server instance are created.
+Веб-приложение зависит от двух разных ресурсов. Это означает, что диспетчер ресурсов Azure создаст веб-приложение только после создания плана службы приложений и экземпляра SQL Server.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
-##### <a name="app-settings"></a>App settings #####
+##### Параметры приложения #####
 
-The app settings are also defined as a nested resource.
+Параметры приложения также определены в качестве вложенного ресурса.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-In the `properties` element for `config/appsettings`, you have two app settings in the format `“<name>” : “<value>”`.
+В элементе `properties` для `config/appsettings` имеется два параметра приложений в формате `“<name>” : “<value>”`.
 
--   `PROJECT` is a [KUDU setting](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) that tells Azure deployment which project to use in a multi-project Visual Studio solution. I will show you later how source control is configured, but since the ToDoApp code is in a multi-project Visual Studio solution, we need this setting.
--   `clientUrl` is simply an app setting that the application code uses.
+-	Элемент `PROJECT` — это [параметр KUDU](https://github.com/projectkudu/kudu/wiki/Customizing-deployments), который сообщает развертыванию Azure, какой проект требуется использовать в решении Visual Studio с несколькими проектами. Позже я расскажу, как настроить систему управления версиями, но, поскольку код ToDoApp входит в многопроектное решение Visual Studio, этот параметр необходим.
+-	Элемент `clientUrl` — это просто параметр приложения, используемый кодом приложения.
 
-##### <a name="connection-strings"></a>Connection strings #####
+##### Строки подключения #####
 
-The connection strings are also defined as a nested resource.
+Строки подключения также определены в качестве вложенного ресурса.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-In the `properties` element for `config/connectionstrings`, each connection string is also defined as a name:value pair, with the specific format of `“<name>” : {“value”: “…”, “type”: “…”}`. For the `type` element, possible values are `MySql`, `SQLServer`, `SQLAzure`, and `Custom`.
+В элементе `properties` для `config/connectionstrings` каждая строка подключения также определяется как пара "имя:значение" с определенным форматом `“<name>” : {“value”: “…”, “type”: “…”}`. Возможные значения для элемента `type`: `MySql`, `SQLServer`, `SQLAzure` и `Custom`.
 
->[AZURE.TIP] For a definitive list of the connection string types, run the following command in Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+>[AZURE.TIP] Чтобы открыть полный список типов строк подключения, выполните следующую команду в Azure PowerShell: [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType").
     
-##### <a name="source-control"></a>Source control #####
+##### Система управления версиями #####
 
-The source control settings are also defined as a nested resource. Azure Resource Manager uses this resource to configure continuous publishing (see caveat on `IsManualIntegration` later) and also to kick off the deployment of application code automatically during the processing of the JSON file.
+Параметры системы управления версиями также определены в качестве вложенного ресурса. Диспетчер ресурсов Azure использует этот ресурс для настройки непрерывной публикации (см. пояснение `IsManualIntegration` ниже) и для автоматического запуска развертывания кода приложения во время обработки JSON-файла.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
 
-`RepoUrl` and `branch` should be pretty intuitive and should point to the Git repository and the name of the branch to publish from. Again, these are defined by input parameters. 
+`RepoUrl` и `branch` должны быть интуитивно понятны, а также должны указывать на репозиторий Git и имя ветви для публикации. Опять же, они определяются входными параметрами.
 
-Note in the `dependsOn` element that, in addition to the web app resource itself, `sourcecontrols/web` also depends on `config/appsettings` and `config/connectionstrings`. This is because once `sourcecontrols/web` is configured, the Azure deployment process will automatically attempt to deploy, build, and start the application code. Therefore, inserting this dependency helps you make sure that the application has access to the required app settings and connection strings before the application code is run. 
+Обратите внимание, что в элементе `dependsOn` в дополнение к самому ресурсу веб-приложение `sourcecontrols/web` также зависит от `config/appsettings` и `config/connectionstrings`. Это происходит потому, что после настройки `sourcecontrols/web` процесс развертывания Azure автоматически попытается развернуть, собрать и запустить код приложения. Таким образом, вставка этой зависимости помогает убедиться, что перед запуском кода приложение обладает доступом к необходимым параметрам приложения и строкам подключения.
 
->[AZURE.NOTE] Note also that `IsManualIntegration` is set to `true`. This property is necessary in this tutorial because you do not actually own the GitHub repository, and thus cannot actually grant permission to Azure to configure continuous publishing from [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (i.e. push automatic repository updates to Azure). You can use the default value `false` for the specified repository only if you have configured the owner’s GitHub credentials in the [Azure portal](https://portal.azure.com/) before. In other words, if you have set up source control to GitHub or BitBucket for any app in the [Azure Portal](https://portal.azure.com/) previously, using your user credentials, then Azure will remember the credentials and use them whenever you deploy any app from GitHub or BitBucket in the future. However, if you haven’t done this already, deployment of the JSON template will fail when Azure Resource Manager tries to configure the web app’s source control settings because it cannot log into GitHub or BitBucket with the repository owner’s credentials.
+>[AZURE.NOTE] Обратите внимание, что для `IsManualIntegration` установлено значение `true`. Это свойство в этом учебнике необходимо, так как у вас фактически нет репозитория GitHub, поэтому в действительности вы не можете предоставить разрешение в Azure для настройки непрерывной публикации из [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) (т. е. передавать автоматические обновления репозитория в Azure). Значение по умолчанию `false` для указанного репозитория можно использовать только в том случае, если вы заранее настроили учетные данные владельца GitHub на [портале Azure](https://portal.azure.com/). Другими словами, если вы ранее настроили систему управления версиями для GitHub или BitBucket для любого приложения на [портале Azure](https://portal.azure.com/) с помощью своих учетных данных пользователя, Azure запомнит данные и в будущем будет использовать их при развертывании любого приложения из GitHub или BitBucket. Однако, если вы еще не сделали этого, развертывание шаблона JSON завершится ошибкой при попытке диспетчера ресурсов Azure настроить параметры системы управления версиями для веб-приложения, так как невозможно будет войти в GitHub или BitBucket с учетными данными владельца репозитория.
 
-## <a name="compare-the-json-template-with-deployed-resource-group"></a>Compare the JSON template with deployed resource group ##
+## Сравнение шаблона JSON с развернутой группой ресурсов ##
 
-Here, you can go through all the web app’s blades in the [Azure Portal](https://portal.azure.com/), but there’s another tool that’s just as useful, if not more. Go to the [Azure Resource Explorer](https://resources.azure.com) preview tool, which gives you a JSON representation of all the resource groups in your subscriptions, as they actually exist in the Azure backend. You can also see how the resource group’s JSON hierarchy in Azure corresponds with the hierarchy in the template file that’s used to create it.
+Здесь можно просмотреть все колонки веб-приложений на [портале Azure](https://portal.azure.com/), однако есть и другой, не менее полезный инструмент. Перейдите к инструменту предварительного просмотра [Обозреватель ресурсов Azure](https://resources.azure.com), формирующему JSON-представление всех групп ресурсов в ваших подписках, которые фактически существуют на внутреннем сервере Azure. Вы также можете просмотреть, как иерархия JSON группы ресурсов в Azure соответствует иерархии в файле шаблона, использованного для его создания.
 
-For example, when I go to the [Azure Resource Explorer](https://resources.azure.com) tool and expand the nodes in the explorer, I can see the resource group and the root-level resources that are collected under their respective resource types.
+Например, при переходе в инструмент [Обозреватель ресурсов Azure](https://resources.azure.com) и развертывании узлов в обозревателе отображаются группы ресурсов и ресурсы корневого уровня, которые собираются по соответствующим типам ресурсов.
 
 ![](./media/app-service-deploy-complex-application-predictably/ARM-1-treeview.png)
 
-If you drill down to a web app, you should be able to see web app configuration details similar to the below screenshot:
+Если внимательнее рассмотреть веб-приложение, можно увидеть подробности конфигурации веб-приложения, как это показано на снимке экрана ниже.
 
 ![](./media/app-service-deploy-complex-application-predictably/ARM-2-jsonview.png)
 
-Again, the nested resources should have a hierarchy very similar to those in your JSON template file, and you should see the app settings, connection strings, etc., properly reflected in the JSON pane. The absence of settings here may indicate an issue with your JSON file and can help you troubleshoot your JSON template file.
+Кроме того, вложенные ресурсы должны иметь иерархию, очень похожую на иерархию в файле шаблона JSON, и вы должны убедиться, что параметры приложения, строки подключения и т. д. правильно отображаются в области JSON. Отсутствие здесь параметров может указывать на проблему с файлом JSON и может помочь при отладке файла шаблона JSON.
 
-## <a name="deploy-the-resource-group-template-yourself"></a>Deploy the resource group template yourself ##
+## Развертывание шаблона группы ресурсов вручную ##
 
-The **Deploy to Azure** button is great, but it allows you to deploy the resource group template in azuredeploy.json only if you have already pushed azuredeploy.json to GitHub. The Azure .NET SDK also provides the tools for you to deploy any JSON template file directly from your local machine. To do this, follow the steps below:
+Кнопка **Развертывание в Azure** — это отлично, но она позволяет развернуть шаблон группы ресурсов в azuredeploy.json только в том случае, если azuredeploy.json уже помещен в GitHub. Пакет SDK для Azure .NET также предоставляет средства для развертывания любого файла шаблона JSON непосредственно с локального компьютера. Для этого сделайте следующее.
 
-1.  In Visual Studio, click **File** > **New** > **Project**.
+1.	В Visual Studio щелкните **Файл** > **Создать** > **Проект**.
 
-2.  Click **Visual C#** > **Cloud** > **Azure Resource Group**, then click **OK**.
+2.	Щелкните **Visual C#** > **Облако** > **Группа ресурсов Azure**, а затем нажмите кнопку **ОК**.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 
-3.  In **Select Azure Template**, select **Blank Template** and click **OK**.
+3.	В разделе **Выбор шаблона Azure** выберите **Пустой шаблон** и нажмите кнопку **ОК**.
 
-4.  Drag azuredeploy.json into the **Template** folder of your new project.
+4.	Перетащите файл azuredeploy.json в папку **Шаблон** нового проекта.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
 
-5.  From Solution Explorer, open the copied azuredeploy.json.
+5.	В обозревателе решений откройте скопированный файл azuredeploy.json.
 
-6.  Just for the sake of the demonstration, let’s add some standard Application Insight resources to our JSON file, by clicking **Add Resource**. If you’re just interested in deploying the JSON file, skip to the deploy steps.
+6.	Только для примера давайте добавим некоторые стандартные ресурсы Application Insight нашего файла JSON, нажав кнопку **Добавить ресурс**. Если вас интересует только развертывание файла JSON, пропустите шаги развертывания.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
 
-7.  Select **Application Insights for Web Apps**, then make sure an existing App Service plan and web app is selected, and then click **Add**.
+7.	Выберите **Application Insights для веб-приложений**, убедитесь, что выбран существующий план службы приложений и выбрано веб-приложение, а затем нажмите кнопку **Добавить**.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
 
-    You’ll now be able to see several new resources that, depending on the resource and what it does, have dependencies on either the App Service plan or the web app. These resources are not enabled by their existing definition and you’re going to change that.
+	Теперь вы сможете увидеть несколько новых ресурсов в зависимости от ресурса и его роли, его зависимости от плана службы приложений или веб-приложения. Эти ресурсы не включены существующим определением, и вы собираетесь изменить их.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
  
-8.  In the JSON Outline, click **appInsights AutoScale** to highlight its JSON code. This is the scaling setting for your App Service plan.
+8.	В структуре JSON щелкните **appInsights AutoScale**, чтобы выделить его код JSON. Это параметр масштабирования для плана службы приложений.
 
-9.  In the highlighted JSON code, locate the `location` and `enabled` properties and set them as shown below.
+9.	В выделенном коде JSON найдите свойства `location` и `enabled`, а затем задайте их, как показано ниже.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
 
-10. In the JSON Outline, click **CPUHigh appInsights** to highlight its JSON code. This is an alert.
+10.	В структуре JSON щелкните **CPUHigh appInsights**, чтобы выделить код JSON. Это предупреждение.
 
-11. Locate the `location` and `isEnabled` properties and set them as shown below. Do the same for the other three alerts (purple bulbs).
+11.	Найдите свойства `location` и `isEnabled`, а затем задайте их, как показано ниже. Выполните то же самое для других трех предупреждений (фиолетового цвета).
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
 
-12. You’re now ready to deploy. Right-click the project and select **Deploy** > **New Deployment**.
+12.	Теперь все готово для развертывания. Щелкните правой кнопкой мыши проект и выберите **Развернуть** > **Новое развертывание**.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 
-13. Log into your Azure account if you haven’t already done so.
+13.	Войдите в свою учетную запись Azure, если вы еще этого не сделали.
 
-14. Select an existing resource group in your subscription or create a new one, select **azuredeploy.json**, and then click **Edit Parameters**.
+14.	Выберите существующую группу ресурсов в подписке или создайте новую, выберите файл **azuredeploy.json**, а затем нажмите кнопку **Изменить параметры**.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
 
-    You’ll now be able to edit all the parameters defined in the template file in a nice table. Parameters that define defaults will already have their default values, and parameters that define a list of allowed values will be shown as dropdowns.
+	Теперь в удобной таблице можно изменить все параметры, определенные в файле шаблона. Параметры, определяющие значения по умолчанию, уже будут иметь значения по умолчанию, а параметры, определяющие список допустимых значений, будут отображаться в виде раскрывающихся списков.
 
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
 
-15. Fill in all the empty parameters, and use the [GitHub repo address for ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) in **repoUrl**. Then, click **Save**.
+15.	Заполните все пустые параметры и используйте [адрес репозитория GitHub для ToDoApp](https://github.com/azure-appservice-samples/ToDoApp.git) в **repoUrl**. Нажмите кнопку **Сохранить**.
  
-    ![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
+	![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)
 
-    >[AZURE.NOTE] Autoscaling is a feature offered in **Standard** tier or higher, and plan-level alerts are features offered in **Basic** tier or higher, you’ll need to set the **sku** parameter to **Standard** or **Premium** in order to see all your new App Insights resources light up.
-    
-16. Click **Deploy**. If you selected **Save passwords**, the password will be saved in the parameter file **in plain text**. Otherwise, you’ll be asked to input the database password during the deployment process.
+	>[AZURE.NOTE] Автоматическое масштабирование — это функция, предлагаемая в категории **Standard** или более высокой категории. Предупреждения уровня плана — это возможности, предлагаемые в категории **Basic** или более высокой. Для просмотра всех новых ресурсов Application Insights необходимо задать для параметра **sku** значение **Standard** или **Premium**.
+	
+16.	Щелкните **Развернуть**. Если вы выбрали параметр **Сохранить пароль**, пароль будет сохранен в файле параметров **в виде обычного текста**. В противном случае вам будет предложено ввести пароль для базы данных во время развертывания.
 
-That’s it! Now you just need to go to the [Azure Portal](https://portal.azure.com/) and the [Azure Resource Explorer](https://resources.azure.com) tool to see the new alerts and autoscale settings added to your JSON deployed application.
+Это все! Теперь нужно просто перейти на [портал Azure](https://portal.azure.com/) и с помощью инструмента [Обозреватель ресурсов Azure](https://resources.azure.com) просмотреть новые параметры автоматического масштабирования и предупреждения, добавляемые в развертываемое приложение JSON.
 
-Your steps in this section mainly accomplished the following:
+Действия, описанные в этом разделе, главным образом охватывают следующее.
 
-1.  Prepared the template file
-2.  Created a parameter file to go with the template file
-3.  Deployed the template file with the parameter file
+1.	Подготовка файла шаблона
+2.	Создание файла параметров для использования в файле шаблона
+3.	Развертывание файла шаблона с файлом параметров
 
-The last step is easily done by a PowerShell cmdlet. To see what Visual Studio did when it deployed your application, open Scripts\Deploy-AzureResourceGroup.ps1. There’s a lot of code there, but I’m just going to highlight all the pertinent code you need to deploy the template file with the parameter file.
+Последний шаг можно легко выполнить с помощью командлета PowerShell. Чтобы увидеть, что делает Visual Studio при развертывании приложения, откройте сценарий Scripts\\Deploy-AzureResourceGroup.ps1. Не пугайтесь обилия кода, а просто обратите внимание на код, необходимый для выполнения развертывания файла шаблона с файлом параметров.
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
-The last cmdlet, `New-AzureResourceGroup`, is the one that actually performs the action. All this should demonstrate to you that, with the help of tooling, it is relatively straightforward to deploy your cloud application predictably. Every time you run the cmdlet on the same template with the same parameter file, you’re going to get the same result.
+Именно последний командлет `New-AzureResourceGroup` выполняет это действие. Все это должно показать вам, как с помощью соответствующего инструментария сравнительно легко выполнить предсказуемое развертывание приложения в облаке. Каждый раз при запуске командлета с тем же шаблоном и тем же файлом параметров вы получите тот же результат.
 
-## <a name="summary"></a>Summary ##
+## Сводка ##
 
-In DevOps, repeatability and predictability are keys to any successful deployment of a high-scale application composed of microservices. In this tutorial, you have deployed a two-microservice application to Azure as a single resource group using the Azure Resource Manager template. Hopefully, it has given you the knowledge you need in order to start converting your application in Azure into a template and can provision and deploy it predictably. 
+В DevOps повторяемость и предсказуемость являются ключевыми факторами для любого успешного развертывания крупномасштабных приложений, состоящих из микрослужб. В этой статье рассматривалось развертывание приложения, состоящего из двух микрослужб, в Azure как отдельной группы ресурсов с помощью шаблона диспетчера ресурсов Azure. Надеемся, что вы смогли узнать все, что необходимо для преобразования приложения в Azure в шаблон, и сможете предсказуемо подготовить его и развернуть в Azure.
 
-## <a name="next-steps"></a>Next Steps ##
+## Дальнейшие действия ##
 
-Find out how to [apply agile methodologies and continuously publish your microservices application with ease](app-service-agile-software-development.md) and advanced deployment techniques like [flighting deployment](app-service-web-test-in-production-controlled-test-flight.md) easily.
+Узнайте о том, как [применять быстрые методологии и непрерывно и удобно публиковать приложения, состоящие из микрослужб,](app-service-agile-software-development.md) и легко применять удобные технологии развертывания, такие как [развертывание в режиме фокус-тестирования](app-service-web-test-in-production-controlled-test-flight.md).
 
 <a name="resources"></a>
-## <a name="more-resources"></a>More resources ##
+## Дополнительные ресурсы ##
 
--   [Azure Resource Manager Template Language](../resource-group-authoring-templates.md)
--   [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
--   [Azure Resource Manager Template Functions](../resource-group-template-functions.md)
--   [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md)
--   [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
--   [Troubleshooting Resource Group Deployments in Azure](../resource-manager-troubleshoot-deployments-portal.md)
+-	[Язык шаблонов в диспетчере ресурсов Azure](../resource-group-authoring-templates.md)
+-	[Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
+-	[Функции шаблонов в диспетчере ресурсов Azure](../resource-group-template-functions.md)
+-	[Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](../resource-group-template-deploy.md)
+-	[Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
+-	[Устранение неполадок при развертывании групп ресурсов в Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 
 
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0330_2016-->

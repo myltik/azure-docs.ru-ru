@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Data upload in Azure Search | Microsoft Azure | Hosted cloud search service"
-    description="Learn how to upload data to an index in Azure Search."
+    pageTitle="Отправка данных в службе поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
+    description="Сведения об отправке данных в индекс в службе поиска Azure."
     services="search"
     documentationCenter=""
     authors="ashmaka"
@@ -17,37 +17,32 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
-
-# <a name="upload-data-to-azure-search"></a>Upload data to Azure Search
+# Отправка данных в службу поиска Azure
 > [AZURE.SELECTOR]
-- [Overview](search-what-is-data-import.md)
+- [Обзор](search-what-is-data-import.md)
 - [.NET](search-import-data-dotnet.md)
 - [REST](search-import-data-rest-api.md)
 
 
-## <a name="data-upload-models-in-azure-search"></a>Data upload models in Azure search
-There are two ways to populate your Azure Search index with your data. The first option is manually pushing your data into the index using the Azure Search [REST API](search-import-data-rest-api.md) or [.NET SDK](search-import-data-dotnet.md). The second option is to [point a supported data source](search-indexer-overview.md) to your Azure Search index and let Azure Search automatically pull your data into the search service.
+## Модели отправки данных в службе поиска Azure
+Есть два способа заполнения данными индекса в службе поиска Azure. Первый вариант — вручную передать данные в индекс с помощью [REST API](search-import-data-rest-api.md) или [пакета SDK для .NET](search-import-data-dotnet.md) службы поиска Azure. Второй вариант — [указать поддерживаемый источник данных](search-indexer-overview.md) для индекса службы поиска Azure, после чего данные будут автоматически извлечены в службу.
 
-This guide will only cover instructions on using the push model of data upload (which is supported only in the [REST API](search-import-data-rest-api.md) and [.NET SDK](search-import-data-dotnet.md)), but you can still learn more about the pull model below.
+В этом руководстве представлены инструкции о том, как использовать модель передачи данных (которая поддерживается только [REST API](search-import-data-rest-api.md) и [пакетом SDK для .NET](search-import-data-dotnet.md)), но ниже приводятся и некоторые сведения о модели извлечения.
 
-### <a name="push-data-to-an-index"></a>Push data to an index
+### Передача данных в индекс
 
-This approach refers to programmatically sending your data to Azure Search to make it available for searching. For applications having very low latency requirements (e.g. if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.
+Этот подход заключается в программной отправке данных в службу поиска Azure, что сделает их доступными для поиска. Для приложений с очень высокими требованиями к задержкам при обработке (например, если операции поиска должны выполняться синхронно с работой динамической учетной базы данных) модель передачи будет единственным вариантом.
 
-You can use the [REST API](https://msdn.microsoft.com/library/azure/dn798930.aspx) or [.NET SDK](search-import-data-dotnet.md) to push data to an index. There is currently no tool support for pushing data via the portal.
+Передать данные в индекс можно с использованием интерфейса [REST API](https://msdn.microsoft.com/library/azure/dn798930.aspx) или [пакета SDK для .NET](search-import-data-dotnet.md). Инструментов для передачи данных через портал пока не существует.
 
-This approach is more flexible than the pull model because you can upload documents individually or in batches (up to 1000 per batch or 16 MB, whichever limit comes first). The push model also allows you to upload documents to Azure Search regardless of where your data is.
+Передача является более гибким подходом, чем извлечение, поскольку документы можно передавать по одному или пакетами (не более 1000 документов и не более 16 МБ в каждом пакете). Модель передачи позволяет отправлять документы в службу поиска Azure независимо от расположения данных.
 
-### <a name="pull-data-into-an-index"></a>Pull data into an index
+### Извлечение данных в индекс
 
-The pull model crawls a supported data source and automatically uploads the data into you Azure Search index for you. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index.
+Модель извлечения выполняет поиск поддерживаемого источника данных и автоматически отправляет их в индекс службы поиска Azure. Отслеживая процессы изменения и удаления существующих документов, помимо распознания новых документов, индексаторы исключают необходимость в активном управлении данными в индексе.
 
-In Azure Search, this capability is implemented through *indexers*, currently available for [Blob storage (preview)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL database, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
+Служба поиска Azure реализует эту возможность с помощью *индексаторов*, которые в настоящее время поддерживают [хранилище BLOB-объектов (предварительная версия)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [базу данных Azure SQL и SQL Server на виртуальных машинах Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md).
 
-The indexer functionality is exposed in the [Azure Portal](search-import-data-portal.md) as well as in the [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx).
+Функция индексатора предоставляется на [портале Azure](search-import-data-portal.md), а также в интерфейсе [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

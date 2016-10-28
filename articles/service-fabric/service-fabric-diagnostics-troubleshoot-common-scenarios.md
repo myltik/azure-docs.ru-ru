@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Troubleshooting with event tracing | Microsoft Azure"
-   description="The most common issues encountered while deploying services on Microsoft Azure Service Fabric."
+   pageTitle="Устранение неполадок с помощью трассировки событий | Microsoft Azure"
+   description="Самые распространенные неполадки, возникающие при развертывании служб в Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="mattrowmsft"
@@ -17,43 +17,36 @@
    ms.author="mattrow"/>
 
 
+# Устранение распространенных проблем при развертывании служб в Azure Service Fabric
 
-# <a name="troubleshoot-common-issues-when-you-deploy-services-on-azure-service-fabric"></a>Troubleshoot common issues when you deploy services on Azure Service Fabric
+При запуске служб на компьютере разработчика можно без труда использовать [средства отладки Visual Studio](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Работу с удаленными кластерами всегда лучше всего начать со знакомства с [отчетами о работоспособности](service-fabric-view-entities-aggregated-health.md). Самым простым способом доступа к этим отчетам является использование PowerShell или [SFX](service-fabric-visualizing-your-cluster.md). В этой статье предполагается, что вы выполняете отладку удаленного кластера и имеете базовые знания о применении этих инструментов.
 
-When you're running services on your developer computer, it is easy to use [Visual Studio's debugging tools](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). For remote clusters, [health reports](service-fabric-view-entities-aggregated-health.md) are always a good place to start. The easiest ways to access these reports are through PowerShell or [SFX](service-fabric-visualizing-your-cluster.md). This article assumes that you are debugging a remote cluster and have a basic understanding of how to use either of these tools.
+##Сбой приложения
+Вывод отчета «Число секций меньше количества целевых реплик или экземпляров» означает, что произошел сбой службы. Чтобы узнать, где произошел отказ, требуется выполнить ряд действий по дополнительному анализу. Если служба масштабируется, незаменимыми будут тщательно продуманные трассировки. Мы рекомендуем попробовать применить [систему диагностики Azure](service-fabric-diagnostics-how-to-setup-wad.md) для сбора этих трассировок и использовать такое решение, как [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md), для просмотра и поиска трассировок.
 
-##<a name="application-crash"></a>Application crash
-The "Partition is below target replica or instance count" report is a good indication that your service is crashing. To find out where your service is crashing takes a little more investigation. When your service is running at scale, your best friend will be a set of well-thought-out traces.  We suggest that you try [Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md) for collecting those traces and using a solution such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) for viewing and searching the traces.
+![Работоспособность секции SFX](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
 
-![SFX Partition Health](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
-
-###<a name="during-service-or-actor-initialization"></a>During service or actor initialization
-Any exceptions before the service type is initialized will cause the process to crash. For these types of crashes, the application event log will show the error from your service.
-These are the most common exceptions to see before the service is initialized.
+###Во время инициализации службы или субъекта
+Все исключения, возникающие до инициализации типа службы, приведут к сбою процесса. Для этих типов сбоев в журнале событий приложений отображается ошибка из службы. Ниже приведены наиболее общие исключения, которые следует просмотреть до инициализации службы.
 
 ***System.IO.FileNotFoundException***
 
-This error is often due to missing assembly dependencies. Check the CopyLocal property in Visual Studio or the global assembly cache for the node.
+Эта ошибка часто возникает из-за отсутствия зависимостей сборки. Проверьте свойство CopyLocal в Visual Studio или в глобальном кэше сборок для узла.
 
-***System.Runtime.InteropServices.COMException***
- *at System.Fabric.Interop.NativeRuntime+IFabricRuntime.RegisterStatefulServiceFactory(IntPtr, IFabricStatefulServiceFactory)*
+***System.Runtime.InteropServices.COMException*** *в System.Fabric.Interop.NativeRuntime+IFabricRuntime.RegisterStatefulServiceFactory(IntPtr, IFabricStatefulServiceFactory)*
  
- This indicates that the registered service type name does not match the service manifest.
+ Указывает, что зарегистрированное имя типа службы не соответствует манифесту службы.
 
-[Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md) can be configured to upload the application event log for all your nodes automatically.
+[Службу диагностики Azure](service-fabric-diagnostics-how-to-setup-wad.md) можно настроить для автоматической отправки журнала событий приложений для всех узлов.
 
-###<a name="runasync()-or-onactivateasync()"></a>RunAsync() or OnActivateAsync()
-If the crash happens during the initialization or running of your registered service type or actor, the exception will be caught by Azure Service Fabric. You can view these from the EventSource providers detailed in the "Next steps" section.
+###RunAsync() или OnActivateAsync()
+Если сбой происходит во время инициализации или выполнения зарегистрированного типа службы или субъекта, Azure Service Fabric перехватывает исключение. Их можно просмотреть у поставщиков EventSource, указанных в разделе «Дальнейшие действия».
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-Learn more about existing diagnostics provided by Service Fabric:
+Узнайте больше о существующих видах диагностики, предоставляемых Service Fabric:
 
-* [Reliable Actors diagnostics](service-fabric-reliable-actors-diagnostics.md)
-* [Reliable Services diagnostics](service-fabric-reliable-services-diagnostics.md)
+* [Диагностика Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+* [Диагностика Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0406_2016-->

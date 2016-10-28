@@ -1,60 +1,55 @@
-<properties
-   pageTitle="Configure Traffic Manager failover traffic routing method | Microsoft Azure"
-   description="This article will help you configure failover traffic routing method in Traffic Manager"
+<properties 
+   pageTitle="Настройка метода маршрутизации трафика с отработкой отказа для диспетчера трафика | Microsoft Azure"
+   description="Эта статья поможет вам настроить маршрутизацию трафика с отработкой отказа в диспетчере трафика."
    services="traffic-manager"
    documentationCenter=""
    authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags
+<tags 
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
+   ms.date="06/10/2016"
    ms.author="sewhee" />
 
-<!-- repub for nofollow -->
+# Настройте метод маршрутизации с отработкой отказа
 
-# <a name="configure-failover-routing-method"></a>Configure Failover routing method
+Организации обычно стремятся обеспечить надежность своих служб. Для этого предоставляются службы резервного копирования на случай, если основная служба выйдет из строя. Распространенный подход к обеспечению отработки отказа служб заключается в настройке набора идентичных служб и передаче трафика основной службе при сохранении списка из одной или нескольких резервных служб. Вы можете настроить этот тип резервирования для облачных служб и веб-сайтов Azure, как описано ниже.
 
-Often an organization wants to provide reliability for its services. It does this by providing backup services in case their primary service goes down. A common pattern for service failover is to provide a set of identical services and send traffic to a primary service, while maintaining a configured list of one or more backup services. You can configure this type of backup with Azure cloud services and websites by following the procedures below.
+Обратите внимание, что веб-сайты Azure уже обеспечивают маршрутизацию трафика для веб-сайтов в центре обработки данных (регионе), независимо от режима веб-сайта. Диспетчер трафика позволяет указать способ маршрутизации трафика с отработкой отказа для веб-сайтов в разных центрах данных.
 
-Note that Azure Websites already provides failover traffic routing method functionality for websites within a datacenter (also known as a region), regardless of the website mode. Traffic Manager allows you to specify failover traffic routing method for websites in different datacenters.
+## Настройка метода маршрутизации с отработкой отказа:
 
-## <a name="to-configure-failover-traffic-routing-method:"></a>To configure failover traffic routing method:
+1. В левой области на классическом портале Azure щелкните значок **Диспетчер трафика**, чтобы открыть панель "Диспетчер трафика". Если профиль диспетчера трафика еще не создан, изучите раздел [Управление профилями диспетчера трафика](traffic-manager-manage-profiles.md), чтобы узнать, как создать базовый профиль диспетчера трафика.
+2. В области диспетчера трафика на классическом портале Azure найдите профиль диспетчера трафика, содержащий параметры, которые нужно изменить, а затем щелкните стрелку справа от имени профиля. Откроется страница параметров профиля.
+3. В верхней части страницы профиля щелкните **Конечные точки** и убедитесь, что облачные службы и веб-сайты (конечные точки), которые нужно включить в конфигурацию, указаны в списке. Инструкции по добавлению и удалению конечных точек см. в разделе [Управление конечными точками в диспетчере трафика](traffic-manager-endpoints.md).
+4. В верхней части страницы профиля нажмите кнопку **Настройка**, чтобы открыть страницу настройки.
+5. В области **Настройки метода маршрутизации трафика** убедитесь, что в качестве метода маршрутизации трафика выбран вариант **Отработка отказа**. В противном случае выберите пункт **Отработка отказа** в раскрывающемся списке.
+6. В пункте **Список приоритетов отработки отказа** измените порядок отработки отказа конечных точек. Для метода маршрутизации трафика **Отработка отказа** порядок выбранных конечных точек имеет значение. Основная конечная точка указана вверху. Используйте стрелки вверх и вниз, чтобы изменить порядок. Сведения о настройке приоритета отработки отказа с помощью Windows PowerShell см. в описании командлета [Set-AzureTrafficManagerProfile](http://go.microsoft.com/fwlink/p/?LinkId=400880).
+7. Убедитесь, что **параметры мониторинга** настроены правильно. Мониторинг позволяет гарантировать, что конечным точкам, находящимся в режиме «не в сети», не передается трафик. Для мониторинга конечных точек необходимо указать путь и имя файла. Обратите внимание, что косая черта («/») является допустимым относительным путем и указывает, что файл расположен в корневом каталоге (по умолчанию). Подробнее о мониторинге см. в разделе [О мониторинге диспетчера трафика](traffic-manager-monitoring.md).
+8. После внесения всех изменений нажмите кнопку **Сохранить** в нижней части экрана.
+9. Протестируйте изменения в конфигурации. Подробнее см. в разделе [Проверка параметров диспетчера трафика](traffic-manager-testing-settings.md).
+10. После настройки и запуска профиля диспетчера трафика измените запись DNS на полномочном DNS-сервере так, чтобы доменное имя компании указывало на доменное имя диспетчера трафика. Дополнительные сведения см. в разделе [Направление интернет-домена компании на домен диспетчера трафика](traffic-manager-point-internet-domain.md).
 
-1. In the Azure classic portal, in the left pane, click the **Traffic Manager** icon to open the Traffic Manager pane. If you have not yet created your Traffic Manager profile, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md) for steps to create a basic Traffic Manager profile.
-2. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
-3. On your profile page, click **Endpoints** at the top of the page and verify that the both cloud services and websites (endpoints) that you want to include in your configuration are present. For steps to add or remove endpoints, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
-4. On your profile page, click **Configure** at the top to open the configuration page.
-5. For **traffic routing method settings**, verify that the traffic routing method is **Failover**. If it is not, click **Failover** from the dropdown list.
-6. For **Failover Priority List**, adjust the failover order for your endpoints. When you select the **Failover** traffic routing method, the order of the selected endpoints matters. The primary endpoint is on top. Use the up and down arrows to change the order as needed. For information about how to set the failover priority by using Windows PowerShell, see [Set-AzureTrafficManagerProfile](http://go.microsoft.com/fwlink/p/?LinkId=400880).
-7. Verify that the **Monitoring Settings** are configured appropriately. Monitoring ensures that endpoints that are offline are not sent traffic. In order to monitor endpoints, you must specify a path and filename. Note that a forward slash “/“ is a valid entry for the relative path and implies that the file is in the root directory (default). For more information about monitoring, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
-8. After you complete your configuration changes, click **Save** at the bottom of the page.
-9. Test the changes in your configuration. See [Testing Traffic Manager Settings](traffic-manager-testing-settings.md) for more information.
-10. Once your Traffic Manager profile is setup and working, edit the DNS record on your authoritative DNS server to point your company domain name to the Traffic Manager domain name. For more information about how to do this, see [Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md).
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+[Направление интернет-домена компании на домен диспетчера трафика](traffic-manager-point-internet-domain.md)
 
-[Point a company Internet domain to a Traffic Manager domain](traffic-manager-point-internet-domain.md)
+[Методы маршрутизации диспетчера трафика](traffic-manager-routing-methods.md)
 
-[Traffic Manager routing methods](traffic-manager-routing-methods.md)
+[Настройка метода маршрутизации с применением циклического перебора](traffic-manager-configure-round-robin-routing-method.md)
 
-[Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
+[Настройка маршрутизации производительности](traffic-manager-configure-performance-routing-method.md)
 
-[Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
+[Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
 
-[Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
+[Диспетчер трафика — включение, отключение или удаление профиля диспетчера трафика](disable-enable-or-delete-a-profile.md)
 
-[Traffic Manager - Disable, enable or delete a profile](disable-enable-or-delete-a-profile.md)
+[Диспетчер трафика — отключение и включение конечной точки диспетчера трафика](disable-or-enable-an-endpoint.md)
 
-[Traffic Manager - Disable or enable an endpoint](disable-or-enable-an-endpoint.md)
+ 
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration integration with Druva | Microsoft Azure" 
-    description="Learn how to use Druva with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Руководство. Интеграция Azure Active Directory с Druva | Microsoft Azure" 
+    description="Узнайте, как использовать Druva вместе с Azure Active Directory для реализации единого входа, автоматической подготовки и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,184 +11,174 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
+#Руководство. Интеграция Azure Active Directory с Druva
 
-#<a name="tutorial:-azure-active-directory-integration-integration-with-druva"></a>Tutorial: Azure Active Directory integration integration with Druva
+Цель данного руководства — показать интеграцию Azure и Druva. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
-The objective of this tutorial is to show the integration of Azure and Druva.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+-   Действующая подписка на Azure
+-   Подписка с поддержкой единого входа Druva
 
--   A valid Azure subscription
--   A Druva single sign-on enabled subscription
+После выполнения действий, описанных в этом руководстве, пользователи Azure AD, которых вы прикрепите к Druva, смогут использовать единый вход в приложение на веб-сайте Druva вашей организации (вход, инициированный поставщиком услуг) или на панели доступа, как описано в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-After completing this tutorial, the Azure AD users you have assigned to Druva will be able to single sign into the application at your Druva company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-The scenario outlined in this tutorial consists of the following building blocks:
+1.  Включение интеграции приложений для Druva
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-1.  Enabling the application integration for Druva
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+![Сценарий](./media/active-directory-saas-druva-tutorial/IC795084.png "Сценарий")
+##Включение интеграции приложений для Druva
 
-![Scenario](./media/active-directory-saas-druva-tutorial/IC795084.png "Scenario")
-##<a name="enabling-the-application-integration-for-druva"></a>Enabling the application integration for Druva
+В этом разделе показано, как включить интеграцию приложений для Druva.
 
-The objective of this section is to outline how to enable the application integration for Druva.
+###Чтобы включить интеграцию приложений для Druva, выполните следующие действия.
 
-###<a name="to-enable-the-application-integration-for-druva,-perform-the-following-steps:"></a>To enable the application integration for Druva, perform the following steps:
-
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-druva-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-druva-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-druva-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-druva-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-druva-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-druva-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-druva-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **Druva**.
+6.  В **поле поиска** введите **Druva**.
 
-    ![Application Gallery](./media/active-directory-saas-druva-tutorial/IC795085.png "Application Gallery")
+    ![Коллекция приложений](./media/active-directory-saas-druva-tutorial/IC795085.png "Коллекция приложений")
 
-7.  In the results pane, select **Druva**, and then click **Complete** to add the application.
+7.  В области результатов выберите **Druva** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![Druva](./media/active-directory-saas-druva-tutorial/IC795086.png "Druva")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
 
-The objective of this section is to outline how to enable users to authenticate to Druva with their account in Azure AD using federation based on the SAML protocol.  
-As part of this procedure, you are required to create a base-64 encoded certificate file.  
-If you are not familiar with this procedure, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Druva со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, просмотрите видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 
-Your Druva application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.  
-The following screenshot shows an example for this.
+Приложение Druva ожидает проверочные утверждения SAML в определенном формате, поэтому следует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию **атрибутов токена SAML**. На следующем снимке экрана приведен пример.
 
-![SAML Token Attributes](./media/active-directory-saas-druva-tutorial/IC795087.png "SAML Token Attributes")
+![Атрибуты токена SAML](./media/active-directory-saas-druva-tutorial/IC795087.png "Атрибуты токена SAML")
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **Druva** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  На странице интеграции с приложением **Druva** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795027.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-druva-tutorial/IC795027.png "Настройка единого входа")
 
-2.  On the **How would you like users to sign on to Druva** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  На странице **Как пользователи должны входить в Druva?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795088.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-druva-tutorial/IC795088.png "Настройка единого входа")
 
-3.  On the **Configure App URL** page, in the **Druva Sign On URL** textbox, type the URL used by your users to sign on to your Druva application (e.g.: "*https://cloud.druva.com/home/*”), and then click **Next**.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в Druva** введите URL-адрес, используемый для входа в приложение Druva (например, "*https://cloud.druva.com/home/*”), и нажмите кнопку **Далее**.
 
-    ![Configure App URL](./media/active-directory-saas-druva-tutorial/IC795089.png "Configure App URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-druva-tutorial/IC795089.png "Настройка URL-адреса приложения")
 
-4.  On the **Configure single sign-on at Druva** page, to download your certificate, click **Download certificate**, and then save the certificate file locally on your computer.
+4.  На странице **Настройка единого входа в Druva** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на локальном компьютере.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795090.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-druva-tutorial/IC795090.png "Настройка единого входа")
 
-5.  In a different web browser window, log into your Druva company site as an administrator.
+5.  В другом окне браузера войдите на свой корпоративный веб-сайт Druva в качестве администратора.
 
-6.  Go to **Manage \> Settings**.
+6.  Последовательно выберите **Управление > Параметры**.
 
-    ![Settings](./media/active-directory-saas-druva-tutorial/IC795091.png "Settings")
+    ![данных](./media/active-directory-saas-druva-tutorial/IC795091.png "данных")
 
-7.  On the Single Sign-On Settings dialog, perform the following steps:
+7.  В диалоговом окне «Параметры единого входа» выполните следующие действия.
 
-    ![Singl Sign-On Settings](./media/active-directory-saas-druva-tutorial/IC795092.png "Singl Sign-On Settings")
+    ![Параметры единого входа](./media/active-directory-saas-druva-tutorial/IC795092.png "Параметры единого входа")
 
-    1.  In the Azure classic portal, on the **Configure single sign-on at Druva** dialog page, copy the **Remote Login URL** value, and then paste it into the **ID Provider Login URL** textbox.
-    2.  In the Azure classic portal, on the **Configure single sign-on at Druva** dialog page, copy the **Remote Logout URL** value, and then paste it into the **ID Provider Logout URL** textbox.
-    3.  Create a **base-64 encoded** file from your downloaded certificate.  
+    1.  На диалоговой странице **Настройка единого входа в Druva** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **ID Provider Login URL** (URL-адрес входа для поставщика удостоверений).
+    2.  На диалоговой странице **Настройка единого входа в Druva** классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **ID Provider Login URL** (URL-адрес выхода для поставщика удостоверений).
+    3.  Создайте файл в кодировке **Base-64** из загруженного сертификата.
 
-        >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
+        >[AZURE.TIP] Дополнительные сведения можно узнать из видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 
-    4.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **ID Provider Certificate** textbox
-    5.  To open the **Settings** page, click **Save**.
+    4.  Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат поставщика удостоверений**.
+    5.  Чтобы открыть страницу **Параметры**, нажмите кнопку **Сохранить**.
 
-8.  On the **Settings** page, click **Generate SSO Token**.
+8.  На странице **Параметры** нажмите **Создать токен единого входа**.
 
-    ![Settings](./media/active-directory-saas-druva-tutorial/IC795093.png "Settings")
+    ![данных](./media/active-directory-saas-druva-tutorial/IC795093.png "данных")
 
-9.  On the **Single Sign-on Authentication Token** dialog, perform the following steps:
+9.  В диалоговом окне **Токен проверки подлинности единого входа** выполните следующие действия.
 
-    ![SSO Token](./media/active-directory-saas-druva-tutorial/IC795094.png "SSO Token")
+    ![Токен единого входа](./media/active-directory-saas-druva-tutorial/IC795094.png "Токен единого входа")
 
-    1.  Click **Copy**.
-    2.  Click **Close**.
+    1.  Нажмите **Копировать**.
+    2.  Нажмите кнопку **Закрыть**
 
-10. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+10. На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure Single Sign-On](./media/active-directory-saas-druva-tutorial/IC795095.png "Configure Single Sign-On")
+    ![Настройка единого входа](./media/active-directory-saas-druva-tutorial/IC795095.png "Настройка единого входа")
 
-11. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+11. В меню в верхней части экрана выберите пункт **Атрибуты**, чтобы открыть диалоговое окно **Атрибуты токена SAML**.
 
-    ![Attributes](./media/active-directory-saas-druva-tutorial/IC795096.png "Attributes")
+    ![Атрибуты](./media/active-directory-saas-druva-tutorial/IC795096.png "Атрибуты")
 
-12. To add the required attribute mappings, perform the following steps:
+12. Чтобы добавить обязательные сопоставления атрибутов, выполните следующие действия.
 
-  	|Attribute Name|Attribute Value|
-  	|---|---|
-  	|insync\_auth\_token|<*clipboard value*>|
+	|Имя атрибута|Значение атрибута|
+    |---|---|
+    |insync\_auth\_token|<*значение буфера обмена*>|
 
-    1.  For each data row in the table above, click **add user attribute**.
-    2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
-    3.  In the **Attribute Value** textbox, type the attribute value shown for that row.
-    4.  Click **Complete**.
+    1.  Для каждой строки данных в приведенной выше таблице нажмите кнопку **добавить атрибут пользователя**.
+    2.  В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
+    3.  В текстовое поле **Значение атрибута** введите значение атрибута, отображаемое для этой строки.
+    4.  Нажмите **Завершено**.
 
-13. Click **Apply Changes**.
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+13. Нажмите кнопку **Применить изменения**.
+##Настройка подготовки учетных записей пользователей
 
-In order to enable Azure AD users to log into Druva, they must be provisioned into Druva.  
-In the case of Druva, provisioning is a manual task.
+Чтобы пользователи Azure AD могли выполнять вход в Druva, они должны быть подготовлены для Druva. В случае с Druva подготовка выполняется вручную.
 
-###<a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>To configure user provisioning, perform the following steps:
+###Чтобы настроить подготовку учетных записей пользователей, выполните следующие действия.
 
-1.  Log in to your **Druva** company site as administrator.
+1.  Выполните вход на веб-сайт компании **Druva** в качестве администратора.
 
-2.  Go to **Manage \> Users**.
+2.  Последовательно щелкните **Управление > Пользователи**.
 
-    ![Manage Users](./media/active-directory-saas-druva-tutorial/IC795097.png "Manage Users")
+    ![Управление пользователями](./media/active-directory-saas-druva-tutorial/IC795097.png "Управление пользователями")
 
-3.  Click **Create New**.
+3.  Щелкните **Создать**.
 
-    ![Manage Users](./media/active-directory-saas-druva-tutorial/IC795098.png "Manage Users")
+    ![Управление пользователями](./media/active-directory-saas-druva-tutorial/IC795098.png "Управление пользователями")
 
-4.  On the Create New User dialog, perform the following steps:
+4.  В диалоговом окне «Создание пользователя» выполните следующие действия.
 
-    ![Create NewUser](./media/active-directory-saas-druva-tutorial/IC795099.png "Create NewUser")
+    ![Создание пользователя](./media/active-directory-saas-druva-tutorial/IC795099.png "Создание пользователя")
 
-    1.  Type the email address and the name of a valid Azure Active Directory user account you want to provision into the related textboxes.
-    2.  Click **Create User**.
+    1.  В соответствующих текстовых полях введите адрес электронной почты и имя действующей учетной записи пользователя Azure Active Directory, которую вы хотите подготовить.
+    2.  Щелкните **Создать пользователя**.
 
->[AZURE.NOTE] You can use any other Druva user account creation tools or APIs provided by Druva to provision AAD user accounts.
+>[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя Druva или API, предоставляемые Druva для подготовки учетных записей пользователя AAD.
 
-##<a name="assigning-users"></a>Assigning users
+##Назначение пользователей
 
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-druva,-perform-the-following-steps:"></a>To assign users to Druva, perform the following steps:
+###Чтобы назначить пользователей Druva, выполните следующие действия.
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **Druva **application integration page, click **Assign users**.
+2.  На странице интеграции с приложением **Druva** нажмите кнопку **Назначить пользователей**.
 
-    ![Assign Users](./media/active-directory-saas-druva-tutorial/IC795100.png "Assign Users")
+    ![Назначить пользователей](./media/active-directory-saas-druva-tutorial/IC795100.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-druva-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-druva-tutorial/IC767830.png "Да")
 
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

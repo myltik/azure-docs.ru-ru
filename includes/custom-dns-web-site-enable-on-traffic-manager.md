@@ -1,34 +1,31 @@
-After the records for your domain name have propagated, you should be able to use your browser to verify that your custom domain name can be used to access your web app in Azure App Service.
+После завершения распространения записей для вашего доменного имени необходимо воспользоваться браузером, чтобы удостовериться, что пользовательское доменное имя может использоваться для доступа к веб-приложению в службе приложений Azure.
 
-> [AZURE.NOTE] It can take some time for your CNAME to propagate through the DNS system. You can use a service such as <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> to verify that the CNAME is available.
+> [AZURE.NOTE] Распространение CNAME через систему DNS может занять некоторое время. Чтобы проверить доступность CNAME, можно воспользоваться службой <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a>.
 
-If you have not already added your web app as a Traffic Manager endpoint, you must do this before name resolution will work, as the custom domain name routes to Traffic Manager. Traffic Manager then routes to your web app. Use the information in [Add or Delete Endpoints](../articles/traffic-manager/traffic-manager-endpoints.md) to add your web app as an endpoint in your Traffic Manager profile.
+Если веб-приложение еще не добавлено в качестве конечной точки диспетчера трафика, это необходимо сделать перед тем, как разрешение имен начнет работать в качестве маршрутов пользовательского доменного имени для диспетчера трафика. Затем диспетчер трафика выполняет маршрутизацию для вашего веб-приложения. Используйте сведения в разделе [Добавление или удаление конечных точек](../articles/traffic-manager/traffic-manager-endpoints.md), чтобы добавить веб-приложение как конечную точку в профиль диспетчера трафика.
 
-> [AZURE.NOTE] If your web app is not listed when adding an endpoint, verify that it is configured for **Standard** App Service plan mode. You must use **Standard** mode for your web app in order to work with Traffic Manager.
+> [AZURE.NOTE] Если веб-приложение не отображается при добавлении конечной точки, убедитесь, что она настроена для плана службы приложений **Standard**. Для работы с диспетчером трафика веб-приложению необходимо использовать план **Standard**.
 
-1. In your browser, open the [Azure Portal](https://portal.azure.com).
+1. В браузере откройте [портал Azure](https://portal.azure.com).
 
-1. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**
+1. На вкладке **Веб-приложения** щелкните имя своего веб-приложения, выберите **Параметры**, а затем — **Личные домены**.
 
-    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-1. In the **Custom domains** blade, click **Add hostname**.
-    
-1. Use the **Hostname** text boxes to enter the Traffic Manager domain name to associate with this web app.
+1. В колонке **Личные домены** щелкните **Добавить имя узла**.
+	
+1. В текстовом поле **Имя узла** введите доменное имя диспетчера трафика для связывания с этим веб-приложением.
 
-    ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
+	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 
-1. Click **Validate** to save the domain name configuration.
+1. Нажмите кнопку **Проверить**, чтобы сохранить конфигурацию доменного имени.
 
-7.  Upon clicking **Validate** Azure will kick off Domain Verification workflow. This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how to fix the error.    
+7.  После нажатия кнопки **Проверить** Azure запускает рабочий процесс проверки домена. Он проверяет владельца домена и доступность имени узла, после чего возвращается отчет об успешности проверки или об обнаруженных ошибках с рекомендациями по их устранению.
 
-8.  Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. Now navigate to your custom domain name in a browser. You should now see your app running using your custom domain name. 
+8.  После успешной проверки кнопка **Добавить имя узла** становится доступной. Теперь вы можете назначить имя узла. После этого перейдите в браузере к имени вашего личного домена. Вы должны увидеть приложение, работающее по адресу личного домена.
 
-    Once configuration has completed, the custom domain name will be listed in the **domain names** section of your web app.
+	После завершения настройки имя пользовательского домена появится в вашем веб-приложении в разделе **доменных имен**.
 
-At this point, you should be able to enter the Traffic Manager domain name name in your browser and see that it successfully takes you to your web app.
+На этом этапе можно ввести доменное имя диспетчера трафика в браузере и удостовериться, что оно успешно принято вашим веб-приложением.
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

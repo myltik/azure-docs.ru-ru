@@ -1,104 +1,98 @@
 <properties
-    pageTitle="How to manage security after restoring a database to a new server or failing over a database to a secondary database copy | Microsoft Azure"
-    description="This topic explains security considerations for managing security after a database restore or a failover."
-    services="sql-database"
-    documentationCenter="na"
-    authors="CarlRabeler"
-    manager="jhubbard"
-    editor="monicar" />
+	pageTitle="Как управлять безопасностью после восстановления базы данных на новый сервер или отработки отказа базы данных в копию базы данных-получателя | Microsoft Azure"
+	description="В этом разделе рассматриваются вопросы безопасности при управлении безопасностью после восстановления или отработки отказа базы данных."
+	services="sql-database"
+	documentationCenter="na"
+	authors="CarlRabeler"
+	manager="jhubbard"
+	editor="monicar" />
 
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="10/13/2016"
-    ms.author="carlrab" />
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="07/16/2016"
+	ms.author="carlrab" />
 
+# Как управлять безопасностью базы данных SQL после аварийного восстановления
 
-# <a name="how-to-manage-azure-sql-database-security-after-disaster-recovery"></a>How to manage Azure SQL Database security after disaster recovery
+>[AZURE.NOTE] Раздел [Active Geo-Replication](sql-database-geo-replication-overview.md) теперь доступен для всех баз данных и всех уровней обслуживания.
 
->[AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all service tiers.
+## Обзор требований к проверке подлинности для аварийного восстановления
 
-## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>Overview of authentication requirements for disaster recovery
+В этом разделе описываются требования к проверке подлинности для настройки и управления [активной георепликацией](sql-database-geo-replication-overview.md), а также приведены шаги, необходимые для настройки доступа пользователей к базе данных-получателю. Здесь также описано, как включить доступ к восстановленной базе данных после [геовосстановления](sql-database-recovery-using-backups.md#geo-restore). Дополнительные сведения о вариантах восстановления см. в [обзоре непрерывности бизнес-процессов](sql-database-business-continuity.md).
 
-This topic describes the authentication requirements to configure and control [Active Geo-Replication](sql-database-geo-replication-overview.md) and the steps required to set up user access to the secondary database. It also describes how enable access to the recovered database after using [geo-restore](sql-database-recovery-using-backups.md#geo-restore). For more information on recovery options, see [Business Continuity Overview](sql-database-business-continuity.md).
+## Аварийное восстановление с поддержкой автономных пользователей
 
-## <a name="disaster-recovery-with-contained-users"></a>Disaster recovery with contained users
+В отличие от традиционных пользователей, которые должны сопоставляться с учетными записями в базе данных master, автономными пользователями управляет только база данных. Это имеет два преимущества. При аварийном восстановлении пользователи могут по-прежнему подключаться к новой базе данных-источнику или к базе данных, восстановленной с помощью геовосстановления. Для этого не потребуется никаких дополнительных настроек, так как пользователями управляет база данных. Кроме этого, с точки зрения входа такая конфигурация потенциально может иметь преимущества масштабируемости и производительности. Дополнительные сведения см. в разделе [Пользователи автономной базы данных – создание переносимой базы данных](https://msdn.microsoft.com/library/ff929188.aspx).
 
-Unlike traditional users, which must be mapped to logins in the master database, a contained user is managed completely by the database itself. This has two benefits. In the disaster recovery scenario, the users can continue to connect to the new primary database or the database recovered using geo-restore without any additional configuration, because the database manages the users. There are also potential scalability and performance benefits from this configuration from a login perspective. For more information, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx). 
+Основной недостаток — управление процессами аварийного восстановления усложняется при росте масштаба. При наличии нескольких баз данных, использующих одно имя входа, обслуживание учетных данных с помощью автономных пользователей в нескольких базах данных может свести на нет преимущества, обеспечиваемые автономными пользователями. Например, политика ротации паролей требует вносить согласованные изменения в несколько баз данных, а не просто изменить один пароль для входа в базу данных master. Поэтому, если у вас есть несколько баз данных с одинаковыми именами пользователей и паролями, мы не рекомендуем использовать автономных пользователей.
 
-The main trade-off is that managing the disaster recovery process at scale is more challenging. When you have multiple databases that use the same login, maintaining the credentials using contained users in multiple database may negate the benefits of contained users. For example, the password rotation policy requires that changes be made consistently in multiple databases rather than changing the password for the login once in the master database. For this reason, if you have multiple databases that use the same user name and password, using contained users is not recommended. 
+## Настройка имен для входа и пользователей
 
-## <a name="how-to-configure-logins-and-users"></a>How to configure logins and users
+Если вы используете учетные данные для входа и пользователей (а не автономных пользователей), выполните дополнительные действия для синхронизации имен пользователей с базой данных master. В следующих разделах описаны необходимые действия и приведены дополнительные рекомендации.
 
-If you are using logins and users (rather than contained users), you must make take extra steps to insure that the same logins exist in the master database. The following sections outline the steps involved and additional considerations.
+### Настройка доступа пользователей к базе данных-получателю или восстановленной базе данных
 
-### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Set up user access to a secondary or recovered database
+Чтобы использовать базу данных-получатель в режиме только для чтения и обеспечить доступ к новой базе данных-источнику или восстановленной с помощью географического восстановления базе данных, для основной базы данных целевого сервера до начала восстановления должна быть определена соответствующая конфигурация безопасности.
 
-In order for the secondary database to be usable as a read-only secondary database, and to ensure proper access to the new primary database or the database recovered using geo-restore, the master database of the target server must have the appropriate security configuration in place before the recovery.
+Далее в этом разделе описываются конкретные разрешения для каждого шага.
 
-The specific permissions for each step are described later in this topic.
+Подготовку доступа пользователей к базе данных-получателю георепликации следует выполнять в рамках настройки георепликации. Подготовить доступ пользователей к базе данных, восстановленной с помощью геовосстановления, можно в любое время, когда сервер-источник подключен к сети (например, при тренировке аварийного восстановления).
 
-Preparing user access to a Geo-Replication secondary should be performed as part configuring Geo-Replication. Preparing user access to the geo-restored databases should be performed at any time when the original server is online (e.g. as part of the DR drill).
+>[AZURE.NOTE] Если вы выполните отработку отказа или геовосстановление на сервер, для которого доступ не настроен должным образом, войти на него можно будет только с учетной записью администратора сервера.
 
->[AZURE.NOTE] If you failover or geo-restore to a server that does not have properly configured logins access to it will be limited to the server admin account.
+Настройка учетных данных для входа на целевом сервере включает следующие три действия.
 
-Setting up logins on the target server involves three steps outlined below:
+#### 1\. Определение учетных записей с доступом к базе данных-источнику.
+Первым шагом процесса является определение того, какие учетные записи следует дублировать на целевом сервере. Это можно сделать с помощью пары инструкций SELECT в логической базе данных master на исходном сервере и в самой базе данных-источнике.
 
-#### <a name="1.-determine-logins-with-access-to-the-primary-database:"></a>1. Determine logins with access to the primary database:
-The first step of the process is to determine which logins must be duplicated on the target server. This is accomplished with a pair of SELECT statements, one in the logical master database on the source server and one in the primary database itself.
+Только администратор сервера или учетные записи с ролью **LoginManager** могут определить учетные записи на исходном сервере с помощью следующей инструкции SELECT.
 
-Only the server admin or a member of the **LoginManager** server role can determine the logins on the source server with the following SELECT statement. 
+	SELECT [name], [sid] 
+	FROM [sys].[sql_logins] 
+	WHERE [type_desc] = 'SQL_Login'
 
-    SELECT [name], [sid] 
-    FROM [sys].[sql_logins] 
-    WHERE [type_desc] = 'SQL_Login'
+Только учетные записи базы данных с ролью db\_owner, пользователь dbo или администратор сервера могут определять всех субъектов-пользователей базы данных в базе данных-источнике.
 
-Only a member of the db_owner database role, the dbo user, or server admin, can determine all of the database user principals in the primary database.
+	SELECT [name], [sid]
+	FROM [sys].[database_principals]
+	WHERE [type_desc] = 'SQL_USER'
 
-    SELECT [name], [sid]
-    FROM [sys].[database_principals]
-    WHERE [type_desc] = 'SQL_USER'
+#### 2\. Поиск ИД безопасности для учетных записей, определенных на шаге 1.
+Сравнивая выходные данные запросов из предыдущего раздела с соответствующими ИД безопасности, можно сопоставить учетные записи на сервере с пользователями базы данных. Учетные записи пользователей базы данных с соответствующими ИД безопасности имеют пользовательский доступ к базе данных в качестве субъекта-пользователя.
 
-#### <a name="2.-find-the-sid-for-the-logins-identified-in-step-1:"></a>2. Find the SID for the logins identified in step 1:
-By comparing the output of the queries from the previous section and matching the SIDs, you can map the server login to database user. Logins that have a database user with a matching SID have user access to that database as that database user principal. 
+Следующий запрос можно использовать для просмотра всех субъектов-пользователей и их ИД безопасности в базе данных. Этот запрос могут выполнять только учетные записи базы данных с ролью db\_owner или администратор сервера.
 
-The following query can be used to see all of the user principals and their SIDs in a database. Only a member of the db_owner database role or server admin can run this query.
+	SELECT [name], [sid]
+	FROM [sys].[database_principals]
+	WHERE [type_desc] = 'SQL_USER'
 
-    SELECT [name], [sid]
-    FROM [sys].[database_principals]
-    WHERE [type_desc] = 'SQL_USER'
+>[AZURE.NOTE] Пользователи **INFORMATION\_SCHEMA** и **sys** имеют ИД безопасности *NULL*, а ИД безопасности пользователя **guest** – **0x00**. ИД безопасности **Dbo** может начинаться с *0x01060000000001648000000000048454*, если создателем базы данных является администратор сервера, а не участник **DbManager**.
 
->[AZURE.NOTE] The **INFORMATION_SCHEMA** and **sys** users have *NULL* SIDs, and the **guest** SID is **0x00**. The **dbo** SID may start with *0x01060000000001648000000000048454*, if the database creator was the server admin instead of a member of **DbManager**.
+#### 3\. Создание имен для входа на целевом сервере.
+Последним шагом является переход к целевому серверу или серверам и создание учетных записей с соответствующими ИД безопасности. Базовый синтаксис выглядит так.
 
-#### <a name="3.-create-the-logins-on-the-target-server:"></a>3. Create the logins on the target server:
-The last step is to go to the target server, or servers, and generate the logins with the appropriate SIDs. The basic syntax is as follows.
+	CREATE LOGIN [<login name>]
+	WITH PASSWORD = <login password>,
+	SID = <desired login SID>
 
-    CREATE LOGIN [<login name>]
-    WITH PASSWORD = <login password>,
-    SID = <desired login SID>
-
->[AZURE.NOTE] If you want to grant user access to the secondary, but not to the primary, you can do that by altering the user login on the primary server by using the following syntax.
+>[AZURE.NOTE] Чтобы предоставить пользователю доступ на сервер-получатель (но не на сервер-источник), измените учетную запись пользователя на сервере-источнике с помощью следующего синтаксиса.
 >
->ALTER LOGIN <login name> DISABLE
+>ALTER LOGIN <имя\_для\_входа> DISABLE
 >
->DISABLE doesn’t change the password, so you can always enable it if needed.
+>DISABLE не изменяет пароль, поэтому при любой необходимости можно вернуть ENABLE.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- For more information on managing database access and logins, see [SQL Database security: Manage database access and login security](sql-database-manage-logins.md).
-- For more information on contained database users, see [Contained Database Users - Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
-- For information about using and configuring Active Geo-Replication, see [Active Geo-Replication](sql-database-geo-replication-overview.md)
-- For informatin about using Geo-Restore, see [Geo-Restore](sql-database-recovery-using-backups.md#geo-restore)
+- Дополнительные сведения об управлении доступом к базе данных и именами для входа см. в статье [Безопасность баз данных SQL: управление доступом к базе данных и защита входа в систему](sql-database-manage-logins.md).
+- Дополнительные сведения о пользователях автономной базы данных см. в статье [Пользователи автономной базы данных — создание переносимой базы данных](https://msdn.microsoft.com/library/ff929188.aspx).
+- Сведения об использовании и настройке активной георепликации см. в разделе [Обзор: активная георепликация для базы данных SQL](sql-database-geo-replication-overview.md).
+- Сведения об использовании геовосстановления см. в разделе [Обзор. Геовосстановление базы данных SQL Azure](sql-database-recovery-using-backups.md#geo-restore).
 
-## <a name="additional-resources"></a>Additional resources
+## Дополнительные ресурсы
 
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

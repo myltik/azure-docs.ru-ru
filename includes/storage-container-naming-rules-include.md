@@ -1,17 +1,15 @@
-Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
+Каждый BLOB-объект в Azure должен располагаться в контейнере. Контейнер составляет часть имени BLOB-объекта. Например, `mycontainer` — имя контейнера в таких взятых в качестве образца URI BLOB-объектов:
 
-    https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
-    https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
 
-A container name must be a valid DNS name, conforming to the following naming rules:
+Имя контейнера должно быть допустимым DNS-именем и соответствовать указанным ниже правилам именования.
 
-1. Container names must start with a letter or number, and can contain only letters, numbers, and the dash (-) character.
-1. Every dash (-) character must be immediately preceded and followed by a letter or number; consecutive dashes are not permitted in container names.
-1. All letters in a container name must be lowercase.
-1. Container names must be from 3 through 63 characters long.
+1. Имена контейнеров должны начинаться с буквы или цифры и могут содержать только буквы, цифры и тире (-).
+1. Каждое тире (-) должно стоять непосредственно перед буквой или цифрой и после нее. В именах контейнеров запрещено использовать несколько тире подряд.
+1. Все знаки в имени контейнера должны быть строчными.
+1. Имя контейнера должно содержать от 3 до 63 знаков.
 
-> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. If you include an upper-case letter in a container name, or otherwise violate the container naming rules, you may receive a 400 error (Bad Request). 
+> [AZURE.IMPORTANT]Обратите внимание, что имя контейнера должно содержать только строчные буквы. При использовании заглавных букв в имени контейнера или другом нарушении правил именования контейнера может появиться ошибка 400 (Ошибка запроса).
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

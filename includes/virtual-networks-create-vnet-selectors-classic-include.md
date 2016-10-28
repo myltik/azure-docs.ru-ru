@@ -1,9 +1,7 @@
 > [AZURE.SELECTOR]
-- [Azure Portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)
-- [Classic Portal](../articles/virtual-network/virtual-networks-create-vnet-classic-portal.md)
+- [Портал Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)
+- [Классический портал](../articles/virtual-network/virtual-networks-create-vnet-classic-portal.md)
 - [PowerShell](../articles/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps.md)
-- [Azure CLI](../articles/virtual-network/virtual-networks-create-vnet-classic-cli.md)
+- [Интерфейс командной строки Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-cli.md)
 
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0323_2016-->

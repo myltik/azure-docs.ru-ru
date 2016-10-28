@@ -1,242 +1,236 @@
 <properties
-    pageTitle="Analyzing Customer Churn using Machine Learning | Microsoft Azure"
-    description="Case study of developing an integrated model for analyzing and scoring customer churn"
-    services="machine-learning"
-    documentationCenter=""
-    authors="jeannt"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	pageTitle="Анализ оттока клиентов с помощью Машинного обучения | Microsoft Azure"
+	description="Пример разработки интегрированной модели для анализа и оценки ухода клиентов"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jeannt"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/20/2016" 
-    ms.author="jeannt"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/20/2016" 
+	ms.author="jeannt"/>
 
+# Анализ оттока клиентов с помощью Машинного обучения Azure
 
-# <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analyzing Customer Churn by using Azure Machine Learning
+##Обзор
+В этой статье содержится информация об эталонной реализации проекта анализа оттока клиентов, созданного в Студии машинного обучения Azure. Кроме того, здесь рассматриваются соответствующие универсальные модели для комплексного решения проблем оттока промышленных клиентов. Здесь также измеряется точность моделей, построенных с использованием машинного обучения, и оцениваются направления дальнейшего развития.
 
-##<a name="overview"></a>Overview
-This topic presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning Studio. It discusses associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and we assess directions for further development.  
+### Благодарности
 
-### <a name="acknowledgements"></a>Acknowledgements
+Этот эксперимент был разработан и протестирован Сержем Бергером (Serge Berger), старшим научным сотрудником корпорации Майкрософт по обработке данных, и Роджером Барга (Roger Barga), ранее являвшимся руководителем проекта Машинного обучения Microsoft Azure. Группа составителей документации Azure с благодарностью подтверждает их квалификацию и выражает признательность за предоставление этого технического документа.
 
-This experiment was developed and tested by Serge Berger, Principal Data Scientist at Microsoft, and Roger Barga, formerly Product Manager for Microsoft Azure Machine Learning. The Azure documentation team gratefully acknowledges their expertise and thanks them for sharing this white paper.
-
->[AZURE.NOTE] The data used for this experiment is not publicly available. For an example of how to build a machine learning model for churn analysis, see: [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)
+>[AZURE.NOTE] Данные, использованные для этого эксперимента, не являются общедоступными. Примером создания модели машинного обучения для анализа оттока может послужить [шаблон модели оттока Telco](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) в [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##<a name="the-problem-of-customer-churn"></a>The problem of customer churn
-Businesses in the consumer market and in all enterprise sectors have to deal with churn. Sometimes churn is excessive and influences policy decisions. The traditional solution is to predict high-propensity churners and address their needs via a concierge service, marketing campaigns, or by applying special dispensations. These approaches can vary from industry to industry and even from a particular consumer cluster to another within one industry (for example, telecommunications).
+##Проблема оттока клиентов
+Компаниям на потребительском рынке и во всех сегментах корпоративного рынка приходится иметь дело с проблемой оттока клиентов. Иногда показатели оттока слишком велики и влияют на принятие политических решений. Традиционным решением является прогнозирование клиентов с высокой предрасположенностью к уходу и удовлетворение их потребностей за счет внедрения служб поддержки, проведения маркетинговых кампаний или путем применения специальных положений. В каждой отрасли могут существовать собственные подходы. Следует отметить, что они зависят даже от конкретной потребительской категории в рамках одного направления (например, в области телекоммуникаций).
 
-The common factor is that businesses need to minimize these special customer retention efforts. Thus, a natural methodology would be to score every customer with the probability of churn and address the top N ones. The top customers might be the most profitable ones; for example, in more sophisticated scenarios, a profit function is employed during the selection of candidates for special dispensation. However, these considerations are only a part of the holistic strategy for dealing with churn. Businesses also have to take into account risk (and associated risk tolerance), the level and cost of the intervention, and plausible customer segmentation.  
+Все предприятия объединяет одно — необходимость минимизации особых усилий по удержанию клиентов. Таким образом, абсолютно естественным вариантом будет оценка каждого клиента на предмет склонности к оттоку и принятие соответствующих мер к самым важным из них. Крупные клиенты могут быть наиболее выгодными. Например, в более сложных сценариях выбор кандидатов для предоставления специальных условий осуществляется на основе уровня их прибыльности. Однако эти аспекты являются лишь частью целостной стратегии по борьбе с оттоком. Компании также должны принимать во внимание риск (и связанную рискоустойчивость), уровень и стоимость вмешательства и обоснованную сегментацию клиентов.
 
-##<a name="industry-outlook-and-approaches"></a>Industry outlook and approaches
-Sophisticated handling of churn is a sign of a mature industry. The classic example is the telecommunications industry where subscribers are known to frequently switch from one provider to another. This voluntary churn is a prime concern. Moreover, providers have accumulated significant knowledge about *churn drivers*, which are the factors that drive customers to switch.
+##Отраслевые перспективы и подходы
+Сложные решения в процессе работы с оттоком клиентов являются признаком зрелой отрасли. Классическим примером является сфера телекоммуникаций, где абоненты, как известно, часто переходят от одного поставщика к другому. Такой добровольный отток является главной заботой компаний, предоставляющих услуги связи. Кроме того, поставщики накопили большой багаж знаний о *движущих силах оттока*, которые заставляют клиентов переключаться на продукты и услуги то одних, то других производителей.
 
-For instance, handset or device choice is a well-known driver of churn in the mobile phone business. As a result, a popular policy is to subsidize the price of a handset for new subscribers and charging a full price to existing customers for an upgrade. Historically, this policy has led to customers hopping from one provider to another to get a new discount, which in turn, has prompted providers to refine their strategies.
+Например, на рынке мобильных телефонов хорошо известным фактором оттока является выбор нового устройства. В результате начинает действовать популярная политика, а именно субсидирование цен на телефоны для новых абонентов и взимание полной стоимости обновления с существующих клиентов. Исторически сложилось, что такая политика способствует переходам клиентов от одного поставщика услуг к другому с целью получить новую скидку, что, в свою очередь, стимулирует последних на совершенствование стратегий.
 
-High volatility in handset offerings is a factor that very quickly invalidates models of churn that are based on current handset models. Additionally, mobile phones are not only telecommunication devices; they are also fashion statements (consider the iPhone), and these social predictors are outside the scope of regular telecommunications data sets.
+Высокий уровень подверженности резким колебаниям на рынке мобильных телефонов очень быстро сводит на нет модели оттока, связанные с использованием текущих моделей телефонов. Кроме того, мобильные телефоны — это не только телекоммуникационные устройства. Они выступают в роли модного аксессуара или тренда (вспомните iPhone). Эти социальные прогностические факторы находятся вне сферы действия стандартных наборов данных в области телекоммуникаций.
 
-The net result for modeling is that you cannot devise a sound policy simply by eliminating known reasons for churn. In fact, a continuous modeling strategy, including classic models that quantify categorical variables (such as decision trees), is **mandatory**.
+Конечным результатом моделирования является невозможность разработки обоснованной политики только путем устранения известных причин оттока. На самом деле, **обязательной** является непрерывная стратегия моделирования, включающая классические модели, количественно оценивающие категориальные переменные (такие как деревья решений).
 
-Using big data sets on their customers, organizations are performing big data analytics (in particular, churn detection based on big data) as an effective approach to the problem. You can find more about the big data approach to the problem of churn in the Recommendations on ETL section.  
+Используя большие наборы данных, собранные о клиентах, организации анализируют большие объемы информации (в частности, для выявления причин оттока), реализуя, тем самым, эффективный подход к решению проблемы. Более подробную информацию о реализации подхода обработки больших объемов данных для устранения проблемы с оттоком клиентов см. в разделе рекомендаций по ETL-процессам.
 
-##<a name="methodology-to-model-customer-churn"></a>Methodology to model customer churn
-A common problem-solving process to solve customer churn is depicted in Figures 1-3:  
+##Методика моделирования процесса оттока клиентов
+Общий процесс решения проблем, связанных с оттоком клиентов, представлен на рис. 1–3.
 
-1.  A risk model allows you to consider how actions affect probability and risk.
-2.  An intervention model allows you to consider how the level of intervention could affect the probability of churn and the amount of customer lifetime value (CLV).
-3.  This analysis lends itself to a qualitative analysis that is escalated to a proactive marketing campaign that targets customer segments to deliver the optimal offer.  
+1.	Модель риска позволяет узнать, каким образом действия влияют на вероятность и риск.
+2.	Модель вмешательства позволяет узнать, каким образом уровень вмешательства может повлиять на вероятность оттока и значение показателя ценности жизненного цикла клиента (CLV).
+3.	Этот анализ способствует проведению качественного анализа, выходящего на уровень активной маркетинговой кампании, целью которой является предоставление клиентам оптимальных предложений.
 
 ![][1]
 
-This forward looking approach is the best way to treat churn, but it comes with complexity: we have to develop a multi-model archetype and trace dependencies between the models. The interaction among models can be encapsulated as shown in the following diagram:  
+Такой дальновидный подход остается оптимальным способом решения проблемы оттока, однако его реализация сопряжена с определенными сложностями, так как она требует разработки многомодельного архетипа и отслеживания зависимостей между моделями. Взаимодействие между моделями может выглядеть следующим образом.
 
 ![][2]
 
-*Figure 4: Unified multi-model archetype*  
+*Рисунок 4: Объединенный многомодельный архетип*
 
-Interaction between the models is key if we are to deliver a holistic approach to customer retention. Each model necessarily degrades over time; therefore, the architecture is an implicit loop (similar to the archetype set by the CRISP-DM data mining standard, [***3***]).  
+Если речь идет о формировании целостного подхода к удержанию клиентов, ключевым моментом в его функционировании являются взаимодействия между моделями. С течением времени рабочие характеристики каждой модели обязательно ухудшаются. Поэтому архитектура представляет собой неявный цикл (аналогично архетипу, заданному по стандарту интеллектуального анализа данных CRISP-DM [***3***]).
 
-The overall cycle of risk-decision-marketing segmentation/decomposition is still a generalized structure, which is applicable to many business problems. Churn analysis is simply a strong representative of this group of problems because it exhibits all the traits of a complex business problem that does not allow a simplified predictive solution. The social aspects of the modern approach to churn are not particularly highlighted in the approach, but the social aspects are encapsulated in the modeling archetype, as they would be in any model.  
+Для общего цикла сегментации и декомпозиции "риск-решение-маркетинг" по-прежнему поддерживается обобщенная структура, которая применима ко многим бизнес-задачам. Мощным представителем этой группы проблем выступает анализ оттока, так как он обладает всеми характеристиками сложной бизнес-задачи, для выполнения которой не допускается действие упрощенного прогнозного решения. Несмотря на то, что социальные аспекты современного подхода к вопросу оттока клиентов не обозначены особым образом, они содержатся в смоделированном архетипе так, как если бы они входили в состав любой модели.
 
-An interesting addition here is big data analytics. Today's telecommunication and retail businesses collect exhaustive data about their customers, and we can easily foresee that the need for multi-model connectivity will become a common trend, given emerging trends such as the Internet of Things and ubiquitous devices, which allow business to employ smart solutions at multiple layers.  
+Интересным дополнением является анализ больших объемов данных. Современные телекоммуникационные компании и предприятия розничной торговли собирают исчерпывающие данные о своих клиентах. Учитывая новые направления, такие как Интернет вещей и широкое распространение устройств, позволяющих работать с интеллектуальными решениями на разных уровнях, можно без труда предположить, что потребность многомодельного взаимодействия станет общей тенденцией.
 
  
-##<a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Implementing the modeling archetype in Machine Learning Studio
-Given the problem just described, what is the best way to implement an integrated modeling and scoring approach? In this section, we will demonstrate how we accomplished this by using Azure Machine Learning Studio.  
+##Реализация архетипа моделирования в Студии машинного обучения
+Как лучше всего можно реализовать интегрированный подход моделирования и оценки, принимая во внимание только что описанную проблему? В этом разделе демонстрируется выполнение данной задачи с помощью Студии машинного обучения Azure.
 
-The multi-model approach is a must when designing a global archetype for churn. Even the scoring (predictive) part of the approach should be multi-model.  
+Многомодельный подход является неотъемлемой частью процесса разработки глобального архетипа оттока. Многомодельность должна поддерживаться даже в оценочной (прогнозной) части подхода.
 
-The following diagram shows the prototype we created, which employs four scoring algorithms in Machine Learning Studio to predict churn. The reason for using a multi-model approach is not only to create an ensemble classifier to increase accuracy, but also to protect against over-fitting and to improve prescriptive feature selection.  
+На следующей схеме показан созданный прототип, в котором в среде Студии машинного обучения для прогнозирования оттока используется четыре различных алгоритма оценки. Причиной внедрения многомодельного подхода является не только необходимость создания классификатора множества для повышения уровня точности, но и обеспечение защиты от чрезмерно близкой подгонки, а также улучшение выбора функций директивного характера.
 
 ![][3]
 
-*Figure 5: Prototype of a churn modeling approach*  
+*Рисунок 5: Прототип метода моделирования оттока*
 
-The following sections provide more details about the prototype scoring model that we implemented by using Machine Learning Studio.  
+Подробнее о прототипе модели оценки, реализованной с помощью Студии машинного обучения, рассказывается в следующих разделах.
 
-###<a name="data-selection-and-preparation"></a>Data selection and preparation
-The data used to build the models and score customers was obtained from a CRM vertical solution, with the data obfuscated to protect customer privacy. The data contains information about 8,000 subscriptions in the U.S., and it combines three sources: provisioning data (subscription metadata), activity data (usage of the system), and customer support data. The data does not include any business related information about the customers; for example, it does not include loyalty metadata or credit scores.  
+###Выбор и подготовка данных
+Данные, используемые для построения моделей и оценки клиентов, были получены из вертикального решения CRM. В целях обеспечения конфиденциальности клиентов их персональные данные были скрыты. Данные содержат информацию о 8000 подписках в США и объединяют в себе три источника: данные о подготовке (метаданные подписки), данные о действиях (использование системы), а также данные о поддержке клиентов. Сюда не включена бизнес-информация, касающаяся клиентов (например, метаданные о лояльности или оценка кредитоспособности).
 
-For simplicity, ETL and data cleansing processes are out of scope because we assume that data preparation has already been done elsewhere.   
+В целях упрощения в рамки проекта не входят процессы ETL и очистки данных, так как предполагается, что подготовка данных уже выполнена.
 
-Feature selection for modeling is based on preliminary significance scoring of the set of predictors, included in the process that uses the random forest module. For the implementation in Machine Learning Studio, we calculated the mean, median, and ranges for representative features. For example, we added aggregates for the qualitative data, such as minimum and maximum values for user activity.    
+Выбор признаков для моделирования основан на предварительной оценке значимости множества прогностических факторов, включенных в процесс с помощью модуля алгоритма случайного леса. Для реализации в Студии машинного обучения было рассчитано среднее значение, медиана и диапазон для репрезентативных признаков. Например, были добавлены совокупности для качественных данных, таких как минимальные и максимальные значения для пользовательской активности.
 
-We also captured temporal information for the most recent six months. We analyzed data for one year and we established that even if there were statistically significant trends, the effect on churn is greatly diminished after six months.  
+Кроме того, была собрана временная информация за последние шесть месяцев. В результате анализа данных за один год было установлено, что даже при наличии статистически значимых тенденций влияние на отток значительно уменьшается по истечении шести месяцев.
 
-The most important point is that the entire process, including ETL, feature selection, and modeling was implemented in Machine Learning Studio, using data sources in Microsoft Azure.   
+И самый существенный момент: весь процесс, включая процедуры ETL (извлечения, преобразования и загрузки данных), выбор признаков и моделирование, был реализован в Студии машинного обучения с использованием источников данных в Microsoft Azure.
 
-The following diagrams illustrate the data that was used.  
+На следующей схеме показаны использовавшиеся данные.
 
 ![][4]
 
-*Figure 6: Excerpt of data source (obfuscated)*  
+*Рисунок 6: Фрагмент источника данных (скрыт)*
 
 ![][5]
 
 
-*Figure 7: Features extracted from data source*
- 
-> Note that this data is private and therefore the model and data cannot be shared.
-> However, for a similar model using publicly available data, see this sample experiment in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/): [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+*Рисунок 7: Признаки, извлеченные из источника данных*  
+> Обратите внимание, что эти данные являются частными, поэтому общий доступ к модели и данным должен быть ограничен. Тем не менее в примере эксперимента [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383) из [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com/) для построения аналогичной модели используются общедоступные данные.
 > 
-> To learn more about how you can implement a churn analysis model using Cortana Intelligence Suite, we also recommend [this video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) by Senior Program Manager Wee Hyong Tok. 
+> Чтобы больше узнать о реализации модели анализа оттока клиентов с помощью Cortana Intelligence Suite, просмотрите [это видео](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) с участием старшего руководителя программы Ви Хен Тока (Wee Hyong Tok).
 > 
 
-###<a name="algorithms-used-in-the-prototype"></a>Algorithms used in the prototype
+###Алгоритмы, используемые в прототипе
 
-We used the following four machine learning algorithms to build the prototype (no customization):  
+Для создания прототипа (без настройки) использовались следующие четыре алгоритма машинного обучения.
 
-1.  Logistic regression (LR)
-2.  Boosted decision tree (BT)
-3.  Averaged perceptron (AP)
-4.  Support vector machine (SVM)  
-
-
-The following diagram illustrates a portion of the experiment design surface, which indicates the sequence in which the models were created:  
-
-![][6]  
+1.	Логистическая регрессия (LR).
+2.	Увеличивающееся дерево принятия решений (BT).
+3.	Усредненное восприятие (AP).
+4.	Метод опорных векторов (SVM).
 
 
-*Figure 8: Creating models in Machine Learning Studio*  
+На следующей схеме показана часть экспериментальной поверхности разработки с последовательностью создания моделей.
 
-###<a name="scoring-methods"></a>Scoring methods
-We scored the four models by using a labeled training dataset.  
+![][6]
 
-We also submitted the scoring dataset to a comparable model built by using the desktop edition of SAS Enterprise Miner 12. We measured the accuracy of the SAS model and all four Machine Learning Studio models.  
 
-##<a name="results"></a>Results
-In this section, we present our findings about the accuracy of the models, based on the scoring dataset.  
+*Рисунок 8: Создание моделей в Студии Машинного обучения*
 
-###<a name="accuracy-and-precision-of-scoring"></a>Accuracy and precision of scoring
-Generally, the implementation in Azure Machine Learning is behind SAS in accuracy by about 10-15% (Area Under Curve or AUC).  
+###Методы количественной оценки
+Для оценки четырех моделей использовался маркированный набор данных для обучения.
 
-However, the most important metric in churn is the misclassification rate: that is, of the top N churners as predicted by the classifier, which of them actually did **not** churn, and yet received special treatment? The following diagram compares this misclassification rate for all the models:  
+Оцениваемый набор данных также отправлялся в сопоставимую модель, созданную с помощью SAS Enterprise Miner 12 для настольных систем. Была измерена точность модели SAS и всех четырех моделей Студии машинного обучения.
+
+##Результаты
+В этом разделе представлены выводы о точности моделей, сделанные на основе набора данных для количественной оценки.
+
+###Точность и презиционность оценки
+Как правило, точность реализации в машинном обучении Azure отстает от аналогичного показателя в SAS примерно на 10–15 % (площадь под кривой или AUC).
+
+Однако наиболее важным количественным показателем оттока является коэффициент неправильной классификации: то есть, какое количество из N основных склонных к оттоку клиентов, предсказанных классификатором, на самом деле **not** ушли, но, тем не менее, удостоились особого внимания? На следующей схеме приводится сравнение коэффициента неправильной классификации для всех моделей.
 
 ![][7]
 
 
-*Figure 9: Passau prototype area under curve*
+*Figure 9: Прототип Пассау: площадь под кривой*
 
-###<a name="using-auc-to-compare-results"></a>Using AUC to compare results
-Area Under Curve (AUC) is a metric that represents a global measure of *separability* between the distributions of scores for positive and negative populations. It is similar to the traditional Receiver Operator Characteristic (ROC) graph, but one important difference is that the AUC metric does not require you to choose a threshold value. Instead, it summarizes the results over **all** possible choices. In contrast, the traditional ROC graph shows the positive rate on the vertical axis and the false positive rate on the horizontal axis, and the classification threshold varies.   
+###Использование AUC для сравнения результатов
+Площадь под кривой (AUC) — это показатель, представляющий глобальную меру *разделимости* между распределениями оценок для положительных и отрицательных значений. Он похож на стандартный график зависимости чувствительности от частоты ложноположительных заключений (ROC). Необходимо отменить одно важное отличие — для показателя AUC не требуется выбирать пороговое значение. Он суммирует результаты по **всем** возможным вариантам. При этом на стандартном графике ROC положительный показатель представлен на вертикальной оси, коэффициент ложноположительных срабатываний — на горизонтальной оси. На основании этих данных отображается меняющееся пороговое значение.
 
-AUC is generally used as a measure of worth for different algorithms (or different systems) because it allows models to be compared by means of their AUC values. This is a popular approach in industries such as meteorology and biosciences. Thus, AUC represents a popular tool for assessing classifier performance.  
+AUC обычно используется в качестве меры ценности различных алгоритмов (или разных систем), так как позволяет сравнивать модели с помощью их значений AUC. Этот подход распространен в области метеорологии, биологических наук и многих других отраслях. Таким образом, AUC представляет собой популярный инструмент для оценки производительности классификатора.
 
-###<a name="comparing-misclassification-rates"></a>Comparing misclassification rates
-We compared the misclassification rates on the dataset in question by using the CRM data of approximately 8,000 subscriptions.  
+###Сравнение коэффициентов неправильной классификации
+Мы сравнили коэффициенты неправильных классификаций в рассматриваемом наборе данных с помощью данных CRM из приблизительно 8000 подписок.
 
--   The SAS misclassification rate was 10-15%.
--   The Machine Learning Studio misclassification rate was 15-20% for the top 200-300 churners.  
+-	Коэффициент неправильной классификации SAS — 10–15%.
+-	Коэффициент неправильной классификации в Студии машинного обучения для основных 200–300 клиентов, предрасположенных к уходу, составил 15–20 %.
 
-In the telecommunications industry, it is important to address only those customers who have the highest risk to churn by offering them a concierge service or other special treatment. In that respect, the Machine Learning Studio implementation achieves results on par with the SAS model.  
+В сфере телекоммуникаций очень важно уделять внимание только клиентам с самым высоким уровнем риска оттока. Для этого им предлагаются услуги поддержки или другие специальные режимы и условия. В этом отношении реализация Студии машинного обучения обеспечивает такие же результаты, как и модель SAS.
 
-By the same token, accuracy is more important than precision because we are mostly interested in correctly classifying potential churners.  
+К тому же, точность гораздо важнее прецизионности, потому что наибольший интерес в данном случае вызывает правильность классификации потенциальных клиентов, предрасположенных к оттоку.
 
-The following diagram from Wikipedia depicts the relationship in a lively, easy-to-understand graphic:  
+На следующей схеме из Википедии это отношение представлено в яркой и простой для понимания форме.
 
 ![][8]
 
-*Figure 10: Tradeoff between accuracy and precision*
+*Рисунок 10: Компромисс между точностью и прецизионностью*
 
-###<a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Accuracy and precision results for boosted decision tree model  
+###Результаты точности и прецизионности для модели увеличивающегося дерева  
 
-The following chart displays the raw results from scoring using the Machine Learning prototype for the boosted decision tree model, which happens to be the most accurate among the four models:  
+В следующей таблице показаны необработанные результаты оценки с использованием прототипа машинного обучения для модели увеличивающегося дерева принятия решения, которая оказалась самой точной из четырех.
 
 ![][9]
 
-*Figure 11: Boosted decision tree model characteristics*
+*Рисунок 11: Характеристики модели увеличивающегося дерева решений*
 
-##<a name="performance-comparison"></a>Performance comparison
-We compared the speed at which data was scored using the Machine Learning Studio models and a comparable model created by using the desktop edition of SAS Enterprise Miner 12.1.  
+##Сравнение производительности
+Было проведено сравнение скорости оценки данных с использованием моделей Студии машинного обучения и сопоставимой модели, созданной с помощью SAS Enterprise Miner 12.1 для настольных систем.
 
-The following table summarizes the performance of the algorithms:  
+В следующей таблице обобщаются результаты производительности алгоритмов.
 
-*Table 1. General performance (accuracy) of the algorithms*
+*Таблица 1. Общая производительность (точность) алгоритмов*
 
 | LR|BT|AP|SVM|
 |---|---|---|---|
-|Average Model|The Best Model|Underperforming|Average Model|
+|Модель средних показателей|Модель максимальных показателей|Недостаточная производительность|Модель средних показателей|
 
-The models hosted in Machine Learning Studio outperformed SAS by 15-25% for speed of execution, but accuracy was largely on par.  
+Модели, размещенные в Студии машинного обучения, превзошли SAS на 15–25 % по скорости исполнения, а уровень точности в целом был одинаковым.
 
-##<a name="discussion-and-recommendations"></a>Discussion and recommendations
-In the telecommunications industry, several practices have emerged to analyze churn, including:  
+##Обсуждение и рекомендации
+В телекоммуникационной отрасли существует несколько методик по анализу оттока, включая следующие.
 
--   Derive metrics for four fundamental categories:
-    -   **Entity (for example, a subscription)**. Provision basic information about the subscription and/or customer that is the subject of churn.
-    -   **Activity**. Obtain all possible usage information that is related to the entity, for example, the number of logins.
-    -   **Customer support**. Harvest information from customer support logs to indicate whether the subscription had issues or interactions with customer support.
-    -   **Competitive and business data**. Obtain any information possible about the customer (for example, can be unavailable or hard to track).
--   Use importance to drive feature selection. This implies that the boosted decision tree model is always a promising approach.  
+-	Получение показателей для четырех основных категорий:
+	-	**Объект (например, подписка)**. Предоставление основной информации о подписке и (или) клиенте, являющегося предметом оттока.
+	-	**Действия.** Получение всей возможной информации об использовании, касающейся объекта, например количества входов.
+	-	**Поддержка клиентов**. Сбор информации из журналов поддержки клиентов для определения проблем с подпиской или обращений в службу поддержки клиентов.
+	-	**Конкурентные данные и бизнес-данные**. Получение любых данных о клиенте (например, данные могут быть недоступными или трудно отслеживаемыми).
+-	Использование значимости процесса выбора функций. Это означает, что модель увеличивающегося дерева всегда является перспективным подходом.
 
-The use of these four categories creates the illusion that a simple *deterministic* approach, based on indexes formed on reasonable factors per category, should suffice to identify customers at risk for churn. Unfortunately, although this notion seems plausible, it is a false understanding. The reason is that churn is a temporal effect and the factors contributing to churn are usually in transient states. What leads a customer to consider leaving today might be different tomorrow, and it certainly will be different six months from now. Therefore, a *probabilistic* model is a necessity.  
+Использование этих четырех категорий создает впечатление, что для определения клиентов, подверженных риску оттока, будет достаточно простого *детерминистского* подхода на основе индексов, сформированных на базе разумных факторов в каждой категории. К сожалению, несмотря на кажущуюся правдоподобность, это ложное понимание. Дело в том, что отток является временным эффектом, а факторам, способствующим оттоку, обычно присущи переходные состояния. Причины, по которым происходит отток клиентов сегодня, могут отличаться от завтрашних и, конечно, будут совершенно иными через шесть месяцев. Поэтому следует признать необходимость *вероятностной* модели.
 
-This important observation is often overlooked in business, which generally prefers a business intelligence-oriented approach to analytics, mostly because it is an easier sell and admits straightforward automation.  
+Это важное наблюдение часто упускается из виду в бизнесе, где, как правило, предпочтение отдается бизнес-аналитике, которую легче продать и проще автоматизировать.
 
-However, the promise of self-service analytics by using Machine Learning Studio is that the four categories of information, graded by division or department, become a valuable source for machine learning about churn.  
+Тем не менее, аналитика с поддержкой самообслуживания на базе Студии машинного обучения обещает, что четыре категории информации, сгруппированные по подразделениям или отделам, станут ценным источником для машинного обучения в области оттока клиентов.
 
-Another exciting capability coming in Azure Machine Learning is the ability to add a custom module to the repository of predefined modules that are already available. This capability, essentially, creates an opportunity to select libraries and create templates for vertical markets. It is an important differentiator of Azure Machine Learning in the market place.  
+Еще одним интересным преимуществом Машинного обучения Azure является возможность добавления настраиваемого модуля в репозиторий уже имеющихся предопределенных модулей. Она, по сути, позволяет выбрать библиотеки и создавать шаблоны для вертикальных рынков. Благодаря ей Машинное обучение Azure занимает выгодную позицию на рынке.
 
-We hope to continue this topic in the future, especially related to big data analytics.
-  
-##<a name="conclusion"></a>Conclusion
-This paper describes a sensible approach to tackling the common problem of customer churn by using a generic framework. We considered a prototype for scoring models and implemented it by using Azure Machine Learning. Finally, we assessed the accuracy and performance of the prototype solution with regard to comparable algorithms in SAS.  
+Надеемся, что эта тема будет рассмотрена в ближайшем будущем, особенно с точки зрения аналитики больших объемов данных.  
+##Заключение
+В этой статье описывается разумный подход к решению распространенной проблемы, связанной с оттоком клиентов, на основе единой схемы. Мы рассмотрели прототип для моделей оценки и реализовали его с помощью Машинного обучения Azure. Наконец, мы оценили точность и производительность решения прототипа на уровне сопоставимых алгоритмов в SAS.
 
-**For more information:**  
+**Дополнительная информация:**
 
-Did this paper help you? Please give us your feedback. Tell us on a scale of 1 (poor) to 5 (excellent), how would you rate this paper and why have you given it this rating? For example:  
+Оказался ли этот документ полезным для Вас? Отправьте нам свои отзывы. Как бы вы оценили этот документ по шкале от 1 (плохо) до 5 (отлично)? Например:
 
--   Are you rating it high due to having good examples, excellent screen shots, clear writing, or another reason?
--   Are you rating it low due to poor examples, fuzzy screen shots, or unclear writing?  
+-	Ваша высокая оценка связана с приведенным в документе актуальными примерами, отличными скриншотами, четкостью изложения или с другой причиной?
+-	Вы дали низкую оценку из-за неподходящих примеров, нечетких скриншотов или непонятного описания?
 
-This feedback will help us improve the quality of white papers we release.   
+Ваши отзывы помогут нам повысить качество наших изданий.
 
-[Send feedback](mailto:sqlfback@microsoft.com).
- 
-##<a name="references"></a>References
-[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
+[Отправить отзыв](mailto:sqlfback@microsoft.com).  
+##Ссылки
+[1] Прогнозная аналитика: За пределами предсказаний, В. МакНайт, Управление информацией, июль/август 2011 г., стр.18-20.
 
-[2] Wikipedia article: [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Статья из Википедии. [Точность](http://en.wikipedia.org/wiki/Accuracy_and_precision).
 
-[3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0: пошаговое руководство по интеллектуальному анализу данных](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn).
 
-[5] [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) 
- 
-##<a name="appendix"></a>Appendix
+[5] [Шаблон модели оттока клиентов Telco](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) в [коллекции Cortana Intelligence](http://gallery.cortanaintelligence.com/).  
+##Приложение
 
 ![][10]
 
-*Figure 12: Snapshot of a presentation on churn prototype*
+*Рисунок 12: Снимок экрана с представлением прототипа оттока*
 
 
 [1]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-1.png
@@ -250,8 +244,4 @@ This feedback will help us improve the quality of white papers we release.
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

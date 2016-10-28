@@ -1,79 +1,78 @@
 <properties
-    pageTitle="Azure Active Directory B2C | Microsoft Azure"
-    description="How to build a Windows desktop application that includes sign-in, sign-up, and profile management by using Azure Active Directory B2C."
-    services="active-directory-b2c"
-    documentationCenter=".net"
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+	pageTitle="Azure Active Directory B2C | Microsoft Azure"
+	description="Инструкции по созданию приложений Windows, позволяющих пользователям выполнять вход, регистрироваться и управлять профилем, с помощью Azure Active Directory B2C."
+	services="active-directory-b2c"
+	documentationCenter=".net"
+	authors="dstrockis"
+	manager="msmbaldwin"
+	editor=""/>
 
 <tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="07/22/2016"
-    ms.author="dastrock"/>
+	ms.service="active-directory-b2c"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/22/2016"
+	ms.author="dastrock"/>
 
+# Azure AD B2C: создание классического приложения Windows
 
-# <a name="azure-ad-b2c:-build-a-windows-desktop-app"></a>Azure AD B2C: Build a Windows desktop app
+Azure Active Directory (Azure AD) B2C позволяет добавлять в приложения мощные функции для самостоятельного управления удостоверениями. Это можно сделать, выполнив несколько простых действий. В этой статье описывается, как создать приложение .NET WPF "Список дел", которое предусматривает регистрацию и вход пользователя, а также управление профилем. Приложение будет поддерживать регистрацию и вход в систему по имени пользователя или адресу электронной почты, а также по учетной записи в социальной сети, такой как Facebook или Google.
 
-By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your desktop app in a few short steps. This article will show you how to create a .NET Windows Presentation Foundation (WPF) "to-do list" app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email. It will also include support for sign-up and sign-in by using social accounts such as Facebook and Google.
+## Создание каталога Azure AD B2C
 
-## <a name="get-an-azure-ad-b2c-directory"></a>Get an Azure AD B2C directory
+Перед использованием Azure AD B2C необходимо создать каталог или клиент. Каталог — это контейнер для всех ваших пользователей, приложений, групп и т. д. Прежде чем продолжать работу с руководством, [создайте каталог B2C](active-directory-b2c-get-started.md), если он еще не создан.
 
-Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
+## Создание приложения
 
-## <a name="create-an-application"></a>Create an application
+Затем необходимо создать приложение в каталоге B2C. Это дает Azure AD информацию, необходимую для безопасного взаимодействия с вашим приложением. Чтобы создать приложение, следуйте [этим инструкциям](active-directory-b2c-app-registration.md). Не забудьте сделать следующее.
 
-Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to:
-
-- Include a **native client** in the application.
-- Copy the **Redirect URI** `urn:ietf:wg:oauth:2.0:oob`. It is the default URL for this code sample.
-- Copy the **Application ID** that is assigned to your app. You will need it later.
+- Включите в приложение **собственный клиент**.
+- Скопируйте **URI перенаправления** `urn:ietf:wg:oauth:2.0:oob`. Это URL-адрес по умолчанию для данного примера кода.
+- Скопируйте **идентификатор приложения**, назначенный приложению. Оно понадобится вам позднее.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## <a name="create-your-policies"></a>Create your policies
+## Создание политик
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create a policy for each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create the three policies, be sure to:
+В Azure AD B2C любое взаимодействие с пользователем определяется [политикой](active-directory-b2c-reference-policies.md). Этот пример кода включает три способа идентификации: регистрацию, вход в систему и изменение профиля. Вам необходимо создать по одной политике для каждого типа, как описано в [справочнике по политикам](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании трех необходимых политик обязательно сделайте следующее:
 
-- Choose either **User ID sign-up** or **Email sign-up** in the identity providers blade.
-- Choose **Display name** and other sign-up attributes in your sign-up policy.
-- Choose **Display name** and **Object ID** claims as application claims for every policy. You can choose other claims as well.
-- Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need these policy names later.
+- В колонке поставщиков удостоверений выберите **User ID sign-up** (Регистрация с помощью идентификатора пользователя) или **Email sign-up** (Регистрация по электронной почте).
+- В политике регистрации укажите **отображаемое имя** и другие атрибуты регистрации.
+- В каждой политике в качестве утверждения приложения выберите утверждения **Отображаемое имя** и **Идентификатор объекта**. Можно также выбрать другие утверждения.
+- Скопируйте **имя** каждой созданной политики. У него должен быть префикс `b2c_1_`. Эти имена политик понадобятся вам через некоторое время.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-After you have successfully created the three policies, you're ready to build your app.
+Создав три политики, можно приступать к созданию приложения.
 
-## <a name="download-the-code"></a>Download the code
+## Загрузка кода
 
-The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). You can also clone the skeleton:
+Код для этого руководства размещен на портале [GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Чтобы выполнить сборку примера, [скачайте схему проекта в ZIP-архиве](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). Ее также можно клонировать:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
 ```
 
-The completed app is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) or on the `complete` branch of the same repository.
+Кроме того, можно скачать готовое приложение [в виде ZIP-файла](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) или получить его из ветви `complete` того же репозитория.
 
-After you download the sample code, open the Visual Studio .sln file to get started. The `TaskClient` project is the WPF desktop application that the user interacts with. For the purposes of this tutorial, it calls a back-end task web API, hosted in Azure, that stores each user's to-do list.  You do not need to build the web API, we already have it running for you.
+Скачав пример кода, откройте SLN-файл Visual Studio, чтобы начать работу. Проект `TaskClient` — это классическое приложение WPF, с которым взаимодействует пользователь. В рамках этого руководства оно вызывает веб-API задачи серверной части (размещено в Azure) со списком дел для каждого пользователя. Вам не нужно создавать веб-API — мы предлагаем готовое решение.
 
-To learn how a web API securely authenticates requests by using Azure AD B2C, check out the [web API getting started article](active-directory-b2c-devquickstarts-api-dotnet.md).
+Сведения о том, как веб-API надежно выполняет проверку подлинности запросов с помощью Azure AD B2C, см. в [статье о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## <a name="execute-policies"></a>Execute policies
-Your app communicates with Azure AD B2C by sending authentication messages that specify the policy they want to execute as part of the HTTP request. For .NET desktop applications, you can use the preview Microsoft Authentication Library (MSAL) to send OAuth 2.0 authentication messages, execute policies, and get tokens that call web APIs.
+## Выполнение политик
+Приложение взаимодействует с Azure AD B2C, отправляя сообщения проверки подлинности. В этих сообщениях указана политика, которую необходимо выполнить как часть HTTP-запроса. Для классических приложений .NET можно использовать библиотеку проверки подлинности Майкрософт (MSAL), чтобы отправлять сообщения проверки подлинности OAuth 2.0, выполнять политики и получать маркеры для вызова веб-API.
 
-### <a name="install-msal"></a>Install MSAL
-Add MSAL to the `TaskClient` project by using the Visual Studio Package Manager Console.
+### Установка MSAL
+Добавьте MSAL в проект `TaskClient` с помощью консоли диспетчера пакетов Visual Studio.
 
 ```
 PM> Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
-### <a name="enter-your-b2c-details"></a>Enter your B2C details
-Open the file `Globals.cs` and replace each of the property values with your own. This class is used throughout `TaskClient` to reference commonly used values.
+### Ввод данных B2C
+Откройте файл `Globals.cs` и замените все значения свойств собственными. Этот класс применяется для создания ссылки на часто используемые значения во всем проекте `TaskClient`.
 
 ```C#
 public static class Globals
@@ -94,8 +93,8 @@ public static class Globals
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-### <a name="create-the-publicclientapplication"></a>Create the PublicClientApplication
-The primary class of MSAL is `PublicClientApplication`. This class represents your application in the Azure AD B2C system. When the app initalizes, create an instance of `PublicClientApplication` in `MainWindow.xaml.cs`. This can be used throughout the window.
+### Создание PublicClientApplication
+Основной класс MSAL — это `PublicClientApplication`. Этот класс представляет приложение в системе Azure AD B2C. При запуске приложения создайте экземпляр `PublicClientApplication` в `MainWindow.xaml.cs`. Его можно использовать для выполнения всех действий в этом окне.
 
 ```C#
 protected async override void OnInitialized(EventArgs e)
@@ -112,8 +111,8 @@ protected async override void OnInitialized(EventArgs e)
     ...
 ```
 
-### <a name="initiate-a-sign-up-flow"></a>Initiate a sign-up flow
-When a user opts to signs up, you want to initiate a sign-up flow that uses the sign-up policy you created. By using MSAL, you just call `pca.AcquireTokenAsync(...)`. The parameters you pass to `AcquireTokenAsync(...)` determine which token you receive, the policy used in the authentication request, and more.
+### Запуск потока регистрации
+Нам нужно, чтобы, когда пользователь нажимал кнопку регистрации, инициировался созданный нами поток регистрации. Для этого требуется только вызов метода `pca.AcquireTokenAsync(...)` с помощью MSAL. Параметры, передаваемые в метод `AcquireTokenAsync(...)`, определяют, какой маркер вы получите, какая политика будет использована в запросе проверки подлинности, а также другие данные.
 
 ```C#
 private async void SignUp(object sender, RoutedEventArgs e)
@@ -163,40 +162,40 @@ private async void SignUp(object sender, RoutedEventArgs e)
 }
 ```
 
-### <a name="initiate-a-sign-in-flow"></a>Initiate a sign-in flow
-You can initiate a sign-in flow in the same way that you initiate a sign-up flow. When a user signs in, make the same call to MSAL, this time by using your sign-in policy:
+### Инициация потока входа
+Поток входа инициируется таким же образом, как и поток регистрации. При входе пользователя будет выполнен тот же вызов в MSAL, но на этот раз с использованием политики входа:
 
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-    AuthenticationResult result = null;
-    try
-    {
-        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+	AuthenticationResult result = null;
+	try
+	{
+		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.signInPolicy);
-        ...
+		...
 ```
 
-### <a name="initiate-an-edit-profile-flow"></a>Initiate an edit-profile flow
-Again, you can execute an edit-profile policy in the same fashion:
+### Инициирование потока изменения профиля
+Политика редактирования профиля реализуется аналогично.
 
 ```C#
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
-    AuthenticationResult result = null;
-    try
-    {
-        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+	AuthenticationResult result = null;
+	try
+	{
+		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.editProfilePolicy);
 ```
 
-In all of these cases, MSAL either returns a token in `AuthenticationResult` or throws an exception. Each time you get a token from MSAL, you can use the `AuthenticationResult.User` object to update the user data in the app, such as the UI. ADAL also caches the token for use in other parts of the application.
+Во всех этих случаях MSAL либо возвращает маркер в `AuthenticationResult`, либо выдает исключение. Если MSAL выдает маркер, для обновления данных пользователя в приложении (например, пользовательского интерфейса) можно использовать объект `AuthenticationResult.User`. Кроме того, ADAL кэширует маркер для использования в других частях приложения.
 
 
-### <a name="check-for-tokens-on-app-start"></a>Check for tokens on app start
-You can also use MSAL to keep track of the user's sign-in state.  In this app, we want the user to remain signed in even after they close the app & re-open it.  Back inside the `OnInitialized` override, use MSAL's `AcquireTokenSilent` method to check for cached tokens:
+### Проверка наличия маркеров при запуске приложения
+MSAL также можно использовать, чтобы отслеживать состояние входа пользователя. В этом приложении мы хотим, чтобы пользователь оставался в системе даже после закрытия и повторного открытия приложения. В переопределении `OnInitialized` используйте метод `AcquireTokenSilent` MSAL, чтобы проверить наличие кэшированных маркеров:
 
 ```C#
 AuthenticationResult result = null;
@@ -234,8 +233,8 @@ catch (MsalException ex)
 }
 ```
 
-## <a name="call-the-task-api"></a>Call the task API
-You have now used MSAL to execute policies and get tokens.  When you want to use one these tokens to call the task API, you can again use MSAL's `AcquireTokenSilent` method to check for cached tokens:
+## Вызов API задачи
+С помощью MSAL вы выполнили политики и получили маркеры. Если вы хотите использовать один из этих маркеров для вызова API задачи, можно снова использовать метод `AcquireTokenSilent` MSAL для проверки наличия кэшированных маркеров:
 
 ```C#
 private async void GetTodoList()
@@ -277,23 +276,23 @@ private async void GetTodoList()
 
         return;
     }
-    ...
+	...
 ```
 
-When the call to `AcquireTokenSilentAsync(...)` succeeds and a token is found in the cache, you can add the token to the `Authorization` header of the HTTP request. The task web API will use this header to authenticate the request to read the user's to-do list:
+Если вызов `AcquireTokenSilentAsync(...)` завершается успешно и в кэше есть маркер, можно добавить этот маркер в заголовок `Authorization` HTTP-запроса. Веб-API задачи будет использовать этот заголовок для проверки подлинности запроса на чтение списка дел пользователя:
 
 ```C#
-    ...
-    // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+	...
+	// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
     // Call the To Do list service.
     HttpResponseMessage response = await httpClient.GetAsync(Globals.taskServiceUrl + "/api/tasks");
-    ...
+	...
 ```
 
-## <a name="sign-the-user-out"></a>Sign the user out
-Finally, you can use MSAL to end a user's session with the app when the user selects **Sign out**.  When using MSAL, this is accomplished by clearing all of the tokens from the token cache:
+## Выход пользователя
+Также MSAL можно использовать для завершения сеанса пользователя в приложении, когда пользователь нажимает кнопку **Выход**. Для этого нужно удалить все маркеры из соответствующего кэша с помощью MSAL:
 
 ```C#
 private void SignOut(object sender, RoutedEventArgs e)
@@ -314,31 +313,27 @@ private void SignOut(object sender, RoutedEventArgs e)
 }
 ```
 
-## <a name="run-the-sample-app"></a>Run the sample app
+## Запуск примера приложения
 
-Finally, build and run the sample.  Sign up for the app by using an email address or user name. Sign out and sign back in as the same user. Edit that user's profile. Sign out and sign up by using a different user.
+Теперь можно собрать и запустить пример. Зарегистрируйтесь в приложении с использованием адреса электронной почты или имени пользователя. Выйдите и снова войдите под именем того же пользователя. Измените профиль пользователя. Выйдите и зарегистрируйтесь от имени другого пользователя.
 
-## <a name="add-social-idps"></a>Add social IDPs
+## Добавление поставщиков удостоверений социальных сетей
 
-Currently, the app supports only user sign-up and sign-in that use **local accounts**. These are accounts stored in your B2C directory that use a user name and password. By using Azure AD B2C, you can add support for other identity providers (IDPs) without changing any of your code.
+Сейчас приложение поддерживает регистрацию и вход пользователей только с использованием **локальных учетных записей**. Учетные записи хранятся в каталоге B2C, где применяется имя пользователя и пароль. С помощью Azure AD B2C можно добавить поддержку для других поставщиков удостоверений (IDP), не изменяя код.
 
-To add social IDPs to your app, begin by following the detailed instructions in these articles. For each IDP you want to support, you need to register an application in that system and obtain a client ID.
+Чтобы добавить в приложение поставщиков удостоверений социальных сетей, следуйте подробным инструкциям, приведенным в указанных ниже статьях. Для каждого поставщика удостоверений, поддержку которого нужно добавить, необходимо зарегистрировать приложение в соответствующей системе и получить идентификатор клиента.
 
-- [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
-- [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
-- [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
-- [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
+- [Настройка Facebook как поставщика удостоверений](active-directory-b2c-setup-fb-app.md)
+- [Настройка Google как поставщика удостоверений](active-directory-b2c-setup-goog-app.md)
+- [Настройка Amazon как поставщика удостоверений](active-directory-b2c-setup-amzn-app.md)
+- [Настройка LinkedIn как поставщика удостоверений](active-directory-b2c-setup-li-app.md)
 
-After you add the identity providers to your B2C directory, you need to edit each of your three policies to include the new IDPs, as described in the [policy reference article](active-directory-b2c-reference-policies.md). After you save your policies, run the app again. You should see the new IDPs added as sign-in and sign-up options in each of your identity experiences.
+Добавив поставщики удостоверений в каталог B2C, внесите соответствующие изменения в три политики, как описано в [справочной статье о политиках](active-directory-b2c-reference-policies.md). Сохраните политики и перезапустите приложение. Добавленные поставщики удостоверений должны отобразиться в виде вариантов при входе и регистрации.
 
-You can experiment with your policies and observe the effects on your sample app. Add or remove IDPs, manipulate application claims, or change sign-up attributes. Experiment until you can see how policies, authentication requests, and MSAL tie together.
+Вы можете свободно экспериментировать с политиками, например: добавлять или удалять поставщиков удостоверений, управлять утверждениями приложений или изменять атрибуты регистрации, а также наблюдать эффект в примере приложения. Эксперименты помогают увидеть связь между политиками, запросами на проверку подлинности и библиотекой MSAL.
 
-For reference, the completed sample [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). You can also clone it from GitHub:
+Готовый пример [предоставляется в виде ZIP-файла](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Кроме того, его можно клонировать из GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0727_2016-->

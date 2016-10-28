@@ -1,77 +1,76 @@
 <properties 
-    pageTitle="XEvent Ring Buffer code for SQL Database | Microsoft Azure" 
-    description="Provides a Transact-SQL code sample that is made easy and quick by use of the Ring Buffer target, in Azure SQL Database." 
-    services="sql-database" 
-    documentationCenter="" 
-    authors="MightyPen" 
-    manager="jhubbard" 
-    editor="" 
-    tags=""/>
+	pageTitle="Код кольцевого буфера XEvent для Базы данных SQL | Microsoft Azure" 
+	description="Содержит пример кода Transact-SQL, обеспечивающего простоту и удобство использования целевого объекта ";Кольцевой буфер"; в Базе данных SQL Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="MightyPen" 
+	manager="jhubbard" 
+	editor="" 
+	tags=""/>
 
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="data-management" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/23/2016" 
-    ms.author="genemi"/>
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/23/2016" 
+	ms.author="genemi"/>
 
 
-
-# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ring Buffer target code for extended events in SQL Database
+# Код целевого объекта "Кольцевой буфер" для расширенных событий в базе данных SQL
 
 [AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](http://msdn.microsoft.com/library/ff878182.aspx).
+Вам нужен полный образец кода для простой и быстрой регистрации и сообщения сведений о расширенных событиях в процессе тестирования. Самый простой целевой объект для данных расширенных событий — это [целевой объект "Кольцевой буфер"](http://msdn.microsoft.com/library/ff878182.aspx).
 
 
-This topic presents a Transact-SQL code sample that:
+В этой статье представлен пример кода Transact-SQL, который:
 
 
-1. Creates a table with data to demonstrate with.
+1. создает таблицу с данными для демонстрации;
 
-2. Creates a session for an existing extended event, namely **sqlserver.sql_statement_starting**.
-    - The event is limited to SQL statements that contain a particular Update string: **statement LIKE '%UPDATE tabEmployee%'**.
-    - Chooses to send the output of the event to a target of type Ring Buffer, namely  **package0.ring_buffer**.
+2. создает сеанс для существующего расширенного события, а именно **sqlserver.sql\_statement\_starting**.
+	- Событие ограничивается операторами SQL, содержащими определенную строку обновления: **оператор LIKE '%UPDATE tabEmployee%'**.
+	- Выбирает отправку выходных данных события в целевой объект типа "Кольцевой буфер", а именно **package0.ring\_buffer**.
 
-3. Starts the event session.
+3. Запускает сеанс событий.
 
-4. Issues a couple of simple SQL UPDATE statements.
+4. Выдает пару простых операторов SQL UPDATE.
 
-5. Issues an SQL SELECT to retrieve event output from the Ring Buffer.
-    - **sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.
+5. Выдает оператор SQL SELECT для получения выходных данных события из кольцевого буфера.
+	- **sys.dm\_xe\_database\_session\_targets** и другие динамические административные представления объединяются.
 
-6. Stops the event session.
+6. Останавливает сеанс событий.
 
-7. Drops the Ring Buffer target, to release its resources.
+7. Удаляет целевой объект "Кольцевой буфер" для освобождения ресурсов.
 
-8. Drops the event session and the demo table.
-
-
-## <a name="prerequisites"></a>Prerequisites
+8. Удаляет сеанс событий и демонстрационную таблицу.
 
 
-- An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+## Предварительные требования
 
 
-- Any database you can create a table in.
- - Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
+- Учетная запись и подписка Azure. Вы можете зарегистрироваться, чтобы получить [бесплатную пробную версию](https://azure.microsoft.com/pricing/free-trial/).
 
 
-- SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. You can download the latest ssms.exe from:
- - Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
- - [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
+- Любая база данных, позволяющая создать таблицу.
+ - При необходимости вы можете быстро [создать демонстрационную базу данных **AdventureWorksLT**](sql-database-get-started.md).
 
 
-## <a name="code-sample"></a>Code sample
+- SQL Server Management Studio (ssms.exe), в идеале — последняя ежемесячная версия обновления. Ресурсы для загрузки последней версии файла ssms.exe:
+ - Статья [Скачивание SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
+ - [Прямая ссылка на загрузку.](http://go.microsoft.com/fwlink/?linkid=616025)
 
 
-With very minor modification, the following Ring Buffer code sample can be run on either Azure SQL Database or Microsoft SQL Server. The difference is the presence of the node '_database' in the name of some dynamic management views (DMVs), used in the FROM clause in Step 5. For example:
+## Пример кода
 
-- sys.dm_xe**_database**_session_targets
-- sys.dm_xe_session_targets
+
+С небольшими изменениями приведенный ниже пример кода кольцевого буфера можно выполнять как в базе данных SQL Azure, так и на Microsoft SQL Server. Разница заключается в наличии узла "\_database" в имени некоторых динамических административных представлений, используемых в части FROM (шаг 5). Например:
+
+- sys.dm\_xe**\_database**\_session\_targets
+- sys.dm\_xe\_session\_targets
 
 
 &nbsp;
@@ -87,63 +86,63 @@ GO
 
 
 IF EXISTS
-    (SELECT * FROM sys.objects
-        WHERE type = 'U' and name = 'tabEmployee')
+	(SELECT * FROM sys.objects
+		WHERE type = 'U' and name = 'tabEmployee')
 BEGIN
-    DROP TABLE tabEmployee;
+	DROP TABLE tabEmployee;
 END
 GO
 
 
 CREATE TABLE tabEmployee
 (
-    EmployeeGuid         uniqueIdentifier   not null  default newid()  primary key,
-    EmployeeId           int                not null  identity(1,1),
-    EmployeeKudosCount   int                not null  default 0,
-    EmployeeDescr        nvarchar(256)          null
+	EmployeeGuid         uniqueIdentifier   not null  default newid()  primary key,
+	EmployeeId           int                not null  identity(1,1),
+	EmployeeKudosCount   int                not null  default 0,
+	EmployeeDescr        nvarchar(256)          null
 );
 GO
 
 
 INSERT INTO tabEmployee ( EmployeeDescr )
-    VALUES ( 'Jane Doe' );
+	VALUES ( 'Jane Doe' );
 GO
 
 ---- Step set 2.
 
 
 IF EXISTS
-    (SELECT * from sys.database_event_sessions
-        WHERE name = 'eventsession_gm_azuresqldb51')
+	(SELECT * from sys.database_event_sessions
+		WHERE name = 'eventsession_gm_azuresqldb51')
 BEGIN
-    DROP EVENT SESSION eventsession_gm_azuresqldb51
-        ON DATABASE;
+	DROP EVENT SESSION eventsession_gm_azuresqldb51
+		ON DATABASE;
 END
 GO
 
 
 CREATE
-    EVENT SESSION eventsession_gm_azuresqldb51
-    ON DATABASE
-    ADD EVENT
-        sqlserver.sql_statement_starting
-            (
-            ACTION (sqlserver.sql_text)
-            WHERE statement LIKE '%UPDATE tabEmployee%'
-            )
-    ADD TARGET
-        package0.ring_buffer
-            (SET
-                max_memory = 500   -- Units of KB.
-            );
+	EVENT SESSION eventsession_gm_azuresqldb51
+	ON DATABASE
+	ADD EVENT
+		sqlserver.sql_statement_starting
+			(
+			ACTION (sqlserver.sql_text)
+			WHERE statement LIKE '%UPDATE tabEmployee%'
+			)
+	ADD TARGET
+		package0.ring_buffer
+			(SET
+				max_memory = 500   -- Units of KB.
+			);
 GO
 
 ---- Step set 3.
 
 
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-    ON DATABASE
-    STATE = START;
+	ON DATABASE
+	STATE = START;
 GO
 
 ---- Step set 4.
@@ -152,10 +151,10 @@ GO
 SELECT 'BEFORE_Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 UPDATE tabEmployee
-    SET EmployeeKudosCount = EmployeeKudosCount + 102;
+	SET EmployeeKudosCount = EmployeeKudosCount + 102;
 
 UPDATE tabEmployee
-    SET EmployeeKudosCount = EmployeeKudosCount + 1015;
+	SET EmployeeKudosCount = EmployeeKudosCount + 1015;
 
 SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 GO
@@ -204,23 +203,23 @@ GO
 
 
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-    ON DATABASE
-    STATE = STOP;
+	ON DATABASE
+	STATE = STOP;
 GO
 
 ---- Step set 7.
 
 
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-    ON DATABASE
-    DROP TARGET package0.ring_buffer;
+	ON DATABASE
+	DROP TARGET package0.ring_buffer;
 GO
 
 ---- Step set 8.
 
 
 DROP EVENT SESSION eventsession_gm_azuresqldb51
-    ON DATABASE;
+	ON DATABASE;
 GO
 
 DROP TABLE tabEmployee;
@@ -231,18 +230,18 @@ GO
 &nbsp;
 
 
-## <a name="ring-buffer-contents"></a>Ring Buffer contents
+## Содержимое кольцевого буфера
 
 
-We used ssms.exe to run the code sample.
+Для выполнения данного примера кода мы использовали файл ssms.exe.
 
 
-To view the results, we clicked the cell under the column header **target_data_XML**.
+Чтобы просмотреть результаты, мы щелкнули ячейку под заголовком столбца **target\_data\_XML**.
 
-Then in the results pane we clicked the cell under the column header **target_data_XML**. This click created another file tab in ssms.exe in which the content of the result cell was displayed, as XML.
+Затем в области результатов мы щелкнули ячейку под заголовком столбца **target\_data\_XML**. В результате в файле ssms.exe была создана дополнительная вкладка, на которой в виде XML-кода отображается содержимое итоговой ячейки.
 
 
-The output is shown in the following block. It looks long, but it is just two **<event>** elements.
+Выходные данные показаны в приведенном ниже блоке. Он выглядит длинным, но содержит всего два элемента **<event>**.
 
 
 &nbsp;
@@ -336,47 +335,47 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 ```
 
 
-#### <a name="release-resources-held-by-your-ring-buffer"></a>Release resources held by your Ring Buffer
+#### Освобождение ресурсов, занятых кольцевым буфером
 
 
-When you are done with your Ring Buffer, you can remove it and release its resources issuing an **ALTER** like the following:
+По завершении работы с кольцевым буфером его можно удалить и освободить таким образом ресурсы. Для этого используется оператор **ALTER**:
 
 
 ```
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-    ON DATABASE
-    DROP TARGET package0.ring_buffer;
+	ON DATABASE
+	DROP TARGET package0.ring_buffer;
 GO
 ```
 
 
-The definition of your event session is updated, but not dropped. Later you can add another instance of the Ring Buffer to your event session:
+Определение сеанса событий обновляется, но не удаляется. Впоследствии в сеанс событий можно добавить еще один экземпляр кольцевого буфера.
 
 
 ```
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
-    ON DATABASE
-    ADD TARGET
-        package0.ring_buffer
-            (SET
-                max_memory = 500   -- Units of KB.
-            );
+	ON DATABASE
+	ADD TARGET
+		package0.ring_buffer
+			(SET
+				max_memory = 500   -- Units of KB.
+			);
 ```
 
 
-## <a name="more-information"></a>More information
+## Дополнительные сведения
 
 
-The primary topic for extended events on Azure SQL Database is:
+Основная статья о расширенных событиях в Базе данных SQL Azure:
 
 
-- [Extended event considerations in SQL Database](sql-database-xevent-db-diff-from-svr.md), which contrasts some aspects of extended events that differ between Azure SQL Database versus Microsoft SQL Server.
+- [Рекомендации по работе с расширенными событиями в Базе данных SQL](sql-database-xevent-db-diff-from-svr.md), где сравниваются аспекты расширенных событий в Базе данных SQL Azure и в Microsoft SQL Server.
 
 
-Other code sample topics for extended events are available at the following links. However, you must routinely check any sample to see whether the sample targets Microsoft SQL Server versus Azure SQL Database. Then you can decide whether minor changes are needed to run the sample.
+Другие статьи с примерами кода для работы с расширенными событиями доступны по приведенным ниже ссылкам. Обязательно проверяйте, предназначен ли пример для Microsoft SQL Server или для базы данных SQL Azure. После этого вы сможете решить, какие поправки нужно внести в пример кода.
 
 
-- Code sample for Azure SQL Database: [Event File target code for extended events in SQL Database](sql-database-xevent-code-event-file.md)
+- Пример кода для Базы данных SQL Azure: [Код целевого объекта "Файл событий" для расширенных событий в Базе данных SQL](sql-database-xevent-code-event-file.md)
 
 
 <!--
@@ -386,8 +385,4 @@ Other code sample topics for extended events are available at the following link
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

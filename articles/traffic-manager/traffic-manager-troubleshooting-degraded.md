@@ -1,103 +1,83 @@
 <properties
-    pageTitle="Troubleshooting degraded status on Azure Traffic Manager"
-    description="How to troubleshoot Traffic Manager profiles when it shows as degraded status."
-    services="traffic-manager"
-    documentationCenter=""
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-/>
-<tags
-    ms.service="traffic-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="10/11/2016"
-    ms.author="sewhee"
-/>
+   pageTitle="Устранение неполадок с состоянием ";Деградация"; в диспетчере трафика Azure"
+   description="Устранение неполадок с профилями диспетчера трафика при отображении состояния ";Деградация";."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="sdwheeler"
+   manager="carmonm"
+   editor="joaoma" />
+
+<tags 
+   ms.service="traffic-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="03/17/2016"
+   ms.author="sewhee" />
+
+# Устранение неполадок, связанных со сбоем диспетчера трафика
+
+На этой странице описывается, как устранить неполадки с профилем диспетчера трафика Azure, для которого отображается состояние "Деградация", и о том, как предоставить основные сведения о проверках диспетчера трафика.
+
+После настройки профиля диспетчера трафика, указывающего на некоторые из размещенных служб .cloudapp.net, через несколько секунд отобразится состояние "Деградация".
+
+![degradedstate](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
+
+Если вы перейдете на вкладку "Конечные точки" этого профиля, то увидите одну или несколько конечных точек с состоянием "Не в сети":
+
+![автономно](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
+
+## Важные примечания о проверке диспетчера трафика
+
+- Диспетчер трафика считает, что конечная точка находится "В СЕТИ", только если путь проверки передает ответ 200.
+- Перенаправление 30x (или любой другой ответ, отличный от 200) приведет к сбою, даже если URL-адрес перенаправления вернет ответ 200.
+
+- При проверках HTTP ошибки сертификата пропускаются.
+ 
+- Фактическое содержимое пути проверки не имеет значения, если возвращается ответ 200. Обычно, если фактическое содержимое веб-сайта не возвращает ответ 200 (например, если страницы ASP выполняют перенаправление на страницу входа ACS или на другой URL-адрес CNAME), следует задать путь "/favicon.ico" или аналогичный.
+ 
+- Рекомендуется указать путь проверки, содержащий достаточную логику, чтобы определить, работает сайт или нет. В примере параметра выше путь к "/favicon.ico" проверяется, только если w3wp.exe отвечает, но не в случае работоспособности веб-сайта. Оптимальнее будет задать путь "/Probe.aspx" и включить в Probe.aspx логику для определения работоспособности сайта (т. е. для проверки счетчиков производительности, что позволит убедиться в отсутствии загрузки ЦП 100 % или получении большого количества запросов со сбоем, для попытки доступа к ресурсам, например к состоянию базы данных или сеанса в целях проверки работоспособности логики приложения и т. д.).
+ 
+- Если все конечные точки в профиле понижены, то диспетчер трафика будет считать их работоспособными и будет перенаправлять трафик во все конечные точки. Таким образом, любые возможные проблемы с механизмом проверки не приведут сбою службы.
+
+  
+
+## Устранение неполадок
+
+Единое средство для устранения неполадок с проверкой диспетчера трафика — wget. Вы можете получить пакет двоичных файлов и зависимостей от [wget](http://gnuwin32.sourceforge.net/packages/wget.htm). Обратите внимание, что вы можете использовать другие программы, например Fiddler или curl, вместо wget — фактически подойдет любая программа, в которой можно отобразить необработанный ответ HTTP.
+
+После установки wget перейдите в командную строку и запустите wget, указав URL-адрес, а также порт и путь проверки, настроенный в диспетчере трафика. Например, http://watestsdp2008r2.cloudapp.net:80/Probe.
+
+![устранение неполадок](./media/traffic-manager-troubleshooting-degraded/traffic-manager-troubleshooting.png)
+
+Использование Wget:
+
+![wget](./media/traffic-manager-troubleshooting-degraded/traffic-manager-wget.png)
+
+ 
+
+Обратите внимание: wget указывает, что URL-адрес вернул перенаправление 301 на http://watestsdp2008r2.cloudapp.net/Default.aspx. Как известно, в разделе "Важные примечания о проверке диспетчера трафика" выше диспетчер трафика считает перенаправление 30x сбоем, и это приводит к состоянию проверки "Не в сети". На этом этапе просто проверьте конфигурацию веб-сайта и убедитесь, что от пути /Probe возвращается ответ 200 (или перенастройте проверку диспетчера трафика так, чтобы она указывала на путь, который вернет ответ 200).
+
+ 
+
+Если при проверке используется протокол HTTP, в средство wget потребуется добавить параметр "--no-check-certificate", чтобы в URL-адресе cloudapp.net игнорировалось несоответствие сертификатов.
 
 
-# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Troubleshooting degraded state on Azure Traffic Manager
-
-This article describes how to troubleshoot an Azure Traffic Manager profile that is showing a degraded status. For this scenario, consider that you have configured a Traffic Manager profile pointing to some of your cloudapp.net hosted services. When you check the health of your traffic manager, you see that the Status is Degraded.
-
-![degraded state](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degraded.png)
-
-If you go into the Endpoints tab of that profile, you see one or more of the endpoints with an Offline status:
-
-![offline](./media/traffic-manager-troubleshooting-degraded/traffic-manager-offline.png)
-
-## <a name="understanding-traffic-manager-probes"></a>Understanding Traffic Manager probes
-
-- Traffic Manager considers an endpoint to be ONLINE only when the probe receives an HTTP 200 response back from the probe path. Any other non-200 response is a failure.
-- A 30x redirect fails, even if the redirected URL returns a 200.
-- For HTTPs probes, certificate errors are ignored.
-- The actual content of the probe path doesn't matter, as long as a 200 is returned. Probing a URL to some static content like "/favicon.ico" is a common technique. Dynamic content, like the ASP pages, may not always return 200, even when the application is healthy.
-- A best practice is to set the Probe path to something that has enough logic to determine that the site is up or down. In the previous example, by setting the path to "/favicon.ico", you are only testing that w3wp.exe is responding. This probe may not indicate that your web application is healthy. A better option would be to set a path to a something such as "/Probe.aspx" that has logic to determine the health of the site. For example, you could use performance counters to CPU utilization or measure the number of failed requests. Or you could attempt to access database resources or session state to make sure that the web application is working.
-- If all endpoints in a profile are degraded, then Traffic Manager treats all endpoints as healthy and routes traffic to all endpoints. This behavior ensures that problems with the probing mechanism do not result in a complete outage of your service.
-
-## <a name="troubleshooting"></a>Troubleshooting
-
-To troubleshoot a probe failure, you need a tool that shows the HTTP status code return from the probe URL. There are many tools available that show you the raw HTTP response.
-
-* [Fiddler](http://www.telerik.com/fiddler)
-* [curl](https://curl.haxx.se/)
-* [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
-
-Also, you can use the Network tab of the F12 Debugging Tools in Internet Explorer to view the HTTP responses.
-
-For this example we want to see the response from our probe URL: http://watestsdp2008r2.cloudapp.net:80/Probe. The following PowerShell example illustrates the problem.
-
-```powershell
-    Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
-```
-
-Example output:
-
-```text
-    StatusCode StatusDescription
-    ---------- -----------------
-            301 Moved Permanently
-```
-
-Notice that we received a redirect response. As stated previously, any StatusCode other than 200 is considered a failure. Traffic Manager changes the endpoint status to Offline. To resolve the problem, check the website configuration to ensure that the proper StatusCode can be returned from the probe path. Reconfigure the Traffic Manager probe to point to a path that returns a 200.
-
-If your probe is using the HTTPS protocol, you may need to disable certificate checking to avoid SSL/TLS errors during your test. The following PowerShell statements disable certificate validation for the current PowerShell session:
-
-```powershell
-    add-type @"
-    using System.Net;
-    using System.Security.Cryptography.X509Certificates;
-    public class TrustAllCertsPolicy : ICertificatePolicy {
-        public bool CheckValidationResult(
-        ServicePoint srvPoint, X509Certificate certificate,
-        WebRequest request, int certificateProblem) {
-        return true;
-        }
-    }
-    "@
-    [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
-```
-
-## <a name="next-steps"></a>Next Steps
-
-[About Traffic Manager traffic routing methods](traffic-manager-routing-methods.md)
-
-[What is Traffic Manager](traffic-manager-overview.md)
-
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Azure Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)
-
-[Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Azure Traffic Manager Cmdlets][1]
-
-[1]: https://msdn.microsoft.com/library/mt125941(v=azure.200).aspx
+## Дальнейшие действия
 
 
+[О методах маршрутизации трафика в диспетчере трафика](traffic-manager-routing-methods.md)
 
-<!--HONumber=Oct16_HO2-->
+[Что такое диспетчер трафика](traffic-manager-overview.md)
 
+[Облачные службы](http://go.microsoft.com/fwlink/?LinkId=314074)
 
+[Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+
+[Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/?LinkId=313584)
+
+[Командлеты для диспетчера трафика Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
+ 
+
+<!---HONumber=AcomDC_0824_2016-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage your StorSimple storage account | Microsoft Azure"
-   description="Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for a storage account."
+   pageTitle="Управление учетной записью хранения StorSimple | Microsoft Azure"
+   description="Здесь объясняется, как можно использовать страницу ";Настройка"; в диспетчере StorSimple для добавления, изменения и удаления или смены ключей безопасности для учетной записи хранения."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,148 +15,143 @@
    ms.date="04/29/2016"
    ms.author="v-sharos" />
 
+# Использование службы диспетчера StorSimple для управления учетной записью хранения
 
-# <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>Use the StorSimple Manager service to manage your storage account
+## Обзор
 
-## <a name="overview"></a>Overview
+На странице **Настройка** представлены все параметры глобальной службы, создаваемые в службе диспетчера StorSimple. Эти параметры могут применяться для всех устройств, подключенных к службе, включая:
 
-The **Configure** page presents all the global service parameters that can be created in the StorSimple Manager service. These parameters can be applied to all the devices connected to the service, and include:
+- учетные записи хранения; 
+- шаблоны пропускной способности; 
+- записи системы контроля доступа. 
 
-- Storage accounts 
-- Bandwidth templates 
-- Access control records 
+В этом учебнике объясняется, как с помощью страницы **Настройка** добавлять, изменять или удалять учетные записи хранения или менять для них ключи безопасности.
 
-This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts, or rotate the security keys for a storage account.
+ ![Страница "Настройка"](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
 
- ![Configure page](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)  
+Учетные записи хранения содержат учетные данные, используемые устройством для доступа к учетной записи хранения у поставщика облачной службы. Для учетных записей хранения Microsoft Azure это такие учетные данные, как имя учетной записи и основной ключ доступа.
 
-Storage accounts contain the credentials that the device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key. 
+На странице **Настройка** все учетные записи хранения, созданные для подписки выставления счетов, отображаются в виде таблицы, содержащей следующие сведения:
 
-On the **Configure** page, all storage accounts that are created for the billing subscription are displayed in a tabular format containing the following information:
+- **Имя** — уникальное имя, назначенное учетной записи при ее создании.
+- **SSL включен** — включение протокола SSL, чтобы обмен данными между облаком и устройством осуществлялся по безопасному каналу.
+- **Используется** — число томов, использующих учетную запись хранения.
 
-- **Name** – The unique name assigned to the account when it was created.
-- **SSL enabled** – Whether the SSL is enabled and device-to-cloud communication is over the secure channel.
-- **Used by** – The number of volumes using the storage account.
+Вот наиболее типичные задачи, которые можно выполнить на странице **Настройка** для учетных записей хранения:
 
-The most common tasks related to storage accounts that can be performed on the **Configure** page are:
+- добавление учетной записи хранения; 
+- изменение учетной записи хранения; 
+- Удаление учетной записи хранения 
+- смена ключей учетных записей хранения. 
 
-- Add a storage account 
-- Edit a storage account 
-- Delete a storage account 
-- Key rotation of storage accounts 
+## Типы учетных записей хранения
 
-## <a name="types-of-storage-accounts"></a>Types of storage accounts
+Существует три типа учетных записей хранения, которые можно использовать на устройстве StorSimple.
 
-There are three types of storage accounts that can be used with your StorSimple device.
+- **Автоматически созданные учетные записи хранения** — как ясно из названия, этот тип учетной записи хранения создается автоматически при создании службы. Дополнительные сведения о создании этой учетной записи хранения см. в подразделе [Шаг 1. Создание новой службы](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) раздела [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md). 
+- **Учетные записи хранения в подписке службы** — это учетные записи хранилища Azure, которые связаны с подпиской той же службы. Дополнительные сведения о том, как создаются эти учетные записи хранения, см. в разделе [Об учетных записях хранения Azure](../storage/storage-create-storage-account.md). 
+- **Учетные записи хранения вне подписки на службу** — это учетные записи хранения Azure, которые не связаны со службой и скорее всего существовали до создания службы.
 
-- **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see [Step 1: Create a new service](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service) in [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md). 
-- **Storage accounts in the service subscription** – These are the Azure storage accounts that are associated with the same subscription as that of the service. To learn more about how these storage accounts are created, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md). 
-- **Storage accounts outside of the service subscription** – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.
+## Добавление учетной записи хранения
 
-## <a name="add-a-storage-account"></a>Add a storage account
+Вы можете добавить учетную запись хранения, указав уникальное понятное имя и учетные данные для доступа, связанные с учетной записью хранения (у указанного поставщика облачной службы). Также можно включить режим SSL для создания безопасного сетевого канала связи между устройством и облаком.
 
-You can add a storage account by providing a unique friendly name and access credentials that are linked to the storage account (with the specified cloud service provider). You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.
+Для одного поставщика облачных служб можно создать несколько учетных записей. Следует, однако, иметь в виду, что после создания учетной записи хранения поставщика облачных служб изменить нельзя.
 
-You can create multiple accounts for a given cloud service provider. Be aware, however, that after a storage account is created, you cannot change the cloud service provider.
+При сохранении учетной записи хранения служба пытается связаться с поставщиком облачной службы. В этот момент выполняется аутентификация по учетным данным и предоставленным данным для доступа. Учетная запись хранения создается только в том случае, если аутентификация завершается успешно. При сбое аутентификации, будет отображаться соответствующее сообщение об ошибке.
 
-While the storage account is being saved, the service attempts to communicate with your cloud service provider. The credentials and the access material that you supplied will be authenticated at this time. A storage account is created only if the authentication succeeds. If the authentication fails, then an appropriate error message will be displayed.
+Учетные записи хранения Resource Manager, созданные на портале Azure, также поддерживаются StorSimple. Учетные записи хранения Resource Manager не будут отображаться в раскрывающемся списке для выбора при попытке создать контейнер томов; в нем будут доступны только учетные записи хранения, созданные на классическом портале Azure. Чтобы добавить учетные записи хранения Resource Manager, нужно добавить учетную запись хранения, как описано ниже.
 
-Resource Manager storage accounts created in Azure portal are also supported with StorSimple. The Resource Manager storage accounts will not show up in the drop-down list for selection when trying to create a volume container, only the storage accounts created in the Azure classic portal will be displayed. Resource Manager storage accounts will need to be added using the procedure to add a storage account described below.
-
-> [AZURE.NOTE] The procedure for adding a storage account differs based on the StorSimple software version you are using. Be sure to follow the correct procedure for your StorSimple version.
+> [AZURE.NOTE] Процедура добавления учетной записи хранения зависит от используемой версии программного обеспечения StorSimple. Убедитесь, что процедуры для вашей версии StorSimple выполняются правильно.
 
 
 [AZURE.INCLUDE [add-a-storage-account-update1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
 [AZURE.INCLUDE [add-a-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
-## <a name="edit-a-storage-account"></a>Edit a storage account
+## изменение учетной записи хранения;
 
-You can edit a storage account that is used by a volume container. If you edit a storage account that is currently in use, the only field available to modify is the access key for the storage account. You can supply the new storage access key and save the updated settings.
+Учетную запись хранения, используемую контейнером тома, можно изменить. При изменении учетной записи хранения, которая используется в настоящий момент, единственным полем, доступным для изменения, является ключ доступа учетной записи хранения. Можно предоставить новый ключ доступа к хранилищу и сохранить обновленные параметры.
 
-#### <a name="to-edit-a-storage-account"></a>To edit a storage account
+#### Изменение учетной записи хранения
 
-1. On the service landing page, select your service, double-click the service name, and then click **Configure**.
+1. На главной странице служб выберите службу, дважды щелкните имя службы и выберите элемент **Настройка**.
 
-2. Click **Add/Edit Storage Accounts**.
+2. Щелкните **Добавить/изменить учетную запись хранения**.
 
-3. In the **Add/Edit Storage Accounts** dialog box:
+3. В диалоговом окне **Добавление или изменение учетных записей хранения**:
 
-  1. In the drop-down list of **Storage Accounts**, choose an existing account that you would like to modify. This could also include the storage accounts that were automatically generated when the service was first created.
-  2. If necessary, you can modify the **Enable SSL Mode** selection.
-  3. You can choose to rotate your storage account access keys. See [Key rotation of storage accounts](#key-rotation-of-storage-accounts) for more information about how to perform key rotation.
-  4. Click the check icon ![check icon](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png) to save the settings. The settings will be updated on the **Configure** page. Click **Save** to save the newly updated settings.
+  1. В раскрывающемся списке **Учетные записи хранения** выберите существующую учетную запись, которую нужно изменить. Это также могут быть учетные записи хранения, которые были автоматически созданы при создании службы.
+  2. При необходимости можно изменить параметр **Включить режим SSL**.
+  3. Ключи доступа учетной записи хранения можно сменить. Дополнительные сведения о смене ключей см. в разделе [Смена ключей учетных записей хранения](#key-rotation-of-storage-accounts).
+  4. Щелкните значок с изображением флажка ![значок галочки](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png), чтобы сохранить настройки. Параметры на странице **Настройки** обновятся. Щелкните **Сохранить**, чтобы сохранить обновленные параметры.
 
-     ![Edit a storage account](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
+     ![Изменение учетной записи хранения](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
   
-## <a name="delete-a-storage-account"></a>Delete a storage account
+## Удаление учетной записи хранения
 
-> [AZURE.IMPORTANT] You can delete a storage account only if it is not used by a volume container. If a storage account is being used by a volume container, first delete the volume container and then delete the associated storage account.
+> [AZURE.IMPORTANT] Учетную запись хранения можно удалить только в том случае, если она не используется контейнером томов. Если учетная запись хранения используется контейнером томов, сначала следует удалить контейнер томов, а затем удалить соответствующую учетную запись хранения.
 
-#### <a name="to-delete-a-storage-account"></a>To delete a storage account
+#### Удаление учетной записи хранения
 
-1. On the StorSimple Manager service landing page, select your service, double-click the service name, and then click **Configure**.
+1. На главной странице службы диспетчера StorSimple выберите службу, дважды щелкните ее имя и щелкните **Настроить**.
 
-2. In the tabular list of storage accounts, hover over the account that you wish to delete.
+2. В таблице учетных записей хранения наведите указатель мыши на учетную запись, которую требуется удалить.
 
-3. A delete icon (**x**) will appear in the extreme right column for that storage account. Click the **x** icon to delete the credentials.
+3. Значок удаления (**x**) для этой учетной записи хранения будет отображаться в крайнем правом столбце. Щелкните значок **x**, чтобы удалить учетные данные.
 
-4. When prompted for confirmation, click **Yes** to continue with the deletion. The tabular listing will be updated to reflect the changes.
+4. При появлении запроса на подтверждение нажмите кнопку **Да**, чтобы продолжить удаление. Таблица будет обновляться с учетом изменений.
 
-## <a name="key-rotation-of-storage-accounts"></a>Key rotation of storage accounts
+## Смена ключей учетных записей хранения
 
-For security reasons, key rotation is often a requirement in data centers. 
+По соображениям безопасности смена ключей в центрах обработки данных часто является обязательным требованием.
 
-> [AZURE.NOTE] The following key rotation information and the rotation procedure apply to Microsoft Azure storage accounts only. If you are using another cloud service provider, you can manage storage account keys through that provider's dashboard.
+> [AZURE.NOTE] Информация о смене ключей и процедура замены применима только к учетным записям хранения Microsoft Azure. Если вы используете другого поставщика облачных служб, управлять ключами учетной записи хранения можно через панель мониторинга этого поставщика.
  
-Each Microsoft Azure subscription can have one or more associated storage accounts. The access to these accounts is controlled by the subscription and access keys for each storage account. 
+Для каждой подписки Microsoft Azure можно иметь одну или несколько связанных учетных записей хранения. Управление доступом к этим учетным записям осуществляется с помощью ключей подписки и ключей доступа для каждой учетной записи хранения.
 
-When you create a storage account, Microsoft Azure generates two 512-bit storage access keys that are used for authentication when the storage account is accessed. Having two storage access keys allows you to regenerate the keys with no interruption to your storage service or access to that service. The key that is currently in use is the *primary* key and the backup key is referred to as the *secondary* key. One of these two keys must be supplied when your Microsoft Azure StorSimple device accesses your cloud storage service provider.
+При создании учетной записи хранения Microsoft Azure создает два 512-разрядных ключа доступа к хранилищу, которые используются для проверки подлинности при доступе к учетной записи хранения. Два ключа доступа к хранилищу позволяют повторно создавать ключи без прерывания работы службы хранилища или доступа к этой службе. Ключ, который используется в настоящий момент, называется *первичным* ключом, а его резервная копия— *вторичным* ключом. Один из этих двух ключей указывается при обращении устройства Microsoft Azure StorSimple к вашему поставщику услуг облачного хранилища.
 
-## <a name="what-is-key-rotation?"></a>What is key rotation?
+## Что такое смена ключей?
 
-Typically, applications use only one of the keys to access your data. After a certain period of time, you can have your applications switch over to using the second key. After you have switched your applications to the secondary key, you can retire the first key and then generate a new key. Using the two keys this way allows your applications access to the data without incurring any downtime.
+Как правило, приложения для доступа к данным используют только один из ключей. Через определенный период времени можно переключиться на использование второго ключа. После переключения приложений на вторичный ключ можно прекратить использование первого ключа и создать новый ключ. Два ключа позволяют приложениям получать доступ к данным без простоев.
 
-The storage account keys are always stored in the service in an encrypted form. However, these can be reset via the StorSimple Manager service. The service can get the primary key and secondary key for all the storage accounts in the same subscription, including accounts created in the Storage service as well as the default storage accounts generated when the StorSimple Manager service service was first created. The StorSimple Manager service service will always get these keys from the Azure classic portal and then store them in an encrypted manner.
+Ключи учетной записи хранения всегда хранятся в службе в зашифрованном виде. Их можно сбросить с помощью службы диспетчера StorSimple. Служба может получить первичный и вторичный ключи для всех учетных записей хранения в одной подписке, включая учетные записи, созданные в службе хранилища, а также учетные записи хранения по умолчанию, созданные при первом создании службы диспетчера StorSimple. Служба диспетчера StorSimple будет всегда получать эти ключи с классического портала Azure и хранить их в зашифрованном виде.
 
-## <a name="rotation-workflow"></a>Rotation workflow
+## Рабочий процесс смены ключей
 
-A Microsoft Azure administrator can regenerate or change the primary or secondary key by directly accessing the storage account (via the Microsoft Azure Storage service). The StorSimple Manager service does not see this change automatically.
+Администратор Microsoft Azure может повторно создавать и изменять первичный и вторичный ключи путем прямого доступа к учетной записи хранения (с помощью службы хранилища Microsoft Azure). Служба диспетчера StorSimple не выявляет эти изменения автоматически.
 
-To inform the StorSimple Manager service of the change, you will need to access the StorSimple Manager service, access the storage account, and then synchronize the primary or secondary key (depending on which one was changed). The service then gets the latest key, encrypts the keys, and sends the encrypted key to the device.
+Чтобы сообщить службе диспетчера StorSimple об изменениях, необходимо получить доступ к службе диспетчера StorSimple, затем перейти к учетной записи хранения, после чего синхронизировать основной или дополнительный ключ (в зависимости от того, какой из них был изменен). Затем служба возвращает последний ключ, шифрует ключи и передает зашифрованный ключ на устройство.
 
-#### <a name="to-synchronize-keys-for-storage-accounts-in-the-same-subscription-as-the-service-(azure-only)"></a>To synchronize keys for storage accounts in the same subscription as the service (Azure only)
+#### Синхронизация ключей для учетных записей хранения в той же подписке, что и служба (только Azure)
 
-1. On the **Services** page, click the **Configure** tab.
+1. На странице **Службы** выберите вкладку **Настройка**.
 
-2. Click **Add/Edit Storage Accounts**.
+2. Щелкните **Добавить/изменить учетную запись хранения**.
 
-3. In the dialog box, do the following:
+3. В диалоговом окне сделайте следующее.
 
-  1. Select the storage account with the key that you want to synchronize. The storage account keys are encrypted when they are displayed.
-  2. In the StorSimple Manager service, you need to update the key that was previously changed in the Microsoft Azure Storage service. If the primary access key was changed (regenerated), click **synchronize primary key**. If the secondary key was changed, click **synchronize secondary key**.
+  1. Выберите учетную запись хранения с ключом, который необходимо синхронизировать. Ключи учетной записи хранения шифруются при отображении.
+  2. В службе диспетчера StorSimple необходимо обновить ключ, который ранее был изменен в службе хранилища Microsoft Azure. Если был изменен (создан повторно) основной ключ доступа, щелкните **Синхронизировать основной ключ**. Если был изменен дополнительный ключ, щелкните **Синхронизировать дополнительный ключ**.
 
-    ![synchronize keys](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
+    ![Синхронизация ключей](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 
-#### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>To synchronize keys for storage accounts outside of the service subscription
+#### Синхронизация ключей для учетных записей хранения вне подписки на службу
 
-1. On the **Services** page, click the **Configure** tab.
+1. На странице **Службы** выберите вкладку **Настройка**.
 
-2. Click **Add/Edit Storage Accounts**.
+2. Щелкните **Добавить/изменить учетную запись хранения**.
 
-3. In the dialog box, do the following:
+3. В диалоговом окне сделайте следующее.
 
-  1. Select the storage account with the access key that you want to update.
-  2. You will need to update the storage access key in the StorSimple Manager service. In this case, you can see the storage access key. Enter the new key in the **Storage Account Access Key**y box. 
-  3. Save your changes. Your storage account access key should now be updated.
+  1. Выберите учетную запись хранения с ключом доступа, который необходимо обновить.
+  2. Обновлять ключ доступа к хранилищу необходимо в службе диспетчера StorSimple. В этом случае его можно увидеть. Введите новый ключ в поле **Ключ доступа к учетной записи хранения**. 
+  3. Сохраните изменения. Ключ доступа к учетной записи хранения теперь должен быть обновлен.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- Learn more about [StorSimple security](storsimple-security.md).
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- [Узнайте о больше о безопасности StorSimple](storsimple-security.md).
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0518_2016-->

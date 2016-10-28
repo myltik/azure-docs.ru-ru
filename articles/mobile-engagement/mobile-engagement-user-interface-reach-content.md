@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Mobile Engagement User Interface - Reach Content" 
-   description="Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement" 
+   pageTitle="Пользовательский интерфейс Azure Mobile Engagement — Содержимое рекламных кампаний" 
+   description="Информация об управлении уникальным контентом для различных типов кампаний push-уведомлений в Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -16,133 +16,127 @@
    ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
-
-# <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>How to manage the unique content of the different types of push notification campaigns
+# Управление уникальным контентом для различных типов кампаний push-уведомлений
  
-You can use the Content section of a new reach campaign to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The content setting of Push campaigns is specific to the type of campaign. 
+С помощью раздела «Содержимое» новой рекламной кампании можно изменять содержимое объявлений, опросов, отправок данных и плиток (только для Windows Phone). Параметр «Содержимое» кампаний push-уведомлений зависит от типа кампании.
  
-### <a name="content-types:"></a>Content types:
-- Announcements
-- Polls
-- Data pushes
-- Tiles (Windows Phone Only)
+### Типы содержимого
+- Объявления
+- Опросы
+- Отправки данных
+- Плитки (только для Windows Phone)
  
-## <a name="content-of-announcements"></a>Content of Announcements
- ![Reach-Content1][30] 
+## Содержимое объявлений
+ ![Рекламная кампания — Содержимое 1][30]
 
-### <a name="choose-the-type-of-your-announcement:"></a>Choose the type of your announcement:
--    Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
--    Text announcement: It is a notification that engages the user to have a look at a text view.
--    Web announcement: It is a notification that engages the user to have a look at a web view.
+### Выберите тип объявления:
+-    Только уведомление. Это простое стандартное уведомление. Это значит, что если пользователь щелкнет его, не отобразится никакое дополнительное представление, а будет только выполнено действие, связанное с ним.
+-    Текстовое объявление. Это уведомление, при появлении которого пользователь может посмотреть текстовое представление.
+-    Веб-объявление. Это уведомление, при появлении которого пользователь может посмотреть веб-представление.
 
-### <a name="see-also"></a>See also
-- [Reach - How Tos - Announcements][Link 3] 
+### Дополнительные материалы
+- [Охват — Практические руководства — Объявления][Link 3]
 
-### <a name="about-web-view-announcements:"></a>About Web View Announcements:
-Occurrences of the pattern "{deviceid}" in the HTML code or JavaScript code you provide here will be automatically replaced by the identifier of the device displaying the announcement. This is an easy way to retrieve Azure Mobile Engagement device identifiers in an external web service hosted on your back office.
-If you want to create a full screen web view (without the default Action and Exit buttons we provide) you can use the following functions from your web view announcement's JavaScript code: 
+### Об объявлениях с веб-представлением
+Шаблон {deviceid} в предоставляемом здесь HTML-коде или коде JavaScript будет автоматически заменен идентификатором устройства, в котором отображается объявление. Это простой способ получить идентификаторы устройств Azure Mobile Engagement из внешней веб-службы, размещенной в операционном отделе организации. Если вы хотите создать полноэкранное веб-представление (без предоставляемых кнопок по умолчанию «Действие» и «Выход»), вы можете использовать следующие функции в коде JavaScript объявления веб-представления:
 
--    perform the announcement action: ReachContent.actionContent()
--    exit from the announcement: ReachContent.exitContent()
+-    выполнение действия объявления: ReachContent.actionContent()
+-    выход из объявления: ReachContent.exitContent()
  
-### <a name="choose-your-action:"></a>Choose your Action:
+### Выбор действия
 
-### <a name="about-action-urls:"></a>About Action URLs:
-Any URL that can be interpreted by a targeted device's operating system can be used as an action URL.
-Any dedicated URL that your application might support (e.g. to make users jump to a particular screen) can also be used as an action URL.
-Each occurrence of the {deviceid} pattern is automatically replaced by the identifier of the device performing the action. This can be used to easily retrieve Azure Mobile Engagement device identifiers via an external web service hosted on your back office.
+### Об URL-адресах действия
+Любой URL-адрес, который может интерпретироваться операционной системой целевого устройства, может использоваться как URL-адрес действия. В качестве URL-адреса действия также может использоваться любой выделенный URL-адрес, поддерживаемый приложением (например, для перехода пользователя к определенному экрану). Каждый шаблон {deviceid} автоматически заменяется идентификатором устройства, выполняющего действие. Таким способом можно легко получить идентификаторы устройств Azure Mobile Engagement из внешней веб-службы, размещенной в операционном отделе организации.
 
-- **Android + iOS actions**
-    - Open a web page
-    - http://\[web-site-domain\] 
-    - Example:http://www.azure.com
-    - Send an e-mail
-    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
-    - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Send a SMS
-    - sms:\[phone-number\] 
-    - Example:sms:2125551212
-    - Dial a phone number
-    - tel:\[phone-number\] 
-    - Example:tel:2125551212
-- **Android only actions**
-    - Download an application on the Play Store
-    - market://details?id=\[app package\] 
-    - Example:market://details?id=com.microsoft.office.word
-    - Start a geo-localized search
-    - geo:0,0?q=\[search query\] 
-    - Example:geo:0,0?q=starbucks,paris
-- **iOS only actions**
-    - Download an application on the App Store
-    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
-    - Example:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
-    - Windows Actions
-    - Open a web page
-    - http://\[web-site-domain\] 
-    - Example:http://www.azure.com
-    - Send an e-mail
-    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
-    - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Send a SMS (Skype Store App required)
-    - sms:\[phone-number\] 
-    - Example:sms:2125551212
-    - Dial a phone number (Skype Store App required)
-    - tel:\[phone-number\] 
-    - Example:tel:2125551212
-    - Download an application on the Play Store
-    - ms-windows-store:PDP?PFN=\[app package ID\] 
-    - Example:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
-    - Start a bingmaps search
-    - bingmaps:?q=\[search query\] 
-    - Example:bingmaps:?q=starbucks,paris
-    - Use a custom scheme
-    - \[custom scheme\]://\[custom scheme params\] 
-    - Example:myCustomProtocol://myCustomParams
-    - Use a package data (Store App for extension read required)
-    - \[folder\]\[data\].\[extension\] 
-    - Example:myfolderdata.txt
+- **Действия для Android и iOS**
+    - Открытие веб-страницы
+    - http://[web-site-domain\]
+    - Пример:http://www.azure.com
+    - Отправка сообщения электронной почты
+    - mailto:[e-mail-recipient]?subject=[subject]&body=[message]
+    - Пример: mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - Отправка SMS-сообщения
+    - SMS: [номер телефона]
+    - Пример: sms:2125551212
+    - Набор номера телефона
+    - tel: [номер телефона]
+    - Пример: tel:2125551212
+- **Действия только для Android**
+    - Скачивание приложения из Магазина Google Play
+    - пакет market://details?id=[app]
+    - Пример:market://details?id=com.microsoft.office.word
+    - Запуск поиска по географическому расположению
+    - geo:0,0?q=[поисковый запрос]
+    - Пример:geo:0,0?q=starbucks,paris
+- **Действия только для iOS**
+    - Скачивание приложения из магазина App Store
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8
+    - Пример:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+    - Действия для Windows
+    - Открытие веб-страницы
+    - http://[web-site-domain\]
+    - Пример:http://www.azure.com
+    - Отправка сообщения электронной почты
+    - mailto:[e-mail-recipient]?subject=[subject]&body=[message]
+    - Пример: mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+    - Отправка SMS-сообщения (требуется приложение Skype из Магазина)
+    - SMS: [номер телефона]
+    - Пример: sms:2125551212
+    - Набор номера телефона (требуется приложение Skype из Магазина)
+    - tel: [номер телефона]
+    - Пример: tel:2125551212
+    - Скачивание приложения из Магазина Google Play
+    - ms-windows-store:PDP?PFN=[идентификатор пакета приложения]
+    - Пример: ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
+    - Запуск поиска по картам Bing
+    - bingmaps:?q=[поисковый запрос]
+    - Пример:bingmaps:?q=starbucks,paris
+    - Использование пользовательской схемы
+    - [пользовательская схема]://[custom scheme params]
+    - Пример:myCustomProtocol://myCustomParams
+    - Использование данных пакета (требуется приложение из Магазина для расширения для чтения)
+    - [папка] [данные]. [расширение]
+    - Пример: myfolderdata.txt
  
-### <a name="build-a-tracking-url:"></a>Build a Tracking URL:
--    See the “Settings” section of the <UI Documentation> for instruction on building a tracking URL that will allow users to download one of your other applications.
+### Создание URL-адреса отслеживания
+-    См. указания по созданию URL-адреса отслеживания, который позволит пользователям скачивать одно из ваших приложений, в разделе "Параметры" документации по пользовательскому интерфейсу.
  
-### <a name="define-the-texts-of-your-announcement"></a>Define the texts of your announcement
-Fill in the title, content, and button texts of your announcement. You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on the feedback of whether this campaign was just pushed, replied, actioned, or exited.
+### Определение текста объявления
+Введите заголовок, содержимое и названия для кнопок вашего объявления. Целевую аудиторию будущей кампании можно отслеживать на основе отзывов и предложений по рекламным кампаниям из ответов пользователей на эту кампанию. Кроме того, целевую аудиторию можно отслеживать на основе отзывов и предложений по действию, совершенному с кампанией (отправка push-уведомления, ответ, выполнение действия или выход).
 
-### <a name="see-also"></a>See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+### Дополнительные материалы
+- [Документация по пользовательскому интерфейсу — Охват — Создание нового условия для push-уведомлений][Link 28]
 
-## <a name="content-of-polls"></a>Content of Polls
-![Reach-Content2][31] Fill in the title, description, and button texts of your announcement. Then, add questions and choices for the answers to your questions.
-You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited. Audience targeting can also be based on Poll answer feedback, where the question and answer choice are used as criteria.
+## Содержимое опросов
+![Рекламная кампания — Содержимое 2][31] Введите заголовок, описание и названия для кнопок вашего объявления. Затем добавьте вопросы и варианты ответов. Целевую аудиторию будущей кампании можно отслеживать на основе отзывов и предложений по рекламным кампаниям из ответов пользователей на эту кампанию. Кроме того, целевую аудиторию можно отслеживать на основе действий, совершенных с кампанией (отправка push-уведомления, ответ, выполнение действия или выход). Кроме того, целевую аудиторию можно отслеживать на основе отзывов и предложений по ответам на опрос, в которых в качестве критериев используются вопрос и вариант ответа.
 
-### <a name="see-also"></a>See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+### Дополнительные материалы
+- [Документация по пользовательскому интерфейсу — Охват — Создание нового условия для push-уведомлений][Link 28]
  
-## <a name="content-of-data-pushes"></a>Content of Data Pushes
-![Reach-Content3][32] 
+## Содержимое отправки данных
+![Рекламная кампания — Содержимое 3][32]
 
-### <a name="choose-the-type-of-your-data:"></a>Choose the type of your data:
-- Text
-- Binary data
-- Base64 data
+### Выберите тип данных
+- текст
+- Двоичные данные
+- Данные Base64
 
-### <a name="define-the-content-of-your-data"></a>Define the content of your data
-- If you selected to push text data, copy and paste the text into the "content" box.
-- If you selected to push either binary or base64 data, use the "upload your file" button to upload your file.
-- You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited.
+### Определение содержимого данных
+- Если вы выбрали отправку текстовых данных, скопируйте и вставьте текст в поле «Содержимое».
+- Если вы выбрали отправку двоичных данных или данных base64, нажмите кнопку «Отправить файл» для отправки файла.
+- Целевую аудиторию будущей кампании можно отслеживать на основе отзывов и предложений по рекламным кампаниям из ответов пользователей на эту кампанию. Кроме того, целевую аудиторию можно отслеживать на основе действий, совершенных с кампанией (отправка push-уведомления, ответ, выполнение действия или выход).
 
-### <a name="see-also"></a>See also
-- [UI Documentation - Reach - New Push Criterion][Link 28]
+### Дополнительные материалы
+- [Документация по пользовательскому интерфейсу — Охват — Создание нового условия для push-уведомлений][Link 28]
 
-## <a name="content-of-tiles-(windows-phone-only)"></a>Content of Tiles (Windows Phone only)
-![Reach-Content4][33]
+## Содержимое плиток (только для Windows Phone)
+![Рекламная кампания — Содержимое 4][33]
 
-### <a name="define-the-content-of-your-tile"></a>Define the content of your tile
-The tile payload is the text to be displayed in the tile of your app on Windows Phone devices.
-A tile push is the Microsoft Push Notification Service (MPNS) version of a native push for Windows Phone. The tile push type is the only push type that does not have a response and so the audience of future campaigns can't be built on the results of a tile push campaign. 
+### Определение содержимого плитки
+Полезные данные плитки — это текст, который отображается на плитке приложения в устройствах Windows Phone. Push-уведомление плитки представляет собой версию службы push-уведомлений Майкрософт (MPNS) для Windows Phone. Push-уведомление плитки — это единственный тип push-уведомлений без ответа, и поэтому аудиторию будущих кампаний нельзя создать на основе результатов кампании push-уведомлений плитки.
 
-### <a name="see-also"></a>See also
-- [API Documentation - Reach API - Native Push][Link 4]
+### Дополнительные материалы
+- [Документация по API — API охвата — Системное push-уведомление][Link 4]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -236,8 +230,4 @@ A tile push is the Microsoft Push Notification Service (MPNS) version of a nativ
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

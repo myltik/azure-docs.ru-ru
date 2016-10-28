@@ -1,6 +1,6 @@
 <properties
-pageTitle="Use DataFu with Pig on HDInsight"
-description="DataFu is a collection of libraries for use with Hadoop. Learn how you can use DataFu with Pig on your HDInsight cluster."
+pageTitle="Использование DataFu с Pig в HDInsight"
+description="DataFu — это коллекция библиотек, предназначенных для использования с Hadoop. Узнайте, как использовать DataFu с Pig в кластере HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
@@ -16,57 +16,56 @@ ms.workload="big-data"
 ms.date="08/23/2016"
 ms.author="larryfr"/>
 
+#Использование DataFu с Pig в HDInsight
 
-#<a name="use-datafu-with-pig-on-hdinsight"></a>Use DataFu with pig on HDInsight
+DataFu — это коллекция библиотек с открытым исходным кодом, предназначенных для использования с Hadoop. В этом документе вы узнаете, как использовать DataFu в кластере HDInsight и как применять пользовательские функции (UDF) DataFu с Pig.
 
-DataFu is a collection of Open Source libraries for use with Hadoop. In this document, you will learn how to use DataFu on your HDInsight cluster, and how to use DataFu User Defined Functions (UDF) with Pig.
+##Предварительные требования
 
-##<a name="prerequisites"></a>Prerequisites
+* Подписка Azure.
 
-* An Azure subscription.
+* Кластер Azure HDInsight (на платформе Linux или Windows)
 
-* An Azure HDInsight cluster (Linux or Windows based)
+* Краткое знакомство с [использованием Pig в HDInsight](hdinsight-use-pig.md)
 
-* A basic familiarity with [using Pig on HDInsight](hdinsight-use-pig.md)
+##Установка DataFu в HDInsight под управлением Linux
 
-##<a name="install-datafu-on-linux-based-hdinsight"></a>Install DataFu on Linux-based HDInsight
-
-> [AZURE.NOTE] DataFu is installed on Linux-based clusters version 3.3 and higher, and on Windows-based clusters. It is not installed on Linux-based clusters earlier than 3.3.
+> [AZURE.NOTE] DataFu устанавливается на кластеры под управлением Linux версии 3.3 и более поздней и кластеры под управлением Windows. Эту коллекцию нельзя установить на кластеры под управлением Linux версии ниже 3.3.
 >
-> If you are using a Linux-based cluster version 3.3 or higher, or a Windows-based cluster, you can skip this section.
+> Если вы используете кластер под управлением Linux версии 3.3 или более поздней или кластер под управлением Windows, этот раздел можно пропустить.
 
-DataFu can be downloaded and installed from the Maven repository. Use the following steps to add DataFu to your HDInsight cluster:
+DataFu можно скачать и установить из репозитория Maven. Чтобы добавить DataFu в свой кластер HDInsight, выполните следующие действия:
 
-1. Connect to your Linux-based HDInsight cluster using SSH. For more information on using SSH with HDInsight, see one of the following documents:
+1. Подключитесь к кластеру HDInsight под управлением Linux через SSH. Дополнительные сведения об использовании SSH с HDInsight см. в следующих статьях:
 
-    * [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X, and Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
-    * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, OS X или Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-unix.md)
     
-2. Use the following command to download the DataFu jar file using the wget utility, or copy and paste the link into your browser to begin the download.
+2. Используйте следующую команду, чтобы скачать JAR-файл DataFu с помощью служебной программы wget, либо скопируйте и вставьте ссылку в браузере, чтобы начать скачивание.
 
         wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
 
-3. Next, upload the file to default storage for your HDInsight cluster. This makes the file available to all nodes in the cluster, and the file will stay in storage even if you delete and recreate the cluster.
+3. Затем загрузите файл в хранилище по умолчанию для кластера HDInsight. В результате файл становится доступным для всех узлов в кластере и остается в хранилище даже в случае удаления и повторного создания кластера.
 
         hdfs dfs -put datafu-1.2.0.jar /example/jars
     
-    > [AZURE.NOTE] The above example stores the jar in `wasbs:///example/jars` since this directory already exists on the cluster storage. You can use any location you wish on HDInsight cluster storage.
+    > [AZURE.NOTE] Приведенный выше пример сохраняет JAR-файл в `wasbs:///example/jars`, так как этот каталог уже существует в хранилище кластера. Можно использовать любое расположение в хранилище кластера HDInsight.
 
-##<a name="use-datafu-with-pig"></a>Use DataFu With Pig
+##Использование DataFu с Pig
 
-The steps in this section assume that you are familiar with using Pig on HDInsight, and only provide the Pig Latin statements, not the steps on how to use them with the cluster. For more information on using Pig with HDInsight, see [Use Pig with HDInsight](hdinsight-use-pig.md).
+В описанных здесь действиях предполагается, что вы знакомы с использованием Pig в HDInsight, и приводятся только операторы Pig Latin без описания их использования с кластером. Дополнительные сведения об использовании Pig с HDInsight см. в статье [Использование Pig с HDInsight](hdinsight-use-pig.md).
 
-> [AZURE.IMPORTANT] When using DataFu from Pig on a Linux-based HDInsight cluster, you must first register the jar file using the following Pig Latin statement:
+> [AZURE.IMPORTANT] При использовании DataFu из Pig в кластере HDInsight под управлением Linux необходимо сначала зарегистрировать JAR-файл с помощью следующего оператора Pig Latin:
 >
 > ```register wasbs:///example/jars/datafu-1.2.0.jar```
 >
-> DataFu is registered by default on Windows-based HDInsight clusters.
+> В кластерах HDInsight под управлением Windows DataFu регистрируется по умолчанию.
 
-You will usually define an alias for DataFu functions. For example:
+Обычно для функций DataFu определяется псевдоним. Например:
 
     DEFINE SHA datafu.pig.hash.SHA();
     
-This defines an alias named `SHA` for the SHA hashing function. You can then use this in a Pig Latin script to generate a hash for the input data. For example, the following replaces the names in the input data with a hash value:
+Здесь определяется псевдоним с именем `SHA` для функции хэширования SHA. Затем его можно использовать в скрипте Pig Latin в целях создания хэша для входных данных. Например, следующий код заменяет имена во входных данных на хэш-значение:
 
     raw = LOAD '/data/raw/' USING PigStorage(',') AS  
         (name:chararray, 
@@ -76,7 +75,7 @@ This defines an alias named `SHA` for the SHA hashing function. You can then use
     mask = FOREACH raw GENERATE SHA(name), int1, int2, int3; 
     DUMP mask;
 
-If this is used with the following input data:
+Если используются следующие входные данные:
 
     Lana Zemljaric,5,9,1
     Qiong Zhong,9,3,6
@@ -89,7 +88,7 @@ If this is used with the following input data:
     Shi Liao,4,6,0
     Tjasa Zemljaric,0,2,5
     
-It will generate the following output:
+Получается следующий результат:
 
     (c1a743b0f34d349cfc2ce00ef98369bdc3dba1565fec92b4159a9cd5de186347,5,9,1)
     (713d030d621ab69aa3737c8ea37a2c7c724a01cd0657a370e103d8cdecac6f99,9,3,6)
@@ -102,16 +101,12 @@ It will generate the following output:
     (fa9c436469096ff1bd297e182831f460501b826272ae97e921f5f6e3f54747e8,4,6,0)
     (bc22db7c238b86c37af79a62c78f61a304b35143f6087eb99c34040325865654,0,2,5)
 
-##<a name="next-steps"></a>Next steps
+##Дальнейшие действия
 
-For more information on DataFu or Pig, see the following documents:
+Дополнительные сведения о DataFu или Pig см. в следующих документах:
 
-* [Apache DataFu Pig Guide](http://datafu.incubator.apache.org/docs/datafu/guide.html).
+* [Руководство по Apache DataFu Pig](http://datafu.incubator.apache.org/docs/datafu/guide.html).
 
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Использование Pig с HDInsight](hdinsight-use-pig.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

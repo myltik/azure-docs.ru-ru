@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Site Recovery limits table"
-   description="Describes system limits for Site Recovery."
+   pageTitle="Таблица со сведениями об ограничениях для Site Recovery"
+   description="В таблице описаны системные ограничения для Site Recovery."
    services="site recovery"
    documentationCenter="NA"
    authors="csilauraa"
@@ -16,21 +16,16 @@
    ms.author="lauraa" />
 
 
+Ниже указаны ограничения, применяемые к Azure Site Recovery.
 
-The following limits apply to Azure Site Recovery:
 
-
-|LIMIT IDENTIFIER|DEFAULT LIMIT|
+|ИДЕНТИФИКАТОР ОГРАНИЧЕНИЯ|ОГРАНИЧЕНИЕ ПО УМОЛЧАНИЮ|
 |---|---|---|---|
-|Number of vaults per subscription|25|
-|Number of servers per Azure vault|250|
-|Number of protection groups per Azure vault|No limit|
-|Number of recovery plans per Azure vault|No limit|
-|Number of servers per protection group|No limit|
-|Number of servers per recovery plan|50|
+|Количество хранилищ на одну подписку|25|
+|Количество серверов на одно хранилище Azure|250|
+|Количество групп защиты на одно хранилище Azure|Без ограничений|
+|Количество планов восстановления на одно хранилище Azure|Без ограничений|
+|Количество серверов на одну группу защиты|Без ограничений|
+|Количество серверов на один план восстановления|50|
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=Oct15_HO3-->

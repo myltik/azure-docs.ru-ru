@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage access control records in StorSimple | Microsoft Azure"
-   description="Describes how to use access control records (ACRs) to determine which hosts can connect to a volume on the StorSimple device."
+   pageTitle="Управление записями системы контроля доступа в StorSimple | Microsoft Azure"
+   description="Описывает, как использовать записи контроля доступа (ACR), чтобы определить, какие узлы могут подключаться к тому на устройстве StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -15,89 +15,84 @@
    ms.date="08/18/2016"
    ms.author="alkohli" />
 
+# Использование службы диспетчера StorSimple для управления записями контроля доступа
 
-# <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Use the StorSimple Manager service to manage access control records
+## Обзор
 
-## <a name="overview"></a>Overview
+Записи системы контроля доступа (ACR) позволяют указать, какие узлы могут подключаться к тому на устройстве StorSimple. Записи системы контроля доступа настроены для конкретного тома и содержат полные имена iSCSI (IQN) для узлов. Если узел пытается подключиться к тому, устройство проверяет запись контроля доступа, сопоставленную с томом для имени, и в случае совпадения соединение устанавливается. Раздел о записях системы контроля доступа на странице **Настройка** содержит все записи контроля доступом с соответствующими IQN для узлов.
 
-Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple device. ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name and if there is a match, then the connection is established. The access control records section on the **Configure** page displays all the access control records with the corresponding IQNs of the hosts.
+В этом учебном материале описываются следующие общие задачи, связанные с записями контроля доступа:
 
-This tutorial explains the following common ACR-related tasks:
-
-- Add an access control record 
-- Edit an access control record 
-- Delete an access control record 
+- Добавление записи контроля доступа
+- Изменение записи контроля доступа
+- Удаление записи контроля доступа
 
 > [AZURE.IMPORTANT] 
 > 
-> - When assigning an ACR to a volume, take care that the volume is not concurrently accessed by more than one non-clustered host because this could corrupt the volume. 
-> - When deleting an ACR from a volume, make sure that the corresponding host is not accessing the volume because the deletion could result in a read-write disruption.
+> - При назначении записи контроля доступа тому, проверьте, чтобы доступ к тому не осуществлялся одновременно более чем одним некластеризованным узлом, так как это может повредить работе тома.
+> - При удалении записи контроля доступа из тома убедитесь, что соответствующий узел не имеет доступа к тому, поскольку удаление может привести к прерыванию операции чтения и записи.
 
-## <a name="add-an-access-control-record"></a>Add an access control record
+## Добавление записи контроля доступа
 
-You use the StorSimple Manager service **Configure** page to add ACRs. Typically, you will associate one ACR with one volume.
+Для добавления записей контроля доступа используется страница **Настройка** службы диспетчера StorSimple. Как правило, одной записи контроля доступа соответствует один том.
 
-Perform the following steps to add an ACR.
+Выполните следующие действия для добавления записи контроля доступа
 
-#### <a name="to-add-an-access-control-record"></a>To add an access control record
+#### Чтобы добавить запись контроля доступа
 
-1. On the service landing page, select your service, double-click the service name, and then click the **Configure** tab.
+1. На главной странице служб выберите службу, дважды щелкните по имени службы и выберите элемент **Настройка**.
 
-2. In the tabular listing under **Access control records**, supply a **Name** for your ACR.
+2. В табличном списке в строке **Записи контроля доступа** введите **Имя** для вашей записи контроля доступа.
 
-3. Provide the IQN name of your Windows host under **iSCSI Initiator Name**. To get the IQN of your Windows Server host, do the following:
+3. Введите имя IQN вашего узла Windows в строке **Имя инициатора iSCSI**. Чтобы получить IQN узла Windows Server, выполните следующие действия:
 
-   - Start the Microsoft iSCSI initiator on your Windows host.
-   - In the **iSCSI Initiator Properties** window, on the **Configuration** tab, select and copy the string from the **Initiator Name** field.
-   - Paste this string in the **iSCSI Initiator Name** field on the ACRs table in the Azure classic portal.
+   - Запустите инициатор iSCSI (Майкрософт) на узле Windows.
+   - В окне **Свойства инициатора iSCSI** на вкладке **Конфигурация** выберите и скопируйте строку из поля **Имя инициатора**.
+   - Вставьте эту строку в поле **Имя инициатора iSCSI** в таблице записей контроля доступа на классическом портале Azure.
 
-4. Click **Save** to save the newly created ACR. The tabular listing will be updated to reflect this addition.
+4. Щелкните **Сохранить**, чтобы сохранить только что созданную запись контроля доступа. Таблица будет обновлена с учетом данного добавления.
 
-## <a name="edit-an-access-control-record"></a>Edit an access control record
+## Изменение записи контроля доступа
 
-You use the **Configure** page in the Azure classic portal to edit ACRs. 
+Изменение записей контроля доступа выполняется на странице **Настройка** на классическом портале Azure.
 
-> [AZURE.NOTE] You can modify only those ACRs that are currently not in use. To edit an ACR associated with a volume that is currently in use, you must first take the volume offline.
+> [AZURE.NOTE] Можно изменить только те записи контроля доступа, которые в настоящее время не используются. Чтобы изменить запись контроля доступа, связанную с томом, который используется в настоящий момент, необходимо отключить этот том.
 
-Perform the following steps to edit an ACR.
+Выполните следующие действия для изменения записи контроля доступа
 
-#### <a name="to-edit-an-access-control-record"></a>To edit an access control record
+#### Чтобы изменить запись контроля доступа
 
-1. On the service landing page, select your service, double-click the service name, and then click the **Configure** tab.
+1. На главной странице служб выберите службу, дважды щелкните по имени службы и выберите элемент **Настройка**.
 
-2. In the tabular listing of the access control records, hover over the ACR that you wish to modify.
+2. В табличном списке записей контроля доступа наведите указатель на запись ACR, которую нужно изменить.
 
-3. Supply a new name and/or IQN for the ACR.
+3. Укажите новое имя и/или IQN для записи контроля доступа.
 
-4. Click **Save** to save the modified ACR. The tabular listing will be updated to reflect this change.
+4. Щелкните **Сохранить** для сохранения изменений в записи контроля доступа. Таблица будет обновлена с учетом изменений.
 
-## <a name="delete-an-access-control-record"></a>Delete an access control record
+## Удаление записи контроля доступа
 
-You use the **Configure** page in the Azure classic portal to delete ACRs. 
+Удаление записей контроля доступа выполняется на странице **Настройка** на классическом портале Azure.
 
-> [AZURE.NOTE] You can delete only those ACRs that are currently not in use. To delete an ACR associated with a volume that is currently in use, you must first take the volume offline.
+> [AZURE.NOTE] Можно удалять только те записи контроля доступа, которые в настоящее время не используются. Чтобы удалить запись контроля доступа, связанную с томом, который используется в настоящий момент, необходимо отключить этот том.
 
-Perform the following steps to delete an access control record.
+Выполните следующие действия для удаления записи контроля доступа.
 
-#### <a name="to-delete-an-access-control-record"></a>To delete an access control record
+#### Чтобы удалить запись контроля доступа
 
-1. On the service landing page, select your service, double-click the service name, and then click the **Configure** tab.
+1. На главной странице служб выберите службу, дважды щелкните по имени службы и выберите элемент **Настройка**.
 
-2. In the tabular listing of the access control records (ACRs), hover over the ACR that you wish to delete.
+2. В табличном списке записей контроля доступа (ACR) наведите указатель на запись ACR, которую нужно удалить.
 
-3. A delete icon (**x**) will appear in the extreme right column for the ACR that you select. Click the **x** icon to delete the ACR.
+3. Значок удаления (**x**) для этой записи контроля доступа будет отображаться в крайнем правом столбце. Щелкните значок **x**, чтобы удалить запись контроля доступа.
 
-4. When prompted for confirmation, click **YES** to continue with the deletion. The tabular listing will be updated to reflect the deletion.
+4. При появлении запроса на подтверждение нажмите кнопку **Да**, чтобы продолжить удаление. Таблица будет обновлена с учетом изменений.
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-- Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md).
+- Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md).
 
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

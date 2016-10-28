@@ -1,87 +1,82 @@
 <properties
-    pageTitle="Azure SQL Database Resource Limits"
-    description="This page describes some common resource limits for Azure SQL Database."
-    services="sql-database"
-    documentationCenter="na"
-    authors="CarlRabeler"
-    manager="jhubbard"
-    editor="monicar" />
+	pageTitle="Пределы ресурсов Базы данных SQL Azure"
+	description="На этой странице описываются некоторые общие ограничения ресурсов для Базы данных SQL Azure."
+	services="sql-database"
+	documentationCenter="na"
+	authors="CarlRabeler"
+	manager="jhubbard"
+	editor="monicar" />
 
 
 <tags
-    ms.service="sql-database"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-management"
-    ms.date="10/13/2016"
-    ms.author="carlrab" />
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="07/19/2016"
+	ms.author="carlrab" />
 
 
+# Ограничения ресурсов базы данных SQL Azure
 
-# <a name="azure-sql-database-resource-limits"></a>Azure SQL Database resource limits
+## Обзор
 
-## <a name="overview"></a>Overview
+База данных SQL Azure управляет ресурсами, доступными для базы данных, с использованием двух различных механизмов: **управления ресурсами** и **принудительного применения ограничений**. В этой статье объясняются эти два основных элемента управления ресурсами.
 
-Azure SQL Database manages the resources available to a database using two different mechanisms: **Resources Governance** and **Enforcement of Limits**. This topic explains these two main areas of resource management.
+## управление ресурсами;
+Одна из целей проектирования уровней обслуживания Basic, Standard и Premium — обеспечить такое поведение базы данных SQL Azure, как если бы она работала на отдельном компьютере в полной изоляции от других баз данных. Управление ресурсами эмулирует такое поведение. Если в совокупности ресурсы, назначенные базе данных и связанные с ЦП, объемом памяти, вводом-выводом журнала и вводом-выводом данных, используются по максимуму, то механизм управления ресурсами будет ставить запросы в очередь на выполнение и назначать им ресурсы по мере их высвобождения.
 
-## <a name="resource-governance"></a>Resource governance
-One of the design goals of the Basic, Standard, and Premium service tiers is for Azure SQL Database to behave as if the database is running on its own machine, completely isolated from other databases. Resource governance emulates this behavior. If the aggregated resource utilization reaches the maximum available CPU, Memory, Log I/O, and Data I/O resources assigned to the database, resource governance will queue queries in execution and assign resources to the queued queries as they free up.
+Как и на выделенном компьютере, использование всех доступных ресурсов приведет к задержке выполнения текущих выполняемых запросов, что может вызвать превышение времени ожидания команд на клиенте. Приложения с агрессивной логикой повтора попыток и приложения, которые выполняют запросы к базе данных с высокой частотой, могут получать сообщения об ошибках при попытке выполнения новых запросов, если достигнут лимит одновременных запросов.
 
-As on a dedicated machine, utilizing all available resources will result in a longer execution of currently executing queries, which can result in command timeouts on the client. Applications with aggressive retry logic and applications that execute queries against the database with a high frequency can encounter errors messages when trying to execute new queries when the limit of concurrent requests has been reached.
+### Рекомендации
+При приближении к максимальной загруженности базы данных отслеживайте нагрузку на ресурсы, а также среднее время отклика на запросы. При обнаружении увеличенных задержек выполнения запросов обычно есть три варианта:
 
-### <a name="recommendations:"></a>Recommendations:
-Monitor the resource utilization as well as the average response times of queries when nearing the maximum utilization of a database. When encountering higher query latencies you generally have three options:
+1.	Уменьшить объем входящих запросов к базе данных, чтобы предотвратить превышение времени ожидания и накопление запросов.
 
-1.  Reduce the amount of incoming requests to the database to prevent timeout and the pile up of requests.
+2.	Назначить базе данных более высокий уровень производительности.
 
-2.  Assign a higher performance level to the database.
+3.	Оптимизировать запросы для уменьшения использования ресурсов каждым из них. Для получения дополнительных сведений см. раздел "Настройка запросов и подсказки" в статье "Руководство по производительности базы данных SQL Azure".
 
-3.  Optimize queries to reduce the resource utilization of each query. For more information, see the Query Tuning/Hinting section in the Azure SQL Database Performance Guidance article.
+## принудительные ограничения;
+При достижении лимита для ресурсов, отличных от ЦП, памяти, ввода-вывода журнала и ввода-вывода данных, новые запросы принудительно запрещаются. Клиенты получат [сообщение об ошибке](sql-database-develop-error-messages.md) в зависимости от того, какой лимит был достигнут.
 
-## <a name="enforcement-of-limits"></a>Enforcement of limits
-Resources other than CPU, Memory, Log I/O, and Data I/O are enforced by denying new requests when limits are reached. Clients will receive an [error message](sql-database-develop-error-messages.md) depending on the limit that has been reached.
+Например, ограничено количество подключений к базе данных SQL и количество одновременных запросов, которые могут быть обработаны. Для поддержки пулов соединений база данных SQL разрешает большее количество подключений к базе данных, чем количество одновременных запросов. Хотя количество доступных подключений может легко регулироваться приложением, объем параллельных запросов зачастую существенно труднее оценить и контролировать. Возникновение ошибок особенно вероятно во время пиковых нагрузок, когда либо приложение отправляет слишком много запросов, либо база данных достигает лимита ресурсов и начинает накапливать рабочие потоки из-за все дольше выполняемых запросов.
 
-For example, the number of connections to a SQL database as well as the number of concurrent requests that can be processed are restricted. SQL Database allows the number of connections to the database to be greater than the number of concurrent requests to support connection pooling. While the amount of connections that are available can easily be controlled by the application, the amount of parallel requests is often times harder to estimate and to control. Especially during peak loads when the application either sends too many requests or the database reaches its resource limits and starts piling up worker threads due to longer running queries, errors can be encountered.
+## Уровни служб и уровни производительности
 
-## <a name="service-tiers-and-performance-levels"></a>Service tiers and performance levels
+Существуют уровни служб и уровни производительности для автономных баз данных и пулов эластичных БД.
 
-There are service tiers and performance levels for both standalone database and elastic pools.
+### Автономные базы данных
 
-### <a name="standalone-databases"></a>Standalone databases
+Ограничения для автономной базы данных определяются уровнем служб и уровнем производительности базы данных. В следующей таблице описываются характеристики баз данных Basic, Standard и Premium на различных уровнях производительности.
 
-For a standalone database, the limits of a database are defined by the database service tier and performance level. The following table describes the characteristics of Basic, Standard, and Premium databases at varying performance levels.
+[AZURE.INCLUDE [Таблица уровней служб базы данных SQL](../../includes/sql-database-service-tiers-table.md)]
 
-[AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
+### Пулы эластичных БД
 
-### <a name="elastic-pools"></a>Elastic pools
+[Пулы эластичных БД](sql-database-elastic-pool.md) совместно используют ресурсы между базами данных в пуле. В следующей таблице описываются характеристики пулов эластичных баз данных Basic, Standard и Premium.
 
-[Elastic pools](sql-database-elastic-pool.md) share resources across databases in the pool. The following table describes the characteristics of Basic, Standard, and Premium elastic database pools.
+[AZURE.INCLUDE [Таблица уровней службы базы данных SQL для эластичных баз данных](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+Расширенное определение каждого ресурса, указанного в предыдущих таблицах, см. в описаниях в разделе [Возможности и ограничения уровней служб](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). Общие сведения об уровнях служб см. в статье [Уровни служб и уровни производительности базы данных SQL Azure](sql-database-service-tiers.md).
 
-For an expanded definition of each resource listed in the previous tables, see the descriptions in [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). For an overview of service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
+## Другие ограничения базы данных SQL
 
-## <a name="other-sql-database-limits"></a>Other SQL Database limits
-
-| Area | Limit | Description |
+| Область | Ограничение | Описание |
 |---|---|---|
-| Databases using Automated export per subscription | 10 | Automated export allows you to create a custom schedule for backing up your SQL databases. For more information, see [SQL Databases: Support for Automated SQL Database Exports](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
-| Database per server | Up to 5000 | Up to 5000 databases are allowed per server on V12 servers. |  
-| DTUs per server | 45000 | 45000 DTUs are available per server on V12 servers for provisioning databases, elastic pools and data warehouses. |
+| Базы данных, использующие автоматический экспорт для каждой подписки | 10 | Автоматический экспорт позволяет создать настраиваемое расписание резервного копирования баз данных SQL. Дополнительные сведения см. в разделе [Базы данных SQL ― поддержка автоматического экспорта баз данных SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
+| Количество баз данных для каждого сервера | До 5000 | На каждом сервере версии 12 может размещаться не более 5000 баз данных. |  
+| Количество DTU для каждого сервера | 45000 | Для подготовки баз данных, эластичных пулов и хранилищ данных для каждого сервера версии 12 доступно 45 000 DTU. |
 
 
 
-## <a name="resources"></a>Resources
+## Ресурсы
 
-[Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
+[Лимиты, квоты и ограничения подписки и обслуживания Azure](../azure-subscription-service-limits.md)
 
-[Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md)
+[Уровни служб и уровни производительности в базе данных SQL Azure](sql-database-service-tiers.md)
 
-[Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
+[Сообщения об ошибках для клиентских программ базы данных SQL](sql-database-develop-error-messages.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

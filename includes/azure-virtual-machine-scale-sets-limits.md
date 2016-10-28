@@ -1,9 +1,6 @@
-Resource|Maximum Limit
+Ресурс|Максимальное ограничение
 ---|---
-Maximum number of VMs in a scale set|100
-Maximum number of scale sets in a region|200
+Максимальное число виртуальных машин в масштабируемом наборе|100
+Максимальное число масштабируемых наборов в регионе|200
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

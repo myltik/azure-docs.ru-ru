@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Tutorial: Azure Active Directory integration with Innotas | Microsoft Azure"
-    description="Learn how to use Innotas with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
+    pageTitle="Руководство. Интеграция Azure Active Directory с Innotas | Microsoft Azure"
+    description="Узнайте, как использовать Innotas вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
@@ -11,110 +11,103 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="09/29/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
-
-#<a name="tutorial:-azure-active-directory-integration-with-innotas"></a>Tutorial: Azure Active Directory integration with Innotas
+#Руководство. Интеграция Azure Active Directory с Innotas
   
-The objective of this tutorial is to show the integration of Azure and Innotas.  
-The scenario outlined in this tutorial assumes that you already have the following items:
+Цель данного руководства — показать интеграцию Azure и Innotas. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
--   A valid Azure subscription
--   A Innotas tenant
+-   Действующая подписка на Azure
+-   Клиент Innotas
   
-After completing this tutorial, the Azure AD users you have assigned to Innotas will be able to single sign into the application at your Innotas company site (service provider initiated sign on), or using the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+После завершения этого руководства пользователи Azure AD, назначенные Innotas, будут иметь возможность единого входа в приложение на веб-сайте компании Innotas (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
-The scenario outlined in this tutorial consists of the following building blocks:
+Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
-1.  Enabling the application integration for Innotas
-2.  Configuring single sign-on
-3.  Configuring user provisioning
-4.  Assigning users
+1.  Включение интеграции приложений для Innotas
+2.  Настройка единого входа
+3.  Настройка подготовки учетных записей пользователей
+4.  Назначение пользователей
 
-![Scenario](./media/active-directory-saas-innotas-tutorial/IC777331.png "Scenario")
-##<a name="enabling-the-application-integration-for-innotas"></a>Enabling the application integration for Innotas
+![Сценарий](./media/active-directory-saas-innotas-tutorial/IC777331.png "Сценарий")
+##Включение интеграции приложений для Innotas
   
-The objective of this section is to outline how to enable the application integration for Innotas.
+В этом разделе показано, как включить интеграцию приложений для Innotas.
 
-###<a name="to-enable-the-application-integration-for-innotas,-perform-the-following-steps:"></a>To enable the application integration for Innotas, perform the following steps:
+###Чтобы включить интеграцию приложений для Innotas, выполните следующие действия.
 
-1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
+1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-innotas-tutorial/IC700993.png "Active Directory")
 
-2.  From the **Directory** list, select the directory for which you want to enable directory integration.
+2.  Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
 
-3.  To open the applications view, in the directory view, click **Applications** in the top menu.
+3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Applications](./media/active-directory-saas-innotas-tutorial/IC700994.png "Applications")
+    ![Приложения](./media/active-directory-saas-innotas-tutorial/IC700994.png "Приложения")
 
-4.  Click **Add** at the bottom of the page.
+4.  В нижней части страницы нажмите кнопку **Добавить**.
 
-    ![Add application](./media/active-directory-saas-innotas-tutorial/IC749321.png "Add application")
+    ![Добавление приложения](./media/active-directory-saas-innotas-tutorial/IC749321.png "Добавление приложения")
 
-5.  On the **What do you want to do** dialog, click **Add an application from the gallery**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
-    ![Add an application from gallerry](./media/active-directory-saas-innotas-tutorial/IC749322.png "Add an application from gallerry")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-innotas-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  In the **search box**, type **Innotas**.
+6.  В **поле поиска** введите **Innotas**.
 
-    ![Application gallery](./media/active-directory-saas-innotas-tutorial/IC777332.png "Application gallery")
+    ![Коллекция приложений](./media/active-directory-saas-innotas-tutorial/IC777332.png "Коллекция приложений")
 
-7.  In the results pane, select **Innotas**, and then click **Complete** to add the application.
+7.  В области результатов выберите **Innotas** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![Innotas](./media/active-directory-saas-innotas-tutorial/IC777333.png "Innotas")
-##<a name="configuring-single-sign-on"></a>Configuring single sign-on
+##Настройка единого входа
   
-The objective of this section is to outline how to enable users to authenticate to Innotas with their account in Azure AD using federation based on the SAML protocol.
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Innotas со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>To configure single sign-on, perform the following steps:
+###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  In the Azure classic portal, on the **Innotas** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  На странице интеграции с приложением **Innotas** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777334.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-innotas-tutorial/IC777334.png "Настройка единого входа")
 
-2.  On the **How would you like users to sign on to Innotas** page, select **Microsoft Azure AD Single Sign-On**, and then click **Next**.
+2.  На странице **Как пользователи должны входить в Innotas?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777335.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-innotas-tutorial/IC777335.png "Настройка единого входа")
 
-3.  On the **Configure App URL** page, in the **Innotas Sign In URL** textbox, type your URL using the following pattern "*https://\<tenant-name\>.Innotas.com*", and then click **Next**.
+3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в Innotas** введите свой URL-адрес, используя следующий шаблон *https://\<имя-клиента>.Innotas.com*, а затем нажмите кнопку **Далее**.
 
-    ![Configure app URL](./media/active-directory-saas-innotas-tutorial/IC777336.png "Configure app URL")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-innotas-tutorial/IC777336.png "Настройка URL-адреса приложения")
 
-4.  On the **Configure single sign-on at Innotas** page, to download your metadata, click **Download metadata**, and then the data file locally as **c:\\InnotasMetaData.xml**.
+4.  На странице **Настройка единого входа в Innotas** нажмите кнопку **Загрузить метаданные** для скачивания метаданных, а затем сохраните файл данных локально в виде **c:\\InnotasMetaData.xml**.
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777337.png "Configure single sign-on")
+    ![Настройка единого входа](./media/active-directory-saas-innotas-tutorial/IC777337.png "Настройка единого входа")
 
-5.  Forward that metadata file to Innotas support team. The support team needs configures single sign-on for you.
+5.  Передайте этот файл метаданных в группу поддержки Innotas. Служба поддержки осуществляет настройку единого входа.
 
-6.  Select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  Выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Configure single sign-on](./media/active-directory-saas-innotas-tutorial/IC777338.png "Configure single sign-on")
-##<a name="configuring-user-provisioning"></a>Configuring user provisioning
+    ![Настройка единого входа](./media/active-directory-saas-innotas-tutorial/IC777338.png "Настройка единого входа")
+##Настройка подготовки учетных записей пользователей
   
-There is no action item for you to configure user provisioning to Innotas.  
-When an assigned user tries to log into Innotas using the access panel, Innotas checks whether the user exists.  
-If there is no user account available yet, it is automatically created by Innotas.
-##<a name="assigning-users"></a>Assigning users
+Элемент действия для настройки подготовки пользователей в Innotas отсутствует. Когда назначенный пользователь пытается войти в Innotas с помощью панели доступа, Innotas проверяет, существует ли данный пользователь. Если учетная запись пользователя отсутствует, Innotas автоматически создает ее.
+##Назначение пользователей
   
-To test your configuration, you need to grant the Azure AD users you want to allow using your application access to it by assigning them.
+Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###<a name="to-assign-users-to-innotas,-perform-the-following-steps:"></a>To assign users to Innotas, perform the following steps:
+###Чтобы назначить пользователей Innotas, выполните следующие действия.
 
-1.  In the Azure classic portal, create a test account.
+1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  On the **Innotas **application integration page, click **Assign users**.
+2.  На странице интеграции с приложением **Innotas** нажмите кнопку **Назначить пользователей**.
 
-    ![Assign users](./media/active-directory-saas-innotas-tutorial/IC777339.png "Assign users")
+    ![Назначить пользователей](./media/active-directory-saas-innotas-tutorial/IC777339.png "Назначить пользователей")
 
-3.  Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Yes](./media/active-directory-saas-innotas-tutorial/IC767830.png "Yes")
+    ![Да](./media/active-directory-saas-innotas-tutorial/IC767830.png "Да")
   
-If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0713_2016-->

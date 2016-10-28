@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Add the Google Drive connector in logic apps | Microsoft Azure"
-    description="Overview of the Google Drive connector with REST API parameters"
+    pageTitle="Добавление соединителя Google Диска в приложения логики | Microsoft Azure"
+    description="Обзор соединителя Google-диска с параметрами интерфейса API REST"
     services=""
     suite=""
     documentationCenter="" 
@@ -18,333 +18,319 @@
    ms.date="08/18/2016"
    ms.author="mandia"/>
 
+# Начало работы с соединителем Google-диска
+Подключитесь к Google-диску, чтобы создавать файлы, получать строки и выполнять множество других действий. С помощью Google-диска вы можете:
 
-# <a name="get-started-with-the-google-drive-connector"></a>Get started with the Google Drive connector
-Connect to Google Drive to create files, get rows, and more. With Google Drive, you can: 
+- формировать бизнес-процессы на основе данных, получаемых в результате поиска;
+- использовать действия для поиска изображений, новостей и многого другого. Эти действия получают ответ и делают выходные данные доступными для использования другими действиями. Например, можно найти видеоролик, а затем с помощью Twitter опубликовать его в веб-канале Twitter.
 
-- Build your business flow based on the data you get from your search. 
-- Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
-
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Сведения о добавлении операции в приложения логики см. в статье о [создании приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 
-## <a name="triggers-and-actions"></a>Triggers and actions
-Google Drive includes the following actions. There are no triggers. 
+## Триггеры и действия
+Google-диск позволяет выполнять следующие действия. Триггеры отсутствуют.
 
-Triggers | Actions
+триггеры; | Действия
 --- | ---
-None | <ul><li>Create file</li><li>Insert row</li><li>Copy file</li><li>Delete file</li><li>Delete row</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Get row</li><li>Update file</li><li>Update row</li></ul>
+None | <ul><li>Создание файла</li><li>Вставка строки</li><li>Копирование файла</li><li>Удаление файла</li><li>Удаление строки</li><li>Извлечение архива в папку</li><li>Получение содержимого файла с помощью идентификатора</li><li>Получение содержимого файла с помощью пути</li><li>Получение метаданных файла с помощью идентификатора</li><li>Получение метаданных файла с помощью пути</li><li>Получение строки</li><li>Обновление файла</li><li>Обновление строки</li></ul>
 
-All connectors support data in JSON and XML formats.
-
-
-## <a name="create-the-connection-to-google-drive"></a>Create the connection to Google Drive
-
-When you add this connector to your logic apps, you must authorize logic apps to connect to your Google Drive.
-
->[AZURE.INCLUDE [Steps to create a connection to googledrive](../../includes/connectors-create-api-googledrive.md)]
-
-After you create the connection, you enter the Google Drive properties, like the folder path or file name. The **REST API reference** in this topic describes these properties.
-
->[AZURE.TIP] You can use this same Google Drive connection in other logic apps.
+Все соединители поддерживают данные в форматах JSON и XML.
 
 
-## <a name="swagger-rest-api-reference"></a>Swagger REST API reference
-Applies to version: 1.0.
+## Создание подключения к Google-диску
 
-### <a name="create-file"></a>Create file    
-Uploads a file to Google Drive.  
-```POST: /datasets/default/files```
+При добавлении соединителя в приложения логики эти приложения необходимо авторизовать для подключения к Google-диску.
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+>[AZURE.INCLUDE [Шаги по созданию подключения к Google-диску](../../includes/connectors-create-api-googledrive.md)]
+
+После создания подключения укажите свойства Google-диска, такие как путь к папке или имя файла. Эти свойства описаны далее в **справочнике по REST API**.
+
+>[AZURE.TIP] Это подключение к Google-диску можно использовать в других приложениях логики.
+
+
+## Справочник по REST API Swagger
+Относится к версии 1.0.
+
+### Создание файла    
+Передает файл на Google Диск. ```POST: /datasets/default/files```
+
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|folderPath|string|yes|query|none |Folder path to upload the file to Google Drive|
-|name|string|yes|query|none |Name of the file to create in Google Drive|
-|body|string(binary) |yes|body| none|Content of the file to upload to Google Drive|
+|folderPath|string|Да|запрос|Нет |Путь к папке для отправки файла на Google-диск|
+|name|string|Да|запрос|Нет |Имя файла, создаваемого на Google-диске|
+|текст|string(binary) |Да|текст| Нет|Содержимое файла, отправляемого на Google-диск|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="insert-row"></a>Insert row    
-Inserts a row into a Google Sheet.  
-```POST: /datasets/{dataset}/tables/{table}/items```
+### Вставка строки    
+Вставляет строку в таблицу Google. ```POST: /datasets/{dataset}/tables/{table}/items```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path| none|Unique identifier of the Google Sheet file|
-|table|string|yes|path|none |Unique identifier of the worksheet|
-|item|ItemInternalId: string |yes|body|none |Row to insert into the specified sheet|
+|dataset|string|Да|path| Нет|Уникальный идентификатор файла таблицы Google|
+|таблица|string|Да|path|Нет |Уникальный идентификатор листа|
+|item|ItemInternalId: string |Да|текст|Нет |Строка, вставляемая на указанный лист|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="copy-file"></a>Copy file    
-Copies a file on Google Drive.  
-```POST: /datasets/default/copyFile```
+### Копирование файла    
+Копирует файл на Google Диск. ```POST: /datasets/default/copyFile```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|source|string|yes|query| none|Url to source file|
-|destination|string|yes|query|none |Destination file path in Google Drive, including target filename|
-|overwrite|boolean|no|query|none |Overwrites the destination file if set to 'true'|
+|источник|string|Да|запрос| Нет|URL-адрес исходного файла|
+|ресурс destination|string|Да|запрос|Нет |Путь к конечному файлу на Google-диске, включая имя конечного файла|
+|overwrite|Логическое|Нет|запрос|Нет |Перезаписывает конечный файл, если задано значение "true"|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="delete-file"></a>Delete file    
-Deletes a file from Google Drive.  
-```DELETE: /datasets/default/files/{id}```
+### Удаление файла    
+Удаляет файл с Google Диска. ```DELETE: /datasets/default/files/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Description (Описание)|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file to delete from Google Drive|
+|id|string|Да|path|Нет |Уникальный идентификатор файла, который нужно удалить с Google-диска|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="delete-row"></a>Delete Row    
-Deletes a row from a Google Sheet.  
-```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
+### Удаление строки    
+Удаляет строку из таблицы Google. ```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none |Unique identifier of the Google Sheet file|
-|table|string|yes|path|none |Unique identifier of the worksheet|
-|id|string|yes|path|none |Unique identifier of the row to delete|
+|dataset|string|Да|path|Нет |Уникальный идентификатор файла таблицы Google|
+|таблица|string|Да|path|Нет |Уникальный идентификатор листа|
+|id|string|Да|path|Нет |Уникальный идентификатор удаляемой строки|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="extract-archive-to-folder"></a>Extract archive to folder    
-Extracts an archive file into a folder in Google Drive (example: .zip).  
-```POST: /datasets/default/extractFolderV2```
+### Извлечение архива в папку    
+Извлекает файл архива в папку на Google Диске (например, ZIP-файл). ```POST: /datasets/default/extractFolderV2```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|source|string|yes|query|none |Path to the archive file|
-|destination|string|yes|query|none |Path in Google Drive to extract the archive contents|
-|overwrite|boolean|no|query|none |Overwrites the destination files if set to 'true'|
+|источник|string|Да|запрос|Нет |Путь к файлу архива|
+|ресурс destination|string|Да|запрос|Нет |Путь на Google-диске для извлечения содержимого архива|
+|overwrite|Логическое|Нет|запрос|Нет |Перезаписывает конечные файлы, если задано значение "true"|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="get-file-content-using-id"></a>Get file content using id    
-Retrieves file content from Google Drive using id.  
-```GET: /datasets/default/files/{id}/content```
+### Получение содержимого файла с помощью идентификатора    
+Извлекает содержимое файла на Google Диске с помощью идентификатора. ```GET: /datasets/default/files/{id}/content```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file to retrieve in Google Drive|
+|id|string|Да|path|Нет |Уникальный идентификатор файла, который нужно извлечь с Google-диска|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="get-file-content-using-path"></a>Get file content using path    
-Retrieves file content from Google Drive using path.  
-```GET: /datasets/default/GetFileContentByPath```
+### Получение содержимого файла с помощью пути    
+Извлекает содержимое файла на Google Диске с помощью пути. ```GET: /datasets/default/GetFileContentByPath```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|path|string|yes|query|none |Path of the file in Google Drive|
+|path|string|Да|запрос|Нет |Путь к файлу на Google-диске|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="get-file-metadata-using-id"></a>Get file metadata using id    
-Retrieves file metadata from Google Drive using id.  
-```GET: /datasets/default/files/{id}```
+### Получение метаданных файла с помощью идентификатора    
+Извлекает метаданные файла на Google Диске с помощью идентификатора. ```GET: /datasets/default/files/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file in Google Drive|
+|id|string|Да|path|Нет |Уникальный идентификатор файла на Google-диске|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="get-file-metadata-using-path"></a>Get file metadata using path    
-Retrieves file metadata from Google Drive using path.  
-```GET: /datasets/default/GetFileByPath```
+### Получение метаданных файла с помощью пути    
+Извлекает метаданные файла на Google Диске с помощью пути. ```GET: /datasets/default/GetFileByPath```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|path|string|yes|query|none |Path of the file in Google Drive|
+|path|string|Да|запрос|Нет |Путь к файлу на Google-диске|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="get-row"></a>Get row    
-Retrieves a single row from a Google Sheet.  
-```GET: /datasets/{dataset}/tables/{table}/items/{id}```
+### Получение строки    
+Извлекает одну строку из таблицы Google. ```GET: /datasets/{dataset}/tables/{table}/items/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none |Unique identifier of the Google Sheet file|
-|table|string|yes|path|none |Unique identifier of the worksheet|
-|id|string|yes|path| none|Unique identifier of row to retrieve|
+|dataset|string|Да|path|Нет |Уникальный идентификатор файла таблицы Google|
+|таблица|string|Да|path|Нет |Уникальный идентификатор листа|
+|id|string|Да|path| Нет|Уникальный идентификатор извлекаемой строки|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Name (Имя)|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="update-file"></a>Update file    
-Updates a file in Google Drive.  
-```PUT: /datasets/default/files/{id}```
+### Обновление файла    
+Обновляет файл на Google Диске. ```PUT: /datasets/default/files/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Name (Имя)| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|id|string|yes|path|none |Unique identifier of the file to update in Google Drive|
-|body|string(binary) |yes|body| none|Content of the file to upload to Google Drive|
+|id|string|Да|path|Нет |Уникальный идентификатор файла, обновляемого на Google-диске|
+|текст|string(binary) |Да|текст| Нет|Содержимое файла, отправляемого на Google-диск|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-### <a name="update-row"></a>Update row    
-Updates a row in a Google Sheet.  
-```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
+### Обновление строки    
+Обновляет строку в таблице Google. ```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```
 
-| Name| Data Type|Required|Located In|Default Value|Description|
+| Имя| Тип данных|Обязательно|Местонахождение|Значение по умолчанию|Описание|
 | ---|---|---|---|---|---|
-|dataset|string|yes|path|none |Unique identifier of the Google Sheet file|
-|table|string|yes|path| none|Unique identifier of the worksheet|
-|id|string|yes|path|none |Unique identifier of the row to update|
-|item|ItemInternalId: string |yes|body|none |Row with updated values|
+|dataset|string|Да|path|Нет |Уникальный идентификатор файла таблицы Google|
+|таблица|string|Да|path| Нет|Уникальный идентификатор листа|
+|id|string|Да|path|Нет |Уникальный идентификатор обновляемой строки|
+|item|ItemInternalId: string |Да|текст|Нет |Строка с обновленными значениями|
 
-#### <a name="response"></a>Response
-|Name|Description|
+#### Ответ
+|Имя|Описание|
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|200|ОК|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="object-definitions"></a>Object definitions
+## Определения объектов
 
-#### <a name="datasetsmetadata"></a>DataSetsMetadata
+#### DataSetsMetadata
 
-|Property Name | Data Type | Required|
+|Имя свойства | Тип данных | Обязательно|
 |---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
+|tabular|Не определен|Нет|
+|blob-объект|не определено|Нет|
 
-#### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
+#### TabularDataSetsMetadata
 
-|Property Name | Data Type |Required|
+|Имя свойства | Тип данных |Обязательно|
 |---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
+|источник|string|Нет|
+|displayName|string|Нет|
+|urlEncoding|string|Нет|
+|tableDisplayName|string|Нет|
+|tablePluralName|string|Нет|
 
-#### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
+#### BlobDataSetsMetadata
 
-|Property Name | Data Type |Required|
+|Имя свойства | Тип данных |Обязательно|
 |---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
+|источник|string|Нет|
+|displayName|string|Нет|
+|urlEncoding|string|Нет|
 
-#### <a name="blobmetadata"></a>BlobMetadata
+#### BlobMetadata
 
-|Property Name | Data Type |Required|
+|Имя свойства | Тип данных |Обязательно|
 |---|---|---|
-|Id|string|no|
-|Name|string|no|
-|DisplayName|string|no|
-|Path|string|no|
-|LastModified|string|no|
-|Size|integer|no|
-|MediaType|string|no|
-|IsFolder|boolean|no|
-|ETag|string|no|
-|FileLocator|string|no|
+|Идентификатор|string|Нет|
+|Имя|string|Нет|
+|DisplayName|string|Нет|
+|Путь|string|Нет|
+|LastModified|string|Нет|
+|Размер|целое число|Нет|
+|MediaType|string|Нет|
+|IsFolder|Логическое|Нет|
+|ETag|string|Нет|
+|FileLocator|string|Нет|
 
-#### <a name="tablemetadata"></a>TableMetadata
+#### TableMetadata
 
-|Property Name | Data Type |Required|
+|Имя свойства | Тип данных |Обязательно|
 |---|---|---|
-|name|string|no|
-|title|string|no|
-|x-ms-permission|string|no|
-|schema|not defined|no|
+|name|string|Нет|
+|title|string|Нет|
+|x-ms-permission|string|Нет|
+|schema|не определено|Нет|
 
-#### <a name="tableslist"></a>TablesList
+#### TablesList
 
-|Property Name | Data Type |Required|
+|Имя свойства | Тип данных |Обязательно|
 |---|---|---|
-|value|array|no|
+|value|array|Нет|
 
-#### <a name="table"></a>Table
+#### Таблица
 
-|Property Name | Data Type |Required|
+|Имя свойства | Тип данных |Обязательно|
 |---|---|---|
-|Name|string|no|
-|DisplayName|string|no|
+|Имя|string|Нет|
+|DisplayName|string|Нет|
 
-#### <a name="item"></a>Item
+#### Элемент
 
-|Property Name | Data Type |Required|
+|Имя свойства | Тип данных |Обязательно|
 |---|---|---|
-|ItemInternalId|string|no|
+|ItemInternalId|string|Нет|
 
-#### <a name="itemslist"></a>ItemsList
+#### ItemsList
 
-|Property Name | Data Type |Required|
+|Имя свойства | Тип данных |Обязательно|
 |---|---|---|
-|value|array|no|
+|value|array|Нет|
 
 
-## <a name="next-steps"></a>Next steps
+## Дальнейшие действия
 
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Go back to the [APIs list](apis-list.md).
+Вы можете вернуться к [списку интерфейсов API](apis-list.md).
 
 
 <!--References-->
@@ -357,8 +343,4 @@ Go back to the [APIs list](apis-list.md).
 [13]: ./media/connectors-create-api-googledrive/configure-consent-screen.png
 [14]: ./media/connectors-create-api-googledrive/create-client-id.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

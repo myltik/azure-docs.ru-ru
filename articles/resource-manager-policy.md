@@ -1,58 +1,56 @@
 <properties
-    pageTitle="Azure Resource Manager Policy | Microsoft Azure"
-    description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like subscription, resource groups or individual resources."
-    services="azure-resource-manager"
-    documentationCenter="na"
-    authors="ravbhatnagar"
-    manager="ryjones"
-    editor="tysonn"/>
+	pageTitle="Политики диспетчера ресурсов Azure | Microsoft Azure"
+	description="В этом разделе описывается, как предотвращать нарушения в различных областях, таких как подписки, ресурсы и группы ресурсов, с помощью политик диспетчера ресурсов Azure."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="ravbhatnagar"
+	manager="ryjones"
+	editor="tysonn"/>
 
 <tags
-    ms.service="azure-resource-manager"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="07/12/2016"
-    ms.author="gauravbh;tomfitz"/>
+	ms.service="azure-resource-manager"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="07/12/2016"
+	ms.author="gauravbh;tomfitz"/>
 
+# Применение политик для управления ресурсами и контроля доступа
 
-# <a name="use-policy-to-manage-resources-and-control-access"></a>Use Policy to manage resources and control access
+Теперь диспетчер ресурсов Azure позволяет управлять доступом с помощью пользовательских политик. С помощью политик можно запретить пользователям в организации нарушать соглашения, которые необходимы для управления ресурсами организации.
 
-Azure Resource Manager now allows you to control access through custom policies. With policies, you can prevent users in your organization from breaking conventions that are needed to manage your organization's resources. 
+Можно создать определения политик, которые описывают действия или ресурсы, выполнение которых или доступ к которым запрещен. Эти определения политик назначаются для нужной области, такой как подписка, группа ресурсов или отдельный ресурс.
 
-You create policy definitions that describe the actions or resources that are specifically denied. You assign those policy definitions at the desired scope, such as the subscription, resource group, or an individual resource. 
+В этой статье мы продемонстрируем базовую структуру языка, который используется для создания политик. Затем мы рассмотрим применение этих политик в различных областях и, наконец, приведем несколько примеров решения этой задачи с помощью REST API.
 
-In this article, we will explain the basic structure of the policy definition language that you can use to create policies. Then we will describe how you can apply these policies at different scopes and finally we will show some examples of how you can achieve this through REST API.
+## Чем это отличается от управления доступом на основе ролей?
 
-## <a name="how-is-it-different-from-rbac?"></a>How is it different from RBAC?
+Между политикой и контролем доступа на основе ролей существует ряд ключевых различий, но прежде всего необходимо понять, что политики и RBAC работают вместе. Чтобы использовать политику, пользователь должен пройти проверку подлинности с помощью RBAC. В отличие от RBAC, политика представляет собой систему разрешения по умолчанию и явного запрета.
 
-There are a few key differences between policy and role-based access control, but the first thing to understand is that policies and RBAC work together. To be able to use policy, the user must be authenticated through RBAC. Unlike RBAC, policy is a default allow and explicit deny system. 
+Основное внимание RBAC уделяет действиям, которые может выполнять **пользователь** в различных областях. Например, определенный пользователь добавляется в роль участника для группы ресурсов в требуемой области, после чего он может вносить изменения в эту группу ресурсов.
 
-RBAC focuses on the actions a **user** can perform at different scopes. For example, a particular user is added to the contributor role for a resource group at the desired scope, so the user can make changes to that resource group. 
+Политика концентрируется на действиях **ресурсов** в различных областях. Например, с помощью политик можно управлять типами ресурсов, которые могут быть подготовлены, или ограничить расположения, в которых могут быть подготовлены ресурсы.
 
-Policy focuses on **resource** actions at various scopes. For example, through policies, you can control the types of resources that can be provisioned or restrict the locations in which the resources can be provisioned.
+## Распространенные сценарии
 
-## <a name="common-scenarios"></a>Common Scenarios
+Один из распространенных сценариев — запрос тегов подразделений для осуществления взимания средств за использование. Организация может разрешить выполнение операций только при указании соответствующего места возникновения затрат; в противном случае запрос будет отклонен. Это позволит организации взимать оплату за произведенные операции по месту возникновения соответствующих затрат.
 
-One common scenario is to require departmental tags for chargeback purpose. An organization might want to allow operations only when the appropriate cost center is associated; otherwise, they will deny the request.
-This would help them charge the appropriate cost center for the operations performed.
+Другой типичный сценарий — это контроль за местами создания ресурсов. Кроме того, организация может контролировать доступ к ресурсам, разрешая подготовку только определенного типа ресурсов.
 
-Another common scenario is that the organization might want to control the locations where resources are created. Or they might want to control access to the resources by allowing only certain types of resources to be provisioned.
+Таким же образом организации могут управлять каталогом услуг или применять желаемые соглашения об именовании ресурсов.
 
-Similarly, an organization can control the service catalog or enforce the desired naming conventions for the resources.
+Политики позволяют легко реализовать эти сценарии, как описано ниже.
 
-Using policies, these scenarios can easily be achieved as described below.
+## Структура определения политики
 
-## <a name="policy-definition-structure"></a>Policy Definition structure
+Определение политики создается с использованием JSON. Оно состоит из одного или нескольких условий или логических операторов, определяющих действия и результат, который будет достигнут при выполнении этих условий. Схема публикуется в [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json).
 
-Policy definition is created using JSON. It consists of one or more conditions/logical operators which define the actions and an effect which tells what happens when the conditions are fulfilled. The schema is published at [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
+Как правило, политика содержит следующие элементы.
 
-Basically, a policy contains the following:
+**Условие или логические операторы**: содержит набор условий, которые могут управляться с помощью набора логических операторов.
 
-**Condition/Logical operators:** It contains a set of conditions which can be manipulated through a set of logical operators.
-
-**Effect:** This describes what the effect will be when the condition is satisfied – either deny or audit. An audit effect will emit a warning event service log. For example, an administrator can create a policy which causes an audit if anyone creates a large VM, then review the logs later.
+**Результат** — описание результата, который будет получен при удовлетворении заданного условия — отказ или проверка. В случае проверки откроется журнал службы событий предупреждений. Например, администратор может создать политику, которая включает аудит, если какой-то пользователь создал большую виртуальную машину. После этого администратор может просмотреть журналы.
 
     {
       "if" : {
@@ -63,104 +61,104 @@ Basically, a policy contains the following:
       }
     }
     
-## <a name="policy-evaluation"></a>Policy Evaluation
+## Вычисление политики
 
-Policy will be evaluated when resource creation or template deployment happens using HTTP PUT. In case of template deployment, policy will be evaluated during the creation of each resource in the template. 
+Политика вычисляется при создании ресурса или развертывании шаблона с помощью HTTP-запроса PUT. В случае развертывания шаблона политика вычисляется во время создания каждого ресурса в шаблоне.
 
-> [AZURE.NOTE] Currently, policy does not evaluate resource types that do not support tags, kind, and location, such as the Microsoft.Resources/deployments resource type. This support will be added at a future time. To avoid backward compatibility issues, you should explicitly specify type when authoring policies. For example, a tag policy that does not specify types will be applied for all types. In that case, a template deployment may fail in the future if there is a nested resource that don't support tag, and the deployment resource type has been added to policy evaluation. 
+> [AZURE.NOTE] Сейчас политика не вычисляет типы ресурсов, которые не поддерживают теги, вид и расположение, например тип ресурса Microsoft.Resources/deployments. Их поддержка будет добавлена в будущем. Чтобы избежать проблем с обратной совместимостью, необходимо явно указывать тип при создании политик. Например, политика тегов, которая не указывает типы, будет применяться для всех типов. В этом случае может произойти ошибка развертывания шаблона в будущем, если существует вложенный ресурс, который не поддерживает тег, и в вычисление политики был добавлен тип ресурса развертывания.
 
-## <a name="logical-operators"></a>Logical Operators
+## Логические операторы
 
-The supported logical operators along with the syntax are listed below:
+Поддерживаются следующие логические операторы и синтаксис.
 
-| Operator Name     | Syntax         |
+| Имя оператора | Синтаксис |
 | :------------- | :------------- |
-| Not            | "not" : {&lt;condition  or operator &gt;}             |
-| And           | "allOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
-| Or                         | "anyOf" : [ {&lt;condition  or operator &gt;},{&lt;condition  or operator &gt;}] |
+| Not | "not" : {&lt;condition or operator &gt;} |
+| И | "allOf" : [ {&lt;условие или оператор &gt;},{&lt;условие или оператор &gt;}] |
+| Или | "anyOf" : [ {&lt;условие или оператор &gt;},{&lt;условие или оператор &gt;}] |
 
-Resource Manager enables you to specify complex logic in your policy through nested operators. For example, you can deny resource creation in a particular location for a specified resource type. An example of nested operators is shown below.
+Диспетчер ресурсов позволяет задать сложную логическую схему в политике через вложенные операторы. Например, вы можете запретить создание ресурсов в определенном месте для указанного типа ресурса. Ниже показан пример вложенных операторов.
 
-## <a name="conditions"></a>Conditions
+## Условия
 
-A condition evaluates whether a **field** or **source** meets certain criteria. The supported condition names and syntax are listed below:
+Условие определяет, соответствует ли **поле** или **источник** определенным условиям. Ниже перечислены поддерживаемые условия и синтаксис.
 
-| Condition Name | Syntax                |
+| Имя условия | Синтаксис |
 | :------------- | :------------- |
-| Equals             | "equals" : "&lt;value&gt;"               |
-| Like                  | "like" : "&lt;value&gt;"                   |
-| Contains          | "contains" : "&lt;value&gt;"|
-| In                        | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
-| ContainsKey    | "containsKey" : "&lt;keyName&gt;" |
-| Exists     | "exists" : "&lt;bool&gt;" |
+| Равно | "equals" : "&lt;value&gt;" |
+| Like | "like" : "&lt;value&gt;" |
+| Содержит | "contains" : "&lt;value&gt;"|
+| В | "in" : [ "&lt;value1&gt;","&lt;value2&gt;" ]|
+| ContainsKey | "containsKey" : "&lt;keyName&gt;" |
+| Exists | "exists" : "&lt;bool&gt;" |
 
-### <a name="fields"></a>Fields
+### Поля
 
-Conditions are formed through the use of fields and sources. A field represents properties in the resource request payload that is used to describe the state of the resource. A source represents characteristics of the request itself. 
+Условия формируются с помощью полей и источников. Поле представляет свойства в полезных данных запроса ресурса, используемые для описания состояния ресурса. Источник представляет характеристики самого запроса.
 
-The following fields and sources are supported:
+Поддерживаются следующие поля и источники.
 
-Fields: **name**, **kind**, **type**, **location**, **tags**, **tags.***, and **property alias**. 
+Поля: **name**, **kind**, **type**, **location**, **tags**, **tags.*** и **property alias**.
 
-### <a name="property-aliases"></a>Property aliases 
-Property alias is a name that can be used in a policy definition to access the resource type specific properties, such as settings, and skus. It works across all API versions where the property exists. Aliases can be retrieved by using the REST API shown below (Powershell support will be added in the future):
+### Псевдонимы свойств 
+Псевдоним свойства — имя, которое можно использовать в определении политики для доступа к определенным свойствам типа ресурса, например параметрам и SKU. Он действует во всех версиях API, в которых существует это свойство. Псевдонимы можно получить с помощью приведенного ниже REST API (поддержка PowerShell будет добавлена в будущем).
 
     GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
-    
-The definition of an alias is shown below. As you can see, an alias defines paths in different API versions, even when there is a property name change. 
+	
+Ниже приведено определение псевдонима. Как видите, псевдоним определяет пути в различных версиях API, даже если имя свойства изменено.
 
-    "aliases": [
-        {
-          "name": "Microsoft.Storage/storageAccounts/sku.name",
-          "paths": [
-            {
-              "path": "properties.accountType",
-              "apiVersions": [
-                "2015-06-15",
-                "2015-05-01-preview"
-              ]
-            },
-            {
-              "path": "sku.name",
-              "apiVersions": [
-                "2016-01-01"
-              ]
-            }
-          ]
-        }
-    ]
+	"aliases": [
+	    {
+	      "name": "Microsoft.Storage/storageAccounts/sku.name",
+	      "paths": [
+	        {
+	          "path": "properties.accountType",
+	          "apiVersions": [
+	            "2015-06-15",
+	            "2015-05-01-preview"
+	          ]
+	        },
+	        {
+	          "path": "sku.name",
+	          "apiVersions": [
+	            "2016-01-01"
+	          ]
+	        }
+	      ]
+	    }
+	]
 
-Currently, the supported aliases are:
+Сейчас поддерживается следующие псевдонимы.
 
-| Alias name | Description |
+| Имя псевдонима | Описание |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
-| {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
-| {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
-| Microsoft.Compute/virtualMachines/imagePublisher |  |
-| Microsoft.Compute/virtualMachines/imageOffer  |  |
-| Microsoft.Compute/virtualMachines/imageSku  |  |
-| Microsoft.Compute/virtualMachines/imageVersion  |  |
-| Microsoft.Cache/Redis/enableNonSslPort |  |
-| Microsoft.Cache/Redis/shardCount |  |
-| Microsoft.SQL/servers/version |  |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveId |  |
-| Microsoft.SQL/servers/databases/requestedServiceObjectiveName |  |
-| Microsoft.SQL/servers/databases/edition |  |
-| Microsoft.SQL/servers/databases/elasticPoolName |  |
-| Microsoft.SQL/servers/elasticPools/dtu |  |
-| Microsoft.SQL/servers/elasticPools/edition |  |
+| {resourceType}/sku.name | Поддерживаемые типы ресурса: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles. |
+| {resourceType}/sku.family | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
+| {resourceType}/sku.capacity | Поддерживаемый тип ресурса — Microsoft.Cache/Redis. |
+| Microsoft.Compute/virtualMachines/imagePublisher | |
+| Microsoft.Compute/virtualMachines/imageOffer | |
+| Microsoft.Compute/virtualMachines/imageSku | |
+| Microsoft.Compute/virtualMachines/imageVersion | |
+| Microsoft.Cache/Redis/enableNonSslPort | |
+| Microsoft.Cache/Redis/shardCount | |
+| Microsoft.SQL/servers/version | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveId | |
+| Microsoft.SQL/servers/databases/requestedServiceObjectiveName | |
+| Microsoft.SQL/servers/databases/edition | |
+| Microsoft.SQL/servers/databases/elasticPoolName | |
+| Microsoft.SQL/servers/elasticPools/dtu | |
+| Microsoft.SQL/servers/elasticPools/edition | |
 
-Currently, policy only works on PUT requests. 
+В настоящее время политика работает только для запросов PUT.
 
-## <a name="effect"></a>Effect
-Policy supports three types of effect - **deny**, **audit**, and **append**. 
+## Результат
+Политика поддерживает три типа результата — **deny**, **audit** и **append**.
 
-- Deny generates an event in the audit log and fails the request
-- Audit generates an event in audit log but does not fail the request
-- Append adds the defined set of fields to the request 
+- "deny" — создание события в журнале аудита и сбой запроса.
+- "audit" — создание события в журнале аудита и выполнение запроса.
+- "append" — добавление определенного набора полей в запрос.
 
-For **append**, you must provide the details as shown below:
+Для типа **append** необходимо предоставить сведения, как показано ниже.
 
     ....
     "effect": "append",
@@ -171,15 +169,15 @@ For **append**, you must provide the details as shown below:
       }
     ]
 
-The value can be either a string or a JSON format object. 
+Значением может быть строка или объект формата JSON.
 
-## <a name="policy-definition-examples"></a>Policy Definition Examples
+## Примеры определения политик
 
-Now let's take a look at how we will define the policy to achieve the scenarios listed above.
+Теперь посмотрим, как определить политику для реализации описанных выше сценариев.
 
-### <a name="chargeback:-require-departmental-tags"></a>Chargeback: Require departmental tags
+### Взимание средств за использование: требовать теги отделов
 
-The below policy denies all requests which don’t have a tag containing "costCenter" key.
+Представленная ниже политика отклоняет все запросы без тега costCenter.
 
     {
       "if": {
@@ -193,55 +191,55 @@ The below policy denies all requests which don’t have a tag containing "costCe
       }
     }
 
-The below policy appends costCenter tag with a predefined value if no tags are present. 
+Приведенная ниже политика добавляет тег costCenter с предустановленным значением, если теги отсутствуют.
 
-    {
-      "if": {
-        "field": "tags",
-        "exists": "false"
-      },
-      "then": {
-        "effect": "append",
-        "details": [
-          {
-            "field": "tags",
-            "value": {"costCenter":"myDepartment" }
-          }
-        ]
-      }
-    }
-    
-The below policy appends costCenter tag with a predefined value if other tags are present. 
+	{
+	  "if": {
+	    "field": "tags",
+	    "exists": "false"
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags",
+	        "value": {"costCenter":"myDepartment" }
+	      }
+	    ]
+	  }
+	}
+	
+Приведенная ниже политика добавляет тег costCenter с предустановленным значением, если имеются другие теги.
 
-    {
-      "if": {
-        "allOf": [
-          {
-            "field": "tags",
-            "exists": "true"
-          },
-          {
-            "field": "tags.costCenter",
-            "exists": "false"
-          }
-        ]
-    
-      },
-      "then": {
-        "effect": "append",
-        "details": [
-          {
-            "field": "tags.costCenter",
-            "value": "myDepartment"
-          }
-        ]
-      }
-    }
+	{
+	  "if": {
+	    "allOf": [
+	      {
+	        "field": "tags",
+	        "exists": "true"
+	      },
+	      {
+	        "field": "tags.costCenter",
+	        "exists": "false"
+	      }
+	    ]
+	
+	  },
+	  "then": {
+	    "effect": "append",
+	    "details": [
+	      {
+	        "field": "tags.costCenter",
+	        "value": "myDepartment"
+	      }
+	    ]
+	  }
+	}
 
 
-### <a name="geo-compliance:-ensure-resource-locations"></a>Geo Compliance: Ensure resource locations
+### Соблюдение географических границ: контроль расположения ресурсов
 
-The below example shows a policy which will deny all requests where location is not North Europe or West Europe.
+Приведенный ниже пример показывает политику, которая отклоняет все запросы с размещением, отличным от Северной или Западной Европы.
 
     {
       "if" : {
@@ -255,9 +253,9 @@ The below example shows a policy which will deny all requests where location is 
       }
     }
 
-### <a name="service-curation:-select-the-service-catalog"></a>Service Curation: Select the service catalog
+### Контроль служб: выбор каталога служб
 
-The below example shows the use of source. It shows that actions only on the services of type Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\* are allowed. Anything else will be denied.
+В представленном ниже примере показано, как использовать источник. В нем указано, что допускаются только службы типа Microsoft.Resources/\*, Microsoft.Compute/\*, Microsoft.Storage/\*, Microsoft.Network/\*. Остальные службы не отклоняются.
 
     {
       "if" : {
@@ -287,9 +285,9 @@ The below example shows the use of source. It shows that actions only on the ser
       }
     }
 
-### <a name="use-approved-skus"></a>Use Approved SKUs
+### Использование утвержденных SKU
 
-The below example shows the use of property alias to restrict SKUs. In the example below, only Standard_LRS and Standard_GRS is approved to use for storage accounts.
+Ниже примере показано использование псевдонима свойства для ограничения номеров SKU. В приведенном ниже примере для использования учетными записями хранения утверждены только Standard\_LRS и Standard\_GRS.
 
     {
       "if": {
@@ -316,9 +314,9 @@ The below example shows the use of property alias to restrict SKUs. In the examp
     }
     
 
-### <a name="naming-convention"></a>Naming Convention
+### Соглашение об именовании
 
-The below example shows the use of wildcard which is supported by the condition "like". The condition states that if the name does match the mentioned pattern (namePrefix\*nameSuffix) then deny the request.
+В приведенном ниже примере показано, как использовать знак подстановки, который поддерживается условием like. Это условие означает, что, в случае если имя не соответствует заданному шаблону (namePrefix*nameSuffix), запрос будет отклонен.
 
     {
       "if" : {
@@ -332,9 +330,9 @@ The below example shows the use of wildcard which is supported by the condition 
       }
     }
     
-### <a name="tag-requirement-just-for-storage-resources"></a>Tag requirement just for Storage resources
+### Требование по пометке тегами только для ресурсов хранилища
 
-The below example shows how to nest logical operators to require an application tag for only Storage resources.
+В следующем примере показано, как вложить логические операторы, чтобы потребовать у приложения помечать тегами только ресурсы хранилища.
 
     {
         "if": {
@@ -356,23 +354,23 @@ The below example shows how to nest logical operators to require an application 
         }
     }
 
-## <a name="policy-assignment"></a>Policy Assignment
+## Назначение политики
 
-Policies can be applied at different scopes like subscription, resource groups and individual resources. Policies are inherited by all child resources. So if a policy is applied to a resource group, it will be applicable to all the resources in that resource group.
+Политики могут применяться к различным областям, включая подписки, ресурсы и группы ресурсов. Политики наследуются всеми дочерними ресурсами. Это значит, что политики, применяемые к группе ресурсов, применяются также ко всем ресурсам в этой группе.
 
-## <a name="creating-a-policy"></a>Creating a Policy
+## Создание политики
 
-This section provides detail on how a policy can be created using REST API.
+В этом разделе подробно описано, как создавать политики с использованием API REST.
 
-### <a name="create-policy-definition-with-rest-api"></a>Create Policy Definition with REST API
+### Создание определения политики с использованием API REST
 
-You can create a policy with the [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/mt588471.aspx). The REST API enables you to create and delete policy definitions, and get information about existing definitions.
+Для создания политики вы можете использовать [API REST для определений политик](https://msdn.microsoft.com/library/azure/mt588471.aspx). API REST позволяет создавать и удалять определения политик и получать сведения о существующих определениях.
 
-To create a new policy, run:
+Чтобы создать новую политику, выполните следующую команду:
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-With a request body similar to the following:
+Тело запроса будет похоже на следующее:
 
     {
       "properties":{
@@ -394,39 +392,38 @@ With a request body similar to the following:
     }
 
 
-The policy-definition can be defined as one of the examples shown above.
-For api-version use *2016-04-01*. For examples and more details, see [REST API for Policy Definitions](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+Определение политики может быть задано как в показанном выше примере. В качестве версии API (api-version) используйте значение *2016-04-01*. Примеры и дополнительные сведения см. в разделе [API REST для определения политик](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
-### <a name="create-policy-definition-using-powershell"></a>Create Policy Definition using PowerShell
+### Создание определения политики с помощью PowerShell
 
-You can create a new policy definition using the New-AzureRmPolicyDefinition cmdlet as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
+Можно создать новое определение политики с помощью командлета New-AzureRmPolicyDefinition, как показано ниже. Приведенные ниже примеры создают политику, разрешающую использовать только ресурсы в Северной и Западной Европе.
 
-    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{  
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain regions" -Policy '{	
       "if" : {
         "not" : {
           "field" : "location",
           "in" : ["northeurope" , "westeurope"]
-        }
+    	}
       },
       "then" : {
         "effect" : "deny"
       }
-    }'          
+    }'    		
 
-The output of execution is stored in $policy object, and can used later during policy assignment. For the policy parameter, the path to a .json file containing the policy can also be provided instead of specifying the policy inline as shown below.
+Результат выполнения сохраняется в объекте $policy и может использоваться позднее во время назначения политики. Вместо встроенного указания политики для параметра политики также можно указать путь к JSON-файлу, содержащему политику, как показано ниже.
 
-    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain    regions" -Policy "path-to-policy-json-on-disk"
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
-### <a name="create-policy-definition-using-azure-cli"></a>Create Policy Definition using Azure CLI
+### Создание определения политики с помощью интерфейса командной строки Azure
 
-You can create a new policy definition using the azure CLI with the policy definition command as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
+Можно создать новое определение политики с помощью интерфейса командной строки Azure (Azure CLI) и команды определения политики, как показано ниже. Приведенные ниже примеры создают политику, разрешающую использовать только ресурсы в Северной и Западной Европе.
 
-    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{   
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
       "if" : {
         "not" : {
           "field" : "location",
           "in" : ["northeurope" , "westeurope"]
-        }
+    	}
       },
       "then" : {
         "effect" : "deny"
@@ -434,25 +431,24 @@ You can create a new policy definition using the azure CLI with the policy defin
     }'    
     
 
-It is possible to specify the path to a .json file containing the policy instead of specifying the policy inline as shown below.
+Вместо встроенного указания политики можно указать путь к файлу JSON, содержащему политику, как показано ниже.
 
     azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
 
 
-## <a name="applying-a-policy"></a>Applying a Policy
+## Применение политики
 
-### <a name="policy-assignment-with-rest-api"></a>Policy Assignment with REST API
+### Назначение политики с использованием API REST
 
-You can apply the policy definition at the desired scope through the [REST API for policy assignments](https://msdn.microsoft.com/library/azure/mt588466.aspx).
-The REST API enables you to create and delete policy assignments, and get information about existing assignments.
+Вы можете применить определение политики к требуемой области с помощью [API REST для назначений политик](https://msdn.microsoft.com/library/azure/mt588466.aspx). API REST позволяет создавать и удалять назначения политик и получать сведения о существующих назначениях.
 
-To create a new policy assignment, run:
+Чтобы создать назначение политики, выполните следующую команду:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-The {policy-assignment} is the name of the policy assignment. For api-version use *2016-04-01*. 
+{policy-assignment} — это имя назначения политики. В качестве версии API (api-version) используйте значение *2016-04-01*.
 
-With a request body similar to the following:
+Тело запроса будет похоже на следующее:
 
     {
       "properties":{
@@ -463,68 +459,64 @@ With a request body similar to the following:
       "name":"VMPolicyAssignment"
     }
 
-For examples and more details, see [REST API for Policy Assignments](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+Примеры и дополнительные сведения см. в разделе [API REST для назначений политик](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
-### <a name="policy-assignment-using-powershell"></a>Policy Assignment using PowerShell
+### Назначение политики с помощью PowerShell
 
-You can apply the policy created above through PowerShell to the desired scope by using the New-AzureRmPolicyAssignment cmdlet as shown below:
+Политику, созданную выше, можно применить к требуемой области с помощью командлета PowerShell New-AzureRmPolicyAssignment, как показано ниже.
 
     New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
         
-Here $policy is the policy object that was returned as a result of executing the New-AzureRmPolicyDefinition cmdlet as shown above. The scope here is the name of the resource group you specify.
+Здесь $policy — объект политики, который был возвращен в результате выполнения командлета New-AzureRmPolicyDefinition, как показано выше. Область — это указанное имя группы ресурсов.
 
-If you want to remove the above policy assignment, you can do it as follows:
+Если вы хотите удалить приведенное выше назначение политики, это можно сделать следующим образом.
 
     Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
-You can get, change or remove policy definitions through Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition and Remove-AzureRmPolicyDefinition cmdlets respectively.
+Можно получать, изменять или удалять определения политик с помощью командлетов Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition и Remove-AzureRmPolicyDefinition, соответственно.
 
-Similarly, you can get, change or remove policy assignments through the Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment and Remove-AzureRmPolicyAssignment cmdlets respectively.
+Аналогично вы можете получать, изменять или удалять назначения политик с помощью командлетов Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment и Remove-AzureRmPolicyAssignment, соответственно.
 
-### <a name="policy-assignment-using-azure-cli"></a>Policy Assignment using Azure CLI
+### Назначение политики с помощью интерфейса командной строки Azure
 
-You can apply the policy created above through Azure CLI to the desired scope by using the policy assignment command as shown below:
+Политику, созданную выше, можно применить к требуемой области с помощью интерфейса командной строки Azure и команды назначения политики, как показано ниже.
 
     azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
         
-The scope here is the name of the resource group you specify. If the value of the parameter policy-definition-id is unknown, it is possible to obtain it through the Azure CLI as shown below: 
+Область — это указанное имя группы ресурсов. Если значение параметра policy-definition-id неизвестно, то его можно получить с помощью интерфейса командной строки Azure, как показано ниже.
 
     azure policy definition show <policy-name>
 
-If you want to remove the above policy assignment, you can do it as follows:
+Если вы хотите удалить приведенное выше назначение политики, это можно сделать следующим образом.
 
-    azure policy assignment delete --name regionPolicyAssignment --scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
 
-You can get, change or remove policy definitions through policy definition show, set and delete commands respectively.
+С помощью команд policy definition show, policy definition set и policy definition delete можно соответственно получить, изменить или удалить определения политики.
 
-Similarly, you can get, change or remove policy assignments through the policy assignment show and delete commands respectively.
+Аналогичным образом с помощью команд policy assignment show, policy assignment set и policy assignment delete можно получить, изменить или удалить назначения политики.
 
-##<a name="policy-audit-events"></a>Policy Audit Events
+##События аудита политики
 
-After you have applied your policy, you will begin to see policy-related events. You can either go to portal, use PowerShell or the Azure CLI to get this data. 
+После применения политики вы начнете видеть связанные с ней события. Для получения этих данных вы можете перейти на портал, воспользоваться PowerShell или интерфейсом командной строки Azure.
 
-### <a name="policy-audit-events-using-powershell"></a>Policy Audit Events using PowerShell
+### Просмотр событий аудита политики с помощью PowerShell
 
-To view all events that related to deny effect, you can use the following PowerShell command. 
+Чтобы просмотреть все события, связанные с эффектом запрета, вы можете использовать следующую команду PowerShell.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
-To view all events related to audit effect, you can use the following command. 
+Чтобы просмотреть все события, связанные с эффектом аудита, вы можете использовать следующую команду.
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
 
-### <a name="policy-audit-events-using-azure-cli"></a>Policy Audit Events using Azure CLI
+### Просмотр событий аудита политики с помощью интерфейса командной строки Azure
 
-To view all events from a resource group that related to deny effect, you can use the following CLI command. 
+Чтобы просмотреть все события в группе ресурсов, связанные с эффектом запрета, вы можете использовать следующую команду интерфейса командной строки.
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/deny/action\")"
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/deny/action")"
 
-To view all events related to audit effect, you can use the following CLI command. 
+Чтобы просмотреть все события, связанные с эффектом аудита, вы можете использовать следующую команду интерфейса командной строки.
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/audit/action\")"
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == "Microsoft.Authorization/policies/audit/action")"
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

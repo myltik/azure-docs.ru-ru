@@ -1,57 +1,52 @@
 <properties 
-    pageTitle="Monitor encoding job progress with the Azure portal" 
-    description="This tutorial walks you through the steps of monitoring your job progress using the Azure portal." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="juliako" 
-    manager="erikre" 
-    editor=""/>
+	pageTitle="Мониторинг выполнения задания кодирования с помощью портала Azure" 
+	description="В этом учебнике описано, как отслеживать выполнение задания с помощью портала Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="erikre" 
+	editor=""/>
 
 <tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/29/2016"  
-    ms.author="juliako"/>
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/29/2016"  
+	ms.author="juliako"/>
 
-
-#<a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitor encoding job progress with the Azure portal
+#Мониторинг выполнения задания кодирования с помощью портала Azure
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-portal-check-job-progress.md)
+- [Портал](media-services-portal-check-job-progress.md)
 - [.NET](media-services-check-job-progress.md)
 - [REST](media-services-rest-check-job-progress.md)
 
-## <a name="overview"></a>Overview
+## Обзор
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+> [AZURE.NOTE] Для работы с этим учебником требуется учетная запись Azure. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-When you run jobs, you often require a way to track job progress. 
+При выполнении заданий часто требуется способ отслеживания хода выполнения задачи.
 
-To monitor the progress of the encoding job, click **Settings** (at the top of the page) and then select **Jobs**.
+Чтобы отслеживать выполнение задания кодирования, в верхней части страницы щелкните элемент **Параметры**, а затем выберите пункт **Задания**.
 
-![Jobs](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+![Задания](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-You can click the job to see more details.
+Можно щелкнуть задание для получения дополнительных сведений.
 
-![Jobs](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
+![Задания](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
-##<a name="next-steps"></a>Next steps
+##Дальнейшие действия
 
-After your encoding job is one, you can publish and play your assets, as described [here](media-services-portal-publish.md).
+После выполнения задания кодирования можно опубликовать и воспроизвести свои ресурсы-контейнеры, как описано [здесь](media-services-portal-publish.md).
 
-##<a name="media-services-learning-paths"></a>Media Services learning paths
+##Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="provide-feedback"></a>Provide feedback
+##Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0831_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Storage Security Overview | Microsoft Azure"
-   description=" Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. This article provides an overview of the core Azure security features that can be used with Azure Storage. "
+   pageTitle="Общие сведения о безопасности при использовании службы хранилища Azure | Microsoft Azure"
+   description=" Хранилище Azure — это облачное решение для хранения современных приложений, обеспечивающее устойчивость, доступность и масштабируемость для удовлетворения потребностей клиентов. В этой статье содержатся общие сведения о базовых функциях безопасности Azure, которые можно использовать в службе хранилища Azure. "
    services="security"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -16,94 +16,89 @@
    ms.date="09/16/2016"
    ms.author="terrylan"/>
 
+# Общие сведения о безопасности при использовании службы хранилища Azure
 
-# <a name="azure-storage-security-overview"></a>Azure storage security overview
+Хранилище Azure — это облачное решение для хранения современных приложений, обеспечивающее устойчивость, доступность и масштабируемость для удовлетворения потребностей клиентов. Служба хранилища Azure предусматривает много разных средств обеспечения безопасности.
 
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. Azure Storage provides a comprehensive set of security capabilities:
+- Учетную запись хранения можно защитить с помощью управления доступом на основе ролей и Azure Active Directory.
+- Защитить данные, передаваемые между приложением и Azure, можно с помощью шифрования на стороне клиента, HTTPS или SMB 3.0.
+- Вы можете настроить автоматическое шифрование данных при записи в службу хранилища Azure с помощью шифрования службы хранения.
+- Для дисков ОС и данных, используемых виртуальными машинами, можно настроить шифрование дисков Azure.
+- Делегированный доступ к объектам данных в службе хранилища Azure можно предоставлять с помощью подписанных URL-адресов.
+- Метод проверки подлинности, который используется при доступе к хранилищу, можно отслеживать с помощью функций аналитики службы хранилища.
 
-- The storage account can be secured using Role-Based Access Control and Azure Active Directory.
-- Data can be secured in transit between an application and Azure by using Client-Side Encryption, HTTPS, or SMB 3.0.
-- Data can be set to be automatically encrypted when written to Azure Storage using Storage Service Encryption.
-- OS and Data disks used by virtual machines can be set to be encrypted using Azure Disk Encryption.
-- Delegated access to the data objects in Azure Storage can be granted using Shared Access Signatures.
-- The authentication method used by someone when they access storage can be tracked using Storage analytics.
+Подробные сведения о безопасности службы хранилища Azure см. в [руководстве по безопасности службы хранилища Azure](../storage/storage-security-guide.md). Это руководство содержит подробные сведения о компонентах системы безопасности хранилища Azure, в том числе о ключах учетной записи хранения, шифровании данных при передаче и хранении, а также об аналитике хранилища.
 
-For a more detailed look at security in Azure Storage, see the [Azure Storage security guide](../storage/storage-security-guide.md). This guide provides a deep dive into the security features of Azure Storage such as storage account keys, data encryption in transit and at rest, and storage analytics.
+В этой статье содержатся общие сведения о функциях безопасности Azure, которые можно использовать в службе хранилища Azure. Здесь также приводятся ссылки на статьи с дополнительными сведениями о каждой функции.
 
-This article provides an overview of Azure security features that can be used with Azure Storage. Links are provided to articles that give details of each feature so you can learn more.
+В этой статье рассматриваются указанные ниже основные компоненты.
 
-Here are the core features to be covered in this article:
+- Управление доступом на основе ролей
+- Делегированный доступ к объектам хранилища
+- Шифрование при передаче
+- Шифрование при хранении (шифрование службы хранилища)
+- Дисковое шифрование Azure
+- Хранилище ключей Azure
 
-- Role-Based Access Control
-- Delegated access to storage objects
-- Encryption in transit
-- Encryption at rest/Storage Service Encryption
-- Azure Disk Encryption
-- Azure Key Vault
+## Управление доступа на основе ролей
 
-## <a name="role-based-access-control-(rbac)"></a>Role-Based Access Control (RBAC)
+Вы можете защитить учетную запись хранения с помощью управления доступом на основе ролей (RBAC). Ограничение доступа согласно принципам безопасности (принцип предоставления доступа [только в тех случаях и в той степени, в которой знание такой информации будет необходимо,](https://en.wikipedia.org/wiki/Need_to_know) а также [принцип предоставления минимальных прав](https://en.wikipedia.org/wiki/Principle_of_least_privilege)) крайне важно для организаций, которым требуется применять политики безопасности для доступа к данным. Эти права предоставляются путем назначения соответствующей роли RBAC группам и приложениям для определенной области. Вы можете назначать пользователям права, например права участника учетных записей хранения, с помощью [встроенных ролей RBAC](../active-directory/role-based-access-built-in-roles.md).
 
-You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../active-directory/role-based-access-built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
+Подробнее.
 
-Learn more:
+- [Контроль доступа на основе ролей Azure Active Directory](../active-directory/role-based-access-control-configure.md)
 
-- [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
+## Делегированный доступ к объектам хранилища
 
-## <a name="delegated-access-to-storage-objects"></a>Delegated access to storage objects
+Подписанный URL-адрес (SAS) обеспечивает делегированный доступ к ресурсам в вашей учетной записи хранения. SAS означает, что клиенту можно предоставить ограниченное право на работу с объектами в вашей учетной записи хранения на определенный период времени и с определенным набором разрешений. Вы можете предоставлять эти ограниченные права, не сообщая ключи доступа к своей учетной записи. SAS — это URI, который в своих параметрах запроса содержит все сведения, необходимые для доступа к ресурсу хранилища с прохождением аутентификации. Для доступа к ресурсам хранилища с помощью SAS клиенту достаточно передать SAS в соответствующий конструктор или метод.
 
-A shared access signature (SAS) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method.
+Подробнее.
 
-Learn more:
+- [Основные сведения о модели SAS.](../storage/storage-dotnet-shared-access-signature-part-1.md)
+- [Подписанные URL-адреса. Часть 2: создание и использование подписанного URL-адреса в службе BLOB-объектов](../storage/storage-dotnet-shared-access-signature-part-2.md)
 
-- [Understanding the SAS model](../storage/storage-dotnet-shared-access-signature-part-1.md)
-- [Create and use a SAS with Blob storage](../storage/storage-dotnet-shared-access-signature-part-2.md)
+## Шифрование при передаче
+Шифрование при передаче — это механизм защиты данных, передаваемых по сетям. Служба хранилища Azure позволяет применять для защиты данных:
 
-## <a name="encryption-in-transit"></a>Encryption in transit
-Encryption in transit is a mechanism of protecting data when it is transmitted across networks. With Azure Storage you can secure data using:
+- [шифрование транспортного уровня](../storage/storage-security-guide.md#encryption-in-transit), например протокол HTTPS, при передаче данных в службу хранилища Azure или из нее;
+- [шифрование подключения](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), например шифрование SMB 3.0 для файловых ресурсов Azure;
+- [шифрование на стороне клиента](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), которое шифрует данные перед их передачей в хранилище и расшифровывает данные после получения из хранилища.
 
-- [Transport-level encryption](../storage/storage-security-guide.md#encryption-in-transit), such as HTTPS when you transfer data into or out of Azure Storage.
-- [Wire encryption](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), such as SMB 3.0 encryption for Azure File Shares.
-- [Client-side encryption](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), to encrypt the data before it is transferred into storage and to decrypt the data after it is transferred out of storage.
+Дополнительные сведения о шифровании на стороне клиента.
 
-Learn more about client-side encryption:
+- [Client-Side Encryption for Microsoft Azure Storage (Шифрование на стороне клиента для службы хранилища Microsoft Azure)](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
+- [Cloud security controls series: Encrypting Data in Transit (Серия статей об управлении безопасностью в облаке: защита данных при передаче)](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
-- [Client-Side Encryption for Microsoft Azure Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-- [Cloud security controls series: Encrypting Data in Transit](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+## Шифрование при хранении
 
-## <a name="encryption-at-rest"></a>Encryption at rest
+Для многих организаций [шифрование неактивных данных](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) является обязательным шагом для защиты данных, соблюдения стандартов и обеспечения конфиденциальности данных. В Azure есть три функции, обеспечивающие шифрование неактивных данных.
 
-For many organizations, [data encryption at rest](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that is “at rest”:
+- [Шифрование службы хранилища](../storage/storage-security-guide.md#encryption-at-rest) позволяет настроить автоматическое шифрование данных, записываемых в службу хранилища Azure.
+- [Шифрование на стороне клиента](../storage/storage-security-guide.md#client-side-encryption) также обеспечивает шифрование при хранении.
+- [Шифрование дисков Azure](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) позволяет шифровать диски ОС и диски данных, используемые виртуальными машинами IaaS.
 
-- [Storage Service Encryption](../storage/storage-security-guide.md#encryption-at-rest) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
-- [Client-side Encryption](../storage/storage-security-guide.md#client-side-encryption) also provides the feature of encryption at rest.
-- [Azure Disk Encryption](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) allows you to encrypt the OS disks and data disks used by an IaaS virtual machine.
+Дополнительные сведения о шифровании службы хранилища.
 
-Learn more about Storage Service Encryption:
+- [Шифрование службы хранилища Azure](https://azure.microsoft.com/services/storage/) доступно для [хранилища BLOB-объектов Azure](https://azure.microsoft.com/services/storage/blobs/). Сведения о других типах хранилища Azure см. в описании хранилищ [файлов](https://azure.microsoft.com/services/storage/files/), [дисков (хранилище класса Premium)](https://azure.microsoft.com/services/storage/premium-storage/), [таблиц](https://azure.microsoft.com/services/storage/tables/) и [очередей](https://azure.microsoft.com/services/storage/queues/).
+- [Шифрование службы хранилища Azure для неактивных данных (предварительная версия)](../storage/storage-service-encryption.md)
 
-- [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) is available for [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/). For details on other Azure storage types, see [File](https://azure.microsoft.com/services/storage/files/), [Disk (Premium Storage)](https://azure.microsoft.com/services/storage/premium-storage/), [Table](https://azure.microsoft.com/services/storage/tables/), and [Queue](https://azure.microsoft.com/services/storage/queues/).
-- [Azure Storage Service Encryption for Data at Rest](../storage/storage-service-encryption.md)
+## Дисковое шифрование Azure
 
-## <a name="azure-disk-encryption"></a>Azure Disk Encryption
+Шифрование дисков Azure для виртуальных машин помогает соблюдать требования (включая корпоративные требования к безопасности). Эта служба выполняет шифрование дисков виртуальных машин (загрузочных дисков и дисков данных) с использованием ключей и политик, которыми вы управляете в [хранилище ключей Azure](https://azure.microsoft.com/services/key-vault/).
 
-Azure Disk Encryption for virtual machines (VMs) helps you address organizational security and compliance requirements by encrypting your VM disks (including boot and data disks) with keys and policies you control in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Шифрование дисков для виртуальных машин используется для операционных систем Linux и Windows. Также доступно хранилище ключей, которое поможет вам защищать и проверять использование ключей для шифрования дисков, а также управлять эти использованием. Все данные, хранящиеся на дисках виртуальных машин в учетных записях хранения Azure, шифруются с помощью стандартной для отрасли технологии шифрования. Шифрование дисков для Windows основано на [шифровании дисков Microsoft BitLocker](https://technet.microsoft.com/library/cc732774.aspx), а аналогичное решение для Linux использует шифрование [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
-Disk Encryption for VMs works for Linux and Windows operating systems. It also uses Key Vault to help you safeguard, manage, and audit use of your disk encryption keys. All the data in your VM disks is encrypted at rest by using industry-standard encryption technology in your Azure Storage accounts. The Disk Encryption solution for Windows is based on [Microsoft BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx), and the Linux solution is based on [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+Подробнее.
 
-Learn more:
+- [Шифрование дисков Azure для виртуальных машин IaaS с ОС Windows и Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-- [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+## Хранилище ключей Azure
 
-## <a name="azure-key-vault"></a>Azure Key Vault
+При шифровании дисков Azure используется [хранилище ключей Azure](https://azure.microsoft.com/services/key-vault/). Благодаря этому вы можете управлять ключами и секретами шифрования дисков в рамках подписки на хранилище ключей. Шифрование выполняется для всех неактивных данных на дисках виртуальных машин в службе хранилища Azure. Хранилище ключей следует использовать для аудита ключей и применения политик.
 
-Azure Disk Encryption uses [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to help you control and manage disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure Storage. You should use Key Vault to audit keys and policy usage.
+Подробнее.
 
-Learn more:
+- [Что такое хранилище ключей Azure?](../key-vault/key-vault-whatis.md)
+- [Приступая к работе с хранилищем ключей Azure](../key-vault/key-vault-get-started.md)
 
-- [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
-- [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0921_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Connect a device using Node.js | Microsoft Azure"
-   description="Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in Node.js."
+   pageTitle="Подключение устройства с помощью Node.js | Microsoft Azure"
+   description="Описывает, как подключить устройство к предварительно настроенному решению для удаленного мониторинга из набора Azure IoT Suite с помощью приложения, написанного на Node.js."
    services=""
    suite="iot-suite"
    documentationCenter="na"
@@ -14,46 +14,45 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2016"
+   ms.date="07/14/2016"
    ms.author="dobett"/>
 
 
-
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-(node.js)"></a>Connect your device to the remote monitoring preconfigured solution (Node.js)
+# Подключение устройства к предварительно настроенному решению для удаленного мониторинга (Node.js)
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## <a name="build-and-run-the-node.js-sample-solution"></a>Build and run the node.js sample solution
+## Выполнение сборки и запуск примера решения node.js
 
-1. To clone the *Microsoft Azure IoT SDKs* GitHub repository and install the *Microsoft Azure IoT device SDK for Node.js* in your desktop environment, follow the [Prepare your development environment][lnk-github-prepare] instructions.
+1. Чтобы клонировать репозиторий GitHub *пакетов SDK для Microsoft Azure IoT* и установить *пакет SDK для устройств Microsoft Azure IoT для Node.js* в вашей среде рабочего стола, следуйте инструкциям в разделе [Подготовка среды разработки][lnk-github-prepare].
 
-2. From your local copy of the [azure-iot-sdks][lnk-github-repo] repository, copy the following two files from the node/device/samples folder to a folder on your device:
+2. Из папки node/device/samples в локальной копии репозитория [azure-iot-sdks][lnk-github-repo] скопируйте в папку на устройстве следующие два файла:
 
   - packages.json
-  - remote_monitoring.js
+  - remote\_monitoring.js
 
-3. Open the remote_monitoring.js file and look for the following variable:
+3. Откройте файл remote-monitoring.js и найдите следующие переменные:
 
     ```
     var connectionString = "[IoT Hub device connection string]";
     ```
 
-4. Replace **[IoT Hub device connection string]** with your device connection string. You can find the values for your IoT Hub hostname, device id, and device key in the remote monitoring solution dashboard. A device connection string has the following format:
+4. Замените **[IoT Hub device connection string]** строкой подключения устройства. Значения имени узла центра IoT, идентификатора устройства и ключа устройства можно найти на панели мониторинга решения для удаленного мониторинга. Строка подключения имеет следующий формат:
 
     ```
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
 
-    If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string looks like:
+    Если имя узла центра IoT — **contoso**, а код устройства — **mydevice**, то строка подключения будет выглядеть так:
 
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
     ```
 
-5. Save the file. Run the following commands at a command prompt in the folder that contains these files to install the necessary packages and then run the sample application:
+5. Сохраните файл. Выполните следующие команды в командной строке в папке, содержащей эти файлы, для установки необходимых пакетов, а затем запустите пример приложения:
 
     ```
-    npm install --save
+    npm install
     node remote_monitoring.js
     ```
 
@@ -62,7 +61,4 @@
 [lnk-github-repo]: https://github.com/azure/azure-iot-sdks
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0720_2016-->

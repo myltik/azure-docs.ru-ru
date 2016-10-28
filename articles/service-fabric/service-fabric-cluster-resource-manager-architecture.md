@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager Architecture | Microsoft Azure"
-   description="An architectural overview of Service Fabric Cluster Resource Manager."
+   pageTitle="Архитектура диспетчера ресурсов | Microsoft Azure"
+   description="Общие сведения об архитектуре диспетчера кластерных ресурсов Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -16,32 +16,27 @@
    ms.date="08/19/2016"
    ms.author="masnider"/>
 
+# Общие сведения об архитектуре диспетчера кластерных ресурсов
+Для управления ресурсами в кластере диспетчеру кластерных ресурсов Service Fabric требуется несколько параметров. Он должен знать, какие службы в нем существуют и какой объем ресурсов эти службы используют на данный момент (или по умолчанию). Он должен знать фактическую емкость входящих в кластер, а значит, и объем ресурсов, доступных для всего кластера и для отдельного узла. В течение времени одна и та же служба может использовать разный объем ресурсов. Также учитывайте, что службы, как правило, зависят более чем от одного ресурса. Среди множества различных служб могут быть как "реальные" физические ресурсы, измеряемые и отображаемые в отчетах в виде метрик (например память и дисковое пространство), так и (на самом деле используемые чаще) логические метрики, такие как WorkQueueDepth или TotalRequests. Как логическими, так и физическими метриками могут широко пользоваться самые разные виды служб. А какие-то метрики могут быть доступны только для нескольких определенных служб.
 
-# <a name="cluster-resource-manager-architecture-overview"></a>Cluster resource manager architecture overview
-In order to manage the resources in your cluster, the Service Fabric Cluster Resource Manager must have several pieces of information. It has to know which services currently exist and the current (or default) amount of resources that those services are consuming. It has to know the actual capacity of the nodes in the cluster, and thus the amount of resources available both in the cluster as a whole and remaining on a particular node. The resource consumption of a given service can change over time, as well as the fact that services, in reality, usually care about more than one resource. Across many different services there may be both real physical resources being measured and reported as metrics like memory and disk consumption, as well as (and actually more commonly) logical metrics - things like "WorkQueueDepth" or "TotalRequests". Both logical and physical metrics may be used across many different types of services or maybe specific to only a couple services.
+## Дополнительные рекомендации
+Владельцы и операторы кластера часто не являются авторами служб либо выступают в качестве мастера на все руки. Например, разработчик службы знает, какие ресурсы для нее потребуются и как развернуть различные компоненты, а человек, имеющий дело с рабочим экземпляром этой службы, выполняет совсем другую работу и нуждается в совершенно других инструментах. Кроме того, ни кластер, ни служба не отличаются статичностью конфигурации: количество узлов в кластере может увеличиваться и уменьшаться, узлы различных размеров — появляться и исчезать, а службы — создаваться, удаляться и менять распределение ресурсов в режиме реального времени. Кластер может обновляться и подвергаться другим операциям управления, и, разумеется, никто не застрахован от сбоев.
 
-## <a name="other-considerations"></a>Other considerations
-The owners and operators of the cluster are occasionally different from the service authors, or at a minimum are the same people wearing different hats; for example when developing your service you know a few things about what it requires in terms of resources and how the different components should ideally be deployed, but as the person handling a live-site incident for that service in production you have a different job to do, and require different tools. In addition, neither the cluster nor the services themselves are a statically configured: the number of nodes in the cluster can grow and shrink, nodes of different sizes can come and go, and services can be created, removed, and change their desired resource allocations on the fly. Upgrades or other management operations can roll through the cluster, and of course things can fail at any time.
+## Компоненты и поток данных диспетчера кластерных ресурсов
+Диспетчер кластерных ресурсов должен много знать о кластере в целом, а также о требованиях каждой отдельной службы и формирующих ее экземпляров без отслеживания или реплик с отслеживанием состояния. Для этого реализованы агенты диспетчера кластерных ресурсов, работающие на отдельных узлах и собирающие данные об использовании локальных ресурсов, и централизованная отказоустойчивая служба диспетчера кластерных ресурсов, которая собирает всю информацию о службах и кластере и реагирует, исходя из своей текущей конфигурации. Отказоустойчивость службы диспетчера кластерных ресурсов (и всех других системных служб) обеспечивается по тем же принципам, которые мы применяем для ваших служб, а именно за счет репликации состояния службы в кворумы с определенным количеством реплик (обычно их 7).
 
-## <a name="cluster-resource-manager-components-and-data-flow"></a>Cluster resource manager components and data flow
-The Cluster Resource Manager will have to know many things about the overall cluster, as well as the requirements of individual services and the stateless instances or stateful replicas that make it up. To accomplish this, we have agents of the Cluster Resource Manager that run on individual nodes in order to aggregate local resource consumption information, and a centralized, fault-tolerant Cluster Resource Manager service that aggregates all of the information about the services and the cluster and reacts based on its current configuration. The fault tolerance for the Cluster Resource Manager service (and all other system services) is achieved via exactly the same mechanisms that we use for your services, namely replication of the service’s state to quorums of some number of replicas in the cluster (usually 7).
+![Архитектура балансировщика ресурсов][Image1]
 
-![Resource Balancer Architecture][Image1]
+Для примера рассмотрим схему выше. В среде выполнения может происходить целый ряд изменений. Это могут быть изменения в том, какой объем ресурсов задействуют службы, сбои в некоторых службах, увеличение и уменьшение числа узлов в кластере и т. д. Все изменения на каждом отдельном узле собираются и периодически отправляются в службу диспетчера кластерных ресурсов (1,2), где они собираются снова, анализируются и сохраняются. Каждые несколько секунд служба просматривает все изменения и определяет все необходимые действия (3). Например, она может определить, что в кластер добавлены новые, пустые узлы, и перенести в них некоторые службы. Центральная служба также может зафиксировать, что какой-то узел перегружен или одна из служб не работает (либо была удалена) и, таким образом, высвобождает ресурсы на других узлах.
 
-Let’s take a look at this diagram above as an example. During runtime there are a whole bunch of changes which could happen: For example, let’s say there are some changes in the amount of resources services consume, some service failures, some nodes join and leave the cluster, etc. All the changes on a specific node are aggregated and periodically sent to the Cluster Resource Manager service (1,2) where they are aggregated again, analyzed, and stored. Every few seconds that service looks at all of the changes, and determines if there are any actions necessary (3). For example, it could notice that nodes have been added to the cluster and are empty, and decide to move some services to those nodes. It could also notice that a particular node is overloaded, or that certain services have failed (or been deleted), freeing up resources on other nodes.
+Рассмотрим следующую схему и узнаем, что происходит далее. Предположим, диспетчер кластерных ресурсов определяет, что необходимы изменения. Он вносит необходимые изменения по согласованию с другими службами (в частности с диспетчером отработки отказов). На соответствующие узлы отправляются запросы на изменения (4). В данном случае диспетчер ресурсов заметил, что узел 5 перегружен, и решил перенести службу B с узла 5 на узел 4. После перенастройки (5) кластер выглядит следующим образом:
 
-Let’s take a look at the following diagram and see what happens next. Let’s say that the Cluster Resource Manager determines that changes are necessary. It coordinates with other system services (in particular the Failover Manager) to make the necessary changes. Then the change requests are sent to the appropriate nodes (4). In this case, we presume that the Resource Manager noticed that Node 5 was overloaded, and so decided to move service B from N5 to N4. At the end of the reconfiguration (5), the cluster looks like this:
+![Архитектура балансировщика ресурсов][Image2]
 
-![Resource Balancer Architecture][Image2]
+## Дальнейшие действия
+- В диспетчере кластерных ресурсов много параметров для описания кластера. Чтобы узнать о них больше, ознакомьтесь с этой статьей об [описании кластера Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-## <a name="next-steps"></a>Next steps
-- The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
+[Image1]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
+[Image2]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
 
-[Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
-[Image2]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

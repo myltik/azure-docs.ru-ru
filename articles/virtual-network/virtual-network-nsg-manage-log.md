@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Monitor operations, events, and counters for NSGs | Microsoft Azure"
-   description="Learn how to enable counters, events, and operational logging for NSGs"
+   pageTitle="Мониторинг операций, событий и счетчиков для групп безопасности сети | Microsoft Azure"
+   description="Включение ведения журналов счетчиков, событий и операций для групп безопасности сети"
    services="virtual-network"
    documentationCenter="na"
    authors="jimdial"
@@ -17,110 +17,105 @@
    ms.date="07/14/2016"
    ms.author="jdial" />
 
+#Аналитика журналов для групп безопасности сети
 
-#<a name="log-analytics-for-network-security-groups-(nsgs)"></a>Log analytics for network security groups (NSGs)
+В Azure можно использовать различные виды журналов для управления группами безопасности сети (NSG) и устранения возникающих в них неполадок. К некоторым из этих журналов можно получить доступ через портал. Кроме того, можно извлечь все журналы из хранилища BLOB-объектов Azure и просматривать их с помощью таких инструментов, как [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel и PowerBI. В списке ниже приведены дополнительные сведения о различных типах журналов.
 
-You can use different types of logs in Azure to manage and troubleshoot NSGs. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel and PowerBI. You can learn more about the different types of logs from the list below.
+- **Журналы аудита.** В [журналах аудита Azure](../azure-portal/insights-debugging-with-events.md) (прежнее название — операционные журналы) можно просмотреть все операции, отправляемые в ваши подписки Azure, и состояние этих операций. По умолчанию журналы аудита включены, и их можно просмотреть на портале предварительной версии Azure.
+- **Журналы событий.** Этот журнал позволяет просмотреть правила, NSG примененные к виртуальным машинам и экземплярам ролей на основе MAC-адреса. Состояние этих правил регистрируется каждые 60 секунд.
+- **Журналы счетчиков.**. Этот журнал позволяет просмотреть, сколько раз каждое правило NSG было применено для запрета или разрешения трафика.
 
-- **Audit logs:** You can use [Azure Audit Logs](../azure-portal/insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription(s), and their status. Audit logs are enabled by default, and can be viewed in the Azure preview portal.
-- **Event logs:** You can use this log to view what NSG rules are applied to VMs and instance roles based on MAC address. The status for these rules is collected every 60 seconds.
-- **Counter logs:** You can use this log to view how many times each NSG rule was applied to deny or allow traffic.
+>[AZURE.WARNING] Журналы доступны только для ресурсов, развернутых в модели развертывания диспетчера ресурсов. Журналы нельзя использовать для ресурсов в классической модели развертывания. Чтобы получить более полное представление об этих двух моделях, см. статью [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](../resource-manager-deployment-model.md).
 
->[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md) article.
+##Включение ведения журналов
+Ведение журналов аудита автоматически включено постоянно для каждого ресурса диспетчера ресурсов. Ведение журналов событий и счетчиков необходимо включить, чтобы начать сбор соответствующих данных. Чтобы включить ведение журнала, выполните следующие действия.
 
-##<a name="enable-logging"></a>Enable logging
-Audit logging is automatically enabled at all times for every Resource Manager resource. You need to enable event and counter logging to start collecting the data available through those logs. To enable logging, follow the steps below.
+1.  Войдите на [портал Azure](https://portal.azure.com). Если группа безопасности сети еще не создана, [создайте ее](virtual-networks-create-nsg-arm-ps.md).
 
-1.  Sign-in to the [Azure portal](https://portal.azure.com). If you don't already have an existing network security group, [create an NSG](virtual-networks-create-nsg-arm-ps.md) before you continue.
+2.  На портале предварительной версии последовательно выберите пункты **Обзор** >> **Группы безопасности сети**.
 
-2.  In the preview portal, click **Browse** >> **Network security groups**.
+	![Портал предварительной версии — группы безопасности сети](./media/virtual-network-nsg-manage-log/portal-enable1.png)
 
-    ![Preview portal - Network security groups](./media/virtual-network-nsg-manage-log/portal-enable1.png)
+3. Выберите существующую группу безопасности сети.
 
-3. Select an existing network security group.
+	![Портал предварительной версии — параметры групп безопасности сети](./media/virtual-network-nsg-manage-log/portal-enable2.png)
 
-    ![Preview portal - Network security group settings](./media/virtual-network-nsg-manage-log/portal-enable2.png)
+4. В колонке **Параметры** щелкните **Диагностика**, а затем на панели **Диагностика** рядом с полем **Состояние** щелкните **Вкл.**
+5. В колонке **Параметры** щелкните **Учетная запись хранения** и выберите существующую учетную запись хранения или создайте новую.
 
-4. In the **Settings** blade, click **Diagnostics**, and then in the **Diagnostics** pane, next to **Status**, click **On**
-5. In the **Settings** blade, click **Storage Account**, and either select an existing storage account, or create a new one.  
+>[AZURE.INFORMATION] Для журналов аудита отдельная учетная запись хранения не требуется. За использование хранилища для журналов событий и правил взимается плата.
 
->[AZURE.INFORMATION] Audit logs do not require a separate storage account. The use of storage for event and rule logging will incur service charges.
+6. В раскрывающемся списке непосредственно под элементом **Учетная запись хранения** выберите, что именно следует регистрировать — события, счетчики или то и другое, — а затем нажмите кнопку **Сохранить**.
 
-6. In the drop-down list just under **Storage Account**, select whether you want to log events, counters, or both, and then click **Save**.
+	![Портал предварительной версии — журналы диагностики](./media/virtual-network-nsg-manage-log/portal-enable3.png)
 
-    ![Preview portal - Diagnostics logs](./media/virtual-network-nsg-manage-log/portal-enable3.png)
+## Журнал аудита
+Этот журнал (прежнее название — «операционный журнал») создается в Azure по умолчанию. Журналы хранятся в течение 90 дней в хранилище журналов событий Azure. Дополнительные сведения об этих журналах см. в статье [Просмотр журналов событий и аудита](../azure-portal/insights-debugging-with-events.md).
 
-## <a name="audit-log"></a>Audit log
-This log (formerly known as the "operational log") is generated by Azure by default.  The logs are preserved for 90 days in Azure’s Event Logs store. Learn more about these logs by reading the [View events and audit logs](../azure-portal/insights-debugging-with-events.md) article.
+## Журнал счетчиков
+Этот журнал создается только в том случае, если он включен для конкретной группы безопасности сети, как описано выше. Данные хранятся в учетной записи хранения, указанной при включении ведения журнала. Каждое правило, примененное к ресурсам, заносится в журнал в формате JSON, как показано ниже.
 
-## <a name="counter-log"></a>Counter log
-This log is only generated if you've enabled it on a per NSG basis as detailed above. The data is stored in the storage account you specified when you enabled the logging. Each rule applied to resources is logged in JSON format, as seen below.
+	{
+		"time": "2015-09-11T23:14:22.6940000Z",
+		"systemId": "e22a0996-e5a7-4952-8e28-4357a6e8f0c5",
+		"category": "NetworkSecurityGroupRuleCounter",
+		"resourceId": "/SUBSCRIPTIONS/D763EE4A-9131-455F-8C5E-876035455EC4/RESOURCEGROUPS/INSIGHTOBONRP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/NSGINSIGHTOBONRP",
+		"operationName": "NetworkSecurityGroupCounters",
+		"properties": {
+			"vnetResourceGuid":"{DD0074B1-4CB3-49FA-BF10-8719DFBA3568}",
+			"subnetPrefix":"10.0.0.0/24",
+			"macAddress":"001517D9C43C",
+			"ruleName":"DenyAllOutBound",
+			"direction":"Out",
+			"type":"block",
+			"matchedConnections":0
+			}
+	}
 
-    {
-        "time": "2015-09-11T23:14:22.6940000Z",
-        "systemId": "e22a0996-e5a7-4952-8e28-4357a6e8f0c5",
-        "category": "NetworkSecurityGroupRuleCounter",
-        "resourceId": "/SUBSCRIPTIONS/D763EE4A-9131-455F-8C5E-876035455EC4/RESOURCEGROUPS/INSIGHTOBONRP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/NSGINSIGHTOBONRP",
-        "operationName": "NetworkSecurityGroupCounters",
-        "properties": {
-            "vnetResourceGuid":"{DD0074B1-4CB3-49FA-BF10-8719DFBA3568}",
-            "subnetPrefix":"10.0.0.0/24",
-            "macAddress":"001517D9C43C",
-            "ruleName":"DenyAllOutBound",
-            "direction":"Out",
-            "type":"block",
-            "matchedConnections":0
-            }
-    }
+## Журнал событий
+Этот журнал создается только в том случае, если он включен для конкретной группы безопасности сети, как описано выше. Данные хранятся в учетной записи хранения, указанной при включении ведения журнала. В журнал записываются следующие данные:
 
-## <a name="event-log"></a>Event log
-This log is only generated if you've enabled it on a per NSG basis as detailed above. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
+	{
+		"time": "2015-09-11T23:05:22.6860000Z",
+		"systemId": "e22a0996-e5a7-4952-8e28-4357a6e8f0c5",
+		"category": "NetworkSecurityGroupEvent",
+		"resourceId": "/SUBSCRIPTIONS/D763EE4A-9131-455F-8C5E-876035455EC4/RESOURCEGROUPS/INSIGHTOBONRP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/NSGINSIGHTOBONRP",
+		"operationName": "NetworkSecurityGroupEvents",
+		"properties": {
+			"vnetResourceGuid":"{DD0074B1-4CB3-49FA-BF10-8719DFBA3568}",
+			"subnetPrefix":"10.0.0.0/24",
+			"macAddress":"001517D9C43C",
+			"ruleName":"AllowVnetOutBound",
+			"direction":"Out",
+			"priority":65000,
+			"type":"allow",
+			"conditions":{
+				"destinationPortRange":"0-65535",
+				"sourcePortRange":"0-65535",
+				"destinationIP":"10.0.0.0/8,172.16.0.0/12,169.254.0.0/16,192.168.0.0/16,168.63.129.16/32",
+				"sourceIP":"10.0.0.0/8,172.16.0.0/12,169.254.0.0/16,192.168.0.0/16,168.63.129.16/32"
+			}
+		}
+	}
 
-    {
-        "time": "2015-09-11T23:05:22.6860000Z",
-        "systemId": "e22a0996-e5a7-4952-8e28-4357a6e8f0c5",
-        "category": "NetworkSecurityGroupEvent",
-        "resourceId": "/SUBSCRIPTIONS/D763EE4A-9131-455F-8C5E-876035455EC4/RESOURCEGROUPS/INSIGHTOBONRP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/NSGINSIGHTOBONRP",
-        "operationName": "NetworkSecurityGroupEvents",
-        "properties": {
-            "vnetResourceGuid":"{DD0074B1-4CB3-49FA-BF10-8719DFBA3568}",
-            "subnetPrefix":"10.0.0.0/24",
-            "macAddress":"001517D9C43C",
-            "ruleName":"AllowVnetOutBound",
-            "direction":"Out",
-            "priority":65000,
-            "type":"allow",
-            "conditions":{
-                "destinationPortRange":"0-65535",
-                "sourcePortRange":"0-65535",
-                "destinationIP":"10.0.0.0/8,172.16.0.0/12,169.254.0.0/16,192.168.0.0/16,168.63.129.16/32",
-                "sourceIP":"10.0.0.0/8,172.16.0.0/12,169.254.0.0/16,192.168.0.0/16,168.63.129.16/32"
-            }
-        }
-    }
+## Просмотр и анализ журнала аудита
+Данные журнала аудита можно просматривать и анализировать с помощью любого из следующих методов.
 
-## <a name="view-and-analyze-the-audit-log"></a>View and analyze the audit log
-You can view and analyze audit log data using any of the following methods:
+- **Средства Azure.** Информацию из журналов аудита можно получать с помощью Azure PowerShell, интерфейса командной строки (CLI) Azure, интерфейса REST API Azure или портала предварительной версии Azure. Пошаговые инструкции для каждого метода подробно описаны в статье [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md).
+- **Power BI.** Если у вас еще нет учетной записи [Power BI](https://powerbi.microsoft.com/pricing), ее можно опробовать бесплатно. Используя [пакет содержимого журналов аудита Azure для Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/), можно анализировать данные с помощью предварительно настроенных панелей мониторинга, которые можно использовать как есть или дополнительно настроить.
 
-- **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure preview portal.  Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../resource-group-audit.md) article.
-- **Power BI:** If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. Using the [Azure Audit Logs content pack for Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/) you can analyze your data with pre-configured dashboards that you can use as-is, or customize.
+## Просмотр и анализ журналов счетчиков и событий
 
-## <a name="view-and-analyze-the-counter-and-event-log"></a>View and analyze the counter and event log
+Служба Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) собирает файлы журнала событий и счетчика из вашей учетной записи хранилища BLOB-объектов и включает в себя представления и мощные инструменты поиска для анализа журналов.
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account and includes visualizations and powerful search capabilities to analyze your logs.
+Можно также подключиться к учетной записи хранения и извлечь записи журнала в формате JSON для журналов событий и счетчиков. После загрузки JSON-файлов их можно преобразовать в формат CSV и просматривать в Excel, PowerBI или другом средстве визуализации данных.
 
-You can also connect to your storage account and retrieve the JSON log entries for event and counter logs. Once you download the JSON files, you can convert them to CSV and view in Excel, PowerBI, or any other data visualization tool.
+>[AZURE.TIP] Если вы знакомы с Visual Studio и основными понятиями изменения значений констант и переменных в C#, можно использовать [средства преобразования журнала](https://github.com/Azure-Samples/networking-dotnet-log-converter), доступные на сайте GitHub.
 
->[AZURE.TIP] If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from Github.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+- Визуализация счетчика и журналов событий с помощью [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
+- Запись блога [Визуализация журналов аудита Azure с помощью Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
+- Запись блога [Просмотр и анализ журналов аудита Azure с помощью Power BI и других средств](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-- Visualize counter and event logs with [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)
-- [Visualize your Azure Audit Logs with Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
-- [View and analyze Azure Audit Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

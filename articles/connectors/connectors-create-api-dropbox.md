@@ -1,10 +1,10 @@
 <properties
 pageTitle="Dropbox | Microsoft Azure"
-description="Create Logic apps with Azure App service. Connect to Dropbox to manage your files. You can perform various actions such as upload, update, get, and delete files in Dropbox."
-services="logic-apps"   
-documentationCenter=".net,nodejs,java"  
-authors="msftman"   
-manager="erikre"    
+description="Создание приложений логики с помощью службы приложений Azure. Подключитесь к Dropbox, чтобы управлять файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов в Dropbox."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
+authors="msftman"	
+manager="erikre"	
 editor=""
 tags="connectors" />
 
@@ -17,430 +17,426 @@ ms.workload="integration"
 ms.date="07/15/2016"
 ms.author="deonhe"/>
 
+# Начало работы с соединителем Dropbox
 
-# <a name="get-started-with-the-dropbox-connector"></a>Get started with the Dropbox connector
+Подключитесь к Dropbox, чтобы управлять файлами. Вы можете выполнять различные действия, такие как отправка, обновление, получение и удаление файлов в Dropbox.
 
-Connect to Dropbox to manage your files. You can perform various actions such as upload, update, get, and delete files in Dropbox.
+Чтобы использовать [соединитель](./apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## Подключение к Dropbox
 
-## <a name="connect-to-dropbox"></a>Connect to Dropbox
+Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите соединение между приложением логики и другой службой. Например, чтобы подключиться к Dropbox, сначала необходимо создать *подключение* к Dropbox. Чтобы создать подключение, необходимо ввести учетные данные, которые обычно используются для доступа к определенной службе. То есть для создания подключения к Dropbox вам понадобятся учетные данные учетной записи Dropbox. Дополнительные сведения о подключениях см. [здесь]().
 
-Before your logic app can access any service, you first need to create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, in order to connect to Dropbox, you first need a Dropbox *connection*. To create a connection, you would need to provide the credentials you normally use to access the service you wish to connect to. So, in the Dropbox example, you would need the credentials to your Dropbox account in order to create the connection to Dropbox. [Learn more about connections]()
+### Создание подключения к Dropbox
 
-### <a name="create-a-connection-to-dropbox"></a>Create a connection to Dropbox
+>[AZURE.INCLUDE [Шаги по созданию подключения к Dropbox](../../includes/connectors-create-api-dropbox.md)]
 
->[AZURE.INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
+## Использование триггера Dropbox
 
-## <a name="use-a-dropbox-trigger"></a>Use a Dropbox trigger
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+В этом примере мы будем использовать триггер **When a file is created** (При создании файла). Когда этот триггер сработает, мы вызовем действие Dropbox **Get file content using path** (Получить содержимое файла с помощью пути).
 
-In this example, we will use the **When a file is created** trigger. When this trigger occurs, we will call the **Get file content using path** Dropbox action. 
-
-1. Enter *dropbox* in the search box on the Logic Apps designer, then select the **Dropbox - When a file is created** trigger.      
- ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
+1. Введите запрос *dropbox* в поле поиска в конструкторе Logic Apps, а затем выберите триггер **Dropbox - When a file is created** (Dropbox — при создании файла).  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)
   
-2. Select the folder in which you want to track file creation. Select ... (identified in the red box) and browse to the folder you wish to select for the trigger's input.  
- ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
+2. Выберите папку для отслеживания создания файла. Щелкните многоточие "..." (на снимке экрана обведено красной рамкой) и перейдите к папке, которую вы хотите выбрать в качестве исходных данных триггера.  
+ ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)
 
-## <a name="use-a-dropbox-action"></a>Use a Dropbox action
+## Использование действия Dropbox
 
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-Now that the trigger has been added, follow these steps to add an action that will get the new file's content.
+Теперь, когда триггер добавлен, выполните следующие действия, чтобы добавить действие, которое получит новое содержимое файла.
 
-1. Select **+ New Step** to add the action you would like to take when a new file is created.  
+1. Нажмите кнопку **+ Новый шаг**, чтобы добавить действие, которое будет выполняться после создания нового файла.  
+ 
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
 
-2. Select **Add an action**. This opens the search box where you can search for any action you would like to take.  
- ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
+2. Выберите **Добавить действие**. Откроется поле поиска. В этом поле вы можете выполнить поиск действия, которое нужно применить. ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
 
-3. Enter *dropbox* to search for actions related to Dropbox.  
+3. Введите запрос *dropbox*, чтобы найти действия, связанные с Dropbox.
 
-4. Select **Dropbox - Get file content using path** as the action to take when a new file is created in the selected Dropbox folder. The action control block opens. You will be prompted to authorize your logic app to access your Dropbox account if you have not done so previously.  
+4. Выберите **Dropbox - Get file content using path** (Dropbox — Получить содержимое файла с помощью пути) в качестве действия, которое будет выполняться после создания файла в выбранной папке Dropbox. Откроется блок управления действием. Вам будет предложено авторизовать приложение логики для доступа к учетной записи Dropbox, если вы еще не сделали это.  
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
 
-5. Select ... (located at the right side of the **File Path** control) and browse to the file path you would like to use. Or, use the **file path** token to speed up your logic app creation.  
+5. Щелкните многоточие "..." (находится в правой части блока управления **Путь к файлу**) и перейдите к файлу, который вы хотите использовать. Или используйте маркер **путь к файлу**, чтобы ускорить создание приложения логики.  
  ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
 
-6. Save your work and create a new file in Dropbox to activate your workflow.  
+6. Сохраните изменения и создайте новый файл в Dropbox, чтобы активировать рабочий процесс.
 
-## <a name="technical-details"></a>Technical details
+## Технические сведения
 
-Here are the details about the triggers, actions and responses that this connection supports:
+Ниже приведены сведения о триггерах, действиях и ответах, которые поддерживает это подключение.
 
-## <a name="dropbox-triggers"></a>Dropbox triggers
+## Триггеры Dropbox
 
-The Dropbox connector has the following trigger(s):  
+Соединитель Dropbox предоставляет следующие триггеры.
 
-|Trigger | Description|
+|Триггер | Описание|
 |--- | ---|
-|[When a file is created](connectors-create-api-dropbox.md#when-a-file-is-created)|This operation triggers a flow when a new file is created in a folder.|
-|[When a file is modified](connectors-create-api-dropbox.md#when-a-file-is-modified)|This operation triggers a flow when a file is modified in a folder.|
+|[При создании файла](connectors-create-api-dropbox.md#when-a-file-is-created)|Запускает поток при создании файла в папке.|
+|[При изменении файла](connectors-create-api-dropbox.md#when-a-file-is-modified)|Запускает поток при изменении файла в папке.|
 
-## <a name="dropbox-actions"></a>Dropbox actions
+## Действия Dropbox
 
-The Dropbox connector has the following actions:
+Соединитель Dropbox предоставляет следующие действия.
 
-|Action|Description|
+|Действие|Описание|
 |--- | ---|
-|[Get file metadata](connectors-create-api-dropbox.md#get-file-metadata)|This operation gets the metadata for a file.|
-|[Update file](connectors-create-api-dropbox.md#update-file)|This operation updates a file.|
-|[Delete file](connectors-create-api-dropbox.md#delete-file)|This operation deletes a file.|
-|[Get file metadata using path](connectors-create-api-dropbox.md#get-file-metadata-using-path)|This operation gets the metadata of a file using the path.|
-|[Get file content using path](connectors-create-api-dropbox.md#get-file-content-using-path)|This operation gets the content of a file using the path.|
-|[Get file content](connectors-create-api-dropbox.md#get-file-content)|This operation gets the content of a file.|
-|[Create file](connectors-create-api-dropbox.md#create-file)|This operation creates a file.|
-|[Copy file](connectors-create-api-dropbox.md#copy-file)|This operation copies a file to Dropbox.|
-|[List files in folder](connectors-create-api-dropbox.md#list-files-in-folder)|This operation gets the list of files and subfolders in a folder.|
-|[List files in root folder](connectors-create-api-dropbox.md#list-files-in-root-folder)|This operation gets the list of files and subfolders in the root folder.|
-|[Extract archive to folder](connectors-create-api-dropbox.md#extract-archive-to-folder)|This operation extracts an archive file into a folder (example: .zip).|
+|[Get file metadata (Получение метаданных файла)](connectors-create-api-dropbox.md#get-file-metadata)|Извлекает метаданные файла.|
+|[Обновление файла](connectors-create-api-dropbox.md#update-file)|Обновляет файл.|
+|[Удаление файла](connectors-create-api-dropbox.md#delete-file)|Удаляет файл.|
+|[Получение метаданных файла с помощью пути](connectors-create-api-dropbox.md#get-file-metadata-using-path)|Извлекает метаданные файла с помощью пути.|
+|[Получение содержимого файла с помощью пути](connectors-create-api-dropbox.md#get-file-content-using-path)|Извлекает содержимое файла с помощью пути.|
+|[Получение содержимого файла](connectors-create-api-dropbox.md#get-file-content)|Извлекает содержимое файла.|
+|[Создание файла](connectors-create-api-dropbox.md#create-file)|Создает файл.|
+|[Копирование файла](connectors-create-api-dropbox.md#copy-file)|Копирует файл в Dropbox.|
+|[List files in folder (Вывод списка файлов в папке)](connectors-create-api-dropbox.md#list-files-in-folder)|Извлекает список файлов и вложенных папок в папке.|
+|[List files in root folder (Вывод списка файлов в корневой папке)](connectors-create-api-dropbox.md#list-files-in-root-folder)|Извлекает список файлов и вложенных папок в корневой папке.|
+|[Извлечение архива в папку](connectors-create-api-dropbox.md#extract-archive-to-folder)|Извлекает файл архива в папку (например, ZIP-файл).|
 
-### <a name="action-details"></a>Action details
+### Сведения о действиях
 
-Here are the details for the actions and triggers for this connector, along with their responses:
+Ниже приведены подробные сведения о действиях и триггерах этого соединителя, а также ответы на них.
 
 
-### <a name="get-file-metadata"></a>Get file metadata
-This operation gets the metadata for a file. 
+### Get file metadata (Получение метаданных файла)
+Извлекает метаданные файла.
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|id*|File|Select a file|
+|id*|Файл|Выбор файла|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="update-file"></a>Update file
-This operation updates a file. 
+### Обновление файла
+Обновляет файл.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|id*|File|Select a file|
-|body*|File content|Content of the file|
+|id*|Файл|Выбор файла|
+|body*|содержимое файла;|Содержимое файла|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="delete-file"></a>Delete file
-This operation deletes a file. 
+### Удаление файла
+Удаляет файл.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|id*|File|Select a file|
+|id*|Файл|Выбор файла|
 
-An * indicates that a property is required
-
-
+Звездочка (*) означает, что свойство является обязательным.
 
 
-### <a name="get-file-metadata-using-path"></a>Get file metadata using path
-This operation gets the metadata of a file using the path. 
 
 
-|Property Name| Display Name|Description|
+### Получение метаданных файла с помощью пути
+Извлекает метаданные файла с помощью пути.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|path*|File path|Select a file|
+|path*|Путь к файлу|Выбор файла|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="get-file-content-using-path"></a>Get file content using path
-This operation gets the content of a file using the path. 
+### Получение содержимого файла с помощью пути
+Извлекает содержимое файла с помощью пути.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|path*|File path|Select a file|
+|path*|Путь к файлу|Выбор файла|
 
-An * indicates that a property is required
-
-
+Звездочка (*) означает, что свойство является обязательным.
 
 
-### <a name="get-file-content"></a>Get file content
-This operation gets the content of a file. 
 
 
-|Property Name| Display Name|Description|
+### Получение содержимого файла
+Извлекает содержимое файла.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|id*|File|Select a file|
+|id*|Файл|Выбор файла|
 
-An * indicates that a property is required
-
-
+Звездочка (*) означает, что свойство является обязательным.
 
 
-### <a name="create-file"></a>Create file
-This operation creates a file. 
 
 
-|Property Name| Display Name|Description|
+### Создание файла
+Создает файл.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|folderPath*|Folder path|Select a folder|
-|name*|File name|Name of the file|
-|body*|File content|Content of the file|
+|folderPath*|Путь к папке|Выбор папки|
+|name*|Имя файла|Имя файла|
+|body*|содержимое файла;|Содержимое файла|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="copy-file"></a>Copy file
-This operation copies a file to Dropbox. 
+### Копирование файла
+Копирует файл в Dropbox.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|source*|Source url|Url to source file|
-|destination*|Destination file path|Destination file path, including target filename|
-|overwrite|Overwrite?|Overwrites the destination file if set to 'true'|
+|source*|URL-адрес исходного файла|URL-адрес исходного файла|
+|destination*|Путь к конечному файлу|Путь к конечному файлу, включая имя конечного файла|
+|перезаписать|Перезаписать?|Перезаписывает конечный файл, если задано значение "true"|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="when-a-file-is-created"></a>When a file is created
-This operation triggers a flow when a new file is created in a folder. 
+### При создании файла
+Запускает поток при создании файла в папке.
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|folderId*|Folder|Select a folder|
+|folderId*|Папка|Выбор папки|
 
-An * indicates that a property is required
-
-
+Звездочка (*) означает, что свойство является обязательным.
 
 
-### <a name="when-a-file-is-modified"></a>When a file is modified
-This operation triggers a flow when a file is modified in a folder. 
 
 
-|Property Name| Display Name|Description|
+### При изменении файла
+Запускает поток при изменении файла в папке.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|folderId*|Folder|Select a folder|
+|folderId*|Папка|Выбор папки|
 
-An * indicates that a property is required
-
-
+Звездочка (*) означает, что свойство является обязательным.
 
 
-### <a name="list-files-in-folder"></a>List files in folder
-This operation gets the list of files and subfolders in a folder. 
 
 
-|Property Name| Display Name|Description|
+### List files in folder (Вывод списка файлов в папке)
+Извлекает список файлов и вложенных папок в папке.
+
+
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|id*|Folder|Select a folder|
+|id*|Папка|Выбор папки|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
 
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="list-files-in-root-folder"></a>List files in root folder
-This operation gets the list of files and subfolders in the root folder. 
+### List files in root folder (Вывод списка файлов в корневой папке)
+Извлекает список файлов и вложенных папок в корневой папке.
 
 
-There are no parameters for this call
+Для этого вызова параметры отсутствуют
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
 
-### <a name="extract-archive-to-folder"></a>Extract archive to folder
-This operation extracts an archive file into a folder (example: .zip). 
+### Извлечение архива в папку
+Извлекает файл архива в папку (например, ZIP-файл).
 
 
-|Property Name| Display Name|Description|
+|Имя свойства| Отображаемое имя|Описание|
 | ---|---|---|
-|source*|Source archive file path|Path to the archive file|
-|destination*|Destination folder path|Path to extract the archive contents|
-|overwrite|Overwrite?|Overwrites the destination files if set to 'true'|
+|source*|Путь к исходному файлу архива|Путь к файлу архива|
+|destination*|Путь к конечной папке|Путь для извлечения содержимого архива|
+|перезаписать|Перезаписать?|Перезаписывает конечные файлы, если задано значение "true"|
 
-An * indicates that a property is required
+Звездочка (*) означает, что свойство является обязательным.
 
 
 
-#### <a name="output-details"></a>Output Details
+#### Сведения о выходных данных
 
 BlobMetadata
 
 
-| Property Name | Data Type |
+| Имя свойства | Тип данных |
 |---|---|
-|Id|string|
-|Name|string|
-|DisplayName|string|
-|Path|string|
-|LastModified|string|
-|Size|integer|
-|MediaType|string|
-|IsFolder|boolean|
+|Идентификатор|строка|
+|Имя|строка|
+|DisplayName|строка|
+|Путь|строка|
+|LastModified|строка|
+|Размер|целое число|
+|MediaType|строка|
+|IsFolder|Логическое|
 |ETag|string|
 |FileLocator|string|
 
 
 
-## <a name="http-responses"></a>HTTP responses
+## Ответы HTTP
 
-The actions and triggers above can return one or more of the following HTTP status codes: 
+Описанные выше действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже.
 
-| Name | Description |
+| Имя | Описание |
 |---|---|
-|200|OK|
-|202|Accepted|
-|400|Bad Request|
-|401|Unauthorized|
-|403|Forbidden|
-|404|Not Found|
-|500|Internal Server Error. Unknown error occurred.|
-|default|Operation Failed.|
+|200|ОК|
+|202|Принято|
+|400|Ошибка запроса|
+|401|Не авторизовано|
+|403|Запрещено|
+|404|Не найдено|
+|500|Внутренняя ошибка сервера. Произошла неизвестная ошибка.|
+|по умолчанию|Операция завершилась ошибкой.|
 
 
-## <a name="next-steps"></a>Next steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)
+## Дальнейшие действия
+[Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

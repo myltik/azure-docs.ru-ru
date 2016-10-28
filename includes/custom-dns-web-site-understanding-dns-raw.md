@@ -1,58 +1,55 @@
-The Domain Name System (DNS) is used to locate resources on the internet. For example, when you enter a web app address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address. The IP address is sort of like a street address, but it's not very human friendly. For example, it is much easier to remember a DNS name like **contoso.com** than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+Служба доменных имен (DNS) используется для поиска ресурсов в Интернете. Например, при вводе адреса веб-приложения в браузере или при щелчке ссылки на веб-странице DNS используется для перевода домена в IP-адрес. Этот IP-адрес является как бы почтовым адресом, однако он не очень понятен для человека. Так, гораздо легче запомнить DNS-имя, например **contoso.com**, чем запоминать IP-адрес, такой как 192.168.1.88 или 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
-The DNS system is based on *records*. Records associate a specific *name*, such as **contoso.com**, with either an IP address or another DNS name. When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address. If the value it points to is an IP address, the browser will use that value. If it points to another DNS name, then the application has to do resolution again. Ultimately, all name resolution will end in an IP address.
+DNS основана на *записях*. Записи связывают конкретное *имя*, например **contoso.com**, либо с IP-адресом, либо с другим DNS-именем. Если приложение, такое как веб-браузер, выполняет поиск имени в DNS, оно находит соответствующую запись и использует указанные в ней элементы в качестве адреса. Если указываемое значение является IP-адресом, браузер будет использовать это значение. Если указывается другое DNS-имя, приложение должно выполнить разрешение еще раз. В конечном счете конечным элементом всех разрешений имен будет являться IP-адрес.
 
-When you create an web app in App Service, a DNS name is automatically assigned to the web app. This name takes the form of **&lt;yourwebappname&gt;.azurewebsites.net**. There is also a virtual IP address available for use when creating DNS records, so you can either create records that point to the **.azurewebsites.net**, or you can point to the IP address.
+При создании веб-приложения в службе приложений DNS-имя автоматически назначается веб-приложению. Это имя имеет форму **&lt;имя\_веб\_приложения&gt;.azurewebsites.net**. Имеется также виртуальный IP-адрес для использования при создании DNS-записей. Таким образом, можно создать записи, указывающие либо на **.azurewebsites.net**, либо на IP-адрес.
 
-> [AZURE.NOTE] The IP address of your web app will change if you delete and recreate your web app, or change the App Service plan mode to **Free** after it has been set to **Basic**, **Shared**, or **Standard**.
+> [AZURE.NOTE] IP-адрес веб-приложения изменится, если удалить и заново создать это веб-приложение или изменить режим плана службы приложений на **Free** после того, как он был установлен как**Basic**, **Shared** или **Standard**.
 
-There are also multiple types of records, each with their own functions and limitations, but for web apps we only care about two, *A* and *CNAME* records.
+Существует несколько типов записей, каждый из которых имеет свои собственные функции и ограничения, но применительно к веб-приложениям нас интересуют только два типа записей, *A* и *CNAME*.
 
-###<a name="address-record-(a-record)"></a>Address record (A record)
+###Запись адреса (запись A)
 
-An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of a web app in App Service, either the virtual IP of the service or a specific IP address that you purchased for your web app.
+Запись A сопоставляет домен, например, **contoso.com** или **www.contoso.com**, *или домен с подстановочными знаками*, такими как ***.contoso.com**, с IP-адресом. В случае веб-приложения в службе приложений это либо виртуальный IP-адрес службы, либо конкретный IP-адрес, который был приобретен для веб-приложения.
 
-The main benefits of an A record over a CNAME record are:
+Имеются следующие основные преимущества записи A над записью CNAME:
 
-* You can map a root domain such as **contoso.com** to an IP address; many registrars only allow this using A records
+* Можно сопоставить корневой домен, такой как **contoso.com**, IP-адресу; многие регистраторы разрешают это только с помощью записей A
 
-* You can have one entry that uses a wildcard, such as **\*.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **blogs.contoso.com**, or **www.contso.com**.
+* Можно иметь одну запись, использующую подстановочные знаки, например ***.contoso.com**, которая будет обрабатывать запросы для нескольких поддоменов, таких как **mail.contoso.com**, **blogs.contoso.com** или **www.contoso.com**.
 
-> [AZURE.NOTE] Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your web app. An IP address for use with A records is provided when you configure custom domain name settings for your web app; however, this value may change if you delete and recreate your web app, or change the App Service plan mode to back to **Free**.
+> [AZURE.NOTE] Поскольку запись А сопоставляется со статическим IP-адресом, она не может автоматически разрешаться в IP-адрес вашего веб-приложения. IP-адрес для использования с записями А предоставляется при настройке параметров имени личного домена для веб-приложения; однако это значение может измениться, если удалить и заново создать веб-приложение или изменить режим плана службы приложений снова на **Free**.
 
-###<a name="alias-record-(cname-record)"></a>Alias record (CNAME record)
+###Запись псевдонима (запись CNAME)
 
-A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of App Service Web Apps, the canonical domain name is the **&lt;yourwebappname>.azurewebsites.net** domain name of your web app. Once created, the CNAME creates an alias for the **&lt;yourwebappname>.azurewebsites.net** domain name. The CNAME entry will resolve to the IP address of your **&lt;yourwebappname>.azurewebsites.net** domain name automatically, so if the IP address of the web app changes, you do not have to take any action.
+Запись CNAME сопоставляет *конкретное* DNS-имя, такое как **mail.contoso.com** или **www.contoso.com**, с другим (каноническим) именем домена. В случае веб-приложения службы приложений, каноническим доменным именем является доменное имя **&lt; имя\_веб-приложения >. azurewebsites.net** вашего веб-приложения. После создания запись CNAME создает псевдоним для доменного имени **&lt; имя\_веб-приложения >. azurewebsites.net**. Запись CNAME будет автоматически разрешаться в IP-адрес вашего доменного имени **&lt; имя\_веб-приложения >. azurewebsites.net**, поэтому при изменении IP-адреса веб-приложения не нужно предпринимать никаких действий.
 
-> [AZURE.NOTE] Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
+> [AZURE.NOTE] Только некоторые регистраторы доменов позволяют при использовании записи CNAME сопоставлять поддомены, такие как **www.contoso.com**, а не корневые имена, такие как **contoso.com**. Дополнительные сведения о записи CNAME см. в документации вашего регистратора, <a href="http://en.wikipedia.org/wiki/CNAME_record">статье в Википедии о записи CNAME</a> или в документе <a href="http://tools.ietf.org/html/rfc1035">Доменные имена IETF — реализация и спецификация</a>.
 
-###<a name="web-app-dns-specifics"></a>Web app DNS specifics
+###Особенности DNS веб-приложений
 
-Using an A record with Web Apps requires you to first create one of the following TXT records:
+Для использования записи A с веб-приложениями необходимо сначала создать одну из следующих записей типа TXT.
 
-* **For the root domain** - A DNS TXT record of **@** to  **&lt;yourwebappname&gt;.azurewebsites.net**.
+* **Для корневого домена** — запись DNS типа TXT **@** для **&lt;имя\_веб-приложения&gt;.azurewebsites.net**.
 
-* **For a specific sub-domain** - A DNS name of **&lt;sub-domain>** to **&lt;yourwebappname&gt;.azurewebsites.net**. For example, **blogs** if the A record is for **blogs.contoso.com**.
+* **Для конкретного поддомена** — DNS-имя **&lt;поддомен>** для **&lt;.имя\_веб-приложения.azurewebsites.net**. Например, **blogs**, если запись A предназначена для **blogs.contoso.com**.
 
-* **For the wildcard sub-dodmains** - A DNS TXT record of ***** to  **&lt;yourwebappname&gt;.azurewebsites.net**.
+* **Для поддоменов с подстановочными знаками** — запись DNS типа TXT ***** для **&lt;имя\_веб-приложения&gt;.azurewebsites.net**.
 
-This TXT record is used to verify that you own the domain you are attempting to use. This is in addition to creating an A record pointing to the virtual IP address of your web app.
+Эта запись типа TXT используется для проверки того, что вы являетесь владельцем домена, который пытаетесь использовать. Она создается в дополнение к записи A, указывающей на виртуальный IP-адрес вашего веб-приложения.
 
-You can find the IP address and **.azurewebsites.net** names for your web app by performing the following steps:
+Можно найти IP-адрес и имена **.azurewebsites.net** для своего веб-приложения, выполнив следующие действия.
 
-1. In your browser, open the [Azure Portal](https://portal.azure.com).
+1. В браузере откройте [портал Azure](https://portal.azure.com).
 
-2. In the **Web Apps** blade, click the name of your web app, and then select **Custom domains** from the bottom of the page.
+2. В колонке **Веб-приложения** щелкните имя веб-приложения и выберите **Личные домены** в нижней части страницы.
 
-    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-3. In the **Custom domains** blade, you will see the virtual IP address. Save this information, as it will be used when creating DNS records
+3. В колонке **Личные домены** вы увидите виртуальный IP-адрес. Сохраните эти сведения, так как они будут использоваться при создании записей DNS.
 
-    ![](./media/custom-dns-web-site/virtual-ip-address.png)
+	![](./media/custom-dns-web-site/virtual-ip-address.png)
 
-    > [AZURE.NOTE] You cannot use custom domain names with a **Free** web app, and must upgrade the App Service plan to **Shared**, **Basic**, **Standard**, or **Premium** tier. For more information on the App Service plan's pricing tiers, including how to change the pricing tier of your web app, see [How to scale web apps](../articles/web-sites-scale.md).
+	> [AZURE.NOTE] Вы не можете использовать настраиваемые доменные имена в **бесплатном** веб-приложении. Необходимо обновить план службы приложений с уровня Free до уровня **Shared**, **Basic**, **Standard** или **Premium**. Дополнительные сведения о ценовых категориях плана службы приложений, включая сведения о способах изменения ценовой категории веб-приложения, см. в разделе [Масштабирование веб-приложений](../articles/web-sites-scale.md).
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

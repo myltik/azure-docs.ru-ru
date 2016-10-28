@@ -1,90 +1,89 @@
 <properties 
-    pageTitle="Provision a web app that uses a SQL Database" 
-    description="Use an Azure Resource Manager template to deploy a web app that includes a SQL Database." 
-    services="app-service" 
-    documentationCenter="" 
-    authors="cephalin" 
-    manager="wpickett" 
-    editor=""/>
+	pageTitle="Подготовка к работе веб-приложения, использующего базу данных SQL" 
+	description="Используйте шаблон диспетчера ресурсов Azure для развертывания веб-приложения с базой данных SQL." 
+	services="app-service" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
 <tags 
-    ms.service="app-service" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="04/27/2016" 
-    ms.author="cephalin"/>
+	ms.service="app-service" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/27/2016" 
+	ms.author="cephalin"/>
 
+# Подготовка веб-приложения к работе с базой данных SQL
 
-# <a name="provision-a-web-app-with-a-sql-database"></a>Provision a web app with a SQL Database
+В этом разделе рассказывается, как создать шаблон диспетчера ресурсов Azure, выполняющий развертывание веб-приложения и базы данных SQL. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
-In this topic, you will learn how to create an Azure Resource Manager template that deploys a web app and SQL Database. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
+Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
+Подробнее о развертывании приложений см. в статье [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md).
 
-For more information about deploying apps, see [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md).
+Полная версия шаблона приведена в файле [Шаблон веб-приложения с базой данных SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
-For the complete template, see [Web App With SQL Database template](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
+## Что именно развертывается
 
-## <a name="what-you-will-deploy"></a>What you will deploy
+В этом шаблоне будут развернуты перечисленные ниже компоненты.
 
-In this template, you will deploy:
+- Веб-приложение
+- Сервер базы данных SQL
+- База данных SQL
+- Параметры автомасштабирования
+- Правила оповещения
+- Анализ приложения
 
-- a web app
-- SQL Database server
-- SQL Database
-- AutoScale settings
-- Alert rules
-- App Insights
+Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
 
-To run the deployment automatically, click the following button:
+[![Развертывание в Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
-[![Deploy to Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
-
-## <a name="parameters-to-specify"></a>Parameters to specify
+## Указываемые параметры
 
 [AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
-### <a name="administratorlogin"></a>administratorLogin
+### administratorLogin
 
-The account name to use for the database server administrator.
+Имя учетной записи администратора сервера баз данных.
 
     "administratorLogin": {
       "type": "string"
     }
 
-### <a name="administratorloginpassword"></a>administratorLoginPassword
+### administratorLoginPassword
 
-The password to use for the database server administrator.
+Пароль администратора сервера баз данных.
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
-### <a name="databasename"></a>databaseName
+### databaseName
 
-The name of the new database to create.
+Имя создаваемой базы данных.
 
     "databaseName": {
       "type": "string",
       "defaultValue": "sampledb"
     }
 
-### <a name="collation"></a>collation
+### collation
 
-The database collation to use for governing the proper use of characters.
+Параметры сортировки базы данных, определяющие надлежащий порядок использования символов.
 
     "collation": {
       "type": "string",
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     }
 
-### <a name="edition"></a>edition
+### edition
 
-The type of database to create.
+Тип создаваемой базы данных.
 
     "edition": {
       "type": "string",
@@ -99,18 +98,18 @@ The type of database to create.
       }
     }
 
-### <a name="maxsizebytes"></a>maxSizeBytes
+### maxSizeBytes
 
-The maximum size, in bytes, for the database.
+Максимальный размер базы данных в байтах.
 
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
-### <a name="requestedserviceobjectivename"></a>requestedServiceObjectiveName
+### requestedServiceObjectiveName
 
-The name corresponding to the performance level for edition. 
+Имя, соответствующее уровню производительности выпуска.
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -129,9 +128,9 @@ The name corresponding to the performance level for edition.
       }
     }
 
-## <a name="variables-for-names"></a>Variables for names
+## Переменные для имен
 
-This template includes variables that construct names used in the template. The variable values use the **uniqueString** function to generate a name from the resource group id.
+В этом шаблоне находятся переменные, которые используются для создания имен, используемых в шаблоне. В значениях переменных используется функция **uniqueString**, формирующая имя по идентификатору группы ресурсов в качестве аргумента.
 
     "variables": {
         "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -140,11 +139,11 @@ This template includes variables that construct names used in the template. The 
     },
 
 
-## <a name="resources-to-deploy"></a>Resources to deploy
+## Развертываемые ресурсы
 
-### <a name="sql-server-and-database"></a>SQL Server and Database
+### Сервер SQL Server и база данных SQL
 
-Creates a new SQL Server and database. The name of the server is specified in the **serverName** parameter and the location specified in the **serverLocation** parameter. When creating the new server, you must provide a login name and password for the database server administrator. 
+Создает новый сервер SQL Server и базу данных. Имя сервера задается с помощью параметра **serverName**, а его расположение — с помощью параметра **serverLocation**. При создании нового сервера баз данных необходимо указать имя и пароль учетной записи администратора.
 
     {
       "name": "[variables('sqlserverName')]",
@@ -196,7 +195,7 @@ Creates a new SQL Server and database. The name of the server is specified in th
 [AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 
-### <a name="web-app"></a>Web app
+### Веб-приложение
 
     {
       "apiVersion": "2015-08-01",
@@ -233,7 +232,7 @@ Creates a new SQL Server and database. The name of the server is specified in th
     },
 
 
-### <a name="autoscale"></a>AutoScale
+### Автомасштабирование
 
     {
       "apiVersion": "2014-04-01",
@@ -303,7 +302,7 @@ Creates a new SQL Server and database. The name of the server is specified in th
     },
 
 
-### <a name="alert-rules-for-status-codes-403-and-500's,-high-cpu,-and-http-queue-length"></a>Alert rules for status codes 403 and 500's, High CPU, and HTTP Queue Length 
+### Правила оповещения для кодов состояний 403 и 500, высокой загрузки ЦП и длины очереди HTTP 
 
     {
       "apiVersion": "2014-04-01",
@@ -442,7 +441,7 @@ Creates a new SQL Server and database. The name of the server is specified in th
       }
     },
     
-### <a name="app-insights"></a>App Insights
+### Анализ приложения
 
     {
       "apiVersion": "2014-04-01",
@@ -461,23 +460,19 @@ Creates a new SQL Server and database. The name of the server is specified in th
       }
     }
 
-## <a name="commands-to-run-deployment"></a>Commands to run deployment
+## Команды для выполнения развертывания
 
 [AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### <a name="powershell"></a>PowerShell
+### PowerShell
 
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-### <a name="azure-cli"></a>Azure CLI
+### Инфраструктура CLI Azure
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

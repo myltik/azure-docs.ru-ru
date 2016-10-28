@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Communication for Roles in Cloud Services | Microsoft Azure" 
-description="Role instances in Cloud Services can have endpoints (http, https, tcp, udp) defined for them that communicate with the outside or between other role instances." 
+pageTitle="Обмен данными между ролями в облачных службах | Microsoft Azure" 
+description="Для экземпляров ролей в облачных службах могут быть определены конечные точки (http, https, tcp, udp), взаимодействующие с внешней средой или с другими экземплярами ролей." 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -15,18 +15,17 @@ ms.topic="article"
 ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
+# Включение обмена данными между экземплярами роли в Azure
 
-# <a name="enable-communication-for-role-instances-in-azure"></a>Enable communication for role instances in azure
-
-Cloud service roles communicate through internal and external connections. External connections are called **input endpoints** while internal connections are called **internal endpoints**. This topic describes how to modify the [service definition](cloud-services-model-and-package.md#csdef) to create endpoints.
+Ролей облачной службы взаимодействуют через внутренние и внешние подключения. Внешние подключения называются **входными конечными точками**, а внутренние подключения — **внутренними конечными точками**. В этом разделе описывается изменение [определения службы](cloud-services-model-and-package.md#csdef) для создания конечных точек.
 
 
-## <a name="input-endpoint"></a>Input endpoint
-The input endpoint is used when you want to expose a port to the outside. You specify the protocol type and the port of the endpoint which then applies for both the external and internal ports for the endpoint. If you want, you can specify a different internal port for the endpoint with the [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) attribute.
+## Входная конечная точка
+Входная конечная точка используется, когда необходимо предоставить порт вовне. Необходимо указать тип протокола и порт конечной точки, которые затем применяются для внешнего и внутреннего портов конечной точки. Если требуется, для конечной точки можно указать другой внутренний порт с помощью атрибута [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint).
 
-The input endpoint can use the following protocols: **http, https, tcp, udp**.
+Входная конечная точка может использовать следующие протоколы: **http, https, tcp, udp**.
 
-To create an input endpoint, add the **InputEndpoint** child element to the **Endpoints** element of either a web or worker role.
+Чтобы создать входную конечную точку, добавьте дочерний элемент **InputEndpoint** в элемент **Endpoints** веб-роли или рабочей роли.
 
 ```xml
 <Endpoints>
@@ -34,12 +33,12 @@ To create an input endpoint, add the **InputEndpoint** child element to the **En
 </Endpoints> 
 ```
 
-## <a name="instance-input-endpoint"></a>Instance input endpoint
-Instance input endpoints are similar to input endpoints but allows you map specific public-facing ports for each individual role instance by using port forwarding on the load balancer. You can specify a single public-facing port, or a range of ports.
+## Входная конечная точка экземпляра
+Входные конечные точки экземпляра похожи на входные конечные точки, однако позволяют сопоставить определенные общедоступные порты для каждого отдельного экземпляра роли с помощью перенаправления портов в балансировщик нагрузки. Можно указать один общедоступный порт или диапазон портов.
 
-The instance input endpoint can only use **tcp** or **udp** as the protocol.
+Входная конечная точка экземпляра может использовать только протокол **tcp** или **udp**.
 
-To create an instance input endpoint, add the **InstanceInputEndpoint** child element to the **Endpoints** element of either a web or worker role.
+Чтобы создать входную конечную точку экземпляра, добавьте дочерний элемент **InstanceInputEndpoint** в элемент **Endpoints** веб-роли или рабочей роли.
 
 ```xml
 <Endpoints>
@@ -51,12 +50,12 @@ To create an instance input endpoint, add the **InstanceInputEndpoint** child el
 </Endpoints>
 ```
 
-## <a name="internal-endpoint"></a>Internal endpoint
-Internal endpoints are available for instance-to-instance communication. The port is optional and if omitted, a dynamic port is assigned to the endpoint. A port range can be used. There is a limit of five internal endpoints per role.
+## Внутренняя конечная точка
+Внутренние конечные точки доступны для подключения между экземплярами. Порт является необязательным, и если он не указан, конечной точке назначается динамический порт. Можно использовать диапазон портов. Существует ограничение: до 5 внутренних конечных точек на роль.
 
-The internal endpoint can use the following protocols: **http, tcp, udp, any**.
+Внутренняя конечная точка может использовать следующие протоколы: **http, tcp, udp, any**.
 
-To create an internal input endpoint, add the **InternalEndpoint** child element to the **Endpoints** element of either a web or worker role.
+Чтобы создать внутреннюю конечную точку, добавьте дочерний элемент **InternalEndpoint** в элемент **Endpoints** веб-роли или рабочей роли.
 
 ```xml
 <Endpoints>
@@ -64,7 +63,7 @@ To create an internal input endpoint, add the **InternalEndpoint** child element
 </Endpoints> 
 ```
 
-You can also use a port range.
+Можно также использовать диапазон портов.
 
 ```xml
 <Endpoints>
@@ -75,9 +74,9 @@ You can also use a port range.
 ```
 
 
-## <a name="worker-roles-vs.-web-roles"></a>Worker roles vs. Web roles
+## Рабочие роли и Веб-роли
 
-There is one minor difference with endpoints when working with both worker and web roles. The web role must have at minimum a single input endpoint using the **HTTP** protocol.
+При работе с веб-ролями и рабочими ролями существует одно незначительное отличие, связанное с конечными точками. У веб-роли должна быть как минимум одна выходная конечная точка, использующая протокол **HTTP**.
 
 
 ```xml
@@ -87,26 +86,26 @@ There is one minor difference with endpoints when working with both worker and w
 </Endpoints>
 ```
 
-## <a name="using-the-.net-sdk-to-access-an-endpoint"></a>Using the .NET SDK to access an endpoint
-The Azure Managed Library provides methods for role instances to communicate at runtime. From code running within a role instance, you can retrieve information about the existence of other role instances and their endpoints, as well as information about the current role instance.
+## Использование пакета SDK для .NET для доступа к конечной точке
+Управляемая библиотека Azure предоставляет методы для обмена данными между экземплярами роли во время выполнения. Из кода, выполняемого в экземпляре роли, можно получить информацию о существовании других экземпляров роли и их конечных точек, а также сведения о текущем экземпляре роли.
 
-> [AZURE.NOTE] You can only retrieve information about role instances that are running in your cloud service and that define at least one internal endpoint. You cannot obtain data about role instances running in a different service.
+> [AZURE.NOTE] Можно получать сведения только о тех экземплярах, которые запущены в облачной службе и для которых определена по крайней мере одна внутренняя конечная точка. Нельзя получить данные об экземплярах роли, запущенных в другой службе.
 
-You can use the [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) property to retrieve instances of a role. First use the [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) to return a reference to the current role instance, and then use the [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) property to return a reference to the role itself.
+Для получения экземпляров роли можно использовать свойство [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx). Сначала используйте [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx), чтобы вернуть ссылку на текущий экземпляр роли, затем используйте свойство [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx), чтобы вернуть ссылку на саму роль.
 
-When you connect to a role instance programmatically through the .NET SDK, it's relatively easy to access the endpoint information. For example, after you've already connected to a specific role environment, you can get the port of a specific endpoint with this code:
+При программном подключении к экземпляру роли с помощью пакета SDK для .NET сравнительно легко получить доступ к информации о конечной точке. Например, после подключения к среде определенной роли можно получить порт определенной конечной точки с помощью этого кода:
 
 ```csharp
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-The **Instances** property returns a collection of **RoleInstance** objects. This collection always contains the current instance. If the role does not define an internal endpoint, the collection includes the current instance but no other instances. The number of role instances in the collection will always be 1 in the case where no internal endpoint is defined for the role. If the role defines an internal endpoint, its instances are discoverable at runtime, and the number of instances in the collection will correspond to the number of instances specified for the role in the service configuration file.
+Свойство **Instances** возвращает коллекцию объектов **RoleInstance**. Эта коллекция всегда содержит текущий экземпляр. Если роль не определяет внутреннюю конечную точку, коллекция содержит текущий экземпляр, но не содержит других экземпляров. Число экземпляров роли в коллекции всегда будет равно 1, когда для роли не определена внутренняя конечная точка. Если роль определяет внутреннюю конечную точку, ее экземпляры можно обнаружить во время выполнения, и число экземпляров в коллекции будет соответствовать числу экземпляров, указанных для роли в файле конфигурации службы.
 
-> [AZURE.NOTE] The Azure Managed Library does not provide a means of determining the health of other role instances, but you can implement such health assessments yourself if your service needs this functionality. You can use [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) to obtain information about running role instances.
+> [AZURE.NOTE] Управляемая библиотека Azure не предоставляет средства определения работоспособности других экземпляров роли, но вы можете реализовать такие оценки работоспособности самостоятельно, если службе нужна подобная функциональность. Можно использовать [систему диагностики Azure](cloud-services-dotnet-diagnostics.md) для получения информации о выполняемых экземплярах роли.
 
-To determine the port number for an internal endpoint on a role instance, you can use the [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) property to return a Dictionary object that contains endpoint names and their corresponding IP addresses and ports. The [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) property returns the IP address and port for a specified endpoint. The **PublicIPEndpoint** property returns the port for a load balanced endpoint. The IP address portion of the **PublicIPEndpoint** property is not used.
+Чтобы определить номер порта внутренней конечной точки экземпляра роли, можно использовать свойство [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx), чтобы вернуть объект Dictionary, содержащий имена конечных точек и их IP-адреса и порты. Свойство [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) возвращает IP-адрес и порт указанной конечной точкой. Свойство **PublicIPEndpoint** возвращает порт для конечной точки с балансировкой нагрузки. Часть IP-адреса в свойстве **PublicIPEndpoint** не используется.
 
-Here is an example that iterates role instances.
+Вот пример, в котором выполняется итерация экземпляров роли.
 
 ```csharp
 foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Instances)
@@ -119,9 +118,9 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 }
 ```
 
-Here is an example of a worker role that gets the endpoint exposed through the service definition and starts listening for connections.
+Ниже приведен пример рабочей роли, которая получает конечную точку, предоставляемую через определение службы, и начинает прослушивание подключений.
 
-> [AZURE.WARNING] This code will only work for a deployed service. When running in the Azure Compute Emulator, service configuration elements that create direct port endpoints (**InstanceInputEndpoint** elements) are ignored.
+> [AZURE.WARNING] Этот код будет работать только для развернутой службы. При выполнении в эмуляторе вычислений Azure элементы конфигурации службы, создающие конечные точки прямых портов (элементы **InstanceInputEndpoint**), игнорируются.
 
 ```csharp
 using System;
@@ -207,12 +206,12 @@ namespace WorkerRole1
 }
 ```
 
-## <a name="network-traffic-rules-to-control-role-communication"></a>Network traffic rules to control role communication
-After you define internal endpoints, you can add network traffic rules (based on the endpoints that you created) to control how role instances can communicate with each other. The following diagram shows some common scenarios for controlling role communication:
+## Правила сетевого трафика для управления обменом данными между ролями
+После определения внутренних конечных точек можно добавить правила сетевого трафика (на основании созданных конечных точек), чтобы управлять обменом данными между экземплярами роли. На следующей схеме показаны некоторые общие сценарии управления обменом данными между ролями:
 
-![Network Traffic Rules Scenarios](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
+![Сценарии использования правил сетевого трафика](./media/cloud-services-enable-communication-role-instances/scenarios.png "Сценарии использования правил сетевого трафика")
 
-The following code example shows role definitions for the roles shown in the previous diagram. Each role definition includes at least one internal endpoint defined:
+В следующем примере кода показаны определения ролей, показанных на предыдущей схеме. В каждом определении роли определена по крайней мере одна внутренняя конечная точка:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -243,12 +242,12 @@ The following code example shows role definitions for the roles shown in the pre
 </ServiceDefinition>
 ```
 
-> [AZURE.NOTE] Restriction of communication between roles can occur with internal endpoints of both fixed and automatically assigned ports.
+> [AZURE.NOTE] Обмен данными между ролями с внутренним конечными точками с фиксированными и автоматически назначенными портами может быть ограничен.
 
-By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a **NetworkTrafficRules** element to the **ServiceDefinition** element in the service definition file.
+По умолчанию после определения внутренней конечной точки данные могут передаваться из одной роли во внутреннюю конечную точку другой роли без каких-либо ограничений. Чтобы ограничить обмен данными, необходимо добавить элемент **NetworkTrafficRules** в элемент **ServiceDefinition** в файле определения службы.
 
-### <a name="scenario-1"></a>Scenario 1
-Only allow network traffic from **WebRole1** to **WorkerRole1**.
+### Сценарий 1
+Разрешен только сетевой трафик из **WebRole1** в **WorkerRole1**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -266,8 +265,8 @@ Only allow network traffic from **WebRole1** to **WorkerRole1**.
 </ServiceDefinition>
 ```
 
-### <a name="scenario-2"></a>Scenario 2
-Only allows network traffic from **WebRole1** to **WorkerRole1** and **WorkerRole2**.
+### Сценарий 2
+Разрешен только сетевой трафик из **WebRole1** в **WorkerRole1** и **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -285,8 +284,8 @@ Only allows network traffic from **WebRole1** to **WorkerRole1** and **WorkerRol
 </ServiceDefinition>
 ```
 
-### <a name="scenario-3"></a>Scenario 3
-Only allows network traffic from **WebRole1** to **WorkerRole1**, and **WorkerRole1** to **WorkerRole2**.
+### Сценарий 3
+Разрешен только сетевой трафик из **WebRole1** в **WorkerRole1** и из **WorkerRole1** в **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -314,8 +313,8 @@ Only allows network traffic from **WebRole1** to **WorkerRole1**, and **WorkerRo
 </ServiceDefinition>
 ```
 
-### <a name="scenario-4"></a>Scenario 4
-Only allows network traffic from **WebRole1** to **WorkerRole1**, **WebRole1** to **WorkerRole2**, and **WorkerRole1** to **WorkerRole2**.
+### Сценарий 4
+Разрешен только сетевой трафик из **WebRole1** в **WorkerRole1**, из **WebRole1** в **WorkerRole2** и из **WorkerRole1** в **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -355,12 +354,9 @@ Only allows network traffic from **WebRole1** to **WorkerRole1**, **WebRole1** t
 </ServiceDefinition>
 ```
 
-An XML schema reference for the elements used above can be found [here](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Справочник по схеме XML для элементов, используемых выше, можно найти [здесь](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## <a name="next-steps"></a>Next steps
-Read more about the Cloud Service [model](cloud-services-model-and-package.md).
+## Дальнейшие действия
+Дополнительная информация о [модели](cloud-services-model-and-package.md) облачной службы
 
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0914_2016-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Accessing publisher support for the Azure Marketplace | Microsoft Azure"
-   description="How to access and submit publisher support requests for the Azure Marketplace"
+   pageTitle="Обращение в службу поддержки издателей в Azure Marketplace | Microsoft Azure"
+   description="Как обращаться в службу поддержки издателей в Azure Marketplace и отправлять запросы."
    services="marketplace-publishing"
    documentationCenter="na"
    authors="v-jeana"
@@ -17,76 +17,75 @@
    ms.author="v-jeana; hascipio"/>
 
 
+# Обращение в службу поддержки издателей в Azure Marketplace
 
-# <a name="accessing-publisher-support-for-the-azure-marketplace"></a>Accessing publisher support for the Azure Marketplace
+Корпорация Майкрософт предоставляет поддержку самых разнообразных продуктов и услуг. Нам важно гарантировать, что ваш запрос всегда будет передан соответствующей группе поддержки, и вы своевременно получите ответ на него. Учитывайте следующие сценарии, которые помогут отправить ваш запрос правильной группе поддержки.
 
-Microsoft provides support for a wide variety of products and services. Ensuring that your query finds the right support team is important to ensure an appropriate and timely response. Please consider the following scenarios, which should help you route your query to the appropriate team:
+- Если вы издатель в Azure Marketplace и все еще разрабатываете свою виртуальную машину, вы должны привлечь к участию свою группу специалистов по адаптации или вычислениям Майкрософт.
 
-- If you are a publisher in the Azure Marketplace and are still developing your VM, you should engage with your Microsoft onboarding or compute teams.
+- Если вы издатель в Marketplace и у вас есть вопрос от клиента, пожалуйста, сообщите клиенту, чтобы он отправил свой запрос по ссылкам поддержки на https://portal.azure.com/
 
-- If you are a publisher in the Marketplace and have a question from a customer, please tell your customer to request support via the support links at https://portal.azure.com/.
+- Если вы издатель в Marketplace и у вас есть вопрос о своем приложении или службе, продолжайте читать эту статью.
 
-- If you are a publisher in the Marketplace and have a question relating to your app or service, continue reading below.
+Эта статья покажет вам, как выполнить следующие действия:
 
-This article will show you how to:
+- Войдите в систему с помощью учетной записи Майкрософт.
+- Перейдите на страницы службы поддержки издателей.
+- Выберите тип и категорию проблемы.
+- Запросите поддержку.
+- Введите контактные данные.
+- Опишите проблему.
 
-- Sign in to your Microsoft account.
-- Navigate to the publisher support pages.
-- Select the problem type and category.
-- Request support.
-- Provide contact information.
-- Describe the problem.
+## 1\. Вход с помощью учетной записи Майкрософт
 
-## <a name="1.-sign-in-to-your-microsoft-account"></a>1. Sign in to your Microsoft account
+Откройте страницу https://publish.windowsazure.com/ и войдите в систему, используя данные своей учетной записи Майкрософт.
 
-Navigate to https://publish.windowsazure.com/ and sign in with your Microsoft account credentials.
+  ![Экран входа][1]
 
-  ![Sign-in screen][1]
+## 2\. Переход на страницы службы поддержки издателей
 
-## <a name="2.-navigate-to-the-publisher-support-pages"></a>2. Navigate to the publisher support pages
+Выберите **Получить поддержку** в меню справа вверху.
 
-From the upper-right menu, select **Get Support**.
+  ![Получение поддержки][2]
 
-  ![Get support][2]
+## 3\. Выбор типа и категории проблемы
 
-## <a name="3.-select-the-problem-type-and-category"></a>3. Select the problem type and category
+![Тип и категория проблемы][3]
 
-![Problem type & category][3]
+Доступные типы проблем:
 
-Available problem types are as follows:
+  - **управление учетными записями;**
+  - **отчеты и аналитика;**
+  - **сертификация образа виртуальной машины;**
+  - **управление клиентами;**
+  - **управление предложениями;**
+  - **выплаты;**
+  - **Центр разработчиков;**
+  - **другие.**
 
-  - **Account Management**
-  - **Reports and Insights**
-  - **VM Image Certification**
-  - **Managing Customers**
-  - **Managing Offers**
-  - **Payouts**
-  - **Developer Center**
-  - **Other**
+## 4\. Создание запроса
 
-## <a name="4.-request-support"></a>4. Request support
+После выбора типа и категории проблемы нажмите кнопку **Создать запрос**.
 
-After you select the problem type and category, click the **Start request** button.
+![Создание запроса][4]
 
-![Start support][4]
+## 5\. Предоставление контактных данных и описание проблемы
 
-## <a name="5.-provide-contact-information-and-describe-the-problem"></a>5. Provide contact information and describe the problem
+Опишите проблему максимально полно и предоставьте все файлы (например, снимки экрана, трассировки сети т. д.), которые могут быть полезны в решении проблемы.
 
-Describe the problem as fully as you can, and provide any files (screenshots, network traces, etc.) that may be helpful in solving your issue.
+![Описание проблемы][5]
 
-![Describe problem][5]
+## 6\. Подтверждение отправки
 
-## <a name="6.-submission-confirmation"></a>6. Submission confirmation
+В течение 24 часов после отправки проблемы мы подтвердим ее получение и назначим ей приоритет и уровень серьезности. Наша специализированная группа инженеров службы поддержки поможет в решении проблемы в соответствии с временем отклика, определенным в нашем соглашении об уровне обслуживания.
 
-Once you have submitted your issue, we will acknowledge receipt within 24 hours and assign your issue a priority and severity. Our dedicated team of support engineers will assist with its resolution according to our Service Level Agreement response times.
+![Подтверждение][6]
++ Если вам необходимо обратиться к нам по поводу своей проблемы, указывайте номер подтверждения во всей переписке.
++ В любой момент вы можете просмотреть весь ход решения проблемы.
 
-![Confirmation][6]
-+ If you need to talk to us about your issue, use the confirmation number in all correspondence.
-+ You can view progress on your issue at any time.
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
-
-To learn how to resolve specific support issues, see [Troubleshooting common issues on the Azure Marketplace](marketplace-publishing-support-common-issues.md).
+Чтобы узнать, как решить конкретные проблемы, см. статью [Устранение распространенных неполадок в Azure Marketplace](marketplace-publishing-support-common-issues.md).
 
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
 [2]: ./media/marketplace-publishing-get-publisher-support/step2.png
@@ -95,8 +94,4 @@ To learn how to resolve specific support issues, see [Troubleshooting common iss
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0615_2016-->

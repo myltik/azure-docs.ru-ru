@@ -1,95 +1,94 @@
 <properties
-    pageTitle="Compatibility level, how to assess | Microsoft Azure"
-    description="Steps and tools for determining which compatibility level is best for your database on Azure SQL Database or Microsoft SQL Server"
-    services="sql-database"
-    documentationCenter=""
-    authors="alainlissoir"
-    manager="jhubbard"
-    editor=""/>
+	pageTitle="Оценка уровня совместимости | Microsoft Azure"
+	description="Этапы и средства, позволяющие определить самый оптимальный уровень совместимости для вашей базы данных в Базе данных SQL Azure или на сервере Microsoft SQL Server"
+	services="sql-database"
+	documentationCenter=""
+	authors="alainlissoir"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
-    ms.service="sql-database"
-    ms.workload="data-management"
-    ms.devlang="NA"
-    ms.tgt_pltfrm="NA"
-    ms.topic="article"
-    ms.date="08/08/2016"
-    ms.author="alainl"/>
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.devlang="NA"
+	ms.tgt_pltfrm="NA"
+	ms.topic="article"
+	ms.date="08/08/2016"
+	ms.author="alainl"/>
 
 
-
-# <a name="improved-query-performance-with-compatibility-level-130-in-azure-sql-database"></a>Improved query performance with compatibility Level 130 in Azure SQL Database
-
-
-Azure SQL Database is running transparently hundreds of thousands of databases at many different compatibility levels, preserving and guaranteeing the backward compatibility to the corresponding version of Microsoft SQL Server for all its customers!
-
-Therefore, nothing prevents customers who alter any existing databases to the latest compatibility level from benefiting from the new query optimizer and query processor features. As a reminder of history, the alignment of SQL versions to default compatibility levels are as follows:
-
-- 100: in SQL Server 2008 and Azure SQL Database V11.
-- 110: in SQL Server 2012 and Azure SQL Database V11.
-- 120: in SQL Server 2014 and Azure SQL Database V12.
-- 130: in SQL Server 2016 and Azure SQL Database V12.
+# Повышение производительности запросов с использованием уровня совместимости 130 в базе данных SQL Azure
 
 
-> [AZURE.IMPORTANT] Starting in **mid-June 2016**, in Azure SQL Database, the default compatibility level will be 130 instead of 120 for **newly created** databases.
+В базе данных SQL Azure прозрачно работают множество баз данных на многих уровнях совместимости. При этом сохраняется и гарантируется обратная совместимость с соответствующей версией Microsoft SQL Server для всех клиентов.
+
+Поэтому ничто не мешает пользователям, обновляющим любую существующую базу данных до новейшего уровня совместимости, воспользоваться преимуществами нового оптимизатора и обработчика запросов. Напоминаем, что версии SQL согласованы с уровнями совместимости по умолчанию следующим образом:
+
+- 100 — в SQL Server 2008 и Базе данных SQL Azure версии 11;
+- 110 — в SQL Server 2012 и Базе данных SQL Azure версии 11;
+- 120 — в SQL Server 2014 и Базе данных SQL Azure версии 12;
+- 130 — в SQL Server 2016 и <азе данных SQL Azure версии 12.
+
+
+> [AZURE.IMPORTANT] Начиная с **середины июня 2016 года** в Базе данных SQL Azure у **создаваемых** баз данных будет уровень совместимости по умолчанию 130, а не 120.
 > 
-> Databases created before mid-June 2016 will *not* be affected, and will maintain their current compatibility level (100, 110, or 120). Databases that migrate from Azure SQL Database version V11 to V12 will not have their compatibility level changed either.
+> Это *не* касается баз данных, созданных до середины июня 2016 года. Они сохранят текущий уровень совместимости (100, 110 и 120). Уровень совместимости баз данных, перенесенных из Базы данных SQL Azure версии 11 в версию 12, также не изменится.
 
 
-In this article we explore the benefits of compatibility level 130, and how to leverage those benefits. We address the possible side-effects on the query performance for the existing SQL applications.
+В этой статье рассматриваются преимущества уровня совместимости 130 и то, как использовать эти преимущества. Здесь также рассматриваются возможные негативные последствия для производительности запросов существующих приложений SQL.
 
 
-## <a name="about-compatibility-level-130"></a>About compatibility level 130
+## Об уровне совместимости 130
 
 
-First, if you want to know the current compatibility level of your database, execute the following Transact-SQL statement.
+Если вам нужно узнать текущий уровень совместимости базы данных, выполните следующую инструкцию Transact-SQL:
 
 
 ```
 SELECT compatibility_level
-    FROM sys.databases
-    WHERE name = '<YOUR DATABASE_NAME>’;
+	FROM sys.databases
+	WHERE name = '<YOUR DATABASE_NAME>’;
 ```
 
 
-Before this change to level 130 happens for **newly** created databases, let’s review what this change is all about through some very basic query examples, and see how anyone can benefit from it.
+Прежде чем обновить **созданные** базы данных до уровня совместимости 130, давайте рассмотрим это изменение на простых примерах запросов и узнаем возможные преимущества.
 
-Query processing in relational databases can be very complex and can lead to lots of computer science and mathematics to understand the inherent design choices and behaviors. In this document, the content has been intentionally simplified to ensure that anyone with some minimum technical background can understand the impact of the compatibility level change and determine how it can benefit applications.
+Обработка запросов в реляционных базах данных может быть очень сложной задачей. Чтобы понять специфические методы и поведение, понадобится привлечь сведения из таких областей, как информатика и вычислительная техника, а также математика. В этом документе содержимое намеренно упрощено, чтобы любой пользователь с минимальными техническими знаниями смог понять, на что влияет изменение уровня совместимости, и определить преимущества его изменения для приложений.
 
-Let’s have a quick look at what the compatibility level 130 brings at the table.  You can find more details at [ALTER DATABASE Compatibility Level (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx), but here is a short summary:
+Давайте кратко рассмотрим основные возможности, доступные на уровне совместимости 130. Дополнительные сведения см. в разделе [Уровень совместимости инструкции ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx). Ниже представлены краткие сведения:
 
-- The Insert operation of an Insert-select statement can be multi-threaded or can have a parallel plan, while before this operation was single-threaded.
-- Memory Optimized table and table variables queries can now have parallel plans, while before this operation was also single-threaded .
-- Statistics for Memory Optimized table can now be sampled and are auto-updated. See [What's New in Database Engine: In-Memory OLTP](https://msdn.microsoft.com/library/bb510411.aspx#InMemory) for more details.
-- Batch mode v/s Row Mode changes with Column Store indexes
-  - Sorts on a table with a Column Store index are now in batch mode.
-  - Windowing aggregates now operate in batch mode such as TSQL LAG/LEAD statements.
-  - Queries on Column Store tables with Multiple distinct clauses operate in Batch mode.
-  - Queries running under DOP=1 or with a serial plan also execute in Batch Mode.
-- Last, Cardinality Estimation improvements are actually coming with compatibility level 120, but for those of you running at a lower Compatibility level (i.e. 100, or 110), the move to compatibility level 130 will also bring these improvements, and these can also benefit the query performance of your applications.
-
-
-## <a name="practicing-compatibility-level-130"></a>Practicing compatibility level 130
+- У операции INSERT в инструкции INSERT SELECT может быть несколько потоков или параллельный план. Раньше у нее был один поток.
+- У запроса оптимизированной для памяти таблицы и табличных переменных теперь могут быть параллельные планы. Раньше у этой операции также был один поток.
+- Теперь можно выполнять выборку статистики для оптимизированных для памяти таблиц, а также автоматически обновлять ее. Дополнительные сведения см. в подразделе о [In-Memory OLTP раздела "Новые возможности (компонент Database Engine)"](https://msdn.microsoft.com/library/bb510411.aspx#InMemory).
+- Изменения в пакетном режиме и в режиме строки, связанные с индексами хранилища столбцов
+  - Сортировка в таблице с индексом хранилища столбцов теперь выполняется в пакетном режиме.
+  - Оконные статистические выражения, например инструкции TSQL LAG или LEAD, теперь работают в пакетном режиме.
+  - Запросы к таблицам хранилища столбцов с несколькими отдельными предложениями работают в пакетном режиме.
+  - Запросы со степенью параллелизма DOP=1 или с последовательным планом также выполняются в пакетном режиме.
+- И, наконец, на уровне совместимости 120 улучшена оценка количества элементов. При переходе от более низкого уровня совместимости (т. е. 100 или 110) к уровню совместимости 130 также будут внедрены эти улучшения. Кроме того, они могут повысить производительность запросов для приложений.
 
 
-First let’s get some tables, indexes and random data created to practice some of these new capabilities. The TSQL script examples can be executed under SQL Server 2016, or under Azure SQL Database. However, when creating an Azure SQL database, make sure you choose at the minimum a P2 database because you need at least a couple of cores to allow multi-threading and therefore benefit from these features.
+## Использование уровня совместимости 130
+
+
+Давайте создадим таблицы, индексы и случайные данные, чтобы испытать новые возможности. Примеры сценариев TSQL можно выполнять в SQL Server 2016 или в Базе данных SQL Azure. Тем не менее при создании базы данных Azure SQL выберите базу данных P2, так как требуется по крайней мере пара ядер, чтобы можно было выполнять несколько потоков и таким образом использовать преимущества этих возможностей.
 
 
 ```
 -- Create a Premium P2 Database in Azure SQL Database
 
 CREATE DATABASE MyTestDB
-    (EDITION=’Premium’, SERVICE_OBJECTIVE=’P2′);
+	(EDITION=’Premium’, SERVICE_OBJECTIVE=’P2′);
 GO
 
 -- Create 2 tables with a column store index on
 -- the second one (only available on Premium databases)
 
 CREATE TABLE T_source
-    (Color varchar(10), c1 bigint, c2 bigint);
+	(Color varchar(10), c1 bigint, c2 bigint);
 
 CREATE TABLE T_target
-    (c1 bigint, c2 bigint);
+	(c1 bigint, c2 bigint);
 
 CREATE CLUSTERED COLUMNSTORE INDEX CCI ON T_target;
 GO
@@ -97,11 +96,11 @@ GO
 -- Insert few rows.
 
 INSERT T_source VALUES
-    (‘Blue’, RAND() * 100000, RAND() * 100000),
-    (‘Yellow’, RAND() * 100000, RAND() * 100000),
-    (‘Red’, RAND() * 100000, RAND() * 100000),
-    (‘Green’, RAND() * 100000, RAND() * 100000),
-    (‘Black’, RAND() * 100000, RAND() * 100000);
+	(‘Blue’, RAND() * 100000, RAND() * 100000),
+	(‘Yellow’, RAND() * 100000, RAND() * 100000),
+	(‘Red’, RAND() * 100000, RAND() * 100000),
+	(‘Green’, RAND() * 100000, RAND() * 100000),
+	(‘Black’, RAND() * 100000, RAND() * 100000);
 
 GO 200
 
@@ -111,13 +110,13 @@ GO 10
 ```
 
 
-Now, let’s have a look to some of the Query Processing features coming with compatibility level 130.
+Теперь рассмотрим некоторые функции обработки запросов уровня совместимости 130.
 
 
-## <a name="parallel-insert"></a>Parallel INSERT
+## Параллельное выполнение операции INSERT
 
 
-Executing the TSQL statements below executes the INSERT operation under compatibility level 120 and 130, which respectively executes the INSERT operation in a single threaded model (120), and in a multi-threaded model (130).
+Ниже выполняется инструкция TSQL с операцией INSERT при уровне совместимости 120 и 130, то есть операция выполняется в однопоточной модели (120) и в многопоточной модели (130) соответственно.
 
 
 ```
@@ -127,46 +126,46 @@ Executing the TSQL statements below executes the INSERT operation under compatib
 SET STATISTICS XML ON;
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 120;
+	SET COMPATIBILITY_LEVEL = 120;
 GO 
 
 -- The INSERT part is in serial
 
 INSERT t_target WITH (tablock)
-    SELECT C1, COUNT(C2) * 10 * RAND()
-        FROM T_source
-        GROUP BY C1
-    OPTION (RECOMPILE);
+	SELECT C1, COUNT(C2) * 10 * RAND()
+		FROM T_source
+		GROUP BY C1
+	OPTION (RECOMPILE);
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 130
+	SET COMPATIBILITY_LEVEL = 130
 GO
 
 -- The INSERT part is in parallel
 
 INSERT t_target WITH (tablock)
-    SELECT C1, COUNT(C2) * 10 * RAND()
-        FROM T_source
-        GROUP BY C1
-    OPTION (RECOMPILE);
+	SELECT C1, COUNT(C2) * 10 * RAND()
+		FROM T_source
+		GROUP BY C1
+	OPTION (RECOMPILE);
 
 SET STATISTICS XML OFF;
 ```
 
 
-By requesting the actual the query plan, looking at its graphical representation or its XML content, you can determine which Cardinality Estimation function is at play. Looking at the plans side-by-side on figure 1, we can clearly see that the Column Store INSERT execution goes from serial in 120 to parallel in 130. Also, note that the change of the iterator icon in the 130 plan showing two parallel arrows, illustrating the fact that now the iterator execution is indeed parallel. If you have large INSERT operations to complete, the parallel execution, linked to the number of core you have at your disposal for the database, will perform better; up to a 100 times faster depending your situation!
+Запросив фактический план запроса, а также просмотрев его графическое представление или содержимое в формате XML, можно определить выполняемую функцию оценки количества элементов. Сравнив планы на рис. 1, четко видно, что на уровне 120 операция INSERT выполняется в хранилище столбцов последовательно, а на уровне 130 — параллельно. Кроме того, обратите внимание, что в плане 130 изменился значок итератора и теперь на нем отображаются две параллельные стрелки. Это значит, что теперь итератор действительно выполняется в параллельном режиме. При необходимости выполнять операции INSERT большого объема производительность параллельного выполнения можно повысить, связав ее количеством ядер, доступных для базы данных. В зависимости от ситуации операция может выполняться в 100 раз быстрее.
 
 
-*Figure 1: INSERT operation changes from serial to parallel with compatibility level 130.*
+*Рис. 1. Изменение режима выполнения операции INSERT с последовательного на параллельный на уровне совместимости 130*
 
 
-![Figure 1](./media/sql-database-compatibility-level-query-performance-130/figure-1.jpg)
+![На рисунке 1](./media/sql-database-compatibility-level-query-performance-130/figure-1.jpg)
 
 
-## <a name="serial-batch-mode"></a>SERIAL Batch Mode
+## Последовательный пакетный режим
 
 
-Similarly, moving to compatibility level 130 when processing rows of data enables batch mode processing. First, batch mode operations  are only available when you have a column store index in place. Second, a batch typically represents ~900 rows, and uses a code logic optimized for multicore CPU, higher memory throughput and directly leverages the compressed data of the Column Store whenever possible. Under these conditions, SQL Server 2016 can process ~900 rows at once, instead of 1 row at the time, and as a consequence, the overall overhead cost of the operation is now shared by the entire batch, reducing the overall cost by row. This shared amount of operations combined with the column store compression basically reduces the latency involved in a SELECT batch mode operation. You can find more details about the column store and batch mode at [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx).
+Аналогичным образом при переходе на уровень совместимости 130 появляется возможность обработки строк данных в пакетном режиме. Во-первых, выполнение операций в пакетном режиме доступно только при наличии индекса хранилища столбцов. Во-вторых, в пакете обычно содержится около 900 строк. Он использует логику кода, оптимизированную для многоядерных ЦП и повышения пропускной способности памяти, а также по возможности напрямую использует сжатые данные хранилища столбцов. В этих условиях SQL Server 2016 может обработать около 900 строк одновременно, вместо 1 строки за раз. В результате общие накладные расходы на операции распределяются по всему пакету, за счет чего снижаются общие затраты на строку. Благодаря общему объему операций, а также сжатию хранилища столбцов снижается задержка при выполнении операции SELECT в пакетном режиме. Дополнительные сведения о хранилище столбцов и пакетном режиме см. в разделе [Описание индексов columnstore](https://msdn.microsoft.com/library/gg492088.aspx).
 
 
 ```
@@ -175,19 +174,19 @@ Similarly, moving to compatibility level 130 when processing rows of data enable
 SET STATISTICS XML ON;
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 120;
+	SET COMPATIBILITY_LEVEL = 120;
 GO
 
 -- The scan and aggregate are in row mode
 
 SELECT C1, COUNT (C2)
-    FROM T_target
-    GROUP BY C1
-    OPTION (MAXDOP 1, RECOMPILE);
+	FROM T_target
+	GROUP BY C1
+	OPTION (MAXDOP 1, RECOMPILE);
 GO
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 130;
+	SET COMPATIBILITY_LEVEL = 130;
 GO 
 
 – The scan and aggregate are in batch mode,
@@ -195,28 +194,28 @@ GO
 -- also now works in serial mode.
 
 SELECT C1, COUNT(C2)
-    FROM T_target
-    GROUP BY C1
-    OPTION (MAXDOP 1, RECOMPILE);
+	FROM T_target
+	GROUP BY C1
+	OPTION (MAXDOP 1, RECOMPILE);
 GO
 
 SET STATISTICS XML OFF;
 ```
 
 
-As visible below, by observing the query plans side-by-side on figure 2, we can see that the processing mode has changed with the compatibility level, and as a consequence, when executing the queries in both compatibility level altogether, we can see that most of the processing time is spent in row mode (86%) compared to the batch mode (14%), where 2 batches have been processed. Increase the dataset, the benefit will increase.
+Сравнив планы запроса на рис. 2 ниже, становится видно, что с уровнем совместимости изменился режим обработки. В результате при выполнении запросов на обоих уровнях совместимости большую часть времени обработки занимает обработка в режиме строк (86 %) в сравнении с пакетным режимом (14 %) (обработано 2 пакета). Увеличьте набор данных и преимущество станет еще больше.
 
 
-*Figure 2: SELECT operation changes from serial to batch mode with compatibility level 130.*
+*Рис. 2. Изменение режима выполнения операции SELECT с последовательного на пакетный на уровне совместимости 130*
 
 
-![Figure 2](./media/sql-database-compatibility-level-query-performance-130/figure-2.jpg)
+![На рис. 2](./media/sql-database-compatibility-level-query-performance-130/figure-2.jpg)
 
 
-## <a name="batch-mode-on-sort-execution"></a>Batch mode on Sort Execution
+## Пакетный режим при выполнении сортировки
 
 
-Similar to the above, but applied to a sort operation, the transition from row mode (compatibility level 120) to batch mode (compatibility level 130) improves the performance of the SORT operation for the same reasons.
+Если применить аналогичный подход к операции сортировки, с переходом из режима строки (уровень совместимости 120) в пакетный режим (уровень совместимости 130) производительность операции SORT повышается по тем же причинам.
 
 
 ```
@@ -225,20 +224,20 @@ Similar to the above, but applied to a sort operation, the transition from row m
 SET STATISTICS XML ON;
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 120;
+	SET COMPATIBILITY_LEVEL = 120;
 GO
 
 -- The scan and aggregate are in row mode
 
 SELECT C1, COUNT(C2)
-    FROM T_target
-    GROUP BY C1
-    ORDER BY C1
-    OPTION (MAXDOP 1, RECOMPILE);
+	FROM T_target
+	GROUP BY C1
+	ORDER BY C1
+	OPTION (MAXDOP 1, RECOMPILE);
 GO
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 130;
+	SET COMPATIBILITY_LEVEL = 130;
 GO
 
 -- The scan and aggregate are in batch mode,
@@ -246,265 +245,265 @@ GO
 -- also now works in serial mode.
 
 SELECT C1, COUNT(C2)
-    FROM T_target
-    GROUP BY C1
-    ORDER BY C1
-    OPTION (MAXDOP 1, RECOMPILE);
+	FROM T_target
+	GROUP BY C1
+	ORDER BY C1
+	OPTION (MAXDOP 1, RECOMPILE);
 GO
 
 SET STATISTICS XML OFF;
 ```
 
 
-Visible side-by-side on figure 3, we can see that the sort operation in row mode represents 81% of the cost, while the batch mode only represents 19% of the cost (respectively 81% and 56% on the sort itself).
+Сравнение на рис. 3 показывает, что на операцию сортировки в режиме строки приходится 81 % расходов, а в пакетном режиме — всего 19 % (соответственно 81 % и 56 % на саму сортировку).
 
 
-*Figure 3: SORT operation changes from row to batch mode with compatibility level 130.*
+*Рис. 3. Изменение режима выполнения операции SORT с режима строки на пакетный режим на уровне совместимости 130*
 
 
-![Figure 3](./media/sql-database-compatibility-level-query-performance-130/figure-3.png)
+![Рис. 3](./media/sql-database-compatibility-level-query-performance-130/figure-3.png)
 
 
-Obviously, these samples only contain tens of thousands of rows, which is nothing when looking at the data available in most SQL Servers these days. Just project these against millions of rows instead, and this can translate in several minutes of execution spared every day pending the nature of your workload.
+Очевидно, что эти примеры содержат только десятки тысяч строк. Это количество ничтожно мало по сравнению с объемом данных, доступных на большинстве серверов SQL Server сегодня. Просто попробуйте перенести полученные результаты на несколько миллионов строк. Так вы можете сэкономить несколько минут выполнения каждый день, что обуславливается характером рабочей нагрузки.
 
 
-## <a name="cardinality-estimation-(ce)-improvements"></a>Cardinality Estimation (CE) improvements
+## Улучшение оценки количества элементов
 
 
-Introduced with SQL Server 2014, any database running at a compatibility level 120 or above will make use of the new Cardinality Estimation functionality. Essentially, cardinality estimation is the logic used to determine how SQL server will execute a query based on its estimated cost. The estimation is calculated using input from statistics associated with objects involved in that query. Practically, at a high-level, Cardinality Estimation functions are row count estimates along with information about the distribution of the values, distinct value counts, and duplicate counts contained in the tables and objects referenced in the query. Getting these estimates wrong, can lead to unnecessary disk I/O due to insufficient memory grants (i.e. TempDB spills), or to a selection of a serial plan execution over a parallel plan execution, to name a few. Conclusion, incorrect estimates can lead to an overall performance degradation of the query execution. On the other side, better estimates, more accurate estimates, leads to better query executions!
+Все базы данных SQL Server 2014, работающие на уровне совместимости 120 или выше, будут использовать новую функцию оценки количества элементов. Фактически оценка количества элементов — это логика, используемая для определения того, как сервер SQL Server выполнит запрос, исходя из оценочной стоимости этого запроса. Оценка вычисляется на основе входных данных статистики, связанных с объектами, которые содержатся в этом запросе. Фактически функции оценки количества элементов — это преимущественно средства оценки количества строк со сведениями о распределении значений, уникальных и повторяющихся значениях, содержащихся в таблицах и объектах, на которые ссылается запрос. Неправильная оценка может привести к избыточному выполнению дисковых операций ввода-вывода из-за нехватки емкости временно предоставляемого буфера памяти (т. е. к перебросу в TempDB) или к выбору последовательного плана выполнения вместо параллельного плана. И это лишь некоторые из последствий. Можно сделать вывод, что неправильная оценка может привести к общему снижению производительности выполнения запросов. С другой стороны точная оценка повышает производительность выполнения запросов.
 
-As mentioned before, query optimizations and estimates are a complex matter, but if you want to learn more about query plans and cardinality estimator, you can refer to the document at [Optimizing Your Query Plans with the SQL Server 2014 Cardinality Estimator](https://msdn.microsoft.com/library/dn673537.aspx) for a deeper dive.
-
-
-## <a name="which-cardinality-estimation-do-you-currently-use?"></a>Which Cardinality Estimation do you currently use?
+Как уже сказано ранее, оптимизация и оценка запросов — сложные задачи. Дополнительные сведения о планах запросов и механизме оценки кратности см. в документе [Optimizing Your Query Plans with the SQL Server 2014 Cardinality Estimator](https://msdn.microsoft.com/library/dn673537.aspx) (Оптимизация планов запросов с помощью механизма оценки количества элементов SQL Server 2014).
 
 
-To determine under which Cardinality Estimation your queries are running, let’s just use the query samples below. Note that this first example will run under compatibility level 110, implying the use of the old Cardinality Estimation functions.
+## Определение используемой оценки количества элементов
+
+
+Чтобы определить оценку количества элементов для запросов, давайте просто используем приведенные ниже примеры. Обратите внимание, что первый пример выполняется на уровне совместимости 110. При этом подразумевается использование старых функций оценки количества элементов.
 
 
 ```
 -- Old CE
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 110;
+	SET COMPATIBILITY_LEVEL = 110;
 GO
 
 SET STATISTICS XML ON;
 
 SELECT [c1]
-    FROM [dbo].[T_target]
-    WHERE [c1] > 20000;
+	FROM [dbo].[T_target]
+	WHERE [c1] > 20000;
 GO
 
 SET STATISTICS XML OFF;
 ```
 
 
-Once execution is complete, click on the XML link, and look at the properties of the first iterator as shown below. Note the property name called CardinalityEstimationModelVersion currently set on 70. It does not mean that the database compatibility level is set to the SQL Server 7.0 version (it is set on 110 as visible in the TSQL statements above), but the value 70 simply represents the legacy Cardinality Estimation functionality available since SQL Server 7.0, which had no major revisions until SQL Server 2014 (which comes with a compatibility level of 120).
+По завершении выполнения выберите ссылку XML и просмотрите свойства первого итератора, как показано ниже. Обратите внимание, что для свойства CardinalityEstimationModelVersion задано значение 70. Это не означает, что установлен уровень совместимости базы данных SQL Server 7.0 (установлен уровень 110, как видно в инструкциях TSQL выше). Значение 70 просто представляет собой устаревшую функцию оценки количества элементов, доступную в SQL Server 7.0, которая не обновлялась до выпуска SQL Server 2014 (предоставляемого с уровнем совместимости 120).
 
 
-*Figure 4: The CardinalityEstimationModelVersion is set to 70 when using a compatibility level of 110 or below.*
+*Рис. 4. Для свойства CardinalityEstimationModelVersion задано значение 70 при использовании уровня совместимости 110 и ниже*
 
 
-![Figure 4](./media/sql-database-compatibility-level-query-performance-130/figure-4.png)
+![Рис. 4](./media/sql-database-compatibility-level-query-performance-130/figure-4.png)
 
 
-Alternatively, you can change the compatibility level to 130, and disable the use of the new Cardinality Estimation function by using the LEGACY_CARDINALITY_ESTIMATION set to ON with [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx). This will be exactly the same as using 110 from a Cardinality Estimation function point of view, while using the latest query processing compatibility level. Doing so, you can benefit from the new query processing features coming with the latest compatibility level (i.e. batch mode), but still rely on the old Cardinality Estimation functionality if necessary.
+Кроме того, можно изменить уровень совместимости на 130 и отключить использование новой функции оценки количества элементов, задав для LEGACY\_CARDINALITY\_ESTIMATION значение ON с помощью [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx). С точки зрения функции оценки количества элементов результат будет точно таким же, как и при использовании уровня 110. Но при этом используется самый новый уровень совместимости обработки запросов. Таким образом можно использовать преимущества новых возможностей обработки запросов, которые предоставляет самый новый уровень совместимости (т. е. пакетный режим) и по-прежнему при необходимости использовать старую функцию оценки количества элементов.
 
 
 ```
 -- Old CE
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 130;
+	SET COMPATIBILITY_LEVEL = 130;
 GO
 
 ALTER DATABASE
-    SCOPED CONFIGURATION
-    SET LEGACY_CARDINALITY_ESTIMATION = ON;
+	SCOPED CONFIGURATION
+	SET LEGACY_CARDINALITY_ESTIMATION = ON;
 GO
 
 SET STATISTICS XML ON;
 
 SELECT [c1]
-    FROM [dbo].[T_target]
-    WHERE [c1] > 20000;
+	FROM [dbo].[T_target]
+	WHERE [c1] > 20000;
 GO
 
 SET STATISTICS XML OFF;
 ```
 
 
-Simply moving to the compatibility level 120 or 130 enables the new Cardinality Estimation functionality. In such a case, the default CardinalityEstimationModelVersion will be set accordingly to 120 or 130 as visible below.
+При переходе на уровень совместимости 120 или 130 становится доступной новая функция оценки количества элементов. В этом случае для CardinalityEstimationModelVersion по умолчанию будет установлено значение в соответствии с уровнем 120 или 130, как видно ниже.
 
 
 ```
 -- New CE
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 130;
+	SET COMPATIBILITY_LEVEL = 130;
 GO
 
 ALTER DATABASE
-    SCOPED CONFIGURATION
-    SET LEGACY_CARDINALITY_ESTIMATION = OFF;
+	SCOPED CONFIGURATION
+	SET LEGACY_CARDINALITY_ESTIMATION = OFF;
 GO
 
 SET STATISTICS XML ON;
 
 SELECT [c1]
-    FROM [dbo].[T_target]
-    WHERE [c1] > 20000;
+	FROM [dbo].[T_target]
+	WHERE [c1] > 20000;
 GO
 
 SET STATISTICS XML OFF;
 ```
 
 
-*Figure 5: The CardinalityEstimationModelVersion is set to 130 when using a compatibility level of 130.*
+*Рис. 5. Для свойства CardinalityEstimationModelVersion задано значение 130 при использовании уровня совместимости 130*
 
 
-![Figure 5](./media/sql-database-compatibility-level-query-performance-130/figure-5.jpg)
+![Рис. 5](./media/sql-database-compatibility-level-query-performance-130/figure-5.jpg)
 
 
-## <a name="witnessing-the-cardinality-estimation-differences"></a>Witnessing the Cardinality Estimation differences
+## Отличия старой и новой функции оценки количества элементов
 
 
-Now, let’s run a slightly more complex query involving an INNER JOIN with a WHERE clause with some predicates, and let’s look at the row count estimate from the old Cardinality Estimation function first.
+Теперь давайте выполним более сложный запрос с INNER JOIN, предложением WHERE и несколькими предикатами. Сначала давайте взглянем на оценку числа строк, полученную с использованием старой функции оценки количества элементов.
 
 
 ```
 -- Old CE row estimate with INNER JOIN and WHERE clause
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 130;
+	SET COMPATIBILITY_LEVEL = 130;
 GO
 
 ALTER DATABASE
-    SCOPED CONFIGURATION
-    SET LEGACY_CARDINALITY_ESTIMATION = ON;
+	SCOPED CONFIGURATION
+	SET LEGACY_CARDINALITY_ESTIMATION = ON;
 GO
 
 SET STATISTICS XML ON;
 
 SELECT T.[c2]
-    FROM
-                   [dbo].[T_source] S
-        INNER JOIN [dbo].[T_target] T  ON T.c1=S.c1
-    WHERE
-        S.[Color] = ‘Red’  AND
-        S.[c2] > 2000  AND
-        T.[c2] > 2000
-    OPTION (RECOMPILE);
+	FROM
+		           [dbo].[T_source] S
+		INNER JOIN [dbo].[T_target] T  ON T.c1=S.c1
+	WHERE
+		S.[Color] = ‘Red’  AND
+		S.[c2] > 2000  AND
+		T.[c2] > 2000
+	OPTION (RECOMPILE);
 GO
 
 SET STATISTICS XML OFF;
 ```
 
 
-Executing this query effectively returns 200,704 rows, while the row estimate with the old Cardinality Estimation functionality claims 194,284 rows. Obviously, as said before, these row count results will also depend how often you ran the previous samples, which populates the sample tables over and over again at each run. Obviously, the predicates in your query will also have an influence on the actual estimation aside from the table shape, data content, and how this data actually correlate with each other.
+При эффективном выполнении этого запроса возвращается 200 704 строки. Для старой функции оценки количества элементов это значение составляет 194 284 строки. Как упоминалось ранее, очевидно, что результаты расчета количества строк также зависят от того, сколько раз выполнялись предыдущие примеры, так как с каждым разом таблицы примеров заполняются все больше и больше. Ясно, что кроме формы таблицы, данных и их корреляции предикаты в запросе также будут влиять на фактическую оценку.
 
 
-*Figure 6: The row count estimate is 194,284 or 6,000 rows off from the 200,704 rows expected.*
+*Рис. 6. Предполагаемое число строк — 194 284 (на 6 000 строк меньше требуемого количества — 200 704 строки)*
 
 
-![Figure 6](./media/sql-database-compatibility-level-query-performance-130/figure-6.jpg)
+![Рис. 6](./media/sql-database-compatibility-level-query-performance-130/figure-6.jpg)
 
 
-In the same way, let’s now execute the same query with the new Cardinality Estimation functionality.
+Теперь давайте аналогичным образом выполним тот же запрос с новой функцией оценки кратности.
 
 
 ```
 -- New CE row estimate with INNER JOIN and WHERE clause
 
 ALTER DATABASE MyTestDB
-    SET COMPATIBILITY_LEVEL = 130;
+	SET COMPATIBILITY_LEVEL = 130;
 GO
 
 ALTER DATABASE
-    SCOPED CONFIGURATION
-    SET LEGACY_CARDINALITY_ESTIMATION = OFF;
+	SCOPED CONFIGURATION
+	SET LEGACY_CARDINALITY_ESTIMATION = OFF;
 GO
 
 SET STATISTICS XML ON;
 
 SELECT T.[c2]
-    FROM
-                   [dbo].[T_source] S
-        INNER JOIN [dbo].[T_target] T  ON T.c1=S.c1
-    WHERE
-        S.[Color] = ‘Red’  AND
-        S.[c2] > 2000  AND
-        T.[c2] > 2000
-    OPTION (RECOMPILE);
+	FROM
+		           [dbo].[T_source] S
+		INNER JOIN [dbo].[T_target] T  ON T.c1=S.c1
+	WHERE
+		S.[Color] = ‘Red’  AND
+		S.[c2] > 2000  AND
+		T.[c2] > 2000
+	OPTION (RECOMPILE);
 GO
 
 SET STATISTICS XML OFF;
 ```
 
 
-Looking at the below, we now see that the row estimate is 202,877, or much closer and higher than the old Cardinality Estimation.
+В таблице ниже видно, что расчетное количество строк составляет 202 877. Это значение намного ближе и больше, чем в случае старой функции оценки количества элементов.
 
-*Figure 7: The row count estimate is now 202,877, instead of 194,284.*
-
-
-![Figure 7](./media/sql-database-compatibility-level-query-performance-130/figure-7.jpg)
+*Рис. 7. Расчетное число строк — 202 877, а не 194 284*
 
 
-In reality, the result set is 200,704 rows (but all of it depends how often you did run the queries of the previous samples, but more importantly, because the TSQL uses the RAND() statement, the actual values returned can vary from one run to the next). Therefore, in this particular example, the new Cardinality Estimation does a better job at estimating the number of rows because 202,877 is much closer to 200,704, than 194,284! Last, if you change the WHERE clause predicates to equality (rather than “>” for instance), this could make the estimates between the old and new Cardinality function even more different, depending on how many matches you can get.
-
-Obviously, in this case, being ~6000 rows off from actual count does not represent a lot of data in some situations. Now, transpose this to millions of rows across several tables and more complex queries, and at times the estimate can be off by millions of rows , and therefore, the risk of picking-up the wrong execution plan, or requesting insufficient memory grants leading to TempDB spills, and so more I/O, are much higher.
-
-If you have the opportunity, practice this comparison with your most typical queries and datasets, and see for yourself by how much some of the old and new estimates are affected, while some could just become more off from the reality, or some others just simply closer to the actual row counts actually returned in the result sets. All of it will depend of the shape of your queries, the Azure SQL database characteristics, the nature and the size of your datasets, and the statistics available about them. If you just created your Azure SQL Database instance, the query optimizer will have to build its knowledge from scratch instead of reusing statistics made of the previous query runs. So, the estimates are very contextual and almost specific to every server and application situation. It is an important aspect to keep in mind!
+![Рис. 7](./media/sql-database-compatibility-level-query-performance-130/figure-7.jpg)
 
 
-## <a name="some-considerations-to-take-into-account"></a>Some considerations to take into account
+На самом деле в результирующем наборе содержится 200 704 строки. (Все зависит от частоты выполнения запросов в предыдущих примерах. Важнее всего другое: так как TSQL использует инструкцию RAND(), фактические возвращаемые значения могут быть разными при каждом новом выполнении.) Таким образом в этом конкретном примере новая функция оценки количества элементов лучше справляется с оценкой количества строк, так как 202 877 гораздо ближе к 200 704, чем 194 284. Наконец, если изменить предикаты предложения WHERE на знаки равенства (а не на ">", например), результаты старой и новой функции оценки количества элементов могут отличаться еще сильнее в зависимости от возможного количества совпадений.
+
+Очевидно, что в этом случае погрешность в 6000 строк от действительного количества — сравнительно небольшой объем данных в некоторых ситуациях. Теперь перенесите это на миллионы строк в нескольких таблицах и более сложные запросы. В некоторых случаях погрешность оценки может составлять миллионы строк. Поэтому риск выбора неподходящего плана или запроса недостаточного объема временно предоставляемого буфера, который влечет переброс в TempDB и дополнительные операции ввода-вывода, гораздо выше.
+
+По возможности проводите такое сравнение на самых типичных запросах и наборах данных и убедитесь сами, насколько сильно изменяются старые и новые оценки. Некоторые оценки могут отдалиться от реальных показателей, а другие могут наоборот приблизиться к фактическому количеству строк, возвращенных в результирующих наборах. Все показатели зависят от формы запросов, характеристик базы данных Azure SQL, характера и размера наборов данных и соответствующих статистических данных. Если вы только создали экземпляр Базы данных SQL Azure, оптимизатору запросов понадобится сформировать сведения с нуля, а не повторно использовать статистику на основе предыдущих выполнений запроса. Таким образом оценки в большой степени зависят от контекста и выполняются для конкретного сервера и приложения. Стоит помнить об этом.
 
 
-Although most workloads would benefit from the compatibility level 130, before you adopting the compatibility level for your production environment, you basically have 3 options:
-
-1. You move to compatibility level 130, and see how things perform. In case you notice some regressions, you just simply set the compatibility level back to its original level, or keep 130, and only reverse the Cardinality Estimation back to the legacy mode (As explained above, this alone could address the issue).
-2. You thoroughly test your existing applications under similar production load, fine tune, and validate the performance before going to production. In case of issues, same as above, you can always go back to the original compatibility level, or simply reverse the Cardinality Estimation back to the legacy mode.
-3. As a final option, and the most recent way to address these questions, is to leverage the Query Store. That’s today’s recommended option! To assist the analysis of your queries under compatibility level 120 or below versus 130, we cannot encourage you enough to use Query Store. Query Store is available with the latest version of Azure SQL Database V12, and it’s designed to help you with query performance troubleshooting. Think of the Query Store as a flight data recorder for your database collecting and presenting detailed historic information about all queries. This greatly simplifies performance forensics by reducing the time to diagnose and resolve issues. You can find more information at [Query Store: A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/).
+## Рекомендации
 
 
-At the high-level, if you already have a set of databases running at compatibility level 120 or below, and plan to move some of them to 130, or because your workload automatically provision new databases that will be soon be set by default to 130, please consider the followings:
+Несмотря на то, что для большинства рабочих нагрузок целесообразно использовать уровень совместимости 130, прежде чем внедрить уровень совместимости для рабочей среды у вас по сути есть три варианта:
 
-- Before changing to the new compatibility level in production, enable Query Store. You can refer to [Change the Database Compatibility Mode and Use the Query Store](https://msdn.microsoft.com/library/bb895281.aspx) for more information.
-- Next, test all critical workloads using representative data and queries of a production-like environment, and compare the performance experienced and as reported by Query Store. If you experience some regressions, you can identify the regressed queries with the Query Store and use the plan forcing option from Query Store (aka plan pinning). In such a case, you definitively stay with the compatibility level 130, and use the former query plan as suggested by the Query Store.
-- If you want to leverage new features and capabilities of Azure SQL Database (which is running SQL Server 2016), but are sensitive to changes brought by the compatibility level 130, as a last resort, you could consider forcing the compatibility level back to the level that suits your workload by using an ALTER DATABASE statement. But first, be aware that the Query Store plan pinning option is your best option because not using 130 is basically staying at the functionality level of an older SQL Server version.
-- If you have multitenant applications spanning multiple databases, it may be necessary to update the provisioning logic of your databases to ensure a consistent compatibility level across all databases; old and newly provisioned ones. Your application workload performance could be sensitive to the fact that some databases are running at different compatibility levels, and therefore, compatibility level consistency across any database could be required in order to provide the same experience to your customers all across the board. Note that it is not a mandate, it really depends on how your application is affected by the compatibility level.
-- Last, regarding the Cardinality Estimation, and just like changing the compatibility level, before proceeding in production, it is recommended to test your production workload under the new conditions to determine if your application benefits from the Cardinality Estimation improvements.
+1. Перейдите к уровню совместимости 130 и понаблюдайте за производительностью. Если производительность ухудшилась, можно просто восстановить исходный уровень совместимости или оставить уровень 130 и восстановить устаревшую версию функции оценки количества элементов (как описано выше, такое изменение может решить проблему).
+2. Тщательно проверьте существующие приложения при аналогичной рабочей нагрузке, настройте и проверьте производительность до внесения изменений в рабочую среду. При возникновении проблем, указанных выше, всегда можно вернуться к исходному уровню совместимости или просто вернуться к старой версии функции оценки количества элементов.
+3. Последний и самый новый вариант — использовать хранилище запросов. Это рекомендуемый вариант для современной среды. Чтобы упростить анализ запросов на уровне совместимости 120 или ниже и на уровне 130, лучше всего использовать хранилище запросов. Хранилище запросов доступно в последней версии Базы данных SQL Azure (версия 12). Оно позволяет устранить проблемы с производительностью запросов. Рассматривайте хранилище запросов как черный ящик для базы данных, который собирает и предоставляет подробные статистические сведения обо всех запросах. Это значительно упрощает экспертизу производительности за счет сокращения периода диагностики и устранения проблем. Дополнительные сведения см. в записи блога [Query Store: A flight data recorder for your database](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/) (Хранилище данных: черный ящик для базы данных).
 
 
-## <a name="conclusion"></a>Conclusion
+В общем, если уже есть набор баз данных на уровне совместимости 120 или ниже и планируется переместить некоторые из них на уровень 130 или из-за того, что рабочая нагрузка автоматически подготавливает к работе новые базы данных, для которых вскоре будет по умолчанию установлен уровень 130, учитывайте следующее:
+
+- Перед переходом к новому уровню совместимости в рабочей среде включите хранилище запросов. Дополнительные сведения см. в разделе [Change the Database Compatibility Mode and Use the Query Store](https://msdn.microsoft.com/library/bb895281.aspx) (Изменение уровня совместимости базы данных и использование хранилища запросов).
+- Теперь необходимо проверить все критические рабочие нагрузки с использованием репрезентативных данных и запросов среды, аналогичной рабочей, и сравнить полученные показатели производительности с показателями производительности, сообщаемыми хранилищем запросов. При ухудшении производительности благодаря хранилищу запросов можно определить запросы, которые к этому привели, и использовать функцию принудительного применения плана хранилища (то есть закрепление плана). В этом случае вы точно сможете оставить уровень совместимости 130 и использовать предыдущий план запроса, как рекомендует хранилище запросов.
+- Если вы хотите использовать новые функции и возможности Базы данных SQL Azure (которая работает под управлением SQL Server 2016), но ваша система чувствительна к изменениям уровня совместимости 130, в качестве последнего средства можно принудительно восстановить уровень совместимости, подходящий для рабочей нагрузки, с помощью инструкции ALTER DATABASE. Но учтите, что возможность закрепления плана хранилища запроса — лучший вариант, так как если не используется уровень 130, система по сути работает на уровне функций более старой версии SQL Server.
+- При наличии мультитенантных приложений, охватывающих несколько баз данных, возможно, потребуется обновить логику подготовки к работе баз данных, чтобы установить один и тот же уровень совместимости во всех базах данных (в старых и новых). Производительность рабочей нагрузки приложения может изменяться, если некоторые базы данных работают на разных уровнях совместимости. Таким образом, требуется обеспечить согласованность уровней совместимости, чтобы всем клиентам предоставлялись одинаковые возможности. Обратите внимание, что это не обязательное требование. Все зависит от того, насколько уровень совместимости влияет на работу приложения.
+- И, наконец, относительно оценки количества элементов. Так же, как и при изменении уровня совместимости, прежде чем перенести изменения в рабочую среду, рекомендуется проверить рабочую нагрузку в новых условиях, чтобы определить, появляются ли какие-либо преимущества для приложения при улучшении оценки количества элементов.
 
 
-Using Azure SQL Database to benefit from all SQL Server 2016 enhancements can clearly improve your query executions. Just as-is! Of course, like any new feature, a proper evaluation must be done to determine the exact conditions under which your database workload operates the best. Experience shows that most workload are expected to at least run transparently under compatibility level 130, while leveraging new query processing functions, and new Cardinality Estimation. That said, realistically, there are always some exceptions and doing proper due diligence is an important assessment to determine how much you can benefit from these enhancements. And again, the Query Store can be of a great help in doing this work!
-
-As SQL Azure evolves, you can expect a compatibility level 140 in the future. When time is appropriate, we will start talking about what this future compatibility level 140 will bring, just as we briefly discussed here what compatibility level 130 is bringing today.
-
-For now, let’s not forget, starting June 2016, Azure SQL Database will change the default compatibility level from 120 to 130 for newly created databases. Be aware!
+## Заключение
 
 
-## <a name="references"></a>References
+Производительность выполнения запросов можно повысить, используя Базу данных SQL Azure, что в свою очередь позволяет воспользоваться преимуществами усовершенствований SQL Server 2016. Все очень просто. Конечно же как и для любой новой функции необходимо провести достоверную оценку, чтобы определить точные условия, при которых достигается максимальная производительность рабочей нагрузки базы данных. Опыт показывает, что большинство рабочих нагрузок должны по крайней мере прозрачно выполняться на уровне совместимости 130 при использовании новых функций обработки запросов и оценки количества элементов. Говорят, что в действительности всегда находятся некоторые исключения. Комплексная экспертиза представляет собой важную оценку, позволяющую определить преимущества этих улучшений. И снова хранилище запросов может пригодиться для этой задачи.
+
+По мере развития SQL Azure становится понятно, что в будущем следует ожидать создания уровня совместимости 140. Тогда мы расскажем о возможностях уровня совместимости 140 так же, как сделали это для уровня совместимости 130.
+
+А пока не забывайте, что начиная с июня 2016 года уровень совместимости по умолчанию 120 для новых баз данных в Базе данных SQL Azure будет изменен на 130. Помните об этом.
 
 
-- [What’s New in Database Engine](https://msdn.microsoft.com/library/bb510411.aspx#InMemory)
+## Ссылки
 
-- [Blog: Query Store: A flight data recorder for your database, by Borko Novakovic, June 8 2016](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)
 
-- [ALTER DATABASE Compatibility Level (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx)
+- [Новые возможности (компонент Database Engine)](https://msdn.microsoft.com/library/bb510411.aspx#InMemory)
+
+- [Запись блога. Query Store: A flight data recorder for your database (Хранилище данных: черный ящик для базы данных). Автор: Борко Новакович (Borko Novakovic). 8 июня 2016 года](https://azure.microsoft.com/blog/query-store-a-flight-data-recorder-for-your-database/)
+
+- [Уровень совместимости инструкции ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx)
 
 - [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx)
 
-- [Compatibility Level 130 for Azure SQL Database V12](https://azure.microsoft.com/updates/compatibility-level-130-for-azure-sql-database-v12/)
+- [Compatibility Level 130 for Azure SQL Database V12](https://azure.microsoft.com/updates/compatibility-level-130-for-azure-sql-database-v12/) (Уровень совместимости 130 для Базы данных Azure SQL версии 12)
 
-- [Optimizing Your Query Plans with the SQL Server 2014 Cardinality Estimator](https://msdn.microsoft.com/library/dn673537.aspx)
+- [Optimizing Your Query Plans with the SQL Server 2014 Cardinality Estimator](https://msdn.microsoft.com/library/dn673537.aspx) (Оптимизация планов запросов с помощью механизма оценки количества элементов SQL Server 2014)
 
-- [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx)
+- [Описание индексов columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
 
-- [Blog: Improved Query Performance with Compatibility Level 130 in Azure SQL Database, by Alain Lissoir, May 6 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/)
+- [Запись блога. Повышение производительности запросов с использованием уровня совместимости 130 в базе данных SQL Azure. Автор: Ален Лиссуар (Alain Lissoir). 6 мая 2016 года](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/05/06/improved-query-performance-with-compatibility-level-130-in-azure-sql-database/)
 
 
 
@@ -527,8 +526,4 @@ sql-database-compatibility-level-query-performance-130.md
 genemi = MightyPen , 2016-05-20  Friday  17:00pm
 -->
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0810_2016-->

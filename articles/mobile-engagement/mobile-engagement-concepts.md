@@ -1,93 +1,88 @@
 <properties
-    pageTitle="Mobile Engagement concepts | Microsoft Azure"
-    description="Azure Mobile Engagement concepts"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="dwrede"
-    editor="" />
+	pageTitle="Основные понятия Mobile Engagement | Microsoft Azure"
+	description="Основные понятия Azure Mobile Engagement"
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor="" />
 
 <tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/19/2016"
-    ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/19/2016"
+	ms.author="piyushjo" />
 
+# Основные понятия Azure Mobile Engagement
 
-# <a name="azure-mobile-engagement-concepts"></a>Azure Mobile Engagement concepts
+Mobile Engagement определяет несколько основных понятий, общих для всех поддерживаемых платформ. В этой статье кратко описаны эти понятия.
 
-Mobile Engagement defines a few concepts common to all supported platforms. This article briefly describes those concepts.
+Если вы не знакомы с Mobile Engagement, то эта статья — хорошее начало. Также обязательно прочтите документацию, которая относится к используемой платформе, чтобы подробнее узнать об основных понятиях, примерах и возможных ограничениях.
 
-This article is a good start if you are new to Mobile Engagement. Also make sure to read the documentation specific to the platform you are using, as it will refine the concepts described in this article with more details and examples as well as possible limitations.
+## Устройства и пользователи
+Mobile Engagement идентифицирует пользователей с помощью создания уникального идентификатора для каждого устройства. Этот идентификатор называется идентификатором устройства (или `deviceid`). Он создается таким образом, чтобы все приложения, запущенные на одном устройстве, использовали один идентификатор устройства.
 
-## <a name="devices-and-users"></a>Devices and users
-Mobile Engagement identifies users by generating a unique identifier for each device. This identifier is called the device identifier (or `deviceid`). It is generated in such a way that all applications running of the same device share the same device identifier.
+Косвенно это означает, что Mobile Engagement считает, что одно устройство принадлежит одному пользователю. Таким образом, пользователи и устройства являются эквивалентными понятиями.
 
-Implicitly, it means that Mobile Engagement considers one device to belong to exactly one user, and thus, users and devices are equivalent concepts.
+## Сеансы и действия
+Сеанс — это однократное использование приложения пользователем с момента начала использования до момента прекращения использования.
 
-## <a name="sessions-and-activities"></a>Sessions and activities
-A session is one use of the application performed by a user, from the time the user starts using it, until the user stops.
+Действие — это однократное использование определенной подчасти приложения одним пользователем (обычно это экран, но может быть и что-то другое, что подходит для приложения).
 
-An activity is one use of a given sub-part of the application performed by one user (it is usually a screen, but it can be anything suitable to the application).
+За раз пользователь может выполнить только одно действие.
 
-A user can only perform one activity at a time.
+Действие идентифицируется по имени (ограничено 64 символами) и может при необходимости внедрить дополнительные данные (с ограничением в 1024 байт).
 
-An activity is identified by a name (limited to 64 characters) and can optionally embed some extra data (in the limit of 1024 bytes).
+Сеансы вычисляются автоматически из последовательности действий, выполняемых пользователями. Сеанс начинается, когда пользователь выполняет свое первое действие, и завершается, когда пользователь заканчивает свое последнее действие. Это означает, что сеансы не требуется запускать или завершать явным образом. Вместо этого явным образом запускаются или завершаются действия. При отсутствии действий сеансы также отсутствуют.
 
-Sessions are automatically computed from the sequence of activities performed by users. A session starts when the user starts his first activity and stops when he finishes his last activity. This means that a session does not need to be explicitly started or stopped. Instead, activities are explicitly started or stopped. If no activity is reported, no session is reported.
+## События
+События используются для отправки отчетов о мгновенных действиях (например, о нажатии кнопки или прочитанных статьях).
 
-## <a name="events"></a>Events
-Events are used to report instant actions (like button pressed or articles read by users).
+Событие может быть связано с текущим сеансом, с выполняющимся заданием или может быть изолированным.
 
-An event can be related to the current session, to a running job, or it can be a standalone event.
+Событие идентифицируется по имени (ограничено 64 символами) и может при необходимости внедрять дополнительные данные (с ограничением в 1024 байт).
 
-An event is identified by a name (limited to 64 characters) and can optionally embed some extra data (in the limit of 1024 bytes).
+## Ошибка
+Ошибки используются для отправки отчетов о проблемах, правильно обнаруженных приложением (например, неправильное действие пользователя или сбои вызовов API).
 
-## <a name="error"></a>Error
-Errors are used to report issues correctly detected by the application (like incorrect user actions, or API call failures).
+Ошибка может быть связана с текущим сеансом, с выполняющимся заданием или может быть изолированной.
 
-An error can be related to the current session, to a running job, or it can be a standalone error.
+Ошибка идентифицируется по имени (ограничено 64 символами) и может при необходимости внедрять дополнительные данные (с ограничением в 1024 байт).
 
-An error is identified by a name (limited to 64 characters) and can optionally embed some extra data (in the limit of 1024 bytes).
+## Задание
+Задания используются для отправки отчетов о действиях, имеющих длительность (например, длительность вызовов API, время отображения рекламы, длительность фоновых задач или длительность действий пользователя).
 
-## <a name="job"></a>Job
-Jobs are used to report actions having a duration (like duration of API calls, display time of ads, duration of background tasks or duration of user actions).
+Задание не связано с сеансом, так как задача может выполняться в фоновом режиме без вмешательства пользователя.
 
-A job is not related to a session, because a task can be performed in the background, without any user interaction.
+Задание идентифицируется по имени (ограничено 64 символами) и может при необходимости внедрять дополнительные данные (с ограничением в 1024 байт).
 
-A job is identified by a name (limited to 64 characters) and can optionally embed some extra data (in the limit of 1024 bytes).
+## Сбой
+Пакет SDK Mobile Engagement автоматически отправляет отчеты о сбоях приложений, когда проблемы, не обнаруженные приложением, вызывают его сбой.
 
-## <a name="crash"></a>Crash
-Crashes are issued automatically by the Mobile Engagement SDK to report application failures where issues not detected by the application make it crash.
+## Сведения о приложении
+Сведения о приложении (или информация о приложении) используются, чтобы отмечать пользователей, т. е. связывать данные с пользователями приложения (аналогично файлам cookie за исключением того, что сведения о приложении хранятся на стороне сервера на платформе Mobile Engagement).
 
-## <a name="application-information"></a>Application information
-Application information (or app info) is used to tag users, that is, to associate some data to the users of an application (this is similar to web cookies, except that app info is stored on the server side on the Azure Mobile Engagement platform).
+Сведения о приложении можно зарегистрировать с помощью API пакета SDK Mobile Engagement или API устройств платформы Mobile Engagement.
 
-App info can be registered by using the Mobile Engagement SDK API or by using the Mobile Engagement platform Device API.
+Сведения о приложении представляют собой пару "ключ — значение", связанную с устройством. Ключ — это имя сведений о приложении (ограничено 64 буквами ASCII [a-z, A-Z], цифрами [0-9] и символами подчеркивания [\_]). Значение (ограничено 1024 символами) может быть любой строкой, целым числом, датой (гггг-ММ-дд) или логическим значением (true или false).
 
-App info is a key/value pair associated to a device. The key is the name of the app info (limited to 64 ASCII letters [a-zA-Z], numbers [0-9] and underscores [_]). The value (limited to 1024 characters) can be any string, integer, date (yyyy-MM-dd) or Boolean (true or false).
+Любое количество сведений о приложении может быть связано с устройством в рамках, определенных заданными ценами Mobile Engagement. Для данного ключа Mobile Engagement отслеживает только набор последних значений (без журнала). Если значение сведений о приложении будет задано или изменено, Mobile Engagement выполнит принудительное повторное вычисление набора критериев аудитории, указанных в этих сведениях о приложении (если они есть). Это означает, что сведения о приложении можно использовать для активации push-уведомлений в режиме реального времени.
 
-Any number of app info can be associated to a device, within the limits defined by the Mobile Engagement pricing terms. For one given key, Mobile Engagement only keeps track of the latest value set (no history). Setting or changing the value of an app info forces Mobile Engagement to re-evaluate audience criteria set on this app info (if any) meaning that app info can be used to trigger realtime pushes.
+## Дополнительные данные
+Дополнительные данные — это некоторые произвольные данные, которые можно присоединить к событиям, ошибкам, действиям и заданиям.
 
-## <a name="extra-data"></a>Extra data
-Extra data (or extras) is some arbitrary data that can be attached to events, errors, activities and jobs.
+Дополнительные данные структурируются так же, как объекты JSON: они созданы из дерева пар "ключ-значение". Ключи ограничены 64 буквами ASCII [a-z, A-Z], цифрами [0-9] и символами подчеркивания [\_]), а общий размер дополнительных данных ограничен 1024 знаками (после кодировки в JSON пакетом SDK Mobile Engagement).
 
-Extras are structured similarly to JSON objects: they are made of a tree of key/value pairs. Keys are limited to 64 ASCII letters [a-zA-Z], numbers [0-9] and underscores [_]) and the total size of extras is limited to 1024 characters (once encoded in JSON by the Mobile Engagement SDK).
+Дерево пар "ключ-значение" полностью сохранено как объект JSON. Тем не менее только первый уровень пар "ключ — значение" можно разделить для прямого доступа некоторыми сложными функциями. К таким функциям, например, относятся "Сегменты" (т. е. можно легко определить сегмент "Любители научной фантастики", в который входят все пользователи, который за последний месяц не менее десяти раз отправили событие с именем content\_viewed с дополнительным ключом content\_type, имеющим значение scifi). Таким образом, рекомендуется отправлять только дополнительные данные, созданные из простых списков пар "ключ — значение", использующих скалярные значения (например, строки, даты, целые числа или логические значения).
 
-The whole tree of key/value pairs is stored as a JSON object. Nevertheless, only the first level of keys/values is decomposed to be directly accessible to some advanced functions like Segments (for example, you can easily define a segment called “SciFi fans” that is made of all users having sent at least 10 times the event named “content_viewed” with the extra key “content_type” set to the value “scifi” in the last month). It is thus highly recommended to send only extras made of simple lists of key/value pairs using scalar values (for example, strings, dates, integers or Boolean).
+## Дальнейшие действия
 
-## <a name="next-steps"></a>Next steps
+- [Общие сведения о пакете SDK для универсальных приложений Windows для Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
+- [Общие сведения о пакете SDK для Windows Phone Silverlight для Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
+- [Пакет SDK для Azure Mobile Engagement (iOS)](mobile-engagement-ios-sdk-overview.md)
+- [Пакет Android SDK для Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
 
-- [Windows Universal SDK overview for Azure Mobile Engagement](mobile-engagement-windows-store-sdk-overview.md)
-- [Windows Phone Silverlight SDK overview for Azure Mobile Engagement](mobile-engagement-windows-phone-sdk-overview.md)
-- [iOS SDK for Azure Mobile Engagement](mobile-engagement-ios-sdk-overview.md)
-- [Android SDK for Azure Mobile Engagement](mobile-engagement-android-sdk-overview.md)
-
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0824_2016-->

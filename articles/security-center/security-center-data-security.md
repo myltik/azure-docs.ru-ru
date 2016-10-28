@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Security Center Data Security | Microsoft Azure"
-   description="This document explains how data is managed and safeguarded in Azure Security Center."
+   pageTitle="Защита данных в центре безопасности Azure | Microsoft Azure"
+   description="В этой статье объясняется, каким образом обеспечивается управление данными и их защита в центре безопасности Azure."
    services="security-center"
    documentationCenter="na"
    authors="YuriDio"
@@ -16,55 +16,50 @@
    ms.date="08/08/2016"
    ms.author="yurid"/>
 
+# Защита данных в центре безопасности Azure
+Чтобы помочь клиентам предотвращать и выявлять угрозы, а также реагировать на них, центр безопасности Azure собирает и обрабатывает данные о ресурсах Azure, в том числе сведения о конфигурации, метаданные, журналы событий, файлы аварийных дампов и многое другое. Корпорация Майкрософт берет на себя ответственность по защите конфиденциальности и безопасности этих данных. Корпорация Майкрософт следует строгим нормативным требованиям и указаниям по безопасности — от создания кода до эксплуатации служб.
 
-# <a name="azure-security-center-data-security"></a>Azure Security Center Data Security
-To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes data about your Azure resources, including configuration information, metadata, event logs, crash dump files, and more. We make strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. 
+В этой статье объясняется, каким образом обеспечивается управление данными и их защита в центре безопасности Azure.
 
-This article explains how data is managed and safeguarded in Azure Security Center.
+## Источники данных
+Центр безопасности Azure анализирует данные из следующих источников:
 
-## <a name="data-sources"></a>Data Sources
-Azure Security Center analyzes data from the following sources:
+- Службы Azure. Из развернутых служб Azure считываются сведения о конфигурации путем взаимодействия с поставщиком ресурсов соответствующей службы.
+- Сетевой трафик. Из инфраструктуры Майкрософт считывается выборка метаданных сетевого трафика, например IP-адрес и порт источника и назначения, размер пакета и сетевой протокол.
+- Решения партнеров. Из интегрированных решений партнеров, например брандмауэров и решений по защите от вредоносных программ, собираются оповещения безопасности. Эти данные хранятся в хранилище центра безопасности Azure, которое в настоящее время расположено в США.
+- Виртуальные машины. Центр безопасности Azure может собирать сведения о конфигурации и событиях безопасности, например события Windows, данные журналов аудита и журналов IIS, а также сообщения системного журнала и файлы аварийного дампа, из виртуальных машин с помощью агентов сбора данных. Дополнительные сведения см. в приведенном ниже разделе об управлении сбором данных.
 
-- Azure Services: Reads information about the configuration of Azure services you have deployed by communicating with that service’s resource provider.
-- Network Traffic: Reads sampled network traffic metadata from Microsoft’s infrastructure, such as source/destination IP/port, packet size, and network protocol.
-- Partner Solutions: Collects security alerts from integrated partner solutions, such as firewalls and antimalware solutions. This data is stored in Azure Security Center storage, currently located in the United States.
-- Your Virtual Machines: Azure Security Center can collect configuration information and information about security events, such as Windows event and audit logs, IIS logs, syslog messages, and crash dump files from your virtual machines using data collection agents. See the “Managing Data Collection” section below for additional details.  
+Кроме того, в хранилище центра безопасности Azure, которое в настоящее время расположено в США, хранятся сведения об оповещениях безопасности, состоянии работоспособности системы безопасности и рекомендации. Эти сведения могут включать в себя связанные данные конфигурации и события безопасности, собранные из виртуальных машин для предоставления оповещений безопасности, состояния работоспособности системы безопасности и рекомендаций.
 
-In addition, information about security alerts, recommendations, and security health status is stored in Azure Security Center storage, currently located in the United States. This information may include related configuration information and security events collected from your virtual machines as needed to provide you with the security alert, recommendation, or security health status.
+## Защита данных
+**Разделение данных**. Данные логическим образом отделяются для каждого компонента службы. Все данные отмечаются тегами по организациям. Эти теги существуют в течение всего жизненного цикла данных и используются на каждом уровне службы. Кроме того, данные, собранные из виртуальных машин, хранятся в учетных записях хранения.
 
-## <a name="data-protection"></a>Data Protection
-**Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. In addition, data collected from your virtual machines is stored in your storage account(s).
+**Доступ к данным**. Чтобы предоставлять рекомендации по обеспечению безопасности и исследовать потенциальные угрозы безопасности, сотрудники корпорации Майкрософт могут получить доступ к информации, собранной или проанализированной службами Azure, включая файлы аварийного дампа. В файлы аварийного дампа и сведения о событиях создания процесса могут случайно попасть данные клиента или персональные данные из виртуальных машин. Мы соблюдаем [условия использования](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) и [заявление о конфиденциальности Microsoft Online Services](https://www.microsoft.com/privacystatement/ru-RU/OnlineServices/Default.aspx), которые гласят, что корпорация Майкрософт не будет использовать данные клиента или извлекать из них сведения для рекламных или аналогичных коммерческих целей. Мы используем данные клиента только в рамках предоставления служб Azure, а также для совместимых с этим целей. Вы сохраняете все права на данные клиента.
 
-**Data access**: In order to provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by Azure services, including crash dump files. Crash dump files and process creation events may unintentionally include Customer Data or personal data from your virtual machines. We adhere to the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), which state that Microsoft will not use Customer Data or derive information from it for any advertising or similar commercial purposes. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to Customer Data.
+**Использование данных**. Корпорация Майкрософт использует шаблоны и данные анализа угроз, которые наблюдались у нескольких клиентов, чтобы улучшить возможности предотвращения и обнаружения. При этом соблюдаются обязательства по безопасности, описанные в [заявлении о конфиденциальности](https://www.microsoft.com/privacystatement/ru-RU/OnlineServices/Default.aspx).
 
-**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+**Расположение данных**. Учетная запись хранения указывается для каждого региона, в котором работают виртуальные машины. Таким образом, данные можно хранить в том же регионе, где расположена виртуальная машина, из которой выполняется сбор данных. Эти данные, включая файлы аварийного дампа, будут постоянно храниться в учетной записи хранения. Служба также сохраняет сведения об оповещениях безопасности, в том числе из интегрированных решений конкурентов, и состоянии работоспособности системы безопасности, а также рекомендации в хранилище центра безопасности Azure, которое в настоящее время расположено в США.
 
-**Data location**: A storage account is specified for each region where virtual machines are running. This enables you to store data in the same region as the virtual machine from which the data is collected. This data, including crash dump files, will be persistently stored in your storage account. The service also stores information about security alerts, including alerts from integrated partner solutions, recommendations, and security health status in Azure Security Center storage, currently located in the United States.
+## Управление сбором данных из виртуальных машин
 
-## <a name="managing-data-collection-from-virtual-machines"></a>Managing Data Collection from Virtual Machines
+При включении центра безопасности Azure сбор данных включается для всех подписок пользователя. Сбор данных можно отключить в разделе "Политика безопасности" панели мониторинга центра безопасности Azure. При включении сбора данных центр безопасности Azure подготавливает к работе агент мониторинга Azure на всех имеющихся и создаваемых поддерживаемых виртуальных машинах. Расширение "Мониторинг безопасности Azure" сканирует систему на наличие конфигураций, связанных с безопасностью, и передает их в [службу трассировки событий Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW). Кроме того, операционная система вызывает события журнала событий во время работы виртуальной машины. Примеры таких данных — тип и версия операционной системы, журналы операционной системы (журналы событий Windows), выполняющиеся процессы, имя компьютера, IP-адреса, имя пользователя, выполнившего вход, и идентификатор клиента. Агент мониторинга Azure считывает записи журнала событий и трассировки ETW и копирует их в вашу учетную запись хранения для анализа.
 
-When you choose to enable Azure Security Center, data collection is turned on for each of your subscriptions. You can turn off data collection in the “Security Policy” section of your Azure Security Center Dashboard. When Data collection is turned on, Azure Security Center provisions the Azure Monitoring Agent on all existing supported virtual machines and any new ones that are created. The Azure Security Monitoring extension scans for various security related configurations and events it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system will raise event log events during the course of running the machine. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis. 
+Учетную запись хранения нужно указать для каждого региона, в котором выполняются виртуальные машины. В них будут храниться данные, собираемые из виртуальных машин в определенных регионах. Это позволяет хранить данные в одной географической области, чтобы обеспечить их конфиденциальность и независимость. Настроить учетные записи хранения для каждого региона можно в разделе "Политика безопасности" панели мониторинга центра безопасности Azure.
 
-A storage account is specified for each region in which you have virtual machines running, where data collected from virtual machines in that same region is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You can configure storage accounts for each region in the “Security Policy” section of your Azure Security Center Dashboard.
+Агент мониторинга Azure также копирует файлы аварийных дампов в учетную запись хранения. Центр безопасности Azure собирает временные копии файлов аварийного дампа и анализирует их на признаки попыток компрометации и удачной компрометации. Этот анализ выполняется в том географическом регионе, к которому привязана учетная запись хранения. После завершения анализа временные копии удаляются.
 
-The Azure Monitoring Agent also copies crash dump files to your storage account.  Azure Security Center collects ephemeral copies of your crash dump files and analyzes them for evidence of exploit attempts and successful compromises.  Azure Security Center performs this analysis within the same geographic region as the storage account, and deletes the ephemeral copies when analysis is complete.
-
-You can disable data collection from virtual machines at any time, which will remove any Monitoring Agents previously installed by Azure Security Center.
-
-
-## <a name="next-steps"></a>Next steps
-
-In this document, you learned how data is managed and safeguarded in Azure Security Center. To learn more about Azure Security Center, see:
-
-- [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan and understand the design considerations to adopt Azure Security Center.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service
-- [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance
+Вы можете отключить сбор данных из виртуальных машин в любое время. Это приведет к удалению всех агентов мониторинга, ранее установленных центром безопасности Azure.
 
 
+## Дальнейшие действия
 
-<!--HONumber=Oct16_HO2-->
+Из этой статьи вы узнали, каким образом обеспечивается управление данными и их защита в центре безопасности Azure. Дополнительные сведения о центре безопасности Azure см. в следующих статьях:
 
+- [Руководство по планированию использования центра безопасности Azure и работе в нем](security-center-planning-and-operations-guide.md). Узнайте, как спланировать работу с центром безопасности Azure, и получите рекомендации по переходу к его использованию.
+- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md). Узнайте, как отслеживать работоспособность ресурсов Azure.
+- [Управление оповещениями безопасности в центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md). Узнайте, как управлять оповещениями системы безопасности и реагировать на них.
+- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md). Узнайте, как отслеживать работоспособность партнерских решений.
+- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md). Часто задаваемые вопросы об использовании этой службы.
+- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/). Записи блога, посвященные безопасности и соответствию требованиям в Azure.
 
+<!---HONumber=AcomDC_0817_2016-->
