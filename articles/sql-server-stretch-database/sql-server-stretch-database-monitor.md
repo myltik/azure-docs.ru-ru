@@ -1,62 +1,67 @@
 <properties
-	pageTitle="Мониторинг и устранение неполадок переноса данных (база данных Stretch) | Microsoft Azure"
-	description="Узнайте, как отслеживать состояние переноса данных."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Monitor and troubleshoot data migration (Stretch Database) | Microsoft Azure"
+    description="Learn how to monitor the status of data migration."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/14/2016"
+    ms.author="douglasl"/>
 
-# Мониторинг и устранение неполадок переноса данных (база данных Stretch)
 
-Чтобы отслеживать перенос данных в мониторе базы данных Stretch, выберите **Задачи | Растяжение | Мониторинг** для базы данных в SQL Server Management Studio.
+# <a name="monitor-and-troubleshoot-data-migration-(stretch-database)"></a>Monitor and troubleshoot data migration (Stretch Database)
 
-## Проверка состояния переноса данных в мониторе базы данных Stretch
-Выберите **Задачи | Растяжение | Мониторинг** для базы данных в SQL Server Management Studio, чтобы открыть монитор базы данных Stretch и отслеживать перенос данных.
+To monitor data migration in Stretch Database Monitor, select **Tasks | Stretch | Monitor** for a database in SQL Server Management Studio .
 
--   В верхней части монитор отображаются общие сведения о базе данных SQL Server, совместимой со Stretch, и удаленной базе данных Azure.
+## <a name="check-the-status-of-data-migration-in-the-stretch-database-monitor"></a>Check the status of data migration in the Stretch Database Monitor
+Select **Tasks | Stretch | Monitor** for a database in SQL Server Management Studio to open Stretch Database Monitor and monitor data migration.
 
--   В нижней части монитора отображается состояние переноса данных каждой таблицы, совместимой со Stretch, в базе данных.
+-   The top portion of the monitor displays general information about both the Stretch\-enabled SQL Server database and the remote Azure database.
 
-![Монитор базы данных Stretch][StretchMonitorImage1]
+-   The bottom portion of the monitor displays the status of data migration for each Stretch\-enabled table in the database.
 
-## <a name="Migration"></a>Проверка состояния переноса данных в динамическом административном представлении
-Откройте динамическое административное представление **sys.dm\_db\_rda\_migration\_status**, чтобы увидеть, сколько пакетов и строк данных было перенесено. Дополнительные сведения см. в разделе [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
+![Stretch Database Monitor][StretchMonitorImage1]
 
-## <a name="Firewall"></a>Устранение неполадок переноса данных
+## <a name="<a-name="migration"></a>check-the-status-of-data-migration-in-a-dynamic-management-view"></a><a name="Migration"></a>Check the status of data migration in a dynamic management view
+Open the dynamic management view **sys.dm\_db\_rda\_migration\_status** to see how many batches and rows of data have been migrated. For more info, see [sys.dm_db_rda_migration_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
-**Строки из таблицы с поддержкой переноса не переносятся в Azure. В чем заключается проблема?**
+## <a name="<a-name="firewall"></a>troubleshoot-data-migration"></a><a name="Firewall"></a>Troubleshoot data migration
 
-На перенос может повлиять несколько проблем. Проверьте следующее.
+**Rows from my Stretch-enabled table are not being migrated to Azure. What’s the problem?**
 
--   Проверьте сетевое подключение к компьютеру с SQL Server.
+There are several problems that can affect migration. Check the following things.
 
--   Убедитесь, что брандмауэр Azure не запрещает SQL Server подключаться к удаленной конечной точке.
+-   Check network connectivity for the SQL Server computer.
 
--   В динамическом административном представлении **sys.dm\_db\_rda\_migration\_status** проверьте состояние последнего пакета. Если произошла ошибка, проверьте значения error\_number, error\_state и error\_severity для пакета.
+-   Check that the Azure firewall is not blocking your SQL Server from connecting to the remote endpoint.
 
-    -   Дополнительные сведения о представлении см. в разделе [sys.dm\_db\_rda\_migration\_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
+-   Check the dynamic management view **sys.dm\_db\_rda\_migration\_status** for the status of the latest batch. If an error has occurred, check the error\_number, error\_state, and error\_severity values for the batch.
 
-    -   Дополнительные сведения о содержимом сообщения об ошибке SQL Server см. в разделе [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
+    -   For more info about the view, see [sys.dm_db_rda_migration_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
-**Брандмауэр Azure блокирует подключения из моего локального сервера.**
+    -   For more info about the content of a SQL Server error message, see [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
 
-Может потребоваться добавить правило в параметрах брандмауэра Azure на сервере Azure, чтобы разрешить SQL Server взаимодействовать с удаленным сервером Azure.
+**The Azure firewall is blocking connections from my local server.**
 
-## См. также
+You may have to add a rule in the Azure firewall settings of the Azure server to let SQL Server communicate with the remote Azure server.
+
+## <a name="see-also"></a>See Also
 
 [Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
 
 <!--Image references-->
 [StretchMonitorImage1]: ./media/sql-server-stretch-database-monitor/StretchDBMonitor.png
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

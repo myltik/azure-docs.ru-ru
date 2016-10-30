@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure TSQL | Microsoft Azure"
-   description="Включение прозрачного шифрования данных (TDE) для базы данных SQL Server Stretch в Azure TSQL"
+   pageTitle="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL | Microsoft Azure"
+   description="Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL"
    services="sql-server-stretch-database"
    documentationCenter=""
    authors="douglaslMS"
-   manager=""
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -16,61 +16,66 @@
    ms.date="06/14/2016"
    ms.author="douglaslMS"/>
 
-# Включение прозрачного шифрования данных (TDE) для базы данных Stretch в Azure (Transact-SQL)
+
+# <a name="enable-transparent-data-encryption-(tde)-for-stretch-database-on-azure-(transact-sql)"></a>Enable Transparent Data Encryption (TDE) for Stretch Database on Azure (Transact-SQL)
 > [AZURE.SELECTOR]
-- [Портал Azure](sql-server-stretch-database-encryption-tde.md)
+- [Azure portal](sql-server-stretch-database-encryption-tde.md)
 - [TSQL](sql-server-stretch-database-tde-tsql.md)
 
-Прозрачное шифрование данных (TDE) помогает защититься от угрозы вредоносных атак за счет шифрования и расшифровки базы данных, связанных резервных копий и файлов журналов транзакций при хранении в реальном времени, не внося изменения в само приложение.
+Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
 
-При использовании TDE хранилище всей базы данных шифруется с помощью симметричного ключа, который называется ключом шифрования базы данных. Ключ шифрования базы данных защищается встроенным сертификатом сервера. Каждый сервер Azure обладает уникальным встроенным сертификатом. Корпорация Майкрософт автоматически изменяет эти сертификаты не реже, чем раз в 90 дней. Общее описание TDE см. в статье [Прозрачное шифрование данных (TDE)].
+TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. The database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each Azure server. Microsoft automatically rotates these certificates at least every 90 days. For a general description of TDE, see [Transparent Data Encryption (TDE)].
 
-##Включение шифрования
+##<a name="enabling-encryption"></a>Enabling Encryption
 
-Чтобы включить прозрачное шифрование для базы данных Azure, где хранятся данные, перенесенные из Базы данных SQL Server Stretch, выполните следующее.
+To enable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. Подключитесь к базе данных *master* на сервере Azure, где находится база данных, указав имя входа администратора или члена роли **dbmanager** в базе данных master.
-2. Выполните следующий оператор для шифрования базы данных:
+1. Connect to the *master* database on the Azure server hosting the database using a login that is an administrator or a member of the **dbmanager** role in the master database
+2. Execute the following statement to encrypt the database.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION ON;
 ```
 
-##Отключение шифрования
+##<a name="disabling-encryption"></a>Disabling Encryption
 
-Чтобы отключить прозрачное шифрование для базы данных Azure, где хранятся данные, перенесенные из Базы данных SQL Server Stretch, выполните следующее.
+To disable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. Подключитесь к *главной* базе данных, указав логин администратора или члена роли **dbmanager** в главной базе данных.
-2. Выполните следующий оператор для шифрования базы данных:
+1. Connect to the *master* database using a login that is an administrator or a member of the **dbmanager** role in the master database
+2. Execute the following statement to encrypt the database.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION OFF;
 ```
 
-##Проверка шифрования
+##<a name="verifying-encryption"></a>Verifying Encryption
 
-Чтобы проверить состояние шифрования для базы данных Azure, где хранятся данные, перенесенные из Базы данных SQL Server Stretch, выполните следующее.
+To verify encryption status for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
 
-1. Подключитесь к *главной* базе данных или к экземпляру базы данных, указав логин администратора или члена роли **dbmanager** в главной базе данных.
-2. Выполните следующий оператор для шифрования базы данных:
+1. Connect to the *master* or instance database using a login that is an administrator or a member of the **dbmanager** role in the master database
+2. Execute the following statement to encrypt the database.
 
 ```sql
 SELECT
-	[name],
-	[is_encrypted]
+    [name],
+    [is_encrypted]
 FROM
-	sys.databases;
+    sys.databases;
 ```
 
-Результат ```1``` означает зашифрованную, а ```0``` — незашифрованную базу данных.
+A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database.
 
 
 <!--Anchors-->
-[Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
