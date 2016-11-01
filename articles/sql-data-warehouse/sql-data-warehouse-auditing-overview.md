@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016" 
+   ms.author="rortloff;barbkess"/>
 
 
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Аудит в хранилище данных SQL Azure
@@ -31,7 +31,7 @@
 + [Настройка аудита базы данных]
 + [Анализ журналов и отчетов аудита]
 
-##<a name="<a-id="subheading-1"></a>azure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Основы аудита баз данных хранилища данных SQL Azure
+##<a name="a-idsubheading1aazure-sql-data-warehouse-database-auditing-basics"></a><a id="subheading-1"></a>Основы аудита баз данных хранилища данных SQL Azure
 
 
 Аудит базы данных хранилища данных SQL позволяет:
@@ -61,7 +61,7 @@
 Если вы пользуетесь [клиентом прежних версий](sql-data-warehouse-auditing-downlevel-clients.md), перед настройкой аудита проверьте контроль аудирования.
 
 
-##<a name="<a-id="subheading-2"></a>set-up-auditing-for-your-database"></a><a id="subheading-2"></a>Настройка аудита базы данных
+##<a name="a-idsubheading2aset-up-auditing-for-your-database"></a><a id="subheading-2"></a>Настройка аудита базы данных
 
 1. Запустите <a href="https://portal.azure.com" target="_blank">портал Azure</a>.
 
@@ -92,7 +92,7 @@
 9. Нажмите кнопку **ОК**.
 
 
-##<a name="<a-id="subheading-3">analyze-audit-logs-and-reports</a>"></a><a id="subheading-3">Анализ журналов и отчетов аудита</a>
+##<a name="a-idsubheading3analyze-audit-logs-and-reportsa"></a><a id="subheading-3">Анализ журналов и отчетов аудита</a>
 
 Журналы аудита объединяются в коллекцию таблиц хранилища с префиксом **SQLDBAuditLogs** в учетной записи хранилища Azure, выбранной во время установки. Просматривать файлы журнала можно с помощью таких инструментов, как <a href="http://azurestorageexplorer.codeplex.com/" target="_blank">обозреватель хранилищ Azure</a>.
 
@@ -105,11 +105,11 @@
 ![][5]
 
 
-##<a name="<a-id="subheading-4">practices-for-usage-in-production</a>"></a><a id="subheading-4">Рекомендации по использованию в рабочей среде</a>
+##<a name="a-idsubheading4practices-for-usage-in-productiona"></a><a id="subheading-4">Рекомендации по использованию в рабочей среде</a>
 Описания в этом разделе относятся к снимкам экрана выше. Можно использовать <a href="https://portal.azure.com" target="_blank">портал Azure</a> или <a href= "https://manage.windowsazure.com/" target="_bank">классический портал Azure</a>.
 
 
-##<a name="<a-id="subheading-5"></a>storage-key-regeneration"></a><a id="subheading-5"></a>Повторное создание ключа хранилища
+##<a name="a-idsubheading5astorage-key-regeneration"></a><a id="subheading-5"></a>Повторное создание ключа хранилища
 
 Обычно, в рабочей среде приходится периодически обновлять ключи хранилища. При обновлении ключей необходимо сохранять политику повторно. Вот как это можно сделать:
 
@@ -122,7 +122,7 @@
 
 4. В интерфейсе хранилища **повторно создайте***вторичный ключ доступа* (для подготовки к следующему циклу обновления ключей).
 
-##<a name="<a-id="subheading-6"></a>automation"></a><a id="subheading-6"></a>Автоматизация
+##<a name="a-idsubheading6aautomation"></a><a id="subheading-6"></a>Автоматизация
 Существует несколько командлетов PowerShell, которые можно использовать для настройки аудита в базе данных SQL Azure. Для доступа к аудиту командлетов необходимо наличие PowerShell в режиме диспетчера ресурсов Azure.
 
 > [AZURE.NOTE] Модуль [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) в настоящее время находится на стадии предварительной версии. Он может не обеспечивать те же возможности управления, что и модуль Azure.

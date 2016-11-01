@@ -3,7 +3,7 @@
     description="Узнайте, что такое сопоставление атрибутов для приложений SaaS в Azure Active Directory и как настроить его в соответствии с потребностями вашего бизнеса."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

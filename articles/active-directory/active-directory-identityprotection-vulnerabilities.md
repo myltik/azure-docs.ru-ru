@@ -4,7 +4,7 @@
     services="active-directory"
     keywords="защита удостоверений Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -27,7 +27,7 @@
 
 В следующих разделах представлен обзор уязвимостей, о которых сообщает защита идентификации.
 
-## <a name="multi-factor-authentication-registration-not-configured"></a>Регистрация с многофакторной проверкой подлинности не настроена 
+## <a name="multifactor-authentication-registration-not-configured"></a>Регистрация с многофакторной проверкой подлинности не настроена 
 
 Эта уязвимость позволяет контролировать развертывание Azure Multi-Factor Authentication в организации. 
 

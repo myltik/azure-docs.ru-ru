@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Ограничения емкости хранилища данных SQL | Microsoft Azure"
-   description="Максимальные значения для подключений, баз данных, таблиц и запросов для хранилища данных SQL."
+   pageTitle="SQL Data Warehouse capacity limits | Microsoft Azure"
+   description="Maximum values for connections, databases, tables and queries for SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,103 +13,108 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/01/2016"
-   ms.author="sonyama;barbkess;jrj"/>
-
-# Ограничения емкости хранилища данных SQL
-
-В следующих таблицах указаны максимальные значения, допускаемые различными компонентами хранилища данных SQL Azure.
+   ms.date="10/31/2016"
+   ms.author="barbkess;jrj"/>
 
 
-## Управление рабочей нагрузкой
+# <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse capacity limits
 
-| Категория | Описание | Максимальная |
+The following tables contain the maximum values allowed for various components of Azure SQL Data Warehouse.
+
+
+## <a name="workload-management"></a>Workload management
+
+| Category            | Description                                       | Maximum            |
 | :------------------ | :------------------------------------------------ | :----------------- |
-| [Единицы использования хранилища данных (DWU)][]| Максимальное число DWU на одно хранилище данных SQL | 6000 |
-| [Единицы использования хранилища данных (DWU)][]| Максимальное число DWU на один сервер SQL Server | По умолчанию: 6000.<br/><br/> По умолчанию для каждого экземпляра SQL Server (например, myserver.database.windows.net) предусмотрена квота в 45 000 DTU, обеспечивающая до 6000 DWU. Эта квота является просто ограничением для безопасности. Вы можете увеличить квоту, [отправив запрос в службу поддержки][] и указав *Квота* в качестве типа запроса. Чтобы вычислить потребности в DTU, умножьте 7,5 на общее необходимое количество DWU. Текущее потребление DTU можно просмотреть в колонке SQL Server на портале. В рамках квоты DTU учитываются как приостановленные базы данных, так и базы данных с отменой приостановки. |
-| Подключение к базе данных | Количество параллельно открытых сеансов | 1024<br/><br/> Поддерживается не более 1024 активных подключений, от которых могут одновременно поступать запросы к каждой базе данных хранилища данных SQL. Обратите внимание, что есть ограничения количества запросов, которые действительно могут выполняться одновременно. При превышении ограничения на число параллельных запросов запрос помещается во внутреннюю очередь для ожидания обработки.|
-| Подключение к базе данных | Максимальный объем памяти для подготовленных инструкций | 20 МБ |
-| [Управление рабочей нагрузкой][] | Максимальное число одновременных запросов | 32<br/><br/> По умолчанию хранилище данных SQL выполняет не более 32 параллельных запросов, а остальные запросы отправляются в очередь. <br/><br/>Допустимый уровень параллелизма может понизиться, если пользователям назначен более высокий класс ресурсов или для хранилища данных SQL настроено небольшое значение DWU. Выполнение некоторых запросов, например запросов динамического административного представления, разрешено всегда.|
-| [Tempdb][] | Максимальный размер Tempdb | 399 ГБ для DW100. То есть для DWU1000 размер Tempdb составит 3,99 ТБ. |
+| [Data Warehouse Units (DWU)][]| Max DWU for a single SQL Data Warehouse | 6000               |
+| [Data Warehouse Units (DWU)][]| Max DWU for a single SQL server         | 6000 by default<br/><br/> By default, each SQL server (e.g. myserver.database.windows.net) has a DTU Quota of 45,000 which allows up to 6000 DWU. This quota is simply a safety limit. You can increase your quota by [creating a support ticket][] and selecting *Quota* as the request type.  To calculate your DTU needs, multiply the 7.5 by the total DWU needed. You can view your current DTU consumption from the SQL server blade in the portal. Both paused and un-paused databases count toward the DTU quota. |
+| Database connection | Concurrent open sessions                          | 1024<br/><br/>We support a maximum of 1024 active connections, each of which can submit requests to a SQL Data Warehouse database at the same time. Note, that there are limits on the number of queries that can actually execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed.|
+| Database connection | Maximum memory for prepared statements            | 20 MB              |
+| [Workload management][] | Maximum concurrent queries                    | 32<br/><br/> By default, SQL Data Warehouse can execute a maximum of 32 concurrent queries and queues remaining queries.<br/><br/>The concurrency level may decrease when users are assigned to a higher resource class or when SQL Data Warehouse is configured with low DWU. Some queries, like DMV queries, are always allowed to run.|
+| [Tempdb][]          | Max size of Tempdb                                | 399 GB per DW100. Therefore at DWU1000 Tempdb is sized to 3.99 TB |
 
 
-## Объекты базы данных
+## <a name="database-objects"></a>Database objects
 
-| Категория | Описание | Максимальная |
+| Category          | Description                                  | Maximum            |
 | :---------------- | :------------------------------------------- | :----------------- |
-| База данных | Максимальный размер | 240 ТБ сжатых данных на диске<br/><br/>Не зависит от пространства временной базы данных или журнала и предназначается исключительно для постоянных таблиц. Коэффициент сжатия кластеризованного индекса columnstore примерно равен 5. Сжатие позволяет базе данных увеличиваться в размере приблизительно до 1 ПБ, если все таблицы используют кластеризованный индекс columnstore (этот тип таблицы используется по умолчанию).|
-| Таблица | Максимальный размер | 60 ТБ сжатых данных на диске |
-| Таблица | Количество таблиц в базе данных | 2 миллиарда |
-| Таблица | Количество столбцов в таблице | 1024 столбца |
-| Таблица | Количество байт в столбце | Зависит от [типа данных][] столбца. Ограничение составляет 8000 для типов данных char, 4000 для nvarchar или 2 ГБ для типов данных MAX.|
-| Таблица | Количество байт в строке (определенный размер) | 8060 байтов<br/><br/>Количество байтов в строке вычисляется так же, как и для SQL Server с включенным сжатием страниц. Как и SQL Server, хранилище данных SQL поддерживает хранение при превышении размера страницы данными строки, что позволяет **столбцам переменной длины** выходить за пределы строк. Когда столбцы переменной длины выходят за пределы строк, в главной записи сохраняется только 24-байтовый корень. Дополнительные сведения см. в статье MSDN [Превышающие размер страницы данные строки, превышающие 8 КБ][].|
-| Таблица | Количество разделов в таблице | 15 000<br/><br/>Для повышения производительности рекомендуем сократить количество секций до минимума, который позволит выполнять ваши бизнес-требования. С увеличением количества секций не только растут затраты на операции языка описания данных DDL и языка обработки данных DML, но и снижается производительность.|
-| Таблица | Количество символов в разделе (граничное значение)| 4000 |
-| Индекс | Количество некластеризованных индексов в таблице | 999<br/><br/>Применимо только к таблицам с индексом rowstore.|
-| Индекс | Количество кластеризованных индексов в таблице | 1<br><br/>Применимо к таблицам с индексами rowstore и columnstore.|
-| Индекс | Размер ключа индекса | 900 байтов<br/><br/>Применимо только к индексам rowstore.<br/><br/>В столбцах varchar могут создаваться индексы с размером более 900 байтов, если при создании такого индекса размер существующих данных в этих столбцах не превышает 900 байтов. Учтите, что при последующем выполнении в столбцах инструкций INSERT или UPDATE, которые приведут к превышению общего размера данных в 900 байт, соответствующие действия завершатся ошибкой.|
-| Индекс | Количество ключевых столбцов в индексе | 16<br/><br/>Применимо только к индексам rowstore. Кластеризованные индексы columnstore включают все столбцы.|
-| Статистика | Размер значений объединенных столбцов | 900 байт |
-| Статистика | Количество столбцов в объекте статистики | 32 |
-| Статистика | Количество объектов статистики для столбцов в таблице | 30 000 |
-| Хранимые процедуры | Максимальное количество вложений | 8 |
-| Просмотр | Количество столбцов в представлении | 1024 |
+| Database          | Max size                                     | 240 TB compressed on disk<br/><br/>This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type).|
+| Table             | Max size                                     | 60 TB compressed on disk   |
+| Table             | Tables per database                          | 2 billion          |
+| Table             | Columns per table                            | 1024 columns       |
+| Table             | Bytes per column                             | Dependent on column [data type][].  Limit is 8000 for char data types, 4000 for nvarchar, or 2 GB for MAX data types.|
+| Table             | Bytes per row, defined size                  | 8060 bytes<br/><br/>The number of bytes per row is calculated in the same manner as it is for SQL Server with page compression. Like SQL Server, SQL Data Warehouse supports row-overflow storage which enables **variable length columns** to be pushed off-row. When variable length rows are pushed off-row, only 24-byte root is stored in the main record. For more information, see the [Row-Overflow Data Exceeding 8 KB][] MSDN article.|
+| Table             | Partitions per table                    | 15,000<br/><br/>For high performance, we recommend minimizing the number of partitions you need while still supporting your business requirements. As the number of partitions grows, the overhead for Data Definition Language (DDL) and Data Manipulation Language (DML) operations grows and causes slower performance.|
+| Table             | Characters per partition boundary value.| 4000 |
+| Index             | Non-clustered indexes per table.        | 999<br/><br/>Applies to rowstore tables only.|
+| Index             | Clustered indexes per table.            | 1<br><br/>Applies to both rowstore and columnstore tables.|
+| Index             | Index key size.                          | 900 bytes.<br/><br/>Applies to rowstore indexes only.<br/><br/>Indexes on varchar columns with a maximum size of more than 900 bytes can be created if the existing data in the columns does not exceed 900 bytes when the index is created. However, later INSERT or UPDATE actions on the columns that cause the total size to exceed 900 bytes will fail.|
+| Index             | Key columns per index.                   | 16<br/><br/>Applies to rowstore indexes only. Clustered columnstore indexes include all columns.|
+| Statistics        | Size of the combined column values.      | 900 bytes.         |
+| Statistics        | Columns per statistics object.           | 32                 |
+| Statistics        | Statistics created on columns per table. | 30,000            |
+| Stored Procedures | Maximum levels of nesting.               | 8                 |
+| View              | Columns per view                         | 1,024             |
 
 
-## Нагрузка
+## <a name="loads"></a>Loads
 
-| Категория | Описание | Максимальная |
+| Category          | Description                                  | Maximum            |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Нагрузка Polybase | Количество байт в строке | 32 768<br/><br/>Нагрузка Polybase ограничивается загрузкой строк меньше 32 КБ и не позволяет загружать данные в переменные VARCHR(MAX), NVARCHAR(MAX) или VARBINARY(MAX). Это ограничение будет снято в ближайшее время.<br/><br/>
+| Polybase Loads    | Bytes per row                                | 32,768<br/><br/>Polybase loads are limited to loading rows both smaller than 32K and cannot load to VARCHR(MAX), NVARCHAR(MAX) or VARBINARY(MAX).  While this limit exists today, it will be removed fairly soon.<br/><br/>
 
 
-## Запросы
+## <a name="queries"></a>Queries
 
-| Категория | Описание | Максимальная |
+| Category          | Description                                  | Maximum            |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Запрос | Количество помещенных в очередь запросов к пользовательским таблицам | 1000 |
-| Запрос | Количество одновременных запросов к системным представлениям | 100 |
-| Запрос | Количество помещенных в очередь запросов к системным представлениям | 1000 |
-| Запрос | Максимальное количество параметров | 2098 |
-| Пакетная служба | Максимальный размер | 65 536*4096 |
-| Результаты SELECT | Количество столбцов в строке | 4096<br/><br/>В каждой строке результата SELECT может содержаться не более 4096 столбцов. Нет никакой гарантии, что их количество всегда будет равно 4096. Если планом запроса предусмотрено использование временной таблицы, в такой таблице может быть не более 1024 столбцов.|
-| SELECT | Вложенные запросы | 32<br/><br/>Инструкция SELECT может содержать не более 32 вложенных запросов. Нет никакой гарантии, что их количество всегда будет равно 32. Например, с помощью инструкции JOIN можно включить в план запроса вложенный запрос. Количество вложенных запросов также может ограничиваться объемом доступной памяти.|
-| SELECT | Количество столбцов в инструкции JOIN | 1024 столбца<br/><br/>Инструкция JOIN может содержать не более 1024 столбцов. Нет никакой гарантии, что их количество всегда будет равно 1024. Если планом для инструкции JOIN предусмотрено использование временной таблицы с количеством столбцов, которое превышает результат JOIN, к такой временной таблице применяется ограничение в 1024 столбца. |
-| SELECT | Количество байт в именах столбцов GROUP BY | 8060<br/><br/>Размер имен столбцов в предложении GROUP BY не может превышать 8060 байтов.|
-| SELECT | Количество байт в именах столбцов ORDER BY | 8060<br/><br/>Размер имен столбцов в предложении ORDER BY не может превышать 8060 байтов.|
-| Количество идентификаторов и констант в инструкции | Количество идентификаторов и констант, на которые имеются ссылки. | 65 535<br/><br/>В хранилище данных SQL есть ограничение на количество идентификаторов и констант, которые могут содержаться в одном выражении запроса; оно равно 65 535. Превышение этого количества приводит к ошибке SQL Server (ошибка 8632). Дополнительные сведения см. в статье [Internal error: An expression services limit has been reached][] \(Сообщение об ошибке при выполнении запроса в SQL Server 2005: "Внутренняя ошибка: достигнут предел служб выражений").|
+| Query             | Queued queries on user tables.               | 1000               |
+| Query             | Concurrent queries on system views.          | 100                |
+| Query             | Queued queries on system views               | 1000               |
+| Query             | Maximum parameters                           | 2098               |
+| Batch             | Maximum size                                 | 65,536*4096        |
+| SELECT results    | Columns per row                              | 4096<br/><br/>You can never have more than 4096 columns per row in the SELECT result. There is no guarantee that you can always have 4096. If the query plan requires a temporary table, the 1024 columns per table maximum might apply.|
+| SELECT            | Nested subqueries                            | 32<br/><br/>You can never have more than 32 nested subqueries in a SELECT statement. There is no guarantee that you can always have 32. For example, a JOIN can introduce a subquery into the query plan. The number of subqueries can also be limited by available memory.|
+| SELECT            | Columns per JOIN                             | 1024 columns<br/><br/>You can never have more than 1024 columns in the JOIN. There is no guarantee that you can always have 1024. If the JOIN plan requires a temporary table with more columns than the JOIN result, the 1024 limit applies to the temporary table. |
+| SELECT            | Bytes per GROUP BY columns.                  | 8060<br/><br/>The columns in the GROUP BY clause can have a maximum of 8060 bytes.|
+| SELECT            | Bytes per ORDER BY columns                   | 8060 bytes.<br/><br/>The columns in the ORDER BY clause can have a maximum of 8060 bytes.|
+| Identifiers and constants per statement | Number of referenced identifiers and constants. | 65,535<br/><br/>SQL Data Warehouse limits the number of identifiers and constants that can be contained in a single expression of a query. This limit is 65,535. Exceeding this number results in SQL Server error 8632. For more information, see [Internal error: An expression services limit has been reached][].|
 
 
-## Метаданные
+## <a name="metadata"></a>Metadata
 
-| Системное представление | Максимальное количество строк |
+| System view                        | Maximum rows |
 | :--------------------------------- | :------------|
-| sys.dm\_pdw\_component\_health\_alerts | 10 000 |
-| sys.dm\_pdw\_dms\_cores | 100 |
-| sys.dm\_pdw\_dms\_workers | Общее количество рабочих ролей DMS для последней 1000 запросов SQL. |
-| sys.dm\_pdw\_errors | 10 000 |
-| sys.dm\_pdw\_exec\_requests | 10 000 |
-| sys.dm\_pdw\_exec\_sessions | 10 000 |
-| sys.dm\_pdw\_request\_steps | Общее количество действий для последней 1000 запросов SQL, хранящихся в sys.dm\_pdw\_exec\_requests. |
-| sys.dm\_pdw\_os\_event\_logs | 10 000 |
-| sys.dm\_pdw\_sql\_requests | Последняя 1000 запросов SQL, которые хранятся в sys.dm\_pdw\_exec\_requests. |
+| sys.dm_pdw_component_health_alerts | 10,000       |
+| sys.dm_pdw_dms_cores               | 100          |
+| sys.dm_pdw_dms_workers             | Total number of DMS workers for the most recent 1000 SQL requests. |
+| sys.dm_pdw_errors                  | 10,000       |
+| sys.dm_pdw_exec_requests           | 10,000       |
+| sys.dm_pdw_exec_sessions           | 10,000       |
+| sys.dm_pdw_request_steps           | Total number of steps for the most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
+| sys.dm_pdw_os_event_logs           | 10,000       |
+| sys.dm_pdw_sql_requests            | The most recent 1000 SQL requests that are stored in sys.dm_pdw_exec_requests. |
 
 
-## Дальнейшие действия
-Дополнительные справочные сведения см. в обзоре [Общие справочные сведения о хранилище данных SQL][].
+## <a name="next-steps"></a>Next steps
+For more reference information, see [SQL Data Warehouse reference overview][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Единицы использования хранилища данных (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[Общие справочные сведения о хранилище данных SQL]: ./sql-data-warehouse-overview-reference.md
-[Управление рабочей нагрузкой]: ./sql-data-warehouse-develop-concurrency.md
+[Data Warehouse Units (DWU)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[SQL Data Warehouse reference overview]: ./sql-data-warehouse-overview-reference.md
+[Workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
-[типа данных]: ./sql-data-warehouse-tables-data-types.md
-[отправив запрос в службу поддержки]: /sql-data-warehouse-get-started-create-support-ticket.md
+[data type]: ./sql-data-warehouse-tables-data-types.md
+[creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
-[Превышающие размер страницы данные строки, превышающие 8 КБ]: https://msdn.microsoft.com/library/ms186981.aspx
+[Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
 [Internal error: An expression services limit has been reached]: https://support.microsoft.com/kb/913050
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

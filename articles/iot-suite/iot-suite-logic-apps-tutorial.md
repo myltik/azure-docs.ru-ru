@@ -1,6 +1,6 @@
 <properties
-  pageTitle="Azure IoT Suite и приложения логики | Microsoft Azure"
-  description="Руководство по подключению приложений логики к Azure IoT Suite для бизнес-процесса."
+  pageTitle="Azure IoT Suite and Logic Apps | Microsoft Azure"
+  description="A tutorial on how to hook up Logic Apps to Azure IoT Suite for business process."
   services=""
   suite="iot-suite"
   documentationCenter=""
@@ -14,46 +14,47 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="08/16/2016"
+  ms.date="10/31/2016"
   ms.author="araguila"/>
   
-# Руководство. Подключение приложения логики к предварительно настроенному решению для удаленного мониторинга Azure IoT Suite
 
-Предварительно настроенное решение для удаленного мониторинга [Microsoft Azure IoT Suite][lnk-internetofthings] позволяет быстро начать работу с полным набором возможностей, которыми обладает решение IoT. В этом учебнике описаны действия по добавлению приложения логики к предварительно настроенному решению для удаленного мониторинга Microsoft Azure IoT Suite. Эти шаги показывают, как продвинуть свое решение IoT еще дальше, подключив его к бизнес-процессу.
+# <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Tutorial: Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution
 
-_Если вы ищете пошаговое руководство по подготовке предварительно настроенного решения для удаленного мониторинга, обратитесь к разделу [Руководство. Приступая к работе с предварительно настроенными решениями IoT][lnk-getstarted]._
+The [Microsoft Azure IoT Suite][lnk-internetofthings] remote monitoring preconfigured solution is a great way to get started quickly with an end-to-end feature set that exemplifies an IoT solution. This tutorial walks you through how to add Logic App to your Microsoft Azure IoT Suite remote monitoring preconfigured solution. These steps demonstrate how you can take your IoT solution even further by connecting it to a business process.
 
-Перед началом работы с данным учебником необходимо выполнить описанные ниже действия.
+_If you’re looking for a walkthrough on how to provision a remote monitoring preconfigured solution, see [Tutorial: Get started with the IoT preconfigured solutions][lnk-getstarted]._
 
-- Подготовьте в своей подписке Azure предварительно настроенное решение для удаленного мониторинга.
+Before you start this tutorial, you should:
 
-- Создайте учетную запись SendGrid для отправки сообщений электронной почты, которые будут запускать бизнес-процесс. Бесплатную пробную учетную запись можно создать на сайте [SendGrid](https://sendgrid.com/), нажав кнопку **Try for Free** (Попробовать бесплатно). После регистрации бесплатной пробной учетной записи необходимо создать в SendGrid [ключ API](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html), который предоставляет разрешения на отправку электронной почты. Ключ API используется далее в этом учебнике.
+- Provision the remote monitoring preconfigured solution in your Azure subscription.
 
-Если вы уже подготовили предварительно настроенное решение для удаленного мониторинга, то перейдите к группе ресурсов для этого решения на [портале Azure][lnk-azureportal]. Имя группы ресурсов совпадает с именем решения, которое было выбрано при подготовке решения для удаленного мониторинга. В группе ресурсов можно просмотреть все подготовленные ресурсы Azure для вашего решения (за исключением приложения Azure Active Directory, которое можно найти на классическом портале Azure). На следующем рисунке показан пример колонки **Группа ресурсов** для предварительного настроенного решения для удаленного мониторинга:
+- Create a SendGrid account to enable you to send an email that triggers your business process. You can sign up for a free trial account at [SendGrid](https://sendgrid.com/) by clicking **Try for Free**. After you have registered for your free trial account, you need to create an [API key](https://sendgrid.com/docs/User_Guide/Settings/api_keys.html) in SendGrid that grants permissions to send mail. You need this API key later in the tutorial.
+
+Assuming you’ve already provisioned your remote monitoring preconfigured solution, navigate to the resource group for that solution in the [Azure portal][lnk-azureportal]. The resource group has the same name as the solution name you chose when you provisioned your remote monitoring solution. In the resource group, you can see all the provisioned Azure resources for your solution except for the Azure Active Directory application that you can find in the Azure Classic Portal. The following screenshot shows an example **Resource group** blade for a remote monitoring preconfigured solution:
 
 ![](media/iot-suite-logic-apps-tutorial/resourcegroup.png)
 
-Для начала настройте приложение логики, которое будет использоваться с предварительно настроенным решением.
+To begin, set up the logic app to use with the preconfigured solution.
 
-## Настройка приложения логики
+## <a name="set-up-the-logic-app"></a>Set up the Logic App
 
-1. Щелкните __Добавить__ в верхней части колонки группы ресурсов на портале Azure.
+1. Click __Add__ at the top of your resource group blade in the Azure portal.
 
-2. Найдите __Приложение логики__, выберите его и нажмите кнопку **Создать**.
+2. Search for __Logic App__, select it and then click **Create**.
 
-3. Заполните поле __Имя__. Затем укажите те же **Подписку** и **Группу ресурсов**, которые использовались при подготовке решения для удаленного мониторинга. Щелкните __Создать__.
+3. Fill out the __Name__ and use the same **Subscription** and **Resource group** that you used when you provisioned your remote monitoring solution. Click __Create__.
 
     ![](media/iot-suite-logic-apps-tutorial/createlogicapp.png)
 
-4. После завершения развертывания приложение логики отобразится в качестве ресурса в вашей группе ресурсов.
+4. When your deployment completes, you can see the Logic App is listed as a resource in your resource group.
 
-5. Щелкните приложение логики, чтобы перейти к колонке "Приложение логики". Выберите шаблон **Blank Logic App** (Пустое приложение логики). При этом откроется **Конструктор Logic Apps**.
+5. Click the Logic App to navigate to the Logic App blade, select the **Blank Logic App** template to open the **Logic Apps Designer**.
 
     ![](media/iot-suite-logic-apps-tutorial/logicappsdesigner.png)
 
-6. Выберите __Запрос__. Это действие указывает, что в качестве триггера выступает входящий HTTP-запрос с полезными данными в определенном формате JSON.
+6. Select __Request__. This action specifies that an incoming HTTP request with a specific JSON formatted payload acts as a trigger.
 
-7. Вставьте следующий код в поле "Схема JSON текста запроса":
+7. Paste the following into the Request Body JSON Schema:
 
     ```
     {
@@ -82,45 +83,45 @@ _Если вы ищете пошаговое руководство по под�
     }
     ```
     
-    > [AZURE.NOTE] Примечание. Сохранив приложение логики, можно скопировать URL-адрес метода HTTP POST, но сначала необходимо добавить действие.
+    > [AZURE.NOTE] You can copy the URL for the HTTP post after you save the logic app, but first you must add an action.
 
-8. Нажмите кнопку __+ Новый шаг__ под своим триггером. Затем выберите **Добавить действие**.
+8. Click __+ New step__ under your manual trigger. Then click **Add an action**.
 
     ![](media/iot-suite-logic-apps-tutorial/logicappcode.png)
 
-9. Найдите действие **SendGrid - Send email** (SendGrid — отправить письмо) и щелкните его.
+9. Search for **SendGrid - Send email** and click it.
 
     ![](media/iot-suite-logic-apps-tutorial/logicappaction.png)
 
-10. Введите имя подключения, например **SendGridConnection**, укажите **ключ API SendGrid**, созданный при настройке учетной записи SendGrid, и нажмите кнопку **Create** (Создать).
+10. Enter a name for the connection, such as **SendGridConnection**, enter the **SendGrid API Key** you created when you set up your SendGrid account, and click **Create**.
 
     ![](media/iot-suite-logic-apps-tutorial/sendgridconnection.png)
 
-11. Добавьте свои адреса электронной почты в поля **From** (От) и **To** (Кому). В поле **Subject** (Тема) добавьте **Remote monitoring alert [DeviceId]** (Оповещение удаленного мониторинга [DeviceId]). В поле **Email Body** (Текст сообщения электронной почты) укажите **Device [DeviceId] has reported [measurementName] with value [measuredValue].** (Устройство [DeviceId] передало значение [measuredValue] для измерения [measurementName]). Параметры **[DeviceId]**, **[measurementName]** и **[measuredValue]** можно добавить с помощью раздела **You can insert data from previous steps** (Можно вставить данные из предыдущих шагов).
+11. Add email addresses you own to both the **From** and **To** fields. Add **Remote monitoring alert [DeviceId]** to the **Subject** field. In the **Email Body** field, add **Device [DeviceId] has reported [measurementName] with value [measuredValue].** You can add **[DeviceId]**, **[measurementName]**, and **[measuredValue]** by clicking in the **You can insert data from previous steps** section.
 
     ![](media/iot-suite-logic-apps-tutorial/sendgridaction.png)
 
-12. Нажмите кнопку __Сохранить__ в верхнем меню.
+12. Click __Save__ in the top menu.
 
-13. Щелкните триггер **Запрос** и скопируйте значение __HTTP POST на этот URL-адрес__. Этот URL-адрес потребуется далее в этом учебнике.
+13. Click the **Request** trigger and copy the __Http Post to this URL__ value. You need this URL later in this tutorial.
 
-> [AZURE.NOTE] Приложения логики позволяют запускать [множество действий различных типов][lnk-logic-apps-actions], в том числе действия в Office 365.
+> [AZURE.NOTE] Logic Apps enable you to run [many different types of action][lnk-logic-apps-actions] including actions in Office 365. 
 
-## Настройка веб-задания EventProcessor
+## <a name="set-up-the-eventprocessor-web-job"></a>Set up the EventProcessor Web Job
 
-В этом разделе вы подключите предварительно настроенное решение к созданному приложению логики. Чтобы выполнить эту задачу, необходимо добавить URL-адрес для вызова приложения логики к действию, которое запускается, когда значение датчика устройства превышает пороговое значение.
+In this section, you connect your preconfigured solution to the Logic App you created. To complete this task, you add the URL to trigger the Logic App to the action that fires when a device sensor value exceeds a threshold.
 
-1. С помощью клиента git клонируйте последнюю версию [репозитория github azure-iot-remote-monitoring][lnk-rmgithub]. Например:
+1. Use your git client to clone the latest version of the [azure-iot-remote-monitoring github repository][lnk-rmgithub]. For example:
 
     ```
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
     ```
 
-2. В Visual Studio откройте файл __RemoteMonitoring.sln__ из локальной копии репозитория.
+2. In Visual Studio, open the __RemoteMonitoring.sln__ from the local copy of the repository.
 
-3. Откройте файл __ActionRepository.cs__ в папке **Infrastructure\\Repository**.
+3. Open the __ActionRepository.cs__ file in the **Infrastructure\\Repository** folder.
 
-4. Измените словарь **actionIds**, указав в нем значение __HTTP POST на этот URL-адрес__, которое вы записали из приложения логики.
+4. Update the **actionIds** dictionary with the __Http Post to this URL__ you noted from your Logic App as follows:
 
     ```
     private Dictionary<string,string> actionIds = new Dictionary<string, string>()
@@ -130,45 +131,45 @@ _Если вы ищете пошаговое руководство по под�
     };
     ```
 
-5. Сохраните изменения в решении и закройте Visual Studio.
+5. Save the changes in solution and exit Visual Studio.
 
-## Развертывание из командной строки
+## <a name="deploy-from-the-command-line"></a>Deploy from the command line
 
-В этом разделе вы развернете обновленную версию решения для удаленного мониторинга, заменив ту версию, которая в настоящее время работает в Azure.
+In this section, you deploy your updated version of the remote monitoring solution to replace the version currently running in Azure.
 
-1. Следуйте инструкциям [по настройке для разработчиков][lnk-devsetup], чтобы настроить свою среду для развертывания.
+1. Following the [dev set-up][lnk-devsetup] instructions to set up your environment for deployment.
 
-2.  Для локального развертывания следуйте инструкциям [по локальному развертыванию][lnk-localdeploy].
+2.  To deploy locally, follow the [local deployment][lnk-localdeploy] instructions.
 
-3.  Для развертывания в облако с обновлением существующего развертывания в облаке следуйте инструкциям [по развертыванию в облаке][lnk-clouddeploy]. В качестве имени развертывания используйте имя исходного развертывания. Например, если исходное развертывание называлось **demologicapp**, используйте следующую команду:
+3.  To deploy to the cloud and update your existing cloud deployment, follow the [cloud deployment][lnk-clouddeploy] instructions. Use the name of your original deployment as the deployment name. For example if the original deployment was called **demologicapp**, use the following command:
 
-    .``
+    ``
     build.cmd cloud release demologicapp
     ``
     
-    При запуске сценария сборки обязательно используйте те же учетную запись, подписку, регион Azure и экземпляр Active Directory, которые применялись при подготовке решения.
+    When the build script runs, be sure to use the same Azure account, subscription, region, and Active Directory instance you used when you provisioned the solution.
 
-## Проверка приложения логики в действии
+## <a name="see-your-logic-app-in-action"></a>See your Logic App in action
 
-При подготовке предварительно настроенного решения для удаленного мониторинга в нем по умолчанию настроены два правила. Оба правила применяются к устройству **SampleDevice001**:
+The remote monitoring preconfigured solution has two rules set up by default when you provision a solution. Both rules are on the **SampleDevice001** device:
 
-* Температура > 38,00
-* Влажность > 48,00
+* Temperature > 38.00
+* Humidity > 48.00
 
-Правило для температуры активирует действие **Raise Alarm**, а правило для влажности — действие **SendMessage**. При условии, что для обоих действий в классе **ActionRepository** используется один и тот же URL-адрес, приложение логики срабатывает для каждого правила. Оба правила используют SendGrid для отправки электронной почты с подробными сведениями о предупреждении на адрес, указанный в поле **Кому**.
+The temperature rule triggers the **Raise Alarm** action and the Humidity rule triggers the **SendMessage** action. Assuming you used the same URL for both actions the **ActionRepository** class, your logic app triggers for either rule. Both rules use SendGrid to send an email to the **To** address with details of the alert.
 
-> [AZURE.NOTE] Приложение логики будет срабатывать при каждом превышении порогового значения. Чтобы избежать получения ненужных электронных сообщений, можно отключить правила на портале решения или отключить приложение логики на [портале Azure][lnk-azureportal].
+> [AZURE.NOTE] The Logic App continues to trigger every time the threshold is met. To avoid unnecessary emails, you can either disable the rules in your solution portal or disable the Logic App in the [Azure portal][lnk-azureportal].
 
-Наряду с получением электронных писем вы также можете наблюдать за работой приложения логики на портале:
+In addition to receiving emails, you can also see when the Logic App runs in the portal:
 
 ![](media/iot-suite-logic-apps-tutorial/logicapprun.png)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Теперь когда вы использовали приложение логики для подключения предварительно настроенного решения к бизнес-процессу, можете ознакомиться с дополнительными сведениями о настройке таких решений:
+Now that you've used a Logic App to connect the preconfigured solution to a business process, you can learn more about the options for customizing the preconfigured solutions:
 
-- [Использование динамической телеметрии с предварительно настроенным решением для удаленного мониторинга][lnk-dynamic]
-- [Метаданные сведений об устройстве в предварительно настроенном решении для удаленного мониторинга][lnk-devinfo]
+- [Use dynamic telemetry with the remote monitoring preconfigured solution][lnk-dynamic]
+- [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo]
 
 [lnk-dynamic]: iot-suite-dynamic-telemetry.md
 [lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
@@ -182,4 +183,8 @@ _Если вы ищете пошаговое руководство по под�
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

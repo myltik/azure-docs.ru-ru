@@ -3,8 +3,8 @@
    description="Узнайте о том, как организовать отслеживание рабочей нагрузки с помощью динамических административных представлений."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 
 # <a name="monitor-your-workload-using-dmvs"></a>Мониторинг рабочей нагрузки с помощью динамических административных представлений
@@ -46,7 +46,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 
 Ниже приведено несколько действий для проверки планов выполнения запросов и длительности конкретных запросов.
 
-### <a name="step-1:-identify-the-query-you-wish-to-investigate"></a>Шаг 1. Определение запроса, который нужно исследовать
+### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>Шаг 1. Определение запроса, который нужно исследовать
 
 ```sql
 -- Monitor active queries
@@ -82,7 +82,7 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### <a name="step-2:-investigate-the-query-plan"></a>Шаг 2. Изучение плана запроса
+### <a name="step-2-investigate-the-query-plan"></a>Шаг 2. Изучение плана запроса
 
 С помощью идентификатора запроса получите план DSQL запроса из [sys.dm_pdw_request_steps][].
 
@@ -102,7 +102,7 @@ ORDER BY step_index;
 - Перейдите к шагу 3а для **операций SQL**: OnOperation, RemoteOperation, ReturnOperation.
 - Перейдите к шагу 3б для **операций перемещения данных**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a:-investigate-sql-on-the-distributed-databases"></a>Шаг 3а. Изучение SQL распределенных баз данных
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>Шаг 3а. Изучение SQL распределенных баз данных
 
 Используйте идентификатор запроса и индекс этапа, чтобы извлечь сведения из представления [sys.dm_pdw_sql_requests][], которое содержит информацию о выполнении этапа запроса на каждой из распределенных баз данных.
 
@@ -123,7 +123,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b:-investigate-data-movement-on-the-distributed-databases"></a>Шаг 3б. Изучение перемещения данных в распределенных базах данных
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>Шаг 3б. Изучение перемещения данных в распределенных базах данных
 
 Используйте идентификатор запроса и индекс этапа, чтобы получить из [sys.dm_pdw_dms_workers][] сведения об этапе перемещения данных, выполняющемся для каждого распределения.
 

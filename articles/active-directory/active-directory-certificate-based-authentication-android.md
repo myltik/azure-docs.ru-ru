@@ -2,7 +2,7 @@
     pageTitle="Приступая к работе с аутентификацией в Android на основе сертификата | Microsoft Azure" 
     description="Узнайте, как настроить аутентификацию на основе сертификата в решениях на устройствах Android." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="MarkusVi"  
     documentationCenter="na" 
     manager="femila"/>
 <tags 
@@ -17,7 +17,7 @@
 
 
 
-# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Приступая к работе с аутентификацией в Android на основе сертификата — общедоступная предварительная версия  
+# <a name="get-started-with-certificate-based-authentication-on-android-public-preview"></a>Приступая к работе с аутентификацией в Android на основе сертификата — общедоступная предварительная версия  
 
 > [AZURE.SELECTOR]
 - [iOS](active-directory-certificate-based-authentication-ios.md)

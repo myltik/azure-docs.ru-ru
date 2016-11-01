@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="ronortloff"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+   ms.date="10/31/2016" 
+   ms.author="rortloff;barbkess"/>
 
 
-# <a name="sql-data-warehouse---downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Хранилище данных SQL. Поддержка клиентов прежних версий для аудита и динамического маскирования данных
+# <a name="sql-data-warehouse-downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Хранилище данных SQL. Поддержка клиентов прежних версий для аудита и динамического маскирования данных
 
 [аудита](sql-data-warehouse-auditing-overview.md) работают в клиентах SQL, которые поддерживают перенаправление TDS.
 

@@ -3,7 +3,7 @@
     description="Узнайте, как использовать сопоставление выражений для преобразования значений атрибутов в допустимый формат при автоматической подготовке объектов приложения SaaS в Azure Active Directory."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

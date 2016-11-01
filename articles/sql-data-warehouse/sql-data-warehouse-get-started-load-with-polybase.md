@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
 
@@ -45,11 +45,11 @@
     ![Средства хранилища Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>Шаг 1. Добавление данных в хранилище больших двоичных объектов Azure
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Шаг 1. Добавление данных в хранилище больших двоичных объектов Azure
 
 Чтобы загрузить данные, нам нужно сначала поместить демонстрационные данные в хранилище BLOB-объектов Azure. На этом шаге мы заполним демонстрационными данными большой двоичный объект хранилища Azure. Затем с помощью PolyBase мы загрузим эти данные в базу данных хранилища данных SQL.
 
-### <a name="a.-prepare-a-sample-text-file"></a>О. Подготовка примера текстового файла
+### <a name="a-prepare-a-sample-text-file"></a>О. Подготовка примера текстового файла
 
 Создайте пример текстового файла следующим образом.
 
@@ -70,7 +70,7 @@
 20150101,1,3
 ```
 
-### <a name="b.-find-your-blob-service-endpoint"></a>B. Поиск адреса конечной точки службы BLOB-объектов
+### <a name="b-find-your-blob-service-endpoint"></a>B. Поиск адреса конечной точки службы BLOB-объектов
 
 Найдите конечную точку службы BLOB-объектов следующим образом.
 
@@ -84,7 +84,7 @@
 
     ![Конечная точка службы BLOB-объектов](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### <a name="c.-find-your-azure-storage-key"></a>C. Поиск ключа к хранилищу данных Azure
+### <a name="c-find-your-azure-storage-key"></a>C. Поиск ключа к хранилищу данных Azure
 
 Найдите ключ к хранилищу данных Azure следующим образом.
 
@@ -95,7 +95,7 @@
 
     ![Копирование ключа к хранилищу данных Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Копирование примера файла в хранилище BLOB-объектов Azure
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Копирование примера файла в хранилище BLOB-объектов Azure
 
 Скопируйте сохраненные данные в хранилище BLOB-объектов Azure следующим образом.
 
@@ -113,7 +113,7 @@
 
 См. также статью [Приступая к работе со служебной программой командной строки AzCopy][].
 
-### <a name="e.-explore-your-blob-storage-container"></a>E. Просмотр содержимого контейнера хранилища BLOB-объектов
+### <a name="e-explore-your-blob-storage-container"></a>E. Просмотр содержимого контейнера хранилища BLOB-объектов
 
 Проверьте загрузку файла в хранилище BLOB-объектов следующим образом.
 
@@ -126,7 +126,7 @@
     ![Просмотр хранилища BLOB-объектов Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>Шаг 2. Создание внешней таблицы для демонстрационных данных
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Шаг 2. Создание внешней таблицы для демонстрационных данных
 
 В этом разделе мы создадим внешнюю таблицу, которая определяет демонстрационные данные.
 
@@ -216,7 +216,7 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ![Просмотр внешней таблицы](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## <a name="step-3:-load-data-into-sql-data-warehouse"></a>Шаг 3. Загрузка данных в хранилище данных SQL
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Шаг 3. Загрузка данных в хранилище данных SQL
 
 После создания внешней таблицы вы можете загрузить данные в новую таблицу или вставить в уже существующую.
 
@@ -236,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>Шаг 4. Создание статистики для только что загруженных данных
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Шаг 4. Создание статистики для только что загруженных данных
 
 Хранилище данных SQL не создает и не обновляет статистику автоматически. Поэтому после первой загрузки нужно создать статистику для каждого столбца каждой таблицы, чтобы обеспечить высокую производительность. Также важно обновлять статистику после существенных изменений данных.
 

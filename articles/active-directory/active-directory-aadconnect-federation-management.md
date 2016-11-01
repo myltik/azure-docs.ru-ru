@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/01/2016"
+    ms.date="10/31/2016"
     ms.author="anandy"/>
 
 
@@ -38,7 +38,7 @@
 
 В Azure AD Connect можно выполнять разные связанные с AD FS задачи с помощью мастера Azure AD Connect при минимальном участии пользователя. Завершив установку Azure AD Connect с помощью мастера, вы можете снова запустить этот мастер, чтобы выполнить дополнительные задачи.
 
-### <a name="repair-the-trust-<a-name=repairthetrust></a>"></a>Восстановление доверия <a name=repairthetrust></a>
+### <a name="repair-the-trust-a-namerepairthetrusta"></a>Восстановление доверия <a name=repairthetrust></a>
 
 Azure AD Connect может проверить текущую работоспособность AD FS и Azure Active Directory и предпринять соответствующие действия для восстановления доверия. Выполните приведенные ниже действия для восстановления доверия Azure AD и AD FS.
 
@@ -63,7 +63,7 @@ Azure AD Connect может проверить текущую работоспо
 
 >[AZURE.NOTE] Azure AD Connect может выполнить восстановление или другие действия только для самозаверяющих сертификатов. С помощью Azure AD Connect нельзя восстановить сертификаты третьих сторон.
 
-### <a name="add-an-ad-fs-server-<a-name=addadfsserver></a>"></a>Добавление сервера AD FS <a name=addadfsserver></a>
+### <a name="add-an-ad-fs-server-a-nameaddadfsservera"></a>Добавление сервера AD FS <a name=addadfsserver></a>
 
 > [AZURE.NOTE] Для добавления сервера AD FS Azure AD Connect требует PFX-файл сертификата. Таким образом, эту операцию можно выполнить, только если ферма AD FS настроена с помощью Azure AD Connect.
 
@@ -89,7 +89,7 @@ Azure AD Connect может проверить текущую работоспо
 
     ![Установка завершена](media\active-directory-aadconnect-federation-management\AddNewADFSServer8.PNG)
 
-### <a name="add-an-ad-fs-web-application-proxy-server-<a-name=addwapserver></a>"></a>Добавление прокси-сервера веб-приложения AD FS <a name=addwapserver></a>
+### <a name="add-an-ad-fs-web-application-proxy-server-a-nameaddwapservera"></a>Добавление прокси-сервера веб-приложения AD FS <a name=addwapserver></a>
 
 > [AZURE.NOTE] Чтобы добавить прокси-сервер веб-приложения для Azure AD Connect, требуется PFX-файл сертификата. Таким образом, эту операцию можно выполнить, только если ферма AD FS настроена с помощью Azure AD Connect.
 
@@ -116,7 +116,7 @@ Azure AD Connect может проверить текущую работоспо
 7. Чтобы завершить настройку, нажмите кнопку **Установить** . По завершении настройки мастер предоставляет возможность проверить подключение к серверам. Чтобы проверить подключение, щелкните **Проверить** .
 ![Установка завершена](media\active-directory-aadconnect-federation-management\WapServer8.PNG)
 
-### <a name="add-a-federated-domain-<a-name=addfeddomain></a>"></a>Добавление федеративного домена <a name=addfeddomain></a>
+### <a name="add-a-federated-domain-a-nameaddfeddomaina"></a>Добавление федеративного домена <a name=addfeddomain></a>
 
 Вы можете быстро добавить домен в федерацию с Azure AD с помощью Azure AD Connect. Azure AD Connect добавляет домен для федерации, а также изменяет правила утверждения, чтобы правильно отражать издателя при наличии нескольких доменов в федерации с Azure AD.
 
@@ -141,7 +141,7 @@ Azure AD Connect может проверить текущую работоспо
 
 Ниже приведены сведения о некоторых стандартных задачах, связанных с пользовательской настройкой страницы входа AD FS.
 
-### <a name="add-a-custom-company-logo-or-illustration-<a-name=customlogo></a>"></a>Добавление настраиваемого логотипа компании или иллюстрации <a name=customlogo></a>
+### <a name="add-a-custom-company-logo-or-illustration-a-namecustomlogoa"></a>Добавление настраиваемого логотипа компании или иллюстрации <a name=customlogo></a>
 
 Чтобы изменить логотип компании, который отображается на странице **входа** , используйте следующий командлет Windows PowerShell и синтаксис.
 
@@ -152,13 +152,13 @@ Azure AD Connect может проверить текущую работоспо
 > [AZURE.NOTE] Параметр *TargetName* является обязательным. Стандартная тема для AD FS называется темой по умолчанию.
 
 
-### <a name="add-a-sign-in-description-<a-name=addsignindescription></a>"></a>Добавление описания входа в систему <a name=addsignindescription></a>
+### <a name="add-a-signin-description-a-nameaddsignindescriptiona"></a>Добавление описания входа в систему <a name=addsignindescription></a>
 
 Чтобы добавить на **страницу входа**описание страницы входа, используйте следующий командлет Windows PowerShell и синтаксис.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-### <a name="modify-ad-fs-claim-rules-<a-name=modclaims></a>"></a>Изменение правил утверждений служб федерации Active Directory <a name=modclaims></a>
+### <a name="modify-ad-fs-claim-rules-a-namemodclaimsa"></a>Изменение правил утверждений служб федерации Active Directory <a name=modclaims></a>
 
 Службы AD FS поддерживают обширный язык утверждений, с помощью которого можно создавать настраиваемые правила утверждений. Дополнительные сведения см. в разделе [Роль языка правил утверждений](https://technet.microsoft.com/library/dd807118.aspx).
 

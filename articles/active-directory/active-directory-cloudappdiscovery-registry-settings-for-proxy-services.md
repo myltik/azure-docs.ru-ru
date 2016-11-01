@@ -3,7 +3,7 @@
     description="В этой статье приведены шаги, которые необходимо выполнить, чтобы задать требуемый порт на компьютере с запущенным агентом Cloud App Discovery." 
     services="active-directory" 
     documentationCenter="" 
-    authors="markusvi" 
+    authors="MarkusVi" 
     manager="femila"/>
 
 <tags 

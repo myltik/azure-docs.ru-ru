@@ -3,7 +3,7 @@
     description="Узнайте, как гарантированно получать уведомления о проблемах, которые требуют вашего внимания, путем включения уведомления о проблемах связанных с подготовкой пользователей."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Загрузка данных из SQL Server в хранилище данных SQL Azure (PolyBase) | Microsoft Azure"
-   description="Экспорт данных из SQL Server в неструктурированные файлы, AZCopy, а также импорт данных в хранилище BLOB-объектов Azure и PolyBase для приема данных в хранилище данных SQL Azure с помощью программы bcp."
+   pageTitle="Load data from SQL Server into Azure SQL Data Warehouse (PolyBase) | Microsoft Azure"
+   description="Uses bcp to export data from SQL Server to flat files, AZCopy to import data to Azure blob storage, and PolyBase to ingest the data into Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="ckarst"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,45 +13,46 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="cakarst;barbkess"/>
 
 
-# Загрузка данных в хранилище данных SQL с помощью PolyBase
+
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Load data with PolyBase in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
 - [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
-- [PolyBase;](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+- [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 - [bcp](sql-data-warehouse-load-from-sql-server-with-bcp.md)
 
-В этом руководстве показано, как загрузить данные в хранилище данных SQL с помощью AzCopy и PolyBase. Изучив руководство, вы будете знать:
+This tutorial shows how to load data into SQL Data Warehouse by using AzCopy and PolyBase. When finished, you will know how to:
 
-- как использовать AzCopy для копирования данных в хранилище больших двоичных объектов;
-- как создавать объекты базы данных для определения данных;
-- как выполнять запросы T-SQL для загрузки данных.
+- Use AzCopy to copy data to Azure blob storage
+- Create database objects to define the data
+- Run a T-SQL query to load the data
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
 
-## Предварительные требования
+## <a name="prerequisites"></a>Prerequisites
 
-Для выполнения этих действий необходимо иметь следующее.
+To step through this tutorial, you need
 
-- База данных хранилища данных SQL.
-- Учетная запись хранилища Azure типа Standard-LRS (локально избыточное хранилище уровня «Стандартный»), Standard-GRS (геоизбыточное хранилище уровня «Стандартный») или Standard-RAGRS (геоизбыточное хранилище с доступом для чтения уровня «Стандартный»).
-- Служебная программа командной строки AzCopy. Загрузите и установите [последнюю версию AzCopy][], которая входит в состав средств хранилища Microsoft Azure.
+- A SQL Data Warehouse database.
+- An Azure storage account of type Standard Locally Redundant Storage (Standard-LRS), Standard Geo-Redundant Storage (Standard-GRS), or Standard Read-Access Geo-Redundant Storage (Standard-RAGRS).
+- AzCopy Command-Line Utility. Download and install the [latest version of AzCopy][] which is installed with the Microsoft Azure Storage Tools.
 
-    ![Средства хранилища Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
+    ![Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## Шаг 1. Добавление данных в хранилище больших двоичных объектов Azure
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Step 1: Add sample data to Azure blob storage
 
-Чтобы загрузить данные, нам нужно сначала поместить демонстрационные данные в хранилище BLOB-объектов Azure. На этом шаге мы заполним демонстрационными данными большой двоичный объект хранилища Azure. Затем с помощью PolyBase мы загрузим эти данные в базу данных хранилища данных SQL.
+In order to load data, we need to put some sample data into an Azure blob storage. In this step we populate an Azure Storage blob with sample data. Later, we will use PolyBase to load this sample data into your SQL Data Warehouse database.
 
-### О. Подготовка примера текстового файла
+### <a name="a-prepare-a-sample-text-file"></a>A. Prepare a sample text file
 
-Создайте пример текстового файла следующим образом.
+To prepare a sample text file:
 
-1. Откройте Блокнот и скопируйте следующие строки данных в новый файл. Сохраните файл в локальный каталог с именем %temp%\\DimDate2.txt.
+1. Open Notepad and copy the following lines of data into a new file. Save this to your local temp directory as %temp%\DimDate2.txt.
 
 ```
 20150301,1,3
@@ -68,77 +69,77 @@
 20150101,1,3
 ```
 
-### B. Поиск адреса конечной точки службы BLOB-объектов
+### <a name="b-find-your-blob-service-endpoint"></a>B. Find your blob service endpoint
 
-Найдите конечную точку службы BLOB-объектов следующим образом.
+To find your blob service endpoint:
 
-1. На портале Azure выберите **Обзор** > **Учетные записи хранения**.
-2. Щелкните учетную запись хранения, которую хотите использовать.
-3. В колонке учетной записи хранения выберите «BLOB-объекты».
+1. From the Azure Portal select **Browse** > **Storage Accounts**.
+2. Click the storage account you want to use.
+3. In the Storage account blade, click Blobs
 
-    ![Выбор BLOB-объектов](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
+    ![Click Blobs](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
 
-1. Сохраните URL-адрес конечной точки службы BLOB-объектов.
+1. Save your blob service endpoint URL for later.
 
-    ![Конечная точка службы BLOB-объектов](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
+    ![Blob service endpoint](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### C. Поиск ключа к хранилищу данных Azure
+### <a name="c-find-your-azure-storage-key"></a>C. Find your Azure storage key
 
-Найдите ключ к хранилищу данных Azure следующим образом.
+To find your Azure storage key:
 
-1. На портале Azure выберите **Обзор** > **Учетные записи хранения**.
-2. Щелкните учетную запись хранения, которую вы хотите использовать.
-3. Выберите **Все параметры** > **Ключи доступа**.
-4. Скопируйте один из ключей доступа в буфер обмена.
+1. From the Azure Portal, select **Browse** > **Storage Accounts**.
+2. Click on the storage account you want to use.
+3. Select **All settings** > **Access keys**.
+4. Click the copy box to copy one of your access keys to the clipboard.
 
-    ![Копирование ключа к хранилищу данных Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
+    ![Copy Azure storage key](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### D. Копирование примера файла в хранилище BLOB-объектов Azure
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Copy the sample file to Azure blob storage
 
-Скопируйте сохраненные данные в хранилище BLOB-объектов Azure следующим образом.
+To copy your data to Azure blob storage:
 
-1. Откройте командную строку и перейдите в каталог, в котором установлена программа AzCopy. Эта команда выполняет переход в каталог установки, который по умолчанию используется на 64-разрядной версии Windows.
+1. Open a command prompt, and change directories to the AzCopy installation directory. This command changes to the default installation directory on a 64-bit Windows client.
 
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
 
-1. Выполните следующую команду, чтобы передать файл: Укажите URL-адрес конечной точки службы BLOB-объектов вместо <blob service endpoint URL> и ключ учетной записи хранилища Azure вместо <azure\_storage\_account\_key>.
+1. Run the following command to upload the file. Specify your blob service endpoint URL for <blob service endpoint URL> and your Azure storage account key for <azure_storage_account_key>.
 
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-См. также статью [Приступая к работе со служебной программой командной строки AzCopy][latest version of AzCopy].
+See also [Getting Started with the AzCopy Command-Line Utility][latest version of AzCopy].
 
-### E. Просмотр содержимого контейнера хранилища BLOB-объектов
+### <a name="e-explore-your-blob-storage-container"></a>E. Explore your blob storage container
 
-Проверьте загрузку файла в хранилище BLOB-объектов следующим образом.
+To see the file you uploaded to blob storage:
 
-1. Вернитесь к колонке службы BLOB-объектов.
-2. В разделе «Контейнеры» дважды щелкните **datacontainer**.
-3. Щелкните папку **datedimension**, где хранятся ваши данные, и найдите там загруженный файл **DimDate2.txt**.
-4. Чтобы просмотреть его свойства, щелкните **DimDate2.txt**.
-5. Обратите внимание, что в колонке свойств BLOB-объекта есть возможность загрузки и удаления файла.
+1. Go back to your Blob service blade.
+2. Under Containers, double-click **datacontainer**.
+3. To explore the path to your data, click the folder **datedimension** and you will see your uploaded file **DimDate2.txt**.
+4. To view properties, click **DimDate2.txt**.
+5. Note that in the Blob properties blade, you can download or delete the file.
 
-    ![Просмотр хранилища BLOB-объектов Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
+    ![View Azure storage blob](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## Шаг 2. Создание внешней таблицы для демонстрационных данных
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Step 2: Create an external table for the sample data
 
-В этом разделе мы создадим внешнюю таблицу, которая определяет демонстрационные данные.
+In this section we create an external table that defines the sample data.
 
-PolyBase использует внешние таблицы для доступа к данным в хранилище BLOB-объектов. Поскольку данные хранятся не в хранилище данных SQL, PolyBase выполняет проверку подлинности для доступа к внешним данным с помощью учетных данных, заданных для базы данных.
+PolyBase uses external tables to access data in Azure blob storage. Since the data is not stored within SQL Data Warehouse, PolyBase handles authentication to the external data by using a database-scoped credential.
 
-На этом шаге нашего примера мы выполним несколько инструкций Transact-SQL для создания внешней таблицы.
+The example in this step uses these Transact-SQL statements to create an external table.
 
-- [Создание главного ключа (Transact-SQL)][] для шифрования секрета учетных данных, которые заданы для базы данных.
-- [Создание учетных данных для базы данных (Transact-SQL)][], которые нужны при проверке подлинности учетной записи хранения Azure.
-- [Создание внешнего источника данных (Transact-SQL)][] для указания расположения хранилища BLOB-объектов Azure.
-- [Создание формата внешнего файла (Transact-SQL)][] для указания формата данных.
-- [Создание внешней таблицы (Transact-SQL)][], где определяется таблица и расположение нужных данных.
+- [Create Master Key (Transact-SQL)][] to encrypt the secret of your database scoped credential.
+- [Create Database Scoped Credential (Transact-SQL)][] to specify authentication information for your Azure storage account.
+- [Create External Data Source (Transact-SQL)][] to specify the location of your Azure blob storage.
+- [Create External File Format (Transact-SQL)][] to specify the format of your data.
+- [Create External Table (Transact-SQL)][] to specify the table definition and location of the data.
 
-Выполните этот запрос к вашей базе данных хранилища данных SQL. В схеме dbo будет создана внешняя таблица с именем DimDate2External, которая указывает на файл с демонстрационными данными DimDate2.txt в хранилище BLOB-объектов Azure.
+Run this query against your SQL Data Warehouse database. It will create an external table named DimDate2External in the dbo schema that points to the DimDate2.txt sample data in the Azure blob storage.
 
 
 ```sql
@@ -210,16 +211,16 @@ SELECT count(*) FROM dbo.DimDate2External;
 ```
 
 
-В обозревателе объектов SQL Server в Visual Studio можно просмотреть формат внешнего файла, внешний источник данных и таблицу DimDate2External.
+In SQL Server Object Explorer in Visual Studio, you can see the external file format, external data source, and the DimDate2External table.
 
-![Просмотр внешней таблицы](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
+![View external table](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## Шаг 3. Загрузка данных в хранилище данных SQL
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>Step 3: Load data into SQL Data Warehouse
 
-После создания внешней таблицы вы можете загрузить данные в новую таблицу или вставить в уже существующую.
+Once the external table is created, you can either load the data into a new table or insert it into an existing table.
 
-- Чтобы загрузить данные в новую таблицу, выполните инструкцию [CREATE TABLE AS SELECT (Transact-SQL)][]. В новую таблицу будут включены столбцы с именами, указанными в запросе. Типы данных столбцов будут соответствовать типам данных в определении внешней таблицы.
-- Чтобы загрузить данные в существующую таблицу, выполните инструкцию [INSERT...SELECT (Transact-SQL)][].
+- To load the data into a new table, run the [CREATE TABLE AS SELECT (Transact-SQL)][] statement. The new table will have the columns named in the query. The data types of the columns will match the data types in the external table definition.
+- To load the data into an existing table, use the [INSERT...SELECT (Transact-SQL)][] statement.
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -234,11 +235,11 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## Шаг 4. Создание статистики для только что загруженных данных
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Step 4: Create statistics on your newly loaded data
 
-Хранилище данных SQL не создает и не обновляет статистику автоматически. Поэтому после первой загрузки нужно создать статистику для каждого столбца каждой таблицы, чтобы обеспечить высокую производительность. Также важно обновлять статистику после существенных изменений данных.
+SQL Data Warehouse does not auto-create or auto-update statistics. Therefore, to achieve high query performance, it's important to create statistics on each column of each table after the first load. It's also important to update statistics after substantial changes in the data.
 
-Этот пример создает статистику по отдельным столбцам для новой таблицы DimDate2.
+This example creates single-column statistics on the new DimDate2 table.
 
 ```sql
 CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
@@ -246,11 +247,11 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Дополнительные сведения см. в статье [Управление статистикой в хранилище данных SQL][].
+To learn more, see [Statistics][].  
 
 
-## Дальнейшие действия
-При разработке решений на основе PolyBase будет полезно изучить [Руководство по PolyBase][].
+## <a name="next-steps"></a>Next steps
+See the [PolyBase guide][] for further information you should know as you develop a solution that uses PolyBase.
 
 <!--Image references-->
 
@@ -258,10 +259,9 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 <!--Article references-->
 [PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Управление статистикой в хранилище данных SQL]: ./sql-data-warehouse-tables-statistics.md
-[Руководство по PolyBase]: ./sql-data-warehouse-load-polybase-guide.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
 [latest version of AzCopy]: ../storage/storage-use-azcopy.md
-[последнюю версию AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -270,19 +270,23 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
-[Создание внешнего источника данных (Transact-SQL)]: https://msdn.microsoft.com/library/dn935022.aspx
-[Создание формата внешнего файла (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026.aspx
-[Создание внешней таблицы (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021.aspx
+[CREATE EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935022.aspx
+[CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026.aspx
+[CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021.aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
 
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[INSERT...SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/ms174335.aspx
-[Создание главного ключа (Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
-[Создание учетных данных для базы данных (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
+[CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
+[INSERT...SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/ms174335.aspx
+[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
+[CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/mt270260.aspx
+[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

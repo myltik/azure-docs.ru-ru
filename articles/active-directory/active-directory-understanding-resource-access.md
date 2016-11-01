@@ -3,7 +3,7 @@
     description="В этой статье рассматривается управление доступом к ресурсам на всем портале Azure с использованием администраторов подписок."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Управление вычислительными ресурсами в хранилище данных SQL Azure (портал Azure) | Microsoft Azure"
-   description="Задачи портала Azure для управления вычислительными ресурсами. Масштабирование вычислительных ресурсов путем изменения числа единиц DWU. Кроме того, можно приостанавливать и возобновлять работу вычислительных ресурсов для сокращения затрат."
+   pageTitle="Manage compute power in Azure SQL Data Warehouse (Azure portal) | Microsoft Azure"
+   description="Azure portal tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,93 +13,95 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/22/2016"
-   ms.author="barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
-# Управление вычислительными ресурсами в хранилище данных SQL Azure (портал Azure)
+
+# <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Manage compute power in Azure SQL Data Warehouse (Azure portal)
 
 > [AZURE.SELECTOR]
-- [Обзор](sql-data-warehouse-manage-compute-overview.md)
-- [Портал](sql-data-warehouse-manage-compute-portal.md)
+- [Overview](sql-data-warehouse-manage-compute-overview.md)
+- [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
 - [TSQL](sql-data-warehouse-manage-compute-tsql.md)
 
 
-Масштабирование производительности путем развертывания вычислительных ресурсов и памяти для удовлетворения меняющихся потребностей рабочих нагрузок. Снижение затрат путем свертывания ресурсов в периоды низкой загрузки или полной приостановки вычислений.
+Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
 
-Этот набор задач использует портал Azure:
+This collection of tasks uses the Azure portal to:
 
-- Масштабирование вычислительных ресурсов
-- Приостановка работы вычислительных ресурсов
-- Возобновление работы вычислительных ресурсов
+- Scale compute
+- Pause compute
+- Resume compute
 
-Чтобы узнать больше, ознакомьтесь с [управлением вычислительной мощностью][].
+For more information, see [Manage compute overview][].
 
-<a name="scale-performance-bk"></a> <a name="scale-compute-bk"></a>
+<a name="scale-performance-bk"></a>
+<a name="scale-compute-bk"></a>
 
-## Масштабирование вычислительных ресурсов
+## <a name="scale-compute-power"></a>Scale compute power
 
-[AZURE.INCLUDE [Описание единиц DWU масштабирования хранилища данных SQL](../../includes/sql-data-warehouse-scale-dwus-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Изменение вычислительных ресурсов
+To change compute resources:
 
-1. Откройте [портал Azure][], откройте нужную базу данных и щелкните **Масштаб**.
+1. Open the [Azure portal][], open your database, and click **Scale**.
 
-    ![Щелкните пункт Масштаб][1]
+    ![Click Scale][1]
 
-1. В колонке "Масштаб" передвиньте ползунок влево или вправо, чтобы изменить число единиц DWU.
+1. In the Scale blade, move the slider left or right to change the DWU setting.
 
-    ![Переместите ползунок][2]
+    ![Move Slider][2]
 
-1. Щелкните **Сохранить**. Появится сообщение с подтверждением. Щелкните **Да** для подтверждения или **Нет** для отмены.
+1. Click **Save**. A confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
-    ![Щелкните Сохранить][3]
+    ![Click Save][3]
 
 <a name="pause-compute-bk"></a>
 
-## Приостановка работы вычислительных ресурсов
+## <a name="pause-compute"></a>Pause compute
 
-[AZURE.INCLUDE [Описание приостановки работы хранилища данных SQL](../../includes/sql-data-warehouse-pause-description.md)]
+[AZURE.INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-Приостановка работы базы данных
+To pause a database:
 
-1. Откройте [портал Azure][], а затем нужную базу данных. Обратите внимание, что она находится в состоянии **В сети**.
+1. Open the [Azure portal][] and open your database. Notice that the Status is **Online**. 
 
-    ![Состояние "В сети"][6]
+    ![Online status][6]
 
-1. Чтобы приостановить работу вычислительных ресурсов и ресурсов памяти, щелкните **Приостановить**. Появится сообщение с подтверждением. Щелкните **Да** для подтверждения или **Нет** для отмены.
+1. To suspend compute and memory resources, click **Pause**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
-    ![Подтверждение приостановки][7]
+    ![Confirm pause][7]
 
-1. Во время запуска базы данных хранилищем данных SQL для нее будет отображаться состояние **Приостановка**.
-2. Когда состояние изменится на **Приостановлено**, это будет означать, что операция приостановки выполнена и плата за DWU больше не начисляется.
+1. While SQL Data Warehouse is starting the database, the status is **Pausing**.
+2. When the status is **Paused**, the pause operation is done and you are no longer being charged for DWUs.
 
-    ![Состояние "Приостановка"][4]
+    ![Pause status][4]
 
 <a name="resume-compute-bk"></a>
 
-## Возобновление работы вычислительных ресурсов
+## <a name="resume-compute"></a>Resume compute
 
-[AZURE.INCLUDE [Описание возобновления работы хранилища данных SQL](../../includes/sql-data-warehouse-resume-description.md)] Возобновление работы базы данных
+[AZURE.INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)] To resume a database:
 
-1. Откройте [портал Azure][], а затем нужную базу данных. Обратите внимание, что она находится в состоянии **Приостановлено**.
+1. Open the [Azure portal][] and open your database. Notice that the Status is **Paused**. 
 
-    ![Приостановка базы данных][4]
+    ![Pause database][4]
 
-1. Чтобы возобновить работу базы данных, щелкните **Запустить**. Появится сообщение с подтверждением. Щелкните **Да** для подтверждения или **Нет** для отмены.
+1. To resume the database click **Start**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
-    ![Подтверждение возобновления][5]
+    ![Confirm resume][5]
 
-1. Во время запуска базы данных хранилищем данных SQL для нее будет отображаться состояние "Возобновление".
-2. Когда состояние изменится на **В сети**, база данных будет готова к работе.
+1. While SQL Data Warehouse is starting the database, the status is "Resuming".
+2. When the status is **online**, the database is ready.
 
-    ![Состояние "В сети"][6]
+    ![Online status][6]
 
 <a name="next-steps-bk"></a>
 
-## Дальнейшие действия
-Дополнительные сведения см. в [обзоре средств управления][].
+## <a name="next-steps"></a>Next steps
+For more information, see [Management overview][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-manage-compute-portal/click-scale.png
@@ -111,14 +113,18 @@
 [7]: ./media/sql-data-warehouse-manage-compute-portal/pause-confirm.png
 
 <!--Article references-->
-[обзоре средств управления]: ./sql-data-warehouse-overview-manage.md
-[управлением вычислительной мощностью]: ./sql-data-warehouse-manage-compute-overview.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-[портал Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

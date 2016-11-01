@@ -3,7 +3,7 @@
     description="Эта статья содержит объяснение технических понятий службы синхронизации Azure AD Connect."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -18,7 +18,7 @@
 
 
 
-# <a name="azure-ad-connect-sync:-technical-concepts"></a>Синхронизация Azure AD Connect: технические концепции
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Синхронизация Azure AD Connect: технические концепции
 В этой статье приводится сводка раздела [Основные сведения об архитектуре](active-directory-aadconnectsync-technical-concepts.md).
 
 Служба синхронизации Azure AD Connect основана на устойчивой платформе синхронизации метакаталогов.

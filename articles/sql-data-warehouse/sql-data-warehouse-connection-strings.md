@@ -3,8 +3,8 @@
    description="Строки подключения и драйверы для хранилища данных SQL."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sonyam"
-   manager="barbkess"
+   authors="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/24/2016"
-   ms.author="sonyama;barbkess"/>
+   ms.date="10/31/2016"
+   ms.author="barbkess"/>
 
 
 
@@ -22,7 +22,7 @@
 
 К хранилищу данных SQL можно подключиться с помощью различных протоколов, таких как [ADO.NET][], [ODBC][], [PHP][] и [JDBC][]. Ниже приведены некоторые примеры строк подключения для каждого протокола.  Кроме того, для формирования строки подключения можно использовать портал Azure.  Чтобы создать строку подключения с помощью портала Azure, перейдите к колонке своей базы данных и в разделе *Основное* щелкните *Показать строки подключения к базам данных*.
 
-## <a name="sample-ado.net-connection-string"></a>Пример строки подключения по протоколу ADO.NET
+## <a name="sample-adonet-connection-string"></a>Пример строки подключения по протоколу ADO.NET
 
 ```C#
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;

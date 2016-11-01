@@ -3,7 +3,7 @@
     description="ИТ-администраторы могут автоматически и без предупреждений регистрировать устройства Windows, присоединенные к домену, с помощью Azure AD."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""/>
 
@@ -17,7 +17,7 @@
     ms.author="markvi"/>
 
 
-# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows
+# <a name="automatic-device-registration-with-azure-active-directory-for-windows-domainjoined-devices"></a>Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows
 
 ИТ-администраторы могут автоматически и без предупреждений зарегистрировать устройства Windows, присоединенные к домену, с помощью Azure Active Directory (Azure AD). Такую регистрацию удобно использовать, если вы настроили политики условного доступа на основе устройств для приложений Office 365 или приложений, которыми локально управляют службы федерации Active Directory (AD FS). Дополнительную информацию о сценариях регистрации устройств см. в разделе [Знакомство с регистрацией устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md).
 
@@ -82,7 +82,7 @@
 | enterpriseregistration.contoso.com        | CNAME | enterpriseregistration.windows.net |
 | enterpriseregistration.region.contoso.com | CNAME | enterpriseregistration.windows.net |
 
-##<a name="configure-automatic-device-registration-for-windows-7-and-windows-8.1-domain-joined-devices"></a>Настройка автоматической регистрации присоединенных к домену устройств Windows 7 и Windows 8.1
+##<a name="configure-automatic-device-registration-for-windows-7-and-windows-81-domain-joined-devices"></a>Настройка автоматической регистрации присоединенных к домену устройств Windows 7 и Windows 8.1
 
 Настройте автоматическую регистрацию для своих присоединенных к домену устройств Windows 7 и Windows 8.1, используя ссылки ниже. Прежде чем продолжить, убедитесь, что выполнены предварительные требования, указанные выше.
 

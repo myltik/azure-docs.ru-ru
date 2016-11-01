@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Распределение таблиц в хранилище данных SQL | Microsoft Azure"
-   description="Начало работы с распределением таблиц в хранилище данных SQL Azure."
+   pageTitle="Distributing tables in SQL Data Warehouse | Microsoft Azure"
+   description="Getting started with distributing tables in Azure SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,55 +13,56 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="jrj;barbkess"/>
 
-# Распределение таблиц в хранилище данных SQL
+
+# <a name="distributing-tables-in-sql-data-warehouse"></a>Distributing tables in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Обзор][]
-- [Типы данных][]
-- [Распределение][]
-- [Индекс][]
-- [Секция][]
-- [Статистика][]
-- [Временные таблицы][]
+- [Overview][]
+- [Data Types][]
+- [Distribute][]
+- [Index][]
+- [Partition][]
+- [Statistics][]
+- [Temporary][]
 
-Хранилище данных SQL является распределенной системой баз данных с массовой параллельной обработкой (MPP). Распределяя данные и возможности обработки между несколькими узлами, хранилище данных SQL может предложить огромную масштабируемость — намного больше любой единой системы. Выбор метода распределения данных в хранилище данных SQL — один из наиболее важных факторов достижения оптимальной производительности. Для достижения оптимальной производительности требуется минимизировать перемещение данных. В свою очередь, для последнего необходимо выбрать подходящий метод распределения.
+SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  By dividing data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Deciding how to distribute your data within your SQL Data Warehouse is one of the most important factors to achieving optimal performance.   The key to optimal performance is minimizing data movement and in turn the key to minimizing data movement is selecting the right distribution strategy.
 
-## Основные сведения о перемещении данных
+## <a name="understanding-data-movement"></a>Understanding data movement
 
-В системе MPP данные из каждой таблицы разделяются между несколькими основными базами данных. Наиболее эффективно запросы в системе MPP выполняются в отдельных распределенных базах данных, которые не взаимодействуют с другими базами данных. Например, предположим, что у вас есть база данных с данными о продажах, содержащая две таблицы: "Продажи" и "Клиенты". Если необходимо выполнить запрос на соединение таблиц "Продажи" и "Клиенты", одновременно разделив их по номеру клиента и поместив каждого в отдельную базу данных, этот запрос будет выполняться отдельно в каждой базе данных. При этом в них не будет сведений о других базах данных. В то же время, если разделить данные о продажах по номеру заказа, а данные о клиентах по номеру клиента, то любая база данных не будет содержать соответствующие данные о клиенте. Следовательно, чтобы объединить данные о продажах и данные о клиентах, необходимо получить данные о каждом клиенте из других баз данных. Во втором примере для объединения данных о продажах и данных о клиентах, а в результате и самих таблиц, в которых они находятся, требуется выполнить перемещение данных.
+In an MPP system, the data from each table is divided across several underlying databases.  The most optimized queries on an MPP system can simply be passed through to execute on the individual distributed databases with no interaction between the other databases.  For example, let's say you have a database with sales data which contains two tables, sales and customers.  If you have a query that needs to join your sales table to your customer table and you divide both your sales and customer tables up by customer number, putting each customer in a separate database, any queries which join sales and customer can be solved within each database with no knowledge of the other databases.  In contrast, if you divided your sales data by order number and your customer data by customer number, then any given database will not have the corresponding data for each customer and thus if you wanted to join your sales data to your customer data, you would need to get the data for each customer from the other databases.  In this second example, data movement would need to occur to move the customer data to the sales data, so that the two tables can be joined.  
 
-Перемещение данных — не всегда отрицательный момент. Иногда этот процесс требуется для выполнения запроса. Но избежав его, запрос будет выполняться быстрее. Перемещение данных в основном происходит при объединении или группировании таблиц. Очень часто требуется выполнить и то, и другое. Вы можете избежать перемещения данных для оптимизации одного сценария (например, соединения), но оно может понадобиться для выполнения другого действия (например, группирования). Нужно понять, какой процесс требует меньше ресурсов и времени. В большинстве случаев один из самых эффективных методов минимизации перемещения данных заключается в распределении больших таблиц фактов по столбцу соединения. Чаще всего распределение данных по столбцам соединения является более эффективным методом минимизации перемещения данных, чем распределение их по столбцам, задействованным в группировании.
+Data movement isn't always a bad thing, sometimes it's necessary to solve a query.  But when this extra step can be avoided, naturally your query will run faster.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Often you need to do both, so while you may be able to optimize for one scenario, like a join, you still need data movement to help you solve for the other scenario, like an aggregation.  The trick is figuring out which is less work.  In most cases, distributing large fact tables on a commonly joined column is the most effective method for reducing the most data movement.  Distributing data on join columns is a much more common method to reduce data movement than distributing data on columns involved in an aggregation.
 
-## Выбор метода распределения
+## <a name="select-distribution-method"></a>Select distribution method
 
-Хранилище данных SQL по умолчанию разделяет данные по 60 базам данных. Каждая отдельная база данных называется **распределением**. После загрузки данных в каждую таблицу в хранилище данных SQL необходимо определить метод разделения данных по этим 60 распределениям.
+Behind the scenes, SQL Data Warehouse divides your data into 60 databases.  Each individual database is referred to as a **distribution**.  When data is loaded into each table, SQL Data Warehouse has to know how to divide your data across these 60 distributions.  
 
-Метод распределения определяется на уровне таблицы. В настоящее время таких методов два:
+The distribution method is defined at the table level and currently there are two choices:
 
-1. **Метод циклического перебора** — данные распределяются равномерно, но случайным образом.
-2. **Хэш-распределение** — данные распределяются на основе хэширования значений одного столбца.
+1. **Round robin** which distribute data evenly but randomly.
+2. **Hash Distributed** which distributes data based on hashing values from a single column
 
-Если метод распределения данных не выбран, по умолчанию для таблицы используется метод **циклического перебора**. Однако когда вы усовершенствуете навыки работы с хранилищем данных, вы сможете минимизировать перемещение данных для оптимизации производительности запросов, используя **хэш-распределение** таблиц.
+By default, when you do not define a data distribution method, your table will be distributed using the **round robin** distribution method.  However, as you become more sophisticated in your implementation, you will want to consider using **hash distributed** tables to minimize data movement which will in turn optimize query performance.
 
-### Таблицы, распределенные по методу циклического перебора
+### <a name="round-robin-tables"></a>Round Robin Tables
 
-Таблицы, распределенные по методу циклического перебора, соответствуют своему названию. После загрузки данных каждая строка отправляется в следующее распределение. При применении циклического перебора данные всегда равномерно распределяются между всеми распределениями случайным образом. Это значит, что данные, распределенные по этому методу, не сортируются. По этой причине циклическое распределение иногда называют случайным хэшем. При использовании таблицы с распределением по методу циклического перебора не нужно анализировать используемые данные. По этой причине такие таблицы часто удобно использовать для загрузки.
+Using the Round Robin method of distributing data is very much how it sounds.  As your data is loaded, each row is simply sent to the next distribution.  This method of distributing the data will always randomly distribute the data very evenly across all of the distributions.  That is, there is no sorting done during the round robin process which places your data.  A round robin distribution is sometimes called a random hash for this reason.  With a round-robin distributed table there is no need to understand the data.  For this reason, Round-Robin tables often make good loading targets.
 
-Если метод распределения данных не выбран, по умолчанию используется метод циклического перебора. Таблицы с распределением по методу циклического перебора удобно использовать, так как данные распределяются по системе случайным образом. Однако система не может гарантировать, в каком распределении будет находиться каждая строка. Таким образом, чтобы упорядочить данные перед разрешением запроса, системе иногда требуется вызывать операции перемещения данных. Это дополнительное действие может повлиять на производительность запросов.
+By default, if no distribution method is chosen, the round robin distribution method will be used.  However, while round robin tables are easy to use, because data is randomly distributed across the system it means that the system can't guarantee which distribution each row is on.  As a result, the system sometimes needs to invoke a data movement operation to better organize your data before it can resolve a query.  This extra step can slow down your queries.
 
-Рассмотрите возможность использования циклического распределения для таблицы в следующих сценариях:
+Consider using Round Robin distribution for your table in the following scenarios:
 
-- если это простая отправная точка для начала работы;
-- если отсутствует очевидный ключ соединения;
-- если отсутствует подходящий для хэш-распределения таблицы столбец;
-- если таблица не использует общий ключ соединения с другими таблицами;
-- Если соединение менее важно, чем других соединения в запросе.
-- если таблица является временной.
+- When getting started as a simple starting point
+- If there is no obvious joining key
+- If there is not good candidate column for hash distributing the table
+- If the table does not share a common join key with other tables
+- If the join is less significant than other joins in the query
+- When the table is a temporary staging table
 
-Ниже приведены два примера, которые позволяют создать таблицу с распределением по методу циклического перебора.
+Both of these examples will create a Round Robin Table:
 
 ```SQL
 -- Round Robin created by default
@@ -95,13 +96,13 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE] Хотя циклический перебор используется по умолчанию, предпочтительно, чтобы тип таблицы был явно указан в DDL. Таким образом, все будут видеть предназначение макета таблицы.
+> [AZURE.NOTE] While round robin is the default table type being explicit in your DDL is considered a best practice so that the intentions of your table layout are clear to others.
 
-### Распределяемые по хэшу таблицы
+### <a name="hash-distributed-tables"></a>Hash Distributed Tables
 
-Использование **хэш-алгоритма** для распределения данных в таблицах позволяет повысить производительность во многих сценариях благодаря снижению перемещения данных во время выполнения запроса. Распределяемые по хэшу таблицы разделяются между распределенными базами данных с помощью хэш-алгоритма по одному выбранному столбцу. Столбец распределения определят метод разделения данных по распределенным базам данных. Этот столбец используется в хэш-функции для назначения строк распределениям. Алгоритм хэширования и итоговое распределение являются детерминированными. Это значит, что одинаковое значение с тем же типом данных всегда определяется в одно распределение.
+Using a **Hash distributed** algorithm to distribute your tables can improve performance for many scenarios by reducing data movement at query time.  Hash distributed tables are tables which are divided between the distributed databases using a hashing algorithm on a single column which you select.  The distribution column is what determines how the data is divided across your distributed databases.  The hash function uses the distribution column to assign rows to distributions.  The hashing algorithm and resulting distribution is deterministic.  That is the same value with the same data type will always has to the same distribution.    
 
-Ниже приведен пример создания таблицы, распределенной по идентификаторам.
+This example will create a table distributed on id:
 
 ```SQL
 CREATE TABLE [dbo].[FactInternetSales]
@@ -121,69 +122,69 @@ WITH
 ;
 ```
 
-## Выбор столбца распределения
+## <a name="select-distribution-column"></a>Select distribution column
 
-При выборе **хэш-распределения** таблицы также необходимо выбрать один столбец распределения. При этом необходимо учитывать три основных фактора.
+When you choose to **hash distribute** a table, you will need to select a single distribution column.  When selecting a distribution column, there are three major factors to consider.  
 
-Столбец должен соответствовать следующим критериям.
+Select a single column which will:
 
-1. Он должен быть необновляемым.
-2. Он должен распределять данные равномерно, предотвращая их смещение.
-3. Минимизация перемещения данных
+1. Not be updated
+2. Distribute data evenly, avoiding data skew
+3. Minimize data movement
 
-### Выбор необновляемого столбца распределения
+### <a name="select-distribution-column-which-will-not-be-updated"></a>Select distribution column which will not be updated
 
-Столбцы распределения являются необновляемыми. Поэтому для этой роли необходимо выбрать столбец со статическими значениями. Если столбец требует обновления, он не подходит для этой роли. Чтобы обновить столбец распределения, сначала необходимо удалить строку, а затем добавить новую.
+Distribution columns are not updatable, therefore, select a column with static values.  If a column will need to be updated, it is generally not a good distribution candidate.  If there is a case where you must update a distribution column, this can be done by first deleting the row and then inserting a new row.
 
-### Выбор столбца распределения, который распределяет данные равномерно
+### <a name="select-distribution-column-which-will-distribute-data-evenly"></a>Select distribution column which will distribute data evenly
 
-Распределенная система выполняет запросы так же быстро, как и самое медленное распределение, поэтому важно разделить работу между распределениями равномерно. Так вы сможете обеспечить сбалансированное выполнение запросов в системе. Метод разделения работы в распределенной системе зависит от расположения данных каждого распределения. Поэтому для распределения данных очень важно выбрать подходящий столбец распределения. Так работа будет равномерно разделяться между распределениями и выполняться за одинаковый промежуток времени. Когда работа эффективно разделена по всей системе, то данные равномерно размещены в распределениях. Если данные распределены неравномерно, это называется **неравномерным распределением данных**.
+Since a distributed system performs only as fast as its slowest distribution, it is important to divide the work evenly across the distributions in order to achieve balanced execution across the system.  The way the work is divided on a distributed system is based on where the data for each distribution lives.  This makes it very important to select the right distribution column for distributing the data so that each distribution has equal work and will take the same time to complete its portion of the work.  When work is well divided across the system, the data is balanced across the distributions.  When data is not evenly balanced, we call this **data skew**.  
 
-Чтобы равномерно разделить данные и избежать их смещения, при выборе столбца распределения учтите следующие моменты.
+To divide data evenly and avoid data skew, consider the following when selecting your distribution column:
 
-1. Выберите столбец, содержащий значительное количество различных значений.
-2. Избегайте распределения данных по столбцам, содержащим несколько различных значений.
-3. Избегайте распределения данных по столбцам с высоким коэффициентом содержания значений NULL.
-4. Не распределяйте данные по столбцам с датами.
+1. Select a column which contains a significant number of distinct values.
+2. Avoid distributing data on columns with a few distinct values. 
+3. Avoid distributing data on columns with a high frequency of nulls.
+4. Avoid distributing data on date columns.
 
-Так как каждое значение хэшируется в 1 из 60 распределений, для равномерного распределения необходимо выбрать исключительно уникальный столбец, содержащий больше 60 уникальных значений. В качестве примера рассмотрим случай, когда столбец содержит только 40 уникальных значений. Если этот столбец выбран в качестве ключа распределения, то данные этой таблицы будут распределяться только по 40 распределениям. 20 распределений останутся без данных, а значит, не будут выполнять обработку. И наоборот, 40 распределений будут обрабатывать большее количество данных, чем если бы данные были равномерно распределены по 60 распределениям. Этот сценарий является примером неравномерного распределения данных.
+Since each value is hashed to 1 of 60 distributions, to achieve even distribution you will want to select a column that is highly unique and contains more than 60 unique values.  To illustrate, consider a case where a column only has 40 unique values.  If this column was selected as the distribution key, the data for that table would land on 40 distributions at most, leaving 20 distributions with no data and no processing to do.  Conversely, the other 40 distributions would have more work to do that if the data was evenly spread over 60 distributions.  This scenario is an example of data skew.
 
-В системе MPP каждый этап запроса ожидает, пока все распределения не выполнят свою часть работы. Если одно распределение выполняет больше работы, чем остальные, то ресурсы остальных распределений фактически простаивают впустую, ожидая, пока занятое распределение завершит обработку. Если работа неравномерно разделена между всеми распределениями, это называется **неравномерным распределением обработки**. При неравномерном распределении обработки запросы выполняются медленнее, чем при равномерном разделении рабочей нагрузки между распределениями. Неравномерное распределение данных приведет к неравномерному распределению обработки.
+In MPP system, each query step waits for all distributions to complete their share of the work.  If one distribution is doing more work than the others, then the resource of the other distributions are essentially wasted just waiting on the busy distribution.  When work is not evenly spread across all distributions, we call this **processing skew**.  Processing skew will cause queries to run slower than if the workload can be evenly spread across the distributions.  Data skew will lead to processing skew.
 
-Избегайте распределения по столбцам с высоким коэффициентом содержания значений NULL, так как значения NULL попадут в одно и то же распределение. Распределение по столбцу даты также может привести к неравномерному распределению обработки, так как все данные для конкретной даты попадут в одно распределение. Если несколько пользователей будут выполнять запросы с фильтром по одной и той же дате, то всю работу будет выполнять только 1 распределение из 60, так как для этой даты будет доступно только одно распределение. Скорее всего, в этом случае запросы будут выполняться в 60 раз медленнее, чем если бы данные были равномерно разделены между всеми распределениями.
+Avoid distributing on highly nullable column as the null values will all land on the same distribution. Distributing on a date column can also cause processing skew because all data for a given date will land on the same distribution. If several users are executing queries all filtering on the same date, then only 1 of the 60 distributions will be doing all of the work since a given date will only be on one distribution. In this scenario, the queries will likely run 60 times slower than if the data were equally spread over all of the distributions. 
 
-Если ни один столбец не подходит, рекомендуется использовать метод циклического перебора.
+When no good candidate columns exist, then consider using round robin as the distribution method.
 
-### Выбор столбца распределения, который минимизирует перемещение данных
+### <a name="select-distribution-column-which-will-minimize-data-movement"></a>Select distribution column which will minimize data movement
 
-Минимизация перемещения данных за счет выбора подходящего столбца распределения — одна из самых важных стратегий оптимизации производительности хранилища данных SQL. Перемещение данных в основном происходит при объединении или группировании таблиц. Все столбцы, используемые в предложениях `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` и `HAVING`, **могут** становиться столбцами хэш-распределения.
+Minimizing data movement by selecting the right distribution column is one of the most important strategies for optimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Columns used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` and `HAVING` clauses all make for **good** hash distribution candidates. 
 
-С другой стороны, в качестве столбца хэш-распределения **не** рекомендуется применять столбцы, используемые в предложении `WHERE`, так как они ограничивают распределения, участвующие в запросе, что приводит к неравномерному распределению обработки. Хорошим примером столбца, который может казаться удачным выбором для распределения, но часто может приводить к неравномерному распределению обработки, является столбец даты.
+On the other hand, columns in the `WHERE` clause do **not** make for good hash column candidates because they limit which distributions participate in the query, causing processing skew.  A good example of a column which might be tempting to distribute on, but often can cause this processing skew is a date column.
 
-В общем, при наличии двух больших таблиц фактов, часто используемых в соединениях, оптимальная производительность достигается путем распределения обеих таблиц по одному из столбцов соединения. При наличии таблицы, которая никогда не присоединялась к другой большой таблице фактов, рекомендуется использовать столбцы из предложения `GROUP BY`.
+Generally speaking, if you have two large fact tables frequently involved in a join, you will gain the most performance by distributing both tables on one of the join columns.  If you have a table that is never joined to another large fact table, then look to columns that are frequently in the `GROUP BY` clause.
 
-Существует несколько моментов, на которые следует обратить внимание, чтобы избежать перемещения данных во время операции соединения.
+There are a few key criteria which must be met to avoid data movement during a join:
 
-1. Таблицы, входящие в соединение, должны быть распределены по методу хэш-распределения по **одному** из столбцов соединения.
-2. Типы данных столбцов соединения в обеих таблицах должны совпадать.
-3. Объединение столбцов необходимо выполнять с помощью оператора equals.
-4. Типом соединения не может быть `CROSS JOIN`.
+1. The tables involved in the join must be hash distributed on **one** of the columns participating in the join.
+2. The data types of the join columns must match between both tables.
+3. The columns must be joined with an equals operator.
+4. The join type may not be a `CROSS JOIN`.
 
 
-## Устранение смещения данных
+## <a name="troubleshooting-data-skew"></a>Troubleshooting data skew
 
-Если данные таблицы распределяются путем хэш-распределения, существует вероятность, что распределение будет неравномерным, т. е. в некоторых местах будет непропорционально больше данных. Чрезмерное смещение данных может повлиять на производительность запроса, так как выполнение распределенного запроса завершится только после длительного процесса распределения. В таком случае необходимо предпринять меры по устранению проблемы.
+When table data is distributed using the hash distribution method there is a chance that some distributions will be skewed to have disproportionately more data than others. Excessive data skew can impact query performance because the final result of a distributed query must wait for the longest running distribution to finish. Depending on the degree of the data skew you might need to address it.
 
-### Определение смещения данных
+### <a name="identifying-skew"></a>Identifying skew
 
-Для выявления неравномерного распределения в таблице можно воспользоваться `DBCC PDW_SHOWSPACEUSED`. Это позволяет легко и быстро увидеть, сколько строк таблицы хранится в каждом из 60 распределений базы данных. Помните, что для максимально сбалансированной производительности строки в распределенной таблице должны размещаться равномерно по всем распределениям.
+A simple way to identify a table as skewed is to use `DBCC PDW_SHOWSPACEUSED`.  This is a very quick and simple way to see the number of table rows that are stored in each of the 60 distributions of your database.  Remember that for the most balanced performance, the rows in your distributed table should be spread evenly across all the distributions.
 
 ```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Более глубокий анализ можно выполнить с помощью динамических административных представлений (DMV) хранилища данных SQL Azure. Для начала создайте представление [dbo.vTableSizes][], используя хранилище данных SQL, описанное в статье [Общие сведения о таблицах в хранилище данных SQL][Overview]. После этого выполните этот запрос, чтобы определить таблицы со смещением данных с показателем более 10 %.
+However, if you query the Azure SQL Data Warehouse dynamic management views (DMV) you can perform a more detailed analysis.  To start, create the view [dbo.vTableSizes][] view using the SQL from [Table Overview][Overview] article.  Once the view is created, run this query to identify which tables have more than 10% data skew.
 
 ```sql
 select *
@@ -195,22 +196,22 @@ where two_part_name in
     where row_count > 0
     group by two_part_name
     having min(row_count * 1.000)/max(row_count * 1.000) > .10
-	)
+    )
 order by two_part_name, row_count
 ;
 ```
 
-### Устранение неравномерности данных
+### <a name="resolving-data-skew"></a>Resolving data skew
 
-Не все смещения нужно исправлять. В некоторых случаях производительность таблицы при выполнении некоторых запросов может компенсировать вред, нанесенный в результате смещения. Чтобы решить, следует ли устранять смещение данных в таблице, нужно узнать как можно больше об объемах данных и запросах в рамках рабочей нагрузки. Чтобы определить последствия неравномерного распределения, можно воспользоваться действиями, описанными в статье [Мониторинг рабочей нагрузки с помощью динамических административных представлений][]. Они позволяют определить влияние неравномерного распределения на производительность запросов, а именно на время выполнения запросов в определенных распределениях.
+Not all skew is enough to warrant a fix.  In some cases, the performance of a table in some queries can outweigh the harm of data skew.  To decide if you should resolve data skew in a table, you should understand as much as possible about the data volumes and queries in your workload.   One way to look at the impact of skew is to use the steps in the [Query Monitoring][] article to monitor the impact of skew on query performance and specifically the impact to how long queries take to complete on the individual distributions.
 
-В основе распределения данных лежит поиск баланса между уменьшением степени смещения и перемещения данных. Это могут быть противоположные цели, и иногда нужно сохранить смещение данных, чтобы уменьшить степень их перемещения. Например, если столбец распределения используется и для соединения, и для объединения, степень перемещения данных уменьшится. Преимущество минимального перемещения данных может компенсировать последствия смещения данных.
+Distributing data is a matter of finding the right balance between minimizing data skew and minimizing data movement. These can be opposing goals, and sometimes you will want to keep data skew in order to reduce data movement. For example, when the distribution column is frequently the shared column in joins and aggregations, you will be minimizing data movement. The benefit of having the minimal data movement might outweigh the impact of having data skew. 
 
-Стандартный способ устранения смещения данных — повторно создать таблицу с другим столбцом распределения. Столбец распределения в имеющейся таблице изменить невозможно. Поэтому для изменения распределения таблицы необходимо создать ее повторно с помощью инструкции [CTAS][]. Смещение данных можно устранить двумя способами.
+The typical way to resolve data skew is to re-create the table with a different distribution column. Since there is no way to change the distribution column on an existing table, the way to change the distribution of a table it to recreate it with a [CTAS][].  Here are two examples of how resolve data skew:
 
-### Способ 1. Повторное создание таблицы с новым столбцом распределения
+### <a name="example-1-recreate-the-table-with-a-new-distribution-column"></a>Example 1: Re-create the table with a new distribution column
 
-В примере ниже для повторного создания таблицы с другим столбцом хэш-распределения используется инструкция [CTAS][].
+This example uses [CTAS][] to re-create a table with a different hash distribution column. 
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey] 
@@ -248,9 +249,9 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
 RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 ```
 
-### Способ 2. Повторное создание таблицы с распределением по принципу циклического перебора
+### <a name="example-2-recreate-the-table-using-round-robin-distribution"></a>Example 2: Re-create the table using round robin distribution
 
-В примере ниже для повторного создания таблицы, распределенной по методу циклического перебора, вместо хэш-распределения используется инструкция [CTAS][]. В результате применения такого сценария вы получите равномерное распределение данных. Однако это приводит к увеличению их перемещения.
+This example uses [CTAS][] to re-create a table with round robin instead of a hash distribution. This change will produce even data distribution at the cost of increased data movement. 
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_ROUND_ROBIN] 
@@ -288,32 +289,25 @@ RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];
 RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 ```
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Дополнительные сведения о проектировании таблиц см. в статьях, посвященных [распределению][], [индексированию][] и [секционированию таблиц][], а также [типам данных][], [управлению статистикой][] и [временным таблицам][Temporary].
+To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary Tables][Temporary] articles.
 
-Рекомендации см. в статье [Рекомендации по использованию хранилища данных SQL Azure][].
+For an overview of best practices, see [SQL Data Warehouse Best Practices][].
 
 
 <!--Image references-->
 
 <!--Article references-->
 [Overview]: ./sql-data-warehouse-tables-overview.md
-[Обзор]: ./sql-data-warehouse-tables-overview.md
-[Типы данных]: ./sql-data-warehouse-tables-data-types.md
-[типам данных]: ./sql-data-warehouse-tables-data-types.md
-[Распределение]: ./sql-data-warehouse-tables-distribute.md
-[распределению]: ./sql-data-warehouse-tables-distribute.md
-[Индекс]: ./sql-data-warehouse-tables-index.md
-[индексированию]: ./sql-data-warehouse-tables-index.md
-[Секция]: ./sql-data-warehouse-tables-partition.md
-[секционированию таблиц]: ./sql-data-warehouse-tables-partition.md
-[Статистика]: ./sql-data-warehouse-tables-statistics.md
-[управлению статистикой]: ./sql-data-warehouse-tables-statistics.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
+[Partition]: ./sql-data-warehouse-tables-partition.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 [Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Временные таблицы]: ./sql-data-warehouse-tables-temporary.md
-[Рекомендации по использованию хранилища данных SQL Azure]: ./sql-data-warehouse-best-practices.md
-[Мониторинг рабочей нагрузки с помощью динамических административных представлений]: ./sql-data-warehouse-manage-monitor.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Query Monitoring]: ./sql-data-warehouse-manage-monitor.md
 [dbo.vTableSizes]: ./sql-data-warehouse-tables-overview.md#querying-table-sizes
 
 <!--MSDN references-->
@@ -321,4 +315,8 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

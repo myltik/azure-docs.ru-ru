@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     keywords="настройка Microsoft Passport, развертывание Microsoft Windows Hello для бизнеса"
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     editor=""
     tags="azure-classic-portal"/>

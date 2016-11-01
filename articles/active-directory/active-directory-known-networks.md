@@ -3,7 +3,7 @@
     description="Настроив известные сети, вы избавитесь от ситуации, при которой IP-адреса вашей организации попадают в отчеты "Операции входа из нескольких географических регионов" и "Операции входа с IP-адресов с подозрительными действиями"." 
     services="active-directory" 
     documentationCenter="" 
-    authors="markusvi" 
+    authors="MarkusVi" 
     manager="femila"  
     editor=""/>
 
@@ -33,7 +33,7 @@
 Чтобы в таких случаях не создавались ложные отчеты системы безопасности, следует добавить известные диапазоны IP-адресов в список общедоступных IP-адресов вашей организации.    
 
 
-###<a name="to-add-your-organization’s-public-ip-address-ranges,-perform-the-following-steps:"></a>Чтобы добавить диапазоны IP-адресов в список общедоступных IP-адресов вашей организации, выполните следующие действия. 
+###<a name="to-add-your-organizations-public-ip-address-ranges-perform-the-following-steps"></a>Чтобы добавить диапазоны IP-адресов в список общедоступных IP-адресов вашей организации, выполните следующие действия. 
 
 1.  Войдите в [портал управления Azure](https://manage.windowsazure.com).
 

@@ -3,7 +3,7 @@
     description="Вы можете запускать доменные службы Active Directory (AD DS) или службы федерации Active Directory (AD FS) Windows Server в виртуальных машинах Azure."
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="MarkusVi"
     manager="femila"
     tags="azure-classic-portal"/>
 

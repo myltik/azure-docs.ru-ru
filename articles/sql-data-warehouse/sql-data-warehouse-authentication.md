@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="byham"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""
    tags=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/24/2016"
-   ms.author="rickbyh;barbkess;sonyama"/>
+   ms.author="rickbyh;barbkess"/>
 
 
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Аутентификация в хранилище данных SQL Azure
@@ -46,7 +46,7 @@
 
 > [AZURE.NOTE] Использование инструкции Transact-SQL **USE MyDatabase;** для изменения базы данных, к которой осуществляется подключение, не поддерживается. Инструкции по подключению к хранилищу данных SQL с помощью SSDT см. в статье [Запросы к хранилищу данных SQL Azure (Visual Studio)][].
 
-## <a name="azure-active-directory-(aad)-authentication"></a>Аутентификация Azure Active Directory (AAD)
+## <a name="azure-active-directory-aad-authentication"></a>Аутентификация Azure Active Directory (AAD)
 
 [Проверка подлинности Azure Active Directory]([Что такое Microsoft Azure Active Directory]) — это механизм подключения к хранилищу данных SQL Microsoft Azure с помощью удостоверений в Azure Active Directory (Azure AD). С помощью аутентификации Azure Active Directory можно централизованно управлять удостоверениями пользователей базы данных и другими службами Майкрософт. Централизованное управление удостоверениями позволяет использовать единое расположение для управления пользователями хранилища данных SQL и упрощает управление разрешениями. 
 
