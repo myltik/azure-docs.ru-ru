@@ -53,9 +53,9 @@
 
 6.  Получатель переходит по ссылке и следует инструкциям, в том числе вводит свои данные для оплаты.
 
-    ![Первая страница процесса передачи подписки](./media/billing-subscription-transfer/image4.png)
+    ![Первая страница процесса передачи подписки](./media/billing-subscription-transfer/image4.PNG)
 
-    ![Вторая страница процесса передачи подписки](./media/billing-subscription-transfer/image5.png)
+    ![Вторая страница процесса передачи подписки](./media/billing-subscription-transfer/image5.PNG)
 
 7. Готово! Теперь подписка передана.
 
@@ -135,6 +135,6 @@
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

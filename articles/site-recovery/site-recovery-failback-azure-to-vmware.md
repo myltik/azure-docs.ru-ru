@@ -39,7 +39,7 @@
 
 Используйте эту архитектуру, когда сервер обработки находится в Azure и у вас VPN-подключение или подключение ExpressRoute.
 
-![Схема архитектуры для VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
+![Схема архитектуры для VPN](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.PNG)
 
 Чтобы просмотреть полный список портов и схему архитектуры восстановления, обратитесь к рисунку ниже.
 
