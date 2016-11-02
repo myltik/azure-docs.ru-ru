@@ -1,58 +1,63 @@
 <properties
-	pageTitle="Выделенные группы в Azure Active Directory | Microsoft Azure"
-	description="Обзор работы выделенных групп в Azure Active Directory и способов их создания."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""
-	/>
+    pageTitle="Dedicated groups in Azure Active Directory | Microsoft Azure"
+    description="Overview of how dedicated groups work in Azure Active Directory and how they are created."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""
+    />
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="curtand"/>
-
-# Выделенные группы в Azure Active Directory
-
-В Azure Active Directory (Azure AD) функция выделенных групп автоматически создает и заполняет предварительно определенные группы Azure AD. Нельзя добавлять или удалять участников выделенных групп с помощью классического портала Azure, командлетов Windows PowerShell или программно.
-
->[AZURE.NOTE] Выделенные группы требуют назначения лицензии Azure AD Premium:
->- администратору, который управляет правилом в группе;
->- всем пользователям, которых правило выбрало в качестве участников группы.
-
-**Включение выделенных групп**
-
-1. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Active Directory**, а затем откройте каталог своей организации.
-
-2. Откройте вкладку **Группы**, а затем группу, которую нужно изменить.
-
-3. Выберите вкладку **Настройка**, а затем для параметра **Включить выделенные группы** выберите значение **Да**.
-
-После включения выделенных групп, т. е. установки значения **Да**, можно дополнительно включить автоматическое создание выделенной группы «Все пользователи» в каталоге, задав для параметра **Включить группу «Все пользователи»** значение **Да**. Затем можно также изменить имя этой выделенной группы, введя его в поле **Отображаемое имя для группы «Все пользователи»**.
-
-Группу "Все пользователи" можно использовать для назначения одинаковых разрешений всем пользователям в каталоге. Например, можно предоставить всем пользователям в каталоге доступ к приложению SaaS, назначив выделенной группе «Все пользователи» доступ к этому приложению.
-
-Выделенная группа "Все пользователи" включает в себя всех пользователей в каталоге, в том числе гостей и внешних пользователей. Если требуется группа без внешних пользователей, вы можете создать группу с помощью динамического правила на основе атрибутов, например:
-
-				(user.userPrincipalName -notContains "#EXT#@")
-
-Для группы, не включающей в себя гостей, используйте такое правило:
-
-				(user.userType -ne "Guest")
-
-Сведения о том, как создавать *более сложные* правила (то есть правила, которые содержат несколько сравнений), регулирующие членство в динамических группах, см. в статье [Использование атрибутов для создания расширенных правил](active-directory-accessmanagement-groups-with-advanced-rules.md).
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2016"
+    ms.author="curtand"/>
 
 
-В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
+# <a name="dedicated-groups-in-azure-active-directory"></a>Dedicated groups in Azure Active Directory
 
-* [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
-* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-* [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
-* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+In Azure Active Directory (Azure AD), the dedicated groups feature automatically creates and populates membership for Azure AD predefined groups. Members of dedicated groups cannot be added or removed using the Azure classic portal, Windows PowerShell cmdlets, or programmatically.
 
-<!---HONumber=AcomDC_0817_2016-->
+>[AZURE.NOTE] Dedicated groups require that an Azure AD Premium license is assigned to
+>- the administrator who manages the rule on a group
+>- all users who are selected by the rule to be a member of the group
+
+**To enable dedicated groups**
+
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory**, and then open your organization’s directory.
+
+2. Select the **Groups** tab, and then open the group you want to edit.
+
+3. Select the **Configure** tab, and then set **Enable Dedicated Groups** to **Yes**.
+
+Once the Enable Dedicated Groups switch is set to **Yes**, you can further enable the directory to automatically create the All Users dedicated group by setting the **Enable “All Users” Group** switch to **Yes**. You can then also edit the name of this dedicated group by typing it in the **Display Name for “All Users” Group** field.
+
+The All Users group can be used to assign the same permissions to all the users in your directory. For example, you can grant all users in your directory access to a SaaS application by assigning access for the All Users dedicated group to this application.
+
+The dedicated All Users group includes all users in the directory, including guests and external users. If you need a group that excludes external users, then you can accomplish this by creating a group with an attribute-based dynamic rule such as the following:
+
+                (user.userPrincipalName -notContains "#EXT#@")
+
+For a group that excludes all Guests, use a rule such as the following:
+
+                (user.userType -ne "Guest")
+
+To learn about how to create *advanced* rules (rules that can contain multiple comparisons) for dynamic group membership, see [Using attributes to create advanced rules](active-directory-accessmanagement-groups-with-advanced-rules.md).
+
+
+These articles provide additional information on Azure Active Directory.
+
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [What is Azure Active Directory?](active-directory-whatis.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

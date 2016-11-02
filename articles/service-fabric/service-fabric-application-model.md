@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Модель приложений Service Fabric | Microsoft Azure"
-   description="Описание моделирования и описания приложений и служб в Service Fabric."
+   pageTitle="Service Fabric application model | Microsoft Azure"
+   description="How to model and describe applications and services in Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -13,43 +13,43 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/10/2016"   
+   ms.date="10/29/2016"   
    ms.author="seanmck"/>
 
-# Моделирование приложения в структуре службы
 
-Эта статья содержит обзор модели приложения Azure Service Fabric, а также описание того, как определить приложение и службу через файлы манифеста, выполнить создание пакета приложения и подготовку к развертыванию.
+# <a name="model-an-application-in-service-fabric"></a>Model an application in Service Fabric
 
-## Сведения о модели приложения
+This article provides an overview of the Azure Service Fabric application model. It also describes how to define an application and service via manifest files and get the application packaged and ready for deployment.
 
-Приложение представляет собой коллекцию составляющих его служб, которые выполняют определенные функции. Служба выполняет завершенную и отдельную функцию (она может запускаться и работать независимо от других служб) и состоит из кода, конфигурации и данных. Для каждой службы код состоит из исполняемых двоичных файлов, конфигурация состоит из параметров службы, которые могут быть загружены во время выполнения, а данные состоят из произвольных статических данных, которые должны обрабатываться рассматриваемой службой. Каждый компонент в этой иерархической модели приложения может иметь свою версию и обновляться независимо.
+## <a name="understand-the-application-model"></a>Understand the application model
 
-![Модель приложения Service Fabric][appmodel-diagram]
+An application is a collection of constituent services that perform a certain function or functions. A service performs a complete and standalone function (it can start and run independently of other services) and is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service. Each component in this hierarchical application model can be versioned and upgraded independently.
 
-
-Тип приложения представляет собой отнесение приложения к определенной категории и состоит из пакета типов служб. Тип службы представляет собой отнесение службы к определенной категории, которая может обладать различными параметрами и конфигурациями, однако ее основная функция не изменяется. Экземпляры службы представляют собой различные вариации конфигурации служб, принадлежащих к одному типу.
-
-Классы (или типы) приложений и служб описываются с помощью XML-файлов (манифесты приложений и манифесты служб), которые представляют собой шаблоны, по которым создаются экземпляры приложений из хранилища образов кластера. 
-Определение схемы для файла ServiceManifest.xml и ApplicationManifest.xml устанавливается с пакетом SDK и средствами для Service Fabric по адресу *C:\\Program Files\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
-
-Код для различных экземпляров приложений будет выполняться как отдельные процессы, даже если они размещены на одном узле структуры службы. Кроме того, возможно независимое управление жизненным циклом (например, обновление) каждого экземпляра приложения. На следующей диаграмме показано, что типы приложений состоят из типов служб, которые, в свою очередь, состоят из кода, конфигурации и пакетов. Чтобы упростить схему, показаны только пакеты кода, конфигурации или данных для `ServiceType4`, хотя каждый тип службы будет включать некоторые или все из этих типов пакетов.
-
-![Типы служб и типы приложений Service Fabric][cluster-imagestore-apptypes]
-
-Два разных файла манифестов используются для описания приложения и служб: манифест служб и манифест приложений. Эти файлы рассматриваются в последующих разделах.
-
-В кластере может работать один или несколько экземпляров службы определенного типа. Например, в экземплярах служб с отслеживанием состояния или в репликах достигается высокий уровень доступности за счет репликации состояния между репликами, размещенными на разных узлах кластера. Такая репликация обеспечивает избыточность, необходимую для обеспечения доступности службы, даже когда на одном из узлов кластера происходит сбой. При использовании [разделенной службы](service-fabric-concepts-partitioning.md) выполняется дальнейшее разделение ее состояния (а также алгоритмов доступа к этому состоянию) на всех узлах кластера.
-
-На следующей диаграмме отображается отношение между приложениями и экземплярами службы, разделами и репликами.
-
-![Разделы и реплики в службе][cluster-application-instances]
+![The Service Fabric application model][appmodel-diagram]
 
 
->[AZURE.TIP] Просмотреть структуру приложений в кластере можно с помощью обозревателя Service Fabric, доступного по адресу http://&lt;yourclusteraddress&gt;:19080/Explorer. Дополнительные сведения см. в статье [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md).
+An application type is a categorization of an application and consists of a bundle of service types. A service type is a categorization of a service. The categorization can have different settings and configurations, but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
 
-## Описание службы
+Classes (or "types") of applications and services are described through XML files (application manifests and service manifests) that are the templates against which applications can be instantiated from the cluster's image store. The schema definition for the ServiceManifest.xml and ApplicationManifest.xml file is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-Манифест службы декларативно определяет тип и версию службы. Он задает метаданные службы, такие как тип службы, свойства работоспособности, метрики балансировки нагрузки, двоичные файлы службы и файлы конфигурации. Другими словами, в нем описывается код, конфигурация и пакеты данных, из которых состоит пакет службы, для поддержки одного или нескольких типов служб. Ниже приведен простой пример манифеста служб.
+The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how application types are composed of service types, which in turn are composed of code, configuration, and packages. To simplify the diagram, only the code/config/data packages for `ServiceType4` are shown, though each service type would include some or all of those package types.
+
+![Service Fabric application types and service types][cluster-imagestore-apptypes]
+
+Two different manifest files are used to describe applications and services: the service manifest and application manifest. These are covered in detail in the ensuing sections.
+
+There can be one or more instances of a service type active in the cluster. For example, stateful service instances, or replicas, achieve high reliability by replicating state between replicas located on different nodes in the cluster. This replication essentially provides redundancy for the service to be available even if one node in a cluster fails. A [partitioned service](service-fabric-concepts-partitioning.md) further divides its state (and access patterns to that state) across nodes in the cluster.
+
+The following diagram shows the relationship between applications and service instances, partitions, and replicas.
+
+![Partitions and replicas within a service][cluster-application-instances]
+
+
+>[AZURE.TIP] You can view the layout of applications in a cluster using the Service Fabric Explorer tool available at http://&lt;yourclusteraddress&gt;:19080/Explorer. For more details, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+
+## <a name="describe-a-service"></a>Describe a service
+
+The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -75,15 +75,15 @@
 </ServiceManifest>
 ~~~
 
-Атрибуты **Версия** представляют собой неструктурированные строки, которые не обрабатываются системой. Они используются в целях указания версии каждого компонента для последующего обновления.
+**Version** attributes are unstructured strings and not parsed by the system. These are used to version each component for upgrades.
 
-В атрибуте **ServiceTypes** указывается, какие типы служб поддерживаются пакетами **CodePackages** в этом манифесте. При создании экземпляра службы в соответствии с одним из этих типов службы все пакеты кода, объявленные в этом манифесте, активируются путем запуска соответствующих точек входа. Запущенные вследствие этого процессы должны зарегистрировать поддерживаемые типы служб во время выполнения. Обратите внимание, что типы служб декларируются на уровне манифеста, а не на уровне пакета кода. Поэтому при наличии нескольких пакетов кода они все активируются при поиске системой любого из задекларированных типов служб.
+**ServiceTypes** declares what service types are supported by **CodePackages** in this manifest. When a service is instantiated against one of these service types, all code packages declared in this manifest are activated by running their entry points. The resulting processes are expected to register the supported service types at run time. Note that service types are declared at the manifest level and not the code package level. So when there are multiple code packages, they are all activated whenever the system looks for any one of the declared service types.
 
-**SetupEntryPoint** — это привилегированная точка входа, которая запускается с теми же учетными данными, что и структура службы (обычно это локальная учетная запись *LocalSystem*), перед тем, как будут запущены любые другие точки входа. Исполняемый файл, указанный в точке входа **EntryPoint**, обычно является узлом службы, запускаемым на длительный срок. Наличие отдельной точки входа настройки позволяет избежать необходимости в выполнении узла службы с расширенными правами в течение длительного срока. Исполняемый файл, указанный в точке входа **EntryPoint**, запускается после успешного выхода из точки **SetupEntryPoint**. Возникающий вследствие этого процесс отслеживается и перезапускается (снова начиная с точки входа **SetupEntryPoint**), даже если произошло непредвиденное завершение его работы или сбой.
+**SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *LocalSystem* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host. The presence of a separate setup entry point avoids having to run the service host with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted (beginning again with **SetupEntryPoint**) if it ever terminates or crashes.
 
-Атрибут **DataPackage** объявляет папку с именем, указанным в атрибуте **Name**, содержащим произвольные статические данные, которые должны обрабатываться процессом во время выполнения.
+**DataPackage** declares a folder, named by the **Name** attribute, that contains arbitrary static data to be consumed by the process at run time.
 
-**ConfigPackage** объявляет папку с именем, указанным в атрибуте **Name**, которая содержит файл *Settings.xml*. Этот файл содержит разделы заданных пользователем параметров пар "ключ-значение", которые могут считываться процессом во время выполнения. Во время обновления при изменении одного только атрибута **version** для **ConfigPackage** перезапуск процесса не выполняется. Вместо этого при помощи обратного вызова в процесс передается уведомление о том, что параметры конфигурации изменились, поэтому они были перезагружены в динамическом режиме. Ниже приведен пример файла *Settings.xml*.
+**ConfigPackage** declares a folder, named by the **Name** attribute, that contains a *Settings.xml* file. This file contains sections of user-defined, key-value pair settings that the process can read back at run time. During an upgrade, if only the **ConfigPackage** **version** has changed, then the running process is not restarted. Instead, a callback notifies the process that configuration settings have changed so they can be reloaded dynamically. Here is an example *Settings.xml*  file:
 
 ~~~
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -94,7 +94,7 @@
 </Settings>
 ~~~
 
-> [AZURE.NOTE] Манифест служб может содержать множество пакетов кода, конфигураций и данных. Версия каждого из них устанавливается независимо.
+> [AZURE.NOTE] A service manifest can contain multiple code, configuration, and data packages. Each of those can be versioned independently.
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -106,12 +106,12 @@ For more information about other features supported by service manifests, refer 
 *TODO: Configuration overrides
 -->
 
-## Описание приложения
+## <a name="describe-an-application"></a>Describe an application
 
 
-Манифест приложения декларативно описывает тип приложения и его версию. Он также указывает метаданные композиции службы, такие как стабильные имена, схема секционирования, число экземпляров и коэффициент репликации, политика безопасности и изоляции, ограничения на размещение, переопределения конфигурации и типы входящих в состав служб. Также в нем описываются домены балансировки нагрузки, в которых размещается приложение.
+The application manifest declaratively describes the application type and version. It specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load-balancing domains into which the application is placed are also described.
 
-Таким образом, манифест приложения описывает элементы на уровне приложения и ссылается на один или несколько манифестов службы, которые составляют тип приложения. Ниже приведен простой пример манифеста приложения.
+Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is a simple example application manifest:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -134,15 +134,15 @@ For more information about other features supported by service manifests, refer 
 </ApplicationManifest>
 ~~~
 
-Точно так же, как и в манифестах служб, атрибуты версии **Version** представляют собой неструктурированные строки, которые не анализируются системой. Они также используются для маркировки версии каждого из компонентов для последующих обновлений.
+Like service manifests, **Version** attributes are unstructured strings and are not parsed by the system. These are also used to version each component for upgrades.
 
-Атрибут **ServiceManifestImport** содержит ссылки на манифесты служб, из которых состоит этот тип приложения. Импортированные манифесты служб определяют, какие типы служб допустимы для применения в приложении этого типа.
+**ServiceManifestImport** contains references to service manifests that compose this application type. Imported service manifests determine what service types are valid within this application type.
 
-В атрибуте **DefaultServices** декларируются экземпляры служб, которые создаются автоматически при создании экземпляра приложения в соответствии с его типом. Службы по умолчанию используются только для удобства и после создания во всех отношениях действуют как и обычные службы. Они обновляются вместе с любыми другими службами в экземпляре приложения, а также могут быть удалены.
+**DefaultServices** declares service instances that are automatically created whenever an application is instantiated against this application type. Default services are just a convenience and behave like normal services in every respect after they have been created. They are upgraded along with any other services in the application instance and can be removed as well.
 
-> [AZURE.NOTE] Манифест приложения может содержать несколько импортированных манифестов служб и служб по умолчанию. Каждый импортированный манифест служб может иметь свою версию.
+> [AZURE.NOTE] An application manifest can contain multiple service manifest imports and default services. Each service manifest import can be versioned independently.
 
-Чтобы узнать, как использовать разные параметры приложений и служб для отдельных сред, см. раздел [Управление параметрами приложения для нескольких сред](service-fabric-manage-multiple-environment-app-configuration.md).
+To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
@@ -152,11 +152,11 @@ For more information about other features supported by application manifests, re
 *TODO: Service Templates
 -->
 
-## Создание пакета приложения
+## <a name="package-an-application"></a>Package an application
 
-### Макет пакета
+### <a name="package-layout"></a>Package layout
 
-Манифест приложения, манифесты служб и другие необходимые файлы пакетов должны быть организованы в определенный макет для развертывания в кластере структуры службы. Примеры манифестов в этой статье потребовали бы организации в следующую структуру каталогов.
+The application manifest, service manifest(s), and other necessary package files must be organized in a specific layout for deployment into a Service Fabric cluster. The example manifests in this article would need to be organized in the following directory structure:
 
 ~~~
 PS D:\temp> tree /f .\MyApplicationType
@@ -177,29 +177,29 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ~~~
 
-Папки должны иметь имена, соответствующие значениям атрибута **Name** каждого соответствующего элемента. Например, если манифест служб содержал два пакета кода с именами **MyCodeA** и **MyCodeB**, то две папки с такими же именами будут содержать необходимые двоичные файлы для каждого пакета кода.
+The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with the names **MyCodeA** and **MyCodeB**, then two folders with the same names would contain the necessary binaries for each code package.
 
-### Использование SetupEntryPoint
+### <a name="use-setupentrypoint"></a>Use SetupEntryPoint
 
-Типичные сценарии использования **SetupEntryPoint** относятся к ситуации, когда необходимо запустить исполняемый файл перед запуском службы или выполнить операцию с повышенными привилегиями. Например:
+Typical scenarios for using **SetupEntryPoint** are when you need to run an executable before the service starts or you need to perform an operation with elevated privileges. For example:
 
-- Настройка и инициализация переменных среды, необходимых исполняемому файлу службы. Это касается не только исполняемых файлов, написанных с использованием моделей программирования Service Fabric. Например, npm.exe нужны определенные переменные среды, настроенные для развертывания приложения node.js.
+- Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
 
-- Настройка контроля доступа посредством установки сертификатов безопасности.
+- Setting up access control by installing security certificates.
 
-### Создание пакета с помощью Visual Studio
+### <a name="build-a-package-by-using-visual-studio"></a>Build a package by using Visual Studio
 
-При использовании Visual Studio 2015 для создания приложения вы можете использовать команду Package, чтобы автоматически создать пакет, который будет соответствовать вышеописанному макету.
+If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
 
-Чтобы создать пакет, щелкните правой кнопкой проект приложения в обозревателе решений и выберите команду "Пакет", как показано ниже.
+To create a package, right-click the application project in Solution Explorer and choose the Package command, as shown below:
 
-![Создание пакета приложения с помощью Visual Studio][vs-package-command]
+![Packaging an application with Visual Studio][vs-package-command]
 
-После завершения создания пакета в окне **Вывод** отобразятся сведения о расположении пакета. Обратите внимание, что шаг создания пакета выполняется автоматически при развертывании или отладке вашего приложения в Visual Studio.
+When packaging is complete, you will find the location of the package in the **Output** window. Note that the packaging step occurs automatically when you deploy or debug your application in Visual Studio.
 
-### Тестирование пакета
+### <a name="test-the-package"></a>Test the package
 
-Структуру пакета можно проверить локально средствами PowerShell, используя команду **Test-ServiceFabricApplicationPackage**. Эта команда проверит манифест на наличие ошибок при анализе, а также все ссылки. Обратите внимание, что эта команда позволяет проверить только правильность структуры каталогов и файлов в пакете. При этом проверка содержимого пакетов кода или данных не выполняется, будет проверено только наличие всех необходимых файлов.
+You can verify the package structure locally through PowerShell by using the **Test-ServiceFabricApplicationPackage** command. This command will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package. It will not verify any of the code or data package contents beyond checking that all necessary files are present.
 
 ~~~
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
@@ -208,7 +208,7 @@ Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
 ~~~
 
-Эта ошибка показывает, что файл *MySetup.bat*, на который ссылается манифест служб **SetupEntryPoint**, отсутствует в пакете кода. После добавления нужного файла будет выполнена проверка приложения.
+This error shows that the *MySetup.bat* file referenced in the service manifest **SetupEntryPoint** is missing from the code package. After the missing file is added, the application verification passes:
 
 ~~~
 PS D:\temp> tree /f .\MyApplicationType
@@ -234,15 +234,15 @@ True
 PS D:\temp>
 ~~~
 
-После успешного создания и проверки пакета приложение будет готово для развертывания.
+Once the application is packaged correctly and passes verification, then it's ready for deployment.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-[Развертывание и удаление приложений][10]
+[Deploy and remove applications][10]
 
-[Управление параметрами приложения для нескольких сред][11]
+[Managing application parameters for multiple environments][11]
 
-[Запуск от имени: запуск приложения Service Fabric с использованием различных разрешений безопасности][12]
+[RunAs: Running a Service Fabric application with different security permissions][12]
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
@@ -255,4 +255,8 @@ PS D:\temp>
 [11]: service-fabric-manage-multiple-environment-app-configuration.md
 [12]: service-fabric-application-runas-security.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

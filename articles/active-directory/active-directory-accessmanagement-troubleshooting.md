@@ -1,37 +1,42 @@
 
 <properties
-	pageTitle="Устранение неполадок динамического членства в группах | Microsoft Azure"
-	description="Советы по устранению неполадок динамического членства в группах в Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""
-	/>
+    pageTitle="Troubleshooting dynamic membership for groups | Microsoft Azure"
+    description="Troubleshooting tips for dynamic membership for groups in Azure AD."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""
+    />
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2016"
+    ms.author="curtand"/>
 
 
-# Устранение неполадок, связанных с динамическим членством в группах
 
-**Мной было настроено правило для группы, но обновление членства в группе не произошло.**<br/>Убедитесь в том, что на вкладке **Настройка** параметр **Разрешить делегированное управление группой** имеет значение **Да**. Этот параметр отображается только в том случае, если вы вошли в систему как пользователь, которому назначена лицензия Azure Active Directory Premium. Проверьте значения атрибутов пользователей в правиле — существуют ли пользователи, удовлетворяющие правилу?
+# <a name="troubleshooting-dynamic-memberships-for-groups"></a>Troubleshooting dynamic memberships for groups
 
-**Мной было настроено правило, но теперь существующие участники правила удалены.**<br/>Это ожидаемое поведение. Существующие участники группы удаляются при включении или изменении правила. В группу добавляются пользователи, подобранные на основе оценки правила.
+**I configured a rule on a group but no memberships get updated in the group**<br/>Verify that the **Enable delegated group management** setting is set to **Yes** in the **Configure** tab. You will see this setting only if you are signed in as a user to whom an Azure Active Directory Premium license is assigned. Verify the values for user attributes on the rule: are there users that satisfy the rule?
 
-**Я не вижу мгновенного изменения членства, когда добавляю или изменяю правило. Почему?**<br/>Специальная оценка членства выполняется периодически в асинхронном фоновом процессе. На длительность процесса влияют количество пользователей в каталоге и размер группы, созданной в результате оценки правила. Обычно каталоги с небольшим количеством пользователей выявят изменения членства в группах уже через несколько минут. В случае каталогов с большим числом пользователей заполнение может занять 30 минут или больше.
+**I configured a rule, but now the existing members of the rule are removed**<br/>This is expected behavior. Existing members of the group are removed when a rule is enabled or changed. The users returned from evaluation of the rule are added as members to the group.     
 
-В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
+**I don’t see membership changes instantly when I add or change a rule, why not?**<br/>Dedicated membership evaluation is done periodically in an asynchronous background process. How long the process takes is determined by the number of users in your directory and the size of the group created as a result of the rule. Typically, directories with small numbers of users will see the group membership changes in less than a few minutes. Directories with a large number of users can take 30 minutes or longer to populate.
 
-* [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
-* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
-* [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
-* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+These articles provide additional information on Azure Active Directory.
 
-<!---HONumber=AcomDC_0817_2016-->
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [What is Azure Active Directory?](active-directory-whatis.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

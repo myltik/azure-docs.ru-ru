@@ -1,59 +1,64 @@
 
 <properties
-	pageTitle="Использование группы для управления доступом к приложениям SaaS | Microsoft Azure"
-	description="Использование групп в Azure Active Directory Premium или Basic для предоставления доступа к приложениям SaaS, интегрированным с Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""/>
+    pageTitle="Using a group to manage access to SaaS Applications | Microsoft Azure"
+    description="How to use groups in Azure Active Directory Premium or Basic to assign access to SaaS applications that are integrated with Azure Active Directory."
+    services="active-directory"
+    documentationCenter=""
+    authors="curtand"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/01/2016"
+    ms.author="curtand"/>
 
 
-# Использование группы для управления доступом к приложениям SaaS
 
-В Azure Active Directory (Azure AD) с лицензией Azure AD Premium или Azure AD Basic можно использовать группы для предоставления доступа к приложению SaaS, интегрированному с Azure AD. Например, если вы хотите предоставить отделу маркетинга доступ к пяти разным приложениям SaaS, можно создать группу, содержащую пользователей из отдела маркетинга, и затем предоставить этой группе доступ к пяти приложениям SaaS, необходимым этому отделу. Таким образом можно сэкономить время, управляя членством пользователей отдела маркетинга в одном месте. Пользователи приложения назначаются при добавлении в группу маркетинга, и их назначения будут удалены из приложения, когда они будут удалены из группы.
+# <a name="using-a-group-to-manage-access-to-saas-applications"></a>Using a group to manage access to SaaS applications
 
-Эту возможность можно использовать для сотен приложений, которые можно добавлять из коллекции приложений Azure AD.
+Using Azure Active Directory (Azure AD) with an Azure AD Premium or Azure AD Basic license, you can use groups to assign access to a SaaS application that's integrated with Azure AD. For example, if you want to assign access for the marketing department to use five different SaaS applications, you can create a group that contains the users in the marketing department, and then assign that group to these five SaaS applications that are needed by the marketing department. This way you can save time by managing the membership of the marketing department in one place. Users then are assigned to the application when they are added as members of the marketing group, and have their assignments removed from the application when they are removed from the marketing group.
 
-**Назначение группе доступа к приложению SaaS**
+This capability can be used with hundreds of applications that you can add from within the Azure AD Application Gallery.
 
-1. На [классическом портале Azure](https://manage.windowsazure.com) выберите **Active Directory** на панели навигации с левой стороны.
+**To assign access for a group to a SaaS application**
 
-2. На вкладке **Каталог** откройте каталог, в котором требуется назначить группе доступ к приложению SaaS.
+1. In the [Azure classic portal](https://manage.windowsazure.com), select **Active Directory** on the navigation bar on the left hand side.
 
-3. Выберите вкладку **Приложения**. Выберите приложение, которое добавили из коллекции приложений, а затем перейдите на вкладку **Пользователи и группы**.
+2. Select the **Directory** tab, and then open the directory in which you want to assign access for a group to a SaaS application.
 
-4. На вкладке **Пользователи и группы** в поле **Начинается с** введите имя группы, которой требуется предоставить доступ, и установите флажок в правом верхнем углу. Необходимо ввести только первую часть имени группы.
+3. Select the **Applications** tab. Select an application that you added from the Application Gallery, and then click  the **Users and Groups** tab.
 
-5. Выберите группу и нажмите кнопку **Назначить доступ**. Когда появится сообщение о подтверждении, выберите вариант **Да**. Сейчас членство во вложенных группах не поддерживается в рамках назначения приложений на основе групп.
+4. On the **Users and Groups** tab, in the **Starting with** field, enter the name of the group to which you want to assign access, and then select the check mark in the upper right. You only need to type the first part of a group's name.
 
-6. Также вы можете узнать, какие пользователи назначены приложению, напрямую или через членство в группе. Чтобы сделать это, в раскрывающемся списке **Показать** вместо «Группы» выберите **Все пользователи**. Список содержит пользователей в каталоге, а также сведения о том, назначен ли пользователь приложению. В списке также указывается, назначены ли пользователи приложению напрямую (тип назначения «Прямо») или через членство в группе (тип назначения «Унаследовано»).
+5. Select the group, then then select the **Assign Access** button. Select **Yes** when you see the confirmation message. Nested group memberships are not supported for group-based assignment to applications at this time.
+
+6. You can also see which users are assigned to the application, either directly or by membership in a group. To do this, change the **Show dropdown from 'Groups'** to **'All Users'**. The list shows users in the directory and whether or not each user is assigned to the application. The list also shows whether the assigned users are assigned to the application directly (assignment type shown as 'Direct'), or by virtue of group membership (assignment type shown as 'Inherited.')
 
 
 > [AZURE.NOTE]
-Вкладка "Пользователи и группы" отображается только после включения Azure AD Premium или Azure AD Basic.
+>You can see the Users and Groups tab only after you have enabled Azure AD Premium or Azure AD Basic.
 
-##Связанные статьи
+##<a name="related-articles"></a>Related Articles
 
-В следующих статьях содержатся дополнительные сведения об Azure Active Directory.
+These articles provide additional information on Azure Active Directory.
 
-* [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
+* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
 
-* [Указатель статьей по управлению приложениями в Azure Active Directory](active-directory-apps-index.md)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
-* [Настройка параметров групп с помощью командлетов Azure Active Directory](active-directory-accessmanagement-groups-settings-cmdlets.md)
+* [Azure Active Directory cmdlets for configuring group settings](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-* [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
+* [What is Azure Active Directory?](active-directory-whatis.md)
 
-* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
