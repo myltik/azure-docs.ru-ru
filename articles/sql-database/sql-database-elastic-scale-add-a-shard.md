@@ -1,32 +1,31 @@
 <properties 
-    pageTitle="Adding a shard using elastic database tools | Microsoft Azure" 
-    description="How to use Elastic Scale APIs to add new shards to a shard set." 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+	pageTitle="Добавление сегмента с использованием средств эластичных баз данных | Microsoft Azure" 
+	description="Информация о том, как использовать интерфейсы API эластичного масштабирования для добавления новых сегментов в набор сегментов." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="ddove" 
+	editor=""/>
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/24/2016" 
-    ms.author="ddove"/>
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
+# Добавление сегмента с использованием средств эластичных баз данных
 
-# <a name="adding-a-shard-using-elastic-database-tools"></a>Adding a shard using Elastic Database tools
+## Добавление сегмента для нового диапазона или ключа  
 
-## <a name="to-add-a-shard-for-a-new-range-or-key"></a>To add a shard for a new range or key  
+Часто необходимо, чтобы приложение просто добавило в существующую карту сегментов новые сегменты для обработки данных, поступление которых ожидается из новых ключей и диапазонов ключей. Например, приложение с сегментированием по идентификатору клиента должно подготовить новый сегмент для нового клиента или при обработке данных с сегментированием по месяцам требуется создание нового сегмента перед началом следующего месяца.
 
-Applications often need to simply add new shards to handle data that is expected from new keys or key ranges, for a shard map that already exists. For example, an application sharded by Tenant ID may need to provision a new shard for a new tenant, or data sharded monthly may need a new shard provisioned before the start of each new month. 
+Если новый диапазон ключей не входит в существующее сопоставление, добавление сегмента и привязка к нему нового ключа или диапазона становится довольно простой задачей.
 
-If the new range of key values is not already part of an existing mapping, it is very simple to add the new shard and associate the new key or range to that shard. 
-
-### <a name="example-adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Example:  adding a shard and its range to an existing shard map
-This sample uses the [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx) the [CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0})) methods, and creates an instance of the [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.) class. In the sample below, a database named **sample_shard_2** and all necessary schema objects inside of it have been created to hold range [300, 400).  
+### Пример: добавление сегмента и его диапазона в существующее сопоставление сегментов
+В этом примере используются методы [TryGetShard](https://msdn.microsoft.com/library/azure/dn823929.aspx), [CreateShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx), [CreateRangeMapping](https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0})) и создается экземпляр класса [ShardLocation](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.). В примере ниже для хранения диапазона [300, 400) создается база данных с именем **sample\_shard\_2** и все необходимые объекты схемы внутри нее.
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -42,14 +41,14 @@ This sample uses the [TryGetShard](https://msdn.microsoft.com/library/azure/dn82
                             (new Range<long>(300, 400), shard2, MappingStatus.Online)); 
 
 
-As an alternative, you can use Powershell to create a new Shard Map Manager. An example is available [here](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
-## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>To add a shard for an empty part of an existing range  
+В качестве альтернативы можно использовать PowerShell, чтобы создать новый диспетчер карты сегментов. Пример представлен [здесь](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+## Добавление сегмента для пустой части существующего диапазона  
 
-In some circumstances, you may have already mapped a range to a shard and partially filled it with data, but you now want upcoming data to be directed to a different shard. For example, you shard by day range and have already allocated 50 days to a shard, but on day 24, you want future data to land in a different shard. The elastic database [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) can perform this operation, but if data movement is not necessary (for example, data for the range of days [25, 50), i.e., day 25 inclusive to 50 exclusive, does not yet exist) you can perform this entirely using the Shard Map Management APIs directly.
+В некоторых случаях к этому моменту диапазон может быть уже сопоставлен с сегментом и частично заполнен данными, но теперь последующие данные должны направляться в другой сегмент. Такая ситуация, например, возникает, если сегментация выполняется по диапазону с разбиением на дни и при этом для сегмента уже выделено 50 дней, однако на 24 день понадобилось, чтобы будущие данные поступали в другой сегмент. [Средство разбиения и объединения](sql-database-elastic-scale-overview-split-and-merge.md) эластичных баз данных может выполнить эту операцию. Но если перемещать данные не обязательно (например, данные для диапазона дней [25, 50), т. е. с 25-го дня включительно по 50-й день не включительно, еще не существуют), эту операцию можно выполнить полностью непосредственно с помощью API управления картой сегментов.
 
-### <a name="example-splitting-a-range-and-assigning-the-empty-portion-to-a-newlyadded-shard"></a>Example: splitting a range and assigning the empty portion to a newly-added shard
+### Пример: разбиение диапазона и присвоение пустой части новому добавленному сегменту
 
-A database named “sample_shard_2” and all necessary schema objects inside of it have been created.  
+В рамках примера были созданы база данных с именем sample\_shard\_2 и все необходимые объекты схемы, содержащиеся в ней.
 
  
     // sm is a RangeShardMap object.
@@ -74,14 +73,10 @@ A database named “sample_shard_2” and all necessary schema objects inside of
     upd.Shard = shard2; 
     sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd)); 
 
-**Important**:  Use this technique only if you are certain that the range for the updated mapping is empty.  The methods above do not check data for the range being moved, so it is best to include checks in your code.  If rows exist in the range being moved, the actual data distribution will not match the updated shard map. Use the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) to perform the operation instead in these cases.  
+**Важно**: используйте этот метод, только если вы уверены, что диапазон для обновленного сопоставления пуст. Методы выше не позволяют проверить данные для перемещаемого диапазона, так что лучше включить проверки в код. Если перемещаемый диапазон содержит строки, фактическое распределение данных не будет соответствовать обновленному сопоставлению сегментов. В таких случаях для выполнения операции используйте [средство разбиения и объединения](sql-database-elastic-scale-overview-split-and-merge.md).
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016--->

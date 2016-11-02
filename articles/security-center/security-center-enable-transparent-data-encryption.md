@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enable Transparent Data Encryption in Azure Security Center | Microsoft Azure"
-   description="This document shows you how to implement the Azure Security Center recommendation **Enable Transparent Data Encryption**."
+   pageTitle="Включение прозрачного шифрования данных в центре безопасности Azure | Microsoft Azure"
+   description="В этом документе объясняется, как выполнить рекомендацию центра безопасности Azure по включению прозрачного шифрования данных."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,57 +13,49 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/01/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
+# Включение прозрачного шифрования данных в центре безопасности Azure
 
-# <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Enable Transparent Data Encryption in Azure Security Center
+Центр безопасности Azure порекомендует включить прозрачное шифрование данных (TDE) для баз данных SQL, если оно еще не включено. Прозрачное шифрование данных обеспечивает защиту данных и помогает соблюдать нормативные требования за счет шифрования базы данных, связанных с ней резервных копий и файлов журнала транзакций в местах хранения без необходимости вносить изменения в приложение. Чтобы узнать больше, ознакомьтесь с разделом [Прозрачное шифрование данных в Базе данных SQL Azure](https://msdn.microsoft.com/library/dn948096).
 
-Azure Security Center will recommend that you enable Transparent Data Encryption (TDE) on SQL databases if TDE is not already enabled. TDE protects your data and helps you meet compliance requirements by encrypting your database, associated backups, and transaction log files at rest, without requiring changes to your application. To learn more see [Transparent Data Encryption with Azure SQL Database](https://msdn.microsoft.com/library/dn948096).
+Данная рекомендация относится только к службе SQL Azure и не охватывает службы SQL, работающие на виртуальных машинах.
 
-This recommendation applies to the Azure SQL service only; doesn't include SQL running on your virtual machines.
+> [AZURE.NOTE] В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+## Выполнение рекомендаций
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. В колонке **Рекомендации** выберите **Включение прозрачного шифрования данных**. ![Включение прозрачного шифрования данных][1]
 
-1. In the **Recommendations** blade, select **Enable Transparent Data Encryption**.
-![Enable Transparent Data Encryption][1]
+2. Откроется колонка **Включение прозрачного шифрования данных для баз данных SQL**. Выберите базу данных SQL для включения прозрачного шифрования данных. ![Выбор базы данных SQL для включения прозрачного шифрования данных][2]
+3. В колонке **Прозрачное шифрование данных** в разделе "Шифрование данных" щелкните **ВКЛ**, затем щелкните **Сохранить** в верхней части ленты колонки. ![Включение прозрачного шифрования данных][3]
 
-2. This opens the **Enable Transparent Data Encryption on SQL databases** blade. Select a SQL database to enable TDE on.
-![Select SQL DB to enable TDE on][2]
-3. On the **Transparent data encryption** blade, select **ON** under Data encryption and select **Save** in the top ribbon of the blade.
-![Turn on TDE][3]
+  После включения прозрачного шифрования данных для выбранной базы данных SQL **состояние шифрования** изменится на **Зашифровано**.
 
-  Once TDE is enabled on the selected SQL database, the **Encryption status** will change to **Encrypted**.    
+  ![Состояние шифрования][4]
 
-  ![Encryption status][4]
+## См. также
 
-## <a name="see-also"></a>See also
+В этой статье объясняется, как выполнить рекомендацию центра безопасности по включению прозрачного шифрования данных. Чтобы узнать больше о прозрачном шифровании данных SQL, ознакомьтесь со следующими статьями.
 
-This article showed you how to implement the Security Center recommendation "Enable Transparent Data Encryption." To learn more about SQL TDE, see the following:
+- [Прозрачное шифрование данных в Базе данных SQL Azure](https://msdn.microsoft.com/library/dn948096)
+- [Начало работы с прозрачным шифрованием данных (TDE)](../sql-data-warehouse/sql-data-warehouse-encryption-tde.md)
 
-- [Transparent Data Encryption with Azure SQL Database](https://msdn.microsoft.com/library/dn948096)
-- [Get started with Transparent Data Encryption (TDE)](../sql-data-warehouse/sql-data-warehouse-encryption-tde.md)
+Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
-To learn more about Security Center, see the following:
-
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Get the latest Azure security news and information.
+- [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md). Узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
+- [Управление рекомендациями по безопасности в Центре безопасности Azure](security-center-recommendations.md). Узнайте, как рекомендации могут помочь вам защитить ресурсы Azure.
+- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md). Узнайте, как наблюдать за работоспособностью ресурсов Azure.
+- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md). Узнайте, как управлять оповещениями системы безопасности и реагировать на них.
+- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md). Узнайте, как отслеживать состояние работоспособности решений партнеров.
+- [Часто задаваемые вопросы о Центре безопасности Azure](security-center-faq.md). Найдите ответы на часто задаваемые вопросы об использовании этой службы.
+- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/). Получите последние новости и информацию об обеспечении безопасности в Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-tde-on-sql-databases/enable-tde.png
-[2]:./media/security-center-enable-tde-on-sql-databases/transparent-data-encryption-blade.png
+[2]: ./media/security-center-enable-tde-on-sql-databases/transparent-data-encryption-blade.png
 [3]: ./media/security-center-enable-tde-on-sql-databases/turn-on-tde.png
 [4]: ./media/security-center-enable-tde-on-sql-databases/encrypted.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->

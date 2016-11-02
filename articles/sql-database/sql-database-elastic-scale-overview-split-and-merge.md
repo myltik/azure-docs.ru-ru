@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Moving data between scaled-out cloud databases | Microsoft Azure" 
-    description="Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs." 
+    pageTitle="Перемещение данных между масштабируемыми облачными базами данных | Microsoft Azure" 
+    description="Объясняет, как управлять сегментами и перемещать данные с помощью размещенной службы с применением интерфейсов API эластичного масштабирования." 
     services="sql-database" 
     documentationCenter="" 
     manager="jhubbard" 
@@ -12,84 +12,83 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/24/2016" 
+    ms.date="05/27/2016" 
     ms.author="ddove" />
 
+# Перемещение данных между масштабируемыми облачными базами данных
 
-# <a name="moving-data-between-scaledout-cloud-databases"></a>Moving data between scaled-out cloud databases
+Если вы разрабатываете программное обеспечение как услугу и ваше предложение внезапно становится популярным, к этому росту нужно как-то адаптироваться. В результате добавляются новые базы данных (сегменты). Как перераспределить данные с учетом новых баз данных, не нарушив целостность данных? Для перемещения данных из ограниченных баз данных во вновь созданные используйте **средство разбиения и слияния**.
 
-If you are a Software as a Service developer, and suddenly your app undergoes tremendous demand, you need to accommodate the growth. So you add more databases (shards). How do you redistribute the data to the new databases without disrupting the data integrity? Use the **split-merge tool** to move data from constrained databases to the new databases.  
+Средство разбиения и объединения выполняется как веб-служба Azure. Оно позволяет администратору или разработчику перемещать шардлеты (данные из сегмента) между разными базами данных (сегментами). Средство разбиения и объединения ведет базу метаданных службы, используя управление сопоставлениями сегментов, и обеспечивает согласованность сопоставлений.
 
-The split-merge tool runs as an Azure web service. An administrator or developer uses the tool to move shardlets (data from a shard) between different databases (shards). The tool uses shard map management to maintain the service metadata database, and ensure consistent mappings.
+![Обзор][1]
 
-![Overview][1]
-
-## <a name="download"></a>Download
+## Скачивание
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 
-## <a name="documentation"></a>Documentation
-1. [Elastic database Split-Merge tool tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-* [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
-* [Split-merge security considerations](sql-database-elastic-scale-split-merge-security-configuration.md)
-* [Shard map management](sql-database-elastic-scale-shard-map-management.md)
-* [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
-* [Elastic database tools](sql-database-elastic-scale-introduction.md)
-* [Elastic Database tools glossary](sql-database-elastic-scale-glossary.md)
+## Документация
+1. [Учебник по инструменту разбиения и объединения эластичной базы данных](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+* [Настройка безопасности служб разделения и объединения](sql-database-elastic-scale-split-merge-security-configuration.md)
+* [Вопросы безопасности служб разделения и объединения](sql-database-elastic-scale-split-merge-security-configuration.md)
+* [Управление размещением сегментов](sql-database-elastic-scale-shard-map-management.md)
+* [Перенос существующих баз данных для масштабирования](sql-database-elastic-convert-to-use-elastic-tools.md)
+* [Инструменты эластичных баз данных](sql-database-elastic-scale-introduction.md)
+* [Глоссарий по средствам работы с эластичными базами данных](sql-database-elastic-scale-glossary.md)
 
-## <a name="why-use-the-splitmerge-tool"></a>Why use the split-merge tool?
+## Зачем использовать службу разбиения и объединения?
 
-**Flexibility**
+**Гибкость**
 
-Applications need to stretch flexibly beyond the limits of a single Azure SQL DB database. Use the tool to move data as needed to new databases while retaining integrity.
+Приложениям требуется расширение за пределы отдельной базы данных SQL Azure. Используйте средство для переноса необходимых данных в новые базы данных без потерь.
 
-**Split to grow** 
+**Рост путем деления**
 
-You need to increase overall capacity to handle explosive growth. To do so, create additional capacity by sharding the data and by distributing it across incrementally more databases until capacity needs are fulfilled. This is a prime example of the ‘split’ feature. 
+В случае быстрого роста необходимо увеличить общую емкость. Для этого создайте дополнительную емкость путем сегментирования данных и распределения информации по постепенно возрастающему количеству баз данных, пока не будет достигнут нужный объем. Это — отличный пример работы компонента «разделение».
 
-**Merge to shrink**
+**Сжатием путем слияния**
 
-Capacity needs shrink due to the seasonal nature of a business. The tool lets you scale down to fewer scale units when business slows. The ‘merge’ feature in the Elastic Scale split-merge Service covers this requirement. 
+Из-за сезонных изменений в характере бизнеса потребности в емкости могут меняться. Это средство позволяет сократить число единиц масштабирования, когда бизнес временно замедляется. Функция объединения в службе разбиения и объединения эластичного масштабирования отвечает данному требованию.
 
-**Manage hotspots by moving shardlets**
+**Управление хот-спотами путем перемещения шардлетов**
 
-With multiple tenants per database, the allocation of shardlets to shards can lead to capacity bottlenecks on some shards. This requires re-allocating shardlets or moving busy shardlets to new or less utilized shards. 
+При использовании одной базы данных несколькими клиентами определенное размещение шардлетов по сегментам может привести к падению производительности в некоторых сегментах. В такой ситуации потребуется перераспределить шардлеты или переместить нагруженные шардлеты в новые или менее загруженные сегменты.
 
-## <a name="concepts-key-features"></a>Concepts & key features
+## Концепции и основные функции
 
-**Customer-hosted services**
+**Службы, размещаемые на стороне клиента**
 
-The split-merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the [split-merge tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [split-merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
+Служба разбиения/объединения реализуется в виде службы, размещаемой на стороне клиента. Необходимо развернуть и разместить службу в вашей подписке Microsoft Azure. Пакет, загружаемый через NuGet, содержит шаблон конфигурации, в который нужно внести информацию о вашем развертывании. Подробнее см. в [руководстве по службе разбиения и слияния](sql-database-elastic-scale-configure-deploy-split-and-merge.md). Поскольку служба выполняется в подписке Azure, вы можете контролировать и настраивать большинство аспектов безопасности этой службы. Шаблон по умолчанию включает параметры настройки SSL, проверку подлинности клиента на основе сертификатов, шифрование хранимых учетных записей, защиту от DoS-атак и ограничения IP-адресов. Дополнительную информацию об аспектах безопасности можно получить в документе [Настройка безопасности разделения и объединения](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-The default deployed service runs with one worker and one web role. Each uses the A1 VM size in Azure Cloud Services. While you cannot modify these settings when deploying the package, you could change them after a successful deployment in the running cloud service, (through the Azure portal). Note that the worker role must not be configured for more than a single instance for technical reasons. 
+Служба, развернутая в стандартном виде, выполняется с одной рабочей ролью и одной веб-ролью. Каждая использует размер виртуальной машины A1 в облачных службах Azure. Эти параметры нельзя изменить при развертывании пакета, но можно изменить их после успешного развертывания в работающей облачной службе (через портал Azure). Обратите внимание, что рабочая роль по техническим причинам не должна быть настроена для более чем одного экземпляра.
 
-**Shard map integration**
+**Интеграция сопоставлений сегментов**
 
-The split-merge service interacts with the shard map of the application. When using the split-merge service to split or merge ranges or to move shardlets between shards, the service automatically keeps the shard map up to date. To do so, the service connects to the shard map manager database of the application and maintains ranges and mappings as split/merge/move requests progress. This ensures that the shard map always presents an up-to-date view when split-merge operations are going on. Split, merge and shardlet movement operations are implemented by moving a batch of shardlets from the source shard to the target shard. During the shardlet movement operation the shardlets subject to the current batch are marked as offline in the shard map and are unavailable for data-dependent routing connections using the **OpenConnectionForKey** API. 
+Служба разбиения и объединения взаимодействует с картой сопоставления сегментов приложения. При использовании службы для разбиения и объединения диапазонов или перемещения данных между сегментами служба автоматически обновляет сопоставления сегментов. Для этого во время обработки запросов служба подключается к базе данных диспетчера сопоставления сегментов приложения и обновляет диапазоны ключей и сопоставления. Это гарантирует, что при выполнении операций разбиения и объединения задействованные сопоставления сегментов всегда будут иметь актуальные данные. Операции разбиения, объединения и перемещения шардлетов осуществляются перемещением пакетов шардлетов из исходного сегмента в целевой сегмент. Во время перемещения шардлета данные обрабатываемого шардлета отмечаются в карте сегментов как автономные и будут недоступны для подключений маршрутизации, управляемой данными, посредством API-интерфейса **OpenConnectionForKey**.
 
-**Consistent shardlet connections**
+**Согласованные подключения к шардлетам**
 
-When data movement starts for a new batch of shardlets, any shard-map provided data-dependent routing connections to the shard storing the shardlet are killed and subsequent connections from the shard map APIs to the these shardlets are blocked while the data movement is in progress in order to avoid inconsistencies. Connections to other shardlets on the same shard will also get killed, but will succeed again immediately on retry. Once the batch is moved, the shardlets are marked online again for the target shard and the source data is removed from the source shard. The service goes through these steps for every batch until all shardlets have been moved. This will lead to several connection kill operations during the course of the complete split/merge/move operation.  
+При начале перемещения нового пакета шардлетов любые предоставленные картой сегментов подключения по маршрутизации на основе данных к сегменту, где хранится шардлет, обрываются и последующие подключения от API карты сегментов к этим шардлетам блокируются на время перемещения данных с целью предотвращения несогласованности. Подключения к другим шардлетам в пределах этого сегмента будут также разорваны, но могут быть немедленно восстановлены. После перемещения пакета шардлеты отмечаются как включенные в целевом сегменте, а исходные данные из исходного сегмента удаляются. Служба выполняет эти действия для каждого пакета, пока не будут перемещены все шардлеты. В результате во время выполнения операции разбиения, объединения или перемещения могут быть разорваны несколько подключений.
 
-**Managing shardlet availability**
+**Управление доступностью шардлетов**
 
-Limiting the connection killing to the current batch of shardlets as discussed above restricts the scope of unavailability to one batch of shardlets at a time. This is preferred over an approach where the complete shard would remain offline for all its shardlets during the course of a split or merge operation. The size of a batch, defined as the number of distinct shardlets to move at a time, is a configuration parameter. It can be defined for each split and merge operation depending on the application’s availability and performance needs. Note that the range that is being locked in the shard map may be larger than the batch size specified. This is because the service picks the range size such that the actual number of sharding key values in the data approximately matches the batch size. This is important to remember in particular for sparsely populated sharding keys. 
+Ограничение разрыва подключений рамками обрабатываемого в данный момент пакета шардлетов, как оговорено выше, ограничивает объем недоступных данных одним пакетом шардлетов. Такой подход более предпочтителен, чем если бы во время осуществления операции разбиения/объединения был недоступен весь сегмент. Размер пакета, который определяется количеством уникальных шардлетов для перемещения за момент времени, – это настраиваемый параметр. Его можно задать для каждой операции разбиения и объединения, в зависимости от требований доступности и производительности приложения. Обратите внимание, что сегмент, заблокированный в сопоставлении сегментов, может превышать заданные размеры пакета. Это происходит потому, что служба выбирает размер диапазона таким образом, чтобы фактическое количество значений ключа сегментирования в данных примерно соответствовало размеру пакета. Это важно помнить, в особенности при наличии разреженных ключей сегментирования.
 
-**Metadata storage**
+**Хранилище метаданных**
 
-The split-merge service uses a database to maintain its status and to keep logs during request processing. The user creates this database in their subscription and provides the connection string for it in the configuration file for the service deployment. Administrators from the user’s organization can also connect to this database to review request progress and to investigate detailed information regarding potential failures.
+Служба разбиения и объединения использует базу данных для хранения состояния и журналов во время обработки запроса. Пользователь создает эту базу данных в своей подписке и указывает строку подключения в файле конфигурации для развертывания службы. Администраторы из организации пользователя также могут подключаться к этой базе данных, чтобы просматривать ход выполнения запроса и изучать подробности потенциальных сбоев.
 
-**Sharding-awareness**
+**Сведения о сегментировании**
 
-The split-merge service differentiates between (1) sharded tables, (2) reference tables, and (3) normal tables. The semantics of a split/merge/move operation depend on the type of the table used and are defined as follows: 
+Служба разбиения и объединения различает сегментированные таблицы (1), ссылочные таблицы (2) и обычные таблицы (3). Семантика операций разбиения, объединения и перемещения зависит от типа таблицы и определяется следующим образом:
 
-* **Sharded tables**: Split, merge, and move operations move shardlets from source to target shard. After successful completion of the overall request, those shardlets are no longer present on the source. Note that the target tables need to exist on the target shard and must not contain data in the target range prior to processing of the operation. 
+* **Сегментированные таблицы**: операции разбиения, слияния и перемещения переносят шардлеты из исходного сегмента в целевой. После успешного завершения всего запроса эти шардлеты удаляются из исходного сегмента. Обратите внимание, что целевые таблицы должны существовать на целевом сегменте до начала обработки операции и не должны содержать данных в целевом диапазоне. 
 
-* **Reference tables**: For reference tables, the split, merge and move operations copy the data from the source to the target shard. Note, however, that no changes occur on the target shard for a given table if any row is already present in this table on the target. The table has to be empty for any reference table copy operation to get processed.
+* **Ссылочные таблицы**: для ссылочных таблиц операции разбиения, слияния и перемещения копируют данные из исходного сегмента в целевой. Однако, обратите внимание, что в целевом сегменте не происходит изменений, если в заданной таблице уже присутствуют какие-либо строки. Для осуществления операции копирования ссылочной таблицы целевая таблица должна быть пустой.
 
-* **Other Tables**: Other tables can be present on either the source or the target of a split and merge operation. The split-merge service disregards these tables for any data movement or copy operations. Note, however, that they can interfere with these operations in case of constraints.
+* **Другие таблицы**: в исходном или целевом сегменте операции разбиения и слияния могут присутствовать другие таблицы. Служба разбиения и объединения не затрагивает эти таблицы при любых операциях перемещения или копирования данных. Учтите, что они могут помешать этим операциям в случае наличия ограничений.
 
-The information on reference vs. sharded tables is provided by the **SchemaInfo** APIs on the shard map. The following example illustrates the use of these APIs on a given shard map manager object smm: 
+Информация о ссылочных и сегментированных таблицах предоставляется API **SchemaInfo** в карте сегментов. Следующий пример демонстрирует использование этих API для объекта smm диспетчера сопоставления сегментов:
 
     // Create the schema annotations 
     SchemaInfo schemaInfo = new SchemaInfo(); 
@@ -105,84 +104,84 @@ The information on reference vs. sharded tables is provided by the **SchemaInfo*
     // Publish 
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
 
-The tables ‘region’ and ‘nation’ are defined as reference tables and will be copied with split/merge/move operations. ‘customer’ and ‘orders’ in turn are defined as sharded tables. C_CUSTKEY and O_CUSTKEY serve as the sharding key. 
+Таблицы "регион" и "страна" определяются как ссылочные таблицы и будут скопированы с помощью операций разбиения и объединения. "клиент" и "заказы", в свою очередь, определяются как сегментированные таблицы. C\_CUSTKEY и O\_CUSTKEY служат в качестве ключа сегментирования.
 
-**Referential Integrity**
+**Ссылочная целостность**
 
-The split-merge service analyzes dependencies between tables and uses foreign key-primary key relationships to stage the operations for moving reference tables and shardlets. In general, reference tables are copied first in dependency order, then shardlets are copied in order of their dependencies within each batch. This is necessary so that FK-PK constraints on the target shard are honored as the new data arrives. 
+Служба разбиения и объединения анализирует зависимости между таблицами и использует связи внешнего ключа и первичного ключа для выполнения операций перемещения ссылочных таблиц и шардлетов. В общем случае в первую очередь копируются ссылочные таблицы в порядке зависимости, затем копируются шардлеты в порядке их зависимостей в каждом пакете. Это нужно для того, чтобы учитывать ограничения внешнего ключа-основного ключа целевого сегмента при поступлении новых данных.
 
-**Shard Map Consistency and Eventual Completion**
+**Согласованность сопоставления сегментов и завершение операций**
 
-In the presence of failures, the split-merge service resumes operations after any outage and aims to complete any in progress requests. However, there may be unrecoverable situations, e.g., when the target shard is lost or compromised beyond repair. Under those circumstances, some shardlets that were supposed to be moved may continue to reside on the source shard. The service ensures that shardlet mappings are only updated after the necessary data has been successfully copied to the target. Shardlets are only deleted on the source once all their data has been copied to the target and the corresponding mappings have been updated successfully. The deletion operation happens in the background while the range is already online on the target shard. The split-merge service always ensures correctness of the mappings stored in the shard map.
-
-
-## <a name="the-splitmerge-user-interface"></a>The split-merge user interface
-
-The split-merge service package includes a worker role and a web role. The web role is used to submit split-merge requests in an interactive way. The main components of the user interface are as follows:
-
--    Operation Type: The operation type is a radio button that controls the kind of operation performed by the service for this request. You can choose between the split, merge and move scenarios. You can also cancel a previously submitted operation. You can use split, merge and move requests for range shard maps. List shard maps only support move operations.
-
--    Shard Map: The next section of request parameters cover information about the shard map and the database hosting your shard map. In particular, you need to provide the name of the Azure SQL Database server and database hosting the shardmap, credentials to connect to the shard map database, and finally the name of the shard map. Currently, the operation only accepts a single set of credentials. These credentials need to have sufficient permissions to perform changes to the shard map as well as to the user data on the shards.
-
--    Source Range (split and merge): A split and merge operation processes a range using its low and high key. To specify an operation with an unbounded high key value, check the “High key is max” check box and leave the high key field empty. The range key values that you specify do not need to precisely match a mapping and its boundaries in your shard map. If you do not specify any range boundaries at all the service will infer the closest range for you automatically. You can use the GetMappings.ps1 PowerShell script to retrieve the current mappings in a given shard map.
-
--    Split Source Behavior (split): For split operations, define the point to split the source range. You do this by providing the sharding key where you want the split to occur. Use the radio button specify whether you want the lower part of the range (excluding the split key) to move, or whether you want the upper part to move (including the split key).
-
--    Source Shardlet (move): Move operations are different from split or merge operations as they do not require a range to describe the source. A source for move is simply identified by the sharding key value that you plan to move.
-
--    Target Shard (split): Once you have provided the information on the source of your split operation, you need to define where you want the data to be copied to by providing the Azure SQL Db server and database name for the target.
-
--    Target Range (merge): Merge operations move shardlets to an existing shard. You identify the existing shard by providing the range boundaries of the existing range that you want to merge with.
-
--    Batch Size: The batch size controls the number of shardlets that will go offline at a time during the data movement. This is an integer value where you can use smaller values when you are sensitive to long periods of downtime for shardlets. Larger values will increase the time that a given shardlet is offline but may improve performance.
-
--    Operation Id (Cancel): If you have an ongoing operation that is no longer needed, you can cancel the operation by providing its operation ID in this field. You can retrieve the operation ID from the request status table (see Section 8.1) or from the output in the web browser where you submitted the request.
+Служба разбиения и объединения возобновляет работу после любого сбоя и стремится завершить любые активные запросы. Тем не менее, могут возникнуть неустранимые ситуации, например, когда целевой сегмент утерян или поврежден без возможности восстановления. В таком случае некоторые шардлеты, предназначенные для перемещения, могут сохраниться в исходном сегменте. Служба обеспечивает обновление сопоставления шардлетов только после успешного копирования необходимых данных в целевой сегмент. Шардлеты удаляются только после копирования всех данных в целевой сегмент и успешного обновления соответствующих сопоставлений. Операция удаления осуществляется в фоновом режиме, после того как диапазон данных уже стал доступен на целевом сегменте. Служба разбиения и объединения всегда гарантирует правильность сопоставлений в сопоставлении сегментов.
 
 
-## <a name="requirements-and-limitations"></a>Requirements and Limitations 
+## Пользовательский интерфейс службы разбиения и объединения
 
-The current implementation of the split-merge service is subject to the following requirements and limitations: 
+Пакет службы разбиения и объединения включает рабочую роль и веб-роль. Веб-роль используется для отправки запросов на разбиение и объединение в интерактивном режиме. Существуют следующие основные компоненты пользовательского интерфейса.
 
-* The shards need to exist and be registered in the shard map before a split-merge operation on these shards can be performed. 
+-    Тип операции. Тип операции — это переключатель, определяющий вид операции, выполняемой службой для данного запроса. Для выбора доступны сценарии разбиения, объединения и перемещения. Кроме того, запрошенную ранее операцию можно отменить. Можно использовать запросы на разбиение или объединение, а также перемещать запросы сопоставлений сегментов по диапазону. Сопоставления сегментов по списку поддерживают только операции перемещения.
 
-* The service does not create tables or any other database objects automatically as part of its operations. This means that the schema for all sharded tables and reference tables need to exist on the target shard prior to any split/merge/move operation. Sharded tables in particular are required to be empty in the range where new shardlets are to be added by a split/merge/move operation. Otherwise, the operation will fail the initial consistency check on the target shard. Also note that reference data is only copied if the reference table is empty and that there are no consistency guarantees with regard to other concurrent write operations on the reference tables. We recommend this: when running split/merge operations, no other write operations make changes to the reference tables.
+-    Сопоставление сегментов. Следующий раздел параметров запроса описывает сопоставление сегментов и базу данных, в которой размещается сопоставление сегментов. В частности, необходимо указать имя сервера базы данных SQL Azure и базы данных, в которой размещается сопоставление сегментов, данные для подключения к базе данных c сопоставлением сегментов и, наконец, имя сопоставления сегментов. В настоящее время операция принимает только один набор учетных данных. Эти учетные данные должны иметь достаточные разрешения для изменения сопоставления сегментов, а также пользовательских данных в этих сегментах.
 
-* The service relies on row identity established by a unique index or key that includes the sharding key to improve performance and reliability for large shardlets. This allows the service to move data at an even finer granularity than just the sharding key value. This helps to reduce the maximum amount of log space and locks that are required during the operation. Consider creating a unique index or a primary key including the sharding key on a given table if you want to use that table with split/merge/move requests. For performance reasons, the sharding key should be the leading column in the key or the index.
+-    Диапазон источника (операции разбиения и объединения). Операции разбиения и объединения обрабатывают диапазон, используя его нижний и верхний ключ. To specify an operation with an unbounded high key value, check the “High key is max” check box and leave the high key field empty. Значения ключей диапазона, заданные вами, могут не полностью совпадать с сопоставляемыми значениями и их границами в сопоставлении сегментов. If you do not specify any range boundaries at all the service will infer the closest range for you automatically. Сценарий PowerShell GetMappings.ps1 можно использовать для получения текущего сопоставления для данного сопоставления сегментов.
 
-* During the course of request processing, some shardlet data may be present both on the source and the target shard. This is necessary to protect against failures during the shardlet movement. The integration of split-merge with the shard map ensures that connections through the data dependent routing APIs using the **OpenConnectionForKey** method on the shard map do not see any inconsistent intermediate states. However, when connecting to the source or the target shards without using the **OpenConnectionForKey** method, inconsistent intermediate states might be visible when split/merge/move requests are going on. These connections may show partial or duplicate results depending on the timing or the shard underlying the connection. This limitation currently includes the connections made by Elastic Scale Multi-Shard-Queries.
+-    Поведение источника разбиения (разбиение). Для операций разбиения необходимо указать точку для разделения исходного диапазона. Это делается путем ввода ключа сегментирования для того места, в котором необходимо выполнить разбиение. Используйте расположенный рядом переключатель, чтобы указать, следует ли переместить нижнюю часть диапазона (за исключением ключа разбиения), или верхнюю часть диапазона (включая ключ разбиения).
 
-* The metadata database for the split-merge service must not be shared between different roles. For example, a role of the split-merge service running in staging needs to point to a different metadata database than the production role.
+-    Исходный шардлет (перемещение). Операции перемещения отличаются от операций разбиения или объединения тем, что для них не требуется указание диапазона в источнике данных. Источник данных для перемещения просто определяется значением ключа сегментирования, который планируется переместить.
+
+-    Целевой сегмент (разбиение). После введения информации об исходном сегменте для операции разбиения необходимо указать, куда следует скопировать данные, предоставив серверу базы данных SQL Azure имя базы данных для целевого сегмента.
+
+-    Целевой диапазон (объединение). Операции объединения перемещают шардлеты в существующий сегмент. Существующий сегмент указывается путем ввода пределов диапазона сегмента, с которым необходимо выполнить объединение.
+
+-    Размер пакета. Размер пакета определяет количество шардлетов, которые будут отключены во время перемещения данных. Это целое число; когда нежелательны продолжительные периоды простоя сегментов, можно использовать маленькие значения. Большие значения увеличат продолжительность отключения шардлетов, но могут повысить производительность.
+
+-    Идентификатор операции (отмена). Если идет выполнение операции, в которой больше нет потребности, можно отменить эту операцию, указав в этом поле ее идентификатор. Идентификатор операции можно получить из таблицы состояний запросов (см. раздел 8.1) или из выходных данных в браузере, через который был послан запрос.
+
+
+## Требования и ограничения 
+
+Текущая реализация службы разбиения и объединения соответствует следующим требованиям и ограничениям.
+
+* Сегменты должны существовать и быть зарегистрированы в сопоставлении сегментов до выполнения операций разбиения и объединения над этими сегментами. 
+
+* При исполнении операций служба не создает таблицы или другие объекты базы данных автоматически. Это означает, что схемы для всех сегментированных таблиц и ссылочных таблиц целевого сегмента должны существовать до начала любой операции разбиения, объединения и перемещения. В частности, сегментированные таблицы должны быть пустыми в диапазоне, в который операцией будут добавляться новые данные. В противном случае операция завершится ошибкой при начальной проверке согласованности целевого сегмента. Также обратите внимание на то, что ссылочные данные копируются только в случае, если ссылочная таблица пуста. Не гарантируется согласованность с другими параллельными операциями записи в эти ссылочные таблицы. Рекомендуется не осуществлять другие операции записи для внесения изменений в эти ссылочные таблицы во время выполнения операции разбиения и объединения.
+
+* Служба использует идентификатор строки, который задается уникальным индексом или ключом, включая ключ сегментирования, который повышает надежность больших шардлетов. Это позволяет службе перемещать данные с еще большей степенью детализации, чем просто значение ключа сегментирования. Это позволяет уменьшить максимальный объем пространства журнала и количество требуемых блокировок для проведения операции. Рекомендуется для данной таблицы создать уникальный индекс или первичный ключ, включая ключ сегментирования, если вы хотите использовать эту таблицу вместе с запросами разбиения, объединения и перемещения. Чтобы производительность повысилась, ключ сегментирования должен находиться в первом столбце ключа или индекса.
+
+* Во время обработки запроса некоторые данные шардлета могут одновременно быть и в исходном и в целевом сегменте. Это необходимо для защиты от сбоев при перемещении шардлетов. Интеграция разбиения и слияния с картой сегментов гарантирует, что в подключениях посредством API-интерфейса управляемой данными маршрутизации, в которых используется метод **OpenConnectionForKey** для карты сегментов, не возникнет несогласованных промежуточных состояний. Тем не менее при подключении к исходным или целевым сегментам без использования метода **OpenConnectionForKey** во время обработки запросов разбиения, слияния и перемещения могут наблюдаться несогласованные промежуточные состояния. Эти подключения могут показывать частичные или повторяющиеся результаты в зависимости от времени выполнения или используемых в подключении сегментов. В настоящий момент это ограничение распространяется на подключения, созданные многосегментными запросами эластичного масштабирования.
+
+* База метаданных для службы разбиения и объединения не должна быть общей для различных ролей. Например, роль службы разбиения и объединения во время работы в промежуточном режиме должна ссылаться на базу метаданных, отличную от базы данных рабочей роли.
  
 
-## <a name="billing"></a>Billing 
+## Выставление счетов 
 
-The split-merge service runs as a cloud service in your Microsoft Azure subscription. Therefore charges for cloud services apply to your instance of the service. Unless you frequently perform split/merge/move operations, we recommend you delete your split-merge cloud service. That saves costs for running or deployed cloud service instances. You can re-deploy and start your readily runnable configuration whenever you need to perform split or merge operations. 
+Служба разбиения и объединения выполняется как облачная служба в подписке Microsoft Azure. Поэтому плата взимается с вашего экземпляра облачных служб. Если вы нечасто выполняете операции разбиения, объединения и перемещения, рекомендуем удалить облачную службу разбиения и объединения. Это поможет сократить расходы на действующие или развернутые экземпляры облачной службы. Готовую к работе конфигурацию можно повторно развернуть и запустить всякий раз, когда потребуется выполнить операции разбиения и объединения.
  
-## <a name="monitoring"></a>Monitoring 
-### <a name="status-tables"></a>Status tables 
+## Мониторинг 
+### Таблицы состояния 
 
-The split-merge Service provides the **RequestStatus** table in the metadata store database for monitoring of completed and ongoing requests. The table lists a row for each split-merge request that has been submitted to this instance of the split-merge service. It gives the following information for each request:
+Служба разбиения и слияния предоставляет таблицу **RequestStatus** в базе данных хранилища метаданных для отслеживания завершенных и выполняемых запросов. В таблице перечислены строки для каждого запроса разбиения и объединения в данном экземпляре службы. В ней представлена следующая информация для каждого запроса:
 
-* **Timestamp**: The time and date when the request was started.
+* **Timestamp** — время и дата начала запроса.
 
-* **OperationId**: A GUID that uniquely identifies the request. This request can also be used to cancel the operation while it is still ongoing.
+* **OperationId** — идентификатор GUID, однозначно определяющий запрос. Этот идентификатор также может использоваться для отмены операции во время ее выполнения.
 
-* **Status**: The current state of the request. For ongoing requests, it also lists the current phase in which the request is.
+* **Status** — текущее состояние запроса. Для выполняемых запросов в ней также приведен текущий этап выполнения запроса.
 
-* **CancelRequest**: A flag that indicates whether the request has been cancelled.
+* **CancelRequest (Отмена запроса) **. Флаг, указывающий, является ли запрос отмененным.
 
-* **Progress**: A percentage estimate of completion for the operation. A value of 50 indicates that the operation is approximately 50% complete.
+* **Progress** — процентная оценка хода выполнения операции. Значение 50, указывает, что операция завершена примерно на 50 %.
 
-* **Details**: An XML value that provides a more detailed progress report. The progress report is periodically updated as sets of rows are copied from source to target. In case of failures or exceptions, this column also includes more detailed information about the failure.
+* **Details**: более подробный отчет о ходе выполнения в формате XML. Отчет о ходе выполнения периодически обновляется по мере копирования наборов строк из исходного в целевой сегмент. В случаях ошибок или исключений в этом столбце также содержится более подробная информация об ошибке.
 
 
-### <a name="azure-diagnostics"></a>Azure Diagnostics
+### Диагностика Azure
 
-The split-merge service uses Azure Diagnostics based on Azure SDK 2.5 for monitoring and diagnostics. You control the diagnostics configuration as explained here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). The download package includes two diagnostics configurations – one for the web role and one for the worker role. These diagnostics configurations for the service follow the guidance from [Cloud Service Fundamentals in Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and split-merge application event logs. 
+Служба разбиения и объединения для наблюдения и диагностики использует систему диагностики Azure из Azure SDK 2.5. Управление конфигурацией диагностики описано в разделе [Включение диагностики в облачных службах Azure и виртуальных машинах](../cloud-services/cloud-services-dotnet-diagnostics.md). Загружаемый пакет содержит две конфигурации диагностики: для веб-роли и для рабочей роли. Эти конфигурации диагностики для службы соответствуют инструкциям из раздела [Основы облачных служб в Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). В нем описаны журналы счетчиков производительности, журналы IIS, журналы событий Windows и событий приложения разбиения и объединения.
 
-## <a name="deploy-diagnostics"></a>Deploy Diagnostics 
+## Развертывание диагностики 
 
-To enable monitoring and diagnostics using the diagnostic configuration for the web and worker roles provided by the NuGet package, run the following commands using Azure PowerShell: 
+Чтобы включить наблюдение и диагностику с помощью конфигурации диагностики для веб- и рабочих ролей, предоставленных пакетом NuGet, выполните следующие команды с помощью Azure PowerShell:
 
     $storage_name = "<YourAzureStorageAccount>" 
     
@@ -204,43 +203,43 @@ To enable monitoring and diagnostics using the diagnostic configuration for the 
     
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
-You can find more information on how to configure and deploy diagnostics settings here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md). 
+Дополнительные сведения о настройке и развертывании параметров диагностики можно найти в разделе [Включение диагностики в облачных службах Azure и виртуальных машинах](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
-## <a name="retrieve-diagnostics"></a>Retrieve diagnostics 
+## Получение диагностики 
 
-You can easily access your diagnostics from the Visual Studio Server Explorer in the Azure part of the Server Explorer tree. Open a Visual Studio instance, and in the menu bar click View, and Server Explorer. Click the Azure icon to connect to your Azure subscription. Then navigate to Azure -> Storage -> <your storage account> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx). 
+Диагностику можно получить при помощи Visual Studio Server Explorer, смотрите узел Azure в дереве обозревателя сервера. Откройте экземпляр Visual Studio и в строке меню щелкните Вид, затем Обозреватель серверов. Щелкните значок Azure для подключения к подписке Azure. Перейдите в Azure -> Хранилище -> <your storage account> -> Таблицы -> WADLogsTable. Дополнительную информацию см. в статье [Обзор ресурсов хранилища с помощью обозревателя сервера](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 ![WADLogsTable][2]
 
-The WADLogsTable highlighted in the figure above contains the detailed events from the split-merge service’s application log. Note that the default configuration of the downloaded package is geared towards a production deployment. Therefore the interval at which logs and counters are pulled from the service instances is large (5 minutes). For test and development, lower the interval by adjusting the diagnostics settings of the web or the worker role to your needs. Right-click on the role in the Visual Studio Server Explorer (see above) and then adjust the Transfer Period in the dialog for the Diagnostics configuration settings: 
+Таблица WADLogsTable, выделенная на рисунке выше, содержит подробные события из журнала приложения службы разбиения/объединения. Обратите внимание, что конфигурация по умолчанию, которая предоставляется в составе загружаемого пакета, предназначена для рабочего развертывания. Как следствие, интервал извлечения журналов и счетчиков из экземпляров службы достаточно большой (5 минут). Для тестирования и разработки можно сократить этот интервал, изменив настройки параметров диагностики веб-роли или рабочей роли. Щелкните правой кнопкой мыши роль в Visual Studio Server Explorer (см. выше) и затем измените период передачи в диалоговом окне настройки параметров диагностики:
 
-![Configuration][3]
+![Конфигурация][3]
 
 
-## <a name="performance"></a>Performance
+## Производительность
 
-In general, better performance is to be expected from the higher, more performant service tiers in Azure SQL Database. Higher IO, CPU and memory allocations for the higher service tiers benefit the bulk copy and delete operations that the split-merge service uses. For that reason, increase the service tier just for those databases for a defined, limited period of time.
+Обычно высокая производительность ожидается на высших, более производительных уровнях базы данных SQL Azure. Более высокая скорость ввода-вывода, мощные ЦП и большая память для высших уровней служб предоставляют преимущества при осуществлении операций массового копирования и удаления данных, которые используются внутри службы разбиения и объединения. По этой причине повышать уровень обслуживания нужно только для этих баз данных на ограниченный период времени.
 
-The service also performs validation queries as part of its normal operations. These validation queries check for unexpected presence of data in the target range and ensure that any split/merge/move operation starts from a consistent state. These queries all work over sharding key ranges defined by the scope of the operation and the batch size provided as part of the request definition. These queries perform best when an index is present that has the sharding key as the leading column. 
+Служба также выполняет запросы проверки в процессе обычной работы. Эти запросы проверяют непредвиденное наличие данных в целевом диапазоне и контролируют запуск любой операции разбиения, объединения и перемещения из согласованного состояния. Все эти запросы работают с ключом сегментирования, который задает область действия операции. С запросом также передается размер пакета. Эти запросы лучше всего выполнять при наличии индекса с ключом сегментирования в первом столбце.
 
-In addition, a uniqueness property with the sharding key as the leading column will allow the service to use an optimized approach that limits resource consumption in terms of log space and memory. This uniqueness property is required to move large data sizes (typically above 1GB). 
+Кроме того, свойство уникальности при наличии ключа сегментирования в первом столбце позволят службе использовать оптимизированный алгоритм ограничения потребления ресурсов для журналов и памяти. Это свойство уникальности необходимо для перемещения больших объемов данных (обычно свыше 1 ГБ).
 
-## <a name="how-to-upgrade"></a>How to upgrade
+## Обновление
 
-1. Follow the steps in [Deploy a split-merge service](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-2. Change your cloud service configuration file for your split-merge deployment to reflect the new configuration parameters. A new required parameter is the information about the certificate used for encryption. An easy way to do this is to compare the new configuration template file from the download against your existing configuration. Make sure you add the settings for “DataEncryptionPrimaryCertificateThumbprint” and “DataEncryptionPrimary” for both the web and the worker role.
-3. Before deploying the update to Azure, ensure that all currently running split-merge operations have finished. You can easily do this by querying the RequestStatus and PendingWorkflows tables in the split-merge metadata database for ongoing requests.
-4. Update your existing cloud service deployment for split-merge in your Azure subscription with the new package and your updated service configuration file.
+1. Следуйте инструкциям в разделе [Развертывание службы разбиения и объединения](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+2. Измените файл конфигурации облачной службы для развертывания разбиения и объединения, чтобы были отражены новые параметры конфигурации. Новый обязательный параметр — это сведения о сертификате, используемом для шифрования. Проще всего сделать это, сравнив загруженный новый шаблон конфигурации с существующей конфигурацией. Обязательно добавьте параметры для DataEncryptionPrimaryCertificateThumbprint и DataEncryptionPrimary для веб-роли и рабочей роли.
+3. Перед развертыванием обновления в Azure убедитесь, что завершены все текущие операции разбиения и объединения. Это можно сделать, запросив таблицы RequestStatus и PendingWorkflows в базе данных метаданных разбиения и объединения для текущих запросов.
+4. Обновите существующее развертывание облачной службы для разбиения и объединения в подписке Azure с новым пакетом и обновленным файлом конфигурации службы.
 
-You do not need to provision a new metadata database for split-merge to upgrade. The new version will automatically upgrade your existing metadata database to the new version. 
+Вам не требуется предоставлять новую базу метаданных для обновления средства разбиения и объединения. Новая версия метаданных существующей базы данных автоматически обновляется до новой версии.
 
-## <a name="best-practices-troubleshooting"></a>Best practices & troubleshooting
+## Рекомендации и устранение неполадок
  
--    Define a test tenant and exercise your most important split/merge/move operations with the test tenant across several shards. Ensure that all metadata is defined correctly in your shard map and that the operations do not violate constraints or foreign keys.
--    Keep the test tenant data size above the maximum data size of your largest tenant to ensure you are not encountering data size related issues. This helps you assess an upper bound on the time it takes to move a single tenant around. 
--    Make sure that your schema allows deletions. The split-merge service requires the ability to remove data from the source shard once the data has been successfully copied to the target. For example, **delete triggers** can prevent the service from deleting the data on the source and may cause operations to fail.
--    The sharding key should be the leading column in your primary key or unique index definition. That ensures the best performance for the split or merge validation queries, and for the actual data movement and deletion operations which always operate on sharding key ranges.
--    Collocate your split-merge service in the region and data center where your databases reside. 
+-    Рекомендуется создать клиент для тестов и проверить наиболее важные операции разбиения, объединения и перемещения на нескольких сегментах с использованием этого тестового клиента. Убедитесь, что все метаданные определены корректно в сопоставлении сегментов и что операции не нарушают ограничения и не повреждают внешние ключи.
+-    Стоит поддерживать размер данных тестового клиента так, чтобы он был больше максимального размера данных вашего крупнейшего клиента. Это позволит избежать проблем, связанных с размером данных. Это позволит оценить верхнюю границу времени перемещения всех данных одного клиента. 
+-    Убедитесь, что схема допускает удаления. Службе разбиения и объединения требуется возможность удаления данных из исходного сегмента после успешного копирования данных в целевой сегмент. Например, **удаление триггеров** может препятствовать удалению данных службой в источнике данных и привести к сбою операции.
+-    Ключ сегментирования должен быть первым столбцом первичного ключа или определения уникального индекса. Это обеспечивает наилучшую производительность как для запросов проверки разбиения и объединения, так и для фактических операций перемещения и удаления данных, которые всегда работают с диапазонами ключей сегментирования.
+-    Разместите свою службу разбиения и объединения в области и центре данных, где располагаются ваши базы данных. 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -248,13 +247,9 @@ You do not need to provision a new metadata database for split-merge to upgrade.
 
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-scale-overview-split-and-merge/split-merge-overview.png
-[2]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
-[3]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
+[1]: ./media/sql-database-elastic-scale-overview-split-and-merge/split-merge-overview.png
+[2]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
+[3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

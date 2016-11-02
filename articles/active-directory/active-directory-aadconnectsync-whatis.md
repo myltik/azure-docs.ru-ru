@@ -1,72 +1,67 @@
 <properties
-    pageTitle="Azure AD Connect sync: Understand and customize synchronization | Microsoft Azure"
-    description="Explains how Azure AD Connect sync works and how to customize."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+	pageTitle="Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка | Microsoft Azure"
+	description="В этой статье описываются принципы работы и настройка служб синхронизации Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="andkjell"
+	manager="femila"
+	editor=""/>
 
 <tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="11/01/2016"
-    ms.author="markusvi"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/29/2016"
+	ms.author="markusvi;andkjell"/>
 
 
+# Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка
+Службы синхронизации Azure Active Directory Connect (службы синхронизации Azure AD Connect) являются основным компонентом Azure AD Connect. Они отвечают за все операции, относящиеся к синхронизации идентификационных данных между локальной средой и Azure AD. Служба синхронизации Azure AD Connect — это преемник таких решений, как DirSync, Azure AD Sync и Forefront Identity Manager с настроенным соединителем Azure Active Directory.
 
-# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect sync: Understand and customize synchronization
-The Azure Active Directory Connect synchronization services (Azure AD Connect sync) is a main component of Azure AD Connect. It takes care of all the operations that are related to synchronize identity data between your on-premises environment and Azure AD. Azure AD Connect sync is the successor of DirSync, Azure AD Sync, and Forefront Identity Manager with the Azure Active Directory Connector configured.
+В этой статье описывается **служба синхронизации Azure AD Connect** (также называемая **модулем синхронизации**) и приводятся ссылки на другие статьи на эту тему. Ссылки на ресурсы, посвященные Azure AD Connect, см. в статье [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-This topic is the home for **Azure AD Connect sync** (also called **sync engine**) and lists links to all other topics related to it. For links to Azure AD Connect, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+Служба синхронизации состоит из двух компонентов — локального компонента **синхронизации Azure AD Connect** и компонента на стороне службы в Azure AD, который называется **службой синхронизации Azure AD Connect**. Служба является общей для DirSync, Azure AD Sync и Azure AD Connect.
 
-The sync service consists of two components, the on-premises **Azure AD Connect sync** component and the service side in Azure AD called **Azure AD Connect sync service**. The service is common for DirSync, Azure AD Sync, and Azure AD Connect.
+## Статьи, имеющие отношение к службе синхронизации Azure AD Connect
 
-## <a name="azure-ad-connect-sync-topics"></a>Azure AD Connect sync topics
-
-Topic | What it covers and when to read
+Раздел | Содержание и целевая аудитория
 ----- | -----
-**Azure AD Connect sync fundamentals** |
-[Understanding the architecture](active-directory-aadconnectsync-understanding-architecture.md) | For those of you who are new to the sync engine and want to learn about the architecture and the terms used.
-[Technical concepts](active-directory-aadconnectsync-technical-concepts.md) | A short version of the architecture topic and briefly explains the terms used.
-[Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md) | Describes the different topologies and scenarios the sync engine supports.
-**Custom configuration** |
-[Running the installation wizard again](active-directory-aadconnectsync-installation-wizard.md) | Explains what options you have available when you run the Azure AD Connect installation wizard again.
-[Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| Describes the configuration model called declarative provisioning.
-[Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Describes the syntax for the expression language used in declarative provisioning.
-[Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md)| Describes the out-of-box rules and the default configuration. Also describes how the rules work together for the out-of-box scenarios to work.
-[Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md) | Continues on the previous topic and describes how the configuration for users and contacts works together, in particular in a multi-forest environment.
-[How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md) | Walks you through how to make a common configuration change to attribute flows.
-[Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | Support limitations and for making changes to the out-of-box configuration.
-[Configure Filtering](active-directory-aadconnectsync-configure-filtering.md) | Describes the different options for how to limit which objects are being synchronized to Azure AD and step-by-step how to configure these options.
-**Features and scenarios** |
-[Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | Describes the *prevent accidental deletes* feature and how to configure it.
-[Scheduler](active-directory-aadconnectsync-feature-scheduler.md) | Describes the built-in scheduler, which is importing, synchronizing, and exporting data.
-[Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) | Describes how password synchronization works, how to implement, and how to operate and troubleshoot.
-[Device writeback](active-directory-aadconnect-feature-device-writeback.md) | Describes how device writeback works in Azure AD Connect.
-[Directory extensions](active-directory-aadconnectsync-feature-directory-extensions.md) | Describes how to extend the Azure AD schema with your own custom attributes.
-**Sync Service** |
-[Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md) | Describes the sync service side and how to change sync settings in Azure AD.
-[Duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) | Describes how to enable and use **userPrincipalName** and **proxyAddresses** duplicate attribute values resiliency.
-**Operations and UI** |
-[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) | Describes the Synchronization Service Manager UI, including [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md), [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md), [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md), and [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) tabs.
-[Operational tasks and considerations](active-directory-aadconnectsync-operations.md) | Describes operational concerns, such as disaster recovery.
-**How To...** |
-[Reset the Azure AD account](active-directory-aadconnectsync-howto-azureadaccount.md) | How to reset the credentials of the service account used to connect from Azure AD Connect sync to Azure AD.
-**More information and references** |
-[Ports](active-directory-aadconnect-ports.md) | Lists which ports you need to open between the sync engine and your on-premises directories and Azure AD.
-[Attributes synchronized to Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md) | Lists all attributes being synchronized between on-premises AD and Azure AD.
-[Functions Reference](active-directory-aadconnectsync-functions-reference.md) | Lists all functions available in declarative provisioning.
+**Знакомство со службой синхронизации Azure AD Connect** |
+[Understanding the architecture (Основные сведения об архитектуре)](active-directory-aadconnectsync-understanding-architecture.md) | Для пользователей без опыта работы с модулем синхронизации, которые хотят узнать о его архитектуре и используемых терминах.
+[Технические концепции](active-directory-aadconnectsync-technical-concepts.md) | Сокращенная версия статьи об архитектуре с краткими пояснениями по используемым терминам.
+[Топологии Azure AD Connect.](active-directory-aadconnect-topologies.md) | Описание разных топологий и сценариев, поддерживаемых модулем синхронизации.
+**Настраиваемая конфигурация** |
+[Повторный запуск мастера установки](active-directory-aadconnectsync-installation-wizard.md) | Объясняет, какие есть варианты действий при повторном запуске мастера установки Azure AD Connect.
+[Знакомство с декларативной подготовкой](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| Описание модели конфигурации, которая называется декларативной подготовкой.
+[Знакомство с выражениями декларативной подготовки.](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Описание синтаксиса для выражений языка, используемого в декларативной подготовке.
+[Общие сведения о конфигурации по умолчанию](active-directory-aadconnectsync-understanding-default-configuration.md)| Описание стандартных правил и конфигурации по умолчанию. Также описывается, как правила используются при работе со стандартными сценариями.
+[Синхронизация Azure AD Connect: общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md) | Это продолжение предыдущей статьи, где описано взаимодействие конфигураций для пользователей и контактов, в частности в среде с несколькими лесами.
+[How to make a change to the default configuration (Изменение конфигурации по умолчанию)](active-directory-aadconnectsync-change-the-configuration.md) | Описывает типичные изменения конфигурации для потоков атрибутов.
+[Рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | Ограничения поддержки и изменение стандартной конфигурации.
+[Службы синхронизации Azure AD Connect: настройка фильтрации](active-directory-aadconnectsync-configure-filtering.md) | Описывает возможности установки ограничений для синхронизации объектов с Azure AD. Содержит пошаговые рекомендации по настройке этих ограничений.
+**Функции и сценарии** |
+[Предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) | Описание функции *предотвращения случайного удаления* и рекомендации по ее настройке.
+[Планировщик](active-directory-aadconnectsync-feature-scheduler.md) | Описывает встроенный планировщик, который импортирует, синхронизирует и экспортирует данные.
+[Службы синхронизации Azure AD Connect: реализация синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md) | Описано, как работает синхронизация паролей, как реализовать и использовать эту функцию, а также как устранять связанные с ней неполадки.
+[Обратная запись устройств](active-directory-aadconnect-feature-device-writeback.md) | Описывается, как работает обратная запись устройства в Azure AD Connect.
+[Расширения каталогов](active-directory-aadconnectsync-feature-directory-extensions.md) | Описывается, как расширить схему Azure AD с помощью собственных пользовательских атрибутов.
+**Служба синхронизации** |
+[Функции службы синхронизации Azure AD Connect](active-directory-aadconnectsyncservice-features.md) | Описание компонента на стороне службы синхронизации и действий по изменению параметров синхронизации в Azure AD.
+[Устойчивость повторяющихся атрибутов](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) | Описание функции устойчивости значений повторяющихся атрибутов для **userPrincipalName** и **proxyAddresses**.
+**Операции и пользовательский интерфейс** |
+[Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) | Описание пользовательского интерфейса Synchronization Service Manager, включая вкладки [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) (Операции), [Соединители](active-directory-aadconnectsync-service-manager-ui-connectors.md) (Connectors), [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) (Конструктор метавселенной) и [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) (Поиск в метавселенной).
+[Службы синхронизации Azure AD Connect: рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md) | Описание рабочих задач, например аварийного восстановления.
+**Практическое руководство.** |
+[Сброс учетной записи Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md) | Как сбросить учетные данные учетной записи службы, используемые для подключения службы синхронизации Azure AD Connect к Azure AD.
+**Дополнительные сведения и ссылки** |
+[Порты](active-directory-aadconnect-ports.md) | Список портов, которые необходимо открыть между модулем синхронизации, локальными каталогами и Azure AD.
+[Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md) | Список всех атрибутов, которые синхронизируются между локальной средой AD и Azure AD.
+[Справочник по функциям](active-directory-aadconnectsync-functions-reference.md) | Список всех функций, доступных в рамках декларативной подготовки.
 
-## <a name="additional-resources"></a>Additional Resources
+## дополнительные ресурсы.
 
-* [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0907_2016-->

@@ -1,51 +1,50 @@
 <properties 
-    pageTitle="Managing credentials in the elastic database client library | Microsoft Azure" 
-    description="How to set the right level of credentials, admin to read-only, for elastic database apps" 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+	pageTitle="Управление учетными данными в клиентской библиотеке эластичной базы данных | Microsoft Azure" 
+	description="Как установить правильный уровень учетных данных (от администратора до доступа только для чтения) для приложений эластичных баз данных." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="ddove" 
+	editor=""/>
 
 <tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="10/24/2016" 
-    ms.author="ddove"/>
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/27/2016" 
+	ms.author="ddove"/>
 
+# Учетные данные для доступа к клиентской библиотеке эластичной базы данных
 
-# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credentials used to access the Elastic Database client library
+[Клиентская библиотека эластичной базы данных](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) использует три различных типа учетных данных для доступа к [диспетчеру сопоставления сегментов](sql-database-elastic-scale-shard-map-management.md). В зависимости от выполняемых задач используйте учетные данные с как можно более низким уровнем доступа.
 
-The [Elastic Database client library](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) uses three different kinds  of credentials to access the [shard map manager](sql-database-elastic-scale-shard-map-management.md). Depending on the need, use the credential with  the lowest level of access possible.
+* **Учетные данные управления**: предназначены для создания диспетчера карт сегментов или операций с ним. (См. [глоссарий](sql-database-elastic-scale-glossary.md).) 
+* **Учетные данные для доступа**: обеспечивают доступ к существующему диспетчеру карт сегментов для получения сведений о сегментах.
+* **Учетные данные подключения**: предназначены для подключения к сегментам. 
 
-* **Management credentials**: for creating or manipulating a shard map manager. (See the [glossary](sql-database-elastic-scale-glossary.md).) 
-* **Access credentials**: to access an existing shard map manager to obtain information about shards.
-* **Connection credentials**: to connect to shards. 
-
-See also [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md). 
+Также см. раздел [Управление базами данных и учетными записями в Базе данных SQL Azure](sql-database-manage-logins.md).
  
-## <a name="about-management-credentials"></a>About management credentials
+## Об учетных данных управления
 
-Management credentials are used to create a [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) object for applications that manipulate shard maps. (For example, see [Adding a shard using Elastic Database tools](sql-database-elastic-scale-add-a-shard.md) and [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)) The user of the elastic scale client library creates the SQL users and SQL logins and makes sure each is granted the read/write permissions on the global shard map database and all shard databases as well. These credentials are used to maintain the global shard map and the local shard maps when changes to the shard map are performed. For instance, use the management credentials to create the shard map manager object (using [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx): 
+Учетные данные управления используются для создания объекта [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) в приложениях, работающих с картами сегментов. (Например, см. разделы [Добавление сегмента с использованием инструментов эластичной базы данных](sql-database-elastic-scale-add-a-shard.md) и [Маршрутизация на основе данных](sql-database-elastic-scale-data-dependent-routing.md).) Пользователь клиентской библиотеки эластичного масштабирования создает пользователей и имена для входа SQL и проверяет, имеют ли они разрешения чтения и записи для базы данных глобальной карты сегментов, а также для всех баз данных сегментов. Эти учетные данные используются для обновления глобальной карты сегментов и локальных карт сегментов при внесении изменений в карты. Например, используйте учетные данные управления для создания объекта диспетчера карт сегментов с помощью [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx):
 
-    // Obtain a shard map manager. 
-    ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
-            smmAdminConnectionString, 
-            ShardMapManagerLoadPolicy.Lazy 
-    ); 
+	// Obtain a shard map manager. 
+	ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
+	        smmAdminConnectionString, 
+	        ShardMapManagerLoadPolicy.Lazy 
+	); 
 
-The variable **smmAdminConnectionString** is a connection string that contains the management credentials. The user ID and password provides read/write access to both shard map database and individual shards. The management connection string also includes the server name and database name to identify the global shard map database. Here is a typical connection string for that purpose:
+Переменная **smmAdminConnectionString** — это строка подключения с учетными данными управления. Идентификатор пользователя и пароль предоставляют доступ на чтение и запись как к базе данных сопоставления сегментов, так и к отдельным сегментам. Строка подключения для управления также содержит имя сервера и имя базы данных для идентификации базы данных глобальной карты сегментов. Вот типичная строка подключения, используемая в таком случае:
 
-     "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
+	 "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-Do not use values in the form of "username@server"—instead just use the "username" value.  This is because credentials must work against both the shard map manager database and individual shards, which may be on different servers.
+Не используйте значения вида «имя\_пользователя@сервер». Вместо этого используйте просто значение «имя\_пользователя». Это обусловлено тем, что учетные данные должны действовать для базы данных диспетчера карт сегментов и отдельных сегментов, которые могут находиться на разных серверах.
 
-## <a name="access-credentials"></a>Access credentials
+## Учетные данные для доступа
   
-When creating a shard map manager in an application that does not administer shard maps, use credentials that have read-only permissions on the global shard map. The information retrieved from the global shard map under these credentials are used for [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md) and to populate the shard map cache on the client. The credentials are provided through the same call pattern to **GetSqlShardMapManager** as shown above: 
+При создании диспетчера карт сегментов в приложении, которое не администрирует эти карты сегментов, используйте учетные данные, дающие разрешения только на чтение глобальной карты сегментов. Данные, полученные из глобальной карты сегментов под этими учетными данными, используются для [зависящей от данных маршрутизации](sql-database-elastic-scale-data-dependent-routing.md) и для заполнения кэша карт сегментов на клиенте. Учетные данные передаются через тот же шаблон вызова **GetSqlShardMapManager**, как показано выше:
 
     // Obtain shard map manager. 
     ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -53,33 +52,29 @@ When creating a shard map manager in an application that does not administer sha
             ShardMapManagerLoadPolicy.Lazy
     );  
 
-Note the use of the **smmReadOnlyConnectionString** to reflect the use of different credentials for this access on behalf of **non-admin** users: these credentials should not provide write permissions on the global shard map. 
+Обратите внимание на использование **smmReadOnlyConnectionString**. Для такого доступа применяются другие учетные данные от имени пользователей, **не являющихся администраторами**. Эти учетные данные не должны давать разрешения на запись в глобальную карту сегментов.
 
-## <a name="connection-credentials"></a>Connection credentials 
+## Учетные данные подключения 
 
-Additional credentials are needed when using the [**OpenConnectionForKey**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) method to access a shard associated with a sharding key. These credentials need to provide permissions for read-only access to the local shard map tables residing on the shard. This is needed to perform connection validation for data-dependent routing on the shard. This code snippet allows data access in the context of data dependent routing: 
+При использовании метода [**OpenConnectionForKey**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) для доступа к сегменту, связанному с ключом сегментирования, необходимы дополнительные учетные данные. Эти учетные данные должны предоставлять разрешения на доступ только для чтения к таблицам локальных карт сегментов, размещенным в сегменте. Это необходимо для выполнения проверки подключения для маршрутизации на основе данных в сегменте. Этот фрагмент кода разрешает доступ к данным в контексте зависящей от данных маршрутизации.
  
-    using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>( 
-    targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate)) 
+	using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>( 
+	targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate)) 
 
-In this example, **smmUserConnectionString** holds the connection string for the user credentials. For Azure SQL DB, here is a typical connection string for user credentials: 
+В этом примере **smmUserConnectionString** содержит строку подключения для учетных данных пользователя. В базах данных SQL Azure обычно используется такая строка подключения для учетных данных пользователя:
 
-    "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
+	"User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-As with the admin credentials, do not values in the form of "username@server". Instead, just use "username".  Also note that the connection string does not contain a server name and database name. That is because the **OpenConnectionForKey** call will automatically direct the connection to the correct shard based on the key. Hence, the database name and server name are not provided. 
+Как и для учетных данных администратора, не используйте значения вида «имя\_пользователя@сервер». Вместо этого используйте просто «имя\_пользователя@сервер». Кроме того, обратите внимание, что строка подключения не содержит имя сервера и имя базы данных. Их нет, потому что вызов **OpenConnectionForKey** автоматически перенаправит подключение в нужный сегмент на основе ключа. Таким образом, имя сервера и имя базы данных не указываются.
 
-## <a name="see-also"></a>See also
-[Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
+## См. также
+[Управление базами данных и именами входа в Базе данных SQL Azure](sql-database-manage-logins.md)
 
-[Securing your SQL Database](sql-database-security.md)
+[Защита Базы данных SQL](sql-database-security.md)
 
-[Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md)
+[Начало работы с заданиями обработки эластичных баз данных](sql-database-elastic-jobs-getting-started.md)
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0601_2016-->

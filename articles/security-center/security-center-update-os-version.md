@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Update OS version in Azure Security Center | Microsoft Azure"
-   description="This article shows you how to implement the Azure Security Center recommendation **Update OS version**."
+   pageTitle="Обновление версии ОС в центре безопасности Azure | Microsoft Azure"
+   description="В этой статье объясняется, как выполнить рекомендацию центра безопасности Azure **Обновление версии ОС**."
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
@@ -13,46 +13,40 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/01/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
+# Обновление версии ОС в центре безопасности Azure
 
-# <a name="update-os-version-in-azure-security-center"></a>Update OS version in Azure Security Center
+Для виртуальных машин (ВМ) в облачных службах центр безопасности Azure порекомендует обновить версию операционной системы (ОС) на более новую, если она есть. Мониторинг выполняется только для облачных служб и рабочих ролей, запущенных в слотах рабочей среды.
 
-For virtual machines (VMs) in cloud services, Azure Security Center will recommend that the operating system (OS) be updated if there is a more recent version available.  Only cloud services web and worker roles running in production slots are monitored.
+> [AZURE.NOTE] В документе приводится обзор службы с помощью примера развертывания. Он не является пошаговым руководством.
 
-> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+## Выполнение рекомендаций
 
-## <a name="implement-the-recommendation"></a>Implement the recommendation
+1. В колонке **Рекомендации** выберите **Update OS version** (Обновление версии ОС). ![Обновление версии ОС][1]
 
-1. In the **Recommendations** blade, select **Update OS version**.
-![Update OS version][1]
+2. После этого откроется колонка **Update OS version** (Обновление версии ОС). Выполните указанные в этой колонке действия, чтобы обновить версию ОС.
 
-2. This opens the blade **Update OS version**. Follow the steps in this blade to update the OS version.
+## См. также
 
-## <a name="see-also"></a>See also
+В этой статье объясняется, как выполнить рекомендацию центра безопасности в отношении обновления версии ОС. Дополнительные сведения об облачных службах и обновлении версии ОС для облачной службы см. в следующих статьях:
 
-This article showed you how to implement the Security Center recommendation "Update OS version." To learn more about cloud services and updating the OS version for a cloud service, see:
+- [Cloud Services overview](../cloud-services/cloud-services-choose-me.md) (Обзор облачных служб)
+- [Обновление облачной службы](../cloud-services/cloud-services-update-azure-service.md)
+- [Настройка облачных служб](../cloud-services/cloud-services-how-to-configure-portal.md)
 
-- [Cloud Services overview](../cloud-services/cloud-services-choose-me.md)
-- [How to update a cloud service](../cloud-services/cloud-services-update-azure-service.md)
-- [How to Configure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md)
+Дополнительные сведения о Центре безопасности см. в следующих статьях:
 
-To learn more about Security Center, see the following:
-
-- [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
-- [Security health monitoring in Azure Security Center](security-center-monitoring.md) -- Learn how to monitor the health of your Azure resources.
-- [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
-- [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
-- [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-- [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Get the latest Azure security news and information.
+- [Настройка политик безопасности в Центре безопасности Azure](security-center-policies.md) — узнайте, как настроить политики безопасности для подписок и групп ресурсов Azure.
+- [Управление рекомендациями по безопасности в Центре безопасности Azure](security-center-recommendations.md) — узнайте, как рекомендации могут помочь вам защитить ресурсы Azure.
+- [Наблюдение за работоспособностью системы безопасности в Центре безопасности Azure](security-center-monitoring.md) — узнайте, как наблюдать за работоспособностью ресурсов Azure.
+- [Управление оповещениями безопасности в Центре безопасности Azure и реагирование на них](security-center-managing-and-responding-alerts.md) — узнайте, как управлять оповещениями системы безопасности и реагировать на них.
+- [Мониторинг решений партнеров с помощью центра безопасности Azure](security-center-partner-solutions.md) — узнайте, как отслеживать состояние работоспособности решений партнеров.
+- [Центр безопасности Azure: часто задаваемые вопросы](security-center-faq.md) — часто задаваемые вопросы об использовании этой службы.
+- [Блог по безопасности Azure](http://blogs.msdn.com/b/azuresecurity/) — последние новости и информация об обеспечении безопасности в Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png
 
-
-
-<!--HONumber=Oct16_HO2-->
-
-
+<!---HONumber=AcomDC_0803_2016-->
