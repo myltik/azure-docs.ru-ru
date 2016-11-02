@@ -17,7 +17,8 @@
    ms.date="09/13/2016"
    ms.author="kundanap"/>
 
-# Примеры конфигурации расширений виртуальной машины Linux
+
+# <a name="linux-vm-extension-configuration-samples"></a>Примеры конфигурации расширений виртуальной машины Linux
 
 > [AZURE.SELECTOR]
 - [PowerShell — шаблон](virtual-machines-windows-extensions-configuration-samples.md)
@@ -33,7 +34,7 @@
 
 В данной статье содержатся предполагаемые значения конфигурации для некоторых расширений Linux.
 
-## Фрагмент шаблона образца для расширений виртуальной машины
+## <a name="sample-template-snippet-for-vm-extensions."></a>Фрагмент шаблона образца для расширений виртуальной машины
 Фрагмент шаблона для развертывания расширений выглядит следующим образом:
 
       {
@@ -54,7 +55,7 @@
       }
       }
 
-## Пример фрагмента шаблона для расширений виртуальной машины с наборами масштабирования виртуальных машин.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Пример фрагмента шаблона для расширений виртуальной машины с наборами масштабирования виртуальных машин.
 
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
@@ -80,7 +81,7 @@
 
 В остальной части статьи содержатся образцы конфигурации для расширений виртуальных машин Linux.
 
-### Агент CloudLink SecureVM
+### <a name="cloudlink-securevm-agent"></a>Агент CloudLink SecureVM
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMLinuxAgent",
@@ -90,7 +91,7 @@
             }
           }
 
-### Расширение CustomScript для Linux.
+### <a name="customscript-extension-for-linux."></a>Расширение CustomScript для Linux.
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -105,7 +106,7 @@
     }
 
 
-### Агент Datadog
+### <a name="datadog-agent"></a>Агент Datadog
         {
           "publisher": "Datadog.Agent",
           "type": "DatadogLinuxAgent",
@@ -115,7 +116,7 @@
           }
         }
 
-### Агент Chef
+### <a name="chef-agent"></a>Агент Chef
         {
           "publisher": "Chef.Bootstrap.WindowsAzure",
           "type": "CentosChefClient|LinuxChefClient",
@@ -127,7 +128,7 @@
           }
         }
 
-### Расширение для доступа к виртуальной машине (сброс пароля)
+### <a name="vm-access-extension-(password-reset)"></a>Расширение для доступа к виртуальной машине (сброс пароля)
 Для получения обновленной схемы см. [документацию по VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
         {
@@ -143,7 +144,7 @@
           }
         }
 
-### Установка исправлений для ОС
+### <a name="os-patching"></a>Установка исправлений для ОС
 Для получения обновленной схемы см. [документацию по OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching).
 
         {
@@ -168,7 +169,7 @@
         }
         }
 
-### Расширение Docker
+### <a name="docker-extension"></a>Расширение Docker
 Для получения обновленной схемы см. [документацию по расширению Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema).
 
         {
@@ -217,4 +218,8 @@
 
 [Расширение Custom Script на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -15,10 +15,14 @@
     ms.date="09/27/2016"
     ms.author="sethm" />
 
-# Квоты концентраторов событий
+
+# <a name="event-hubs-quotas"></a>Квоты концентраторов событий
 
 В этом разделе перечислены основные квоты и ограничения для концентраторов событий Microsoft Azure.
 
-[AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)]
+[AZURE.INCLUDE [service-bus-quotas-table](../../includes/event-hubs-limits.md)] 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,27 +1,28 @@
 <properties
-	pageTitle="Часто задаваемые вопросы об Azure AD Connect Health"
-	description="Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="femila"
-	editor="curtand"/>
+    pageTitle="Часто задаваемые вопросы об Azure AD Connect Health"
+    description="Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке."
+    services="active-directory"
+    documentationCenter=""
+    authors="billmath"
+    manager="femila"
+    editor="curtand"/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="vakarand"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/14/2016"
+    ms.author="vakarand"/>
 
 
-# Часто задаваемые вопросы об Azure AD Connect Health
+
+# <a name="azure-ad-connect-health-frequently-asked-questions-(faq)"></a>Часто задаваемые вопросы об Azure AD Connect Health
 
 Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке.
 
-## Общие вопросы
+## <a name="general-questions"></a>Общие вопросы
 
 
 
@@ -29,7 +30,7 @@
 
 Можно переключиться между различными каталогами Azure AD, щелкнув имя выполнившего вход пользователя в правом верхнем углу и выбрав соответствующую учетную запись. Если учетной записи нет в списке, выполните выход, а затем войдите, используя учетные данные каталога, для которого включено предложение Azure Active Directory Premium.
 
-## Вопросы, связанные с установкой
+## <a name="installation-questions"></a>Вопросы, связанные с установкой
 
 
 
@@ -60,9 +61,12 @@
 
 **Работают ли службы Azure AD Connect Health через сквозной прокси-сервер HTTP?**
 
-Да. Для текущих операций можно настроить агент Health, чтобы пересылать исходящие HTTP-запросы, используя HTTP-прокси. Подробнее см. в разделе [Настройка агентов Azure AD Connect Health для использования HTTP-прокси](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
+Да.  Для текущих операций можно настроить агент Health, чтобы пересылать исходящие HTTP-запросы, используя HTTP-прокси. Подробнее см. в разделе [Настройка агентов Azure AD Connect Health для использования HTTP-прокси](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
 
-Если необходимо настроить прокси-сервер во время регистрации агента, необходимо изменить параметры прокси-сервера для Internet Explorer. <br> Откройте Internet Explorer и выберите «Параметры -> Свойства обозревателя -> Подключения -> Настройка сети».<br> Выберите «Использовать прокси-сервер для локальной сети».<br> Выберите «Дополнительно», ЕСЛИ для HTTP и HTTPS/Secure используются различные порты прокси.<br>
+Если необходимо настроить прокси-сервер во время регистрации агента, необходимо изменить параметры прокси-сервера для Internet Explorer. <br>
+Последовательно выберите «Internet Explorer -> Параметры-> Свойства обозревателя ->Подключения -> Настройка сети».<br>
+Установите флажок "Использовать прокси-сервер для локальной сети".<br>
+Выберите "Дополнительно", ЕСЛИ для HTTP и HTTPS/Secure используются различные порты прокси.<br>
 
 
 **Поддерживают ли службы Azure AD Connect Health обычную проверку подлинности при подключении к прокси-серверам HTTP?**
@@ -72,13 +76,13 @@
 
 **Какие версии службы AD DS поддерживаются в Azure AD Connect Health для AD DS?**
 
-Мониторинг AD DS поддерживается при установке в следующих версиях ОС:
+Мониторинг AD DS поддерживается при установке в следующих версиях ОС: 
 
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-## Вопросы, связанные с работой
+## <a name="operations-questions"></a>Вопросы, связанные с работой
 
 
 
@@ -102,16 +106,21 @@
 
 **Вопрос. Почему на портале Azure AD Connect Health отображается два сервера с одинаковым именем?**
 
-Когда с сервера удаляется агент, сервер не удаляется с портала Azure AD Connect автоматически. Поэтому, если вы вручную удалили агент с сервера или удалили сам сервер, потребуется вручную удалить запись сервера на портале Azure AD Connect Health. Дополнительные сведения см. в разделе [Удаление экземпляра службы или сервера](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance). Кроме того, если вы переустановили сервер из образа или создали новый сервер с теми же данными (например, именем компьютера), но не удалили сервер на портале Azure AD Connect Health с последующей установкой агента на новом сервере, то вы увидите две записи для сервера. В этом случае следует вручную удалить запись, относящуюся к старому серверу. Обычно данные этой записи являются устаревшими.
+Когда с сервера удаляется агент, сервер не удаляется с портала Azure AD Connect автоматически.  Поэтому, если вы вручную удалили агент с сервера или удалили сам сервер, потребуется вручную удалить запись сервера на портале Azure AD Connect Health.  Дополнительные сведения см. в разделе [Удаление экземпляра службы или сервера](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance).
+Кроме того, если вы переустановили сервер из образа или создали новый сервер с теми же данными (например, именем компьютера), но не удалили сервер на портале Azure AD Connect Health с последующей установкой агента на новом сервере, то вы увидите две записи для сервера.  В этом случае следует вручную удалить запись, относящуюся к старому серверу.  Обычно данные этой записи являются устаревшими.
 
-## Связанные ссылки
+## <a name="related-links"></a>Связанные ссылки
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
 * [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
-* [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md)
+* [Using Azure AD Connect Health with AD DS (Использование Azure AD Connect Health с AD DS)](active-directory-aadconnect-health-adds.md) 
 * [Azure AD Connect Health: история версий](active-directory-aadconnect-health-version-history.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

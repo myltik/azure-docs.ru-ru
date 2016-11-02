@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/18/2016"
+   ms.date="10/17/2016"
    ms.author="juliako"/>
 
-# Заметки о выпуске пакета SDK для Azure для .NET 2.9
 
-##Обзор
+# <a name="azure-sdk-for-.net-2.9-release-notes"></a>Заметки о выпуске пакета SDK для Azure для .NET 2.9
 
-Этот документ содержит заметки о выпуске для пакета Azure SDK для .NET версии 2.9.
+##<a name="overview"></a>Обзор
 
-Дополнительные сведения об обновлениях в этом выпуске см. в [объявлении о пакете Azure SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/).
+Этот документ содержит заметки о выпуске для пакета Azure SDK для .NET версии 2.9. 
 
-## Azure SDK 2.9 для Visual Studio 2015 с обновлением 2 и Visual Studio "15" (предварительная версия)
+Дополнительные сведения об обновлениях в этом выпуске см. в [объявлении о пакете SDK для Azure 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/).
+
+## <a name="azure-sdk-2.9-for-visual-studio-2015-update-2-and-visual-studio-"15"-preview"></a>Azure SDK 2.9 для Visual Studio 2015 с обновлением 2 и Visual Studio "15" (предварительная версия)
  
 Это обновление содержит следующие исправления ошибок:
 
@@ -33,30 +34,34 @@
 
 Это обновление содержит следующий новый компонент:
 
-- Поддержка дополнительных служб приложений на вкладке "Службы" в диалоговом окне подготовки служб приложений.
+- Поддержка дополнительных служб приложений на вкладке "Службы" в диалоговом окне подготовки служб приложений. 
 
-##Средства озера данных Azure для Visual Studio 2015 с обновлением 2
+##<a name="azure-data-lake-tools-for-visual-studio-2015-update-2"></a>Средства озера данных Azure для Visual Studio 2015 с обновлением 2
  
 Эти обновления включают следующее:
 
-- **Средства озера данных Azure** для Visual Studio теперь объединены в пакет SDK для Azure для версии .NET. Этот инструмент автоматически устанавливается при установке пакета SDK для Azure.
+- **Средства озера данных Azure** для Visual Studio теперь объединены в пакет SDK для Azure для версии .NET. Этот инструмент автоматически устанавливается при установке пакета SDK для Azure. 
 
-	Этот инструмент постоянно обновляется. Получить обновления можно [здесь](http://aka.ms/datalaketool).
+    Этот инструмент постоянно обновляется. Получить обновления можно [здесь](http://aka.ms/datalaketool).
 
-- **Обозреватель сервера** теперь позволяет просматривать все сущности метаданных U-SQL и обновлять некоторые из них. Дополнительные сведения см. в [этом](https://azure.microsoft.com/documentation/services/data-lake-analytics/) блоге.
+- **Обозреватель сервера** теперь позволяет просматривать все сущности метаданных U-SQL и обновлять некоторые из них. Дополнительную информацию см. в [этом](https://azure.microsoft.com/documentation/services/data-lake-analytics/) блоге.
 
 
-##Средства HDInsight 
+##<a name="hdinsight-tools"></a>Средства HDInsight 
 
 **Средства HDInsight** для Visual Studio теперь поддерживают HDInsight версии 3.3, включая показ графики Tez и другие языковые исправления.
 
 
-##Диспетчер ресурсов Azure 
+##<a name="azure-resource-manager"></a>Диспетчер ресурсов Azure 
 
 В этом выпуске добавлена поддержка [KeyVault](../resource-manager-keyvault-parameter.md) для шаблонов ARM.
 
-##См. также
+##<a name="see-also"></a>Дополнительные материалы
 
-[Объявление о пакете SDK Azure 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
+[Объявление о пакете SDK Azure 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

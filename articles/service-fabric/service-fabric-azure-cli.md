@@ -17,7 +17,8 @@
    ms.author="subramar"/>
 
 
-# Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric
+
+# <a name="using-the-azure-cli-to-interact-with-a-service-fabric-cluster"></a>Использование интерфейса командной строки Azure для взаимодействия с кластером Service Fabric
 
 Вы можете взаимодействовать с кластером Service Fabric с компьютера под управлением Linux с помощью интерфейса командной строки (CLI) Azure для Linux.
 
@@ -31,7 +32,7 @@
  azure servicefabric
 ```
 
-По всем командам можно получить справку. Наберите имя нужной команды, чтобы узнать о ее возможностях. Для команд также поддерживается функция автозавершения. Например, следующая команда отобразит справку по всем командам application.
+По всем командам можно получить справку. Наберите имя нужной команды, чтобы узнать о ее возможностях. Для команд также поддерживается функция автозавершения. Например, следующая команда отобразит справку по всем командам application. 
 
 ```sh
  azure servicefabric application 
@@ -77,13 +78,13 @@ source ~/azure.completion.sh
  azure servicefabric cluster connect --connection-endpoint http://localhost:19080 --client-connection-endpoint PublicIPorFQDN:19000
 ```
 
-Можно использовать PowerShell или CLI для взаимодействия с кластером Service Fabric, созданным с помощью портала Azure.
+Можно использовать PowerShell или CLI для взаимодействия с кластером Service Fabric, созданным с помощью портала Azure. 
 
 **Предупреждение:** эти кластеры не являются защищенными, и вы можете поставить ваш компьютер под угрозу, добавив общедоступный IP-адрес в манифест кластера.
 
 
 
-## Использование интерфейса командной строки Azure для подключения к кластеру Service Fabric
+## <a name="using-the-azure-cli-to-connect-to-a-service-fabric-cluster"></a>Использование интерфейса командной строки Azure для подключения к кластеру Service Fabric
 
 Следующие команды интерфейса командной строки Azure позволяют подключиться к безопасному кластеру. Сведения о сертификате должны соответствовать сертификату на узлах кластера.
 
@@ -91,28 +92,28 @@ source ~/azure.completion.sh
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert
 ```
  
-Если ваш сертификат выдан центром сертификации, следует добавить параметр --ca-cert-path, как показано в следующем примере:
+Если ваш сертификат выдан центром сертификации, следует добавить параметр --ca-cert-path, как показано в следующем примере: 
 
 ```
  azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
 ```
 Если вы используете несколько центров сертификации, перечислите их все, разделив запятыми.
  
-Если параметр "Общее имя" в сертификате не соответствует конечной точке подключения, для обхода проверки можно использовать параметр `--strict-ssl`, как показано в следующем примере:
+Если параметр "Общее имя" в сертификате не соответствует конечной точке подключения, для обхода проверки можно использовать параметр `--strict-ssl` , как показано в следующем примере: 
 
 ```
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
 ```
  
-Если вы хотите пропустить проверку центра сертификации, можно добавить параметр --reject-unauthorized, как показано в следующем примере:
+Если вы хотите пропустить проверку центра сертификации, можно добавить параметр --reject-unauthorized, как показано в следующем примере: 
 
 ```
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
 ```
  
-После подключения вы сможете взаимодействовать с кластером с помощью дополнительных команд интерфейса командной строки.
+После подключения вы сможете взаимодействовать с кластером с помощью дополнительных команд интерфейса командной строки. 
 
-## Развертывание приложения Service Fabric
+## <a name="deploying-your-service-fabric-application"></a>Развертывание приложения Service Fabric
 
 Выполните следующие команды, чтобы скопировать, зарегистрировать и запустить приложение Service Fabric:
 
@@ -123,7 +124,7 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
 ```
 
 
-## Обновление приложения
+## <a name="upgrading-your-application"></a>Обновление приложения
 
 Процесс выполняется так же, [как и в среде Windows](service-fabric-application-upgrade-tutorial-powershell.md).
 
@@ -136,7 +137,7 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
  azure servicefabric application create fabric:/MySFApp MySFApp 1.0
 ```
 
-Внесите изменения в приложение и выполните повторную сборку службы в измененном виде. Замените файл манифеста измененной службы (ServiceManifest.xml) обновленной версией для этой службы (а также все необходимые файлы из каталогов Code, Config и Data). Также замените манифест приложения (ApplicationManifest.xml) обновленной версией для приложения и измененной службы. Теперь скопируйте и зарегистрируйте обновленное приложение с помощью следующих команд:
+Внесите изменения в приложение и выполните повторную сборку службы в измененном виде.  Замените файл манифеста измененной службы (ServiceManifest.xml) обновленной версией для этой службы (а также все необходимые файлы из каталогов Code, Config и Data). Также замените манифест приложения (ApplicationManifest.xml) обновленной версией для приложения и измененной службы.  Теперь скопируйте и зарегистрируйте обновленное приложение с помощью следующих команд:
 
 ```
  azure servicefabric cluster connect http://localhost:19080>
@@ -147,14 +148,14 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
 Теперь можно запустить обновление приложения с помощью следующей команды:
 
 ```
- azure servicefabric application upgrade start -–application-name fabric:/MySFApp -–application-type-version 2.0  --upgrade-mode UnmonitoredAuto
+ azure servicefabric application upgrade start -–application-name fabric:/MySFApp -–target-application-type-version 2.0  --rolling-upgrade-mode UnmonitoredAuto
 ```
 
-Обновление приложения можно отслеживать с помощью SFX. Процесс обновления завершится через несколько минут. Можно также проверить обновленное приложение на наличие ошибок или использовать возможность автоматического отката в Service Fabric.
+Обновление приложения можно отслеживать с помощью SFX. Процесс обновления завершится через несколько минут.  Можно также проверить обновленное приложение на наличие ошибок или использовать возможность автоматического отката в Service Fabric.
 
-## Устранение неполадок
+## <a name="troubleshooting"></a>Устранение неполадок
 
-### Копирование пакета приложения завершается ошибками
+### <a name="copying-of-the-application-package-does-not-succeed"></a>Копирование пакета приложения завершается ошибками
 
 Проверьте, установлен ли клиент `openssh`. Так как по умолчанию он отсутствует в Ubuntu Desktop, установите его с помощью следующей команды.
 
@@ -162,7 +163,7 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
  sudo apt-get install openssh-server openssh-client**
 ```
 
-Если проблема сохранится, попробуйте отключить PAM для ssh, изменив файл **sshd\_config** с помощью следующей команды:
+Если проблема сохранится, попробуйте отключить PAM для ssh, изменив файл **sshd_config** с помощью следующей команды:
 
 ```sh
  sudo vi /etc/ssh/sshd_config
@@ -182,8 +183,12 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
 Использование ключей (вместо паролей) для проверки подлинности ssh пока не поддерживается (так как платформа использует ssh для копирования пакетов), поэтому используйте только проверку пароля.
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Настройте среду разработки и разверните приложение Service Fabric в кластер Linux.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

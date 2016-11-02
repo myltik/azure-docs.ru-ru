@@ -1,12 +1,12 @@
-<properties 
-   pageTitle="Настройка MPIO на узле Linux StorSimple | Microsoft Azure"
-   description="Настройка MPIO на устройстве StorSimple, подключенному к узлу Linux под управлением CentOS 6.6"
+<properties
+   pageTitle="Configure MPIO on StorSimple Linux host| Microsoft Azure"
+   description="Configure MPIO on StorSimple connected to a Linux host running CentOS 6.6"
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
@@ -15,417 +15,418 @@
    ms.date="09/21/2016"
    ms.author="alkohli" />
 
-# Настройка MPIO на узле StorSimple под управлением CentOS
 
-В этой статье описаны этапы настройки многоканального ввода-вывода (MPIO) на сервере узла под управлением CentOS 6.6. Сервер узла подключен к устройству Microsoft Azure StorSimple через инициаторы iSCSI для обеспечения высокой доступности. Здесь также подробно описано автоматическое обнаружение устройств с поддержкой нескольких каналов ввода-вывода и приведены настройки для томов StorSimple.
+# <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configure MPIO on a StorSimple host running CentOS
 
-Эта процедура может применяться ко всем моделям устройств серии StorSimple 8000.
+This article explains the steps required to configure Multipathing IO (MPIO) on your Centos 6.6 host server. The host server is connected to your Microsoft Azure StorSimple device for high availability via iSCSI initiators. It describes in detail the automatic discovery of multipath devices and the specific setup only for StorSimple volumes.
 
->[AZURE.NOTE] Эта процедура не подходит для виртуального устройства StorSimple. Дополнительные сведения см. в статье о настройке сервера узла для виртуального устройства.
+This procedure is applicable to all the models of StorSimple 8000 series devices.
 
-## Основные сведения о многоканальном вводе-выводе 
+>[AZURE.NOTE] This procedure cannot be used for a StorSimple virtual device. For more information, see how to configure host servers for your virtual device.
 
-Поддержка этой возможности позволяет настроить несколько каналов ввода-вывода между сервером узла и устройством хранения. Эти каналы ввода-вывода являются физическими соединениями SAN, которые могут включать отдельные кабели, коммутаторы, сетевые интерфейсы и контроллеры. Поддержка нескольких каналов подразумевает объединение каналов ввода-вывода для настройки нового устройства, которое будет связано со всеми объединенными каналами.
+## <a name="about-multipathing"></a>About multipathing
 
-Использование нескольких каналов выполняет две основные задачи.
+The multipathing feature allows you to configure multiple I/O paths between a host server and a storage device. These I/O paths are physical SAN connections that can include separate cables, switches, network interfaces, and controllers. Multipathing aggregates the I/O paths, to configure a new device that is associated with all of the aggregated paths.
 
-- **Обеспечение высокого уровня доступности**. В случае отказа любого канала ввода-вывода (например, кабеля, коммутатора, сетевого интерфейса или контроллера) всегда есть другой канал.
+The purpose of multipathing is two-fold:
 
-- **Балансировка нагрузки**. В зависимости от конфигурации устройства хранения такое решение может повысить производительность: нагрузка автоматически распределяется между каналами ввода-вывода.
+- **High availability**: It provides an alternate path if any element of the I/O path (such as a cable, switch, network interface, or controller) fails.
 
+- **Load balancing**: Depending on the configuration of your storage device, it can improve the performance by detecting loads on the I/O paths and dynamically rebalancing those loads.
 
-### Компоненты решения для многоканального ввода-вывода 
 
-Решение для многоканального ввода-вывода в ОС Linux состоит из компонентов ядра и компонентов пространства пользователя.
+### <a name="about-multipathing-components"></a>About multipathing components
 
-- **Ядро**. Основным компонентом является *модуль отображения устройств* (device-mapper), который перенаправляет ввод-вывод и обеспечивает отказоустойчивость каналов и их групп.
+Multipathing in Linux consists of kernel components and user-space components as tabulated below.
 
-1. **Пространство пользователя**. Сюда входят *инструменты управления несколькими каналами* (multipath-tools). Они управляют многоканальными устройствами посредством передачи инструкций в модуль отображения устройств. Инструменты состоят из следующих компонентов.
+- **Kernel**: The main component is the *device-mapper* that reroutes I/O and supports failover for paths and path groups.
 
-	- **Multipath**. Отображает многоканальные устройства и настраивает их.
-		
-	- **Multipathd**. Управляющая программа, которая выполняет команду multipath и отслеживает каналы.
-	
-	- **Devmap-name**. Присваивает udev значимое имя устройства device-name для devmap.
- 
-	- **Kpartx**. Сопоставляет линейные devmap с разделами устройства для сегментирования многоканальных карт.
-	
-	- **Multipath.conf**. Файл конфигурации управляющей программы multipath, используемый для перезаписи встроенной таблицы конфигурации.
+1. **User-space**: These are *multipath-tools* that manage multipathed devices by instructing the device-mapper multipath module what to do. The tools consist of:
 
-### Файл конфигурации multipath.conf
+    - **Multipath**: lists and configures multipathed devices.
 
-Файл конфигурации `/etc/multipath.conf` позволяет пользователю настраивать многие функции многоканального ввода-вывода. Команда `multipath` и управляющая программа ядра `multipathd` используют сведения из этого файла. Обращение к файлу происходит только во время настройки устройств с поддержкой нескольких каналов. Все изменения должны быть внесены до выполнения команды `multipath`. Если вы впоследствии измените файл, вам нужно будет остановить компонент multipathd и запустить его снова. Только после этого новые изменения вступят в силу.
+    - **Multipathd**: daemon that executes multipath and monitors the paths.
 
-Файл multipath.conf состоит из пяти разделов.
+    - **Devmap-name**: provides a meaningful device-name to udev for devmaps.
 
-- **Параметры системного уровня, используемые по умолчанию** *(defaults)*. Здесь можно изменять стандартные системные параметры.
+    - **Kpartx**: maps linear devmaps to device partitions to make multipath maps partitionable.
 
-1. **Список запрещенных устройств** *(blacklist)*. Здесь можно указать список устройств, которыми не должен управлять компонент device-mapper.
+    - **Multipath.conf**: configuration file for multipath daemon that is used to overwrite the built-in configuration table.
 
-1. **Исключения из списка запрещенных устройств** *(blacklist\_exceptions)*. Здесь вы можете указать определенные устройства, которые должны считаться многоканальными, даже если они содержатся в списке запрещенных устройств.
+### <a name="about-the-multipath.conf-configuration-file"></a>About the multipath.conf configuration file
 
-1. **Параметры контроллера хранилища** *(devices)*. Здесь можно указать параметры конфигурации, которые будут применяться к устройствам, содержащим сведения о поставщике и продукте.
+The configuration file `/etc/multipath.conf` makes many of the multipathing features user-configurable. The `multipath` command and the kernel daemon `multipathd` use information found in this file. The file is consulted only during the configuration of the multipath devices. Make sure that all changes are made before you run the `multipath` command. If you modify the file afterwards, you will need to stop and start multipathd again for the changes to take effect.
 
-1. **Параметры определенных устройств** *(multipaths)*. Этот раздел можно использовать для точной настройки параметров отдельных LUN.
+The multipath.conf has five sections:
 
-## Настройка многоканального ввода-вывода на устройстве StorSimple, подключенном к узлу Linux
+- **System level defaults** *(defaults)*: You can override system level defaults.
 
-Устройство StorSimple, подключенное к узлу Linux, можно настроить для обеспечения высокой доступности и балансировки нагрузки. Например, если узел Linux и устройство имеют по два интерфейса, подключенных к сети SAN, и эти интерфейсы находятся в одной подсети, будет доступно четыре канала. Если же интерфейс передачи данных на устройстве и интерфейс узла расположены в подсетях с разными IP-адресами и эти IP-адреса не маршрутизируются, будет доступно только два канала. Для многоканального ввода-вывода можно настроить автоматическое обнаружение всех доступных каналов, выбрать алгоритм балансировки нагрузки для этих каналов, применить определенные параметры конфигурации к томам устройства StorSimple, а затем включить поддержку нескольких каналов ввода-вывода и проверить ее работу.
+1. **Blacklisted devices** *(blacklist)*: You can specify the list of devices that should not be controlled by device-mapper.
 
-Далее рассматривается настройка многоканального ввода-вывода. Предполагается, что устройство StorSimple имеет два сетевых интерфейса и подключено к узлу с двумя сетевыми интерфейсами.
+1. **Blacklist exceptions** *(blacklist_exceptions)*: You can identify specific devices to be treated as multipath devices even if listed in the blacklist.
 
-## Предварительные требования
+1. **Storage controller specific settings** *(devices)*: You can specify configuration settings that will be applied to devices that have Vendor and Product information.
 
-В этом разделе подробно описываются предварительные требования для настройки сервера CentOS и устройства StorSimple.
+1. **Device specific settings** *(multipaths)*: You can use this section to fine-tune the configuration settings for individual LUNs.
 
-### Узел CentOS
+## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>Configure multipathing on StorSimple connected to Linux host
 
+A StorSimple device connected to a Linux host can be configured for high availability and load balancing. For example, if the Linux host has two interfaces connected to the SAN and the device has two interfaces connected to the SAN such that these interfaces are on the same subnet, then there will be 4 paths available. However, if each DATA interface on the device and host interface are on a different IP subnet (and not routable), then only 2 paths will be available. You can configure multipathing to automatically discover all the available paths, choose a load-balancing algorithm for those paths, apply specific configuration settings for StorSimple-only volumes, and then enable and verify multipathing.
 
+The following procedure describes how to configure multipathing when a StorSimple device with two network interfaces is connected to a host with two network interfaces.
 
-1. Убедитесь, что у узла CentOS есть два активных сетевых интерфейса. Введите:
+## <a name="prerequisites"></a>Prerequisites
 
-	`ifconfig`
+This section details the configuration prerequisites for CentOS server and your StorSimple device.
 
-	В следующем примере показан результат выполнения команды при наличии на узле двух сетевых интерфейсов (`eth0` и `eth1`).
+### <a name="on-centos-host"></a>On CentOS host
 
-    	[root@centosSS ~]# ifconfig
-    	eth0  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:41  
-      	inet addr:10.126.162.65  Bcast:10.126.163.255  Mask:255.255.252.0
-      	inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3341/64 Scope:Global
-      	inet6 addr: fe80::215:5dff:fea2:3341/64 Scope:Link
-      	UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-     	RX packets:36536 errors:0 dropped:0 overruns:0 frame:0
-      	TX packets:6312 errors:0 dropped:0 overruns:0 carrier:0
-      	collisions:0 txqueuelen:1000 
-      	RX bytes:13994127 (13.3 MiB)  TX bytes:645654 (630.5 KiB)
-    
-    	eth1  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:42  
-      	inet addr:10.126.162.66  Bcast:10.126.163.255  Mask:255.255.252.0
-      	inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3342/64 Scope:Global
-      	inet6 addr: fe80::215:5dff:fea2:3342/64 Scope:Link
-      	UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-      	RX packets:25962 errors:0 dropped:0 overruns:0 frame:0
-      	TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
-      	collisions:0 txqueuelen:1000 
-      	RX bytes:2597350 (2.4 MiB)  TX bytes:754 (754.0 b)
-    
-    	loLink encap:Local Loopback  
-      	inet addr:127.0.0.1  Mask:255.0.0.0
-      	inet6 addr: ::1/128 Scope:Host
-      	UP LOOPBACK RUNNING  MTU:65536  Metric:1
-      	RX packets:12 errors:0 dropped:0 overruns:0 frame:0
-      	TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
-      	collisions:0 txqueuelen:0 
-      	RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
 
 
-1. Установите *iSCSI-initiator-utils* на сервер CentOS. Чтобы установить *iSCSI-initiator-utils*, сделайте следующее.
+1. Make sure that your CentOS host has 2 network interfaces enabled. Type:
 
-	1. Войдите на узел CentOS как `root`.
+    `ifconfig`
 
-	1. Установите *iSCSI-initiator-utils*. Введите:
-		
-		`yum install iscsi-initiator-utils`
+    The following example shows the output when two network interfaces (`eth0` and `eth1`) are present on the host.
 
+        [root@centosSS ~]# ifconfig
+        eth0  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:41  
+        inet addr:10.126.162.65  Bcast:10.126.163.255  Mask:255.255.252.0
+        inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3341/64 Scope:Global
+        inet6 addr: fe80::215:5dff:fea2:3341/64 Scope:Link
+        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+        RX packets:36536 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:6312 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:1000
+        RX bytes:13994127 (13.3 MiB)  TX bytes:645654 (630.5 KiB)
 
-	1. После успешной установки *iSCSI-Initiator-utils* запустите службу iSCSI. Введите:
+        eth1  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:42  
+        inet addr:10.126.162.66  Bcast:10.126.163.255  Mask:255.255.252.0
+        inet6 addr: 2001:4898:4010:3012:215:5dff:fea2:3342/64 Scope:Global
+        inet6 addr: fe80::215:5dff:fea2:3342/64 Scope:Link
+        UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+        RX packets:25962 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:1000
+        RX bytes:2597350 (2.4 MiB)  TX bytes:754 (754.0 b)
 
-		`service iscsid start`
+        loLink encap:Local Loopback  
+        inet addr:127.0.0.1  Mask:255.0.0.0
+        inet6 addr: ::1/128 Scope:Host
+        UP LOOPBACK RUNNING  MTU:65536  Metric:1
+        RX packets:12 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0 txqueuelen:0
+        RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
 
-		Иногда `iscsid` может не запускаться. В таком случае используйте параметр `--force`.
 
-	1. Чтобы гарантировать работу инициатора iSCSI во время загрузки, включите службу с помощью команды `chkconfig`.
+1. Install *iSCSI-initiator-utils* on your CentOS server. Perform the following steps to install *iSCSI-initiator-utils*.
 
-		`chkconfig iscsi on`
+    1. Log on as `root` into your CentOS host.
 
+    1. Install the *iSCSI-initiator-utils*. Type:
 
-	1. Чтобы убедиться в правильности установки, выполните такую команду:
-	
-		`chkconfig --list | grep iscsi`
-	
-		Результат выполнения команды показан ниже.
+        `yum install iscsi-initiator-utils`
 
-			iscsi   0:off   1:off   2:on3:on4:on5:on6:off
-			iscsid  0:off   1:off   2:on3:on4:on5:on6:off
 
-		Из приведенного выше примера видно, что среда iSCSI будет запускаться во время загрузки на уровнях выполнения 2, 3, 4 и 5.
+    1. After the *iSCSI-Initiator-utils* is successfully installed, start the iSCSI service. Type:
 
+        `service iscsid start`
 
-1. Установите *device-mapper-multipath*. Введите:
+        On occasions, `iscsid` may not actually start and the `--force` option may be needed
 
-	`yum install device-mapper-multipath`
+    1. To ensure that your iSCSI initiator is enabled during boot time, use the `chkconfig` command to enable the service.
 
-	Начнется установка. При появлении запроса на подтверждение нажмите клавишу **Y**.
+        `chkconfig iscsi on`
 
 
+    1. To verify that that it was properly setup, run the command:
 
-### Устройство StorSimple
+        `chkconfig --list | grep iscsi`
 
-Устройство StorSimple должно удовлетворять следующим условиям.
+        A sample output is shown below.
 
-- Наличие как минимум двух активных интерфейсов для iSCSI. Чтобы убедиться в наличии двух активных интерфейсов iSCSI на устройстве StorSimple, выполните на классическом портале Azure для устройства StorSimple следующие действия.
+            iscsi   0:off   1:off   2:on3:on4:on5:on6:off
+            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
 
-	1. Перейдите на классический портал для устройства StorSimple.
+        From the above example, you can see that your iSCSI environment will run on boot time on run levels 2, 3, 4, and 5.
 
-	1. Выберите службу StorSimple Manager, щелкните **Устройства** и выберите нужное устройство StorSimple. Щелкните **Настройка** и проверьте параметры сетевого интерфейса. На снимке экрана ниже показаны два сетевых интерфейса с поддержкой iSCSI. Здесь оба интерфейса 10 GbE (DATA 2 и DATA 3) поддерживают iSCSI.
-	
-		![Настройка MPIO на устройстве StorSimple, интерфейс DATA2](./media/storsimple-configure-mpio-on-linux/IC761347.png)
-	
-		![Настройка MPIO на устройстве StorSimple, интерфейс DATA3](./media/storsimple-configure-mpio-on-linux/IC761348.png)
 
-		На странице **Настройка** выполните следующее.
+1. Install *device-mapper-multipath*. Type:
 
-		1. Убедитесь, что оба сетевых интерфейса поддерживают iSCSI. Для параметра **ISCSI включен** должно быть выбрано значение **Да**.
-		2. Убедитесь, что сетевые интерфейсы имеют одинаковую скорость — 1 GbE или 10 GbE.
-		3. Запишите IPv4-адреса интерфейсов с поддержкой iSCSI и сохраните их для последующего использования на узле.
+    `yum install device-mapper-multipath`
 
+    The installation will start. Type **Y** to continue when prompted for confirmation.
 
-- Интерфейсы iSCSI на устройстве StorSimple должны быть доступны с сервера CentOS.
 
-	Чтобы проверить это, укажите IP-адреса сетевых интерфейсов iSCSI своего устройства StorSimple на сервере узла. Используемые команды и результаты их выполнения для DATA2 (10.126.162.25) и DATA3 (10.126.162.26) приведены ниже.
 
-    	[root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
-    	10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
-    	10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
+### <a name="on-storsimple-device"></a>On StorSimple device
 
+Your StorSimple device should have:
 
-### Конфигурация оборудования
+- A minimum of two interfaces enabled for iSCSI. To verify that two interfaces are iSCSI-enabled on your StorSimple device, perform the following steps in the Azure classic portal for your StorSimple device:
 
-Мы рекомендуем подключать два сетевых интерфейса iSCSI к отдельным каналам для обеспечения избыточности. На рисунке ниже изображена рекомендуемая конфигурация оборудования для реализации многоканального ввода-вывода с высокой доступностью и балансировкой нагрузки для сервера CentOS и устройства StorSimple.
+    1. Log into the classic portal for your StorSimple device.
 
-![Настройка MPIO на устройстве StorSimple, подключение к узлу Linux](./media/storsimple-configure-mpio-on-linux/MPIOHardwareConfigurationStorSimpleToLinuxHost2M.png)
+    1. Select your StorSimple Manager service, click **Devices** and choose the specific StorSimple device. Click **Configure** and verify the network interface settings. A screenshot with two iSCSI-enabled network interfaces is shown below. Here DATA 2 and DATA 3, both 10 GbE interfaces are enabled for iSCSI.
 
-Пояснения к рисунку.
+        ![MPIO StorsSimple DATA 2 config](./media/storsimple-configure-mpio-on-linux/IC761347.png)
 
-- Устройство StorSimple имеет активно-пассивную конфигурацию с двумя контроллерами.
+        ![MPIO StorSimple DATA 3 Config](./media/storsimple-configure-mpio-on-linux/IC761348.png)
 
-- К контроллерам устройства подключены два коммутатора SAN.
- 
-- На устройстве StorSimple активировано два инициатора iSCSI.
- 
-- На узле CentOS активировано два сетевых интерфейса.
+        In the **Configure** page
 
-Если интерфейсы узла и данных маршрутизируются, такая конфигурация будет иметь четыре отдельных канала между устройством и узлом.
+        1. Ensure that both network interfaces are iSCSI-enabled. The **iSCSI enabled** field should be set to **Yes**.
+        2. Ensure that the network interfaces have the same speed, both should be 1 GbE or 10 GbE.
+        3. Note the IPv4 addresses of the iSCSI-enabled interfaces and save for later use on the host.
 
->[AZURE.IMPORTANT] 
+
+- The iSCSI interfaces on your StorSimple device should be reachable from the CentOS server.
+
+    To verify this, you need to provide the IP addresses of your StorSimple iSCSI-enabled network interfaces on your host server. The commands used and the corresponding output with DATA2 (10.126.162.25) and DATA3 (10.126.162.26) is shown below:
+
+        [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
+        10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
+        10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
+
+
+### <a name="hardware-configuration"></a>Hardware configuration
+
+We recommend that you connect the two iSCSI network interfaces on separate paths for redundancy. The figure below shows the recommended hardware configuration for high availability and load-balancing multipathing for your CentOS server and StorSimple device.
+
+![MPIO hardware config for StorSimple to Linux host](./media/storsimple-configure-mpio-on-linux/MPIOHardwareConfigurationStorSimpleToLinuxHost2M.png)
+
+As shown in the preceding figure:
+
+- Your StorSimple device is in an active-passive configuration with two controllers.
+
+- Two SAN switches are connected to your device controllers.
+
+- Two iSCSI initiators are enabled on your StorSimple device.
+
+- Two network interfaces are enabled on your CentOS host.
+
+The above configuration will yield 4 separate paths between your device and the host if the host and data interfaces are routable.
+
+>[AZURE.IMPORTANT]
 >
->- При реализации многоканального ввода-вывода мы рекомендуем не смешивать сетевые интерфейсы 1 GbE и 10 GbE. При использовании двух сетевых интерфейсов оба интерфейса должны быть одного типа.
->- На устройстве StorSimple интерфейсы DATA0, DATA1, DATA4 и DATA5 относятся к типу 1 GbE, а DATA2 и DATA3 — к типу 10 GbE.
+>- We recommend that you do not mix 1 GbE and 10 GbE network interfaces for multipathing. When using two network interfaces, both the interfaces should be the identical type.
+>- On your StorSimple device, DATA0, DATA1, DATA4 and DATA5 are 1 GbE interfaces whereas DATA2 and DATA3 are 10 GbE network interfaces.|
 
-## Этапы настройки
+## <a name="configuration-steps"></a>Configuration steps
 
-Настройка многоканального ввода-вывода предусматривает настройку автоматического обнаружения доступных каналов, выбор алгоритма балансировки нагрузки, активацию многоканального ввода-вывода и, наконец, проверку конфигурации. В следующих разделах каждый этап рассматривается более подробно.
+The configuration steps for multipathing involve configuring the available paths for automatic discovery, specifying the load-balancing algorithm to use, enabling multipathing and finally verifying the configuration. Each of these steps is discussed in detail in the following sections.
 
-### Этап 1. Настройка автоматического обнаружения доступных каналов
+### <a name="step-1:-configure-multipathing-for-automatic-discovery"></a>Step 1: Configure multipathing for automatic discovery
 
-Устройства с поддержкой нескольких каналов ввода-вывода можно обнаруживать и настраивать автоматически.
+The multipath-supported devices can be automatically discovered and configured.
 
-1. Инициализируйте файл `/etc/multipath.conf`. Введите:
+1. Initialize `/etc/multipath.conf` file. Type:
 
-	 `Copy mpathconf --enable`
-	
-	Эта команда создаст файл `sample/etc/multipath.conf`.
+     `Copy mpathconf --enable`
+
+    The above command will create a `sample/etc/multipath.conf` file.
 
 
-1. Запустите службу многоканального ввода-вывода. Введите:
+1. Start multipath service. Type:
 
     ``Copy service multipathd start``
-	
-	Вы увидите такой результат:
 
-	`Starting multipathd daemon:`
+    You will see the following output:
 
-1. Включите автоматическое обнаружение каналов ввода-вывода. Введите:
+    `Starting multipathd daemon:`
 
-	`mpathconf --find_multipaths y`
+1. Enable automatic discovery of multipaths. Type:
 
-	Раздел defaults в файле `multipath.conf` будет изменен следующим образом.
+    `mpathconf --find_multipaths y`
 
-		defaults {
-		find_multipaths yes
-		user_friendly_names yes
-		path_grouping_policy multibus
-		}
+    This will modify the defaults section of your `multipath.conf` as shown below:
 
-### Этап 2. Настройка многоканального ввода-вывода для томов StorSimple
+        defaults {
+        find_multipaths yes
+        user_friendly_names yes
+        path_grouping_policy multibus
+        }
 
-По умолчанию все устройства внесены в список запрещенных устройств (в файле multipath.conf), которые будут игнорироваться. Чтобы разрешить многоканальный ввод-вывод для томов устройств StorSimple, нужно создать исключения.
+### <a name="step-2:-configure-multipathing-for-storsimple-volumes"></a>Step 2: Configure multipathing for StorSimple volumes
 
-1. Отредактируйте файл `/etc/mulitpath.conf`. Введите:
+By default, all devices are black listed in the multipath.conf file and will be bypassed. You will need to create blacklist exceptions to allow multipathing for volumes from StorSimple devices.
 
-	`vi /etc/multipath.conf`
+1. Edit the `/etc/mulitpath.conf` file. Type:
 
-1. Найдите в файле multipath.conf раздел blacklist\_exceptions. В этот список исключений нужно добавить ваше устройство StorSimple. Раскомментируйте соответствующие строки в этом файле, как показано ниже (укажите только свою модель устройства).
+    `vi /etc/multipath.conf`
 
-    	blacklist_exceptions {
-    	    device {
-    	               vendor  "MSFT"
-    	               product "STORSIMPLE 8100*"
-    	    }
-    	    device {
-    	               vendor  "MSFT"
-    	               product "STORSIMPLE 8600*"
-    	    }
-    	   }
+1. Locate the blacklist_exceptions section in the multipath.conf file. Your StorSimple device needs to be listed as a blacklist exception in this section. You can uncomment relevant lines in this file to modify it as shown below (use only the specific model of the device you are using):
 
-### Этап 3. Настройка циклического многоканального ввода-вывода
+        blacklist_exceptions {
+            device {
+                       vendor  "MSFT"
+                       product "STORSIMPLE 8100*"
+            }
+            device {
+                       vendor  "MSFT"
+                       product "STORSIMPLE 8600*"
+            }
+           }
 
-Этот алгоритм балансировки нагрузки циклически и сбалансировано использует все доступные каналы к активному контроллеру.
+### <a name="step-3:-configure-round-robin-multipathing"></a>Step 3: Configure round-robin multipathing
 
-1. Отредактируйте файл `/etc/multipath.conf`. Введите:
+This load-balancing algorithm uses all the available multipaths to the active controller in a balanced, round-robin fashion.
 
-	`vi /etc/multipath.conf`
+1. Edit the `/etc/multipath.conf` file. Type:
 
-1. В разделе `defaults` задайте для параметра `path_grouping_policy` значение `multibus`. Параметр `path_grouping_policy` указывает стандартную политику группировки каналов, которая будет применяться к неопределенным каналам. Раздел defaults будет выглядеть следующим образом.
+    `vi /etc/multipath.conf`
 
-	    defaults {
-	            user_friendly_names yes
-	            path_grouping_policy multibus
-	    }
+1. Under the `defaults` section, set the `path_grouping_policy` to `multibus`. The `path_grouping_policy` specifies the default path grouping policy to apply to unspecified multipaths. The defaults section will look as shown below.
+
+        defaults {
+                user_friendly_names yes
+                path_grouping_policy multibus
+        }
 
 
 
-> [AZURE.NOTE] 
-Вот наиболее распространенные значения параметра `path_grouping_policy`:
-	
-> - failover — один канал для каждой группы приоритетов;
-> - multibus — все допустимые каналы в одной группе приоритетов.
+> [AZURE.NOTE]
+> The most common values of `path_grouping_policy` include:
 
-### Этап 4. Активация многоканального ввода-вывода
+> - failover = 1 path per priority group
+> - multibus = all valid paths in 1 priority group
 
-1. Перезапустите управляющую программу `multipathd`. Введите:
+### <a name="step-4:-enable-multipathing"></a>Step 4: Enable multipathing
+
+1. Restart the `multipathd` daemon. Type:
 
     `service multipathd restart`
 
-1. Результат выполнения команды будет таким:
+1. The output will be as shown below:
 
-    	[root@centosSS ~]# service multipathd start
-    	Starting multipathd daemon:  [OK]
-
-
-
-
-### Этап 5. Проверка работы многоканального ввода-вывода
-
-1. Сначала убедитесь, что соединение iSCSI с устройством StorSimple установлено.
-
-
-	1. Обнаружьте устройство StorSimple. Введите:
-		
-		`iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>`
-
-		Если на устройстве StorSimple интерфейс DATA0 имеет IP-адрес 10.126.162.25 и порт 3260, а также открыт для исходящего трафика iSCSI, результат выполнения команды будет таким:
-
-		    10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
-		    10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
-
-
-		Скопируйте IQN устройства StorSimple, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target` (см. результат выше).
+        [root@centosSS ~]# service multipathd start
+        Starting multipathd daemon:  [OK]
 
 
 
-	1. Подключитесь к устройству с помощью IQN целевого объекта. StorSimple здесь является целевым объектом iSCSI. Введите:
 
-		`iscsiadm -m node --login -T <IQN of iSCSI target>`
+### <a name="step-5:-verify-multipathing"></a>Step 5: Verify multipathing
 
-		В следующем примере показан результат с IQN целевого объекта (`iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`). Результат показывает, что вы успешно подключились к двум сетевым интерфейсам с поддержкой iSCSI на своем устройстве.
-
-		    Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
-	    	Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
-	    	Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
-	    	Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
-	    	Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
-	    	Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
-	    	Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
-	    		Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
+1. First make sure that iSCSI connection is established with the StorSimple device as follows:
 
 
-		Если в результатах вы увидите только один интерфейс узла и два канала, необходимо задействовать оба интерфейса на узле для iSCSI. Воспользуйтесь [подробными инструкциями в документации Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
+    1. Discover your StorSimple device. Type:
 
-	
-	1. Том предоставляется серверу CentOS с устройства StorSimple. Дополнительные сведения о создании тома на устройстве StorSimple с помощью классического портала Azure см. в разделе [Этап 6. Создание тома](storsimple-deployment-walkthrough.md#step-6-create-a-volume).
+        `iscsiadm -m discovery -t sendtargets -p  <IP address of network interface on the device>:<iSCSI port on StorSimple device>`
 
-	1. Проверьте доступные пути. Введите:
+        The output when IP address for DATA0 is 10.126.162.25 and port 3260 is opened on the StorSimple device for outbound iSCSI traffic is as shown below:
 
-		`multipath –l`
-
-		В следующем примере приведен результат выполнения команды для двух сетевых интерфейсов устройства StorSimple, которое подключено к одному сетевому интерфейсу узла с двумя доступными каналами.
-
-		    mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
-    		size=100G features='0' hwhandler='0' wp=rw
-    		`-+- policy='round-robin 0' prio=0 status=active
-    		  |- 7:0:0:1 sdc 8:32 active undef running
-    		  `- 6:0:0:1 sdd 8:48 active undef running
-
-		В следующем примере приведен результат выполнения команды для двух сетевых интерфейсов устройства StorSimple, которое подключено к двум сетевым интерфейсам узла с четырьмя доступными каналами.
-		
-		    mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
-    		size=100G features='0' hwhandler='0' wp=rw
-    		`-+- policy='round-robin 0' prio=0 status=active
-    		  |- 17:0:0:0 sdb 8:16 active undef running
-    		  |- 15:0:0:0 sdd 8:48 active undef running
-    		  |- 14:0:0:0 sdc 8:32 active undef running
-    		  `- 16:0:0:0 sde 8:64 active undef running
-
-		После настройки каналов см. инструкции к операционной системе узла (CentOS 6.6), чтобы подключить и отформатировать этот том.
+            10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
+            10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
 
 
-## Устранение неполадок многоканального ввода-вывода
+        Copy the IQN of your StorSimple device, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`, from the preceding output.
 
-В этом разделе приведены некоторые полезные советы, которые помогут вам при возникновении проблем во время настройки многоканального ввода-вывода.
 
-В. Внесение изменений в файл `multipath.conf` никак не отразилось на работе решения.
 
-О. Если в файл `multipath.conf` внесены изменения, необходимо перезапустить службу многоканального ввода-вывода. Введите следующую команду:
-    
+    1. Connect to the device using target IQN. The StorSimple device is the iSCSI target here. Type:
+
+        `iscsiadm -m node --login -T <IQN of iSCSI target>`
+
+        The following example shows output with a target IQN of `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`. The output indicates that you have successfully connected to the two iSCSI-enabled network interfaces on your device.
+
+            Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
+            Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
+            Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
+            Logging in to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] (multiple)
+            Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
+            Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] successful.
+            Login to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
+                Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
+
+
+        If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
+
+
+    1. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-deployment-walkthrough.md#step-6-create-a-volume) via the Azure classic portal on your StorSimple device.
+
+    1. Verify the available paths. Type:
+
+        `multipath –l`
+
+        The following example shows the output for two network interfaces on a StorSimple device connected to a single host network interface with two available paths.
+
+            mpathb (36486fd20cc081f8dcd3fccb992d45a68) dm-3 MSFT,STORSIMPLE 8100
+            size=100G features='0' hwhandler='0' wp=rw
+            `-+- policy='round-robin 0' prio=0 status=active
+              |- 7:0:0:1 sdc 8:32 active undef running
+              `- 6:0:0:1 sdd 8:48 active undef running
+
+        The following example shows the output for two network interfaces on a StorSimple device connected to two host network interfaces with four available paths.
+
+            mpathb (36486fd27a23feba1b096226f11420f6b) dm-2 MSFT,STORSIMPLE 8100
+            size=100G features='0' hwhandler='0' wp=rw
+            `-+- policy='round-robin 0' prio=0 status=active
+              |- 17:0:0:0 sdb 8:16 active undef running
+              |- 15:0:0:0 sdd 8:48 active undef running
+              |- 14:0:0:0 sdc 8:32 active undef running
+              `- 16:0:0:0 sde 8:64 active undef running
+
+        After the paths are configured, refer to the specific instructions on your host operating system (Centos 6.6) to mount and format this volume.
+
+
+## <a name="troubleshoot-multipathing"></a>Troubleshoot multipathing
+
+This section provides some helpful tips if you run into any issues during multipathing configuration.
+
+Q. I do not see the changes in `multipath.conf` file taking effect.
+
+A. If you have made any changes to the `multipath.conf` file, you will need to restart the multipathing service. Type the following command:
+
     service multipathd restart
 
-В. У меня активировано два сетевых интерфейса на устройстве StorSimple и два — на узле. Когда я вывожу список доступных каналов, отображаются только два канала, тогда как их должно быть четыре.
+Q. I have enabled two network interfaces on the StorSimple device and two network interfaces on the host. When I list the available paths, I see only two paths. I expected to see four available paths.
 
-О. Убедитесь, что эти два канала находятся в одной подсети и поддерживают маршрутизацию. Если сетевые интерфейсы находятся в разных виртуальных локальных сетях и не поддерживают маршрутизацию, вы увидите только два канала. Чтобы проверить это, убедитесь, что оба интерфейса узла доступны для сетевого интерфейса устройства StorSimple. Вам необходимо [обратиться в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md), так как такую проверку можно выполнить только в ходе сеанса технической поддержки.
+A. Make sure that the two paths are on the same subnet and routable. If the network interfaces are on different vLANs and not routable, you will see only two paths. One way to verify this is to make sure that you can reach both the host interfaces from a network interface on the StorSimple device. You will need to [contact Microsoft Support](storsimple-contact-microsoft-support.md) as this verification can only be done via a support session.
 
-В. Когда я пытаюсь вывести список доступных каналов, ничего не происходит.
+Q. When I list available paths, I do not see any output.
 
-О. Обычно такая ситуация свидетельствует о проблеме с управляющей программой многоканального ввода-вывода. Скорее всего, проблема заключается в файле `multipath.conf`.
+A. Typically, not seeing any multipathed paths suggests a problem with the multipathing daemon, and it’s most likely that any problem here lies in the `multipath.conf` file.
 
-Следует также проверить, отображаются ли какие-либо диски после подключения к целевому объекту, так как отсутствие ответа на запрос каналов ввода-вывода также может указывать на отсутствие дисков.
+It would also be worth checking that you can actually see some disks after connecting to the target, as no response from the multipath listings could also mean you don’t have any disks.
 
-- Повторно просканируйте шину SCSI, выполнив такую команду:
- 
-	`$ rescan-scsi-bus.sh `(часть пакета sg3\_utils)
- 
-- Введите такие команды:
+- Use the following command to rescan the SCSI bus:
 
-	`$ dmesg | grep sd*`
- 
-- Или
+    `$ rescan-scsi-bus.sh `(part of sg3_utils package)
 
-	`$ fdisk –l`
- 
-	В результате будут возвращены сведения о недавно добавленных дисках.
-  
-- Чтобы определить, принадлежит ли диск устройству StorSimple, выполните такую команду:
- 
-	`cat /sys/block/<DISK>/device/model`
- 
-	В результате будет возвращена строка, которая определит, принадлежит ли диск устройству StorSimple.
+- Type the following commands:
 
-Менее вероятной, но также возможной причиной может быть устаревший идентификатор процесса iscsid. Чтобы выйти из сеансов iSCSI, используйте такую команду:
+    `$ dmesg | grep sd*`
+
+- Or
+
+    `$ fdisk –l`
+
+    These will return details of recently added disks.
+
+- To determine whether it is a StorSimple disk, use the following commands:
+
+    `cat /sys/block/<DISK>/device/model`
+
+    This will return a string, which will determine if it’s a StorSimple disk.
+
+A less likely but possible cause could also be stale iscsid pid. Use the following command to log off from the iSCSI sessions:
 
     iscsiadm -m node --logout -p <Target_IP>
 
-Повторите эту команду для всех подключенных сетевых интерфейсов на целевом объекте iSCSI, который является вашим устройством StorSimple. После выхода из всех сеансов iSCSI используйте IQN целевого объекта iSCSI, чтобы восстановить сеанс iSCSI. Введите следующую команду:
+Repeat this command for all the connected network interfaces on the iSCSI target, which is your StorSimple device. Once you have logged off from all the iSCSI sessions, use the iSCSI target IQN to reestablish the iSCSI session. Type the following command:
 
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-В. Я не уверен, включено ли мое устройство в список разрешенных устройств.
+Q. I am not sure if my device is whitelisted.
 
-О. Чтобы проверить, включено ли устройство в список разрешенных устройств, воспользуйтесь следующей интерактивной командой для устранения неполадок:
+A. To verify whether your device is whitelisted, use the following troubleshooting interactive command:
 
-	multipathd –k
-	multipathd> show devices
-	available block devices:
+    multipathd –k
+    multipathd> show devices
+    available block devices:
     ram0 devnode blacklisted, unmonitored
     ram1 devnode blacklisted, unmonitored
     ram2 devnode blacklisted, unmonitored
@@ -460,36 +461,40 @@
     dm-3 devnode blacklisted, unmonitored
 
 
-Дополнительные сведения см. в статье об [использовании интерактивной команды для устранения неполадок многоканального ввода-вывода](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+For more information, go to [use troubleshooting interactive command for multipathing](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
-## Список полезных команд
+## <a name="list-of-useful-commands"></a>List of useful commands
 
-|Тип|Команда|Описание|
+|Type|Command|Description|
 |---|---|---|
-|**iSCSI**|`service iscsid start`|Запуск службы iSCSI|
-||`service iscsid stop`|Остановка службы iSCSI|
-||`service iscsid restart`|Перезапуск службы iSCSI|
-||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Обнаружение доступных целевых объектов по указанному адресу|
-||`iscsiadm -m node --login -T <TARGET_IQN>`|Вход в целевой объект iSCSI|
-||`iscsiadm -m node --logout -p <Target_IP>`|Выход из целевого объекта iSCSI|
-||`cat /etc/iscsi/initiatorname.iscsi`|Вывод имени инициатора iSCSI|
-||`iscsiadm –m session –s <sessionid> -P 3`|Проверка состояния сеанса iSCSI и тома, обнаруженного на узле|
-||`iscsi –m session`|Показывает все сеансы iSCSI, установленные между узлом и устройством StorSimple|
+|**iSCSI**|`service iscsid start`|Start iSCSI service|
+|&nbsp;|`service iscsid stop`|Stop iSCSI service|
+|&nbsp;|`service iscsid restart`|Restart iSCSI service|
+|&nbsp;|`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Discover available targets on the specified address|
+|&nbsp;|`iscsiadm -m node --login -T <TARGET_IQN>`|Log in to the iSCSI target|
+|&nbsp;|`iscsiadm -m node --logout -p <Target_IP>`|Log out from the iSCSI target|
+|&nbsp;|`cat /etc/iscsi/initiatorname.iscsi`|Print iSCSI initiator name|
+|&nbsp;|`iscsiadm –m session –s <sessionid> -P 3`|Check the state of the iSCSI session and volume discovered on the host|
+|&nbsp;|`iscsi –m session`|Shows all the iSCSI sessions established between the host and the StorSimple device|
 | | | |
-|**Поддержка нескольких каналов ввода-вывода**|`service multipathd start`|Запуск управляющей программы многоканального ввода-вывода|
-||`service multipathd stop`|Остановка управляющей программы многоканального ввода-вывода|
-||`service multipathd restart`|Перезапуск управляющей программы многоканального ввода-вывода|
-||`chkconfig multipathd on` </br> ИЛИ </br> `mpathconf –with_chkconfig y`|Обеспечение запуска управляющей программы многоканального ввода-вывода во время загрузки|
-||`multipathd –k`|Запуск интерактивной консоли для устранения неполадок|
-||`multipath –l`|Вывод списка подключений и устройств с многоканальным вводом-выводом|
-||`mpathconf --enable`|Создание примера файла mulitpath.conf в `/etc/mulitpath.conf`|
+|**Multipathing**|`service multipathd start`|Start multipath daemon|
+|&nbsp;|`service multipathd stop`|Stop multipath daemon|
+|&nbsp;|`service multipathd restart`|Restart multipath daemon|
+|&nbsp;|`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y`|Enable multipath daemon to start at boot time|
+|&nbsp;|`multipathd –k`|Start the interactive console for troubleshooting|
+|&nbsp;|`multipath –l`|List multipath connections and devices|
+|&nbsp;|`mpathconf --enable`|Create a sample mulitpath.conf file in `/etc/mulitpath.conf`|
 ||||
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-Во время настройки MPIO на узле Linux вам могут пригодиться следующие документы по CentOS 6.6.
+As you are configuring MPIO on Linux host, you may also need to refer to the following CentoS 6.6 documents:
 
-- [Настройка MPIO на CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
-- [Учебное руководство Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
+- [Setting up MPIO on CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
+- [Linux Training Guide](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

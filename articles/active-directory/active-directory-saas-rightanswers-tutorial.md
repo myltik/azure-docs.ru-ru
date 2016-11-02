@@ -4,7 +4,7 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-	manager="femila"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
@@ -14,7 +14,8 @@
     ms.date="09/26/2016" 
     ms.author="jeedes" />
 
-#Учебник. Интеграция Azure Active Directory с RightAnswers
+
+#<a name="tutorial:-azure-active-directory-integration-with-rightanswers"></a>Учебник. Интеграция Azure Active Directory с RightAnswers
   
 Цель данного учебника — показать интеграцию Azure и RightAnswers. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -30,12 +31,12 @@
 3.  Настройка подготовки учетных записей пользователей
 4.  Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-rightanswers-tutorial/IC802925.png "Сценарий")
-##Включение интеграции приложений для RightAnswers
+![Сценарий](./media/active-directory-saas-rightanswers-tutorial/IC802925.png "Scenario")
+##<a name="enabling-the-application-integration-for-rightanswers"></a>Включение интеграции приложений для RightAnswers
   
 В этом разделе показано, как включить интеграцию приложений для RightAnswers.
 
-###Чтобы включить интеграцию приложений для RightAnswers, выполните следующие действия:
+###<a name="to-enable-the-application-integration-for-rightanswers,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для RightAnswers, выполните следующие действия:
 
 1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
@@ -45,74 +46,80 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Приложения](./media/active-directory-saas-rightanswers-tutorial/IC700994.png "Приложения")
+    ![Приложения](./media/active-directory-saas-rightanswers-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  В нижней части страницы нажмите кнопку **Добавить** .
 
-    ![Добавление приложения](./media/active-directory-saas-rightanswers-tutorial/IC749321.png "Добавление приложения")
+    ![Добавить приложение](./media/active-directory-saas-rightanswers-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-rightanswers-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-rightanswers-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  В **поле поиска** введите **RightAnswers**.
 
-    ![Коллекция приложений](./media/active-directory-saas-rightanswers-tutorial/IC802926.png "Коллекция приложений")
+    ![Коллекция приложений](./media/active-directory-saas-rightanswers-tutorial/IC802926.png "Application Gallery")
 
 7.  В области результатов выберите **RightAnswers** и нажмите кнопку **Завершить**, чтобы добавить приложение.
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Настройка единого входа
   
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в RightAnswers со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции с приложением **RightAnswers** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На классическом портале Azure на странице интеграции с приложением **RightAnswers** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Настройка единого входа](./media/active-directory-saas-rightanswers-tutorial/IC802927.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-rightanswers-tutorial/IC802927.png "Configure Single Sign-On")
 
 2.  На странице **Как пользователи должны входить в RightAnswers?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Настройка единого входа](./media/active-directory-saas-rightanswers-tutorial/IC802928.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-rightanswers-tutorial/IC802928.png "Configure Single Sign-On")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа** введите URL-адрес, используемый вашими пользователями для входа в приложение RightAnswers (например, "*https://fortify.rightanswers.com/portal/ss/*), и нажмите кнопку **Далее**.
+3.  На странице **Настроить параметры приложения** в текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение RightAnswers (например, *https://fortify.rightanswers.com/portal/ss/*), и нажмите кнопку **Далее**.
 
-    ![Настройка параметров приложения](./media/active-directory-saas-rightanswers-tutorial/IC802929.png "Настройка параметров приложения")
+    ![Настройка параметров приложения](./media/active-directory-saas-rightanswers-tutorial/IC802929.png "Configure App Settings")
 
-4.  На странице **Настройка единого входа в RightAnswers** нажмите кнопку **Загрузить метаданные**, чтобы скачать их, а затем сохраните файл данных на локальный компьютер.
+4.  На странице **Настройка единого входа в RightAnswers** щелкните **Скачать метаданные**, чтобы скачать метаданные, а затем сохраните файл метаданных на локальный компьютер.
 
-    ![Настройка единого входа](./media/active-directory-saas-rightanswers-tutorial/IC802930.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-rightanswers-tutorial/IC802930.png "Configure Single Sign-On")
 
 5.  Отправьте скачанный файл метаданных в службу поддержки RightAnswers.
 
-    >[AZURE.NOTE] Настройка единого входа должна выполняться службой поддержки RightAnswers. Как только единый вход для вашей подписки будет включен, вы получите уведомление.
+    >[AZURE.NOTE] Настройка единого входа должна выполняться службой поддержки RightAnswers.
+Как только единый вход для вашей подписки будет включен, вы получите уведомление.
 
 6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Настройка единого входа](./media/active-directory-saas-rightanswers-tutorial/IC802931.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Настройка единого входа](./media/active-directory-saas-rightanswers-tutorial/IC802931.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
   
-Чтобы пользователи Azure AD могли выполнять вход в RightAnswers, они должны быть подготовлены для RightAnswers. В случае RightAnswers подготовка выполняется автоматически. С вашей стороны никакие действия не требуются.
+Чтобы пользователи Azure AD могли выполнять вход в RightAnswers, они должны быть подготовлены для RightAnswers.  
+В случае RightAnswers подготовка выполняется автоматически.  
+С вашей стороны никакие действия не требуются.
   
 В случае необходимости пользователи создаются автоматически при первой попытке входа в систему.
 
 >[AZURE.NOTE]Вы можете использовать любые другие инструменты создания учетных записей пользователя RightAnswers или API, предоставляемые RightAnswers для подготовки учетных записей пользователя AAD.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Назначение пользователей
   
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###Чтобы назначить пользователей RightAnswers, выполните следующие действия:
+###<a name="to-assign-users-to-rightanswers,-perform-the-following-steps:"></a>Чтобы назначить пользователей RightAnswers, выполните следующие действия:
 
 1.  На классическом портале Azure создайте тестовую учетную запись.
 
 2.  На странице интеграции с приложением **RightAnswers** щелкните **Назначить пользователей**.
 
-    ![Назначить пользователей](./media/active-directory-saas-rightanswers-tutorial/IC802932.png "Назначить пользователей")
+    ![Назначить пользователей](./media/active-directory-saas-rightanswers-tutorial/IC802932.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Да](./media/active-directory-saas-rightanswers-tutorial/IC767830.png "Да")
+    ![Да](./media/active-directory-saas-rightanswers-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

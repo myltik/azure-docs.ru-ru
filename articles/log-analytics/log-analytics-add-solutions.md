@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Добавление решений Log Analytics из коллекции решений | Microsoft Azure"
-	description="Решения Log Analytics представляют собой коллекцию логики, визуализации и правил получения данных, предоставляющую метрики, связанные с определенной проблемной областью."
-	services="log-analytics"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Добавление решений Log Analytics из коллекции решений | Microsoft Azure"
+    description="Решения Log Analytics представляют собой коллекцию логики, визуализации и правил получения данных, предоставляющую метрики, связанные с определенной проблемной областью."
+    services="log-analytics"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="banders"/>
+    ms.service="log-analytics"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="banders"/>
 
-# Добавление решений Log Analytics из коллекции решений
+
+# <a name="add-log-analytics-solutions-from-the-solutions-gallery"></a>Добавление решений Log Analytics из коллекции решений
 
 Решения Log Analytics представляют собой коллекцию **логики**, **визуализации** и **правил получения данных**, предоставляющую метрики, связанные с определенной проблемной областью. В этой статье указаны решения, поддерживаемые службой Log Analytics, и рассказывается, как добавлять их и удалять из коллекции решений.
 
@@ -34,7 +35,7 @@
 Если решение больше не нужно, его можно удалить. При удалении решения его данные не отправляются в службу OMS, что приводит к сокращению объема данных, используемых в рамках дневной квоты (если есть).
 
 
-## Решения, поддерживаемые агентом Microsoft Monitoring Agent
+## <a name="solutions-supported-by-the-microsoft-monitoring-agent"></a>Решения, поддерживаемые агентом Microsoft Monitoring Agent
 
 В настоящее время серверы, подключенные к OMS с помощью Microsoft Monitoring Agent, могут использовать большую часть доступных решений, включая:
 
@@ -52,33 +53,44 @@
 - Управление емкостью;
 - Оценка конфигурации
 
-Сведения о подключении агента SCOM к службе Log Analytics см. в статье [Connecting Operations Manager to Log Analytics](log-analytics-om-agents.md) (Подключение Operations Manager к службе Log Analytics).
+Сведения о подключении агента SCOM к службе Log Analytics см. в статье [Подключение Operations Manager к Log Analytics](log-analytics-om-agents.md).
 
-### Добавление решения с использованием коллекции решений
+### <a name="to-add-a-solution-using-the-solutions-gallery"></a>Добавление решения с использованием коллекции решений
 
-1. На странице "Обзор" в службе OMS щелкните элемент **Коллекция решений**. ![коллекция решений](./media/log-analytics-add-solutions/sol-gallery.png)
+1. На странице "Обзор" в службе OMS щелкните элемент **Коллекция решений** .    
+    ![каталог решений](./media/log-analytics-add-solutions/sol-gallery.png)
 2. На странице "Коллекция решений OMS" можно узнать о каждом доступном решении. Щелкните имя решения, которое нужно добавить в OMS.
 3. На странице выбранного решения отображаются подробные сведения о нем. Щелкните **Добавить**.
 4. На странице "Обзор" в службе OMS появится новая плитка для решения, которую можно начать использовать после того, как служба OMS обработает данные.
 
-## Настройка решений
+## <a name="to-configure-solutions"></a>Настройка решений
 1. Некоторые решения необходимо настраивать. Например, перед использованием необходимо настроить службы автоматизации, архивации и Azure Site Recovery.
-2. Для любого из этих решений щелкните соответствующий элемент на странице "Обзор". ![настройка решения](./media/log-analytics-add-solutions/configure-additional.png)
-3. Затем настройте решение, указав необходимые данные, и нажмите кнопку **Сохранить**. ![настройка решения](./media/log-analytics-add-solutions/configure.png)
+2. Для любого из этих решений щелкните соответствующий элемент на странице "Обзор".  
+    ![настройка решения](./media/log-analytics-add-solutions/configure-additional.png)
+3. Затем настройте решение, указав необходимые данные, и нажмите кнопку **Сохранить**.  
+    ![настройка решения](./media/log-analytics-add-solutions/configure.png)
 
-### Удаление решения с использованием коллекции решений
+### <a name="to-remove-a-solution-using-the-solutions-gallery"></a>Удаление решения с использованием коллекции решений
 
-1. На странице "Обзор" в службе OMS щелкните элемент **Параметры**.
+1. На странице "Обзор" в службе OMS щелкните элемент **Параметры** .
 2. На вкладке "Решения" страницы "Параметры" нажмите кнопку **Удалить** рядом с соответствующим решением.
-3. В диалоговом окне подтверждения нажмите кнопку **Да**, чтобы удалить решение.
+3. В диалоговом окне подтверждения нажмите кнопку **Да** , чтобы удалить решение.
 
-## Сведения о сборе данных для компонентов и решений OMS
+## <a name="data-collection-details-for-oms-features-and-solutions"></a>Сведения о сборе данных для компонентов и решений OMS
 
-В следующей таблице представлены методы сбора данных и другие сведения о сборе данных по компонентам и решениям OMS.
+В следующей таблице представлены методы сбора данных и другие сведения о сборе данных по компонентам и решениям OMS. Агенты Direct Agent и SCOM по сути одинаковые. Однако в агенте Direct Agent предусмотрена дополнительная возможность, позволяющая ему подключиться к рабочей области OMS и выполнять маршрутизацию через прокси-сервер. Агент SCOM должен использоваться в качестве агента OMS для взаимодействия с OMS. Агент SCOM в этой таблице является агентом OMS, подключенным к SCOM. Сведения о подключении существующей среды SCOM к OMS см. в статье [Подключение Operations Manager к Log Analytics](log-analytics-om-agents.md).
+
+>[AZURE.NOTE] Тип используемого агента определяет способ отправки данных в OMS со следующими условиями:
+
+- Можно использовать агент Direct Agent или агент OMS, подключенный к SCOM.
+- Если нужно использовать SCOM, данные агента SCOM для решения всегда передаются в OMS с помощью группы управления SCOM. Кроме того, в этом случае решение использует только агент SCOM.
+- Если не нужно использовать SCOM и в таблице показано, что данные агента SCOM передаются в OMS с помощью группы управления, то передача этих данных в OMS будет всегда осуществляться с помощью групп управления. Агенты Direct Agent обходят группу управления и передают свои данные непосредственно в OMS.
+- Если при передаче данных агента SCOM не используется группа управления, то данные отправляются непосредственно в OMS, минуя группу управления.
+
 
 |тип данных| платформа | Direct Agent | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 |---|---|---|---|---|---|---|---|
-|Оценка AD|Windows|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|	7 дней|
+|Оценка AD|Windows|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|  7 дней|
 |Состояние репликации AD|Windows|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 дней|
 |Оповещения (Nagios)|Linux|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|при получении|
 |Оповещения (Zabbix)|Linux|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|1 минута|
@@ -90,12 +102,14 @@
 |Оценка конфигурации (устаревший консультант)|Windows|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)| дважды в день|
 |Трассировка событий Windows|Windows|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 мин|
 |Журналы IIS|Windows|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 мин|
+|Хранилища ключей|Windows|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 минут|
+|Сетевые шлюзы приложений|Windows|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 минут|
 |группы сетевой безопасности;|Windows|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|10 минут|
 |Office 365|Windows|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|при уведомлении|
 |Счетчики производительности|Windows|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|по расписанию, не менее 10 секунд|
 |Счетчики производительности|Linux|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|по расписанию, не менее 10 секунд|
 |Service Fabric|Windows|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|5 мин|
-|Оценка SQL|Windows|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|	7 дней|
+|Оценка SQL|Windows|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)| 7 дней|
 |SurfaceHub|Windows|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|при получении|
 |Syslog|Linux|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|из хранилища Azure — 10 минут, из агента — при получении|
 |Обновление системы;|Windows|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)| не меньше 2 раз в день и через 15 минут после установки обновления|
@@ -104,7 +118,7 @@
 |Журналы событий Windows|Windows|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)| для хранилища Azure — 1 мин, для агента — при получении|
 |Проводные данные|Windows (2012 R2/8.1 или более поздней версии)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Да](./media/log-analytics-add-solutions/oms-bullet-green.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)|![Нет](./media/log-analytics-add-solutions/oms-bullet-red.png)| каждую минуту|
 
-## Решения и функции предварительной версии службы Log Analytics
+## <a name="log-analytics-preview-solutions-and-features"></a>Решения и функции предварительной версии службы Log Analytics
 
 Запуск службы и выполнение процедур разработки позволяет сотрудничать с клиентами в процессе разработки функций и решений.
 
@@ -117,7 +131,7 @@
 - Предварительные версии функций появляются на вкладке "Параметры" и могут быть активированы пользователем.
 - Предварительные версии решений можно добавлять из коллекции или с помощью опубликованного скрипта.
 
-### Что нужно знать о предварительных версиях компонентов и решений?
+### <a name="what-should-i-know-about-preview-features-and-solutions?"></a>Что нужно знать о предварительных версиях компонентов и решений?
 
 Мы всегда с радостью выпускаем новые функции и решения и обожаем сотрудничать с вами в процессе их разработки.
 
@@ -125,11 +139,11 @@
 
 Активировав предварительную версию функции через портал, вы увидите предупреждение о том, что эта функция находится на этапе предварительной версии.
 
-#### Для *закрытых* и *общедоступных* предварительных версий
+#### <a name="for-both-*private*-and-*public*-preview"></a>Для *закрытых* и *общедоступных* предварительных версий
 
 И к закрытой, и к общедоступной предварительным версиям относится следующее.
 
-- Они могут работать некорректно. 
+- Они могут работать некорректно.
   - Проблемы могут быть разными, от незначительных раздражающих факторов до абсолютно неработающих функций.
 - Предварительная версия может негативно отразиться на ваших системах или среде.
   - Мы стараемся избежать негативного влияния на системы, используемые с OMS, но иногда происходит непредвиденное.
@@ -150,7 +164,7 @@
 - Пользовательский интерфейс может быть неполным и периодически меняться.
 - Общедоступные предварительные версии могут не подойти для ваших производственных или критически важных систем.
 
-#### Для *закрытых* предварительных версий
+#### <a name="for-*private*-preview"></a>Для *закрытых* предварительных версий
 
 Помимо вышеизложенного, к закрытым предварительным версиям относится следующее.
 
@@ -162,18 +176,22 @@
 - Предварительные версии не стоит использовать в производственных и критически важных системах.
 
 
-### Как получить доступ к закрытым предварительным версиям функций и решений?
+### <a name="how-do-i-get-access-to-private-preview-features-and-solutions?"></a>Как получить доступ к закрытым предварительным версиям функций и решений?
 
 Мы приглашаем клиентов участвовать в тестировании предварительных версий различными способами в зависимости от конкретной функции или решения.
 
 - Участвуя в ежемесячных опросах клиентов и предоставив нам разрешение на дальнейшую связь, вы повышаете свои шансы на участие в тестировании.
 - Ваше участие в тестировании может быть предложено менеджером по работе с клиентами Майкрософт.
-- Данные о регистрации опубликованы в Twitter [msopsmgmt](https://twitter.com/msopsmgmt). 
-- Данные о регистрации распространяются на общественных мероприятиях — ищите нас на собраниях, конференциях и в онлайн-сообществах. 
+- Данные о регистрации опубликованы в Twitter [msopsmgmt](https://twitter.com/msopsmgmt)
+- Данные о регистрации распространяются на общественных мероприятиях — ищите нас на собраниях, конференциях и в онлайн-сообществах.
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
-- Используйте [поиск по журналам](log-analytics-log-searches.md) для просмотра подробных сведений, собранных решениями.
+- [поиск по журналам](log-analytics-log-searches.md) для просмотра подробных сведений, собранных решениями.
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

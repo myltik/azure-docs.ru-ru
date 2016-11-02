@@ -11,12 +11,14 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/19/2016" 
+    ms.date="10/10/2016" 
     ms.author="jeedes" />
 
-#Руководство. Интеграция Azure Active Directory с Benefitsolver
 
-Цель данного учебника — показать интеграцию Azure и Benefitsolver. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+#<a name="tutorial:-azure-active-directory-integration-with-benefitsolver"></a>Руководство. Интеграция Azure Active Directory с Benefitsolver
+
+Цель данного учебника — показать интеграцию Azure и Benefitsolver.  
+Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Подписка с поддержкой единого входа Benefitsolver
@@ -30,12 +32,12 @@
 3.  Настройка подготовки учетных записей пользователей
 4.  Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-benefitsolver-tutorial/IC804820.png "Сценарий")
-##Включение интеграции приложений для Benefitsolver
+![Сценарий](./media/active-directory-saas-benefitsolver-tutorial/IC804820.png "Scenario")
+##<a name="enabling-the-application-integration-for-benefitsolver"></a>Включение интеграции приложений для Benefitsolver
 
 В этом разделе показано, как включить интеграцию приложений для Benefitsolver.
 
-###Чтобы включить интеграцию приложений для Benefitsolver, выполните следующие действия.
+###<a name="to-enable-the-application-integration-for-benefitsolver,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для Benefitsolver, выполните следующие действия.
 
 1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
@@ -45,75 +47,78 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Приложения](./media/active-directory-saas-benefitsolver-tutorial/IC700994.png "Приложения")
+    ![Приложения](./media/active-directory-saas-benefitsolver-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  В нижней части страницы нажмите кнопку **Добавить** .
 
-    ![Добавление приложения](./media/active-directory-saas-benefitsolver-tutorial/IC749321.png "Добавление приложения")
+    ![Добавить приложение](./media/active-directory-saas-benefitsolver-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-benefitsolver-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-benefitsolver-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  В **поле поиска** введите **Benefitsolver**.
 
-    ![Коллекция приложений](./media/active-directory-saas-benefitsolver-tutorial/IC804821.png "Коллекция приложений")
+    ![Коллекция приложений](./media/active-directory-saas-benefitsolver-tutorial/IC804821.png "Application Gallery")
 
 7.  В области результатов выберите **Benefitsolver** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![Benefitssolver](./media/active-directory-saas-benefitsolver-tutorial/IC804822.png "Benefitssolver")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Настройка единого входа
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Benefitsolver со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. Приложение Benefitsolver ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию **атрибутов токена SAML**. На следующем снимке экрана приведен пример.
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Benefitsolver со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
+Приложение Benefitsolver ожидает проверочные утверждения SAML в определенном формате, который требует добавить настраиваемые сопоставления атрибутов в вашу конфигурацию **атрибутов токена SAML** .  
+На следующем снимке экрана приведен пример.
 
-![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Атрибуты")
+![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На классическом портале Azure на странице интеграции с приложением **Benefitsolver** щелкните **Настройка единого входа**. Откроется диалоговое окно **Настройка единого входа**.
+1.  На классическом портале Azure на странице интеграции с приложением **Benefitsolver** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configure Single Sign-On")
 
 2.  На странице **Как пользователи должны входить в Benefitsolver?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804825.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804825.png "Configure Single Sign-On")
 
 3.  На странице **Настройка параметров приложения** выполните следующие действия.
 
-    ![Настройка параметров приложения](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Настройка параметров приложения")
+    ![Настройка параметров приложения](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configure App Settings")
 
-    1.  В текстовом поле **URL-адрес входа** введите **http://azure.benefitsolver.com**.
-	2.  В текстовом поле **URL-адрес ответа** введите **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.
+    1.  В текстовом поле **URL-адрес для входа** введите **http://azure.benefitsolver.com**.
+    2.  В текстовом поле **URL-адрес ответа** введите **https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml**.  
 
 
     3.  Нажмите кнопку **Далее**.
 
-4.  На странице **Настройка единого входа в Benefitsolver** нажмите кнопку **Загрузить метаданные**, чтобы скачать их, а затем сохраните файл данных на локальный компьютер.
+4.  На странице **Настройка единого входа в Benefitsolver** щелкните **Скачать метаданные**, чтобы скачать метаданные, а затем сохраните файл метаданных на локальный компьютер.
 
-    ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804827.png "Configure Single Sign-On")
 
 5.  Отправьте загруженный файл метаданных в службу поддержки Benefitsolver.
 
-    >[AZURE.NOTE] Настройка единого входа должна выполняться службой поддержки Benefitsolver. Как только единый вход для вашей подписки будет включен, вы получите уведомление.
+    >[AZURE.NOTE] Настройка единого входа должна выполняться службой поддержки Benefitsolver.
+Как только единый вход для вашей подписки будет включен, вы получите уведомление.
 
 6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Configure Single Sign-On")
 
-7.  В меню в верхней части экрана выберите пункт **Атрибуты**, чтобы открыть диалоговое окно **Атрибуты токена SAML**.
+7.  В меню в верхней части экрана выберите пункт **Атрибуты** to open the **SAML Token Атрибуты** .
 
-    ![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Атрибуты")
+    ![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Attributes")
 
 8.  Чтобы добавить обязательные сопоставления атрибутов, выполните следующие действия.
 
-    ![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Атрибуты")
+    ![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
 
-	|Имя атрибута|Значение атрибута|
-    |---|---|
-    |ClientID|Это значение необходимо получить у службы поддержки Benefitsolver.|
-    |ClientKey|Это значение необходимо получить у службы поддержки Benefitsolver.|
-    |LogoutURL|Это значение необходимо получить у службы поддержки Benefitsolver.|
-    |EmployeeID|Это значение необходимо получить у службы поддержки Benefitsolver.|
+  	|Имя атрибута|Значение атрибута|
+  	|---|---|
+  	|ClientID|Это значение необходимо получить у службы поддержки Benefitsolver.|
+  	|ClientKey|Это значение необходимо получить у службы поддержки Benefitsolver.|
+  	|LogoutURL|Это значение необходимо получить у службы поддержки Benefitsolver.|
+  	|EmployeeID|Это значение необходимо получить у службы поддержки Benefitsolver.|
 
     1.  Для каждой строки данных в приведенной выше таблице нажмите кнопку **добавить атрибут пользователя**.
     2.  В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
@@ -122,28 +127,33 @@
 
 9.  Нажмите кнопку **Применить изменения**.
 
-##Настройка подготовки учетных записей пользователей
+##<a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
 
-Чтобы пользователи Azure AD могли выполнять вход в Benefitsolver, они должны быть подготовлены для Benefitsolver. При использовании Benefitsolver данные о сотрудниках находятся в приложении, которое заполняется с помощью файла переписи из вашей информационной системы персонала (обычно каждую ночь).
+Чтобы пользователи Azure AD могли выполнять вход в Benefitsolver, они должны быть подготовлены для Benefitsolver.  
+При использовании Benefitsolver данные о сотрудниках находятся в приложении, которое заполняется с помощью файла переписи из вашей информационной системы персонала (обычно каждую ночь).  
 
 >[AZURE.NOTE] Вы можете использовать любые другие средства создания учетной записи пользователя Benefitsolver или API, предоставляемые Benefitsolver для подготовки учетных записей пользователя AAD.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Назначение пользователей
 
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###Чтобы назначить пользователей Benefitsolver, выполните следующие действия.
+###<a name="to-assign-users-to-benefitsolver,-perform-the-following-steps:"></a>Чтобы назначить пользователей Benefitsolver, выполните следующие действия.
 
 1.  На классическом портале Azure создайте тестовую учетную запись.
 
-2.  На странице интеграции с приложением **Benefitsolver** нажмите кнопку **Назначить пользователей**.
+2.  На странице интеграции с приложением **Benefitsolver** щелкните **Назначить пользователей**.
 
-    ![Назначить пользователей](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Назначить пользователей")
+    ![Назначить пользователей](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Assign Users")
 
 3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Да](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Да")
+    ![Да](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Yes")
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

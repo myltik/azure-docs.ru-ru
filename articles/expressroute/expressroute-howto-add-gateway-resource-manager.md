@@ -14,10 +14,11 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2016"
+   ms.date="10/10/2016"
    ms.author="charwen"/>
 
-# Настройка шлюза виртуальной сети для ExpressRoute с помощью диспетчера ресурсов и PowerShell
+
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-resource-manager-and-powershell"></a>Настройка шлюза виртуальной сети для ExpressRoute с помощью диспетчера ресурсов и PowerShell
 
 
 > [AZURE.SELECTOR]
@@ -25,22 +26,26 @@
 - [PowerShell — классическая модель](expressroute-howto-add-gateway-classic.md)
 
 
-Эта статья содержит инструкции по добавлению, изменению размера и удалению шлюза виртуальной сети для существующей виртуальной сети. Приведенные действия по настройке предназначены для виртуальных сетей, созданных с помощью **модели развертывания Resource Manager**, которые будут использоваться в конфигурации ExpressRoute.
+Эта статья содержит инструкции по добавлению, изменению размера и удалению шлюза виртуальной сети для существующей виртуальной сети. Приведенные действия по настройке предназначены для виртуальных сетей, созданных с помощью **модели развертывания Resource Manager** , которые будут использоваться в конфигурации ExpressRoute. 
 
 **О моделях развертывания Azure**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## Подготовка
+## <a name="before-beginning"></a>Подготовка
 
 Убедитесь, что вы установили командлеты Azure PowerShell, необходимые для этой конфигурации (1.0.2 или более поздней версии). Если вы еще не установили эти командлеты, необходимо сделать это перед началом настройки. Дополнительную информацию об установке Azure PowerShell см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 
 [AZURE.INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 
-	
-## Дальнейшие действия
+    
+## <a name="next-steps"></a>Дальнейшие действия
 
-После создания шлюза виртуальной сети вы можете связать виртуальную сеть с каналом ExpressRoute. См. статью [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md).
+После создания шлюза виртуальной сети вы можете связать виртуальную сеть с каналом ExpressRoute. Ознакомьтесь со статьей [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

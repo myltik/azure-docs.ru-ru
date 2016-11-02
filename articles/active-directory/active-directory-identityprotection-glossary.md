@@ -1,167 +1,172 @@
 <properties
-	pageTitle="Глоссарий по защите идентификации Azure Active Directory | Microsoft Azure"
-	description="Глоссарий по защите идентификации Azure Active Directory"
-	services="active-directory"
-	keywords="защита идентификации Azure Active Directory, Cloud App Discovery, управление приложениями, безопасность, риск, уровень риска, уязвимость, политика безопасности, глоссарий"
-	documentationCenter=""
-	authors="markusvi"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure Active Directory Identity Protection Glossary | Microsoft Azure"
+    description="Azure Active Directory Identity Protection Glossary"
+    services="active-directory"
+    keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy, glossary"
+    documentationCenter=""
+    authors="MarkusVi"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/16/2016"
-	ms.author="markvi"/>
-
-# Глоссарий по защите идентификации Azure Active Directory 
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/31/2016"
+    ms.author="markvi"/>
 
 
-### Под угрозой (пользователь)	
-Пользователь с одним или несколькими активными событиями риска.
-
-### Нетипичное расположение входа 	
-Вход из географического расположения, которое не является типичным для конкретного пользователя, схожих пользователей или клиента.
-
-### Защита идентификации Azure AD 	
-Модуль безопасности Azure Active Directory, который обеспечивает единое представление обо всех событиях, создающих риски, и потенциальных уязвимостях, которые могут влиять на идентификацию организации.
-
-### Условный доступ 	
-Политика для защиты доступа к ресурсам. Правила условного доступа хранятся в Azure Active Directory и оцениваются Azure AD перед предоставлением доступа к ресурсу. Примерами правил являются ограничения доступа на основе расположения пользователя, работоспособности устройства или метода проверки подлинности пользователя.
-
-### Учетные данные 	
-Данные, которые включают в себя идентификацию и проверку идентификации, используемой для получения доступа к локальным и сетевым ресурсам. Примерами учетных данных являются имена пользователей и пароли, смарт-карты и сертификаты.
-
-### Событие 	
-Запись действия в Azure Active Directory.
-
-### Ложноположительное (событие риска) 
-Состояние события риска, вручную заданное пользователем модуля защиты идентификации, указывающее, что событие риска было изучено и ошибочно помечено как событие риска.
-
-### Удостоверение	
-Лицо или организация, которые должны быть проверены с помощью средств проверки подлинности на основе определенных условий, таких как пароль или сертификат.
-
-### Событие риска удостоверения 	
-Событие AAD, которое было отмечено модулем защиты идентификации как аномальное и может указывать, что удостоверение было скомпрометировано.
-
-### Игнорируется (событие риска) 	
-Состояние события риска, вручную заданное пользователем модуля защиты идентификации, указывающее, что событие риска закрыто без выполнения действия исправления.
-
-### Невозможно переместиться из нетипичных расположений 	
-Событие риска, возникающее при обнаружении двух входов в систему для одного пользователя, где по меньшей мере один из них выполнен из нетипичного расположения и время между входами меньше минимального времени, затрачиваемого на физическое перемещение между этими расположениями.
-
-###Исследование	
-Процесс проверки действий, журналов и других связанных сведений, относящихся к событию риска, для принятия решения о необходимости выполнения действий по исправлению или устранению или получение представления о способе компрометации удостоверения и вариантах использования скомпрометированного удостоверения.
-
-### Утерянные учетные данные 	
-
-Событие риска, возникающее при обнаружении исследователями публичного размещения текущих учетных данных пользователя (имени пользователя и пароля).
-
-### Устранение	
-Действие, позволяющее ограничить или исключить возможность использования злоумышленником скомпрометированного удостоверения или устройства без восстановления их безопасного состояния. Устранение не разрешает предыдущие события риска, связанные с удостоверением или устройством.
-
-### Многофакторная проверка подлинности 
-Метод проверки подлинности, требующий двух или более способов проверки подлинности, включая следующее: предоставляемые пользователем объекты, например сертификаты; известные только пользователям сведения, например имена пользователей, пароли или парольные фразы; физические атрибуты, например отпечаток большого пальца; персональные атрибуты, например личная подпись.
-
-### Обнаружение в автономном режиме 	
-Обнаружение аномалий и оценки риска события, такого как попытка входа после того, как событие уже возникло.
-
-### Условие политики 	
-Часть политики безопасности, которая определяет сущности (группы, пользователи, приложения, платформы устройств, состояния устройств, диапазоны IP-адресов, типы клиентов), включаемые в политику или исключаемые из нее.
-
-### Правило политики 	
-Часть политики безопасности, которая описывает обстоятельства, которые активируют политику, и действия, выполняемые при запуске политики.
-
-### Предотвращение 	
-Действие для предотвращения нанесения ущерба организации путем использования удостоверения или устройства, которое ранее предположительно или фактически было скомпрометировано. Действие предотвращения не обеспечивает безопасность устройства или удостоверения и не разрешает предыдущие события риска.
-
-### Привилегированный (пользователь)
-Пользователь, который во время события риска имеет постоянные или временные права администратора на доступ к одному или нескольким ресурсам в Azure Active Directory. Пример: глобальный администратор, администратор выставления счетов, администратор служб, администратор пользователей и администратор паролей.
-
-###В режиме реального времени 	
-См. "Обнаружение в режиме реального времени".
-
-###Обнаружение в режиме реального времени. 	
-Обнаружение аномалий и оценки риска события, такого как попытка входа до разрешения продолжения события.
-
-### Исправлено (событие риска) 	
-Состояние события риска, автоматически устанавливаемое модулем защиты идентификации, указывающее, что событие риска было исправлено с помощью стандартного действия исправления для этого типа события риска. Например, при сбросе пароля пользователя выполняется автоматическое исправление многих событий рисков, указывающих, что прежний пароль был скомпрометирован.
-
-### Исправление 	
-Действие для защиты удостоверения или устройства, которое было ранее предположительно или фактически скомпрометировано. Действие исправления восстанавливает безопасное состояние удостоверения или устройства и разрешает предыдущие события риска, связанные с удостоверением или устройством.
-
-### Разрешено (событие риска) 	
-Состояние события риска, вручную задаваемое пользователем модуля защиты идентификации, указывающее, что пользователь выполнил соответствующее действие исправления вне модуля защиты идентификации и что событие риска должно считаться закрытым.
-
-###Состояние события риска 	
-Свойство события риска, указывающее, является ли событие активным, а если событие закрыто, свойство указывает причину закрытия.
-
-###Тип события риска 	
-Категория события риска, указывающая тип аномалии, из-за которой событие считается опасным.
-
-###Уровень риска (событие риска) 	
-Обозначение уровня серьезности события риска ("Высокий", "Средний" или "Низкий"), чтобы помочь пользователям модуля защиты идентификации расставить приоритеты действий, которые необходимо предпринять, чтобы уменьшить риск для организации.
-
-###Уровень риска (вход) 
-Обозначение уровня вероятности ("Высокий", "Средний" или "Низкий") того, что при конкретной попытке входа удостоверение пользователя будет использоваться другим лицом.
-
-###Уровень риска (компрометация пользователя) 
-Обозначение уровня вероятности ("Высокий", "Средний" или "Низкий") компрометации удостоверения.
-
-### Уровень риска (уязвимость) 	
-Обозначение уровня серьезности уязвимости ("Высокий", "Средний" или "Низкий"), чтобы помочь пользователям модуля защиты идентификации расставить приоритеты действий, которые необходимо предпринять, чтобы уменьшить риск для организации.
-
-### Безопасное (удостоверение)	
-Выполнение действия исправления, например смена пароля или повторное создание образа компьютера, для восстановления безопасного состояния скомпрометированного удостоверения.
-
-### Политика безопасности
-Коллекция правил и условий политики. Политика может применяться к сущностям, таким как пользователи, группы, приложения, устройства, платформы устройств, состояния устройств, диапазоны IP-адресов и типы клиентов Auth2.0. После включения политика проходит оценку каждый раз, когда включенной в политику сущности выдается маркер для ресурса.
-
-### Выполнить вход 
-Проверить подлинность удостоверения в Azure Active Directory.
-
-### Вход 
-Процесс или действие проверки подлинности удостоверения в Azure Active Directory и событие, которое записывает эту операцию.
-
-###Вход с анонимных IP-адресов 	
-Событие риска, возникающее после успешного входа в систему с IP-адреса, который был определен как IP-адрес анонимного прокси-сервера.
-
-###Вход с инфицированных устройств 
-Событие риска, возникающее при выполнении входа с IP-адреса, о котором известно, что он используется одним или несколькими скомпрометированными устройствами, активно пытающимися установить связь сервером ботнета.
-
-###Вход с IP-адресов с подозрительными действиями 
-Событие риска, возникающее после успешного входа с IP-адреса с большим количеством неудачных попыток входа с использованием нескольких учетных записей пользователей за короткий период времени.
-
-###Вход из неизвестного расположения 
-Событие риска, возникающее, когда пользователь успешно выполняет вход из нового расположения (IP-адрес, широта и долгота и ASN).
-
-###Риск входа 	
-См. "Уровень риска" (вход)
-
-###Политика риска входа 	
-Политика условного доступа, которая оценивает риск конкретной попытки входа и применяет действия для устранения рисков на основе предварительно определенных условий и правил.
-
-###Риск компрометации пользователя 	
-См. "Уровень риска" (компрометация пользователя)
-
-###Риск пользователя 	
-См. "Уровень риска" (компрометация пользователя)
-
-###Политика риска пользователя 	
-Политика условного доступа, которая оценивает попытку входа и применяет действия для устранения рисков на основе предварительно определенных условий и правил.
-
-###Пользователи, помеченные для события риска 	
-Пользователи с активными или исправленными событиями рисков
-
-###Уязвимость 	
-Конфигурация или условие в Azure Active Directory, которое делает каталог уязвимым к атакам или угрозам.
+# <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection Glossary 
 
 
-## Дополнительные материалы
+### <a name="at-risk-user"></a>At risk (User)  
+A user with one or more active risk events. 
 
-- [Защита идентификации Azure Active Directory](active-directory-identityprotection.md)
+### <a name="atypical-signin-location"></a>Atypical sign-in location   
+A sign-in from a geographic location that is not typical for the specific user, similar users, or the tenant.
 
-<!---HONumber=AcomDC_0817_2016-->
+### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection    
+A security module of Azure Active Directory that provides a consolidated view into risk events and potential vulnerabilities affecting an organization’s identities.
+
+### <a name="conditional-access"></a>Conditional access  
+A policy for securing access to resources. Conditional access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health or user authentication method.
+
+### <a name="credentials"></a>Credentials     
+Information that includes identification and proof of identification that is used to gain access to local and network resources. Examples of credentials are user names and passwords, smart cards, and certificates.
+
+### <a name="event"></a>Event   
+A record of an activity in Azure Active Directory.
+
+### <a name="falsepositive-risk-event"></a>False-positive (risk event) 
+A risk event status set manually by an Identity Protection user, indicating that the risk event was investigated and was incorrectly flagged as a risk event.
+
+### <a name="identity"></a>Identity    
+A person or entity that must be verified by means of authentication, based on criteria such as password or a certificate.
+
+### <a name="identity-risk-event"></a>Identity risk event     
+AAD event that was flagged as anomalous by Identity Protection, and may indicate that an identity has been compromised.
+
+### <a name="ignored-risk-event"></a>Ignored (risk event)    
+A risk event status set manually by an Identity Protection user, indicating that the risk event is closed without taking a remediation action.
+
+### <a name="impossible-travel-from-atypical-locations"></a>Impossible travel from atypical locations   
+A risk event triggered when two sign-ins for the same user are detected, where at least one of them is from an atypical sign-in location, and where the time between the sign-ins is shorter than the minimum time it would take to physically travel between these locations.  
+
+###<a name="investigation"></a>Investigation    
+The process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary, understand if and how the identity was compromised, and understand how the compromised identity was used.
+
+### <a name="leaked-credentials"></a>Leaked credentials  
+
+A risk event triggered when current user credentials (user name and password) are found posted publicly in the Dark   web by our researchers.
+
+### <a name="mitigation"></a>Mitigation  
+An action to limit or eliminate the ability of an attacker to exploit a compromised identity or device without restoring the identity or device to a safe state. A mitigation does not resolve previous risk events associated with the identity or device.
+
+### <a name="multifactor-authentication"></a>Multi-factor authentication 
+An authentication method that requires two or more authentication methods, which may include something the user has, such a certificate; something the user knows, such as user names, passwords, or pass phrases; physical attributes, such as a thumbprint; and personal attributes, such as a personal signature.
+
+### <a name="offline-detection"></a>Offline detection   
+The detection of anomalies and evaluation of the risk of an event such as sign-in attempt after the fact, for an event that has already happened.
+
+### <a name="policy-condition"></a>Policy condition    
+A part of a security policy which defines the entities (groups, users, apps, device platforms, Device states, IP ranges, client types) included in the policy or excluded from it.
+
+### <a name="policy-rule"></a>Policy rule     
+The part of a security policy which describes the circumstances that would trigger the policy, and the actions taken when the policy is triggered.
+
+### <a name="prevention"></a>Prevention  
+An action to prevent damage to the organization through abuse of an identity or device suspected or know to be compromised. A prevention action does not secure the device or identity, and does not resolve previous risk events.
+
+### <a name="privileged-user"></a>Privileged (user)
+A user that at the time of a risk event, had permanent or temporary admin permissions to one or more resource in Azure Active Directory, such as a Global Administrator, Billing Administrator, Service Administrator, User administrator, and Password Administrator. 
+
+###<a name="realtime"></a>Real-time    
+See Real-time detection.
+
+###<a name="realtime-detection"></a>Real-time detection  
+The detection of anomalies and evaluation of the risk of an event such as sign-in attempt before the event is allowed to proceed.
+
+### <a name="remediated-risk-event"></a>Remediated (risk event)     
+A risk event status set automatically by Identity Protection, indicating that the risk event was remediated using the standard remediation action for this type of risk event. For example, when the user password is reset, many risk events that indicate that the previous password was compromised are automatically remediated.
+
+### <a name="remediation"></a>Remediation     
+An action to secure an identity or a device that were previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk events associated with the identity or device.
+
+### <a name="resolved-risk-event"></a>Resolved (risk event)   
+A risk event status set manually by an Identity Protection user, indicating that the user took an appropriate remediation action outside Identity Protection, and that the risk event should be considered closed.
+
+###<a name="risk-event-status"></a>Risk event status    
+A property of a risk event, indicating whether the event is active, and if closed, the reason for closing it.
+
+###<a name="risk-event-type"></a>Risk event type  
+A category for the risk event, indicating the type of anomaly that caused the event to be considered risky.
+
+###<a name="risk-level-risk-event"></a>Risk level (risk event)  
+An indication (High, Medium, or Low) of the severity of the risk event to help Identity Protection users prioritize the actions they take to reduce the risk to their organization. 
+
+###<a name="risk-level-signin"></a>Risk level (sign-in) 
+An indication (High, Medium, or Low) of the likelihood that for a specific sign-in, someone else is attempting to use the user’s identity.
+
+###<a name="risk-level-user-compromise"></a>Risk level (user compromise) 
+An indication (High, Medium, or Low) of the likelihood that an identity has been compromised.
+
+### <a name="risk-level-vulnerability"></a>Risk level (vulnerability)  
+An indication (High, Medium, or Low) of the severity of the vulnerability to help Identity Protection users prioritize the actions they take to reduce the risk to their organization.
+
+### <a name="secure-identity"></a>Secure (identity)   
+Take remediation action such as a password change or machine reimaging to restore a potentially compromised identity to an uncompromised state.
+
+### <a name="security-policy"></a>Security policy
+A collection of policy rules and condition. A policy can be applied to entities such as users, groups, apps, devices, device platforms, device states, IP ranges, and Auth2.0 client types. When a policy is enabled, it is evaluated whenever an entity included in the policy is issued a token for a resource.
+
+### <a name="sign-in-v"></a>Sign in (v) 
+To authenticate to an identity in Azure Active Directory.
+
+### <a name="signin-n"></a>Sign-in (n) 
+The process or action of authenticating an identity in Azure Active Directory, and the event that captures this operation.
+
+###<a name="signin-from-anonymous-ip-address"></a>Sign-in from anonymous IP address    
+A risk event triggered after a successful sign-in from IP address that has been identified as an anonymous proxy IP address.
+
+###<a name="signin-from-infected-device"></a>Sign-in from infected device 
+A risk event triggered when a sign-in originates from an IP address which is known to be used by one or more compromised devices, which are actively attempting to communicate with a bot server.
+
+###<a name="signin-from-ip-address-with-suspicious-activity"></a>Sign-in from IP address with suspicious activity 
+A risk event triggered after a successful sign-in from an IP address with a high number of failed login attempts across multiple user accounts over a short period of time.
+
+###<a name="signin-from-unfamiliar-location"></a>Sign-in from unfamiliar location 
+A risk event triggered when a user successfully signs in from a new location (IP, Latitude/Longitude and ASN).
+
+###<a name="signin-risk"></a>Sign-in risk     
+See Risk level (sign-in)
+
+###<a name="signin-risk-policy"></a>Sign-in risk policy  
+A conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
+
+###<a name="user-compromise-risk"></a>User compromise risk     
+See Risk level (user compromise)
+
+###<a name="user-risk"></a>User risk    
+See Risk level (user compromise).
+
+###<a name="user-risk-policy"></a>User risk policy     
+A conditional access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
+
+###<a name="users-flagged-for-risk"></a>Users flagged for risk   
+Users that have risk events which are either active or remediated
+
+###<a name="vulnerability"></a>Vulnerability    
+A configuration or condition in Azure Active Directory which makes the directory susceptible to exploits or threats.
+
+
+## <a name="see-also"></a>See also
+
+- [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

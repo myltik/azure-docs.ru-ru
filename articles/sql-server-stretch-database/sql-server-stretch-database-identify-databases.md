@@ -1,69 +1,74 @@
 <properties
-	pageTitle="Определение баз данных и таблиц для растяжения с помощью Помощника по растяжению баз данных | Microsoft Azure"
-	description="Узнайте, как определить базы данных и таблицы, которые подходят для растяжения баз данных."
-	services="sql-server-stretch-database"
-	documentationCenter=""
-	authors="douglaslMS"
-	manager=""
-	editor=""/>
+    pageTitle="Identify databases and tables for Stretch Database by running Stretch Database Advisor | Microsoft Azure"
+    description="Learn how to identify databases and tables that are candidates for Stretch Database."
+    services="sql-server-stretch-database"
+    documentationCenter=""
+    authors="douglaslMS"
+    manager="jhubbard"
+    editor=""/>
 
 <tags
-	ms.service="sql-server-stretch-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="douglasl"/>
+    ms.service="sql-server-stretch-database"
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/14/2016"
+    ms.author="douglasl"/>
 
-# Определение баз данных и таблиц для растяжения с помощью Помощника по растяжению баз данных
 
-Для определения баз данных и таблиц, которые подходят для использования базы данных Stretch, скачайте помощник по обновлению SQL Server 2016 и запустите помощник по базе данных Stretch. Помощник по базе данных Stretch также определит критические препятствия.
+# <a name="identify-databases-and-tables-for-stretch-database-by-running-stretch-database-advisor"></a>Identify databases and tables for Stretch Database by running Stretch Database Advisor
 
-## Скачивание и установка Помощника по обновлению
-Скачайте и установите Помощник по обновлению [здесь](http://go.microsoft.com/fwlink/?LinkID=613421). Это средство не включено в состав установочного носителя SQL Server.
+To identify databases and tables that are candidates for Stretch Database, download SQL Server 2016 Upgrade Advisor, and run the Stretch Database Advisor. Stretch Database Advisor also identifies blocking issues.
 
-## Запуск Помощника по растяжению баз данных
+## <a name="download-and-install-upgrade-advisor"></a>Download and install Upgrade Advisor
+Download and install Upgrade Advisor from [here](http://go.microsoft.com/fwlink/?LinkID=613421). This tool is not included on the SQL Server installation media.
 
-1.  Запустите Помощник по обновлению.
+## <a name="run-the-stretch-database-advisor"></a>Run the Stretch Database Advisor
 
-2.  Выберите **Сценарии**, а затем **ЗАПУСТИТЬ ПОМОЩНИК ПО РАСТЯЖЕНИЮ БАЗ ДАННЫХ**.
+1.  Run Upgrade Advisor.
 
-3.  В колонке **Запуск Помощника по растяжению баз данных** щелкните **ВЫБРАТЬ БАЗЫ ДАННЫХ ДЛЯ АНАЛИЗА**.
+2.  Select **Scenarios**, and then select **RUN STRETCH DATABASE ADVISOR**.
 
-4.  В колонке **Выбор баз данных** введите или выберите имя сервера и данные аутентификации. Щелкните **Подключить**.
+3.  On the **Run Stretch Database Advisor** blade, click **SELECT DATABASES TO ANALYZE**.
 
-5.  Появится список баз данных на выбранном сервере. Выберите базы данных, которые нужно проанализировать. Нажмите кнопку **Выбрать**.
+4.  On the **Select databases** blade, enter or select the server name and the authentication info. Click **Connect**.
 
-6.  В колонке **Run Stretch Database Advisor** (Запуск помощника по базе данных Stretch) щелкните **Запустить**. Будет запущен анализ.
+5.  A list of databases on the selected server appears. Select the databases that you want to analyze. Click **Select**.
 
-## Просмотр результатов
+6.  On the **Run Stretch Database Advisor** blade, click **Run**.  The analysis runs.
 
-1.  После завершения анализа в колонке **Analyzed databases** (Проанализированные базы данных) выберите одну из баз данных, которые были проанализированы, чтобы отобразить колонку **Результаты анализа**.
+## <a name="review-the-results"></a>Review the results
 
-    В колонке **Результаты анализа** будут перечислены рекомендуемые таблицы в выбранной базе данных, которые соответствуют рекомендуемым критериям по умолчанию.
+1.  When the analysis is finished, on the **Analyzed databases** blade, select one of the databases that you analyzed to display the **Analysis results** blade.
 
-2.  Из списка таблиц в колонке **Результаты анализа** выберите одну из рекомендуемых таблиц для отображения колонки **Table results** (Результаты таблицы).
+    The **Analysis results** blade lists recommended tables in the selected database that match the default recommendation criteria.
 
-    При наличии критических проблем для выбранной таблицы они будут перечислены в колонке **Table results** (Результаты таблицы). Сведения о критических проблемах, обнаруженных помощником по базе данных Stretch, см. в разделе [Ограничения для базы данных Stretch](sql-server-stretch-database-limitations.md).
+2.  In the list of tables on the **Analysis results** blade, select one of the recommended tables to display the **Table results** blade.
 
-3.  Из списка критических проблем в колонке **Table results** (Результаты таблицы) выберите одну из проблем, чтобы просмотреть дополнительные сведения о ней и предлагаемые действия по устранению. Выполните действия по устранению проблемы, если хотите настроить выбранную таблицу для растяжения базы данных.
+    If there are blocking issues, the **Table results** blade lists the blocking issues for the selected table. For information about blocking issues detected by Stretch Database Advisor, see [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
 
-## Дальнейшие действия
-Включите растяжение базы данных.
+3.  In the list of blocking issues on the **Table results** blade, select one of the issues to display more info about the selected issue and proposes mitigation steps. Implement the suggested mitigation steps if you want to configure the selected table for Stretch Database.
 
--   Чтобы включить базу данных Stretch для **базы данных**, обратитесь к разделу [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md) (Включение базы данных Stretch для базы данных).
+## <a name="next-step"></a>Next step
+Enable Stretch Database.
 
--   Чтобы включить базу данных Stretch для другой **таблицы**, если она уже включена для базы данных, обратитесь к разделу [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) (Включение базы данных Stretch для таблицы).
+-   To enable Stretch Database on a **database**, see [Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md).
 
-## Дополнительные материалы
+-   To enable Stretch Database on another **table**, when Stretch is already enabled on the database, see [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md).
 
-[Ограничения для базы данных Stretch](sql-server-stretch-database-limitations.md)
+## <a name="see-also"></a>See also
 
-[Включение растяжения базы данных для базы данных](sql-server-stretch-database-enable-database.md)
+[Limitations for Stretch Database](sql-server-stretch-database-limitations.md)
 
-[Включение растяжения базы данных для таблицы](sql-server-stretch-database-enable-table.md)
+[Enable Stretch Database for a database](sql-server-stretch-database-enable-database.md)
 
-[Все статьи о службе баз данных SQL Server Stretch в Azure](sql-server-stretch-database-index-all-articles.md)
+[Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+[All topics for Azure SQL Server Stretch Database service](sql-server-stretch-database-index-all-articles.md)
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

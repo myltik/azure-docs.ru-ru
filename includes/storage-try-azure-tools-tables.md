@@ -1,5 +1,7 @@
-> [AZURE.TIP] **Пробное использование обозревателя хранилищ Microsoft Azure**
+> [AZURE.TIP] **Try the Microsoft Azure Storage Explorer**
 > 
-> [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) — это бесплатное автономное приложение Майкрософт, обеспечивающее визуализацию данных из службы хранилища Azure на платформах Windows, OS X и Linux.
+> [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, OS X, and Linux.
 
-<!---HONumber=AcomDC_0817_2016-->
+<!--HONumber=Oct16_HO2-->
+
+

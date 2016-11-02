@@ -1,23 +1,24 @@
 <properties
-	pageTitle="Автоматическое масштабирование и наборы масштабирования виртуальных машин | Microsoft Azure"
-	description="Узнайте о том, как использовать диагностику и ресурсы автоматического масштабирования для автоматического масштабирования виртуальных машин в наборе масштабирования."
+    pageTitle="Автоматическое масштабирование и наборы масштабирования виртуальных машин | Microsoft Azure"
+    description="Узнайте о том, как использовать диагностику и ресурсы автоматического масштабирования для автоматического масштабирования виртуальных машин в наборе масштабирования."
     services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="davidmu"/>
 
-# Автоматическое масштабирование и наборы масштабирования виртуальных машин
+
+# <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>Автоматическое масштабирование и наборы масштабирования виртуальных машин
 
 Автоматическое масштабирование виртуальных машин (ВМ) в наборе масштабирования — это процесс создания или удаления входящих в набор ВМ в соответствии требованиями к производительности. По мере роста рабочей нагрузки для эффективного выполнения задач приложению могут потребоваться дополнительные ресурсы.
 
@@ -25,7 +26,7 @@
 
 Настроить автоматическое масштабирование набора ресурсов можно с помощью шаблона Azure Resource Manager, с помощью Azure PowerShell или интерфейса командной строки Azure.
 
-## Настройка масштабирования с помощью шаблонов Resource Manager
+## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Настройка масштабирования с помощью шаблонов Resource Manager
 
 Чтобы не развертывать (с последующим управлением) каждый ресурс для приложения по отдельности, вы можете создать шаблон Azure Resource Manager, который развертывает все нужные ресурсы в ходе одной скоординированной операции. В шаблоне определяются ресурсы приложения и указываются параметры развертывания для разных сред. Шаблон состоит из JSON и выражений, на основе которых можно создавать значения для развертывания. Узнайте больше о [создании шаблонов Azure Resource Manager](../resource-group-authoring-templates.md).
 
@@ -41,19 +42,19 @@
 
 Вы можете автоматически изменять емкость набора масштабирования, используя ресурс autoscaleSettings и расширение системы диагностики.
 
-### Настройка расширения системы диагностики Azure
+### <a name="configure-the-azure-diagnostics-extension"></a>Настройка расширения системы диагностики Azure
 
 Автоматическое масштабирование выполняется, только если для каждой виртуальной машины из масштабируемого набора собираются метрики. Расширение системы диагностики Azure предусматривает возможности для мониторинга и диагностики, необходимые для автоматического масштабирования ресурсов. Расширение можно установить в составе шаблона Resource Manager.
 
 В следующем примере показано использование переменных в шаблоне для настройки расширения диагностики.
 
-	"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
-	"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/', 'Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-	"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
-	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\Thread Count" sampleRate="PT15S" unit="Percent"><annotation displayName="Thread Count" locale="ru-RU"/></PerformanceCounterConfiguration></PerformanceCounters>",
-	"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
-	"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
-	"wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
+    "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
+    "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/', 'Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
+    "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
+    "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\Thread Count\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"Thread Count\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
+    "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
+    "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
+    "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 
 Параметры предоставляются при развертывании шаблона. В нашем примере это имя учетной записи хранения, в которой будут сохраняться данные, и имя набора масштабирования, из которого нужно собирать данные. В этом примере для Windows Server собираются только данные счетчика производительности (счетчика потоков). Для сбора диагностической информации можно включать в настройки расширения любые счетчики производительности, доступные в среде Windows или Linux.
 
@@ -86,7 +87,7 @@
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
 
-### Настройка ресурса autoScaleSettings
+### <a name="configure-the-autoscalesettings-resource"></a>Настройка ресурса autoScaleSettings
 
 Ресурс AutoscaleSettings использует данные, собранные расширением системы диагностики, для принятия решений об увеличении или уменьшении числа ВМ в наборе масштабирования.
 
@@ -159,10 +160,10 @@
 
 В приведенном выше примере создаются два правила, определяющие действия автоматического масштабирования. Первое правило определяет действие по увеличению масштаба, а второе — по его уменьшению. Для этих правил указаны значения следующих параметров:
 
-- **metricName** — здесь должно быть имя счетчика производительности, который вы указали в переменной wadperfcounter для расширения диагностики. В нашем примере это счетчик потоков (Thread Count).
-- **metricResourceUri**. В этом параметре указывается идентификатор ресурса набора масштабирования ВМ. Этот идентификатор содержит имя группы ресурсов, имя поставщика ресурсов и имя набора, который мы будем масштабировать.
+- **metricName** — здесь должно быть имя счетчика производительности, который вы указали в переменной wadperfcounter для расширения диагностики. В нашем примере это счетчик потоков (Thread Count).  
+- **metricResourceUri**. В этом параметре указывается идентификатор ресурса набора масштабирования виртуальных машин. Этот идентификатор содержит имя группы ресурсов, имя поставщика ресурсов и имя набора, который мы будем масштабировать.
 - **timeGrain**. В этом параметре указывается степень детализации собираемых метрик. В приведенном выше примере данные собираются с интервалами в одну минуту. Это значение используется вместе со значением timeWindow.
-- **statistic**. Этот параметр определяет, как объединяются метрики для выполнения автоматического масштабирования. Возможные значения: Average (Среднее), Min (Минимальное), Max (Максимальное).
+- **statistic**. Этот параметр определяет, как объединяются метрики для автоматического масштабирования. Возможные значения: Average (Среднее), Min (Минимальное), Max (Максимальное).
 - **timeWindow**. В этом параметре указывается интервал, в пределах которого собираются данные об экземплярах. Значение должно составлять от 5 минут до 12 часов.
 - **timeAggregation**. Этот параметр определяет способ объединения собранных данных с течением времени. Значение по умолчанию — Average (Среднее). Возможные значения: Average (Среднее), Minimum (Минимальное), Maximum (Максимальное), Last (Последнее), Total (Всего), Count (Количество).
 - **operator**. Оператор, который используется для сравнения данных метрики с пороговым значением. Возможные значения: Equals (Равно), NotEquals (Не равно), GreaterThan (Больше), GreaterThanOrEqual (Больше или равно), LessThan (Меньше), LessThanOrEqual (Меньше или равно).
@@ -196,15 +197,15 @@
 
 Если по истечении периода ожидания (параметр cooldown) среднее количество потоков остается выше 600, в набор добавляется еще один компьютер. Если среднее число потоков окажется ниже 550, размер масштабируемого набора уменьшается на единицу и один компьютер удаляется из набора.
 
-## Настройка масштабирования с помощью Azure PowerShell
+## <a name="set-up-scaling-using-azure-powershell"></a>Настройка масштабирования с помощью Azure PowerShell
 
 Примеры использования PowerShell для настройки автоматического масштабирования см. в статье [Примеры для быстрого запуска Azure Insights с помощью PowerShell](../azure-portal/insights-powershell-samples.md).
 
-## Настройка масштабирования с помощью интерфейса командной строки Azure (Azure CLI)
+## <a name="set-up-scaling-using-azure-cli"></a>Настройка масштабирования с помощью интерфейса командной строки Azure (Azure CLI)
 
-Примеры использования Azure CLI для настройки автоматического масштабирования см. в статье [Примеры команд для межплатформенного интерфейса командной строки Azure Insights](../azure-portal/insights-cli-samples.md).
+Примеры использования интерфейса командной строки Azure для настройки автоматического масштабирования см. в статье [Примеры команд для кроссплатформенного интерфейса командной строки Azure Insights](../azure-portal/insights-cli-samples.md).
 
-## Изучение действий масштабирования
+## <a name="investigate-scaling-actions"></a>Изучение действий масштабирования
 
 - [Портал Azure]() — сейчас с помощью портала время можно получить ограниченный объем сведений.
 - [Обозреватель ресурсов Azure]() — это лучший инструмент для просмотра текущего состояния набора масштабирования. Перейдите по этому пути, чтобы открыть представление экземпляров созданного набора масштабирования: subscriptions > {ваша подписка} > resourceGroups > {ваша группа ресурсов} > providers > Microsoft.Compute > virtualMachineScaleSets > {ваш набор масштабирования} > virtualMachines.
@@ -215,12 +216,16 @@
         
 - Подключитесь к основной виртуальной машине так же, как к любому другому компьютеру. Теперь вы сможете удаленно подключаться к виртуальным машинам в масштабируемом наборе, чтобы отслеживать отдельные процессы.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
-- Ознакомьтесь с примером того, как можно создать набор с настроенным автоматическим масштабированием, в статье [Автоматическое масштабирование машин в масштабируемом наборе виртуальных машин](virtual-machine-scale-sets-windows-autoscale.md).
-- Просмотрите примеры функций мониторинга Azure Insights в разделе [Примеры для быстрого запуска Azure Insights с помощью PowerShell](../azure-portal/insights-powershell-samples.md).
+- Ознакомьтесь с примером того, как можно создать набор с настроенным автоматическим масштабированием, в статье [Автоматическое масштабирование машин в масштабируемом наборе виртуальных машин](virtual-machine-scale-sets-windows-autoscale.md) .
+- Просмотрите примеры функций мониторинга Azure Insights в разделе [Примеры для быстрого запуска Azure Insights с помощью PowerShell](../azure-portal/insights-powershell-samples.md)
 - Узнайте о возможностях уведомления в статье [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md).
-- Узнайте, как [использовать журналы аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
+- Узнайте, как [использовать журналы аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 - Узнайте больше о [расширенных сценариях автомасштабирования](./virtual-machine-scale-sets-advanced-autoscale.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

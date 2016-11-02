@@ -12,14 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="10/12/2016"
    ms.author="cherylmc" />
 
-# Партнеры и одноранговые расположения ExpressRoute
+
+# <a name="expressroute-partners-and-peering-locations"></a>Партнеры и одноранговые расположения ExpressRoute
 
 В данной статье приведены таблицы со сведениями о поставщиках услуг подключения ExpressRoute, географическом покрытии ExpressRoute, облачных службах Майкрософт, поддерживаемых через ExpressRoute, и системных интеграторах ExpressRoute.
 
-## <a name="partners"></a>Поставщики услуг подключения ExpressRoute
+## <a name="<a-name="partners"></a>expressroute-connectivity-providers"></a><a name="partners"></a>Поставщики услуг подключения ExpressRoute
 
 ExpressRoute поддерживается во всех регионах и расположениях Azure. На следующей карте обозначены регионы Azure и расположения ExpressRoute. Расположения ExpressRoute соответствуют тем территориям, где Майкрософт взаимодействует с несколькими одноранговыми поставщиками услуг.
 
@@ -45,22 +46,22 @@ ExpressRoute поддерживается во всех регионах и ра
 |---|---|---|---|
 |**Облако правительства США**|Правительство штата Айова, США, Правительство штата Вирджиния, США|Чикаго, Даллас, Нью-Йорк, Вашингтон (округ Колумбия)|
 |**Китай**|Северный Китай, Восточный Китай|Пекин, Шанхай|
-|**Германия**|Центральная Германия, восточная Германия|Берлин+, Франкфурт|
+|**Германия**|Центральная Германия, восточная Германия|Берлин, Франкфурт|
 
 
 В стандартном номере SKU ExpressRoute подключение между геополитическими регионами не поддерживается. Для поддержки глобальных подключений необходимо включить надстройку ExpressRoute класса "Премиум". Подключение к национальным облачным средам не поддерживается. При необходимости вы можете работать с поставщиками услуг подключения.
 
 
-## Расположения поставщиков услуг подключения
+## <a name="connectivity-provider-locations"></a>Расположения поставщиков услуг подключения
 
 > [AZURE.SELECTOR]
-[Locations By Provider](expressroute-locations.md#connectivity-provider-locations)
-[Providers By Location](expressroute-locations-providers.md#connectivity-provider-locations)
+[Расположения по поставщику](expressroute-locations.md#connectivity-provider-locations)
+[Поставщики по расположению](expressroute-locations-providers.md#connectivity-provider-locations)
 
-### Рабочая среда Azure
-| **Расположение** | **Поставщики услуг** |
+### <a name="production-azure"></a>Рабочая среда Azure
+| **Расположение**  | **Поставщики услуг** |
 |---------------|-----------------------|
-| **Амстердам** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT+, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
+| **Амстердам** | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Internet Solutions - Cloud Connect, Interxion, Level 3 Communications, Orange, Tata Communications, TeleCity Group, Telenor, Verizon |
 | **Атланта** | Equinix |
 | **Ченнай** | Tata Communications |
 | **Чикаго** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
@@ -70,7 +71,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Лондон** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
 | **Лас-Вегас** | Level 3 Communications+, Megaport
 | **Лос-Анджелес** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
-| **Мельбурн** | Equinix, Megaport, NEXTDC, Telstra Corporation |
+| **Мельбурн** | AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **Нью-Йорк** | Equinix, Megaport, Zayo Group |
 | **Монреаль** | Cologix + |
 | **Мумбай** | Tata Communications |
@@ -80,55 +81,55 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Сиэтл;** | Equinix, Level 3 Communications, Megaport |
 | **Кремниевая долина** | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Сингапур** | Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, Orange, SingTel, Tata Communications, Verizon |
-| **Сидней** | AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
+| **Сидней** | AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Токио** | Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
 | **Торонто** | Cologix, Equinix, Zayo Group |
 | **Вашингтон, округ Колумбия** | Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, Orange, Tata Communications, Verizon, Zayo Group |
 
- Знак **+** означает "скоро"
+ **+** означает "скоро"
 
-### Национальные облачные среды
+### <a name="national-cloud-environments"></a>Национальные облачные среды
 
-#### Облако правительства США
+#### <a name="us-government-cloud"></a>Облако правительства США
 
-| **Расположение** |**Поставщики услуг** |
+| **Расположение**  |**Поставщики услуг** |
 |---------------|--------------------|
 | **Чикаго** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Даллас** | Equinix, Verizon+ |
+| **Даллас** |  Equinix, Verizon+ |
 | **Нью-Йорк** | Equinix, Level 3 Communications+, Verizon |
 | **Вашингтон, округ Колумбия** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### Китай
+#### <a name="china"></a>Китай
 
-| **Расположение** | **Поставщики услуг** |
+| **Расположение**  | **Поставщики услуг** |
 |---------------|-----------------------|
 | **Пекин** | China Telecom |
-| **Шанхай** | China Telecom |
-Дополнительные сведения см. на странице [ExpressRoute в Китае](http://www.windowsazure.cn/home/features/expressroute/)
+| **Шанхай** |  China Telecom |
+Дополнительные сведения см. на странице [ExpressRoute в Китае](http://www.windowsazure.cn/home/features/expressroute/).
 
-#### Германия
+#### <a name="germany"></a>Германия
 
-| **Расположение** | **Поставщики услуг** |
+| **Расположение**  | **Поставщики услуг** |
 |---------------|-----------------------|
-| **Берлин** | Colt+, e-shelter+ |
-| **Франкфурт** | Colt, Equinix+, Interxion |
+| **Берлин** | Colt, e-shelter |
+| **Франкфурт** | Colt, Equinix, Interxion |
 
-## <a name="nonpartners"></a>Подключение через других поставщиков услуг
+## <a name="<a-name="nonpartners"></a>connectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Подключение через других поставщиков услуг
 
 Вы можете создать подключение, даже если ваш поставщик услуг подключения не указан в предыдущих разделах.
 
 - Узнайте у своего поставщика услуг подключения, подключен ли он к какому-либо Exchange, указанному в таблице выше. Дополнительные сведения об услугах, предлагаемых поставщиками Exchange, см. по ссылкам ниже. Несколько поставщиков услуг подключения уже подключены к серверам Ethernet Exchange.
 
-	- [Equnix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [InterXion](http://www.interxion.com/)
-	- [NextDC](http://www.nextdc.com/)
-	- [CoreSite](http://www.coresite.com/)
-	- [Cologix](http://www.cologix.com/)
+    - [Equnix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
+    - [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
+    - [InterXion](http://www.interxion.com/)
+    - [NextDC](http://www.nextdc.com/)
+    - [CoreSite](http://www.coresite.com/)
+    - [Cologix](http://www.cologix.com/)
 - Обратитесь к своему поставщику услуг подключения, чтобы он расширил вашу сеть, добавив необходимое пиринговое расположение.
-	- Убедитесь, что поставщик услуг подключения расширяет границы вашего подключения, сохраняя высокую доступность во избежание влияния единых точек отказа.
+    - Убедитесь, что поставщик услуг подключения расширяет границы вашего подключения, сохраняя высокую доступность во избежание влияния единых точек отказа.
 - Закажите канал ExpressRoute с Exchange у вашего поставщика услуг подключения для связи с Майкрософт.
-	- Для настройки подключения выполните действия, описанные в статье [Создание и изменение канала ExpressRoute с помощью PowerShell](expressroute-howto-circuit-classic.md).
+    - Для настройки подключения выполните действия, описанные в статье [Создание и изменение канала ExpressRoute с помощью PowerShell](expressroute-howto-circuit-classic.md) .
 
 |**Расположение**|**Exchange**|**Поставщики услуг подключения**|
 |-------------|------------|-------------------------|
@@ -138,7 +139,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Сингапур** | Equinix | 1CLOUDSTAR |
 | **Вашингтон, округ Колумбия** | Equinix | Lightower |
 
-## Системные интеграторы ExpressRoute
+## <a name="expressroute-system-integrators"></a>Системные интеграторы ExpressRoute
 
 Возможность частного подключения, соответствующего вашим потребностям, будет зависеть от масштаба сети. Чтобы упростить переход на ExpressRoute, вы можете обратиться к одному из системных интеграторов, указанных в таблице ниже.
 
@@ -148,12 +149,16 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Европа** | Avanade Inc., Dotnet Solutions|
 | **США** | Avanade Inc., Equinix Professional Services, Perficient, Project Leadership|
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
-- Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
-- Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
+- Дополнительные сведения об ExpressRoute см. в статье [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
+- Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования и контрольный список для ExpressRoute](expressroute-prerequisites.md).
 
 <!--Image References-->
-[0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположения"
+[0]: ./media/expressroute-locations/expressroute-locations-map.png "Карта расположений"
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

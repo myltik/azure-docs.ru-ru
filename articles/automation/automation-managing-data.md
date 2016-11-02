@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Управление данными службы автоматизации Azure | Microsoft Azure"
-   description="Эта статья содержит несколько разделов об управлении средой службы автоматизации Azure. Сейчас включает в себя хранение данных и резервное копирование для аварийного восстановления службы автоматизации Azure."
+   pageTitle="Managing Azure Automation data | Microsoft Azure"
+   description="This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation."
    services="automation"
    documentationCenter=""
    authors="SnehaGunda"
@@ -12,76 +12,82 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="10/31/2016"
    ms.author="bwren;sngun" />
 
-# Управление данными службы автоматизации Azure
 
-Эта статья содержит несколько разделов об управлении средой службы автоматизации Azure.
+# <a name="managing-azure-automation-data"></a>Managing Azure Automation data
 
-## Хранение данных
+This article contains multiple topics for managing an Azure Automation environment.
 
-При удалении ресурса в службе автоматизации Azure он сохраняется еще 90 дней в целях аудита, прежде чем будет окончательно удален. В течение этого времени его нельзя увидеть или использовать. Эта политика применяется также к ресурсам, принадлежащим удаляемой учетной записи службы автоматизации.
+## <a name="data-retention"></a>Data retention
 
-Служба автоматизации Azure автоматически и окончательно удаляет задания старше 90 дней.
+When you delete a resource in Azure Automation, it is retained for 90 days for auditing purposes before being removed permanently.  You can’t see or use the resource during this time.  This policy also applies to resources that belong to an automation account that is deleted.
 
-В следующей таблице кратко описана политика хранения для различных ресурсов.
+Azure Automation automatically deletes and permanently removes jobs older than 90 days.
 
-|Данные|Политика|
+The following table summarizes the retention policy for different resources.
+
+|Data|Policy|
 |:---|:---|
-|учетные записи;|Окончательно удаляются через 90 дней после удаления учетной записи пользователем.|
-|Активы|Окончательно удаляются через 90 дней после удаления актива пользователем или через 90 дней после удаления пользователем учетной записи, содержащей актив.|
-|модули|Окончательно удаляются через 90 дней после удаления модуля пользователем или через 90 дней после удаления пользователем учетной записи, содержащей модуль.|
-|Модули Runbook|Окончательно удаляются через 90 дней после удаления ресурса пользователем или через 90 дней после удаления пользователем учетной записи, содержащей ресурс.|
-|Задания|Окончательно удаляются через 90 дней после последнего изменения. Это может быть после завершения, остановки или приостановки задания.|
-|Конфигурации узлов и MOF-файлы| Старая конфигурация узла окончательно удаляется через 90 дней после создания новой конфигурации узла.|
-|Узлы DSC| Окончательно удаляются через 90 дней после отмены регистрации узла в учетной записи автоматизации с помощью портала Azure или командлета [Unregister-AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx) в Windows PowerShell. Узлы также окончательно удаляются через 90 дней после удаления содержащей узел учетной записи. |
-|Отчеты узла| Окончательно удаляются через 90 дней после создания нового отчета для этого узла.|
+|Accounts|Permanently removed 90 days after the account is deleted by a user.|
+|Assets|Permanently removed 90 days after the asset is deleted by a user, or 90 days after the account that holds the asset is deleted by a user.|
+|Modules|Permanently removed 90 days after the module is deleted by a user, or 90 days after the account that holds the module is deleted by a user.|
+|Runbooks|Permanently removed 90 days after the resource is deleted by a user, or 90 days after the account that holds the resource is deleted by a user.|
+|Jobs|Deleted and permanently removed 90 days after last being modified. This could be after the job completes, is stopped, or is suspended.|
+|Node Configurations/MOF Files| Old node configuration is permanently removed 90 days after a new node configuration is generated.|
+|DSC Nodes| Permanently removed 90 days after the node is unregistered from Automation Account using Azure portal or the [Unregister-AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx) cmdlet in Windows PowerShell. Nodes are also permanently removed 90 days after the account that holds the node is deleted by a user. |
+|Node Reports| Permanently removed 90 days after a new report is generated for that node|
 
-Политика хранения применяется ко всем пользователям и в настоящее время не может быть изменена.
+The retention policy applies to all users and currently cannot be customized.
 
-## Резервное копирование службы автоматизации Azure
+## <a name="backing-up-azure-automation"></a>Backing up Azure Automation
 
-При удалении учетной записи службы автоматизации в Microsoft Azure все объекты в ней удаляются, включая модули Runbook, модули, параметры, конфигурации, задания и ресурсы. Объекты нельзя восстановить после удаления учетной записи. Можно использовать следующую информацию, чтобы создать резервную копию содержимого учетной записи службы автоматизации перед его удалением.
+When you delete an automation account in Microsoft Azure, all objects in the account are deleted including runbooks, modules, configurations, settings, jobs, and assets. The objects cannot be recovered after the account is deleted.  You can use the following information to backup the contents of your automation account before deleting it. 
 
-### Модули Runbook
+### <a name="runbooks"></a>Runbooks
 
-Модули Runbook можно экспортировать в файлы сценариев с помощью портала управления Azure или командлета [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) в Windows PowerShell. Эти файлы сценариев можно импортировать в другую учетную запись службы автоматизации, как описано в разделе [Создание или импорт модуля Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
-
-
-### Модули интеграции
-
-Модули интеграции нельзя экспортировать из службы автоматизации Azure. Необходимо обеспечить, чтобы они были доступны за пределами учетной записи службы автоматизации.
-
-### Активы
-
-Нельзя экспортировать [ресурсы](https://msdn.microsoft.com/library/dn939988.aspx) из службы автоматизации Azure. Используя портал управления Azure, вам необходимо записать информацию о переменных, учетных данных, сертификатах, подключениях и расписаниях. Затем необходимо вручную создать все ресурсы, используемые модулями Runbook, которые импортируются в другую службу автоматизации.
-
-Вы можете использовать [командлеты Azure](https://msdn.microsoft.com/library/dn690262.aspx), чтобы получить информацию о незашифрованных ресурсах и либо сохранить ее для дальнейшего использования, либо создать эквивалентные ресурсы в другой учетной записи службы автоматизации.
-
-С помощью командлетов нельзя получить значение зашифрованных переменных или поле пароля учетных данных. Если вы не знаете этих значений, то их можно получить из модуля Runbook с помощью действий [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) и [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx).
-
-Нельзя экспортировать сертификаты из службы автоматизации Azure. Необходимо обеспечить, чтобы все сертификаты были доступны за пределами Azure.
-
-### Конфигурации DSC
-
-Конфигурации можно экспортировать в файлы сценариев с помощью портала управления Azure или командлета [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) в Windows PowerShell. Эти конфигурации можно импортировать и использовать в другой учетной записи автоматизации.
+You can export your runbooks to script files using either the Azure Management Portal or the [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) cmdlet in Windows PowerShell.  These script files can be imported into another automation account as discussed in [Creating or Importing a Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
 
 
-##Георепликация в службе автоматизации Azure
+### <a name="integration-modules"></a>Integration modules
 
-Георепликация, которая обычно применяется в учетных записях службы автоматизации Azure, осуществляет резервное копирование данных учетной записи в другой географический регион для обеспечения избыточности. При настройке учетной записи можно выбрать основной регион, после чего дополнительный регион назначается автоматически. Дополнительные данные, скопированные из основного региона, постоянно обновляются на случай потери данных.
+You cannot export integration modules from Azure Automation.  You must ensure that they are available outside of the automation account.
 
-В таблице ниже показаны доступные пары основных и дополнительных регионов.
+### <a name="assets"></a>Assets
 
-|Главный |Второстепенный
+You cannot export [assets](https://msdn.microsoft.com/library/dn939988.aspx) from Azure Automation.  Using the Azure Management Portal, you must note the details of variables, credentials, certificates, connections, and schedules.  You must then manually create any assets that are used by runbooks that you import into another automation.
+
+You can use [Azure cmdlets](https://msdn.microsoft.com/library/dn690262.aspx) to retrieve details of unencrypted assets and either save them for future reference or create equivalent assets in another automation account.
+
+You cannot retrieve the value for encrypted variables or the password field of credentials using cmdlets.  If you don't know these values, then you can retrieve them from a runbook using the [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) and [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx) activities.
+
+You cannot export certificates from Azure Automation.  You must ensure that any certificates are available outside of Azure.
+
+### <a name="dsc-configurations"></a>DSC configurations
+
+You can export your configurations to script files using either the Azure Management Portal or the [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) cmdlet in Windows PowerShell. These configurations can be imported and used in another automation account.
+
+
+##<a name="georeplication-in-azure-automation"></a>Geo-replication in Azure Automation
+
+Geo-replication, standard in Azure Automation accounts, backs up account data to a different geographical region for redundancy. You can choose a primary region when setting up your account, and then a secondary region is assigned to it automatically. The secondary data, copied from the primary region, is continuously updated in case of data loss.  
+
+The following table shows the available primary and secondary region pairings.
+
+|Primary            |Secondary
 | ---------------   |----------------
-|Южно-центральный регион США |Северо-центральный регион США
-|Восточная часть США 2 |Центральный регион США
-|Западная Европа |Северная Европа
-|Юго-Восточная Азия |Восточная Азия
-|Восточная часть Японии |Западная часть Японии
+|South Central US   |North Central US
+|US East 2          |Central US
+|West Europe        |North Europe
+|South East Asia    |East Asia
+|Japan East         |Japan West
 
-В маловероятном случае потери данных основного региона корпорация Майкрософт попытается восстановить их. Если восстановить основные данные невозможно, выполняется географическая отработка отказа и затронутые клиенты получают уведомления об этом через свои подписки.
+In the unlikely event that a primary region data is lost, Microsoft attempts to recover it. If the primary data cannot be recovered, then geo-failover is performed and the affected customers will be notified about this through their subscription.
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

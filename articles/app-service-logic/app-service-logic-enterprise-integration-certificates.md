@@ -1,59 +1,64 @@
 
 <properties
-	pageTitle="Использование сертификатов с помощью пакета интеграции Enterprise | Microsoft Azure"
-	description="Узнайте, как использовать сертификаты с пакетом интеграции Enterprise и службой Logic Apps."
-	services="logic-apps"
-	documentationCenter=".net,nodejs,java"
-	authors="msftman"
-	manager="erikre"
-	editor="cgronlun"/>
+    pageTitle="Использование сертификатов с помощью пакета интеграции Enterprise | Microsoft Azure"
+    description="Узнайте, как использовать сертификаты с пакетом интеграции Enterprise и службой Logic Apps."
+    services="logic-apps"
+    documentationCenter=".net,nodejs,java"
+    authors="msftman"
+    manager="erikre"
+    editor="cgronlun"/>
 
 <tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="deonhe"/>
+    ms.service="logic-apps"
+    ms.workload="integration"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/06/2016"
+    ms.author="deonhe"/>
 
-# Узнайте о сертификатах и пакете интеграции Enterprise
 
-## Обзор
+# <a name="learn-about-certificates-and-enterprise-integration-pack"></a>Узнайте о сертификатах и пакете интеграции Enterprise
+
+## <a name="overview"></a>Обзор
 В интеграции Enterprise сертификаты используются для защиты обмена данными "бизнес-бизнес". В приложениях интеграции Enterprise можно использовать два типа сертификатов.
 
 - Открытые сертификаты, которые необходимо приобрести в центре сертификации (ЦС).
 - Закрытые сертификаты, которые можно выдать самостоятельно. Эти сертификаты иногда называются самозаверяющими сертификатами.
 
 
-## Что такое сертификаты?
+## <a name="what-are-certificates?"></a>Что такое сертификаты?
 Сертификаты представляют собой цифровые документы, используемые для проверки подлинности участников обмена электронными данными и защиты этих операций.
 
-## Зачем нужны сертификаты?
+## <a name="why-use-certificates?"></a>Зачем нужны сертификаты?
 Иногда обмен данными "бизнес-бизнес" требует конфиденциальности. В интеграции Enterprise сертификаты используются для защиты обмена данными двумя способами:
 
 - для шифрования содержимого сообщений;
-- для добавления цифровых подписей в сообщения.
+- для добавления цифровых подписей в сообщения.  
 
-## Как можно передать сертификаты?
+## <a name="how-do-you-upload-certificates?"></a>Как можно передать сертификаты?
 
-### Открытые сертификаты
-Чтобы использовать *открытый сертификат* в приложениях логики с возможностями "бизнес-бизнес", необходимо сначала передать его в учетную запись интеграции. С другой стороны, чтобы использовать *самозаверяющий сертификат*, его необходимо сначала передать в [хранилище ключей Azure](../key-vault/key-vault-get-started.md "Сведения о хранилище ключей").
+### <a name="public-certificates"></a>Открытые сертификаты
+Чтобы использовать *открытый сертификат* в приложениях логики с возможностями "бизнес-бизнес", необходимо сначала передать его в учетную запись интеграции. Чтобы использовать *самозаверяющий сертификат*, его необходимо сначала передать в [хранилище ключей Azure](../key-vault/key-vault-get-started.md "Сведения о хранилище ключей").
 
-После передачи сертификат можно будет использовать для защиты сообщений "бизнес-бизнес" при определении их свойств в создаваемых [соглашениях](./app-service-logic-enterprise-integration-agreements.md).
+После передачи сертификат можно будет использовать для защиты сообщений "бизнес-бизнес" при определении их свойств в создаваемых [соглашениях](./app-service-logic-enterprise-integration-agreements.md) .  
 
 Ниже приведены подробные инструкции по передаче открытых сертификатов в учетную запись интеграции после входа на портал Azure.
 
-1. Щелкните **Обзор**.
-![Щелкните "Обзор".](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+1. Щелкните **Обзор**.  
+    ![Щелкните "Обзор"](./media/app-service-logic-enterprise-integration-overview/overview-1.png).  
 
-2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![Выберите "Учетные записи интеграции".](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов.     
+    ![Выберите "Учетные записи интеграции"](./media/app-service-logic-enterprise-integration-overview/overview-2.png).
 
-3. Выберите учетную запись интеграции, в которую необходимо добавить сертификат. ![Выберите учетную запись интеграции, в которую необходимо добавить сертификат.](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
+3. Выберите учетную запись интеграции, в которую необходимо добавить сертификат.  
+    ![Выберите учетную запись интеграции, в которую необходимо добавить сертификат.](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
 
-4.  Выберите элемент **Сертификаты**. ![Выберите элемент "Сертификаты".](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)
+4.  Выберите элемент **Сертификаты** .  
+    ![Выберите элемент "Сертификаты".](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)
 
-5. В открывшейся колонке **Сертификаты** нажмите кнопку **Добавить**. ![Нажмите кнопку "Добавить".](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)
+5. В открывшейся колонке **Сертификаты** нажмите кнопку **Добавить**.
+    ![Нажмите кнопку "Добавить".](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)
 
 6. Введите **имя** своего сертификата, а затем выберите его тип. (В этом примере мы использовали открытый сертификат.) После этого выберите значок папки справа от поля **Сертификат**.
 
@@ -61,37 +66,43 @@
 
 8. Выберите этот сертификат и нажмите кнопку **ОК** в средстве выбора файлов. Сертификат будет проверен и передан в учетную запись интеграции.
 
-8. Наконец, в колонке **Добавление сертификата** нажмите кнопку **ОК**. ![Нажмите кнопку "ОК".](./media/app-service-logic-enterprise-integration-certificates/certificate-3.png)
+8. Наконец, в колонке **Добавление сертификата** нажмите кнопку **ОК**.  
+    ![Нажмите кнопку "ОК"](./media/app-service-logic-enterprise-integration-certificates/certificate-3.png).  
 
 9. Примерно через минуту появится уведомление о том, что передача сертификата завершена.
 
-10. Выберите элемент **Сертификаты**. Вы увидите только что добавленный сертификат. ![Просмотрите новый сертификат.](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)
+10. Выберите элемент **Сертификаты** . Вы увидите только что добавленный сертификат.  
+    ![Просмотрите новый сертификат.](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)  
 
-### Закрытые сертификаты
-Закрытые сертификаты можно передать в учетную запись интеграции, выполнив следующие действия.
+### <a name="private-certificates"></a>Закрытые сертификаты
+Закрытые сертификаты можно передать в учетную запись интеграции, выполнив следующие действия.  
 
-1. [Передайте закрытый ключ в хранилище ключей.](../key-vault/key-vault-get-started.md "Сведения о хранилище ключей")
+1. [Передайте закрытый ключ в хранилище ключей.](../key-vault/key-vault-get-started.md "Сведения о хранилище ключей").  
 
-	> [AZURE.TIP] Компонент Logic Apps службы приложений Azure необходимо авторизовать для выполнения операций в хранилище ключей. Субъекту-службе Logic Apps можно предоставить доступ с помощью следующей команды PowerShell: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
+    > [AZURE.TIP] Компонент Logic Apps службы приложений Azure необходимо авторизовать для выполнения операций в хранилище ключей. Субъекту-службе Logic Apps можно предоставить доступ с помощью следующей команды PowerShell: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
 
-2. Создайте закрытый сертификат.
+2. Создайте закрытый сертификат.  
 
 3. Передайте закрытый сертификат в учетную запись интеграции.
 
 После выполнения описанных выше действий закрытый сертификат можно будет использовать для создания соглашений.
 
-Ниже приведены подробные инструкции по передаче закрытых сертификатов в учетную запись интеграции после входа на портал Azure.
+Ниже приведены подробные инструкции по передаче закрытых сертификатов в учетную запись интеграции после входа на портал Azure.  
 
-1. Щелкните **Обзор**.
-![Передайте закрытые сертификаты в учетную запись интеграции.](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
+1. Щелкните **Обзор**.  
+    ![Передайте закрытые сертификаты в учетную запись интеграции](./media/app-service-logic-enterprise-integration-overview/overview-1.png).    
 
-2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов. ![Выберите "Учетные записи интеграции".](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+2. Введите **integration** в поле фильтра поиска и выберите **Integration Accounts** (Учетные записи интеграции) из списка результатов.     
+    ![Выберите "Учетные записи интеграции"](./media/app-service-logic-enterprise-integration-overview/overview-2.png).  
 
-3. Выберите учетную запись интеграции, в которую необходимо добавить сертификат. ![Выберите учетную запись интеграции, в которую необходимо добавить сертификат.](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
+3. Выберите учетную запись интеграции, в которую необходимо добавить сертификат.  
+    ![Выберите учетную запись интеграции, в которую необходимо добавить сертификат.](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
 
-4. Выберите элемент **Сертификаты**. ![Выберите элемент "Сертификаты".](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)
+4. Выберите элемент **Сертификаты** .  
+    ![Выберите элемент "Сертификаты"](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png).  
 
-5. В открывшейся колонке **Сертификаты** нажмите кнопку **Добавить**. ![Нажмите кнопку "Добавить".](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)
+5. В открывшейся колонке **Сертификаты** нажмите кнопку **Добавить**.
+    ![Нажмите кнопку "Добавить".](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)
 
 6. Введите **имя** своего сертификата, а затем выберите его тип. (В этом примере мы использовали открытый сертификат.) После этого выберите значок папки справа от поля **Сертификат**.
 
@@ -99,17 +110,23 @@
 
 8. Выбрав сертификат, нажмите кнопку **ОК** в средстве выбора файлов. Сертификат будет проверен и передан в учетную запись интеграции.
 
-9. Наконец, в колонке **Добавление сертификата** нажмите кнопку **ОК**. ![Добавление сертификата](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-1.png)
+9. Наконец, в колонке **Добавление сертификата** нажмите кнопку **ОК**.  
+    ![Добавьте сертификат](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-1.png).  
 
 10. Примерно через минуту появится уведомление о том, что передача сертификата завершена.
 
-11. Выберите элемент **Сертификаты**. Вы увидите только что добавленный сертификат. ![Просмотрите новый сертификат.](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-2.png)
+11. Выберите элемент **Сертификаты** . Вы увидите только что добавленный сертификат.
+    ![Просмотрите новый сертификат.](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-2.png)  
 
-После передачи сертификат можно будет использовать для защиты сообщений "бизнес-бизнес" при определении их свойств в [соглашениях](./app-service-logic-enterprise-integration-agreements.md).
+После передачи сертификат можно будет использовать для защиты сообщений "бизнес-бизнес" при определении их свойств в [соглашениях](./app-service-logic-enterprise-integration-agreements.md).  
 
-## Дальнейшие действия
-- [Создание приложения логики, использующего функции "бизнес-бизнес"](./app-service-logic-enterprise-integration-b2b.md)
-- [Создание соглашения "бизнес-бизнес"](./app-service-logic-enterprise-integration-agreements.md)
-- [Узнайте больше о хранилище ключей Azure](../key-vault/key-vault-get-started.md "Сведения о хранилище ключей")
+## <a name="next-steps"></a>Дальнейшие действия
+- [Создание приложения логики, использующего функции "бизнес-бизнес"](./app-service-logic-enterprise-integration-b2b.md)  
+- [Создание соглашения "бизнес-бизнес"](./app-service-logic-enterprise-integration-agreements.md)  
+- [Узнайте больше о хранилище ключей Azure](../key-vault/key-vault-get-started.md "Сведения о хранилище ключей")  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

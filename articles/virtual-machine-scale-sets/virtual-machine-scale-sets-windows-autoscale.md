@@ -1,25 +1,26 @@
 <properties
-	pageTitle="Автоматическое масштабирование наборов масштабирования виртуальных машин Windows | Microsoft Azure"
-	description="Настройка автоматического масштабирования набора масштабирования виртуальных машин Windows с помощью Azure PowerShell"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Автоматическое масштабирование наборов масштабирования виртуальных машин Windows | Microsoft Azure"
+    description="Настройка автоматического масштабирования набора масштабирования виртуальных машин Windows с помощью Azure PowerShell"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/27/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/27/2016"
+    ms.author="davidmu"/>
 
-# Автоматическое масштабирование ВМ в наборе масштабирования ВМ
 
-Наборы масштабирования виртуальных машин позволяют легко развертывать идентичные виртуальные машины (ВМ) в виде набора и управлять ими. Масштабируемые наборы обеспечивают высокую степень масштабируемости и персонализацию уровня вычислений для гипермасштабируемых приложений. Кроме того, они поддерживают образы платформ Windows и Linux, а также пользовательские образы и расширения. Дополнительные сведения о масштабируемых наборах см. в статье [Масштабируемые наборы виртуальных машин](virtual-machine-scale-sets-overview.md).
+# <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>Автоматическое масштабирование ВМ в наборе масштабирования ВМ
+
+Наборы масштабирования виртуальных машин позволяют легко развертывать идентичные виртуальные машины (ВМ) в виде набора и управлять ими. Масштабируемые наборы обеспечивают высокую степень масштабируемости и персонализацию уровня вычислений для гипермасштабируемых приложений. Кроме того, они поддерживают образы платформ Windows и Linux, а также пользовательские образы и расширения. Дополнительные сведения о наборах масштабирования см. в разделе [Наборы масштабирования виртуальных машин](virtual-machine-scale-sets-overview.md).
 
 В этом руководстве объясняется, как создать набор масштабирования виртуальных машин Windows и настроить их автоматическое масштабирование. Чтобы создать набор и настроить масштабирование, нужно создать шаблон Azure Resource Manager и развернуть его с помощью Azure PowerShell. Дополнительную информацию о шаблонах см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md). Дополнительные сведения об автоматическом масштабировании наборов масштабирования см. в статье [Автоматическое масштабирование и наборы масштабирования виртуальных машин](virtual-machine-scale-sets-autoscale-overview.md).
 
@@ -35,22 +36,22 @@
 - Microsoft.Insights.VMDiagnosticsSettings;
 - Microsoft.Insights/autoscaleSettings.
 
-Дополнительную информацию о ресурсах диспетчера ресурсов см. в статье [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](../virtual-machines/virtual-machines-windows-compare-deployment-models.md).
+Дополнительную информацию о ресурсах Resource Manager см. в статье [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в Azure Resource Manager](../virtual-machines/virtual-machines-windows-compare-deployment-models.md).
 
-## Шаг 1. Установка Azure PowerShell
+## <a name="step-1:-install-azure-powershell"></a>Шаг 1. Установка Azure PowerShell
 
-Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в Azure см. в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Сведения об установке последней версии Azure PowerShell, а также о выборе нужной подписки и входе в Azure см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md).
 
-## Шаг 2. Создание группы ресурсов и учетной записи хранения
+## <a name="step-2:-create-a-resource-group-and-a-storage-account"></a>Шаг 2. Создание группы ресурсов и учетной записи хранения
 
 1. **Создайте группу ресурсов**. Все ресурсы должны быть развернуты в группе ресурсов. Чтобы создать группу ресурсов с именем **vmsstestrg1**, выполните командлет [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
 2. **Создайте учетную запись хранения**. Это учетная запись, в которой будет храниться шаблон. Используйте командлет [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx), чтобы создать учетную запись хранения с именем **vmsstestsa**.
 
-## Шаг 3. Создание шаблона
+## <a name="step-3:-create-the-template"></a>Шаг 3. Создание шаблона
 С помощью шаблона диспетчера ресурсов Azure можно развертывать ресурсы Azure и управлять ими совокупно, используя JSON-описание ресурсов и связанные параметры развертывания.
 
-1. В любом текстовом редакторе создайте файл C:\\VMSSTemplate.json и добавьте начальную структуру JSON для поддержки шаблона.
+1. В любом текстовом редакторе создайте файл C:\VMSSTemplate.json и добавьте начальную структуру JSON для поддержки шаблона.
 
         {
           "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
@@ -92,17 +93,17 @@
         "storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
         "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'a')]",
         "accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-	      "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
-        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="ru-RU"/></PerformanceCounterConfiguration></PerformanceCounters>",
-        "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
+          "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
+        "wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\% Processor Time\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"CPU utilization\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
+        "wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
         "wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
-        "wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
+        "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 
   - DNS-имена, которые используются сетевыми интерфейсами.
-	- Имена и префиксы IP-адресов для виртуальной сети и подсетей.
-	- Имена и идентификаторы виртуальной сети, балансировщик нагрузки и сетевые интерфейсы.
-	- Имена учетных записей хранения, связанных с машинами в масштабируемом наборе.
-	- Параметры для расширения системы диагностики, которая установлена на виртуальных машинах. Дополнительную информацию о расширении системы диагностики см. в статье [Создание виртуальной машины Windows с мониторингом и диагностикой с помощью шаблона диспетчера ресурсов Azure](../virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md).
+    - Имена и префиксы IP-адресов для виртуальной сети и подсетей.
+    - Имена и идентификаторы виртуальной сети, балансировщик нагрузки и сетевые интерфейсы.
+    - Имена учетных записей хранения, связанных с машинами в масштабируемом наборе.
+    - Параметры для расширения системы диагностики, которая установлена на виртуальных машинах. Дополнительную информацию о расширении системы диагностики см. в статье [Создание виртуальной машины Windows с мониторингом и диагностикой с помощью шаблона Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
     
 4. Добавьте ресурс учетной записи хранения в родительский элемент ресурсов, добавленный в шаблон. В этом шаблоне используется цикл для создания пяти рекомендуемых учетных записей хранения, в которых будут храниться диски операционной системы и диагностические данные. Этот набор учетных записей может поддерживать до 100 виртуальных машин в масштабируемом наборе (это максимальное количество на данный момент). Каждой учетной записи хранения присваивается буквенный код, который определен в переменных в сочетании с префиксом, указанным в параметрах шаблона.
 
@@ -163,7 +164,7 @@
           }
         },
 
-7. Добавьте ресурс балансировщика нагрузки, используемый масштабируемым набором. Дополнительные сведения см. в статье [Поддержка диспетчера ресурсов Azure для балансировщика нагрузки](../load-balancer/load-balancer-arm.md).
+7. Добавьте ресурс балансировщика нагрузки, используемый масштабируемым набором. Дополнительные сведения см. в статье, посвященной [поддержке Azure Resource Manager для подсистемы балансировки нагрузки](../load-balancer/load-balancer-arm.md).
 
         {
           "apiVersion": "2015-06-15",
@@ -275,7 +276,7 @@
           }
         },
 
-10.	Добавьте ресурс набора масштабирования ВМ и укажите расширение диагностики, устанавливаемое на все виртуальные машины из набора масштабирования. Многие параметры данного ресурса похожи на ресурс виртуальной машины. Основные отличия заключаются в элементе capacity, который указывает количество виртуальных машин в наборе масштабирования, и элементе upgradePolicy, который указывает способ выполнения обновлений на виртуальных машинах. Набор масштабирования не будет создан, пока не будут созданы все учетные записи хранения, указанные в элементе dependsOn.
+10. Добавьте ресурс набора масштабирования ВМ и укажите расширение диагностики, устанавливаемое на все виртуальные машины из набора масштабирования. Многие параметры данного ресурса похожи на ресурс виртуальной машины. Основные отличия заключаются в элементе capacity, который указывает количество виртуальных машин в наборе масштабирования, и элементе upgradePolicy, который указывает способ выполнения обновлений на виртуальных машинах. Набор масштабирования не будет создан, пока не будут созданы все учетные записи хранения, указанные в элементе dependsOn.
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -378,7 +379,7 @@
               }
             },
 
-11.	Добавьте ресурс autoscaleSettings, который определяет, как набор масштабирования изменяется в зависимости от использования процессоров на машинах из набора.
+11. Добавьте ресурс autoscaleSettings, который определяет, как набор масштабирования изменяется в зависимости от использования процессоров на машинах из набора.
 
             {
               "type": "Microsoft.Insights/autoscaleSettings",
@@ -428,10 +429,10 @@
 
     Для целей этого руководства важны значения следующих параметров:
 
-    - **metricName**. Значение этого параметра соответствует счетчику производительности, который мы определили в переменной wadperfcounter. С помощью этой переменной расширение диагностики собирает данные счетчика **Processor(\_Total)\\% Processor Time**.
-    - **metricResourceUri**. В этом параметре указывается идентификатор ресурса набора масштабирования ВМ.
+    - **metricName**. Значение этого параметра соответствует счетчику производительности, который мы определили в переменной wadperfcounter. С помощью этой переменной расширение диагностики собирает данные счетчика **Processor(_Total)\%% Processor Time**.
+    - **metricResourceUri**. В этом параметре указывается идентификатор ресурса набора масштабирования виртуальных машин.
     - **timeGrain**. В этом параметре указывается степень детализации собираемых метрик. В нашем шаблоне значение этого параметра равно 1 минуте.
-    - **statistic**. Этот параметр определяет, как объединяются метрики для выполнения автоматического масштабирования. Возможные значения: Average (Среднее), Min (Минимальное), Max (Максимальное). В этом шаблоне выполняется сбор данных о среднем общем использовании ЦП на виртуальных машинах.
+    - **statistic**. Этот параметр определяет, как объединяются метрики для автоматического масштабирования. Возможные значения: Average (Среднее), Min (Минимальное), Max (Максимальное). В этом шаблоне выполняется сбор данных о среднем общем использовании ЦП на виртуальных машинах.
     - **timeWindow**. В этом параметре указывается интервал, в пределах которого собираются данные об экземплярах. Значение должно составлять от 5 минут до 12 часов.
     - **timeAggregation**. Этот параметр определяет способ объединения собранных данных с течением времени. Значение по умолчанию — Average (Среднее). Возможные значения: Average (Среднее), Minimum (Минимальное), Maximum (Максимальное), Last (Последнее), Total (Всего), Count (Количество).
     - **operator**. Оператор, который используется для сравнения данных метрики с пороговым значением. Возможные значения: Equals (Равно), NotEquals (Не равно), GreaterThan (Больше), GreaterThanOrEqual (Больше или равно), LessThan (Меньше), LessThanOrEqual (Меньше или равно).
@@ -441,38 +442,38 @@
     - **value**. В этом параметре указывается количество виртуальных машин, которые добавляются в набор масштабирования или удаляются из него. Для этого параметра должно быть указано значение не меньше 1. Значение по умолчанию — 1. В этом шаблоне количество машин в масштабируемом наборе увеличивается на 1 при достижении порогового значения.
     - **cooldown**. В этом параметре указывается время ожидания с момента выполнения последнего действия масштабирования до начала следующего. Допустимые значения: от одной минуты до одной недели.
 
-12.	Сохраните файл шаблона.
+12. Сохраните файл шаблона.    
 
-## Шаг 4. Отправка шаблона в хранилище
+## <a name="step-4:-upload-the-template-to-storage"></a>Шаг 4. Отправка шаблона в хранилище
 
 Шаблон можно отправить, если вы знаете имя и первичный ключ учетной записи хранения, созданной при выполнении шага 1.
 
-1.	В окне Microsoft Azure PowerShell укажите переменную, которая означает имя учетной записи хранения, созданной при выполнении шага 1.
+1.  В окне Microsoft Azure PowerShell укажите переменную, которая означает имя учетной записи хранения, созданной при выполнении шага 1.
 
             $storageAccountName = "vmstestsa"
 
-2.	Укажите переменную, которая означает первичный ключ учетной записи хранения.
+2.  Укажите переменную, которая означает первичный ключ учетной записи хранения.
 
             $storageAccountKey = "<primary-account-key>"
 
-	Чтобы получить этот ключ, щелкните значок ключа в представлении ресурсов учетной записи хранения на портале Azure.
+    Чтобы получить этот ключ, щелкните значок ключа в представлении ресурсов учетной записи хранения на портале Azure.
 
-3.	Создайте объект контекста учетной записи хранения, который используется для проверки операций с учетной записью хранения.
+3.  Создайте объект контекста учетной записи хранения, который используется для проверки операций с учетной записью хранения.
 
             $ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-4.	Создайте контейнер для хранения шаблона.
+4.  Создайте контейнер для хранения шаблона.
 
             $containerName = "templates"
             New-AzureStorageContainer -Name $containerName -Context $ctx  -Permission Blob
 
-5.	Отправьте файл шаблона в новый контейнер.
+5.  Отправьте файл шаблона в новый контейнер.
 
             $blobName = "VMSSTemplate.json"
-            $fileName = "C:" + $BlobName
+            $fileName = "C:\" + $BlobName
             Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob  $blobName -Context $ctx
 
-## Шаг 5. Развертывание шаблона
+## <a name="step-5:-deploy-the-template"></a>Шаг 5. Развертывание шаблона
 
 После создания шаблона можно начать развертывать ресурсы. Чтобы запустить процесс, используйте следующую команду:
 
@@ -481,21 +482,21 @@
 Когда вы нажмете клавишу ВВОД, появится запрос на ввод переменных, которые вы назначили. Укажите следующие значения:
 
     vmName: vmsstestvm1
-	  vmSSName: vmsstest1
-	  instanceCount: 5
-	  adminUserName: vmadmin1
-	  adminPassword: VMpass1
-	  resourcePrefix: vmsstest
+      vmSSName: vmsstest1
+      instanceCount: 5
+      adminUserName: vmadmin1
+      adminPassword: VMpass1
+      resourcePrefix: vmsstest
 
 Для успешного развертывания всех ресурсов может потребоваться приблизительно 15 минут.
 
 >[AZURE.NOTE] Развернуть ресурсы можно также с помощью портала. Используйте эту ссылку: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
 
-## Шаг 6. Мониторинг ресурсов
+## <a name="step-6:-monitor-resources"></a>Шаг 6. Мониторинг ресурсов
 
 Сведения о масштабируемых наборах виртуальных машин можно получать, используя следующие методы:
 
- - Портал Azure. С помощью портала в настоящее время можно получить ограниченный объем сведений.
+ - Портал Azure — с помощью портала в настоящее время можно получить ограниченный объем сведений.
  - [Обозреватель ресурсов Azure](https://resources.azure.com/). Это лучший инструмент для просмотра текущего состояния набора масштабирования. Используйте этот путь, чтобы увидеть представление экземпляра созданного масштабируемого набора:
 
         subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
@@ -510,24 +511,28 @@
 
  - Подключитесь к отдельной виртуальной машине так же, как к любому другому компьютеру. Теперь вы сможете удаленно подключаться к виртуальным машинам в наборе масштабирования, чтобы отслеживать отдельные процессы.
 
->[AZURE.NOTE] Полный REST API для получения информации о масштабируемых наборах можно найти на странице [Масштабируемые наборы виртуальных машин](https://msdn.microsoft.com/library/mt589023.aspx).
+>[AZURE.NOTE] Полный REST API для получения информации о масштабируемых наборах можно найти на странице [Масштабируемые наборы виртуальных машин](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## Шаг 7. Удаление ресурсов
+## <a name="step-7:-remove-the-resources"></a>Шаг 7. Удаление ресурсов
 
 Так как за использование ресурсов Azure взимается плата, рекомендуется всегда удалять ресурсы, которые больше не нужны. Не нужно отдельно удалять каждый ресурс из группы ресурсов. Вы можете удалить группу ресурсов, и все ее ресурсы будут автоматически удалены.
 
-	Remove-AzureRmResourceGroup -Name vmsstestrg1
+    Remove-AzureRmResourceGroup -Name vmsstestrg1
 
 Если вы хотите сохранить группу ресурсов, вы можете удалить только масштабируемый набор.
 
-	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
+    Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name"
     
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Сведения об управлении созданным набором масштабирования можно найти в статье [Управление виртуальными машинами в наборе масштабирования виртуальных машин](virtual-machine-scale-sets-windows-manage.md).
-- Дополнительные сведения о вертикальном масштабировании см. в статье [Вертикальное автомасштабирование масштабируемых наборов виртуальных машин](virtual-machine-scale-sets-vertical-scale-reprovision.md).
-- Просмотрите примеры функций мониторинга Azure Insights в разделе [Примеры для быстрого запуска Azure Insights с помощью PowerShell](../azure-portal/insights-powershell-samples.md).
-- Сведения о функциях оповещений см. в статье [Использование действий автомасштабирования для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md).
-- Узнайте, как [использовать журналы аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md).
+- Дополнительные сведения о вертикальном масштабировании см. в статье [Вертикальное автомасштабирование наборов масштабирования виртуальных машин](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+- Просмотрите примеры функций мониторинга Azure Insights в разделе [Примеры для быстрого запуска Azure Insights с помощью PowerShell](../azure-portal/insights-powershell-samples.md)
+- Ознакомьтесь с функциями уведомлений в статье [Использование действий автоматического масштабирования для отправки электронной почты и уведомлений веб-перехватчика в Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md). 
+- Узнайте, как [использовать журналы аудита для отправки электронной почты и уведомлений об оповещениях веб-перехватчика в Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -1,127 +1,132 @@
 <properties
-	pageTitle="Управление регистрацией"
-	description="В этом разделе описывается регистрация устройств в центрах уведомлений для получения push-уведомлений."
-	services="notification-hubs"
-	documentationCenter=".net"
-	authors="wesmc7777"
-	manager="erikre"
-	editor=""/>
+    pageTitle="Registration Management"
+    description="This topic explains how to register devices with notification hubs in order to receive push notifications."
+    services="notification-hubs"
+    documentationCenter=".net"
+    authors="ysxu"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="notification-hubs"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/29/2016"
-	ms.author="wesmc"/>
-
-# Управление регистрацией
-
-##Обзор
-
-В этом разделе описывается регистрация устройств в центрах уведомлений для получения push-уведомлений. Сначала приводится общее описание, затем демонстрируются два основных типа регистрации устройств: регистрация с устройства непосредственно в центре уведомлений и регистрация с помощью серверной части приложения.
+    ms.service="notification-hubs"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-multiple"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.date="06/29/2016"
+    ms.author="yuaxu"/>
 
 
-##Регистрация устройств
+# <a name="registration-management"></a>Registration management
 
-Регистрация устройств в центре уведомлений осуществляется через **регистрацию** или **установку**.
+##<a name="overview"></a>Overview
 
-#### Регистрация
-Регистрация связывает маркер службы отправки уведомлений платформы (PNS) для устройства с тегами и, возможно, шаблоном. Маркером PNS может быть ChannelURI, маркер устройства или регистрационный идентификатор GCM. Теги используются для направления уведомлений правильному набору маркеров устройств. Дополнительные сведения см. в статье [Маршрутизация и выражения тегов](notification-hubs-tags-segment-push-message.md). Шаблоны используются для преобразований в рамках регистрации. Дополнительные сведения см. в статье [Шаблоны](notification-hubs-templates-cross-platform-push-messages.md).
+This topic explains how to register devices with notification hubs in order to receive push notifications. The topic describes registrations at a high level, then introduces the two main patterns for registering devices: registering from the device directly to the notification hub, and registering through an application backend. 
 
-#### Установка
-Установка — это расширенная регистрация, включающая набор свойств, связанных с push-уведомлениями. Это новый и рекомендуемый способ регистрации устройств. Однако в настоящее время он не поддерживается пакетом SDK .NET на стороне клиента ([пакетом SDK концентратора уведомлений для серверных операций](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)). Это означает, что при регистрации с самого клиентского устройства вам потребуется использовать [REST API концентраторов уведомлений](https://msdn.microsoft.com/library/mt621153.aspx) для поддержки установки. При использовании внутренней службы должна иметься возможность применения [пакета SDK концентратора уведомлений для серверных операций](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Ниже приведены некоторые ключевые преимущества регистрации через установку.
+##<a name="what-is-device-registration"></a>What is device registration
 
-* Создание или обновление установки является полностью идемпотентной операцией. Поэтому его можно повторять, не заботясь о дублирующихся регистрациях.
-* Установка упрощает отправку индивидуальных push-уведомлений, предназначенных для конкретного устройства. В каждую регистрацию через установку автоматически добавляется системный тег **"$InstallationId:[installationId]"** . Поэтому можно организовывать отправку по этому тегу для конкретного устройства без необходимости создавать дополнительный код.
-* Установка также позволяет частично обновлять регистрацию. Частичное обновление установки запрашивается с помощью метода PATCH из [стандарта JSON-Patch](https://tools.ietf.org/html/rfc6902). Это особенно удобно в тех случаях, когда нужно обновить теги в регистрации. Нет необходимости удалять всю регистрацию и заново отправлять все прошлые теги.
+Device registration with a Notification Hub is accomplished using a **Registration** or **Installation**.
 
-Установка может содержать следующие свойства. Полный список свойств установки см. в статье [Создание или замена установки с помощью REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) или [Свойства установки](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+#### <a name="registrations"></a>Registrations
+A registration associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, device token, or GCM registration id. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
 
-	// Example installation format to show some supported properties
-	{
-	    installationId: "",
-	    expirationTime: "",
-	    tags: [],
-	    platform: "",
-	    pushChannel: "",
-	    ………
-	    templates: {
-	        "templateName1" : {
-				body: "",
-				tags: [] },
-			"templateName2" : {
-				body: "",
-				// Headers are for Windows Store only
-				headers: {
-					"X-WNS-Type": "wns/tile" }
-				tags: [] }
-	    },
-	    secondaryTiles: {
-	        "tileId1": {
-	            pushChannel: "",
-	            tags: [],
-	            templates: {
-	                "otherTemplate": {
-	                    bodyTemplate: "",
-	                    headers: {
-	                        ... }
-	                    tags: [] }
-	            }
-	        }
-	    }
-	}
+#### <a name="installations"></a>Installations
+An Installation is an enhanced registration that includes a bag of push related properties. It is the latest and best approach to registering your devices. However, it is not supported by client side .NET SDK ([Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) as of yet.  This means if you are registering from the client device itself, you would have to use the [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx) approach to support installations. If you are using a backend service, you should be able to use [Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+
+The following are some key advantages to using installations:
+
+* Creating or updating an installation is fully idempotent. So you can retry it without any concerns about duplicate registrations.
+* The installation model makes it easy to do individual pushes - targeting specific device. A system tag **"$InstallationId:[installationId]"** is automatically added with each installation based registration. So you can call a send to this tag to target a specific device without having to do any additional coding.
+* Using installations also enables you to do partial registration updates. The partial update of an installation is requested with a PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902). This is particularly useful when you want to update tags on the registration. You don't have to pull down the entire registration and then resend all the previous tags again.
+
+An installation can contain the the following properties. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) or [Installation Properties](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) for the .
+
+    // Example installation format to show some supported properties
+    {
+        installationId: "",
+        expirationTime: "",
+        tags: [],
+        platform: "",
+        pushChannel: "",
+        ………
+        templates: {
+            "templateName1" : {
+                body: "",
+                tags: [] },
+            "templateName2" : {
+                body: "",
+                // Headers are for Windows Store only
+                headers: {
+                    "X-WNS-Type": "wns/tile" }
+                tags: [] }
+        },
+        secondaryTiles: {
+            "tileId1": {
+                pushChannel: "",
+                tags: [],
+                templates: {
+                    "otherTemplate": {
+                        bodyTemplate: "",
+                        headers: {
+                            ... }
+                        tags: [] }
+                }
+            }
+        }
+    }
 
  
 
-Важно отметить, что срок действия регистраций и установок по умолчанию больше не истекает.
+It is important to note that registrations and installations by default no longer expire.
 
-Регистрации и установки должны содержать действительный дескриптор PNS для каждого устройства или канала. Поскольку маркеры PNS можно получить только в клиентском приложении на устройстве, одним из типовых способов регистрации является регистрация непосредственно на этом устройстве с клиентским приложением. С другой стороны, режим безопасности и бизнес-логика, связанная с тегами, могут требовать, чтобы управление регистрацией устройств осуществлялось в серверной части приложения.
+Registrations and installations must contain a valid PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage device registration in the app back-end. 
 
-#### Шаблоны
+#### <a name="templates"></a>Templates
 
-Если вы хотите использовать [шаблоны](notification-hubs-templates-cross-platform-push-messages.md), то установка устройства содержит все шаблоны, связанные с этим устройством, в формате JSON (см. пример выше). Названия шаблонов помогают связывать разные шаблоны с одним устройством.
+If you want to use [Templates](notification-hubs-templates-cross-platform-push-messages.md), the device installation also hold all templates associated with that device in a JSON format (see sample above). The template names help target different templates for the same device.
 
-Обратите внимание, что имя каждого шаблона сопоставляется с телом шаблона и необязательным набором тегов. Кроме того, каждая платформа может иметь дополнительные свойства шаблонов. Для Магазина Windows (при использовании WNS) и Windows Phone 8 (при использовании MPNS) в состав шаблона может входить дополнительный набор заголовков. Для имени точки доступа (APN) в свойстве окончания срока действия можно задать фиксированное значение или связать его с выражением шаблона. Полный список свойств установки см. в статье [Создание или замена установки с помощью REST](https://msdn.microsoft.com/library/azure/mt621153.aspx).
+Note that each template name maps to a template body and an optional set of tags. Moreover, each platform can have additional template properties. For Windows Store (using WNS) and Windows Phone 8 (using MPNS), an additional set of headers can be part of the template. In the case of APNs, you can set an expiry property to either a constant or to a template expression. For a complete listing of the installation properties see, [Create or Overwrite an Installation with REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) topic.
 
-#### Вспомогательные плитки для приложений из Магазина Windows
+#### <a name="secondary-tiles-for-windows-store-apps"></a>Secondary Tiles for Windows Store Apps
 
-Для клиентских приложений из Магазина Windows отправка уведомлений во вспомогательные плитки выполняется аналогично отправке уведомлений в основные плитки. Это также поддерживается в установках. Обратите внимание, что у вспомогательных плиток другой ChannelUri, который автоматически обрабатывается пакетом SDK в клиентском приложении.
+For Windows Store client applications, sending notifications to secondary tiles is the same as sending them to the primary one. This is also supported in installations. Note that secondary tiles have a different ChannelUri, which the SDK on your client app handles transparently.
 
-В словаре SecondaryTiles используется тот же идентификатор TileId, с помощью которого создается объект SecondaryTiles в приложении Магазина Windows. Как и в случае с основным ChannelUri, идентификаторы ChannelUri вспомогательных плиток можно изменить в любой момент. Для поддержки актуальности установок в центре уведомлений устройство должно обновлять их с использованием текущих ChannelUri вспомогательных плиток.
+The SecondaryTiles dictionary uses the same TileId that is used to create the SecondaryTiles object in your Windows Store app.
+As with the primary ChannelUri, ChannelUris of secondary tiles can change at any moment. In order to keep the installations in the notification hub updated, the device must refresh them with the current ChannelUris of the secondary tiles.
 
 
-##Управление регистрацией с устройства
+##<a name="registration-management-from-the-device"></a>Registration management from the device
 
-При управлении регистрацией устройства из клиентских приложений серверная часть отвечает только за отправку уведомлений. Клиентские приложения поддерживают актуальность маркеров PNS и регистрируют теги. На следующем рисунке показана схема работы.
+When managing device registration from client apps, the backend is only responsible for sending notifications. Client apps keep PNS handles up to date, and register tags. The following picture illustrates this pattern.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
-Сначала устройство извлекает маркер PNS из службы PNS, а затем напрямую регистрируется в центре уведомлений. После успешной регистрации серверная часть приложения может отправить уведомление для этой регистрации. Дополнительные сведения об отправке уведомлений см. в статье [Маршрутизация и выражения тегов](notification-hubs-tags-segment-push-message.md). Обратите внимание, что в этом случае для доступа к своим центрам уведомлений с устройства будут использоваться только права прослушивания. Дополнительные сведения см. в статье [Безопасность](notification-hubs-push-notification-security.md).
+The device first retrieves the PNS handle from the PNS, then registers with the notification hub directly. After the registration is successful, the app backend can send a notification targeting that registration. For more information about how to send notifications, see [Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md).
+Note that in this case, you will use only Listen rights to access your notification hubs from the device. For more information, see [Security](notification-hubs-push-notification-security.md).
 
-Регистрация с устройства — это самый простой метод, но у него есть свои недостатки. Первый недостатком является то, что клиентское приложение может обновлять свои теги, только когда оно активно. Например, если у пользователя есть два устройства, которые регистрируют теги, связанные со спортивными командами, то когда первое устройство регистрирует дополнительный тег (например Seahawks), второе устройство получит уведомление о теге Seahawks только при следующем запуске приложения на втором устройстве. В целом, если на теги влияют сразу несколько устройств, рекомендуется управлять тегами из серверной части. Вторым недостатком управления регистрацией из клиентского приложения является то, что, поскольку приложения могут подвергаться атаке злоумышленников, защита регистрации конкретными тегами требует особой осторожности, как описано в разделе "Безопасность на уровне тегов".
+Registering from the device is the simplest method, but it has some drawbacks.
+The first drawback is that a client app can only update its tags when the app is active. For example, if a user has two devices that register tags related to sport teams, when the first device registers for an additional tag (for example, Seahawks), the second device will not receive the notifications about the Seahawks until the app on the second device is executed a second time. More generally, when tags are affected by multiple devices, managing tags from the backend is a desirable option.
+The second drawback of registration management from the client app is that, since apps can be hacked, securing the registration to specific tags requires extra care, as explained in the section “Tag-level security.”
 
 
 
-#### Пример кода регистрации в центре уведомлений с устройства с помощью установки 
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Example code to register with a notification hub from a device using an installation 
 
-В настоящее время эта процедура поддерживается только с помощью [API REST центра уведомлений](https://msdn.microsoft.com/library/mt621153.aspx).
+At this time, this is only supported using the [Notification Hubs REST API](https://msdn.microsoft.com/library/mt621153.aspx).
 
-Для обновления установки также можно использовать метод PATCH из [стандарта JSON-Patch](https://tools.ietf.org/html/rfc6902).
+You can also use the PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902) for updating the installation.
 
-	class DeviceInstallation
-	{
-	    public string installationId { get; set; }
-	    public string platform { get; set; }
-	    public string pushChannel { get; set; }
-	    public string[] tags { get; set; }
-	}
+    class DeviceInstallation
+    {
+        public string installationId { get; set; }
+        public string platform { get; set; }
+        public string pushChannel { get; set; }
+        public string[] tags { get; set; }
+    }
 
     private async Task<HttpStatusCode> CreateOrUpdateInstallationAsync(DeviceInstallation deviceInstallation,
-		 string hubName, string listenConnectionString)
+         string hubName, string listenConnectionString)
     {
         if (deviceInstallation.installationId == null)
             return HttpStatusCode.BadRequest;
@@ -135,7 +140,7 @@
         string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
 
         //=== Generate SaS Security Token for Authorization header ===
-		// See, https://msdn.microsoft.com/library/azure/dn495627.aspx
+        // See, https://msdn.microsoft.com/library/azure/dn495627.aspx
         string SasToken = connectionSaSUtil.getSaSToken(uri, 60);
 
         using (var httpClient = new HttpClient())
@@ -172,7 +177,7 @@
     };
 
     var statusCode = await CreateOrUpdateInstallationAsync(deviceInstallation, 
-						"<HUBNAME>", "<SHARED LISTEN CONNECTION STRING>");
+                        "<HUBNAME>", "<SHARED LISTEN CONNECTION STRING>");
 
     if (statusCode != HttpStatusCode.Accepted)
     {
@@ -189,45 +194,45 @@
 
    
 
-#### Пример кода регистрации в центре уведомлений с устройства с помощью регистрации
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Example code to register with a notification hub from a device using a registration
 
 
-Эти методы создают или обновляют регистрацию устройства, на котором они вызываются. Это означает, что для обновления маркера или тегов необходимо перезаписать всю регистрацию. Помните, что регистрация является временным объектом, поэтому необходимо всегда иметь надежное хранилище с текущими тегами, нужными для конкретного устройства.
+These methods create or update a registration for the device on which they are called. This means that in order to update the handle or the tags, you must overwrite the entire registration. Remember that registrations are transient, so you should always have a reliable store with the current tags that a specific device needs.
 
 
-	// Initialize the Notification Hub
-	NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
+    // Initialize the Notification Hub
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
-	// The Device id from the PNS
+    // The Device id from the PNS
     var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
     // If you are registering from the client itself, then store this registration id in device
-	// storage. Then when the app starts, you can check if a registration id already exists or not before
-	// creating.
-	var settings = ApplicationData.Current.LocalSettings.Values;
+    // storage. Then when the app starts, you can check if a registration id already exists or not before
+    // creating.
+    var settings = ApplicationData.Current.LocalSettings.Values;
 
-	// If we have not stored a registration id in application data, store in application data.
-	if (!settings.ContainsKey("__NHRegistrationId"))
-	{
-		// make sure there are no existing registrations for this push handle (used for iOS and Android)	
-		string newRegistrationId = null;
-		var registrations = await hub.GetRegistrationsByChannelAsync(pushChannel.Uri, 100);
-		foreach (RegistrationDescription registration in registrations)
-		{
-			if (newRegistrationId == null)
-			{
-				newRegistrationId = registration.RegistrationId;
-			}
-			else
-			{
-				await hub.DeleteRegistrationAsync(registration);
-			}
-		}
+    // If we have not stored a registration id in application data, store in application data.
+    if (!settings.ContainsKey("__NHRegistrationId"))
+    {
+        // make sure there are no existing registrations for this push handle (used for iOS and Android)    
+        string newRegistrationId = null;
+        var registrations = await hub.GetRegistrationsByChannelAsync(pushChannel.Uri, 100);
+        foreach (RegistrationDescription registration in registrations)
+        {
+            if (newRegistrationId == null)
+            {
+                newRegistrationId = registration.RegistrationId;
+            }
+            else
+            {
+                await hub.DeleteRegistrationAsync(registration);
+            }
+        }
 
-		newRegistrationId = await hub.CreateRegistrationIdAsync();
+        newRegistrationId = await hub.CreateRegistrationIdAsync();
 
         settings.Add("__NHRegistrationId", newRegistrationId);
-	}
+    }
      
     string regId = (string)settings["__NHRegistrationId"];
 
@@ -235,34 +240,34 @@
     registration.RegistrationId = regId;
     registration.Tags = new HashSet<string>(YourTags);
 
-	try
-	{
-		await hub.CreateOrUpdateRegistrationAsync(registration);
-	}
-	catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
-	{
-		settings.Remove("__NHRegistrationId");
-	}
+    try
+    {
+        await hub.CreateOrUpdateRegistrationAsync(registration);
+    }
+    catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
+    {
+        settings.Remove("__NHRegistrationId");
+    }
 
 
-## Управление регистрацией из серверной части
+## <a name="registration-management-from-a-backend"></a>Registration management from a backend
 
-Для управления регистрацией из серверной части требуется дополнительный код. Приложение с устройства должно предоставлять обновленный маркер PNS серверной части при каждом запуске приложения (а также теги и шаблоны), а серверная часть должна обновлять этот маркер в центре уведомлений. На следующем рисунке показана схема работы.
+Managing registrations from the backend requires writing additional code. The app from the device must provide the updated PNS handle to the backend every time the app starts (along with tags and templates), and the backend must update this handle on the notification hub. The following picture illustrates this design.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
-Преимуществом управления регистрациями из серверной части является возможность изменения тегов для регистраций даже в том случае, когда соответствующее приложение на устройстве неактивно, а также возможность проверять подлинность клиентского приложения перед добавлением тега в его регистрацию.
+The advantages of managing registrations from the backend include the ability to modify tags to registrations even when the corresponding app on the device is inactive, and to authenticate the client app before adding a tag to its registration.
 
 
-#### Пример кода регистрации в центре уведомлений из серверной части с помощью установки
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Example code to register with a notification hub from a backend using an installation
 
-Клиентское устройство как и прежде получает свой маркер PNS и соответствующие свойства установки и вызывает пользовательский API в серверной части, который может выполнить регистрацию, авторизовать теги и т. д. Серверная часть может использовать [пакет SDK центра уведомления для операций серверной части](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+The client device still gets its PNS handle and relevant installation properties as before and calls a custom API on the backend that can perform the registration and authorize tags etc. The backend can leverage the [Notification Hub SDK for backend operations](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Для обновления установки также можно использовать метод PATCH из [стандарта JSON-Patch](https://tools.ietf.org/html/rfc6902).
+You can also use the PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902) for updating the installation.
  
 
-	// Initialize the Notification Hub
-	NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
+    // Initialize the Notification Hub
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
     // Custom API on the backend
     public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
@@ -302,31 +307,34 @@
     }
 
 
-#### Пример кода регистрации в центре уведомлений с устройства, использующего код регистрации
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Example code to register with a notification hub from a device using a registration id
 
-Из серверной части приложения с регистрациями можно выполнять основные операции CRUDS. Например:
+From your app backend, you can perform basic CRUDS operations on registrations. For example:
 
-	var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
+    var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
             
-	// create a registration description object of the correct type, e.g.
-	var reg = new WindowsRegistrationDescription(channelUri, tags);
+    // create a registration description object of the correct type, e.g.
+    var reg = new WindowsRegistrationDescription(channelUri, tags);
 
-	// Create
-	await hub.CreateRegistrationAsync(reg);
+    // Create
+    await hub.CreateRegistrationAsync(reg);
 
-	// Get by id
-	var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
+    // Get by id
+    var r = await hub.GetRegistrationAsync<RegistrationDescription>("id");
 
-	// update
-	r.Tags.Add("myTag");
+    // update
+    r.Tags.Add("myTag");
 
-	// update on hub
-	await hub.UpdateRegistrationAsync(r);
+    // update on hub
+    await hub.UpdateRegistrationAsync(r);
 
-	// delete
-	await hub.DeleteRegistrationAsync(r);
+    // delete
+    await hub.DeleteRegistrationAsync(r);
 
 
-Серверная часть должна обеспечивать параллельность обновлений регистраций. Служебная шина предоставляет управление оптимистичным параллелизмом для управления регистрациями. На уровне HTTP это реализуется посредством использования ETag в операциях управления регистрацией. Эта функция автоматически используется в пакетах Microsoft SDK, которые выдают исключение, если обновление отклоняется по причинам параллелизма. Серверная часть приложения отвечает за обработку этих исключений и перезапуск обновления в случае необходимости.
+The backend must handle concurrency between registration updates. Service Bus offers optimistic concurrency control for registration management. At the HTTP level, this is implemented with the use of ETag on registration management operations. This feature is transparently used by Microsoft SDKs, which throw an exception if an update is rejected for concurrency reasons. The app backend is responsible for handling these exceptions and retrying the update if required.
 
-<!---HONumber=AcomDC_0706_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -3,8 +3,8 @@
    description="Устранение неполадок в предварительной версии Microsoft Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,14 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="06/29/2016"
-   ms.author="mblythe"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
-# Устранение неполадок в предварительной версии Microsoft Power BI Embedded
-В этой статье содержатся сведения об устранении неполадок **Power BI Embedded**.
+
+# <a name="microsoft-power-bi-embedded-preview-troubleshooting"></a>Устранение неполадок в предварительной версии Microsoft Power BI Embedded
+В этой статье содержатся сведения об устранении неполадок в **Power BI Embedded**.
 
 <a name="connection-string"/>
-## Настройка строк подключения SQL Server
+## <a name="setting-sql-server-connection-strings"></a>Настройка строк подключения SQL Server
 Чтобы задать строку подключения SQL Server, необходимо следовать определенному формату. Ниже приведен пример строки подключения для SQL Server.
 
 ```
@@ -29,15 +30,19 @@
 
 Дополнительные сведения о строках подключения SQL Server см. в следующих статьях:
 
--	[Строки подключения SQL Server](https://msdn.microsoft.com/library/jj653752.aspx)
--	[SqlConnection.ConnectionString](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.connectionstring.aspx)
+-   [Строки подключения SQL Server](https://msdn.microsoft.com/library/jj653752.aspx)
+-   [SqlConnection.ConnectionString](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.connectionstring.aspx)
 
 <a name="credentials"/>
-## Настройка учетных данных
+## <a name="setting-credentials"></a>Настройка учетных данных
 При наличии учетных данных для среды разработки или промежуточной среды, например имени пользователя и пароля, может потребоваться изменить учетные данные в соответствии с рабочим решением.
 
-## См. также
+## <a name="see-also"></a>См. также
 - [Приступая к работе с примером Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)
 - [Что такое Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

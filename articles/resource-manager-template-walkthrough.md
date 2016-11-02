@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Пошаговое руководство по созданию шаблона Resource Manager | Microsoft Azure"
-   description="Пошаговые инструкции по созданию шаблона Resource Manager, который подготавливает базовую архитектуру Azure IaaS."
+   pageTitle="Resource Manager Template Walkthrough | Microsoft Azure"
+   description="A step by step walkthrough of a resource manager template provisioning a basic Azure IaaS architecture."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="navalev"
-   manager=""
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -16,29 +16,30 @@
    ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
-# Пошаговое руководство по созданию шаблона Resource Manager
 
-При создании шаблона сразу возникает вопрос — "Как начать?" Можно начать с пустого шаблона и следовать базовой структуре, которая описана в [статье о создании шаблона](resource-group-authoring-templates.md#template-format), добавляя ресурсы, соответствующие параметры и переменные. В качестве альтернативного варианта можно начать с ознакомления с [коллекцией быстрого запуска](https://github.com/Azure/azure-quickstart-templates). Здесь можно найти сценарии, аналогичные тому, который нужно создать. Можно объединить несколько шаблонов или изменить существующий, чтобы он соответствовал вашему конкретному сценарию.
+# <a name="resource-manager-template-walkthrough"></a>Resource Manager template walkthrough
 
-Рассмотрим общую инфраструктуру:
+One of the first questions when creating a template is "how to start?". One can start from a blank template, following the basic structure described in [Authoring Template article](resource-group-authoring-templates.md#template-format), and add the resources and appropriate parameters and variables. A good alternative would be to start by going through the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) and look for similar scenarios to the one you are trying to create. You can merge several templates or edit an existing one to suit your own specific scenario. 
 
-* Две виртуальные машины, использующие одну и ту же учетную запись хранения, которые находятся в одной группе доступности и одной подсети виртуальной сети.
-* Одна сетевая карта и IP-адрес для каждой виртуальной машины.
-* Балансировщик нагрузки с правилом балансировки нагрузки на порте 80.
+Let's take a look at a common infrastructure:
 
-![архитектура](./media/resource-group-overview/arm_arch.png)
+* Two virtual machines that use the same storage account, are in the same availability set, and on the same subnet of a virtual network.
+* A single NIC and VM IP address for each virtual machine.
+* A load balancer with a load balancing rule on port 80
 
-В этой статье рассматриваются действия по созданию шаблона Resource Manager для такой инфраструктуры. За основу окончательного шаблона взят шаблон быстрого запуска с именем [2 ВМ в подсистеме балансировки нагрузки и правила балансировки нагрузки](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
+![architecture](./media/resource-group-overview/arm_arch.png)
 
-Так как создать все сразу тяжело, начнем с того, что создадим и развернем учетную запись хранения. Научившись создавать учетную запись хранения, можно добавить другие ресурсы и повторно развернуть шаблон, чтобы завершить инфраструктуру.
+This topic walks you through the steps of creating a Resource Manager template for that infrastructure. The final template you create is based on a Quickstart template called [2 VMs in a Load Balancer and load balancing rules](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 
->[AZURE.NOTE] Для создания шаблона можно использовать любой редактор. В Visual Studio есть средства, которые упрощают разработку шаблонов, но для работы с этим руководством вам не требуется Visual Studio. Руководство по созданию веб-приложений и развертыванию баз данных SQL с помощью Visual Studio см. в статье [Создание и развертывание групп ресурсов Azure с помощью Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+But, that's a lot to build all at once, so let's first create a storage account and deploy it. After you have mastered creating the storage account, you will add the other resources and re-deploy the template to complete the infrastructure.
 
-## Создание шаблона Resource Manager
+>[AZURE.NOTE] You can use any type of editor when creating the template. Visual Studio provides tools that simplify template development, but you do not need Visual Studio to complete this tutorial. For a tutorial on using Visual Studio to create a Web App and SQL Database deployment, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
 
-Шаблон — это JSON-файл, в котором определены все развертываемые ресурсы. В нем также можно определять параметры, задаваемые во время развертывания, переменные, создаваемые из других значений и выражений, а также выходные данные развертывания.
+## <a name="create-the-resource-manager-template"></a>Create the Resource Manager template
 
-Начнем с простейшего шаблона.
+The template is a JSON file that defines all of the resources you will deploy. It also permits you to define parameters that are specified during deployment, variables that constructed from other values and expressions, and outputs from the deployment. 
+
+Let's start with the simplest template:
 
 ```json
     {
@@ -51,10 +52,10 @@
     }
  ```
 
-Сохраните этот файл, присвоив ему имя **azuredeploy.json** (шаблон должен представлять собой JSON-файл, которому можно присвоить любое имя).
+Save this file as **azuredeploy.json** (note that the template can have any name you want, just that it must be a json file).
 
-## Создайте учетную запись хранения.
-В разделе **resources** добавьте объект, который определяет учетную запись хранения, как показано ниже.
+## <a name="create-a-storage-account"></a>Create a storage account
+Within the **resources** section, add an object that defines the storage account, as shown below. 
 
 ```json
 "resources": [
@@ -70,15 +71,15 @@
 ]
 ```
 
-Вы, возможно, спросите, откуда взялись эти свойства и значения. Свойства **type**, **name**, **apiVersion** и **location** — это стандартные элементы, доступные для всех типов ресурсов. Сведения об общих элементах см. в разделе [Ресурсы](resource-group-authoring-templates.md#resources). Для свойства **name** устанавливается значение параметра, которое передается во время развертывания, а для свойства **location** — расположение, которое используется группой ресурсов. Способ определения свойств **type** и **apiVersion** будет описан в следующих разделах.
+You may be wondering where these properties and values come from. The properties **type**, **name**, **apiVersion**, and **location** are standard elements that are available for all resource types. You can learn about the common elements at [Resources](resource-group-authoring-templates.md#resources). **name** is set to a parameter value that you pass in during deployment and **location** as the location used by the resource group. We'll look at how you determine **type** and **apiVersion** in the sections below.
 
-Раздел **properties** содержит все уникальные свойства для определенного типа ресурсов. Значения, задаваемые в этом разделе, точно повторяют операцию PUT в REST API для создания данного типа ресурсов. Во время создания учетной записи хранения необходимо указать свойство **accountType**. Как указано в статье о [REST API для создания учетной записи хранения](https://msdn.microsoft.com/library/azure/mt163564.aspx), раздел свойств операции REST также содержит свойство **accountType**. Его допустимые значения задокументированы. В этом примере тип учетной записи имеет значение **Standard\_LRS**. Можно указать другое значение или разрешить пользователям передавать тип учетной записи в качестве параметра.
+The **properties** section contains all of the properties that are unique to a particular resource type. The values you specify in this section exactly match the PUT operation in the REST API for creating that resource type. When creating a storage account, you must provide an **accountType**. Notice in the [REST API for creating a Storage account](https://msdn.microsoft.com/library/azure/mt163564.aspx) that the properties section of the REST operation also contains an **accountType** property, and the permitted values are documented. In this example, the account type is set to **Standard_LRS**, but you could specify some other value or permit users to pass in the account type as a parameter.
 
-Вернемся к разделу **parameters**, чтобы узнать, как указать имя учетной записи хранения. Дополнительные сведения об использовании параметров см. в разделе [Параметры](resource-group-authoring-templates.md#parameters).
+Now let's jump back to the **parameters** section, and see how you define the name of the storage account. You can learn more about the use of parameters at [Parameters](resource-group-authoring-templates.md#parameters). 
 
 ```json
 "parameters" : {
-	"storageAccountName": {
+    "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Storage Account Name"
@@ -86,17 +87,17 @@
     }
 }
 ```
-Здесь определен параметр строкового типа, который будет содержать имя учетной записи хранения. Значение для этого параметра будет предоставлено во время развертывания шаблона.
+Here you defined a parameter of type string that will hold the name of the storage account. The value for this parameter will be provided during template deployment.
 
-## Развертывание шаблона
-Для создания новой учетной записи хранения используется полный шаблон. Он был сохранен в файле с именем **azuredeploy.json**:
+## <a name="deploying-the-template"></a>Deploying the template
+We have a full template for creating a new storage account. As you recall, the template was saved in  **azuredeploy.json** file:
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters" : {
-	"storageAccountName": {
+    "storageAccountName": {
       "type": "string",
       "metadata": {
         "description": "Storage Account Name"
@@ -117,7 +118,7 @@
 }
 ```
 
-Шаблон можно развернуть несколькими способами, приведенными в [статье о развертывании ресурсов](resource-group-template-deploy.md). Чтобы развернуть шаблон с помощью Azure PowerShell, используйте следующее:
+There are quite a few ways to deploy a template, as you can see in the [Resource Deployment article](resource-group-template-deploy.md). To deploy the template using Azure PowerShell, use:
 
 ```powershell
 # create a new resource group
@@ -127,7 +128,7 @@ New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
 ```
 
-Чтобы развернуть шаблон с помощью интерфейса командной строки Azure, используйте следующее:
+Or, to deploy the template using Azure CLI, use:
 
 ```
 azure group create -n ExampleResourceGroup -l "West Europe"
@@ -135,12 +136,12 @@ azure group create -n ExampleResourceGroup -l "West Europe"
 azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
 ```
 
-Теперь у вас есть учетная запись хранения.
+You are now the proud owner of a storage account!
 
-На следующих шагах будут добавлены все ресурсы, которые нужны для развертывания архитектуры, описанной в начале этого руководства. Эти ресурсы будут добавлены в тот же шаблон, с которым мы работали.
+The next steps will be to add all the resources required to deploy the architecture described in the start of this tutorial. You will add these resources in the same template you have been working on.
 
-## Группа доступности
-Определив учетную запись хранения, добавьте группу доступности для виртуальных машин. В этом случае дополнительные свойства не требуются, поэтому определить группу доступности очень просто. Если вы хотите определить значения счетчиков для доменов обновления и сбоя, изучите подробный раздел свойств в статье о [REST API для создания группы доступности](https://msdn.microsoft.com/library/azure/mt163607.aspx).
+## <a name="availability-set"></a>Availability Set
+After the definition for the storage account, add an availably set for the virtual machines. In this case, there are no additional properties required, so its definition is fairly simple. See the [REST API for creating an Availability Set](https://msdn.microsoft.com/library/azure/mt163607.aspx) for the full properties section, in case you want to define the update domain count and fault domain count values.
 
 ```json
 {
@@ -152,40 +153,40 @@ azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n Exa
 }
 ```
 
-Обратите внимание, что свойству **name** присвоено значение переменной. Для этого шаблона имя группы доступности нужно указать в нескольких местах. Вам будет легче работать с шаблоном, если вы определите это значение один раз и будете использовать его в нескольких местах.
+Notice that the **name** is set to the value of a variable. For this template, the name of the availability set is needed in a few different places. You can more easily maintain your template by defining that value once and using it in multiple places.
 
-Значение, указываемое для свойства **type**, определяет поставщика ресурсов и их тип. Для групп доступности поставщик ресурсов — это **Microsoft.Compute**, а тип ресурсов — **availabilitySets**. Чтобы получить список доступных поставщиков ресурсов, выполните следующую команду PowerShell:
+The value you specify for **type** contains both the resource provider and the resource type. For availability sets, the resource provider is **Microsoft.Compute** and the resource type is **availabilitySets**. You can get the list of available resource providers by running the following PowerShell command:
 
 ```powershell
     Get-AzureRmResourceProvider -ListAvailable
 ```
 
-Если вы используете Azure CLI, выполните следующую команду:
+Or, if you are using Azure CLI, you can run the following command:
 ```
     azure provider list
 ```
-Так как вы создаете учетные записи хранения, виртуальные машины и виртуальные сети, вы будете использовать следующие поставщики ресурсов:
+Given that in this topic you are creating with storage accounts, virtual machines, and virtual networking, you will work with:
 
-- Microsoft.Storage;
-- Microsoft.Compute;
-- Microsoft.Network.
+- Microsoft.Storage
+- Microsoft.Compute
+- Microsoft.Network
 
-Чтобы просмотреть типы ресурсов для конкретного поставщика, выполните следующую команду PowerShell:
+To see the resource types for a particular provider, run the following PowerShell command:
 
 ```powershell
     (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
 ```
 
-Если вы используете Azure CLI, приведенная ниже команда возвращает доступные типы в формате JSON и сохраняет результаты в файл.
+Or, for Azure CLI, the following command will return the available types in JSON format and save it to a file.
 
 ```
     azure provider show Microsoft.Compute --json > c:\temp.json
 ```
 
-Свойство **availabilitySets** должно отображаться как один из типов в **Microsoft.Compute**. Полное имя типа — **Microsoft.Compute/availabilitySets**. Определить имя типа ресурсов можно для всех ресурсов в шаблоне.
+You should see **availabilitySets** as one of the types within **Microsoft.Compute**. The full name of the type is **Microsoft.Compute/availabilitySets**. You can determine the resource type name for any of the resources in you template.
 
-## Общедоступный IP-адрес
-Определите общедоступный IP-адрес. Сведения о настраиваемых свойствах см. в статье о [REST API для общедоступных IP-адресов](https://msdn.microsoft.com/library/azure/mt163590.aspx).
+## <a name="public-ip"></a>Public IP
+Define a public IP address. Again, look at the [REST API for public IP addresses](https://msdn.microsoft.com/library/azure/mt163590.aspx) for the properties to set.
 
 ```json
 {
@@ -202,25 +203,25 @@ azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n Exa
 }
 ```
 
-Для метода распределения установлено значение **Dynamic**, но вы можете задать любое другое значение или настроить это свойство так, чтобы оно принимало значение параметра. Вы разрешили пользователям шаблона передавать в него значение метки доменного имени.
+The allocation method is set to **Dynamic** but you could set it to the value you need or set it to accept a parameter value. You have enabled users of your template to pass in a value for the domain name label.
 
-Теперь рассмотрим, как определить свойство **apiVersion**. Указываемое значение должно совпадать с версией REST API, которую вы хотите использовать при создании ресурса. Найти нужный тип ресурса можно в документации по REST API. Кроме того, для определенного типа можно выполнить следующую команду PowerShell:
+Now, let's look at how you determine the **apiVersion**. The value you specify simply matches the version of the REST API that you want to use when creating the resource. So, you can look at the REST API documentation for that resource type. Or, you can run the following PowerShell command for a particular type.
 
 ```powershell
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Network).ResourceTypes | Where-Object ResourceTypeName -eq publicIPAddresses).ApiVersions
 ```
-Она возвратит следующие значения:
+Which returns the following values:
 
     2015-06-15
     2015-05-01-preview
     2014-12-01-preview
 
-Чтобы просмотреть версии API с помощью интерфейса командной строки Azure, выполните приведенную ранее команду **azure provider show**.
+To see the API versions with Azure CLI, run the same **azure provider show** command shown previously.
 
-При создании нового шаблона выбирайте последнюю версию API.
+When creating a new template, pick the most recent API version.
 
-## Виртуальная сеть и подсеть
-Создайте виртуальную сеть с одной подсетью. Сведения обо всех настраиваемых свойствах см. в статье о [REST API для виртуальных сетей](https://msdn.microsoft.com/library/azure/mt163661.aspx).
+## <a name="virtual-network-and-subnet"></a>Virtual network and subnet
+Create a virtual network with one subnet. Look at the [REST API for virtual networks](https://msdn.microsoft.com/library/azure/mt163661.aspx) for all the properties to set.
 
 ```json
 {
@@ -246,10 +247,10 @@ azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n Exa
 }
 ```
 
-## Подсистема балансировки нагрузки
-Теперь необходимо создать внешний балансировщик нагрузки. Так как балансировщик нагрузки использует общедоступный IP-адрес, в разделе **dependsOn** необходимо объявить зависимость от общедоступного IP-адреса. Это означает, что балансировщик нагрузки не будет развернут, пока не завершится развертывание общедоступного IP-адреса. Если вы не определите эту зависимость, возникнет ошибка, так как Resource Manager попытается развернуть ресурсы одновременно. Он будет пытаться назначить балансировщику нагрузки общедоступный IP-адрес, который еще не существует.
+## <a name="load-balancer"></a>Load balancer
+Now you will create an external facing load balancer. Because this load balancer uses the public IP address, you must declare a dependency on the public IP address in the **dependsOn** section. This means the load balancer will not get deployed until the public IP address has finished deploying. Without defining this dependency, you will receive an error because Resource Manager will attempt to deploy the resources in parallel, and will try to set the load balancer to public IP address that doesn't exist yet. 
 
-В этом определении ресурса вам также нужно создать пул адресов серверной части, несколько правил NAT для входящих подключений к виртуальным машинам с помощью протокола удаленного рабочего стола и правило балансировки нагрузки с TCP-зондом на порте 80. Сведения обо всех свойствах см. в документации по [REST API для балансировщика нагрузки](https://msdn.microsoft.com/library/azure/mt163574.aspx).
+You will also create a backend address pool, a couple of inbound NAT rules to RDP into the VMs, and a load balancing rule with a tcp probe on port 80 in this resource definition. Checkout the [REST API for load balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) for all the properties.
 
 ```json
 {
@@ -338,8 +339,9 @@ azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n Exa
 }
 ```
 
-## Сетевой интерфейс
-Вам нужно создать два сетевых интерфейса — по одному для каждой виртуальной машины. Вместо того, чтобы включать повторяющиеся записи для сетевых интерфейсов, вы можете использовать [функцию copyIndex()](resource-group-create-multiple.md) для итерации цикла копирования (называется nicLoop) и создания количества сетевых интерфейсов, определенного в переменных `numberOfInstances`. Сетевой интерфейс зависит от создания виртуальной сети и балансировщика нагрузки. Он использует подсеть, определенную во время создания виртуальной сети, и идентификатор балансировщика нагрузки для настройки пула адресов балансировщика нагрузки и правил NAT для входящих подключений. Сведения обо всех свойствах см. в документации по [REST API для сетевых интерфейсов](https://msdn.microsoft.com/library/azure/mt163668.aspx).
+## <a name="network-interface"></a>Network interface
+You will create 2 network interfaces, one for each VM. Rather than having to include duplicate entries for the network interfaces, you can use the [copyIndex() function](resource-group-create-multiple.md) to iterate over the copy loop (referred to as nicLoop) and create the number network interfaces as defined in the `numberOfInstances` variables. The network interface depends on creation of the virtual network and the load balancer. It uses the subnet defined in the virtual network creation, and the load balancer id to configure the load balancer address pool and the inbound NAT rules.
+Look at the [REST API for network interfaces](https://msdn.microsoft.com/library/azure/mt163668.aspx) for all the properties.
 
 ```json
 {
@@ -381,10 +383,11 @@ azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n Exa
 }
 ```
 
-## Виртуальная машина.
-С помощью функции copyIndex() будут созданы две виртуальные машины (также, как при создании [сетевых интерфейсов](#cетевой-интерфейс). Создание виртуальной машины зависит от учетной записи хранения, сетевого интерфейса и группы доступности. Эта виртуальная машина будет создана из образа Marketplace. В свойстве `storageProfile` определено, что `imageReference` используется для определения издателя образа, предложения, SKU и версии. В конце настраивается профиль диагностики для включения диагностирования виртуальной машины.
+## <a name="virtual-machine"></a>Virtual machine
+You will create 2 virtual machines, using copyIndex() function, as you did in creation of the [network interfaces](#network-interface).
+The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReference` is used to define the image publisher, offer, sku and version. Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
 
-Чтобы найти соответствующие свойства для образа Marketplace, следуйте инструкциям в статьях о [выборе образов виртуальных машин Linux](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) или о [выборе образов виртуальных машин Windows](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) or [select Windows virtual machine images](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) articles.
 
 ```json
 {
@@ -445,13 +448,13 @@ azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n Exa
 }
 ```
 
->[AZURE.NOTE] Для образов, опубликованных **сторонними поставщиками**, необходимо указать другое свойство с именем `plan`. Пример можно найти в [этом шаблоне](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) из коллекции быстрого запуска.
+>[AZURE.NOTE] For images published by **3rd party vendors**, you will need to specify another property named `plan`. An example can be found in [this template](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) from the quickstart gallery. 
 
-Ресурсы шаблона теперь определены.
+You have finished defining the resources for your template.
 
-## Параметры
+## <a name="parameters"></a>Parameters
 
-В разделе параметров определите значения, которые могут быть указаны во время развертывания шаблона. Определите только те значения, которые, по вашему мнению, должны изменяться во время развертывания. Вы можете указать для параметра значение по умолчанию. Оно будет использоваться в том случае, если во время развертывания значение не указано. Кроме того, можно определить допустимые значения, как показано для параметра **imageSKU**.
+In the parameters section, define the values that can be specified when deploying the template. Only define parameters for values that you think should be varied during deployment. You can provide a default value for a parameter that is used if one is not provided during deployment. You can also define the allowed values as shown for the **imageSKU** parameter.
 
 ```json
 "parameters": {
@@ -550,9 +553,9 @@ azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n Exa
   }
 ```
 
-## Переменные
+## <a name="variables"></a>Variables
 
-В разделе переменных можно определить значения, которые используются в нескольких местах в шаблоне или создаются из других выражений или переменных. Переменные часто используются для упрощения синтаксиса в шаблоне.
+In the variables section, you can define values that are used in more than one place in your template, or values that are constructed from other expressions or variables. Variables are frequently used to simplify the syntax of your template.
 
 ```json
 "variables": {
@@ -569,14 +572,18 @@ azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n Exa
   }
 ```
 
-Шаблон готов. Можно сравнить этот шаблон с полным, который называется [2 виртуальные машины в балансировщике нагрузки и правила балансировщика нагрузки](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules) из [коллекции быстрого запуска](https://github.com/Azure/azure-quickstart-templates). Они могут немного отличаться из-за использования разных номеров версий.
+You have completed the template! You can compare your template against the full template in the [quickstart gallery](https://github.com/Azure/azure-quickstart-templates) under [2 VMs with load balancer and load balancer rules template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules). Your template might be slightly different based on using different version numbers. 
 
-Шаблон можно повторно развернуть при помощи тех же команд, что использовались при развертывании учетной записи хранения. Учетную запись хранения не нужно удалять перед повторным развертыванием. Resource Manager не будет повторно создавать ресурсы, которые уже существуют и не были изменены.
+You can re-deploy the template by using the same commands you used when deploying the storage account. You do not need to delete the storage account before re-deploying because Resource Manager will skip re-creating resources that already exist and have not changed.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Next steps
 
-- [Визуализатор шаблонов Azure Resource Manager (ARMViz)](http://armviz.io/#/) — отличный инструмент для визуализации шаблонов ARM. Когда шаблоны становятся слишком большими, трудно разобрать их, просто читая JSON-файл.
-- Дополнительные сведения о структуре шаблона см. в статье [Создание шаблонов Azure Resource Manager](resource-group-authoring-templates.md).
-- Инструкции по развертыванию шаблона см. в статье [Развертывание ресурсов с использованием шаблонов Azure Resource Manager](resource-group-template-deploy.md).
+- [Azure Resource Manager Template Visualizer (ARMViz)](http://armviz.io/#/) is a great tool to visualize ARM templates, as they might become too large to understand just from reading the json file.
+- To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+- To learn about deploying a template, see [Deploy a Resource Group with Azure Resource Manager template](resource-group-template-deploy.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

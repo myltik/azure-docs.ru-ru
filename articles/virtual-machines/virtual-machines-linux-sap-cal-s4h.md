@@ -7,22 +7,24 @@ authors="hermanndms"
 manager="timlt" 
 editor="" 
 tags="azure-resource-manager" 
-  keywords=""/>
-<tags  
+  keywords=""/> 
+<tags 
   ms.service="virtual-machines-linux" 
   ms.devlang="na" 
   ms.topic="article" 
   ms.tgt_pltfrm="vm-linux" 
   ms.workload="infrastructure-services" 
   ms.date="09/15/2016" 
-  ms.author="hermannd"/>
+  ms.author="hermannd"/> 
 
 
-# Развертывание платформы S/4 HANA или BW/4 HANA в Microsoft Azure 
 
-В этой статье мы расскажем, как развернуть платформу S/4 HANA в Microsoft Azure с помощью SAP Cloud Appliance Library 3.0. На снимках экрана наглядно показан пошаговый процесс. С точки зрения процесса развертывание других решений на базе SAP Hana (например, BW/4 HANA) выполняется аналогичным образом. Нужно только выбрать другое решение.
+# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Развертывание платформы S/4 HANA или BW/4 HANA в Microsoft Azure 
 
-Чтобы начать работу с SAP Cloud Appliance Library (SAP CAL), щелкните [здесь](https://cal.sap.com/). Вы перейдете на страницу блога SAP о новой версии [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+В этой статье мы расскажем, как развернуть платформу S/4 HANA в Microsoft Azure с помощью SAP Cloud Appliance Library 3.0.
+На снимках экрана наглядно показан пошаговый процесс. С точки зрения процесса развертывание других решений на базе SAP Hana (например, BW/4 HANA) выполняется аналогичным образом. Нужно только выбрать другое решение.
+
+Чтобы начать работу с SAP Cloud Appliance Library (SAP CAL), щелкните [здесь](https://cal.sap.com/). Вы перейдете на страницу блога SAP о новой версии [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 
 Далее на снимках экрана показана пошаговая инструкция по развертыванию S/4 HANA в Microsoft Azure. Процесс развертывания других решений, таких как BW/4 HANA, аналогичен описанному ниже.
@@ -30,7 +32,8 @@ tags="azure-resource-manager"
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
-На первом рисунке показаны все решения на базе SAP CAL HANA, доступные в Microsoft Azure. В качестве примера мы решили продемонстрировать развертывание локального выпуска SAP S/4 HANA (внизу на снимке экрана).
+На первом рисунке показаны все решения на базе SAP CAL HANA, доступные в Microsoft Azure.
+В качестве примера мы решили продемонстрировать развертывание локального выпуска SAP S/4 HANA (внизу на снимке экрана).
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-2.jpg)
 
@@ -46,7 +49,8 @@ tags="azure-resource-manager"
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.jpg)
 
-Выберите одну из подписок, а затем щелкните "Сертификаты управления". Это новая концепция использования субъектов-служб для новой модели Azure Resource Manager. Продукт SAP CAL еще не адаптирован под эту модель, поэтому запрашивает классическую модель и прежнюю версию портала Azure для работы с сертификатами управления.
+Выберите одну из подписок, а затем щелкните "Сертификаты управления". Это новая концепция использования субъектов-служб для новой модели Azure Resource Manager.
+Продукт SAP CAL еще не адаптирован под эту модель, поэтому запрашивает классическую модель и прежнюю версию портала Azure для работы с сертификатами управления.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic4b.jpg)
 
@@ -66,7 +70,8 @@ tags="azure-resource-manager"
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic10.jpg)
 
-После настройки учетной записи выберите решение, которое необходимо развернуть, и создайте экземпляр. В базовом режиме сделать это совсем несложно. Введите имя экземпляра, выберите регион Azure и определите основной пароль для доступа к решению.
+После настройки учетной записи выберите решение, которое необходимо развернуть, и создайте экземпляр.
+В базовом режиме сделать это совсем несложно. Введите имя экземпляра, выберите регион Azure и определите основной пароль для доступа к решению.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic11.jpg)
 
@@ -88,4 +93,15 @@ tags="azure-resource-manager"
 
 Другой вариант — войти на клиентскую виртуальную машину Windows и запустить, например, предварительно настроенный интерфейс SAP GUI.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+
+
+
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

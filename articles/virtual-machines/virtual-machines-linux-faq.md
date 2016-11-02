@@ -1,123 +1,136 @@
 <properties
-	pageTitle="Часто задаваемые вопросы по виртуальным машинам Linux | Microsoft Azure"
-	description="В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Linux, созданных с помощью модели Resource Manager."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-management"/>
+    pageTitle="FAQ for Linux VMs | Microsoft Azure"
+    description="Provides answers to some of the common questions about Linux virtual machines created with the Resource Manager model."
+    services="virtual-machines-linux"
+    documentationCenter=""
+    authors="cynthn"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-management"/>
 
 <tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/16/2016"
-	ms.author="cynthn"/>
-
-# Часто задаваемые вопросы по виртуальным машинам Linux 
-
-В этой статье содержатся ответы на некоторые распространенные вопросы о виртуальных машинах Linux, созданных в Azure посредством модели развертывания с помощью Resource Manager. Версию этой статьи для Windows см. в статье [Часто задаваемые вопросы по виртуальным машинам Windows](virtual-machines-windows-faq.md).
-
-## Что можно запускать на виртуальной машине Azure?
-
-Все подписчики могут запускать на виртуальной машине Azure серверное программное обеспечение. Дополнительные сведения см.в статье [Linux в Azure — рекомендованные дистрибутивы](virtual-machines-linux-endorsed-distros.md).
+    ms.service="virtual-machines-linux"
+    ms.workload="infrastructure-services"
+    ms.tgt_pltfrm="vm-linux"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="08/16/2016"
+    ms.author="cynthn"/>
 
 
-## Какой объем памяти можно использовать с виртуальной машиной?
+# <a name="frequently-asked-question-about-linux-virtual-machines"></a>Frequently asked question about Linux Virtual Machines
 
-Каждый диск данных может иметь объем до 1 ТБ. Количество дисков данных, которое можно использовать, зависит от размера виртуальной машины. Дополнительную информацию см. в статье [Размеры виртуальных машин](virtual-machines-linux-sizes.md).
+This article addresses some common questions about Linux virtual machines created in Azure using the Resource Manager deployment model. For the Windows version of this topic, see [Frequently asked question about Windows Virtual Machines](virtual-machines-windows-faq.md)
 
-Учетная запись хранения Azure предоставляет хранилище для диска операционной системы и любых дисков данных. Каждый из этих дисков представляет собой VHD-файл, хранящийся как страничный BLOB-объект. Информацию о ценах см. в разделе [Информация о ценах на хранилища](https://azure.microsoft.com/pricing/details/storage/).
+## <a name="what-can-i-run-on-an-azure-vm?"></a>What can I run on an Azure VM?
 
-
-## Как получить доступ к своей виртуальной машине?
-
-Установите удаленное подключение для входа на виртуальную машину с помощью Secure Shell (SSH). См. указания по подключению [из Windows](virtual-machines-linux-ssh-from-windows.md) или [Linux и Mac](virtual-machines-linux-mac-create-ssh-keys.md). По умолчанию SSH поддерживает не более 10 параллельных подключений. Число доступных параллельных подключений можно увеличить, изменив файл конфигурации.
+All subscribers can run server software on an Azure virtual machine. For more information, see [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distros.md)
 
 
-Если возникают проблемы, ознакомьтесь со статьей об [устранении неполадок с подключением Secure Shell (SSH)](virtual-machines-linux-troubleshoot-ssh-connection.md).
+## <a name="how-much-storage-can-i-use-with-a-virtual-machine?"></a>How much storage can I use with a virtual machine?
+
+Each data disk can be up to 1 TB. The number of data disks you can use depends on the size of the virtual machine. For details, see [Sizes for Virtual Machines](virtual-machines-linux-sizes.md).
+
+An Azure storage account provides storage for the operating system disk and any data disks. Each disk is a .vhd file stored as a page blob. For pricing details, see [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/).
 
 
-## Можно ли использовать временный диск (/dev/sdb1) для хранения данных?
+## <a name="how-can-i-access-my-virtual-machine?"></a>How can I access my virtual machine?
 
-Не используйте временный диск (/dev/sdb1) для хранения данных. Он обеспечивает лишь временное хранение. Вы рискуете потерять данные, которые невозможно будет восстановить.
-
-
-## Можно ли копировать или клонировать существующую виртуальную машину Azure?
-
-Да. Указания доступны в статье [Создание копии виртуальной машины Linux, работающей в Azure](virtual-machines-linux-copy-vm.md).
+Establish a remote connection to log on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](virtual-machines-linux-ssh-from-windows.md) or [from Linux and Mac](virtual-machines-linux-mac-create-ssh-keys.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
 
-## Почему в Azure Resource Manager не отображаются регионы центральной и восточной Канады?
-
-При создании виртуальных машин в существующих подписках Azure эти два новых региона не регистрируются автоматически. Регистрация осуществляется автоматически при развертывании виртуальной машины на портале Azure в любом другом регионе с помощью Azure Resource Manager. После развертывания виртуальной машины в любом другом регионе Azure новые регионы станут доступными для последующих виртуальных машин.
+If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connections](virtual-machines-linux-troubleshoot-ssh-connection.md).
 
 
-## Создав виртуальную машину, могу я добавить к ней сетевой адаптер?
+## <a name="can-i-use-the-temporary-disk-(/dev/sdb1)-to-store-data?"></a>Can I use the temporary disk (/dev/sdb1) to store data?
 
-Нет. Добавить сетевую карту можно только во время создания.
-
-
-## Есть ли какие-либо требования к имени компьютера?
-
-Да. Длина имени компьютера не должна превышать 64 знака. Дополнительные сведения об именовании ресурсов см. в статье [Рекомендации по именованию для инфраструктуры](virtual-machines-linux-infrastructure-naming-guidelines.md).
+Don't use the temporary disk (/dev/sdb1) to store data. It is only there for temporary storage. You risk losing data that can’t be recovered.
 
 
-## Какие требования к имени пользователя при создании виртуальной машины?
+## <a name="can-i-copy-or-clone-an-existing-azure-vm?"></a>Can I copy or clone an existing Azure VM?
 
-Длина имени пользователя должно быть от 1 до 64 знаков.
+Yes. For instructions, see [How to create a copy of a Linux virtual machine in the Resource Manager deployment model](virtual-machines-linux-copy-vm.md).
 
-Не допускаются следующие имена пользователей:
+
+## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager?"></a>Why am I not seeing Canada Central and Canada East regions through Azure Resource Manager?
+
+The two new regions of Canada Central and Canada East are not automatically registered for virtual machine creation for existing Azure subscriptions. This registration is done automatically when a virtual machine is deployed through the Azure portal to any other region using Azure Resource Manager. After a virtual machine is deployed to any other Azure region, the new regions should be available for subsequent virtual machines.
+
+
+## <a name="can-i-add-a-nic-to-my-vm-after-it's-created?"></a>Can I add a NIC to my VM after it's created?
+
+No. Adding a NIC can only be done at creation time.
+
+
+## <a name="are-there-any-computer-name-requirements?"></a>Are there any computer name requirements?
+
+Yes. The computer name can be a maximum of 64 characters in length. See [Infrastructure naming guidelines](virtual-machines-linux-infrastructure-naming-guidelines.md) for more information around naming your resources.
+
+
+## <a name="what-are-the-username-requirements-when-creating-a-vm?"></a>What are the username requirements when creating a VM?
+
+Usernames must be 1 - 64 characters in length.
+
+The following usernames are not allowed:
 
 <table>
-	<tr>
-		<td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
-	</tr>
-	<tr>
-		<td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
-	</tr>
-	<tr>
-		<td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
-	</tr>
-	<tr>
-		<td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
-	</tr>
-	<tr>
-		<td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
-	</tr>
-	<tr>
-		<td style="text-align:center">john </td><td style="text-align:center"> владелец </td><td style="text-align:center"> root </td><td style="text-align:center"> server</td>
-	</tr>
-	<tr>
-		<td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
-	</tr>
-	<tr>
-		<td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
-	</tr>
+    <tr>
+        <td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
+    </tr>
+    <tr>
+        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
+    </tr>
+    <tr>
+        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
+    </tr>
+    <tr>
+        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
+    </tr>
+    <tr>
+        <td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
+    </tr>
+    <tr>
+        <td style="text-align:center">john </td><td style="text-align:center"> owner </td><td style="text-align:center"> root </td><td style="text-align:center"> server</td>
+    </tr>
+    <tr>
+        <td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+    </tr>
+    <tr>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
+    </tr>
 </table>
 
 
-## Какие требования к паролю при создании виртуальной машины?
+## <a name="what-are-the-password-requirements-when-creating-a-vm?"></a>What are the password requirements when creating a VM?
 
-Длина пароля должна быть от 6 до 72 знаков. Также должны удовлетворяться 3 из следующих 4 требований сложности:
+Passwords must be 6 - 72 characters in length and meet 3 out of the following 4 complexity requirements:
 
-- используются строчные знаки;
-- используются прописные знаки;
-- используется цифра;
-- используется специальный знак (регулярное выражение [\\W\_]).
+- Have lower characters
+- Have upper characters
+- Have a digit
+- Have a special character (Regex match [\W_])
 
-Не допускаются следующие пароли:
+The following passwords are not allowed:
 
 <table>
-	<tr>
-		<td style="text-align:center">abc@123</td><td style="text-align:center">P@$$w0rd</td><td style="text-align:center">P@ssw0rd</td><td style="text-align:center">P@ssword123</td><td style="text-align:center">Pa$$word</td>
-	</tr>
-	<tr>
-		<td style="text-align:center">pass@word1</td><td style="text-align:center">Password!</td><td style="text-align:center">Password1</td><td style="text-align:center">Password22</td><td style="text-align:center">iloveyou!</td>
-	</tr>
+    <tr>
+        <td style="text-align:center">abc@123</td>
+        <td style="text-align:center">P@$$w0rd</td>
+        <td style="text-align:center">P@ssw0rd</td>
+        <td style="text-align:center">P@ssword123</td>
+        <td style="text-align:center">Pa$$word</td>
+    </tr>
+    <tr>
+        <td style="text-align:center">pass@word1</td>
+        <td style="text-align:center">Password!</td>
+        <td style="text-align:center">Password1</td>
+        <td style="text-align:center">Password22</td>
+        <td style="text-align:center">iloveyou!</td>
+    </tr>
 </table>
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
