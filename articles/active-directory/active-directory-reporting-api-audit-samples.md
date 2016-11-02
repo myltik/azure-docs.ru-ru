@@ -16,9 +16,12 @@
     ms.date="09/28/2016"
     ms.author="dhanyahk;markvi"/>
 
-# Примеры API аудита инструментов создания отчетов Azure Active Directory
 
-Эта статья входит в серию статей об API отчетов Azure Active Directory. Инструмент создания отчетов Azure AD предоставляет API, с помощью которого можно получить доступ к данным аудита, используя код или связанные инструменты. Цель этой статьи — предоставить пример кода для **API аудита**.
+# <a name="azure-active-directory-reporting-audit-api-samples"></a>Примеры API аудита инструментов создания отчетов Azure Active Directory
+
+Эта статья входит в серию статей об API отчетов Azure Active Directory.  
+Инструмент создания отчетов Azure AD предоставляет API, с помощью которого можно получить доступ к данным аудита, используя код или связанные инструменты.
+Цель этой статьи — предоставить пример кода для **API аудита**.
 
 См.:
 
@@ -29,16 +32,16 @@
 Чтобы задать вопросы, обговорить проблемы или предоставить отзыв, обратитесь в [службу поддержки по инструментам создания отчетов AAD](mailto:aadreportinghelp@microsoft.com).
 
 
-## Предварительные требования
-Перед использованием примеров в этой статье выполните [предварительные требования для доступа к API отчетов Azure AD](active-directory-reporting-api-prerequisites.md).
+## <a name="prerequisites"></a>Предварительные требования
+Перед использованием примеров в этой статье выполните [предварительные требования для доступа к API отчетов Azure AD](active-directory-reporting-api-prerequisites.md).  
   
 
-## Известная проблема
+## <a name="known-issue"></a>Известная проблема
 
-Вы не сможете пройти аутентификацию приложения, если клиент находится в регионе Европы. Используйте аутентификацию пользователя для доступа к API аудита в качестве обходного решения, пока мы не решим эту проблему.
+Вы не сможете пройти аутентификацию приложения, если клиент находится в регионе Европы. Используйте аутентификацию пользователя для доступа к API аудита в качестве обходного решения, пока мы не решим эту проблему. 
 
 
-## Сценарий PowerShell
+## <a name="powershell-script"></a>Сценарий PowerShell
     # This script will require registration of a Web Application in Azure Active Directory (see https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)
 
     # Constants
@@ -83,13 +86,13 @@
     $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
 
-### Выполнение сценария PowerShell
+### <a name="executing-the-powershell-script"></a>Выполнение сценария PowerShell
 Завершив редактирование сценария, запустите его и убедитесь, что он вернул ожидаемые данные из отчета о журналах аудита.
 
 Сценарий возвращает выходные данные из отчета об аудите в формате JSON. Он также создает файл `audit.json` с такими же выходными данными. Вы можете поэкспериментировать, изменив сценарий так, чтобы он возвращал данные из других отчетов, и закомментировав ненужные форматы выходных данных.
 
 
-## Сценарий Bash
+## <a name="bash-script"></a>Сценарий Bash
 
     #!/bin/bash
 
@@ -118,58 +121,62 @@
 
     echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
 
-## Сценарий Python
+## <a name="python-script"></a>Сценарий Python
 
-	# Author: Michael McLaughlin (michmcla@microsoft.com)
-	# Date: January 20, 2016
-	# This requires the Python Requests module: http://docs.python-requests.org
+    # Author: Michael McLaughlin (michmcla@microsoft.com)
+    # Date: January 20, 2016
+    # This requires the Python Requests module: http://docs.python-requests.org
 
-	import requests
-	import datetime
-	import sys
+    import requests
+    import datetime
+    import sys
 
-	client_id = 'your-application-client-id-here'
-	client_secret = 'your-application-client-secret-here'
-	login_url = 'https://login.windows.net/'
-	tenant_domain = 'your-directory-name-here.onmicrosoft.com'
+    client_id = 'your-application-client-id-here'
+    client_secret = 'your-application-client-secret-here'
+    login_url = 'https://login.windows.net/'
+    tenant_domain = 'your-directory-name-here.onmicrosoft.com'
 
-	# Get an OAuth access token
-	bodyvals = {'client_id': client_id,
-	            'client_secret': client_secret,
-	            'grant_type': 'client_credentials'}
+    # Get an OAuth access token
+    bodyvals = {'client_id': client_id,
+                'client_secret': client_secret,
+                'grant_type': 'client_credentials'}
 
-	request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
-	token_response = requests.post(request_url, data=bodyvals)
+    request_url = login_url + tenant_domain + '/oauth2/token?api-version=1.0'
+    token_response = requests.post(request_url, data=bodyvals)
 
-	access_token = token_response.json().get('access_token')
-	token_type = token_response.json().get('token_type')
+    access_token = token_response.json().get('access_token')
+    token_type = token_response.json().get('token_type')
 
-	if access_token is None or token_type is None:
-	    print "ERROR: Couldn't get access token"
-	    sys.exit(1)
+    if access_token is None or token_type is None:
+        print "ERROR: Couldn't get access token"
+        sys.exit(1)
 
-	# Use the access token to make the API request
-	yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
+    # Use the access token to make the API request
+    yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
-	header_params = {'Authorization': token_type + ' ' + access_token}
-	request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=eventTime%20gt%20' + yesterday   
-	response = requests.get(request_string, headers = header_params)
+    header_params = {'Authorization': token_type + ' ' + access_token}
+    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=eventTime%20gt%20' + yesterday   
+    response = requests.get(request_string, headers = header_params)
 
-	if response.status_code is 200:
-	    print response.content
-	else:
-	    print 'ERROR: API request failed'
-
-
+    if response.status_code is 200:
+        print response.content
+    else:
+        print 'ERROR: API request failed'
 
 
 
-## Дальнейшие действия
 
-- Хотите настроить примеры в этой статье? См. статью [Справочник по API аудита Azure Active Directory](active-directory-reporting-api-audit-reference.md).
+
+## <a name="next-steps"></a>Дальнейшие действия
+
+- Хотите настроить примеры в этой статье? См. статью [Справочник по API аудита Azure Active Directory](active-directory-reporting-api-audit-reference.md). 
 
 - Полный обзор использования API отчетов Azure Active Directory см. в статье [Приступая к работе с API отчетов Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-- Дополнительные сведения об отчетах Azure Active Directory см. в статье [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).
+- Дополнительные сведения об отчетах Azure Active Directory см. в статье [Руководство по отчетам Azure Active Directory](active-directory-reporting-guide.md).  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

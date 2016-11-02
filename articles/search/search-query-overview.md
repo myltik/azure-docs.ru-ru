@@ -1,9 +1,10 @@
 <properties
-    pageTitle="Отправка запросов в индекс службы поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
-    description="В службе поиска Azure можно создавать поисковые запросы и с помощью параметров поиска фильтровать, сортировать и уточнять результаты."
+    pageTitle="Query your Azure Search Index | Microsoft Azure | Hosted cloud search service"
+    description="Build a search query in Azure search and use search parameters to filter and sort search results."
     services="search"
+    manager="jhubbard"
     documentationCenter=""
-	authors="ashmaka"
+    authors="ashmaka"
 />
 
 <tags
@@ -15,47 +16,52 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
-# Отправка запросов в индекс службы поиска Azure
+
+# <a name="query-your-azure-search-index"></a>Query your Azure Search index
 > [AZURE.SELECTOR]
-- [Обзор](search-query-overview.md)
-- [Портал](search-explorer.md)
+- [Overview](search-query-overview.md)
+- [Portal](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-При отправке поисковых запросов в службу поиска Azure нужно не только ввести в поле поиска приложения определенные слова, но и задать ряд параметров. Эти параметры запросов обеспечивают более точное управление при работе с полнотекстовым поиском.
+When submitting search requests to Azure Search, there are a number of parameters that can be specified alongside the actual words that are typed into the search box of your application. These query parameters allow you to achieve some deeper control of the full-text search experience.
 
-Ниже приведен список, в котором кратко описано стандартное использование параметров запроса в службе поиска Azure. Подробную информацию о параметрах запроса и их поведении см. в материалах, посвященных [REST API](https://msdn.microsoft.com/library/azure/dn798927.aspx) и [пакету SDK для .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters_properties.aspx).
+Below is a list that briefly explains common uses of the query parameters in Azure Search. For full coverage of query parameters and their behavior, please see the detailed pages for the [REST API](https://msdn.microsoft.com/library/azure/dn798927.aspx) and [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters_properties.aspx).
 
-## Типы запросов
+## <a name="types-of-queries"></a>Types of queries
 
-Служба поиска Azure предлагает множество параметров для создания расширенных запросов. Два основных типа запросов, которые вы будете использовать, — это `search` и `filter`. Запрос `search` ищет как минимум одно вхождение во всех _поддерживающих поиск_ полях индекса; он работает примерно так же, как поисковая система Google или Bing. Запрос `filter` оценивает логическое выражение во всех _фильтруемых_ полях индекса. В отличие от запросов `search` запросы `filter` ищут точные вхождения в содержимом полей. Это значит, что такие запросы нужно вводить с учетом регистра.
+Azure Search offers many options to create extremely powerful queries. The two main types of query you will use are `search` and `filter`. A `search` query searches for one or more terms in all _searchable_ fields in your index, and works the way you would expect a search engine like Google or Bing to work. A `filter` query evaluates a boolean expression over all _filterable_ fields in an index. Unlike `search` queries, `filter` queries match the exact contents of a field, which means they are case-sensitive for string fields.
 
-Запросы этих двух типов можно использовать вместе или по отдельности. Если они используются вместе, сначала ко всему индексу применяется фильтр, а затем в результатах фильтрации выполняется поиск. Поэтому фильтры могут повысить производительность запросов, так как они уменьшают количество документов, которые поисковый запрос должен обработать.
+You can use searches and filters together or separately. If you use them together, the filter is applied first to the entire index, and then the search is performed on the results of the filter. Filters can therefore be a useful technique to improve query performance since they reduce the set of documents that the search query needs to process.
 
-Синтаксис выражений фильтра — это подмножество [языка фильтра OData](https://msdn.microsoft.com/library/azure/dn798921.aspx). Для поисковых запросов можно использовать [упрощенный синтаксис](https://msdn.microsoft.com/library/azure/dn798920.aspx) или [синтаксис запросов Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) (они описаны ниже).
+The syntax for filter expressions is a subset of the [OData filter language](https://msdn.microsoft.com/library/azure/dn798921.aspx). For search queries you can use either the [simplified syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) or the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) which are discussed below.
 
-### Простой синтаксис запросов
-[Простой синтаксис запросов](https://msdn.microsoft.com/library/azure/dn798920.aspx) — это язык запросов, используемый в службе поиска Azure по умолчанию. Простой синтаксис запросов поддерживает ряд общих операторов поиска, включая AND, OR, NOT, а также фразы, суффиксы и операторы приоритета.
+### <a name="simple-query-syntax"></a>Simple query syntax
+The [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx) is the default query language used in Azure Search. The simple query syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 
-### Синтаксис запросов Lucene
-[Синтаксис запросов Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) позволяет использовать широко распространенный и выразительный язык запросов, разработанный как часть библиотеки [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
+### <a name="lucene-query-syntax"></a>Lucene query syntax
+The [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) allows you to use the widely-adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Этот синтаксис запросов позволяет с легкостью использовать следующие функции и возможности: [запросы, относящиеся к полям](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fields), [нечеткий поиск](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fuzzy), [поиск с расстоянием](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_proximity), [повышение значения слов](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_termboost), [поиск по регулярным выражениям](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_regex), [поиск с использованием подстановочных знаков](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_wildcard), [основы синтаксиса](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_syntax) и [запросы, содержащие логические операторы](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_boolean).
-
-
-
-## Упорядочение результатов
-Вы можете запросить, чтобы служба поиска Azure упорядочила результаты поискового запроса по значениям в определенном поле. По умолчанию служба поиска Azure упорядочивает результаты поиска, руководствуясь важностью суммы поиска документа. Это значение вычисляется на основании меры [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
-
-Если нужно, чтобы служба поиска Azure упорядочивала результаты не по сумме поиска, а по другому значению, вы можете воспользоваться поисковым параметром `orderby`. Вы можете указать значение параметра `orderby`, чтобы включить имена полей и вызовы в [функцию `geo.distance()`](https://msdn.microsoft.com/library/azure/dn798921.aspx) для геопространственных значений. После каждого выражения можно поставить символ `asc`, чтобы указать, что результаты требуется представить по возрастанию, или символ `desc`, если результаты нужно упорядочить по убыванию. По умолчанию результаты сортируются по возрастанию.
-
-## Разбиение по страницам
-Служба поиска Azure позволяет легко разбить результаты поиска по страницам. С помощью параметров `top` и `skip` вы можете отправлять такие поисковые запросы, результаты которых возвращаются в управляемых упорядоченных подмножествах. В них поиск можно выполнять проверенными способами с помощью пользовательского интерфейса. При получении этих маленьких подмножеств вы можете получать также сведения о количестве документов во всех результатах поиска.
-
-Дополнительную информацию о разбивке результатов поиска на страницы см. в статье [Разбивка результатов поиска на страницы в службе поиска Azure](search-pagination-page-layout.md).
+Using this query syntax allows you to easily achieve the following capabilities: [Field-scoped queries](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fields), [fuzzy search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fuzzy), [proximity search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_proximity), [term boosting](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_termboost), [regular expression search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_regex), [wildcard search](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_wildcard), [syntax fundamentals](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_syntax), and [queries using boolean operators](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_boolean).
 
 
-## Выделение совпадений
-В службе поиска Azure вы можете легко выделить конкретную часть результатов поиска, которые соответствуют поисковому запросу. Для этого воспользуйтесь параметрами `highlight`, `highlightPreTag` и `highlightPostTag`. Вы можете указать, в каких _поддерживающих поиск_ полях следует выделять вхождения. Кроме того, можно указать конкретные теги строк, которые нужно добавлять к началу и концу вхождений, которые возвращает служба поиска Azure.
 
-<!---HONumber=AcomDC_0831_2016-->
+## <a name="ordering-results"></a>Ordering results
+When receiving results for a search query, you can request that Azure Search serves the results ordered by values in a specific field. By default, Azure Search orders the search results based on the rank of each document's search score, which is derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
+
+If you want Azure Search to return your results ordered by a value other than the search score, you can use the `orderby` search parameter. You can specify the value of the `orderby` parameter to include field names and calls to the [`geo.distance()` function](https://msdn.microsoft.com/library/azure/dn798921.aspx) for geospatial values. Each expression can be followed by `asc` to indicate that results are requested in ascending order, and `desc` to indicate that results are requested in descending order. The default ranking ascending order.
+
+## <a name="paging"></a>Paging
+Azure Search makes it easy to implement paging of search results. By using the `top` and `skip` parameters, you can smoothly issue search requests that allow you to receive the total set of search results in manageable, ordered subsets that easily enable good search UI practices. When receiving these smaller subsets of results, you can also receive the count of documents in the total set of search results.
+
+You can learn more about paging search results in the article [How to page search results in Azure Search](search-pagination-page-layout.md).
+
+
+## <a name="hit-highlighting"></a>Hit highlighting
+In Azure Search, emphasizing the exact portion of search results that match the search query is made easy by using the `highlight`, `highlightPreTag`, and `highlightPostTag` parameters. You can specify which _searchable_ fields should have their matched text emphasized as well as specifying the exact string tags to append to the start and end of the matched text that Azure Search returns.
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

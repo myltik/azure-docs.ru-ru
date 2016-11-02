@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Создание правила на основе пути для шлюза приложений с помощью портала | Microsoft Azure"
-   description="Узнайте, как создать правило на основе пути для шлюза приложений с помощью портала."
+   pageTitle="Create a Path-based rule for an application gateway by using the portal | Microsoft Azure"
+   description="Learn how to create a Path-based rule for an application gateway by using the portal"
    services="application-gateway"
    documentationCenter="na"
    authors="georgewallace"
@@ -14,74 +14,77 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2016"
+   ms.date="10/25/2016"
    ms.author="gwallace" />
 
-# Создание правила на основе пути для шлюза приложений с помощью портала
+
+# <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>Create a Path-based rule for an application gateway by using the portal
 
 > [AZURE.SELECTOR]
-- [Портал Azure](application-gateway-create-url-route-portal.md)
-- [PowerShell и диспетчер ресурсов Azure](application-gateway-create-url-route-arm-ps.md)
+- [Azure portal](application-gateway-create-url-route-portal.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
 
-Маршрутизация на основе URL-адресов позволяет связывать маршруты на основе URL-пути HTTP-запроса. Она проверяет, настроен ли для спиcка URL-адресов в шлюзе приложений маршрут к пулу тыловых серверов, и отправляет сетевой трафик в указанный пул. Как правило, маршрутизация на основе URL-адресов используется для распределения запросов содержимого разных типов между разными пулами тыловых серверов.
+URL Path-based routing enables you to associate routes based on the URL path of Http request. It checks if there is a route to a back-end pool configured for the URL lists in Application Gateway and send the network traffic to the defined back-end pool. A common use for URL-based routing is to load balance requests for different content types to different back-end server pools.
 
-При маршрутизации на основе URL-адресов к шлюзу приложений добавляется новый тип правил. Шлюз приложений имеет два типа правил: базовые правила и правила на основе пути. Правила базового типа выполняют циклический перебор пулов тыловых серверов, а правила на основе пути учитывают при выборе пула тыловых серверов еще и шаблон URL-адреса запроса.
+URL-based routing introduces a new rule type to application gateway. Application gateway has two rule types: basic and Path-Based rules. Basic rule type provides round-robin service for the back-end pools while Path-Based rules in addition to round robin distribution, also takes path pattern of the request URL into account while choosing the backend pool.
 
+## <a name="scenario"></a>Scenario
 
+The following scenario goes through creating a Path-based rule in an existing application gateway.
+The scenario assumes that you have already followed the steps to [Create an Application Gateway](application-gateway-create-gateway-portal.md).
 
-## Сценарий
+![url route][scenario]
 
-В следующем сценарии рассматривается создание правила на основе пути в существующем шлюзе приложений. Предполагается, что действия по [созданию шлюза приложений](application-gateway-create-gateway-portal.md) уже выполнены.
+## <a name="<a-name="createrule"></a>create-the-path-based-rule"></a><a name="createrule"></a>Create the Path-based rule
 
-![Маршрут URL-адреса][scenario]
+A Path-based rule requires its own listener, before creating the rule be sure to verify you have an available listener to use.
 
-## <a name="createrule"></a>Создание правила на основе пути
+### <a name="step-1"></a>Step 1
 
-Для правила на основе пути требуется собственный прослушиватель, поэтому, прежде чем создавать правило, нужно убедиться в наличии свободного прослушивателя.
+Navigate to http://portal.azure.com and select an existing application gateway. Click **Rules**
 
-### Шаг 1
+![Application Gateway overview][1]
 
-Перейдите по адресу http://portal.azure.com и выберите имеющийся шлюз приложений. Щелкните **Правила**.
+### <a name="step-2"></a>Step 2
 
-![Обзор шлюза приложений][1]
+Click **Path-based** button to add a new Path-based rule.
 
-### Шаг 2
+### <a name="step-3"></a>Step 3
 
-Нажмите кнопку **На основе пути**, чтобы добавить новое правило на основе пути.
+The **Add path-based rule** blade has two sections. The first section is where you defined the listener, the name of the rule and the default path settings. The default path settings are for routes that do not fall under the custom path-based route. The second section of the **Add path-based rule** blade is where you define the path-based rules themselves.
 
-### Шаг 3.
+**Basic Settings**
 
-Колонка **добавления правила на основе пути** состоит из двух разделов. В первом разделе вы определяете прослушиватель, имя правила и параметры пути по умолчанию. Параметры пути по умолчанию используются для тех маршрутов, которые не соответствуют пользовательским маршрутам на основе пути. Во второй части колонки **добавления правила на основе пути** определяются сами правила на основе пути.
+- **Name** - This is a friendly name to the rule that is accessible in the portal.
+- **Listener** - This is the listener that is used for the rule.
+- **Default backend pool** - This setting is the setting that defines the back-end to be used for the default rule
+- **Default HTTP settings** - This setting is the setting that defines the HTTP settings to be used for the default rule.
 
-**Основные параметры**
+**Path-based rules**
 
-- **Имя** — понятное пользователю имя правила, которое отображается на портале.
-- **Прослушиватель** — прослушиватель, который используется для этого правила.
-- **Пул тыловых серверов по умолчанию** — этот параметр определяет, какие тыловые серверы будут использоваться для правила по умолчанию.
-- **Параметр HTTP по умолчанию** — этот параметр определяет, какие параметры HTTP будут использоваться для правила по умолчанию.
+- **Name** - This is a friendly name to path-based rule.
+- **Paths** - This setting defines the path the rule will look for when forwarding traffic
+- **Backend Pool** - This setting is the setting that defines the back-end to be used for the rule
+- **HTTP setting** - This setting is the setting that defines the HTTP settings to be used for the rule.
 
-**Правила на основе пути**
+>[AZURE.IMPORTANT] Paths: The list of path patterns to match. Each must start with / and the only place a "\*" is allowed is at the end. Valid examples are /xyz, /xyz* or /xyz/*.  
 
-- **Имя** — понятное пользователю имя правила на основе пути.
-- **Пути** — этот параметр определяет путь, который будет использоваться правилом для перенаправления трафика.
-- **Пул тыловых серверов** — этот параметр определяет, какие тыловые серверы будут использоваться для этого правила.
-- **Параметры HTTP** — этот параметр определяет, какие параметры HTTP будут использоваться для этого правила.
+![Add path-based rule blade with information filled out][2]
 
->[AZURE.IMPORTANT] Пути: список шаблонов пути для сопоставления. Каждый шаблон должен начинаться с косой черты (/). Знак "\*" может располагаться только в конце. Примеры допустимых значений: /xyz, /xyz* или /xyz/*.
+Adding a path-based rule to an existing application gateway is an easy process through the portal. Once a path-based rule has been created, it can be edited to add additional rules easily. 
 
-![Колонка добавления правила на основе пути с заполненной информацией][2]
+![adding additional path-based rules][3]
 
-Добавить правило на основе пути к существующему шлюзу приложения на портале очень просто. Созданное правило на основе пути можно легко изменить, добавив дополнительные правила.
+## <a name="next-steps"></a>Next steps
 
-![добавление правил на основе пути][3]
-
-## Дальнейшие действия
-
-В можете узнать, как [настроить разгрузку SSL](application-gateway-ssl-portal.md) с использованием шлюза приложений Azure.
+To learn how to configure SSL Offloading with Azure Application Gateway see [Configure SSL Offload](application-gateway-ssl-portal.md)
 
 [1]: ./media/application-gateway-create-url-route-portal/figure1.png
 [2]: ./media/application-gateway-create-url-route-portal/figure2.png
 [3]: ./media/application-gateway-create-url-route-portal/figure3.png
 [scenario]: ./media/application-gateway-create-url-route-portal/scenario.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

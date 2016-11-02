@@ -14,9 +14,11 @@
     ms.date="09/26/2016" 
     ms.author="jeedes" />
 
-#Учебник. Интеграция Azure Active Directory с ShiftPlanning
+
+#<a name="tutorial:-azure-active-directory-integration-with-shiftplanning"></a>Учебник. Интеграция Azure Active Directory с ShiftPlanning
   
-Цель данного учебника — показать интеграцию Azure и ShiftPlanning. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+Цель данного учебника — показать интеграцию Azure и ShiftPlanning.  
+Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   действующая подписка Azure;
 -   подписка ShiftPlanning с поддержкой единого входа.
@@ -30,12 +32,12 @@
 3.  Настройка подготовки учетных записей пользователей
 4.  Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-shiftplanning-tutorial/IC786612.png "Сценарий")
-##Включение интеграции приложений для ShiftPlanning
+![Сценарий](./media/active-directory-saas-shiftplanning-tutorial/IC786612.png "Scenario")
+##<a name="enabling-the-application-integration-for-shiftplanning"></a>Включение интеграции приложений для ShiftPlanning
   
 В этом разделе показано, как включить интеграцию приложений для ShiftPlanning.
 
-###Чтобы включить интеграцию приложений для ShiftPlanning, выполните следующие действия:
+###<a name="to-enable-the-application-integration-for-shiftplanning,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для ShiftPlanning, выполните следующие действия:
 
 1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
@@ -45,118 +47,124 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Приложения](./media/active-directory-saas-shiftplanning-tutorial/IC700994.png "Приложения")
+    ![Приложения](./media/active-directory-saas-shiftplanning-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  В нижней части страницы нажмите кнопку **Добавить** .
 
-    ![Добавление приложения](./media/active-directory-saas-shiftplanning-tutorial/IC749321.png "Добавление приложения")
+    ![Добавить приложение](./media/active-directory-saas-shiftplanning-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-shiftplanning-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-shiftplanning-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  В **поле поиска** введите **ShiftPlanning**.
 
-    ![Коллекция приложений](./media/active-directory-saas-shiftplanning-tutorial/IC786613.png "Коллекция приложений")
+    ![Коллекция приложений](./media/active-directory-saas-shiftplanning-tutorial/IC786613.png "Application Gallery")
 
 7.  В области результатов выберите **ShiftPlanning** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![ShiftPlanning](./media/active-directory-saas-shiftplanning-tutorial/IC786614.png "ShiftPlanning")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Настройка единого входа
   
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в ShiftPlanning со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+В этом разделе показано, как разрешить пользователям проходить аутентификацию в ShiftPlanning со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
+В рамках этой процедуры потребуется создать файл сертификата в кодировке Base-64.  
+Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции с приложением **ShiftPlanning** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На классическом портале Azure на странице интеграции с приложением **ShiftPlanning** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786615.png "Configure Single Sign-On")
 
-2.  На странице **Как пользователи должны входить в ShiftPlanning** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  На странице **Как пользователи должны входить в ShiftPlanning?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786616.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786616.png "Configure Single Sign-On")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес для входа в ShiftPlanning** введите свой URL-адрес, используя шаблон "*https://company.shiftplanning.com/includes/saml/*", а затем нажмите кнопку **Далее**.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа в ShiftPlanning** введите свой URL-адрес, используя формат *https://company.shiftplanning.com/includes/saml/*, а затем нажмите кнопку **Далее**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-shiftplanning-tutorial/IC786617.png "Настройка URL-адреса приложения")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-shiftplanning-tutorial/IC786617.png "Configure App URL")
 
-4.  Для скачивания сертификата на странице **Настройка единого входа в ShiftPlanning** нажмите кнопку **Загрузить сертификат** и сохраните файл сертификата на своем компьютере.
+4.  Чтобы скачать сертификат, на странице **Настройка единого входа в ShiftPlanning** щелкните **Скачать сертификат** и сохраните файл сертификата на своем компьютере.
 
-    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786618.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786618.png "Configure Single Sign-On")
 
 5.  В другом окне веб-браузера войдите на веб-сайт **ShiftPlanning** компании в качестве администратора.
 
 6.  В меню в верхней части страницы щелкните **Администратор**.
 
-    ![Администратор](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Администратор")
+    ![Администратор](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Admin")
 
-7.  В разделе **Интеграция** щелкните **Единый вход**.
+7.  В разделе **Integration** (Интеграция) щелкните **Single Sign-On** (Единый вход).
 
-    ![Единый вход](./media/active-directory-saas-shiftplanning-tutorial/IC786620.png "Единый вход")
+    ![Единый вход](./media/active-directory-saas-shiftplanning-tutorial/IC786620.png "Single Sign-On")
 
 8.  В разделе **Единый вход** сделайте следующее:
 
-    ![Единый вход](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Единый вход")
+    ![Единый вход](./media/active-directory-saas-shiftplanning-tutorial/IC786905.png "Single Sign-On")
 
     1.  Установите флажок **SAML включен**.
-    2.  Установите флажок **Разрешить вход с паролем**.
-    3.  На диалоговой странице **Настройка единого входа в ShiftPlanning** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **SAML Issuer URL** (URL-адрес издателя SAML).
-    4.  На диалоговой странице **Настройка единого входа в ShiftPlanning** классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **URL-адрес удаленного выхода**.
-    5.  Создайте файл **в кодировке Base-64** из загруженного сертификата.
+    2.  Установите флажок **Разрешить вход с паролем**
+    3.  На странице диалогового окна **Настройка единого входа в ShiftPlanning** классического портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **SAML Issuer URL** (URL-адрес издателя SAML).
+    4.  На странице диалогового окна **Настройка единого входа в ShiftPlanning** классического портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **URL-адрес удаленного выхода**.
+    5.  Создайте файл в кодировке **Base-64** из загруженного сертификата.  
 
-        >[AZURE.TIP]Дополнительные сведения можно узнать из видео [Как преобразовать двоичный сертификат в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Дополнительные сведения можно узнать из видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o)
 
-    6.  Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат X.509**.
+    6.  Откройте сертификат в кодировке Base-64 в Блокноте, скопируйте его содержимое в буфер обмена, а затем вставьте его в текстовое поле **Сертификат X.509** .
     7.  Нажмите кнопку **Сохранить параметры**.
 
 9.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Настройка единого входа](./media/active-directory-saas-shiftplanning-tutorial/IC786621.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
   
-Чтобы пользователи Azure AD могли выполнить вход в ShiftPlanning, они должны быть подготовлены в ShiftPlanning. В случае ShiftPlanning подготовка выполняется вручную.
+Чтобы пользователи Azure AD могли выполнить вход в ShiftPlanning, они должны быть подготовлены в ShiftPlanning.  
+В случае ShiftPlanning подготовка выполняется вручную.
 
-###Чтобы подготовить учетные записи пользователей, выполните следующие действия:
+###<a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>Чтобы подготовить учетные записи пользователей, выполните следующие действия:
 
 1.  Войдите на веб-сайт **ShiftPlanning** компании в качестве администратора.
 
 2.  Щелкните **Администратор**.
 
-    ![Администратор](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Администратор")
+    ![Администратор](./media/active-directory-saas-shiftplanning-tutorial/IC786619.png "Admin")
 
 3.  Щелкните **Персонал**.
 
-    ![Персонал](./media/active-directory-saas-shiftplanning-tutorial/IC786623.png "Персонал")
+    ![Персонал](./media/active-directory-saas-shiftplanning-tutorial/IC786623.png "Staff")
 
-4.  В разделе **Действия** щелкните **Добавить сотрудника**.
+4.  В разделе **Actions** (Действия) щелкните **Add Employee** (Добавить сотрудника).
 
-    ![Добавление сотрудников](./media/active-directory-saas-shiftplanning-tutorial/IC786624.png "Добавление сотрудников")
+    ![Добавление сотрудников](./media/active-directory-saas-shiftplanning-tutorial/IC786624.png "Add Employees")
 
 5.  В разделе **Добавление сотрудников** сделайте следующее:
 
-    ![Сохранение сотрудников](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "Сохранение сотрудников")
+    ![Сохранить сотрудников](./media/active-directory-saas-shiftplanning-tutorial/IC786625.png "Save Employees")
 
-    1.  Заполните текстовые поля **Имя**, **Фамилия** и **Электронная почта** данными действующей учетной записи AAD, которую необходимо подготовить.
+    1.  Заполните текстовые поля **First Name** (Имя), **Last Name** (Фамилия) и **Email** (Электронный адрес) данными действующей учетной записи AAD, которую необходимо подготовить.
     2.  Щелкните **Сохранить сотрудников**.
 
 >[AZURE.NOTE]Вы можете использовать любые другие инструменты создания учетных записей пользователей ShiftPlanning или API, предоставляемые ShiftPlanning для подготовки учетных записей пользователей AAD.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Назначение пользователей
   
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###Чтобы назначить пользователей ShiftPlanning, выполните следующие действия:
+###<a name="to-assign-users-to-shiftplanning,-perform-the-following-steps:"></a>Чтобы назначить пользователей ShiftPlanning, выполните следующие действия:
 
 1.  На классическом портале Azure создайте тестовую учетную запись.
 
 2.  На странице интеграции с приложением **ShiftPlanning** щелкните **Назначить пользователей**.
 
-    ![Назначить пользователей](./media/active-directory-saas-shiftplanning-tutorial/IC786626.png "Назначить пользователей")
+    ![Назначить пользователей](./media/active-directory-saas-shiftplanning-tutorial/IC786626.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Да](./media/active-directory-saas-shiftplanning-tutorial/IC767830.png "Да")
+    ![Да](./media/active-directory-saas-shiftplanning-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

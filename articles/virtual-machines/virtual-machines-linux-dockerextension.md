@@ -13,36 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="07/20/2016"
+   ms.date="10/10/2016"
    ms.author="iainfou"/>
 
-# Использование расширения виртуальной машины Docker для развертывания среды
 
-> [AZURE.NOTE] Если у вас есть несколько минут, помогите нам улучшить качество документации по виртуальным машинам Linux в Azure, поделившись своими впечатлениями в этом [быстром опросе](https://aka.ms/linuxdocsurvey). Каждый ваш ответ помогает нам совершенствовать средства, необходимые вам для работы.
+# <a name="using-the-docker-vm-extension-to-deploy-your-environment"></a>Использование расширения виртуальной машины Docker для развертывания среды
 
 Docker — это популярная платформа управления контейнерами и работы с образами, которая позволяет быстро работать с контейнерами в Linux (а также в Windows). В Azure вы можете выполнить развертывание Docker несколькими разными способами в зависимости от потребностей.
 
 - Чтобы быстро создать прототип приложения, можно [использовать драйвер Azure для Docker Machine](./virtual-machines-linux-docker-machine.md) для развертывания узлов Docker в Azure.
 - Расширение виртуальной машины Docker используется для развертывания виртуальных машин Azure на основе шаблона. Этот подход поддерживает интеграцию с развертыванием шаблонов Azure Resource Manager и предоставляет все связанные с этим преимущества, такие как доступ на основе ролей, диагностика и настройка после развертывания.
 - Расширение виртуальной машины Docker также поддерживает Docker Compose. Docker Compose использует декларативный файл YAML, позволяющий использовать смоделированное разработчиком приложение в любой среде и обеспечить согласованное развертывание.
-- Кроме того, можно [развернуть полный кластер Docker Swarm в службах контейнеров Azure](../container-service/container-service-deployment.md), чтобы получить готовые к работе, масштабируемые развертывания, использующие дополнительные средства планирования и управления, предоставляемые Swarm.
+- Кроме того, можно [развернуть полный кластер Docker Swarm в службах контейнеров Azure](../container-service/container-service-deployment.md) , чтобы получить готовые к работе, масштабируемые развертывания, использующие дополнительные средства планирования и управления, предоставляемые Swarm.
 
 Эта статья посвящена использованию шаблонов Resource Manager для развертывания расширения виртуальной машины Docker в настраиваемой, готовой к эксплуатации среде.
 
-## Расширение виртуальной машины Docker Azure для развертывания шаблонов
+## <a name="azure-docker-vm-extension-for-template-deployments"></a>Расширение виртуальной машины Docker Azure для развертывания шаблонов
 
 Расширение Docker для виртуальных машин Azure устанавливает и настраивает управляющую программу Docker, клиент Docker и Docker Compose на виртуальной машине Linux. Кроме того, расширение используется для определения и развертывания приложений контейнера с помощью Docker Compose. В этом расширении доступны дополнительные элементы управления для использования Docker Machine и для самостоятельного создания узла Docker. Благодаря этому оно подходит для более надежных сред разработки или рабочих сред.
 
 С помощью Azure Resource Manager можно создать и развернуть шаблоны, определяющие структуру всей среды. Шаблоны позволяют определить узлы Docker, хранилище, элементы управления доступом на основе ролей (RBAC), службу диагностики и т. д. Вы можете ознакомиться с [дополнительными сведениями об Azure Resource Manager](../resource-group-overview.md) и шаблонах, чтобы лучше понять некоторые преимущества. С помощью шаблонов Resource Manager можно будет также воспроизвести развертывания в будущем, если потребуется.
 
-## Развертывание шаблона с помощью расширения виртуальной машины Docker
+## <a name="deploy-a-template-with-the-docker-vm-extension:"></a>Развертывание шаблона с помощью расширения виртуальной машины Docker
 
-Чтобы продемонстрировать развертывание виртуальной машины Ubuntu, на которой установлено расширение виртуальной машины Docker, мы используем готовый шаблон быстрого запуска. Шаблон можно найти в разделе [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) (Простое развертывание виртуальной машины Ubuntu с Docker). Также потребуется [последняя версия Azure CLI](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).
+Чтобы продемонстрировать развертывание виртуальной машины Ubuntu, на которой установлено расширение виртуальной машины Docker, мы используем готовый шаблон быстрого запуска. Шаблон можно найти в разделе [Simple deployment of an Ubuntu VM with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)(Простое развертывание виртуальной машины Ubuntu с Docker). Также потребуется [последняя версия Azure CLI](../xplat-cli-install.md) в режиме Resource Manager (`azure config mode arm`).
 
 Разверните шаблон с помощью Azure CLI, указав имя новой группы ресурсов (в данном случае это `myDockerResourceGroup`) и универсальный код ресурса (URI) шаблона.
 
 ```
-azure group create --name myDockerResourceGroup --location "West US" \
+azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
 
@@ -50,19 +49,19 @@ azure group create --name myDockerResourceGroup --location "West US" \
 
 ```
 info:    Executing command group create
-+ Getting resource group myDockerResourceGroup
-+ Updating resource group myDockerResourceGroup
-info:    Updated resource group myDockerResourceGroup
++ Getting resource group myResourceGroup
++ Updating resource group myResourceGroup
+info:    Updated resource group myResourceGroup
 info:    Supply values for the following parameters
-newStorageAccountName: mydockerstorage
+newStorageAccountName: mystorageaccount
 adminUsername: ops
 adminPassword: P@ssword!
-dnsNameForPublicIP: mydockergroup
+dnsNameForPublicIP: mypublicip
 + Initializing template configurations and parameters
 + Creating a deployment
 info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/guid/resourceGroups/myDockerResourceGroup
-data:    Name:                myDockerResourceGroup
+data:    Id:                  /subscriptions/guid/resourceGroups/myResourceGroup
+data:    Name:                myResourceGroup
 data:    Location:            westus
 data:    Provisioning State:  Succeeded
 data:    Tags: null
@@ -73,10 +72,10 @@ info:    group create command OK
 
 Azure CLI отобразит командную строку всего через несколько секунд, но в фоновом режиме будет выполняться развертывание шаблона в созданную группу ресурсов. Подождите несколько минут до завершения развертывания, прежде чем попытаться подключиться по протоколу SSH к виртуальной машине.
 
-Сведения о развертывании и DNS-имя виртуальной машины можно получить с помощью команды `azure vm show`. В следующем примере замените `myDockerResourceGroup` именем, указанным на предыдущем шаге.
+Сведения о развертывании и DNS-имя виртуальной машины можно получить с помощью команды `azure vm show` . В следующем примере замените `myResourceGroup` на имя, указанное на предыдущем шаге (по умолчанию используется имя виртуальной машины из шаблона `myDockerVM`, поэтому оставьте его без изменений):
 
 ```bash
-azure vm show -g myDockerResourceGroup -n myDockerVM
+azure vm show -g myResourceGroup -n myDockerVM
 info:    Executing command vm show
 + Looking up the VM "myDockerVM"
 + Looking up the NIC "myVMNicD"
@@ -86,30 +85,7 @@ data:    ProvisioningState               :Succeeded
 data:    Name                            :MyDockerVM
 data:    Location                        :westus
 data:    Type                            :Microsoft.Compute/virtualMachines
-data:
-data:    Hardware Profile:
-data:      Size                          :Standard_F1
-data:
-data:    Storage Profile:
-data:      Image reference:
-data:        Publisher                   :Canonical
-data:        Offer                       :UbuntuServer
-data:        Sku                         :14.04.4-LTS
-data:        Version                     :latest
-data:
-data:      OS Disk:
-data:        OSType                      :Linux
-data:        Name                        :osdisk1
-data:        Caching                     :ReadWrite
-data:        CreateOption                :FromImage
-data:        Vhd:
-data:          Uri                       :http://mydockerstorage.blob.core.windows.net/vhds/osdiskfordockersimple.vhd
-data:
-data:    OS Profile:
-data:      Computer Name                 :MyDockerVM
-data:      User Name                     :ops
-data:      Linux Configuration:
-data:        Disable Password Auth       :false
+[...]
 data:
 data:    Network Profile:
 data:      Network Interfaces:
@@ -120,7 +96,7 @@ data:          Provisioning State        :Succeeded
 data:          Name                      :myVMNicD
 data:          Location                  :westus
 data:            Public IP address       :13.91.107.235
-data:            FQDN                    :mydockergroup.westus.cloudapp.azure.com
+data:            FQDN                    :mypublicip.westus.cloudapp.azure.com]
 data:
 data:    Diagnostics Instance View:
 info:    vm show command OK
@@ -131,8 +107,14 @@ info:    vm show command OK
 В конце выходных данных `FQDN` отображает полное доменное имя на основе указанного DNS-имени и расположения, которое вы выбрали. Это полное доменное имя будет использовано для подключения к виртуальной машине по протоколу SSH на последующих шагах.
 
 
-## Развертывание первого контейнера nginx
-После завершения развертывания подключитесь к новому узлу Docker с помощью SSH, используя DNS-имя, которое вы указали во время развертывания. Давайте попробуем запустить контейнер nginx.
+## <a name="deploy-your-first-nginx-container"></a>Развертывание первого контейнера nginx
+После завершения развертывания подключитесь к новому узлу Docker с помощью SSH, используя DNS-имя, которое вы указали во время развертывания.
+
+```bash
+ssh ops@mypublicip.westus.cloudapp.azure.com
+```
+
+Давайте попробуем запустить контейнер nginx.
 
 ```
 sudo docker run -d -p 80:80 nginx
@@ -165,7 +147,7 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 
 Возможно, потребуется настроить TCP-порт и параметры безопасности управляющей программы Docker или развернуть контейнеры с помощью Docker Compose. Чтобы узнать больше, ознакомьтесь с [проектом расширения виртуальной машины Azure для Docker на сайте GitHub](https://github.com/Azure/azure-docker-extension/).
 
-## Пример шаблона JSON расширения виртуальной машины Docker
+## <a name="docker-vm-extension-json-template-reference"></a>Пример шаблона JSON расширения виртуальной машины Docker
 
 В этом примере используется шаблон быстрого запуска. Чтобы развернуть расширение виртуальной машины Docker для Azure с помощью собственных шаблонов Resource Manager, добавьте следующий код JSON.
 
@@ -191,13 +173,17 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 
 Подробное пошаговое руководство по использованию шаблонов Resource Manager см. в статье [Обзор Azure Resource Manager](../resource-group-overview.md).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Более подробные инструкции для разных вариантов развертывания см. в следующих статьях:
 
-1. [Использование машины Docker с драйвером Azure](./virtual-machines-linux-docker-machine.md)
-2. [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](./virtual-machines-linux-classic-cli-use-docker.md)
+1. [Использование машины Docker с драйвером Azure](./virtual-machines-linux-docker-machine.md)  
+2. [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](./virtual-machines-linux-classic-cli-use-docker.md)  
 3. [Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure](virtual-machines-linux-docker-compose-quickstart.md)
 3. [Развертывание кластера службы контейнеров Azure](../container-service/container-service-deployment.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

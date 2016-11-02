@@ -1,309 +1,314 @@
 <properties
-	pageTitle="Руководство. Интеграция Azure Active Directory с ImageRelay | Microsoft Azure"
-	description="Узнайте, как настроить единый вход Azure Active Directory в ImageRelay."
-	services="active-directory"
-	documentationCenter=""
-	authors="jeevansd"
-	manager="femila"
-	editor=""/>
+    pageTitle="Tutorial: Azure Active Directory integration with ImageRelay | Microsoft Azure"
+    description="Learn how to configure single sign-on between Azure Active Directory and ImageRelay."
+    services="active-directory"
+    documentationCenter=""
+    authors="jeevansd"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/15/2016"
-	ms.author="jeedes"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/31/2016"
+    ms.author="jeedes"/>
 
 
-# Руководство. Интеграция Azure Active Directory с ImageRelay
 
-Цель этого руководства — показать, как интегрировать Azure Active Directory (Azure AD) с приложением ImageRelay. Интеграция ImageRelay с Azure AD обеспечивает следующие преимущества.
+# <a name="tutorial-azure-active-directory-integration-with-imagerelay"></a>Tutorial: Azure Active Directory integration with ImageRelay
 
-- С помощью Azure AD вы можете контролировать доступ к ImageRelay.
-- Вы можете включить автоматический вход пользователей в ImageRelay (единый вход) с учетной записью Azure AD.
-- Вы можете управлять учетными записями централизованно — через классический портал Azure.
+The objective of this tutorial is to show you how to integrate ImageRelay with Azure Active Directory (Azure AD).  
+Integrating ImageRelay with Azure AD provides you with the following benefits:
 
-Подробнее узнать об интеграции приложений SaaS с Azure AD можно в статье [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+- You can control in Azure AD who has access to ImageRelay
+- You can enable your users to automatically get signed-on to ImageRelay (single sign-on) with their Azure AD accounts
+- You can manage your accounts in one central location - the Azure classic portal
 
-## Предварительные требования
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-Чтобы настроить интеграцию Azure AD с ImageRelay, вам потребуется:
+## <a name="prerequisites"></a>Prerequisites
 
-- подписка Azure AD;
-- подписка с поддержкой единого входа ImageRelay.
+To configure Azure AD integration with ImageRelay, you need the following items:
 
+- An Azure AD subscription
+- A ImageRelay single sign-on enabled subscription
 
-> [AZURE.NOTE] Мы не рекомендуем использовать рабочую среду для проверки действий в этом учебнике.
 
+> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
-При проверке действий в этом учебнике соблюдайте следующие рекомендации:
 
-- Не следует использовать рабочую среду при отсутствии необходимости.
-- Если у вас нет пробной среды Azure AD, вы можете получить пробную версию на один месяц по [этой ссылке](https://azure.microsoft.com/pricing/free-trial/).
+To test the steps in this tutorial, you should follow these recommendations:
 
+- You should not use your production environment, unless this is necessary.
+- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
-## Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
-1. Добавление ImageRelay из коллекции
+## <a name="scenario-description"></a>Scenario Description
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
+The scenario outlined in this tutorial consists of two main building blocks:
 
-2. Настройка и проверка единого входа в Azure AD.
+1. Adding ImageRelay from the gallery
 
+2. Configuring and testing Azure AD single sign-on
 
-## Добавление ImageRelay из коллекции
-Чтобы настроить интеграцию ImageRelay с Azure AD, необходимо добавить ImageRelay из коллекции в список управляемых приложений SaaS.
 
-**Чтобы добавить ImageRelay из коллекции, выполните следующие действия.**
+## <a name="adding-imagerelay-from-the-gallery"></a>Adding ImageRelay from the gallery
+To configure the integration of ImageRelay into Azure AD, you need to add ImageRelay from the gallery to your list of managed SaaS apps.
 
-1. На классическом портале Azure в области навигации слева щелкните **Active Directory**.
+**To add ImageRelay from the gallery, perform the following steps:**
 
-	![Active Directory][1]
+1. In the Azure classic portal, on the left navigation pane, click **Active Directory**. 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+    ![Active Directory][1]
 
-3. Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-	![Приложения][2]
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
 
-4. В нижней части страницы нажмите кнопку **Добавить**.
+    ![Applications][2]
 
-	![Приложения][3]
+4. Click **Add** at the bottom of the page.
 
-5. В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+    ![Applications][3]
 
-	![Приложения][4]
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
 
-6. В поле поиска введите **ImageRelay**.
+    ![Applications][4]
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)
+6. In the search box, type **ImageRelay**.
 
-7. В области результатов выберите **ImageRelay** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_01.png)
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)
+7. In the results pane, select **ImageRelay**, and then click **Complete** to add the application.
 
-##  Настройка и проверка единого входа в Azure AD
-Цель этого раздела — показать, как настроить и проверить единый вход Azure AD в ImageRelay с использованием тестового пользователя Britta Simon.
+    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_02.png)
 
-Для работы единого входа Azure AD необходима учетная запись пользователя, представляющая соответствующего пользователя в ImageRelay. Иными словами, необходимо установить связь между пользователем Azure AD и соответствующим пользователем в ImageRelay. Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в ImageRelay.
+##  <a name="configuring-and-testing-azure-ad-single-signon"></a>Configuring and testing Azure AD single sign-on
+The objective of this section is to show you how to configure and test Azure AD single sign-on with ImageRelay based on a test user called "Britta Simon".
 
-Чтобы настроить и проверить единый вход Azure AD в ImageRelay, вам потребуется выполнить действия в следующих стандартных блоках.
+For single sign-on to work, Azure AD needs a user account that represents the related user in ImageRelay.  In other words, a link relationship between an Azure AD user and the related user in ImageRelay needs to be established.  
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in ImageRelay.
 
-1. **[Настройка единого входа Azure AD](#configuring-azure-ad-single-single-sign-on)** необходима, чтобы пользователи могли использовать эту функцию;
-2. **[Создание тестового пользователя Azure AD](#creating-an-azure-ad-test-user)** требуется для проверки работы единого входа Azure AD от имени пользователя Britta Simon;
-4. **[Создание тестового пользователя ImageRelay](#creating-a-userecho-test-user)** требуется для создания в ImageRelay пользователя Britta Simon, связанного с представлением этого же пользователя в Azure AD.
-5. **[Назначение тестового пользователя Azure AD](#assigning-the-azure-ad-test-user)** необходимо, чтобы позволить Britta Simon использовать единый вход Azure AD;
-5. **[Проверка единого входа](#testing-single-sign-on)** необходима, чтобы убедиться в корректной работе конфигурации.
+To configure and test Azure AD single sign-on with ImageRelay, you need to complete the following building blocks:
 
-### Настройка единого входа в Azure AD
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
+2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Creating a ImageRelay test user](#creating-a-userecho-test-user)** - to have a counterpart of Britta Simon in ImageRelay that is linked to the Azure AD representation of her.
+5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
-Цель этого раздела — включить единый вход Azure AD на классическом портале Azure и настроить единый вход в приложение ImageRelay.
+### <a name="configuring-azure-ad-single-signon"></a>Configuring Azure AD Single Sign-On
 
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your ImageRelay application.
 
-**Чтобы настроить единый вход Azure AD в ImageRelay, выполните следующие действия.**
 
-1. На классическом портале Azure на странице интеграции с приложением **ImageRelay** щелкните **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
+**To configure Azure AD single sign-on with ImageRelay, perform the following steps:**
 
-     ![Настройка единого входа][6]
+1. In the Azure classic portal, on the **ImageRelay** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On** dialog.
 
-2. На странице **Как пользователи должны входить в ImageRelay?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.
+     ![Configure Single Sign-On][6] 
 
-    ![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_03.png)
+2. On the **How would you like users to sign on to ImageRelay** page, select **Azure AD Single Sign-On**, and then click **Next**.
 
-3. В диалоговом окне на странице **Настройка параметров приложения** выполните следующие действия.
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_03.png) 
 
-     ![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_04.png)
+3. On the **Configure App Settings** dialog page, perform the following steps:
 
-    а. В текстовое поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение ImageRelay (например, *https://fabrikam.ImageRelay.com/*).
+     ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_04.png) 
 
-    b. Нажмите кнопку **Далее**.
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign on to your ImageRelay application (for example: *https://fabrikam.ImageRelay.com/*).
 
-4. На странице **Настройка единого входа в ImageRelay** выполните следующие действия:
+    b. Click **Next**.
 
-    ![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_05.png)
+4. On the **Configure single sign-on at ImageRelay** page, perform the following steps:
 
-    а. Нажмите **Загрузить сертификат** и сохраните файл сертификата на свой компьютер.
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_05.png) 
 
-    b. Нажмите кнопку **Далее**.
+    a. Click **Download certificate**, and then save the file on your computer.
 
-5. В другом окне браузера войдите на корпоративный сайт ImageRelay с правами администратора.
+    b. Click **Next**.
 
-1. На панели инструментов вверху экрана выберите рабочую нагрузку **Users & Permissions** (Пользователи и разрешения).
+5. In another browser window, sign in to your ImageRelay company site as an administrator.
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png)
+1. In the toolbar on the top, click the **Users & Permissions** workload.
 
-1. Щелкните **Создать новое разрешение**.
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_08.png)
+1. Click **Create New Permission**.
 
-1. В рабочей нагрузке **Параметры единого входа** установите флажок **This Group can only sign-in via Single Sign On** (Эта группа может входить только через единый вход) и нажмите кнопку **Сохранить**.
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_08.png) 
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png)
+1. In the **Single Sign On Settings** workload, select the **This Group can only sign-in via Single Sign On** check box, and then click **Save**.
 
-1. Откройте **Параметры учетной записи**.
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_10.png)
+1. Go to **Account Settings**.
 
-1. Выберите рабочую нагрузку **Параметры единого входа**.
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)
+1. Go to the **Single Sign On Settings** workload.
 
-1. В диалоговом окне **SAML Settings** (Параметры SAML) выполните следующие действия.
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)
+1. On the **SAML Settings** dialog, perform the following steps:
 
-	а. На классическом портале Azure скопируйте **URL-адрес службы единого входа** и вставьте его в текстовое поле **URL-адрес для входа**.
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)
 
+    a. In the Azure classic portal, copy the **Single Sign-On Service URL**, and then paste it into the **Login URL** textbox.
 
-	b. На классическом портале Azure скопируйте **URL-адрес службы единого выхода** и вставьте его в текстовое поле **URL-адрес выхода**.
 
-	c. В поле **Name Id Format** (Формат идентификатора имени) выберите **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
+    b. In the Azure classic portal, copy the **Single Sign-Out Service URL**, and then paste it into the **Logout URL** textbox.
 
-	
-    г) В разделе **Binding Options for Requests from the Service Provider (ImageRelay)** (Обязательные параметры для запросов от поставщика услуг (ImageRelay)) выберите **POST Binding** (Привязка POST).
+    c. As **Name Id Format**, select **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
+
+    
+    d. As **Binding Options for Requests from the Service Provider (Image Relay)**, select **POST Binding**.
    
 
-	д. В разделе **509 Certificate** (Сертификат x.509) щелкните **Update Certificate** (Обновить сертификат).
+    e. Under **x.509 Certificate**, click **Update Certificate**.
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_17.png)
 
-    Е. Откройте скачанный сертификат в блокноте, а затем скопируйте и вставьте его содержимое в текстовое поле X.509 Certificate (Сертификат X.509).
+    f. Open the downloaded certificate in notepad, copy the content, and then paste it into the x.509 Certificate textbox.
   
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_18.png)
 
-    g. В разделе **Just-In-Time User Provisioning** (JIT-подготовка пользователей) выберите **Enable Just-In-Time User Provisioning** (Включить JIT-подготовку пользователей).
+    g. In **Just-In-Time User Provisioning** section, select the **Enable Just-In-Time User Provisioning**.
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_19.png)
 
-    h. Выберите группу разрешений (например, **SSO Basic** (Базовый единый вход)), которой будет разрешено выполнять вход только через службу единого входа.
+    h. Select the permission group (for example, **SSO Basic**) which is allowed to sign in only through single sign-on.
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_20.png)
 
-    i. Щелкните **Сохранить**.
+    i. Click **Save**.
 
-6. На классическом портале Azure выберите подтверждение конфигурации единого входа и нажмите кнопку **Далее**.
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
-    ![Единый вход в Azure AD][10]
+    ![Azure AD Single Sign-On][10]
 
-7. На странице **Подтверждение единого входа** нажмите кнопку **Завершить**.
+7. On the **Single sign-on confirmation** page, click **Complete**.
 
-    ![Единый вход в Azure AD][11]
+    ![Azure AD Single Sign-On][11]
 
 
-### Создание тестового пользователя Azure AD
-Цель этого раздела — создать на классическом портале Azure тестового пользователя с именем Britta Simon.
+### <a name="creating-an-azure-ad-test-user"></a>Creating an Azure AD test user
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
-![Создание пользователя Azure AD][20]
+![Create Azure AD User][20]
 
-**Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
+**To create a test user in Azure AD, perform the following steps:**
 
-1. На **классическом портале Azure** в области навигации слева щелкните **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_09.png) 
 
-2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
+2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. Чтобы отобразить список пользователей, в меню вверху выберите **Пользователи**.
+3. To display the list of users, in the menu on the top, click **Users**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_03.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_03.png) 
 
-4. Чтобы открыть диалоговое окно **Добавление пользователя**, на панели инструментов внизу нажмите кнопку **Добавить пользователя**.
+4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_04.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_04.png) 
 
-5. На странице диалогового окна **Тип учетной записи пользователя** выполните следующие действия.
+5. On the **Tell us about this user** dialog page, perform the following steps:
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_05.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_05.png) 
 
-    а. В поле «Тип пользователя» выберите значение «Новый пользователь в вашей организации».
+    a. As Type Of User, select New user in your organization.
 
-    b. В текстовое поле **Имя пользователя** введите **BrittaSimon**.
+    b. In the User Name **textbox**, type **BrittaSimon**.
 
-    c. Нажмите кнопку **Далее**.
+    c. Click **Next**.
 
-6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия.
+6.  On the **User Profile** dialog page, perform the following steps:
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_06.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_06.png) 
 
-    а. В текстовом поле **Имя** введите **Britta**.
+    a. In the **First Name** textbox, type **Britta**.  
 
-    b. В текстовое поле **Фамилия** введите **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
 
-    c. В текстовое поле **Отображаемое имя** введите **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
 
-    г) В списке **Роль** выберите **Пользователь**.
+    d. In the **Role** list, select **User**.
 
-    д. Нажмите кнопку **Далее**.
+    e. Click **Next**.
 
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**.
+7. On the **Get temporary password** dialog page, click **create**.
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_07.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_07.png) 
 
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия.
+8. On the **Get temporary password** dialog page, perform the following steps:
 
-	![Создание тестового пользователя Azure AD](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_08.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-imagerelay-tutorial/create_aaduser_08.png) 
 
-    а. Запишите значение поля **Новый пароль**.
+    a. Write down the value of the **New Password**.
 
-    b. Нажмите **Завершено**.
+    b. Click **Complete**.   
 
 
 
-### Создание тестового пользователя ImageRelay
+### <a name="creating-a-imagerelay-test-user"></a>Creating a ImageRelay test user
 
-Цель этого раздела — создать пользователя с именем Britta Simon в ImageRelay.
+The objective of this section is to create a user called Britta Simon in ImageRelay.
 
-**Чтобы создать пользователя с именем Britta Simon в ImageRelay, выполните следующие действия.**
+**To create a user called Britta Simon in ImageRelay, perform the following steps:**
 
-1. Войдите на корпоративный сайт ImageRelay с правами администратора.
+1. Sign-on to your ImageRelay company site as an administrator.
 
-1. Откройте раздел **Users & Permissions** (Пользователи и разрешения) и выберите параметр **Create SSO User** (Создать пользователя единого входа).
+1. Go to **Users & Permissions**    and select **Create SSO User**.
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
-1. Введите **адрес электронной почты**, **имя**, **фамилию** и **компанию** пользователя, которого нужно подготовить, и выберите группу разрешений (например, SSO Basic (Базовый единый вход)), т. е. группу, которая сможет выполнять вход только через службу единого входа.
+1. Enter the **Email**, **First Name**, **Last Name** and **Company** of the user you want to provision and select the permission group (for example, SSO Basic ) which is the group that can sign in only through single sign-on.
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_22.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_22.png) 
 
-1. Щелкните **Создать**.
+1. Click **Create**.
 
-### Назначение тестового пользователя Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Assigning the Azure AD test user
 
-Цель этого раздела — разрешить пользователю Britta Simon использовать единый вход Azure, предоставив этому пользователю доступ к ImageRelay.
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to ImageRelay.
 
-![Назначение пользователя][200]
+![Assign User][200] 
 
-**Чтобы назначить пользователя Britta Simon в ImageRelay, выполните следующие действия.**
+**To assign Britta Simon to ImageRelay, perform the following steps:**
 
-1. Чтобы открыть представление приложений, на классическом портале Azure в представлении каталога щелкните пункт **Приложения** в меню вверху.
+1. In the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 
-	![Назначение пользователя][201]
+    ![Assign User][201] 
 
-2. В списке приложений выберите **ImageRelay**.
+2. In the applications list, select **ImageRelay**.
 
-	![Настройка единого входа](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png)
+    ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_23.png) 
 
-1. В меню в верхней части страницы щелкните **Пользователи**.
+1. In the menu on the top, click **Users**.
 
-	![Назначение пользователя][203]
+    ![Assign User][203] 
 
-1. В списке пользователей выберите **Britta Simon**.
+1. In the Users list, select **Britta Simon**.
 
-2. На панели инструментов внизу щелкните **Назначить**.
+2. In the toolbar on the bottom, click **Assign**.
 
-	![Назначение пользователя][205]
+    ![Assign User][205]
 
 
-### Проверка единого входа
+### <a name="testing-single-signon"></a>Testing Single Sign-On
 
-Цель этого раздела — проверить конфигурацию единого входа Azure AD с помощью панели доступа. Щелкнув элемент ImageRelay на панели доступа, вы автоматически войдете в приложение ImageRelay.
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
+When you click the ImageRelay tile in the Access Panel, you should get automatically signed-on to your ImageRelay application.
 
 
-## дополнительные ресурсы.
+## <a name="additional-resources"></a>Additional Resources
 
-* [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 
 <!--Image references-->
@@ -324,4 +329,8 @@
 [204]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-imagerelay-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

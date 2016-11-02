@@ -1,34 +1,35 @@
 <properties
-	pageTitle="Azure AD Connect: экземпляры службы синхронизации | Microsoft Azure"
-	description="На этой странице приводятся специальные рекомендации для экземпляров Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+    pageTitle="Azure AD Connect: экземпляры службы синхронизации | Microsoft Azure"
+    description="На этой странице приводятся специальные рекомендации для экземпляров Azure AD."
+    services="active-directory"
+    documentationCenter=""
+    authors="andkjell"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/27/2016"
-	ms.author="andkjell"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/27/2016"
+    ms.author="billmath"/>
 
-# Azure AD Connect: специальные рекомендации для экземпляров
+
+# <a name="azure-ad-connect:-special-considerations-for-instances"></a>Azure AD Connect: специальные рекомендации для экземпляров
 Azure AD Connect чаще всего используется с доступным во всем мире экземпляром Azure AD и Office 365. Но существуют и другие экземпляры, и они имеют другие требования к URL-адресам и прочие особенности.
 
-## Microsoft Cloud Germany
+## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Germany
 [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) — это независимое облако, обслуживаемое управителем данными из Германии.
 
 В настоящее время это облако доступно в предварительной версии. Многие сценарии, которые обычно можно выполнить самостоятельно, такие как проверка доменов, должны выполняться оператором. Дополнительные сведения о том, как принять участие в оценке предварительной версии, можно получить у местного представителя корпорации Майкрософт.
 
 URL-адреса для открытия на прокси-сервере |
 --- |
-*.microsoftonline.de |
-*.windows.net |
-\+Списки отзыва сертификатов |
+\*.microsoftonline.de |
+\*.windows.net |
++Списки отзыва сертификатов |
 
 При входе в каталог Azure AD необходимо использовать учетную запись в домене onmicrosoft.de.
 
@@ -38,16 +39,16 @@ URL-адреса для открытия на прокси-сервере |
 - Автоматические обновления недоступны.
 - Компонент обратной записи паролей недоступен.
 
-## Облако Microsoft Azure для государственных организаций
+## <a name="microsoft-azure-government-cloud"></a>Облако Microsoft Azure для государственных организаций
 [Облако Microsoft Azure для государственных организаций](https://azure.microsoft.com/features/gov/) — это облако для правительства США.
 
 Это облако поддерживается в более ранних выпусках DirSync. Начиная со сборки 1.1.180 Azure AD Connect поддерживается следующее поколение облака. Это поколение использует базирующиеся только в США конечные точки и имеет другой список URL-адресов для открытия на прокси-сервере.
 
 URL-адреса для открытия на прокси-сервере |
 --- |
-*.microsoftonline.com |
-*.gov.us.microsoftonline.com |
-\+Списки отзыва сертификатов |
+\*.microsoftonline.com |
+\*.gov.us.microsoftonline.com |
++Списки отзыва сертификатов |
 
 Azure AD Connect не сможет автоматически определять, что каталог Azure AD находится в облаке для государственных организаций. Вместо этого при установке Azure AD Connect необходимо выполнить следующие действия.
 
@@ -62,7 +63,11 @@ Azure AD Connect не сможет автоматически определят
 - Автоматические обновления недоступны.
 - Компонент обратной записи паролей недоступен.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Создание балансировщика нагрузки для Интернета с поддержкой IPv6 в Azure Resource Manager с помощью Azure CLI
+
+# <a name="create-an-internet-facing-load-balancer-with-ipv6-in-azure-resource-manager-using-the-azure-cli"></a>Создание балансировщика нагрузки для Интернета с поддержкой IPv6 в Azure Resource Manager с помощью Azure CLI
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-IPv6-internet-ps.md)
-- [Интерфейс командной строки Azure](load-balancer-IPv6-internet-cli.md)
-- [Шаблон](load-balancer-IPv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [Интерфейс командной строки Azure](./load-balancer-ipv6-internet-cli.md)
+- [Шаблон](./load-balancer-ipv6-internet-template.md)
 
 Azure Load Balancer является балансировщиком нагрузки 4-го уровня (TCP, UDP). Балансировщик нагрузки обеспечивает высокий уровень доступности, распределяя входящий трафик между работоспособными экземплярами службы в облачных службах или виртуальных машинах, определенных в наборе балансировщика нагрузки. Azure Load Balancer может также представить данные службы на нескольких портах, нескольких IP-адресах или обоими этими способами.
 
-## Пример сценария развертывания
+## <a name="example-deployment-scenario"></a>Пример сценария развертывания
 
 На следующей схеме показано решение балансировки нагрузки, которое развертывается в этой статье с помощью примера шаблона.
 
@@ -41,7 +43,7 @@ Azure Load Balancer является балансировщиком нагруз
 - группу доступности, которая содержит две виртуальные машины;
 - два правила балансировки нагрузки для сопоставления общедоступных виртуальных IP-адресов с частными конечными точками.
 
-## Развертывание решения с помощью интерфейса командной строки Azure (Azure CLI)
+## <a name="deploying-the-solution-using-the-azure-cli"></a>Развертывание решения с помощью интерфейса командной строки Azure (Azure CLI)
 
 Ниже описана процедура создания балансировщика нагрузки для Интернета с помощью Azure Resource Manager и интерфейса командной строки. Azure Resource Manager позволяет по отдельности создавать и настраивать ресурсы, после чего на их основе создается единый ресурс.
 
@@ -53,15 +55,15 @@ Azure Load Balancer является балансировщиком нагруз
 - Правила NAT для входящего трафика. Содержат правила сопоставления общего порта в балансировщике нагрузки с портом на конкретной виртуальной машине в пуле внутренних адресов.
 - Пробы. Содержат пробы работоспособности, с помощью которых можно проверить доступность экземпляров виртуальных машин в пуле внутренних адресов.
 
-Дополнительные сведения см. в статье, посвященной [поддержке Azure Resource Manager для балансировщика нагрузки](load-balancer-arm.md).
+Дополнительные сведения см. в статье [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](load-balancer-arm.md).
 
-## Настройка среды интерфейса командной строки для использования Azure Resource Manager
+## <a name="set-up-your-cli-environment-to-use-azure-resource-manager"></a>Настройка среды интерфейса командной строки для использования Azure Resource Manager
 
 В этом примере программы командной строки выполняются в командном окне PowerShell. Мы не используем командлеты Azure PowerShell, но применяем возможности сценариев PowerShell для улучшения удобства чтения и повторного использования.
 
 1. Если вы еще не пользовались Azure CLI, ознакомьтесь со статьей [Установка и настройка CLI Azure](../../articles/xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 
-2. Выполните команду **azure config mode**, чтобы переключиться в режим Resource Manager.
+2. Выполните команду **azure config mode** , чтобы переключиться в режим Resource Manager.
 
         azure config mode arm
 
@@ -95,7 +97,7 @@ Azure Load Balancer является балансировщиком нагруз
         $lbName = "myIPv4IPv6Lb"
         ```
 
-## Создание группы ресурсов, балансировщика нагрузки, виртуальной сети и подсетей
+## <a name="create-a-resource-group,-a-load-balancer,-a-virtual-network,-and-subnets"></a>Создание группы ресурсов, балансировщика нагрузки, виртуальной сети и подсетей
 
 1. Создание группы ресурсов
 
@@ -114,7 +116,7 @@ Azure Load Balancer является балансировщиком нагруз
         $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
         $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
 
-## Создание общедоступных IP-адресов для интерфейсного пула
+## <a name="create-public-ip-addresses-for-the-front-end-pool"></a>Создание общедоступных IP-адресов для интерфейсного пула
 
 1. Настройте переменные PowerShell.
 
@@ -126,9 +128,10 @@ Azure Load Balancer является балансировщиком нагруз
         $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
         $publicipV6 = azure network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
 
-    >[AZURE.IMPORTANT] Балансировщик нагрузки использует метку домена общедоступного IP-адреса в качестве своего полного доменного имени (FQDN). В этом заключается отличие от классического развертывания, при котором в качестве полного доменного имени балансировщика нагрузки используется имя облачной службы. В этом примере используется полное доменное имя *contoso09152016.southcentralus.cloudapp.azure.com*.
+    >[AZURE.IMPORTANT]Балансировщик нагрузки использует метку домена общедоступного IP-адреса в качестве своего полного доменного имени (FQDN). В этом заключается отличие от классического развертывания, при котором в качестве полного доменного имени балансировщика нагрузки используется имя облачной службы.
+    >В этом примере используется полное доменное имя *contoso09152016.southcentralus.cloudapp.azure.com*.
 
-## Создание интерфейсного и внутреннего пулов
+## <a name="create-front-end-and-back-end-pools"></a>Создание интерфейсного и внутреннего пулов
 
 В этом примере создается интерфейсный пул IP-адресов, который принимает входящий сетевой трафик в балансировщик нагрузки, а также внутренний пул IP-адресов, куда интерфейсный пул отправляет сетевой трафик с балансировкой нагрузки.
 
@@ -146,7 +149,7 @@ Azure Load Balancer является балансировщиком нагруз
         $backendAddressPoolV4 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
         $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
 
-## Создание пробы, правил NAT и правил балансировки нагрузки
+## <a name="create-the-probe,-nat-rules,-and-lb-rules"></a>Создание пробы, правил NAT и правил балансировки нагрузки
 
 В этом примере создаются следующие элементы:
 
@@ -226,7 +229,7 @@ Azure Load Balancer является балансировщиком нагруз
         info:    network lb show
 
 
-## Создание сетевых адаптеров
+## <a name="create-nics"></a>Создание сетевых адаптеров
 
 Создайте сетевые карты и свяжите их с правилами NAT, правилами балансировщика нагрузки и пробами.
 
@@ -249,9 +252,9 @@ Azure Load Balancer является балансировщиком нагруз
         $nic2 = azure network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
         $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
 
-## Создание внутренних ресурсов виртуальных машин и присоединение каждой сетевой карты
+## <a name="create-the-back-end-vm-resources-and-attach-each-nic"></a>Создание внутренних ресурсов виртуальных машин и присоединение каждой сетевой карты
 
-Чтобы создать виртуальные машины, необходима учетная запись хранения. Для балансировки нагрузки виртуальные машины должны входить в группу доступности. Дополнительные сведения о создании виртуальных машин см. в статье [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md).
+Чтобы создать виртуальные машины, необходима учетная запись хранения. Для балансировки нагрузки виртуальные машины должны входить в группу доступности. Дополнительные сведения о создании виртуальных машин см. в статье [Создание виртуальной машины в Azure с помощью PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md).
 
 1. Настройте переменные PowerShell.
 
@@ -269,7 +272,7 @@ Azure Load Balancer является балансировщиком нагруз
         $vmUserName = "vmUser"
         $mySecurePassword = "PlainTextPassword*1"
 
-    >[AZURE.WARNING] В этом примере для виртуальных машин используются имя пользователя и пароль в виде открытого текста. При использовании учетных данных в незашифрованном виде следует принять соответствующие меры предосторожности. Более безопасный способ обработки учетных данных в PowerShell приводится в описании командлета [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx).
+    >[AZURE.WARNING] В этом примере для виртуальных машин используются имя пользователя и пароль в виде открытого текста. При использовании учетных данных в незашифрованном виде следует принять соответствующие меры предосторожности. Более безопасный способ обработки учетных данных в PowerShell приводится в описании командлета [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) .
 
 2. Создайте учетную запись хранения и группу доступности.
 
@@ -287,7 +290,7 @@ Azure Load Balancer является балансировщиком нагруз
 
         $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn  --storage-account-name $storageAccountName --disable-bginfo-extension
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-cli.md)
 
@@ -295,4 +298,8 @@ Azure Load Balancer является балансировщиком нагруз
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

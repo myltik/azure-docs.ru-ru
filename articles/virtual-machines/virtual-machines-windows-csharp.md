@@ -1,61 +1,62 @@
 <properties
-	pageTitle="Развертывание ресурсов Azure с помощью языка C# | Microsoft Azure"
-	description="Сведения о том, как использовать язык C# и Azure Resource Manager для создания ресурсов Microsoft Azure."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager"/>
+    pageTitle="Развертывание ресурсов Azure с помощью языка C# | Microsoft Azure"
+    description="Сведения о том, как использовать язык C# и Azure Resource Manager для создания ресурсов Microsoft Azure."
+    services="virtual-machines-windows"
+    documentationCenter=""
+    authors="davidmu1"
+    manager="timlt"
+    editor="tysonn"
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines-windows"
-	ms.workload="na"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machines-windows"
+    ms.workload="na"
+    ms.tgt_pltfrm="vm-windows"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/06/2016"
+    ms.author="davidmu"/>
 
-# Развертывание ресурсов Azure с помощью языка C# 
+
+# <a name="deploy-azure-resources-using-c#"></a>Развертывание ресурсов Azure с помощью языка C# 
 
 В этой статье показано, как создавать ресурсы Azure с помощью C#.
 
-Сначала необходимо выполнить следующее.
+Сначала необходимо выполнить следующие задачи.
 
-- Установите [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx).
+- Установите [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - Проверьте, установлен ли компонент [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
-- Получите [маркер аутентификации](../resource-group-authenticate-service-principal.md).
+- Получите [маркер аутентификации](../resource-group-authenticate-service-principal.md)
 
 На выполнение этих действий требуется примерно 30 минут.
 
-## Действие 1. Создание проекта Visual Studio и установка библиотек
+## <a name="step-1:-create-a-visual-studio-project-and-install-the-libraries"></a>Действие 1. Создание проекта Visual Studio и установка библиотек
 
-Самый простой способ установить библиотеки, необходимые для завершения работы с данным учебником, — это использовать пакеты NuGet. Вам потребуется установить библиотеку управления ресурсами Azure, библиотеку проверки подлинности Azure Active Directory и библиотеку поставщика ресурсов компьютера. Чтобы добавить эти библиотеки в Visual Studio, выполните следующие действия.
+Самый простой способ установить библиотеки, необходимые для завершения работы с данным учебником, — это использовать пакеты NuGet. Чтобы получить эти библиотеки в Visual Studio, выполните следующие действия.
 
-1. Последовательно выберите пункты **Файл**, **Создать** и **Проект**.
+1. Последовательно выберите пункты **Файл** > **Создать** > **Проект**.
 
 2. В разделе **Шаблоны** > **Visual C#** выберите пункт **Консольное приложение**, введите имя и расположение проекта, а затем нажмите кнопку **OK**.
 
 3. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите пункт **Управление пакетами NuGet**.
 
-4. В поле поиска введите текст *Active Directory*, нажмите кнопку **Установить** для пакета библиотеки аутентификации Active Directory, а затем следуйте указаниям по установке пакета.
+4. В поле поиска введите текст *Active Directory* , нажмите кнопку **Установить** для пакета библиотеки аутентификации Active Directory, а затем следуйте указаниям по установке пакета.
 
-5. В верхней части страницы выберите пункт **Включить предварительный выпуск**. В поле поиска введите *Microsoft.Azure.Management.Compute*, нажмите кнопку **Установить**, чтобы установить библиотеки Compute для .NET, а затем следуйте инструкциям по установке пакета.
+5. В верхней части страницы выберите пункт **Включить предварительный выпуск**. В поле поиска введите *Microsoft.Azure.Management.Compute* , нажмите кнопку **Установить** , чтобы установить библиотеки Compute для .NET, а затем следуйте инструкциям по установке пакета.
 
-6. В поле поиска введите *Microsoft.Azure.Management.Network*, нажмите кнопку **Установить**, чтобы установить библиотеки Network для .NET, а затем следуйте инструкциям по установке пакета.
+6. В поле поиска введите *Microsoft.Azure.Management.Network* , нажмите кнопку **Установить** , чтобы установить библиотеки Network для .NET, а затем следуйте инструкциям по установке пакета.
 
-7. В поле поиска введите *Microsoft.Azure.Management.Storage*, нажмите кнопку **Установить**, чтобы установить библиотеки Storage для .NET, а затем следуйте инструкциям по установке пакета.
+7. В поле поиска введите *Microsoft.Azure.Management.Storage* , нажмите кнопку **Установить** , чтобы установить библиотеки Storage для .NET, а затем следуйте инструкциям по установке пакета.
 
-8. В поле поиска введите *Microsoft.Azure.Management.ResourceManager* и нажмите кнопку **Установить**, чтобы установить библиотеки управления ресурсами.
+8. В поле поиска введите *Microsoft.Azure.Management.ResourceManager* и нажмите кнопку **Установить** , чтобы установить библиотеки управления ресурсами.
 
 Теперь вы готовы использовать библиотеки для создания приложения.
 
-## Шаг 2. Создание учетных данных, используемых для аутентификации запросов
+## <a name="step-2:-create-the-credentials-that-are-used-to-authenticate-requests"></a>Шаг 2. Создание учетных данных, используемых для аутентификации запросов
 
-Теперь, когда создано приложение Azure Active Directory и установлена библиотека проверки подлинности, можно на основе сведений о приложении создать учетные данные, которые будут использоваться для проверки подлинности запросов к Azure Resource Manager. Процедура
+Теперь на основе сведений о ранее построенном приложении можно создать учетные данные, которые будут использоваться для проверки подлинности запросов к Azure Resource Manager.
 
-1. Откройте файл Program.cs для созданного вами проекта и добавьте в начало файла указанные ниже операторы using:
+1. Откройте файл Program.cs для созданного проекта и добавьте в начало файла следующие операторы using:
 
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -69,13 +70,13 @@
         using Microsoft.Azure.Management.Compute.Models;
         using Microsoft.Rest;
 
-2. Добавьте в класс Program этот метод, чтобы получить токен, необходимый для создания учетных данных:
+2. Чтобы создать необходимый маркер, добавьте этот метод в класс Program:
 
         private static async Task<AuthenticationResult> GetAccessTokenAsync()
         {
           var cc = new ClientCredential("{client-id}", "{client-secret}");
           var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
-          var token = context.AcquireTokenAsync("https://management.azure.com/", cc);
+          var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
           if (token == null)
           {
             throw new InvalidOperationException("Could not get the token");
@@ -83,22 +84,22 @@
           return token;
         }
 
-	Замените {client-id} идентификатором приложения Azure Active Directory, {client-secret} — ключом доступа приложения AD, а {tenant-id} — кодом клиента своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureRmSubscription. Ключ доступа можно узнать на портале Azure.
+    Замените {client-id} идентификатором приложения Azure Active Directory, {client-secret} — ключом доступа приложения AD, а {tenant-id} — кодом клиента своей подписки. Чтобы узнать идентификатор клиента, выполните команду Get-AzureRmSubscription. Ключ доступа можно узнать на портале Azure.
 
-3. Чтобы создать учетные данные, добавьте этот код в метод Main в файле Program.cs:
+3. Чтобы вызвать добавленный ранее метод, добавьте следующий код в метод Main в файле Program.cs:
 
         var token = GetAccessTokenAsync();
         var credential = new TokenCredentials(token.Result.AccessToken);
 
 4. Сохраните файл Program.cs.
 
-## Шаг 3. Добавление кода для регистрации поставщиков и создания ресурсов
+## <a name="step-3:-register-the-resource-providers-and-create-the-resources"></a>Шаг 3. Регистрация поставщиков ресурсов и создание ресурсов
 
-### Регистрация поставщиков и создание группы ресурсов
+### <a name="register-the-providers-and-create-a-resource-group"></a>Регистрация поставщиков и создание группы ресурсов
 
 Все ресурсы должны содержаться в группе ресурсов. Прежде чем вы сможете добавлять ресурсы в группу, ваша подписка должна быть зарегистрирована в поставщике ресурсов.
 
-1. Добавьте переменные в метод Main класса Program, чтобы указать имена, которые вы хотите использовать для ресурсов, расположение ресурсов (например "Центральная часть США"), данные учетной записи администратора и идентификатор вашей подписки:
+1. Добавьте переменные в метод Main класса Program, чтобы указать имена, которые вы хотите использовать для ресурсов:
 
         var groupName = "resource group name";
         var subscriptionId = "subsciption id";
@@ -115,7 +116,7 @@
         
     Замените все значения переменных именами и идентификаторами, которые вы хотите использовать. Чтобы узнать идентификатор подписки, выполните команду Get-AzureRmSubscription.
 
-2. Чтобы создать группу ресурсов и зарегистрировать поставщики, добавьте приведенный ниже метод в класс Program.
+2. Чтобы создать группу ресурсов и зарегистрировать поставщики, добавьте следующий метод в класс Program:
 
         public static async Task<ResourceGroup> CreateResourceGroupAsync(
           TokenCredentials credential,
@@ -123,6 +124,10 @@
           string subscriptionId,
           string location)
         {
+          var resourceManagementClient = new ResourceManagementClient(credential)
+            { SubscriptionId = subscriptionId };
+            
+          Console.WriteLine("Registering the providers...");
           var rpResult = resourceManagementClient.Providers.Register("Microsoft.Storage");
           Console.WriteLine(rpResult.RegistrationState);
           rpResult = resourceManagementClient.Providers.Register("Microsoft.Network");
@@ -131,13 +136,11 @@
           Console.WriteLine(rpResult.RegistrationState);
           
           Console.WriteLine("Creating the resource group...");
-          var resourceManagementClient = new ResourceManagementClient(credential)
-            { SubscriptionId = subscriptionId };
           var resourceGroup = new ResourceGroup { Location = location };
           return await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(groupName, resourceGroup);
         }
 
-3. Для вызова только что добавленного метода добавьте этот код в метод Main:
+3. Чтобы вызвать добавленный ранее метод, добавьте этот код в метод Main:
 
         var rgResult = CreateResourceGroupAsync(
           credential,
@@ -147,9 +150,9 @@
         Console.WriteLine(rgResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
-### Создайте учетную запись хранения.
+### <a name="create-a-storage-account"></a>Создайте учетную запись хранения.
 
-Для хранения файла виртуального жесткого диска, созданного для виртуальной машины, необходима [учетная запись хранения](../storage/storage-create-storage-account.md).
+Для хранения файла виртуального жесткого диска, созданного для виртуальной машины, необходима [учетная запись хранения](../storage/storage-create-storage-account.md) .
 
 1. Чтобы создать учетную запись хранения, добавьте этот метод в класс Program:
 
@@ -161,7 +164,7 @@
           string storageName)
         {
           Console.WriteLine("Creating the storage account...");
-          var storageManagementClient = new StorageManagementClient(credential);
+          var storageManagementClient = new StorageManagementClient(credential)
             { SubscriptionId = subscriptionId };
           return await storageManagementClient.StorageAccounts.CreateAsync(
             groupName,
@@ -176,7 +179,7 @@
           );
         }
 
-2. Для вызова только что добавленного метода добавьте этот код в метод Main класса Program:
+2. Чтобы вызвать добавленный ранее метод, добавьте этот код в метод Main класса Program:
 
         var stResult = CreateStorageAccountAsync(
           credential,
@@ -187,7 +190,7 @@
         Console.WriteLine(stResult.Result.ProvisioningState);  
         Console.ReadLine();
 
-### Создание общедоступного IP-адреса
+### <a name="create-the-public-ip-address"></a>Создание общедоступного IP-адреса
 
 Общедоступный IP-адрес необходим для взаимодействия с виртуальной машиной.
 
@@ -214,7 +217,7 @@
           );
         }
 
-2. Для вызова только что добавленного метода добавьте этот код в метод Main класса Program:
+2. Чтобы вызвать добавленный ранее метод, добавьте этот код в метод Main класса Program:
 
         var ipResult = CreatePublicIPAddressAsync(
           credential,
@@ -225,11 +228,11 @@
         Console.WriteLine(ipResult.Result.ProvisioningState);  
         Console.ReadLine();
 
-### Создание виртуальной сети
+### <a name="create-the-virtual-network"></a>Создание виртуальной сети
 
 Виртуальные машины, созданные с помощью модели развертывания диспетчера ресурсов, должны размещаться в виртуальной сети.
 
-1. Добавьте этот метод в класс Program, чтобы создать подсеть и виртуальную сеть:
+1. Чтобы создать подсеть и виртуальную сеть, добавьте этот метод в класс Program:
 
         public static async Task<VirtualNetwork> CreateVirtualNetworkAsync(
           TokenCredentials credential,
@@ -265,7 +268,7 @@
           );
         }
         
-2. Для вызова только что добавленного метода добавьте этот код в метод Main класса Program:
+2. Чтобы вызвать добавленный ранее метод, добавьте этот код в метод Main класса Program:
 
         var vnResult = CreateVirtualNetworkAsync(
           credential,
@@ -277,11 +280,11 @@
         Console.WriteLine(vnResult.Result.ProvisioningState);  
         Console.ReadLine();
         
-### Создание сетевого интерфейса
+### <a name="create-the-network-interface"></a>Создание сетевого интерфейса
 
-Для обмена данными в виртуальной сетью, которую вы только что создали, виртуальной машине нужен сетевой интерфейс.
+Для обмена данными в виртуальной сети виртуальной машине нужен сетевой интерфейс.
 
-1. Чтобы создать сетевой интерфейс, добавьте приведенный ниже метод в класс Program.
+1. Чтобы создать сетевой интерфейс, добавьте этот метод в класс Program:
 
         public static async Task<NetworkInterface> CreateNetworkInterfaceAsync(
           TokenCredentials credential,
@@ -322,7 +325,7 @@
           );
         }
 
-2. Для вызова только что добавленного метода добавьте этот код в метод Main класса Program:
+2. Чтобы вызвать добавленный ранее метод, добавьте этот код в метод Main класса Program:
 
         var ncResult = CreateNetworkInterfaceAsync(
           credential,
@@ -336,7 +339,7 @@
         Console.WriteLine(ncResult.Result.ProvisioningState);  
         Console.ReadLine();
 
-### "Создать группу доступности"
+### <a name="create-an-availability-set"></a>"Создать группу доступности"
 
 Группы доступности упрощают обслуживание виртуальных машин, используемых приложением.
 
@@ -362,7 +365,7 @@
           );
         }
 
-2. Для вызова только что добавленного метода добавьте этот код в метод Main класса Program:
+2. Чтобы вызвать добавленный ранее метод, добавьте этот код в метод Main класса Program:
 
         var avResult = CreateAvailabilitySetAsync(
           credential,  
@@ -372,7 +375,7 @@
           avSetName);
         Console.ReadLine();
 
-### Создание виртуальной машины
+### <a name="create-a-virtual-machine"></a>Создание виртуальной машины
 
 Теперь, когда вы создали все вспомогательные ресурсы, можно создать виртуальную машину.
 
@@ -390,7 +393,7 @@
           string adminPassword,
           string vmName)
         {
-          var networkManagementClient = new NetworkManagementClient(credential);
+          var networkManagementClient = new NetworkManagementClient(credential)
             { SubscriptionId = subscriptionId };
           var nic = networkManagementClient.NetworkInterfaces.Get(groupName, nicName);
 
@@ -451,12 +454,11 @@
               }
             }
           );
-          Console.WriteLine(vm.ProvisioningState);
         }
 
-	>[AZURE.NOTE] В этом учебнике создается виртуальная машина под управлением одной из версий операционной системы Windows Server. Дополнительные сведения о выборе других образов см. в статье [Просмотр и выбор образов виртуальных машин Linux в Azure с помощью интерфейса командной строки или оболочки PowerShell](virtual-machines-linux-cli-ps-findimage.md).
+    >[AZURE.NOTE] В этом учебнике создается виртуальная машина под управлением одной из версий операционной системы Windows Server. Дополнительные сведения о выборе других образов см. в статье [Просмотр и выбор образов виртуальных машин Windows в Azure с помощью оболочки PowerShell или интерфейса командной строки](virtual-machines-linux-cli-ps-findimage.md).
 
-2. Для вызова только что добавленного метода добавьте этот код в метод Main:
+2. Чтобы вызвать добавленный ранее метод, добавьте этот код в метод Main:
 
         var vmResult = CreateVirtualMachineAsync(
           credential,
@@ -464,7 +466,7 @@
           subscriptionId,
           location,
           nicName,
-          avsetName,
+          avSetName,
           storageName,
           adminName,
           adminPassword,
@@ -472,11 +474,11 @@
         Console.WriteLine(vmResult.Result.ProvisioningState);
         Console.ReadLine();
 
-##Шаг 4. Добавление кода для удаления ресурсов
+##<a name="step-4:-delete-the-resources"></a>Шаг 4. Удаление ресурсов
 
 Так как за использование ресурсов Azure взимается плата, рекомендуется всегда удалять ресурсы, которые больше не нужны. Если вы хотите удалить виртуальные машины и все вспомогательные ресурсы, достаточно удалить группу ресурсов.
 
-1.	Чтобы удалить группу ресурсов, добавьте этот метод в класс Program:
+1.  Чтобы удалить группу ресурсов, добавьте этот метод в класс Program:
 
         public static async void DeleteResourceGroupAsync(
           TokenCredentials credential,
@@ -486,10 +488,10 @@
           Console.WriteLine("Deleting resource group...");
           var resourceManagementClient = new ResourceManagementClient(credential)
             { SubscriptionId = subscriptionId };
-          return await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
+          await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
         }
 
-2.	Для вызова только что добавленного метода добавьте этот код в метод Main:
+2.  Чтобы вызвать добавленный ранее метод, добавьте этот код в метод Main:
 
         DeleteResourceGroupAsync(
           credential,
@@ -497,21 +499,25 @@
           subscriptionId);
         Console.ReadLine();
 
-## Шаг 5. Запуск консольного приложения
+## <a name="step-5:-run-the-console-application"></a>Шаг 5. Запуск консольного приложения
 
 1. Чтобы запустить консольное приложение, нажмите кнопку **Запустить** в Visual Studio, а затем войдите в Azure AD с помощью того же имени пользователя и пароля, которые вы используете для подписки.
 
 2. Для создания каждого ресурса нажимайте клавишу **ВВОД** после возврата каждого кода состояния. После создания виртуальной машины выполните указанное ниже действие, прежде чем нажать клавишу ВВОД и удалить все ресурсы.
 
-	На полное выполнение этого консольного приложения потребуется примерно 5 минут. Прежде чем нажать клавишу "ВВОД" и начать удаление ресурсов, потратьте несколько минут и проверьте на портале Azure, созданы ли эти ресурсы.
+    На полное выполнение этого консольного приложения потребуется примерно 5 минут. Прежде чем нажать клавишу "ВВОД" и начать удаление ресурсов, потратьте несколько минут и проверьте на портале Azure, созданы ли эти ресурсы.
 
 3. Чтобы отобразить состояние ресурсов, на портале Azure откройте раздел журналов аудита.
 
-	![Поиск журналов аудита на портале Azure](./media/virtual-machines-windows-csharp/crpportal.png)
+    ![Поиск журналов аудита на портале Azure](./media/virtual-machines-windows-csharp/crpportal.png)
     
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Используйте преимущества шаблонов для создания виртуальной машины, ориентируясь на сведения в статье [Развертывание виртуальной машины Azure с помощью C# и шаблона Resource Manager](virtual-machines-windows-csharp-template.md).
-- Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и языка C#](virtual-machines-windows-csharp-manage.md).
+- Узнайте, как управлять созданной виртуальной машиной, прочитав статью [Управление виртуальными машинами Azure с помощью Azure Resource Manager и PowerShell](virtual-machines-windows-csharp-manage.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

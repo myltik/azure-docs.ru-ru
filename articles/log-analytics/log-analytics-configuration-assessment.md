@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Решение ";Оценка конфигурации"; в Log Analytics | Microsoft Azure"
-	description="Решение ";Оценка конфигурации"; в службе Log Analytics предоставляет подробные сведения о текущем состоянии инфраструктуры серверов System Center Operations Manager при использовании агентов или группы управления Operations Manager."
-	services="log-analytics"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    pageTitle="Решение "Оценка конфигурации" в Log Analytics | Microsoft Azure"
+    description="Решение "Оценка конфигурации" в службе Log Analytics предоставляет подробные сведения о текущем состоянии инфраструктуры серверов System Center Operations Manager при использовании агентов или группы управления Operations Manager."
+    services="log-analytics"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
-	ms.service="log-analytics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/04/2016"
-	ms.author="banders"/>
+    ms.service="log-analytics"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/10/2016"
+    ms.author="banders"/>
 
-# Решение "Оценка конфигурации" в Log Analytics
+
+# <a name="configuration-assessment-solution-in-log-analytics"></a>Решение "Оценка конфигурации" в Log Analytics
 
 Решение "Оценка конфигурации" в службе Log Analytics помогает обнаружить потенциальные проблемы конфигурации сервера с помощью оповещений и рекомендаций в базе знаний.
 
@@ -24,27 +25,27 @@
 
 Для просмотра некоторых сведений в решении "Оценка конфигурации" требуется подключаемый модуль Silverlight для веб-браузера.
 
->[AZURE.NOTE] Решение "Оценка конфигурации" доступно только для рабочих областей в регионе "Восточная часть США" и не будет добавлено в другие регионы. Функции решения "Оценка конфигурации" заменяются решениями для конкретных рабочих нагрузок, включая оценку SQL Server и оценку Active Directory.
+>[AZURE.NOTE] Начиная с 5 июля 2016 года решение "Оценка конфигурации" больше не будет добавляться к рабочим областям службы Log Analytics, а с 1 августа 2016 года у существующих пользователей больше не будет доступа к этому решению. Клиентам, использующим это решение для SQL Server или Active Directory, рекомендуется заменить его решением [Оценка SQL Server](log-analytics-sql-assessment.md), [Оценка Active Directory](log-analytics-ad-assessment.md) или [решением для контроля состояния репликации Active Directory ](log-analytics-ad-replication-status.md). Клиентам, использующим решение "Оценка конфигурации" для Windows, Hyper-V и System Center Virtual Machine Manager, для целостного рассмотрения проблем в среде рекомендуется использовать функциональные возможности по сбору событий и отслеживанию изменений.
 
 ![Элемент "Оценка конфигурации"](./media/log-analytics-configuration-assessment/oms-config-assess-tile.png)
 
 Данные конфигурации собираются из отслеживаемых серверов и затем отправляются в службу OMS в облаке для обработки. К полученным данным применяется логика и облачная служба записывает данные. Обработанные данные для серверов отображаются в следующих областях.
 
 - **Оповещения.** Отображаются относящиеся к конфигурации упреждающие оповещения, которые были созданы для наблюдаемых серверов. Их создают правила, разработанные организацией поддержки пользователей Майкрософт (CSS) на основе рекомендаций с мест.
-- **Рекомендации в базе знаний**. Отображаются статьи базы знаний Майкрософт, которые рекомендуются для рабочих нагрузок в вашей инфраструктуре. Они предлагаются автоматически на основе конфигурации в рамках использования машинного обучения.
-- **Анализируемые серверы и рабочие нагрузки**. Отображаются серверы и рабочие нагрузки, которые отслеживает служба OMS.
+- **Рекомендации в базе знаний**. Отображаются статьи базы знаний Майкрософт, которые рекомендуются для рабочих нагрузок в вашей инфраструктуре. Они автоматически предлагаются службой машинного обучения, исходя из вашей конфигурации.
+- **Анализируемые серверы и рабочие нагрузки**. Отображаются серверы и рабочие нагрузки, которые отслеживает OMS.
 
 ![Панель мониторинга "Оценка конфигурации"](./media/log-analytics-configuration-assessment/oms-config-assess-dash01.png)
 
-### Технологии, которые можно анализировать с помощью решения "Оценка конфигурации"
+### <a name="technologies-you-can-analyze-with-configuration-assessment"></a>Технологии, которые можно анализировать с помощью решения "Оценка конфигурации"
 
 Решение "Оценка конфигурации" анализирует следующие рабочие нагрузки.
 
 - Windows Server 2012 и Microsoft Hyper-V Server 2012
 - Windows Server 2008 R2, Windows Server 2008 и Windows Server 2012 R2.
     - Active Directory
-	- Узел Hyper-V
-	- Общая операционная система
+    - Узел Hyper-V
+    - Общая операционная система
 - SQL Server 2008 и более поздних версий
     - SQL Server Database Engine
 - Microsoft SharePoint 2010
@@ -60,23 +61,32 @@
 
 Во всех поддерживаемых выпусках анализируется компонент SQL Server Database Engine. Кроме того, 32-разрядный выпуск SQL Server поддерживается при работе в режиме реализации WOW64.
 
-## Установка и настройка решения
+## <a name="installing-and-configuring-the-solution"></a>Установка и настройка решения
 Для установки и настройки решений используйте указанные ниже данные.
 
 - Operations Manager является обязательным компонентом для работы решения "Оценка конфигурации".
 - Агент Operations Manager должен быть установлен на каждом компьютере, для которого требуется выполнять оценку конфигурации.
-- Решение "Оценка конфигурации" необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md). Дополнительная настройка не требуется.
+- Решение "Оценка конфигурации" необходимо добавить в рабочую область OMS, как описано в статье [Добавление решений Log Analytics из каталога решений](log-analytics-add-solutions.md).  Дополнительная настройка не требуется.
 
-## Сведения о сборе данных оценки конфигурации
+## <a name="configuration-assessment-data-collection-details"></a>Сведения о сборе данных оценки конфигурации
+
+Оценка конфигурации собирает данные конфигурации, метаданные и данные о состоянии с помощью включенных агентов.
 
 В следующей таблице представлены методы сбора данных и другие сведения о сборе данных для решения "Оценка конфигурации".
 
 | платформа | Direct Agent | Агент SCOM | Хранилище Azure | Нужен ли SCOM? | Отправка данных агента SCOM через группу управления | частота сбора |
 |---|---|---|---|---|---|---|
-|Windows|![Нет](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|![Да](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![Нет](./media/log-analytics-configuration-assessment/oms-bullet-red.png)| ![Да](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![Да](./media/log-analytics-configuration-assessment/oms-bullet-green.png)| дважды в день|
+|Windows|![Нет](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|![Да](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![Нет](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|            ![Да](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![Да](./media/log-analytics-configuration-assessment/oms-bullet-green.png)| дважды в день|
 
+В следующей таблице приведены примеры типов данных, собираемых решением "Оценка конфигурации".
 
-## Оповещения оценки конфигурации
+|**Тип данных**|**Поля**|
+|---|---|
+|Конфигурация|CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate|
+|Метаданные|BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime|
+|Состояние|StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified|
+
+## <a name="configuration-assessment-alerts"></a>Оповещения оценки конфигурации
 Просматривать оповещения и управлять ими можно на странице "Оповещения" решения "Оценка конфигурации". Оповещения сообщают об обнаруженной проблеме, ее причинах и способах решения. Они также содержат сведения о параметрах конфигурации в вашей среде, которые могут вызывать проблемы производительности.
 
 ![просмотр оповещений](./media/log-analytics-configuration-assessment/oms-config-assess-alerts01.png)
@@ -99,18 +109,22 @@
 
 ![управление правилами генерации оповещений](./media/log-analytics-configuration-assessment/oms-config-assess-alert-rules.png)
 
-## Рекомендации в базе знаний
+## <a name="knowledge-recommendations"></a>Рекомендации в базе знаний
 При просмотре рекомендаций в базе знаний на экран выводятся результаты поиска в журналах со списком статей базы знаний Майкрософт, рекомендуемых для рабочих нагрузок и компьютеров. Эти статьи содержат дополнительные сведения об оповещениях.
 
 ![результаты поиска для рекомендаций в базе знаний](./media/log-analytics-configuration-assessment/oms-config-assess-knowledge-recommendations.png)
 
-## Анализируемые серверы и рабочие нагрузки
+## <a name="servers-and-workloads-analyzed"></a>Анализируемые серверы и рабочие нагрузки
 При просмотре рекомендаций в базы знаний на экран выводятся результаты поиска в журналах со списком серверов и рабочих нагрузок, данные о которых передаются в службу OMS из Operations Manager.
 
 ![Серверы и рабочие нагрузки](./media/log-analytics-configuration-assessment/oms-config-assess-servers-workloads.png)
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 - Используйте [Поиск по журналам в Log Analytics](log-analytics-log-searches.md) для просмотра подробных данных по оценке конфигурации.
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

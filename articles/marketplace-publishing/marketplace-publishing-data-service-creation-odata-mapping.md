@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Руководство по созданию службы данных для Marketplace | Microsoft Azure"
-   description="Подробные инструкции по созданию, сертификации и развертыванию службы данных для продажи в Azure Marketplace."
+   pageTitle="Guide to creating a Data Service for the  Marketplace | Microsoft Azure"
+   description="Detailed instructions of how to create, certify and deploy a Data Service for purchase on the Azure Marketplace."
    services="marketplace-publishing"
    documentationCenter=""
    authors="HannibalSII"
-   manager=""
+   manager="hascipio"
    editor=""/>
 
    <tags
@@ -16,129 +16,128 @@
       ms.date="08/26/2016"
       ms.author="hascipio; avikova" />
 
-# Сопоставление существующей веб-службы и OData с помощью CSDL
 
->[AZURE.IMPORTANT] **В настоящее время мы больше не подключаем новые издатели служб данных. Новые службы данных не будут утверждены для добавления в список.** Если вы хотите опубликовать бизнес-приложение SaaS на AppSource, то можете ознакомиться с дополнительными сведениями [здесь](https://appsource.microsoft.com/partners). Если вы хотите опубликовать приложения IaaS или службу разработчика в Azure Marketplace, то можете найти дополнительные сведения [здесь](https://azure.microsoft.com/marketplace/programs/certified/).
+# <a name="mapping-an-existing-web-service-to-odata-through-csdl"></a>Mapping an existing web service to OData through CSDL
 
-В этой статье приводятся общие сведения по использованию языка CSDL для сопоставления существующей и совместимой служб OData. Она объясняет, как создать документ сопоставления (CSDL), который преобразует входной запрос от клиента с помощью вызова службы и выходные данные обратно клиенту с помощью совместимого веб-канала OData. Microsoft Azure Marketplace предоставляет службы для конечных пользователей с помощью протокола OData. Службы, предоставляемые поставщиками содержимого (владельцами данных), представлены в различных формах, например REST, SOAP и т. д.
+>[AZURE.IMPORTANT] **At this time we are no longer onboarding any new Data Service publishers. New dataservices will not get approved for listing.** If you have a SaaS business application you would like to publish on AppSource you can find more information [here](https://appsource.microsoft.com/partners). If you have an IaaS applications or developer service you would like to publish on Azure Marketplace you can find more information [here](https://azure.microsoft.com/marketplace/programs/certified/).
 
-## CSDL и его структура
-CSDL (язык определения концептуальной схемы) — это спецификация, определяющая, как описывать веб-службу или службу базы данных в общих формулировках XML в Azure Marketplace.
+This article gives an overview on how to use a CSDL to map an existing service to an OData compatible service. It explains how to create the mapping document (CSDL) that transforms the input request from the client via a service call and the output (data) back to the client via an OData compatible feed. Microsoft’s Azure Marketplace exposes services to the end-users by using the OData protocol. Services that are exposed by content providers (Data Owners) are exposed in a variety of forms, such as REST, SOAP, etc.
 
-Краткий обзор **потока запроса**
+## <a name="what-is-a-csdl-and-its-structure?"></a>What is a CSDL and its structure?
+A CSDL (Conceptual Schema Definition Language) is a specification defining how to describe web service or database service in common XML verbiage to the Azure Marketplace.
+
+Simple overview of the **request flow:**
 
   `Client -> Azure Marketplace -> Content Provider’s Web Service (Get, Post, Delete, Put)`
 
-**Поток данных** — в обратном направлении:
+The **data flow** is in the opposite direction:
 
   `Client <- Azure Marketplace <- Content Provider’s WebService`
 
-**Рис. 1** показывает, как клиент будет принимать данные от поставщика содержимого (службы), перейдя в магазин Azure. CSDL используется компонентом сопоставления или преобразования для обработки запроса и передачи данных между службами поставщика содержимого и клиентом, отправившим запрос.
+**Figure 1** diagrams how a client would obtain data from a content provider (your service) by going through the Azure Marketplace.  The CSDL is used by the Mapping/Transformation component to handle the request and data pass between the content provider’s service(s) and the requesting client.
 
-*Рисунок 1. Подробный поток от клиента, отправившего запрос, к поставщику содержимого через Azure Marketplace*
+*Figure 1: Detailed flow from requesting client to content provider via Azure Marketplace*
 
-  ![рисунок](media/marketplace-publishing-data-service-creation-odata-mapping/figure-1.png)
+  ![drawing](media/marketplace-publishing-data-service-creation-odata-mapping/figure-1.png)
 
-Сведения об Atom, Atom Pub и протоколе OData, на базе которых создаются расширения Azure Marketplace, см. на странице: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
+For background on Atom, Atom Pub, and the OData protocol upon which the Azure Marketplace extensions build, please review: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
 
-Фрагмент из указанной выше ссылки: *"Протокол Open Data (в дальнейшем именуемый OData) предназначен для предоставления протокола на основе REST для операций CRUD (создание, чтение, обновление и удаление) с использованием ресурсов, используемых в качестве служб данных. "Служба данных" — это конечная точка, в которой представлены данные из одной или нескольких "коллекций", в каждой из которых ноль или более "записей" состоят из типизированной пары "имя-значение". OData публикуется корпорацией Майкрософт в разделе стандартов OASIS (организация для продвижения стандартов структурированной информации), чтобы любой пользователь мог создать серверы, клиенты или средства без отчислений и ограничений".*
+Excerpt from above link:     *“The purpose of the Open Data protocol (hereafter referred to as OData) is to provide a REST-based protocol for CRUD-style operations (Create, Read, Update and Delete) against resources exposed as data services. A “data service” is an endpoint where there is data exposed from one or more “collections” each with zero or more “entries”, which consist of typed named-value pairs. OData is published by Microsoft under OASIS (Organization for the Advancement of Structured Information Standards) Standards so that anyone that wants to can build servers, clients or tools without royalties or restrictions.”*
 
-### Вот три важнейшие части, которые должны быть определены в языке CSDL.
+### <a name="three-critical-pieces-that-have-to-be-defined-by-the-csdl-are:"></a>Three Critical Pieces that have to be defined by the CSDL are:
 
-- **Конечная точка** службы поставщика. Веб-адрес (URI) службы
-- **Параметры данных**, передаваемых в качестве входных данных поставщику услуг. Определения параметров, отправляемых службе поставщика содержимого до типа данных.
-- **Схема** данных, возвращаемых запрашивающей службе. Схема данных, отправляемых службой поставщика содержимого, включая контейнер, коллекции и таблицы, переменные и столбцы и типы данных.
+- The **endpoint** of the Service Provider The Web Address (URI) of the Service
+- The **data parameters** being passed as input to the Service Provider The definitions of the parameters being sent to the Content Provider’s service down to the data type.
+- **Schema** of the data being returned to the Requesting Service The schema of the data being delivered by the Content Provider’s service, including Container, collections/tables, variables/columns, and data types.
 
-В примере ниже показан обзор потока, из которого клиент вводит инструкции OData (вызов веб-службы поставщика содержимого) для возврата результатов или данных.
+The following diagram shows an overview of the flow from where the client enters the OData statement (call to the content provider’s web service) to getting the results/data back.
 
-  ![рисунок](media/marketplace-publishing-data-service-creation-odata-mapping/figure-2.png)
+  ![drawing](media/marketplace-publishing-data-service-creation-odata-mapping/figure-2.png)
 
-### Шаги:
+### <a name="steps:"></a>Steps:
 
-1. Клиент отправляет запрос через вызов службы, дополненный входными параметрами, определенными в XML в Azure Marketplace
-2. Язык CSDL используется для проверки вызова службы.
-	- Форматированный вызов службы затем отправляется службе поставщиков содержимого в Azure Marketplace
-3. Веб-служба запускает и выполняет действие команды Http (например GET). Данные возвращаются в Azure Marketplace, где запрошенные данные (если таковые имеются) предоставляются клиенту в формате XML с помощью сопоставления, определенного в языке CSDL.
-4. Клиенту отправляются данные (если таковые имеются) в формате XML или JSON
+1. Client sends request via Service call complete with Input Parameters defined in XML to the Azure Marketplace
+2. CSDL is used to validate the Service call.
+    - The Formatted Service Call is then sent to the Content Providers Service by the Azure Marketplace
+3. The Webservice executes and preforms the action of the Http Verb (i.e. GET) The data is returned to Azure Marketplace where the requested data (if any) is exposes in XML Format to the Client using the Mapping defined in the CSDL.
+4. The Client is sent the data (if any) in XML or JSON format
 
-## Определения
+## <a name="definitions"></a>Definitions
 
-### OData ATOM pub
+### <a name="odata-atom-pub"></a>OData ATOM pub
 
-Расширение ATOM pub, где каждая запись представляет одну строку результирующего набора. Часть содержимого записи расширена и содержит значения строки — в виде пар ключ-значение. Дополнительные сведения можно найти здесь: [https://www.odata.org/documentation/odata-version-3-0/atom-format/](https://www.odata.org/documentation/odata-version-3-0/atom-format/)
+An extension to the ATOM pub where each entry represents one row of a result set. The content part of the entry is enhanced to contain the values of the row – as key value pairs. More information is found here: [https://www.odata.org/documentation/odata-version-3-0/atom-format/](https://www.odata.org/documentation/odata-version-3-0/atom-format/)
 
-### CSDL — язык определения концептуальной схемы
+### <a name="csdl---conceptual-schema-definition-language"></a>CSDL - Conceptual Schema Definition Language
 
-Позволяет определять функции (SPROC) и сущности, предоставляемые через базу данных. Дополнительные сведения приведены здесь: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)
+Allows defining functions (SPROCs) and entities that are exposed through a database. More information found here: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)  
 
-> [AZURE.TIP] Щелкните раскрывающийся список **Другие версии** и выберите версию, если вы не видите статью.
+> [AZURE.TIP] Click the **other versions** dropdown and select a version if you don’t see the article.
 
-### EDM — модель данных записи
-- Обзор: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
-[OverviewLink]: http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-- Предварительная версия: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
-[PreviewLink]: http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
-- Типы данных: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
-[DataTypesLink]: http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+### <a name="edm---entry-data-model"></a>EDM - Entry Data Model
+- Overview: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink] [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+- Preview: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink] [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+- Data types: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink] [DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
-Ниже представлен подробный поток слева направо, из которого клиент вводит инструкцию OData (вызов веб-службы поставщика содержимого) для получения данных и результатов:
+The following shows the detailed Left to Right flow from where the client enters the OData statement (call to the content provider’s web service) to getting the results/data back:
 
-  ![рисунок](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)
+  ![drawing](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)
 
 
-## Основы языка CSDL
+## <a name="csdl-basics"></a>CSDL Basics
 
-CSDL (язык определения концептуальной схемы) — это спецификация, определяющая, как описывать веб-службу или службу базы данных в общих формулировках XML в Azure Marketplace. CSDL описывает важные части, которые **позволяют передавать данные из источника данных в Azure Marketplace.** Ниже описаны основные части.
+A CSDL (Conceptual Schema Definition Language) is a specification defining how to describe web service or database service in common XML verbiage to the Azure Marketplace. CSDL describes the critical pieces that **makes the passing of data from the Data Source to the Azure Marketplace possible.** The main pieces are described here:
 
-- Сведения интерфейса, описывающие все общедоступные функции (узел FunctionImport)
-- Сведения о типах данных для всех сообщений requests(input) и сообщений responses(outputs) (узлы EntityContainer, EntitySet и EntityType)
-- Сведения об используемом протоколе транспорта для привязки (узел Header)
-- Адресная информация для поиска указанной службы (атрибут BaseURI)
+- Interface information describing all publicly available functions (FunctionImport Node)
+- Data type information for all message requests(input) and message responses(outputs) (EntityContainer/EntitySet/EntityType Nodes)
+- Binding information about the transport protocol to be used (Header Node)
+- Address information for locating the specified service (BaseURI attribute)
 
-По сути CSDL представляет собой независимый от платформы и языка контракт между запрашивающим службу объектом и поставщиком службы. С помощью языка CSDL клиент может найти веб-службу или службу базы данных и вызвать любую из ее публично доступных функций.
+In a nutshell, the CSDL represents a platform- and language-independent contract between the service requestor and the service provider. Using the CSDL, a client can locate a web service/database service and invoke any of its publicly available functions.
 
-### Связь CSDL с базой данных или коллекцией
-**Спецификация языка CSDL**
+### <a name="relating-a-csdl-to-a-database-or-a-collection"></a>Relating a CSDL to a Database or a Collection
+**The CSDL Specification**
 
-CSDL — это грамматика XML для описания веб-служб. Сама спецификация состоит из 4 основных элементов: EntitySet, FunctionImport, NameSpace и EntityType.
+CSDL is XML grammar for describing a web service. The specification itself is divided into 4 major elements:  EntitySet, FunctionImport; NameSpace, and EntityType.
 
-Чтобы эту абстракцию было легче понять, сопоставим CSDL с таблицей.
+To make this abstraction easier to understand lets relate a CSDL to a table.
 
-Помните!
+Remember;
 
-  Язык CSDL представляет собой независимый от платформы и языка контракт между **запрашивающим службу объектом** и **поставщиком службы**. С помощью языка CSDL **клиент** может найти **веб-службу или службу базы данных** и вызвать любую из ее публично доступных **функций**.
+  CSDL represents a platform- and language-independent contract between the **service requestor** and the **service provider**. Using CSDL, a **client** can locate a **web service/database service** and invoke any of its publicly available **functions.**
 
-Для службы данных четыре части языка CSDL можно рассматривать как базу данных, таблицу, столбец и хранимую процедуру.
+For a Data Service the four parts of a CSDL can be thought of in terms of a Database, Table, Column, and Store Procedure.
 
-Они соотносятся следующим образом:
+Relating these as follows for a Data Service:
 
-- EntityContainer ~= База данных
-- EntitySet ~= Таблица
-- EntityType ~= Столбцы
-- FunctionImport ~= Хранимая процедура
+- EntityContainer  ~=  Database
+- EntitySet  ~=  Table
+- EntityType  ~= Columns
+- FunctionImport  ~=  Stored Procedure
 
-**Допускаются команды HTTP**
-- GET — возвращает значения из базы данных (возврат коллекции).
-- POST — используется для передачи данных и необязательных возвращаемых значений из базы данных (создание новой записи в коллекции, возврат идентификатора или URI).
-- DELETE – удаляет данные из базы данных (удаление коллекции).
-- PUT – обновляет данные в базе данных (замена или создание коллекции).
+**HTTP Verbs allowed**
+- GET – returns values from the db (returns a Collection)
+- POST – used to pass data to and optional return values from the db (Create a new entry in the collection, return id/URI)
+- DELETE – Deletes data from the DB (Deletes a collection)
+- PUT – Update data into a DB (replace a collection or create one)
 
-## Документ метаданных и сопоставления
+## <a name="metadata/mapping-document"></a>Metadata/Mapping Document
 
-Документ метаданных и сопоставления используется для сопоставления существующих веб-служб поставщика содержимого, чтобы их можно было представить как веб-службы OData в системе Azure Marketplace. Он основан на языке CSDL и реализует несколько расширений языка CSDL для удовлетворения потребностей веб-служб на основе REST, доступных через Azure Marketplace. Расширения можно найти в пространстве имен [http://schemas.microsoft.com/dallas/2010/04](http://schemas.microsoft.com/dallas/2010/04).
+The metadata/mapping document is used to map a content provider’s existing web services so that it can be exposed as an OData web service by the Azure Marketplace system. It is based on CSDL and implements a few extensions to CSDL to accommodate the needs of REST based web services exposed through Azure Marketplace. The extensions are found in the [http://schemas.microsoft.com/dallas/2010/04](http://schemas.microsoft.com/dallas/2010/04) namespace.
 
-Ниже приведен пример CSDL (скопируйте и вставьте приведенный ниже пример CSDL в редактор XML и измените в соответствии с вашей службой. Затем вставьте в сопоставление CSDL на вкладке DataService при создании службы на [портале публикации Azure Marketplace](https://publish.windowsazure.com)).
+An example of the CSDL follows:  (Copy and paste the below example CSDL into an XML editor and change to match your Service.  Then paste into CSDL Mapping under DataService tab when creating your service in the  [Azure Marketplace Publishing Portal](https://publish.windowsazure.com)).
 
-**Термины**: о соответствии терминов CSDL и пользовательского интерфейса [портала публикации](https://publish.windowsazure.com) (PPUI).
-- Заголовок Offer в PPUI соответствует MyWebOffer.
-- MyCompany в PPUI соответствует **отображаемому имени издателя** в пользовательском интерфейсе [центра разработчиков Microsoft](http://dev.windows.com/registration?accountprogram=azure).
-- API соответствует службе данных или веб-службе (плану в PPUI).
+**Terms:** Relating the CSDL terms to the [Publishing Portal](https://publish.windowsazure.com) UI (PPUI) terms.
+- Offer “Title” in the PPUI relates to MyWebOffer
+- MyCompany in the PPUI relates to **Publisher Display Name** in the [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) UI
+- Your API relates to a Web or Data Service (a Plan in the PPUI)
 
-**Иерархия.** Компания (поставщик содержимого) владеет предложениями, которые включают планы, а именно службы, которые адаптированы к API.
+**Hierarchy:**
+  A Company (Content Provider) owns Offer(s) which have Plan(s), namely service(s), which line up with an API.
 
-### Пример WebService CSDL
+### <a name="webservice-csdl-example"></a>WebService CSDL Example
 
-Подключается к службе, которая предоставляет конечную точку веб-приложения (например, приложения на C#)
+Connects to a service that is exposing an web application endpoint (like a C# application)
 
         <?xml version="1.0" encoding="utf-8"?>
         <!-- The namespace attribute below is used by our system to generate C#. You can change “MyCompany.MyOffer” to something that makes sense for you, but change “MyOffer” consistently throughout the document. -->
@@ -172,7 +171,7 @@ CSDL — это грамматика XML для описания веб-служ
         <d:RequestBody d:httpMethod="POST">
                 <!-- Use {} for placeholders to insert parameters. -->
                 <!-- This example uses SOAP formatting, but any POST body can be used. -->
-        	<!-- This example shows how to pass userid and password via the header -->
+            <!-- This example shows how to pass userid and password via the header -->
                 <![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:MyOffer="http://services.organization.net/MyServicePath">
                   <soapenv:Header/>
                   <soapenv:Body>
@@ -226,7 +225,7 @@ CSDL — это грамматика XML для описания веб-служ
         </d:ErrorHandling>
            </FunctionImport>
 
-        	<!-- The EntityContainer defines the output data schema -->
+            <!-- The EntityContainer defines the output data schema -->
         </EntityContainer>
         <!-- The EntityType @d:Map defines the repeating node (an XPath query) in the response (output data schema). -->
         <!-- If these nodes are outside a namespace, add the prefix in the xpath. -->
@@ -237,22 +236,22 @@ CSDL — это грамматика XML для описания веб-служ
         The "." is relative to the repeating node in the EntityType @d:Map Xpath expression.
         -->
             <EntityType Name="MyEntityType" d:Map="/MyResponse/MyEntities">
-        <Property Name="ID"	d:IsPrimaryKey="True" Type="Int32"	Nullable="false" d:Map="./Remaining[@Amount]"/>
-        <Property Name="Amount"	Type="Double"	Nullable="false" d:Map="./Remaining[@Amount]"/>
-        <Property Name="City"	Type="String"	Nullable="false" d:Map="./City"/>
-        <Property Name="State"	Type="String"	Nullable="false" d:Map="./State"/>
-        <Property Name="Zip"	Type="Int32"	Nullable="false" d:Map="./Zip"/>
-        <Property Name="Updated"	Type="DateTime"	Nullable="false" d:Map="./Updated"/>
+        <Property Name="ID" d:IsPrimaryKey="True" Type="Int32"  Nullable="false" d:Map="./Remaining[@Amount]"/>
+        <Property Name="Amount" Type="Double"   Nullable="false" d:Map="./Remaining[@Amount]"/>
+        <Property Name="City"   Type="String"   Nullable="false" d:Map="./City"/>
+        <Property Name="State"  Type="String"   Nullable="false" d:Map="./State"/>
+        <Property Name="Zip"    Type="Int32"    Nullable="false" d:Map="./Zip"/>
+        <Property Name="Updated"    Type="DateTime" Nullable="false" d:Map="./Updated"/>
         <Property Name="AdditionalInfo" Type="String" Nullable="true"
         d:Map="./Info/More[1]"/>
             </EntityType>
         </Schema>
 
-> [AZURE.TIP] Просмотрите дополнительные примеры веб-службы CSDL в статье [Примеры сопоставления существующей веб-службы и OData через CSDL](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+> [AZURE.TIP] View more CSDL Web Service examples in the article [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 
-###Пример DataService CSDL
+###<a name="dataservice-csdl-example"></a>DataService CSDL Example
 
-Подключается к службе, которая предоставляет таблицу или представление базы данных как конечную точку. Ниже в примере представлены два API для базы данных на основе CSDL API (могут использовать скорее представления, чем таблицы).
+Connects to a service that is exposing a database table or view as an endpoint Below example shows two APIs for Data base based API CSDL (can use views rather than tables).
 
         <?xml version="1.0"?>
         <!-- The namespace attribute below is used by our system to generate C#. You can change “MyCompany.MyOffer” to something that makes sense for you, but change “MyOffer” consistently throughout the document. -->
@@ -260,19 +259,19 @@ CSDL — это грамматика XML для описания веб-служ
         <!-- EntityContainer groups all the data service calls together into a single offering. Every web service call has a FunctionImport definition. -->
         <EntityContainer Name="MyOfferContainer">
         <!-- EntitySet is defined for CSDL compatibility reasons, not required for ReturnType=”Raw”
-        	Think of the EntitySet as a Service
+            Think of the EntitySet as a Service
         @Name is used in the customer facing UI as name of the Service.
         @EntityType is used to point at the type definition (returned set of table columns). -->
         <EntitySet Name="CompanyInfoEntitySet" EntityType="MyOffer.CompanyInfo" />
         <EntitySet Name="ProductInfoEntitySet" EntityType="MyOffer.ProductInfo" />
         </EntityContainer>
         <!-- EntityType defines result (output); the table (or view) and columns to be returned by the data service.)
-        	Map is the schema.tabel or schema.view
-        	dals.TableName is the table Name
-        	Name is the name identifier for the EntityType and the Name of the service exposed to the client via the UI.
-        	dals:IsExposed determines if the table schema is exposed (generally true).
-        	dals:IsView (optional) true if this is based on a view rather than a table
-        	dals:TableSchema is the schema name of the table/view
+            Map is the schema.tabel or schema.view
+            dals.TableName is the table Name
+            Name is the name identifier for the EntityType and the Name of the service exposed to the client via the UI.
+            dals:IsExposed determines if the table schema is exposed (generally true).
+            dals:IsView (optional) true if this is based on a view rather than a table
+            dals:TableSchema is the schema name of the table/view
         -->
         <EntityType
         Map="[dbo].[CompanyInfo]"
@@ -283,16 +282,16 @@ CSDL — это грамматика XML для описания веб-служ
         dals:TableSchema="dbo"
         xmlns:dals="http://schemas.microsoft.com/dallas/2010/04">
         <!-- Property defines the column properties and the output of the service.
-        	dals:ColumnName is the name of the column in the table /view.
-        	Type is the emd.SimpleType
-        	Nullable determines if NULL is a valid output value
-        	dals.CharMaxLenght is the maximum length of the output value
-        	Name is the name of the Property and is exposed to the client facing UI
-        	dals:IsReturned is the Boolean that determines if the Service exposes this value to the client.
-        	IsQueryable is the Boolean that determines if the column can be used in a database query
-        	(For data Services: To improve Performance make sure that columns marked ISQueryable=”true” are in an index.)
-        	dals:OrdinalPosition is the numerical position x in the table or the View, where x is from 1 to the number of columns in the table.
-        	dals:DatabaseDataType is the data type of the column in the database, i.e. SQL data type dals:IsPrimaryKey indicates if the column is the Primary key in the table/view.  (The columns marked ISPrimaryKey are used in the Order by clause when returning data.)
+            dals:ColumnName is the name of the column in the table /view.
+            Type is the emd.SimpleType
+            Nullable determines if NULL is a valid output value
+            dals.CharMaxLenght is the maximum length of the output value
+            Name is the name of the Property and is exposed to the client facing UI
+            dals:IsReturned is the Boolean that determines if the Service exposes this value to the client.
+            IsQueryable is the Boolean that determines if the column can be used in a database query
+            (For data Services: To improve Performance make sure that columns marked ISQueryable=”true” are in an index.)
+            dals:OrdinalPosition is the numerical position x in the table or the View, where x is from 1 to the number of columns in the table.
+            dals:DatabaseDataType is the data type of the column in the database, i.e. SQL data type dals:IsPrimaryKey indicates if the column is the Primary key in the table/view.  (The columns marked ISPrimaryKey are used in the Order by clause when returning data.)
         -->
         <Property dals:ColumnName="data" Type="String" Nullable="true" dals:CharMaxLength="-1" Name="data" dals:IsReturned="true" dals:IsQueryable="false" dals:IsPrimaryKey="false" dals:OrdinalPosition="3" dals:DatabaseDataType="nvarchar" />
         <Property dals:ColumnName="id" Type="Int32" Nullable="false" Name="id" dals:IsReturned="true" dals:IsQueryable="true" dals:IsPrimaryKey="true" dals:OrdinalPosition="1" dals:NumericPrecision="10" dals:DatabaseDataType="int" />
@@ -305,9 +304,13 @@ CSDL — это грамматика XML для описания веб-служ
         </EntityType>
         </Schema>
 
-## См. также
-- Если вы заинтересованы в изучении и понимании конкретных узлов и их параметров, в статье [Узлы сопоставления службы данных OData](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) вы найдете определения и объяснения, примеры и контекст вариантов использования.
-- Если вы хотите поработать с примерами, см. статью [Примеры сопоставления OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping-examples.md), где приводятся примеры кода вместе с объяснением синтаксиса и контекста.
-- Чтобы вернуться к указанному пути для публикации службы данных в Azure Marketplace, см. статью [Руководство по публикации службы данных](marketplace-publishing-data-service-creation.md).
+## <a name="see-also"></a>See Also
+- If you are interested in learning and understanding the specific nodes and their parameters, read this article [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) for definitions and explanations, examples, and use case context.
+- If you are interested in reviewing examples, read this article [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md) to see sample code and understand code syntax and context.
+- To return to the prescribed path for publishing a Data Service to the Azure Marketplace, read this article [Data Service Publishing Guide](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

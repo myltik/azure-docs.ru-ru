@@ -1,22 +1,23 @@
 <properties 
-	pageTitle="Использование AMQP 1.0 с API служебной шины для Java | Microsoft Azure" 
-	description="Узнайте, как использовать службу сообщений Java (JMS) со служебной шиной Azure и протоколом AMQP."
-	services="service-bus-messaging"
-	documentationCenter="java"
-	authors="sethmanheim"  
-	manager="timlt" 
-	editor="" />
+    pageTitle="Использование AMQP 1.0 с API служебной шины для Java | Microsoft Azure" 
+    description="Узнайте, как использовать службу сообщений Java (JMS) со служебной шиной Azure и протоколом AMQP."
+    services="service-bus"
+    documentationCenter="java"
+    authors="sethmanheim"  
+    manager="timlt" 
+    editor="" />
 
 <tags 
-	ms.service="service-bus-messaging" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/20/2016" 
-	ms.author="sethm"/>
+    ms.service="service-bus" 
+    ms.workload="na" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="java" 
+    ms.topic="article" 
+    ms.date="10/04/2016" 
+    ms.author="sethm"/>
 
-# Как использовать API службы сообщений Java (JMS) со служебной шиной и AMQP 1.0
+
+# <a name="how-to-use-the-java-message-service-(jms)-api-with-service-bus-and-amqp-1.0"></a>Как использовать API службы сообщений Java (JMS) со служебной шиной и AMQP 1.0
 
 AMQP 1.0 — это эффективный и надежный протокол обмена сообщениями на уровне соединения, который можно использовать для создания надежных кроссплатформенных приложений для обмена сообщениями. Поддержка AMQP 1.0 была добавлена в Azure Service Bus в октябре 2012 г. и перешла к общей доступности (GA) в мае 2013 г.
 
@@ -24,11 +25,11 @@ AMQP 1.0 — это эффективный и надежный протокол 
 
 В этом практическом руководстве описывается использование компонентов обмена сообщениями через служебную шину (очередей и разделов публикации/подписки) из приложений Java, использующих популярный стандарт API JMS.
 
-## Приступая к работе со служебной шиной
+## <a name="get-started-with-service-bus"></a>Приступая к работе со служебной шиной
 
-В этом руководстве предполагается, что вы уже создали пространство имен служебной шины, содержащее очередь с именем **queue1**. Если это не так, можно создать пространство имен и очередь, используя [классический портал Azure](http://manage.windowsazure.com). Дополнительную информацию о создании пространства имен и очередей служебной шины см. в статье [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md).
+В этом руководстве предполагается, что вы уже создали пространство имен служебной шины, содержащее очередь с именем **queue1**. Если это не так, можно [создать пространство имен и очередь](service-bus-create-namespace-portal.md), используя [портал Azure](https://portal.azure.com). Дополнительные сведения о создании пространства имен и очередей служебной шины см. в статье [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md).
 
-### Загрузка клиентской библиотеки AMQP 1.0 JMS
+### <a name="downloading-the-amqp-1.0-jms-client-library"></a>Загрузка клиентской библиотеки AMQP 1.0 JMS
 
 Информацию о том, где скачать последнюю версию клиентской библиотеки Apache Qpid JMS AMQP 1.0, см. на странице [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
@@ -39,26 +40,26 @@ AMQP 1.0 — это эффективный и надежный протокол 
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
 
-## Создание приложений Java
+## <a name="coding-java-applications"></a>Создание приложений Java
 
-### Интерфейс JNDI
+### <a name="java-naming-and-directory-interface-(jndi)"></a>Интерфейс JNDI
 
 JMS использует интерфейс JNDI для разделения логических и физических имен. С помощью JNDI разрешаются два типа объектов JMS: ConnectionFactory и Destination. JNDI использует модель поставщика, к которой можно подключить различные службы каталогов для обработки заданий разрешения имен. Библиотека Apache Qpid JMS AMQP 1.0 поставляется с простым файловым поставщиком JNDI, настроенным с помощью файла свойств в следующем формате:
 
 ```
 # servicebus.properties – sample JNDI configuration
-	
+    
 # Register a ConnectionFactory in JNDI using the form:
 # connectionfactory.[jndi_name] = [ConnectionURL]
 connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
-	
+    
 # Register some queues in JNDI using the form
 # queue.[jndi_name] = [physical_name]
 # topic.[jndi_name] = [physical_name]
 queue.QUEUE = queue1
 ```
 
-#### Настройка ConnectionFactory
+#### <a name="configure-the-connectionfactory"></a>Настройка ConnectionFactory
 
 Эта запись используется для определения **ConnectionFactory** в поставщике JNDI файла свойств Qpid в следующем формате:
 
@@ -66,26 +67,26 @@ queue.QUEUE = queue1
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-где **[jndi\_name]** и **[ConnectionURL]** имеют следующий смысл:
+Где **[jndi_name]** и **[ConnectionURL]** означают следующее:
 
-- **[jndi\_name]**: логическое имя ConnectionFactory. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
+- **[jndi_name]**: логическое имя ConnectionFactory. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
 - **[ConnectionURL]**: URL-адрес, предоставляющий библиотеке JMS сведения, необходимые брокеру AMQP.
 
-Формат **URL\_подключения** выглядит следующим образом:
+Формат **ConnectionURL** выглядит следующим образом:
 
 ```
 amqps://[username]:[password]@[namespace].servicebus.windows.net
 ```
 
-где **[namespace]**, **[username]** и **[password]** имеют следующий смысл:
+Где **[namespace]**, **[username]** и **[password]** означают следующее:
 
-- **[namespace]**: пространство имен служебной шины.
-- **[username]**: имя издателя служебной шины.
+- **[namespace]**: пространство имен служебной шины;
+- **[username]**: имя издателя служебной шины;
 - **[password]**: ключ издателя служебной шины, закодированный в URL-адресе.
 
-> [AZURE.NOTE] Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE] Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
-#### Настройка назначений
+#### <a name="configure-destinations"></a>Настройка назначений
 
 Эта запись используется для определения назначения в поставщике JNDI файла свойств Qpid в следующем формате:
 
@@ -98,18 +99,18 @@ queue.[jndi_name] = [physical_name]
 topic.[jndi_name] = [physical_name]
 ```
 
-где **[jndi\_name]** и **[physical\_name]** имеют следующий смысл:
+Где **[jndi\_name]** и **[physical\_name]** означают следующее:
 
-- **[jndi\_name]**: логическое имя назначения. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
-- **[physical\_name]**: имя сущности служебной шины, которой приложение отправляет сообщения или от которого оно получает сообщения.
+- **[jndi_name]**: логическое имя назначения. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
+- **[physical_name]**: имя сущности служебной шины, которой приложение отправляет сообщения или от которого оно получает сообщения.
 
 > [AZURE.NOTE] При получении данных из подписки раздела служебной шины физическое имя, указанное в JNDI, должно быть именем раздела. Имя подписки предоставляется при создании устойчивой подписки в коде приложения JMS. В [руководстве разработчика AMQP 1.0 для служебной шины](service-bus-amqp-dotnet.md) содержатся дополнительные сведения о работе с подписками разделов служебной шины в JMS.
 
-### Написание приложения JMS
+### <a name="write-the-jms-application"></a>Написание приложения JMS
 
 Не существует специальных API-интерфейсов или параметров для использования JMS с Service Bus. Однако существует несколько ограничений, которые будут рассмотрены ниже. Как и для любого приложения JMS, первое, что необходимо — это конфигурация среды JNDI, позволяющая разрешать **ConnectionFactory** и назначения.
 
-#### Настройка исходного контекста JNDI
+#### <a name="configure-the-jndi-initialcontext"></a>Настройка исходного контекста JNDI
 
 Для настройки среды JNDI хэш-таблица со сведениями о конфигурации передаются в конструктор класса javax.naming.InitialContext. Два обязательных элемента в хэш-таблице — это имя класса фабрики исходного контекста и URL-адрес поставщика. В следующем примере кода показано, как настроить среду JNDI для использования поставщика JNDI на основе файла свойств Qpid с именем **servicebus.properties**.
 
@@ -120,13 +121,13 @@ env.put(Context.PROVIDER_URL, "servicebus.properties");
 InitialContext context = new InitialContext(env);
 ``` 
 
-### Простое приложение JMS, использующее очередь служебной шины
+### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Простое приложение JMS, использующее очередь служебной шины
 
 Следующий пример программы отправляет текстовые сообщения JMS в очередь Service Bus с логическим JNDI-именем QUEUE и получает ответные сообщения.
 
 ```
 // SimpleSenderReceiver.java
-	
+    
 import javax.jms.*;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -134,7 +135,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Hashtable;
 import java.util.Random;
-	
+    
 public class SimpleSenderReceiver implements MessageListener {
     private static boolean runReceiver = true;
     private Connection connection;
@@ -143,7 +144,7 @@ public class SimpleSenderReceiver implements MessageListener {
     private MessageProducer sender;
     private MessageConsumer receiver;
     private static Random randomGenerator = new Random();
-	
+    
     public SimpleSenderReceiver() throws Exception {
         // Configure JNDI environment
         Hashtable<String, String> env = new Hashtable<String, String>();
@@ -151,18 +152,18 @@ public class SimpleSenderReceiver implements MessageListener {
                    "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
         env.put(Context.PROVIDER_URL, "servicebus.properties");
         Context context = new InitialContext(env);
-	
+    
         // Lookup ConnectionFactory and Queue
         ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
         Destination queue = (Destination) context.lookup("QUEUE");
-	
+    
         // Create Connection
         connection = cf.createConnection();
-	
+    
         // Create sender-side Session and MessageProducer
         sendSession = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
         sender = sendSession.createProducer(queue);
-	
+    
         if (runReceiver) {
             // Create receiver-side Session, MessageConsumer,and MessageListener
             receiveSession = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
@@ -171,18 +172,18 @@ public class SimpleSenderReceiver implements MessageListener {
             connection.start();
         }
     }
-	
+    
     public static void main(String[] args) {
         try {
-	
+    
             if ((args.length > 0) && args[0].equalsIgnoreCase("sendonly")) {
                 runReceiver = false;
             }
-	
+    
             SimpleSenderReceiver simpleSenderReceiver = new SimpleSenderReceiver();
             System.out.println("Press [enter] to send a message. Type 'exit' + [enter] to quit.");
             BufferedReader commandLine = new java.io.BufferedReader(new InputStreamReader(System.in));
-	
+    
             while (true) {
                 String s = commandLine.readLine();
                 if (s.equalsIgnoreCase("exit")) {
@@ -196,7 +197,7 @@ public class SimpleSenderReceiver implements MessageListener {
             e.printStackTrace();
         }
     }
-	
+    
     private void sendMessage() throws JMSException {
         TextMessage message = sendSession.createTextMessage();
         message.setText("Test AMQP message from JMS");
@@ -205,11 +206,11 @@ public class SimpleSenderReceiver implements MessageListener {
         sender.send(message);
         System.out.println("Sent message with JMSMessageID = " + message.getJMSMessageID());
     }
-	
+    
     public void close() throws JMSException {
         connection.close();
     }
-	
+    
     public void onMessage(Message message) {
         try {
             System.out.println("Received message with JMSMessageID = " + message.getJMSMessageID());
@@ -218,37 +219,37 @@ public class SimpleSenderReceiver implements MessageListener {
             e.printStackTrace();
         }
     }
-}	
+}   
 ```
 
-### Выполнение приложения
+### <a name="run-the-application"></a>Выполнение приложения
 
 В результате запуска приложения выводятся следующие данные:
 
 ```
 > java SimpleSenderReceiver
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	
+    
 Sent message with JMSMessageID = ID:2867600614942270318
 Received message with JMSMessageID = ID:2867600614942270318
-	
+    
 Sent message with JMSMessageID = ID:7578408152750301483
 Received message with JMSMessageID = ID:7578408152750301483
-	
+    
 Sent message with JMSMessageID = ID:956102171969368961
 Received message with JMSMessageID = ID:956102171969368961
 exit
 ```
 
-## Межплатформенный обмен сообщениями между JMS и .NET
+## <a name="cross-platform-messaging-between-jms-and-.net"></a>Межплатформенный обмен сообщениями между JMS и .NET
 
 В этом руководстве мы рассмотрели, как отправлять и получать сообщения Service Bus с помощью JMS. Однако одно из основных преимуществ использования AMQP 1.0 состоит в том, что этот протокол позволяет приложениям, созданным из компонентов, написанных на разных языках, надежно и точно обмениваться сообщениями.
 
-Используя приведенный выше пример приложения JMS и аналогичное приложение .NET, взятое из связанного руководства [Использование AMQP 1.0 с Service Bus .NET API](service-bus-dotnet-advanced-message-queuing.md), можно организовать обмен сообщениями между .NET и Java.
+Используя приведенный выше пример приложения JMS и аналогичное приложение .NET, взятое из связанного руководства [Как использовать AMQP 1.0 с API .NET служебной шины](service-bus-dotnet-advanced-message-queuing.md), можно организовать обмен сообщениями между .NET и Java. 
 
-Дополнительные сведения о межплатформенном обмене сообщениями с помощью Service Bus и AMQP 1.0 см. в статье [Руководство разработчика AMQP 1.0 для Service Bus](service-bus-amqp-dotnet.md).
+Дополнительные сведения о межплатформенном обмене сообщениями с помощью служебной шины и AMQP 1.0 см. в статье [Руководство разработчика AMQP 1.0 для служебной шины](service-bus-amqp-dotnet.md).
 
-### Из JMS в .NET
+### <a name="jms-to-.net"></a>Из JMS в .NET
 
 Для демонстрации отправки сообщении из JMS в .NET выполните следующее:
 
@@ -257,7 +258,7 @@ exit
 * В консоли приложения Java несколько раз нажмите клавишу **ВВОД**, что приведет к отправке сообщений.
 * Эти сообщения принимаются приложением .NET.
 
-#### Вывод приложения JMS
+#### <a name="output-from-jms-application"></a>Вывод приложения JMS
 
 ```
 > java SimpleSenderReceiver sendonly
@@ -268,10 +269,10 @@ Sent message with JMSMessageID = ID:1565011046230456854
 exit
 ```
 
-#### Вывод приложения .NET
+#### <a name="output-from-.net-application"></a>Вывод приложения .NET
 
 ```
-> SimpleSenderReceiver.exe	
+> SimpleSenderReceiver.exe  
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with MessageID = 4364096528752411591
 Received message with MessageID = 459252991689389983
@@ -279,7 +280,7 @@ Received message with MessageID = 1565011046230456854
 exit
 ```
 
-### Из .NET в JMS
+### <a name=".net-to-jms"></a>Из .NET в JMS
 
 Для демонстрации отправки сообщений из .NET в JMS выполните следующее:
 
@@ -288,21 +289,21 @@ exit
 * В консоли приложения .NET несколько раз нажмите клавишу **ВВОД**, что приведет к отправке сообщений.
 * Эти сообщения принимаются приложением Java.
 
-#### Вывод приложения .NET
+#### <a name="output-from-.net-application"></a>Вывод приложения .NET
 
 ```
 > SimpleSenderReceiver.exe sendonly
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
-Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
+Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3  
 Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
 Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
-#### Вывод приложения JMS
+#### <a name="output-from-jms-application"></a>Вывод приложения JMS
 
 ```
-> java SimpleSenderReceiver	
+> java SimpleSenderReceiver 
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
 Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
@@ -310,23 +311,23 @@ Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
 exit
 ```
 
-## Неподдерживаемые возможности и ограничения
+## <a name="unsupported-features-and-restrictions"></a>Неподдерживаемые возможности и ограничения
 
 При использовании JMS по протоколу AMQP 1.0 с Service Bus действуют следующие ограничения:
 
 * Для одного **сеанса** допускается только один **MessageProducer** или **MessageConsumer**. Если требуется создать несколько **MessageProducers** или **MessageConsumers** в приложении, создайте специальный **сеанс** для каждого из них.
 * Временные подписки раздела в настоящее время не поддерживаются.
-* **MessageSelectors** в настоящее время не поддерживаются.
-* Временные назначения, т. е. **TemporaryQueue** и **TemporaryTopic**, в данный момент не поддерживаются, как и API-интерфейсы **QueueRequestor** и **TopicRequestor**, которые используют их.
+* **MessageSelectors** сейчас не поддерживаются.
+* Временные назначения, т. е. **TemporaryQueue** и **TemporaryTopic**, сейчас не поддерживаются, как и API-интерфейсы **QueueRequestor** и **TopicRequestor**, которые используют их.
 * Сеансы транзакций и распределенные транзакции не поддерживаются.
 
-## Сводка
+## <a name="summary"></a>Сводка
 
-В этом практическом руководстве показано использование функций обмена сообщениями, выполняемых посредством служебной шины (очередей и разделов публикации/подписки), из Java с использованием популярного JMS API и протокола AMQP 1.0.
+В этой статье показано использование функций обмена сообщениями, выполняемых посредством служебной шины (очередей и разделов публикации/подписки), из Java с использованием популярного JMS API и протокола AMQP 1.0.
 
-Протокол AMQP 1.0 Service Bus можно также использовать из других языков, в числе которых .NET, C, Python и PHP. Компоненты, созданные с помощью этих языков, могут надежно и точно обмениваться сообщениями, используя AMQP 1.0 в Service Bus. Дополнительные сведения см. в [руководстве разработчика AMQP 1.0 для Service Bus](service-bus-amqp-dotnet.md).
+Протокол AMQP 1.0 Service Bus можно также использовать из других языков, в числе которых .NET, C, Python и PHP. Компоненты, созданные с помощью этих языков, могут надежно и точно обмениваться сообщениями, используя AMQP 1.0 в Service Bus. Дополнительные сведения см. в [руководстве разработчика AMQP 1.0 для служебной шины](service-bus-amqp-dotnet.md).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 * [Поддержка AMQP 1.0 в служебной шине](service-bus-amqp-overview.md)
 * [Как использовать AMQP 1.0 с API .NET служебной шины](service-bus-dotnet-advanced-message-queuing.md)
@@ -334,4 +335,8 @@ exit
 * [Как использовать очереди служебной шины](service-bus-dotnet-get-started-with-queues.md)
  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

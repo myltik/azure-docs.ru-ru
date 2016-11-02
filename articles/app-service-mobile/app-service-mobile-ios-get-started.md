@@ -1,50 +1,52 @@
 <properties
-	pageTitle="Создание мобильного приложения для iOS в службе мобильных приложений Azure | Microsoft Azure"
-	description="Изучите этот учебник, чтобы начать работу с серверным частями мобильных приложений Azure для разработки приложений iOS на Objective-C или Swift"
-	services="app-service\mobile"
-	documentationCenter="ios"
-	authors="yuaxu"
-	manager="yochayk"
-	editor=""/>
+    pageTitle="Create an iOS app on Azure App Service Mobile Apps | Microsoft Azure"
+    description="Follow this tutorial to get started with using Azure mobile app backends for iOS development in Objective-C or Swift"
+    services="app-service\mobile"
+    documentationCenter="ios"
+    authors="ysxu"
+    manager="yochayk"
+    editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="na"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="hero-article"
-	ms.date="10/01/2016"
-	ms.author="yuaxu"/>
+    ms.service="app-service-mobile"
+    ms.workload="na"
+    ms.tgt_pltfrm="mobile-ios"
+    ms.devlang="objective-c"
+    ms.topic="hero-article"
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
 
-#Создание приложения iOS
+
+#<a name="create-an-ios-app"></a>Create an iOS app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Обзор
+## <a name="overview"></a>Overview
 
-В этом руководстве показано, как добавить облачную серверную службу [мобильных приложений Azure](app-service-mobile-value-prop.md) в приложение iOS. Сначала мы создадим новую серверную часть мобильного приложения. Затем используем простое приложение iOS _Список дел_ для хранения данных в Azure.
+This tutorial shows how to add [Azure Mobile Apps](app-service-mobile-value-prop.md), a cloud backend service, to an iOS app. We'll first create a new mobile backend. Then, we'll use a simple _Todo list_ iOS app to store data in Azure.
 
-Для работы с этим учебником требуется [учетная запись Azure](https://azure.microsoft.com/pricing/free-trial/) и Mac.
+To complete this tutorial, you need a Mac and [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 
 
-## Шаг 1. Создание серверной части мобильного приложения Azure
+## <a name="step-i:-create-a-new-azure-mobile-app-backend"></a>Step I: Create a new Azure mobile app backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Шаг 2. Настройка проекта серверной части
+## <a name="step-ii:-configure-the-backend-project"></a>Step II: Configure the backend project
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Шаг 3. Скачивание и запуск приложения iOS
+## <a name="step-iii:-download-and-run-the-ios-app"></a>Step III: Download and run the iOS app
 
 [AZURE.INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
-
-
-<!-- Images. -->
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

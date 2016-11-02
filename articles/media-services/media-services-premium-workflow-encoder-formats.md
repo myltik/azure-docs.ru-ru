@@ -1,42 +1,43 @@
 <properties 
-	pageTitle="Форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа | Microsoft Azure" 
-	description="В этом разделе содержится обзор форматов и кодеков расширенного рабочего процесса кодировщика мультимедиа." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="erik43" 
-	editor=""/>
+    pageTitle="Форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа | Microsoft Azure" 
+    description="В этом разделе содержится обзор форматов и кодеков расширенного рабочего процесса кодировщика мультимедиа." 
+    services="media-services" 
+    documentationCenter="" 
+    authors="juliako" 
+    manager="erik43" 
+    editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/26/2016"    
-	ms.author="juliako;anilmur"/>
+    ms.service="media-services" 
+    ms.workload="media" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/26/2016"    
+    ms.author="juliako;anilmur"/>
 
-#Форматы и кодеки рабочего процесса Premium Media Encoder
+
+#<a name="media-encoder-premium-workflow-formats-and-codecs"></a>Форматы и кодеки рабочего процесса Premium Media Encoder
 
 
 >[AZURE.NOTE]Вопросы о кодировщике Premium направляйте по адресу mepd@microsoft.com.
 >
->Обработчик мультимедиа расширенного рабочего процесса кодировщика мультимедиа, рассматриваемый в этом разделе, недоступен в Китае.
+>Обработчик мультимедиа расширенного рабочего процесса кодировщика мультимедиа, рассматриваемый в этом разделе, недоступен в Китае. 
 
-Этот документ содержит список форматов входных и выходных файлов, а также список кодеков, которые поддерживает общедоступная предварительная версия **расширенного рабочего процесса кодировщика мультимедиа**.
+Этот документ содержит список форматов входных и выходных файлов, а также список кодеков, которые поддерживает общедоступная предварительная версия **расширенного рабочего процесса кодировщика мультимедиа** .
 
 [Входные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа](#input_formats)
 
 [Выходные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа](#output_formats)
 
-**Расширенный рабочий процесс кодировщика мультимедиа** поддерживает скрытые субтитры, описанные в [этом](#closed_captioning) разделе.
+**Расширенный рабочий процесс кодировщика мультимедиа** поддерживает скрытые субтитры, описанные в [этом](#closed_captioning) разделе. 
 
 
-##<a id="input_formats"></a>Входные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
+##<a name="<a-id="input_formats"></a>media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Входные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
 
 В следующем разделе приводится список кодеков и форматов файлов, которые этот кодировщик мультимедиа поддерживает на входе.
 
-###Контейнер ввода/ форматы файлов
+###<a name="input-container/file-formats"></a>Контейнер ввода/ форматы файлов
 
 - Adobe® Flash® F4V
 - MXF/SMPTE 377M
@@ -47,7 +48,7 @@
 - Windows Media/ASF
 - AVI (без сжатия 8 бит/10 бит)
 
-###Входные видеокодеки
+###<a name="input-video-codecs"></a>Входные видеокодеки
 
 - AVC 8-разрядный/10-разрядный, до 4:2:2, включая AVCIntra
 - Avid DNxHD (в MXF)
@@ -57,7 +58,7 @@
 - MPEG-1
 - Windows Media Video/VC-1
 
-###Входные аудиокодеки
+###<a name="input-audio-codecs"></a>Входные аудиокодеки
 
 - AES (SMPTE 331M и 302M, AES3-2003)
 - Dolby® E
@@ -68,11 +69,11 @@
 - Windows Media Audio
 - WAV/PCM
  
-##<a id="output_format"></a>Выходные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
+##<a name="<a-id="output_format"></a>media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Выходные форматы и кодеки расширенного рабочего процесса кодировщика мультимедиа
 
 В следующем разделе приводится список кодеков и форматов файлов, которые этот кодировщик мультимедиа поддерживает на выходе.
 
-###Контейнер вывода/ форматы файлов
+###<a name="output-container/file-formats"></a>Контейнер вывода/ форматы файлов
 
 - Adobe® Flash® F4V
 - MXF (OP1a, XDCAM и AS02)
@@ -82,10 +83,10 @@
 - Windows Media/ASF
 - AVI (без сжатия 8 бит/10 бит)
 - Формат файлов Smooth Streaming (PIFF 1.3)
-- MPEG-TS
+- MPEG-TS 
 
 
-###Выходные видеокодеки
+###<a name="output-video-codecs"></a>Выходные видеокодеки
 
 - AVC (H.264; 8-разрядный; до High Profile, Level 5.2; 4K Ultra HD; AVC Intra)
 - Avid DNxHD (в MXF)
@@ -95,7 +96,7 @@
 - Windows Media Video/VC-1
 - Создание эскизов JPEG
 
-###Выходные аудиокодеки
+###<a name="output-audio-codecs"></a>Выходные аудиокодеки
 
 - AES (SMPTE 331M и 302M, AES3-2003)
 - Dolby® Digital (AC3)
@@ -105,7 +106,7 @@
 - MP3 (MPEG-1 Audio Layer 3)
 - Windows Media Audio
 
-##<a id="closed_captioning"></a>Поддержка скрытых титров
+##<a name="<a-id="closed_captioning"></a>support-for-closed-captioning"></a><a id="closed_captioning"></a>Поддержка скрытых титров
 
 При приеме **расширенный рабочий процесс кодировщика мультимедиа** поддерживает:
 
@@ -125,17 +126,21 @@
 
 Примечание: доставки через потоковую передачу в службах мультимедиа Azure поддерживаются не все указанные выше форматы.
 
-##Известные проблемы
+##<a name="known-issues"></a>Известные проблемы
 
-Если входящее видео не содержит скрытых субтитров, выходящий ресурс по-прежнему будет содержать пустой файл TTML.
+Если входящее видео не содержит скрытых субтитров, выходящий ресурс по-прежнему будет содержать пустой файл TTML. 
 
 
-##Схемы обучения работе со службами мультимедиа
+##<a name="media-services-learning-paths"></a>Схемы обучения работе со службами мультимедиа
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Отзывы
+##<a name="provide-feedback"></a>Отзывы
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

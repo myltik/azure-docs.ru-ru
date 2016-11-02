@@ -16,33 +16,38 @@
    ms.date="09/26/2016"
    ms.author="SubramaR"/>
 
-# Service Fabric в Azure
 
-Предварительная версия Service Fabric для Linux дает возможность создавать, развертывать высокодоступные приложения с высокой масштабируемостью и управлять ими в Linux так же, как и в Windows. Платформы Service Fabric (Reliable Services и Reliable Actors) в Linux доступны для программирования на языках Java и C# (.NET Core). Также можно создавать [гостевые исполняемые службы](service-fabric-deploy-existing-app.md), используя любой язык или платформу. Кроме того, предварительная версия поддерживает оркестрацию контейнеров Docker. В контейнерах Docker могут выполняться гостевые исполняемые файлы или собственные службы Service Fabric, использующие платформы Service Fabric.
+# <a name="service-fabric-on-linux"></a>Service Fabric в Azure
+
+Предварительная версия Service Fabric для Linux дает возможность создавать, развертывать высокодоступные приложения с высокой масштабируемостью и управлять ими в Linux так же, как и в Windows. Платформы Service Fabric (Reliable Services и Reliable Actors) в Linux доступны для программирования на языках Java и C# (.NET Core).  Также можно создавать [гостевые исполняемые службы](service-fabric-deploy-existing-app.md) , используя любой язык или платформу. Кроме того, предварительная версия поддерживает оркестрацию контейнеров Docker. В контейнерах Docker могут выполняться гостевые исполняемые файлы или собственные службы Service Fabric, использующие платформы Service Fabric.
 
 Служба Service Fabric в Linux в принципе эквивалентна Service Fabric в Windows (за исключением особенностей ОС и поддержки языков программирования). Поэтому большая часть нашей [имеющейся документации](http://aka.ms/servicefabricdocs) пригодна для того, чтобы ознакомиться с этой технологией.
 
 > [AZURE.VIDEO service-fabric-linux-preview]
 
-## Поддерживаемые операционные системы и языки программирования
+## <a name="supported-operating-systems-and-programming-languages"></a>Поддерживаемые операционные системы и языки программирования
 
-Ограниченная предварительная версия поддерживает создание универсальных кластеров для разработки, а также многомашинных кластеров в Azure под управлением Ubuntu Server 16.04. Помимо гостевых исполняемых файлов и оркестрации контейнеров Docker предварительная версия поддерживает платформы Reliable Actors и Reliable Stateless Services на языках Java и C#.
+Ограниченная предварительная версия поддерживает создание универсальных кластеров для разработки, а также многомашинных кластеров в Azure под управлением Ubuntu Server 16.04. Помимо гостевых исполняемых файлов и оркестрации контейнеров Docker предварительная версия поддерживает платформы Reliable Actors и Reliable Stateless Services на языках Java и C#.  
 
 >[AZURE.NOTE] Платформа Reliable Collections пока не поддерживается в Linux. Автономные кластеры тоже не поддерживаются. В предварительной версии поддерживаются только универсальные кластеры, а также кластеры Azure из нескольких компьютеров под управлением Linux.
 
-## Поддерживаемые средства
+## <a name="supported-tooling"></a>Поддерживаемые средства
 
 Предварительная версия поддерживает взаимодействие с кластером через интерфейс командной строки Azure. Для разработчиков Java интеграция с Eclipse и Yeoman доступна при помощи среды Eclipse, поддерживаемой в Linux и OS X. В интеграции с OS X используется виртуальная машина под управлением Linux (через Vagrant). Разработчики C# могут использовать интеграцию с Yeoman для создания шаблонов приложений.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 
 1. Ознакомьтесь с платформами программирования [Reliable Actors](service-fabric-reliable-actors-introduction.md) и [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-2. [Подготовка среды разработки в Linux](service-fabric-get-started-linux.md).
+2. [Подготовка среды разработки в Linux](service-fabric-get-started-linux.md)
 
-3. [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md).
+3. [Настройка среды разработки для Mac OS X](service-fabric-get-started-mac.md)
 
-4. [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-java.md).
+4. [Создание первого приложения Azure Service Fabric](service-fabric-create-your-first-linux-application-with-java.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

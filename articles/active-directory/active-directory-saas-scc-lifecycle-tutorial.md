@@ -14,9 +14,11 @@
     ms.date="09/26/2016" 
     ms.author="jeedes" />
 
-#Учебник. Интеграция Azure Active Directory с SCC LifeCycle
+
+#<a name="tutorial:-azure-active-directory-integration-with-scc-lifecycle"></a>Учебник. Интеграция Azure Active Directory с SCC LifeCycle
   
-Цель данного учебника — показать интеграцию Azure и SCC LifeCycle. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
+Цель данного учебника — показать интеграцию Azure и SCC LifeCycle.  
+Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   действующая подписка Azure;
 -   подписка SCC LifeCycle с поддержкой единого входа.
@@ -30,12 +32,12 @@
 3.  Настройка подготовки учетных записей пользователей
 4.  Назначение пользователей
 
-![Сценарий](./media/active-directory-saas-scc-lifecycle-tutorial/IC794120.png "Сценарий")
-##Включение интеграции приложений для SCC LifeCycle
+![Сценарий](./media/active-directory-saas-scc-lifecycle-tutorial/IC794120.png "Scenario")
+##<a name="enabling-the-application-integration-for-scc-lifecycle"></a>Включение интеграции приложений для SCC LifeCycle
   
 В этом разделе показано, как включить интеграцию приложений для SCC LifeCycle.
 
-###Чтобы включить интеграцию приложений для SCC LifeCycle, выполните следующие действия:
+###<a name="to-enable-the-application-integration-for-scc-lifecycle,-perform-the-following-steps:"></a>Чтобы включить интеграцию приложений для SCC LifeCycle, выполните следующие действия:
 
 1.  На классическом портале Azure в области навигации слева щелкните **Active Directory**.
 
@@ -45,44 +47,44 @@
 
 3.  Чтобы открыть представление приложений, в представлении каталога нажмите **Приложения** в верхнем меню.
 
-    ![Приложения](./media/active-directory-saas-scc-lifecycle-tutorial/IC700994.png "Приложения")
+    ![Приложения](./media/active-directory-saas-scc-lifecycle-tutorial/IC700994.png "Applications")
 
-4.  В нижней части страницы нажмите кнопку **Добавить**.
+4.  В нижней части страницы нажмите кнопку **Добавить** .
 
-    ![Добавление приложения](./media/active-directory-saas-scc-lifecycle-tutorial/IC749321.png "Добавление приложения")
+    ![Добавить приложение](./media/active-directory-saas-scc-lifecycle-tutorial/IC749321.png "Add application")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
 
-    ![Добавить приложение из коллекции](./media/active-directory-saas-scc-lifecycle-tutorial/IC749322.png "Добавить приложение из коллекции")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-scc-lifecycle-tutorial/IC749322.png "Add an application from gallerry")
 
 6.  В **поле поиска** введите **SCC LifeCycle**.
 
-    ![Коллекция приложений](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "Коллекция приложений")
+    ![Коллекция приложений](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "Application Gallery")
 
 7.  В области результатов выберите **SCC LifeCycle** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![SCC LifeCycle](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC LifeCycle")
-##Настройка единого входа
+##<a name="configuring-single-sign-on"></a>Настройка единого входа
   
 В этом разделе показано, как разрешить пользователям проходить аутентификацию в SCC LifeCycle со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.
 
-###Чтобы настроить единый вход, выполните следующие действия.
+###<a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции с приложением **SCC LifeCycle** классического портала Azure щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На классическом портале Azure на странице интеграции с приложением **SCC LifeCycle** щелкните **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
-    ![Настройка единого входа](./media/active-directory-saas-scc-lifecycle-tutorial/IC794122.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-scc-lifecycle-tutorial/IC794122.png "Configure Single Sign-On")
 
 2.  На странице **Как пользователи должны входить в SCC LifeCycle?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
-    ![Настройка единого входа](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "Configure Single Sign-On")
 
-3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа** введите URL-адрес, используемый вашими пользователями для входа в приложение SCC LifeCycle, в формате "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*" и нажмите кнопку **Далее**.
+3.  На странице **Настроить URL-адрес приложения** в текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение SCC LifeCycle, в формате *https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*, после чего и нажмите кнопку **Далее**.
 
-    ![Настройка URL-адреса приложения](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Настройка URL-адреса приложения")
+    ![Настройка URL-адреса приложения](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "Configure App URL")
 
-4.  На странице **Настройка единого входа в SCC LifeCycle** нажмите кнопку **Загрузить метаданные**, а затем сохраните файл метаданных на локальном компьютере.
+4.  На странице **Настройка единого входа в SCC LifeCycle** щелкните **Скачать метаданные**, а затем сохраните файл метаданных на локальном компьютере.
 
-    ![Настройка единого входа](./media/active-directory-saas-scc-lifecycle-tutorial/IC795083.png "Настройка единого входа")
+    ![Настройка единого входа](./media/active-directory-saas-scc-lifecycle-tutorial/IC795083.png "Configure Single Sign-On")
 
 5.  Передайте этот файл метаданных в группу поддержки SCC LifeCycle.
 
@@ -90,31 +92,35 @@
 
 6.  На классическом портале Azure выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
-    ![Настройка единого входа](./media/active-directory-saas-scc-lifecycle-tutorial/IC794125.png "Настройка единого входа")
-##Настройка подготовки учетных записей пользователей
+    ![Настройка единого входа](./media/active-directory-saas-scc-lifecycle-tutorial/IC794125.png "Configure Single Sign-On")
+##<a name="configuring-user-provisioning"></a>Настройка подготовки учетных записей пользователей
   
 Чтобы пользователи Azure AD могли выполнять вход в SCC LifeCycle, они должны быть подготовлены для SCC LifeCycle.
   
-Действие для настройки подготовки пользователей в SCC LifeCycle отсутствует. Когда назначенный пользователь пытается войти в SCC LifeCycle, учетная запись SCC LifeCycle создается автоматически (при необходимости).
+Действие для настройки подготовки пользователей в SCC LifeCycle отсутствует.  
+Когда назначенный пользователь пытается войти в SCC LifeCycle, учетная запись SCC LifeCycle создается автоматически (при необходимости).
 
 >[AZURE.NOTE]Вы можете использовать любые другие инструменты создания учетной записи пользователя SCC LifeCycle или API, предоставляемые SCC LifeCycle для подготовки учетных записей пользователя AAD.
 
-##Назначение пользователей
+##<a name="assigning-users"></a>Назначение пользователей
   
 Чтобы проверить свою конфигурацию, предоставьте пользователям Azure AD, которые должны использовать приложение, доступ путем их назначения.
 
-###Чтобы назначить пользователей SCC LifeCycle, выполните следующие действия:
+###<a name="to-assign-users-to-scc-lifecycle,-perform-the-following-steps:"></a>Чтобы назначить пользователей SCC LifeCycle, выполните следующие действия:
 
 1.  На классическом портале Azure создайте тестовую учетную запись.
 
 2.  На странице интеграции с приложением **SCC LifeCycle** щелкните **Назначить пользователей**.
 
-    ![Назначить пользователей](./media/active-directory-saas-scc-lifecycle-tutorial/IC794126.png "Назначить пользователей")
+    ![Назначить пользователей](./media/active-directory-saas-scc-lifecycle-tutorial/IC794126.png "Assign Users")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
-    ![Да](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "Да")
+    ![Да](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "Yes")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

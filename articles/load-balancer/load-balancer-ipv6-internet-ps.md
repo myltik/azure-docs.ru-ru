@@ -7,6 +7,7 @@
     manager="carmonm"
     editor=""
     tags="azure-resource-manager"
+    keywords="IPv6, Azure Load Balancer, двойной стек, общедоступный IP-адрес, встроенная поддержка Ipv6, мобильное устройство, Интернет вещей"
 />
 <tags
     ms.service="load-balancer"
@@ -18,16 +19,17 @@
     ms.author="sewhee"
 />
 
-# Приступая к созданию балансировщика нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell для Resource Manager
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Приступая к созданию балансировщика нагрузки для Интернета с поддержкой IPv6 с помощью PowerShell для Resource Manager
 
 > [AZURE.SELECTOR]
-- [PowerShell](load-balancer-IPv6-internet-ps.md)
-- [Интерфейс командной строки Azure](load-balancer-IPv6-internet-cli.md)
-- [Шаблон](load-balancer-IPv6-internet-template.md)
+- [PowerShell](./load-balancer-ipv6-internet-ps.md)
+- [Интерфейс командной строки Azure](./load-balancer-ipv6-internet-cli.md)
+- [Шаблон](./load-balancer-ipv6-internet-template.md)
 
 Azure Load Balancer является балансировщиком нагрузки 4-го уровня (TCP, UDP). Балансировщик нагрузки обеспечивает высокий уровень доступности, распределяя входящий трафик между работоспособными экземплярами службы в облачных службах или виртуальных машинах, определенных в наборе балансировщика нагрузки. Azure Load Balancer может также представить данные службы на нескольких портах, нескольких IP-адресах или обоими этими способами.
 
-## Пример сценария развертывания
+## <a name="example-deployment-scenario"></a>Пример сценария развертывания
 
 На следующей схеме показано решение балансировки нагрузки, которое развертывается в этой статье.
 
@@ -41,7 +43,7 @@ Azure Load Balancer является балансировщиком нагруз
 - две виртуальные машины;
 - виртуальный сетевой интерфейс для каждой виртуальной машины с назначенными IPv4 и IPv6-адресами.
 
-## Развертывание решения с помощью Azure PowerShell
+## <a name="deploying-the-solution-using-the-azure-powershell"></a>Развертывание решения с помощью Azure PowerShell
 
 Ниже описана процедура создания балансировщика нагрузки для Интернета с помощью Azure Resource Manager и PowerShell. Azure Resource Manager позволяет по отдельности создавать и настраивать ресурсы, после чего на их основе создается единый ресурс.
 
@@ -53,9 +55,9 @@ Azure Load Balancer является балансировщиком нагруз
 - Правила NAT для входящего трафика. Содержат правила сопоставления общего порта в балансировщике нагрузки с портом на конкретной виртуальной машине в пуле внутренних адресов.
 - Пробы. Содержат пробы работоспособности, с помощью которых можно проверить доступность экземпляров виртуальных машин в пуле внутренних адресов.
 
-Дополнительные сведения см. в статье, посвященной [поддержке Azure Resource Manager для балансировщика нагрузки](load-balancer-arm.md).
+Дополнительные сведения см. в статье [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](load-balancer-arm.md).
 
-## Настройка PowerShell для использования Resource Manager
+## <a name="set-up-powershell-to-use-resource-manager"></a>Настройка PowerShell для использования Resource Manager
 
 Убедитесь, что вы используете последнюю рабочую версию модуля Azure Resource Manager для PowerShell.
 
@@ -77,7 +79,7 @@ Azure Load Balancer является балансировщиком нагруз
 
         New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
-## Создание виртуальной сети и общедоступного IP-адреса для пула IP-адресов клиентской части
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Создание виртуальной сети и общедоступного IP-адреса для пула IP-адресов клиентской части
 
 1. Создайте виртуальную сеть с подсетью.
 
@@ -91,7 +93,7 @@ Azure Load Balancer является балансировщиком нагруз
 
     >[AZURE.IMPORTANT] Балансировщик нагрузки использует метку домена общедоступного IP-адреса в качестве префикса к полному доменному имени (FQDN). В этом примере полные доменные имена — *lbnrpipv4.westus.cloudapp.azure.com* и *lbnrpipv6.westus.cloudapp.azure.com*.
 
-## Создание интерфейсных конфигураций IP-адресов и внутреннего пула адресов
+## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Создание интерфейсных конфигураций IP-адресов и внутреннего пула адресов
 
 1. Создайте интерфейсную конфигурацию адресов, которая использует созданные вами общедоступные IP-адреса.
 
@@ -104,12 +106,13 @@ Azure Load Balancer является балансировщиком нагруз
         $backendpoolipv6 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv6"
 
 
-## Создание правил балансировки нагрузки, правил преобразования сетевых адресов, пробы и балансировщика нагрузки
+## <a name="create-lb-rules,-nat-rules,-a-probe,-and-a-load-balancer"></a>Создание правил балансировки нагрузки, правил преобразования сетевых адресов, пробы и балансировщика нагрузки
 
 В этом примере создаются следующие элементы:
 
 - правило NAT, которое направляет весь входящий трафик с порта 443 на порт 4443;
 - правило балансировщика нагрузки, которое балансирует весь входящий трафик на порту 80, перенаправляя трафик на порт 80 других адресов во внутреннем пуле;
+- правило балансировщика нагрузки, которое разрешает подключение к виртуальным машинам по протоколу удаленного рабочего стола на порте 3389;
 - правило пробы, которое проверяет состояние работоспособности на странице *HealthProbe.aspx* или службу на порте 8080;
 - балансировщик нагрузки, который использует все эти объекты.
 
@@ -127,19 +130,22 @@ Azure Load Balancer является балансировщиком нагруз
     или проба TCP:
 
         $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name 'HealthProbe-v4v6' -Protocol Tcp -Port 8080 -IntervalInSeconds 15 -ProbeCount 2
+        $RDPprobe = New-AzureRmLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
+
 
     В этом примере мы используем пробу TCP.
 
 3. Создайте правило балансировщика нагрузки.
 
-        $lbrule1v4 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv4" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool backendpoolipv4 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
-        $lbrule1v6 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv6" -FrontendIpConfiguration $FEIPConfigv6 -BackendAddressPool backendpoolipv6 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
+        $lbrule1v4 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv4" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
+        $lbrule1v6 = New-AzureRmLoadBalancerRuleConfig -Name "HTTPv6" -FrontendIpConfiguration $FEIPConfigv6 -BackendAddressPool $backendpoolipv6 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080
+        $RDPrule = New-AzureRmLoadBalancerRuleConfig -Name "RDPrule" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $RDPprobe -Protocol Tcp -FrontendPort 3389 -BackendPort 3389
 
 4. Создайте балансировщик нагрузки, используя ранее созданные объекты.
 
-        $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe -LoadBalancingRule $lbrule1v4,$lbrule1v6
+        $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
 
-## Создание сетевых карт для внутренних виртуальных машин
+## <a name="create-nics-for-the-back-end-vms"></a>Создание сетевых карт для внутренних виртуальных машин
 
 1. Получите виртуальную сеть и подсеть виртуальной сети, в которых должны быть созданы сетевые карты.
 
@@ -156,40 +162,38 @@ Azure Load Balancer является балансировщиком нагруз
         $nic2IPv6 = New-AzureRmNetworkInterfaceIpConfig -Name "IPv6IPConfig" -PrivateIpAddressVersion "IPv6" -LoadBalancerBackendAddressPool $backendpoolipv6
         $nic2 = New-AzureRmNetworkInterface -Name 'myNrpIPv6Nic1' -IpConfiguration $nic2IPv4,$nic2IPv6 -ResourceGroupName NRP-RG -Location 'West US'
 
-3. Создайте сетевые карты и свяжите их с правилами NAT и внутренним пулом адресов.
-
-        $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic1-be -Location 'West US' -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
-
-## Создание виртуальных машин и назначение только что созданных сетевых карт
+## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Создание виртуальных машин и назначение только что созданных сетевых карт
 
 Дополнительные сведения о создании виртуальной машины см. в статье [Создание виртуальной машины Windows с помощью Resource Manager и PowerShell](..\virtual-machines\virtual-machines-windows-ps-create.md).
 
 1. Создайте группу доступности и учетную запись хранения.
 
-        New-AzureRmAvailabilitySet -Name $availabilitySetName -ResourceGroupName NRP-RG -location 'West US'
+        New-AzureRmAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG -location 'West US'
         $availabilitySet = Get-AzureRmAvailabilitySet -Name 'myNrpIPv6AvSet' -ResourceGroupName NRP-RG
-        New-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name $vmStorageAccount -Location 'West US' -SkuName $LRS
-        $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name $vmStorageAccount
+        New-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct' -Location 'West US' -SkuName $LRS
+        $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct'
 
 2. Создайте каждую из виртуальных машин и назначьте только что созданные сетевые карты.
 
-        $vm1 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM0 -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
-        $vm1 = Set-AzureRmVMOperatingSystem -VM $vm1 -Windows -ComputerName 'myNrpIPv6VM0 -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
+        $mySecureCredentials= Get-Credential -Message “Type the username and password of the local administrator account.”
+
+        $vm1 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM0' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
+        $vm1 = Set-AzureRmVMOperatingSystem -VM $vm1 -Windows -ComputerName 'myNrpIPv6VM0' -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
         $vm1 = Set-AzureRmVMSourceImage -VM $vm1 -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         $vm1 = Add-AzureRmVMNetworkInterface -VM $vm1 -Id $nic1.Id -Primary
         $osDisk1Uri = $CreatedStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/myNrpIPv6VM0osdisk.vhd"
         $vm1 = Set-AzureRmVMOSDisk -VM $vm1 -Name 'myNrpIPv6VM0osdisk' -VhdUri $osDisk1Uri -CreateOption FromImage
         New-AzureRmVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm1
 
-        $vm2 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM1 -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
-        $vm2 = Set-AzureRmVMOperatingSystem -VM $vm2 -Windows -ComputerName 'myNrpIPv6VM1 -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
+        $vm2 = New-AzureRmVMConfig -VMName 'myNrpIPv6VM1' -VMSize 'Standard_G1' -AvailabilitySetId $availabilitySet.Id
+        $vm2 = Set-AzureRmVMOperatingSystem -VM $vm2 -Windows -ComputerName 'myNrpIPv6VM1' -Credential $mySecureCredentials -ProvisionVMAgent -EnableAutoUpdate
         $vm2 = Set-AzureRmVMSourceImage -VM $vm2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
         $vm2 = Add-AzureRmVMNetworkInterface -VM $vm2 -Id $nic2.Id -Primary
         $osDisk2Uri = $CreatedStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/myNrpIPv6VM1osdisk.vhd"
         $vm2 = Set-AzureRmVMOSDisk -VM $vm2 -Name 'myNrpIPv6VM1osdisk' -VhdUri $osDisk2Uri -CreateOption FromImage
         New-AzureRmVM -ResourceGroupName NRP-RG -Location 'West US' -VM $vm2
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-get-started-ilb-arm-ps.md)
 
@@ -197,4 +201,8 @@ Azure Load Balancer является балансировщиком нагруз
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

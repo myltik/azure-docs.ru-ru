@@ -1,7 +1,8 @@
 <properties
-    pageTitle="Отправка запросов в индекс службы поиска Azure с помощью пакета SDK для .NET | Microsoft Azure | Размещенная облачная служба поиска"
-    description="В службе поиска Azure можно создавать поисковые запросы и с помощью параметров поиска фильтровать, сортировать и уточнять результаты."
+    pageTitle="Query your Azure Search Index using the .NET SDK | Microsoft Azure | Hosted cloud search service"
+    description="Build a search query in Azure search and use search parameters to filter and sort search results."
     services="search"
+    manager="jhubbard"
     documentationCenter=""
     authors="brjohnstmsft"
 />
@@ -15,37 +16,38 @@
     ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
-# Отправка запросов в индекс службы поиска Azure с помощью пакета SDK для .NET
+
+# <a name="query-your-azure-search-index-using-the-.net-sdk"></a>Query your Azure Search index using the .NET SDK
 > [AZURE.SELECTOR]
-- [Обзор](search-query-overview.md)
-- [Портал](search-explorer.md)
+- [Overview](search-query-overview.md)
+- [Portal](search-explorer.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-В этой статье показано, как отправлять запросы в индекс с помощью [пакета SDK .NET для службы поиска Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+This article will show you how to query an index using the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx).
 
-Прежде чем приступать к выполнению инструкций из этого руководства, необходимо [создать индекс службы поиска Azure](search-what-is-an-index.md) и [заполнить его данными](search-what-is-data-import.md).
+Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
 
-Все приведенные здесь примеры кода написаны на языке C#. Полный исходный код можно найти на сайте [GitHub](http://aka.ms/search-dotnet-howto).
+Note that all sample code in this article is written in C#. You can find the full source code [on GitHub](http://aka.ms/search-dotnet-howto).
 
-## 1\. Определение ключа API запроса службы поиска Azure
-Теперь, когда вы создали индекс службы поиска Azure, вы почти готовы отправлять запросы с помощью пакета SDK для .NET. Для этого сначала нужно получить один из ключей API запроса, созданный для подготовленной службы поиска. Пакет SDK для .NET отправляет этот ключ при каждом запросе к службе. Если есть действительный ключ, для каждого запроса устанавливаются отношения доверия между приложением, которое отправляет запрос, и службой, которая его обрабатывает.
+## <a name="i.-identify-your-azure-search-service's-query-api-key"></a>I. Identify your Azure Search service's query api-key
+Now that you have created an Azure Search index, you are almost ready to issue queries using the .NET SDK. First, you will need to obtain one of the query api-keys that was generated for the search service you provisioned. The .NET SDK will send this api-key on every request to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-1. Чтобы найти ключи API своей службы, войдите на [портал Azure](https://portal.azure.com/).
-2. Перейдите к колонке службы поиска Azure.
-3. Щелкните значок "Ключи".
+1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
+2. Go to your Azure Search service's blade
+3. Click on the "Keys" icon
 
-Ваша служба получит *ключи администратора* и *ключи запросов*.
+Your service will have *admin keys* and *query keys*.
 
-  - Первичные и вторичные *ключи администратора* предоставляют полный доступ ко всем операциям, включая возможность управлять службой, создавать и удалять индексы, индексаторы и источники данных. Ключей два, поэтому вы можете и дальше использовать вторичный ключ, если решите повторно создать первичный ключ, и наоборот.
-  - *Ключи запросов* предоставляют только разрешение на чтение индексов и документов; обычно они добавляются в клиентские приложения, которые создают запросы на поиск.
+  - Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
+  - Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
 
-Для отправки запросов в индекс можно использовать один из ключей запросов. Для запросов можно использовать также ключи администратора, но в коде приложения следует использовать ключ запроса, так как этот вариант лучше соответствует [принципу предоставления минимальных прав](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
+For the purposes of querying an index, you can use one of your query keys. Your admin keys can also be used for queries, but you should use a query key in your application code as this better follows the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## 2\. Создание экземпляра класса SearchIndexClient
-Чтобы отправлять запросы с помощью пакета SDK .NET для службы поиска Azure, нужно создать экземпляр класса `SearchIndexClient`. Этот класс имеет несколько конструкторов. Нужный вам конструктор принимает в качестве параметров имя службы поиска, имя индекса и объект `SearchCredentials`. `SearchCredentials` содержит ключ API.
+## <a name="ii.-create-an-instance-of-the-searchindexclient-class"></a>II. Create an instance of the SearchIndexClient class
+To issue queries with the Azure Search .NET SDK, you will need to create an instance of the `SearchIndexClient` class. This class has several constructors. The one you want takes your search service name, index name, and a `SearchCredentials` object as parameters. `SearchCredentials` wraps your api-key.
 
-Приведенный ниже код создает новый класс `SearchIndexClient` для индекса hotels, используя значения имени службы поиска и ключа API, которые хранятся в файле конфигурации приложения (`app.config` или `web.config`). Инструкции по созданию индекса hotels см. в статье [Создание индекса службы поиска Azure с помощью пакета SDK для .NET](search-create-index-dotnet.md).
+The code below creates a new `SearchIndexClient` for the "hotels" index (created in [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md)) using values for the search service name and api-key that are stored in the application's config file (`app.config` or `web.config`):
 
 ```csharp
 string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
@@ -54,19 +56,19 @@ string queryApiKey = ConfigurationManager.AppSettings["SearchServiceQueryApiKey"
 SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels", new SearchCredentials(queryApiKey));
 ```
 
-У класса `SearchIndexClient` есть свойство `Documents`. Это свойство предоставляет все методы, которые требуются для отправки запросов в индексы службы поиска Azure.
+`SearchIndexClient` has a `Documents` property. This property provides all the methods you need to query Azure Search indexes.
 
-## 3\. Отправка запроса в индекс
-Поиск с помощью пакета SDK для .NET сводится к вызову метода `Documents.Search` для класса `SearchIndexClient`. Этот метод принимает несколько параметров, включая текст поиска и объект `SearchParameters`, с помощью которого можно уточнить запрос.
+## <a name="iii.-query-your-index"></a>III. Query your index
+Searching with the .NET SDK is as simple as calling the `Documents.Search` method on your `SearchIndexClient`. This method takes a few parameters, including the search text, along with a `SearchParameters` object that can be used to further refine the query.
 
-#### Типы запросов
-Два основных [типа запросов](search-query-overview.md#types-of-queries), которые вы будете использовать, — это `search` и `filter`. Запрос `search` выполняет поиск по одному или нескольким условиям во всех _поддерживающих поиск_ полях индекса. Запрос `filter` оценивает логическое выражение во всех _фильтруемых_ полях индекса.
+#### <a name="types-of-queries"></a>Types of Queries
+The two main [query types](search-query-overview.md#types-of-queries) you will use are `search` and `filter`. A `search` query searches for one or more terms in all _searchable_ fields in your index. A `filter` query evaluates a boolean expression over all _filterable_ fields in an index.
 
-Поиск и фильтрация выполняются с помощью метода `Documents.Search`. Поисковый запрос можно передать в параметре `searchText`, а выражение фильтра — в свойстве `Filter` класса `SearchParameters`. Чтобы выполнить фильтрацию и при этом не выполнять поиск, в качестве значения параметра `searchText` укажите `"*"`. Чтобы выполнить поиск, не прибегая к фильтрации, не задавайте значение свойства `Filter` или вообще не передавайте его в экземпляр `SearchParameters`.
+Both searches and filters are performed using the `Documents.Search` method. A search query can be passed in the `searchText` parameter, while a filter expression can be passed in the `Filter` property of the `SearchParameters` class. To filter without searching, just pass `"*"` for the `searchText` parameter. To search without filtering, just leave the `Filter` property unset, or do not pass in a `SearchParameters` instance at all.
 
-#### Примеры запросов
+#### <a name="example-queries"></a>Example Queries
 
-В следующем примере кода показано несколько разных способов отправки запросов в индекс hotels, описанный в статье [Создание индекса службы поиска Azure с помощью пакета SDK для .NET](search-create-index-dotnet.md#DefineIndex). Обратите внимание, что документы, возвращаемые в результатах поиска, — это экземпляры класса `Hotel`, описанного в статье [Импорт данных в службу поиска Azure с помощью пакета SDK для .NET](search-import-data-dotnet.md#HotelClass). Пример кода выводит результаты поиска на консоль с помощью метода `WriteDocuments`. Этот метод описан в следующем разделе.
+The following sample code shows a few different ways to query the "hotels" index defined in [Create an Azure Search index using the .NET SDK](search-create-index-dotnet.md#DefineIndex). Note that the documents returned with the search results are instances of the `Hotel` class, which was defined in [Data Import in Azure Search using the .NET SDK](search-import-data-dotnet.md#HotelClass). The sample code makes use of a `WriteDocuments` method to output the search results to the console. This method is described in the next section.
 
 ```csharp
 SearchParameters parameters;
@@ -122,8 +124,8 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## 4\. Обработка результатов поиска
-Метод `Documents.Search` возвращает объект `DocumentSearchResult`, содержащий результаты запроса. В примере из предыдущего раздела результаты поиска выводятся на консоль с помощью метода `WriteDocuments`.
+## <a name="iv.-handle-search-results"></a>IV. Handle search results
+The `Documents.Search` method returns a `DocumentSearchResult` object that contains the results of the query. The example in the previous section used a method called `WriteDocuments` to output the search results to the console:
 
 ```csharp
 private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
@@ -137,7 +139,7 @@ private static void WriteDocuments(DocumentSearchResult<Hotel> searchResults)
 }
 ```
 
-Вот как будут выглядеть результаты запросов из предыдущего раздела (если индекс hotels заполнен демонстрационными данными, как описано в статье [Импорт данных в службу поиска Azure с помощью пакета SDK для .NET](search-import-data-dotnet.md)).
+Here is what the results look like for the queries in the previous section, assuming the "hotels" index is populated with the sample data in [Data Import in Azure Search using the .NET SDK](search-import-data-dotnet.md):
 
 ```
 Search the entire index for the term 'budget' and return only the hotelName field:
@@ -160,6 +162,10 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 ```
 
-Приведенный выше пример кода выводит результаты поиска в консоль. Таким же образом вам нужно будет показывать результаты поиска и в вашем приложении. Сведения о том, как отображать результаты поиска в веб-приложении ASP.NET с использованием схемы MVC, см. в [этом примере на сайте GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample).
+The sample code above uses the console to output search results. You will likewise need to display search results in your own application. See [this sample on GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) for an example of how to render search results in an ASP.NET MVC-based web application.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+

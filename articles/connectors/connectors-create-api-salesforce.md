@@ -1,10 +1,10 @@
 <properties
 pageTitle="Сведения об использовании соединителя Salesforce в приложениях логики | Microsoft Azure"
 description="Создание приложений логики с помощью службы приложений Azure. Соединитель Salesforce предоставляет API для работы с объектами Salesforce."
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
+services="logic-apps"   
+documentationCenter=".net,nodejs,java"  
+authors="msftman"   
+manager="erikre"    
 editor=""
 tags="connectors" />
 
@@ -14,73 +14,74 @@ ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="integration"
-ms.date="07/22/2016"
+ms.date="10/05/2016"
 ms.author="deonhe"/>
 
-# Начало работы с соединителем Salesforce
+
+# <a name="get-started-with-the-salesforce-connector"></a>Начало работы с соединителем Salesforce
 
 Соединитель Salesforce предоставляет API для работы с объектами Salesforce.
 
 Чтобы использовать [соединитель](./apis-list.md), сначала нужно создать приложение логики. Вы можете начать с [создания приложения логики](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Подключение к соединителю Salesforce
+## <a name="connect-to-salesforce-connector"></a>Подключение к соединителю Salesforce
 
-Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [подключение](./connectors-overview.md) между приложением логики и другой службой.
+Чтобы обеспечить доступ приложения логики к какой-либо службе, сначала необходимо создать *подключение* к этой службе. Таким образом вы установите [соединение](./connectors-overview.md) между приложением логики и другой службой.  
 
-### Создание подключения к соединителю Salesforce
+### <a name="create-a-connection-to-salesforce-connector"></a>Создание подключения к соединителю Salesforce
 
->[AZURE.INCLUDE [Шаги по созданию подключения к соединителю Salesforce](../../includes/connectors-create-api-salesforce.md)]
+>[AZURE.INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
 
-## Использование триггера соединителя Salesforce
+## <a name="use-a-salesforce-connector-trigger"></a>Использование триггера соединителя Salesforce
 
-Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. Дополнительные сведения о триггерах см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Триггер — это событие, которое можно использовать для запуска рабочего процесса, определенного в приложении логики. [Дополнительные сведения о триггерах](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.INCLUDE [Шаги по созданию триггера Salesforce](../../includes/connectors-create-api-salesforce-trigger.md)]
+>[AZURE.INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 
-## Добавление условия 
->[AZURE.INCLUDE [Шаги по созданию условия Salesforce](../../includes/connectors-create-api-salesforce-condition.md)]
+## <a name="add-a-condition"></a>Добавить условие 
+>[AZURE.INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
 
-## Использование действия соединителя Salesforce
+## <a name="use-a-salesforce-connector-action"></a>Использование действия соединителя Salesforce
 
-Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. Дополнительные сведения о действиях см. [здесь](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Действие — это операция, выполняемая рабочим процессом, определенным в приложении логики. [Дополнительные сведения о действиях](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
->[AZURE.INCLUDE [Шаги по созданию действия Salesforce](../../includes/connectors-create-api-salesforce-action.md)]
+>[AZURE.INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 
-## Технические сведения
+## <a name="technical-details"></a>Технические сведения
 
 Ниже приведены сведения о триггерах, действиях и ответах, которые поддерживает это подключение.
 
-## Триггеры соединителя Salesforce
+## <a name="salesforce-connector-triggers"></a>Триггеры соединителя Salesforce
 
-Соединитель Salesforce предоставляет следующие триггеры.
+Соединитель Salesforce предоставляет следующие триггеры.  
 
 |Триггер | Описание|
 |--- | ---|
-|[При создании объекта](connectors-create-api-salesforceconnector.md#when-an-object-is-created)|Активирует поток при создании объекта.|
-|[При изменении объекта](connectors-create-api-salesforceconnector.md#when-an-object-is-modified)|Активирует поток при изменении объекта.|
+|[При создании объекта](connectors-create-api-salesforce.md#when-an-object-is-created)|Активирует поток при создании объекта.|
+|[При изменении объекта](connectors-create-api-salesforce.md#when-an-object-is-modified)|Активирует поток при изменении объекта.|
 
 
-## Действия соединителя Salesforce
+## <a name="salesforce-connector-actions"></a>Действия соединителя Salesforce
 
 Соединитель Salesforce предоставляет следующие действия.
 
 
-|Действие|Описание|
+|Действие|Description (Описание)|
 |--- | ---|
-|[Получение объектов](connectors-create-api-salesforceconnector.md#get-objects)|Эта операция получает объекты определенного типа, например "Lead".|
-|[Создание объекта](connectors-create-api-salesforceconnector.md#create-object)|Создает объект.|
-|[Получение объекта](connectors-create-api-salesforceconnector.md#get-object)|Получает объект.|
-|[Удаление объекта](connectors-create-api-salesforceconnector.md#delete-object)|Удаляет объект.|
-|[Обновление объекта](connectors-create-api-salesforceconnector.md#update-object)|Обновляет объект.|
-|[Получение типов объекта](connectors-create-api-salesforceconnector.md#get-object-types)|Выводит список доступных типов объектов.|
-### Сведения о действиях
+|[Получение объектов](connectors-create-api-salesforce.md#get-objects)|Эта операция получает объекты определенного типа, например "Lead".|
+|[Создание объекта](connectors-create-api-salesforce.md#create-object)|Создает объект.|
+|[Получение объекта](connectors-create-api-salesforce.md#get-object)|Получает объект.|
+|[Удаление объекта](connectors-create-api-salesforce.md#delete-object)|Удаляет объект.|
+|[Обновление объекта](connectors-create-api-salesforce.md#update-object)|Обновляет объект.|
+|[Получение типов объекта](connectors-create-api-salesforce.md#get-object-types)|Выводит список доступных типов объектов.|
+### <a name="action-details"></a>Сведения о действиях
 
 Ниже приведены подробные сведения о действиях и триггерах этого соединителя, а также ответы на них.
 
 
 
-### Получение объектов
-Эта операция получает объекты определенного типа, например "Lead".
+### <a name="get-objects"></a>Получение объектов
+Эта операция получает объекты определенного типа, например "Lead". 
 
 
 |Имя свойства| Отображаемое имя|Описание|
@@ -88,12 +89,12 @@ ms.author="deonhe"/>
 |table*|Тип объекта|Тип объекта SalesForce, например "Lead"|
 |$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения количества записей|
 |$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
-|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию – 0)|
-|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию – 256)|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
 Звездочка (*) означает, что свойство является обязательным.
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Сведения о выходных данных
 
 ItemsList
 
@@ -105,8 +106,8 @@ ItemsList
 
 
 
-### Создание объекта
-Создает объект.
+### <a name="create-object"></a>Создание объекта
+Создает объект. 
 
 
 |Имя свойства| Отображаемое имя|Описание|
@@ -116,7 +117,7 @@ ItemsList
 
 Звездочка (*) означает, что свойство является обязательным.
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Сведения о выходных данных
 
 Элемент
 
@@ -128,8 +129,8 @@ ItemsList
 
 
 
-### Получение объекта
-Получает объект.
+### <a name="get-object"></a>Получение объекта
+Получает объект. 
 
 
 |Имя свойства| Отображаемое имя|Описание|
@@ -139,20 +140,20 @@ ItemsList
 
 Звездочка (*) означает, что свойство является обязательным.
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Сведения о выходных данных
 
 Элемент
 
 
 | Имя свойства | Тип данных |
 |---|---|
-|ItemInternalId|string|
+|ItemInternalId|строка|
 
 
 
 
-### Удаление объекта
-Удаляет объект.
+### <a name="delete-object"></a>Удаление объекта
+Удаляет объект. 
 
 
 |Имя свойства| Отображаемое имя|Описание|
@@ -165,8 +166,8 @@ ItemsList
 
 
 
-### Обновление объекта
-Обновляет объект.
+### <a name="update-object"></a>Обновление объекта
+Обновляет объект. 
 
 
 |Имя свойства| Отображаемое имя|Описание|
@@ -177,20 +178,20 @@ ItemsList
 
 Звездочка (*) означает, что свойство является обязательным.
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Сведения о выходных данных
 
 Элемент
 
 
 | Имя свойства | Тип данных |
 |---|---|
-|ItemInternalId|строка|
+|ItemInternalId|string|
 
 
 
 
-### При создании объекта
-Активирует поток при создании объекта.
+### <a name="when-an-object-is-created"></a>При создании объекта
+Активирует поток при создании объекта. 
 
 
 |Имя свойства| Отображаемое имя|Описание|
@@ -198,12 +199,12 @@ ItemsList
 |table*|Тип объекта|Тип объекта, например "Lead"|
 |$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения количества записей|
 |$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
-|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию – 0)|
-|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию – 256)|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
 Звездочка (*) означает, что свойство является обязательным.
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Сведения о выходных данных
 
 ItemsList
 
@@ -215,8 +216,8 @@ ItemsList
 
 
 
-### При изменении объекта
-Активирует поток при изменении объекта.
+### <a name="when-an-object-is-modified"></a>При изменении объекта
+Активирует поток при изменении объекта. 
 
 
 |Имя свойства| Отображаемое имя|Описание|
@@ -224,12 +225,12 @@ ItemsList
 |table*|Тип объекта|Тип объекта, например "Lead"|
 |$filter|Запрос фильтра|Запрос фильтра ODATA для ограничения количества записей|
 |$orderby|Упорядочить по|Запрос orderBy ODATA для указания порядка записей|
-|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию – 0)|
-|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию – 256)|
+|$skip|Число пропусков|Количество пропускаемых записей (значение по умолчанию — 0)|
+|$top|Максимальное число записей|Максимальное количество извлекаемых записей (значение по умолчанию — 256)|
 
 Звездочка (*) означает, что свойство является обязательным.
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Сведения о выходных данных
 
 ItemsList
 
@@ -241,26 +242,26 @@ ItemsList
 
 
 
-### Получение типов объекта
-Выводит список доступных типов объектов.
+### <a name="get-object-types"></a>Получение типов объекта
+Выводит список доступных типов объектов. 
 
 
 Для этого вызова параметры отсутствуют
 
-#### Сведения о выходных данных
+#### <a name="output-details"></a>Сведения о выходных данных
 
 TablesList
 
 
-| Имя свойства | Тип данных | 
+| Имя свойства | Тип данных |
 |---|---|
 |value|array|
 
 
 
-## Ответы HTTP
+## <a name="http-responses"></a>Ответы HTTP
 
-Описанные выше действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже.
+Описанные выше действия и триггеры могут возвращать один или несколько кодов состояния HTTP, которые приведены ниже. 
 
 |Имя|Описание|
 |---|---|
@@ -278,7 +279,10 @@ TablesList
 
 
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 [Создайте приложение логики](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!-----HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Oct16_HO2-->
+
+

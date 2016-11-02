@@ -1,22 +1,23 @@
 <properties
-	pageTitle="Операции входа после нескольких сбоев"
-	description="Отчет, содержащий пользователей, которые успешно выполнили вход после нескольких последовательных неудачных попыток входа."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="femila"
-	editor=""/>
+    pageTitle="Операции входа после нескольких сбоев"
+    description="Отчет, содержащий пользователей, которые успешно выполнили вход после нескольких последовательных неудачных попыток входа."
+    services="active-directory"
+    documentationCenter=""
+    authors="SSalahAhmed"
+    manager="femila"
+    editor=""/>
 
 <tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+    ms.service="active-directory"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="03/04/2016"
+    ms.author="saah;kenhoff"/>
 
-# "Операции входа после нескольких неудачных попыток";
+
+# <a name="sign-ins-after-multiple-failures"></a>"Операции входа после нескольких неудачных попыток";
 В этом отчете указываются пользователи, которые успешно выполнили вход после нескольких последовательных неудачных попыток входа. Возможные причины:
 
 - пользователь забыл свой пароль;</li><li>пользователь стал жертвой успешной атаки методом подбора пароля.
@@ -28,4 +29,8 @@
 
 ![Операции входа после нескольких сбоев](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
