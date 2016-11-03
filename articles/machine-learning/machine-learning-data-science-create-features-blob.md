@@ -58,11 +58,11 @@
 
 Теперь вы готовы просматривать эти данные и создавать функции на основе этого набора данных.
 
-##<a name="<a-name="blob-featuregen"></a>feature-generation"></a><a name="blob-featuregen"></a>Создание функций
+##<a name="a-nameblobfeaturegenafeature-generation"></a><a name="blob-featuregen"></a>Создание функций
 
 В двух следующих разделах показано, как создать категориальные характеристики со значениями индикатора и характеристики группирования с помощью сценариев Python.
 
-###<a name="<a-name="blob-countfeature"></a>indicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Создание функций на основе значений индикатора
+###<a name="a-nameblobcountfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Создание функций на основе значений индикатора
 
 Вот как можно создавать категориальные функции:
 
@@ -85,7 +85,7 @@
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-###<a name="<a-name="blob-binningfeature"></a>binning-feature-generation"></a><a name="blob-binningfeature"></a>Создание характеристик путем группирования данных
+###<a name="a-nameblobbinningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Создание характеристик путем группирования данных
 
 Вот как можно создавать функции группирования:
 
@@ -102,7 +102,7 @@
 
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-##<a name="<a-name="sql-featuregen"></a>writing-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Запись данных обратно в большой двоичный объект Azure и их использование в Студии машинного обучения Azure
+##<a name="a-namesqlfeaturegenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Запись данных обратно в большой двоичный объект Azure и их использование в Студии машинного обучения Azure
 
 После просмотра данных и создания необходимых вам признаков вы можете отправить данные (в выборке или в признаке) в большой двоичный объект Azure и использовать их в Студии машинного обучения Azure. Вы можете это сделать описанным ниже способом. Обратите внимание на то, что дополнительные характеристики можно создавать и в Студии машинного обучения Microsoft Azure.
 1. Запишите блок данных в локальный файл.

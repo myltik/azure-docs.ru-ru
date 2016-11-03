@@ -38,7 +38,7 @@
 * Включили удаленный доступ к кластеру. Инструкции можно найти в разделе [Доступ к головному узлу в кластере Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
 
-##<a name="<a-name="hive-featureengineering"></a>feature-generation"></a><a name="hive-featureengineering"></a>Создание функций
+##<a name="a-namehivefeatureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Создание функций
 
 В этом разделе описано несколько примеров создания характеристик с помощью запросов Hive. После создания дополнительных признаков вы можете добавить их в виде столбцов к существующей таблице или создать новую таблицу с дополнительными возможностями и первичный ключ, который затем можно объединить с исходной таблицей. Здесь представлены следующие примеры.
 
@@ -48,7 +48,7 @@
 4. [Извлечение признаков из текстовых полей](#hive-textfeatures)
 5. [Вычисления расстояния между координатами GPS](#hive-gpsdistance)
 
-###<a name="<a-name="hive-frequencyfeature"></a>frequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Возможность создания функций на основе частоты
+###<a name="a-namehivefrequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Возможность создания функций на основе частоты
 
 Часто бывает полезным вычислить частоту уровней категориальной переменной или частоту сочетания уровней нескольких категориальных переменных. Вот какой скрипт вы можете использовать для вычисления этих типов частоты.
 
@@ -63,7 +63,7 @@
         order by frequency desc;
 
 
-###<a name="<a-name="hive-riskfeature"></a>risks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Риски категориальных переменных в двоичной классификации
+###<a name="a-namehiveriskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Риски категориальных переменных в двоичной классификации
 
 В двоичной классификации нужно преобразовать нечисловые категориальные переменные в числовые функции, тогда как используемые модели принимают только числовые функции. Чтобы это сделать, нужно заменить каждый нечисловой уровень числовым риском. В этом разделе приведены некоторые общие запросы Hive, с помощью которых вы можете вычислить значения риска категориальной переменной.
 
@@ -90,7 +90,7 @@
 
 После вычисления таблицы рисков риски можно назначить таблице, объединив ее с таблицей рисков. Запрос Hive на объединение предоставлен в предыдущем разделе.
 
-###<a name="<a-name="hive-datefeatures"></a>extract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Извлечение функций из полей даты и времени
+###<a name="a-namehivedatefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Извлечение функций из полей даты и времени
 
 Язык Hive включает в себя набор функций, определяемых пользователем, для обработки полей даты и времени. По умолчанию формат даты и времени в Hive выглядит так: yyyy-MM-dd 00:00:00 (например, 1970-01-01 12:21:32). В этом разделе приведены примеры того, как из поля даты и времени извлекать день месяца и месяц, и другие примеры, в которых строка даты и времени в формате не по умолчанию преобразуется в строку в формате по умолчанию.
 
@@ -112,14 +112,14 @@
 Компонент *hivesampletable* этого запроса по умолчанию предустановлен во всех подготовленных кластерах Azure HDInsight Hadoop.
 
 
-###<a name="<a-name="hive-textfeatures"></a>extract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Извлечение функций из текстовых полей
+###<a name="a-namehivetextfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Извлечение функций из текстовых полей
 
 Если таблица Hive содержит текстовое поле, содержащее строку слов, разделенных пробелами, следующий запрос извлекает длину строки и число слов в строке.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-###<a name="<a-name="hive-gpsdistance"></a>calculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Вычисление расстояния между координатами GPS
+###<a name="a-namehivegpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Вычисление расстояния между координатами GPS
 
 Запрос, приведенный в этом разделе, вы можете напрямую применить к данным о поездках в такси в Нью-Йорке. Цель этого запроса — продемонстрировать, как применить внедренные математические функции в Hive, чтобы создать признаки.
 
@@ -147,7 +147,7 @@
 
 Полный список внедренных в Hive функций, определяемых пользователями, можно найти в разделе **Built-in Functions** (Встроенные функции) на <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">вики-сайте Apache Hive</a>.  
 
-## <a name="<a-name="tuning"></a>-advanced-topics:-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Дополнительный раздел: настройка параметров Hive для ускорения обработки запросов
+## <a name="a-nametuninga-advanced-topics-tune-hive-parameters-to-improve-query-speed"></a><a name="tuning"></a> Дополнительный раздел: настройка параметров Hive для ускорения обработки запросов
 
 Настройки по умолчанию кластера Hive могут не подойти для запросов Hive и данных, обрабатываемых этими запросами. В этом разделе речь идет о некоторых параметрах, которые вы можете настраивать, чтобы улучшить производительность запросов Hive. Сначала необходимо добавлять запросы настройки параметров, а затем запросы обработки данных.
 

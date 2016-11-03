@@ -46,7 +46,7 @@
 
 [В этой статье](./virtual-machines/virtual-machines-windows-ps-create.md ) рассматривается создание указанных выше ресурсов, если они не были созданы ранее.
 
-## <a name="<a-name-=-"create"></a>create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Создание виртуальной машины с несколькими IP-адресами
+## <a name="a-name-createacreate-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Создание виртуальной машины с несколькими IP-адресами
 
 1. Откройте командную строку PowerShell и выполните остальные действия в этом разделе в пределах одного сеанса PowerShell. Если вы еще не установили и не настроили PowerShell, выполните шаги, описанные в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md) .
 
@@ -229,7 +229,7 @@
 
     В возвращенном списке должен содержаться добавленный IP-адрес — *eth0:0*.
 
-## <a name="<a-name="add"></a>add-ip-addresses-to-an-existing-vm"></a><a name="add"></a>Добавление IP-адресов в имеющуюся виртуальную машину
+## <a name="a-nameaddaadd-ip-addresses-to-an-existing-vm"></a><a name="add"></a>Добавление IP-адресов в имеющуюся виртуальную машину
 
 Чтобы добавить дополнительные IP-адреса в имеющийся сетевой интерфейс, сделайте следующее:
 

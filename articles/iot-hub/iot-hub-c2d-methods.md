@@ -17,7 +17,7 @@
  ms.author="nberdy"/>
 
 
-# <a name="tutorial:-use-direct-methods"></a>Руководство. Использование прямых методов
+# <a name="tutorial-use-direct-methods"></a>Руководство. Использование прямых методов
 
 ## <a name="introduction"></a>Введение
 

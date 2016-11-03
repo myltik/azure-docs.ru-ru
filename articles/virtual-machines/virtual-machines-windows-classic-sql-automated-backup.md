@@ -17,7 +17,7 @@
     ms.author="jroth" />
 
 
-# <a name="automated-backup-for-sql-server-in-azure-virtual-machines-(classic)"></a>Автоматическая архивация SQL Server на виртуальных машинах Azure (классическая модель)
+# <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Автоматическая архивация SQL Server на виртуальных машинах Azure (классическая модель)
 
 > [AZURE.SELECTOR]
 - [Диспетчер ресурсов](virtual-machines-windows-sql-automated-backup.md)

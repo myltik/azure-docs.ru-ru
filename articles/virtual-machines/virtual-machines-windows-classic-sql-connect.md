@@ -16,7 +16,7 @@
     ms.author="jroth" />
 
 
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-(classic-deployment)"></a>Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)
 
 > [AZURE.SELECTOR]
 - [Диспетчер ресурсов](virtual-machines-windows-sql-connect.md)

@@ -4,7 +4,7 @@
     services="app-service"
     documentationCenter="php"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="PHP"
     ms.topic="article"
-    ms.date="08/11/2016"
+    ms.date="11/01/2016"
     ms.author="robmcm"/>
 
 
@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to:-change-the-built-in-php-version"></a>Практическое руководство. Изменение встроенной версии PHP
+## <a name="how-to-change-the-builtin-php-version"></a>Практическое руководство. Изменение встроенной версии PHP
 По умолчанию при создании веб-приложения службы приложений устанавливается среда PHP 5.4, которая будет сразу готова для использования. Оптимальный способ увидеть доступные версии, конфигурацию по умолчанию и поддерживаемые расширения заключается в развертывании сценария, который вызывает функцию [phpinfo()] .
 
 Версии PHP 5.5 и PHP 5.6 также доступны, но не включены по умолчанию. Чтобы обновить версию PHP, выполните следующие действия.
@@ -44,7 +44,7 @@
 
     ![Сохранение параметров конфигурации][save-button]
 
-### <a name="azure-powershell-(windows)"></a>Azure PowerShell (только для Windows)
+### <a name="azure-powershell-windows"></a>Azure PowerShell (только для Windows)
 
 1. Запустите Azure PowerShell и войдите в свою учетную запись.
 
@@ -58,7 +58,7 @@
 
         PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
-### <a name="azure-command-line-interface-(linux,-mac,-windows)"></a>Интерфейс командной строки Azure для Mac, Linux и Windows
+### <a name="azure-commandline-interface-linux-mac-windows"></a>Интерфейс командной строки Azure для Mac, Linux и Windows
 
 Для использования интерфейса командной строки Azure требуется установить на компьютер **Node.js** .
 
@@ -75,11 +75,11 @@
         azure site show {site-name}
 
 
-## <a name="how-to:-change-the-built-in-php-configurations"></a>Практическое руководство. Изменение встроенной конфигурации PHP
+## <a name="how-to-change-the-builtin-php-configurations"></a>Практическое руководство. Изменение встроенной конфигурации PHP
 
 Для любой встроенной среды выполнения PHP можно изменить параметры конфигурации, для чего выполните следующие действия. (Дополнительные сведения о директивах php.ini см. в разделе [Список директив php.ini].)
 
-### <a name="changing-php\_ini\_user,-php\_ini\_perdir,-php\_ini\_all-configuration-settings"></a>Изменение параметров конфигурации PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL
+### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>Изменение параметров конфигурации PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL
 
 1. Добавьте файл [.user.ini] в корневой каталог.
 2. Добавьте параметры конфигурации в файл `.user.ini`, используя тот же синтаксис, что и для файла `php.ini`. Например, чтобы включить параметр `display_errors` и установить для параметра `upload_max_filesize` значение 10 М, в файле `.user.ini` будет указан следующий текст:
@@ -96,7 +96,7 @@
 
 В качестве альтернативы использованию файла `.user.ini` можно использовать функцию [ini_set()] в скрипте для установки параметров конфигурации, не являющихся директивами системного уровня.
 
-### <a name="changing-php\_ini\_system-configuration-settings"></a>Изменение параметров конфигурации PHP\_INI\_SYSTEM
+### <a name="changing-phpinisystem-configuration-settings"></a>Изменение параметров конфигурации PHP\_INI\_SYSTEM
 
 1. Добавьте параметр приложения для веб-приложения с помощью ключа `PHP_INI_SCAN_DIR` и значения `d:\home\site\ini`
 2. Создание файл `settings.ini` с помощью консоли Kudu (http://&lt;имя_узла&gt;.scm.azurewebsite.net) в каталоге `d:\home\site\ini`.
@@ -107,7 +107,7 @@
         wincache.maxfilesize=512
 4. Перезапустите веб-приложение для загрузки изменений.
 
-## <a name="how-to:-enable-extensions-in-the-default-php-runtime"></a>Практическое руководство. Включение расширений в среде выполнения PHP по умолчанию
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Практическое руководство. Включение расширений в среде выполнения PHP по умолчанию
 Как было отмечено в предыдущем разделе, оптимальный способ увидеть версию PHP по умолчанию, конфигурацию по умолчанию и поддерживаемые расширения заключается в развертывании сценария, который вызывает функцию [phpinfo()]. Чтобы включить дополнительные расширения, выполните следующие действия.
 
 ### <a name="configure-via-ini-settings"></a>Настройка с помощью параметров ini
@@ -144,7 +144,7 @@
 Расширения Zend также поддерживаются с помощью ключа **PHP_ZENDEXTENSIONS**. Чтобы включить несколько расширений, включите список разделенных запятыми файлов `.dll` для значения параметра приложения.
 
 
-## <a name="how-to:-use-a-custom-php-runtime"></a>Практическое руководство. Настраиваемая среда выполнения PHP
+## <a name="how-to-use-a-custom-php-runtime"></a>Практическое руководство. Настраиваемая среда выполнения PHP
 Вместо среды выполнения PHP по умолчанию веб-приложения службы приложений могут использовать среду выполнения PHP, предоставляемую для выполнения скриптов PHP. Предоставляемую среду выполнения можно настроить с помощью файла `php.ini` , также предоставляемого пользователем. Чтобы использовать настраиваемую среду выполнения PHP с веб-приложениями, выполните следующие действия.
 
 1. Получите версию PHP для Windows, совместимую с VC9 или VC11 и непотокобезопасной технологией (nts). Последние версии PHP для Windows можно найти здесь: [http://windows.php.net/download/]. Более старые версии можно найти в архиве здесь: [http://windows.php.net/downloads/releases/archives/].
@@ -165,7 +165,7 @@
     ![Сохранение параметров конфигурации][save-button]
 
 <a name="composer" />
-## <a name="how-to:-enable-composer-automation-in-azure"></a>Практическое руководство. Включение автоматизации Composer в Azure
+## <a name="how-to-enable-composer-automation-in-azure"></a>Практическое руководство. Включение автоматизации Composer в Azure
 
 По умолчанию служба приложений не выполняет никаких действий с файлом composer.json, если он есть в проекте PHP. Если используется [развертывание Git](app-service-web-php-get-started.md), можно включить обработку composer.json во время операции `git push`, для этого активируйте расширение Composer.
 

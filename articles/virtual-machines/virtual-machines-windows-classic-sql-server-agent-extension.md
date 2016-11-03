@@ -18,7 +18,7 @@
     ms.author="jroth"/>
 
 
-# <a name="sql-server-agent-extension-for-sql-server-vms-(classic)"></a>Расширение агента SQL Server для виртуальных машин SQL Server (классическая модель)
+# <a name="sql-server-agent-extension-for-sql-server-vms-classic"></a>Расширение агента SQL Server для виртуальных машин SQL Server (классическая модель)
 
 > [AZURE.SELECTOR]
 - [Диспетчер ресурсов](virtual-machines-windows-sql-server-agent-extension.md)
@@ -42,18 +42,18 @@
 
 Требования для использования расширения агента IaaS для SQL Server на виртуальной машине:
 
-### <a name="operating-system:"></a>Операционная система:
+### <a name="operating-system"></a>Операционная система:
 
 - Windows Server 2012
 - Windows Server 2012 R2
 
-### <a name="sql-server-versions:"></a>Версии SQL Server:
+### <a name="sql-server-versions"></a>Версии SQL Server:
 
 - SQL Server 2012
 - SQL Server 2014
 - SQL Server 2016
 
-### <a name="azure-powershell:"></a>Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
 [Скачайте и настройте последнюю версию команд Azure PowerShell](../powershell-install-configure.md).
 
