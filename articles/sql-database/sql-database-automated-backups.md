@@ -18,21 +18,8 @@
 
 
 
-
-<!-- # H1 Title
-
- H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
--->
-
 # <a name="learn-about-sql-database-backups"></a>Подробнее о резервном копировании базы данных SQL
 
-<!-- Introduction
-
-1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
-2. Sentence #2 explains the key capability or selling point of the feature.
-3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
-
--->
 
 База данных SQL создает локальные резервные копии базы данных каждые пять минут и использует геоизбыточное хранилище Azure (RA-GRS) с доступом на чтение для копирования некоторых резервных копий базы данных в другую географическую область. Эти резервные копии создаются **автоматически и без дополнительной платы**. Локальные резервные копии можно использовать для [восстановления базы данных на более ранний момент времени](sql-database-point-in-time-restore-portal.md) на том же сервере. Геоизбыточные резервные копии можно использовать для [восстановления базы данных в другом географическом регионе](sql-database-geo-restore-portal.md).  
 
@@ -101,6 +88,6 @@ First sentence begins with "The <feature> is ..." followed by a definition of th
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!----HONumber=Oct16_HO2-->
 
 

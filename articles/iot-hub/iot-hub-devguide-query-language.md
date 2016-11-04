@@ -122,7 +122,7 @@
 
 ### <a name="c-example"></a>Пример C#
 
-Функция обработки запросов предоставляется в [пакете SDK для службы C#][llnk-hub-sdks] в классе **RegistryManager**.
+Функция обработки запросов предоставляется в [пакете SDK для службы C#][lnk-hub-sdks] в классе **RegistryManager**.
 Ниже приведен пример простого запроса:
 
         var query = registryManager.CreateQuery("SELECT * FROM devices", 100);
@@ -140,7 +140,7 @@
 
 ### <a name="node-example"></a>Пример узла
 
-Функция обработки запросов предоставляется в [пакете SDK для службы узла][llnk-hub-sdks] в объекте **Registry**.
+Функция обработки запросов предоставляется в [пакете SDK для службы узла][lnk-hub-sdks] в объекте **Registry**.
 Ниже приведен пример простого запроса:
 
         var query = registry.createQuery('SELECT * FROM devices', 100);
@@ -369,6 +369,6 @@
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

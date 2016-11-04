@@ -26,7 +26,8 @@
 
 Кроме того, в [репозитории Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) приведены примеры запросов, использующихся для сценариев наподобие [Данные о поездках в такси по Нью-Йорку](http://chriswhong.com/open-data/foil_nyc_taxi/). Для этих запросов уже задана схема данных, и они готовы к отправке и запуску. В последнем разделе также рассматриваются параметры, настроив которые можно повысить производительность запросов Hive.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] Это **меню** содержит ссылки на статьи, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+Это **меню** содержит ссылки на статьи, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## <a name="prerequisites"></a>Предварительные требования
@@ -183,6 +184,6 @@
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
