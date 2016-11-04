@@ -23,7 +23,8 @@
 
 В этом документе показано, как создавать характеристики для данных, которые хранятся в виртуальной машине SQL Server в Azure, и помогают алгоритмам эффективнее обучаться. Это можно сделать с помощью SQL или с использованием языка программирования, например Python. Здесь показаны оба варианта.
 
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] Это **меню** содержит ссылки на статьи, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)] 
+Это **меню** содержит ссылки на статьи, описывающие создание характеристик для данных в различных средах. Эта задача является одним из этапов [процесса обработки и анализа данных группы (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 > [AZURE.NOTE] Для практического примера можно использовать [набор данных о такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/) и статью IPNB под названием [Структурирование данных Нью-Йорка с помощью IPython Notebook и SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb), содержащую полное пошаговое руководство.
 
@@ -35,7 +36,7 @@
 * Сохранили данные в SQL Server. Если вы еще не сделали это, см. статью [Перемещение данных в базу данных SQL Azure для машинного обучения Azure](machine-learning-data-science-move-sql-azure.md). Она содержит инструкции по перемещению данных.
 
 
-## <a name="<a-name="sql-featuregen"></a>feature-generation-with-sql"></a><a name="sql-featuregen"></a>Создание характеристик с помощью SQL
+## <a name="a-namesqlfeaturegenafeature-generation-with-sql"></a><a name="sql-featuregen"></a>Создание характеристик с помощью SQL
 
 В этом разделе мы опишем способы создания характеристик с помощью SQL:  
 
@@ -46,7 +47,7 @@
 
 > [AZURE.NOTE] После создания дополнительных компонентов можно либо добавить их в виде столбцов в существующую таблицу, либо создать новую таблицу с дополнительными компонентами и первичным ключом, которую можно будет объединить с исходной таблицей.
 
-### <a name="<a-name="sql-countfeature"></a>count-based-feature-generation"></a><a name="sql-countfeature"></a>Создание характеристик на основе количества
+### <a name="a-namesqlcountfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Создание характеристик на основе количества
 
 В этом документе показаны два способа создания количественных характеристик. В первом способе используется условная сумма, а во втором — предложение "where". Затем их можно объединить с исходной таблицей (с помощью столбцов первичных ключей), чтобы включить количественные характеристики вместе с исходными данными.
 
@@ -55,14 +56,14 @@
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="<a-name="sql-binningfeature"></a>binning-feature-generation"></a><a name="sql-binningfeature"></a>Создание характеристик путем группирования данных
+### <a name="a-namesqlbinningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Создание характеристик путем группирования данных
 
 В следующем примере показано, как создать группированные характеристики путем группирования (с использованием 5 ячеек) числового столбца, который взамен можно использовать как характеристику:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="<a-name="sql-featurerollout"></a>rolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Развертывание характеристик из одного столбца
+### <a name="a-namesqlfeaturerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Развертывание характеристик из одного столбца
 
 В этом разделе мы покажем, как развернуть одиночный столбец в таблице для создания дополнительных характеристик. В примере предполагается, что в таблице, из которой вы намерены создать характеристики, содержится столбец широты или долготы.
 
@@ -98,13 +99,13 @@
 > [AZURE.TIP] Можно программным путем вставлять записи с использованием выбранного языка. Для повышения эффективности записи данные можно вставлять блоками. [См. пример такого решения с использованием pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 Другой вариант — вставить данные в базу данных с использованием [служебной программы BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 
-### <a name="<a-name="sql-aml"></a>connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Подключение к службе машинного обучения Azure
+### <a name="a-namesqlamlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Подключение к службе машинного обучения Azure
 
 Новую созданную характеристику можно добавить в виде столбца в существующую таблицу или сохранить в новой таблице и объединить с существующей таблицей для машинного обучения. Вы можете создать признаки и открыть доступ к ним, если они уже созданы, с помощью модуля [Импорт данных](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) в Машинном обучении Azure, как показано ниже.
 
 ![считыватели azureml](./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="<a-name="python"></a>using-a-programming-language-like-python"></a><a name="python"></a>Использование языка программирования, например Python
+## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Использование языка программирования, например Python
 
 Использование языка Python для создания характеристик, когда данные находятся в SQL Server, подобно обработке данных в большом двоичном объекте Azure с использованием Python, как описано в разделе [Обработка данных большого двоичного объекта Azure в среде обработки данных](machine-learning-data-science-process-data-blob.md). Данные необходимо загрузить из базы данных во фрейм данных pandas для последующей обработки. В этом разделе документирован процесс подключения к базе данных и загрузки данных во фрейм данных.
 
@@ -123,6 +124,6 @@
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!----HONumber=Oct16_HO2-->
 
 

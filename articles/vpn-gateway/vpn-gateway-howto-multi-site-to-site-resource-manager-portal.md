@@ -20,7 +20,7 @@
 
 
 
-# <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
+# <a name="add-a-sitetosite-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Add a Site-to-Site connection to a VNet with an existing VPN gateway connection
 
 > [AZURE.SELECTOR]
 - [Resource Manager - Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
@@ -41,7 +41,7 @@ We update this table as new articles and additional tools become available for t
 [AZURE.INCLUDE [vpn-gateway-table-multi-site](../../includes/vpn-gateway-table-multisite-include.md)] 
 
 
-## <a name="<a-name="before"></a>before-you-begin"></a><a name="before"></a>Before you begin
+## <a name="a-namebeforeabefore-you-begin"></a><a name="before"></a>Before you begin
 
 Verify the following items:
 
@@ -53,7 +53,7 @@ Verify the following items:
 - You have an externally facing public IP address for your VPN device. This IP address cannot be located behind a NAT.
 
 
-## <a name="<a-name="part1"></a>part-1---configure-a-connection"></a><a name="part1"></a>Part 1 - Configure a connection
+## <a name="a-namepart1apart-1-configure-a-connection"></a><a name="part1"></a>Part 1 - Configure a connection
 
 1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
 2. Click **All resources** and locate your **virtual network gateway** from the list of resources and click it.
@@ -71,7 +71,7 @@ Verify the following items:
 
     ![Add connection blade](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
 
-## <a name="<a-name="part2"></a>part-2---add-a-local-network-gateway"></a><a name="part2"></a>Part 2 - Add a local network gateway
+## <a name="a-namepart2apart-2-add-a-local-network-gateway"></a><a name="part2"></a>Part 2 - Add a local network gateway
 
 1. Click **Local network gateway** ***Choose a local network gateway***. This will open the **Choose local network gateway** blade.
 
@@ -86,14 +86,14 @@ Verify the following items:
     - **Address space:** The address space that you want to be routed to the new local network site.
 4. Click **OK** on the **Create local network gateway** blade to save the changes.
 
-## <a name="<a-name="part3"></a>part-3---add-the-shared-key-and-create-the-connection"></a><a name="part3"></a>Part 3 - Add the shared key and create the connection
+## <a name="a-namepart3apart-3-add-the-shared-key-and-create-the-connection"></a><a name="part3"></a>Part 3 - Add the shared key and create the connection
 
 1. On the **Add connection** blade, add the shared key that you want to use to create your connection. You can either get the shared key from your VPN device, or make one up here and then configure your VPN device to use the same shared key. The important thing is that the keys are exactly the same.
 
     ![Shared key](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Shared key")<br>
 2. At the bottom of the blade, click **OK** to create the connection.
 
-## <a name="<a-name="part4"></a>part-4---verify-the-vpn-connection"></a><a name="part4"></a>Part 4 - Verify the VPN connection
+## <a name="a-namepart4apart-4-verify-the-vpn-connection"></a><a name="part4"></a>Part 4 - Verify the VPN connection
 
 You can verify your VPN connection either in the portal, or by using PowerShell.
 

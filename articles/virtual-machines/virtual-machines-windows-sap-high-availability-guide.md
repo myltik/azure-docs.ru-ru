@@ -18,7 +18,7 @@
    ms.author="goraco"/>
 
 
-# <a name="sap-netweaver-on-windows-virtual-machines-(vms)---high-availability-guide"></a>SAP NetWeaver на виртуальных машинах Windows. Руководство по обеспечению высокого уровня доступности
+# <a name="sap-netweaver-on-windows-virtual-machines-vms-highavailability-guide"></a>SAP NetWeaver на виртуальных машинах Windows. Руководство по обеспечению высокого уровня доступности
 
 [767598]:https://service.sap.com/sap/support/notes/767598
 [773830]:https://service.sap.com/sap/support/notes/773830
@@ -75,7 +75,23 @@
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription
 
-[dbms-guide]:virtual-machines-windows-sap-dbm[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД) [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Кэширование для виртуальных машин и виртуальных жестких дисков) [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Программный RAID-массив) [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Служба хранилища Microsoft Azure) [dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Структура развертывания реляционной СУБД) [dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (Высокая доступность и аварийное восстановление с использованием виртуальных машин Azure) [dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 с пакетом обновления 1 (SP1), накопительным пакетом обновления 4 (CU4) и последующие выпуски) [dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 с пакетом обновления 1 (SP1), накопительным пакетом обновления 3 (CU3) и более ранние выпуски) [dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Использование образов SQL Server из Microsoft Azure Marketplace) [dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (Общая сводка по SQL Server для SAP в Azure) [dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Особенности реляционных СУБД SQL Server) [dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Конфигурация хранилища) [dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Архивация и восстановление) [dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Рекомендации по ускорению архивации и восстановления) [dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Прочее) [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
+[dbms-guide]:virtual-machines-windows-sap-dbm
+[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД)
+[dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Кэширование для виртуальных машин и виртуальных жестких дисков)
+[dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Программный RAID-массив)
+[dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Служба хранилища Microsoft Azure)
+[dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Структура развертывания реляционной СУБД)
+[dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (Высокая доступность и аварийное восстановление с использованием виртуальных машин Azure)
+[dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 с пакетом обновления 1 (SP1), накопительным пакетом обновления 4 (CU4) и последующие выпуски)
+[dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 с пакетом обновления 1 (SP1), накопительным пакетом обновления 3 (CU3) и более ранние выпуски)
+[dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Использование образов SQL Server из Microsoft Azure Marketplace)
+[dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (Общая сводка по SQL Server для SAP в Azure)
+[dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Особенности реляционных СУБД SQL Server)
+[dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Конфигурация хранилища)
+[dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Архивация и восстановление)
+[dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Рекомендации по ускорению архивации и восстановления)
+[dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Прочее)
+[dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
 [dbms-guide-figure-200]:./media/virtual-machines-shared-sap-dbms-guide/200-ha-set-for-dbms-ha.png
@@ -87,7 +103,24 @@
 [dbms-guide-figure-800]:./media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:./media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:virtual-machines-windows-sap-deployment-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию) [deployment-guide-2.2]:virtual-machines-windows-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (Материалы по SAP) [deployment-guide-3.1.2]:virtual-machines-windows-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Развертывание виртуальной машины с помощью пользовательского образа) [deployment-guide-3.2]:virtual-machines-windows-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Сценарий 1. Развертывание виртуальной машины для SAP из Azure Marketplace) [deployment-guide-3.3]:virtual-machines-windows-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Сценарий 2. Развертывание виртуальной машины с помощью пользовательского образа для SAP) [deployment-guide-3.4]:virtual-machines-windows-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Сценарий 3. Перемещение виртуальной машины из локальной среды с помощью специализированного виртуального жесткого диска Azure с SAP) [deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Сценарии развертывания виртуальных машин для SAP в Microsoft Azure) [deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Развертывание командлетов Azure PowerShell) [deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Скачивание и импорт соответствующих командлетов PowerShell для SAP) [deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Присоединение виртуальной машины к локальному домену (только для Windows)) [deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux) [deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Скачивание, установка и включение агента виртуальной машины Azure) [deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell) [deployment-guide-4.5.2]:virtual-machines-windows-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Интерфейс командной строки Azure) [deployment-guide-4.5]:virtual-machines-windows-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Расширенный мониторинг Azure для SAP: настройка расширения) [deployment-guide-5.1]:virtual-machines-windows-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Расширенный мониторинг Azure для SAP: проверка готовности) [deployment-guide-5.2]:virtual-machines-windows-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Конфигурация инфраструктуры мониторинга Azure: проверка работоспособности) [deployment-guide-5.3]:virtual-machines-windows-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Инфраструктура мониторинга Azure для SAP: дальнейшее устранение неполадок)
+[deployment-guide]:virtual-machines-windows-sap-deployment-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию)
+[deployment-guide-2.2]:virtual-machines-windows-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (Материалы по SAP)
+[deployment-guide-3.1.2]:virtual-machines-windows-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Развертывание виртуальной машины с помощью пользовательского образа)
+[deployment-guide-3.2]:virtual-machines-windows-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Сценарий 1. Развертывание виртуальной машины для SAP из Azure Marketplace)
+[deployment-guide-3.3]:virtual-machines-windows-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Сценарий 2. Развертывание виртуальной машины с помощью пользовательского образа для SAP)
+[deployment-guide-3.4]:virtual-machines-windows-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Сценарий 3. Перемещение виртуальной машины из локальной среды с помощью специализированного виртуального жесткого диска Azure с SAP)
+[deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Сценарии развертывания виртуальных машин для SAP в Microsoft Azure)
+[deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Развертывание командлетов Azure PowerShell)
+[deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Скачивание и импорт соответствующих командлетов PowerShell для SAP)
+[deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Присоединение виртуальной машины к локальному домену (только для Windows))
+[deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux)
+[deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Скачивание, установка и включение агента виртуальной машины Azure)
+[deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
+[deployment-guide-4.5.2]:virtual-machines-windows-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Интерфейс командной строки Azure)
+[deployment-guide-4.5]:virtual-machines-windows-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Расширенный мониторинг Azure для SAP: настройка расширения)
+[deployment-guide-5.1]:virtual-machines-windows-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Расширенный мониторинг Azure для SAP: проверка готовности)
+[deployment-guide-5.2]:virtual-machines-windows-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Конфигурация инфраструктуры мониторинга Azure: проверка работоспособности)
+[deployment-guide-5.3]:virtual-machines-windows-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Инфраструктура мониторинга Azure для SAP: дальнейшее устранение неполадок)
 
 [deployment-guide-configure-monitoring-scenario-1]:virtual-machines-windows-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure Monitoring)
 [deployment-guide-configure-proxy]:virtual-machines-windows-sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Configure Proxy)
@@ -144,7 +177,32 @@
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:virtual-machines-windows-sap-planning-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению) [planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Материалы) [planning-guide-11]:virtual-machines-windows-sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (Высокая доступность и аварийное восстановление для SAP NetWeaver на виртуальных машинах Azure) [planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (Высокая доступность серверов приложений SAP) [planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Использование автозапуска для экземпляров SAP) [planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Только облако. Развертывание виртуальных машин в Azure без зависимостей в локальной сети клиента) [planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Распределенная сеть. Развертывание одной или нескольких виртуальных машин SAP в Azure с необходимостью полной интеграции с локальной сетью) [planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Регионы Azure) [planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Домены сбоя) [planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Домены обновления) [planning-guide-3.2.3]:virtual-machines-windows-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Группы доступности Azure) [planning-guide-3.2]:virtual-machines-windows-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Концепция виртуальных машин Microsoft Azure) [planning-guide-3.3.2]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Хранилище Azure класса Premium) [planning-guide-5.1.1]:virtual-machines-windows-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Перемещение виртуальной машины из локальной среды в Azure с помощью специализированного диска) [planning-guide-5.1.2]:virtual-machines-windows-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Развертывание виртуальной машины с помощью пользовательского образа) [planning-guide-5.2.1]:virtual-machines-windows-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Подготовка виртуальной машины к перемещению из локальной среды в Azure с помощью специализированного диска) [planning-guide-5.2.2]:virtual-machines-windows-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Подготовка виртуальной машины к развертыванию с помощью пользовательского образа для SAP) [planning-guide-5.2]:virtual-machines-windows-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Подготовка виртуальных машин с SAP для Azure) [planning-guide-5.3.1]:virtual-machines-windows-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Разница между диском Azure и образом Azure)[planning-guide-5.3.2]:virtual-machines-windows-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Отправка VHD-диска из локальной среды в Azure) [planning-guide-5.4.2]:virtual-machines-windows-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Копирование дисков между учетными записями хранения Azure) [planning-guide-5.5.1]:virtual-machines-windows-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Структура виртуальной машины и VHD для развертываний SAP) [planning-guide-5.5.3]:virtual-machines-windows-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Настройка автоподключения для подключенных дисков) [planning-guide-7.1]:virtual-machines-windows-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Обучающий сценарий с демонстрацией одной виртуальной машины с SAP NetWeaver) [planning-guide-7]:virtual-machines-windows-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Концепция полностью облачного развертывания экземпляров SAP) [planning-guide-9.1]:virtual-machines-windows-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Решение мониторинга Azure для SAP) [planning-guide-azure-premium-storage]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Хранилище Azure класса Premium)
+[planning-guide]:virtual-machines-windows-sap-planning-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению)
+[planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Материалы)
+[planning-guide-11]:virtual-machines-windows-sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (Высокая доступность и аварийное восстановление для SAP NetWeaver на виртуальных машинах Azure)
+[planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (Высокая доступность серверов приложений SAP)
+[planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Использование автозапуска для экземпляров SAP)
+[planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Только облако. Развертывание виртуальных машин в Azure без зависимостей в локальной сети клиента)
+[planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Распределенная сеть. Развертывание одной или нескольких виртуальных машин SAP в Azure с необходимостью полной интеграции с локальной сетью)
+[planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Регионы Azure)
+[planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Домены сбоя)
+[planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Домены обновления)
+[planning-guide-3.2.3]:virtual-machines-windows-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Группы доступности Azure)
+[planning-guide-3.2]:virtual-machines-windows-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Концепция виртуальных машин Microsoft Azure)
+[planning-guide-3.3.2]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Хранилище Azure класса Premium)
+[planning-guide-5.1.1]:virtual-machines-windows-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Перемещение виртуальной машины из локальной среды в Azure с помощью специализированного диска)
+[planning-guide-5.1.2]:virtual-machines-windows-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Развертывание виртуальной машины с помощью пользовательского образа)
+[planning-guide-5.2.1]:virtual-machines-windows-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Подготовка виртуальной машины к перемещению из локальной среды в Azure с помощью специализированного диска)
+[planning-guide-5.2.2]:virtual-machines-windows-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Подготовка виртуальной машины к развертыванию с помощью пользовательского образа для SAP)
+[planning-guide-5.2]:virtual-machines-windows-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Подготовка виртуальных машин с SAP для Azure)
+[planning-guide-5.3.1]:virtual-machines-windows-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Разница между диском Azure и образом Azure)[planning-guide-5.3.2]:virtual-machines-windows-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Отправка VHD-диска из локальной среды в Azure)
+[planning-guide-5.4.2]:virtual-machines-windows-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Копирование дисков между учетными записями хранения Azure)
+[planning-guide-5.5.1]:virtual-machines-windows-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (Структура виртуальной машины и VHD для развертываний SAP)
+[planning-guide-5.5.3]:virtual-machines-windows-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Настройка автоподключения для подключенных дисков)
+[planning-guide-7.1]:virtual-machines-windows-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Обучающий сценарий с демонстрацией одной виртуальной машины с SAP NetWeaver)
+[planning-guide-7]:virtual-machines-windows-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Концепция полностью облачного развертывания экземпляров SAP)
+[planning-guide-9.1]:virtual-machines-windows-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Решение мониторинга Azure для SAP)
+[planning-guide-azure-premium-storage]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Хранилище Azure класса Premium)
 
 [planning-guide-figure-100]:./media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:./media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -186,7 +244,48 @@
 [sap-ha-guide-6]:virtual-machines-windows-sap-high-availability-guide.md#2ddba413-a7f5-4e4e-9a51-87908879c10a (Windows Server Failover Clustering in Azure)
 [sap-ha-guide-6.1]:virtual-machines-windows-sap-high-availability-guide.md#1a464091-922b-48d7-9d08-7cecf757f341 (Shared disk in Azure with SIOS DataKeeper)
 [sap-ha-guide-6.2]:virtual-machines-windows-sap-high-availability-guide.md#44641e18-a94e-431f-95ff-303ab65e0bcb (Name resolution in Azure)
-[sap-ha-guide-7]:virtual-machines-windows-sap-high-availability-guide.md#2e3fec50-241e-441b-8708-0b1864f66dfa (Высокий уровень доступности SAP NetWeaver в IaaS Azure) [sap-ha-guide-7.1]:virtual-machines-windows-sap-high-availability-guide.md#93faa747-907e-440a-b00a-1ae0a89b1c0e (Высокая доступность серверов приложений SAP) [sap-ha-guide-7.2]:virtual-machines-windows-sap-high-availability-guide.md#f559c285-ee68-4eec-add1-f60fe7b978db (Высокая доступность экземпляра SAP ASCS/SCS) [sap-ha-guide-7.2.1]:virtual-machines-windows-sap-high-availability-guide.md#b5b1fd0b-1db4-4d49-9162-de07a0132a51 (Обеспечение высокого уровня доступности экземпляра SAP ASCS/SCS с помощью отказоустойчивого кластера Windows Server в Azure) [sap-ha-guide-7.3]:virtual-machines-windows-sap-high-availability-guide.md#ddd878a0-9c2f-4b8e-8968-26ce60be1027 (Высокий уровень доступности для экземпляра СУБД) [sap-ha-guide-7.4]:virtual-machines-windows-sap-high-availability-guide.md#045252ed-0277-4fc8-8f46-c5a29694a816 (Сценарии комплексного развертывания с высоким уровнем доступности) [sap-ha-guide-8]:virtual-machines-windows-sap-high-availability-guide.md#78092dbe-165b-454c-92f5-4972bdbef9bf (Подготовка инфраструктуры) [sap-ha-guide-8.1]:virtual-machines-windows-sap-high-availability-guide.md#c87a8d3f-b1dc-4d2f-b23c-da4b72977489 (Развертывание виртуальных машин с подключением к корпоративной сети (распределенное развертывание) для использования в рабочей среде) [sap-ha-guide-8.2]:virtual-machines-windows-sap-high-availability-guide.md#7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310 (Полностью облачное развертывание экземпляров SAP для тестирования или демонстрации) [sap-ha-guide-8.3]:virtual-machines-windows-sap-high-availability-guide.md#47d5300a-a830-41d4-83dd-1a0d1ffdbe6a (Виртуальная сеть Azure) [sap-ha-guide-8.4]:virtual-machines-windows-sap-high-availability-guide.md#b22d7b3b-4343-40ff-a319-097e13f62f9e (IP-адреса DNS) [sap-ha-guide-8.5]:virtual-machines-windows-sap-high-availability-guide.md#9fbd43c0-5850-4965-9726-2a921d85d73f (Имена узлов и статические IP-адреса для кластеризованного экземпляра SAP ASCS/SCS и кластеризованного экземпляра СУБД) [sap-ha-guide-8.6]:virtual-machines-windows-sap-high-availability-guide.md#84c019fe-8c58-4dac-9e54-173efd4b2c30 (Настройка статических IP-адресов для виртуальных машин SAP) [sap-ha-guide-8.7]:virtual-machines-windows-sap-high-availability-guide.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e (Создание статического IP-адреса для внутреннего балансировщика нагрузки) [sap-ha-guide-8.8]:virtual-machines-windows-sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c (Правила балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure) [sap-ha-guide-8.9]:virtual-machines-windows-sap-high-availability-guide.md#fe0bd8b5-2b43-45e3-8295-80bee5415716 (Изменение правил балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure) [sap-ha-guide-8.10]:virtual-machines-windows-sap-high-availability-guide.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c (Присоединение виртуальных машин Windows к домену) [sap-ha-guide-8.11]:virtual-machines-windows-sap-high-availability-guide.md#661035b2-4d0f-4d31-86f8-dc0a50d78158 (Добавление записей реестра для обоих узлов кластера, используемых для экземпляра SAP ASCS/SCS) [sap-ha-guide-8.12]:virtual-machines-windows-sap-high-availability-guide.md#0d67f090-7928-43e0-8772-5ccbf8f59aab (Установка отказоустойчивого кластера Windows Server для экземпляра SAP ASCS/SCS) [sap-ha-guide-8.12.1]:virtual-machines-windows-sap-high-availability-guide.md#5eecb071-c703-4ccc-ba6d-fe9c6ded9d79 (Сбор узлов кластера в конфигурации кластера) [sap-ha-guide-8.12.2]:virtual-machines-windows-sap-high-availability-guide.md#e49a4529-50c9-4dcf-bde7-15a0c21d21ca (Настройка файлового ресурса-свидетеля кластера) [sap-ha-guide-8.12.2.1]:virtual-machines-windows-sap-high-availability-guide.md#06260b30-d697-4c4d-b1c9-d22c0bd64855 (Создание файлового ресурса) [sap-ha-guide-8.12.2.2]:virtual-machines-windows-sap-high-availability-guide.md#4c08c387-78a0-46b1-9d27-b497b08cac3d (Настройка кворума на основе файлового ресурса-свидетеля в диспетчере отказоустойчивости кластеров) [sap-ha-guide-8.12.3]:virtual-machines-windows-sap-high-availability-guide.md#5c8e5482-841e-45e1-a89d-a05c0907c868 (Установка SIOS DataKeeper Cluster Edition для создания общего диска кластера SAP ASCS/SCS) [sap-ha-guide-8.12.3.1]:virtual-machines-windows-sap-high-availability-guide.md#1c2788c3-3648-4e82-9e0d-e058e475e2a3 (Добавление компонента .NET Framework 3.5) [sap-ha-guide-8.12.3.2]:virtual-machines-windows-sap-high-availability-guide.md#dd41d5a2-8083-415b-9878-839652812102 (Установка SIOS DataKeeper) [sap-ha-guide-8.12.3.3]:virtual-machines-windows-sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 (Настройка SIOS DataKeeper) [sap-ha-guide-9]:virtual-machines-windows-sap-high-availability-guide.md#a06f0b49-8a7a-42bf-8b0d-c12026c5746b (Установка системы SAP NetWeaver) [sap-ha-guide-9.1]:virtual-machines-windows-sap-high-availability-guide.md#31c6bd4f-51df-4057-9fdf-3fcbc619c170 (Установка SAP с высокодоступным экземпляром ASCS/SCS) [sap-ha-guide-9.1.1]:virtual-machines-windows-sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 (Создание имени виртуального узла для кластеризованного экземпляра SAP ASCS/SCS) [sap-ha-guide-9.1.2]:virtual-machines-windows-sap-high-availability-guide.md#eb5af918-b42f-4803-bb50-eff41f84b0b0 (Установка первого узла кластера SAP) [sap-ha-guide-9.1.3]:virtual-machines-windows-sap-high-availability-guide.md#e4caaab2-e90f-4f2c-bc84-2cd2e12a9556 (Изменение профиля SAP экземпляра ASCS/SCS) [sap-ha-guide-9.1.4]:virtual-machines-windows-sap-high-availability-guide.md#10822f4f-32e7-4871-b63a-9b86c76ce761 (Добавление порта пробы) [sap-ha-guide-9.2]:virtual-machines-windows-sap-high-availability-guide.md#85d78414-b21d-4097-92b6-34d8bcb724b7 (Установка экземпляра базы данных) [sap-ha-guide-9.3]:virtual-machines-windows-sap-high-availability-guide.md#8a276e16-f507-4071-b829-cdc0a4d36748 (Установка второго узла кластера) [sap-ha-guide-9.4]:virtual-machines-windows-sap-high-availability-guide.md#094bc895-31d4-4471-91cc-1513b64e406a (Изменение типа запуска службы Windows для экземпляра SAP ERS) [sap-ha-guide-9.5]:virtual-machines-windows-sap-high-availability-guide.md#2477e58f-c5a7-4a5d-9ae3-7b91022cafb5 (Установка основного сервера приложений SAP) [sap-ha-guide-9.6]:virtual-machines-windows-sap-high-availability-guide.md#0ba4a6c1-cc37-4bcf-a8dc-025de4263772 (Установка дополнительного сервера приложений SAP) [sap-ha-guide-10]:virtual-machines-windows-sap-high-availability-guide.md#18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9 (Тестирование отработки отказа экземпляра SAP ASCS/SCS и репликации SIOS) [sap-ha-guide-10.1]:virtual-machines-windows-sap-high-availability-guide.md#65fdef0f-9f94-41f9-b314-ea45bbfea445 (Экземпляр SAP ASCS/SCS выполняется на узле А кластера A) [sap-ha-guide-10.2]:virtual-machines-windows-sap-high-availability-guide.md#5e959fa9-8fcd-49e5-a12c-37f6ba07b916 (Процесс отработки отказа с узла A на узел B) [sap-ha-guide-10.3]:virtual-machines-windows-sap-high-availability-guide.md#755a6b93-0099-4533-9f6d-5c9a613878b5 (Экземпляр SAP ASCS/SCS выполняется на узле B кластера))
+[sap-ha-guide-7]:virtual-machines-windows-sap-high-availability-guide.md#2e3fec50-241e-441b-8708-0b1864f66dfa (Высокий уровень доступности SAP NetWeaver в IaaS Azure)
+[sap-ha-guide-7.1]:virtual-machines-windows-sap-high-availability-guide.md#93faa747-907e-440a-b00a-1ae0a89b1c0e (Высокая доступность серверов приложений SAP)
+[sap-ha-guide-7.2]:virtual-machines-windows-sap-high-availability-guide.md#f559c285-ee68-4eec-add1-f60fe7b978db (Высокая доступность экземпляра SAP ASCS/SCS)
+[sap-ha-guide-7.2.1]:virtual-machines-windows-sap-high-availability-guide.md#b5b1fd0b-1db4-4d49-9162-de07a0132a51 (Обеспечение высокого уровня доступности экземпляра SAP ASCS/SCS с помощью отказоустойчивого кластера Windows Server в Azure)
+[sap-ha-guide-7.3]:virtual-machines-windows-sap-high-availability-guide.md#ddd878a0-9c2f-4b8e-8968-26ce60be1027 (Высокий уровень доступности для экземпляра СУБД)
+[sap-ha-guide-7.4]:virtual-machines-windows-sap-high-availability-guide.md#045252ed-0277-4fc8-8f46-c5a29694a816 (Сценарии комплексного развертывания с высоким уровнем доступности)
+[sap-ha-guide-8]:virtual-machines-windows-sap-high-availability-guide.md#78092dbe-165b-454c-92f5-4972bdbef9bf (Подготовка инфраструктуры)
+[sap-ha-guide-8.1]:virtual-machines-windows-sap-high-availability-guide.md#c87a8d3f-b1dc-4d2f-b23c-da4b72977489 (Развертывание виртуальных машин с подключением к корпоративной сети (распределенное развертывание) для использования в рабочей среде)
+[sap-ha-guide-8.2]:virtual-machines-windows-sap-high-availability-guide.md#7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310 (Полностью облачное развертывание экземпляров SAP для тестирования или демонстрации)
+[sap-ha-guide-8.3]:virtual-machines-windows-sap-high-availability-guide.md#47d5300a-a830-41d4-83dd-1a0d1ffdbe6a (Виртуальная сеть Azure)
+[sap-ha-guide-8.4]:virtual-machines-windows-sap-high-availability-guide.md#b22d7b3b-4343-40ff-a319-097e13f62f9e (IP-адреса DNS)
+[sap-ha-guide-8.5]:virtual-machines-windows-sap-high-availability-guide.md#9fbd43c0-5850-4965-9726-2a921d85d73f (Имена узлов и статические IP-адреса для кластеризованного экземпляра SAP ASCS/SCS и кластеризованного экземпляра СУБД)
+[sap-ha-guide-8.6]:virtual-machines-windows-sap-high-availability-guide.md#84c019fe-8c58-4dac-9e54-173efd4b2c30 (Настройка статических IP-адресов для виртуальных машин SAP)
+[sap-ha-guide-8.7]:virtual-machines-windows-sap-high-availability-guide.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e (Создание статического IP-адреса для внутреннего балансировщика нагрузки)
+[sap-ha-guide-8.8]:virtual-machines-windows-sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c (Правила балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure)
+[sap-ha-guide-8.9]:virtual-machines-windows-sap-high-availability-guide.md#fe0bd8b5-2b43-45e3-8295-80bee5415716 (Изменение правил балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure)
+[sap-ha-guide-8.10]:virtual-machines-windows-sap-high-availability-guide.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c (Присоединение виртуальных машин Windows к домену)
+[sap-ha-guide-8.11]:virtual-machines-windows-sap-high-availability-guide.md#661035b2-4d0f-4d31-86f8-dc0a50d78158 (Добавление записей реестра для обоих узлов кластера, используемых для экземпляра SAP ASCS/SCS)
+[sap-ha-guide-8.12]:virtual-machines-windows-sap-high-availability-guide.md#0d67f090-7928-43e0-8772-5ccbf8f59aab (Установка отказоустойчивого кластера Windows Server для экземпляра SAP ASCS/SCS)
+[sap-ha-guide-8.12.1]:virtual-machines-windows-sap-high-availability-guide.md#5eecb071-c703-4ccc-ba6d-fe9c6ded9d79 (Сбор узлов кластера в конфигурации кластера)
+[sap-ha-guide-8.12.2]:virtual-machines-windows-sap-high-availability-guide.md#e49a4529-50c9-4dcf-bde7-15a0c21d21ca (Настройка файлового ресурса-свидетеля кластера)
+[sap-ha-guide-8.12.2.1]:virtual-machines-windows-sap-high-availability-guide.md#06260b30-d697-4c4d-b1c9-d22c0bd64855 (Создание файлового ресурса)
+[sap-ha-guide-8.12.2.2]:virtual-machines-windows-sap-high-availability-guide.md#4c08c387-78a0-46b1-9d27-b497b08cac3d (Настройка кворума на основе файлового ресурса-свидетеля в диспетчере отказоустойчивости кластеров)
+[sap-ha-guide-8.12.3]:virtual-machines-windows-sap-high-availability-guide.md#5c8e5482-841e-45e1-a89d-a05c0907c868 (Установка SIOS DataKeeper Cluster Edition для создания общего диска кластера SAP ASCS/SCS)
+[sap-ha-guide-8.12.3.1]:virtual-machines-windows-sap-high-availability-guide.md#1c2788c3-3648-4e82-9e0d-e058e475e2a3 (Добавление компонента .NET Framework 3.5)
+[sap-ha-guide-8.12.3.2]:virtual-machines-windows-sap-high-availability-guide.md#dd41d5a2-8083-415b-9878-839652812102 (Установка SIOS DataKeeper)
+[sap-ha-guide-8.12.3.3]:virtual-machines-windows-sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 (Настройка SIOS DataKeeper)
+[sap-ha-guide-9]:virtual-machines-windows-sap-high-availability-guide.md#a06f0b49-8a7a-42bf-8b0d-c12026c5746b (Установка системы SAP NetWeaver)
+[sap-ha-guide-9.1]:virtual-machines-windows-sap-high-availability-guide.md#31c6bd4f-51df-4057-9fdf-3fcbc619c170 (Установка SAP с высокодоступным экземпляром ASCS/SCS)
+[sap-ha-guide-9.1.1]:virtual-machines-windows-sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 (Создание имени виртуального узла для кластеризованного экземпляра SAP ASCS/SCS)
+[sap-ha-guide-9.1.2]:virtual-machines-windows-sap-high-availability-guide.md#eb5af918-b42f-4803-bb50-eff41f84b0b0 (Установка первого узла кластера SAP)
+[sap-ha-guide-9.1.3]:virtual-machines-windows-sap-high-availability-guide.md#e4caaab2-e90f-4f2c-bc84-2cd2e12a9556 (Изменение профиля SAP экземпляра ASCS/SCS)
+[sap-ha-guide-9.1.4]:virtual-machines-windows-sap-high-availability-guide.md#10822f4f-32e7-4871-b63a-9b86c76ce761 (Добавление порта пробы)
+[sap-ha-guide-9.2]:virtual-machines-windows-sap-high-availability-guide.md#85d78414-b21d-4097-92b6-34d8bcb724b7 (Установка экземпляра базы данных)
+[sap-ha-guide-9.3]:virtual-machines-windows-sap-high-availability-guide.md#8a276e16-f507-4071-b829-cdc0a4d36748 (Установка второго узла кластера)
+[sap-ha-guide-9.4]:virtual-machines-windows-sap-high-availability-guide.md#094bc895-31d4-4471-91cc-1513b64e406a (Изменение типа запуска службы Windows для экземпляра SAP ERS)
+[sap-ha-guide-9.5]:virtual-machines-windows-sap-high-availability-guide.md#2477e58f-c5a7-4a5d-9ae3-7b91022cafb5 (Установка основного сервера приложений SAP)
+[sap-ha-guide-9.6]:virtual-machines-windows-sap-high-availability-guide.md#0ba4a6c1-cc37-4bcf-a8dc-025de4263772 (Установка дополнительного сервера приложений SAP)
+[sap-ha-guide-10]:virtual-machines-windows-sap-high-availability-guide.md#18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9 (Тестирование отработки отказа экземпляра SAP ASCS/SCS и репликации SIOS)
+[sap-ha-guide-10.1]:virtual-machines-windows-sap-high-availability-guide.md#65fdef0f-9f94-41f9-b314-ea45bbfea445 (Экземпляр SAP ASCS/SCS выполняется на узле А кластера A)
+[sap-ha-guide-10.2]:virtual-machines-windows-sap-high-availability-guide.md#5e959fa9-8fcd-49e5-a12c-37f6ba07b916 (Процесс отработки отказа с узла A на узел B)
+[sap-ha-guide-10.3]:virtual-machines-windows-sap-high-availability-guide.md#755a6b93-0099-4533-9f6d-5c9a613878b5 (Экземпляр SAP ASCS/SCS выполняется на узле B кластера))
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -352,19 +451,19 @@
 
 [AZURE.INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
 
-## <a name="<a-name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a>-prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Предварительные требования
+## <a name="a-name217c547955954cd8870d15ab00d4f84ca-prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Предварительные требования
 
 Перед началом работы необходимо выполнить все предварительные условия, описанные в следующих разделах. Кроме того, ознакомьтесь со всеми минералами, указанными в разделе [Материалы][sap-ha-guide-2].
 
 В этой статье мы используем шаблоны Azure Resource Manager для [трехуровневой SAP NetWeaver](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/). Обзор шаблонов представлен в статье о [шаблонах Azure Resource Manager для SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
-## <a name="<a-name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a>-resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Материалы
+## <a name="a-name42b8f6007ba34606b8a553c4f026da08a-resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a> Материалы
 
 По теме развертывания SAP в Azure доступны перечисленные далее руководства.
 
 - [SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению][planning-guide]
 - [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию][deployment-guide]
-- [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД][dbms-guide]
+- [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД][dbms-guide-2.1]
 - [SAP NetWeaver на виртуальных машинах Windows. Руководство по обеспечению высокого уровня доступности [это руководство] ][sap-ha-guide]
 
 > [AZURE.NOTE] При возможности указывается ссылка на соответствующее руководство по установке SAP (см. [руководства по установке SAP][sap-installation-guides]). Что касается необходимых компонентов и процесса установки, внимательно изучите руководства по установке SAP NetWeaver. В этой статье рассматриваются только отдельные задачи для систем на основе SAP NetWeaver, устанавливаемых на виртуальные машины Microsoft Azure.
@@ -382,17 +481,17 @@
 
 Узнайте больше об [ограничениях для подписок Azure][azure-subscription-service-limits-subscription], включая общие ограничения по умолчанию и максимальные ограничения.
 
-## <a name="<a-name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>high-availability-sap-with-azure-resource-manager-vs.-the-classic-deployment-model"></a><a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>Различия SAP с высоким уровнем доступности в модели развертывания Azure Resource Manager и классической модели развертывания
+## <a name="a-name42156640c601cf45a9b2254baa678b24f1ahighavailability-sap-with-azure-resource-manager-vs-the-classic-deployment-model"></a><a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>Различия SAP с высоким уровнем доступности в модели развертывания Azure Resource Manager и классической модели развертывания
 
 Между моделью развертывания с использованием и классической моделью развертывания существует два основных различия:
 
 - Группы ресурсов
 - Требования к кластеризации
 
-### <a name="<a-name="f76af273-1993-4d83-b12d-65deeae23686"></a>-resource-groups"></a><a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Группы ресурсов
+### <a name="a-namef76af27319934d83b12d65deeae23686a-resource-groups"></a><a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Группы ресурсов
 Группы ресурсов в Azure Resource Manager можно использовать для управления всеми ресурсами приложения в подписке Azure. В рамках интегрированного подхода в группе ресурсов все ресурсы имеют одинаковый цикл жизни. Например, все они создаются одновременно и удаляются тоже одновременно. Дополнительные сведения о группах ресурсов см. [здесь](resource-group-overview.md#resource-groups).
 
-### <a name="<a-name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a>-clustering-with-azure-resource-manager-vs.-the-classic-deployment-model"></a><a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Сравнение кластеризации в модели развертывания с использованием Azure Resource Manager и классической модели развертывания
+### <a name="a-name3e85fbe084b1489287afd9b65ff91860a-clustering-with-azure-resource-manager-vs-the-classic-deployment-model"></a><a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Сравнение кластеризации в модели развертывания с использованием Azure Resource Manager и классической модели развертывания
 
 В модели с использованием Azure Resource Manager нет необходимости настраивать облачную службу для использования внутреннего балансировщика нагрузки Azure в целях обеспечения высокого уровня доступности.
 
@@ -400,13 +499,13 @@
 
 > [AZURE.NOTE] Для установки приложений SAP настоятельно рекомендуется использовать модель развертывания с помощью Azure Resource Manager. Она предлагает преимущества, недоступные в классической модели развертывания. Узнайте больше о [моделях развертывания][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
 
-## <a name="<a-name="8ecf3ba0-67c0-4495-9c14-feec1a2255b7"></a>-windows-server-failover-clustering"></a><a name="8ecf3ba0-67c0-4495-9c14-feec1a2255b7"></a> Отказоустойчивый кластер Windows Server (WSFC)
+## <a name="a-name8ecf3ba067c044959c14feec1a2255b7a-windows-server-failover-clustering"></a><a name="8ecf3ba0-67c0-4495-9c14-feec1a2255b7"></a> Отказоустойчивый кластер Windows Server (WSFC)
 
 Отказоустойчивая кластеризация Windows Server является основой для установки высокодоступных приложений SAP ASCS/SCS установки и СУБД в Windows.
 
 Отказоустойчивый кластер представляет собой группу из 1 + n независимых серверов (узлов), работающих совместно для повышения доступности приложений и служб. В случае отказов узлов WSFC должен определить количество возможных сбоев, при котором сохраняется работоспособность кластера и предоставляются определенные приложения и службы. Для этого доступны разные режимы кворума.
 
-### <a name="<a-name="1a3c5408-b168-46d6-99f5-4219ad1b1ff2"></a>-quorum-modes"></a><a name="1a3c5408-b168-46d6-99f5-4219ad1b1ff2"></a> Режимы кворума
+### <a name="a-name1a3c5408b16846d699f54219ad1b1ff2a-quorum-modes"></a><a name="1a3c5408-b168-46d6-99f5-4219ad1b1ff2"></a> Режимы кворума
 
 При использовании WSFC доступно четыре режима кворума.
 
@@ -418,7 +517,7 @@
 
 - **Отсутствие большинства — только диск**. В кластере есть кворум, если доступен один узел, подключенный к определенному диску в хранилище кластера. Только узлы, которые также подключены к этому диску, могут присоединиться к кластеру. Использовать этот режим не рекомендуется.
  
-## <a name="<a-name="fdfee875-6e66-483a-a343-14bbaee33275"></a>-windows-server-failover-clustering-on-premises"></a><a name="fdfee875-6e66-483a-a343-14bbaee33275"></a> Отказоустойчивый кластер Windows Server в локальной среде
+## <a name="a-namefdfee8756e66483aa34314bbaee33275a-windows-server-failover-clustering-onpremises"></a><a name="fdfee875-6e66-483a-a343-14bbaee33275"></a> Отказоустойчивый кластер Windows Server в локальной среде
 В примере на рис. 1 показан кластер, состоящий из двух узлов. В случае отказа сетевого подключения между узлами, если оба из них работоспособны, необходимо выяснить, какой узел должен по-прежнему предоставлять приложения и службы кластера. Узел, у которого есть доступ к диску или файловому ресурсу кворума, должен обеспечить работоспособность служб.
 
 Так как в этом примере используется кластер из двух узлов, был выбран режим кворума "Большинство узлов и файлового ресурса". Можно также использовать большинство узлов и дисков. В рабочей среде рекомендуется использовать диск кворума. Можно применить сетевую систему хранения, чтобы обеспечить его высокую доступность.
@@ -427,13 +526,13 @@
 
 _**Рис. 1.** Пример конфигурации отказоустойчивого кластера Windows Server для SAP ASCS/SCS в Azure_
 
-### <a name="<a-name="be21cf3e-fb01-402b-9955-54fbecf66592"></a>-shared-storage"></a><a name="be21cf3e-fb01-402b-9955-54fbecf66592"></a> Общее хранилище
+### <a name="a-namebe21cf3efb01402b995554fbecf66592a-shared-storage"></a><a name="be21cf3e-fb01-402b-9955-54fbecf66592"></a> Общее хранилище
 
 На рис. 1 также показано общее хранилище кластера с двумя узлами. В кластере с общим хранилищем в локальной среде имеется общее хранилище, видимое для всех узлов в кластере. Механизм блокировки защищает данные от повреждения. Кроме того, каждый узел может обнаружить отказ другого узла. При сбое одного узла второй узел получает право на владение ресурсами хранилища и обеспечивает доступность служб.
 
 > [AZURE.NOTE] В некоторых СУБД, например SQL Server, общие диски не требуются для достижения высокого уровня доступности. SQL Server AlwaysOn выполняет репликацию файлов данных и журналов СУБД с локального диска одного узла кластера на локальный диск другого узла кластера. Поэтому в конфигурации кластера Windows не нужен общий диск.
 
-### <a name="<a-name="ff7a9a06-2bc5-4b20-860a-46cdb44669cd"></a>-networking-and-name-resolution"></a><a name="ff7a9a06-2bc5-4b20-860a-46cdb44669cd"></a> Сетевые подключения и разрешение имен
+### <a name="a-nameff7a9a062bc54b20860a46cdb44669cda-networking-and-name-resolution"></a><a name="ff7a9a06-2bc5-4b20-860a-46cdb44669cd"></a> Сетевые подключения и разрешение имен
 
 Клиентские компьютеры обращаются к кластеру посредством виртуального IP-адреса и имени виртуального узла, которое предоставляет DNS-сервер. Узлы находятся в локальной среде, и DNS-сервер может обрабатывать несколько IP-адресов.
 
@@ -443,7 +542,7 @@ _**Рис. 1.** Пример конфигурации отказоустойчи
 - внутреннее сетевое подключение в кластере для передачи пульса;
 - общедоступная сеть, используемая клиентами для подключения к кластеру.
 
-## <a name="<a-name="2ddba413-a7f5-4e4e-9a51-87908879c10a"></a>-windows-server-failover-clustering-in-azure"></a><a name="2ddba413-a7f5-4e4e-9a51-87908879c10a"></a> Отказоустойчивый кластер Windows Server в Azure
+## <a name="a-name2ddba413a7f54e4e9a5187908879c10aa-windows-server-failover-clustering-in-azure"></a><a name="2ddba413-a7f5-4e4e-9a51-87908879c10a"></a> Отказоустойчивый кластер Windows Server в Azure
 
 По сравнению с развертываниями без операционной системы или развертываниями частных облаков виртуальные машины Azure требуют дополнительной настройки WSFC. При создании общего диска кластера экземпляру SAP ASCS/SCS потребуется задать несколько IP-адресов и имен виртуальных узлов.
 
@@ -455,7 +554,7 @@ _**Рис. 1.** Пример конфигурации отказоустойчи
 _**Рис. 2.** Конфигурация отказоустойчивого кластера Windows Server в Azure без общего диска_
 
 
-### <a name="<a-name="1a464091-922b-48d7-9d08-7cecf757f341"></a>-shared-disk-in-azure-with-sios-datakeeper"></a><a name="1a464091-922b-48d7-9d08-7cecf757f341"></a> Создание общего диска в Azure с помощью SIOS DataKeeper
+### <a name="a-name1a464091922b48d79d087cecf757f341a-shared-disk-in-azure-with-sios-datakeeper"></a><a name="1a464091-922b-48d7-9d08-7cecf757f341"></a> Создание общего диска в Azure с помощью SIOS DataKeeper
 
 Общее хранилище кластера необходимо для экземпляра SAP ASCS/SCS с высоким уровнем доступности. По состоянию на сентябрь 2016 г. Azure не предоставляет общее хранилище для создания кластера с общим хранилищем. Вы можете использовать стороннее ПО SIOS DataKeeper Cluster Edition, чтобы создать зеркальное хранилище, имитирующее общее хранилище кластера. Решение SIOS обеспечивает синхронную репликацию данных в реальном времени. Вот как можно создать общий дисковый ресурс для кластера.
 
@@ -471,14 +570,14 @@ _**Рис. 3.** Конфигурация отказоустойчивого кл
 
 > [AZURE.NOTE] В некоторых СУБД, например SQL Server, общие диски не требуются для достижения высокого уровня доступности. SQL Server AlwaysOn выполняет репликацию файлов данных и журналов СУБД с локального диска одного узла кластера на локальный диск другого узла кластера. Поэтому в конфигурации кластера Windows не нужен общий диск.
 
-### <a name="<a-name="44641e18-a94e-431f-95ff-303ab65e0bcb"></a>-name-resolution-in-azure"></a><a name="44641e18-a94e-431f-95ff-303ab65e0bcb"></a> Разрешение имен в Azure
+### <a name="a-name44641e18a94e431f95ff303ab65e0bcba-name-resolution-in-azure"></a><a name="44641e18-a94e-431f-95ff-303ab65e0bcb"></a> Разрешение имен в Azure
 
  Облачная платформа Azure не предоставляет возможность настройки виртуальных IP-адресов, т. е. плавающих IP-адресов. Поэтому необходимо альтернативное решение для настройки виртуального IP-адреса, используемого для доступа к кластерному ресурсу в облаке.
 Azure предоставляет внутренний балансировщик нагрузки в службе балансировки нагрузки Azure. С его помощью клиенты могут обращаться к кластеру через виртуальный IP-адрес кластера.
 Внутренний балансировщик нагрузки необходимо развернуть в группе ресурсов, содержащей узлы кластера. Затем нужно настроить все необходимые правила перенаправления портов для портов проб внутреннего балансировщика нагрузки.
 Клиенты могут подключаться через имя виртуального узла. DNS-сервер разрешает IP-адрес кластера, и внутренний балансировщик нагрузки выполняет перенаправление на активный узел кластера.
 
-## <a name="<a-name="2e3fec50-241e-441b-8708-0b1864f66dfa"></a>-high-availability-sap-netweaver-in-azure-infrastructure-as-a-service-(iaas)"></a><a name="2e3fec50-241e-441b-8708-0b1864f66dfa"></a> Высокий уровень доступности SAP NetWeaver в IaaS Azure
+## <a name="a-name2e3fec50241e441b87080b1864f66dfaa-highavailability-sap-netweaver-in-azure-infrastructureasaservice-iaas"></a><a name="2e3fec50-241e-441b-8708-0b1864f66dfa"></a> Высокий уровень доступности SAP NetWeaver в IaaS Azure
 
 Чтобы обеспечить высокий уровень доступности приложения SAP, т. е. компонентов программного обеспечения SAP, необходимо защитить указанные далее компоненты. Этот вопрос рассматривается более подробно в документе [SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению][planning-guide-11].
 
@@ -486,7 +585,7 @@ Azure предоставляет внутренний балансировщик
 - экземпляров ASCS/SCS SAP,
 - сервер СУБД.
 
-### <a name="<a-name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a>-high-availability-sap-application-servers"></a><a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a> Высокая доступность серверов приложений SAP
+### <a name="a-name93faa747907e440ab00a1ae0a89b1c0ea-highavailability-sap-application-servers"></a><a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a> Высокая доступность серверов приложений SAP
 
 Как правило, для экземпляров серверов приложений или диалоговых экземпляров SAP специальное решение для обеспечения высокой доступности не требуется. Высокий уровень доступности достигается за счет избыточности, то есть на разных экземплярах виртуальных машин Azure настраивается несколько диалоговых экземпляров. Необходимо установить как минимум два экземпляра приложения SAP на два экземпляра виртуальных машин Azure.
 
@@ -503,14 +602,14 @@ _**Рис. 4.** Высокая доступность серверов прил�
 
 Так как учетная запись хранения Azure является потенциальной единственной точкой отказа, важно иметь по меньшей мере две учетные записи хранения Azure, в которых будут распределены как минимум две виртуальные машины. В идеале все виртуальные машины, на которых выполняются диалоговые экземпляры SAP, следует развертывать в разных учетных записях хранения.
 
-### <a name="<a-name="f559c285-ee68-4eec-add1-f60fe7b978db"></a>-high-availability-sap-ascs/scs-instance"></a><a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> Высокая доступность экземпляра SAP ASCS/SCS
+### <a name="a-namef559c285ee684eecadd1f60fe7b978dba-highavailability-sap-ascsscs-instance"></a><a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> Высокая доступность экземпляра SAP ASCS/SCS
 
 ![Рис. 5. Высокая доступность экземпляра SAP ASCS/SCS][sap-ha-guide-figure-2001]
 
 _**Рис. 5.** Высокая доступность экземпляра SAP ASCS/SCS_
 
 
-#### <a name="<a-name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a>-high-availability-sap-ascs/scs-instance-with-windows-server-failover-clustering-in-azure"></a><a name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a> Обеспечение высокого уровня доступности экземпляра SAP ASCS/SCS с помощью отказоустойчивого кластера Windows Server в Azure
+#### <a name="a-nameb5b1fd0b1db44d499162de07a0132a51a-highavailability-sap-ascsscs-instance-with-windows-server-failover-clustering-in-azure"></a><a name="b5b1fd0b-1db4-4d49-9162-de07a0132a51"></a> Обеспечение высокого уровня доступности экземпляра SAP ASCS/SCS с помощью отказоустойчивого кластера Windows Server в Azure
 
 По сравнению с развертываниями без операционной системы или развертываниями частных облаков виртуальные машины Azure требуют дополнительной настройки WSFC. Чтобы создать отказоустойчивый кластер Windows для кластеризации экземпляра SAP ASCS/SCS, требуется общий диск кластера, несколько IP-адресов и имен виртуальных узлов, а также внутренний балансировщик нагрузки Azure.
 
@@ -521,7 +620,7 @@ _**Рис. 5.** Высокая доступность экземпляра SAP A
 _**Рис. 6.** Конфигурация отказоустойчивого кластера Windows Server для SAP ASCS/SCS в Azure с использованием SIOS DataKeeper_
 
 
-### <a name="<a-name="ddd878a0-9c2f-4b8e-8968-26ce60be1027"></a>-high-availability-dbms-instance"></a><a name="ddd878a0-9c2f-4b8e-8968-26ce60be1027"></a> Высокий уровень доступности экземпляра СУБД
+### <a name="a-nameddd878a09c2f4b8e896826ce60be1027a-highavailability-dbms-instance"></a><a name="ddd878a0-9c2f-4b8e-8968-26ce60be1027"></a> Высокий уровень доступности экземпляра СУБД
 
 СУБД также является единой точкой отказа системы SAP. Она должна быть защищена с помощью решения для обеспечения высокого уровня доступности. На рис. 7 показан пример решения для обеспечения высокого уровня доступности SQL Server AlwaysOn в Azure, в котором используется отказоустойчивый кластер Windows Server и внутренний балансировщик нагрузки Azure. SQL Server AlwaysOn реплицирует файлы данных и журналов СУБД с помощью собственной функции репликации СУБД. Поэтому вам не требуются общие диски кластера, что упрощает всю конфигурацию.
 
@@ -535,7 +634,7 @@ _**Рис. 7.** Пример сервера СУБД SAP с высоким ур�
 - [Ручная настройка группы доступности AlwaysOn на виртуальной машине Azure в модели Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
 - [Настройка внутреннего балансировщика нагрузки для группы доступности AlwaysOn в Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
-### <a name="<a-name="045252ed-0277-4fc8-8f46-c5a29694a816"></a>-end-to-end-high-availability-deployment-scenarios"></a><a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> Сценарии комплексного развертывания с высоким уровнем доступности
+### <a name="a-name045252ed02774fc88f46c5a29694a816a-endtoend-highavailability-deployment-scenarios"></a><a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> Сценарии комплексного развертывания с высоким уровнем доступности
 
 На рис. 8 показан пример архитектуры SAP NetWeaver с высоким уровнем доступности в Azure. В этом сценарии используется один выделенный кластер для экземпляра SAP ASCS/SCS и еще один — для СУБД.
 
@@ -543,7 +642,7 @@ _**Рис. 7.** Пример сервера СУБД SAP с высоким ур�
 
 _**Рис. 8.** Шаблон 1 архитектуры SAP с высоким уровнем доступности с выделенным кластером для ASCS/SCS и выделенным кластером для экземпляра СУБД_
 
-## <a name="<a-name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a>-prepare-the-infrastructure"></a><a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a> Подготовка инфраструктуры
+## <a name="a-name78092dbe165b454c92f54972bdbef9bfa-prepare-the-infrastructure"></a><a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a> Подготовка инфраструктуры
 
 Шаблоны Azure Resource Manager для SAP помогают упростить развертывание необходимых ресурсов.
 
@@ -588,7 +687,7 @@ _**Рис. 9.** Указание параметров Azure Resource Manager д�
 > [AZURE.NOTE] Все IP-адреса сетевых карт и внутренних балансировщиков нагрузки Azure изначально создаются как **динамические**. Их необходимо изменить на **статические** IP-адреса. Процедура будет описана далее.
 
 
-### <a name="<a-name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a>-deploy-virtual-machines-with-corporate-network-connectivity-(cross-premises)-to-use-in-production"></a><a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Развертывание виртуальных машин с подключением к корпоративной сети (распределенное развертывание) для использования в рабочей среде
+### <a name="a-namec87a8d3fb1dc4d2fb23cda4b72977489a-deploy-virtual-machines-with-corporate-network-connectivity-crosspremises-to-use-in-production"></a><a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Развертывание виртуальных машин с подключением к корпоративной сети (распределенное развертывание) для использования в рабочей среде
 
 Для производственных систем SAP виртуальные машины Azure развертываются с [подключением к корпоративной сети (распределенное развертывание)][planning-guide-2.2] с помощью VPN типа "сеть — сеть" Azure или канала Azure ExpressRoute.
 
@@ -618,7 +717,7 @@ _**Рис. 9.** Указание параметров Azure Resource Manager д�
 /subscriptions/<SubscriptionId>/resourceGroups/<VPNName>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<SubnetName>
 ```
 
-### <a name="<a-name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a>-cloud-only-deployment-of-sap-instances-for-test-and-demo"></a><a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Полностью облачное развертывание экземпляров SAP для тестирования или демонстрации
+### <a name="a-name7fe9af0e3cce495ba5ecdcb4d8e0a310a-cloudonly-deployment-of-sap-instances-for-test-and-demo"></a><a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Полностью облачное развертывание экземпляров SAP для тестирования или демонстрации
 
 Систему SAP с высоким уровнем доступности можно также развернуть в модели полностью облачного развертывания.
 
@@ -630,13 +729,13 @@ _**Рис. 9.** Указание параметров Azure Resource Manager д�
 
 > [AZURE.NOTE] Кроме того, необходимо развернуть по меньшей мере одну выделенную виртуальную машину для служб AD и DNS в этой же виртуальной сети. Эти виртуальные машины не создаются с помощью шаблона.
 
-### <a name="<a-name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a>-azure-virtual-network"></a><a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Виртуальная сеть Azure
+### <a name="a-name47d5300aa83041d483dd1a0d1ffdbe6aa-azure-virtual-network"></a><a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Виртуальная сеть Azure
 
 В нашем примере адресное пространство виртуальной сети Azure — 10.0.0.0/16. Существует одна подсеть **Subnet** с диапазоном адресов 10.0.0.0/24. Все виртуальные машины и внутренние балансировщики нагрузки развертываются в этой виртуальной сети.
 
 > [AZURE.NOTE] Не изменяйте параметры сети в гостевой ОС. Например, IP-адреса, DNS-серверы и подсети. Все параметры сети настраиваются с помощью Azure. Они распространяются через службу DHCP.
 
-### <a name="<a-name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a>-dns-ip-addresses"></a><a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> IP-адреса DNS
+### <a name="a-nameb22d7b3b434340ffa319097e13f62f9ea-dns-ip-addresses"></a><a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> IP-адреса DNS
 
 Убедитесь, что для параметра виртуальной сети **DNS-серверы** задано значение **Пользовательская служба DNS**.
 Затем выберите параметры, в зависимости от типа сети:
@@ -662,7 +761,7 @@ _**Рис. 10.** Настройка DNS-серверов для виртуаль
 | 2-й DNS-сервер | domcontr-1  | pr1-nic-domcontr-1 | 10.0.0.11         
 
 
-### <a name="<a-name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a>-host-names-and-static-ip-addresses-for-the-sap-ascs/scs-clustered-instance-and-dbms-clustered-instance"></a><a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Имена узлов и статические IP-адреса для кластеризованного экземпляра SAP ASCS/SCS и кластеризованного экземпляра СУБД
+### <a name="a-name9fbd43c05850496597262a921d85d73fa-host-names-and-static-ip-addresses-for-the-sap-ascsscs-clustered-instance-and-dbms-clustered-instance"></a><a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Имена узлов и статические IP-адреса для кластеризованного экземпляра SAP ASCS/SCS и кластеризованного экземпляра СУБД
 
 Для локального развертывания необходимы следующие зарезервированные имена узлов и IP-адреса.
 
@@ -676,7 +775,7 @@ _**Рис. 10.** Настройка DNS-серверов для виртуаль
 
 Два других имени виртуальных узлов — **pr1-ascs-sap** и **pr1-dbms-sap** — и связанные IP-адреса можно вручную создать на DNS-сервере. Эти ресурсы используются кластеризованным экземпляром SAP ASCS/SCS и кластеризованным экземпляром СУБД. Процесс описан в разделе [Создание имени виртуального узла для кластеризованного экземпляра SAP ASCS/SCS][sap-ha-guide-9.1.1].
 
-### <a name="<a-name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>-set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Настройка статических IP-адресов для виртуальных машин SAP
+### <a name="a-name84c019fe8c584dac9e54173efd4b2c30a-set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Настройка статических IP-адресов для виртуальных машин SAP
 
 После развертывания виртуальных машин для использования в кластере необходимо настроить статические IP-адреса для всех виртуальных машин. Это невозможно сделать в гостевой ОС. Задача выполняется в конфигурации виртуальной сети Azure.
 
@@ -706,7 +805,7 @@ _**Рис. 11.** Настройка статического IP-адреса д�
 | 1-й узел кластера для экземпляра СУБД      | pr1-db-0     | pr1-nic-db-0       | 10.0.0.30         
 | 2-й узел кластера для экземпляра СУБД      | pr1-db-1     | pr1-nic-db-1       | 10.0.0.31         
 
-### <a name="<a-name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a>-set-a-static-ip-address-for-the-internal-load-balancer"></a><a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Настройка статического IP-адреса для внутреннего балансировщика нагрузки
+### <a name="a-name7a8f3e9b062440519e41b73fff816a9ea-set-a-static-ip-address-for-the-internal-load-balancer"></a><a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Настройка статического IP-адреса для внутреннего балансировщика нагрузки
 
 Шаблон Azure Resource Manager для SAP создает внутренний балансировщик нагрузки Azure, используемый для кластера экземпляров SAP ASCS/SCS и кластера СУБД.
 
@@ -731,7 +830,7 @@ _**Рис. 12.** Настройка статического IP-адреса в�
 
 Задайте для внутреннего балансировщика нагрузки **pr1-lb-dbms** IP-адрес имени виртуального узла экземпляра СУБД (в нашем примере это **10.0.0.33**).
 
-### <a name="<a-name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a>-default-ascs/scs-load-balancing-rules-for-the-azure-internal-load-balancer"></a><a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Правила балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure
+### <a name="a-namef19bd997154d4583a46e7f5a69d0153ca-default-ascsscs-load-balancing-rules-for-the-azure-internal-load-balancer"></a><a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Правила балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure
 
 По умолчанию шаблон Azure Resource Manager для SAP создает все необходимые порты для следующих экземпляров:
 
@@ -784,7 +883,7 @@ _**Рис. 13.** Правила балансировки нагрузки ASCS/S
 
 Задайте для балансировщика нагрузки **pr1-lb-dbms** IP-адрес имени виртуального узла экземпляра СУБД (в нашем примере это **10.0.0.33**).
 
-### <a name="<a-name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a>-change-the-ascs/scs-default-load-balancing-rules-for-the-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Изменение правил балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure
+### <a name="a-namefe0bd8b52b4345e3829580bee5415716a-change-the-ascsscs-default-load-balancing-rules-for-the-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Изменение правил балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure
 
 Если вы хотите использовать другие номера для экземпляров SAP ASCS или SCS, необходимо обновить имена и значения их портов.
 
@@ -806,7 +905,7 @@ _**Рис. 13.** Правила балансировки нагрузки ASCS/S
 
 _**Рис. 14.** Изменение правил балансировки нагрузки ASCS/SCS по умолчанию для внутреннего балансировщика нагрузки Azure_
 
-### <a name="<a-name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a>-add-windows-virtual-machines-to-the-domain"></a><a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Присоединение виртуальных машин Windows к домену
+### <a name="a-namee69e9a34460147a3a41cd2e11c626c0ca-add-windows-virtual-machines-to-the-domain"></a><a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Присоединение виртуальных машин Windows к домену
 
 После назначения виртуальным машинам статических IP-адресов добавьте эти машины в домен.
 
@@ -814,7 +913,7 @@ _**Рис. 14.** Изменение правил балансировки наг
 
 _**Рис. 15.** Добавление виртуальной машины в домен_
 
-### <a name="<a-name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a>-add-registry-entries-on-both-cluster-nodes-of-the-sap-ascs/scs-instance"></a><a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> Добавление записей реестра для обоих узлов кластера экземпляра SAP ASCS/SCS
+### <a name="a-name661035b24d0f4d3186f8dc0a50d78158a-add-registry-entries-on-both-cluster-nodes-of-the-sap-ascsscs-instance"></a><a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> Добавление записей реестра для обоих узлов кластера экземпляра SAP ASCS/SCS
 
 Azure Load Balancer имеет внутренний балансировщик нагрузки, который закрывает подключения, если они простаивают определенный период времени (время простоя). Рабочие процессы SAP в диалоговых экземплярах открывают подключения к процессу постановки в очередь SAP при первой же необходимости отправить первый запрос на постановку в очередь или вывод из очереди. Эти подключения обычно сохраняются до перезапуска рабочего процесса или процесса постановки в очередь. Однако если подключение бездействует в течение некоторого времени, внутренний балансировщик нагрузки Azure закроет его. Это не является проблемой, так как рабочие процессы SAP повторно установят подключение к процессу постановки в очередь, если обнаружат его отсутствие. Эти действия будут описаны в трассировках разработчика для процессов SAP, но это приведет к созданию большого объема содержимого в этих трассировках. Поэтому рекомендуется изменить параметры TCP/IP `KeepAliveTime` и `KeepAliveInterval` на обоих узлах кластера. Необходимо также изменить параметры профиля SAP, которые будут описаны далее в этом документе.
 
@@ -843,9 +942,9 @@ _**Таблица 4.** Изменение второго параметра TCP/
 
 Чтобы применить изменения, перезапустите оба узла кластера.
 
-### <a name="<a-name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a>-set-up-a-windows-server-failover-clustering-cluster-for-an-sap-ascs/scs-instance"></a><a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> Установка отказоустойчивого кластера Windows Server для экземпляра SAP ASCS/SCS
+### <a name="a-name0d67f090792843e087725ccbf8f59aaba-set-up-a-windows-server-failover-clustering-cluster-for-an-sap-ascsscs-instance"></a><a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> Установка отказоустойчивого кластера Windows Server для экземпляра SAP ASCS/SCS
 
-#### <a name="<a-name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a>-collect-the-cluster-nodes-in-a-cluster-configuration"></a><a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Сбор узлов кластера в конфигурации кластера
+#### <a name="a-name5eecb071c7034cccba6dfe9c6ded9d79a-collect-the-cluster-nodes-in-a-cluster-configuration"></a><a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Сбор узлов кластера в конфигурации кластера
 
 Первым шагом является добавление компонента отказоустойчивого кластера на оба узла кластера. Это делается с помощью мастера добавления ролей и компонентов.
 
@@ -920,9 +1019,9 @@ _**Рис. 27.** Предупреждение о диске кворума мо�
 
 Предупреждения о кворуме и дисках можно игнорировать. Настройка диска кворума и общих дисков будет выполнена позже, как описано в разделе [Установка SIOS DataKeeper Cluster Edition для создания общего диска кластера SAP ASCS/SCS][sap-ha-guide-8.12.3].
 
-#### <a name="<a-name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a>-configure-a-cluster-file-share-witness"></a><a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Настройка файлового ресурса-свидетеля кластера
+#### <a name="a-namee49a452950c94dcfbde715a0c21d21caa-configure-a-cluster-file-share-witness"></a><a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Настройка файлового ресурса-свидетеля кластера
 
-##### <a name="<a-name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a>-create-a-file-share"></a><a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Создание файлового ресурса
+##### <a name="a-name06260b30d6974c4db1c9d22c0bd64855a-create-a-file-share"></a><a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Создание файлового ресурса
 
 Вместо диска кворума нужно выбрать файловый ресурс-свидетель. SIOS DataKeeper поддерживает такой вариант.
 
@@ -956,7 +1055,7 @@ _**Рис. 30.** Установка флажка для объектов-ком�
 
 _**Рис. 31.** Задание атрибутов безопасности объекта имени кластера для кворума на основе файлового ресурса_
 
-##### <a name="<a-name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a>-set-the-file-share-witness-quorum-in-failover-cluster-manager"></a><a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Настройка кворума на основе файлового ресурса-свидетеля в диспетчере отказоустойчивости кластеров
+##### <a name="a-name4c08c38778a046b19d27b497b08cac3da-set-the-file-share-witness-quorum-in-failover-cluster-manager"></a><a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Настройка кворума на основе файлового ресурса-свидетеля в диспетчере отказоустойчивости кластеров
 
 В диспетчере отказоустойчивости кластеров измените конфигурацию кластера для добавления файлового ресурса-свидетеля.
 
@@ -990,11 +1089,11 @@ _**Рис. 36.** Подтверждение перенастройки клас�
 
 На этом последнем шаге конфигурация кластера должна быть успешно перенастроена, как показано на рис. 36.  
 
-### <a name="<a-name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a>-install-sios-datakeeper-cluster-edition-for-the-sap-ascs/scs-cluster-share-disk"></a><a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Установка SIOS DataKeeper Cluster Edition для создания общего диска кластера SAP ASCS/SCS
+### <a name="a-name5c8e5482841e45e1a89da05c0907c868a-install-sios-datakeeper-cluster-edition-for-the-sap-ascsscs-cluster-share-disk"></a><a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Установка SIOS DataKeeper Cluster Edition для создания общего диска кластера SAP ASCS/SCS
 
 На данный момент у нас имеется рабочая конфигурация отказоустойчивого кластера Windows Server в Azure. Однако чтобы установить экземпляр SAP ASCS/SCS, требуется общий дисковый ресурс. Azure не позволяет создавать общие дисковые ресурсы. Поэтому для выполнения этой задачи придется воспользоваться SIOS DataKeeper Cluster Edition — сторонним решением для создания общих дисковых ресурсов.
 
-#### <a name="<a-name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a>-add-the-.net-framework-3.5"></a><a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a> Добавление .NET Framework 3.5
+#### <a name="a-name1c2788c336484e829e0de058e475e2a3a-add-the-net-framework-35"></a><a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a> Добавление .NET Framework 3.5
 
 Компонент Microsoft .NET Framework 3.5 не установлен и не включен автоматически в Windows Server 2012 R2. Однако для работы SIOS DataKeeper требуется установить .NET Framework на всех узлах, на который устанавливается этот продукт. Поэтому необходимо установить компонент .NET Framework 3.5 в гостевой ОС всех виртуальных машин в кластере.
 
@@ -1014,7 +1113,7 @@ _**Рис. 38.** Ход установки .NET Framework 3.5 с помощью 
 Dism /online /enable-feature /featurename:NetFx3 /All /Source:installation_media_drive:\sources\sxs /LimitAccess
 ```
 
-#### <a name="<a-name="dd41d5a2-8083-415b-9878-839652812102"></a>-install-sios-datakeeper"></a><a name="dd41d5a2-8083-415b-9878-839652812102"></a> Установка SIOS DataKeeper
+#### <a name="a-namedd41d5a28083415b9878839652812102a-install-sios-datakeeper"></a><a name="dd41d5a2-8083-415b-9878-839652812102"></a> Установка SIOS DataKeeper
 
 SIOS DataKeeper Cluster Edition нужно установить на обоих узлах в кластере. SIOS DataKeeper позволяет создать виртуальное общее хранилище, создавая синхронизированное зеркало и имитируя общее хранилище кластера.
 
@@ -1055,7 +1154,7 @@ _**Рис. 43.** Указание лицензии на использовани
 
 Установите лицензионный ключ для своего экземпляра SIOS DataKeeper, как показано на рис. 43. В конце установки вам будет предложено перезагрузить виртуальную машину.
 
-#### <a name="<a-name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a>-set-up-sios-datakeeper"></a><a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> Настройка SIOS DataKeeper
+#### <a name="a-named9c1fc8e87104dffbec21f535db7b006a-set-up-sios-datakeeper"></a><a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> Настройка SIOS DataKeeper
 
 После установки SIOS DataKeeper на обоих узлах нужно начать настройку параметров. Наша цель — настроить синхронную репликацию данных между дополнительными VHD-дисками, подключенными к каждой виртуальной машине. Ниже приведены шаги для настройки обоих узлов.
 
@@ -1118,7 +1217,7 @@ _**Рис. 52.** Синхронное зеркальное отображени�
 _**Рис. 53.** Реплицируемый диск DataKeeper отображается в диспетчере отказоустойчивости кластеров_
 
 
-## <a name="<a-name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a>-install-the-sap-netweaver-system"></a><a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> Установка системы SAP NetWeaver
+## <a name="a-namea06f0b498a7a42bf8b0dc12026c5746ba-install-the-sap-netweaver-system"></a><a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> Установка системы SAP NetWeaver
 
 Мы не описываем настройку СУБД, так как она зависит от используемой СУБД. Тем не менее мы предполагаем, что задачи обеспечения высокого уровня доступности СУБД решены благодаря возможностям различных поставщиков СУБД, поддерживающих Azure. Например, AlwaysOn или зеркальное отображение базы данных для SQL Server и Oracle Data Guard для Oracle. В нашем примере сценария мы не реализуем дополнительную защиту СУБД.
 
@@ -1127,11 +1226,11 @@ _**Рис. 53.** Реплицируемый диск DataKeeper отобража
 
 > [AZURE.NOTE] Процедуры установки систем SAP NetWeaver ABAP, SAP Java и SAP ABAP с Java практически идентичны. Главное отличие состоит в том, что в системе SAP ABAP всего один экземпляр ASCS. В системе SAP Java имеется один экземпляр SCS. В системе SAP ABAP с Java — один экземпляр ASCS и один экземпляр SCS, которые работают в одной группе отказоустойчивого кластера Майкрософт. Любые отличия в установке для каждого стека установки SAP NetWeaver будут указаны явным образом. Все остальные составляющие считаются одинаковыми.  
 
-### <a name="<a-name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a>-install-sap-with-a-high-availability-ascs/scs-instance"></a><a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a> Установка SAP с высокодоступным экземпляром ASCS/SCS
+### <a name="a-name31c6bd4f51df40579fdf3fcbc619c170a-install-sap-with-a-highavailability-ascsscs-instance"></a><a name="31c6bd4f-51df-4057-9fdf-3fcbc619c170"></a> Установка SAP с высокодоступным экземпляром ASCS/SCS
 
 > [AZURE.IMPORTANT] Не размещайте файл подкачки на зеркальных томах DataKeeper. DataKeeper не поддерживает зеркальные тома. Можно оставить файл подкачки на временном диске D виртуальной машины Azure, который задан по умолчанию. Если файла там нет, поместите его на диск D виртуальной машины Azure.
 
-#### <a name="<a-name="a97ad604-9094-44fe-a364-f89cb39bf097"></a>-create-a-virtual-host-name-for-the-clustered-sap-ascs/scs-instance"></a><a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> Создание имени виртуального узла для кластеризованного экземпляра SAP ASCS/SCS
+#### <a name="a-namea97ad604909444fea364f89cb39bf097a-create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a><a name="a97ad604-9094-44fe-a364-f89cb39bf097"></a> Создание имени виртуального узла для кластеризованного экземпляра SAP ASCS/SCS
 
 Сначала создайте запись DNS для имени виртуального узла экземпляра ASCS/SCS в диспетчере DNS Windows. Затем укажите IP-адрес виртуального имени узла.
 
@@ -1154,7 +1253,7 @@ _**Рис. 54.** Определение записи DNS для виртуаль
 
 _**Рис. 55.** Новые виртуальное имя и TCP/IP-адрес для конфигурации кластера SAP ASCS/SCS_
 
-#### <a name="<a-name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a>-install-the-sap-first-cluster-node"></a><a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Установка первого узла кластера SAP
+#### <a name="a-nameeb5af918b42f4803bb50eff41f84b0b0a-install-the-sap-first-cluster-node"></a><a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Установка первого узла кластера SAP
 
 Чтобы установить первый кластер SAP, выполните первый параметр узла кластера на узле кластера A. Например, на узле **pr1-ascs-0**, как в нашем примере.
 
@@ -1170,7 +1269,7 @@ _**Рис. 55.** Новые виртуальное имя и TCP/IP-адрес �
 
 > [AZURE.NOTE] В документации по установке SAP содержатся сведения по установке первого узла кластера ASCS/SCS.
 
-#### <a name="<a-name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>-modify-the-sap-profile-of-the-ascs/scs-i```powershellnstance"></a><a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Изменение профиля SAP экземпляра ASCS/SCS i```powershellnstance
+#### <a name="a-namee4caaab2e90f4f2cbc842cd2e12a9556a-modify-the-sap-profile-of-the-ascsscs-ipowershellnstance"></a><a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Изменение профиля SAP экземпляра ASCS/SCS i```powershellnstance
 
 Необходимо добавить новый параметр профиля. Этот параметр профиля запрещает закрытие подключений между рабочими процессами SAP и сервером постановки в очередь, если они простаивают слишком долго. Мы уже упоминали проблему в разделе [Добавление записей реестра для обоих узлов кластера, используемых для экземпляра SAP ASCS/SCS][sap-ha-guide-8.11] данного документа. В этом разделе мы также внесли два изменения в некоторые основные параметры подключения по TCP/IP. На втором шаге необходимо настроить сервер постановки в очередь для отправки сигнала **keep_alive**, чтобы простой подключений не превышал пороговое значение, заданное во внутреннем балансировщике нагрузки Azure.
 
@@ -1187,7 +1286,7 @@ enque/encni/set_so_keepalive = true
 `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
 
 
-#### <a name="<a-name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a>-add-a-probe-port"></a><a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Добавление порта пробы
+#### <a name="a-name10822f4f32e74871b63a9b86c76ce761a-add-a-probe-port"></a><a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Добавление порта пробы
 
 Чтобы вся конфигурация кластера работала с Azure Load Balancer, нужно использовать функцию проб внутреннего балансировщика нагрузки. Обычно внутренний балансировщик нагрузки Azure распределяет входящую рабочую нагрузку поровну между участвующими виртуальными машинами. Однако это не будет работать в некоторых конфигурациях кластера, так как активен только один экземпляр. Другой экземпляр пассивен и не может принимать рабочую нагрузку. Функция проб полезна в случаях, когда внутренний балансировщик нагрузки Azure назначает работу только активным экземплярам. С помощью этой функции внутренний балансировщик нагрузки может определить, какой из экземпляров активен, и затем направлять рабочую нагрузку только на него.
 
@@ -1231,15 +1330,15 @@ _**Рис. 57.** Порт пробы кластера после изменен�
 
 **ProbePort** имеет значение **62300**. Теперь доступ к файловому ресурсу **\\\\ascsha-clsap\sapmnt** можно получить из других узлов, например **ascsha-dbas**.
 
-### <a name="<a-name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>-install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Установка экземпляра базы данных
+### <a name="a-name85d78414b21d409792b634d8bcb724b7a-install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Установка экземпляра базы данных
 
 Чтобы установить экземпляр базы данных, следуйте инструкциям в документации по установке SAP.
 
-### <a name="<a-name="8a276e16-f507-4071-b829-cdc0a4d36748"></a>-install-the-second-cluster-node"></a><a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> Установка второго узла кластера
+### <a name="a-name8a276e16f5074071b829cdc0a4d36748a-install-the-second-cluster-node"></a><a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> Установка второго узла кластера
 
 Чтобы установить второй кластер, выполните действия, описанные в руководстве по установке SAP.
 
-### <a name="<a-name="094bc895-31d4-4471-91cc-1513b64e406a"></a>-change-the-start-type-of-the-sap-ers-windows-service-instance"></a><a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Изменение типа запуска службы Windows для экземпляра SAP ERS
+### <a name="a-name094bc89531d4447191cc1513b64e406aa-change-the-start-type-of-the-sap-ers-windows-service-instance"></a><a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Изменение типа запуска службы Windows для экземпляра SAP ERS
 
 На обоих узлах кластера измените тип запуска служб Windows SAP ERS на **Автоматически (отложенный запуск)**.
 
@@ -1247,19 +1346,19 @@ _**Рис. 57.** Порт пробы кластера после изменен�
 
 _**Рис. 58.** Изменение типа службы для экземпляра SAP ERS на "Автоматически (отложенный запуск)"_
 
-### <a name="<a-name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a>-install-the-sap-primary-application-server"></a><a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Установка основного сервера приложений SAP
+### <a name="a-name2477e58fc5a74a5d9ae37b91022cafb5a-install-the-sap-primary-application-server"></a><a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Установка основного сервера приложений SAP
 
 Установите экземпляр основного сервера приложений (PAS) <*SID*>-di-0> на виртуальную машину, предназначенную для размещения PAS. Какие-либо специальные зависимости от Azure или DataKeeper отсутствуют.
 
-### <a name="<a-name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>-install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Установка дополнительного сервера приложений SAP
+### <a name="a-name0ba4a6c1cc374bcfa8dc025de4263772a-install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> Установка дополнительного сервера приложений SAP
 
 Установите дополнительный сервер приложений SAP (AAS) на все виртуальные машины, предназначенные для размещения сервера приложений SAP. Например, с <*SID*>-di-1 по <*SID*>-di-<n>.
 
-## <a name="<a-name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a>-test-the-sap-ascs/scs-instance-failover-and-sios-replication"></a><a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Тестирование отработки отказа экземпляра SAP ASCS/SCS и репликации SIOS
+## <a name="a-name18aa2b9d92d24c0e8ddd5acaabda99e9a-test-the-sap-ascsscs-instance-failover-and-sios-replication"></a><a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> Тестирование отработки отказа экземпляра SAP ASCS/SCS и репликации SIOS
 
 С помощью диспетчера отказоустойчивости кластеров и пользовательского интерфейса SIOS DataKeeper можно легко выполнять тестирование и мониторинг отработки отказа экземпляров SAP ASCS/SCS и репликации дисков SIOS.
 
-### <a name="<a-name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a>-sap-ascs/scs-instance-is-running-on-cluster-node-a"></a><a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> Экземпляр SAP ASCS/SCS выполняется на узле A кластера
+### <a name="a-name65fdef0f9f9441f9b314ea45bbfea445a-sap-ascsscs-instance-is-running-on-cluster-node-a"></a><a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> Экземпляр SAP ASCS/SCS выполняется на узле A кластера
 
 Кластерная группа **SAP WAC** работает на узле A кластера, например **ascsha-clna**. Назначьте узлу A кластера общий диск S:, принадлежащий кластерной группе **SAP WAC** и используемый экземпляром ASCS/SCS.
 
@@ -1274,7 +1373,7 @@ _**Рис. 59.** Диспетчер отказоустойчивости кла�
 _**Рис. 60.** SIOS DataKeeper: репликация локального тома с узла A на узел B кластера_
 
 
-### <a name="<a-name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a>-failover-from-node-a-to-node-b"></a><a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Отработка отказа с узла A на узел B
+### <a name="a-name5e959fa98fcd49e5a12c37f6ba07b916a-failover-from-node-a-to-node-b"></a><a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Отработка отказа с узла A на узел B
 
 Вы можете инициировать отработку отказа кластерной группы SAP <*ИД безопасности*> с узла A на узел B кластера следующими способами:
 
@@ -1306,6 +1405,6 @@ _**Рис. 62.** SIOS DataKeeper: репликация локального то
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!-----HONumber=Oct16_HO2-->
 
 

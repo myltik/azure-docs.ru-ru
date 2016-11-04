@@ -39,21 +39,21 @@
 
 2. Создайте правило безопасности, разрешающее доступ из Интернета к порту 3389.
 
-        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP"
-            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100
-            -SourceAddressPrefix Internet -SourcePortRange *
+        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
+            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
+            -SourceAddressPrefix Internet -SourcePortRange * `
             -DestinationAddressPrefix * -DestinationPortRange 3389
 
 3. Создайте правило безопасности, разрешающее доступ из Интернета к порту 80.
 
-        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP"
-            -Access Allow -Protocol Tcp -Direction Inbound -Priority 101
-            -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix *
+        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
+            -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
+            -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * `
             -DestinationPortRange 80
 
 4. Добавьте созданные выше правила в новую группу безопасности сети под названием **NSG-FrontEnd**.
 
-        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus
+        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `
         -Name "NSG-FrontEnd" -SecurityRules $rule1,$rule2
 
 5. Проверьте правила, созданные в группе безопасности сети.
@@ -141,21 +141,21 @@
 
 1. Создайте правило безопасности, которое разрешает доступ из подсети переднего плана к порту 1433 (используемому по умолчанию в SQL Server).
 
-        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet"
-            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100
-            -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange *
+        $rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
+            -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
+            -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
             -DestinationAddressPrefix * -DestinationPortRange 1433
 
 2. Создайте правило безопасности, блокирующее доступ к Интернету.
 
-        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet"
-            -Access Deny -Protocol * -Direction Outbound -Priority 200
-            -SourceAddressPrefix * -SourcePortRange *
+        $rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
+            -Access Deny -Protocol * -Direction Outbound -Priority 200 `
+            -SourceAddressPrefix * -SourcePortRange * `
             -DestinationAddressPrefix Internet -DestinationPortRange *
 
 3. Добавьте созданные выше правила в новую группу безопасности сети под названием **NSG-BackEnd**.
 
-        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd"
+        $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
             -SecurityRules $rule1,$rule2
 
 4. Свяжите созданную выше группу безопасности сети с подсетью *BackEnd* .

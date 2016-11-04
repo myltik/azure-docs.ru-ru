@@ -1,104 +1,103 @@
 <properties
-	pageTitle="Установка набора средств Azure для Eclipse | Microsoft Azure"
-	description="Узнайте, как установить набор средств Azure для Eclipse."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+    pageTitle="Installing the Azure Toolkit for Eclipse | Microsoft Azure"
+    description="Learn how to install the Azure Toolkit for Eclipse."
+    services=""
+    documentationCenter="java"
+    authors="rmcmurray"
+    manager="erikre"
+    editor=""/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+    ms.service="multiple"
+    ms.workload="na"
+    ms.tgt_pltfrm="multiple"
+    ms.devlang="Java"
+    ms.topic="article"
+    ms.date="11/01/2016" 
+    ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
-# Установка набора средств Azure для Eclipse
+# <a name="installing-the-azure-toolkit-for-eclipse"></a>Installing the Azure Toolkit for Eclipse
 
-В набор средств Azure для Eclipse входят шаблоны и функциональные возможности для простого создания, разработки, тестирования и развертывания приложений Azure с помощью среды разработки Eclipse. Набор средств Azure для Eclipse — это проект с открытым кодом, исходный код которого доступен по лицензии MIT на сайте проекта в GitHub по следующему URL-адресу:
+The Azure Toolkit for Eclipse provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment. The Azure Toolkit for Eclipse is an Open Source project, whose source code is available under the MIT License from the project's site on GitHub at the following URL:
 
 <https://github.com/microsoft/azure-tools-for-java>
 
-Ниже приведен процесс установки набора средств Azure для Eclipse.
+The following steps show you how to install the Azure Toolkit for Eclipse.
 
 [AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
-## Установка набора средств Azure для Eclipse
+## <a name="to-install-the-azure-toolkit-for-eclipse"></a>To install the Azure Toolkit for Eclipse
 
-1. Запустите Eclipse.
+1. Start Eclipse.
 
-1. Когда откроется Eclipse, щелкните меню **Help** (Справка) и выберите пункт **Install New Software** (Установить новое программное обеспечение), как показано на следующем рисунке.
+1. When Eclipse opens, click the **Help** menu, and then click **Install New Software**, as shown in the following illustration.
 
-    ![Установка набора средств Azure для Eclipse][01]
+    ![Installing the Azure Toolkit for Eclipse][01]
 
-1. В диалоговом окне **Available Software** (Доступное программное обеспечение) в текстовом поле **Work with** (Работа с) введите **http://dl.microsoft.com/eclipse** и нажмите клавишу **ВВОД**.
+1. In the **Available Software** dialog, within the **Work with** text box, type **http://dl.microsoft.com/eclipse** followed by the **Enter** key.
 
-1. В области **Name** (Имя) установите флажок **Azure Toolkit for Eclipse** (Набор средств Azure для Eclipse) и снимите флажок **Contact all update sites during install to find required software** (Проверить все сайты обновления во время установки для поиска требуемого ПО). Экран должен выглядеть следующим образом:
+1. In the **Name** pane, check **Azure Toolkit for Eclipse**, and uncheck **Contact all update sites during install to find required software**. Your screen should appear similar to the following:
 
-    ![Установка набора средств Azure для Eclipse][02]
+    ![Installing the Azure Toolkit for Eclipse][02]
 
-1. Если вы развернете узел **Azure Toolkit for Eclipse** (Набор средств Azure для Eclipse), то увидите следующие элементы:
+1. If you expand the **Azure Toolkit for Eclipse**, you will see the following items:
 
-    * **Application Insights Plugin for Java** (Подключаемый модуль Application Insights для Java) — этот компонент позволяет использовать службы регистрации и анализа телеметрии Azure для приложений и экземпляров серверов.
-    * **Фильтр служб контроля доcтупа Azure** — этот компонент обеспечивает поддержку проверки подлинности пользователей приложения с помощью Azure ACS, используя сценарии единого входа и перемещая логику удостоверений из приложения.
-    * **Общий подключаемый модуль Azure** — этот компонент предоставляет функциональные возможности, необходимые другим компонентам набора средств.
-    * **Обозреватель Azure для Eclipse** — этот компонент предоставляет функциональные возможности, необходимые другим компонентам набора средств.
-    * **Подключаемый модуль Azure для Eclipse с Java** — этот компонент обеспечивает поддержку проектов, помогающих собирать, тестировать и развертывать приложения Java для облака Microsoft Azure в Eclipse и с помощью командной строки.
-    * **Подключаемый модуль веб- приложений Azure с Java** — этот компонент обеспечивает поддержку развертывания веб-приложений Java в контейнерах веб-приложений Microsoft Azure.
-    * **Драйвер Microsoft JDBC 4.2 для SQL Server** — этот компонент предоставляет API JDBC для SQL Server и Базу данных SQL Microsoft Azure для платформы Java Enterprise Edition 8.
-    * **Package for Apache Qpid Client Libraries for JMS** (Пакет для клиентских библиотек Apache Qpid для JMS) — этот компонент предоставляет клиентские компоненты JMS из проекта Apache Qpid, чтобы ваше приложение могло использовать обмен сообщениями на основе протокола AMQP в Azure.
-    * **Пакет для библиотек Microsoft Azure для Java** — этот компонент предоставляет API для доступа к службам Microsoft Azure, таким как хранилище, служебная шина, среда выполнения службы и т. д.
+    * **Application Insights Plugin for Java**: This component allows you to use Azure's telemetry logging and analysis services for your applications and server instances.
+    * **Azure Access Control Services Filter**: This component provides support for authenticating application users with Azure ACS, enabling single sign-on scenarios and externalizing identity logic from the application.
+    * **Azure Common Plugin**: This component provides the common functionality needed by other toolkit components.
+    * **Azure Explorer for Eclipse**: This component provides the common functionality needed by other toolkit components.
+    * **Azure Plugin for Eclipse with Java**: This component provides support for developing projects that help build, test and deploy Java applications for the Microsoft Azure cloud in Eclipse and via command line.
+    * **Azure Web Apps Plugin with Java**: This component provides support for deploying Java web applications to Microsoft Azure Web App containers.
+    * **Microsoft JDBC Driver 4.2 for SQL Server**: This component provides JDBC API for SQL Server and Microsoft Azure SQL Database for Java Platform Enterprise Edition 8.
+    * **Package for Apache Qpid Client Libraries for JMS**: This component provides the JMS client component from the Apache Qpid project to enable your application to use AMQP messaging in Microsoft Azure.
+    * **Package for Microsoft Azure Libraries for Java**: This component provides APIs for accessing Microsoft Azure services, such as storage, service bus, service runtime, etc.
 
-1. Нажмите кнопку **Далее**. (Если при установке набора средств возникают необычные задержки, убедитесь, что снят флажок **Contact all update sites during install to find required software** [Проверить все сайты обновления во время установки для поиска требуемого ПО].)
+1. Click **Next**. (If you experience unusual delays when installing the toolkit, ensure that **Contact all update sites during install to find required software** is unchecked.)
 
-1. В диалоговом окне **Install Details** (Сведения об установке) нажмите кнопку **Далее**.
+1. In the **Install Details** dialog, click **Next**.
 
-    ![Просмотр сведений об установке][03]
+    ![Review Installation Details][03]
 
-1. В диалоговом окне **Review Licenses** (Просмотр лицензий) ознакомьтесь с условиями лицензионного соглашения. Если вы принимаете условия лицензионных соглашений, нажмите кнопку **I accept the terms of the license agreements** (Я принимаю условия лицензионных соглашений), а затем нажмите кнопку **Готово**. (В следующих действиях предполагается, что вы принимаете условия лицензионных соглашений. Если вы не принимаете эти условия, завершите процесс установки.)
+1. In the **Review Licenses** dialog, review the terms of the license agreements. If you accept the terms of the license agreements, click **I accept the terms of the license agreements** and then click **Finish**. (The remaining steps assume you do accept the terms of the license agreements. If you do not accept the terms of the license agreements, exit the installation process.)
 
-    ![Просмотр лицензий][04]
+    ![Review Licenses][04]
 
-    Eclipse скачает и установит необходимые пакеты.
+    Eclipse will download and install the requisite packages.
 
-    ![Ход установки][05]
+    ![Installation Progress][05]
 
-1. Если отображается запрос на перезапуск Eclipse для завершения установки, нажмите кнопку **Yes** (Да).
+1. If prompted to restart Eclipse to complete installation, click **Yes**.
 
-    ![Запрос перезапуска][06]
+    ![Restart Prompt][06]
 
-## См. также
+## <a name="see-also"></a>See Also
 
-Дополнительные сведения о наборах средств Azure для Java IDE см. по следующим ссылкам:
+For more information about the Azure Toolkits for Java IDEs, see the following links:
 
-- [Набор средств Azure для Eclipse]
-  - *Установка набора средств Azure для Eclipse (в этой статье)*
-  - [Создание веб-приложения Hello World для Azure в Eclipse]
-  - [Новые возможности набора средств Azure для Eclipse]
-- [Набор средств Azure для IntelliJ]
-  - [Установка набора средств Azure для IntelliJ]
-  - [Создание веб-приложения Hello World для Azure в IntelliJ]
-  - [Новые возможности набора средств Azure для IntelliJ]
+- [Azure Toolkit for Eclipse]
+  - *Installing the Azure Toolkit for Eclipse (This Article)*
+  - [Create a Hello World Web App for Azure in Eclipse]
+  - [What's New in the Azure Toolkit for Eclipse]
+- [Azure Toolkit for IntelliJ]
+  - [Installing the Azure Toolkit for IntelliJ]
+  - [Create a Hello World Web App for Azure in IntelliJ]
+  - [What's New in the Azure Toolkit for IntelliJ]
 
-Дополнительные сведения об использовании Azure с Java см. в [центре разработчиков Java для Azure].
+For more information about using Azure with Java, see the [Azure Java Developer Center].
 
 <!-- URL List -->
 
-[Набор средств Azure для Eclipse]: ./azure-toolkit-for-eclipse.md
-[Набор средств Azure для IntelliJ]: ./azure-toolkit-for-intellij.md
-[Создание веб-приложения Hello World для Azure в Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[Создание веб-приложения Hello World для Azure в IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
 [Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[Установка набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Новые возможности набора средств Azure для Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
-[Новые возможности набора средств Azure для IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[What's New in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[центре разработчиков Java для Azure]: https://azure.microsoft.com/develop/java/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 
 <!-- IMG List -->
 
@@ -109,4 +108,10 @@
 [05]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-05.png
 [06]: ./media/azure-toolkit-for-eclipse-installation/eclipse-installation-06.png
 
-<!---HONumber=AcomDC_0817_2016-->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
+
+
+
+<!--HONumber=Oct16_HO2-->
+
+

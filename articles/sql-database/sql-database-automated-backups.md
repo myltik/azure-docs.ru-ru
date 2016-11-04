@@ -18,21 +18,8 @@
 
 
 
-
-<!-- # H1 Title
-
- H1 title should answer the question "What is in this topic?" Write the title in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
--->
-
 # <a name="learn-about-sql-database-backups"></a>Подробнее о резервном копировании базы данных SQL
 
-<!-- Introduction
-
-1. Sentence #1 begins with "Learn about ..." and gives the scope of what the article will cover.
-2. Sentence #2 explains the key capability or selling point of the feature.
-3. Sentence #3 begins with "Use this feature to ..." and gives a common use case.
-
--->
 
 База данных SQL создает локальные резервные копии базы данных каждые пять минут и использует геоизбыточное хранилище Azure (RA-GRS) с доступом на чтение для копирования некоторых резервных копий базы данных в другую географическую область. Эти резервные копии создаются **автоматически и без дополнительной платы**. Локальные резервные копии можно использовать для [восстановления базы данных на более ранний момент времени](sql-database-point-in-time-restore-portal.md) на том же сервере. Геоизбыточные резервные копии можно использовать для [восстановления базы данных в другом географическом регионе](sql-database-geo-restore-portal.md).  
 
@@ -44,7 +31,7 @@
 
 <!--## What is <feature>?" -->
 
-## <a name="what-is-a-sql-database-backup?"></a>Что такое резервная копия Базы данных SQL?  
+## <a name="what-is-a-sql-database-backup"></a>Что такое резервная копия Базы данных SQL?  
 
 <!-- 
 First sentence begins with "The <feature> is ..." followed by a definition of the feature. Provide a 1-2 paragraph intro to explain what the feature is, how it works, and the importance of the feature for solving business problems.
@@ -68,15 +55,15 @@ First sentence begins with "The <feature> is ..." followed by a definition of th
 >[AZURE.NOTE] В службе хранилища Azure термин *репликация* обозначает копирование файлов из одного расположения в другое. *Репликация базы данных SQL* означает хранение нескольких баз данных-получателей, синхронизированных с основной базой данных. 
 
 
-## <a name="how-much-backup-storage-is-included-at-no-cost?"></a>Сколько места для хранения резервных копий предоставляется бесплатно?
+## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Сколько места для хранения резервных копий предоставляется бесплатно?
 
 База данных SQL бесплатно предоставляет хранилище для резервных копий размером до 200 % от максимального объема подготовленного хранилища базы данных. Например, если вы используете экземпляр базы данных уровня "Стандартный" с подготовленным размером базы данных 250 ГБ, вам будет предоставлено бесплатное хранилище службы архивации объемом 500 ГБ. Если база данных будет использовать больший объем хранилища, вы можете сократить период хранения, обратившись в службу поддержки Azure. Другой вариант — оплачивать превышение объема для хранения резервных копий по стандартной ставке для географически избыточного хранилища с доступом для чтения (RA-GRS). 
 
-## <a name="how-often-do-backups-happen?"></a>Как часто создаются резервные копии?
+## <a name="how-often-do-backups-happen"></a>Как часто создаются резервные копии?
 
 Полные резервные копии создаются каждую неделю, разностные резервные копии создаются каждый час, а резервные копии журналов транзакций создаются каждые 5 минут. Первое полное резервное копирование планируется сразу после создания базы данных. Обычно оно занимает не более 30 минут, но для базы данных большого размера может потребоваться больше времени. Например, начальное резервное копирование будет выполняться дольше для восстановленной базы данных или копии базы данных. После первого полного резервного копирования все последующие операции резервного копирования планируются автоматически и управляются без участия пользователя в фоновом режиме. Точное время создания полных и [разностных](https://msdn.microsoft.com/library/ms175526.aspx) копий базы данных определяется с учетом распределения общей рабочей нагрузки в системе. 
 
-## <a name="how-long-do-you-keep-my-backups?"></a>Как долго хранятся мои резервные копии?
+## <a name="how-long-do-you-keep-my-backups"></a>Как долго хранятся мои резервные копии?
 
 Каждая резервная копия Базы данных SQL имеет свой срок хранения, который определяется по [уровню служб](sql-database-service-tiers.md) базы данных. Сроки хранения для разных баз данных
 
@@ -101,6 +88,6 @@ First sentence begins with "The <feature> is ..." followed by a definition of th
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!----HONumber=Oct16_HO2-->
 
 

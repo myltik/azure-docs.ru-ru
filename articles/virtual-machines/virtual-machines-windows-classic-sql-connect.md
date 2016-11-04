@@ -16,7 +16,7 @@
     ms.author="jroth" />
 
 
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-(classic-deployment)"></a>Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Подключение к виртуальной машине SQL Server в Azure (классическое развертывание)
 
 > [AZURE.SELECTOR]
 - [Диспетчер ресурсов](virtual-machines-windows-sql-connect.md)
@@ -26,7 +26,8 @@
 
 В этом разделе показано, как подключиться к экземпляру SQL Server, выполняемому на виртуальной машине Azure. Сначала рассматриваются некоторые [общие сценарии подключения](#connection-scenarios), а затем предоставляются [подробные инструкции по настройке подключений SQL Server на виртуальной машине Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Если вы используете виртуальные машины Resource Manager, то ознакомьтесь с разделом [Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)](virtual-machines-windows-sql-connect.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] 
+Если вы используете виртуальные машины Resource Manager, то ознакомьтесь с разделом [Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)](virtual-machines-windows-sql-connect.md).
 
 ## <a name="connection-scenarios"></a>Сценарии подключения
 
@@ -106,6 +107,6 @@
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 

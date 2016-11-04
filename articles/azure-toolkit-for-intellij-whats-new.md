@@ -4,7 +4,7 @@
     services=""
     documentationCenter="java"
     authors="rmcmurray"
-    manager="wpickett"
+    manager="erikre"
     editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="multiple"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="08/26/2016" 
+    ms.date="11/01/2016" 
     ms.author="robmcm;asirveda;martinsawicki"/>
 
 
-# <a name="what's-new-in-the-azure-toolkit-for-intellij"></a>Новые возможности набора средств Azure для IntelliJ
+# <a name="whats-new-in-the-azure-toolkit-for-intellij"></a>Новые возможности набора средств Azure для IntelliJ
 
 ## <a name="azure-toolkit-for-intellij-releases"></a>Выпуски набора средств Azure для IntelliJ
 
@@ -25,7 +25,7 @@
 
 > [AZURE.NOTE] Также имеется набор средств Azure для интегрированной среды разработки Eclipse. Дополнительные сведения см. в разделе [Набор средств Azure для Eclipse].
 
-### <a name="august-26,-2016"></a>26 августа 2016 г.
+### <a name="august-26-2016"></a>26 августа 2016 г.
 
 Набор средств Azure для IntelliJ, выпущенный в августе 2016 года, включает в себя следующие улучшения.
 
@@ -37,7 +37,7 @@
   - Поддержка управления большими двоичными объектами учетной записи хранения с помощью Azure Resource Manager, который дополняет существующие функциональные возможности управления "классическими" учетными записями хранения.
 * **Microsoft JDBC Driver 6.0 для SQL Server**. Это обновление включает в себя последнюю версию драйвера JDBC для Microsoft SQL Server (версии 6.0), включенную в виде библиотеки, которую можно легко добавить в свои проекты Java, заменив предыдущую версию.
 
-### <a name="june-29,-2016"></a>29 июня 2016 г.
+### <a name="june-29-2016"></a>29 июня 2016 г.
 
 Набор средств Azure для IntelliJ, выпущенный в июне 2016 г., включает в себя следующие улучшения.
 
@@ -48,7 +48,7 @@
 * **Интеграция средств HDInsight**. Средства HDInsight Azure теперь входят в набор средств Azure для IntelliJ. Дополнительные сведения см. в статье [Использование подключаемого модуля средств HDInsight для IntelliJ IDEA для создания приложений Spark для кластера Spark в HDInsight на платформе Linux].
 * **Удаленная отладка веб-приложений Java**. Набор средств Azure для IntelliJ теперь поддерживает удаленную отладку веб-приложений Java в службе приложений Azure.
 
-### <a name="april-12,-2016"></a>12 апреля 2016 г.
+### <a name="april-12-2016"></a>12 апреля 2016 г.
 
 Набор средств Azure для IntelliJ, выпущенный в апреле 2016 года, включает следующие улучшения:
 

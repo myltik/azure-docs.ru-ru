@@ -1,143 +1,144 @@
 <properties 
-	pageTitle="Преобразование сайта WordPress в мультисайт с помощью службы приложений Azure" 
-	description="Узнайте, как преобразовать существующее веб-приложение WordPress, созданное с помощью коллекции в Azure, в мультисайт WordPress" 
-	services="app-service\web" 
-	documentationCenter="php" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor=""/>
+    pageTitle="Convert WordPress to Multisite in Azure App Service" 
+    description="Learn how to take an existing WordPress web app created through the gallery in Azure and convert it to WordPress Multisite" 
+    services="app-service\web" 
+    documentationCenter="php" 
+    authors="rmcmurray" 
+    manager="erikre" 
+    editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+    ms.service="app-service-web" 
+    ms.workload="web" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="PHP" 
+    ms.topic="article" 
+    ms.date="11/01/2016" 
+    ms.author="robmcm"/>
 
 
 
-# Преобразование сайта WordPress в мультисайт с помощью службы приложений Azure
 
-## Обзор
+# <a name="convert-wordpress-to-multisite-in-azure-app-service"></a>Convert WordPress to Multisite in Azure App Service
 
-*Автор [Бен Лобо (Ben Lobaugh)][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
+## <a name="overview"></a>Overview
 
-В этом учебнике описано, как преобразовать существующее веб-приложение WordPress, созданное с помощью коллекции в Azure, в мультисайт WordPress. Кроме того вы узнаете, как назначить пользовательский домен каждому из дочерних сайтов в установке.
+*By [Ben Lobaugh][ben-lobaugh], [Microsoft Open Technologies Inc.][ms-open-tech]*
 
-Предполагается наличие существующей установки WordPress. В обратном случае следуйте инструкциям раздела [Создание веб-сайта WordPress из коллекции в Azure][website-from-gallery]
+In this tutorial, you will learn how to take an existing WordPress web app created through the gallery in Azure and convert it into a WordPress Multisite install. Additionally, you will learn how to assign a custom domain to each of the subsites within your install.
 
-Преобразование существующего отдельного сайта WordPress выполнить достаточно просто, и многие из перечисленных здесь начальных действий взяты непосредственно со страницы [Создание сети][wordpress-codex-create-a-network] в [WordPress Codex](http://codex.wordpress.org)
+It is assumed that you have an existing installation of WordPress. If you do not, please follow the guidance provided in [Create a WordPress web site from the gallery in Azure][website-from-gallery].
 
-Давайте приступим.
+Converting an existing WordPress single site install to Multisite is generally fairly simple, and many of the initial steps here come straight from the [Create A Network][wordpress-codex-create-a-network] page on the [WordPress Codex](http://codex.wordpress.org).
 
-## Включение функциональности мультисайта
+Let's get started.
 
-Сначала необходимо активировать функциональность мультисайта с помощью файла `wp-config.php` с константой **WP\_ALLOW\_MULTISITE**. Существует два способа изменить файлы веб-приложения: по протоколу FTP и через Git. Если вы не знаете, как настроить хотя бы один из этих способов, вы можете обратиться к одному из следующих учебных курсов:
+## <a name="allow-multisite"></a>Allow Multisite
 
-* [Веб-сайт PHP с MySQL и FTP][website-w-mysql-and-ftp-ftp-setup]
+You first need to enable Multisite through the `wp-config.php` file with the **WP\_ALLOW\_MULTISITE** constant. There are two methods to edit your web app files: the first is through FTP, and the second through Git. If you are unfamiliar with how to setup either of these methods, please refer to the following tutorials:
 
-* [Веб-сайт PHP с MySQL и Git][website-w-mysql-and-git-git-setup]
+* [PHP web site with MySQL and FTP][website-w-mysql-and-ftp-ftp-setup]
 
-Откройте в выбранном редакторе файл `wp-config.php` и в строку `/* That's all, stop editing! Happy blogging. */` добавьте следующий код:
+* [PHP web site with MySQL and Git][website-w-mysql-and-git-git-setup]
 
-	/* Multisite */
+Open the `wp-config.php` file with the editor of your choosing and add the following above the `/* That's all, stop editing! Happy blogging. */` line.
 
-	define( 'WP_ALLOW_MULTISITE', true );
+    /* Multisite */
 
-Не забудьте сохранить файл и загрузить его на сервер!
+    define( 'WP_ALLOW_MULTISITE', true );
 
-## Настройка сети
+Be sure to save the file and upload it back to the server!
 
-Войдите в область веб-сайта *wp-admin*, где вы увидите новый элемент в разделе меню **Сервис** с именем **Настройка сети**. Нажмите кнопку **Настройка сети** и введите сведения о своей сети.
+## <a name="network-setup"></a>Network Setup
 
-![Экран настройки сети][wordpress-network-setup]
+Log in to the *wp-admin* area of your web app and you should see a new item under the **Tools** menu called **Network Setup**. Click **Network Setup** and fill in the details of your network.
 
-В этом учебном курсе используется схема сайта *Подкаталоги*, так как она должна работать всегда. Позже в данном руководстве мы установим пользовательские домены для каждого дочернего сайта. Однако должна быть возможность настроить поддомен, если вы сопоставляете домен через [портал Azure](https://portal.azure.com) и правильно настраиваете DNS с подстановочными знаками.
+![Network Setup Screen][wordpress-network-setup]
 
-Дополнительные сведения о сравнении поддоменов с подкаталогами см. в статье [Типы сети с мультисайтом][wordpress-codex-types-of-networks] в WordPress Codex.
+This tutorial uses the *Sub-directories* site schema because it should always work, and we will be setting up custom domains for each subsite later in the tutorial. However, it should be possible to setup a subdomain install if you map a domain through the [Azure Portal](https://portal.azure.com) and setup wildcard DNS properly.
 
-## Включение сети
+For more information on sub-domain vs sub-directory setups see the [Types of multisite network][wordpress-codex-types-of-networks] article on the WordPress Codex.
 
-Теперь сеть настроена в базе данных, но для включения функций сети осталось выполнить еще один шаг. Завершите настройку параметров `wp-config.php` и убедитесь, что файл `web.config` правильно направляет все веб-сайты.
+## <a name="enable-the-network"></a>Enable the Network
 
-
-После нажатия кнопки **Установить** на странице *Настройка сети* WordPress предпримет попытку обновить файлы `wp-config.php` и `web.config`. Тем не менее, всегда следует выполнять проверку файлов, чтобы убедиться, что обновление выполнено успешно. В противном случае на этом экране будут отображаться необходимые обновления. Измените и сохраните файлы.
+The network is now configured in the database, but there is one remaining step to enable the network functionality. Finalize the `wp-config.php` settings and ensure `web.config` properly routes each site.
 
 
-После выполнения этих обновлений вам необходимо выйти с панели мониторинга wp-admin и войти в нее снова.
-
-На панели администратора должно появиться дополнительное меню с именем **Мои сайты**. Это меню позволяет управлять новой сетью на панели мониторинга **Администратор сети**.
-
-## Добавление пользовательских доменов
-
-Подключаемый модуль [Сопоставление доменов WordPress MU][wordpress-plugin-wordpress-mu-domain-mapping] делает добавление пользовательских доменов для любого сайта в сети очень простым. Для обеспечения правильной работы этого подключаемого модуля необходимо выполнить дополнительную настройку на портале, а также в регистраторе доменов.
-
-## Включение сопоставления доменов с веб-приложением
-
-В плане обслуживания **Бесплатный** [службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714) не поддерживается добавление в веб-приложение пользовательских доменов. Потребуется переключиться на **общий** или **стандартный** режим. Для этого:
-
-* Войдите на портал Azure и найдите свое веб-приложение.
-* Откройте вкладку **Масштабирование** в разделе **Параметры**.
-* В разделе **Общие** выберите *ОБЩИЙ* или *СТАНДАРТНЫЙ*.
-* Нажмите кнопку **Сохранить**.
-
-Может появиться сообщение с просьбой проверить изменения и подтвердить, что за это веб-приложение начнет взиматься плата в зависимости от использования и других настроек.
-
-Обработка новых параметров займет несколько минут, поэтому сейчас самое время приступить к настройке домена.
-
-## Проверка домена
-
-Чтобы веб-приложения Azure позволили сопоставить домен с сайтом, вам необходима авторизация для сопоставления домена. Для этого необходимо добавить в запись DNS новую запись CNAME.
-
-* Выполните вход в диспетчер DNS домена.
-* Создайте новую запись CNAME *awverify*.
-* Укажите записи *awverify* путь *awverify.ВАШ\_ДОМЕН.azurewebsites.net*.
-
-Для полного вступления в силу внесенных изменений DNS может потребоваться некоторое время, так что если перечисленные ниже действия не получается выполнить сразу, выпейте чашку кофе, а затем повторите попытку.
-
-## Добавление домена в веб-приложение
-
-Вернитесь в свое веб-приложение через портал Azure, откройте меню **Параметры** и щелкните **Пользовательские домены и SSL**.
-
-Когда отобразятся *Параметры SSL*, вы увидите поля для ввода всех доменов, которые вы хотите назначить своему веб-приложению. Если домен отсутствует в списке, он будет недоступен для сопоставления в WordPress независимо от настроек DNS домена.
-
-![Диалоговое окно "Управление пользовательскими доменами"][wordpress-manage-domains]
-
-После ввода своего домена в текстовом поле в Azure будет проверена созданная ранее запись CNAME. Если распространение DNS не завершено, будет отображаться красный индикатор. Если все успешно выполнено, появится зеленый флажок.
-
-Запишите IP-адреса, перечисленные в нижней части диалогового окна. Они потребуются для установки A-записи для домена.
-
-## Настройка A-записи домена
-
-Если предыдущие шаги выполнены успешно, теперь вы можете назначить домен веб-приложению Azure через запись A DNS.
-
-Важно отметить, что веб-приложения Azure принимают как CNAME, так и записи A, но для правильного сопоставления домена *следует* использовать запись A. CNAME нельзя передать в другую CNAME, созданную в Azure с использованием ссылки "ВАШ\_ДОМЕН.azurewebsites.net".
-
-При помощи IP-адреса из предыдущего шага вернитесь в диспетчер DNS и настройте A-запись таким образом, чтобы она указывала на данный IP.
+After clicking the **Install** button on the *Network Setup* page, WordPress will attempt to update the `wp-config.php` and `web.config` files. However, you should always check the files to ensure the updates were successful. If not, this screen will present you with the necessary updates. Edit and save the files.
 
 
-## Установка и настройка подключаемого модуля
+After making these updates you will need to log out and log back into the wp-admin dashboard.
 
-В функциональности мультисайтов WordPress в настоящее время отсутствует встроенный метод сопоставления пользовательских доменов. Однако есть подключаемый модуль с именем [Сопоставление доменов WordPress MU][wordpress-plugin-wordpress-mu-domain-mapping], который добавляет эти функциональные возможности. Войдите в среду администрирования сайта и установите подключаемый модуль **Сопоставление доменов WordPress MU**.
+There should now be an additional menu on the admin bar labeled **My Sites**. This menu allows you to control your new network through the **Network Admin** dashboard.
 
-После установки и активации подключаемого модуля выберите команды **Параметры** > **Сопоставление доменов**, чтобы настроить этот подключаемый модуль. В первом текстовом поле *IP-адрес сервера* введите IP-адрес, который использовался при настройке A-записи для домена. Задайте нужные *параметры домена* (значения по умолчанию часто являются оптимальными) и нажмите кнопку **Сохранить**.
+## <a name="adding-custom-domains"></a>Adding custom domains
 
-## Сопоставление домена
+The [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] plugin makes it a breeze to add custom domains to any site in your network. In order for the plugin to operate properly, you need to do some additional setup on the Portal, and also at your domain registrar.
 
-Перейдите на **Панель мониторинга** сайта, с которым требуется сопоставить домен. Выберите команды **Средства** > **Сопоставление домена**, введите новый домен в текстовом поле и нажмите кнопку **Добавить**.
+## <a name="enable-domain-mapping-to-the-web-app"></a>Enable domain mapping to the web app
 
-По умолчанию новый домен перезапишет автоматически созданный домен сайта. Если требуется, чтобы весь трафик отправлялся в новый домен, перед сохранением установите флажок *Основной домен для этого блога*. Для сайта можно добавить неограниченное количество доменов, но только один будет основным.
+The **Free** [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan mode does not support adding custom domains to Web Apps. You will need to switch to **Shared** or **Standard** mode. To do this:
 
-## Повторение процедуры
+* Log in to the Azure Portal and locate your web app. 
+* Click on the **Scale up** tab in **Settings**.
+* Under **General**, select either *SHARED* or *STANDARD*
+* Click **Save**
 
-Веб-приложения Azure позволяют добавить для веб-приложения неограниченное число доменов. Чтобы добавить другой домен, необходимо будет выполнить разделы **Проверка домена** и **Настройка A-записи домена** для каждого домена.
+You may receive a message asking you to verify the change and acknowledge your web app may now incur a cost, depending upon usage and the other configuration you set.
 
->[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+It takes a few seconds to process the new settings, so now is a good time to start setting up your domain.
 
-## Изменения
-* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+## <a name="verify-your-domain"></a>Verify your domain
+
+Before Azure Web Apps will allow you to map a domain to the site, you first need to verify that you have the authorization to map the domain. To do so, you must add a new CNAME record to your DNS entry.
+
+* Log in to your domain's DNS manager
+* Create a new CNAME *awverify*
+* Point *awverify* to *awverify.YOUR_DOMAIN.azurewebsites.net*
+
+It may take some time for the DNS changes to go into full effect, so if the following steps do not work immediately, go make a cup of coffee, then come back and try again.
+
+## <a name="add-the-domain-to-the-web-app"></a>Add the domain to the web app
+
+Return to your web app through the Azure Portal, click **Settings**, and then click **Custom domains and SSL**.
+
+When the *SSL settings* are displayed, you will see the fields where you will input all the domains which you wish to assign to your web app. If a domain is not listed here, it will not be available for mapping inside WordPress, regardless of how the domain DNS is setup.
+
+![Manage custom domains dialog][wordpress-manage-domains]
+
+After typing your domain into the text box, Azure will verify the CNAME record you created previously. If the DNS has not fully propagated, a red indicator will show. If it was successful, you will see a green checkmark. 
+
+Take note of the IP Address listed at the bottom of the dialog. You will need this to setup the A record for your domain.
+
+## <a name="setup-the-domain-a-record"></a>Setup the domain A record
+
+If the other steps were successful, you may now assign the domain to your Azure web app through a DNS A record. 
+
+It is important to note here that Azure web apps accept both CNAME and A records, however you *must* use an A record to enable proper domain mapping. A CNAME cannot be forwarded to another CNAME, which is what Azure created for you with YOUR_DOMAIN.azurewebsites.net.
+
+Using the IP address from the previous step, return to your DNS manager and setup the A record to point to that IP.
+
+
+## <a name="install-and-setup-the-plugin"></a>Install and setup the plugin
+
+WordPress Multisite currently does not have a built-in method to map custom domains. However, there is a plugin called [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] that adds the functionality for you. Log in to the Network Admin portion of your site and install the **WordPress MU Domain Mapping** plugin.
+
+After installing and activating the plugin, visit **Settings** > **Domain Mapping** to configure the plugin. In the first textbox, *Server IP Address*, input the IP Address you used to setup the A record for the domain. Set any *Domain Options* you desire (the defaults are often fine) and click **Save**.
+
+## <a name="map-the-domain"></a>Map the domain
+
+Visit the **Dashboard** for the site you wish to map the domain to. Click on **Tools** > **Domain Mapping** and type the new domain into the textbox and click **Add**.
+
+By default, the new domain will be rewritten to the autogenerated site domain. If you want to have all traffic sent to the new domain, check the *Primary domain for this blog* box before saving. You can add an unlimited number of domains to a site, but  only one can be primary.
+
+## <a name="do-it-again"></a>Do it again
+
+Azure Web Apps allow you to add an unlimited number of domains to a web app. To add another domain you will need to execute the **Verify your domain** and **Setup the domain A record** sections for each domain.  
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## <a name="whats-changed"></a>What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 [ben-lobaugh]: http://ben.lobaugh.net
 [ms-open-tech]: http://msopentech.com
@@ -153,4 +154,8 @@
 
  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Oct16_HO2-->
+
+
