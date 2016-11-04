@@ -75,7 +75,8 @@
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md#subscription
 
-[dbms-guide]:virtual-machines-windows-sap-dbm[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД)
+[dbms-guide]:virtual-machines-windows-sap-dbm
+[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД)
 [dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Кэширование для виртуальных машин и виртуальных жестких дисков)
 [dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Программный RAID-массив)
 [dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Служба хранилища Microsoft Azure)
@@ -462,7 +463,7 @@
 
 - [SAP NetWeaver на виртуальных машинах Windows. Руководство по планированию и внедрению][planning-guide]
 - [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию][deployment-guide]
-- [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД][dbms-guide]
+- [SAP NetWeaver на виртуальных машинах Windows. Руководство по развертыванию СУБД][dbms-guide-2.1]
 - [SAP NetWeaver на виртуальных машинах Windows. Руководство по обеспечению высокого уровня доступности [это руководство] ][sap-ha-guide]
 
 > [AZURE.NOTE] При возможности указывается ссылка на соответствующее руководство по установке SAP (см. [руководства по установке SAP][sap-installation-guides]). Что касается необходимых компонентов и процесса установки, внимательно изучите руководства по установке SAP NetWeaver. В этой статье рассматриваются только отдельные задачи для систем на основе SAP NetWeaver, устанавливаемых на виртуальные машины Microsoft Azure.
@@ -1404,6 +1405,6 @@ _**Рис. 62.** SIOS DataKeeper: репликация локального то
 
 
 
-<!---HONumber=Oct16_HO2-->
+<!-----HONumber=Oct16_HO2-->
 
 
